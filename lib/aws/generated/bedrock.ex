@@ -12,735 +12,967 @@ defmodule AWS.Bedrock do
   @typedoc """
 
   ## Example:
-  model_customization_job_summary() :: %{
-    "baseModelArn" => String.t(),
-    "creationTime" => non_neg_integer(),
-    "customModelArn" => String.t(),
-    "customModelName" => String.t(),
-    "customizationType" => list(any()),
-    "endTime" => non_neg_integer(),
-    "jobArn" => String.t(),
-    "jobName" => String.t(),
-    "lastModifiedTime" => non_neg_integer(),
-    "status" => list(any())
-  }
+
+      model_customization_job_summary() :: %{
+        "baseModelArn" => String.t(),
+        "creationTime" => non_neg_integer(),
+        "customModelArn" => String.t(),
+        "customModelName" => String.t(),
+        "customizationType" => list(any()),
+        "endTime" => non_neg_integer(),
+        "jobArn" => String.t(),
+        "jobName" => String.t(),
+        "lastModifiedTime" => non_neg_integer(),
+        "status" => list(any())
+      }
+
   """
   @type model_customization_job_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_custom_models_request() :: %{
-    optional("baseModelArnEquals") => String.t(),
-    optional("creationTimeAfter") => non_neg_integer(),
-    optional("creationTimeBefore") => non_neg_integer(),
-    optional("foundationModelArnEquals") => String.t(),
-    optional("maxResults") => integer(),
-    optional("nameContains") => String.t(),
-    optional("nextToken") => String.t(),
-    optional("sortBy") => list(any()),
-    optional("sortOrder") => list(any())
-  }
+
+      list_custom_models_request() :: %{
+        optional("baseModelArnEquals") => String.t(),
+        optional("creationTimeAfter") => non_neg_integer(),
+        optional("creationTimeBefore") => non_neg_integer(),
+        optional("foundationModelArnEquals") => String.t(),
+        optional("maxResults") => integer(),
+        optional("nameContains") => String.t(),
+        optional("nextToken") => String.t(),
+        optional("sortBy") => list(any()),
+        optional("sortOrder") => list(any())
+      }
+
   """
   @type list_custom_models_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_provisioned_model_throughput_response() :: %{
 
-  }
+      delete_provisioned_model_throughput_response() :: %{}
+
   """
-  @type delete_provisioned_model_throughput_response() :: %{String.t() => any()}
+  @type delete_provisioned_model_throughput_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  foundation_model_summary() :: %{
-    "customizationsSupported" => list(list(any())()),
-    "inferenceTypesSupported" => list(list(any())()),
-    "inputModalities" => list(list(any())()),
-    "modelArn" => String.t(),
-    "modelId" => String.t(),
-    "modelLifecycle" => foundation_model_lifecycle(),
-    "modelName" => String.t(),
-    "outputModalities" => list(list(any())()),
-    "providerName" => String.t(),
-    "responseStreamingSupported" => [boolean()]
-  }
+
+      foundation_model_summary() :: %{
+        "customizationsSupported" => list(list(any())()),
+        "inferenceTypesSupported" => list(list(any())()),
+        "inputModalities" => list(list(any())()),
+        "modelArn" => String.t(),
+        "modelId" => String.t(),
+        "modelLifecycle" => foundation_model_lifecycle(),
+        "modelName" => String.t(),
+        "outputModalities" => list(list(any())()),
+        "providerName" => String.t(),
+        "responseStreamingSupported" => [boolean()]
+      }
+
   """
   @type foundation_model_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_request() :: %{
-    required("resourceARN") => String.t(),
-    required("tags") => list(tag()())
-  }
+
+      tag_resource_request() :: %{
+        required("resourceARN") => String.t(),
+        required("tags") => list(tag()())
+      }
+
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_custom_model_response() :: %{
 
-  }
+      delete_custom_model_response() :: %{}
+
   """
-  @type delete_custom_model_response() :: %{String.t() => any()}
+  @type delete_custom_model_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_provisioned_model_throughput_request() :: %{
 
-  }
+      get_provisioned_model_throughput_request() :: %{}
+
   """
-  @type get_provisioned_model_throughput_request() :: %{String.t() => any()}
+  @type get_provisioned_model_throughput_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_model_customization_job_response() :: %{
-    "jobArn" => String.t()
-  }
+
+      create_model_customization_job_response() :: %{
+        "jobArn" => String.t()
+      }
+
   """
   @type create_model_customization_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  foundation_model_details() :: %{
-    "customizationsSupported" => list(list(any())()),
-    "inferenceTypesSupported" => list(list(any())()),
-    "inputModalities" => list(list(any())()),
-    "modelArn" => String.t(),
-    "modelId" => String.t(),
-    "modelLifecycle" => foundation_model_lifecycle(),
-    "modelName" => String.t(),
-    "outputModalities" => list(list(any())()),
-    "providerName" => String.t(),
-    "responseStreamingSupported" => [boolean()]
-  }
+
+      foundation_model_details() :: %{
+        "customizationsSupported" => list(list(any())()),
+        "inferenceTypesSupported" => list(list(any())()),
+        "inputModalities" => list(list(any())()),
+        "modelArn" => String.t(),
+        "modelId" => String.t(),
+        "modelLifecycle" => foundation_model_lifecycle(),
+        "modelName" => String.t(),
+        "outputModalities" => list(list(any())()),
+        "providerName" => String.t(),
+        "responseStreamingSupported" => [boolean()]
+      }
+
   """
   @type foundation_model_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_response() :: %{
 
-  }
+      untag_resource_response() :: %{}
+
   """
-  @type untag_resource_response() :: %{String.t() => any()}
+  @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_model_customization_jobs_request() :: %{
-    optional("creationTimeAfter") => non_neg_integer(),
-    optional("creationTimeBefore") => non_neg_integer(),
-    optional("maxResults") => integer(),
-    optional("nameContains") => String.t(),
-    optional("nextToken") => String.t(),
-    optional("sortBy") => list(any()),
-    optional("sortOrder") => list(any()),
-    optional("statusEquals") => list(any())
-  }
+
+      list_model_customization_jobs_request() :: %{
+        optional("creationTimeAfter") => non_neg_integer(),
+        optional("creationTimeBefore") => non_neg_integer(),
+        optional("maxResults") => integer(),
+        optional("nameContains") => String.t(),
+        optional("nextToken") => String.t(),
+        optional("sortBy") => list(any()),
+        optional("sortOrder") => list(any()),
+        optional("statusEquals") => list(any())
+      }
+
   """
   @type list_model_customization_jobs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_provisioned_model_throughputs_request() :: %{
-    optional("creationTimeAfter") => non_neg_integer(),
-    optional("creationTimeBefore") => non_neg_integer(),
-    optional("maxResults") => integer(),
-    optional("modelArnEquals") => String.t(),
-    optional("nameContains") => String.t(),
-    optional("nextToken") => String.t(),
-    optional("sortBy") => list(any()),
-    optional("sortOrder") => list(any()),
-    optional("statusEquals") => list(any())
-  }
+
+      list_provisioned_model_throughputs_request() :: %{
+        optional("creationTimeAfter") => non_neg_integer(),
+        optional("creationTimeBefore") => non_neg_integer(),
+        optional("maxResults") => integer(),
+        optional("modelArnEquals") => String.t(),
+        optional("nameContains") => String.t(),
+        optional("nextToken") => String.t(),
+        optional("sortBy") => list(any()),
+        optional("sortOrder") => list(any()),
+        optional("statusEquals") => list(any())
+      }
+
   """
   @type list_provisioned_model_throughputs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cloud_watch_config() :: %{
-    "largeDataDeliveryS3Config" => s3_config(),
-    "logGroupName" => String.t(),
-    "roleArn" => String.t()
-  }
+
+      cloud_watch_config() :: %{
+        "largeDataDeliveryS3Config" => s3_config(),
+        "logGroupName" => String.t(),
+        "roleArn" => String.t()
+      }
+
   """
   @type cloud_watch_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  logging_config() :: %{
-    "cloudWatchConfig" => cloud_watch_config(),
-    "embeddingDataDeliveryEnabled" => [boolean()],
-    "imageDataDeliveryEnabled" => [boolean()],
-    "s3Config" => s3_config(),
-    "textDataDeliveryEnabled" => [boolean()]
-  }
+
+      logging_config() :: %{
+        "cloudWatchConfig" => cloud_watch_config(),
+        "embeddingDataDeliveryEnabled" => [boolean()],
+        "imageDataDeliveryEnabled" => [boolean()],
+        "s3Config" => s3_config(),
+        "textDataDeliveryEnabled" => [boolean()]
+      }
+
   """
   @type logging_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_request() :: %{
-    required("resourceARN") => String.t(),
-    required("tagKeys") => list(String.t()())
-  }
+
+      untag_resource_request() :: %{
+        required("resourceARN") => String.t(),
+        required("tagKeys") => list(String.t()())
+      }
+
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_provisioned_model_throughputs_response() :: %{
-    "nextToken" => String.t(),
-    "provisionedModelSummaries" => list(provisioned_model_summary()())
-  }
+
+      list_provisioned_model_throughputs_response() :: %{
+        "nextToken" => String.t(),
+        "provisionedModelSummaries" => list(provisioned_model_summary()())
+      }
+
   """
   @type list_provisioned_model_throughputs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  provisioned_model_summary() :: %{
-    "commitmentDuration" => list(any()),
-    "commitmentExpirationTime" => non_neg_integer(),
-    "creationTime" => non_neg_integer(),
-    "desiredModelArn" => String.t(),
-    "desiredModelUnits" => integer(),
-    "foundationModelArn" => String.t(),
-    "lastModifiedTime" => non_neg_integer(),
-    "modelArn" => String.t(),
-    "modelUnits" => integer(),
-    "provisionedModelArn" => String.t(),
-    "provisionedModelName" => String.t(),
-    "status" => list(any())
-  }
+
+      provisioned_model_summary() :: %{
+        "commitmentDuration" => list(any()),
+        "commitmentExpirationTime" => non_neg_integer(),
+        "creationTime" => non_neg_integer(),
+        "desiredModelArn" => String.t(),
+        "desiredModelUnits" => integer(),
+        "foundationModelArn" => String.t(),
+        "lastModifiedTime" => non_neg_integer(),
+        "modelArn" => String.t(),
+        "modelUnits" => integer(),
+        "provisionedModelArn" => String.t(),
+        "provisionedModelName" => String.t(),
+        "status" => list(any())
+      }
+
   """
   @type provisioned_model_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_provisioned_model_throughput_response() :: %{
-    "commitmentDuration" => list(any()),
-    "commitmentExpirationTime" => non_neg_integer(),
-    "creationTime" => non_neg_integer(),
-    "desiredModelArn" => String.t(),
-    "desiredModelUnits" => integer(),
-    "failureMessage" => String.t(),
-    "foundationModelArn" => String.t(),
-    "lastModifiedTime" => non_neg_integer(),
-    "modelArn" => String.t(),
-    "modelUnits" => integer(),
-    "provisionedModelArn" => String.t(),
-    "provisionedModelName" => String.t(),
-    "status" => list(any())
-  }
+
+      get_provisioned_model_throughput_response() :: %{
+        "commitmentDuration" => list(any()),
+        "commitmentExpirationTime" => non_neg_integer(),
+        "creationTime" => non_neg_integer(),
+        "desiredModelArn" => String.t(),
+        "desiredModelUnits" => integer(),
+        "failureMessage" => String.t(),
+        "foundationModelArn" => String.t(),
+        "lastModifiedTime" => non_neg_integer(),
+        "modelArn" => String.t(),
+        "modelUnits" => integer(),
+        "provisionedModelArn" => String.t(),
+        "provisionedModelName" => String.t(),
+        "status" => list(any())
+      }
+
   """
   @type get_provisioned_model_throughput_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_foundation_model_request() :: %{
 
-  }
+      get_foundation_model_request() :: %{}
+
   """
-  @type get_foundation_model_request() :: %{String.t() => any()}
+  @type get_foundation_model_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  stop_model_customization_job_response() :: %{
 
-  }
+      stop_model_customization_job_response() :: %{}
+
   """
-  @type stop_model_customization_job_response() :: %{String.t() => any()}
+  @type stop_model_customization_job_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  conflict_exception() :: %{
-    "message" => String.t()
-  }
+
+      conflict_exception() :: %{
+        "message" => String.t()
+      }
+
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_not_found_exception() :: %{
-    "message" => String.t()
-  }
+
+      resource_not_found_exception() :: %{
+        "message" => String.t()
+      }
+
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag() :: %{
-    "key" => String.t(),
-    "value" => String.t()
-  }
+
+      tag() :: %{
+        "key" => String.t(),
+        "value" => String.t()
+      }
+
   """
   @type tag() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_provisioned_model_throughput_request() :: %{
 
-  }
+      delete_provisioned_model_throughput_request() :: %{}
+
   """
-  @type delete_provisioned_model_throughput_request() :: %{String.t() => any()}
+  @type delete_provisioned_model_throughput_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_provisioned_model_throughput_response() :: %{
-    "provisionedModelArn" => String.t()
-  }
+
+      create_provisioned_model_throughput_response() :: %{
+        "provisionedModelArn" => String.t()
+      }
+
   """
   @type create_provisioned_model_throughput_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  service_quota_exceeded_exception() :: %{
-    "message" => String.t()
-  }
+
+      service_quota_exceeded_exception() :: %{
+        "message" => String.t()
+      }
+
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  s3_config() :: %{
-    "bucketName" => String.t(),
-    "keyPrefix" => String.t()
-  }
+
+      s3_config() :: %{
+        "bucketName" => String.t(),
+        "keyPrefix" => String.t()
+      }
+
   """
   @type s3_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_custom_model_response() :: %{
-    "baseModelArn" => String.t(),
-    "creationTime" => non_neg_integer(),
-    "customizationType" => list(any()),
-    "hyperParameters" => map(),
-    "jobArn" => String.t(),
-    "jobName" => String.t(),
-    "modelArn" => String.t(),
-    "modelKmsKeyArn" => String.t(),
-    "modelName" => String.t(),
-    "outputDataConfig" => output_data_config(),
-    "trainingDataConfig" => training_data_config(),
-    "trainingMetrics" => training_metrics(),
-    "validationDataConfig" => validation_data_config(),
-    "validationMetrics" => list(validator_metric()())
-  }
+
+      get_custom_model_response() :: %{
+        "baseModelArn" => String.t(),
+        "creationTime" => non_neg_integer(),
+        "customizationType" => list(any()),
+        "hyperParameters" => map(),
+        "jobArn" => String.t(),
+        "jobName" => String.t(),
+        "modelArn" => String.t(),
+        "modelKmsKeyArn" => String.t(),
+        "modelName" => String.t(),
+        "outputDataConfig" => output_data_config(),
+        "trainingDataConfig" => training_data_config(),
+        "trainingMetrics" => training_metrics(),
+        "validationDataConfig" => validation_data_config(),
+        "validationMetrics" => list(validator_metric()())
+      }
+
   """
   @type get_custom_model_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_provisioned_model_throughput_request() :: %{
-    optional("desiredModelId") => String.t(),
-    optional("desiredProvisionedModelName") => String.t()
-  }
+
+      update_provisioned_model_throughput_request() :: %{
+        optional("desiredModelId") => String.t(),
+        optional("desiredProvisionedModelName") => String.t()
+      }
+
   """
   @type update_provisioned_model_throughput_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_provisioned_model_throughput_request() :: %{
-    optional("clientRequestToken") => String.t(),
-    optional("commitmentDuration") => list(any()),
-    optional("tags") => list(tag()()),
-    required("modelId") => String.t(),
-    required("modelUnits") => integer(),
-    required("provisionedModelName") => String.t()
-  }
+
+      create_provisioned_model_throughput_request() :: %{
+        optional("clientRequestToken") => String.t(),
+        optional("commitmentDuration") => list(any()),
+        optional("tags") => list(tag()()),
+        required("modelId") => String.t(),
+        required("modelUnits") => integer(),
+        required("provisionedModelName") => String.t()
+      }
+
   """
   @type create_provisioned_model_throughput_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  vpc_config() :: %{
-    "securityGroupIds" => list(String.t()()),
-    "subnetIds" => list(String.t()())
-  }
+
+      vpc_config() :: %{
+        "securityGroupIds" => list(String.t()()),
+        "subnetIds" => list(String.t()())
+      }
+
   """
   @type vpc_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_response() :: %{
-    "tags" => list(tag()())
-  }
+
+      list_tags_for_resource_response() :: %{
+        "tags" => list(tag()())
+      }
+
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_model_invocation_logging_configuration_response() :: %{
 
-  }
+      delete_model_invocation_logging_configuration_response() :: %{}
+
   """
-  @type delete_model_invocation_logging_configuration_response() :: %{String.t() => any()}
+  @type delete_model_invocation_logging_configuration_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  training_metrics() :: %{
-    "trainingLoss" => float()
-  }
+
+      training_metrics() :: %{
+        "trainingLoss" => float()
+      }
+
   """
   @type training_metrics() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_custom_model_request() :: %{
 
-  }
+      get_custom_model_request() :: %{}
+
   """
-  @type get_custom_model_request() :: %{String.t() => any()}
+  @type get_custom_model_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_model_customization_job_request() :: %{
 
-  }
+      get_model_customization_job_request() :: %{}
+
   """
-  @type get_model_customization_job_request() :: %{String.t() => any()}
+  @type get_model_customization_job_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_model_invocation_logging_configuration_request() :: %{
 
-  }
+      get_model_invocation_logging_configuration_request() :: %{}
+
   """
-  @type get_model_invocation_logging_configuration_request() :: %{String.t() => any()}
+  @type get_model_invocation_logging_configuration_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_foundation_models_request() :: %{
-    optional("byCustomizationType") => list(any()),
-    optional("byInferenceType") => list(any()),
-    optional("byOutputModality") => list(any()),
-    optional("byProvider") => String.t()
-  }
+
+      list_foundation_models_request() :: %{
+        optional("byCustomizationType") => list(any()),
+        optional("byInferenceType") => list(any()),
+        optional("byOutputModality") => list(any()),
+        optional("byProvider") => String.t()
+      }
+
   """
   @type list_foundation_models_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  foundation_model_lifecycle() :: %{
-    "status" => list(any())
-  }
+
+      foundation_model_lifecycle() :: %{
+        "status" => list(any())
+      }
+
   """
   @type foundation_model_lifecycle() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  internal_server_exception() :: %{
-    "message" => String.t()
-  }
+
+      internal_server_exception() :: %{
+        "message" => String.t()
+      }
+
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  validation_data_config() :: %{
-    "validators" => list(validator()())
-  }
+
+      validation_data_config() :: %{
+        "validators" => list(validator()())
+      }
+
   """
   @type validation_data_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_provisioned_model_throughput_response() :: %{
 
-  }
+      update_provisioned_model_throughput_response() :: %{}
+
   """
-  @type update_provisioned_model_throughput_response() :: %{String.t() => any()}
+  @type update_provisioned_model_throughput_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  put_model_invocation_logging_configuration_request() :: %{
-    required("loggingConfig") => logging_config()
-  }
+
+      put_model_invocation_logging_configuration_request() :: %{
+        required("loggingConfig") => logging_config()
+      }
+
   """
   @type put_model_invocation_logging_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_model_customization_jobs_response() :: %{
-    "modelCustomizationJobSummaries" => list(model_customization_job_summary()()),
-    "nextToken" => String.t()
-  }
+
+      list_model_customization_jobs_response() :: %{
+        "modelCustomizationJobSummaries" => list(model_customization_job_summary()()),
+        "nextToken" => String.t()
+      }
+
   """
   @type list_model_customization_jobs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_foundation_models_response() :: %{
-    "modelSummaries" => list(foundation_model_summary()())
-  }
+
+      list_foundation_models_response() :: %{
+        "modelSummaries" => list(foundation_model_summary()())
+      }
+
   """
   @type list_foundation_models_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  access_denied_exception() :: %{
-    "message" => String.t()
-  }
+
+      access_denied_exception() :: %{
+        "message" => String.t()
+      }
+
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_model_customization_job_request() :: %{
-    optional("clientRequestToken") => String.t(),
-    optional("customModelKmsKeyId") => String.t(),
-    optional("customModelTags") => list(tag()()),
-    optional("customizationType") => list(any()),
-    optional("jobTags") => list(tag()()),
-    optional("validationDataConfig") => validation_data_config(),
-    optional("vpcConfig") => vpc_config(),
-    required("baseModelIdentifier") => String.t(),
-    required("customModelName") => String.t(),
-    required("hyperParameters") => map(),
-    required("jobName") => String.t(),
-    required("outputDataConfig") => output_data_config(),
-    required("roleArn") => String.t(),
-    required("trainingDataConfig") => training_data_config()
-  }
+
+      create_model_customization_job_request() :: %{
+        optional("clientRequestToken") => String.t(),
+        optional("customModelKmsKeyId") => String.t(),
+        optional("customModelTags") => list(tag()()),
+        optional("customizationType") => list(any()),
+        optional("jobTags") => list(tag()()),
+        optional("validationDataConfig") => validation_data_config(),
+        optional("vpcConfig") => vpc_config(),
+        required("baseModelIdentifier") => String.t(),
+        required("customModelName") => String.t(),
+        required("hyperParameters") => map(),
+        required("jobName") => String.t(),
+        required("outputDataConfig") => output_data_config(),
+        required("roleArn") => String.t(),
+        required("trainingDataConfig") => training_data_config()
+      }
+
   """
   @type create_model_customization_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_response() :: %{
 
-  }
+      tag_resource_response() :: %{}
+
   """
-  @type tag_resource_response() :: %{String.t() => any()}
+  @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  validator_metric() :: %{
-    "validationLoss" => float()
-  }
+
+      validator_metric() :: %{
+        "validationLoss" => float()
+      }
+
   """
   @type validator_metric() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stop_model_customization_job_request() :: %{
 
-  }
+      stop_model_customization_job_request() :: %{}
+
   """
-  @type stop_model_customization_job_request() :: %{String.t() => any()}
+  @type stop_model_customization_job_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  delete_custom_model_request() :: %{
 
-  }
+      delete_custom_model_request() :: %{}
+
   """
-  @type delete_custom_model_request() :: %{String.t() => any()}
+  @type delete_custom_model_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  validation_exception() :: %{
-    "message" => String.t()
-  }
+
+      validation_exception() :: %{
+        "message" => String.t()
+      }
+
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_request() :: %{
-    required("resourceARN") => String.t()
-  }
+
+      list_tags_for_resource_request() :: %{
+        required("resourceARN") => String.t()
+      }
+
   """
   @type list_tags_for_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  throttling_exception() :: %{
-    "message" => String.t()
-  }
+
+      throttling_exception() :: %{
+        "message" => String.t()
+      }
+
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_model_customization_job_response() :: %{
-    "baseModelArn" => String.t(),
-    "clientRequestToken" => String.t(),
-    "creationTime" => non_neg_integer(),
-    "customizationType" => list(any()),
-    "endTime" => non_neg_integer(),
-    "failureMessage" => String.t(),
-    "hyperParameters" => map(),
-    "jobArn" => String.t(),
-    "jobName" => String.t(),
-    "lastModifiedTime" => non_neg_integer(),
-    "outputDataConfig" => output_data_config(),
-    "outputModelArn" => String.t(),
-    "outputModelKmsKeyArn" => String.t(),
-    "outputModelName" => String.t(),
-    "roleArn" => String.t(),
-    "status" => list(any()),
-    "trainingDataConfig" => training_data_config(),
-    "trainingMetrics" => training_metrics(),
-    "validationDataConfig" => validation_data_config(),
-    "validationMetrics" => list(validator_metric()()),
-    "vpcConfig" => vpc_config()
-  }
+
+      get_model_customization_job_response() :: %{
+        "baseModelArn" => String.t(),
+        "clientRequestToken" => String.t(),
+        "creationTime" => non_neg_integer(),
+        "customizationType" => list(any()),
+        "endTime" => non_neg_integer(),
+        "failureMessage" => String.t(),
+        "hyperParameters" => map(),
+        "jobArn" => String.t(),
+        "jobName" => String.t(),
+        "lastModifiedTime" => non_neg_integer(),
+        "outputDataConfig" => output_data_config(),
+        "outputModelArn" => String.t(),
+        "outputModelKmsKeyArn" => String.t(),
+        "outputModelName" => String.t(),
+        "roleArn" => String.t(),
+        "status" => list(any()),
+        "trainingDataConfig" => training_data_config(),
+        "trainingMetrics" => training_metrics(),
+        "validationDataConfig" => validation_data_config(),
+        "validationMetrics" => list(validator_metric()()),
+        "vpcConfig" => vpc_config()
+      }
+
   """
   @type get_model_customization_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_custom_models_response() :: %{
-    "modelSummaries" => list(custom_model_summary()()),
-    "nextToken" => String.t()
-  }
+
+      list_custom_models_response() :: %{
+        "modelSummaries" => list(custom_model_summary()()),
+        "nextToken" => String.t()
+      }
+
   """
   @type list_custom_models_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  output_data_config() :: %{
-    "s3Uri" => String.t()
-  }
+
+      output_data_config() :: %{
+        "s3Uri" => String.t()
+      }
+
   """
   @type output_data_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_model_invocation_logging_configuration_response() :: %{
-    "loggingConfig" => logging_config()
-  }
+
+      get_model_invocation_logging_configuration_response() :: %{
+        "loggingConfig" => logging_config()
+      }
+
   """
   @type get_model_invocation_logging_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_model_invocation_logging_configuration_response() :: %{
 
-  }
+      put_model_invocation_logging_configuration_response() :: %{}
+
   """
-  @type put_model_invocation_logging_configuration_response() :: %{String.t() => any()}
+  @type put_model_invocation_logging_configuration_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  validator() :: %{
-    "s3Uri" => String.t()
-  }
+
+      validator() :: %{
+        "s3Uri" => String.t()
+      }
+
   """
   @type validator() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  training_data_config() :: %{
-    "s3Uri" => String.t()
-  }
+
+      training_data_config() :: %{
+        "s3Uri" => String.t()
+      }
+
   """
   @type training_data_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_model_invocation_logging_configuration_request() :: %{
 
-  }
+      delete_model_invocation_logging_configuration_request() :: %{}
+
   """
-  @type delete_model_invocation_logging_configuration_request() :: %{String.t() => any()}
+  @type delete_model_invocation_logging_configuration_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  custom_model_summary() :: %{
-    "baseModelArn" => String.t(),
-    "baseModelName" => String.t(),
-    "creationTime" => non_neg_integer(),
-    "customizationType" => list(any()),
-    "modelArn" => String.t(),
-    "modelName" => String.t()
-  }
+
+      custom_model_summary() :: %{
+        "baseModelArn" => String.t(),
+        "baseModelName" => String.t(),
+        "creationTime" => non_neg_integer(),
+        "customizationType" => list(any()),
+        "modelArn" => String.t(),
+        "modelName" => String.t()
+      }
+
   """
   @type custom_model_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_foundation_model_response() :: %{
-    "modelDetails" => foundation_model_details()
-  }
+
+      get_foundation_model_response() :: %{
+        "modelDetails" => foundation_model_details()
+      }
+
   """
   @type get_foundation_model_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_tags_exception() :: %{
-    "message" => String.t(),
-    "resourceName" => String.t()
-  }
+
+      too_many_tags_exception() :: %{
+        "message" => String.t(),
+        "resourceName" => String.t()
+      }
+
   """
   @type too_many_tags_exception() :: %{String.t() => any()}
+
+  @type create_model_customization_job_errors() ::
+          too_many_tags_exception()
+          | throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_provisioned_model_throughput_errors() ::
+          too_many_tags_exception()
+          | throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+
+  @type delete_custom_model_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_model_invocation_logging_configuration_errors() ::
+          throttling_exception() | access_denied_exception() | internal_server_exception()
+
+  @type delete_provisioned_model_throughput_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type get_custom_model_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_foundation_model_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_model_customization_job_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_model_invocation_logging_configuration_errors() ::
+          throttling_exception() | access_denied_exception() | internal_server_exception()
+
+  @type get_provisioned_model_throughput_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_custom_models_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_foundation_models_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_model_customization_jobs_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_provisioned_model_throughputs_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_tags_for_resource_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type put_model_invocation_logging_configuration_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type stop_model_customization_job_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type tag_resource_errors() ::
+          too_many_tags_exception()
+          | throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type untag_resource_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type update_provisioned_model_throughput_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
 
   def metadata do
     %{
@@ -780,14 +1012,7 @@ defmodule AWS.Bedrock do
   @spec create_model_customization_job(map(), create_model_customization_job_request(), list()) ::
           {:ok, create_model_customization_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, too_many_tags_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_model_customization_job_errors()}
   def create_model_customization_job(%Client{} = client, input, options \\ []) do
     url_path = "/model-customization-jobs"
     headers = []
@@ -822,13 +1047,7 @@ defmodule AWS.Bedrock do
         ) ::
           {:ok, create_provisioned_model_throughput_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, too_many_tags_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_provisioned_model_throughput_errors()}
   def create_provisioned_model_throughput(%Client{} = client, input, options \\ []) do
     url_path = "/provisioned-model-throughput"
     headers = []
@@ -858,12 +1077,7 @@ defmodule AWS.Bedrock do
   @spec delete_custom_model(map(), String.t(), delete_custom_model_request(), list()) ::
           {:ok, delete_custom_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_custom_model_errors()}
   def delete_custom_model(%Client{} = client, model_identifier, input, options \\ []) do
     url_path = "/custom-models/#{AWS.Util.encode_uri(model_identifier)}"
     headers = []
@@ -894,9 +1108,7 @@ defmodule AWS.Bedrock do
         ) ::
           {:ok, delete_model_invocation_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
+          | {:error, delete_model_invocation_logging_configuration_errors()}
   def delete_model_invocation_logging_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/logging/modelinvocations"
     headers = []
@@ -931,12 +1143,7 @@ defmodule AWS.Bedrock do
         ) ::
           {:ok, delete_provisioned_model_throughput_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_provisioned_model_throughput_errors()}
   def delete_provisioned_model_throughput(
         %Client{} = client,
         provisioned_model_id,
@@ -970,11 +1177,7 @@ defmodule AWS.Bedrock do
   @spec get_custom_model(map(), String.t(), list()) ::
           {:ok, get_custom_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_custom_model_errors()}
   def get_custom_model(%Client{} = client, model_identifier, options \\ []) do
     url_path = "/custom-models/#{AWS.Util.encode_uri(model_identifier)}"
     headers = []
@@ -991,11 +1194,7 @@ defmodule AWS.Bedrock do
   @spec get_foundation_model(map(), String.t(), list()) ::
           {:ok, get_foundation_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_foundation_model_errors()}
   def get_foundation_model(%Client{} = client, model_identifier, options \\ []) do
     url_path = "/foundation-models/#{AWS.Util.encode_uri(model_identifier)}"
     headers = []
@@ -1016,11 +1215,7 @@ defmodule AWS.Bedrock do
   @spec get_model_customization_job(map(), String.t(), list()) ::
           {:ok, get_model_customization_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_model_customization_job_errors()}
   def get_model_customization_job(%Client{} = client, job_identifier, options \\ []) do
     url_path = "/model-customization-jobs/#{AWS.Util.encode_uri(job_identifier)}"
     headers = []
@@ -1037,9 +1232,7 @@ defmodule AWS.Bedrock do
   @spec get_model_invocation_logging_configuration(map(), list()) ::
           {:ok, get_model_invocation_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
+          | {:error, get_model_invocation_logging_configuration_errors()}
   def get_model_invocation_logging_configuration(%Client{} = client, options \\ []) do
     url_path = "/logging/modelinvocations"
     headers = []
@@ -1059,11 +1252,7 @@ defmodule AWS.Bedrock do
   @spec get_provisioned_model_throughput(map(), String.t(), list()) ::
           {:ok, get_provisioned_model_throughput_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_provisioned_model_throughput_errors()}
   def get_provisioned_model_throughput(%Client{} = client, provisioned_model_id, options \\ []) do
     url_path = "/provisioned-model-throughput/#{AWS.Util.encode_uri(provisioned_model_id)}"
     headers = []
@@ -1096,10 +1285,7 @@ defmodule AWS.Bedrock do
         ) ::
           {:ok, list_custom_models_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_custom_models_errors()}
   def list_custom_models(
         %Client{} = client,
         base_model_arn_equals \\ nil,
@@ -1201,10 +1387,7 @@ defmodule AWS.Bedrock do
         ) ::
           {:ok, list_foundation_models_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_foundation_models_errors()}
   def list_foundation_models(
         %Client{} = client,
         by_customization_type \\ nil,
@@ -1273,10 +1456,7 @@ defmodule AWS.Bedrock do
         ) ::
           {:ok, list_model_customization_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_model_customization_jobs_errors()}
   def list_model_customization_jobs(
         %Client{} = client,
         creation_time_after \\ nil,
@@ -1375,10 +1555,7 @@ defmodule AWS.Bedrock do
         ) ::
           {:ok, list_provisioned_model_throughputs_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_provisioned_model_throughputs_errors()}
   def list_provisioned_model_throughputs(
         %Client{} = client,
         creation_time_after \\ nil,
@@ -1473,11 +1650,7 @@ defmodule AWS.Bedrock do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     url_path = "/listTagsForResource"
     headers = []
@@ -1508,10 +1681,7 @@ defmodule AWS.Bedrock do
         ) ::
           {:ok, put_model_invocation_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, put_model_invocation_logging_configuration_errors()}
   def put_model_invocation_logging_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/logging/modelinvocations"
     headers = []
@@ -1536,12 +1706,7 @@ defmodule AWS.Bedrock do
         ) ::
           {:ok, stop_model_customization_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, stop_model_customization_job_errors()}
   def stop_model_customization_job(%Client{} = client, job_identifier, input, options \\ []) do
     url_path = "/model-customization-jobs/#{AWS.Util.encode_uri(job_identifier)}/stop"
     headers = []
@@ -1571,12 +1736,7 @@ defmodule AWS.Bedrock do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, too_many_tags_exception()}
-          | {:error, validation_exception()}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tagResource"
     headers = []
@@ -1606,11 +1766,7 @@ defmodule AWS.Bedrock do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/untagResource"
     headers = []
@@ -1645,11 +1801,7 @@ defmodule AWS.Bedrock do
         ) ::
           {:ok, update_provisioned_model_throughput_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_provisioned_model_throughput_errors()}
   def update_provisioned_model_throughput(
         %Client{} = client,
         provisioned_model_id,

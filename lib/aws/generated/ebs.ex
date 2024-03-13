@@ -46,259 +46,355 @@ defmodule AWS.EBS do
   @typedoc """
 
   ## Example:
-  access_denied_exception() :: %{
-    "Message" => String.t(),
-    "Reason" => list(any())
-  }
+
+      access_denied_exception() :: %{
+        "Message" => String.t(),
+        "Reason" => list(any())
+      }
+
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  block() :: %{
-    "BlockIndex" => integer(),
-    "BlockToken" => String.t()
-  }
+
+      block() :: %{
+        "BlockIndex" => integer(),
+        "BlockToken" => String.t()
+      }
+
   """
   @type block() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  changed_block() :: %{
-    "BlockIndex" => integer(),
-    "FirstBlockToken" => String.t(),
-    "SecondBlockToken" => String.t()
-  }
+
+      changed_block() :: %{
+        "BlockIndex" => integer(),
+        "FirstBlockToken" => String.t(),
+        "SecondBlockToken" => String.t()
+      }
+
   """
   @type changed_block() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  complete_snapshot_request() :: %{
-    optional("Checksum") => String.t(),
-    optional("ChecksumAggregationMethod") => list(any()),
-    optional("ChecksumAlgorithm") => list(any()),
-    required("ChangedBlocksCount") => integer()
-  }
+
+      complete_snapshot_request() :: %{
+        optional("Checksum") => String.t(),
+        optional("ChecksumAggregationMethod") => list(any()),
+        optional("ChecksumAlgorithm") => list(any()),
+        required("ChangedBlocksCount") => integer()
+      }
+
   """
   @type complete_snapshot_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  complete_snapshot_response() :: %{
-    "Status" => list(any())
-  }
+
+      complete_snapshot_response() :: %{
+        "Status" => list(any())
+      }
+
   """
   @type complete_snapshot_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  concurrent_limit_exceeded_exception() :: %{
-    "Message" => String.t()
-  }
+
+      concurrent_limit_exceeded_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type concurrent_limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  conflict_exception() :: %{
-    "Message" => String.t()
-  }
+
+      conflict_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_snapshot_block_request() :: %{
-    required("BlockToken") => String.t()
-  }
+
+      get_snapshot_block_request() :: %{
+        required("BlockToken") => String.t()
+      }
+
   """
   @type get_snapshot_block_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_snapshot_block_response() :: %{
-    "BlockData" => binary(),
-    "Checksum" => String.t(),
-    "ChecksumAlgorithm" => list(any()),
-    "DataLength" => integer()
-  }
+
+      get_snapshot_block_response() :: %{
+        "BlockData" => binary(),
+        "Checksum" => String.t(),
+        "ChecksumAlgorithm" => list(any()),
+        "DataLength" => integer()
+      }
+
   """
   @type get_snapshot_block_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  internal_server_exception() :: %{
-    "Message" => String.t()
-  }
+
+      internal_server_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_changed_blocks_request() :: %{
-    optional("FirstSnapshotId") => String.t(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("StartingBlockIndex") => integer()
-  }
+
+      list_changed_blocks_request() :: %{
+        optional("FirstSnapshotId") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("StartingBlockIndex") => integer()
+      }
+
   """
   @type list_changed_blocks_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_changed_blocks_response() :: %{
-    "BlockSize" => integer(),
-    "ChangedBlocks" => list(changed_block()()),
-    "ExpiryTime" => non_neg_integer(),
-    "NextToken" => String.t(),
-    "VolumeSize" => float()
-  }
+
+      list_changed_blocks_response() :: %{
+        "BlockSize" => integer(),
+        "ChangedBlocks" => list(changed_block()()),
+        "ExpiryTime" => non_neg_integer(),
+        "NextToken" => String.t(),
+        "VolumeSize" => float()
+      }
+
   """
   @type list_changed_blocks_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_snapshot_blocks_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("StartingBlockIndex") => integer()
-  }
+
+      list_snapshot_blocks_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("StartingBlockIndex") => integer()
+      }
+
   """
   @type list_snapshot_blocks_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_snapshot_blocks_response() :: %{
-    "BlockSize" => integer(),
-    "Blocks" => list(block()()),
-    "ExpiryTime" => non_neg_integer(),
-    "NextToken" => String.t(),
-    "VolumeSize" => float()
-  }
+
+      list_snapshot_blocks_response() :: %{
+        "BlockSize" => integer(),
+        "Blocks" => list(block()()),
+        "ExpiryTime" => non_neg_integer(),
+        "NextToken" => String.t(),
+        "VolumeSize" => float()
+      }
+
   """
   @type list_snapshot_blocks_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_snapshot_block_request() :: %{
-    optional("Progress") => integer(),
-    required("BlockData") => binary(),
-    required("Checksum") => String.t(),
-    required("ChecksumAlgorithm") => list(any()),
-    required("DataLength") => integer()
-  }
+
+      put_snapshot_block_request() :: %{
+        optional("Progress") => integer(),
+        required("BlockData") => binary(),
+        required("Checksum") => String.t(),
+        required("ChecksumAlgorithm") => list(any()),
+        required("DataLength") => integer()
+      }
+
   """
   @type put_snapshot_block_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_snapshot_block_response() :: %{
-    "Checksum" => String.t(),
-    "ChecksumAlgorithm" => list(any())
-  }
+
+      put_snapshot_block_response() :: %{
+        "Checksum" => String.t(),
+        "ChecksumAlgorithm" => list(any())
+      }
+
   """
   @type put_snapshot_block_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  request_throttled_exception() :: %{
-    "Message" => String.t(),
-    "Reason" => list(any())
-  }
+
+      request_throttled_exception() :: %{
+        "Message" => String.t(),
+        "Reason" => list(any())
+      }
+
   """
   @type request_throttled_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_not_found_exception() :: %{
-    "Message" => String.t(),
-    "Reason" => list(any())
-  }
+
+      resource_not_found_exception() :: %{
+        "Message" => String.t(),
+        "Reason" => list(any())
+      }
+
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  service_quota_exceeded_exception() :: %{
-    "Message" => String.t(),
-    "Reason" => list(any())
-  }
+
+      service_quota_exceeded_exception() :: %{
+        "Message" => String.t(),
+        "Reason" => list(any())
+      }
+
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_snapshot_request() :: %{
-    optional("ClientToken") => String.t(),
-    optional("Description") => String.t(),
-    optional("Encrypted") => boolean(),
-    optional("KmsKeyArn") => String.t(),
-    optional("ParentSnapshotId") => String.t(),
-    optional("Tags") => list(tag()()),
-    optional("Timeout") => integer(),
-    required("VolumeSize") => float()
-  }
+
+      start_snapshot_request() :: %{
+        optional("ClientToken") => String.t(),
+        optional("Description") => String.t(),
+        optional("Encrypted") => boolean(),
+        optional("KmsKeyArn") => String.t(),
+        optional("ParentSnapshotId") => String.t(),
+        optional("Tags") => list(tag()()),
+        optional("Timeout") => integer(),
+        required("VolumeSize") => float()
+      }
+
   """
   @type start_snapshot_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_snapshot_response() :: %{
-    "BlockSize" => integer(),
-    "Description" => String.t(),
-    "KmsKeyArn" => String.t(),
-    "OwnerId" => String.t(),
-    "ParentSnapshotId" => String.t(),
-    "SnapshotId" => String.t(),
-    "SseType" => list(any()),
-    "StartTime" => non_neg_integer(),
-    "Status" => list(any()),
-    "Tags" => list(tag()()),
-    "VolumeSize" => float()
-  }
+
+      start_snapshot_response() :: %{
+        "BlockSize" => integer(),
+        "Description" => String.t(),
+        "KmsKeyArn" => String.t(),
+        "OwnerId" => String.t(),
+        "ParentSnapshotId" => String.t(),
+        "SnapshotId" => String.t(),
+        "SseType" => list(any()),
+        "StartTime" => non_neg_integer(),
+        "Status" => list(any()),
+        "Tags" => list(tag()()),
+        "VolumeSize" => float()
+      }
+
   """
   @type start_snapshot_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag() :: %{
-    "Key" => String.t(),
-    "Value" => String.t()
-  }
+
+      tag() :: %{
+        "Key" => String.t(),
+        "Value" => String.t()
+      }
+
   """
   @type tag() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  validation_exception() :: %{
-    "Message" => String.t(),
-    "Reason" => list(any())
-  }
+
+      validation_exception() :: %{
+        "Message" => String.t(),
+        "Reason" => list(any())
+      }
+
   """
   @type validation_exception() :: %{String.t() => any()}
+
+  @type complete_snapshot_errors() ::
+          validation_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | request_throttled_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type get_snapshot_block_errors() ::
+          validation_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | request_throttled_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_changed_blocks_errors() ::
+          validation_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | request_throttled_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_snapshot_blocks_errors() ::
+          validation_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | request_throttled_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type put_snapshot_block_errors() ::
+          validation_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | request_throttled_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type start_snapshot_errors() ::
+          validation_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | request_throttled_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | concurrent_limit_exceeded_exception()
+          | access_denied_exception()
 
   def metadata do
     %{
@@ -332,12 +428,7 @@ defmodule AWS.EBS do
   @spec complete_snapshot(map(), String.t(), complete_snapshot_request(), list()) ::
           {:ok, complete_snapshot_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, request_throttled_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, validation_exception()}
+          | {:error, complete_snapshot_errors()}
   def complete_snapshot(%Client{} = client, snapshot_id, input, options \\ []) do
     url_path = "/snapshots/completion/#{AWS.Util.encode_uri(snapshot_id)}"
 
@@ -379,12 +470,7 @@ defmodule AWS.EBS do
   @spec get_snapshot_block(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_snapshot_block_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, request_throttled_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_snapshot_block_errors()}
   def get_snapshot_block(%Client{} = client, block_index, snapshot_id, block_token, options \\ []) do
     url_path =
       "/snapshots/#{AWS.Util.encode_uri(snapshot_id)}/blocks/#{AWS.Util.encode_uri(block_index)}"
@@ -436,12 +522,7 @@ defmodule AWS.EBS do
         ) ::
           {:ok, list_changed_blocks_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, request_throttled_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_changed_blocks_errors()}
   def list_changed_blocks(
         %Client{} = client,
         second_snapshot_id,
@@ -507,12 +588,7 @@ defmodule AWS.EBS do
         ) ::
           {:ok, list_snapshot_blocks_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, request_throttled_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_snapshot_blocks_errors()}
   def list_snapshot_blocks(
         %Client{} = client,
         snapshot_id,
@@ -569,12 +645,7 @@ defmodule AWS.EBS do
   @spec put_snapshot_block(map(), String.t(), String.t(), put_snapshot_block_request(), list()) ::
           {:ok, put_snapshot_block_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, request_throttled_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, validation_exception()}
+          | {:error, put_snapshot_block_errors()}
   def put_snapshot_block(%Client{} = client, block_index, snapshot_id, input, options \\ []) do
     url_path =
       "/snapshots/#{AWS.Util.encode_uri(snapshot_id)}/blocks/#{AWS.Util.encode_uri(block_index)}"
@@ -625,14 +696,7 @@ defmodule AWS.EBS do
   @spec start_snapshot(map(), start_snapshot_request(), list()) ::
           {:ok, start_snapshot_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, concurrent_limit_exceeded_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, request_throttled_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, validation_exception()}
+          | {:error, start_snapshot_errors()}
   def start_snapshot(%Client{} = client, input, options \\ []) do
     url_path = "/snapshots"
     headers = []

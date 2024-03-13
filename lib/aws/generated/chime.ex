@@ -73,4585 +73,7065 @@ defmodule AWS.Chime do
   @typedoc """
 
   ## Example:
-  create_media_capture_pipeline_response() :: %{
-    "MediaCapturePipeline" => media_capture_pipeline()
-  }
+
+      create_media_capture_pipeline_response() :: %{
+        "MediaCapturePipeline" => media_capture_pipeline()
+      }
+
   """
   @type create_media_capture_pipeline_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_meeting_dial_out_response() :: %{
-    "TransactionId" => String.t()
-  }
+
+      create_meeting_dial_out_response() :: %{
+        "TransactionId" => String.t()
+      }
+
   """
   @type create_meeting_dial_out_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  events_configuration() :: %{
-    "BotId" => String.t(),
-    "LambdaFunctionArn" => String.t(),
-    "OutboundEventsHTTPSEndpoint" => String.t()
-  }
+
+      events_configuration() :: %{
+        "BotId" => String.t(),
+        "LambdaFunctionArn" => String.t(),
+        "OutboundEventsHTTPSEndpoint" => String.t()
+      }
+
   """
   @type events_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  streaming_configuration() :: %{
-    "DataRetentionInHours" => integer(),
-    "Disabled" => boolean(),
-    "StreamingNotificationTargets" => list(streaming_notification_target()())
-  }
+
+      streaming_configuration() :: %{
+        "DataRetentionInHours" => integer(),
+        "Disabled" => boolean(),
+        "StreamingNotificationTargets" => list(streaming_notification_target()())
+      }
+
   """
   @type streaming_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_channel_memberships_for_app_instance_user_request() :: %{
-    optional("AppInstanceUserArn") => String.t(),
-    optional("ChimeBearer") => String.t(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      list_channel_memberships_for_app_instance_user_request() :: %{
+        optional("AppInstanceUserArn") => String.t(),
+        optional("ChimeBearer") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_channel_memberships_for_app_instance_user_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  business_calling_settings() :: %{
-    "CdrBucket" => String.t()
-  }
+
+      business_calling_settings() :: %{
+        "CdrBucket" => String.t()
+      }
+
   """
   @type business_calling_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_channel_request() :: %{
-    optional("ChimeBearer") => String.t()
-  }
+
+      delete_channel_request() :: %{
+        optional("ChimeBearer") => String.t()
+      }
+
   """
   @type delete_channel_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_delete_phone_number_request() :: %{
-    required("PhoneNumberIds") => list(String.t()())
-  }
+
+      batch_delete_phone_number_request() :: %{
+        required("PhoneNumberIds") => list(String.t()())
+      }
+
   """
   @type batch_delete_phone_number_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_app_instances_response() :: %{
-    "AppInstances" => list(app_instance_summary()()),
-    "NextToken" => String.t()
-  }
+
+      list_app_instances_response() :: %{
+        "AppInstances" => list(app_instance_summary()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_app_instances_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_channel_bans_request() :: %{
-    optional("ChimeBearer") => String.t(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      list_channel_bans_request() :: %{
+        optional("ChimeBearer") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_channel_bans_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_voice_connector_termination_credentials_request() :: %{
-    optional("Credentials") => list(credential()())
-  }
+
+      put_voice_connector_termination_credentials_request() :: %{
+        optional("Credentials") => list(credential()())
+      }
+
   """
   @type put_voice_connector_termination_credentials_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_sip_rule_request() :: %{
-    optional("Disabled") => boolean(),
-    optional("TargetApplications") => list(sip_rule_target_application()()),
-    required("Name") => String.t()
-  }
+
+      update_sip_rule_request() :: %{
+        optional("Disabled") => boolean(),
+        optional("TargetApplications") => list(sip_rule_target_application()()),
+        required("Name") => String.t()
+      }
+
   """
   @type update_sip_rule_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  sip_rule() :: %{
-    "CreatedTimestamp" => non_neg_integer(),
-    "Disabled" => boolean(),
-    "Name" => String.t(),
-    "SipRuleId" => String.t(),
-    "TargetApplications" => list(sip_rule_target_application()()),
-    "TriggerType" => list(any()),
-    "TriggerValue" => String.t(),
-    "UpdatedTimestamp" => non_neg_integer()
-  }
+
+      sip_rule() :: %{
+        "CreatedTimestamp" => non_neg_integer(),
+        "Disabled" => boolean(),
+        "Name" => String.t(),
+        "SipRuleId" => String.t(),
+        "TargetApplications" => list(sip_rule_target_application()()),
+        "TriggerType" => list(any()),
+        "TriggerValue" => String.t(),
+        "UpdatedTimestamp" => non_neg_integer()
+      }
+
   """
   @type sip_rule() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_channel_moderated_by_app_instance_user_request() :: %{
-    optional("ChimeBearer") => String.t(),
-    required("AppInstanceUserArn") => String.t()
-  }
+
+      describe_channel_moderated_by_app_instance_user_request() :: %{
+        optional("ChimeBearer") => String.t(),
+        required("AppInstanceUserArn") => String.t()
+      }
+
   """
   @type describe_channel_moderated_by_app_instance_user_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_phone_number_order_response() :: %{
-    "PhoneNumberOrder" => phone_number_order()
-  }
+
+      create_phone_number_order_response() :: %{
+        "PhoneNumberOrder" => phone_number_order()
+      }
+
   """
   @type create_phone_number_order_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_app_instance_admin_request() :: %{
 
-  }
+      delete_app_instance_admin_request() :: %{}
+
   """
-  @type delete_app_instance_admin_request() :: %{String.t() => any()}
+  @type delete_app_instance_admin_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  describe_channel_moderator_response() :: %{
-    "ChannelModerator" => channel_moderator()
-  }
+
+      describe_channel_moderator_response() :: %{
+        "ChannelModerator" => channel_moderator()
+      }
+
   """
   @type describe_channel_moderator_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_update_user_response() :: %{
-    "UserErrors" => list(user_error()())
-  }
+
+      batch_update_user_response() :: %{
+        "UserErrors" => list(user_error()())
+      }
+
   """
   @type batch_update_user_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_sip_media_application_request() :: %{
-    required("AwsRegion") => String.t(),
-    required("Endpoints") => list(sip_media_application_endpoint()()),
-    required("Name") => String.t()
-  }
+
+      create_sip_media_application_request() :: %{
+        required("AwsRegion") => String.t(),
+        required("Endpoints") => list(sip_media_application_endpoint()()),
+        required("Name") => String.t()
+      }
+
   """
   @type create_sip_media_application_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_app_instance_user_request() :: %{
 
-  }
+      delete_app_instance_user_request() :: %{}
+
   """
-  @type delete_app_instance_user_request() :: %{String.t() => any()}
+  @type delete_app_instance_user_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  update_sip_media_application_call_response() :: %{
-    "SipMediaApplicationCall" => sip_media_application_call()
-  }
+
+      update_sip_media_application_call_response() :: %{
+        "SipMediaApplicationCall" => sip_media_application_call()
+      }
+
   """
   @type update_sip_media_application_call_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_request() :: %{
-    required("ResourceARN") => String.t(),
-    required("Tags") => list(tag()())
-  }
+
+      tag_resource_request() :: %{
+        required("ResourceARN") => String.t(),
+        required("Tags") => list(tag()())
+      }
+
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_create_room_membership_response() :: %{
-    "Errors" => list(member_error()())
-  }
+
+      batch_create_room_membership_response() :: %{
+        "Errors" => list(member_error()())
+      }
+
   """
   @type batch_create_room_membership_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_app_instance_admins_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      list_app_instance_admins_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_app_instance_admins_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  member_error() :: %{
-    "ErrorCode" => list(any()),
-    "ErrorMessage" => String.t(),
-    "MemberId" => String.t()
-  }
+
+      member_error() :: %{
+        "ErrorCode" => list(any()),
+        "ErrorMessage" => String.t(),
+        "MemberId" => String.t()
+      }
+
   """
   @type member_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_sip_media_application_logging_configuration_request() :: %{
-    optional("SipMediaApplicationLoggingConfiguration") => sip_media_application_logging_configuration()
-  }
+
+      put_sip_media_application_logging_configuration_request() :: %{
+        optional("SipMediaApplicationLoggingConfiguration") => sip_media_application_logging_configuration()
+      }
+
   """
   @type put_sip_media_application_logging_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  proxy() :: %{
-    "DefaultSessionExpiryMinutes" => integer(),
-    "Disabled" => boolean(),
-    "FallBackPhoneNumber" => String.t(),
-    "PhoneNumberCountries" => list(String.t()())
-  }
+
+      proxy() :: %{
+        "DefaultSessionExpiryMinutes" => integer(),
+        "Disabled" => boolean(),
+        "FallBackPhoneNumber" => String.t(),
+        "PhoneNumberCountries" => list(String.t()())
+      }
+
   """
   @type proxy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_proxy_session_request() :: %{
-    optional("ExpiryMinutes") => integer(),
-    required("Capabilities") => list(list(any())())
-  }
+
+      update_proxy_session_request() :: %{
+        optional("ExpiryMinutes") => integer(),
+        required("Capabilities") => list(list(any())())
+      }
+
   """
   @type update_proxy_session_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  redact_room_message_request() :: %{
 
-  }
+      redact_room_message_request() :: %{}
+
   """
-  @type redact_room_message_request() :: %{String.t() => any()}
+  @type redact_room_message_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  batch_update_phone_number_response() :: %{
-    "PhoneNumberErrors" => list(phone_number_error()())
-  }
+
+      batch_update_phone_number_response() :: %{
+        "PhoneNumberErrors" => list(phone_number_error()())
+      }
+
   """
   @type batch_update_phone_number_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_account_response() :: %{
-    "Account" => account()
-  }
+
+      get_account_response() :: %{
+        "Account" => account()
+      }
+
   """
   @type get_account_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  redact_channel_message_response() :: %{
-    "ChannelArn" => String.t(),
-    "MessageId" => String.t()
-  }
+
+      redact_channel_message_response() :: %{
+        "ChannelArn" => String.t(),
+        "MessageId" => String.t()
+      }
+
   """
   @type redact_channel_message_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_voice_connector_termination_health_request() :: %{
 
-  }
+      get_voice_connector_termination_health_request() :: %{}
+
   """
-  @type get_voice_connector_termination_health_request() :: %{String.t() => any()}
+  @type get_voice_connector_termination_health_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  validate_e911_address_response() :: %{
-    "Address" => address(),
-    "AddressExternalId" => String.t(),
-    "CandidateAddressList" => list(candidate_address()()),
-    "ValidationResult" => integer()
-  }
+
+      validate_e911_address_response() :: %{
+        "Address" => address(),
+        "AddressExternalId" => String.t(),
+        "CandidateAddressList" => list(candidate_address()()),
+        "ValidationResult" => integer()
+      }
+
   """
   @type validate_e911_address_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_attendee_response() :: %{
-    "Attendee" => attendee()
-  }
+
+      get_attendee_response() :: %{
+        "Attendee" => attendee()
+      }
+
   """
   @type get_attendee_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_room_request() :: %{
 
-  }
+      delete_room_request() :: %{}
+
   """
-  @type delete_room_request() :: %{String.t() => any()}
+  @type delete_room_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  reset_personal_pin_request() :: %{
 
-  }
+      reset_personal_pin_request() :: %{}
+
   """
-  @type reset_personal_pin_request() :: %{String.t() => any()}
+  @type reset_personal_pin_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_channel_moderator_response() :: %{
-    "ChannelArn" => String.t(),
-    "ChannelModerator" => identity()
-  }
+
+      create_channel_moderator_response() :: %{
+        "ChannelArn" => String.t(),
+        "ChannelModerator" => identity()
+      }
+
   """
   @type create_channel_moderator_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_voice_connector_response() :: %{
-    "VoiceConnector" => voice_connector()
-  }
+
+      update_voice_connector_response() :: %{
+        "VoiceConnector" => voice_connector()
+      }
+
   """
   @type update_voice_connector_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_phone_number_orders_response() :: %{
-    "NextToken" => String.t(),
-    "PhoneNumberOrders" => list(phone_number_order()())
-  }
+
+      list_phone_number_orders_response() :: %{
+        "NextToken" => String.t(),
+        "PhoneNumberOrders" => list(phone_number_order()())
+      }
+
   """
   @type list_phone_number_orders_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  termination_health() :: %{
-    "Source" => String.t(),
-    "Timestamp" => non_neg_integer()
-  }
+
+      termination_health() :: %{
+        "Source" => String.t(),
+        "Timestamp" => non_neg_integer()
+      }
+
   """
   @type termination_health() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_channel_moderator_request() :: %{
-    optional("ChimeBearer") => String.t()
-  }
+
+      delete_channel_moderator_request() :: %{
+        optional("ChimeBearer") => String.t()
+      }
+
   """
   @type delete_channel_moderator_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  redact_conversation_message_response() :: %{
 
-  }
+      redact_conversation_message_response() :: %{}
+
   """
-  @type redact_conversation_message_response() :: %{String.t() => any()}
+  @type redact_conversation_message_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  room() :: %{
-    "AccountId" => String.t(),
-    "CreatedBy" => String.t(),
-    "CreatedTimestamp" => non_neg_integer(),
-    "Name" => String.t(),
-    "RoomId" => String.t(),
-    "UpdatedTimestamp" => non_neg_integer()
-  }
+
+      room() :: %{
+        "AccountId" => String.t(),
+        "CreatedBy" => String.t(),
+        "CreatedTimestamp" => non_neg_integer(),
+        "Name" => String.t(),
+        "RoomId" => String.t(),
+        "UpdatedTimestamp" => non_neg_integer()
+      }
+
   """
   @type room() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_channel_response() :: %{
-    "ChannelArn" => String.t()
-  }
+
+      create_channel_response() :: %{
+        "ChannelArn" => String.t()
+      }
+
   """
   @type create_channel_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_app_instance_response() :: %{
-    "AppInstanceArn" => String.t()
-  }
+
+      create_app_instance_response() :: %{
+        "AppInstanceArn" => String.t()
+      }
+
   """
   @type create_app_instance_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_app_instance_response() :: %{
-    "AppInstanceArn" => String.t()
-  }
+
+      update_app_instance_response() :: %{
+        "AppInstanceArn" => String.t()
+      }
+
   """
   @type update_app_instance_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  channel_membership_for_app_instance_user_summary() :: %{
-    "AppInstanceUserMembershipSummary" => app_instance_user_membership_summary(),
-    "ChannelSummary" => channel_summary()
-  }
+
+      channel_membership_for_app_instance_user_summary() :: %{
+        "AppInstanceUserMembershipSummary" => app_instance_user_membership_summary(),
+        "ChannelSummary" => channel_summary()
+      }
+
   """
   @type channel_membership_for_app_instance_user_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  participant() :: %{
-    "PhoneNumber" => String.t(),
-    "ProxyPhoneNumber" => String.t()
-  }
+
+      participant() :: %{
+        "PhoneNumber" => String.t(),
+        "ProxyPhoneNumber" => String.t()
+      }
+
   """
   @type participant() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_sip_media_application_request() :: %{
-    optional("Endpoints") => list(sip_media_application_endpoint()()),
-    optional("Name") => String.t()
-  }
+
+      update_sip_media_application_request() :: %{
+        optional("Endpoints") => list(sip_media_application_endpoint()()),
+        optional("Name") => String.t()
+      }
+
   """
   @type update_sip_media_application_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_unsuspend_user_response() :: %{
-    "UserErrors" => list(user_error()())
-  }
+
+      batch_unsuspend_user_response() :: %{
+        "UserErrors" => list(user_error()())
+      }
+
   """
   @type batch_unsuspend_user_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_voice_connector_group_request() :: %{
 
-  }
+      delete_voice_connector_group_request() :: %{}
+
   """
-  @type delete_voice_connector_group_request() :: %{String.t() => any()}
+  @type delete_voice_connector_group_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  origination() :: %{
-    "Disabled" => boolean(),
-    "Routes" => list(origination_route()())
-  }
+
+      origination() :: %{
+        "Disabled" => boolean(),
+        "Routes" => list(origination_route()())
+      }
+
   """
   @type origination() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_room_memberships_response() :: %{
-    "NextToken" => String.t(),
-    "RoomMemberships" => list(room_membership()())
-  }
+
+      list_room_memberships_response() :: %{
+        "NextToken" => String.t(),
+        "RoomMemberships" => list(room_membership()())
+      }
+
   """
   @type list_room_memberships_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_voice_connectors_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      list_voice_connectors_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_voice_connectors_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_user_response() :: %{
-    "User" => user()
-  }
+
+      update_user_response() :: %{
+        "User" => user()
+      }
+
   """
   @type update_user_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  phone_number_country() :: %{
-    "CountryCode" => String.t(),
-    "SupportedPhoneNumberTypes" => list(list(any())())
-  }
+
+      phone_number_country() :: %{
+        "CountryCode" => String.t(),
+        "SupportedPhoneNumberTypes" => list(list(any())())
+      }
+
   """
   @type phone_number_country() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_meetings_response() :: %{
-    "Meetings" => list(meeting()()),
-    "NextToken" => String.t()
-  }
+
+      list_meetings_response() :: %{
+        "Meetings" => list(meeting()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_meetings_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  geo_match_params() :: %{
-    "AreaCode" => String.t(),
-    "Country" => String.t()
-  }
+
+      geo_match_params() :: %{
+        "AreaCode" => String.t(),
+        "Country" => String.t()
+      }
+
   """
   @type geo_match_params() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  search_available_phone_numbers_response() :: %{
-    "E164PhoneNumbers" => list(String.t()()),
-    "NextToken" => String.t()
-  }
+
+      search_available_phone_numbers_response() :: %{
+        "E164PhoneNumbers" => list(String.t()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type search_available_phone_numbers_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_voice_connector_request() :: %{
 
-  }
+      get_voice_connector_request() :: %{}
+
   """
-  @type get_voice_connector_request() :: %{String.t() => any()}
+  @type get_voice_connector_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  put_voice_connector_origination_response() :: %{
-    "Origination" => origination()
-  }
+
+      put_voice_connector_origination_response() :: %{
+        "Origination" => origination()
+      }
+
   """
   @type put_voice_connector_origination_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_channel_messages_response() :: %{
-    "ChannelArn" => String.t(),
-    "ChannelMessages" => list(channel_message_summary()()),
-    "NextToken" => String.t()
-  }
+
+      list_channel_messages_response() :: %{
+        "ChannelArn" => String.t(),
+        "ChannelMessages" => list(channel_message_summary()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_channel_messages_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_meeting_request() :: %{
-    required("Tags") => list(tag()())
-  }
+
+      tag_meeting_request() :: %{
+        required("Tags") => list(tag()())
+      }
+
   """
   @type tag_meeting_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_attendee_request() :: %{
-    required("Tags") => list(tag()())
-  }
+
+      tag_attendee_request() :: %{
+        required("Tags") => list(tag()())
+      }
+
   """
   @type tag_attendee_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_rooms_response() :: %{
-    "NextToken" => String.t(),
-    "Rooms" => list(room()())
-  }
+
+      list_rooms_response() :: %{
+        "NextToken" => String.t(),
+        "Rooms" => list(room()())
+      }
+
   """
   @type list_rooms_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_sip_rule_response() :: %{
-    "SipRule" => sip_rule()
-  }
+
+      create_sip_rule_response() :: %{
+        "SipRule" => sip_rule()
+      }
+
   """
   @type create_sip_rule_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  associate_phone_numbers_with_voice_connector_group_request() :: %{
-    optional("ForceAssociate") => boolean(),
-    required("E164PhoneNumbers") => list(String.t()())
-  }
+
+      associate_phone_numbers_with_voice_connector_group_request() :: %{
+        optional("ForceAssociate") => boolean(),
+        required("E164PhoneNumbers") => list(String.t()())
+      }
+
   """
   @type associate_phone_numbers_with_voice_connector_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_create_channel_membership_response() :: %{
-    "BatchChannelMemberships" => batch_channel_memberships(),
-    "Errors" => list(batch_create_channel_membership_error()())
-  }
+
+      batch_create_channel_membership_response() :: %{
+        "BatchChannelMemberships" => batch_channel_memberships(),
+        "Errors" => list(batch_create_channel_membership_error()())
+      }
+
   """
   @type batch_create_channel_membership_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_media_capture_pipeline_response() :: %{
-    "MediaCapturePipeline" => media_capture_pipeline()
-  }
+
+      get_media_capture_pipeline_response() :: %{
+        "MediaCapturePipeline" => media_capture_pipeline()
+      }
+
   """
   @type get_media_capture_pipeline_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_voice_connector_group_response() :: %{
-    "VoiceConnectorGroup" => voice_connector_group()
-  }
+
+      create_voice_connector_group_response() :: %{
+        "VoiceConnectorGroup" => voice_connector_group()
+      }
+
   """
   @type create_voice_connector_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_voice_connector_termination_credentials_request() :: %{
 
-  }
+      list_voice_connector_termination_credentials_request() :: %{}
+
   """
-  @type list_voice_connector_termination_credentials_request() :: %{String.t() => any()}
+  @type list_voice_connector_termination_credentials_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_account_settings_request() :: %{
 
-  }
+      get_account_settings_request() :: %{}
+
   """
-  @type get_account_settings_request() :: %{String.t() => any()}
+  @type get_account_settings_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_meeting_with_attendees_request() :: %{
-    optional("Attendees") => list(create_attendee_request_item()()),
-    optional("ExternalMeetingId") => String.t(),
-    optional("MediaRegion") => String.t(),
-    optional("MeetingHostId") => String.t(),
-    optional("NotificationsConfiguration") => meeting_notification_configuration(),
-    optional("Tags") => list(tag()()),
-    required("ClientRequestToken") => String.t()
-  }
+
+      create_meeting_with_attendees_request() :: %{
+        optional("Attendees") => list(create_attendee_request_item()()),
+        optional("ExternalMeetingId") => String.t(),
+        optional("MediaRegion") => String.t(),
+        optional("MeetingHostId") => String.t(),
+        optional("NotificationsConfiguration") => meeting_notification_configuration(),
+        optional("Tags") => list(tag()()),
+        required("ClientRequestToken") => String.t()
+      }
+
   """
   @type create_meeting_with_attendees_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_phone_number_settings_request() :: %{
-    required("CallingName") => String.t()
-  }
+
+      update_phone_number_settings_request() :: %{
+        required("CallingName") => String.t()
+      }
+
   """
   @type update_phone_number_settings_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  video_artifacts_configuration() :: %{
-    "MuxType" => list(any()),
-    "State" => list(any())
-  }
+
+      video_artifacts_configuration() :: %{
+        "MuxType" => list(any()),
+        "State" => list(any())
+      }
+
   """
   @type video_artifacts_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_voice_connector_proxy_response() :: %{
-    "Proxy" => proxy()
-  }
+
+      get_voice_connector_proxy_response() :: %{
+        "Proxy" => proxy()
+      }
+
   """
   @type get_voice_connector_proxy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_app_instance_admins_response() :: %{
-    "AppInstanceAdmins" => list(app_instance_admin_summary()()),
-    "AppInstanceArn" => String.t(),
-    "NextToken" => String.t()
-  }
+
+      list_app_instance_admins_response() :: %{
+        "AppInstanceAdmins" => list(app_instance_admin_summary()()),
+        "AppInstanceArn" => String.t(),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_app_instance_admins_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_bot_request() :: %{
 
-  }
+      get_bot_request() :: %{}
+
   """
-  @type get_bot_request() :: %{String.t() => any()}
+  @type get_bot_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_voice_connector_logging_configuration_request() :: %{
 
-  }
+      get_voice_connector_logging_configuration_request() :: %{}
+
   """
-  @type get_voice_connector_logging_configuration_request() :: %{String.t() => any()}
+  @type get_voice_connector_logging_configuration_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  service_failure_exception() :: %{
-    "Code" => list(any()),
-    "Message" => String.t()
-  }
+
+      service_failure_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t()
+      }
+
   """
   @type service_failure_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_account_settings_response() :: %{
-    "AccountSettings" => account_settings()
-  }
+
+      get_account_settings_response() :: %{
+        "AccountSettings" => account_settings()
+      }
+
   """
   @type get_account_settings_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_sip_rule_request() :: %{
 
-  }
+      delete_sip_rule_request() :: %{}
+
   """
-  @type delete_sip_rule_request() :: %{String.t() => any()}
+  @type delete_sip_rule_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_voice_connector_emergency_calling_configuration_request() :: %{
 
-  }
+      get_voice_connector_emergency_calling_configuration_request() :: %{}
+
   """
-  @type get_voice_connector_emergency_calling_configuration_request() :: %{String.t() => any()}
+  @type get_voice_connector_emergency_calling_configuration_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  restore_phone_number_request() :: %{
 
-  }
+      restore_phone_number_request() :: %{}
+
   """
-  @type restore_phone_number_request() :: %{String.t() => any()}
+  @type restore_phone_number_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  start_meeting_transcription_response() :: %{
 
-  }
+      start_meeting_transcription_response() :: %{}
+
   """
-  @type start_meeting_transcription_response() :: %{String.t() => any()}
+  @type start_meeting_transcription_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  identity() :: %{
-    "Arn" => String.t(),
-    "Name" => String.t()
-  }
+
+      identity() :: %{
+        "Arn" => String.t(),
+        "Name" => String.t()
+      }
+
   """
   @type identity() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_voice_connector_emergency_calling_configuration_request() :: %{
-    required("EmergencyCallingConfiguration") => emergency_calling_configuration()
-  }
+
+      put_voice_connector_emergency_calling_configuration_request() :: %{
+        required("EmergencyCallingConfiguration") => emergency_calling_configuration()
+      }
+
   """
   @type put_voice_connector_emergency_calling_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  forbidden_exception() :: %{
-    "Code" => list(any()),
-    "Message" => String.t()
-  }
+
+      forbidden_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t()
+      }
+
   """
   @type forbidden_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  meeting() :: %{
-    "ExternalMeetingId" => String.t(),
-    "MediaPlacement" => media_placement(),
-    "MediaRegion" => String.t(),
-    "MeetingId" => String.t()
-  }
+
+      meeting() :: %{
+        "ExternalMeetingId" => String.t(),
+        "MediaPlacement" => media_placement(),
+        "MediaRegion" => String.t(),
+        "MeetingId" => String.t()
+      }
+
   """
   @type meeting() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_media_capture_pipeline_request() :: %{
 
-  }
+      get_media_capture_pipeline_request() :: %{}
+
   """
-  @type get_media_capture_pipeline_request() :: %{String.t() => any()}
+  @type get_media_capture_pipeline_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_voice_connector_response() :: %{
-    "VoiceConnector" => voice_connector()
-  }
+
+      get_voice_connector_response() :: %{
+        "VoiceConnector" => voice_connector()
+      }
+
   """
   @type get_voice_connector_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_bot_response() :: %{
-    "Bot" => bot()
-  }
+
+      get_bot_response() :: %{
+        "Bot" => bot()
+      }
+
   """
   @type get_bot_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_proxy_session_response() :: %{
-    "ProxySession" => proxy_session()
-  }
+
+      create_proxy_session_response() :: %{
+        "ProxySession" => proxy_session()
+      }
+
   """
   @type create_proxy_session_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_voice_connector_termination_request() :: %{
-    required("Termination") => termination()
-  }
+
+      put_voice_connector_termination_request() :: %{
+        required("Termination") => termination()
+      }
+
   """
   @type put_voice_connector_termination_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_channel_moderated_by_app_instance_user_response() :: %{
-    "Channel" => channel_moderated_by_app_instance_user_summary()
-  }
+
+      describe_channel_moderated_by_app_instance_user_response() :: %{
+        "Channel" => channel_moderated_by_app_instance_user_summary()
+      }
+
   """
   @type describe_channel_moderated_by_app_instance_user_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  logout_user_request() :: %{
 
-  }
+      logout_user_request() :: %{}
+
   """
-  @type logout_user_request() :: %{String.t() => any()}
+  @type logout_user_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  update_account_settings_response() :: %{
 
-  }
+      update_account_settings_response() :: %{}
+
   """
-  @type update_account_settings_response() :: %{String.t() => any()}
+  @type update_account_settings_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  channel_membership() :: %{
-    "ChannelArn" => String.t(),
-    "CreatedTimestamp" => non_neg_integer(),
-    "InvitedBy" => identity(),
-    "LastUpdatedTimestamp" => non_neg_integer(),
-    "Member" => identity(),
-    "Type" => list(any())
-  }
+
+      channel_membership() :: %{
+        "ChannelArn" => String.t(),
+        "CreatedTimestamp" => non_neg_integer(),
+        "InvitedBy" => identity(),
+        "LastUpdatedTimestamp" => non_neg_integer(),
+        "Member" => identity(),
+        "Type" => list(any())
+      }
+
   """
   @type channel_membership() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  selected_video_streams() :: %{
-    "AttendeeIds" => list(String.t()()),
-    "ExternalUserIds" => list(String.t()())
-  }
+
+      selected_video_streams() :: %{
+        "AttendeeIds" => list(String.t()()),
+        "ExternalUserIds" => list(String.t()())
+      }
+
   """
   @type selected_video_streams() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  telephony_settings() :: %{
-    "InboundCalling" => boolean(),
-    "OutboundCalling" => boolean(),
-    "SMS" => boolean()
-  }
+
+      telephony_settings() :: %{
+        "InboundCalling" => boolean(),
+        "OutboundCalling" => boolean(),
+        "SMS" => boolean()
+      }
+
   """
   @type telephony_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  phone_number_association() :: %{
-    "AssociatedTimestamp" => non_neg_integer(),
-    "Name" => list(any()),
-    "Value" => String.t()
-  }
+
+      phone_number_association() :: %{
+        "AssociatedTimestamp" => non_neg_integer(),
+        "Name" => list(any()),
+        "Value" => String.t()
+      }
+
   """
   @type phone_number_association() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_user_response() :: %{
-    "User" => user()
-  }
+
+      get_user_response() :: %{
+        "User" => user()
+      }
+
   """
   @type get_user_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  unauthorized_client_exception() :: %{
-    "Code" => list(any()),
-    "Message" => String.t()
-  }
+
+      unauthorized_client_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t()
+      }
+
   """
   @type unauthorized_client_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_voice_connector_streaming_configuration_request() :: %{
 
-  }
+      get_voice_connector_streaming_configuration_request() :: %{}
+
   """
-  @type get_voice_connector_streaming_configuration_request() :: %{String.t() => any()}
+  @type get_voice_connector_streaming_configuration_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  phone_number() :: %{
-    "Associations" => list(phone_number_association()()),
-    "CallingName" => String.t(),
-    "CallingNameStatus" => list(any()),
-    "Capabilities" => phone_number_capabilities(),
-    "Country" => String.t(),
-    "CreatedTimestamp" => non_neg_integer(),
-    "DeletionTimestamp" => non_neg_integer(),
-    "E164PhoneNumber" => String.t(),
-    "PhoneNumberId" => String.t(),
-    "ProductType" => list(any()),
-    "Status" => list(any()),
-    "Type" => list(any()),
-    "UpdatedTimestamp" => non_neg_integer()
-  }
+
+      phone_number() :: %{
+        "Associations" => list(phone_number_association()()),
+        "CallingName" => String.t(),
+        "CallingNameStatus" => list(any()),
+        "Capabilities" => phone_number_capabilities(),
+        "Country" => String.t(),
+        "CreatedTimestamp" => non_neg_integer(),
+        "DeletionTimestamp" => non_neg_integer(),
+        "E164PhoneNumber" => String.t(),
+        "PhoneNumberId" => String.t(),
+        "ProductType" => list(any()),
+        "Status" => list(any()),
+        "Type" => list(any()),
+        "UpdatedTimestamp" => non_neg_integer()
+      }
+
   """
   @type phone_number() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  redact_channel_message_request() :: %{
-    optional("ChimeBearer") => String.t()
-  }
+
+      redact_channel_message_request() :: %{
+        optional("ChimeBearer") => String.t()
+      }
+
   """
   @type redact_channel_message_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_app_instance_request() :: %{
 
-  }
+      describe_app_instance_request() :: %{}
+
   """
-  @type describe_app_instance_request() :: %{String.t() => any()}
+  @type describe_app_instance_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  delete_app_instance_streaming_configurations_request() :: %{
 
-  }
+      delete_app_instance_streaming_configurations_request() :: %{}
+
   """
-  @type delete_app_instance_streaming_configurations_request() :: %{String.t() => any()}
+  @type delete_app_instance_streaming_configurations_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  termination() :: %{
-    "CallingRegions" => list(String.t()()),
-    "CidrAllowedList" => list(String.t()()),
-    "CpsLimit" => integer(),
-    "DefaultPhoneNumber" => String.t(),
-    "Disabled" => boolean()
-  }
+
+      termination() :: %{
+        "CallingRegions" => list(String.t()()),
+        "CidrAllowedList" => list(String.t()()),
+        "CpsLimit" => integer(),
+        "DefaultPhoneNumber" => String.t(),
+        "Disabled" => boolean()
+      }
+
   """
   @type termination() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_phone_number_order_request() :: %{
 
-  }
+      get_phone_number_order_request() :: %{}
+
   """
-  @type get_phone_number_order_request() :: %{String.t() => any()}
+  @type get_phone_number_order_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_app_instances_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      list_app_instances_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_app_instances_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_channel_message_request() :: %{
-    optional("ChimeBearer") => String.t(),
-    optional("Content") => String.t(),
-    optional("Metadata") => String.t()
-  }
+
+      update_channel_message_request() :: %{
+        optional("ChimeBearer") => String.t(),
+        optional("Content") => String.t(),
+        optional("Metadata") => String.t()
+      }
+
   """
   @type update_channel_message_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_room_membership_request() :: %{
 
-  }
+      delete_room_membership_request() :: %{}
+
   """
-  @type delete_room_membership_request() :: %{String.t() => any()}
+  @type delete_room_membership_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  update_phone_number_response() :: %{
-    "PhoneNumber" => phone_number()
-  }
+
+      update_phone_number_response() :: %{
+        "PhoneNumber" => phone_number()
+      }
+
   """
   @type update_phone_number_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_channel_moderator_request() :: %{
-    optional("ChimeBearer") => String.t(),
-    required("ChannelModeratorArn") => String.t()
-  }
+
+      create_channel_moderator_request() :: %{
+        optional("ChimeBearer") => String.t(),
+        required("ChannelModeratorArn") => String.t()
+      }
+
   """
   @type create_channel_moderator_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_app_instance_request() :: %{
-    optional("Metadata") => String.t(),
-    required("Name") => String.t()
-  }
+
+      update_app_instance_request() :: %{
+        optional("Metadata") => String.t(),
+        required("Name") => String.t()
+      }
+
   """
   @type update_app_instance_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  content_artifacts_configuration() :: %{
-    "MuxType" => list(any()),
-    "State" => list(any())
-  }
+
+      content_artifacts_configuration() :: %{
+        "MuxType" => list(any()),
+        "State" => list(any())
+      }
+
   """
   @type content_artifacts_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  throttled_client_exception() :: %{
-    "Code" => list(any()),
-    "Message" => String.t()
-  }
+
+      throttled_client_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t()
+      }
+
   """
   @type throttled_client_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_events_configuration_request() :: %{
 
-  }
+      delete_events_configuration_request() :: %{}
+
   """
-  @type delete_events_configuration_request() :: %{String.t() => any()}
+  @type delete_events_configuration_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  signin_delegate_group() :: %{
-    "GroupName" => String.t()
-  }
+
+      signin_delegate_group() :: %{
+        "GroupName" => String.t()
+      }
+
   """
   @type signin_delegate_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_channel_membership_response() :: %{
-    "ChannelMembership" => channel_membership()
-  }
+
+      describe_channel_membership_response() :: %{
+        "ChannelMembership" => channel_membership()
+      }
+
   """
   @type describe_channel_membership_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_room_response() :: %{
-    "Room" => room()
-  }
+
+      update_room_response() :: %{
+        "Room" => room()
+      }
+
   """
   @type update_room_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_voice_connector_termination_health_response() :: %{
-    "TerminationHealth" => termination_health()
-  }
+
+      get_voice_connector_termination_health_response() :: %{
+        "TerminationHealth" => termination_health()
+      }
+
   """
   @type get_voice_connector_termination_health_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  associate_phone_numbers_with_voice_connector_request() :: %{
-    optional("ForceAssociate") => boolean(),
-    required("E164PhoneNumbers") => list(String.t()())
-  }
+
+      associate_phone_numbers_with_voice_connector_request() :: %{
+        optional("ForceAssociate") => boolean(),
+        required("E164PhoneNumbers") => list(String.t()())
+      }
+
   """
   @type associate_phone_numbers_with_voice_connector_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_user_settings_response() :: %{
-    "UserSettings" => user_settings()
-  }
+
+      get_user_settings_response() :: %{
+        "UserSettings" => user_settings()
+      }
+
   """
   @type get_user_settings_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_channel_ban_request() :: %{
-    optional("ChimeBearer") => String.t(),
-    required("MemberArn") => String.t()
-  }
+
+      create_channel_ban_request() :: %{
+        optional("ChimeBearer") => String.t(),
+        required("MemberArn") => String.t()
+      }
+
   """
   @type create_channel_ban_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_voice_connector_origination_request() :: %{
 
-  }
+      delete_voice_connector_origination_request() :: %{}
+
   """
-  @type delete_voice_connector_origination_request() :: %{String.t() => any()}
+  @type delete_voice_connector_origination_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_meeting_response() :: %{
-    "Meeting" => meeting()
-  }
+
+      create_meeting_response() :: %{
+        "Meeting" => meeting()
+      }
+
   """
   @type create_meeting_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  app_instance_user_membership_summary() :: %{
-    "ReadMarkerTimestamp" => non_neg_integer(),
-    "Type" => list(any())
-  }
+
+      app_instance_user_membership_summary() :: %{
+        "ReadMarkerTimestamp" => non_neg_integer(),
+        "Type" => list(any())
+      }
+
   """
   @type app_instance_user_membership_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_meeting_tags_response() :: %{
-    "Tags" => list(tag()())
-  }
+
+      list_meeting_tags_response() :: %{
+        "Tags" => list(tag()())
+      }
+
   """
   @type list_meeting_tags_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_meeting_request() :: %{
-    required("TagKeys") => list(String.t()())
-  }
+
+      untag_meeting_request() :: %{
+        required("TagKeys") => list(String.t()())
+      }
+
   """
   @type untag_meeting_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_app_instance_users_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("AppInstanceArn") => String.t()
-  }
+
+      list_app_instance_users_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("AppInstanceArn") => String.t()
+      }
+
   """
   @type list_app_instance_users_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_media_capture_pipelines_response() :: %{
-    "MediaCapturePipelines" => list(media_capture_pipeline()()),
-    "NextToken" => String.t()
-  }
+
+      list_media_capture_pipelines_response() :: %{
+        "MediaCapturePipelines" => list(media_capture_pipeline()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_media_capture_pipelines_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  send_channel_message_response() :: %{
-    "ChannelArn" => String.t(),
-    "MessageId" => String.t()
-  }
+
+      send_channel_message_response() :: %{
+        "ChannelArn" => String.t(),
+        "MessageId" => String.t()
+      }
+
   """
   @type send_channel_message_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_meeting_response() :: %{
-    "Meeting" => meeting()
-  }
+
+      get_meeting_response() :: %{
+        "Meeting" => meeting()
+      }
+
   """
   @type get_meeting_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_sip_media_applications_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      list_sip_media_applications_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_sip_media_applications_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_request() :: %{
-    required("ResourceARN") => String.t(),
-    required("TagKeys") => list(String.t()())
-  }
+
+      untag_resource_request() :: %{
+        required("ResourceARN") => String.t(),
+        required("TagKeys") => list(String.t()())
+      }
+
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ordered_phone_number() :: %{
-    "E164PhoneNumber" => String.t(),
-    "Status" => list(any())
-  }
+
+      ordered_phone_number() :: %{
+        "E164PhoneNumber" => String.t(),
+        "Status" => list(any())
+      }
+
   """
   @type ordered_phone_number() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_app_instance_retention_settings_request() :: %{
-    required("AppInstanceRetentionSettings") => app_instance_retention_settings()
-  }
+
+      put_app_instance_retention_settings_request() :: %{
+        required("AppInstanceRetentionSettings") => app_instance_retention_settings()
+      }
+
   """
   @type put_app_instance_retention_settings_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_sip_media_application_logging_configuration_response() :: %{
-    "SipMediaApplicationLoggingConfiguration" => sip_media_application_logging_configuration()
-  }
+
+      get_sip_media_application_logging_configuration_response() :: %{
+        "SipMediaApplicationLoggingConfiguration" => sip_media_application_logging_configuration()
+      }
+
   """
   @type get_sip_media_application_logging_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_proxy_session_response() :: %{
-    "ProxySession" => proxy_session()
-  }
+
+      update_proxy_session_response() :: %{
+        "ProxySession" => proxy_session()
+      }
+
   """
   @type update_proxy_session_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_phone_number_order_request() :: %{
-    required("E164PhoneNumbers") => list(String.t()()),
-    required("ProductType") => list(any())
-  }
+
+      create_phone_number_order_request() :: %{
+        required("E164PhoneNumbers") => list(String.t()()),
+        required("ProductType") => list(any())
+      }
+
   """
   @type create_phone_number_order_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_sip_media_application_request() :: %{
 
-  }
+      delete_sip_media_application_request() :: %{}
+
   """
-  @type delete_sip_media_application_request() :: %{String.t() => any()}
+  @type delete_sip_media_application_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_sip_media_application_response() :: %{
-    "SipMediaApplication" => sip_media_application()
-  }
+
+      get_sip_media_application_response() :: %{
+        "SipMediaApplication" => sip_media_application()
+      }
+
   """
   @type get_sip_media_application_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stop_meeting_transcription_request() :: %{
 
-  }
+      stop_meeting_transcription_request() :: %{}
+
   """
-  @type stop_meeting_transcription_request() :: %{String.t() => any()}
+  @type stop_meeting_transcription_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_sip_rule_response() :: %{
-    "SipRule" => sip_rule()
-  }
+
+      get_sip_rule_response() :: %{
+        "SipRule" => sip_rule()
+      }
+
   """
   @type get_sip_rule_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  voice_connector_settings() :: %{
-    "CdrBucket" => String.t()
-  }
+
+      voice_connector_settings() :: %{
+        "CdrBucket" => String.t()
+      }
+
   """
   @type voice_connector_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_proxy_session_request() :: %{
 
-  }
+      delete_proxy_session_request() :: %{}
+
   """
-  @type delete_proxy_session_request() :: %{String.t() => any()}
+  @type delete_proxy_session_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  logging_configuration() :: %{
-    "EnableMediaMetricLogs" => boolean(),
-    "EnableSIPLogs" => boolean()
-  }
+
+      logging_configuration() :: %{
+        "EnableMediaMetricLogs" => boolean(),
+        "EnableSIPLogs" => boolean()
+      }
+
   """
   @type logging_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_app_instance_streaming_configurations_request() :: %{
 
-  }
+      get_app_instance_streaming_configurations_request() :: %{}
+
   """
-  @type get_app_instance_streaming_configurations_request() :: %{String.t() => any()}
+  @type get_app_instance_streaming_configurations_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  engine_transcribe_settings() :: %{
-    "ContentIdentificationType" => list(any()),
-    "ContentRedactionType" => list(any()),
-    "EnablePartialResultsStabilization" => boolean(),
-    "IdentifyLanguage" => boolean(),
-    "LanguageCode" => list(any()),
-    "LanguageModelName" => String.t(),
-    "LanguageOptions" => String.t(),
-    "PartialResultsStability" => list(any()),
-    "PiiEntityTypes" => String.t(),
-    "PreferredLanguage" => list(any()),
-    "Region" => list(any()),
-    "VocabularyFilterMethod" => list(any()),
-    "VocabularyFilterName" => String.t(),
-    "VocabularyFilterNames" => String.t(),
-    "VocabularyName" => String.t(),
-    "VocabularyNames" => String.t()
-  }
+
+      engine_transcribe_settings() :: %{
+        "ContentIdentificationType" => list(any()),
+        "ContentRedactionType" => list(any()),
+        "EnablePartialResultsStabilization" => boolean(),
+        "IdentifyLanguage" => boolean(),
+        "LanguageCode" => list(any()),
+        "LanguageModelName" => String.t(),
+        "LanguageOptions" => String.t(),
+        "PartialResultsStability" => list(any()),
+        "PiiEntityTypes" => String.t(),
+        "PreferredLanguage" => list(any()),
+        "Region" => list(any()),
+        "VocabularyFilterMethod" => list(any()),
+        "VocabularyFilterName" => String.t(),
+        "VocabularyFilterNames" => String.t(),
+        "VocabularyName" => String.t(),
+        "VocabularyNames" => String.t()
+      }
+
   """
   @type engine_transcribe_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_media_capture_pipeline_request() :: %{
 
-  }
+      delete_media_capture_pipeline_request() :: %{}
+
   """
-  @type delete_media_capture_pipeline_request() :: %{String.t() => any()}
+  @type delete_media_capture_pipeline_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  restore_phone_number_response() :: %{
-    "PhoneNumber" => phone_number()
-  }
+
+      restore_phone_number_response() :: %{
+        "PhoneNumber" => phone_number()
+      }
+
   """
   @type restore_phone_number_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_phone_number_orders_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      list_phone_number_orders_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_phone_number_orders_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  meeting_notification_configuration() :: %{
-    "SnsTopicArn" => String.t(),
-    "SqsQueueArn" => String.t()
-  }
+
+      meeting_notification_configuration() :: %{
+        "SnsTopicArn" => String.t(),
+        "SqsQueueArn" => String.t()
+      }
+
   """
   @type meeting_notification_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_channels_moderated_by_app_instance_user_response() :: %{
-    "Channels" => list(channel_moderated_by_app_instance_user_summary()()),
-    "NextToken" => String.t()
-  }
+
+      list_channels_moderated_by_app_instance_user_response() :: %{
+        "Channels" => list(channel_moderated_by_app_instance_user_summary()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_channels_moderated_by_app_instance_user_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_voice_connector_termination_response() :: %{
-    "Termination" => termination()
-  }
+
+      put_voice_connector_termination_response() :: %{
+        "Termination" => termination()
+      }
+
   """
   @type put_voice_connector_termination_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_retention_settings_response() :: %{
-    "InitiateDeletionTimestamp" => non_neg_integer(),
-    "RetentionSettings" => retention_settings()
-  }
+
+      put_retention_settings_response() :: %{
+        "InitiateDeletionTimestamp" => non_neg_integer(),
+        "RetentionSettings" => retention_settings()
+      }
+
   """
   @type put_retention_settings_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_voice_connector_group_request() :: %{
-    required("Name") => String.t(),
-    required("VoiceConnectorItems") => list(voice_connector_item()())
-  }
+
+      update_voice_connector_group_request() :: %{
+        required("Name") => String.t(),
+        required("VoiceConnectorItems") => list(voice_connector_item()())
+      }
+
   """
   @type update_voice_connector_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_attendees_response() :: %{
-    "Attendees" => list(attendee()()),
-    "NextToken" => String.t()
-  }
+
+      list_attendees_response() :: %{
+        "Attendees" => list(attendee()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_attendees_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_meeting_with_attendees_response() :: %{
-    "Attendees" => list(attendee()()),
-    "Errors" => list(create_attendee_error()()),
-    "Meeting" => meeting()
-  }
+
+      create_meeting_with_attendees_response() :: %{
+        "Attendees" => list(attendee()()),
+        "Errors" => list(create_attendee_error()()),
+        "Meeting" => meeting()
+      }
+
   """
   @type create_meeting_with_attendees_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_supported_phone_number_countries_response() :: %{
-    "PhoneNumberCountries" => list(phone_number_country()())
-  }
+
+      list_supported_phone_number_countries_response() :: %{
+        "PhoneNumberCountries" => list(phone_number_country()())
+      }
+
   """
   @type list_supported_phone_number_countries_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_sip_media_application_response() :: %{
-    "SipMediaApplication" => sip_media_application()
-  }
+
+      update_sip_media_application_response() :: %{
+        "SipMediaApplication" => sip_media_application()
+      }
+
   """
   @type update_sip_media_application_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_channels_moderated_by_app_instance_user_request() :: %{
-    optional("AppInstanceUserArn") => String.t(),
-    optional("ChimeBearer") => String.t(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      list_channels_moderated_by_app_instance_user_request() :: %{
+        optional("AppInstanceUserArn") => String.t(),
+        optional("ChimeBearer") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_channels_moderated_by_app_instance_user_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  d_n_i_s_emergency_calling_configuration() :: %{
-    "CallingCountry" => String.t(),
-    "EmergencyPhoneNumber" => String.t(),
-    "TestPhoneNumber" => String.t()
-  }
+
+      d_n_i_s_emergency_calling_configuration() :: %{
+        "CallingCountry" => String.t(),
+        "EmergencyPhoneNumber" => String.t(),
+        "TestPhoneNumber" => String.t()
+      }
+
   """
   @type d_n_i_s_emergency_calling_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_voice_connector_logging_configuration_response() :: %{
-    "LoggingConfiguration" => logging_configuration()
-  }
+
+      get_voice_connector_logging_configuration_response() :: %{
+        "LoggingConfiguration" => logging_configuration()
+      }
+
   """
   @type get_voice_connector_logging_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_create_room_membership_request() :: %{
-    required("MembershipItemList") => list(membership_item()())
-  }
+
+      batch_create_room_membership_request() :: %{
+        required("MembershipItemList") => list(membership_item()())
+      }
+
   """
   @type batch_create_room_membership_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_app_instance_streaming_configurations_response() :: %{
-    "AppInstanceStreamingConfigurations" => list(app_instance_streaming_configuration()())
-  }
+
+      get_app_instance_streaming_configurations_response() :: %{
+        "AppInstanceStreamingConfigurations" => list(app_instance_streaming_configuration()())
+      }
+
   """
   @type get_app_instance_streaming_configurations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  retention_settings() :: %{
-    "ConversationRetentionSettings" => conversation_retention_settings(),
-    "RoomRetentionSettings" => room_retention_settings()
-  }
+
+      retention_settings() :: %{
+        "ConversationRetentionSettings" => conversation_retention_settings(),
+        "RoomRetentionSettings" => room_retention_settings()
+      }
+
   """
   @type retention_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disassociate_phone_numbers_from_voice_connector_request() :: %{
-    required("E164PhoneNumbers") => list(String.t()())
-  }
+
+      disassociate_phone_numbers_from_voice_connector_request() :: %{
+        required("E164PhoneNumbers") => list(String.t()())
+      }
+
   """
   @type disassociate_phone_numbers_from_voice_connector_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_voice_connector_proxy_request() :: %{
 
-  }
+      delete_voice_connector_proxy_request() :: %{}
+
   """
-  @type delete_voice_connector_proxy_request() :: %{String.t() => any()}
+  @type delete_voice_connector_proxy_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_voice_connector_groups_response() :: %{
-    "NextToken" => String.t(),
-    "VoiceConnectorGroups" => list(voice_connector_group()())
-  }
+
+      list_voice_connector_groups_response() :: %{
+        "NextToken" => String.t(),
+        "VoiceConnectorGroups" => list(voice_connector_group()())
+      }
+
   """
   @type list_voice_connector_groups_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  associate_phone_number_with_user_response() :: %{
 
-  }
+      associate_phone_number_with_user_response() :: %{}
+
   """
-  @type associate_phone_number_with_user_response() :: %{String.t() => any()}
+  @type associate_phone_number_with_user_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_sip_rules_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("SipMediaApplicationId") => String.t()
-  }
+
+      list_sip_rules_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("SipMediaApplicationId") => String.t()
+      }
+
   """
   @type list_sip_rules_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_channel_moderator_request() :: %{
-    optional("ChimeBearer") => String.t()
-  }
+
+      describe_channel_moderator_request() :: %{
+        optional("ChimeBearer") => String.t()
+      }
+
   """
   @type describe_channel_moderator_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  transcription_configuration() :: %{
-    "EngineTranscribeMedicalSettings" => engine_transcribe_medical_settings(),
-    "EngineTranscribeSettings" => engine_transcribe_settings()
-  }
+
+      transcription_configuration() :: %{
+        "EngineTranscribeMedicalSettings" => engine_transcribe_medical_settings(),
+        "EngineTranscribeSettings" => engine_transcribe_settings()
+      }
+
   """
   @type transcription_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  room_membership() :: %{
-    "InvitedBy" => String.t(),
-    "Member" => member(),
-    "Role" => list(any()),
-    "RoomId" => String.t(),
-    "UpdatedTimestamp" => non_neg_integer()
-  }
+
+      room_membership() :: %{
+        "InvitedBy" => String.t(),
+        "Member" => member(),
+        "Role" => list(any()),
+        "RoomId" => String.t(),
+        "UpdatedTimestamp" => non_neg_integer()
+      }
+
   """
   @type room_membership() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  channel_summary() :: %{
-    "ChannelArn" => String.t(),
-    "LastMessageTimestamp" => non_neg_integer(),
-    "Metadata" => String.t(),
-    "Mode" => list(any()),
-    "Name" => String.t(),
-    "Privacy" => list(any())
-  }
+
+      channel_summary() :: %{
+        "ChannelArn" => String.t(),
+        "LastMessageTimestamp" => non_neg_integer(),
+        "Metadata" => String.t(),
+        "Mode" => list(any()),
+        "Name" => String.t(),
+        "Privacy" => list(any())
+      }
+
   """
   @type channel_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_app_instance_retention_settings_request() :: %{
 
-  }
+      get_app_instance_retention_settings_request() :: %{}
+
   """
-  @type get_app_instance_retention_settings_request() :: %{String.t() => any()}
+  @type get_app_instance_retention_settings_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  media_capture_pipeline() :: %{
-    "ChimeSdkMeetingConfiguration" => chime_sdk_meeting_configuration(),
-    "CreatedTimestamp" => non_neg_integer(),
-    "MediaPipelineId" => String.t(),
-    "SinkArn" => String.t(),
-    "SinkType" => list(any()),
-    "SourceArn" => String.t(),
-    "SourceType" => list(any()),
-    "Status" => list(any()),
-    "UpdatedTimestamp" => non_neg_integer()
-  }
+
+      media_capture_pipeline() :: %{
+        "ChimeSdkMeetingConfiguration" => chime_sdk_meeting_configuration(),
+        "CreatedTimestamp" => non_neg_integer(),
+        "MediaPipelineId" => String.t(),
+        "SinkArn" => String.t(),
+        "SinkType" => list(any()),
+        "SourceArn" => String.t(),
+        "SourceType" => list(any()),
+        "Status" => list(any()),
+        "UpdatedTimestamp" => non_neg_integer()
+      }
+
   """
   @type media_capture_pipeline() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_channel_message_response() :: %{
-    "ChannelMessage" => channel_message()
-  }
+
+      get_channel_message_response() :: %{
+        "ChannelMessage" => channel_message()
+      }
+
   """
   @type get_channel_message_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_proxy_sessions_response() :: %{
-    "NextToken" => String.t(),
-    "ProxySessions" => list(proxy_session()())
-  }
+
+      list_proxy_sessions_response() :: %{
+        "NextToken" => String.t(),
+        "ProxySessions" => list(proxy_session()())
+      }
+
   """
   @type list_proxy_sessions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_bots_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      list_bots_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_bots_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  conflict_exception() :: %{
-    "Code" => list(any()),
-    "Message" => String.t()
-  }
+
+      conflict_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t()
+      }
+
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_channel_membership_request() :: %{
-    optional("ChimeBearer") => String.t()
-  }
+
+      describe_channel_membership_request() :: %{
+        optional("ChimeBearer") => String.t()
+      }
+
   """
   @type describe_channel_membership_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_meeting_request() :: %{
 
-  }
+      delete_meeting_request() :: %{}
+
   """
-  @type delete_meeting_request() :: %{String.t() => any()}
+  @type delete_meeting_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_room_memberships_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      list_room_memberships_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_room_memberships_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_accounts_response() :: %{
-    "Accounts" => list(account()()),
-    "NextToken" => String.t()
-  }
+
+      list_accounts_response() :: %{
+        "Accounts" => list(account()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_accounts_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_voice_connector_streaming_configuration_response() :: %{
-    "StreamingConfiguration" => streaming_configuration()
-  }
+
+      put_voice_connector_streaming_configuration_response() :: %{
+        "StreamingConfiguration" => streaming_configuration()
+      }
+
   """
   @type put_voice_connector_streaming_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  validate_e911_address_request() :: %{
-    required("AwsAccountId") => String.t(),
-    required("City") => String.t(),
-    required("Country") => String.t(),
-    required("PostalCode") => String.t(),
-    required("State") => String.t(),
-    required("StreetInfo") => String.t(),
-    required("StreetNumber") => String.t()
-  }
+
+      validate_e911_address_request() :: %{
+        required("AwsAccountId") => String.t(),
+        required("City") => String.t(),
+        required("Country") => String.t(),
+        required("PostalCode") => String.t(),
+        required("State") => String.t(),
+        required("StreetInfo") => String.t(),
+        required("StreetNumber") => String.t()
+      }
+
   """
   @type validate_e911_address_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_user_request() :: %{
 
-  }
+      get_user_request() :: %{}
+
   """
-  @type get_user_request() :: %{String.t() => any()}
+  @type get_user_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_voice_connector_groups_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      list_voice_connector_groups_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_voice_connector_groups_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disassociate_phone_numbers_from_voice_connector_response() :: %{
-    "PhoneNumberErrors" => list(phone_number_error()())
-  }
+
+      disassociate_phone_numbers_from_voice_connector_response() :: %{
+        "PhoneNumberErrors" => list(phone_number_error()())
+      }
+
   """
   @type disassociate_phone_numbers_from_voice_connector_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_voice_connector_termination_request() :: %{
 
-  }
+      get_voice_connector_termination_request() :: %{}
+
   """
-  @type get_voice_connector_termination_request() :: %{String.t() => any()}
+  @type get_voice_connector_termination_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_sip_rules_response() :: %{
-    "NextToken" => String.t(),
-    "SipRules" => list(sip_rule()())
-  }
+
+      list_sip_rules_response() :: %{
+        "NextToken" => String.t(),
+        "SipRules" => list(sip_rule()())
+      }
+
   """
   @type list_sip_rules_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  associate_phone_number_with_user_request() :: %{
-    required("E164PhoneNumber") => String.t()
-  }
+
+      associate_phone_number_with_user_request() :: %{
+        required("E164PhoneNumber") => String.t()
+      }
+
   """
   @type associate_phone_number_with_user_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disassociate_phone_numbers_from_voice_connector_group_request() :: %{
-    required("E164PhoneNumbers") => list(String.t()())
-  }
+
+      disassociate_phone_numbers_from_voice_connector_group_request() :: %{
+        required("E164PhoneNumbers") => list(String.t()())
+      }
+
   """
   @type disassociate_phone_numbers_from_voice_connector_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag() :: %{
-    "Key" => String.t(),
-    "Value" => String.t()
-  }
+
+      tag() :: %{
+        "Key" => String.t(),
+        "Value" => String.t()
+      }
+
   """
   @type tag() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_app_instance_user_response() :: %{
-    "AppInstanceUser" => app_instance_user()
-  }
+
+      describe_app_instance_user_response() :: %{
+        "AppInstanceUser" => app_instance_user()
+      }
+
   """
   @type describe_app_instance_user_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_sip_rule_request() :: %{
-    optional("Disabled") => boolean(),
-    required("Name") => String.t(),
-    required("TargetApplications") => list(sip_rule_target_application()()),
-    required("TriggerType") => list(any()),
-    required("TriggerValue") => String.t()
-  }
+
+      create_sip_rule_request() :: %{
+        optional("Disabled") => boolean(),
+        required("Name") => String.t(),
+        required("TargetApplications") => list(sip_rule_target_application()()),
+        required("TriggerType") => list(any()),
+        required("TriggerValue") => String.t()
+      }
+
   """
   @type create_sip_rule_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  engine_transcribe_medical_settings() :: %{
-    "ContentIdentificationType" => list(any()),
-    "LanguageCode" => list(any()),
-    "Region" => list(any()),
-    "Specialty" => list(any()),
-    "Type" => list(any()),
-    "VocabularyName" => String.t()
-  }
+
+      engine_transcribe_medical_settings() :: %{
+        "ContentIdentificationType" => list(any()),
+        "LanguageCode" => list(any()),
+        "Region" => list(any()),
+        "Specialty" => list(any()),
+        "Type" => list(any()),
+        "VocabularyName" => String.t()
+      }
+
   """
   @type engine_transcribe_medical_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_user_settings_request() :: %{
 
-  }
+      get_user_settings_request() :: %{}
+
   """
-  @type get_user_settings_request() :: %{String.t() => any()}
+  @type get_user_settings_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  channel_ban_summary() :: %{
-    "Member" => identity()
-  }
+
+      channel_ban_summary() :: %{
+        "Member" => identity()
+      }
+
   """
   @type channel_ban_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_voice_connector_streaming_configuration_request() :: %{
-    required("StreamingConfiguration") => streaming_configuration()
-  }
+
+      put_voice_connector_streaming_configuration_request() :: %{
+        required("StreamingConfiguration") => streaming_configuration()
+      }
+
   """
   @type put_voice_connector_streaming_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_delete_phone_number_response() :: %{
-    "PhoneNumberErrors" => list(phone_number_error()())
-  }
+
+      batch_delete_phone_number_response() :: %{
+        "PhoneNumberErrors" => list(phone_number_error()())
+      }
+
   """
   @type batch_delete_phone_number_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_voice_connector_streaming_configuration_response() :: %{
-    "StreamingConfiguration" => streaming_configuration()
-  }
+
+      get_voice_connector_streaming_configuration_response() :: %{
+        "StreamingConfiguration" => streaming_configuration()
+      }
+
   """
   @type get_voice_connector_streaming_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  proxy_session() :: %{
-    "Capabilities" => list(list(any())()),
-    "CreatedTimestamp" => non_neg_integer(),
-    "EndedTimestamp" => non_neg_integer(),
-    "ExpiryMinutes" => integer(),
-    "GeoMatchLevel" => list(any()),
-    "GeoMatchParams" => geo_match_params(),
-    "Name" => String.t(),
-    "NumberSelectionBehavior" => list(any()),
-    "Participants" => list(participant()()),
-    "ProxySessionId" => String.t(),
-    "Status" => list(any()),
-    "UpdatedTimestamp" => non_neg_integer(),
-    "VoiceConnectorId" => String.t()
-  }
+
+      proxy_session() :: %{
+        "Capabilities" => list(list(any())()),
+        "CreatedTimestamp" => non_neg_integer(),
+        "EndedTimestamp" => non_neg_integer(),
+        "ExpiryMinutes" => integer(),
+        "GeoMatchLevel" => list(any()),
+        "GeoMatchParams" => geo_match_params(),
+        "Name" => String.t(),
+        "NumberSelectionBehavior" => list(any()),
+        "Participants" => list(participant()()),
+        "ProxySessionId" => String.t(),
+        "Status" => list(any()),
+        "UpdatedTimestamp" => non_neg_integer(),
+        "VoiceConnectorId" => String.t()
+      }
+
   """
   @type proxy_session() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_phone_number_order_response() :: %{
-    "PhoneNumberOrder" => phone_number_order()
-  }
+
+      get_phone_number_order_response() :: %{
+        "PhoneNumberOrder" => phone_number_order()
+      }
+
   """
   @type get_phone_number_order_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_app_instance_response() :: %{
-    "AppInstance" => app_instance()
-  }
+
+      describe_app_instance_response() :: %{
+        "AppInstance" => app_instance()
+      }
+
   """
   @type describe_app_instance_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_channel_response() :: %{
-    "Channel" => channel()
-  }
+
+      describe_channel_response() :: %{
+        "Channel" => channel()
+      }
+
   """
   @type describe_channel_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_meeting_tags_request() :: %{
 
-  }
+      list_meeting_tags_request() :: %{}
+
   """
-  @type list_meeting_tags_request() :: %{String.t() => any()}
+  @type list_meeting_tags_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  delete_channel_ban_request() :: %{
-    optional("ChimeBearer") => String.t()
-  }
+
+      delete_channel_ban_request() :: %{
+        optional("ChimeBearer") => String.t()
+      }
+
   """
   @type delete_channel_ban_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_app_instance_user_response() :: %{
-    "AppInstanceUserArn" => String.t()
-  }
+
+      update_app_instance_user_response() :: %{
+        "AppInstanceUserArn" => String.t()
+      }
+
   """
   @type update_app_instance_user_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_room_membership_response() :: %{
-    "RoomMembership" => room_membership()
-  }
+
+      create_room_membership_response() :: %{
+        "RoomMembership" => room_membership()
+      }
+
   """
   @type create_room_membership_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_app_instance_users_response() :: %{
-    "AppInstanceArn" => String.t(),
-    "AppInstanceUsers" => list(app_instance_user_summary()()),
-    "NextToken" => String.t()
-  }
+
+      list_app_instance_users_response() :: %{
+        "AppInstanceArn" => String.t(),
+        "AppInstanceUsers" => list(app_instance_user_summary()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_app_instance_users_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_phone_numbers_request() :: %{
-    optional("FilterName") => list(any()),
-    optional("FilterValue") => String.t(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("ProductType") => list(any()),
-    optional("Status") => list(any())
-  }
+
+      list_phone_numbers_request() :: %{
+        optional("FilterName") => list(any()),
+        optional("FilterValue") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("ProductType") => list(any()),
+        optional("Status") => list(any())
+      }
+
   """
   @type list_phone_numbers_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_limit_exceeded_exception() :: %{
-    "Code" => list(any()),
-    "Message" => String.t()
-  }
+
+      resource_limit_exceeded_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t()
+      }
+
   """
   @type resource_limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  app_instance_summary() :: %{
-    "AppInstanceArn" => String.t(),
-    "Metadata" => String.t(),
-    "Name" => String.t()
-  }
+
+      app_instance_summary() :: %{
+        "AppInstanceArn" => String.t(),
+        "Metadata" => String.t(),
+        "Name" => String.t()
+      }
+
   """
   @type app_instance_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_voice_connector_request() :: %{
-    optional("AwsRegion") => list(any()),
-    required("Name") => String.t(),
-    required("RequireEncryption") => boolean()
-  }
+
+      create_voice_connector_request() :: %{
+        optional("AwsRegion") => list(any()),
+        required("Name") => String.t(),
+        required("RequireEncryption") => boolean()
+      }
+
   """
   @type create_voice_connector_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_phone_number_request() :: %{
 
-  }
+      get_phone_number_request() :: %{}
+
   """
-  @type get_phone_number_request() :: %{String.t() => any()}
+  @type get_phone_number_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_channel_bans_response() :: %{
-    "ChannelArn" => String.t(),
-    "ChannelBans" => list(channel_ban_summary()()),
-    "NextToken" => String.t()
-  }
+
+      list_channel_bans_response() :: %{
+        "ChannelArn" => String.t(),
+        "ChannelBans" => list(channel_ban_summary()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_channel_bans_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_users_response() :: %{
-    "NextToken" => String.t(),
-    "Users" => list(user()())
-  }
+
+      list_users_response() :: %{
+        "NextToken" => String.t(),
+        "Users" => list(user()())
+      }
+
   """
   @type list_users_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_meeting_request() :: %{
-    optional("ExternalMeetingId") => String.t(),
-    optional("MediaRegion") => String.t(),
-    optional("MeetingHostId") => String.t(),
-    optional("NotificationsConfiguration") => meeting_notification_configuration(),
-    optional("Tags") => list(tag()()),
-    required("ClientRequestToken") => String.t()
-  }
+
+      create_meeting_request() :: %{
+        optional("ExternalMeetingId") => String.t(),
+        optional("MediaRegion") => String.t(),
+        optional("MeetingHostId") => String.t(),
+        optional("NotificationsConfiguration") => meeting_notification_configuration(),
+        optional("Tags") => list(tag()()),
+        required("ClientRequestToken") => String.t()
+      }
+
   """
   @type create_meeting_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  not_found_exception() :: %{
-    "Code" => list(any()),
-    "Message" => String.t()
-  }
+
+      not_found_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t()
+      }
+
   """
   @type not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_channel_request() :: %{
-    optional("ChimeBearer") => String.t()
-  }
+
+      describe_channel_request() :: %{
+        optional("ChimeBearer") => String.t()
+      }
+
   """
   @type describe_channel_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  account() :: %{
-    "AccountId" => String.t(),
-    "AccountStatus" => list(any()),
-    "AccountType" => list(any()),
-    "AwsAccountId" => String.t(),
-    "CreatedTimestamp" => non_neg_integer(),
-    "DefaultLicense" => list(any()),
-    "Name" => String.t(),
-    "SigninDelegateGroups" => list(signin_delegate_group()()),
-    "SupportedLicenses" => list(list(any())())
-  }
+
+      account() :: %{
+        "AccountId" => String.t(),
+        "AccountStatus" => list(any()),
+        "AccountType" => list(any()),
+        "AwsAccountId" => String.t(),
+        "CreatedTimestamp" => non_neg_integer(),
+        "DefaultLicense" => list(any()),
+        "Name" => String.t(),
+        "SigninDelegateGroups" => list(signin_delegate_group()()),
+        "SupportedLicenses" => list(list(any())())
+      }
+
   """
   @type account() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_app_instance_streaming_configurations_response() :: %{
-    "AppInstanceStreamingConfigurations" => list(app_instance_streaming_configuration()())
-  }
+
+      put_app_instance_streaming_configurations_response() :: %{
+        "AppInstanceStreamingConfigurations" => list(app_instance_streaming_configuration()())
+      }
+
   """
   @type put_app_instance_streaming_configurations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_voice_connector_proxy_request() :: %{
-    optional("Disabled") => boolean(),
-    optional("FallBackPhoneNumber") => String.t(),
-    required("DefaultSessionExpiryMinutes") => integer(),
-    required("PhoneNumberPoolCountries") => list(String.t()())
-  }
+
+      put_voice_connector_proxy_request() :: %{
+        optional("Disabled") => boolean(),
+        optional("FallBackPhoneNumber") => String.t(),
+        required("DefaultSessionExpiryMinutes") => integer(),
+        required("PhoneNumberPoolCountries") => list(String.t()())
+      }
+
   """
   @type put_voice_connector_proxy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  associate_phone_numbers_with_voice_connector_response() :: %{
-    "PhoneNumberErrors" => list(phone_number_error()())
-  }
+
+      associate_phone_numbers_with_voice_connector_response() :: %{
+        "PhoneNumberErrors" => list(phone_number_error()())
+      }
+
   """
   @type associate_phone_numbers_with_voice_connector_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_voice_connector_logging_configuration_request() :: %{
-    required("LoggingConfiguration") => logging_configuration()
-  }
+
+      put_voice_connector_logging_configuration_request() :: %{
+        required("LoggingConfiguration") => logging_configuration()
+      }
+
   """
   @type put_voice_connector_logging_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_channel_memberships_request() :: %{
-    optional("ChimeBearer") => String.t(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("Type") => list(any())
-  }
+
+      list_channel_memberships_request() :: %{
+        optional("ChimeBearer") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("Type") => list(any())
+      }
+
   """
   @type list_channel_memberships_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  channel_membership_summary() :: %{
-    "Member" => identity()
-  }
+
+      channel_membership_summary() :: %{
+        "Member" => identity()
+      }
+
   """
   @type channel_membership_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  phone_number_order() :: %{
-    "CreatedTimestamp" => non_neg_integer(),
-    "OrderedPhoneNumbers" => list(ordered_phone_number()()),
-    "PhoneNumberOrderId" => String.t(),
-    "ProductType" => list(any()),
-    "Status" => list(any()),
-    "UpdatedTimestamp" => non_neg_integer()
-  }
+
+      phone_number_order() :: %{
+        "CreatedTimestamp" => non_neg_integer(),
+        "OrderedPhoneNumbers" => list(ordered_phone_number()()),
+        "PhoneNumberOrderId" => String.t(),
+        "ProductType" => list(any()),
+        "Status" => list(any()),
+        "UpdatedTimestamp" => non_neg_integer()
+      }
+
   """
   @type phone_number_order() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  app_instance_user() :: %{
-    "AppInstanceUserArn" => String.t(),
-    "CreatedTimestamp" => non_neg_integer(),
-    "LastUpdatedTimestamp" => non_neg_integer(),
-    "Metadata" => String.t(),
-    "Name" => String.t()
-  }
+
+      app_instance_user() :: %{
+        "AppInstanceUserArn" => String.t(),
+        "CreatedTimestamp" => non_neg_integer(),
+        "LastUpdatedTimestamp" => non_neg_integer(),
+        "Metadata" => String.t(),
+        "Name" => String.t()
+      }
+
   """
   @type app_instance_user() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_attendee_request_item() :: %{
-    "ExternalUserId" => String.t(),
-    "Tags" => list(tag()())
-  }
+
+      create_attendee_request_item() :: %{
+        "ExternalUserId" => String.t(),
+        "Tags" => list(tag()())
+      }
+
   """
   @type create_attendee_request_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_channel_request() :: %{
-    optional("ChimeBearer") => String.t(),
-    optional("Metadata") => String.t(),
-    optional("Mode") => list(any()),
-    optional("Privacy") => list(any()),
-    optional("Tags") => list(tag()()),
-    required("AppInstanceArn") => String.t(),
-    required("ClientRequestToken") => String.t(),
-    required("Name") => String.t()
-  }
+
+      create_channel_request() :: %{
+        optional("ChimeBearer") => String.t(),
+        optional("Metadata") => String.t(),
+        optional("Mode") => list(any()),
+        optional("Privacy") => list(any()),
+        optional("Tags") => list(tag()()),
+        required("AppInstanceArn") => String.t(),
+        required("ClientRequestToken") => String.t(),
+        required("Name") => String.t()
+      }
+
   """
   @type create_channel_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  audio_artifacts_configuration() :: %{
-    "MuxType" => list(any())
-  }
+
+      audio_artifacts_configuration() :: %{
+        "MuxType" => list(any())
+      }
+
   """
   @type audio_artifacts_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_messaging_session_endpoint_request() :: %{
 
-  }
+      get_messaging_session_endpoint_request() :: %{}
+
   """
-  @type get_messaging_session_endpoint_request() :: %{String.t() => any()}
+  @type get_messaging_session_endpoint_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_media_capture_pipelines_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      list_media_capture_pipelines_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_media_capture_pipelines_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_retention_settings_request() :: %{
-    required("RetentionSettings") => retention_settings()
-  }
+
+      put_retention_settings_request() :: %{
+        required("RetentionSettings") => retention_settings()
+      }
+
   """
   @type put_retention_settings_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_phone_number_request() :: %{
 
-  }
+      delete_phone_number_request() :: %{}
+
   """
-  @type delete_phone_number_request() :: %{String.t() => any()}
+  @type delete_phone_number_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_attendee_response() :: %{
-    "Attendee" => attendee()
-  }
+
+      create_attendee_response() :: %{
+        "Attendee" => attendee()
+      }
+
   """
   @type create_attendee_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  app_instance_streaming_configuration() :: %{
-    "AppInstanceDataType" => list(any()),
-    "ResourceArn" => String.t()
-  }
+
+      app_instance_streaming_configuration() :: %{
+        "AppInstanceDataType" => list(any()),
+        "ResourceArn" => String.t()
+      }
+
   """
   @type app_instance_streaming_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disassociate_signin_delegate_groups_from_account_request() :: %{
-    required("GroupNames") => list(String.t()())
-  }
+
+      disassociate_signin_delegate_groups_from_account_request() :: %{
+        required("GroupNames") => list(String.t()())
+      }
+
   """
   @type disassociate_signin_delegate_groups_from_account_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_response() :: %{
-    "Tags" => list(tag()())
-  }
+
+      list_tags_for_resource_response() :: %{
+        "Tags" => list(tag()())
+      }
+
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_room_membership_request() :: %{
-    optional("Role") => list(any())
-  }
+
+      update_room_membership_request() :: %{
+        optional("Role") => list(any())
+      }
+
   """
   @type update_room_membership_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  sip_media_application_endpoint() :: %{
-    "LambdaArn" => String.t()
-  }
+
+      sip_media_application_endpoint() :: %{
+        "LambdaArn" => String.t()
+      }
+
   """
   @type sip_media_application_endpoint() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disassociate_phone_numbers_from_voice_connector_group_response() :: %{
-    "PhoneNumberErrors" => list(phone_number_error()())
-  }
+
+      disassociate_phone_numbers_from_voice_connector_group_response() :: %{
+        "PhoneNumberErrors" => list(phone_number_error()())
+      }
+
   """
   @type disassociate_phone_numbers_from_voice_connector_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  channel_retention_settings() :: %{
-    "RetentionDays" => integer()
-  }
+
+      channel_retention_settings() :: %{
+        "RetentionDays" => integer()
+      }
+
   """
   @type channel_retention_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_global_settings_response() :: %{
-    "BusinessCalling" => business_calling_settings(),
-    "VoiceConnector" => voice_connector_settings()
-  }
+
+      get_global_settings_response() :: %{
+        "BusinessCalling" => business_calling_settings(),
+        "VoiceConnector" => voice_connector_settings()
+      }
+
   """
   @type get_global_settings_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  voice_connector() :: %{
-    "AwsRegion" => list(any()),
-    "CreatedTimestamp" => non_neg_integer(),
-    "Name" => String.t(),
-    "OutboundHostName" => String.t(),
-    "RequireEncryption" => boolean(),
-    "UpdatedTimestamp" => non_neg_integer(),
-    "VoiceConnectorArn" => String.t(),
-    "VoiceConnectorId" => String.t()
-  }
+
+      voice_connector() :: %{
+        "AwsRegion" => list(any()),
+        "CreatedTimestamp" => non_neg_integer(),
+        "Name" => String.t(),
+        "OutboundHostName" => String.t(),
+        "RequireEncryption" => boolean(),
+        "UpdatedTimestamp" => non_neg_integer(),
+        "VoiceConnectorArn" => String.t(),
+        "VoiceConnectorId" => String.t()
+      }
+
   """
   @type voice_connector() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_proxy_sessions_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("Status") => list(any())
-  }
+
+      list_proxy_sessions_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("Status") => list(any())
+      }
+
   """
   @type list_proxy_sessions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  source_configuration() :: %{
-    "SelectedVideoStreams" => selected_video_streams()
-  }
+
+      source_configuration() :: %{
+        "SelectedVideoStreams" => selected_video_streams()
+      }
+
   """
   @type source_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  origination_route() :: %{
-    "Host" => String.t(),
-    "Port" => integer(),
-    "Priority" => integer(),
-    "Protocol" => list(any()),
-    "Weight" => integer()
-  }
+
+      origination_route() :: %{
+        "Host" => String.t(),
+        "Port" => integer(),
+        "Priority" => integer(),
+        "Protocol" => list(any()),
+        "Weight" => integer()
+      }
+
   """
   @type origination_route() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_account_settings_request() :: %{
-    required("AccountSettings") => account_settings()
-  }
+
+      update_account_settings_request() :: %{
+        required("AccountSettings") => account_settings()
+      }
+
   """
   @type update_account_settings_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  service_unavailable_exception() :: %{
-    "Code" => list(any()),
-    "Message" => String.t()
-  }
+
+      service_unavailable_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t()
+      }
+
   """
   @type service_unavailable_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_channel_memberships_for_app_instance_user_response() :: %{
-    "ChannelMemberships" => list(channel_membership_for_app_instance_user_summary()()),
-    "NextToken" => String.t()
-  }
+
+      list_channel_memberships_for_app_instance_user_response() :: %{
+        "ChannelMemberships" => list(channel_membership_for_app_instance_user_summary()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_channel_memberships_for_app_instance_user_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  associate_signin_delegate_groups_with_account_response() :: %{
 
-  }
+      associate_signin_delegate_groups_with_account_response() :: %{}
+
   """
-  @type associate_signin_delegate_groups_with_account_response() :: %{String.t() => any()}
+  @type associate_signin_delegate_groups_with_account_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  streaming_notification_target() :: %{
-    "NotificationTarget" => list(any())
-  }
+
+      streaming_notification_target() :: %{
+        "NotificationTarget" => list(any())
+      }
+
   """
   @type streaming_notification_target() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  voice_connector_item() :: %{
-    "Priority" => integer(),
-    "VoiceConnectorId" => String.t()
-  }
+
+      voice_connector_item() :: %{
+        "Priority" => integer(),
+        "VoiceConnectorId" => String.t()
+      }
+
   """
   @type voice_connector_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_app_instance_retention_settings_response() :: %{
-    "AppInstanceRetentionSettings" => app_instance_retention_settings(),
-    "InitiateDeletionTimestamp" => non_neg_integer()
-  }
+
+      get_app_instance_retention_settings_response() :: %{
+        "AppInstanceRetentionSettings" => app_instance_retention_settings(),
+        "InitiateDeletionTimestamp" => non_neg_integer()
+      }
+
   """
   @type get_app_instance_retention_settings_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_channels_response() :: %{
-    "Channels" => list(channel_summary()()),
-    "NextToken" => String.t()
-  }
+
+      list_channels_response() :: %{
+        "Channels" => list(channel_summary()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_channels_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_channel_membership_request() :: %{
-    optional("ChimeBearer") => String.t(),
-    required("MemberArn") => String.t(),
-    required("Type") => list(any())
-  }
+
+      create_channel_membership_request() :: %{
+        optional("ChimeBearer") => String.t(),
+        required("MemberArn") => String.t(),
+        required("Type") => list(any())
+      }
+
   """
   @type create_channel_membership_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_sip_media_application_logging_configuration_response() :: %{
-    "SipMediaApplicationLoggingConfiguration" => sip_media_application_logging_configuration()
-  }
+
+      put_sip_media_application_logging_configuration_response() :: %{
+        "SipMediaApplicationLoggingConfiguration" => sip_media_application_logging_configuration()
+      }
+
   """
   @type put_sip_media_application_logging_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_voice_connector_group_response() :: %{
-    "VoiceConnectorGroup" => voice_connector_group()
-  }
+
+      update_voice_connector_group_response() :: %{
+        "VoiceConnectorGroup" => voice_connector_group()
+      }
+
   """
   @type update_voice_connector_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  chime_sdk_meeting_configuration() :: %{
-    "ArtifactsConfiguration" => artifacts_configuration(),
-    "SourceConfiguration" => source_configuration()
-  }
+
+      chime_sdk_meeting_configuration() :: %{
+        "ArtifactsConfiguration" => artifacts_configuration(),
+        "SourceConfiguration" => source_configuration()
+      }
+
   """
   @type chime_sdk_meeting_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_phone_number_response() :: %{
-    "PhoneNumber" => phone_number()
-  }
+
+      get_phone_number_response() :: %{
+        "PhoneNumber" => phone_number()
+      }
+
   """
   @type get_phone_number_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_messaging_session_endpoint_response() :: %{
-    "Endpoint" => messaging_session_endpoint()
-  }
+
+      get_messaging_session_endpoint_response() :: %{
+        "Endpoint" => messaging_session_endpoint()
+      }
+
   """
   @type get_messaging_session_endpoint_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_voice_connector_termination_credentials_response() :: %{
-    "Usernames" => list(String.t()())
-  }
+
+      list_voice_connector_termination_credentials_response() :: %{
+        "Usernames" => list(String.t()())
+      }
+
   """
   @type list_voice_connector_termination_credentials_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_channel_request() :: %{
-    optional("ChimeBearer") => String.t(),
-    optional("Metadata") => String.t(),
-    required("Mode") => list(any()),
-    required("Name") => String.t()
-  }
+
+      update_channel_request() :: %{
+        optional("ChimeBearer") => String.t(),
+        optional("Metadata") => String.t(),
+        required("Mode") => list(any()),
+        required("Name") => String.t()
+      }
+
   """
   @type update_channel_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_global_settings_request() :: %{
-    optional("BusinessCalling") => business_calling_settings(),
-    optional("VoiceConnector") => voice_connector_settings()
-  }
+
+      update_global_settings_request() :: %{
+        optional("BusinessCalling") => business_calling_settings(),
+        optional("VoiceConnector") => voice_connector_settings()
+      }
+
   """
   @type update_global_settings_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_channel_read_marker_request() :: %{
-    optional("ChimeBearer") => String.t()
-  }
+
+      update_channel_read_marker_request() :: %{
+        optional("ChimeBearer") => String.t()
+      }
+
   """
   @type update_channel_read_marker_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_user_settings_request() :: %{
-    required("UserSettings") => user_settings()
-  }
+
+      update_user_settings_request() :: %{
+        required("UserSettings") => user_settings()
+      }
+
   """
   @type update_user_settings_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_account_request() :: %{
-    optional("DefaultLicense") => list(any()),
-    optional("Name") => String.t()
-  }
+
+      update_account_request() :: %{
+        optional("DefaultLicense") => list(any()),
+        optional("Name") => String.t()
+      }
+
   """
   @type update_account_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_meeting_request() :: %{
 
-  }
+      get_meeting_request() :: %{}
+
   """
-  @type get_meeting_request() :: %{String.t() => any()}
+  @type get_meeting_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  user_error() :: %{
-    "ErrorCode" => list(any()),
-    "ErrorMessage" => String.t(),
-    "UserId" => String.t()
-  }
+
+      user_error() :: %{
+        "ErrorCode" => list(any()),
+        "ErrorMessage" => String.t(),
+        "UserId" => String.t()
+      }
+
   """
   @type user_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  app_instance_admin() :: %{
-    "Admin" => identity(),
-    "AppInstanceArn" => String.t(),
-    "CreatedTimestamp" => non_neg_integer()
-  }
+
+      app_instance_admin() :: %{
+        "Admin" => identity(),
+        "AppInstanceArn" => String.t(),
+        "CreatedTimestamp" => non_neg_integer()
+      }
+
   """
   @type app_instance_admin() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  channel_moderated_by_app_instance_user_summary() :: %{
-    "ChannelSummary" => channel_summary()
-  }
+
+      channel_moderated_by_app_instance_user_summary() :: %{
+        "ChannelSummary" => channel_summary()
+      }
+
   """
   @type channel_moderated_by_app_instance_user_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_proxy_session_request() :: %{
-    optional("ExpiryMinutes") => integer(),
-    optional("GeoMatchLevel") => list(any()),
-    optional("GeoMatchParams") => geo_match_params(),
-    optional("Name") => String.t(),
-    optional("NumberSelectionBehavior") => list(any()),
-    required("Capabilities") => list(list(any())()),
-    required("ParticipantPhoneNumbers") => list(String.t()())
-  }
+
+      create_proxy_session_request() :: %{
+        optional("ExpiryMinutes") => integer(),
+        optional("GeoMatchLevel") => list(any()),
+        optional("GeoMatchParams") => geo_match_params(),
+        optional("Name") => String.t(),
+        optional("NumberSelectionBehavior") => list(any()),
+        required("Capabilities") => list(list(any())()),
+        required("ParticipantPhoneNumbers") => list(String.t()())
+      }
+
   """
   @type create_proxy_session_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  candidate_address() :: %{
-    "city" => String.t(),
-    "country" => String.t(),
-    "postalCode" => String.t(),
-    "postalCodePlus4" => String.t(),
-    "state" => String.t(),
-    "streetInfo" => String.t(),
-    "streetNumber" => String.t()
-  }
+
+      candidate_address() :: %{
+        "city" => String.t(),
+        "country" => String.t(),
+        "postalCode" => String.t(),
+        "postalCodePlus4" => String.t(),
+        "state" => String.t(),
+        "streetInfo" => String.t(),
+        "streetNumber" => String.t()
+      }
+
   """
   @type candidate_address() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_sip_rule_request() :: %{
 
-  }
+      get_sip_rule_request() :: %{}
+
   """
-  @type get_sip_rule_request() :: %{String.t() => any()}
+  @type get_sip_rule_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  channel_message() :: %{
-    "ChannelArn" => String.t(),
-    "Content" => String.t(),
-    "CreatedTimestamp" => non_neg_integer(),
-    "LastEditedTimestamp" => non_neg_integer(),
-    "LastUpdatedTimestamp" => non_neg_integer(),
-    "MessageId" => String.t(),
-    "Metadata" => String.t(),
-    "Persistence" => list(any()),
-    "Redacted" => boolean(),
-    "Sender" => identity(),
-    "Type" => list(any())
-  }
+
+      channel_message() :: %{
+        "ChannelArn" => String.t(),
+        "Content" => String.t(),
+        "CreatedTimestamp" => non_neg_integer(),
+        "LastEditedTimestamp" => non_neg_integer(),
+        "LastUpdatedTimestamp" => non_neg_integer(),
+        "MessageId" => String.t(),
+        "Metadata" => String.t(),
+        "Persistence" => list(any()),
+        "Redacted" => boolean(),
+        "Sender" => identity(),
+        "Type" => list(any())
+      }
+
   """
   @type channel_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_voice_connector_proxy_request() :: %{
 
-  }
+      get_voice_connector_proxy_request() :: %{}
+
   """
-  @type get_voice_connector_proxy_request() :: %{String.t() => any()}
+  @type get_voice_connector_proxy_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  delete_account_request() :: %{
 
-  }
+      delete_account_request() :: %{}
+
   """
-  @type delete_account_request() :: %{String.t() => any()}
+  @type delete_account_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  redact_conversation_message_request() :: %{
 
-  }
+      redact_conversation_message_request() :: %{}
+
   """
-  @type redact_conversation_message_request() :: %{String.t() => any()}
+  @type redact_conversation_message_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  messaging_session_endpoint() :: %{
-    "Url" => String.t()
-  }
+
+      messaging_session_endpoint() :: %{
+        "Url" => String.t()
+      }
+
   """
   @type messaging_session_endpoint() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_channel_message_response() :: %{
-    "ChannelArn" => String.t(),
-    "MessageId" => String.t()
-  }
+
+      update_channel_message_response() :: %{
+        "ChannelArn" => String.t(),
+        "MessageId" => String.t()
+      }
+
   """
   @type update_channel_message_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_sip_media_applications_response() :: %{
-    "NextToken" => String.t(),
-    "SipMediaApplications" => list(sip_media_application()())
-  }
+
+      list_sip_media_applications_response() :: %{
+        "NextToken" => String.t(),
+        "SipMediaApplications" => list(sip_media_application()())
+      }
+
   """
   @type list_sip_media_applications_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_account_response() :: %{
 
-  }
+      delete_account_response() :: %{}
+
   """
-  @type delete_account_response() :: %{String.t() => any()}
+  @type delete_account_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  alexa_for_business_metadata() :: %{
-    "AlexaForBusinessRoomArn" => String.t(),
-    "IsAlexaForBusinessEnabled" => boolean()
-  }
+
+      alexa_for_business_metadata() :: %{
+        "AlexaForBusinessRoomArn" => String.t(),
+        "IsAlexaForBusinessEnabled" => boolean()
+      }
+
   """
   @type alexa_for_business_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_sip_media_application_logging_configuration_request() :: %{
 
-  }
+      get_sip_media_application_logging_configuration_request() :: %{}
+
   """
-  @type get_sip_media_application_logging_configuration_request() :: %{String.t() => any()}
+  @type get_sip_media_application_logging_configuration_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_account_request() :: %{
-    required("Name") => String.t()
-  }
+
+      create_account_request() :: %{
+        required("Name") => String.t()
+      }
+
   """
   @type create_account_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invite_users_response() :: %{
-    "Invites" => list(invite()())
-  }
+
+      invite_users_response() :: %{
+        "Invites" => list(invite()())
+      }
+
   """
   @type invite_users_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stop_meeting_transcription_response() :: %{
 
-  }
+      stop_meeting_transcription_response() :: %{}
+
   """
-  @type stop_meeting_transcription_response() :: %{String.t() => any()}
+  @type stop_meeting_transcription_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_room_request() :: %{
 
-  }
+      get_room_request() :: %{}
+
   """
-  @type get_room_request() :: %{String.t() => any()}
+  @type get_room_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  sip_media_application_logging_configuration() :: %{
-    "EnableSipMediaApplicationMessageLogs" => boolean()
-  }
+
+      sip_media_application_logging_configuration() :: %{
+        "EnableSipMediaApplicationMessageLogs" => boolean()
+      }
+
   """
   @type sip_media_application_logging_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_bots_response() :: %{
-    "Bots" => list(bot()()),
-    "NextToken" => String.t()
-  }
+
+      list_bots_response() :: %{
+        "Bots" => list(bot()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_bots_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_proxy_session_response() :: %{
-    "ProxySession" => proxy_session()
-  }
+
+      get_proxy_session_response() :: %{
+        "ProxySession" => proxy_session()
+      }
+
   """
   @type get_proxy_session_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_attendee_request() :: %{
-    required("TagKeys") => list(String.t()())
-  }
+
+      untag_attendee_request() :: %{
+        required("TagKeys") => list(String.t()())
+      }
+
   """
   @type untag_attendee_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_channel_message_request() :: %{
-    optional("ChimeBearer") => String.t()
-  }
+
+      delete_channel_message_request() :: %{
+        optional("ChimeBearer") => String.t()
+      }
+
   """
   @type delete_channel_message_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_sip_rule_response() :: %{
-    "SipRule" => sip_rule()
-  }
+
+      update_sip_rule_response() :: %{
+        "SipRule" => sip_rule()
+      }
+
   """
   @type update_sip_rule_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disassociate_phone_number_from_user_request() :: %{
 
-  }
+      disassociate_phone_number_from_user_request() :: %{}
+
   """
-  @type disassociate_phone_number_from_user_request() :: %{String.t() => any()}
+  @type disassociate_phone_number_from_user_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  put_app_instance_streaming_configurations_request() :: %{
-    required("AppInstanceStreamingConfigurations") => list(app_instance_streaming_configuration()())
-  }
+
+      put_app_instance_streaming_configurations_request() :: %{
+        required("AppInstanceStreamingConfigurations") => list(app_instance_streaming_configuration()())
+      }
+
   """
   @type put_app_instance_streaming_configurations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_channel_moderators_request() :: %{
-    optional("ChimeBearer") => String.t(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      list_channel_moderators_request() :: %{
+        optional("ChimeBearer") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_channel_moderators_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_attendee_error() :: %{
-    "ErrorCode" => String.t(),
-    "ErrorMessage" => String.t(),
-    "ExternalUserId" => String.t()
-  }
+
+      create_attendee_error() :: %{
+        "ErrorCode" => String.t(),
+        "ErrorMessage" => String.t(),
+        "ExternalUserId" => String.t()
+      }
+
   """
   @type create_attendee_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  unprocessable_entity_exception() :: %{
-    "Code" => list(any()),
-    "Message" => String.t()
-  }
+
+      unprocessable_entity_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t()
+      }
+
   """
   @type unprocessable_entity_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_voice_connector_group_request() :: %{
-    optional("VoiceConnectorItems") => list(voice_connector_item()()),
-    required("Name") => String.t()
-  }
+
+      create_voice_connector_group_request() :: %{
+        optional("VoiceConnectorItems") => list(voice_connector_item()()),
+        required("Name") => String.t()
+      }
+
   """
   @type create_voice_connector_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  access_denied_exception() :: %{
-    "Code" => list(any()),
-    "Message" => String.t()
-  }
+
+      access_denied_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t()
+      }
+
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_create_channel_membership_request() :: %{
-    optional("ChimeBearer") => String.t(),
-    optional("Type") => list(any()),
-    required("MemberArns") => list(String.t()())
-  }
+
+      batch_create_channel_membership_request() :: %{
+        optional("ChimeBearer") => String.t(),
+        optional("Type") => list(any()),
+        required("MemberArns") => list(String.t()())
+      }
+
   """
   @type batch_create_channel_membership_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_room_response() :: %{
-    "Room" => room()
-  }
+
+      get_room_response() :: %{
+        "Room" => room()
+      }
+
   """
   @type get_room_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_app_instance_user_request() :: %{
-    optional("Metadata") => String.t(),
-    required("Name") => String.t()
-  }
+
+      update_app_instance_user_request() :: %{
+        optional("Metadata") => String.t(),
+        required("Name") => String.t()
+      }
+
   """
   @type update_app_instance_user_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_app_instance_admin_response() :: %{
-    "AppInstanceAdmin" => app_instance_admin()
-  }
+
+      describe_app_instance_admin_response() :: %{
+        "AppInstanceAdmin" => app_instance_admin()
+      }
+
   """
   @type describe_app_instance_admin_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_sip_media_application_call_response() :: %{
-    "SipMediaApplicationCall" => sip_media_application_call()
-  }
+
+      create_sip_media_application_call_response() :: %{
+        "SipMediaApplicationCall" => sip_media_application_call()
+      }
+
   """
   @type create_sip_media_application_call_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_media_capture_pipeline_request() :: %{
-    optional("ChimeSdkMeetingConfiguration") => chime_sdk_meeting_configuration(),
-    optional("ClientRequestToken") => String.t(),
-    required("SinkArn") => String.t(),
-    required("SinkType") => list(any()),
-    required("SourceArn") => String.t(),
-    required("SourceType") => list(any())
-  }
+
+      create_media_capture_pipeline_request() :: %{
+        optional("ChimeSdkMeetingConfiguration") => chime_sdk_meeting_configuration(),
+        optional("ClientRequestToken") => String.t(),
+        required("SinkArn") => String.t(),
+        required("SinkType") => list(any()),
+        required("SourceArn") => String.t(),
+        required("SourceType") => list(any())
+      }
+
   """
   @type create_media_capture_pipeline_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_app_instance_request() :: %{
-    optional("Metadata") => String.t(),
-    optional("Tags") => list(tag()()),
-    required("ClientRequestToken") => String.t(),
-    required("Name") => String.t()
-  }
+
+      create_app_instance_request() :: %{
+        optional("Metadata") => String.t(),
+        optional("Tags") => list(tag()()),
+        required("ClientRequestToken") => String.t(),
+        required("Name") => String.t()
+      }
+
   """
   @type create_app_instance_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  phone_number_error() :: %{
-    "ErrorCode" => list(any()),
-    "ErrorMessage" => String.t(),
-    "PhoneNumberId" => String.t()
-  }
+
+      phone_number_error() :: %{
+        "ErrorCode" => list(any()),
+        "ErrorMessage" => String.t(),
+        "PhoneNumberId" => String.t()
+      }
+
   """
   @type phone_number_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_attendee_request() :: %{
 
-  }
+      get_attendee_request() :: %{}
+
   """
-  @type get_attendee_request() :: %{String.t() => any()}
+  @type get_attendee_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  update_phone_number_request_item() :: %{
-    "CallingName" => String.t(),
-    "PhoneNumberId" => String.t(),
-    "ProductType" => list(any())
-  }
+
+      update_phone_number_request_item() :: %{
+        "CallingName" => String.t(),
+        "PhoneNumberId" => String.t(),
+        "ProductType" => list(any())
+      }
+
   """
   @type update_phone_number_request_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_channel_membership_for_app_instance_user_request() :: %{
-    optional("ChimeBearer") => String.t(),
-    required("AppInstanceUserArn") => String.t()
-  }
+
+      describe_channel_membership_for_app_instance_user_request() :: %{
+        optional("ChimeBearer") => String.t(),
+        required("AppInstanceUserArn") => String.t()
+      }
+
   """
   @type describe_channel_membership_for_app_instance_user_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_channel_membership_request() :: %{
-    optional("ChimeBearer") => String.t()
-  }
+
+      delete_channel_membership_request() :: %{
+        optional("ChimeBearer") => String.t()
+      }
+
   """
   @type delete_channel_membership_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  account_settings() :: %{
-    "DisableRemoteControl" => boolean(),
-    "EnableDialOut" => boolean()
-  }
+
+      account_settings() :: %{
+        "DisableRemoteControl" => boolean(),
+        "EnableDialOut" => boolean()
+      }
+
   """
   @type account_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_attendee_tags_request() :: %{
 
-  }
+      list_attendee_tags_request() :: %{}
+
   """
-  @type list_attendee_tags_request() :: %{String.t() => any()}
+  @type list_attendee_tags_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  app_instance_admin_summary() :: %{
-    "Admin" => identity()
-  }
+
+      app_instance_admin_summary() :: %{
+        "Admin" => identity()
+      }
+
   """
   @type app_instance_admin_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_suspend_user_request() :: %{
-    required("UserIdList") => list(String.t()())
-  }
+
+      batch_suspend_user_request() :: %{
+        required("UserIdList") => list(String.t()())
+      }
+
   """
   @type batch_suspend_user_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_channel_messages_request() :: %{
-    optional("ChimeBearer") => String.t(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("NotAfter") => non_neg_integer(),
-    optional("NotBefore") => non_neg_integer(),
-    optional("SortOrder") => list(any())
-  }
+
+      list_channel_messages_request() :: %{
+        optional("ChimeBearer") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("NotAfter") => non_neg_integer(),
+        optional("NotBefore") => non_neg_integer(),
+        optional("SortOrder") => list(any())
+      }
+
   """
   @type list_channel_messages_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  associate_phone_numbers_with_voice_connector_group_response() :: %{
-    "PhoneNumberErrors" => list(phone_number_error()())
-  }
+
+      associate_phone_numbers_with_voice_connector_group_response() :: %{
+        "PhoneNumberErrors" => list(phone_number_error()())
+      }
+
   """
   @type associate_phone_numbers_with_voice_connector_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_bot_request() :: %{
-    optional("Disabled") => boolean()
-  }
+
+      update_bot_request() :: %{
+        optional("Disabled") => boolean()
+      }
+
   """
   @type update_bot_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  send_channel_message_request() :: %{
-    optional("ChimeBearer") => String.t(),
-    optional("Metadata") => String.t(),
-    required("ClientRequestToken") => String.t(),
-    required("Content") => String.t(),
-    required("Persistence") => list(any()),
-    required("Type") => list(any())
-  }
+
+      send_channel_message_request() :: %{
+        optional("ChimeBearer") => String.t(),
+        optional("Metadata") => String.t(),
+        required("ClientRequestToken") => String.t(),
+        required("Content") => String.t(),
+        required("Persistence") => list(any()),
+        required("Type") => list(any())
+      }
+
   """
   @type send_channel_message_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_user_request() :: %{
-    optional("AlexaForBusinessMetadata") => alexa_for_business_metadata(),
-    optional("LicenseType") => list(any()),
-    optional("UserType") => list(any())
-  }
+
+      update_user_request() :: %{
+        optional("AlexaForBusinessMetadata") => alexa_for_business_metadata(),
+        optional("LicenseType") => list(any()),
+        optional("UserType") => list(any())
+      }
+
   """
   @type update_user_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_user_request_item() :: %{
-    "AlexaForBusinessMetadata" => alexa_for_business_metadata(),
-    "LicenseType" => list(any()),
-    "UserId" => String.t(),
-    "UserType" => list(any())
-  }
+
+      update_user_request_item() :: %{
+        "AlexaForBusinessMetadata" => alexa_for_business_metadata(),
+        "LicenseType" => list(any()),
+        "UserId" => String.t(),
+        "UserType" => list(any())
+      }
+
   """
   @type update_user_request_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_events_configuration_request() :: %{
 
-  }
+      get_events_configuration_request() :: %{}
+
   """
-  @type get_events_configuration_request() :: %{String.t() => any()}
+  @type get_events_configuration_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_request() :: %{
-    required("ResourceARN") => String.t()
-  }
+
+      list_tags_for_resource_request() :: %{
+        required("ResourceARN") => String.t()
+      }
+
   """
   @type list_tags_for_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_voice_connector_origination_request() :: %{
-    required("Origination") => origination()
-  }
+
+      put_voice_connector_origination_request() :: %{
+        required("Origination") => origination()
+      }
+
   """
   @type put_voice_connector_origination_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_voice_connector_termination_credentials_request() :: %{
-    required("Usernames") => list(String.t()())
-  }
+
+      delete_voice_connector_termination_credentials_request() :: %{
+        required("Usernames") => list(String.t()())
+      }
+
   """
   @type delete_voice_connector_termination_credentials_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_channel_moderators_response() :: %{
-    "ChannelArn" => String.t(),
-    "ChannelModerators" => list(channel_moderator_summary()()),
-    "NextToken" => String.t()
-  }
+
+      list_channel_moderators_response() :: %{
+        "ChannelArn" => String.t(),
+        "ChannelModerators" => list(channel_moderator_summary()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_channel_moderators_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_room_membership_request() :: %{
-    optional("Role") => list(any()),
-    required("MemberId") => String.t()
-  }
+
+      create_room_membership_request() :: %{
+        optional("Role") => list(any()),
+        required("MemberId") => String.t()
+      }
+
   """
   @type create_room_membership_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_room_request() :: %{
-    optional("ClientRequestToken") => String.t(),
-    required("Name") => String.t()
-  }
+
+      create_room_request() :: %{
+        optional("ClientRequestToken") => String.t(),
+        required("Name") => String.t()
+      }
+
   """
   @type create_room_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_voice_connectors_response() :: %{
-    "NextToken" => String.t(),
-    "VoiceConnectors" => list(voice_connector()())
-  }
+
+      list_voice_connectors_response() :: %{
+        "NextToken" => String.t(),
+        "VoiceConnectors" => list(voice_connector()())
+      }
+
   """
   @type list_voice_connectors_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_channel_message_request() :: %{
-    optional("ChimeBearer") => String.t()
-  }
+
+      get_channel_message_request() :: %{
+        optional("ChimeBearer") => String.t()
+      }
+
   """
   @type get_channel_message_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_unsuspend_user_request() :: %{
-    required("UserIdList") => list(String.t()())
-  }
+
+      batch_unsuspend_user_request() :: %{
+        required("UserIdList") => list(String.t()())
+      }
+
   """
   @type batch_unsuspend_user_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_channel_ban_response() :: %{
-    "ChannelBan" => channel_ban()
-  }
+
+      describe_channel_ban_response() :: %{
+        "ChannelBan" => channel_ban()
+      }
+
   """
   @type describe_channel_ban_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_voice_connector_group_request() :: %{
 
-  }
+      get_voice_connector_group_request() :: %{}
+
   """
-  @type get_voice_connector_group_request() :: %{String.t() => any()}
+  @type get_voice_connector_group_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  voice_connector_group() :: %{
-    "CreatedTimestamp" => non_neg_integer(),
-    "Name" => String.t(),
-    "UpdatedTimestamp" => non_neg_integer(),
-    "VoiceConnectorGroupArn" => String.t(),
-    "VoiceConnectorGroupId" => String.t(),
-    "VoiceConnectorItems" => list(voice_connector_item()())
-  }
+
+      voice_connector_group() :: %{
+        "CreatedTimestamp" => non_neg_integer(),
+        "Name" => String.t(),
+        "UpdatedTimestamp" => non_neg_integer(),
+        "VoiceConnectorGroupArn" => String.t(),
+        "VoiceConnectorGroupId" => String.t(),
+        "VoiceConnectorItems" => list(voice_connector_item()())
+      }
+
   """
   @type voice_connector_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_meeting_transcription_request() :: %{
-    required("TranscriptionConfiguration") => transcription_configuration()
-  }
+
+      start_meeting_transcription_request() :: %{
+        required("TranscriptionConfiguration") => transcription_configuration()
+      }
+
   """
   @type start_meeting_transcription_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  channel_ban() :: %{
-    "ChannelArn" => String.t(),
-    "CreatedBy" => identity(),
-    "CreatedTimestamp" => non_neg_integer(),
-    "Member" => identity()
-  }
+
+      channel_ban() :: %{
+        "ChannelArn" => String.t(),
+        "CreatedBy" => identity(),
+        "CreatedTimestamp" => non_neg_integer(),
+        "Member" => identity()
+      }
+
   """
   @type channel_ban() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_rooms_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("MemberId") => String.t(),
-    optional("NextToken") => String.t()
-  }
+
+      list_rooms_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("MemberId") => String.t(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_rooms_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_voice_connector_origination_response() :: %{
-    "Origination" => origination()
-  }
+
+      get_voice_connector_origination_response() :: %{
+        "Origination" => origination()
+      }
+
   """
   @type get_voice_connector_origination_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  user() :: %{
-    "AccountId" => String.t(),
-    "AlexaForBusinessMetadata" => alexa_for_business_metadata(),
-    "DisplayName" => String.t(),
-    "InvitedOn" => non_neg_integer(),
-    "LicenseType" => list(any()),
-    "PersonalPIN" => String.t(),
-    "PrimaryEmail" => String.t(),
-    "PrimaryProvisionedNumber" => String.t(),
-    "RegisteredOn" => non_neg_integer(),
-    "UserId" => String.t(),
-    "UserInvitationStatus" => list(any()),
-    "UserRegistrationStatus" => list(any()),
-    "UserType" => list(any())
-  }
+
+      user() :: %{
+        "AccountId" => String.t(),
+        "AlexaForBusinessMetadata" => alexa_for_business_metadata(),
+        "DisplayName" => String.t(),
+        "InvitedOn" => non_neg_integer(),
+        "LicenseType" => list(any()),
+        "PersonalPIN" => String.t(),
+        "PrimaryEmail" => String.t(),
+        "PrimaryProvisionedNumber" => String.t(),
+        "RegisteredOn" => non_neg_integer(),
+        "UserId" => String.t(),
+        "UserInvitationStatus" => list(any()),
+        "UserRegistrationStatus" => list(any()),
+        "UserType" => list(any())
+      }
+
   """
   @type user() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invite_users_request() :: %{
-    optional("UserType") => list(any()),
-    required("UserEmailList") => list(String.t()())
-  }
+
+      invite_users_request() :: %{
+        optional("UserType") => list(any()),
+        required("UserEmailList") => list(String.t()())
+      }
+
   """
   @type invite_users_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_create_attendee_request() :: %{
-    required("Attendees") => list(create_attendee_request_item()())
-  }
+
+      batch_create_attendee_request() :: %{
+        required("Attendees") => list(create_attendee_request_item()())
+      }
+
   """
   @type batch_create_attendee_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  channel() :: %{
-    "ChannelArn" => String.t(),
-    "CreatedBy" => identity(),
-    "CreatedTimestamp" => non_neg_integer(),
-    "LastMessageTimestamp" => non_neg_integer(),
-    "LastUpdatedTimestamp" => non_neg_integer(),
-    "Metadata" => String.t(),
-    "Mode" => list(any()),
-    "Name" => String.t(),
-    "Privacy" => list(any())
-  }
+
+      channel() :: %{
+        "ChannelArn" => String.t(),
+        "CreatedBy" => identity(),
+        "CreatedTimestamp" => non_neg_integer(),
+        "LastMessageTimestamp" => non_neg_integer(),
+        "LastUpdatedTimestamp" => non_neg_integer(),
+        "Metadata" => String.t(),
+        "Mode" => list(any()),
+        "Name" => String.t(),
+        "Privacy" => list(any())
+      }
+
   """
   @type channel() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_phone_number_settings_response() :: %{
-    "CallingName" => String.t(),
-    "CallingNameUpdatedTimestamp" => non_neg_integer()
-  }
+
+      get_phone_number_settings_response() :: %{
+        "CallingName" => String.t(),
+        "CallingNameUpdatedTimestamp" => non_neg_integer()
+      }
+
   """
   @type get_phone_number_settings_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  membership_item() :: %{
-    "MemberId" => String.t(),
-    "Role" => list(any())
-  }
+
+      membership_item() :: %{
+        "MemberId" => String.t(),
+        "Role" => list(any())
+      }
+
   """
   @type membership_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_bot_request() :: %{
-    optional("Domain") => String.t(),
-    required("DisplayName") => String.t()
-  }
+
+      create_bot_request() :: %{
+        optional("Domain") => String.t(),
+        required("DisplayName") => String.t()
+      }
+
   """
   @type create_bot_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_create_attendee_response() :: %{
-    "Attendees" => list(attendee()()),
-    "Errors" => list(create_attendee_error()())
-  }
+
+      batch_create_attendee_response() :: %{
+        "Attendees" => list(attendee()()),
+        "Errors" => list(create_attendee_error()())
+      }
+
   """
   @type batch_create_attendee_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_app_instance_admin_response() :: %{
-    "AppInstanceAdmin" => identity(),
-    "AppInstanceArn" => String.t()
-  }
+
+      create_app_instance_admin_response() :: %{
+        "AppInstanceAdmin" => identity(),
+        "AppInstanceArn" => String.t()
+      }
+
   """
   @type create_app_instance_admin_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  regenerate_security_token_response() :: %{
-    "Bot" => bot()
-  }
+
+      regenerate_security_token_response() :: %{
+        "Bot" => bot()
+      }
+
   """
   @type regenerate_security_token_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_app_instance_retention_settings_response() :: %{
-    "AppInstanceRetentionSettings" => app_instance_retention_settings(),
-    "InitiateDeletionTimestamp" => non_neg_integer()
-  }
+
+      put_app_instance_retention_settings_response() :: %{
+        "AppInstanceRetentionSettings" => app_instance_retention_settings(),
+        "InitiateDeletionTimestamp" => non_neg_integer()
+      }
+
   """
   @type put_app_instance_retention_settings_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_channel_memberships_response() :: %{
-    "ChannelArn" => String.t(),
-    "ChannelMemberships" => list(channel_membership_summary()()),
-    "NextToken" => String.t()
-  }
+
+      list_channel_memberships_response() :: %{
+        "ChannelArn" => String.t(),
+        "ChannelMemberships" => list(channel_membership_summary()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_channel_memberships_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_sip_media_application_call_request() :: %{
-    optional("SipHeaders") => map(),
-    required("FromPhoneNumber") => String.t(),
-    required("ToPhoneNumber") => String.t()
-  }
+
+      create_sip_media_application_call_request() :: %{
+        optional("SipHeaders") => map(),
+        required("FromPhoneNumber") => String.t(),
+        required("ToPhoneNumber") => String.t()
+      }
+
   """
   @type create_sip_media_application_call_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_sip_media_application_call_request() :: %{
-    required("Arguments") => map()
-  }
+
+      update_sip_media_application_call_request() :: %{
+        required("Arguments") => map()
+      }
+
   """
   @type update_sip_media_application_call_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_attendee_tags_response() :: %{
-    "Tags" => list(tag()())
-  }
+
+      list_attendee_tags_response() :: %{
+        "Tags" => list(tag()())
+      }
+
   """
   @type list_attendee_tags_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_attendees_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      list_attendees_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_attendees_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  app_instance_retention_settings() :: %{
-    "ChannelRetentionSettings" => channel_retention_settings()
-  }
+
+      app_instance_retention_settings() :: %{
+        "ChannelRetentionSettings" => channel_retention_settings()
+      }
+
   """
   @type app_instance_retention_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  member() :: %{
-    "AccountId" => String.t(),
-    "Email" => String.t(),
-    "FullName" => String.t(),
-    "MemberId" => String.t(),
-    "MemberType" => list(any())
-  }
+
+      member() :: %{
+        "AccountId" => String.t(),
+        "Email" => String.t(),
+        "FullName" => String.t(),
+        "MemberId" => String.t(),
+        "MemberType" => list(any())
+      }
+
   """
   @type member() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_users_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("UserEmail") => String.t(),
-    optional("UserType") => list(any())
-  }
+
+      list_users_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("UserEmail") => String.t(),
+        optional("UserType") => list(any())
+      }
+
   """
   @type list_users_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_voice_connector_termination_request() :: %{
 
-  }
+      delete_voice_connector_termination_request() :: %{}
+
   """
-  @type delete_voice_connector_termination_request() :: %{String.t() => any()}
+  @type delete_voice_connector_termination_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_voice_connector_group_response() :: %{
-    "VoiceConnectorGroup" => voice_connector_group()
-  }
+
+      get_voice_connector_group_response() :: %{
+        "VoiceConnectorGroup" => voice_connector_group()
+      }
+
   """
   @type get_voice_connector_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_events_configuration_response() :: %{
-    "EventsConfiguration" => events_configuration()
-  }
+
+      get_events_configuration_response() :: %{
+        "EventsConfiguration" => events_configuration()
+      }
+
   """
   @type get_events_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  channel_moderator() :: %{
-    "ChannelArn" => String.t(),
-    "CreatedBy" => identity(),
-    "CreatedTimestamp" => non_neg_integer(),
-    "Moderator" => identity()
-  }
+
+      channel_moderator() :: %{
+        "ChannelArn" => String.t(),
+        "CreatedBy" => identity(),
+        "CreatedTimestamp" => non_neg_integer(),
+        "Moderator" => identity()
+      }
+
   """
   @type channel_moderator() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  attendee() :: %{
-    "AttendeeId" => String.t(),
-    "ExternalUserId" => String.t(),
-    "JoinToken" => String.t()
-  }
+
+      attendee() :: %{
+        "AttendeeId" => String.t(),
+        "ExternalUserId" => String.t(),
+        "JoinToken" => String.t()
+      }
+
   """
   @type attendee() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_voice_connector_logging_configuration_response() :: %{
-    "LoggingConfiguration" => logging_configuration()
-  }
+
+      put_voice_connector_logging_configuration_response() :: %{
+        "LoggingConfiguration" => logging_configuration()
+      }
+
   """
   @type put_voice_connector_logging_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_channel_ban_response() :: %{
-    "ChannelArn" => String.t(),
-    "Member" => identity()
-  }
+
+      create_channel_ban_response() :: %{
+        "ChannelArn" => String.t(),
+        "Member" => identity()
+      }
+
   """
   @type create_channel_ban_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_bot_response() :: %{
-    "Bot" => bot()
-  }
+
+      create_bot_response() :: %{
+        "Bot" => bot()
+      }
+
   """
   @type create_bot_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_account_response() :: %{
-    "Account" => account()
-  }
+
+      create_account_response() :: %{
+        "Account" => account()
+      }
+
   """
   @type create_account_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_voice_connector_response() :: %{
-    "VoiceConnector" => voice_connector()
-  }
+
+      create_voice_connector_response() :: %{
+        "VoiceConnector" => voice_connector()
+      }
+
   """
   @type create_voice_connector_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_create_channel_membership_error() :: %{
-    "ErrorCode" => list(any()),
-    "ErrorMessage" => String.t(),
-    "MemberArn" => String.t()
-  }
+
+      batch_create_channel_membership_error() :: %{
+        "ErrorCode" => list(any()),
+        "ErrorMessage" => String.t(),
+        "MemberArn" => String.t()
+      }
+
   """
   @type batch_create_channel_membership_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_proxy_session_request() :: %{
 
-  }
+      get_proxy_session_request() :: %{}
+
   """
-  @type get_proxy_session_request() :: %{String.t() => any()}
+  @type get_proxy_session_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_app_instance_admin_request() :: %{
-    required("AppInstanceAdminArn") => String.t()
-  }
+
+      create_app_instance_admin_request() :: %{
+        required("AppInstanceAdminArn") => String.t()
+      }
+
   """
   @type create_app_instance_admin_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  sip_media_application_call() :: %{
-    "TransactionId" => String.t()
-  }
+
+      sip_media_application_call() :: %{
+        "TransactionId" => String.t()
+      }
+
   """
   @type sip_media_application_call() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  reset_personal_pin_response() :: %{
-    "User" => user()
-  }
+
+      reset_personal_pin_response() :: %{
+        "User" => user()
+      }
+
   """
   @type reset_personal_pin_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  bad_request_exception() :: %{
-    "Code" => list(any()),
-    "Message" => String.t()
-  }
+
+      bad_request_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t()
+      }
+
   """
   @type bad_request_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_app_instance_admin_request() :: %{
 
-  }
+      describe_app_instance_admin_request() :: %{}
+
   """
-  @type describe_app_instance_admin_request() :: %{String.t() => any()}
+  @type describe_app_instance_admin_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_phone_numbers_response() :: %{
-    "NextToken" => String.t(),
-    "PhoneNumbers" => list(phone_number()())
-  }
+
+      list_phone_numbers_response() :: %{
+        "NextToken" => String.t(),
+        "PhoneNumbers" => list(phone_number()())
+      }
+
   """
   @type list_phone_numbers_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_voice_connector_request() :: %{
-    required("Name") => String.t(),
-    required("RequireEncryption") => boolean()
-  }
+
+      update_voice_connector_request() :: %{
+        required("Name") => String.t(),
+        required("RequireEncryption") => boolean()
+      }
+
   """
   @type update_voice_connector_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invite() :: %{
-    "EmailAddress" => String.t(),
-    "EmailStatus" => list(any()),
-    "InviteId" => String.t(),
-    "Status" => list(any())
-  }
+
+      invite() :: %{
+        "EmailAddress" => String.t(),
+        "EmailStatus" => list(any()),
+        "InviteId" => String.t(),
+        "Status" => list(any())
+      }
+
   """
   @type invite() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  user_settings() :: %{
-    "Telephony" => telephony_settings()
-  }
+
+      user_settings() :: %{
+        "Telephony" => telephony_settings()
+      }
+
   """
   @type user_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_channel_read_marker_response() :: %{
-    "ChannelArn" => String.t()
-  }
+
+      update_channel_read_marker_response() :: %{
+        "ChannelArn" => String.t()
+      }
+
   """
   @type update_channel_read_marker_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  channel_moderator_summary() :: %{
-    "Moderator" => identity()
-  }
+
+      channel_moderator_summary() :: %{
+        "Moderator" => identity()
+      }
+
   """
   @type channel_moderator_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_channel_memberships() :: %{
-    "ChannelArn" => String.t(),
-    "InvitedBy" => identity(),
-    "Members" => list(identity()()),
-    "Type" => list(any())
-  }
+
+      batch_channel_memberships() :: %{
+        "ChannelArn" => String.t(),
+        "InvitedBy" => identity(),
+        "Members" => list(identity()()),
+        "Type" => list(any())
+      }
+
   """
   @type batch_channel_memberships() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  credential() :: %{
-    "Password" => String.t(),
-    "Username" => String.t()
-  }
+
+      credential() :: %{
+        "Password" => String.t(),
+        "Username" => String.t()
+      }
+
   """
   @type credential() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_room_membership_response() :: %{
-    "RoomMembership" => room_membership()
-  }
+
+      update_room_membership_response() :: %{
+        "RoomMembership" => room_membership()
+      }
+
   """
   @type update_room_membership_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  logout_user_response() :: %{
 
-  }
+      logout_user_response() :: %{}
+
   """
-  @type logout_user_response() :: %{String.t() => any()}
+  @type logout_user_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  disassociate_phone_number_from_user_response() :: %{
 
-  }
+      disassociate_phone_number_from_user_response() :: %{}
+
   """
-  @type disassociate_phone_number_from_user_response() :: %{String.t() => any()}
+  @type disassociate_phone_number_from_user_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  associate_signin_delegate_groups_with_account_request() :: %{
-    required("SigninDelegateGroups") => list(signin_delegate_group()())
-  }
+
+      associate_signin_delegate_groups_with_account_request() :: %{
+        required("SigninDelegateGroups") => list(signin_delegate_group()())
+      }
+
   """
   @type associate_signin_delegate_groups_with_account_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_channel_response() :: %{
-    "ChannelArn" => String.t()
-  }
+
+      update_channel_response() :: %{
+        "ChannelArn" => String.t()
+      }
+
   """
   @type update_channel_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_app_instance_request() :: %{
 
-  }
+      delete_app_instance_request() :: %{}
+
   """
-  @type delete_app_instance_request() :: %{String.t() => any()}
+  @type delete_app_instance_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  app_instance_user_summary() :: %{
-    "AppInstanceUserArn" => String.t(),
-    "Metadata" => String.t(),
-    "Name" => String.t()
-  }
+
+      app_instance_user_summary() :: %{
+        "AppInstanceUserArn" => String.t(),
+        "Metadata" => String.t(),
+        "Name" => String.t()
+      }
+
   """
   @type app_instance_user_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  phone_number_capabilities() :: %{
-    "InboundCall" => boolean(),
-    "InboundMMS" => boolean(),
-    "InboundSMS" => boolean(),
-    "OutboundCall" => boolean(),
-    "OutboundMMS" => boolean(),
-    "OutboundSMS" => boolean()
-  }
+
+      phone_number_capabilities() :: %{
+        "InboundCall" => boolean(),
+        "InboundMMS" => boolean(),
+        "InboundSMS" => boolean(),
+        "OutboundCall" => boolean(),
+        "OutboundMMS" => boolean(),
+        "OutboundSMS" => boolean()
+      }
+
   """
   @type phone_number_capabilities() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_channel_ban_request() :: %{
-    optional("ChimeBearer") => String.t()
-  }
+
+      describe_channel_ban_request() :: %{
+        optional("ChimeBearer") => String.t()
+      }
+
   """
   @type describe_channel_ban_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_meetings_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      list_meetings_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_meetings_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_voice_connector_streaming_configuration_request() :: %{
 
-  }
+      delete_voice_connector_streaming_configuration_request() :: %{}
+
   """
-  @type delete_voice_connector_streaming_configuration_request() :: %{String.t() => any()}
+  @type delete_voice_connector_streaming_configuration_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  delete_voice_connector_emergency_calling_configuration_request() :: %{
 
-  }
+      delete_voice_connector_emergency_calling_configuration_request() :: %{}
+
   """
-  @type delete_voice_connector_emergency_calling_configuration_request() :: %{String.t() => any()}
+  @type delete_voice_connector_emergency_calling_configuration_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_sip_media_application_request() :: %{
 
-  }
+      get_sip_media_application_request() :: %{}
+
   """
-  @type get_sip_media_application_request() :: %{String.t() => any()}
+  @type get_sip_media_application_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  describe_channel_membership_for_app_instance_user_response() :: %{
-    "ChannelMembership" => channel_membership_for_app_instance_user_summary()
-  }
+
+      describe_channel_membership_for_app_instance_user_response() :: %{
+        "ChannelMembership" => channel_membership_for_app_instance_user_summary()
+      }
+
   """
   @type describe_channel_membership_for_app_instance_user_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_sip_media_application_response() :: %{
-    "SipMediaApplication" => sip_media_application()
-  }
+
+      create_sip_media_application_response() :: %{
+        "SipMediaApplication" => sip_media_application()
+      }
+
   """
   @type create_sip_media_application_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_voice_connector_proxy_response() :: %{
-    "Proxy" => proxy()
-  }
+
+      put_voice_connector_proxy_response() :: %{
+        "Proxy" => proxy()
+      }
+
   """
   @type put_voice_connector_proxy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  bot() :: %{
-    "BotEmail" => String.t(),
-    "BotId" => String.t(),
-    "BotType" => list(any()),
-    "CreatedTimestamp" => non_neg_integer(),
-    "Disabled" => boolean(),
-    "DisplayName" => String.t(),
-    "SecurityToken" => String.t(),
-    "UpdatedTimestamp" => non_neg_integer(),
-    "UserId" => String.t()
-  }
+
+      bot() :: %{
+        "BotEmail" => String.t(),
+        "BotId" => String.t(),
+        "BotType" => list(any()),
+        "CreatedTimestamp" => non_neg_integer(),
+        "Disabled" => boolean(),
+        "DisplayName" => String.t(),
+        "SecurityToken" => String.t(),
+        "UpdatedTimestamp" => non_neg_integer(),
+        "UserId" => String.t()
+      }
+
   """
   @type bot() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  address() :: %{
-    "city" => String.t(),
-    "country" => String.t(),
-    "postDirectional" => String.t(),
-    "postalCode" => String.t(),
-    "postalCodePlus4" => String.t(),
-    "preDirectional" => String.t(),
-    "state" => String.t(),
-    "streetName" => String.t(),
-    "streetNumber" => String.t(),
-    "streetSuffix" => String.t()
-  }
+
+      address() :: %{
+        "city" => String.t(),
+        "country" => String.t(),
+        "postDirectional" => String.t(),
+        "postalCode" => String.t(),
+        "postalCodePlus4" => String.t(),
+        "preDirectional" => String.t(),
+        "state" => String.t(),
+        "streetName" => String.t(),
+        "streetNumber" => String.t(),
+        "streetSuffix" => String.t()
+      }
+
   """
   @type address() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  sip_rule_target_application() :: %{
-    "AwsRegion" => String.t(),
-    "Priority" => integer(),
-    "SipMediaApplicationId" => String.t()
-  }
+
+      sip_rule_target_application() :: %{
+        "AwsRegion" => String.t(),
+        "Priority" => integer(),
+        "SipMediaApplicationId" => String.t()
+      }
+
   """
   @type sip_rule_target_application() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_voice_connector_emergency_calling_configuration_response() :: %{
-    "EmergencyCallingConfiguration" => emergency_calling_configuration()
-  }
+
+      get_voice_connector_emergency_calling_configuration_response() :: %{
+        "EmergencyCallingConfiguration" => emergency_calling_configuration()
+      }
+
   """
   @type get_voice_connector_emergency_calling_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_voice_connector_request() :: %{
 
-  }
+      delete_voice_connector_request() :: %{}
+
   """
-  @type delete_voice_connector_request() :: %{String.t() => any()}
+  @type delete_voice_connector_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_accounts_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("Name") => String.t(),
-    optional("NextToken") => String.t(),
-    optional("UserEmail") => String.t()
-  }
+
+      list_accounts_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("Name") => String.t(),
+        optional("NextToken") => String.t(),
+        optional("UserEmail") => String.t()
+      }
+
   """
   @type list_accounts_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_phone_number_request() :: %{
-    optional("CallingName") => String.t(),
-    optional("ProductType") => list(any())
-  }
+
+      update_phone_number_request() :: %{
+        optional("CallingName") => String.t(),
+        optional("ProductType") => list(any())
+      }
+
   """
   @type update_phone_number_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_account_request() :: %{
 
-  }
+      get_account_request() :: %{}
+
   """
-  @type get_account_request() :: %{String.t() => any()}
+  @type get_account_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  redact_room_message_response() :: %{
 
-  }
+      redact_room_message_response() :: %{}
+
   """
-  @type redact_room_message_response() :: %{String.t() => any()}
+  @type redact_room_message_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  put_events_configuration_request() :: %{
-    optional("LambdaFunctionArn") => String.t(),
-    optional("OutboundEventsHTTPSEndpoint") => String.t()
-  }
+
+      put_events_configuration_request() :: %{
+        optional("LambdaFunctionArn") => String.t(),
+        optional("OutboundEventsHTTPSEndpoint") => String.t()
+      }
+
   """
   @type put_events_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_retention_settings_response() :: %{
-    "InitiateDeletionTimestamp" => non_neg_integer(),
-    "RetentionSettings" => retention_settings()
-  }
+
+      get_retention_settings_response() :: %{
+        "InitiateDeletionTimestamp" => non_neg_integer(),
+        "RetentionSettings" => retention_settings()
+      }
+
   """
   @type get_retention_settings_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_voice_connector_origination_request() :: %{
 
-  }
+      get_voice_connector_origination_request() :: %{}
+
   """
-  @type get_voice_connector_origination_request() :: %{String.t() => any()}
+  @type get_voice_connector_origination_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  put_voice_connector_emergency_calling_configuration_response() :: %{
-    "EmergencyCallingConfiguration" => emergency_calling_configuration()
-  }
+
+      put_voice_connector_emergency_calling_configuration_response() :: %{
+        "EmergencyCallingConfiguration" => emergency_calling_configuration()
+      }
+
   """
   @type put_voice_connector_emergency_calling_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_voice_connector_termination_response() :: %{
-    "Termination" => termination()
-  }
+
+      get_voice_connector_termination_response() :: %{
+        "Termination" => termination()
+      }
+
   """
   @type get_voice_connector_termination_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_attendee_request() :: %{
-    optional("Tags") => list(tag()()),
-    required("ExternalUserId") => String.t()
-  }
+
+      create_attendee_request() :: %{
+        optional("Tags") => list(tag()()),
+        required("ExternalUserId") => String.t()
+      }
+
   """
   @type create_attendee_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_room_request() :: %{
-    optional("Name") => String.t()
-  }
+
+      update_room_request() :: %{
+        optional("Name") => String.t()
+      }
+
   """
   @type update_room_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_channels_request() :: %{
-    optional("ChimeBearer") => String.t(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("Privacy") => list(any()),
-    required("AppInstanceArn") => String.t()
-  }
+
+      list_channels_request() :: %{
+        optional("ChimeBearer") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("Privacy") => list(any()),
+        required("AppInstanceArn") => String.t()
+      }
+
   """
   @type list_channels_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_app_instance_user_request() :: %{
 
-  }
+      describe_app_instance_user_request() :: %{}
+
   """
-  @type describe_app_instance_user_request() :: %{String.t() => any()}
+  @type describe_app_instance_user_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_retention_settings_request() :: %{
 
-  }
+      get_retention_settings_request() :: %{}
+
   """
-  @type get_retention_settings_request() :: %{String.t() => any()}
+  @type get_retention_settings_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  update_account_response() :: %{
-    "Account" => account()
-  }
+
+      update_account_response() :: %{
+        "Account" => account()
+      }
+
   """
   @type update_account_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_user_response() :: %{
-    "User" => user()
-  }
+
+      create_user_response() :: %{
+        "User" => user()
+      }
+
   """
   @type create_user_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_bot_response() :: %{
-    "Bot" => bot()
-  }
+
+      update_bot_response() :: %{
+        "Bot" => bot()
+      }
+
   """
   @type update_bot_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_suspend_user_response() :: %{
-    "UserErrors" => list(user_error()())
-  }
+
+      batch_suspend_user_response() :: %{
+        "UserErrors" => list(user_error()())
+      }
+
   """
   @type batch_suspend_user_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_update_phone_number_request() :: %{
-    required("UpdatePhoneNumberRequestItems") => list(update_phone_number_request_item()())
-  }
+
+      batch_update_phone_number_request() :: %{
+        required("UpdatePhoneNumberRequestItems") => list(update_phone_number_request_item()())
+      }
+
   """
   @type batch_update_phone_number_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  artifacts_configuration() :: %{
-    "Audio" => audio_artifacts_configuration(),
-    "Content" => content_artifacts_configuration(),
-    "Video" => video_artifacts_configuration()
-  }
+
+      artifacts_configuration() :: %{
+        "Audio" => audio_artifacts_configuration(),
+        "Content" => content_artifacts_configuration(),
+        "Video" => video_artifacts_configuration()
+      }
+
   """
   @type artifacts_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  channel_message_summary() :: %{
-    "Content" => String.t(),
-    "CreatedTimestamp" => non_neg_integer(),
-    "LastEditedTimestamp" => non_neg_integer(),
-    "LastUpdatedTimestamp" => non_neg_integer(),
-    "MessageId" => String.t(),
-    "Metadata" => String.t(),
-    "Redacted" => boolean(),
-    "Sender" => identity(),
-    "Type" => list(any())
-  }
+
+      channel_message_summary() :: %{
+        "Content" => String.t(),
+        "CreatedTimestamp" => non_neg_integer(),
+        "LastEditedTimestamp" => non_neg_integer(),
+        "LastUpdatedTimestamp" => non_neg_integer(),
+        "MessageId" => String.t(),
+        "Metadata" => String.t(),
+        "Redacted" => boolean(),
+        "Sender" => identity(),
+        "Type" => list(any())
+      }
+
   """
   @type channel_message_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  media_placement() :: %{
-    "AudioFallbackUrl" => String.t(),
-    "AudioHostUrl" => String.t(),
-    "EventIngestionUrl" => String.t(),
-    "ScreenDataUrl" => String.t(),
-    "ScreenSharingUrl" => String.t(),
-    "ScreenViewingUrl" => String.t(),
-    "SignalingUrl" => String.t(),
-    "TurnControlUrl" => String.t()
-  }
+
+      media_placement() :: %{
+        "AudioFallbackUrl" => String.t(),
+        "AudioHostUrl" => String.t(),
+        "EventIngestionUrl" => String.t(),
+        "ScreenDataUrl" => String.t(),
+        "ScreenSharingUrl" => String.t(),
+        "ScreenViewingUrl" => String.t(),
+        "SignalingUrl" => String.t(),
+        "TurnControlUrl" => String.t()
+      }
+
   """
   @type media_placement() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  sip_media_application() :: %{
-    "AwsRegion" => String.t(),
-    "CreatedTimestamp" => non_neg_integer(),
-    "Endpoints" => list(sip_media_application_endpoint()()),
-    "Name" => String.t(),
-    "SipMediaApplicationId" => String.t(),
-    "UpdatedTimestamp" => non_neg_integer()
-  }
+
+      sip_media_application() :: %{
+        "AwsRegion" => String.t(),
+        "CreatedTimestamp" => non_neg_integer(),
+        "Endpoints" => list(sip_media_application_endpoint()()),
+        "Name" => String.t(),
+        "SipMediaApplicationId" => String.t(),
+        "UpdatedTimestamp" => non_neg_integer()
+      }
+
   """
   @type sip_media_application() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  search_available_phone_numbers_request() :: %{
-    optional("AreaCode") => String.t(),
-    optional("City") => String.t(),
-    optional("Country") => String.t(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("PhoneNumberType") => list(any()),
-    optional("State") => String.t(),
-    optional("TollFreePrefix") => String.t()
-  }
+
+      search_available_phone_numbers_request() :: %{
+        optional("AreaCode") => String.t(),
+        optional("City") => String.t(),
+        optional("Country") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("PhoneNumberType") => list(any()),
+        optional("State") => String.t(),
+        optional("TollFreePrefix") => String.t()
+      }
+
   """
   @type search_available_phone_numbers_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_events_configuration_response() :: %{
-    "EventsConfiguration" => events_configuration()
-  }
+
+      put_events_configuration_response() :: %{
+        "EventsConfiguration" => events_configuration()
+      }
+
   """
   @type put_events_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_meeting_dial_out_request() :: %{
-    required("FromPhoneNumber") => String.t(),
-    required("JoinToken") => String.t(),
-    required("ToPhoneNumber") => String.t()
-  }
+
+      create_meeting_dial_out_request() :: %{
+        required("FromPhoneNumber") => String.t(),
+        required("JoinToken") => String.t(),
+        required("ToPhoneNumber") => String.t()
+      }
+
   """
   @type create_meeting_dial_out_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_attendee_request() :: %{
 
-  }
+      delete_attendee_request() :: %{}
+
   """
-  @type delete_attendee_request() :: %{String.t() => any()}
+  @type delete_attendee_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_room_response() :: %{
-    "Room" => room()
-  }
+
+      create_room_response() :: %{
+        "Room" => room()
+      }
+
   """
   @type create_room_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_app_instance_user_request() :: %{
-    optional("Metadata") => String.t(),
-    optional("Tags") => list(tag()()),
-    required("AppInstanceArn") => String.t(),
-    required("AppInstanceUserId") => String.t(),
-    required("ClientRequestToken") => String.t(),
-    required("Name") => String.t()
-  }
+
+      create_app_instance_user_request() :: %{
+        optional("Metadata") => String.t(),
+        optional("Tags") => list(tag()()),
+        required("AppInstanceArn") => String.t(),
+        required("AppInstanceUserId") => String.t(),
+        required("ClientRequestToken") => String.t(),
+        required("Name") => String.t()
+      }
+
   """
   @type create_app_instance_user_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  room_retention_settings() :: %{
-    "RetentionDays" => integer()
-  }
+
+      room_retention_settings() :: %{
+        "RetentionDays" => integer()
+      }
+
   """
   @type room_retention_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_supported_phone_number_countries_request() :: %{
-    required("ProductType") => list(any())
-  }
+
+      list_supported_phone_number_countries_request() :: %{
+        required("ProductType") => list(any())
+      }
+
   """
   @type list_supported_phone_number_countries_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  app_instance() :: %{
-    "AppInstanceArn" => String.t(),
-    "CreatedTimestamp" => non_neg_integer(),
-    "LastUpdatedTimestamp" => non_neg_integer(),
-    "Metadata" => String.t(),
-    "Name" => String.t()
-  }
+
+      app_instance() :: %{
+        "AppInstanceArn" => String.t(),
+        "CreatedTimestamp" => non_neg_integer(),
+        "LastUpdatedTimestamp" => non_neg_integer(),
+        "Metadata" => String.t(),
+        "Name" => String.t()
+      }
+
   """
   @type app_instance() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  conversation_retention_settings() :: %{
-    "RetentionDays" => integer()
-  }
+
+      conversation_retention_settings() :: %{
+        "RetentionDays" => integer()
+      }
+
   """
   @type conversation_retention_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  emergency_calling_configuration() :: %{
-    "DNIS" => list(d_n_i_s_emergency_calling_configuration()())
-  }
+
+      emergency_calling_configuration() :: %{
+        "DNIS" => list(d_n_i_s_emergency_calling_configuration()())
+      }
+
   """
   @type emergency_calling_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_user_request() :: %{
-    optional("Email") => String.t(),
-    optional("UserType") => list(any()),
-    optional("Username") => String.t()
-  }
+
+      create_user_request() :: %{
+        optional("Email") => String.t(),
+        optional("UserType") => list(any()),
+        optional("Username") => String.t()
+      }
+
   """
   @type create_user_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_update_user_request() :: %{
-    required("UpdateUserRequestItems") => list(update_user_request_item()())
-  }
+
+      batch_update_user_request() :: %{
+        required("UpdateUserRequestItems") => list(update_user_request_item()())
+      }
+
   """
   @type batch_update_user_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  regenerate_security_token_request() :: %{
 
-  }
+      regenerate_security_token_request() :: %{}
+
   """
-  @type regenerate_security_token_request() :: %{String.t() => any()}
+  @type regenerate_security_token_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  disassociate_signin_delegate_groups_from_account_response() :: %{
 
-  }
+      disassociate_signin_delegate_groups_from_account_response() :: %{}
+
   """
-  @type disassociate_signin_delegate_groups_from_account_response() :: %{String.t() => any()}
+  @type disassociate_signin_delegate_groups_from_account_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_channel_membership_response() :: %{
-    "ChannelArn" => String.t(),
-    "Member" => identity()
-  }
+
+      create_channel_membership_response() :: %{
+        "ChannelArn" => String.t(),
+        "Member" => identity()
+      }
+
   """
   @type create_channel_membership_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_app_instance_user_response() :: %{
-    "AppInstanceUserArn" => String.t()
-  }
+
+      create_app_instance_user_response() :: %{
+        "AppInstanceUserArn" => String.t()
+      }
+
   """
   @type create_app_instance_user_response() :: %{String.t() => any()}
+
+  @type associate_phone_number_with_user_errors() ::
+          bad_request_exception()
+          | access_denied_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type associate_phone_numbers_with_voice_connector_errors() ::
+          bad_request_exception()
+          | access_denied_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type associate_phone_numbers_with_voice_connector_group_errors() ::
+          bad_request_exception()
+          | access_denied_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type associate_signin_delegate_groups_with_account_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type batch_create_attendee_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | resource_limit_exceeded_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type batch_create_channel_membership_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type batch_create_room_membership_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type batch_delete_phone_number_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type batch_suspend_user_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type batch_unsuspend_user_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type batch_update_phone_number_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type batch_update_user_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type create_account_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type create_app_instance_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | resource_limit_exceeded_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type create_app_instance_admin_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | resource_limit_exceeded_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type create_app_instance_user_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | resource_limit_exceeded_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type create_attendee_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | resource_limit_exceeded_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type create_bot_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | resource_limit_exceeded_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type create_channel_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | resource_limit_exceeded_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type create_channel_ban_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | resource_limit_exceeded_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type create_channel_membership_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | resource_limit_exceeded_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type create_channel_moderator_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | resource_limit_exceeded_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type create_media_capture_pipeline_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | resource_limit_exceeded_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type create_meeting_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | resource_limit_exceeded_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type create_meeting_dial_out_errors() ::
+          bad_request_exception()
+          | access_denied_exception()
+          | service_unavailable_exception()
+          | resource_limit_exceeded_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type create_meeting_with_attendees_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | resource_limit_exceeded_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type create_phone_number_order_errors() ::
+          bad_request_exception()
+          | access_denied_exception()
+          | service_unavailable_exception()
+          | resource_limit_exceeded_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type create_proxy_session_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type create_room_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | resource_limit_exceeded_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type create_room_membership_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | resource_limit_exceeded_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type create_sip_media_application_errors() ::
+          bad_request_exception()
+          | access_denied_exception()
+          | service_unavailable_exception()
+          | resource_limit_exceeded_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type create_sip_media_application_call_errors() ::
+          bad_request_exception()
+          | access_denied_exception()
+          | service_unavailable_exception()
+          | resource_limit_exceeded_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type create_sip_rule_errors() ::
+          bad_request_exception()
+          | access_denied_exception()
+          | service_unavailable_exception()
+          | resource_limit_exceeded_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type create_user_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type create_voice_connector_errors() ::
+          bad_request_exception()
+          | access_denied_exception()
+          | service_unavailable_exception()
+          | resource_limit_exceeded_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type create_voice_connector_group_errors() ::
+          bad_request_exception()
+          | access_denied_exception()
+          | service_unavailable_exception()
+          | resource_limit_exceeded_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type delete_account_errors() ::
+          bad_request_exception()
+          | unprocessable_entity_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type delete_app_instance_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type delete_app_instance_admin_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type delete_app_instance_streaming_configurations_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type delete_app_instance_user_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type delete_attendee_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type delete_channel_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type delete_channel_ban_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type delete_channel_membership_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type delete_channel_message_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type delete_channel_moderator_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type delete_events_configuration_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | resource_limit_exceeded_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type delete_media_capture_pipeline_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type delete_meeting_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type delete_phone_number_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type delete_proxy_session_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type delete_room_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type delete_room_membership_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type delete_sip_media_application_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type delete_sip_rule_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type delete_voice_connector_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type delete_voice_connector_emergency_calling_configuration_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type delete_voice_connector_group_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type delete_voice_connector_origination_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type delete_voice_connector_proxy_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type delete_voice_connector_streaming_configuration_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type delete_voice_connector_termination_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type delete_voice_connector_termination_credentials_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type describe_app_instance_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type describe_app_instance_admin_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type describe_app_instance_user_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type describe_channel_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type describe_channel_ban_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type describe_channel_membership_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type describe_channel_membership_for_app_instance_user_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type describe_channel_moderated_by_app_instance_user_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type describe_channel_moderator_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type disassociate_phone_number_from_user_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type disassociate_phone_numbers_from_voice_connector_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type disassociate_phone_numbers_from_voice_connector_group_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type disassociate_signin_delegate_groups_from_account_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type get_account_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type get_account_settings_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type get_app_instance_retention_settings_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type get_app_instance_streaming_configurations_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type get_attendee_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type get_bot_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type get_channel_message_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type get_events_configuration_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | resource_limit_exceeded_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type get_global_settings_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type get_media_capture_pipeline_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type get_meeting_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type get_messaging_session_endpoint_errors() ::
+          service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type get_phone_number_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type get_phone_number_order_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type get_phone_number_settings_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type get_proxy_session_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type get_retention_settings_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type get_room_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type get_sip_media_application_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type get_sip_media_application_logging_configuration_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type get_sip_rule_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type get_user_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type get_user_settings_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type get_voice_connector_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type get_voice_connector_emergency_calling_configuration_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type get_voice_connector_group_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type get_voice_connector_logging_configuration_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type get_voice_connector_origination_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type get_voice_connector_proxy_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type get_voice_connector_streaming_configuration_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type get_voice_connector_termination_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type get_voice_connector_termination_health_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type invite_users_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type list_accounts_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type list_app_instance_admins_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type list_app_instance_users_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type list_app_instances_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type list_attendee_tags_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type list_attendees_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type list_bots_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type list_channel_bans_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type list_channel_memberships_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type list_channel_memberships_for_app_instance_user_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type list_channel_messages_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type list_channel_moderators_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type list_channels_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type list_channels_moderated_by_app_instance_user_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type list_media_capture_pipelines_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type list_meeting_tags_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type list_meetings_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type list_phone_number_orders_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type list_phone_numbers_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type list_proxy_sessions_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type list_room_memberships_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type list_rooms_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type list_sip_media_applications_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type list_sip_rules_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type list_supported_phone_number_countries_errors() ::
+          bad_request_exception()
+          | access_denied_exception()
+          | service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type list_tags_for_resource_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type list_users_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type list_voice_connector_groups_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type list_voice_connector_termination_credentials_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type list_voice_connectors_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type logout_user_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type put_app_instance_retention_settings_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type put_app_instance_streaming_configurations_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type put_events_configuration_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | resource_limit_exceeded_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type put_retention_settings_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type put_sip_media_application_logging_configuration_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type put_voice_connector_emergency_calling_configuration_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type put_voice_connector_logging_configuration_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type put_voice_connector_origination_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type put_voice_connector_proxy_errors() ::
+          bad_request_exception()
+          | access_denied_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type put_voice_connector_streaming_configuration_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type put_voice_connector_termination_errors() ::
+          bad_request_exception()
+          | access_denied_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type put_voice_connector_termination_credentials_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type redact_channel_message_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type redact_conversation_message_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type redact_room_message_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type regenerate_security_token_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type reset_personal_pin_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type restore_phone_number_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | resource_limit_exceeded_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type search_available_phone_numbers_errors() ::
+          bad_request_exception()
+          | access_denied_exception()
+          | service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type send_channel_message_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type start_meeting_transcription_errors() ::
+          bad_request_exception()
+          | unprocessable_entity_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | resource_limit_exceeded_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type stop_meeting_transcription_errors() ::
+          bad_request_exception()
+          | unprocessable_entity_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type tag_attendee_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | resource_limit_exceeded_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type tag_meeting_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | resource_limit_exceeded_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type tag_resource_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type untag_attendee_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type untag_meeting_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type untag_resource_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type update_account_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type update_account_settings_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type update_app_instance_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type update_app_instance_user_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type update_bot_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type update_channel_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type update_channel_message_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type update_channel_read_marker_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type update_global_settings_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type update_phone_number_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type update_phone_number_settings_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type update_proxy_session_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type update_room_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type update_room_membership_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type update_sip_media_application_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type update_sip_media_application_call_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | resource_limit_exceeded_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type update_sip_rule_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | resource_limit_exceeded_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type update_user_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type update_user_settings_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type update_voice_connector_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type update_voice_connector_group_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type validate_e911_address_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
 
   def metadata do
     %{
@@ -4680,14 +7160,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, associate_phone_number_with_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, associate_phone_number_with_user_errors()}
   def associate_phone_number_with_user(
         %Client{} = client,
         account_id,
@@ -4738,14 +7211,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, associate_phone_numbers_with_voice_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, associate_phone_numbers_with_voice_connector_errors()}
   def associate_phone_numbers_with_voice_connector(
         %Client{} = client,
         voice_connector_id,
@@ -4795,14 +7261,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, associate_phone_numbers_with_voice_connector_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, associate_phone_numbers_with_voice_connector_group_errors()}
   def associate_phone_numbers_with_voice_connector_group(
         %Client{} = client,
         voice_connector_group_id,
@@ -4842,13 +7301,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, associate_signin_delegate_groups_with_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, associate_signin_delegate_groups_with_account_errors()}
   def associate_signin_delegate_groups_with_account(
         %Client{} = client,
         account_id,
@@ -4898,14 +7351,7 @@ defmodule AWS.Chime do
   @spec batch_create_attendee(map(), String.t(), batch_create_attendee_request(), list()) ::
           {:ok, batch_create_attendee_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, resource_limit_exceeded_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, batch_create_attendee_errors()}
   def batch_create_attendee(%Client{} = client, meeting_id, input, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees?operation=batch-create"
     headers = []
@@ -4948,12 +7394,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, batch_create_channel_membership_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, batch_create_channel_membership_errors()}
   def batch_create_channel_membership(%Client{} = client, channel_arn, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/memberships?operation=batch-create"
 
@@ -4995,13 +7436,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, batch_create_room_membership_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, batch_create_room_membership_errors()}
   def batch_create_room_membership(%Client{} = client, account_id, room_id, input, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/rooms/#{AWS.Util.encode_uri(room_id)}/memberships?operation=batch-create"
@@ -5038,13 +7473,7 @@ defmodule AWS.Chime do
   @spec batch_delete_phone_number(map(), batch_delete_phone_number_request(), list()) ::
           {:ok, batch_delete_phone_number_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, batch_delete_phone_number_errors()}
   def batch_delete_phone_number(%Client{} = client, input, options \\ []) do
     url_path = "/phone-numbers?operation=batch-delete"
     headers = []
@@ -5092,13 +7521,7 @@ defmodule AWS.Chime do
   @spec batch_suspend_user(map(), String.t(), batch_suspend_user_request(), list()) ::
           {:ok, batch_suspend_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, batch_suspend_user_errors()}
   def batch_suspend_user(%Client{} = client, account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/users?operation=suspend"
     headers = []
@@ -5139,13 +7562,7 @@ defmodule AWS.Chime do
   @spec batch_unsuspend_user(map(), String.t(), batch_unsuspend_user_request(), list()) ::
           {:ok, batch_unsuspend_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, batch_unsuspend_user_errors()}
   def batch_unsuspend_user(%Client{} = client, account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/users?operation=unsuspend"
     headers = []
@@ -5183,13 +7600,7 @@ defmodule AWS.Chime do
   @spec batch_update_phone_number(map(), batch_update_phone_number_request(), list()) ::
           {:ok, batch_update_phone_number_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, batch_update_phone_number_errors()}
   def batch_update_phone_number(%Client{} = client, input, options \\ []) do
     url_path = "/phone-numbers?operation=batch-update"
     headers = []
@@ -5219,13 +7630,7 @@ defmodule AWS.Chime do
   @spec batch_update_user(map(), String.t(), batch_update_user_request(), list()) ::
           {:ok, batch_update_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, batch_update_user_errors()}
   def batch_update_user(%Client{} = client, account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/users"
     headers = []
@@ -5259,13 +7664,7 @@ defmodule AWS.Chime do
   @spec create_account(map(), create_account_request(), list()) ::
           {:ok, create_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, create_account_errors()}
   def create_account(%Client{} = client, input, options \\ []) do
     url_path = "/accounts"
     headers = []
@@ -5307,14 +7706,7 @@ defmodule AWS.Chime do
   @spec create_app_instance(map(), create_app_instance_request(), list()) ::
           {:ok, create_app_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, resource_limit_exceeded_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, create_app_instance_errors()}
   def create_app_instance(%Client{} = client, input, options \\ []) do
     url_path = "/app-instances"
     headers = []
@@ -5364,14 +7756,7 @@ defmodule AWS.Chime do
   @spec create_app_instance_admin(map(), String.t(), create_app_instance_admin_request(), list()) ::
           {:ok, create_app_instance_admin_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, resource_limit_exceeded_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, create_app_instance_admin_errors()}
   def create_app_instance_admin(%Client{} = client, app_instance_arn, input, options \\ []) do
     url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}/admins"
     headers = []
@@ -5412,14 +7797,7 @@ defmodule AWS.Chime do
   @spec create_app_instance_user(map(), create_app_instance_user_request(), list()) ::
           {:ok, create_app_instance_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, resource_limit_exceeded_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, create_app_instance_user_errors()}
   def create_app_instance_user(%Client{} = client, input, options \\ []) do
     url_path = "/app-instance-users"
     headers = []
@@ -5463,14 +7841,7 @@ defmodule AWS.Chime do
   @spec create_attendee(map(), String.t(), create_attendee_request(), list()) ::
           {:ok, create_attendee_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, resource_limit_exceeded_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, create_attendee_errors()}
   def create_attendee(%Client{} = client, meeting_id, input, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees"
     headers = []
@@ -5497,14 +7868,7 @@ defmodule AWS.Chime do
   @spec create_bot(map(), String.t(), create_bot_request(), list()) ::
           {:ok, create_bot_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, resource_limit_exceeded_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, create_bot_errors()}
   def create_bot(%Client{} = client, account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/bots"
     headers = []
@@ -5549,14 +7913,7 @@ defmodule AWS.Chime do
   @spec create_channel(map(), create_channel_request(), list()) ::
           {:ok, create_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, resource_limit_exceeded_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, create_channel_errors()}
   def create_channel(%Client{} = client, input, options \\ []) do
     url_path = "/channels"
 
@@ -5613,14 +7970,7 @@ defmodule AWS.Chime do
   @spec create_channel_ban(map(), String.t(), create_channel_ban_request(), list()) ::
           {:ok, create_channel_ban_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, resource_limit_exceeded_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, create_channel_ban_errors()}
   def create_channel_ban(%Client{} = client, channel_arn, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/bans"
 
@@ -5696,14 +8046,7 @@ defmodule AWS.Chime do
   @spec create_channel_membership(map(), String.t(), create_channel_membership_request(), list()) ::
           {:ok, create_channel_membership_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, resource_limit_exceeded_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, create_channel_membership_errors()}
   def create_channel_membership(%Client{} = client, channel_arn, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/memberships"
 
@@ -5768,14 +8111,7 @@ defmodule AWS.Chime do
   @spec create_channel_moderator(map(), String.t(), create_channel_moderator_request(), list()) ::
           {:ok, create_channel_moderator_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, resource_limit_exceeded_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, create_channel_moderator_errors()}
   def create_channel_moderator(%Client{} = client, channel_arn, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/moderators"
 
@@ -5819,13 +8155,7 @@ defmodule AWS.Chime do
   @spec create_media_capture_pipeline(map(), create_media_capture_pipeline_request(), list()) ::
           {:ok, create_media_capture_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, resource_limit_exceeded_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, create_media_capture_pipeline_errors()}
   def create_media_capture_pipeline(%Client{} = client, input, options \\ []) do
     url_path = "/media-capture-pipelines"
     headers = []
@@ -5871,13 +8201,7 @@ defmodule AWS.Chime do
   @spec create_meeting(map(), create_meeting_request(), list()) ::
           {:ok, create_meeting_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, resource_limit_exceeded_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, create_meeting_errors()}
   def create_meeting(%Client{} = client, input, options \\ []) do
     url_path = "/meetings"
     headers = []
@@ -5914,14 +8238,7 @@ defmodule AWS.Chime do
   @spec create_meeting_dial_out(map(), String.t(), create_meeting_dial_out_request(), list()) ::
           {:ok, create_meeting_dial_out_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, resource_limit_exceeded_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, create_meeting_dial_out_errors()}
   def create_meeting_dial_out(%Client{} = client, meeting_id, input, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/dial-outs"
     headers = []
@@ -5971,13 +8288,7 @@ defmodule AWS.Chime do
   @spec create_meeting_with_attendees(map(), create_meeting_with_attendees_request(), list()) ::
           {:ok, create_meeting_with_attendees_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, resource_limit_exceeded_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, create_meeting_with_attendees_errors()}
   def create_meeting_with_attendees(%Client{} = client, input, options \\ []) do
     url_path = "/meetings?operation=create-attendees"
     headers = []
@@ -6009,14 +8320,7 @@ defmodule AWS.Chime do
   @spec create_phone_number_order(map(), create_phone_number_order_request(), list()) ::
           {:ok, create_phone_number_order_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, resource_limit_exceeded_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, create_phone_number_order_errors()}
   def create_phone_number_order(%Client{} = client, input, options \\ []) do
     url_path = "/phone-number-orders"
     headers = []
@@ -6055,13 +8359,7 @@ defmodule AWS.Chime do
   @spec create_proxy_session(map(), String.t(), create_proxy_session_request(), list()) ::
           {:ok, create_proxy_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, create_proxy_session_errors()}
   def create_proxy_session(%Client{} = client, voice_connector_id, input, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/proxy-sessions"
     headers = []
@@ -6088,14 +8386,7 @@ defmodule AWS.Chime do
   @spec create_room(map(), String.t(), create_room_request(), list()) ::
           {:ok, create_room_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, resource_limit_exceeded_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, create_room_errors()}
   def create_room(%Client{} = client, account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/rooms"
     headers = []
@@ -6131,15 +8422,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, create_room_membership_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, resource_limit_exceeded_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, create_room_membership_errors()}
   def create_room_membership(%Client{} = client, account_id, room_id, input, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/rooms/#{AWS.Util.encode_uri(room_id)}/memberships"
@@ -6179,15 +8462,7 @@ defmodule AWS.Chime do
   @spec create_sip_media_application(map(), create_sip_media_application_request(), list()) ::
           {:ok, create_sip_media_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, resource_limit_exceeded_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, create_sip_media_application_errors()}
   def create_sip_media_application(%Client{} = client, input, options \\ []) do
     url_path = "/sip-media-applications"
     headers = []
@@ -6232,14 +8507,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, create_sip_media_application_call_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, resource_limit_exceeded_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, create_sip_media_application_call_errors()}
   def create_sip_media_application_call(
         %Client{} = client,
         sip_media_application_id,
@@ -6283,15 +8551,7 @@ defmodule AWS.Chime do
   @spec create_sip_rule(map(), create_sip_rule_request(), list()) ::
           {:ok, create_sip_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, resource_limit_exceeded_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, create_sip_rule_errors()}
   def create_sip_rule(%Client{} = client, input, options \\ []) do
     url_path = "/sip-rules"
     headers = []
@@ -6318,14 +8578,7 @@ defmodule AWS.Chime do
   @spec create_user(map(), String.t(), create_user_request(), list()) ::
           {:ok, create_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, create_user_errors()}
   def create_user(%Client{} = client, account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/users?operation=create"
     headers = []
@@ -6371,14 +8624,7 @@ defmodule AWS.Chime do
   @spec create_voice_connector(map(), create_voice_connector_request(), list()) ::
           {:ok, create_voice_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, resource_limit_exceeded_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, create_voice_connector_errors()}
   def create_voice_connector(%Client{} = client, input, options \\ []) do
     url_path = "/voice-connectors"
     headers = []
@@ -6426,14 +8672,7 @@ defmodule AWS.Chime do
   @spec create_voice_connector_group(map(), create_voice_connector_group_request(), list()) ::
           {:ok, create_voice_connector_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, resource_limit_exceeded_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, create_voice_connector_group_errors()}
   def create_voice_connector_group(%Client{} = client, input, options \\ []) do
     url_path = "/voice-connector-groups"
     headers = []
@@ -6476,14 +8715,7 @@ defmodule AWS.Chime do
   @spec delete_account(map(), String.t(), delete_account_request(), list()) ::
           {:ok, delete_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
-          | {:error, unprocessable_entity_exception()}
+          | {:error, delete_account_errors()}
   def delete_account(%Client{} = client, account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}"
     headers = []
@@ -6521,12 +8753,7 @@ defmodule AWS.Chime do
   @spec delete_app_instance(map(), String.t(), delete_app_instance_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, delete_app_instance_errors()}
   def delete_app_instance(%Client{} = client, app_instance_arn, input, options \\ []) do
     url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}"
     headers = []
@@ -6572,13 +8799,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, delete_app_instance_admin_errors()}
   def delete_app_instance_admin(
         %Client{} = client,
         app_instance_admin_arn,
@@ -6629,13 +8850,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, delete_app_instance_streaming_configurations_errors()}
   def delete_app_instance_streaming_configurations(
         %Client{} = client,
         app_instance_arn,
@@ -6678,12 +8893,7 @@ defmodule AWS.Chime do
   @spec delete_app_instance_user(map(), String.t(), delete_app_instance_user_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, delete_app_instance_user_errors()}
   def delete_app_instance_user(%Client{} = client, app_instance_user_arn, input, options \\ []) do
     url_path = "/app-instance-users/#{AWS.Util.encode_uri(app_instance_user_arn)}"
     headers = []
@@ -6728,13 +8938,7 @@ defmodule AWS.Chime do
   @spec delete_attendee(map(), String.t(), String.t(), delete_attendee_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, delete_attendee_errors()}
   def delete_attendee(%Client{} = client, attendee_id, meeting_id, input, options \\ []) do
     url_path =
       "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees/#{AWS.Util.encode_uri(attendee_id)}"
@@ -6781,12 +8985,7 @@ defmodule AWS.Chime do
   @spec delete_channel(map(), String.t(), delete_channel_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, delete_channel_errors()}
   def delete_channel(%Client{} = client, channel_arn, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}"
 
@@ -6834,12 +9033,7 @@ defmodule AWS.Chime do
   @spec delete_channel_ban(map(), String.t(), String.t(), delete_channel_ban_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, delete_channel_ban_errors()}
   def delete_channel_ban(%Client{} = client, channel_arn, member_arn, input, options \\ []) do
     url_path =
       "/channels/#{AWS.Util.encode_uri(channel_arn)}/bans/#{AWS.Util.encode_uri(member_arn)}"
@@ -6894,13 +9088,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, delete_channel_membership_errors()}
   def delete_channel_membership(%Client{} = client, channel_arn, member_arn, input, options \\ []) do
     url_path =
       "/channels/#{AWS.Util.encode_uri(channel_arn)}/memberships/#{AWS.Util.encode_uri(member_arn)}"
@@ -6959,12 +9147,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, delete_channel_message_errors()}
   def delete_channel_message(%Client{} = client, channel_arn, message_id, input, options \\ []) do
     url_path =
       "/channels/#{AWS.Util.encode_uri(channel_arn)}/messages/#{AWS.Util.encode_uri(message_id)}"
@@ -7019,12 +9202,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, delete_channel_moderator_errors()}
   def delete_channel_moderator(
         %Client{} = client,
         channel_arn,
@@ -7070,12 +9248,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, resource_limit_exceeded_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, delete_events_configuration_errors()}
   def delete_events_configuration(%Client{} = client, account_id, bot_id, input, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/bots/#{AWS.Util.encode_uri(bot_id)}/events-configuration"
@@ -7120,13 +9293,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, delete_media_capture_pipeline_errors()}
   def delete_media_capture_pipeline(%Client{} = client, media_pipeline_id, input, options \\ []) do
     url_path = "/media-capture-pipelines/#{AWS.Util.encode_uri(media_pipeline_id)}"
     headers = []
@@ -7170,13 +9337,7 @@ defmodule AWS.Chime do
   @spec delete_meeting(map(), String.t(), delete_meeting_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, delete_meeting_errors()}
   def delete_meeting(%Client{} = client, meeting_id, input, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}"
     headers = []
@@ -7212,13 +9373,7 @@ defmodule AWS.Chime do
   @spec delete_phone_number(map(), String.t(), delete_phone_number_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, delete_phone_number_errors()}
   def delete_phone_number(%Client{} = client, phone_number_id, input, options \\ []) do
     url_path = "/phone-numbers/#{AWS.Util.encode_uri(phone_number_id)}"
     headers = []
@@ -7263,13 +9418,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, delete_proxy_session_errors()}
   def delete_proxy_session(
         %Client{} = client,
         proxy_session_id,
@@ -7304,13 +9453,7 @@ defmodule AWS.Chime do
   @spec delete_room(map(), String.t(), String.t(), delete_room_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, delete_room_errors()}
   def delete_room(%Client{} = client, account_id, room_id, input, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/rooms/#{AWS.Util.encode_uri(room_id)}"
@@ -7346,13 +9489,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, delete_room_membership_errors()}
   def delete_room_membership(
         %Client{} = client,
         account_id,
@@ -7404,14 +9541,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, delete_sip_media_application_errors()}
   def delete_sip_media_application(
         %Client{} = client,
         sip_media_application_id,
@@ -7456,14 +9586,7 @@ defmodule AWS.Chime do
   @spec delete_sip_rule(map(), String.t(), delete_sip_rule_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, delete_sip_rule_errors()}
   def delete_sip_rule(%Client{} = client, sip_rule_id, input, options \\ []) do
     url_path = "/sip-rules/#{AWS.Util.encode_uri(sip_rule_id)}"
     headers = []
@@ -7505,14 +9628,7 @@ defmodule AWS.Chime do
   @spec delete_voice_connector(map(), String.t(), delete_voice_connector_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, delete_voice_connector_errors()}
   def delete_voice_connector(%Client{} = client, voice_connector_id, input, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}"
     headers = []
@@ -7556,13 +9672,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, delete_voice_connector_emergency_calling_configuration_errors()}
   def delete_voice_connector_emergency_calling_configuration(
         %Client{} = client,
         voice_connector_id,
@@ -7617,14 +9727,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, delete_voice_connector_group_errors()}
   def delete_voice_connector_group(
         %Client{} = client,
         voice_connector_group_id,
@@ -7675,13 +9778,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, delete_voice_connector_origination_errors()}
   def delete_voice_connector_origination(
         %Client{} = client,
         voice_connector_id,
@@ -7729,13 +9826,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, delete_voice_connector_proxy_errors()}
   def delete_voice_connector_proxy(%Client{} = client, voice_connector_id, input, options \\ []) do
     url_path =
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/programmable-numbers/proxy"
@@ -7781,13 +9872,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, delete_voice_connector_streaming_configuration_errors()}
   def delete_voice_connector_streaming_configuration(
         %Client{} = client,
         voice_connector_id,
@@ -7840,13 +9925,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, delete_voice_connector_termination_errors()}
   def delete_voice_connector_termination(
         %Client{} = client,
         voice_connector_id,
@@ -7895,13 +9974,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, delete_voice_connector_termination_credentials_errors()}
   def delete_voice_connector_termination_credentials(
         %Client{} = client,
         voice_connector_id,
@@ -7946,12 +10019,7 @@ defmodule AWS.Chime do
   @spec describe_app_instance(map(), String.t(), list()) ::
           {:ok, describe_app_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, describe_app_instance_errors()}
   def describe_app_instance(%Client{} = client, app_instance_arn, options \\ []) do
     url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}"
     headers = []
@@ -7979,12 +10047,7 @@ defmodule AWS.Chime do
   @spec describe_app_instance_admin(map(), String.t(), String.t(), list()) ::
           {:ok, describe_app_instance_admin_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, describe_app_instance_admin_errors()}
   def describe_app_instance_admin(
         %Client{} = client,
         app_instance_admin_arn,
@@ -8019,12 +10082,7 @@ defmodule AWS.Chime do
   @spec describe_app_instance_user(map(), String.t(), list()) ::
           {:ok, describe_app_instance_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, describe_app_instance_user_errors()}
   def describe_app_instance_user(%Client{} = client, app_instance_user_arn, options \\ []) do
     url_path = "/app-instance-users/#{AWS.Util.encode_uri(app_instance_user_arn)}"
     headers = []
@@ -8057,12 +10115,7 @@ defmodule AWS.Chime do
   @spec describe_channel(map(), String.t(), String.t() | nil, list()) ::
           {:ok, describe_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, describe_channel_errors()}
   def describe_channel(%Client{} = client, channel_arn, chime_bearer \\ nil, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}"
     headers = []
@@ -8102,13 +10155,7 @@ defmodule AWS.Chime do
   @spec describe_channel_ban(map(), String.t(), String.t(), String.t() | nil, list()) ::
           {:ok, describe_channel_ban_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, describe_channel_ban_errors()}
   def describe_channel_ban(
         %Client{} = client,
         channel_arn,
@@ -8156,13 +10203,7 @@ defmodule AWS.Chime do
   @spec describe_channel_membership(map(), String.t(), String.t(), String.t() | nil, list()) ::
           {:ok, describe_channel_membership_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, describe_channel_membership_errors()}
   def describe_channel_membership(
         %Client{} = client,
         channel_arn,
@@ -8217,12 +10258,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, describe_channel_membership_for_app_instance_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, describe_channel_membership_for_app_instance_user_errors()}
   def describe_channel_membership_for_app_instance_user(
         %Client{} = client,
         channel_arn,
@@ -8282,12 +10318,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, describe_channel_moderated_by_app_instance_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, describe_channel_moderated_by_app_instance_user_errors()}
   def describe_channel_moderated_by_app_instance_user(
         %Client{} = client,
         channel_arn,
@@ -8342,13 +10373,7 @@ defmodule AWS.Chime do
   @spec describe_channel_moderator(map(), String.t(), String.t(), String.t() | nil, list()) ::
           {:ok, describe_channel_moderator_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, describe_channel_moderator_errors()}
   def describe_channel_moderator(
         %Client{} = client,
         channel_arn,
@@ -8388,13 +10413,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, disassociate_phone_number_from_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, disassociate_phone_number_from_user_errors()}
   def disassociate_phone_number_from_user(
         %Client{} = client,
         account_id,
@@ -8446,13 +10465,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, disassociate_phone_numbers_from_voice_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, disassociate_phone_numbers_from_voice_connector_errors()}
   def disassociate_phone_numbers_from_voice_connector(
         %Client{} = client,
         voice_connector_id,
@@ -8503,13 +10516,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, disassociate_phone_numbers_from_voice_connector_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, disassociate_phone_numbers_from_voice_connector_group_errors()}
   def disassociate_phone_numbers_from_voice_connector_group(
         %Client{} = client,
         voice_connector_group_id,
@@ -8549,13 +10556,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, disassociate_signin_delegate_groups_from_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, disassociate_signin_delegate_groups_from_account_errors()}
   def disassociate_signin_delegate_groups_from_account(
         %Client{} = client,
         account_id,
@@ -8591,13 +10592,7 @@ defmodule AWS.Chime do
   @spec get_account(map(), String.t(), list()) ::
           {:ok, get_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, get_account_errors()}
   def get_account(%Client{} = client, account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}"
     headers = []
@@ -8620,13 +10615,7 @@ defmodule AWS.Chime do
   @spec get_account_settings(map(), String.t(), list()) ::
           {:ok, get_account_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, get_account_settings_errors()}
   def get_account_settings(%Client{} = client, account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/settings"
     headers = []
@@ -8654,13 +10643,7 @@ defmodule AWS.Chime do
   @spec get_app_instance_retention_settings(map(), String.t(), list()) ::
           {:ok, get_app_instance_retention_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, get_app_instance_retention_settings_errors()}
   def get_app_instance_retention_settings(%Client{} = client, app_instance_arn, options \\ []) do
     url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}/retention-settings"
     headers = []
@@ -8688,13 +10671,7 @@ defmodule AWS.Chime do
   @spec get_app_instance_streaming_configurations(map(), String.t(), list()) ::
           {:ok, get_app_instance_streaming_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, get_app_instance_streaming_configurations_errors()}
   def get_app_instance_streaming_configurations(
         %Client{} = client,
         app_instance_arn,
@@ -8732,13 +10709,7 @@ defmodule AWS.Chime do
   @spec get_attendee(map(), String.t(), String.t(), list()) ::
           {:ok, get_attendee_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, get_attendee_errors()}
   def get_attendee(%Client{} = client, attendee_id, meeting_id, options \\ []) do
     url_path =
       "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees/#{AWS.Util.encode_uri(attendee_id)}"
@@ -8758,13 +10729,7 @@ defmodule AWS.Chime do
   @spec get_bot(map(), String.t(), String.t(), list()) ::
           {:ok, get_bot_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, get_bot_errors()}
   def get_bot(%Client{} = client, account_id, bot_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/bots/#{AWS.Util.encode_uri(bot_id)}"
     headers = []
@@ -8796,13 +10761,7 @@ defmodule AWS.Chime do
   @spec get_channel_message(map(), String.t(), String.t(), String.t() | nil, list()) ::
           {:ok, get_channel_message_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, get_channel_message_errors()}
   def get_channel_message(
         %Client{} = client,
         channel_arn,
@@ -8836,13 +10795,7 @@ defmodule AWS.Chime do
   @spec get_events_configuration(map(), String.t(), String.t(), list()) ::
           {:ok, get_events_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, resource_limit_exceeded_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, get_events_configuration_errors()}
   def get_events_configuration(%Client{} = client, account_id, bot_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/bots/#{AWS.Util.encode_uri(bot_id)}/events-configuration"
@@ -8863,12 +10816,7 @@ defmodule AWS.Chime do
   @spec get_global_settings(map(), list()) ::
           {:ok, get_global_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, get_global_settings_errors()}
   def get_global_settings(%Client{} = client, options \\ []) do
     url_path = "/settings"
     headers = []
@@ -8896,13 +10844,7 @@ defmodule AWS.Chime do
   @spec get_media_capture_pipeline(map(), String.t(), list()) ::
           {:ok, get_media_capture_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, get_media_capture_pipeline_errors()}
   def get_media_capture_pipeline(%Client{} = client, media_pipeline_id, options \\ []) do
     url_path = "/media-capture-pipelines/#{AWS.Util.encode_uri(media_pipeline_id)}"
     headers = []
@@ -8937,13 +10879,7 @@ defmodule AWS.Chime do
   @spec get_meeting(map(), String.t(), list()) ::
           {:ok, get_meeting_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, get_meeting_errors()}
   def get_meeting(%Client{} = client, meeting_id, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}"
     headers = []
@@ -8971,11 +10907,7 @@ defmodule AWS.Chime do
   @spec get_messaging_session_endpoint(map(), list()) ::
           {:ok, get_messaging_session_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, forbidden_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, get_messaging_session_endpoint_errors()}
   def get_messaging_session_endpoint(%Client{} = client, options \\ []) do
     url_path = "/endpoints/messaging-session"
     headers = []
@@ -8993,13 +10925,7 @@ defmodule AWS.Chime do
   @spec get_phone_number(map(), String.t(), list()) ::
           {:ok, get_phone_number_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, get_phone_number_errors()}
   def get_phone_number(%Client{} = client, phone_number_id, options \\ []) do
     url_path = "/phone-numbers/#{AWS.Util.encode_uri(phone_number_id)}"
     headers = []
@@ -9018,13 +10944,7 @@ defmodule AWS.Chime do
   @spec get_phone_number_order(map(), String.t(), list()) ::
           {:ok, get_phone_number_order_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, get_phone_number_order_errors()}
   def get_phone_number_order(%Client{} = client, phone_number_order_id, options \\ []) do
     url_path = "/phone-number-orders/#{AWS.Util.encode_uri(phone_number_order_id)}"
     headers = []
@@ -9042,12 +10962,7 @@ defmodule AWS.Chime do
   @spec get_phone_number_settings(map(), list()) ::
           {:ok, get_phone_number_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, get_phone_number_settings_errors()}
   def get_phone_number_settings(%Client{} = client, options \\ []) do
     url_path = "/settings/phone-number"
     headers = []
@@ -9076,13 +10991,7 @@ defmodule AWS.Chime do
   @spec get_proxy_session(map(), String.t(), String.t(), list()) ::
           {:ok, get_proxy_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, get_proxy_session_errors()}
   def get_proxy_session(%Client{} = client, proxy_session_id, voice_connector_id, options \\ []) do
     url_path =
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/proxy-sessions/#{AWS.Util.encode_uri(proxy_session_id)}"
@@ -9106,13 +11015,7 @@ defmodule AWS.Chime do
   @spec get_retention_settings(map(), String.t(), list()) ::
           {:ok, get_retention_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, get_retention_settings_errors()}
   def get_retention_settings(%Client{} = client, account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/retention-settings"
     headers = []
@@ -9130,13 +11033,7 @@ defmodule AWS.Chime do
   @spec get_room(map(), String.t(), String.t(), list()) ::
           {:ok, get_room_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, get_room_errors()}
   def get_room(%Client{} = client, account_id, room_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/rooms/#{AWS.Util.encode_uri(room_id)}"
@@ -9167,13 +11064,7 @@ defmodule AWS.Chime do
   @spec get_sip_media_application(map(), String.t(), list()) ::
           {:ok, get_sip_media_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, get_sip_media_application_errors()}
   def get_sip_media_application(%Client{} = client, sip_media_application_id, options \\ []) do
     url_path = "/sip-media-applications/#{AWS.Util.encode_uri(sip_media_application_id)}"
     headers = []
@@ -9201,13 +11092,7 @@ defmodule AWS.Chime do
   @spec get_sip_media_application_logging_configuration(map(), String.t(), list()) ::
           {:ok, get_sip_media_application_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, get_sip_media_application_logging_configuration_errors()}
   def get_sip_media_application_logging_configuration(
         %Client{} = client,
         sip_media_application_id,
@@ -9242,13 +11127,7 @@ defmodule AWS.Chime do
   @spec get_sip_rule(map(), String.t(), list()) ::
           {:ok, get_sip_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, get_sip_rule_errors()}
   def get_sip_rule(%Client{} = client, sip_rule_id, options \\ []) do
     url_path = "/sip-rules/#{AWS.Util.encode_uri(sip_rule_id)}"
     headers = []
@@ -9269,13 +11148,7 @@ defmodule AWS.Chime do
   @spec get_user(map(), String.t(), String.t(), list()) ::
           {:ok, get_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, get_user_errors()}
   def get_user(%Client{} = client, account_id, user_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/users/#{AWS.Util.encode_uri(user_id)}"
@@ -9295,13 +11168,7 @@ defmodule AWS.Chime do
   @spec get_user_settings(map(), String.t(), String.t(), list()) ::
           {:ok, get_user_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, get_user_settings_errors()}
   def get_user_settings(%Client{} = client, account_id, user_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/users/#{AWS.Util.encode_uri(user_id)}/settings"
@@ -9332,13 +11199,7 @@ defmodule AWS.Chime do
   @spec get_voice_connector(map(), String.t(), list()) ::
           {:ok, get_voice_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, get_voice_connector_errors()}
   def get_voice_connector(%Client{} = client, voice_connector_id, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}"
     headers = []
@@ -9367,13 +11228,7 @@ defmodule AWS.Chime do
   @spec get_voice_connector_emergency_calling_configuration(map(), String.t(), list()) ::
           {:ok, get_voice_connector_emergency_calling_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, get_voice_connector_emergency_calling_configuration_errors()}
   def get_voice_connector_emergency_calling_configuration(
         %Client{} = client,
         voice_connector_id,
@@ -9409,13 +11264,7 @@ defmodule AWS.Chime do
   @spec get_voice_connector_group(map(), String.t(), list()) ::
           {:ok, get_voice_connector_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, get_voice_connector_group_errors()}
   def get_voice_connector_group(%Client{} = client, voice_connector_group_id, options \\ []) do
     url_path = "/voice-connector-groups/#{AWS.Util.encode_uri(voice_connector_group_id)}"
     headers = []
@@ -9447,13 +11296,7 @@ defmodule AWS.Chime do
   @spec get_voice_connector_logging_configuration(map(), String.t(), list()) ::
           {:ok, get_voice_connector_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, get_voice_connector_logging_configuration_errors()}
   def get_voice_connector_logging_configuration(
         %Client{} = client,
         voice_connector_id,
@@ -9488,13 +11331,7 @@ defmodule AWS.Chime do
   @spec get_voice_connector_origination(map(), String.t(), list()) ::
           {:ok, get_voice_connector_origination_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, get_voice_connector_origination_errors()}
   def get_voice_connector_origination(%Client{} = client, voice_connector_id, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/origination"
     headers = []
@@ -9523,13 +11360,7 @@ defmodule AWS.Chime do
   @spec get_voice_connector_proxy(map(), String.t(), list()) ::
           {:ok, get_voice_connector_proxy_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, get_voice_connector_proxy_errors()}
   def get_voice_connector_proxy(%Client{} = client, voice_connector_id, options \\ []) do
     url_path =
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/programmable-numbers/proxy"
@@ -9564,13 +11395,7 @@ defmodule AWS.Chime do
   @spec get_voice_connector_streaming_configuration(map(), String.t(), list()) ::
           {:ok, get_voice_connector_streaming_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, get_voice_connector_streaming_configuration_errors()}
   def get_voice_connector_streaming_configuration(
         %Client{} = client,
         voice_connector_id,
@@ -9605,13 +11430,7 @@ defmodule AWS.Chime do
   @spec get_voice_connector_termination(map(), String.t(), list()) ::
           {:ok, get_voice_connector_termination_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, get_voice_connector_termination_errors()}
   def get_voice_connector_termination(%Client{} = client, voice_connector_id, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/termination"
     headers = []
@@ -9642,13 +11461,7 @@ defmodule AWS.Chime do
   @spec get_voice_connector_termination_health(map(), String.t(), list()) ::
           {:ok, get_voice_connector_termination_health_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, get_voice_connector_termination_health_errors()}
   def get_voice_connector_termination_health(
         %Client{} = client,
         voice_connector_id,
@@ -9674,13 +11487,7 @@ defmodule AWS.Chime do
   @spec invite_users(map(), String.t(), invite_users_request(), list()) ::
           {:ok, invite_users_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, invite_users_errors()}
   def invite_users(%Client{} = client, account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/users?operation=add"
     headers = []
@@ -9719,13 +11526,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, list_accounts_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, list_accounts_errors()}
   def list_accounts(
         %Client{} = client,
         max_results \\ nil,
@@ -9788,12 +11589,7 @@ defmodule AWS.Chime do
   @spec list_app_instance_admins(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_app_instance_admins_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, list_app_instance_admins_errors()}
   def list_app_instance_admins(
         %Client{} = client,
         app_instance_arn,
@@ -9842,12 +11638,7 @@ defmodule AWS.Chime do
   @spec list_app_instance_users(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_app_instance_users_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, list_app_instance_users_errors()}
   def list_app_instance_users(
         %Client{} = client,
         app_instance_arn,
@@ -9902,12 +11693,7 @@ defmodule AWS.Chime do
   @spec list_app_instances(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_app_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, list_app_instances_errors()}
   def list_app_instances(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/app-instances"
     headers = []
@@ -9941,13 +11727,7 @@ defmodule AWS.Chime do
   @spec list_attendee_tags(map(), String.t(), String.t(), list()) ::
           {:ok, list_attendee_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, list_attendee_tags_errors()}
   def list_attendee_tags(%Client{} = client, attendee_id, meeting_id, options \\ []) do
     url_path =
       "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees/#{AWS.Util.encode_uri(attendee_id)}/tags"
@@ -9982,13 +11762,7 @@ defmodule AWS.Chime do
   @spec list_attendees(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_attendees_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, list_attendees_errors()}
   def list_attendees(
         %Client{} = client,
         meeting_id,
@@ -10026,13 +11800,7 @@ defmodule AWS.Chime do
   @spec list_bots(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_bots_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, list_bots_errors()}
   def list_bots(
         %Client{} = client,
         account_id,
@@ -10091,12 +11859,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, list_channel_bans_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, list_channel_bans_errors()}
   def list_channel_bans(
         %Client{} = client,
         channel_arn,
@@ -10165,12 +11928,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, list_channel_memberships_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, list_channel_memberships_errors()}
   def list_channel_memberships(
         %Client{} = client,
         channel_arn,
@@ -10249,12 +12007,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, list_channel_memberships_for_app_instance_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, list_channel_memberships_for_app_instance_user_errors()}
   def list_channel_memberships_for_app_instance_user(
         %Client{} = client,
         app_instance_user_arn \\ nil,
@@ -10342,12 +12095,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, list_channel_messages_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, list_channel_messages_errors()}
   def list_channel_messages(
         %Client{} = client,
         channel_arn,
@@ -10439,12 +12187,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, list_channel_moderators_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, list_channel_moderators_errors()}
   def list_channel_moderators(
         %Client{} = client,
         channel_arn,
@@ -10526,12 +12269,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, list_channels_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, list_channels_errors()}
   def list_channels(
         %Client{} = client,
         app_instance_arn,
@@ -10614,12 +12352,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, list_channels_moderated_by_app_instance_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, list_channels_moderated_by_app_instance_user_errors()}
   def list_channels_moderated_by_app_instance_user(
         %Client{} = client,
         app_instance_user_arn \\ nil,
@@ -10683,12 +12416,7 @@ defmodule AWS.Chime do
   @spec list_media_capture_pipelines(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_media_capture_pipelines_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, list_media_capture_pipelines_errors()}
   def list_media_capture_pipelines(
         %Client{} = client,
         max_results \\ nil,
@@ -10735,13 +12463,7 @@ defmodule AWS.Chime do
   @spec list_meeting_tags(map(), String.t(), list()) ::
           {:ok, list_meeting_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, list_meeting_tags_errors()}
   def list_meeting_tags(%Client{} = client, meeting_id, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/tags"
     headers = []
@@ -10765,12 +12487,7 @@ defmodule AWS.Chime do
   @spec list_meetings(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_meetings_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, list_meetings_errors()}
   def list_meetings(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/meetings"
     headers = []
@@ -10801,12 +12518,7 @@ defmodule AWS.Chime do
   @spec list_phone_number_orders(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_phone_number_orders_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, list_phone_number_orders_errors()}
   def list_phone_number_orders(
         %Client{} = client,
         max_results \\ nil,
@@ -10852,13 +12564,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, list_phone_numbers_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, list_phone_numbers_errors()}
   def list_phone_numbers(
         %Client{} = client,
         filter_name \\ nil,
@@ -10944,13 +12650,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, list_proxy_sessions_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, list_proxy_sessions_errors()}
   def list_proxy_sessions(
         %Client{} = client,
         voice_connector_id,
@@ -11004,13 +12704,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, list_room_memberships_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, list_room_memberships_errors()}
   def list_room_memberships(
         %Client{} = client,
         account_id,
@@ -11060,13 +12754,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, list_rooms_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, list_rooms_errors()}
   def list_rooms(
         %Client{} = client,
         account_id,
@@ -11122,12 +12810,7 @@ defmodule AWS.Chime do
   @spec list_sip_media_applications(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_sip_media_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, list_sip_media_applications_errors()}
   def list_sip_media_applications(
         %Client{} = client,
         max_results \\ nil,
@@ -11174,12 +12857,7 @@ defmodule AWS.Chime do
   @spec list_sip_rules(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_sip_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, list_sip_rules_errors()}
   def list_sip_rules(
         %Client{} = client,
         max_results \\ nil,
@@ -11223,13 +12901,7 @@ defmodule AWS.Chime do
   @spec list_supported_phone_number_countries(map(), String.t(), list()) ::
           {:ok, list_supported_phone_number_countries_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, list_supported_phone_number_countries_errors()}
   def list_supported_phone_number_countries(%Client{} = client, product_type, options \\ []) do
     url_path = "/phone-number-countries"
     headers = []
@@ -11269,12 +12941,7 @@ defmodule AWS.Chime do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags"
     headers = []
@@ -11309,13 +12976,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, list_users_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, list_users_errors()}
   def list_users(
         %Client{} = client,
         account_id,
@@ -11380,12 +13041,7 @@ defmodule AWS.Chime do
   @spec list_voice_connector_groups(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_voice_connector_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, list_voice_connector_groups_errors()}
   def list_voice_connector_groups(
         %Client{} = client,
         max_results \\ nil,
@@ -11432,13 +13088,7 @@ defmodule AWS.Chime do
   @spec list_voice_connector_termination_credentials(map(), String.t(), list()) ::
           {:ok, list_voice_connector_termination_credentials_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, list_voice_connector_termination_credentials_errors()}
   def list_voice_connector_termination_credentials(
         %Client{} = client,
         voice_connector_id,
@@ -11472,12 +13122,7 @@ defmodule AWS.Chime do
   @spec list_voice_connectors(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_voice_connectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, list_voice_connectors_errors()}
   def list_voice_connectors(
         %Client{} = client,
         max_results \\ nil,
@@ -11514,13 +13159,7 @@ defmodule AWS.Chime do
   @spec logout_user(map(), String.t(), String.t(), logout_user_request(), list()) ::
           {:ok, logout_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, logout_user_errors()}
   def logout_user(%Client{} = client, account_id, user_id, input, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/users/#{AWS.Util.encode_uri(user_id)}?operation=logout"
@@ -11565,14 +13204,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, put_app_instance_retention_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, put_app_instance_retention_settings_errors()}
   def put_app_instance_retention_settings(
         %Client{} = client,
         app_instance_arn,
@@ -11610,13 +13242,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, put_app_instance_streaming_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, put_app_instance_streaming_configurations_errors()}
   def put_app_instance_streaming_configurations(
         %Client{} = client,
         app_instance_arn,
@@ -11649,13 +13275,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, put_events_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, resource_limit_exceeded_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, put_events_configuration_errors()}
   def put_events_configuration(%Client{} = client, account_id, bot_id, input, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/bots/#{AWS.Util.encode_uri(bot_id)}/events-configuration"
@@ -11689,14 +13309,7 @@ defmodule AWS.Chime do
   @spec put_retention_settings(map(), String.t(), put_retention_settings_request(), list()) ::
           {:ok, put_retention_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, put_retention_settings_errors()}
   def put_retention_settings(%Client{} = client, account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/retention-settings"
     headers = []
@@ -11729,13 +13342,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, put_sip_media_application_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, put_sip_media_application_logging_configuration_errors()}
   def put_sip_media_application_logging_configuration(
         %Client{} = client,
         sip_media_application_id,
@@ -11779,13 +13386,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, put_voice_connector_emergency_calling_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, put_voice_connector_emergency_calling_configuration_errors()}
   def put_voice_connector_emergency_calling_configuration(
         %Client{} = client,
         voice_connector_id,
@@ -11829,13 +13430,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, put_voice_connector_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, put_voice_connector_logging_configuration_errors()}
   def put_voice_connector_logging_configuration(
         %Client{} = client,
         voice_connector_id,
@@ -11878,13 +13473,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, put_voice_connector_origination_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, put_voice_connector_origination_errors()}
   def put_voice_connector_origination(
         %Client{} = client,
         voice_connector_id,
@@ -11918,14 +13507,7 @@ defmodule AWS.Chime do
   @spec put_voice_connector_proxy(map(), String.t(), put_voice_connector_proxy_request(), list()) ::
           {:ok, put_voice_connector_proxy_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, put_voice_connector_proxy_errors()}
   def put_voice_connector_proxy(%Client{} = client, voice_connector_id, input, options \\ []) do
     url_path =
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/programmable-numbers/proxy"
@@ -11965,13 +13547,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, put_voice_connector_streaming_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, put_voice_connector_streaming_configuration_errors()}
   def put_voice_connector_streaming_configuration(
         %Client{} = client,
         voice_connector_id,
@@ -12014,14 +13590,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, put_voice_connector_termination_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, put_voice_connector_termination_errors()}
   def put_voice_connector_termination(
         %Client{} = client,
         voice_connector_id,
@@ -12059,13 +13628,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, put_voice_connector_termination_credentials_errors()}
   def put_voice_connector_termination_credentials(
         %Client{} = client,
         voice_connector_id,
@@ -12123,12 +13686,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, redact_channel_message_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, redact_channel_message_errors()}
   def redact_channel_message(%Client{} = client, channel_arn, message_id, input, options \\ []) do
     url_path =
       "/channels/#{AWS.Util.encode_uri(channel_arn)}/messages/#{AWS.Util.encode_uri(message_id)}?operation=redact"
@@ -12169,13 +13727,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, redact_conversation_message_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, redact_conversation_message_errors()}
   def redact_conversation_message(
         %Client{} = client,
         account_id,
@@ -12218,13 +13770,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, redact_room_message_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, redact_room_message_errors()}
   def redact_room_message(
         %Client{} = client,
         account_id,
@@ -12266,13 +13812,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, regenerate_security_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, regenerate_security_token_errors()}
   def regenerate_security_token(%Client{} = client, account_id, bot_id, input, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/bots/#{AWS.Util.encode_uri(bot_id)}?operation=regenerate-security-token"
@@ -12305,13 +13845,7 @@ defmodule AWS.Chime do
   @spec reset_personal_pin(map(), String.t(), String.t(), reset_personal_pin_request(), list()) ::
           {:ok, reset_personal_pin_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, reset_personal_pin_errors()}
   def reset_personal_pin(%Client{} = client, account_id, user_id, input, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/users/#{AWS.Util.encode_uri(user_id)}?operation=reset-personal-pin"
@@ -12341,14 +13875,7 @@ defmodule AWS.Chime do
   @spec restore_phone_number(map(), String.t(), restore_phone_number_request(), list()) ::
           {:ok, restore_phone_number_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, resource_limit_exceeded_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, restore_phone_number_errors()}
   def restore_phone_number(%Client{} = client, phone_number_id, input, options \\ []) do
     url_path = "/phone-numbers/#{AWS.Util.encode_uri(phone_number_id)}?operation=restore"
     headers = []
@@ -12392,13 +13919,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, search_available_phone_numbers_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, search_available_phone_numbers_errors()}
   def search_available_phone_numbers(
         %Client{} = client,
         area_code \\ nil,
@@ -12500,13 +14021,7 @@ defmodule AWS.Chime do
   @spec send_channel_message(map(), String.t(), send_channel_message_request(), list()) ::
           {:ok, send_channel_message_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, send_channel_message_errors()}
   def send_channel_message(%Client{} = client, channel_arn, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/messages"
 
@@ -12573,15 +14088,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, start_meeting_transcription_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, resource_limit_exceeded_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
-          | {:error, unprocessable_entity_exception()}
+          | {:error, start_meeting_transcription_errors()}
   def start_meeting_transcription(%Client{} = client, meeting_id, input, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/transcription?operation=start"
     headers = []
@@ -12624,14 +14131,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, stop_meeting_transcription_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
-          | {:error, unprocessable_entity_exception()}
+          | {:error, stop_meeting_transcription_errors()}
   def stop_meeting_transcription(%Client{} = client, meeting_id, input, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/transcription?operation=stop"
     headers = []
@@ -12661,14 +14161,7 @@ defmodule AWS.Chime do
   @spec tag_attendee(map(), String.t(), String.t(), tag_attendee_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, resource_limit_exceeded_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, tag_attendee_errors()}
   def tag_attendee(%Client{} = client, attendee_id, meeting_id, input, options \\ []) do
     url_path =
       "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees/#{AWS.Util.encode_uri(attendee_id)}/tags?operation=add"
@@ -12708,14 +14201,7 @@ defmodule AWS.Chime do
   @spec tag_meeting(map(), String.t(), tag_meeting_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, resource_limit_exceeded_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, tag_meeting_errors()}
   def tag_meeting(%Client{} = client, meeting_id, input, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/tags?operation=add"
     headers = []
@@ -12753,12 +14239,7 @@ defmodule AWS.Chime do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tags?operation=tag-resource"
     headers = []
@@ -12788,13 +14269,7 @@ defmodule AWS.Chime do
   @spec untag_attendee(map(), String.t(), String.t(), untag_attendee_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, untag_attendee_errors()}
   def untag_attendee(%Client{} = client, attendee_id, meeting_id, input, options \\ []) do
     url_path =
       "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees/#{AWS.Util.encode_uri(attendee_id)}/tags?operation=delete"
@@ -12834,13 +14309,7 @@ defmodule AWS.Chime do
   @spec untag_meeting(map(), String.t(), untag_meeting_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, untag_meeting_errors()}
   def untag_meeting(%Client{} = client, meeting_id, input, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/tags?operation=delete"
     headers = []
@@ -12880,12 +14349,7 @@ defmodule AWS.Chime do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tags?operation=untag-resource"
     headers = []
@@ -12915,13 +14379,7 @@ defmodule AWS.Chime do
   @spec update_account(map(), String.t(), update_account_request(), list()) ::
           {:ok, update_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, update_account_errors()}
   def update_account(%Client{} = client, account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}"
     headers = []
@@ -12955,14 +14413,7 @@ defmodule AWS.Chime do
   @spec update_account_settings(map(), String.t(), update_account_settings_request(), list()) ::
           {:ok, update_account_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, update_account_settings_errors()}
   def update_account_settings(%Client{} = client, account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/settings"
     headers = []
@@ -12990,13 +14441,7 @@ defmodule AWS.Chime do
   @spec update_app_instance(map(), String.t(), update_app_instance_request(), list()) ::
           {:ok, update_app_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, update_app_instance_errors()}
   def update_app_instance(%Client{} = client, app_instance_arn, input, options \\ []) do
     url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}"
     headers = []
@@ -13026,13 +14471,7 @@ defmodule AWS.Chime do
   @spec update_app_instance_user(map(), String.t(), update_app_instance_user_request(), list()) ::
           {:ok, update_app_instance_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, update_app_instance_user_errors()}
   def update_app_instance_user(%Client{} = client, app_instance_user_arn, input, options \\ []) do
     url_path = "/app-instance-users/#{AWS.Util.encode_uri(app_instance_user_arn)}"
     headers = []
@@ -13050,13 +14489,7 @@ defmodule AWS.Chime do
   @spec update_bot(map(), String.t(), String.t(), update_bot_request(), list()) ::
           {:ok, update_bot_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, update_bot_errors()}
   def update_bot(%Client{} = client, account_id, bot_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/bots/#{AWS.Util.encode_uri(bot_id)}"
     headers = []
@@ -13100,13 +14533,7 @@ defmodule AWS.Chime do
   @spec update_channel(map(), String.t(), update_channel_request(), list()) ::
           {:ok, update_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, update_channel_errors()}
   def update_channel(%Client{} = client, channel_arn, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}"
 
@@ -13150,13 +14577,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, update_channel_message_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, update_channel_message_errors()}
   def update_channel_message(%Client{} = client, channel_arn, message_id, input, options \\ []) do
     url_path =
       "/channels/#{AWS.Util.encode_uri(channel_arn)}/messages/#{AWS.Util.encode_uri(message_id)}"
@@ -13200,13 +14621,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, update_channel_read_marker_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, update_channel_read_marker_errors()}
   def update_channel_read_marker(%Client{} = client, channel_arn, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/readMarker"
 
@@ -13230,12 +14645,7 @@ defmodule AWS.Chime do
   @spec update_global_settings(map(), update_global_settings_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, update_global_settings_errors()}
   def update_global_settings(%Client{} = client, input, options \\ []) do
     url_path = "/settings"
     headers = []
@@ -13264,14 +14674,7 @@ defmodule AWS.Chime do
   @spec update_phone_number(map(), String.t(), update_phone_number_request(), list()) ::
           {:ok, update_phone_number_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, update_phone_number_errors()}
   def update_phone_number(%Client{} = client, phone_number_id, input, options \\ []) do
     url_path = "/phone-numbers/#{AWS.Util.encode_uri(phone_number_id)}"
     headers = []
@@ -13303,12 +14706,7 @@ defmodule AWS.Chime do
   @spec update_phone_number_settings(map(), update_phone_number_settings_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, update_phone_number_settings_errors()}
   def update_phone_number_settings(%Client{} = client, input, options \\ []) do
     url_path = "/settings/phone-number"
     headers = []
@@ -13342,13 +14740,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, update_proxy_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, update_proxy_session_errors()}
   def update_proxy_session(
         %Client{} = client,
         proxy_session_id,
@@ -13384,13 +14776,7 @@ defmodule AWS.Chime do
   @spec update_room(map(), String.t(), String.t(), update_room_request(), list()) ::
           {:ok, update_room_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, update_room_errors()}
   def update_room(%Client{} = client, account_id, room_id, input, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/rooms/#{AWS.Util.encode_uri(room_id)}"
@@ -13433,13 +14819,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, update_room_membership_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, update_room_membership_errors()}
   def update_room_membership(
         %Client{} = client,
         account_id,
@@ -13491,14 +14871,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, update_sip_media_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, update_sip_media_application_errors()}
   def update_sip_media_application(
         %Client{} = client,
         sip_media_application_id,
@@ -13540,14 +14913,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, update_sip_media_application_call_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, resource_limit_exceeded_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, update_sip_media_application_call_errors()}
   def update_sip_media_application_call(
         %Client{} = client,
         sip_media_application_id,
@@ -13593,15 +14959,7 @@ defmodule AWS.Chime do
   @spec update_sip_rule(map(), String.t(), update_sip_rule_request(), list()) ::
           {:ok, update_sip_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, resource_limit_exceeded_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, update_sip_rule_errors()}
   def update_sip_rule(%Client{} = client, sip_rule_id, input, options \\ []) do
     url_path = "/sip-rules/#{AWS.Util.encode_uri(sip_rule_id)}"
     headers = []
@@ -13620,13 +14978,7 @@ defmodule AWS.Chime do
   @spec update_user(map(), String.t(), String.t(), update_user_request(), list()) ::
           {:ok, update_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, update_user_errors()}
   def update_user(%Client{} = client, account_id, user_id, input, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/users/#{AWS.Util.encode_uri(user_id)}"
@@ -13661,13 +15013,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, update_user_settings_errors()}
   def update_user_settings(%Client{} = client, account_id, user_id, input, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/users/#{AWS.Util.encode_uri(user_id)}/settings"
@@ -13697,13 +15043,7 @@ defmodule AWS.Chime do
   @spec update_voice_connector(map(), String.t(), update_voice_connector_request(), list()) ::
           {:ok, update_voice_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, update_voice_connector_errors()}
   def update_voice_connector(%Client{} = client, voice_connector_id, input, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}"
     headers = []
@@ -13738,14 +15078,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, update_voice_connector_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, update_voice_connector_group_errors()}
   def update_voice_connector_group(
         %Client{} = client,
         voice_connector_group_id,
@@ -13785,13 +15118,7 @@ defmodule AWS.Chime do
   @spec validate_e911_address(map(), validate_e911_address_request(), list()) ::
           {:ok, validate_e911_address_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, validate_e911_address_errors()}
   def validate_e911_address(%Client{} = client, input, options \\ []) do
     url_path = "/emergency-calling/address"
     headers = []

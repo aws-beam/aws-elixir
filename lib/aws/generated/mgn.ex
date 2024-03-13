@@ -12,2177 +12,2845 @@ defmodule AWS.Mgn do
   @typedoc """
 
   ## Example:
-  start_cutover_response() :: %{
-    optional("job") => job()
-  }
+
+      start_cutover_response() :: %{
+        optional("job") => job()
+      }
+
   """
   @type start_cutover_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_job_log_items_request() :: %{
-    optional("accountID") => String.t(),
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t(),
-    required("jobID") => String.t()
-  }
+
+      describe_job_log_items_request() :: %{
+        optional("accountID") => String.t(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        required("jobID") => String.t()
+      }
+
   """
   @type describe_job_log_items_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  change_server_life_cycle_state_source_server_lifecycle() :: %{
-    "state" => String.t()
-  }
+
+      change_server_life_cycle_state_source_server_lifecycle() :: %{
+        "state" => String.t()
+      }
+
   """
   @type change_server_life_cycle_state_source_server_lifecycle() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  connector() :: %{
-    "arn" => String.t(),
-    "connectorID" => String.t(),
-    "name" => String.t(),
-    "ssmCommandConfig" => connector_ssm_command_config(),
-    "ssmInstanceID" => String.t(),
-    "tags" => map()
-  }
+
+      connector() :: %{
+        "arn" => String.t(),
+        "connectorID" => String.t(),
+        "name" => String.t(),
+        "ssmCommandConfig" => connector_ssm_command_config(),
+        "ssmInstanceID" => String.t(),
+        "tags" => map()
+      }
+
   """
   @type connector() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_source_servers_request() :: %{
-    optional("accountID") => String.t(),
-    optional("filters") => describe_source_servers_request_filters(),
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t()
-  }
+
+      describe_source_servers_request() :: %{
+        optional("accountID") => String.t(),
+        optional("filters") => describe_source_servers_request_filters(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
   """
   @type describe_source_servers_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_vcenter_clients_request() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t()
-  }
+
+      describe_vcenter_clients_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
   """
   @type describe_vcenter_clients_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_request() :: %{
-    required("tags") => map()
-  }
+
+      tag_resource_request() :: %{
+        required("tags") => map()
+      }
+
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  life_cycle() :: %{
-    "addedToServiceDateTime" => String.t(),
-    "elapsedReplicationDuration" => String.t(),
-    "firstByteDateTime" => String.t(),
-    "lastCutover" => life_cycle_last_cutover(),
-    "lastSeenByServiceDateTime" => String.t(),
-    "lastTest" => life_cycle_last_test(),
-    "state" => String.t()
-  }
+
+      life_cycle() :: %{
+        "addedToServiceDateTime" => String.t(),
+        "elapsedReplicationDuration" => String.t(),
+        "firstByteDateTime" => String.t(),
+        "lastCutover" => life_cycle_last_cutover(),
+        "lastSeenByServiceDateTime" => String.t(),
+        "lastTest" => life_cycle_last_test(),
+        "state" => String.t()
+      }
+
   """
   @type life_cycle() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_exports_request_filters() :: %{
-    "exportIDs" => list(String.t()())
-  }
+
+      list_exports_request_filters() :: %{
+        "exportIDs" => list(String.t()())
+      }
+
   """
   @type list_exports_request_filters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  unarchive_application_request() :: %{
-    optional("accountID") => String.t(),
-    required("applicationID") => String.t()
-  }
+
+      unarchive_application_request() :: %{
+        optional("accountID") => String.t(),
+        required("applicationID") => String.t()
+      }
+
   """
   @type unarchive_application_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_connectors_response() :: %{
-    "items" => list(connector()()),
-    "nextToken" => String.t()
-  }
+
+      list_connectors_response() :: %{
+        "items" => list(connector()()),
+        "nextToken" => String.t()
+      }
+
   """
   @type list_connectors_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_waves_request_filters() :: %{
-    "isArchived" => [boolean()],
-    "waveIDs" => list(String.t()())
-  }
+
+      list_waves_request_filters() :: %{
+        "isArchived" => [boolean()],
+        "waveIDs" => list(String.t()())
+      }
+
   """
   @type list_waves_request_filters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_source_server_request() :: %{
-    optional("accountID") => String.t(),
-    optional("connectorAction") => source_server_connector_action(),
-    required("sourceServerID") => String.t()
-  }
+
+      update_source_server_request() :: %{
+        optional("accountID") => String.t(),
+        optional("connectorAction") => source_server_connector_action(),
+        required("sourceServerID") => String.t()
+      }
+
   """
   @type update_source_server_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  archive_wave_request() :: %{
-    optional("accountID") => String.t(),
-    required("waveID") => String.t()
-  }
+
+      archive_wave_request() :: %{
+        optional("accountID") => String.t(),
+        required("waveID") => String.t()
+      }
+
   """
   @type archive_wave_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_launch_configuration_templates_request() :: %{
-    optional("launchConfigurationTemplateIDs") => list(String.t()()),
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t()
-  }
+
+      describe_launch_configuration_templates_request() :: %{
+        optional("launchConfigurationTemplateIDs") => list(String.t()()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
   """
   @type describe_launch_configuration_templates_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_source_server_response() :: %{
 
-  }
+      delete_source_server_response() :: %{}
+
   """
-  @type delete_source_server_response() :: %{String.t() => any()}
+  @type delete_source_server_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  delete_source_server_request() :: %{
-    optional("accountID") => String.t(),
-    required("sourceServerID") => String.t()
-  }
+
+      delete_source_server_request() :: %{
+        optional("accountID") => String.t(),
+        required("sourceServerID") => String.t()
+      }
+
   """
   @type delete_source_server_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  application_aggregated_status() :: %{
-    "healthStatus" => String.t(),
-    "lastUpdateDateTime" => String.t(),
-    "progressStatus" => String.t(),
-    "totalSourceServers" => float()
-  }
+
+      application_aggregated_status() :: %{
+        "healthStatus" => String.t(),
+        "lastUpdateDateTime" => String.t(),
+        "progressStatus" => String.t(),
+        "totalSourceServers" => float()
+      }
+
   """
   @type application_aggregated_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  replication_configuration_template() :: %{
-    optional("arn") => String.t(),
-    optional("associateDefaultSecurityGroup") => [boolean()],
-    optional("bandwidthThrottling") => float(),
-    optional("createPublicIP") => [boolean()],
-    optional("dataPlaneRouting") => String.t(),
-    optional("defaultLargeStagingDiskType") => String.t(),
-    optional("ebsEncryption") => String.t(),
-    optional("ebsEncryptionKeyArn") => String.t(),
-    optional("replicationServerInstanceType") => String.t(),
-    optional("replicationServersSecurityGroupsIDs") => list(String.t()()),
-    optional("stagingAreaSubnetId") => String.t(),
-    optional("stagingAreaTags") => map(),
-    optional("tags") => map(),
-    optional("useDedicatedReplicationServer") => [boolean()],
-    optional("useFipsEndpoint") => [boolean()],
-    required("replicationConfigurationTemplateID") => String.t()
-  }
+
+      replication_configuration_template() :: %{
+        optional("arn") => String.t(),
+        optional("associateDefaultSecurityGroup") => [boolean()],
+        optional("bandwidthThrottling") => float(),
+        optional("createPublicIP") => [boolean()],
+        optional("dataPlaneRouting") => String.t(),
+        optional("defaultLargeStagingDiskType") => String.t(),
+        optional("ebsEncryption") => String.t(),
+        optional("ebsEncryptionKeyArn") => String.t(),
+        optional("replicationServerInstanceType") => String.t(),
+        optional("replicationServersSecurityGroupsIDs") => list(String.t()()),
+        optional("stagingAreaSubnetId") => String.t(),
+        optional("stagingAreaTags") => map(),
+        optional("tags") => map(),
+        optional("useDedicatedReplicationServer") => [boolean()],
+        optional("useFipsEndpoint") => [boolean()],
+        required("replicationConfigurationTemplateID") => String.t()
+      }
+
   """
   @type replication_configuration_template() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resume_replication_request() :: %{
-    optional("accountID") => String.t(),
-    required("sourceServerID") => String.t()
-  }
+
+      resume_replication_request() :: %{
+        optional("accountID") => String.t(),
+        required("sourceServerID") => String.t()
+      }
+
   """
   @type resume_replication_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_waves_request() :: %{
-    optional("accountID") => String.t(),
-    optional("filters") => list_waves_request_filters(),
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t()
-  }
+
+      list_waves_request() :: %{
+        optional("accountID") => String.t(),
+        optional("filters") => list_waves_request_filters(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
   """
   @type list_waves_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_replication_configuration_template_request() :: %{
-    optional("arn") => String.t(),
-    optional("associateDefaultSecurityGroup") => [boolean()],
-    optional("bandwidthThrottling") => float(),
-    optional("createPublicIP") => [boolean()],
-    optional("dataPlaneRouting") => String.t(),
-    optional("defaultLargeStagingDiskType") => String.t(),
-    optional("ebsEncryption") => String.t(),
-    optional("ebsEncryptionKeyArn") => String.t(),
-    optional("replicationServerInstanceType") => String.t(),
-    optional("replicationServersSecurityGroupsIDs") => list(String.t()()),
-    optional("stagingAreaSubnetId") => String.t(),
-    optional("stagingAreaTags") => map(),
-    optional("useDedicatedReplicationServer") => [boolean()],
-    optional("useFipsEndpoint") => [boolean()],
-    required("replicationConfigurationTemplateID") => String.t()
-  }
+
+      update_replication_configuration_template_request() :: %{
+        optional("arn") => String.t(),
+        optional("associateDefaultSecurityGroup") => [boolean()],
+        optional("bandwidthThrottling") => float(),
+        optional("createPublicIP") => [boolean()],
+        optional("dataPlaneRouting") => String.t(),
+        optional("defaultLargeStagingDiskType") => String.t(),
+        optional("ebsEncryption") => String.t(),
+        optional("ebsEncryptionKeyArn") => String.t(),
+        optional("replicationServerInstanceType") => String.t(),
+        optional("replicationServersSecurityGroupsIDs") => list(String.t()()),
+        optional("stagingAreaSubnetId") => String.t(),
+        optional("stagingAreaTags") => map(),
+        optional("useDedicatedReplicationServer") => [boolean()],
+        optional("useFipsEndpoint") => [boolean()],
+        required("replicationConfigurationTemplateID") => String.t()
+      }
+
   """
   @type update_replication_configuration_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  replication_configuration_replicated_disk() :: %{
-    "deviceName" => String.t(),
-    "iops" => float(),
-    "isBootDisk" => [boolean()],
-    "stagingDiskType" => String.t(),
-    "throughput" => float()
-  }
+
+      replication_configuration_replicated_disk() :: %{
+        "deviceName" => String.t(),
+        "iops" => float(),
+        "isBootDisk" => [boolean()],
+        "stagingDiskType" => String.t(),
+        "throughput" => float()
+      }
+
   """
   @type replication_configuration_replicated_disk() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  associate_applications_response() :: %{
 
-  }
+      associate_applications_response() :: %{}
+
   """
-  @type associate_applications_response() :: %{String.t() => any()}
+  @type associate_applications_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  update_connector_request() :: %{
-    optional("name") => String.t(),
-    optional("ssmCommandConfig") => connector_ssm_command_config(),
-    required("connectorID") => String.t()
-  }
+
+      update_connector_request() :: %{
+        optional("name") => String.t(),
+        optional("ssmCommandConfig") => connector_ssm_command_config(),
+        required("connectorID") => String.t()
+      }
+
   """
   @type update_connector_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  pause_replication_request() :: %{
-    optional("accountID") => String.t(),
-    required("sourceServerID") => String.t()
-  }
+
+      pause_replication_request() :: %{
+        optional("accountID") => String.t(),
+        required("sourceServerID") => String.t()
+      }
+
   """
   @type pause_replication_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  network_interface() :: %{
-    "ips" => list(String.t()()),
-    "isPrimary" => [boolean()],
-    "macAddress" => String.t()
-  }
+
+      network_interface() :: %{
+        "ips" => list(String.t()()),
+        "isPrimary" => [boolean()],
+        "macAddress" => String.t()
+      }
+
   """
   @type network_interface() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  life_cycle_last_test_finalized() :: %{
-    "apiCallDateTime" => String.t()
-  }
+
+      life_cycle_last_test_finalized() :: %{
+        "apiCallDateTime" => String.t()
+      }
+
   """
   @type life_cycle_last_test_finalized() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_replication_configuration_template_request() :: %{
-    optional("ebsEncryptionKeyArn") => String.t(),
-    optional("tags") => map(),
-    optional("useFipsEndpoint") => [boolean()],
-    required("associateDefaultSecurityGroup") => [boolean()],
-    required("bandwidthThrottling") => float(),
-    required("createPublicIP") => [boolean()],
-    required("dataPlaneRouting") => String.t(),
-    required("defaultLargeStagingDiskType") => String.t(),
-    required("ebsEncryption") => String.t(),
-    required("replicationServerInstanceType") => String.t(),
-    required("replicationServersSecurityGroupsIDs") => list(String.t()()),
-    required("stagingAreaSubnetId") => String.t(),
-    required("stagingAreaTags") => map(),
-    required("useDedicatedReplicationServer") => [boolean()]
-  }
+
+      create_replication_configuration_template_request() :: %{
+        optional("ebsEncryptionKeyArn") => String.t(),
+        optional("tags") => map(),
+        optional("useFipsEndpoint") => [boolean()],
+        required("associateDefaultSecurityGroup") => [boolean()],
+        required("bandwidthThrottling") => float(),
+        required("createPublicIP") => [boolean()],
+        required("dataPlaneRouting") => String.t(),
+        required("defaultLargeStagingDiskType") => String.t(),
+        required("ebsEncryption") => String.t(),
+        required("replicationServerInstanceType") => String.t(),
+        required("replicationServersSecurityGroupsIDs") => list(String.t()()),
+        required("stagingAreaSubnetId") => String.t(),
+        required("stagingAreaTags") => map(),
+        required("useDedicatedReplicationServer") => [boolean()]
+      }
+
   """
   @type create_replication_configuration_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disassociate_applications_response() :: %{
 
-  }
+      disassociate_applications_response() :: %{}
+
   """
-  @type disassociate_applications_response() :: %{String.t() => any()}
+  @type disassociate_applications_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  remove_source_server_action_request() :: %{
-    optional("accountID") => String.t(),
-    required("actionID") => String.t(),
-    required("sourceServerID") => String.t()
-  }
+
+      remove_source_server_action_request() :: %{
+        optional("accountID") => String.t(),
+        required("actionID") => String.t(),
+        required("sourceServerID") => String.t()
+      }
+
   """
   @type remove_source_server_action_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  associate_applications_request() :: %{
-    optional("accountID") => String.t(),
-    required("applicationIDs") => list(String.t()()),
-    required("waveID") => String.t()
-  }
+
+      associate_applications_request() :: %{
+        optional("accountID") => String.t(),
+        required("applicationIDs") => list(String.t()()),
+        required("waveID") => String.t()
+      }
+
   """
   @type associate_applications_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  source_server_connector_action() :: %{
-    "connectorArn" => String.t(),
-    "credentialsSecretArn" => String.t()
-  }
+
+      source_server_connector_action() :: %{
+        "connectorArn" => String.t(),
+        "credentialsSecretArn" => String.t()
+      }
+
   """
   @type source_server_connector_action() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_applications_request_filters() :: %{
-    "applicationIDs" => list(String.t()()),
-    "isArchived" => [boolean()],
-    "waveIDs" => list(String.t()())
-  }
+
+      list_applications_request_filters() :: %{
+        "applicationIDs" => list(String.t()()),
+        "isArchived" => [boolean()],
+        "waveIDs" => list(String.t()())
+      }
+
   """
   @type list_applications_request_filters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  connector_ssm_command_config() :: %{
-    "cloudWatchLogGroupName" => String.t(),
-    "cloudWatchOutputEnabled" => [boolean()],
-    "outputS3BucketName" => String.t(),
-    "s3OutputEnabled" => [boolean()]
-  }
+
+      connector_ssm_command_config() :: %{
+        "cloudWatchLogGroupName" => String.t(),
+        "cloudWatchOutputEnabled" => [boolean()],
+        "outputS3BucketName" => String.t(),
+        "s3OutputEnabled" => [boolean()]
+      }
+
   """
   @type connector_ssm_command_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  import_task_error() :: %{
-    "errorData" => import_error_data(),
-    "errorDateTime" => String.t(),
-    "errorType" => String.t()
-  }
+
+      import_task_error() :: %{
+        "errorData" => import_error_data(),
+        "errorDateTime" => String.t(),
+        "errorType" => String.t()
+      }
+
   """
   @type import_task_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  launched_instance() :: %{
-    "ec2InstanceID" => String.t(),
-    "firstBoot" => String.t(),
-    "jobID" => String.t()
-  }
+
+      launched_instance() :: %{
+        "ec2InstanceID" => String.t(),
+        "firstBoot" => String.t(),
+        "jobID" => String.t()
+      }
+
   """
   @type launched_instance() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_test_request() :: %{
-    optional("accountID") => String.t(),
-    optional("tags") => map(),
-    required("sourceServerIDs") => list(String.t()())
-  }
+
+      start_test_request() :: %{
+        optional("accountID") => String.t(),
+        optional("tags") => map(),
+        required("sourceServerIDs") => list(String.t()())
+      }
+
   """
   @type start_test_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_connectors_request() :: %{
-    optional("filters") => list_connectors_request_filters(),
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t()
-  }
+
+      list_connectors_request() :: %{
+        optional("filters") => list_connectors_request_filters(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
   """
   @type list_connectors_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  template_action_document() :: %{
-    optional("actionID") => String.t(),
-    optional("actionName") => String.t(),
-    optional("active") => [boolean()],
-    optional("category") => String.t(),
-    optional("description") => String.t(),
-    optional("documentIdentifier") => String.t(),
-    optional("documentVersion") => String.t(),
-    optional("externalParameters") => map(),
-    optional("mustSucceedForCutover") => [boolean()],
-    optional("operatingSystem") => String.t(),
-    optional("order") => integer(),
-    optional("parameters") => map(),
-    optional("timeoutSeconds") => integer()
-  }
+
+      template_action_document() :: %{
+        optional("actionID") => String.t(),
+        optional("actionName") => String.t(),
+        optional("active") => [boolean()],
+        optional("category") => String.t(),
+        optional("description") => String.t(),
+        optional("documentIdentifier") => String.t(),
+        optional("documentVersion") => String.t(),
+        optional("externalParameters") => map(),
+        optional("mustSucceedForCutover") => [boolean()],
+        optional("operatingSystem") => String.t(),
+        optional("order") => integer(),
+        optional("parameters") => map(),
+        optional("timeoutSeconds") => integer()
+      }
+
   """
   @type template_action_document() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  retry_data_replication_request() :: %{
-    optional("accountID") => String.t(),
-    required("sourceServerID") => String.t()
-  }
+
+      retry_data_replication_request() :: %{
+        optional("accountID") => String.t(),
+        required("sourceServerID") => String.t()
+      }
+
   """
   @type retry_data_replication_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_replication_configuration_request() :: %{
-    optional("accountID") => String.t(),
-    required("sourceServerID") => String.t()
-  }
+
+      get_replication_configuration_request() :: %{
+        optional("accountID") => String.t(),
+        required("sourceServerID") => String.t()
+      }
+
   """
   @type get_replication_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_replication_request() :: %{
-    optional("accountID") => String.t(),
-    required("sourceServerID") => String.t()
-  }
+
+      start_replication_request() :: %{
+        optional("accountID") => String.t(),
+        required("sourceServerID") => String.t()
+      }
+
   """
   @type start_replication_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  life_cycle_last_test_reverted() :: %{
-    "apiCallDateTime" => String.t()
-  }
+
+      life_cycle_last_test_reverted() :: %{
+        "apiCallDateTime" => String.t()
+      }
+
   """
   @type life_cycle_last_test_reverted() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_request() :: %{
-    required("tagKeys") => list(String.t()())
-  }
+
+      untag_resource_request() :: %{
+        required("tagKeys") => list(String.t()())
+      }
+
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_template_actions_response() :: %{
-    optional("items") => list(template_action_document()()),
-    optional("nextToken") => String.t()
-  }
+
+      list_template_actions_response() :: %{
+        optional("items") => list(template_action_document()()),
+        optional("nextToken") => String.t()
+      }
+
   """
   @type list_template_actions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  vcenter_client() :: %{
-    "arn" => String.t(),
-    "datacenterName" => String.t(),
-    "hostname" => String.t(),
-    "lastSeenDatetime" => String.t(),
-    "sourceServerTags" => map(),
-    "tags" => map(),
-    "vcenterClientID" => String.t(),
-    "vcenterUUID" => String.t()
-  }
+
+      vcenter_client() :: %{
+        "arn" => String.t(),
+        "datacenterName" => String.t(),
+        "hostname" => String.t(),
+        "lastSeenDatetime" => String.t(),
+        "sourceServerTags" => map(),
+        "tags" => map(),
+        "vcenterClientID" => String.t(),
+        "vcenterUUID" => String.t()
+      }
+
   """
   @type vcenter_client() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stop_replication_request() :: %{
-    optional("accountID") => String.t(),
-    required("sourceServerID") => String.t()
-  }
+
+      stop_replication_request() :: %{
+        optional("accountID") => String.t(),
+        required("sourceServerID") => String.t()
+      }
+
   """
   @type stop_replication_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_exports_request() :: %{
-    "filters" => list_exports_request_filters(),
-    "maxResults" => integer(),
-    "nextToken" => String.t()
-  }
+
+      list_exports_request() :: %{
+        "filters" => list_exports_request_filters(),
+        "maxResults" => integer(),
+        "nextToken" => String.t()
+      }
+
   """
   @type list_exports_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_source_server_actions_response() :: %{
-    optional("items") => list(source_server_action_document()()),
-    optional("nextToken") => String.t()
-  }
+
+      list_source_server_actions_response() :: %{
+        optional("items") => list(source_server_action_document()()),
+        optional("nextToken") => String.t()
+      }
+
   """
   @type list_source_server_actions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  unarchive_wave_request() :: %{
-    optional("accountID") => String.t(),
-    required("waveID") => String.t()
-  }
+
+      unarchive_wave_request() :: %{
+        optional("accountID") => String.t(),
+        required("waveID") => String.t()
+      }
+
   """
   @type unarchive_wave_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_source_server_actions_request() :: %{
-    optional("accountID") => String.t(),
-    optional("filters") => source_server_actions_request_filters(),
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t(),
-    required("sourceServerID") => String.t()
-  }
+
+      list_source_server_actions_request() :: %{
+        optional("accountID") => String.t(),
+        optional("filters") => source_server_actions_request_filters(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        required("sourceServerID") => String.t()
+      }
+
   """
   @type list_source_server_actions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  launch_configuration_template() :: %{
-    optional("arn") => String.t(),
-    optional("associatePublicIpAddress") => [boolean()],
-    optional("bootMode") => String.t(),
-    optional("copyPrivateIp") => [boolean()],
-    optional("copyTags") => [boolean()],
-    optional("ec2LaunchTemplateID") => String.t(),
-    optional("enableMapAutoTagging") => [boolean()],
-    optional("largeVolumeConf") => launch_template_disk_conf(),
-    optional("launchDisposition") => String.t(),
-    optional("licensing") => licensing(),
-    optional("mapAutoTaggingMpeID") => String.t(),
-    optional("postLaunchActions") => post_launch_actions(),
-    optional("smallVolumeConf") => launch_template_disk_conf(),
-    optional("smallVolumeMaxSize") => float(),
-    optional("tags") => map(),
-    optional("targetInstanceTypeRightSizingMethod") => String.t(),
-    required("launchConfigurationTemplateID") => String.t()
-  }
+
+      launch_configuration_template() :: %{
+        optional("arn") => String.t(),
+        optional("associatePublicIpAddress") => [boolean()],
+        optional("bootMode") => String.t(),
+        optional("copyPrivateIp") => [boolean()],
+        optional("copyTags") => [boolean()],
+        optional("ec2LaunchTemplateID") => String.t(),
+        optional("enableMapAutoTagging") => [boolean()],
+        optional("largeVolumeConf") => launch_template_disk_conf(),
+        optional("launchDisposition") => String.t(),
+        optional("licensing") => licensing(),
+        optional("mapAutoTaggingMpeID") => String.t(),
+        optional("postLaunchActions") => post_launch_actions(),
+        optional("smallVolumeConf") => launch_template_disk_conf(),
+        optional("smallVolumeMaxSize") => float(),
+        optional("tags") => map(),
+        optional("targetInstanceTypeRightSizingMethod") => String.t(),
+        required("launchConfigurationTemplateID") => String.t()
+      }
+
   """
   @type launch_configuration_template() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  licensing() :: %{
-    "osByol" => [boolean()]
-  }
+
+      licensing() :: %{
+        "osByol" => [boolean()]
+      }
+
   """
   @type licensing() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_export_response() :: %{
-    "exportTask" => export_task()
-  }
+
+      start_export_response() :: %{
+        "exportTask" => export_task()
+      }
+
   """
   @type start_export_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  export_task_summary() :: %{
-    "applicationsCount" => float(),
-    "serversCount" => float(),
-    "wavesCount" => float()
-  }
+
+      export_task_summary() :: %{
+        "applicationsCount" => float(),
+        "serversCount" => float(),
+        "wavesCount" => float()
+      }
+
   """
   @type export_task_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_imports_response() :: %{
-    "items" => list(import_task()()),
-    "nextToken" => String.t()
-  }
+
+      list_imports_response() :: %{
+        "items" => list(import_task()()),
+        "nextToken" => String.t()
+      }
+
   """
   @type list_imports_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  identification_hints() :: %{
-    "awsInstanceID" => String.t(),
-    "fqdn" => String.t(),
-    "hostname" => String.t(),
-    "vmPath" => String.t(),
-    "vmWareUuid" => String.t()
-  }
+
+      identification_hints() :: %{
+        "awsInstanceID" => String.t(),
+        "fqdn" => String.t(),
+        "hostname" => String.t(),
+        "vmPath" => String.t(),
+        "vmWareUuid" => String.t()
+      }
+
   """
   @type identification_hints() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  source_server_actions_request_filters() :: %{
-    "actionIDs" => list(String.t()())
-  }
+
+      source_server_actions_request_filters() :: %{
+        "actionIDs" => list(String.t()())
+      }
+
   """
   @type source_server_actions_request_filters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  life_cycle_last_cutover() :: %{
-    "finalized" => life_cycle_last_cutover_finalized(),
-    "initiated" => life_cycle_last_cutover_initiated(),
-    "reverted" => life_cycle_last_cutover_reverted()
-  }
+
+      life_cycle_last_cutover() :: %{
+        "finalized" => life_cycle_last_cutover_finalized(),
+        "initiated" => life_cycle_last_cutover_initiated(),
+        "reverted" => life_cycle_last_cutover_reverted()
+      }
+
   """
   @type life_cycle_last_cutover() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  source_properties() :: %{
-    "cpus" => list(c_p_u()()),
-    "disks" => list(disk()()),
-    "identificationHints" => identification_hints(),
-    "lastUpdatedDateTime" => String.t(),
-    "networkInterfaces" => list(network_interface()()),
-    "os" => o_s(),
-    "ramBytes" => float(),
-    "recommendedInstanceType" => String.t()
-  }
+
+      source_properties() :: %{
+        "cpus" => list(c_p_u()()),
+        "disks" => list(disk()()),
+        "identificationHints" => identification_hints(),
+        "lastUpdatedDateTime" => String.t(),
+        "networkInterfaces" => list(network_interface()()),
+        "os" => o_s(),
+        "ramBytes" => float(),
+        "recommendedInstanceType" => String.t()
+      }
+
   """
   @type source_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_source_servers_response() :: %{
-    optional("items") => list(source_server()()),
-    optional("nextToken") => String.t()
-  }
+
+      describe_source_servers_response() :: %{
+        optional("items") => list(source_server()()),
+        optional("nextToken") => String.t()
+      }
+
   """
   @type describe_source_servers_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_replication_configuration_templates_response() :: %{
-    optional("items") => list(replication_configuration_template()()),
-    optional("nextToken") => String.t()
-  }
+
+      describe_replication_configuration_templates_response() :: %{
+        optional("items") => list(replication_configuration_template()()),
+        optional("nextToken") => String.t()
+      }
+
   """
   @type describe_replication_configuration_templates_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  life_cycle_last_cutover_reverted() :: %{
-    "apiCallDateTime" => String.t()
-  }
+
+      life_cycle_last_cutover_reverted() :: %{
+        "apiCallDateTime" => String.t()
+      }
+
   """
   @type life_cycle_last_cutover_reverted() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_replication_configuration_template_response() :: %{
 
-  }
+      delete_replication_configuration_template_response() :: %{}
+
   """
-  @type delete_replication_configuration_template_response() :: %{String.t() => any()}
+  @type delete_replication_configuration_template_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  delete_wave_response() :: %{
 
-  }
+      delete_wave_response() :: %{}
+
   """
-  @type delete_wave_response() :: %{String.t() => any()}
+  @type delete_wave_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  disassociate_source_servers_response() :: %{
 
-  }
+      disassociate_source_servers_response() :: %{}
+
   """
-  @type disassociate_source_servers_response() :: %{String.t() => any()}
+  @type disassociate_source_servers_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  life_cycle_last_test_initiated() :: %{
-    "apiCallDateTime" => String.t(),
-    "jobID" => String.t()
-  }
+
+      life_cycle_last_test_initiated() :: %{
+        "apiCallDateTime" => String.t(),
+        "jobID" => String.t()
+      }
+
   """
   @type life_cycle_last_test_initiated() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_source_server_action_request() :: %{
-    optional("accountID") => String.t(),
-    optional("active") => [boolean()],
-    optional("category") => String.t(),
-    optional("description") => String.t(),
-    optional("documentVersion") => String.t(),
-    optional("externalParameters") => map(),
-    optional("mustSucceedForCutover") => [boolean()],
-    optional("parameters") => map(),
-    optional("timeoutSeconds") => integer(),
-    required("actionID") => String.t(),
-    required("actionName") => String.t(),
-    required("documentIdentifier") => String.t(),
-    required("order") => integer(),
-    required("sourceServerID") => String.t()
-  }
+
+      put_source_server_action_request() :: %{
+        optional("accountID") => String.t(),
+        optional("active") => [boolean()],
+        optional("category") => String.t(),
+        optional("description") => String.t(),
+        optional("documentVersion") => String.t(),
+        optional("externalParameters") => map(),
+        optional("mustSucceedForCutover") => [boolean()],
+        optional("parameters") => map(),
+        optional("timeoutSeconds") => integer(),
+        required("actionID") => String.t(),
+        required("actionName") => String.t(),
+        required("documentIdentifier") => String.t(),
+        required("order") => integer(),
+        required("sourceServerID") => String.t()
+      }
+
   """
   @type put_source_server_action_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  replication_configuration() :: %{
-    optional("associateDefaultSecurityGroup") => [boolean()],
-    optional("bandwidthThrottling") => float(),
-    optional("createPublicIP") => [boolean()],
-    optional("dataPlaneRouting") => String.t(),
-    optional("defaultLargeStagingDiskType") => String.t(),
-    optional("ebsEncryption") => String.t(),
-    optional("ebsEncryptionKeyArn") => String.t(),
-    optional("name") => String.t(),
-    optional("replicatedDisks") => list(replication_configuration_replicated_disk()()),
-    optional("replicationServerInstanceType") => String.t(),
-    optional("replicationServersSecurityGroupsIDs") => list(String.t()()),
-    optional("sourceServerID") => String.t(),
-    optional("stagingAreaSubnetId") => String.t(),
-    optional("stagingAreaTags") => map(),
-    optional("useDedicatedReplicationServer") => [boolean()],
-    optional("useFipsEndpoint") => [boolean()]
-  }
+
+      replication_configuration() :: %{
+        optional("associateDefaultSecurityGroup") => [boolean()],
+        optional("bandwidthThrottling") => float(),
+        optional("createPublicIP") => [boolean()],
+        optional("dataPlaneRouting") => String.t(),
+        optional("defaultLargeStagingDiskType") => String.t(),
+        optional("ebsEncryption") => String.t(),
+        optional("ebsEncryptionKeyArn") => String.t(),
+        optional("name") => String.t(),
+        optional("replicatedDisks") => list(replication_configuration_replicated_disk()()),
+        optional("replicationServerInstanceType") => String.t(),
+        optional("replicationServersSecurityGroupsIDs") => list(String.t()()),
+        optional("sourceServerID") => String.t(),
+        optional("stagingAreaSubnetId") => String.t(),
+        optional("stagingAreaTags") => map(),
+        optional("useDedicatedReplicationServer") => [boolean()],
+        optional("useFipsEndpoint") => [boolean()]
+      }
+
   """
   @type replication_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  conflict_exception() :: %{
-    "code" => String.t(),
-    "errors" => list(error_details()()),
-    "message" => String.t(),
-    "resourceId" => String.t(),
-    "resourceType" => String.t()
-  }
+
+      conflict_exception() :: %{
+        "code" => String.t(),
+        "errors" => list(error_details()()),
+        "message" => String.t(),
+        "resourceId" => String.t(),
+        "resourceType" => String.t()
+      }
+
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_not_found_exception() :: %{
-    "code" => String.t(),
-    "message" => String.t(),
-    "resourceId" => String.t(),
-    "resourceType" => String.t()
-  }
+
+      resource_not_found_exception() :: %{
+        "code" => String.t(),
+        "message" => String.t(),
+        "resourceId" => String.t(),
+        "resourceType" => String.t()
+      }
+
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  data_replication_error() :: %{
-    "error" => String.t(),
-    "rawError" => String.t()
-  }
+
+      data_replication_error() :: %{
+        "error" => String.t(),
+        "rawError" => String.t()
+      }
+
   """
   @type data_replication_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disassociate_applications_request() :: %{
-    optional("accountID") => String.t(),
-    required("applicationIDs") => list(String.t()()),
-    required("waveID") => String.t()
-  }
+
+      disassociate_applications_request() :: %{
+        optional("accountID") => String.t(),
+        required("applicationIDs") => list(String.t()()),
+        required("waveID") => String.t()
+      }
+
   """
   @type disassociate_applications_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  export_task_error() :: %{
-    "errorData" => export_error_data(),
-    "errorDateTime" => String.t()
-  }
+
+      export_task_error() :: %{
+        "errorData" => export_error_data(),
+        "errorDateTime" => String.t()
+      }
+
   """
   @type export_task_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_source_server_replication_type_request() :: %{
-    optional("accountID") => String.t(),
-    required("replicationType") => String.t(),
-    required("sourceServerID") => String.t()
-  }
+
+      update_source_server_replication_type_request() :: %{
+        optional("accountID") => String.t(),
+        required("replicationType") => String.t(),
+        required("sourceServerID") => String.t()
+      }
+
   """
   @type update_source_server_replication_type_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  post_launch_actions() :: %{
-    "cloudWatchLogGroupName" => String.t(),
-    "deployment" => String.t(),
-    "s3LogBucket" => String.t(),
-    "s3OutputKeyPrefix" => String.t(),
-    "ssmDocuments" => list(ssm_document()())
-  }
+
+      post_launch_actions() :: %{
+        "cloudWatchLogGroupName" => String.t(),
+        "deployment" => String.t(),
+        "s3LogBucket" => String.t(),
+        "s3OutputKeyPrefix" => String.t(),
+        "ssmDocuments" => list(ssm_document()())
+      }
+
   """
   @type post_launch_actions() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_wave_request() :: %{
-    optional("accountID") => String.t(),
-    required("waveID") => String.t()
-  }
+
+      delete_wave_request() :: %{
+        optional("accountID") => String.t(),
+        required("waveID") => String.t()
+      }
+
   """
   @type delete_wave_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  service_quota_exceeded_exception() :: %{
-    "code" => String.t(),
-    "message" => String.t(),
-    "quotaCode" => String.t(),
-    "quotaValue" => integer(),
-    "resourceId" => String.t(),
-    "resourceType" => String.t(),
-    "serviceCode" => String.t()
-  }
+
+      service_quota_exceeded_exception() :: %{
+        "code" => String.t(),
+        "message" => String.t(),
+        "quotaCode" => String.t(),
+        "quotaValue" => integer(),
+        "resourceId" => String.t(),
+        "resourceType" => String.t(),
+        "serviceCode" => String.t()
+      }
+
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  post_launch_actions_status() :: %{
-    "postLaunchActionsLaunchStatusList" => list(job_post_launch_actions_launch_status()()),
-    "ssmAgentDiscoveryDatetime" => String.t()
-  }
+
+      post_launch_actions_status() :: %{
+        "postLaunchActionsLaunchStatusList" => list(job_post_launch_actions_launch_status()()),
+        "ssmAgentDiscoveryDatetime" => String.t()
+      }
+
   """
   @type post_launch_actions_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_wave_request() :: %{
-    optional("accountID") => String.t(),
-    optional("description") => String.t(),
-    optional("tags") => map(),
-    required("name") => String.t()
-  }
+
+      create_wave_request() :: %{
+        optional("accountID") => String.t(),
+        optional("description") => String.t(),
+        optional("tags") => map(),
+        required("name") => String.t()
+      }
+
   """
   @type create_wave_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_wave_request() :: %{
-    optional("accountID") => String.t(),
-    optional("description") => String.t(),
-    optional("name") => String.t(),
-    required("waveID") => String.t()
-  }
+
+      update_wave_request() :: %{
+        optional("accountID") => String.t(),
+        optional("description") => String.t(),
+        optional("name") => String.t(),
+        required("waveID") => String.t()
+      }
+
   """
   @type update_wave_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  remove_template_action_response() :: %{
 
-  }
+      remove_template_action_response() :: %{}
+
   """
-  @type remove_template_action_response() :: %{String.t() => any()}
+  @type remove_template_action_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  c_p_u() :: %{
-    "cores" => float(),
-    "modelName" => String.t()
-  }
+
+      c_p_u() :: %{
+        "cores" => float(),
+        "modelName" => String.t()
+      }
+
   """
   @type c_p_u() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  uninitialized_account_exception() :: %{
-    "code" => String.t(),
-    "message" => String.t()
-  }
+
+      uninitialized_account_exception() :: %{
+        "code" => String.t(),
+        "message" => String.t()
+      }
+
   """
   @type uninitialized_account_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  application() :: %{
-    "applicationAggregatedStatus" => application_aggregated_status(),
-    "applicationID" => String.t(),
-    "arn" => String.t(),
-    "creationDateTime" => String.t(),
-    "description" => String.t(),
-    "isArchived" => [boolean()],
-    "lastModifiedDateTime" => String.t(),
-    "name" => String.t(),
-    "tags" => map(),
-    "waveID" => String.t()
-  }
+
+      application() :: %{
+        "applicationAggregatedStatus" => application_aggregated_status(),
+        "applicationID" => String.t(),
+        "arn" => String.t(),
+        "creationDateTime" => String.t(),
+        "description" => String.t(),
+        "isArchived" => [boolean()],
+        "lastModifiedDateTime" => String.t(),
+        "name" => String.t(),
+        "tags" => map(),
+        "waveID" => String.t()
+      }
+
   """
   @type application() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  initialize_service_request() :: %{
 
-  }
+      initialize_service_request() :: %{}
+
   """
-  @type initialize_service_request() :: %{String.t() => any()}
+  @type initialize_service_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_launch_configuration_template_request() :: %{
-    optional("associatePublicIpAddress") => [boolean()],
-    optional("bootMode") => String.t(),
-    optional("copyPrivateIp") => [boolean()],
-    optional("copyTags") => [boolean()],
-    optional("enableMapAutoTagging") => [boolean()],
-    optional("largeVolumeConf") => launch_template_disk_conf(),
-    optional("launchDisposition") => String.t(),
-    optional("licensing") => licensing(),
-    optional("mapAutoTaggingMpeID") => String.t(),
-    optional("postLaunchActions") => post_launch_actions(),
-    optional("smallVolumeConf") => launch_template_disk_conf(),
-    optional("smallVolumeMaxSize") => float(),
-    optional("tags") => map(),
-    optional("targetInstanceTypeRightSizingMethod") => String.t()
-  }
+
+      create_launch_configuration_template_request() :: %{
+        optional("associatePublicIpAddress") => [boolean()],
+        optional("bootMode") => String.t(),
+        optional("copyPrivateIp") => [boolean()],
+        optional("copyTags") => [boolean()],
+        optional("enableMapAutoTagging") => [boolean()],
+        optional("largeVolumeConf") => launch_template_disk_conf(),
+        optional("launchDisposition") => String.t(),
+        optional("licensing") => licensing(),
+        optional("mapAutoTaggingMpeID") => String.t(),
+        optional("postLaunchActions") => post_launch_actions(),
+        optional("smallVolumeConf") => launch_template_disk_conf(),
+        optional("smallVolumeMaxSize") => float(),
+        optional("tags") => map(),
+        optional("targetInstanceTypeRightSizingMethod") => String.t()
+      }
+
   """
   @type create_launch_configuration_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  error_details() :: %{
-    "code" => String.t(),
-    "message" => String.t(),
-    "resourceId" => String.t(),
-    "resourceType" => String.t()
-  }
+
+      error_details() :: %{
+        "code" => String.t(),
+        "message" => String.t(),
+        "resourceId" => String.t(),
+        "resourceType" => String.t()
+      }
+
   """
   @type error_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_response() :: %{
-    optional("tags") => map()
-  }
+
+      list_tags_for_resource_response() :: %{
+        optional("tags") => map()
+      }
+
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_application_request() :: %{
-    optional("accountID") => String.t(),
-    optional("description") => String.t(),
-    optional("tags") => map(),
-    required("name") => String.t()
-  }
+
+      create_application_request() :: %{
+        optional("accountID") => String.t(),
+        optional("description") => String.t(),
+        optional("tags") => map(),
+        required("name") => String.t()
+      }
+
   """
   @type create_application_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  managed_account() :: %{
-    "accountId" => String.t()
-  }
+
+      managed_account() :: %{
+        "accountId" => String.t()
+      }
+
   """
   @type managed_account() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_template_actions_request() :: %{
-    optional("filters") => template_actions_request_filters(),
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t(),
-    required("launchConfigurationTemplateID") => String.t()
-  }
+
+      list_template_actions_request() :: %{
+        optional("filters") => template_actions_request_filters(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        required("launchConfigurationTemplateID") => String.t()
+      }
+
   """
   @type list_template_actions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  data_replication_info() :: %{
-    "dataReplicationError" => data_replication_error(),
-    "dataReplicationInitiation" => data_replication_initiation(),
-    "dataReplicationState" => String.t(),
-    "etaDateTime" => String.t(),
-    "lagDuration" => String.t(),
-    "lastSnapshotDateTime" => String.t(),
-    "replicatedDisks" => list(data_replication_info_replicated_disk()())
-  }
+
+      data_replication_info() :: %{
+        "dataReplicationError" => data_replication_error(),
+        "dataReplicationInitiation" => data_replication_initiation(),
+        "dataReplicationState" => String.t(),
+        "etaDateTime" => String.t(),
+        "lagDuration" => String.t(),
+        "lastSnapshotDateTime" => String.t(),
+        "replicatedDisks" => list(data_replication_info_replicated_disk()())
+      }
+
   """
   @type data_replication_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  validation_exception_field() :: %{
-    "message" => String.t(),
-    "name" => String.t()
-  }
+
+      validation_exception_field() :: %{
+        "message" => String.t(),
+        "name" => String.t()
+      }
+
   """
   @type validation_exception_field() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_source_servers_request_filters() :: %{
-    "applicationIDs" => list(String.t()()),
-    "isArchived" => [boolean()],
-    "lifeCycleStates" => list(String.t()()),
-    "replicationTypes" => list(String.t()()),
-    "sourceServerIDs" => list(String.t()())
-  }
+
+      describe_source_servers_request_filters() :: %{
+        "applicationIDs" => list(String.t()()),
+        "isArchived" => [boolean()],
+        "lifeCycleStates" => list(String.t()()),
+        "replicationTypes" => list(String.t()()),
+        "sourceServerIDs" => list(String.t()())
+      }
+
   """
   @type describe_source_servers_request_filters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  associate_source_servers_request() :: %{
-    optional("accountID") => String.t(),
-    required("applicationID") => String.t(),
-    required("sourceServerIDs") => list(String.t()())
-  }
+
+      associate_source_servers_request() :: %{
+        optional("accountID") => String.t(),
+        required("applicationID") => String.t(),
+        required("sourceServerIDs") => list(String.t()())
+      }
+
   """
   @type associate_source_servers_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_vcenter_client_request() :: %{
-    required("vcenterClientID") => String.t()
-  }
+
+      delete_vcenter_client_request() :: %{
+        required("vcenterClientID") => String.t()
+      }
+
   """
   @type delete_vcenter_client_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  terminate_target_instances_request() :: %{
-    optional("accountID") => String.t(),
-    optional("tags") => map(),
-    required("sourceServerIDs") => list(String.t()())
-  }
+
+      terminate_target_instances_request() :: %{
+        optional("accountID") => String.t(),
+        optional("tags") => map(),
+        required("sourceServerIDs") => list(String.t()())
+      }
+
   """
   @type terminate_target_instances_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  data_replication_info_replicated_disk() :: %{
-    "backloggedStorageBytes" => float(),
-    "deviceName" => String.t(),
-    "replicatedStorageBytes" => float(),
-    "rescannedStorageBytes" => float(),
-    "totalStorageBytes" => float()
-  }
+
+      data_replication_info_replicated_disk() :: %{
+        "backloggedStorageBytes" => float(),
+        "deviceName" => String.t(),
+        "replicatedStorageBytes" => float(),
+        "rescannedStorageBytes" => float(),
+        "totalStorageBytes" => float()
+      }
+
   """
   @type data_replication_info_replicated_disk() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  import_task() :: %{
-    "creationDateTime" => String.t(),
-    "endDateTime" => String.t(),
-    "importID" => String.t(),
-    "progressPercentage" => [float()],
-    "s3BucketSource" => s3_bucket_source(),
-    "status" => String.t(),
-    "summary" => import_task_summary()
-  }
+
+      import_task() :: %{
+        "creationDateTime" => String.t(),
+        "endDateTime" => String.t(),
+        "importID" => String.t(),
+        "progressPercentage" => [float()],
+        "s3BucketSource" => s3_bucket_source(),
+        "status" => String.t(),
+        "summary" => import_task_summary()
+      }
+
   """
   @type import_task() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  initialize_service_response() :: %{
 
-  }
+      initialize_service_response() :: %{}
+
   """
-  @type initialize_service_response() :: %{String.t() => any()}
+  @type initialize_service_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  remove_source_server_action_response() :: %{
 
-  }
+      remove_source_server_action_response() :: %{}
+
   """
-  @type remove_source_server_action_response() :: %{String.t() => any()}
+  @type remove_source_server_action_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  import_task_summary() :: %{
-    "applications" => import_task_summary_applications(),
-    "servers" => import_task_summary_servers(),
-    "waves" => import_task_summary_waves()
-  }
+
+      import_task_summary() :: %{
+        "applications" => import_task_summary_applications(),
+        "servers" => import_task_summary_servers(),
+        "waves" => import_task_summary_waves()
+      }
+
   """
   @type import_task_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  mark_as_archived_request() :: %{
-    optional("accountID") => String.t(),
-    required("sourceServerID") => String.t()
-  }
+
+      mark_as_archived_request() :: %{
+        optional("accountID") => String.t(),
+        required("sourceServerID") => String.t()
+      }
+
   """
   @type mark_as_archived_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_application_response() :: %{
 
-  }
+      delete_application_response() :: %{}
+
   """
-  @type delete_application_response() :: %{String.t() => any()}
+  @type delete_application_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  describe_vcenter_clients_response() :: %{
-    optional("items") => list(vcenter_client()()),
-    optional("nextToken") => String.t()
-  }
+
+      describe_vcenter_clients_response() :: %{
+        optional("items") => list(vcenter_client()()),
+        optional("nextToken") => String.t()
+      }
+
   """
   @type describe_vcenter_clients_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  wave() :: %{
-    "arn" => String.t(),
-    "creationDateTime" => String.t(),
-    "description" => String.t(),
-    "isArchived" => [boolean()],
-    "lastModifiedDateTime" => String.t(),
-    "name" => String.t(),
-    "tags" => map(),
-    "waveAggregatedStatus" => wave_aggregated_status(),
-    "waveID" => String.t()
-  }
+
+      wave() :: %{
+        "arn" => String.t(),
+        "creationDateTime" => String.t(),
+        "description" => String.t(),
+        "isArchived" => [boolean()],
+        "lastModifiedDateTime" => String.t(),
+        "name" => String.t(),
+        "tags" => map(),
+        "waveAggregatedStatus" => wave_aggregated_status(),
+        "waveID" => String.t()
+      }
+
   """
   @type wave() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_jobs_request_filters() :: %{
-    "fromDate" => String.t(),
-    "jobIDs" => list(String.t()()),
-    "toDate" => String.t()
-  }
+
+      describe_jobs_request_filters() :: %{
+        "fromDate" => String.t(),
+        "jobIDs" => list(String.t()()),
+        "toDate" => String.t()
+      }
+
   """
   @type describe_jobs_request_filters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  data_replication_initiation() :: %{
-    "nextAttemptDateTime" => String.t(),
-    "startDateTime" => String.t(),
-    "steps" => list(data_replication_initiation_step()())
-  }
+
+      data_replication_initiation() :: %{
+        "nextAttemptDateTime" => String.t(),
+        "startDateTime" => String.t(),
+        "steps" => list(data_replication_initiation_step()())
+      }
+
   """
   @type data_replication_initiation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_managed_accounts_response() :: %{
-    "items" => list(managed_account()()),
-    "nextToken" => String.t()
-  }
+
+      list_managed_accounts_response() :: %{
+        "items" => list(managed_account()()),
+        "nextToken" => String.t()
+      }
+
   """
   @type list_managed_accounts_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  export_task() :: %{
-    "creationDateTime" => String.t(),
-    "endDateTime" => String.t(),
-    "exportID" => String.t(),
-    "progressPercentage" => [float()],
-    "s3Bucket" => String.t(),
-    "s3BucketOwner" => String.t(),
-    "s3Key" => String.t(),
-    "status" => String.t(),
-    "summary" => export_task_summary()
-  }
+
+      export_task() :: %{
+        "creationDateTime" => String.t(),
+        "endDateTime" => String.t(),
+        "exportID" => String.t(),
+        "progressPercentage" => [float()],
+        "s3Bucket" => String.t(),
+        "s3BucketOwner" => String.t(),
+        "s3Key" => String.t(),
+        "status" => String.t(),
+        "summary" => export_task_summary()
+      }
+
   """
   @type export_task() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_launch_configuration_templates_response() :: %{
-    optional("items") => list(launch_configuration_template()()),
-    optional("nextToken") => String.t()
-  }
+
+      describe_launch_configuration_templates_response() :: %{
+        optional("items") => list(launch_configuration_template()()),
+        optional("nextToken") => String.t()
+      }
+
   """
   @type describe_launch_configuration_templates_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_application_request() :: %{
-    optional("accountID") => String.t(),
-    optional("description") => String.t(),
-    optional("name") => String.t(),
-    required("applicationID") => String.t()
-  }
+
+      update_application_request() :: %{
+        optional("accountID") => String.t(),
+        optional("description") => String.t(),
+        optional("name") => String.t(),
+        required("applicationID") => String.t()
+      }
+
   """
   @type update_application_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_launch_configuration_request() :: %{
-    optional("accountID") => String.t(),
-    required("sourceServerID") => String.t()
-  }
+
+      get_launch_configuration_request() :: %{
+        optional("accountID") => String.t(),
+        required("sourceServerID") => String.t()
+      }
+
   """
   @type get_launch_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  life_cycle_last_cutover_finalized() :: %{
-    "apiCallDateTime" => String.t()
-  }
+
+      life_cycle_last_cutover_finalized() :: %{
+        "apiCallDateTime" => String.t()
+      }
+
   """
   @type life_cycle_last_cutover_finalized() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  internal_server_exception() :: %{
-    "message" => String.t(),
-    "retryAfterSeconds" => float()
-  }
+
+      internal_server_exception() :: %{
+        "message" => String.t(),
+        "retryAfterSeconds" => float()
+      }
+
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  participating_server() :: %{
-    "launchStatus" => String.t(),
-    "launchedEc2InstanceID" => String.t(),
-    "postLaunchActionsStatus" => post_launch_actions_status(),
-    "sourceServerID" => String.t()
-  }
+
+      participating_server() :: %{
+        "launchStatus" => String.t(),
+        "launchedEc2InstanceID" => String.t(),
+        "postLaunchActionsStatus" => post_launch_actions_status(),
+        "sourceServerID" => String.t()
+      }
+
   """
   @type participating_server() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_import_errors_request() :: %{
-    "importID" => String.t(),
-    "maxResults" => integer(),
-    "nextToken" => String.t()
-  }
+
+      list_import_errors_request() :: %{
+        "importID" => String.t(),
+        "maxResults" => integer(),
+        "nextToken" => String.t()
+      }
+
   """
   @type list_import_errors_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  data_replication_initiation_step() :: %{
-    "name" => String.t(),
-    "status" => String.t()
-  }
+
+      data_replication_initiation_step() :: %{
+        "name" => String.t(),
+        "status" => String.t()
+      }
+
   """
   @type data_replication_initiation_step() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_export_request() :: %{
-    "s3Bucket" => String.t(),
-    "s3BucketOwner" => String.t(),
-    "s3Key" => String.t()
-  }
+
+      start_export_request() :: %{
+        "s3Bucket" => String.t(),
+        "s3BucketOwner" => String.t(),
+        "s3Key" => String.t()
+      }
+
   """
   @type start_export_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  import_task_summary_applications() :: %{
-    "createdCount" => float(),
-    "modifiedCount" => float()
-  }
+
+      import_task_summary_applications() :: %{
+        "createdCount" => float(),
+        "modifiedCount" => float()
+      }
+
   """
   @type import_task_summary_applications() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disconnect_from_service_request() :: %{
-    optional("accountID") => String.t(),
-    required("sourceServerID") => String.t()
-  }
+
+      disconnect_from_service_request() :: %{
+        optional("accountID") => String.t(),
+        required("sourceServerID") => String.t()
+      }
+
   """
   @type disconnect_from_service_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  life_cycle_last_test() :: %{
-    "finalized" => life_cycle_last_test_finalized(),
-    "initiated" => life_cycle_last_test_initiated(),
-    "reverted" => life_cycle_last_test_reverted()
-  }
+
+      life_cycle_last_test() :: %{
+        "finalized" => life_cycle_last_test_finalized(),
+        "initiated" => life_cycle_last_test_initiated(),
+        "reverted" => life_cycle_last_test_reverted()
+      }
+
   """
   @type life_cycle_last_test() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  import_task_summary_waves() :: %{
-    "createdCount" => float(),
-    "modifiedCount" => float()
-  }
+
+      import_task_summary_waves() :: %{
+        "createdCount" => float(),
+        "modifiedCount" => float()
+      }
+
   """
   @type import_task_summary_waves() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_applications_request() :: %{
-    optional("accountID") => String.t(),
-    optional("filters") => list_applications_request_filters(),
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t()
-  }
+
+      list_applications_request() :: %{
+        optional("accountID") => String.t(),
+        optional("filters") => list_applications_request_filters(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
   """
   @type list_applications_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_export_errors_request() :: %{
-    "exportID" => String.t(),
-    "maxResults" => integer(),
-    "nextToken" => String.t()
-  }
+
+      list_export_errors_request() :: %{
+        "exportID" => String.t(),
+        "maxResults" => integer(),
+        "nextToken" => String.t()
+      }
+
   """
   @type list_export_errors_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  access_denied_exception() :: %{
-    "code" => String.t(),
-    "message" => String.t()
-  }
+
+      access_denied_exception() :: %{
+        "code" => String.t(),
+        "message" => String.t()
+      }
+
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_connector_request() :: %{
-    optional("ssmCommandConfig") => connector_ssm_command_config(),
-    optional("tags") => map(),
-    required("name") => String.t(),
-    required("ssmInstanceID") => String.t()
-  }
+
+      create_connector_request() :: %{
+        optional("ssmCommandConfig") => connector_ssm_command_config(),
+        optional("tags") => map(),
+        required("name") => String.t(),
+        required("ssmInstanceID") => String.t()
+      }
+
   """
   @type create_connector_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  remove_template_action_request() :: %{
-    required("actionID") => String.t(),
-    required("launchConfigurationTemplateID") => String.t()
-  }
+
+      remove_template_action_request() :: %{
+        required("actionID") => String.t(),
+        required("launchConfigurationTemplateID") => String.t()
+      }
+
   """
   @type remove_template_action_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  export_error_data() :: %{
-    "rawError" => String.t()
-  }
+
+      export_error_data() :: %{
+        "rawError" => String.t()
+      }
+
   """
   @type export_error_data() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_export_errors_response() :: %{
-    "items" => list(export_task_error()()),
-    "nextToken" => String.t()
-  }
+
+      list_export_errors_response() :: %{
+        "items" => list(export_task_error()()),
+        "nextToken" => String.t()
+      }
+
   """
   @type list_export_errors_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  change_server_life_cycle_state_request() :: %{
-    optional("accountID") => String.t(),
-    required("lifeCycle") => change_server_life_cycle_state_source_server_lifecycle(),
-    required("sourceServerID") => String.t()
-  }
+
+      change_server_life_cycle_state_request() :: %{
+        optional("accountID") => String.t(),
+        required("lifeCycle") => change_server_life_cycle_state_source_server_lifecycle(),
+        required("sourceServerID") => String.t()
+      }
+
   """
   @type change_server_life_cycle_state_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  archive_application_request() :: %{
-    optional("accountID") => String.t(),
-    required("applicationID") => String.t()
-  }
+
+      archive_application_request() :: %{
+        optional("accountID") => String.t(),
+        required("applicationID") => String.t()
+      }
+
   """
   @type archive_application_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_job_request() :: %{
-    optional("accountID") => String.t(),
-    required("jobID") => String.t()
-  }
+
+      delete_job_request() :: %{
+        optional("accountID") => String.t(),
+        required("jobID") => String.t()
+      }
+
   """
   @type delete_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_test_response() :: %{
-    optional("job") => job()
-  }
+
+      start_test_response() :: %{
+        optional("job") => job()
+      }
+
   """
   @type start_test_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ssm_parameter_store_parameter() :: %{
-    "parameterName" => String.t(),
-    "parameterType" => String.t()
-  }
+
+      ssm_parameter_store_parameter() :: %{
+        "parameterName" => String.t(),
+        "parameterType" => String.t()
+      }
+
   """
   @type ssm_parameter_store_parameter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_jobs_response() :: %{
-    optional("items") => list(job()()),
-    optional("nextToken") => String.t()
-  }
+
+      describe_jobs_response() :: %{
+        optional("items") => list(job()()),
+        optional("nextToken") => String.t()
+      }
+
   """
   @type describe_jobs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disk() :: %{
-    "bytes" => float(),
-    "deviceName" => String.t()
-  }
+
+      disk() :: %{
+        "bytes" => float(),
+        "deviceName" => String.t()
+      }
+
   """
   @type disk() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_launch_configuration_request() :: %{
-    optional("accountID") => String.t(),
-    optional("bootMode") => String.t(),
-    optional("copyPrivateIp") => [boolean()],
-    optional("copyTags") => [boolean()],
-    optional("enableMapAutoTagging") => [boolean()],
-    optional("launchDisposition") => String.t(),
-    optional("licensing") => licensing(),
-    optional("mapAutoTaggingMpeID") => String.t(),
-    optional("name") => String.t(),
-    optional("postLaunchActions") => post_launch_actions(),
-    optional("targetInstanceTypeRightSizingMethod") => String.t(),
-    required("sourceServerID") => String.t()
-  }
+
+      update_launch_configuration_request() :: %{
+        optional("accountID") => String.t(),
+        optional("bootMode") => String.t(),
+        optional("copyPrivateIp") => [boolean()],
+        optional("copyTags") => [boolean()],
+        optional("enableMapAutoTagging") => [boolean()],
+        optional("launchDisposition") => String.t(),
+        optional("licensing") => licensing(),
+        optional("mapAutoTaggingMpeID") => String.t(),
+        optional("name") => String.t(),
+        optional("postLaunchActions") => post_launch_actions(),
+        optional("targetInstanceTypeRightSizingMethod") => String.t(),
+        required("sourceServerID") => String.t()
+      }
+
   """
   @type update_launch_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  validation_exception() :: %{
-    "code" => String.t(),
-    "fieldList" => list(validation_exception_field()()),
-    "message" => String.t(),
-    "reason" => String.t()
-  }
+
+      validation_exception() :: %{
+        "code" => String.t(),
+        "fieldList" => list(validation_exception_field()()),
+        "message" => String.t(),
+        "reason" => String.t()
+      }
+
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_request() :: %{
 
-  }
+      list_tags_for_resource_request() :: %{}
+
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  delete_replication_configuration_template_request() :: %{
-    required("replicationConfigurationTemplateID") => String.t()
-  }
+
+      delete_replication_configuration_template_request() :: %{
+        required("replicationConfigurationTemplateID") => String.t()
+      }
+
   """
   @type delete_replication_configuration_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  job() :: %{
-    "arn" => String.t(),
-    "creationDateTime" => String.t(),
-    "endDateTime" => String.t(),
-    "initiatedBy" => String.t(),
-    "jobID" => String.t(),
-    "participatingServers" => list(participating_server()()),
-    "status" => String.t(),
-    "tags" => map(),
-    "type" => String.t()
-  }
+
+      job() :: %{
+        "arn" => String.t(),
+        "creationDateTime" => String.t(),
+        "endDateTime" => String.t(),
+        "initiatedBy" => String.t(),
+        "jobID" => String.t(),
+        "participatingServers" => list(participating_server()()),
+        "status" => String.t(),
+        "tags" => map(),
+        "type" => String.t()
+      }
+
   """
   @type job() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  launch_template_disk_conf() :: %{
-    "iops" => float(),
-    "throughput" => float(),
-    "volumeType" => String.t()
-  }
+
+      launch_template_disk_conf() :: %{
+        "iops" => float(),
+        "throughput" => float(),
+        "volumeType" => String.t()
+      }
+
   """
   @type launch_template_disk_conf() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  import_task_summary_servers() :: %{
-    "createdCount" => float(),
-    "modifiedCount" => float()
-  }
+
+      import_task_summary_servers() :: %{
+        "createdCount" => float(),
+        "modifiedCount" => float()
+      }
+
   """
   @type import_task_summary_servers() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  throttling_exception() :: %{
-    "message" => String.t(),
-    "quotaCode" => String.t(),
-    "retryAfterSeconds" => String.t(),
-    "serviceCode" => String.t()
-  }
+
+      throttling_exception() :: %{
+        "message" => String.t(),
+        "quotaCode" => String.t(),
+        "retryAfterSeconds" => String.t(),
+        "serviceCode" => String.t()
+      }
+
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ssm_document() :: %{
-    "actionName" => String.t(),
-    "externalParameters" => map(),
-    "mustSucceedForCutover" => [boolean()],
-    "parameters" => map(),
-    "ssmDocumentName" => String.t(),
-    "timeoutSeconds" => integer()
-  }
+
+      ssm_document() :: %{
+        "actionName" => String.t(),
+        "externalParameters" => map(),
+        "mustSucceedForCutover" => [boolean()],
+        "parameters" => map(),
+        "ssmDocumentName" => String.t(),
+        "timeoutSeconds" => integer()
+      }
+
   """
   @type ssm_document() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_template_action_request() :: %{
-    optional("active") => [boolean()],
-    optional("category") => String.t(),
-    optional("description") => String.t(),
-    optional("documentVersion") => String.t(),
-    optional("externalParameters") => map(),
-    optional("mustSucceedForCutover") => [boolean()],
-    optional("operatingSystem") => String.t(),
-    optional("parameters") => map(),
-    optional("timeoutSeconds") => integer(),
-    required("actionID") => String.t(),
-    required("actionName") => String.t(),
-    required("documentIdentifier") => String.t(),
-    required("launchConfigurationTemplateID") => String.t(),
-    required("order") => integer()
-  }
+
+      put_template_action_request() :: %{
+        optional("active") => [boolean()],
+        optional("category") => String.t(),
+        optional("description") => String.t(),
+        optional("documentVersion") => String.t(),
+        optional("externalParameters") => map(),
+        optional("mustSucceedForCutover") => [boolean()],
+        optional("operatingSystem") => String.t(),
+        optional("parameters") => map(),
+        optional("timeoutSeconds") => integer(),
+        required("actionID") => String.t(),
+        required("actionName") => String.t(),
+        required("documentIdentifier") => String.t(),
+        required("launchConfigurationTemplateID") => String.t(),
+        required("order") => integer()
+      }
+
   """
   @type put_template_action_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_imports_request() :: %{
-    "filters" => list_imports_request_filters(),
-    "maxResults" => integer(),
-    "nextToken" => String.t()
-  }
+
+      list_imports_request() :: %{
+        "filters" => list_imports_request_filters(),
+        "maxResults" => integer(),
+        "nextToken" => String.t()
+      }
+
   """
   @type list_imports_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_imports_request_filters() :: %{
-    "importIDs" => list(String.t()())
-  }
+
+      list_imports_request_filters() :: %{
+        "importIDs" => list(String.t()())
+      }
+
   """
   @type list_imports_request_filters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_managed_accounts_request() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t()
-  }
+
+      list_managed_accounts_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
   """
   @type list_managed_accounts_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  job_log_event_data() :: %{
-    "conversionServerID" => String.t(),
-    "rawError" => String.t(),
-    "sourceServerID" => String.t(),
-    "targetInstanceID" => String.t()
-  }
+
+      job_log_event_data() :: %{
+        "conversionServerID" => String.t(),
+        "rawError" => String.t(),
+        "sourceServerID" => String.t(),
+        "targetInstanceID" => String.t()
+      }
+
   """
   @type job_log_event_data() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_jobs_request() :: %{
-    optional("accountID") => String.t(),
-    optional("filters") => describe_jobs_request_filters(),
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t()
-  }
+
+      describe_jobs_request() :: %{
+        optional("accountID") => String.t(),
+        optional("filters") => describe_jobs_request_filters(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
   """
   @type describe_jobs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  launch_configuration() :: %{
-    optional("bootMode") => String.t(),
-    optional("copyPrivateIp") => [boolean()],
-    optional("copyTags") => [boolean()],
-    optional("ec2LaunchTemplateID") => String.t(),
-    optional("enableMapAutoTagging") => [boolean()],
-    optional("launchDisposition") => String.t(),
-    optional("licensing") => licensing(),
-    optional("mapAutoTaggingMpeID") => String.t(),
-    optional("name") => String.t(),
-    optional("postLaunchActions") => post_launch_actions(),
-    optional("sourceServerID") => String.t(),
-    optional("targetInstanceTypeRightSizingMethod") => String.t()
-  }
+
+      launch_configuration() :: %{
+        optional("bootMode") => String.t(),
+        optional("copyPrivateIp") => [boolean()],
+        optional("copyTags") => [boolean()],
+        optional("ec2LaunchTemplateID") => String.t(),
+        optional("enableMapAutoTagging") => [boolean()],
+        optional("launchDisposition") => String.t(),
+        optional("licensing") => licensing(),
+        optional("mapAutoTaggingMpeID") => String.t(),
+        optional("name") => String.t(),
+        optional("postLaunchActions") => post_launch_actions(),
+        optional("sourceServerID") => String.t(),
+        optional("targetInstanceTypeRightSizingMethod") => String.t()
+      }
+
   """
   @type launch_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_applications_response() :: %{
-    optional("items") => list(application()()),
-    optional("nextToken") => String.t()
-  }
+
+      list_applications_response() :: %{
+        optional("items") => list(application()()),
+        optional("nextToken") => String.t()
+      }
+
   """
   @type list_applications_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  job_post_launch_actions_launch_status() :: %{
-    "executionID" => String.t(),
-    "executionStatus" => String.t(),
-    "failureReason" => String.t(),
-    "ssmDocument" => ssm_document(),
-    "ssmDocumentType" => String.t()
-  }
+
+      job_post_launch_actions_launch_status() :: %{
+        "executionID" => String.t(),
+        "executionStatus" => String.t(),
+        "failureReason" => String.t(),
+        "ssmDocument" => ssm_document(),
+        "ssmDocumentType" => String.t()
+      }
+
   """
   @type job_post_launch_actions_launch_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  import_error_data() :: %{
-    "accountID" => String.t(),
-    "applicationID" => String.t(),
-    "ec2LaunchTemplateID" => String.t(),
-    "rawError" => String.t(),
-    "rowNumber" => float(),
-    "sourceServerID" => String.t(),
-    "waveID" => String.t()
-  }
+
+      import_error_data() :: %{
+        "accountID" => String.t(),
+        "applicationID" => String.t(),
+        "ec2LaunchTemplateID" => String.t(),
+        "rawError" => String.t(),
+        "rowNumber" => float(),
+        "sourceServerID" => String.t(),
+        "waveID" => String.t()
+      }
+
   """
   @type import_error_data() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_replication_configuration_request() :: %{
-    optional("accountID") => String.t(),
-    optional("associateDefaultSecurityGroup") => [boolean()],
-    optional("bandwidthThrottling") => float(),
-    optional("createPublicIP") => [boolean()],
-    optional("dataPlaneRouting") => String.t(),
-    optional("defaultLargeStagingDiskType") => String.t(),
-    optional("ebsEncryption") => String.t(),
-    optional("ebsEncryptionKeyArn") => String.t(),
-    optional("name") => String.t(),
-    optional("replicatedDisks") => list(replication_configuration_replicated_disk()()),
-    optional("replicationServerInstanceType") => String.t(),
-    optional("replicationServersSecurityGroupsIDs") => list(String.t()()),
-    optional("stagingAreaSubnetId") => String.t(),
-    optional("stagingAreaTags") => map(),
-    optional("useDedicatedReplicationServer") => [boolean()],
-    optional("useFipsEndpoint") => [boolean()],
-    required("sourceServerID") => String.t()
-  }
+
+      update_replication_configuration_request() :: %{
+        optional("accountID") => String.t(),
+        optional("associateDefaultSecurityGroup") => [boolean()],
+        optional("bandwidthThrottling") => float(),
+        optional("createPublicIP") => [boolean()],
+        optional("dataPlaneRouting") => String.t(),
+        optional("defaultLargeStagingDiskType") => String.t(),
+        optional("ebsEncryption") => String.t(),
+        optional("ebsEncryptionKeyArn") => String.t(),
+        optional("name") => String.t(),
+        optional("replicatedDisks") => list(replication_configuration_replicated_disk()()),
+        optional("replicationServerInstanceType") => String.t(),
+        optional("replicationServersSecurityGroupsIDs") => list(String.t()()),
+        optional("stagingAreaSubnetId") => String.t(),
+        optional("stagingAreaTags") => map(),
+        optional("useDedicatedReplicationServer") => [boolean()],
+        optional("useFipsEndpoint") => [boolean()],
+        required("sourceServerID") => String.t()
+      }
+
   """
   @type update_replication_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_connector_request() :: %{
-    required("connectorID") => String.t()
-  }
+
+      delete_connector_request() :: %{
+        required("connectorID") => String.t()
+      }
+
   """
   @type delete_connector_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  source_server() :: %{
-    "applicationID" => String.t(),
-    "arn" => String.t(),
-    "connectorAction" => source_server_connector_action(),
-    "dataReplicationInfo" => data_replication_info(),
-    "fqdnForActionFramework" => String.t(),
-    "isArchived" => [boolean()],
-    "launchedInstance" => launched_instance(),
-    "lifeCycle" => life_cycle(),
-    "replicationType" => String.t(),
-    "sourceProperties" => source_properties(),
-    "sourceServerID" => String.t(),
-    "tags" => map(),
-    "userProvidedID" => String.t(),
-    "vcenterClientID" => String.t()
-  }
+
+      source_server() :: %{
+        "applicationID" => String.t(),
+        "arn" => String.t(),
+        "connectorAction" => source_server_connector_action(),
+        "dataReplicationInfo" => data_replication_info(),
+        "fqdnForActionFramework" => String.t(),
+        "isArchived" => [boolean()],
+        "launchedInstance" => launched_instance(),
+        "lifeCycle" => life_cycle(),
+        "replicationType" => String.t(),
+        "sourceProperties" => source_properties(),
+        "sourceServerID" => String.t(),
+        "tags" => map(),
+        "userProvidedID" => String.t(),
+        "vcenterClientID" => String.t()
+      }
+
   """
   @type source_server() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  wave_aggregated_status() :: %{
-    "healthStatus" => String.t(),
-    "lastUpdateDateTime" => String.t(),
-    "progressStatus" => String.t(),
-    "replicationStartedDateTime" => String.t(),
-    "totalApplications" => float()
-  }
+
+      wave_aggregated_status() :: %{
+        "healthStatus" => String.t(),
+        "lastUpdateDateTime" => String.t(),
+        "progressStatus" => String.t(),
+        "replicationStartedDateTime" => String.t(),
+        "totalApplications" => float()
+      }
+
   """
   @type wave_aggregated_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_import_errors_response() :: %{
-    "items" => list(import_task_error()()),
-    "nextToken" => String.t()
-  }
+
+      list_import_errors_response() :: %{
+        "items" => list(import_task_error()()),
+        "nextToken" => String.t()
+      }
+
   """
   @type list_import_errors_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_waves_response() :: %{
-    optional("items") => list(wave()()),
-    optional("nextToken") => String.t()
-  }
+
+      list_waves_response() :: %{
+        optional("items") => list(wave()()),
+        optional("nextToken") => String.t()
+      }
+
   """
   @type list_waves_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  source_server_action_document() :: %{
-    optional("actionID") => String.t(),
-    optional("actionName") => String.t(),
-    optional("active") => [boolean()],
-    optional("category") => String.t(),
-    optional("description") => String.t(),
-    optional("documentIdentifier") => String.t(),
-    optional("documentVersion") => String.t(),
-    optional("externalParameters") => map(),
-    optional("mustSucceedForCutover") => [boolean()],
-    optional("order") => integer(),
-    optional("parameters") => map(),
-    optional("timeoutSeconds") => integer()
-  }
+
+      source_server_action_document() :: %{
+        optional("actionID") => String.t(),
+        optional("actionName") => String.t(),
+        optional("active") => [boolean()],
+        optional("category") => String.t(),
+        optional("description") => String.t(),
+        optional("documentIdentifier") => String.t(),
+        optional("documentVersion") => String.t(),
+        optional("externalParameters") => map(),
+        optional("mustSucceedForCutover") => [boolean()],
+        optional("order") => integer(),
+        optional("parameters") => map(),
+        optional("timeoutSeconds") => integer()
+      }
+
   """
   @type source_server_action_document() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  finalize_cutover_request() :: %{
-    optional("accountID") => String.t(),
-    required("sourceServerID") => String.t()
-  }
+
+      finalize_cutover_request() :: %{
+        optional("accountID") => String.t(),
+        required("sourceServerID") => String.t()
+      }
+
   """
   @type finalize_cutover_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  associate_source_servers_response() :: %{
 
-  }
+      associate_source_servers_response() :: %{}
+
   """
-  @type associate_source_servers_response() :: %{String.t() => any()}
+  @type associate_source_servers_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  life_cycle_last_cutover_initiated() :: %{
-    "apiCallDateTime" => String.t(),
-    "jobID" => String.t()
-  }
+
+      life_cycle_last_cutover_initiated() :: %{
+        "apiCallDateTime" => String.t(),
+        "jobID" => String.t()
+      }
+
   """
   @type life_cycle_last_cutover_initiated() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_launch_configuration_template_response() :: %{
 
-  }
+      delete_launch_configuration_template_response() :: %{}
+
   """
-  @type delete_launch_configuration_template_response() :: %{String.t() => any()}
+  @type delete_launch_configuration_template_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  delete_job_response() :: %{
 
-  }
+      delete_job_response() :: %{}
+
   """
-  @type delete_job_response() :: %{String.t() => any()}
+  @type delete_job_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  disassociate_source_servers_request() :: %{
-    optional("accountID") => String.t(),
-    required("applicationID") => String.t(),
-    required("sourceServerIDs") => list(String.t()())
-  }
+
+      disassociate_source_servers_request() :: %{
+        optional("accountID") => String.t(),
+        required("applicationID") => String.t(),
+        required("sourceServerIDs") => list(String.t()())
+      }
+
   """
   @type disassociate_source_servers_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_replication_configuration_templates_request() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t(),
-    optional("replicationConfigurationTemplateIDs") => list(String.t()())
-  }
+
+      describe_replication_configuration_templates_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("replicationConfigurationTemplateIDs") => list(String.t()())
+      }
+
   """
   @type describe_replication_configuration_templates_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  o_s() :: %{
-    "fullString" => String.t()
-  }
+
+      o_s() :: %{
+        "fullString" => String.t()
+      }
+
   """
   @type o_s() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_connectors_request_filters() :: %{
-    "connectorIDs" => list(String.t()())
-  }
+
+      list_connectors_request_filters() :: %{
+        "connectorIDs" => list(String.t()())
+      }
+
   """
   @type list_connectors_request_filters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_job_log_items_response() :: %{
-    optional("items") => list(job_log()()),
-    optional("nextToken") => String.t()
-  }
+
+      describe_job_log_items_response() :: %{
+        optional("items") => list(job_log()()),
+        optional("nextToken") => String.t()
+      }
+
   """
   @type describe_job_log_items_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  terminate_target_instances_response() :: %{
-    optional("job") => job()
-  }
+
+      terminate_target_instances_response() :: %{
+        optional("job") => job()
+      }
+
   """
   @type terminate_target_instances_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_import_request() :: %{
-    "clientToken" => String.t(),
-    "s3BucketSource" => s3_bucket_source()
-  }
+
+      start_import_request() :: %{
+        "clientToken" => String.t(),
+        "s3BucketSource" => s3_bucket_source()
+      }
+
   """
   @type start_import_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_launch_configuration_template_request() :: %{
-    optional("associatePublicIpAddress") => [boolean()],
-    optional("bootMode") => String.t(),
-    optional("copyPrivateIp") => [boolean()],
-    optional("copyTags") => [boolean()],
-    optional("enableMapAutoTagging") => [boolean()],
-    optional("largeVolumeConf") => launch_template_disk_conf(),
-    optional("launchDisposition") => String.t(),
-    optional("licensing") => licensing(),
-    optional("mapAutoTaggingMpeID") => String.t(),
-    optional("postLaunchActions") => post_launch_actions(),
-    optional("smallVolumeConf") => launch_template_disk_conf(),
-    optional("smallVolumeMaxSize") => float(),
-    optional("targetInstanceTypeRightSizingMethod") => String.t(),
-    required("launchConfigurationTemplateID") => String.t()
-  }
+
+      update_launch_configuration_template_request() :: %{
+        optional("associatePublicIpAddress") => [boolean()],
+        optional("bootMode") => String.t(),
+        optional("copyPrivateIp") => [boolean()],
+        optional("copyTags") => [boolean()],
+        optional("enableMapAutoTagging") => [boolean()],
+        optional("largeVolumeConf") => launch_template_disk_conf(),
+        optional("launchDisposition") => String.t(),
+        optional("licensing") => licensing(),
+        optional("mapAutoTaggingMpeID") => String.t(),
+        optional("postLaunchActions") => post_launch_actions(),
+        optional("smallVolumeConf") => launch_template_disk_conf(),
+        optional("smallVolumeMaxSize") => float(),
+        optional("targetInstanceTypeRightSizingMethod") => String.t(),
+        required("launchConfigurationTemplateID") => String.t()
+      }
+
   """
   @type update_launch_configuration_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  s3_bucket_source() :: %{
-    "s3Bucket" => String.t(),
-    "s3BucketOwner" => String.t(),
-    "s3Key" => String.t()
-  }
+
+      s3_bucket_source() :: %{
+        "s3Bucket" => String.t(),
+        "s3BucketOwner" => String.t(),
+        "s3Key" => String.t()
+      }
+
   """
   @type s3_bucket_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_import_response() :: %{
-    "importTask" => import_task()
-  }
+
+      start_import_response() :: %{
+        "importTask" => import_task()
+      }
+
   """
   @type start_import_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_cutover_request() :: %{
-    optional("accountID") => String.t(),
-    optional("tags") => map(),
-    required("sourceServerIDs") => list(String.t()())
-  }
+
+      start_cutover_request() :: %{
+        optional("accountID") => String.t(),
+        optional("tags") => map(),
+        required("sourceServerIDs") => list(String.t()())
+      }
+
   """
   @type start_cutover_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  job_log() :: %{
-    "event" => String.t(),
-    "eventData" => job_log_event_data(),
-    "logDateTime" => String.t()
-  }
+
+      job_log() :: %{
+        "event" => String.t(),
+        "eventData" => job_log_event_data(),
+        "logDateTime" => String.t()
+      }
+
   """
   @type job_log() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  template_actions_request_filters() :: %{
-    "actionIDs" => list(String.t()())
-  }
+
+      template_actions_request_filters() :: %{
+        "actionIDs" => list(String.t()())
+      }
+
   """
   @type template_actions_request_filters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_application_request() :: %{
-    optional("accountID") => String.t(),
-    required("applicationID") => String.t()
-  }
+
+      delete_application_request() :: %{
+        optional("accountID") => String.t(),
+        required("applicationID") => String.t()
+      }
+
   """
   @type delete_application_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_exports_response() :: %{
-    "items" => list(export_task()()),
-    "nextToken" => String.t()
-  }
+
+      list_exports_response() :: %{
+        "items" => list(export_task()()),
+        "nextToken" => String.t()
+      }
+
   """
   @type list_exports_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_launch_configuration_template_request() :: %{
-    required("launchConfigurationTemplateID") => String.t()
-  }
+
+      delete_launch_configuration_template_request() :: %{
+        required("launchConfigurationTemplateID") => String.t()
+      }
+
   """
   @type delete_launch_configuration_template_request() :: %{String.t() => any()}
+
+  @type archive_application_errors() ::
+          uninitialized_account_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type archive_wave_errors() ::
+          uninitialized_account_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type associate_applications_errors() ::
+          uninitialized_account_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type associate_source_servers_errors() ::
+          uninitialized_account_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type change_server_life_cycle_state_errors() ::
+          validation_exception()
+          | uninitialized_account_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_application_errors() ::
+          uninitialized_account_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+
+  @type create_connector_errors() :: validation_exception() | uninitialized_account_exception()
+
+  @type create_launch_configuration_template_errors() ::
+          validation_exception() | access_denied_exception() | uninitialized_account_exception()
+
+  @type create_replication_configuration_template_errors() ::
+          validation_exception() | access_denied_exception() | uninitialized_account_exception()
+
+  @type create_wave_errors() ::
+          uninitialized_account_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+
+  @type delete_application_errors() ::
+          uninitialized_account_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_connector_errors() ::
+          validation_exception()
+          | uninitialized_account_exception()
+          | resource_not_found_exception()
+
+  @type delete_job_errors() ::
+          uninitialized_account_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_launch_configuration_template_errors() ::
+          uninitialized_account_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_replication_configuration_template_errors() ::
+          uninitialized_account_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_source_server_errors() ::
+          uninitialized_account_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_vcenter_client_errors() ::
+          validation_exception()
+          | uninitialized_account_exception()
+          | resource_not_found_exception()
+
+  @type delete_wave_errors() ::
+          uninitialized_account_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type describe_job_log_items_errors() ::
+          validation_exception() | uninitialized_account_exception()
+
+  @type describe_jobs_errors() :: validation_exception() | uninitialized_account_exception()
+
+  @type describe_launch_configuration_templates_errors() ::
+          validation_exception()
+          | uninitialized_account_exception()
+          | resource_not_found_exception()
+
+  @type describe_replication_configuration_templates_errors() ::
+          validation_exception()
+          | uninitialized_account_exception()
+          | resource_not_found_exception()
+
+  @type describe_source_servers_errors() ::
+          validation_exception() | uninitialized_account_exception()
+
+  @type describe_vcenter_clients_errors() ::
+          validation_exception()
+          | uninitialized_account_exception()
+          | resource_not_found_exception()
+
+  @type disassociate_applications_errors() ::
+          uninitialized_account_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type disassociate_source_servers_errors() ::
+          uninitialized_account_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type disconnect_from_service_errors() ::
+          uninitialized_account_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type finalize_cutover_errors() ::
+          validation_exception()
+          | uninitialized_account_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type get_launch_configuration_errors() ::
+          uninitialized_account_exception() | resource_not_found_exception()
+
+  @type get_replication_configuration_errors() ::
+          uninitialized_account_exception() | resource_not_found_exception()
+
+  @type initialize_service_errors() :: validation_exception() | access_denied_exception()
+
+  @type list_applications_errors() :: uninitialized_account_exception()
+
+  @type list_connectors_errors() :: validation_exception() | uninitialized_account_exception()
+
+  @type list_export_errors_errors() :: validation_exception() | uninitialized_account_exception()
+
+  @type list_exports_errors() :: uninitialized_account_exception()
+
+  @type list_import_errors_errors() :: validation_exception() | uninitialized_account_exception()
+
+  @type list_imports_errors() :: validation_exception() | uninitialized_account_exception()
+
+  @type list_managed_accounts_errors() ::
+          validation_exception() | uninitialized_account_exception()
+
+  @type list_source_server_actions_errors() ::
+          uninitialized_account_exception() | resource_not_found_exception()
+
+  @type list_tags_for_resource_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_template_actions_errors() ::
+          uninitialized_account_exception() | resource_not_found_exception()
+
+  @type list_waves_errors() :: uninitialized_account_exception()
+
+  @type mark_as_archived_errors() ::
+          uninitialized_account_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type pause_replication_errors() ::
+          validation_exception()
+          | uninitialized_account_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type put_source_server_action_errors() ::
+          validation_exception()
+          | uninitialized_account_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type put_template_action_errors() ::
+          validation_exception()
+          | uninitialized_account_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type remove_source_server_action_errors() ::
+          validation_exception()
+          | uninitialized_account_exception()
+          | resource_not_found_exception()
+
+  @type remove_template_action_errors() ::
+          validation_exception()
+          | uninitialized_account_exception()
+          | resource_not_found_exception()
+
+  @type resume_replication_errors() ::
+          validation_exception()
+          | uninitialized_account_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type retry_data_replication_errors() ::
+          validation_exception()
+          | uninitialized_account_exception()
+          | resource_not_found_exception()
+
+  @type start_cutover_errors() ::
+          validation_exception() | uninitialized_account_exception() | conflict_exception()
+
+  @type start_export_errors() ::
+          validation_exception()
+          | uninitialized_account_exception()
+          | service_quota_exceeded_exception()
+
+  @type start_import_errors() ::
+          validation_exception()
+          | uninitialized_account_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type start_replication_errors() ::
+          validation_exception()
+          | uninitialized_account_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type start_test_errors() ::
+          validation_exception() | uninitialized_account_exception() | conflict_exception()
+
+  @type stop_replication_errors() ::
+          validation_exception()
+          | uninitialized_account_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type tag_resource_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type terminate_target_instances_errors() ::
+          validation_exception() | uninitialized_account_exception() | conflict_exception()
+
+  @type unarchive_application_errors() ::
+          uninitialized_account_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+
+  @type unarchive_wave_errors() ::
+          uninitialized_account_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+
+  @type untag_resource_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type update_application_errors() ::
+          uninitialized_account_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_connector_errors() ::
+          validation_exception()
+          | uninitialized_account_exception()
+          | resource_not_found_exception()
+
+  @type update_launch_configuration_errors() ::
+          validation_exception()
+          | uninitialized_account_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_launch_configuration_template_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | uninitialized_account_exception()
+          | resource_not_found_exception()
+
+  @type update_replication_configuration_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | uninitialized_account_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_replication_configuration_template_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | uninitialized_account_exception()
+          | resource_not_found_exception()
+
+  @type update_source_server_errors() ::
+          uninitialized_account_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_source_server_replication_type_errors() ::
+          validation_exception()
+          | uninitialized_account_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_wave_errors() ::
+          uninitialized_account_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   def metadata do
     %{
@@ -2205,10 +2873,7 @@ defmodule AWS.Mgn do
   @spec archive_application(map(), archive_application_request(), list()) ::
           {:ok, application(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, uninitialized_account_exception()}
+          | {:error, archive_application_errors()}
   def archive_application(%Client{} = client, input, options \\ []) do
     url_path = "/ArchiveApplication"
     headers = []
@@ -2235,10 +2900,7 @@ defmodule AWS.Mgn do
   @spec archive_wave(map(), archive_wave_request(), list()) ::
           {:ok, wave(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, uninitialized_account_exception()}
+          | {:error, archive_wave_errors()}
   def archive_wave(%Client{} = client, input, options \\ []) do
     url_path = "/ArchiveWave"
     headers = []
@@ -2265,10 +2927,7 @@ defmodule AWS.Mgn do
   @spec associate_applications(map(), associate_applications_request(), list()) ::
           {:ok, associate_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, uninitialized_account_exception()}
+          | {:error, associate_applications_errors()}
   def associate_applications(%Client{} = client, input, options \\ []) do
     url_path = "/AssociateApplications"
     headers = []
@@ -2295,10 +2954,7 @@ defmodule AWS.Mgn do
   @spec associate_source_servers(map(), associate_source_servers_request(), list()) ::
           {:ok, associate_source_servers_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, uninitialized_account_exception()}
+          | {:error, associate_source_servers_errors()}
   def associate_source_servers(%Client{} = client, input, options \\ []) do
     url_path = "/AssociateSourceServers"
     headers = []
@@ -2329,10 +2985,7 @@ defmodule AWS.Mgn do
   @spec change_server_life_cycle_state(map(), change_server_life_cycle_state_request(), list()) ::
           {:ok, source_server(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, uninitialized_account_exception()}
-          | {:error, validation_exception()}
+          | {:error, change_server_life_cycle_state_errors()}
   def change_server_life_cycle_state(%Client{} = client, input, options \\ []) do
     url_path = "/ChangeServerLifeCycleState"
     headers = []
@@ -2359,9 +3012,7 @@ defmodule AWS.Mgn do
   @spec create_application(map(), create_application_request(), list()) ::
           {:ok, application(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, uninitialized_account_exception()}
+          | {:error, create_application_errors()}
   def create_application(%Client{} = client, input, options \\ []) do
     url_path = "/CreateApplication"
     headers = []
@@ -2388,8 +3039,7 @@ defmodule AWS.Mgn do
   @spec create_connector(map(), create_connector_request(), list()) ::
           {:ok, connector(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, uninitialized_account_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_connector_errors()}
   def create_connector(%Client{} = client, input, options \\ []) do
     url_path = "/CreateConnector"
     headers = []
@@ -2420,9 +3070,7 @@ defmodule AWS.Mgn do
         ) ::
           {:ok, launch_configuration_template(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, uninitialized_account_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_launch_configuration_template_errors()}
   def create_launch_configuration_template(%Client{} = client, input, options \\ []) do
     url_path = "/CreateLaunchConfigurationTemplate"
     headers = []
@@ -2453,9 +3101,7 @@ defmodule AWS.Mgn do
         ) ::
           {:ok, replication_configuration_template(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, uninitialized_account_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_replication_configuration_template_errors()}
   def create_replication_configuration_template(%Client{} = client, input, options \\ []) do
     url_path = "/CreateReplicationConfigurationTemplate"
     headers = []
@@ -2482,9 +3128,7 @@ defmodule AWS.Mgn do
   @spec create_wave(map(), create_wave_request(), list()) ::
           {:ok, wave(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, uninitialized_account_exception()}
+          | {:error, create_wave_errors()}
   def create_wave(%Client{} = client, input, options \\ []) do
     url_path = "/CreateWave"
     headers = []
@@ -2511,9 +3155,7 @@ defmodule AWS.Mgn do
   @spec delete_application(map(), delete_application_request(), list()) ::
           {:ok, delete_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, uninitialized_account_exception()}
+          | {:error, delete_application_errors()}
   def delete_application(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteApplication"
     headers = []
@@ -2540,9 +3182,7 @@ defmodule AWS.Mgn do
   @spec delete_connector(map(), delete_connector_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found_exception()}
-          | {:error, uninitialized_account_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_connector_errors()}
   def delete_connector(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteConnector"
     headers = []
@@ -2569,9 +3209,7 @@ defmodule AWS.Mgn do
   @spec delete_job(map(), delete_job_request(), list()) ::
           {:ok, delete_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, uninitialized_account_exception()}
+          | {:error, delete_job_errors()}
   def delete_job(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteJob"
     headers = []
@@ -2602,9 +3240,7 @@ defmodule AWS.Mgn do
         ) ::
           {:ok, delete_launch_configuration_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, uninitialized_account_exception()}
+          | {:error, delete_launch_configuration_template_errors()}
   def delete_launch_configuration_template(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteLaunchConfigurationTemplate"
     headers = []
@@ -2635,9 +3271,7 @@ defmodule AWS.Mgn do
         ) ::
           {:ok, delete_replication_configuration_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, uninitialized_account_exception()}
+          | {:error, delete_replication_configuration_template_errors()}
   def delete_replication_configuration_template(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteReplicationConfigurationTemplate"
     headers = []
@@ -2664,9 +3298,7 @@ defmodule AWS.Mgn do
   @spec delete_source_server(map(), delete_source_server_request(), list()) ::
           {:ok, delete_source_server_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, uninitialized_account_exception()}
+          | {:error, delete_source_server_errors()}
   def delete_source_server(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteSourceServer"
     headers = []
@@ -2693,9 +3325,7 @@ defmodule AWS.Mgn do
   @spec delete_vcenter_client(map(), delete_vcenter_client_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found_exception()}
-          | {:error, uninitialized_account_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_vcenter_client_errors()}
   def delete_vcenter_client(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteVcenterClient"
     headers = []
@@ -2722,9 +3352,7 @@ defmodule AWS.Mgn do
   @spec delete_wave(map(), delete_wave_request(), list()) ::
           {:ok, delete_wave_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, uninitialized_account_exception()}
+          | {:error, delete_wave_errors()}
   def delete_wave(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteWave"
     headers = []
@@ -2751,8 +3379,7 @@ defmodule AWS.Mgn do
   @spec describe_job_log_items(map(), describe_job_log_items_request(), list()) ::
           {:ok, describe_job_log_items_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, uninitialized_account_exception()}
-          | {:error, validation_exception()}
+          | {:error, describe_job_log_items_errors()}
   def describe_job_log_items(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeJobLogItems"
     headers = []
@@ -2786,8 +3413,7 @@ defmodule AWS.Mgn do
   @spec describe_jobs(map(), describe_jobs_request(), list()) ::
           {:ok, describe_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, uninitialized_account_exception()}
-          | {:error, validation_exception()}
+          | {:error, describe_jobs_errors()}
   def describe_jobs(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeJobs"
     headers = []
@@ -2819,9 +3445,7 @@ defmodule AWS.Mgn do
         ) ::
           {:ok, describe_launch_configuration_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found_exception()}
-          | {:error, uninitialized_account_exception()}
-          | {:error, validation_exception()}
+          | {:error, describe_launch_configuration_templates_errors()}
   def describe_launch_configuration_templates(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeLaunchConfigurationTemplates"
     headers = []
@@ -2852,9 +3476,7 @@ defmodule AWS.Mgn do
         ) ::
           {:ok, describe_replication_configuration_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found_exception()}
-          | {:error, uninitialized_account_exception()}
-          | {:error, validation_exception()}
+          | {:error, describe_replication_configuration_templates_errors()}
   def describe_replication_configuration_templates(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeReplicationConfigurationTemplates"
     headers = []
@@ -2881,8 +3503,7 @@ defmodule AWS.Mgn do
   @spec describe_source_servers(map(), describe_source_servers_request(), list()) ::
           {:ok, describe_source_servers_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, uninitialized_account_exception()}
-          | {:error, validation_exception()}
+          | {:error, describe_source_servers_errors()}
   def describe_source_servers(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeSourceServers"
     headers = []
@@ -2909,9 +3530,7 @@ defmodule AWS.Mgn do
   @spec describe_vcenter_clients(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, describe_vcenter_clients_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found_exception()}
-          | {:error, uninitialized_account_exception()}
-          | {:error, validation_exception()}
+          | {:error, describe_vcenter_clients_errors()}
   def describe_vcenter_clients(
         %Client{} = client,
         max_results \\ nil,
@@ -2947,9 +3566,7 @@ defmodule AWS.Mgn do
   @spec disassociate_applications(map(), disassociate_applications_request(), list()) ::
           {:ok, disassociate_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, uninitialized_account_exception()}
+          | {:error, disassociate_applications_errors()}
   def disassociate_applications(%Client{} = client, input, options \\ []) do
     url_path = "/DisassociateApplications"
     headers = []
@@ -2976,9 +3593,7 @@ defmodule AWS.Mgn do
   @spec disassociate_source_servers(map(), disassociate_source_servers_request(), list()) ::
           {:ok, disassociate_source_servers_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, uninitialized_account_exception()}
+          | {:error, disassociate_source_servers_errors()}
   def disassociate_source_servers(%Client{} = client, input, options \\ []) do
     url_path = "/DisassociateSourceServers"
     headers = []
@@ -3018,9 +3633,7 @@ defmodule AWS.Mgn do
   @spec disconnect_from_service(map(), disconnect_from_service_request(), list()) ::
           {:ok, source_server(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, uninitialized_account_exception()}
+          | {:error, disconnect_from_service_errors()}
   def disconnect_from_service(%Client{} = client, input, options \\ []) do
     url_path = "/DisconnectFromService"
     headers = []
@@ -3058,10 +3671,7 @@ defmodule AWS.Mgn do
   @spec finalize_cutover(map(), finalize_cutover_request(), list()) ::
           {:ok, source_server(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, uninitialized_account_exception()}
-          | {:error, validation_exception()}
+          | {:error, finalize_cutover_errors()}
   def finalize_cutover(%Client{} = client, input, options \\ []) do
     url_path = "/FinalizeCutover"
     headers = []
@@ -3088,8 +3698,7 @@ defmodule AWS.Mgn do
   @spec get_launch_configuration(map(), get_launch_configuration_request(), list()) ::
           {:ok, launch_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found_exception()}
-          | {:error, uninitialized_account_exception()}
+          | {:error, get_launch_configuration_errors()}
   def get_launch_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/GetLaunchConfiguration"
     headers = []
@@ -3116,8 +3725,7 @@ defmodule AWS.Mgn do
   @spec get_replication_configuration(map(), get_replication_configuration_request(), list()) ::
           {:ok, replication_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found_exception()}
-          | {:error, uninitialized_account_exception()}
+          | {:error, get_replication_configuration_errors()}
   def get_replication_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/GetReplicationConfiguration"
     headers = []
@@ -3144,8 +3752,7 @@ defmodule AWS.Mgn do
   @spec initialize_service(map(), initialize_service_request(), list()) ::
           {:ok, initialize_service_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, validation_exception()}
+          | {:error, initialize_service_errors()}
   def initialize_service(%Client{} = client, input, options \\ []) do
     url_path = "/InitializeService"
     headers = []
@@ -3172,7 +3779,7 @@ defmodule AWS.Mgn do
   @spec list_applications(map(), list_applications_request(), list()) ::
           {:ok, list_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, uninitialized_account_exception()}
+          | {:error, list_applications_errors()}
   def list_applications(%Client{} = client, input, options \\ []) do
     url_path = "/ListApplications"
     headers = []
@@ -3199,8 +3806,7 @@ defmodule AWS.Mgn do
   @spec list_connectors(map(), list_connectors_request(), list()) ::
           {:ok, list_connectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, uninitialized_account_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_connectors_errors()}
   def list_connectors(%Client{} = client, input, options \\ []) do
     url_path = "/ListConnectors"
     headers = []
@@ -3227,8 +3833,7 @@ defmodule AWS.Mgn do
   @spec list_export_errors(map(), list_export_errors_request(), list()) ::
           {:ok, list_export_errors_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, uninitialized_account_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_export_errors_errors()}
   def list_export_errors(%Client{} = client, input, options \\ []) do
     url_path = "/ListExportErrors"
     headers = []
@@ -3255,7 +3860,7 @@ defmodule AWS.Mgn do
   @spec list_exports(map(), list_exports_request(), list()) ::
           {:ok, list_exports_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, uninitialized_account_exception()}
+          | {:error, list_exports_errors()}
   def list_exports(%Client{} = client, input, options \\ []) do
     url_path = "/ListExports"
     headers = []
@@ -3282,8 +3887,7 @@ defmodule AWS.Mgn do
   @spec list_import_errors(map(), list_import_errors_request(), list()) ::
           {:ok, list_import_errors_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, uninitialized_account_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_import_errors_errors()}
   def list_import_errors(%Client{} = client, input, options \\ []) do
     url_path = "/ListImportErrors"
     headers = []
@@ -3310,8 +3914,7 @@ defmodule AWS.Mgn do
   @spec list_imports(map(), list_imports_request(), list()) ::
           {:ok, list_imports_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, uninitialized_account_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_imports_errors()}
   def list_imports(%Client{} = client, input, options \\ []) do
     url_path = "/ListImports"
     headers = []
@@ -3338,8 +3941,7 @@ defmodule AWS.Mgn do
   @spec list_managed_accounts(map(), list_managed_accounts_request(), list()) ::
           {:ok, list_managed_accounts_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, uninitialized_account_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_managed_accounts_errors()}
   def list_managed_accounts(%Client{} = client, input, options \\ []) do
     url_path = "/ListManagedAccounts"
     headers = []
@@ -3366,8 +3968,7 @@ defmodule AWS.Mgn do
   @spec list_source_server_actions(map(), list_source_server_actions_request(), list()) ::
           {:ok, list_source_server_actions_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found_exception()}
-          | {:error, uninitialized_account_exception()}
+          | {:error, list_source_server_actions_errors()}
   def list_source_server_actions(%Client{} = client, input, options \\ []) do
     url_path = "/ListSourceServerActions"
     headers = []
@@ -3394,11 +3995,7 @@ defmodule AWS.Mgn do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -3415,8 +4012,7 @@ defmodule AWS.Mgn do
   @spec list_template_actions(map(), list_template_actions_request(), list()) ::
           {:ok, list_template_actions_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found_exception()}
-          | {:error, uninitialized_account_exception()}
+          | {:error, list_template_actions_errors()}
   def list_template_actions(%Client{} = client, input, options \\ []) do
     url_path = "/ListTemplateActions"
     headers = []
@@ -3443,7 +4039,7 @@ defmodule AWS.Mgn do
   @spec list_waves(map(), list_waves_request(), list()) ::
           {:ok, list_waves_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, uninitialized_account_exception()}
+          | {:error, list_waves_errors()}
   def list_waves(%Client{} = client, input, options \\ []) do
     url_path = "/ListWaves"
     headers = []
@@ -3474,9 +4070,7 @@ defmodule AWS.Mgn do
   @spec mark_as_archived(map(), mark_as_archived_request(), list()) ::
           {:ok, source_server(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, uninitialized_account_exception()}
+          | {:error, mark_as_archived_errors()}
   def mark_as_archived(%Client{} = client, input, options \\ []) do
     url_path = "/MarkAsArchived"
     headers = []
@@ -3503,11 +4097,7 @@ defmodule AWS.Mgn do
   @spec pause_replication(map(), pause_replication_request(), list()) ::
           {:ok, source_server(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, uninitialized_account_exception()}
-          | {:error, validation_exception()}
+          | {:error, pause_replication_errors()}
   def pause_replication(%Client{} = client, input, options \\ []) do
     url_path = "/PauseReplication"
     headers = []
@@ -3534,10 +4124,7 @@ defmodule AWS.Mgn do
   @spec put_source_server_action(map(), put_source_server_action_request(), list()) ::
           {:ok, source_server_action_document(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, uninitialized_account_exception()}
-          | {:error, validation_exception()}
+          | {:error, put_source_server_action_errors()}
   def put_source_server_action(%Client{} = client, input, options \\ []) do
     url_path = "/PutSourceServerAction"
     headers = []
@@ -3564,10 +4151,7 @@ defmodule AWS.Mgn do
   @spec put_template_action(map(), put_template_action_request(), list()) ::
           {:ok, template_action_document(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, uninitialized_account_exception()}
-          | {:error, validation_exception()}
+          | {:error, put_template_action_errors()}
   def put_template_action(%Client{} = client, input, options \\ []) do
     url_path = "/PutTemplateAction"
     headers = []
@@ -3594,9 +4178,7 @@ defmodule AWS.Mgn do
   @spec remove_source_server_action(map(), remove_source_server_action_request(), list()) ::
           {:ok, remove_source_server_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found_exception()}
-          | {:error, uninitialized_account_exception()}
-          | {:error, validation_exception()}
+          | {:error, remove_source_server_action_errors()}
   def remove_source_server_action(%Client{} = client, input, options \\ []) do
     url_path = "/RemoveSourceServerAction"
     headers = []
@@ -3623,9 +4205,7 @@ defmodule AWS.Mgn do
   @spec remove_template_action(map(), remove_template_action_request(), list()) ::
           {:ok, remove_template_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found_exception()}
-          | {:error, uninitialized_account_exception()}
-          | {:error, validation_exception()}
+          | {:error, remove_template_action_errors()}
   def remove_template_action(%Client{} = client, input, options \\ []) do
     url_path = "/RemoveTemplateAction"
     headers = []
@@ -3652,11 +4232,7 @@ defmodule AWS.Mgn do
   @spec resume_replication(map(), resume_replication_request(), list()) ::
           {:ok, source_server(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, uninitialized_account_exception()}
-          | {:error, validation_exception()}
+          | {:error, resume_replication_errors()}
   def resume_replication(%Client{} = client, input, options \\ []) do
     url_path = "/ResumeReplication"
     headers = []
@@ -3688,9 +4264,7 @@ defmodule AWS.Mgn do
   @spec retry_data_replication(map(), retry_data_replication_request(), list()) ::
           {:ok, source_server(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found_exception()}
-          | {:error, uninitialized_account_exception()}
-          | {:error, validation_exception()}
+          | {:error, retry_data_replication_errors()}
   def retry_data_replication(%Client{} = client, input, options \\ []) do
     url_path = "/RetryDataReplication"
     headers = []
@@ -3720,9 +4294,7 @@ defmodule AWS.Mgn do
   @spec start_cutover(map(), start_cutover_request(), list()) ::
           {:ok, start_cutover_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, uninitialized_account_exception()}
-          | {:error, validation_exception()}
+          | {:error, start_cutover_errors()}
   def start_cutover(%Client{} = client, input, options \\ []) do
     url_path = "/StartCutover"
     headers = []
@@ -3749,9 +4321,7 @@ defmodule AWS.Mgn do
   @spec start_export(map(), start_export_request(), list()) ::
           {:ok, start_export_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, uninitialized_account_exception()}
-          | {:error, validation_exception()}
+          | {:error, start_export_errors()}
   def start_export(%Client{} = client, input, options \\ []) do
     url_path = "/StartExport"
     headers = []
@@ -3778,11 +4348,7 @@ defmodule AWS.Mgn do
   @spec start_import(map(), start_import_request(), list()) ::
           {:ok, start_import_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, uninitialized_account_exception()}
-          | {:error, validation_exception()}
+          | {:error, start_import_errors()}
   def start_import(%Client{} = client, input, options \\ []) do
     url_path = "/StartImport"
     headers = []
@@ -3809,11 +4375,7 @@ defmodule AWS.Mgn do
   @spec start_replication(map(), start_replication_request(), list()) ::
           {:ok, source_server(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, uninitialized_account_exception()}
-          | {:error, validation_exception()}
+          | {:error, start_replication_errors()}
   def start_replication(%Client{} = client, input, options \\ []) do
     url_path = "/StartReplication"
     headers = []
@@ -3843,9 +4405,7 @@ defmodule AWS.Mgn do
   @spec start_test(map(), start_test_request(), list()) ::
           {:ok, start_test_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, uninitialized_account_exception()}
-          | {:error, validation_exception()}
+          | {:error, start_test_errors()}
   def start_test(%Client{} = client, input, options \\ []) do
     url_path = "/StartTest"
     headers = []
@@ -3872,11 +4432,7 @@ defmodule AWS.Mgn do
   @spec stop_replication(map(), stop_replication_request(), list()) ::
           {:ok, source_server(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, uninitialized_account_exception()}
-          | {:error, validation_exception()}
+          | {:error, stop_replication_errors()}
   def stop_replication(%Client{} = client, input, options \\ []) do
     url_path = "/StopReplication"
     headers = []
@@ -3908,11 +4464,7 @@ defmodule AWS.Mgn do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -3942,9 +4494,7 @@ defmodule AWS.Mgn do
   @spec terminate_target_instances(map(), terminate_target_instances_request(), list()) ::
           {:ok, terminate_target_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, uninitialized_account_exception()}
-          | {:error, validation_exception()}
+          | {:error, terminate_target_instances_errors()}
   def terminate_target_instances(%Client{} = client, input, options \\ []) do
     url_path = "/TerminateTargetInstances"
     headers = []
@@ -3971,9 +4521,7 @@ defmodule AWS.Mgn do
   @spec unarchive_application(map(), unarchive_application_request(), list()) ::
           {:ok, application(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, uninitialized_account_exception()}
+          | {:error, unarchive_application_errors()}
   def unarchive_application(%Client{} = client, input, options \\ []) do
     url_path = "/UnarchiveApplication"
     headers = []
@@ -4000,9 +4548,7 @@ defmodule AWS.Mgn do
   @spec unarchive_wave(map(), unarchive_wave_request(), list()) ::
           {:ok, wave(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, uninitialized_account_exception()}
+          | {:error, unarchive_wave_errors()}
   def unarchive_wave(%Client{} = client, input, options \\ []) do
     url_path = "/UnarchiveWave"
     headers = []
@@ -4030,11 +4576,7 @@ defmodule AWS.Mgn do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -4066,9 +4608,7 @@ defmodule AWS.Mgn do
   @spec update_application(map(), update_application_request(), list()) ::
           {:ok, application(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, uninitialized_account_exception()}
+          | {:error, update_application_errors()}
   def update_application(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateApplication"
     headers = []
@@ -4095,9 +4635,7 @@ defmodule AWS.Mgn do
   @spec update_connector(map(), update_connector_request(), list()) ::
           {:ok, connector(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found_exception()}
-          | {:error, uninitialized_account_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_connector_errors()}
   def update_connector(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateConnector"
     headers = []
@@ -4124,10 +4662,7 @@ defmodule AWS.Mgn do
   @spec update_launch_configuration(map(), update_launch_configuration_request(), list()) ::
           {:ok, launch_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, uninitialized_account_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_launch_configuration_errors()}
   def update_launch_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateLaunchConfiguration"
     headers = []
@@ -4158,10 +4693,7 @@ defmodule AWS.Mgn do
         ) ::
           {:ok, launch_configuration_template(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, uninitialized_account_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_launch_configuration_template_errors()}
   def update_launch_configuration_template(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateLaunchConfigurationTemplate"
     headers = []
@@ -4192,11 +4724,7 @@ defmodule AWS.Mgn do
         ) ::
           {:ok, replication_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, uninitialized_account_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_replication_configuration_errors()}
   def update_replication_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateReplicationConfiguration"
     headers = []
@@ -4227,10 +4755,7 @@ defmodule AWS.Mgn do
         ) ::
           {:ok, replication_configuration_template(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, uninitialized_account_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_replication_configuration_template_errors()}
   def update_replication_configuration_template(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateReplicationConfigurationTemplate"
     headers = []
@@ -4257,9 +4782,7 @@ defmodule AWS.Mgn do
   @spec update_source_server(map(), update_source_server_request(), list()) ::
           {:ok, source_server(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, uninitialized_account_exception()}
+          | {:error, update_source_server_errors()}
   def update_source_server(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateSourceServer"
     headers = []
@@ -4291,10 +4814,7 @@ defmodule AWS.Mgn do
         ) ::
           {:ok, source_server(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, uninitialized_account_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_source_server_replication_type_errors()}
   def update_source_server_replication_type(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateSourceServerReplicationType"
     headers = []
@@ -4321,9 +4841,7 @@ defmodule AWS.Mgn do
   @spec update_wave(map(), update_wave_request(), list()) ::
           {:ok, wave(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, uninitialized_account_exception()}
+          | {:error, update_wave_errors()}
   def update_wave(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateWave"
     headers = []

@@ -101,3322 +101,4894 @@ defmodule AWS.CognitoIdentityProvider do
   @typedoc """
 
   ## Example:
-  create_user_pool_domain_response() :: %{
-    "CloudFrontDomain" => String.t()
-  }
+      
+      create_user_pool_domain_response() :: %{
+        "CloudFrontDomain" => String.t()
+      }
+      
   """
   @type create_user_pool_domain_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  authentication_result_type() :: %{
-    "AccessToken" => String.t(),
-    "ExpiresIn" => integer(),
-    "IdToken" => String.t(),
-    "NewDeviceMetadata" => new_device_metadata_type(),
-    "RefreshToken" => String.t(),
-    "TokenType" => String.t()
-  }
+      
+      authentication_result_type() :: %{
+        "AccessToken" => String.t(),
+        "ExpiresIn" => integer(),
+        "IdToken" => String.t(),
+        "NewDeviceMetadata" => new_device_metadata_type(),
+        "RefreshToken" => String.t(),
+        "TokenType" => String.t()
+      }
+      
   """
   @type authentication_result_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  verify_user_attribute_response() :: %{
-
-  }
+      
+      verify_user_attribute_response() :: %{}
+      
   """
-  @type verify_user_attribute_response() :: %{String.t() => any()}
+  @type verify_user_attribute_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  admin_update_auth_event_feedback_response() :: %{
-
-  }
+      
+      admin_update_auth_event_feedback_response() :: %{}
+      
   """
-  @type admin_update_auth_event_feedback_response() :: %{String.t() => any()}
+  @type admin_update_auth_event_feedback_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  analytics_metadata_type() :: %{
-    "AnalyticsEndpointId" => String.t()
-  }
+      
+      analytics_metadata_type() :: %{
+        "AnalyticsEndpointId" => String.t()
+      }
+      
   """
   @type analytics_metadata_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  user_import_in_progress_exception() :: %{
-    "message" => String.t()
-  }
+      
+      user_import_in_progress_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type user_import_in_progress_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  initiate_auth_request() :: %{
-    optional("AnalyticsMetadata") => analytics_metadata_type(),
-    optional("AuthParameters") => map(),
-    optional("ClientMetadata") => map(),
-    optional("UserContextData") => user_context_data_type(),
-    required("AuthFlow") => list(any()),
-    required("ClientId") => String.t()
-  }
+      
+      initiate_auth_request() :: %{
+        optional("AnalyticsMetadata") => analytics_metadata_type(),
+        optional("AuthParameters") => map(),
+        optional("ClientMetadata") => map(),
+        optional("UserContextData") => user_context_data_type(),
+        required("AuthFlow") => list(any()),
+        required("ClientId") => String.t()
+      }
+      
   """
   @type initiate_auth_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  admin_update_device_status_response() :: %{
-
-  }
+      
+      admin_update_device_status_response() :: %{}
+      
   """
-  @type admin_update_device_status_response() :: %{String.t() => any()}
+  @type admin_update_device_status_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  set_user_mfa_preference_response() :: %{
-
-  }
+      
+      set_user_mfa_preference_response() :: %{}
+      
   """
-  @type set_user_mfa_preference_response() :: %{String.t() => any()}
+  @type set_user_mfa_preference_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_devices_request() :: %{
-    optional("Limit") => integer(),
-    optional("PaginationToken") => String.t(),
-    required("AccessToken") => String.t()
-  }
+      
+      list_devices_request() :: %{
+        optional("Limit") => integer(),
+        optional("PaginationToken") => String.t(),
+        required("AccessToken") => String.t()
+      }
+      
   """
   @type list_devices_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_user_pool_request() :: %{
-    optional("AccountRecoverySetting") => account_recovery_setting_type(),
-    optional("AdminCreateUserConfig") => admin_create_user_config_type(),
-    optional("AutoVerifiedAttributes") => list(list(any())()),
-    optional("DeletionProtection") => list(any()),
-    optional("DeviceConfiguration") => device_configuration_type(),
-    optional("EmailConfiguration") => email_configuration_type(),
-    optional("EmailVerificationMessage") => String.t(),
-    optional("EmailVerificationSubject") => String.t(),
-    optional("LambdaConfig") => lambda_config_type(),
-    optional("MfaConfiguration") => list(any()),
-    optional("Policies") => user_pool_policy_type(),
-    optional("SmsAuthenticationMessage") => String.t(),
-    optional("SmsConfiguration") => sms_configuration_type(),
-    optional("SmsVerificationMessage") => String.t(),
-    optional("UserAttributeUpdateSettings") => user_attribute_update_settings_type(),
-    optional("UserPoolAddOns") => user_pool_add_ons_type(),
-    optional("UserPoolTags") => map(),
-    optional("VerificationMessageTemplate") => verification_message_template_type(),
-    required("UserPoolId") => String.t()
-  }
+      
+      update_user_pool_request() :: %{
+        optional("AccountRecoverySetting") => account_recovery_setting_type(),
+        optional("AdminCreateUserConfig") => admin_create_user_config_type(),
+        optional("AutoVerifiedAttributes") => list(list(any())()),
+        optional("DeletionProtection") => list(any()),
+        optional("DeviceConfiguration") => device_configuration_type(),
+        optional("EmailConfiguration") => email_configuration_type(),
+        optional("EmailVerificationMessage") => String.t(),
+        optional("EmailVerificationSubject") => String.t(),
+        optional("LambdaConfig") => lambda_config_type(),
+        optional("MfaConfiguration") => list(any()),
+        optional("Policies") => user_pool_policy_type(),
+        optional("SmsAuthenticationMessage") => String.t(),
+        optional("SmsConfiguration") => sms_configuration_type(),
+        optional("SmsVerificationMessage") => String.t(),
+        optional("UserAttributeUpdateSettings") => user_attribute_update_settings_type(),
+        optional("UserPoolAddOns") => user_pool_add_ons_type(),
+        optional("UserPoolTags") => map(),
+        optional("VerificationMessageTemplate") => verification_message_template_type(),
+        required("UserPoolId") => String.t()
+      }
+      
   """
   @type update_user_pool_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_csv_header_request() :: %{
-    required("UserPoolId") => String.t()
-  }
+      
+      get_csv_header_request() :: %{
+        required("UserPoolId") => String.t()
+      }
+      
   """
   @type get_csv_header_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  unsupported_token_type_exception() :: %{
-    "message" => String.t()
-  }
+      
+      unsupported_token_type_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type unsupported_token_type_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_failed_attempts_exception() :: %{
-    "message" => String.t()
-  }
+      
+      too_many_failed_attempts_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type too_many_failed_attempts_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_request() :: %{
-    required("ResourceArn") => String.t(),
-    required("Tags") => map()
-  }
+      
+      tag_resource_request() :: %{
+        required("ResourceArn") => String.t(),
+        required("Tags") => map()
+      }
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_user_attributes_request() :: %{
-    required("AccessToken") => String.t(),
-    required("UserAttributeNames") => list(String.t()())
-  }
+      
+      delete_user_attributes_request() :: %{
+        required("AccessToken") => String.t(),
+        required("UserAttributeNames") => list(String.t()())
+      }
+      
   """
   @type delete_user_attributes_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_user_attributes_response() :: %{
-    "CodeDeliveryDetailsList" => list(code_delivery_details_type()())
-  }
+      
+      update_user_attributes_response() :: %{
+        "CodeDeliveryDetailsList" => list(code_delivery_details_type()())
+      }
+      
   """
   @type update_user_attributes_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  event_context_data_type() :: %{
-    "City" => String.t(),
-    "Country" => String.t(),
-    "DeviceName" => String.t(),
-    "IpAddress" => String.t(),
-    "Timezone" => String.t()
-  }
+      
+      event_context_data_type() :: %{
+        "City" => String.t(),
+        "Country" => String.t(),
+        "DeviceName" => String.t(),
+        "IpAddress" => String.t(),
+        "Timezone" => String.t()
+      }
+      
   """
   @type event_context_data_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  user_not_confirmed_exception() :: %{
-    "message" => String.t()
-  }
+      
+      user_not_confirmed_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type user_not_confirmed_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_identity_providers_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("UserPoolId") => String.t()
-  }
+      
+      list_identity_providers_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("UserPoolId") => String.t()
+      }
+      
   """
   @type list_identity_providers_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  user_pool_client_description() :: %{
-    "ClientId" => String.t(),
-    "ClientName" => String.t(),
-    "UserPoolId" => String.t()
-  }
+      
+      user_pool_client_description() :: %{
+        "ClientId" => String.t(),
+        "ClientName" => String.t(),
+        "UserPoolId" => String.t()
+      }
+      
   """
   @type user_pool_client_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  unsupported_operation_exception() :: %{
-    "message" => String.t()
-  }
+      
+      unsupported_operation_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type unsupported_operation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_server_scope_type() :: %{
-    "ScopeDescription" => String.t(),
-    "ScopeName" => String.t()
-  }
+      
+      resource_server_scope_type() :: %{
+        "ScopeDescription" => String.t(),
+        "ScopeName" => String.t()
+      }
+      
   """
   @type resource_server_scope_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_email_role_access_policy_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_email_role_access_policy_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_email_role_access_policy_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  unauthorized_exception() :: %{
-    "message" => String.t()
-  }
+      
+      unauthorized_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type unauthorized_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_csv_header_response() :: %{
-    "CSVHeader" => list(String.t()()),
-    "UserPoolId" => String.t()
-  }
+      
+      get_csv_header_response() :: %{
+        "CSVHeader" => list(String.t()()),
+        "UserPoolId" => String.t()
+      }
+      
   """
   @type get_csv_header_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  set_log_delivery_configuration_request() :: %{
-    required("LogConfigurations") => list(log_configuration_type()()),
-    required("UserPoolId") => String.t()
-  }
+      
+      set_log_delivery_configuration_request() :: %{
+        required("LogConfigurations") => list(log_configuration_type()()),
+        required("UserPoolId") => String.t()
+      }
+      
   """
   @type set_log_delivery_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_identity_provider_response() :: %{
-    "IdentityProvider" => identity_provider_type()
-  }
+      
+      update_identity_provider_response() :: %{
+        "IdentityProvider" => identity_provider_type()
+      }
+      
   """
   @type update_identity_provider_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_identity_provider_request() :: %{
-    required("ProviderName") => String.t(),
-    required("UserPoolId") => String.t()
-  }
+      
+      describe_identity_provider_request() :: %{
+        required("ProviderName") => String.t(),
+        required("UserPoolId") => String.t()
+      }
+      
   """
   @type describe_identity_provider_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  unsupported_user_state_exception() :: %{
-    "message" => String.t()
-  }
+      
+      unsupported_user_state_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type unsupported_user_state_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  confirm_sign_up_response() :: %{
-
-  }
+      
+      confirm_sign_up_response() :: %{}
+      
   """
-  @type confirm_sign_up_response() :: %{String.t() => any()}
+  @type confirm_sign_up_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_user_pool_domain_request() :: %{
-    optional("CustomDomainConfig") => custom_domain_config_type(),
-    required("Domain") => String.t(),
-    required("UserPoolId") => String.t()
-  }
+      
+      create_user_pool_domain_request() :: %{
+        optional("CustomDomainConfig") => custom_domain_config_type(),
+        required("Domain") => String.t(),
+        required("UserPoolId") => String.t()
+      }
+      
   """
   @type create_user_pool_domain_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  admin_respond_to_auth_challenge_response() :: %{
-    "AuthenticationResult" => authentication_result_type(),
-    "ChallengeName" => list(any()),
-    "ChallengeParameters" => map(),
-    "Session" => String.t()
-  }
+      
+      admin_respond_to_auth_challenge_response() :: %{
+        "AuthenticationResult" => authentication_result_type(),
+        "ChallengeName" => list(any()),
+        "ChallengeParameters" => map(),
+        "Session" => String.t()
+      }
+      
   """
   @type admin_respond_to_auth_challenge_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_user_pool_domain_response() :: %{
-    "CloudFrontDomain" => String.t()
-  }
+      
+      update_user_pool_domain_response() :: %{
+        "CloudFrontDomain" => String.t()
+      }
+      
   """
   @type update_user_pool_domain_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_response() :: %{
-
-  }
+      
+      untag_resource_response() :: %{}
+      
   """
-  @type untag_resource_response() :: %{String.t() => any()}
+  @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  admin_create_user_request() :: %{
-    optional("ClientMetadata") => map(),
-    optional("DesiredDeliveryMediums") => list(list(any())()),
-    optional("ForceAliasCreation") => boolean(),
-    optional("MessageAction") => list(any()),
-    optional("TemporaryPassword") => String.t(),
-    optional("UserAttributes") => list(attribute_type()()),
-    optional("ValidationData") => list(attribute_type()()),
-    required("UserPoolId") => String.t(),
-    required("Username") => String.t()
-  }
+      
+      admin_create_user_request() :: %{
+        optional("ClientMetadata") => map(),
+        optional("DesiredDeliveryMediums") => list(list(any())()),
+        optional("ForceAliasCreation") => boolean(),
+        optional("MessageAction") => list(any()),
+        optional("TemporaryPassword") => String.t(),
+        optional("UserAttributes") => list(attribute_type()()),
+        optional("ValidationData") => list(attribute_type()()),
+        required("UserPoolId") => String.t(),
+        required("Username") => String.t()
+      }
+      
   """
   @type admin_create_user_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  admin_set_user_settings_response() :: %{
-
-  }
+      
+      admin_set_user_settings_response() :: %{}
+      
   """
-  @type admin_set_user_settings_response() :: %{String.t() => any()}
+  @type admin_set_user_settings_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  admin_link_provider_for_user_request() :: %{
-    required("DestinationUser") => provider_user_identifier_type(),
-    required("SourceUser") => provider_user_identifier_type(),
-    required("UserPoolId") => String.t()
-  }
+      
+      admin_link_provider_for_user_request() :: %{
+        required("DestinationUser") => provider_user_identifier_type(),
+        required("SourceUser") => provider_user_identifier_type(),
+        required("UserPoolId") => String.t()
+      }
+      
   """
   @type admin_link_provider_for_user_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_user_attributes_request() :: %{
-    optional("ClientMetadata") => map(),
-    required("AccessToken") => String.t(),
-    required("UserAttributes") => list(attribute_type()())
-  }
+      
+      update_user_attributes_request() :: %{
+        optional("ClientMetadata") => map(),
+        required("AccessToken") => String.t(),
+        required("UserAttributes") => list(attribute_type()())
+      }
+      
   """
   @type update_user_attributes_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  admin_get_user_request() :: %{
-    required("UserPoolId") => String.t(),
-    required("Username") => String.t()
-  }
+      
+      admin_get_user_request() :: %{
+        required("UserPoolId") => String.t(),
+        required("Username") => String.t()
+      }
+      
   """
   @type admin_get_user_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  account_takeover_risk_configuration_type() :: %{
-    "Actions" => account_takeover_actions_type(),
-    "NotifyConfiguration" => notify_configuration_type()
-  }
+      
+      account_takeover_risk_configuration_type() :: %{
+        "Actions" => account_takeover_actions_type(),
+        "NotifyConfiguration" => notify_configuration_type()
+      }
+      
   """
   @type account_takeover_risk_configuration_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  sms_mfa_config_type() :: %{
-    "SmsAuthenticationMessage" => String.t(),
-    "SmsConfiguration" => sms_configuration_type()
-  }
+      
+      sms_mfa_config_type() :: %{
+        "SmsAuthenticationMessage" => String.t(),
+        "SmsConfiguration" => sms_configuration_type()
+      }
+      
   """
   @type sms_mfa_config_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  device_secret_verifier_config_type() :: %{
-    "PasswordVerifier" => String.t(),
-    "Salt" => String.t()
-  }
+      
+      device_secret_verifier_config_type() :: %{
+        "PasswordVerifier" => String.t(),
+        "Salt" => String.t()
+      }
+      
   """
   @type device_secret_verifier_config_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  forbidden_exception() :: %{
-    "message" => String.t()
-  }
+      
+      forbidden_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type forbidden_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  message_template_type() :: %{
-    "EmailMessage" => String.t(),
-    "EmailSubject" => String.t(),
-    "SMSMessage" => String.t()
-  }
+      
+      message_template_type() :: %{
+        "EmailMessage" => String.t(),
+        "EmailSubject" => String.t(),
+        "SMSMessage" => String.t()
+      }
+      
   """
   @type message_template_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_user_pools_request() :: %{
-    optional("NextToken") => String.t(),
-    required("MaxResults") => integer()
-  }
+      
+      list_user_pools_request() :: %{
+        optional("NextToken") => String.t(),
+        required("MaxResults") => integer()
+      }
+      
   """
   @type list_user_pools_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  new_device_metadata_type() :: %{
-    "DeviceGroupKey" => String.t(),
-    "DeviceKey" => String.t()
-  }
+      
+      new_device_metadata_type() :: %{
+        "DeviceGroupKey" => String.t(),
+        "DeviceKey" => String.t()
+      }
+      
   """
   @type new_device_metadata_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_user_import_job_response() :: %{
-    "UserImportJob" => user_import_job_type()
-  }
+      
+      describe_user_import_job_response() :: %{
+        "UserImportJob" => user_import_job_type()
+      }
+      
   """
   @type describe_user_import_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  associate_software_token_response() :: %{
-    "SecretCode" => String.t(),
-    "Session" => String.t()
-  }
+      
+      associate_software_token_response() :: %{
+        "SecretCode" => String.t(),
+        "Session" => String.t()
+      }
+      
   """
   @type associate_software_token_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_identity_provider_response() :: %{
-    "IdentityProvider" => identity_provider_type()
-  }
+      
+      create_identity_provider_response() :: %{
+        "IdentityProvider" => identity_provider_type()
+      }
+      
   """
   @type create_identity_provider_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_resource_server_response() :: %{
-    "ResourceServer" => resource_server_type()
-  }
+      
+      update_resource_server_response() :: %{
+        "ResourceServer" => resource_server_type()
+      }
+      
   """
   @type update_resource_server_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  number_attribute_constraints_type() :: %{
-    "MaxValue" => String.t(),
-    "MinValue" => String.t()
-  }
+      
+      number_attribute_constraints_type() :: %{
+        "MaxValue" => String.t(),
+        "MinValue" => String.t()
+      }
+      
   """
   @type number_attribute_constraints_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  admin_add_user_to_group_request() :: %{
-    required("GroupName") => String.t(),
-    required("UserPoolId") => String.t(),
-    required("Username") => String.t()
-  }
+      
+      admin_add_user_to_group_request() :: %{
+        required("GroupName") => String.t(),
+        required("UserPoolId") => String.t(),
+        required("Username") => String.t()
+      }
+      
   """
   @type admin_add_user_to_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  alias_exists_exception() :: %{
-    "message" => String.t()
-  }
+      
+      alias_exists_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type alias_exists_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  verify_software_token_response() :: %{
-    "Session" => String.t(),
-    "Status" => list(any())
-  }
+      
+      verify_software_token_response() :: %{
+        "Session" => String.t(),
+        "Status" => list(any())
+      }
+      
   """
   @type verify_software_token_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_user_pool_domain_response() :: %{
-
-  }
+      
+      delete_user_pool_domain_response() :: %{}
+      
   """
-  @type delete_user_pool_domain_response() :: %{String.t() => any()}
+  @type delete_user_pool_domain_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_user_response() :: %{
-    "MFAOptions" => list(mfa_option_type()()),
-    "PreferredMfaSetting" => String.t(),
-    "UserAttributes" => list(attribute_type()()),
-    "UserMFASettingList" => list(String.t()()),
-    "Username" => String.t()
-  }
+      
+      get_user_response() :: %{
+        "MFAOptions" => list(mfa_option_type()()),
+        "PreferredMfaSetting" => String.t(),
+        "UserAttributes" => list(attribute_type()()),
+        "UserMFASettingList" => list(String.t()()),
+        "Username" => String.t()
+      }
+      
   """
   @type get_user_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_users_in_group_request() :: %{
-    optional("Limit") => integer(),
-    optional("NextToken") => String.t(),
-    required("GroupName") => String.t(),
-    required("UserPoolId") => String.t()
-  }
+      
+      list_users_in_group_request() :: %{
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t(),
+        required("GroupName") => String.t(),
+        required("UserPoolId") => String.t()
+      }
+      
   """
   @type list_users_in_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  user_type() :: %{
-    "Attributes" => list(attribute_type()()),
-    "Enabled" => boolean(),
-    "MFAOptions" => list(mfa_option_type()()),
-    "UserCreateDate" => non_neg_integer(),
-    "UserLastModifiedDate" => non_neg_integer(),
-    "UserStatus" => list(any()),
-    "Username" => String.t()
-  }
+      
+      user_type() :: %{
+        "Attributes" => list(attribute_type()()),
+        "Enabled" => boolean(),
+        "MFAOptions" => list(mfa_option_type()()),
+        "UserCreateDate" => non_neg_integer(),
+        "UserLastModifiedDate" => non_neg_integer(),
+        "UserStatus" => list(any()),
+        "Username" => String.t()
+      }
+      
   """
   @type user_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_user_pools_response() :: %{
-    "NextToken" => String.t(),
-    "UserPools" => list(user_pool_description_type()())
-  }
+      
+      list_user_pools_response() :: %{
+        "NextToken" => String.t(),
+        "UserPools" => list(user_pool_description_type()())
+      }
+      
   """
   @type list_user_pools_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_user_pool_response() :: %{
-    "UserPool" => user_pool_type()
-  }
+      
+      create_user_pool_response() :: %{
+        "UserPool" => user_pool_type()
+      }
+      
   """
   @type create_user_pool_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_risk_configuration_request() :: %{
-    optional("ClientId") => String.t(),
-    required("UserPoolId") => String.t()
-  }
+      
+      describe_risk_configuration_request() :: %{
+        optional("ClientId") => String.t(),
+        required("UserPoolId") => String.t()
+      }
+      
   """
   @type describe_risk_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_identity_provider_response() :: %{
-    "IdentityProvider" => identity_provider_type()
-  }
+      
+      describe_identity_provider_response() :: %{
+        "IdentityProvider" => identity_provider_type()
+      }
+      
   """
   @type describe_identity_provider_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_identity_provider_request() :: %{
-    required("ProviderName") => String.t(),
-    required("UserPoolId") => String.t()
-  }
+      
+      delete_identity_provider_request() :: %{
+        required("ProviderName") => String.t(),
+        required("UserPoolId") => String.t()
+      }
+      
   """
   @type delete_identity_provider_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  compromised_credentials_risk_configuration_type() :: %{
-    "Actions" => compromised_credentials_actions_type(),
-    "EventFilter" => list(list(any())())
-  }
+      
+      compromised_credentials_risk_configuration_type() :: %{
+        "Actions" => compromised_credentials_actions_type(),
+        "EventFilter" => list(list(any())())
+      }
+      
   """
   @type compromised_credentials_risk_configuration_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_user_pool_domain_request() :: %{
-    required("Domain") => String.t()
-  }
+      
+      describe_user_pool_domain_request() :: %{
+        required("Domain") => String.t()
+      }
+      
   """
   @type describe_user_pool_domain_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  compromised_credentials_actions_type() :: %{
-    "EventAction" => list(any())
-  }
+      
+      compromised_credentials_actions_type() :: %{
+        "EventAction" => list(any())
+      }
+      
   """
   @type compromised_credentials_actions_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_resource_server_request() :: %{
-    optional("Scopes") => list(resource_server_scope_type()()),
-    required("Identifier") => String.t(),
-    required("Name") => String.t(),
-    required("UserPoolId") => String.t()
-  }
+      
+      update_resource_server_request() :: %{
+        optional("Scopes") => list(resource_server_scope_type()()),
+        required("Identifier") => String.t(),
+        required("Name") => String.t(),
+        required("UserPoolId") => String.t()
+      }
+      
   """
   @type update_resource_server_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  user_pool_description_type() :: %{
-    "CreationDate" => non_neg_integer(),
-    "Id" => String.t(),
-    "LambdaConfig" => lambda_config_type(),
-    "LastModifiedDate" => non_neg_integer(),
-    "Name" => String.t(),
-    "Status" => list(any())
-  }
+      
+      user_pool_description_type() :: %{
+        "CreationDate" => non_neg_integer(),
+        "Id" => String.t(),
+        "LambdaConfig" => lambda_config_type(),
+        "LastModifiedDate" => non_neg_integer(),
+        "Name" => String.t(),
+        "Status" => list(any())
+      }
+      
   """
   @type user_pool_description_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  verify_software_token_request() :: %{
-    optional("AccessToken") => String.t(),
-    optional("FriendlyDeviceName") => String.t(),
-    optional("Session") => String.t(),
-    required("UserCode") => String.t()
-  }
+      
+      verify_software_token_request() :: %{
+        optional("AccessToken") => String.t(),
+        optional("FriendlyDeviceName") => String.t(),
+        optional("Session") => String.t(),
+        required("UserCode") => String.t()
+      }
+      
   """
   @type verify_software_token_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_resource_server_response() :: %{
-    "ResourceServer" => resource_server_type()
-  }
+      
+      describe_resource_server_response() :: %{
+        "ResourceServer" => resource_server_type()
+      }
+      
   """
   @type describe_resource_server_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  group_type() :: %{
-    "CreationDate" => non_neg_integer(),
-    "Description" => String.t(),
-    "GroupName" => String.t(),
-    "LastModifiedDate" => non_neg_integer(),
-    "Precedence" => integer(),
-    "RoleArn" => String.t(),
-    "UserPoolId" => String.t()
-  }
+      
+      group_type() :: %{
+        "CreationDate" => non_neg_integer(),
+        "Description" => String.t(),
+        "GroupName" => String.t(),
+        "LastModifiedDate" => non_neg_integer(),
+        "Precedence" => integer(),
+        "RoleArn" => String.t(),
+        "UserPoolId" => String.t()
+      }
+      
   """
   @type group_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_user_pool_mfa_config_request() :: %{
-    required("UserPoolId") => String.t()
-  }
+      
+      get_user_pool_mfa_config_request() :: %{
+        required("UserPoolId") => String.t()
+      }
+      
   """
   @type get_user_pool_mfa_config_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  change_password_response() :: %{
-
-  }
+      
+      change_password_response() :: %{}
+      
   """
-  @type change_password_response() :: %{String.t() => any()}
+  @type change_password_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  admin_create_user_response() :: %{
-    "User" => user_type()
-  }
+      
+      admin_create_user_response() :: %{
+        "User" => user_type()
+      }
+      
   """
   @type admin_create_user_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_resource_server_request() :: %{
-    required("Identifier") => String.t(),
-    required("UserPoolId") => String.t()
-  }
+      
+      describe_resource_server_request() :: %{
+        required("Identifier") => String.t(),
+        required("UserPoolId") => String.t()
+      }
+      
   """
   @type describe_resource_server_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  global_sign_out_request() :: %{
-    required("AccessToken") => String.t()
-  }
+      
+      global_sign_out_request() :: %{
+        required("AccessToken") => String.t()
+      }
+      
   """
   @type global_sign_out_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_user_attributes_response() :: %{
-
-  }
+      
+      delete_user_attributes_response() :: %{}
+      
   """
-  @type delete_user_attributes_response() :: %{String.t() => any()}
+  @type delete_user_attributes_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_user_attribute_verification_code_request() :: %{
-    optional("ClientMetadata") => map(),
-    required("AccessToken") => String.t(),
-    required("AttributeName") => String.t()
-  }
+      
+      get_user_attribute_verification_code_request() :: %{
+        optional("ClientMetadata") => map(),
+        required("AccessToken") => String.t(),
+        required("AttributeName") => String.t()
+      }
+      
   """
   @type get_user_attribute_verification_code_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  user_attribute_update_settings_type() :: %{
-    "AttributesRequireVerificationBeforeUpdate" => list(list(any())())
-  }
+      
+      user_attribute_update_settings_type() :: %{
+        "AttributesRequireVerificationBeforeUpdate" => list(list(any())())
+      }
+      
   """
   @type user_attribute_update_settings_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  software_token_mfa_settings_type() :: %{
-    "Enabled" => boolean(),
-    "PreferredMfa" => boolean()
-  }
+      
+      software_token_mfa_settings_type() :: %{
+        "Enabled" => boolean(),
+        "PreferredMfa" => boolean()
+      }
+      
   """
   @type software_token_mfa_settings_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  admin_list_groups_for_user_request() :: %{
-    optional("Limit") => integer(),
-    optional("NextToken") => String.t(),
-    required("UserPoolId") => String.t(),
-    required("Username") => String.t()
-  }
+      
+      admin_list_groups_for_user_request() :: %{
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t(),
+        required("UserPoolId") => String.t(),
+        required("Username") => String.t()
+      }
+      
   """
   @type admin_list_groups_for_user_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  attribute_type() :: %{
-    "Name" => String.t(),
-    "Value" => String.t()
-  }
+      
+      attribute_type() :: %{
+        "Name" => String.t(),
+        "Value" => String.t()
+      }
+      
   """
   @type attribute_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  user_pool_client_type() :: %{
-    "AccessTokenValidity" => integer(),
-    "AllowedOAuthFlows" => list(list(any())()),
-    "AllowedOAuthFlowsUserPoolClient" => boolean(),
-    "AllowedOAuthScopes" => list(String.t()()),
-    "AnalyticsConfiguration" => analytics_configuration_type(),
-    "AuthSessionValidity" => integer(),
-    "CallbackURLs" => list(String.t()()),
-    "ClientId" => String.t(),
-    "ClientName" => String.t(),
-    "ClientSecret" => String.t(),
-    "CreationDate" => non_neg_integer(),
-    "DefaultRedirectURI" => String.t(),
-    "EnablePropagateAdditionalUserContextData" => boolean(),
-    "EnableTokenRevocation" => boolean(),
-    "ExplicitAuthFlows" => list(list(any())()),
-    "IdTokenValidity" => integer(),
-    "LastModifiedDate" => non_neg_integer(),
-    "LogoutURLs" => list(String.t()()),
-    "PreventUserExistenceErrors" => list(any()),
-    "ReadAttributes" => list(String.t()()),
-    "RefreshTokenValidity" => integer(),
-    "SupportedIdentityProviders" => list(String.t()()),
-    "TokenValidityUnits" => token_validity_units_type(),
-    "UserPoolId" => String.t(),
-    "WriteAttributes" => list(String.t()())
-  }
+      
+      user_pool_client_type() :: %{
+        "AccessTokenValidity" => integer(),
+        "AllowedOAuthFlows" => list(list(any())()),
+        "AllowedOAuthFlowsUserPoolClient" => boolean(),
+        "AllowedOAuthScopes" => list(String.t()()),
+        "AnalyticsConfiguration" => analytics_configuration_type(),
+        "AuthSessionValidity" => integer(),
+        "CallbackURLs" => list(String.t()()),
+        "ClientId" => String.t(),
+        "ClientName" => String.t(),
+        "ClientSecret" => String.t(),
+        "CreationDate" => non_neg_integer(),
+        "DefaultRedirectURI" => String.t(),
+        "EnablePropagateAdditionalUserContextData" => boolean(),
+        "EnableTokenRevocation" => boolean(),
+        "ExplicitAuthFlows" => list(list(any())()),
+        "IdTokenValidity" => integer(),
+        "LastModifiedDate" => non_neg_integer(),
+        "LogoutURLs" => list(String.t()()),
+        "PreventUserExistenceErrors" => list(any()),
+        "ReadAttributes" => list(String.t()()),
+        "RefreshTokenValidity" => integer(),
+        "SupportedIdentityProviders" => list(String.t()()),
+        "TokenValidityUnits" => token_validity_units_type(),
+        "UserPoolId" => String.t(),
+        "WriteAttributes" => list(String.t()())
+      }
+      
   """
   @type user_pool_client_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  admin_create_user_config_type() :: %{
-    "AllowAdminCreateUserOnly" => boolean(),
-    "InviteMessageTemplate" => message_template_type(),
-    "UnusedAccountValidityDays" => integer()
-  }
+      
+      admin_create_user_config_type() :: %{
+        "AllowAdminCreateUserOnly" => boolean(),
+        "InviteMessageTemplate" => message_template_type(),
+        "UnusedAccountValidityDays" => integer()
+      }
+      
   """
   @type admin_create_user_config_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_request() :: %{
-    required("ResourceArn") => String.t(),
-    required("TagKeys") => list(String.t()())
-  }
+      
+      untag_resource_request() :: %{
+        required("ResourceArn") => String.t(),
+        required("TagKeys") => list(String.t()())
+      }
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  set_user_pool_mfa_config_response() :: %{
-    "MfaConfiguration" => list(any()),
-    "SmsMfaConfiguration" => sms_mfa_config_type(),
-    "SoftwareTokenMfaConfiguration" => software_token_mfa_config_type()
-  }
+      
+      set_user_pool_mfa_config_response() :: %{
+        "MfaConfiguration" => list(any()),
+        "SmsMfaConfiguration" => sms_mfa_config_type(),
+        "SoftwareTokenMfaConfiguration" => software_token_mfa_config_type()
+      }
+      
   """
   @type set_user_pool_mfa_config_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  duplicate_provider_exception() :: %{
-    "message" => String.t()
-  }
+      
+      duplicate_provider_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type duplicate_provider_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_requests_exception() :: %{
-    "message" => String.t()
-  }
+      
+      too_many_requests_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type too_many_requests_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  admin_get_user_response() :: %{
-    "Enabled" => boolean(),
-    "MFAOptions" => list(mfa_option_type()()),
-    "PreferredMfaSetting" => String.t(),
-    "UserAttributes" => list(attribute_type()()),
-    "UserCreateDate" => non_neg_integer(),
-    "UserLastModifiedDate" => non_neg_integer(),
-    "UserMFASettingList" => list(String.t()()),
-    "UserStatus" => list(any()),
-    "Username" => String.t()
-  }
+      
+      admin_get_user_response() :: %{
+        "Enabled" => boolean(),
+        "MFAOptions" => list(mfa_option_type()()),
+        "PreferredMfaSetting" => String.t(),
+        "UserAttributes" => list(attribute_type()()),
+        "UserCreateDate" => non_neg_integer(),
+        "UserLastModifiedDate" => non_neg_integer(),
+        "UserMFASettingList" => list(String.t()()),
+        "UserStatus" => list(any()),
+        "Username" => String.t()
+      }
+      
   """
   @type admin_get_user_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  confirm_device_request() :: %{
-    optional("DeviceName") => String.t(),
-    optional("DeviceSecretVerifierConfig") => device_secret_verifier_config_type(),
-    required("AccessToken") => String.t(),
-    required("DeviceKey") => String.t()
-  }
+      
+      confirm_device_request() :: %{
+        optional("DeviceName") => String.t(),
+        optional("DeviceSecretVerifierConfig") => device_secret_verifier_config_type(),
+        required("AccessToken") => String.t(),
+        required("DeviceKey") => String.t()
+      }
+      
   """
   @type confirm_device_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_user_import_job_response() :: %{
-    "UserImportJob" => user_import_job_type()
-  }
+      
+      create_user_import_job_response() :: %{
+        "UserImportJob" => user_import_job_type()
+      }
+      
   """
   @type create_user_import_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_user_pool_domain_request() :: %{
-    required("CustomDomainConfig") => custom_domain_config_type(),
-    required("Domain") => String.t(),
-    required("UserPoolId") => String.t()
-  }
+      
+      update_user_pool_domain_request() :: %{
+        required("CustomDomainConfig") => custom_domain_config_type(),
+        required("Domain") => String.t(),
+        required("UserPoolId") => String.t()
+      }
+      
   """
   @type update_user_pool_domain_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_group_request() :: %{
-    optional("Description") => String.t(),
-    optional("Precedence") => integer(),
-    optional("RoleArn") => String.t(),
-    required("GroupName") => String.t(),
-    required("UserPoolId") => String.t()
-  }
+      
+      update_group_request() :: %{
+        optional("Description") => String.t(),
+        optional("Precedence") => integer(),
+        optional("RoleArn") => String.t(),
+        required("GroupName") => String.t(),
+        required("UserPoolId") => String.t()
+      }
+      
   """
   @type update_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  add_custom_attributes_response() :: %{
-
-  }
+      
+      add_custom_attributes_response() :: %{}
+      
   """
-  @type add_custom_attributes_response() :: %{String.t() => any()}
+  @type add_custom_attributes_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  user_pool_policy_type() :: %{
-    "PasswordPolicy" => password_policy_type()
-  }
+      
+      user_pool_policy_type() :: %{
+        "PasswordPolicy" => password_policy_type()
+      }
+      
   """
   @type user_pool_policy_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  admin_disable_user_response() :: %{
-
-  }
+      
+      admin_disable_user_response() :: %{}
+      
   """
-  @type admin_disable_user_response() :: %{String.t() => any()}
+  @type admin_disable_user_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  admin_update_user_attributes_request() :: %{
-    optional("ClientMetadata") => map(),
-    required("UserAttributes") => list(attribute_type()()),
-    required("UserPoolId") => String.t(),
-    required("Username") => String.t()
-  }
+      
+      admin_update_user_attributes_request() :: %{
+        optional("ClientMetadata") => map(),
+        required("UserAttributes") => list(attribute_type()()),
+        required("UserPoolId") => String.t(),
+        required("Username") => String.t()
+      }
+      
   """
   @type admin_update_user_attributes_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  admin_enable_user_response() :: %{
-
-  }
+      
+      admin_enable_user_response() :: %{}
+      
   """
-  @type admin_enable_user_response() :: %{String.t() => any()}
+  @type admin_enable_user_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  identity_provider_type() :: %{
-    "AttributeMapping" => map(),
-    "CreationDate" => non_neg_integer(),
-    "IdpIdentifiers" => list(String.t()()),
-    "LastModifiedDate" => non_neg_integer(),
-    "ProviderDetails" => map(),
-    "ProviderName" => String.t(),
-    "ProviderType" => list(any()),
-    "UserPoolId" => String.t()
-  }
+      
+      identity_provider_type() :: %{
+        "AttributeMapping" => map(),
+        "CreationDate" => non_neg_integer(),
+        "IdpIdentifiers" => list(String.t()()),
+        "LastModifiedDate" => non_neg_integer(),
+        "ProviderDetails" => map(),
+        "ProviderName" => String.t(),
+        "ProviderType" => list(any()),
+        "UserPoolId" => String.t()
+      }
+      
   """
   @type identity_provider_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_resource_server_request() :: %{
-    required("Identifier") => String.t(),
-    required("UserPoolId") => String.t()
-  }
+      
+      delete_resource_server_request() :: %{
+        required("Identifier") => String.t(),
+        required("UserPoolId") => String.t()
+      }
+      
   """
   @type delete_resource_server_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_risk_configuration_response() :: %{
-    "RiskConfiguration" => risk_configuration_type()
-  }
+      
+      describe_risk_configuration_response() :: %{
+        "RiskConfiguration" => risk_configuration_type()
+      }
+      
   """
   @type describe_risk_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  admin_set_user_settings_request() :: %{
-    required("MFAOptions") => list(mfa_option_type()()),
-    required("UserPoolId") => String.t(),
-    required("Username") => String.t()
-  }
+      
+      admin_set_user_settings_request() :: %{
+        required("MFAOptions") => list(mfa_option_type()()),
+        required("UserPoolId") => String.t(),
+        required("Username") => String.t()
+      }
+      
   """
   @type admin_set_user_settings_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  set_ui_customization_request() :: %{
-    optional("CSS") => String.t(),
-    optional("ClientId") => String.t(),
-    optional("ImageFile") => binary(),
-    required("UserPoolId") => String.t()
-  }
+      
+      set_ui_customization_request() :: %{
+        optional("CSS") => String.t(),
+        optional("ClientId") => String.t(),
+        optional("ImageFile") => binary(),
+        required("UserPoolId") => String.t()
+      }
+      
   """
   @type set_ui_customization_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_sms_role_access_policy_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_sms_role_access_policy_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_sms_role_access_policy_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_identity_provider_by_identifier_request() :: %{
-    required("IdpIdentifier") => String.t(),
-    required("UserPoolId") => String.t()
-  }
+      
+      get_identity_provider_by_identifier_request() :: %{
+        required("IdpIdentifier") => String.t(),
+        required("UserPoolId") => String.t()
+      }
+      
   """
   @type get_identity_provider_by_identifier_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  admin_set_user_mfa_preference_response() :: %{
-
-  }
+      
+      admin_set_user_mfa_preference_response() :: %{}
+      
   """
-  @type admin_set_user_mfa_preference_response() :: %{String.t() => any()}
+  @type admin_set_user_mfa_preference_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  update_user_pool_response() :: %{
-
-  }
+      
+      update_user_pool_response() :: %{}
+      
   """
-  @type update_user_pool_response() :: %{String.t() => any()}
+  @type update_user_pool_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  set_risk_configuration_request() :: %{
-    optional("AccountTakeoverRiskConfiguration") => account_takeover_risk_configuration_type(),
-    optional("ClientId") => String.t(),
-    optional("CompromisedCredentialsRiskConfiguration") => compromised_credentials_risk_configuration_type(),
-    optional("RiskExceptionConfiguration") => risk_exception_configuration_type(),
-    required("UserPoolId") => String.t()
-  }
+      
+      set_risk_configuration_request() :: %{
+        optional("AccountTakeoverRiskConfiguration") => account_takeover_risk_configuration_type(),
+        optional("ClientId") => String.t(),
+        optional("CompromisedCredentialsRiskConfiguration") => compromised_credentials_risk_configuration_type(),
+        optional("RiskExceptionConfiguration") => risk_exception_configuration_type(),
+        required("UserPoolId") => String.t()
+      }
+      
   """
   @type set_risk_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_device_status_response() :: %{
-
-  }
+      
+      update_device_status_response() :: %{}
+      
   """
-  @type update_device_status_response() :: %{String.t() => any()}
+  @type update_device_status_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  admin_user_global_sign_out_response() :: %{
-
-  }
+      
+      admin_user_global_sign_out_response() :: %{}
+      
   """
-  @type admin_user_global_sign_out_response() :: %{String.t() => any()}
+  @type admin_user_global_sign_out_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  describe_user_pool_client_response() :: %{
-    "UserPoolClient" => user_pool_client_type()
-  }
+      
+      describe_user_pool_client_response() :: %{
+        "UserPoolClient" => user_pool_client_type()
+      }
+      
   """
   @type describe_user_pool_client_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  code_mismatch_exception() :: %{
-    "message" => String.t()
-  }
+      
+      code_mismatch_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type code_mismatch_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_signing_certificate_response() :: %{
-    "Certificate" => String.t()
-  }
+      
+      get_signing_certificate_response() :: %{
+        "Certificate" => String.t()
+      }
+      
   """
   @type get_signing_certificate_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  custom_email_lambda_version_config_type() :: %{
-    "LambdaArn" => String.t(),
-    "LambdaVersion" => list(any())
-  }
+      
+      custom_email_lambda_version_config_type() :: %{
+        "LambdaArn" => String.t(),
+        "LambdaVersion" => list(any())
+      }
+      
   """
   @type custom_email_lambda_version_config_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  device_type() :: %{
-    "DeviceAttributes" => list(attribute_type()()),
-    "DeviceCreateDate" => non_neg_integer(),
-    "DeviceKey" => String.t(),
-    "DeviceLastAuthenticatedDate" => non_neg_integer(),
-    "DeviceLastModifiedDate" => non_neg_integer()
-  }
+      
+      device_type() :: %{
+        "DeviceAttributes" => list(attribute_type()()),
+        "DeviceCreateDate" => non_neg_integer(),
+        "DeviceKey" => String.t(),
+        "DeviceLastAuthenticatedDate" => non_neg_integer(),
+        "DeviceLastModifiedDate" => non_neg_integer()
+      }
+      
   """
   @type device_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_not_found_exception() :: %{
-    "message" => String.t()
-  }
+      
+      resource_not_found_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_user_pool_mfa_config_response() :: %{
-    "MfaConfiguration" => list(any()),
-    "SmsMfaConfiguration" => sms_mfa_config_type(),
-    "SoftwareTokenMfaConfiguration" => software_token_mfa_config_type()
-  }
+      
+      get_user_pool_mfa_config_response() :: %{
+        "MfaConfiguration" => list(any()),
+        "SmsMfaConfiguration" => sms_mfa_config_type(),
+        "SoftwareTokenMfaConfiguration" => software_token_mfa_config_type()
+      }
+      
   """
   @type get_user_pool_mfa_config_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  revoke_token_response() :: %{
-
-  }
+      
+      revoke_token_response() :: %{}
+      
   """
-  @type revoke_token_response() :: %{String.t() => any()}
+  @type revoke_token_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  ui_customization_type() :: %{
-    "CSS" => String.t(),
-    "CSSVersion" => String.t(),
-    "ClientId" => String.t(),
-    "CreationDate" => non_neg_integer(),
-    "ImageUrl" => String.t(),
-    "LastModifiedDate" => non_neg_integer(),
-    "UserPoolId" => String.t()
-  }
+      
+      ui_customization_type() :: %{
+        "CSS" => String.t(),
+        "CSSVersion" => String.t(),
+        "ClientId" => String.t(),
+        "CreationDate" => non_neg_integer(),
+        "ImageUrl" => String.t(),
+        "LastModifiedDate" => non_neg_integer(),
+        "UserPoolId" => String.t()
+      }
+      
   """
   @type ui_customization_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_user_request() :: %{
-    required("AccessToken") => String.t()
-  }
+      
+      get_user_request() :: %{
+        required("AccessToken") => String.t()
+      }
+      
   """
   @type get_user_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  verify_user_attribute_request() :: %{
-    required("AccessToken") => String.t(),
-    required("AttributeName") => String.t(),
-    required("Code") => String.t()
-  }
+      
+      verify_user_attribute_request() :: %{
+        required("AccessToken") => String.t(),
+        required("AttributeName") => String.t(),
+        required("Code") => String.t()
+      }
+      
   """
   @type verify_user_attribute_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  notify_email_type() :: %{
-    "HtmlBody" => String.t(),
-    "Subject" => String.t(),
-    "TextBody" => String.t()
-  }
+      
+      notify_email_type() :: %{
+        "HtmlBody" => String.t(),
+        "Subject" => String.t(),
+        "TextBody" => String.t()
+      }
+      
   """
   @type notify_email_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  admin_update_auth_event_feedback_request() :: %{
-    required("EventId") => String.t(),
-    required("FeedbackValue") => list(any()),
-    required("UserPoolId") => String.t(),
-    required("Username") => String.t()
-  }
+      
+      admin_update_auth_event_feedback_request() :: %{
+        required("EventId") => String.t(),
+        required("FeedbackValue") => list(any()),
+        required("UserPoolId") => String.t(),
+        required("Username") => String.t()
+      }
+      
   """
   @type admin_update_auth_event_feedback_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_users_in_group_response() :: %{
-    "NextToken" => String.t(),
-    "Users" => list(user_type()())
-  }
+      
+      list_users_in_group_response() :: %{
+        "NextToken" => String.t(),
+        "Users" => list(user_type()())
+      }
+      
   """
   @type list_users_in_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  scope_does_not_exist_exception() :: %{
-    "message" => String.t()
-  }
+      
+      scope_does_not_exist_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type scope_does_not_exist_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  respond_to_auth_challenge_request() :: %{
-    optional("AnalyticsMetadata") => analytics_metadata_type(),
-    optional("ChallengeResponses") => map(),
-    optional("ClientMetadata") => map(),
-    optional("Session") => String.t(),
-    optional("UserContextData") => user_context_data_type(),
-    required("ChallengeName") => list(any()),
-    required("ClientId") => String.t()
-  }
+      
+      respond_to_auth_challenge_request() :: %{
+        optional("AnalyticsMetadata") => analytics_metadata_type(),
+        optional("ChallengeResponses") => map(),
+        optional("ClientMetadata") => map(),
+        optional("Session") => String.t(),
+        optional("UserContextData") => user_context_data_type(),
+        required("ChallengeName") => list(any()),
+        required("ClientId") => String.t()
+      }
+      
   """
   @type respond_to_auth_challenge_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  set_ui_customization_response() :: %{
-    "UICustomization" => ui_customization_type()
-  }
+      
+      set_ui_customization_response() :: %{
+        "UICustomization" => ui_customization_type()
+      }
+      
   """
   @type set_ui_customization_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  token_validity_units_type() :: %{
-    "AccessToken" => list(any()),
-    "IdToken" => list(any()),
-    "RefreshToken" => list(any())
-  }
+      
+      token_validity_units_type() :: %{
+        "AccessToken" => list(any()),
+        "IdToken" => list(any()),
+        "RefreshToken" => list(any())
+      }
+      
   """
   @type token_validity_units_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  user_context_data_type() :: %{
-    "EncodedData" => String.t(),
-    "IpAddress" => String.t()
-  }
+      
+      user_context_data_type() :: %{
+        "EncodedData" => String.t(),
+        "IpAddress" => String.t()
+      }
+      
   """
   @type user_context_data_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  string_attribute_constraints_type() :: %{
-    "MaxLength" => String.t(),
-    "MinLength" => String.t()
-  }
+      
+      string_attribute_constraints_type() :: %{
+        "MaxLength" => String.t(),
+        "MinLength" => String.t()
+      }
+      
   """
   @type string_attribute_constraints_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  admin_delete_user_attributes_request() :: %{
-    required("UserAttributeNames") => list(String.t()()),
-    required("UserPoolId") => String.t(),
-    required("Username") => String.t()
-  }
+      
+      admin_delete_user_attributes_request() :: %{
+        required("UserAttributeNames") => list(String.t()()),
+        required("UserPoolId") => String.t(),
+        required("Username") => String.t()
+      }
+      
   """
   @type admin_delete_user_attributes_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  lambda_config_type() :: %{
-    "CreateAuthChallenge" => String.t(),
-    "CustomEmailSender" => custom_email_lambda_version_config_type(),
-    "CustomMessage" => String.t(),
-    "CustomSMSSender" => custom_sms_lambda_version_config_type(),
-    "DefineAuthChallenge" => String.t(),
-    "KMSKeyID" => String.t(),
-    "PostAuthentication" => String.t(),
-    "PostConfirmation" => String.t(),
-    "PreAuthentication" => String.t(),
-    "PreSignUp" => String.t(),
-    "PreTokenGeneration" => String.t(),
-    "PreTokenGenerationConfig" => pre_token_generation_version_config_type(),
-    "UserMigration" => String.t(),
-    "VerifyAuthChallengeResponse" => String.t()
-  }
+      
+      lambda_config_type() :: %{
+        "CreateAuthChallenge" => String.t(),
+        "CustomEmailSender" => custom_email_lambda_version_config_type(),
+        "CustomMessage" => String.t(),
+        "CustomSMSSender" => custom_sms_lambda_version_config_type(),
+        "DefineAuthChallenge" => String.t(),
+        "KMSKeyID" => String.t(),
+        "PostAuthentication" => String.t(),
+        "PostConfirmation" => String.t(),
+        "PreAuthentication" => String.t(),
+        "PreSignUp" => String.t(),
+        "PreTokenGeneration" => String.t(),
+        "PreTokenGenerationConfig" => pre_token_generation_version_config_type(),
+        "UserMigration" => String.t(),
+        "VerifyAuthChallengeResponse" => String.t()
+      }
+      
   """
   @type lambda_config_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  log_delivery_configuration_type() :: %{
-    "LogConfigurations" => list(log_configuration_type()()),
-    "UserPoolId" => String.t()
-  }
+      
+      log_delivery_configuration_type() :: %{
+        "LogConfigurations" => list(log_configuration_type()()),
+        "UserPoolId" => String.t()
+      }
+      
   """
   @type log_delivery_configuration_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  risk_exception_configuration_type() :: %{
-    "BlockedIPRangeList" => list(String.t()()),
-    "SkippedIPRangeList" => list(String.t()())
-  }
+      
+      risk_exception_configuration_type() :: %{
+        "BlockedIPRangeList" => list(String.t()()),
+        "SkippedIPRangeList" => list(String.t()())
+      }
+      
   """
   @type risk_exception_configuration_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  group_exists_exception() :: %{
-    "message" => String.t()
-  }
+      
+      group_exists_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type group_exists_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  password_reset_required_exception() :: %{
-    "message" => String.t()
-  }
+      
+      password_reset_required_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type password_reset_required_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  admin_set_user_password_response() :: %{
-
-  }
+      
+      admin_set_user_password_response() :: %{}
+      
   """
-  @type admin_set_user_password_response() :: %{String.t() => any()}
+  @type admin_set_user_password_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  admin_list_devices_request() :: %{
-    optional("Limit") => integer(),
-    optional("PaginationToken") => String.t(),
-    required("UserPoolId") => String.t(),
-    required("Username") => String.t()
-  }
+      
+      admin_list_devices_request() :: %{
+        optional("Limit") => integer(),
+        optional("PaginationToken") => String.t(),
+        required("UserPoolId") => String.t(),
+        required("Username") => String.t()
+      }
+      
   """
   @type admin_list_devices_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_user_pool_client_response() :: %{
-    "UserPoolClient" => user_pool_client_type()
-  }
+      
+      create_user_pool_client_response() :: %{
+        "UserPoolClient" => user_pool_client_type()
+      }
+      
   """
   @type create_user_pool_client_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_user_pool_response() :: %{
-    "UserPool" => user_pool_type()
-  }
+      
+      describe_user_pool_response() :: %{
+        "UserPool" => user_pool_type()
+      }
+      
   """
   @type describe_user_pool_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_user_pool_request() :: %{
-    optional("AccountRecoverySetting") => account_recovery_setting_type(),
-    optional("AdminCreateUserConfig") => admin_create_user_config_type(),
-    optional("AliasAttributes") => list(list(any())()),
-    optional("AutoVerifiedAttributes") => list(list(any())()),
-    optional("DeletionProtection") => list(any()),
-    optional("DeviceConfiguration") => device_configuration_type(),
-    optional("EmailConfiguration") => email_configuration_type(),
-    optional("EmailVerificationMessage") => String.t(),
-    optional("EmailVerificationSubject") => String.t(),
-    optional("LambdaConfig") => lambda_config_type(),
-    optional("MfaConfiguration") => list(any()),
-    optional("Policies") => user_pool_policy_type(),
-    optional("Schema") => list(schema_attribute_type()()),
-    optional("SmsAuthenticationMessage") => String.t(),
-    optional("SmsConfiguration") => sms_configuration_type(),
-    optional("SmsVerificationMessage") => String.t(),
-    optional("UserAttributeUpdateSettings") => user_attribute_update_settings_type(),
-    optional("UserPoolAddOns") => user_pool_add_ons_type(),
-    optional("UserPoolTags") => map(),
-    optional("UsernameAttributes") => list(list(any())()),
-    optional("UsernameConfiguration") => username_configuration_type(),
-    optional("VerificationMessageTemplate") => verification_message_template_type(),
-    required("PoolName") => String.t()
-  }
+      
+      create_user_pool_request() :: %{
+        optional("AccountRecoverySetting") => account_recovery_setting_type(),
+        optional("AdminCreateUserConfig") => admin_create_user_config_type(),
+        optional("AliasAttributes") => list(list(any())()),
+        optional("AutoVerifiedAttributes") => list(list(any())()),
+        optional("DeletionProtection") => list(any()),
+        optional("DeviceConfiguration") => device_configuration_type(),
+        optional("EmailConfiguration") => email_configuration_type(),
+        optional("EmailVerificationMessage") => String.t(),
+        optional("EmailVerificationSubject") => String.t(),
+        optional("LambdaConfig") => lambda_config_type(),
+        optional("MfaConfiguration") => list(any()),
+        optional("Policies") => user_pool_policy_type(),
+        optional("Schema") => list(schema_attribute_type()()),
+        optional("SmsAuthenticationMessage") => String.t(),
+        optional("SmsConfiguration") => sms_configuration_type(),
+        optional("SmsVerificationMessage") => String.t(),
+        optional("UserAttributeUpdateSettings") => user_attribute_update_settings_type(),
+        optional("UserPoolAddOns") => user_pool_add_ons_type(),
+        optional("UserPoolTags") => map(),
+        optional("UsernameAttributes") => list(list(any())()),
+        optional("UsernameConfiguration") => username_configuration_type(),
+        optional("VerificationMessageTemplate") => verification_message_template_type(),
+        required("PoolName") => String.t()
+      }
+      
   """
   @type create_user_pool_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_user_import_jobs_response() :: %{
-    "PaginationToken" => String.t(),
-    "UserImportJobs" => list(user_import_job_type()())
-  }
+      
+      list_user_import_jobs_response() :: %{
+        "PaginationToken" => String.t(),
+        "UserImportJobs" => list(user_import_job_type()())
+      }
+      
   """
   @type list_user_import_jobs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_users_response() :: %{
-    "PaginationToken" => String.t(),
-    "Users" => list(user_type()())
-  }
+      
+      list_users_response() :: %{
+        "PaginationToken" => String.t(),
+        "Users" => list(user_type()())
+      }
+      
   """
   @type list_users_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  user_import_job_type() :: %{
-    "CloudWatchLogsRoleArn" => String.t(),
-    "CompletionDate" => non_neg_integer(),
-    "CompletionMessage" => String.t(),
-    "CreationDate" => non_neg_integer(),
-    "FailedUsers" => float(),
-    "ImportedUsers" => float(),
-    "JobId" => String.t(),
-    "JobName" => String.t(),
-    "PreSignedUrl" => String.t(),
-    "SkippedUsers" => float(),
-    "StartDate" => non_neg_integer(),
-    "Status" => list(any()),
-    "UserPoolId" => String.t()
-  }
+      
+      user_import_job_type() :: %{
+        "CloudWatchLogsRoleArn" => String.t(),
+        "CompletionDate" => non_neg_integer(),
+        "CompletionMessage" => String.t(),
+        "CreationDate" => non_neg_integer(),
+        "FailedUsers" => float(),
+        "ImportedUsers" => float(),
+        "JobId" => String.t(),
+        "JobName" => String.t(),
+        "PreSignedUrl" => String.t(),
+        "SkippedUsers" => float(),
+        "StartDate" => non_neg_integer(),
+        "Status" => list(any()),
+        "UserPoolId" => String.t()
+      }
+      
   """
   @type user_import_job_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_user_pool_client_request() :: %{
-    optional("AccessTokenValidity") => integer(),
-    optional("AllowedOAuthFlows") => list(list(any())()),
-    optional("AllowedOAuthFlowsUserPoolClient") => boolean(),
-    optional("AllowedOAuthScopes") => list(String.t()()),
-    optional("AnalyticsConfiguration") => analytics_configuration_type(),
-    optional("AuthSessionValidity") => integer(),
-    optional("CallbackURLs") => list(String.t()()),
-    optional("DefaultRedirectURI") => String.t(),
-    optional("EnablePropagateAdditionalUserContextData") => boolean(),
-    optional("EnableTokenRevocation") => boolean(),
-    optional("ExplicitAuthFlows") => list(list(any())()),
-    optional("GenerateSecret") => boolean(),
-    optional("IdTokenValidity") => integer(),
-    optional("LogoutURLs") => list(String.t()()),
-    optional("PreventUserExistenceErrors") => list(any()),
-    optional("ReadAttributes") => list(String.t()()),
-    optional("RefreshTokenValidity") => integer(),
-    optional("SupportedIdentityProviders") => list(String.t()()),
-    optional("TokenValidityUnits") => token_validity_units_type(),
-    optional("WriteAttributes") => list(String.t()()),
-    required("ClientName") => String.t(),
-    required("UserPoolId") => String.t()
-  }
+      
+      create_user_pool_client_request() :: %{
+        optional("AccessTokenValidity") => integer(),
+        optional("AllowedOAuthFlows") => list(list(any())()),
+        optional("AllowedOAuthFlowsUserPoolClient") => boolean(),
+        optional("AllowedOAuthScopes") => list(String.t()()),
+        optional("AnalyticsConfiguration") => analytics_configuration_type(),
+        optional("AuthSessionValidity") => integer(),
+        optional("CallbackURLs") => list(String.t()()),
+        optional("DefaultRedirectURI") => String.t(),
+        optional("EnablePropagateAdditionalUserContextData") => boolean(),
+        optional("EnableTokenRevocation") => boolean(),
+        optional("ExplicitAuthFlows") => list(list(any())()),
+        optional("GenerateSecret") => boolean(),
+        optional("IdTokenValidity") => integer(),
+        optional("LogoutURLs") => list(String.t()()),
+        optional("PreventUserExistenceErrors") => list(any()),
+        optional("ReadAttributes") => list(String.t()()),
+        optional("RefreshTokenValidity") => integer(),
+        optional("SupportedIdentityProviders") => list(String.t()()),
+        optional("TokenValidityUnits") => token_validity_units_type(),
+        optional("WriteAttributes") => list(String.t()()),
+        required("ClientName") => String.t(),
+        required("UserPoolId") => String.t()
+      }
+      
   """
   @type create_user_pool_client_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_identity_provider_by_identifier_response() :: %{
-    "IdentityProvider" => identity_provider_type()
-  }
+      
+      get_identity_provider_by_identifier_response() :: %{
+        "IdentityProvider" => identity_provider_type()
+      }
+      
   """
   @type get_identity_provider_by_identifier_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  admin_disable_provider_for_user_response() :: %{
-
-  }
+      
+      admin_disable_provider_for_user_response() :: %{}
+      
   """
-  @type admin_disable_provider_for_user_response() :: %{String.t() => any()}
+  @type admin_disable_provider_for_user_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  cloud_watch_logs_configuration_type() :: %{
-    "LogGroupArn" => String.t()
-  }
+      
+      cloud_watch_logs_configuration_type() :: %{
+        "LogGroupArn" => String.t()
+      }
+      
   """
   @type cloud_watch_logs_configuration_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_user_pool_client_request() :: %{
-    required("ClientId") => String.t(),
-    required("UserPoolId") => String.t()
-  }
+      
+      delete_user_pool_client_request() :: %{
+        required("ClientId") => String.t(),
+        required("UserPoolId") => String.t()
+      }
+      
   """
   @type delete_user_pool_client_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  user_not_found_exception() :: %{
-    "message" => String.t()
-  }
+      
+      user_not_found_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type user_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  password_policy_type() :: %{
-    "MinimumLength" => integer(),
-    "RequireLowercase" => boolean(),
-    "RequireNumbers" => boolean(),
-    "RequireSymbols" => boolean(),
-    "RequireUppercase" => boolean(),
-    "TemporaryPasswordValidityDays" => integer()
-  }
+      
+      password_policy_type() :: %{
+        "MinimumLength" => integer(),
+        "RequireLowercase" => boolean(),
+        "RequireNumbers" => boolean(),
+        "RequireSymbols" => boolean(),
+        "RequireUppercase" => boolean(),
+        "TemporaryPasswordValidityDays" => integer()
+      }
+      
   """
   @type password_policy_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  admin_confirm_sign_up_request() :: %{
-    optional("ClientMetadata") => map(),
-    required("UserPoolId") => String.t(),
-    required("Username") => String.t()
-  }
+      
+      admin_confirm_sign_up_request() :: %{
+        optional("ClientMetadata") => map(),
+        required("UserPoolId") => String.t(),
+        required("Username") => String.t()
+      }
+      
   """
   @type admin_confirm_sign_up_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  custom_domain_config_type() :: %{
-    "CertificateArn" => String.t()
-  }
+      
+      custom_domain_config_type() :: %{
+        "CertificateArn" => String.t()
+      }
+      
   """
   @type custom_domain_config_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  custom_sms_lambda_version_config_type() :: %{
-    "LambdaArn" => String.t(),
-    "LambdaVersion" => list(any())
-  }
+      
+      custom_sms_lambda_version_config_type() :: %{
+        "LambdaArn" => String.t(),
+        "LambdaVersion" => list(any())
+      }
+      
   """
   @type custom_sms_lambda_version_config_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  admin_enable_user_request() :: %{
-    required("UserPoolId") => String.t(),
-    required("Username") => String.t()
-  }
+      
+      admin_enable_user_request() :: %{
+        required("UserPoolId") => String.t(),
+        required("Username") => String.t()
+      }
+      
   """
   @type admin_enable_user_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_resource_server_request() :: %{
-    optional("Scopes") => list(resource_server_scope_type()()),
-    required("Identifier") => String.t(),
-    required("Name") => String.t(),
-    required("UserPoolId") => String.t()
-  }
+      
+      create_resource_server_request() :: %{
+        optional("Scopes") => list(resource_server_scope_type()()),
+        required("Identifier") => String.t(),
+        required("Name") => String.t(),
+        required("UserPoolId") => String.t()
+      }
+      
   """
   @type create_resource_server_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  admin_initiate_auth_request() :: %{
-    optional("AnalyticsMetadata") => analytics_metadata_type(),
-    optional("AuthParameters") => map(),
-    optional("ClientMetadata") => map(),
-    optional("ContextData") => context_data_type(),
-    required("AuthFlow") => list(any()),
-    required("ClientId") => String.t(),
-    required("UserPoolId") => String.t()
-  }
+      
+      admin_initiate_auth_request() :: %{
+        optional("AnalyticsMetadata") => analytics_metadata_type(),
+        optional("AuthParameters") => map(),
+        optional("ClientMetadata") => map(),
+        optional("ContextData") => context_data_type(),
+        required("AuthFlow") => list(any()),
+        required("ClientId") => String.t(),
+        required("UserPoolId") => String.t()
+      }
+      
   """
   @type admin_initiate_auth_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_response() :: %{
-    "Tags" => map()
-  }
+      
+      list_tags_for_resource_response() :: %{
+        "Tags" => map()
+      }
+      
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_device_status_request() :: %{
-    optional("DeviceRememberedStatus") => list(any()),
-    required("AccessToken") => String.t(),
-    required("DeviceKey") => String.t()
-  }
+      
+      update_device_status_request() :: %{
+        optional("DeviceRememberedStatus") => list(any()),
+        required("AccessToken") => String.t(),
+        required("DeviceKey") => String.t()
+      }
+      
   """
   @type update_device_status_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_server_type() :: %{
-    "Identifier" => String.t(),
-    "Name" => String.t(),
-    "Scopes" => list(resource_server_scope_type()()),
-    "UserPoolId" => String.t()
-  }
+      
+      resource_server_type() :: %{
+        "Identifier" => String.t(),
+        "Name" => String.t(),
+        "Scopes" => list(resource_server_scope_type()()),
+        "UserPoolId" => String.t()
+      }
+      
   """
   @type resource_server_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  software_token_mfa_config_type() :: %{
-    "Enabled" => boolean()
-  }
+      
+      software_token_mfa_config_type() :: %{
+        "Enabled" => boolean()
+      }
+      
   """
   @type software_token_mfa_config_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_devices_response() :: %{
-    "Devices" => list(device_type()()),
-    "PaginationToken" => String.t()
-  }
+      
+      list_devices_response() :: %{
+        "Devices" => list(device_type()()),
+        "PaginationToken" => String.t()
+      }
+      
   """
   @type list_devices_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  admin_reset_user_password_response() :: %{
-
-  }
+      
+      admin_reset_user_password_response() :: %{}
+      
   """
-  @type admin_reset_user_password_response() :: %{String.t() => any()}
+  @type admin_reset_user_password_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_group_request() :: %{
-    optional("Description") => String.t(),
-    optional("Precedence") => integer(),
-    optional("RoleArn") => String.t(),
-    required("GroupName") => String.t(),
-    required("UserPoolId") => String.t()
-  }
+      
+      create_group_request() :: %{
+        optional("Description") => String.t(),
+        optional("Precedence") => integer(),
+        optional("RoleArn") => String.t(),
+        required("GroupName") => String.t(),
+        required("UserPoolId") => String.t()
+      }
+      
   """
   @type create_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  admin_user_global_sign_out_request() :: %{
-    required("UserPoolId") => String.t(),
-    required("Username") => String.t()
-  }
+      
+      admin_user_global_sign_out_request() :: %{
+        required("UserPoolId") => String.t(),
+        required("Username") => String.t()
+      }
+      
   """
   @type admin_user_global_sign_out_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_auth_event_feedback_response() :: %{
-
-  }
+      
+      update_auth_event_feedback_response() :: %{}
+      
   """
-  @type update_auth_event_feedback_response() :: %{String.t() => any()}
+  @type update_auth_event_feedback_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  invalid_lambda_response_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_lambda_response_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_lambda_response_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  sms_mfa_settings_type() :: %{
-    "Enabled" => boolean(),
-    "PreferredMfa" => boolean()
-  }
+      
+      sms_mfa_settings_type() :: %{
+        "Enabled" => boolean(),
+        "PreferredMfa" => boolean()
+      }
+      
   """
   @type sms_mfa_settings_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  add_custom_attributes_request() :: %{
-    required("CustomAttributes") => list(schema_attribute_type()()),
-    required("UserPoolId") => String.t()
-  }
+      
+      add_custom_attributes_request() :: %{
+        required("CustomAttributes") => list(schema_attribute_type()()),
+        required("UserPoolId") => String.t()
+      }
+      
   """
   @type add_custom_attributes_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  admin_disable_user_request() :: %{
-    required("UserPoolId") => String.t(),
-    required("Username") => String.t()
-  }
+      
+      admin_disable_user_request() :: %{
+        required("UserPoolId") => String.t(),
+        required("Username") => String.t()
+      }
+      
   """
   @type admin_disable_user_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  email_configuration_type() :: %{
-    "ConfigurationSet" => String.t(),
-    "EmailSendingAccount" => list(any()),
-    "From" => String.t(),
-    "ReplyToEmailAddress" => String.t(),
-    "SourceArn" => String.t()
-  }
+      
+      email_configuration_type() :: %{
+        "ConfigurationSet" => String.t(),
+        "EmailSendingAccount" => list(any()),
+        "From" => String.t(),
+        "ReplyToEmailAddress" => String.t(),
+        "SourceArn" => String.t()
+      }
+      
   """
   @type email_configuration_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  expired_code_exception() :: %{
-    "message" => String.t()
-  }
+      
+      expired_code_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type expired_code_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  forgot_password_request() :: %{
-    optional("AnalyticsMetadata") => analytics_metadata_type(),
-    optional("ClientMetadata") => map(),
-    optional("SecretHash") => String.t(),
-    optional("UserContextData") => user_context_data_type(),
-    required("ClientId") => String.t(),
-    required("Username") => String.t()
-  }
+      
+      forgot_password_request() :: %{
+        optional("AnalyticsMetadata") => analytics_metadata_type(),
+        optional("ClientMetadata") => map(),
+        optional("SecretHash") => String.t(),
+        optional("UserContextData") => user_context_data_type(),
+        required("ClientId") => String.t(),
+        required("Username") => String.t()
+      }
+      
   """
   @type forgot_password_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_user_pool_clients_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("UserPoolId") => String.t()
-  }
+      
+      list_user_pool_clients_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("UserPoolId") => String.t()
+      }
+      
   """
   @type list_user_pool_clients_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  admin_remove_user_from_group_request() :: %{
-    required("GroupName") => String.t(),
-    required("UserPoolId") => String.t(),
-    required("Username") => String.t()
-  }
+      
+      admin_remove_user_from_group_request() :: %{
+        required("GroupName") => String.t(),
+        required("UserPoolId") => String.t(),
+        required("Username") => String.t()
+      }
+      
   """
   @type admin_remove_user_from_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  user_pool_tagging_exception() :: %{
-    "message" => String.t()
-  }
+      
+      user_pool_tagging_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type user_pool_tagging_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  set_user_settings_request() :: %{
-    required("AccessToken") => String.t(),
-    required("MFAOptions") => list(mfa_option_type()())
-  }
+      
+      set_user_settings_request() :: %{
+        required("AccessToken") => String.t(),
+        required("MFAOptions") => list(mfa_option_type()())
+      }
+      
   """
   @type set_user_settings_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  recovery_option_type() :: %{
-    "Name" => list(any()),
-    "Priority" => integer()
-  }
+      
+      recovery_option_type() :: %{
+        "Name" => list(any()),
+        "Priority" => integer()
+      }
+      
   """
   @type recovery_option_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  provider_user_identifier_type() :: %{
-    "ProviderAttributeName" => String.t(),
-    "ProviderAttributeValue" => String.t(),
-    "ProviderName" => String.t()
-  }
+      
+      provider_user_identifier_type() :: %{
+        "ProviderAttributeName" => String.t(),
+        "ProviderAttributeValue" => String.t(),
+        "ProviderName" => String.t()
+      }
+      
   """
   @type provider_user_identifier_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  event_feedback_type() :: %{
-    "FeedbackDate" => non_neg_integer(),
-    "FeedbackValue" => list(any()),
-    "Provider" => String.t()
-  }
+      
+      event_feedback_type() :: %{
+        "FeedbackDate" => non_neg_integer(),
+        "FeedbackValue" => list(any()),
+        "Provider" => String.t()
+      }
+      
   """
   @type event_feedback_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  change_password_request() :: %{
-    required("AccessToken") => String.t(),
-    required("PreviousPassword") => String.t(),
-    required("ProposedPassword") => String.t()
-  }
+      
+      change_password_request() :: %{
+        required("AccessToken") => String.t(),
+        required("PreviousPassword") => String.t(),
+        required("ProposedPassword") => String.t()
+      }
+      
   """
   @type change_password_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  admin_list_devices_response() :: %{
-    "Devices" => list(device_type()()),
-    "PaginationToken" => String.t()
-  }
+      
+      admin_list_devices_response() :: %{
+        "Devices" => list(device_type()()),
+        "PaginationToken" => String.t()
+      }
+      
   """
   @type admin_list_devices_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_user_request() :: %{
-    required("AccessToken") => String.t()
-  }
+      
+      delete_user_request() :: %{
+        required("AccessToken") => String.t()
+      }
+      
   """
   @type delete_user_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_log_delivery_configuration_request() :: %{
-    required("UserPoolId") => String.t()
-  }
+      
+      get_log_delivery_configuration_request() :: %{
+        required("UserPoolId") => String.t()
+      }
+      
   """
   @type get_log_delivery_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_o_auth_flow_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_o_auth_flow_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_o_auth_flow_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  initiate_auth_response() :: %{
-    "AuthenticationResult" => authentication_result_type(),
-    "ChallengeName" => list(any()),
-    "ChallengeParameters" => map(),
-    "Session" => String.t()
-  }
+      
+      initiate_auth_response() :: %{
+        "AuthenticationResult" => authentication_result_type(),
+        "ChallengeName" => list(any()),
+        "ChallengeParameters" => map(),
+        "Session" => String.t()
+      }
+      
   """
   @type initiate_auth_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_device_request() :: %{
-    optional("AccessToken") => String.t(),
-    required("DeviceKey") => String.t()
-  }
+      
+      get_device_request() :: %{
+        optional("AccessToken") => String.t(),
+        required("DeviceKey") => String.t()
+      }
+      
   """
   @type get_device_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_user_import_job_request() :: %{
-    required("CloudWatchLogsRoleArn") => String.t(),
-    required("JobName") => String.t(),
-    required("UserPoolId") => String.t()
-  }
+      
+      create_user_import_job_request() :: %{
+        required("CloudWatchLogsRoleArn") => String.t(),
+        required("JobName") => String.t(),
+        required("UserPoolId") => String.t()
+      }
+      
   """
   @type create_user_import_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  admin_set_user_password_request() :: %{
-    optional("Permanent") => boolean(),
-    required("Password") => String.t(),
-    required("UserPoolId") => String.t(),
-    required("Username") => String.t()
-  }
+      
+      admin_set_user_password_request() :: %{
+        optional("Permanent") => boolean(),
+        required("Password") => String.t(),
+        required("UserPoolId") => String.t(),
+        required("Username") => String.t()
+      }
+      
   """
   @type admin_set_user_password_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_user_pool_domain_response() :: %{
-    "DomainDescription" => domain_description_type()
-  }
+      
+      describe_user_pool_domain_response() :: %{
+        "DomainDescription" => domain_description_type()
+      }
+      
   """
   @type describe_user_pool_domain_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  sign_up_request() :: %{
-    optional("AnalyticsMetadata") => analytics_metadata_type(),
-    optional("ClientMetadata") => map(),
-    optional("SecretHash") => String.t(),
-    optional("UserAttributes") => list(attribute_type()()),
-    optional("UserContextData") => user_context_data_type(),
-    optional("ValidationData") => list(attribute_type()()),
-    required("ClientId") => String.t(),
-    required("Password") => String.t(),
-    required("Username") => String.t()
-  }
+      
+      sign_up_request() :: %{
+        optional("AnalyticsMetadata") => analytics_metadata_type(),
+        optional("ClientMetadata") => map(),
+        optional("SecretHash") => String.t(),
+        optional("UserAttributes") => list(attribute_type()()),
+        optional("UserContextData") => user_context_data_type(),
+        optional("ValidationData") => list(attribute_type()()),
+        required("ClientId") => String.t(),
+        required("Password") => String.t(),
+        required("Username") => String.t()
+      }
+      
   """
   @type sign_up_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  forget_device_request() :: %{
-    optional("AccessToken") => String.t(),
-    required("DeviceKey") => String.t()
-  }
+      
+      forget_device_request() :: %{
+        optional("AccessToken") => String.t(),
+        required("DeviceKey") => String.t()
+      }
+      
   """
   @type forget_device_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  device_configuration_type() :: %{
-    "ChallengeRequiredOnNewDevice" => boolean(),
-    "DeviceOnlyRememberedOnUserPrompt" => boolean()
-  }
+      
+      device_configuration_type() :: %{
+        "ChallengeRequiredOnNewDevice" => boolean(),
+        "DeviceOnlyRememberedOnUserPrompt" => boolean()
+      }
+      
   """
   @type device_configuration_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  user_pool_add_ons_type() :: %{
-    "AdvancedSecurityMode" => list(any())
-  }
+      
+      user_pool_add_ons_type() :: %{
+        "AdvancedSecurityMode" => list(any())
+      }
+      
   """
   @type user_pool_add_ons_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_user_pool_request() :: %{
-    required("UserPoolId") => String.t()
-  }
+      
+      describe_user_pool_request() :: %{
+        required("UserPoolId") => String.t()
+      }
+      
   """
   @type describe_user_pool_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_user_pool_domain_request() :: %{
-    required("Domain") => String.t(),
-    required("UserPoolId") => String.t()
-  }
+      
+      delete_user_pool_domain_request() :: %{
+        required("Domain") => String.t(),
+        required("UserPoolId") => String.t()
+      }
+      
   """
   @type delete_user_pool_domain_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  user_lambda_validation_exception() :: %{
-    "message" => String.t()
-  }
+      
+      user_lambda_validation_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type user_lambda_validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_user_pool_request() :: %{
-    required("UserPoolId") => String.t()
-  }
+      
+      delete_user_pool_request() :: %{
+        required("UserPoolId") => String.t()
+      }
+      
   """
   @type delete_user_pool_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_user_import_jobs_request() :: %{
-    optional("PaginationToken") => String.t(),
-    required("MaxResults") => integer(),
-    required("UserPoolId") => String.t()
-  }
+      
+      list_user_import_jobs_request() :: %{
+        optional("PaginationToken") => String.t(),
+        required("MaxResults") => integer(),
+        required("UserPoolId") => String.t()
+      }
+      
   """
   @type list_user_import_jobs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  challenge_response_type() :: %{
-    "ChallengeName" => list(any()),
-    "ChallengeResponse" => list(any())
-  }
+      
+      challenge_response_type() :: %{
+        "ChallengeName" => list(any()),
+        "ChallengeResponse" => list(any())
+      }
+      
   """
   @type challenge_response_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resend_confirmation_code_request() :: %{
-    optional("AnalyticsMetadata") => analytics_metadata_type(),
-    optional("ClientMetadata") => map(),
-    optional("SecretHash") => String.t(),
-    optional("UserContextData") => user_context_data_type(),
-    required("ClientId") => String.t(),
-    required("Username") => String.t()
-  }
+      
+      resend_confirmation_code_request() :: %{
+        optional("AnalyticsMetadata") => analytics_metadata_type(),
+        optional("ClientMetadata") => map(),
+        optional("SecretHash") => String.t(),
+        optional("UserContextData") => user_context_data_type(),
+        required("ClientId") => String.t(),
+        required("Username") => String.t()
+      }
+      
   """
   @type resend_confirmation_code_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  admin_respond_to_auth_challenge_request() :: %{
-    optional("AnalyticsMetadata") => analytics_metadata_type(),
-    optional("ChallengeResponses") => map(),
-    optional("ClientMetadata") => map(),
-    optional("ContextData") => context_data_type(),
-    optional("Session") => String.t(),
-    required("ChallengeName") => list(any()),
-    required("ClientId") => String.t(),
-    required("UserPoolId") => String.t()
-  }
+      
+      admin_respond_to_auth_challenge_request() :: %{
+        optional("AnalyticsMetadata") => analytics_metadata_type(),
+        optional("ChallengeResponses") => map(),
+        optional("ClientMetadata") => map(),
+        optional("ContextData") => context_data_type(),
+        optional("Session") => String.t(),
+        required("ChallengeName") => list(any()),
+        required("ClientId") => String.t(),
+        required("UserPoolId") => String.t()
+      }
+      
   """
   @type admin_respond_to_auth_challenge_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  not_authorized_exception() :: %{
-    "message" => String.t()
-  }
+      
+      not_authorized_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type not_authorized_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  admin_list_user_auth_events_response() :: %{
-    "AuthEvents" => list(auth_event_type()()),
-    "NextToken" => String.t()
-  }
+      
+      admin_list_user_auth_events_response() :: %{
+        "AuthEvents" => list(auth_event_type()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type admin_list_user_auth_events_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  unsupported_identity_provider_exception() :: %{
-    "message" => String.t()
-  }
+      
+      unsupported_identity_provider_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type unsupported_identity_provider_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  user_pool_add_on_not_enabled_exception() :: %{
-    "message" => String.t()
-  }
+      
+      user_pool_add_on_not_enabled_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type user_pool_add_on_not_enabled_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  auth_event_type() :: %{
-    "ChallengeResponses" => list(challenge_response_type()()),
-    "CreationDate" => non_neg_integer(),
-    "EventContextData" => event_context_data_type(),
-    "EventFeedback" => event_feedback_type(),
-    "EventId" => String.t(),
-    "EventResponse" => list(any()),
-    "EventRisk" => event_risk_type(),
-    "EventType" => list(any())
-  }
+      
+      auth_event_type() :: %{
+        "ChallengeResponses" => list(challenge_response_type()()),
+        "CreationDate" => non_neg_integer(),
+        "EventContextData" => event_context_data_type(),
+        "EventFeedback" => event_feedback_type(),
+        "EventId" => String.t(),
+        "EventResponse" => list(any()),
+        "EventRisk" => event_risk_type(),
+        "EventType" => list(any())
+      }
+      
   """
   @type auth_event_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_identity_provider_request() :: %{
-    optional("AttributeMapping") => map(),
-    optional("IdpIdentifiers") => list(String.t()()),
-    required("ProviderDetails") => map(),
-    required("ProviderName") => String.t(),
-    required("ProviderType") => list(any()),
-    required("UserPoolId") => String.t()
-  }
+      
+      create_identity_provider_request() :: %{
+        optional("AttributeMapping") => map(),
+        optional("IdpIdentifiers") => list(String.t()()),
+        required("ProviderDetails") => map(),
+        required("ProviderName") => String.t(),
+        required("ProviderType") => list(any()),
+        required("UserPoolId") => String.t()
+      }
+      
   """
   @type create_identity_provider_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_user_pool_configuration_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_user_pool_configuration_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_user_pool_configuration_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  set_log_delivery_configuration_response() :: %{
-    "LogDeliveryConfiguration" => log_delivery_configuration_type()
-  }
+      
+      set_log_delivery_configuration_response() :: %{
+        "LogDeliveryConfiguration" => log_delivery_configuration_type()
+      }
+      
   """
   @type set_log_delivery_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  sign_up_response() :: %{
-    "CodeDeliveryDetails" => code_delivery_details_type(),
-    "UserConfirmed" => boolean(),
-    "UserSub" => String.t()
-  }
+      
+      sign_up_response() :: %{
+        "CodeDeliveryDetails" => code_delivery_details_type(),
+        "UserConfirmed" => boolean(),
+        "UserSub" => String.t()
+      }
+      
   """
   @type sign_up_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_user_import_job_response() :: %{
-    "UserImportJob" => user_import_job_type()
-  }
+      
+      start_user_import_job_response() :: %{
+        "UserImportJob" => user_import_job_type()
+      }
+      
   """
   @type start_user_import_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  confirm_forgot_password_response() :: %{
-
-  }
+      
+      confirm_forgot_password_response() :: %{}
+      
   """
-  @type confirm_forgot_password_response() :: %{String.t() => any()}
+  @type confirm_forgot_password_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  log_configuration_type() :: %{
-    "CloudWatchLogsConfiguration" => cloud_watch_logs_configuration_type(),
-    "EventSource" => list(any()),
-    "LogLevel" => list(any())
-  }
+      
+      log_configuration_type() :: %{
+        "CloudWatchLogsConfiguration" => cloud_watch_logs_configuration_type(),
+        "EventSource" => list(any()),
+        "LogLevel" => list(any())
+      }
+      
   """
   @type log_configuration_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  global_sign_out_response() :: %{
-
-  }
+      
+      global_sign_out_response() :: %{}
+      
   """
-  @type global_sign_out_response() :: %{String.t() => any()}
+  @type global_sign_out_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  invalid_parameter_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_parameter_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_parameter_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  admin_confirm_sign_up_response() :: %{
-
-  }
+      
+      admin_confirm_sign_up_response() :: %{}
+      
   """
-  @type admin_confirm_sign_up_response() :: %{String.t() => any()}
+  @type admin_confirm_sign_up_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  set_user_pool_mfa_config_request() :: %{
-    optional("MfaConfiguration") => list(any()),
-    optional("SmsMfaConfiguration") => sms_mfa_config_type(),
-    optional("SoftwareTokenMfaConfiguration") => software_token_mfa_config_type(),
-    required("UserPoolId") => String.t()
-  }
+      
+      set_user_pool_mfa_config_request() :: %{
+        optional("MfaConfiguration") => list(any()),
+        optional("SmsMfaConfiguration") => sms_mfa_config_type(),
+        optional("SoftwareTokenMfaConfiguration") => software_token_mfa_config_type(),
+        required("UserPoolId") => String.t()
+      }
+      
   """
   @type set_user_pool_mfa_config_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_user_import_job_request() :: %{
-    required("JobId") => String.t(),
-    required("UserPoolId") => String.t()
-  }
+      
+      describe_user_import_job_request() :: %{
+        required("JobId") => String.t(),
+        required("UserPoolId") => String.t()
+      }
+      
   """
   @type describe_user_import_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  admin_disable_provider_for_user_request() :: %{
-    required("User") => provider_user_identifier_type(),
-    required("UserPoolId") => String.t()
-  }
+      
+      admin_disable_provider_for_user_request() :: %{
+        required("User") => provider_user_identifier_type(),
+        required("UserPoolId") => String.t()
+      }
+      
   """
   @type admin_disable_provider_for_user_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  code_delivery_details_type() :: %{
-    "AttributeName" => String.t(),
-    "DeliveryMedium" => list(any()),
-    "Destination" => String.t()
-  }
+      
+      code_delivery_details_type() :: %{
+        "AttributeName" => String.t(),
+        "DeliveryMedium" => list(any()),
+        "Destination" => String.t()
+      }
+      
   """
   @type code_delivery_details_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_response() :: %{
-
-  }
+      
+      tag_resource_response() :: %{}
+      
   """
-  @type tag_resource_response() :: %{String.t() => any()}
+  @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  event_risk_type() :: %{
-    "CompromisedCredentialsDetected" => boolean(),
-    "RiskDecision" => list(any()),
-    "RiskLevel" => list(any())
-  }
+      
+      event_risk_type() :: %{
+        "CompromisedCredentialsDetected" => boolean(),
+        "RiskDecision" => list(any()),
+        "RiskLevel" => list(any())
+      }
+      
   """
   @type event_risk_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_ui_customization_request() :: %{
-    optional("ClientId") => String.t(),
-    required("UserPoolId") => String.t()
-  }
+      
+      get_ui_customization_request() :: %{
+        optional("ClientId") => String.t(),
+        required("UserPoolId") => String.t()
+      }
+      
   """
   @type get_ui_customization_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  set_user_settings_response() :: %{
-
-  }
+      
+      set_user_settings_response() :: %{}
+      
   """
-  @type set_user_settings_response() :: %{String.t() => any()}
+  @type set_user_settings_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  confirm_device_response() :: %{
-    "UserConfirmationNecessary" => boolean()
-  }
+      
+      confirm_device_response() :: %{
+        "UserConfirmationNecessary" => boolean()
+      }
+      
   """
   @type confirm_device_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  account_recovery_setting_type() :: %{
-    "RecoveryMechanisms" => list(recovery_option_type()())
-  }
+      
+      account_recovery_setting_type() :: %{
+        "RecoveryMechanisms" => list(recovery_option_type()())
+      }
+      
   """
   @type account_recovery_setting_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_user_pool_client_request() :: %{
-    required("ClientId") => String.t(),
-    required("UserPoolId") => String.t()
-  }
+      
+      describe_user_pool_client_request() :: %{
+        required("ClientId") => String.t(),
+        required("UserPoolId") => String.t()
+      }
+      
   """
   @type describe_user_pool_client_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_auth_event_feedback_request() :: %{
-    required("EventId") => String.t(),
-    required("FeedbackToken") => String.t(),
-    required("FeedbackValue") => list(any()),
-    required("UserPoolId") => String.t(),
-    required("Username") => String.t()
-  }
+      
+      update_auth_event_feedback_request() :: %{
+        required("EventId") => String.t(),
+        required("FeedbackToken") => String.t(),
+        required("FeedbackValue") => list(any()),
+        required("UserPoolId") => String.t(),
+        required("Username") => String.t()
+      }
+      
   """
   @type update_auth_event_feedback_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  pre_token_generation_version_config_type() :: %{
-    "LambdaArn" => String.t(),
-    "LambdaVersion" => list(any())
-  }
+      
+      pre_token_generation_version_config_type() :: %{
+        "LambdaArn" => String.t(),
+        "LambdaVersion" => list(any())
+      }
+      
   """
   @type pre_token_generation_version_config_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  admin_update_device_status_request() :: %{
-    optional("DeviceRememberedStatus") => list(any()),
-    required("DeviceKey") => String.t(),
-    required("UserPoolId") => String.t(),
-    required("Username") => String.t()
-  }
+      
+      admin_update_device_status_request() :: %{
+        optional("DeviceRememberedStatus") => list(any()),
+        required("DeviceKey") => String.t(),
+        required("UserPoolId") => String.t(),
+        required("Username") => String.t()
+      }
+      
   """
   @type admin_update_device_status_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  software_token_mfa_not_found_exception() :: %{
-    "message" => String.t()
-  }
+      
+      software_token_mfa_not_found_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type software_token_mfa_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_log_delivery_configuration_response() :: %{
-    "LogDeliveryConfiguration" => log_delivery_configuration_type()
-  }
+      
+      get_log_delivery_configuration_response() :: %{
+        "LogDeliveryConfiguration" => log_delivery_configuration_type()
+      }
+      
   """
   @type get_log_delivery_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  concurrent_modification_exception() :: %{
-    "message" => String.t()
-  }
+      
+      concurrent_modification_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type concurrent_modification_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resend_confirmation_code_response() :: %{
-    "CodeDeliveryDetails" => code_delivery_details_type()
-  }
+      
+      resend_confirmation_code_response() :: %{
+        "CodeDeliveryDetails" => code_delivery_details_type()
+      }
+      
   """
   @type resend_confirmation_code_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  admin_reset_user_password_request() :: %{
-    optional("ClientMetadata") => map(),
-    required("UserPoolId") => String.t(),
-    required("Username") => String.t()
-  }
+      
+      admin_reset_user_password_request() :: %{
+        optional("ClientMetadata") => map(),
+        required("UserPoolId") => String.t(),
+        required("Username") => String.t()
+      }
+      
   """
   @type admin_reset_user_password_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  admin_link_provider_for_user_response() :: %{
-
-  }
+      
+      admin_link_provider_for_user_response() :: %{}
+      
   """
-  @type admin_link_provider_for_user_response() :: %{String.t() => any()}
+  @type admin_link_provider_for_user_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  admin_get_device_response() :: %{
-    "Device" => device_type()
-  }
+      
+      admin_get_device_response() :: %{
+        "Device" => device_type()
+      }
+      
   """
   @type admin_get_device_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_resource_servers_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("UserPoolId") => String.t()
-  }
+      
+      list_resource_servers_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("UserPoolId") => String.t()
+      }
+      
   """
   @type list_resource_servers_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_request() :: %{
-    required("ResourceArn") => String.t()
-  }
+      
+      list_tags_for_resource_request() :: %{
+        required("ResourceArn") => String.t()
+      }
+      
   """
   @type list_tags_for_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  admin_update_user_attributes_response() :: %{
-
-  }
+      
+      admin_update_user_attributes_response() :: %{}
+      
   """
-  @type admin_update_user_attributes_response() :: %{String.t() => any()}
+  @type admin_update_user_attributes_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  update_user_pool_client_response() :: %{
-    "UserPoolClient" => user_pool_client_type()
-  }
+      
+      update_user_pool_client_response() :: %{
+        "UserPoolClient" => user_pool_client_type()
+      }
+      
   """
   @type update_user_pool_client_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_identity_providers_response() :: %{
-    "NextToken" => String.t(),
-    "Providers" => list(provider_description()())
-  }
+      
+      list_identity_providers_response() :: %{
+        "NextToken" => String.t(),
+        "Providers" => list(provider_description()())
+      }
+      
   """
   @type list_identity_providers_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  http_header() :: %{
-    "headerName" => String.t(),
-    "headerValue" => String.t()
-  }
+      
+      http_header() :: %{
+        "headerName" => String.t(),
+        "headerValue" => String.t()
+      }
+      
   """
   @type http_header() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  enable_software_token_mfa_exception() :: %{
-    "message" => String.t()
-  }
+      
+      enable_software_token_mfa_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type enable_software_token_mfa_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_group_response() :: %{
-    "Group" => group_type()
-  }
+      
+      get_group_response() :: %{
+        "Group" => group_type()
+      }
+      
   """
   @type get_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stop_user_import_job_response() :: %{
-    "UserImportJob" => user_import_job_type()
-  }
+      
+      stop_user_import_job_response() :: %{
+        "UserImportJob" => user_import_job_type()
+      }
+      
   """
   @type stop_user_import_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  notify_configuration_type() :: %{
-    "BlockEmail" => notify_email_type(),
-    "From" => String.t(),
-    "MfaEmail" => notify_email_type(),
-    "NoActionEmail" => notify_email_type(),
-    "ReplyTo" => String.t(),
-    "SourceArn" => String.t()
-  }
+      
+      notify_configuration_type() :: %{
+        "BlockEmail" => notify_email_type(),
+        "From" => String.t(),
+        "MfaEmail" => notify_email_type(),
+        "NoActionEmail" => notify_email_type(),
+        "ReplyTo" => String.t(),
+        "SourceArn" => String.t()
+      }
+      
   """
   @type notify_configuration_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  admin_list_groups_for_user_response() :: %{
-    "Groups" => list(group_type()()),
-    "NextToken" => String.t()
-  }
+      
+      admin_list_groups_for_user_response() :: %{
+        "Groups" => list(group_type()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type admin_list_groups_for_user_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  username_exists_exception() :: %{
-    "message" => String.t()
-  }
+      
+      username_exists_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type username_exists_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_group_request() :: %{
-    required("GroupName") => String.t(),
-    required("UserPoolId") => String.t()
-  }
+      
+      delete_group_request() :: %{
+        required("GroupName") => String.t(),
+        required("UserPoolId") => String.t()
+      }
+      
   """
   @type delete_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_user_pool_client_request() :: %{
-    optional("AccessTokenValidity") => integer(),
-    optional("AllowedOAuthFlows") => list(list(any())()),
-    optional("AllowedOAuthFlowsUserPoolClient") => boolean(),
-    optional("AllowedOAuthScopes") => list(String.t()()),
-    optional("AnalyticsConfiguration") => analytics_configuration_type(),
-    optional("AuthSessionValidity") => integer(),
-    optional("CallbackURLs") => list(String.t()()),
-    optional("ClientName") => String.t(),
-    optional("DefaultRedirectURI") => String.t(),
-    optional("EnablePropagateAdditionalUserContextData") => boolean(),
-    optional("EnableTokenRevocation") => boolean(),
-    optional("ExplicitAuthFlows") => list(list(any())()),
-    optional("IdTokenValidity") => integer(),
-    optional("LogoutURLs") => list(String.t()()),
-    optional("PreventUserExistenceErrors") => list(any()),
-    optional("ReadAttributes") => list(String.t()()),
-    optional("RefreshTokenValidity") => integer(),
-    optional("SupportedIdentityProviders") => list(String.t()()),
-    optional("TokenValidityUnits") => token_validity_units_type(),
-    optional("WriteAttributes") => list(String.t()()),
-    required("ClientId") => String.t(),
-    required("UserPoolId") => String.t()
-  }
+      
+      update_user_pool_client_request() :: %{
+        optional("AccessTokenValidity") => integer(),
+        optional("AllowedOAuthFlows") => list(list(any())()),
+        optional("AllowedOAuthFlowsUserPoolClient") => boolean(),
+        optional("AllowedOAuthScopes") => list(String.t()()),
+        optional("AnalyticsConfiguration") => analytics_configuration_type(),
+        optional("AuthSessionValidity") => integer(),
+        optional("CallbackURLs") => list(String.t()()),
+        optional("ClientName") => String.t(),
+        optional("DefaultRedirectURI") => String.t(),
+        optional("EnablePropagateAdditionalUserContextData") => boolean(),
+        optional("EnableTokenRevocation") => boolean(),
+        optional("ExplicitAuthFlows") => list(list(any())()),
+        optional("IdTokenValidity") => integer(),
+        optional("LogoutURLs") => list(String.t()()),
+        optional("PreventUserExistenceErrors") => list(any()),
+        optional("ReadAttributes") => list(String.t()()),
+        optional("RefreshTokenValidity") => integer(),
+        optional("SupportedIdentityProviders") => list(String.t()()),
+        optional("TokenValidityUnits") => token_validity_units_type(),
+        optional("WriteAttributes") => list(String.t()()),
+        required("ClientId") => String.t(),
+        required("UserPoolId") => String.t()
+      }
+      
   """
   @type update_user_pool_client_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_ui_customization_response() :: %{
-    "UICustomization" => ui_customization_type()
-  }
+      
+      get_ui_customization_response() :: %{
+        "UICustomization" => ui_customization_type()
+      }
+      
   """
   @type get_ui_customization_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_users_request() :: %{
-    optional("AttributesToGet") => list(String.t()()),
-    optional("Filter") => String.t(),
-    optional("Limit") => integer(),
-    optional("PaginationToken") => String.t(),
-    required("UserPoolId") => String.t()
-  }
+      
+      list_users_request() :: %{
+        optional("AttributesToGet") => list(String.t()()),
+        optional("Filter") => String.t(),
+        optional("Limit") => integer(),
+        optional("PaginationToken") => String.t(),
+        required("UserPoolId") => String.t()
+      }
+      
   """
   @type list_users_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  revoke_token_request() :: %{
-    optional("ClientSecret") => String.t(),
-    required("ClientId") => String.t(),
-    required("Token") => String.t()
-  }
+      
+      revoke_token_request() :: %{
+        optional("ClientSecret") => String.t(),
+        required("ClientId") => String.t(),
+        required("Token") => String.t()
+      }
+      
   """
   @type revoke_token_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  limit_exceeded_exception() :: %{
-    "message" => String.t()
-  }
+      
+      limit_exceeded_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  associate_software_token_request() :: %{
-    optional("AccessToken") => String.t(),
-    optional("Session") => String.t()
-  }
+      
+      associate_software_token_request() :: %{
+        optional("AccessToken") => String.t(),
+        optional("Session") => String.t()
+      }
+      
   """
   @type associate_software_token_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  confirm_forgot_password_request() :: %{
-    optional("AnalyticsMetadata") => analytics_metadata_type(),
-    optional("ClientMetadata") => map(),
-    optional("SecretHash") => String.t(),
-    optional("UserContextData") => user_context_data_type(),
-    required("ClientId") => String.t(),
-    required("ConfirmationCode") => String.t(),
-    required("Password") => String.t(),
-    required("Username") => String.t()
-  }
+      
+      confirm_forgot_password_request() :: %{
+        optional("AnalyticsMetadata") => analytics_metadata_type(),
+        optional("ClientMetadata") => map(),
+        optional("SecretHash") => String.t(),
+        optional("UserContextData") => user_context_data_type(),
+        required("ClientId") => String.t(),
+        required("ConfirmationCode") => String.t(),
+        required("Password") => String.t(),
+        required("Username") => String.t()
+      }
+      
   """
   @type confirm_forgot_password_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  mfa_option_type() :: %{
-    "AttributeName" => String.t(),
-    "DeliveryMedium" => list(any())
-  }
+      
+      mfa_option_type() :: %{
+        "AttributeName" => String.t(),
+        "DeliveryMedium" => list(any())
+      }
+      
   """
   @type mfa_option_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  code_delivery_failure_exception() :: %{
-    "message" => String.t()
-  }
+      
+      code_delivery_failure_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type code_delivery_failure_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_resource_server_response() :: %{
-    "ResourceServer" => resource_server_type()
-  }
+      
+      create_resource_server_response() :: %{
+        "ResourceServer" => resource_server_type()
+      }
+      
   """
   @type create_resource_server_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  forgot_password_response() :: %{
-    "CodeDeliveryDetails" => code_delivery_details_type()
-  }
+      
+      forgot_password_response() :: %{
+        "CodeDeliveryDetails" => code_delivery_details_type()
+      }
+      
   """
   @type forgot_password_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  schema_attribute_type() :: %{
-    "AttributeDataType" => list(any()),
-    "DeveloperOnlyAttribute" => boolean(),
-    "Mutable" => boolean(),
-    "Name" => String.t(),
-    "NumberAttributeConstraints" => number_attribute_constraints_type(),
-    "Required" => boolean(),
-    "StringAttributeConstraints" => string_attribute_constraints_type()
-  }
+      
+      schema_attribute_type() :: %{
+        "AttributeDataType" => list(any()),
+        "DeveloperOnlyAttribute" => boolean(),
+        "Mutable" => boolean(),
+        "Name" => String.t(),
+        "NumberAttributeConstraints" => number_attribute_constraints_type(),
+        "Required" => boolean(),
+        "StringAttributeConstraints" => string_attribute_constraints_type()
+      }
+      
   """
   @type schema_attribute_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  account_takeover_action_type() :: %{
-    "EventAction" => list(any()),
-    "Notify" => boolean()
-  }
+      
+      account_takeover_action_type() :: %{
+        "EventAction" => list(any()),
+        "Notify" => boolean()
+      }
+      
   """
   @type account_takeover_action_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_identity_provider_request() :: %{
-    optional("AttributeMapping") => map(),
-    optional("IdpIdentifiers") => list(String.t()()),
-    optional("ProviderDetails") => map(),
-    required("ProviderName") => String.t(),
-    required("UserPoolId") => String.t()
-  }
+      
+      update_identity_provider_request() :: %{
+        optional("AttributeMapping") => map(),
+        optional("IdpIdentifiers") => list(String.t()()),
+        optional("ProviderDetails") => map(),
+        required("ProviderName") => String.t(),
+        required("UserPoolId") => String.t()
+      }
+      
   """
   @type update_identity_provider_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  context_data_type() :: %{
-    "EncodedData" => String.t(),
-    "HttpHeaders" => list(http_header()()),
-    "IpAddress" => String.t(),
-    "ServerName" => String.t(),
-    "ServerPath" => String.t()
-  }
+      
+      context_data_type() :: %{
+        "EncodedData" => String.t(),
+        "HttpHeaders" => list(http_header()()),
+        "IpAddress" => String.t(),
+        "ServerName" => String.t(),
+        "ServerPath" => String.t()
+      }
+      
   """
   @type context_data_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  admin_get_device_request() :: %{
-    required("DeviceKey") => String.t(),
-    required("UserPoolId") => String.t(),
-    required("Username") => String.t()
-  }
+      
+      admin_get_device_request() :: %{
+        required("DeviceKey") => String.t(),
+        required("UserPoolId") => String.t(),
+        required("Username") => String.t()
+      }
+      
   """
   @type admin_get_device_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_groups_response() :: %{
-    "Groups" => list(group_type()()),
-    "NextToken" => String.t()
-  }
+      
+      list_groups_response() :: %{
+        "Groups" => list(group_type()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_groups_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  admin_initiate_auth_response() :: %{
-    "AuthenticationResult" => authentication_result_type(),
-    "ChallengeName" => list(any()),
-    "ChallengeParameters" => map(),
-    "Session" => String.t()
-  }
+      
+      admin_initiate_auth_response() :: %{
+        "AuthenticationResult" => authentication_result_type(),
+        "ChallengeName" => list(any()),
+        "ChallengeParameters" => map(),
+        "Session" => String.t()
+      }
+      
   """
   @type admin_initiate_auth_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_group_request() :: %{
-    required("GroupName") => String.t(),
-    required("UserPoolId") => String.t()
-  }
+      
+      get_group_request() :: %{
+        required("GroupName") => String.t(),
+        required("UserPoolId") => String.t()
+      }
+      
   """
   @type get_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  confirm_sign_up_request() :: %{
-    optional("AnalyticsMetadata") => analytics_metadata_type(),
-    optional("ClientMetadata") => map(),
-    optional("ForceAliasCreation") => boolean(),
-    optional("SecretHash") => String.t(),
-    optional("UserContextData") => user_context_data_type(),
-    required("ClientId") => String.t(),
-    required("ConfirmationCode") => String.t(),
-    required("Username") => String.t()
-  }
+      
+      confirm_sign_up_request() :: %{
+        optional("AnalyticsMetadata") => analytics_metadata_type(),
+        optional("ClientMetadata") => map(),
+        optional("ForceAliasCreation") => boolean(),
+        optional("SecretHash") => String.t(),
+        optional("UserContextData") => user_context_data_type(),
+        required("ClientId") => String.t(),
+        required("ConfirmationCode") => String.t(),
+        required("Username") => String.t()
+      }
+      
   """
   @type confirm_sign_up_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  respond_to_auth_challenge_response() :: %{
-    "AuthenticationResult" => authentication_result_type(),
-    "ChallengeName" => list(any()),
-    "ChallengeParameters" => map(),
-    "Session" => String.t()
-  }
+      
+      respond_to_auth_challenge_response() :: %{
+        "AuthenticationResult" => authentication_result_type(),
+        "ChallengeName" => list(any()),
+        "ChallengeParameters" => map(),
+        "Session" => String.t()
+      }
+      
   """
   @type respond_to_auth_challenge_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  admin_forget_device_request() :: %{
-    required("DeviceKey") => String.t(),
-    required("UserPoolId") => String.t(),
-    required("Username") => String.t()
-  }
+      
+      admin_forget_device_request() :: %{
+        required("DeviceKey") => String.t(),
+        required("UserPoolId") => String.t(),
+        required("Username") => String.t()
+      }
+      
   """
   @type admin_forget_device_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_groups_request() :: %{
-    optional("Limit") => integer(),
-    optional("NextToken") => String.t(),
-    required("UserPoolId") => String.t()
-  }
+      
+      list_groups_request() :: %{
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t(),
+        required("UserPoolId") => String.t()
+      }
+      
   """
   @type list_groups_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  set_risk_configuration_response() :: %{
-    "RiskConfiguration" => risk_configuration_type()
-  }
+      
+      set_risk_configuration_response() :: %{
+        "RiskConfiguration" => risk_configuration_type()
+      }
+      
   """
   @type set_risk_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_sms_role_trust_relationship_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_sms_role_trust_relationship_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_sms_role_trust_relationship_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  admin_list_user_auth_events_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("UserPoolId") => String.t(),
-    required("Username") => String.t()
-  }
+      
+      admin_list_user_auth_events_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("UserPoolId") => String.t(),
+        required("Username") => String.t()
+      }
+      
   """
   @type admin_list_user_auth_events_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  user_pool_type() :: %{
-    "Status" => list(any()),
-    "EmailConfiguration" => email_configuration_type(),
-    "AutoVerifiedAttributes" => list(list(any())()),
-    "UsernameAttributes" => list(list(any())()),
-    "CreationDate" => non_neg_integer(),
-    "Policies" => user_pool_policy_type(),
-    "EmailVerificationSubject" => String.t(),
-    "UsernameConfiguration" => username_configuration_type(),
-    "SmsConfiguration" => sms_configuration_type(),
-    "LambdaConfig" => lambda_config_type(),
-    "MfaConfiguration" => list(any()),
-    "UserAttributeUpdateSettings" => user_attribute_update_settings_type(),
-    "Id" => String.t(),
-    "VerificationMessageTemplate" => verification_message_template_type(),
-    "CustomDomain" => String.t(),
-    "EmailConfigurationFailure" => String.t(),
-    "UserPoolTags" => map(),
-    "UserPoolAddOns" => user_pool_add_ons_type(),
-    "EmailVerificationMessage" => String.t(),
-    "LastModifiedDate" => non_neg_integer(),
-    "AliasAttributes" => list(list(any())()),
-    "DeletionProtection" => list(any()),
-    "SmsConfigurationFailure" => String.t(),
-    "SmsAuthenticationMessage" => String.t(),
-    "Arn" => String.t(),
-    "SmsVerificationMessage" => String.t(),
-    "Name" => String.t(),
-    "EstimatedNumberOfUsers" => integer(),
-    "DeviceConfiguration" => device_configuration_type(),
-    "Domain" => String.t(),
-    "AdminCreateUserConfig" => admin_create_user_config_type(),
-    "AccountRecoverySetting" => account_recovery_setting_type(),
-    "SchemaAttributes" => list(schema_attribute_type()())
-  }
+      
+      user_pool_type() :: %{
+        "Status" => list(any()),
+        "EmailConfiguration" => email_configuration_type(),
+        "AutoVerifiedAttributes" => list(list(any())()),
+        "UsernameAttributes" => list(list(any())()),
+        "CreationDate" => non_neg_integer(),
+        "Policies" => user_pool_policy_type(),
+        "EmailVerificationSubject" => String.t(),
+        "UsernameConfiguration" => username_configuration_type(),
+        "SmsConfiguration" => sms_configuration_type(),
+        "LambdaConfig" => lambda_config_type(),
+        "MfaConfiguration" => list(any()),
+        "UserAttributeUpdateSettings" => user_attribute_update_settings_type(),
+        "Id" => String.t(),
+        "VerificationMessageTemplate" => verification_message_template_type(),
+        "CustomDomain" => String.t(),
+        "EmailConfigurationFailure" => String.t(),
+        "UserPoolTags" => map(),
+        "UserPoolAddOns" => user_pool_add_ons_type(),
+        "EmailVerificationMessage" => String.t(),
+        "LastModifiedDate" => non_neg_integer(),
+        "AliasAttributes" => list(list(any())()),
+        "DeletionProtection" => list(any()),
+        "SmsConfigurationFailure" => String.t(),
+        "SmsAuthenticationMessage" => String.t(),
+        "Arn" => String.t(),
+        "SmsVerificationMessage" => String.t(),
+        "Name" => String.t(),
+        "EstimatedNumberOfUsers" => integer(),
+        "DeviceConfiguration" => device_configuration_type(),
+        "Domain" => String.t(),
+        "AdminCreateUserConfig" => admin_create_user_config_type(),
+        "AccountRecoverySetting" => account_recovery_setting_type(),
+        "SchemaAttributes" => list(schema_attribute_type()())
+      }
+      
   """
   @type user_pool_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  precondition_not_met_exception() :: %{
-    "message" => String.t()
-  }
+      
+      precondition_not_met_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type precondition_not_met_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  admin_delete_user_attributes_response() :: %{
-
-  }
+      
+      admin_delete_user_attributes_response() :: %{}
+      
   """
-  @type admin_delete_user_attributes_response() :: %{String.t() => any()}
+  @type admin_delete_user_attributes_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  username_configuration_type() :: %{
-    "CaseSensitive" => boolean()
-  }
+      
+      username_configuration_type() :: %{
+        "CaseSensitive" => boolean()
+      }
+      
   """
   @type username_configuration_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  account_takeover_actions_type() :: %{
-    "HighAction" => account_takeover_action_type(),
-    "LowAction" => account_takeover_action_type(),
-    "MediumAction" => account_takeover_action_type()
-  }
+      
+      account_takeover_actions_type() :: %{
+        "HighAction" => account_takeover_action_type(),
+        "LowAction" => account_takeover_action_type(),
+        "MediumAction" => account_takeover_action_type()
+      }
+      
   """
   @type account_takeover_actions_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  admin_set_user_mfa_preference_request() :: %{
-    optional("SMSMfaSettings") => sms_mfa_settings_type(),
-    optional("SoftwareTokenMfaSettings") => software_token_mfa_settings_type(),
-    required("UserPoolId") => String.t(),
-    required("Username") => String.t()
-  }
+      
+      admin_set_user_mfa_preference_request() :: %{
+        optional("SMSMfaSettings") => sms_mfa_settings_type(),
+        optional("SoftwareTokenMfaSettings") => software_token_mfa_settings_type(),
+        required("UserPoolId") => String.t(),
+        required("Username") => String.t()
+      }
+      
   """
   @type admin_set_user_mfa_preference_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stop_user_import_job_request() :: %{
-    required("JobId") => String.t(),
-    required("UserPoolId") => String.t()
-  }
+      
+      stop_user_import_job_request() :: %{
+        required("JobId") => String.t(),
+        required("UserPoolId") => String.t()
+      }
+      
   """
   @type stop_user_import_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_signing_certificate_request() :: %{
-    required("UserPoolId") => String.t()
-  }
+      
+      get_signing_certificate_request() :: %{
+        required("UserPoolId") => String.t()
+      }
+      
   """
   @type get_signing_certificate_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_password_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_password_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_password_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_group_response() :: %{
-    "Group" => group_type()
-  }
+      
+      update_group_response() :: %{
+        "Group" => group_type()
+      }
+      
   """
   @type update_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  risk_configuration_type() :: %{
-    "AccountTakeoverRiskConfiguration" => account_takeover_risk_configuration_type(),
-    "ClientId" => String.t(),
-    "CompromisedCredentialsRiskConfiguration" => compromised_credentials_risk_configuration_type(),
-    "LastModifiedDate" => non_neg_integer(),
-    "RiskExceptionConfiguration" => risk_exception_configuration_type(),
-    "UserPoolId" => String.t()
-  }
+      
+      risk_configuration_type() :: %{
+        "AccountTakeoverRiskConfiguration" => account_takeover_risk_configuration_type(),
+        "ClientId" => String.t(),
+        "CompromisedCredentialsRiskConfiguration" => compromised_credentials_risk_configuration_type(),
+        "LastModifiedDate" => non_neg_integer(),
+        "RiskExceptionConfiguration" => risk_exception_configuration_type(),
+        "UserPoolId" => String.t()
+      }
+      
   """
   @type risk_configuration_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  verification_message_template_type() :: %{
-    "DefaultEmailOption" => list(any()),
-    "EmailMessage" => String.t(),
-    "EmailMessageByLink" => String.t(),
-    "EmailSubject" => String.t(),
-    "EmailSubjectByLink" => String.t(),
-    "SmsMessage" => String.t()
-  }
+      
+      verification_message_template_type() :: %{
+        "DefaultEmailOption" => list(any()),
+        "EmailMessage" => String.t(),
+        "EmailMessageByLink" => String.t(),
+        "EmailSubject" => String.t(),
+        "EmailSubjectByLink" => String.t(),
+        "SmsMessage" => String.t()
+      }
+      
   """
   @type verification_message_template_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  analytics_configuration_type() :: %{
-    "ApplicationArn" => String.t(),
-    "ApplicationId" => String.t(),
-    "ExternalId" => String.t(),
-    "RoleArn" => String.t(),
-    "UserDataShared" => boolean()
-  }
+      
+      analytics_configuration_type() :: %{
+        "ApplicationArn" => String.t(),
+        "ApplicationId" => String.t(),
+        "ExternalId" => String.t(),
+        "RoleArn" => String.t(),
+        "UserDataShared" => boolean()
+      }
+      
   """
   @type analytics_configuration_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_group_response() :: %{
-    "Group" => group_type()
-  }
+      
+      create_group_response() :: %{
+        "Group" => group_type()
+      }
+      
   """
   @type create_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  mfa_method_not_found_exception() :: %{
-    "message" => String.t()
-  }
+      
+      mfa_method_not_found_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type mfa_method_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  internal_error_exception() :: %{
-    "message" => String.t()
-  }
+      
+      internal_error_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type internal_error_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  sms_configuration_type() :: %{
-    "ExternalId" => String.t(),
-    "SnsCallerArn" => String.t(),
-    "SnsRegion" => String.t()
-  }
+      
+      sms_configuration_type() :: %{
+        "ExternalId" => String.t(),
+        "SnsCallerArn" => String.t(),
+        "SnsRegion" => String.t()
+      }
+      
   """
   @type sms_configuration_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_user_pool_clients_response() :: %{
-    "NextToken" => String.t(),
-    "UserPoolClients" => list(user_pool_client_description()())
-  }
+      
+      list_user_pool_clients_response() :: %{
+        "NextToken" => String.t(),
+        "UserPoolClients" => list(user_pool_client_description()())
+      }
+      
   """
   @type list_user_pool_clients_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  provider_description() :: %{
-    "CreationDate" => non_neg_integer(),
-    "LastModifiedDate" => non_neg_integer(),
-    "ProviderName" => String.t(),
-    "ProviderType" => list(any())
-  }
+      
+      provider_description() :: %{
+        "CreationDate" => non_neg_integer(),
+        "LastModifiedDate" => non_neg_integer(),
+        "ProviderName" => String.t(),
+        "ProviderType" => list(any())
+      }
+      
   """
   @type provider_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  admin_delete_user_request() :: %{
-    required("UserPoolId") => String.t(),
-    required("Username") => String.t()
-  }
+      
+      admin_delete_user_request() :: %{
+        required("UserPoolId") => String.t(),
+        required("Username") => String.t()
+      }
+      
   """
   @type admin_delete_user_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  set_user_mfa_preference_request() :: %{
-    optional("SMSMfaSettings") => sms_mfa_settings_type(),
-    optional("SoftwareTokenMfaSettings") => software_token_mfa_settings_type(),
-    required("AccessToken") => String.t()
-  }
+      
+      set_user_mfa_preference_request() :: %{
+        optional("SMSMfaSettings") => sms_mfa_settings_type(),
+        optional("SoftwareTokenMfaSettings") => software_token_mfa_settings_type(),
+        required("AccessToken") => String.t()
+      }
+      
   """
   @type set_user_mfa_preference_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  unexpected_lambda_exception() :: %{
-    "message" => String.t()
-  }
+      
+      unexpected_lambda_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type unexpected_lambda_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_device_response() :: %{
-    "Device" => device_type()
-  }
+      
+      get_device_response() :: %{
+        "Device" => device_type()
+      }
+      
   """
   @type get_device_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_user_attribute_verification_code_response() :: %{
-    "CodeDeliveryDetails" => code_delivery_details_type()
-  }
+      
+      get_user_attribute_verification_code_response() :: %{
+        "CodeDeliveryDetails" => code_delivery_details_type()
+      }
+      
   """
   @type get_user_attribute_verification_code_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_resource_servers_response() :: %{
-    "NextToken" => String.t(),
-    "ResourceServers" => list(resource_server_type()())
-  }
+      
+      list_resource_servers_response() :: %{
+        "NextToken" => String.t(),
+        "ResourceServers" => list(resource_server_type()())
+      }
+      
   """
   @type list_resource_servers_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_user_import_job_request() :: %{
-    required("JobId") => String.t(),
-    required("UserPoolId") => String.t()
-  }
+      
+      start_user_import_job_request() :: %{
+        required("JobId") => String.t(),
+        required("UserPoolId") => String.t()
+      }
+      
   """
   @type start_user_import_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  domain_description_type() :: %{
-    "AWSAccountId" => String.t(),
-    "CloudFrontDistribution" => String.t(),
-    "CustomDomainConfig" => custom_domain_config_type(),
-    "Domain" => String.t(),
-    "S3Bucket" => String.t(),
-    "Status" => list(any()),
-    "UserPoolId" => String.t(),
-    "Version" => String.t()
-  }
+      
+      domain_description_type() :: %{
+        "AWSAccountId" => String.t(),
+        "CloudFrontDistribution" => String.t(),
+        "CustomDomainConfig" => custom_domain_config_type(),
+        "Domain" => String.t(),
+        "S3Bucket" => String.t(),
+        "Status" => list(any()),
+        "UserPoolId" => String.t(),
+        "Version" => String.t()
+      }
+      
   """
   @type domain_description_type() :: %{String.t() => any()}
+
+  @type add_custom_attributes_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | user_import_in_progress_exception()
+
+  @type admin_add_user_to_group_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | user_not_found_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type admin_confirm_sign_up_errors() ::
+          unexpected_lambda_exception()
+          | internal_error_exception()
+          | limit_exceeded_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | user_lambda_validation_exception()
+          | invalid_lambda_response_exception()
+          | user_not_found_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | too_many_failed_attempts_exception()
+
+  @type admin_create_user_errors() ::
+          unexpected_lambda_exception()
+          | internal_error_exception()
+          | invalid_password_exception()
+          | precondition_not_met_exception()
+          | invalid_sms_role_trust_relationship_exception()
+          | code_delivery_failure_exception()
+          | username_exists_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | user_lambda_validation_exception()
+          | invalid_lambda_response_exception()
+          | user_not_found_exception()
+          | resource_not_found_exception()
+          | invalid_sms_role_access_policy_exception()
+          | too_many_requests_exception()
+          | unsupported_user_state_exception()
+
+  @type admin_delete_user_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | user_not_found_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type admin_delete_user_attributes_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | user_not_found_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type admin_disable_provider_for_user_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | user_not_found_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | alias_exists_exception()
+
+  @type admin_disable_user_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | user_not_found_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type admin_enable_user_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | user_not_found_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type admin_forget_device_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | invalid_user_pool_configuration_exception()
+          | not_authorized_exception()
+          | user_not_found_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type admin_get_device_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | invalid_user_pool_configuration_exception()
+          | not_authorized_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type admin_get_user_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | user_not_found_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type admin_initiate_auth_errors() ::
+          unexpected_lambda_exception()
+          | internal_error_exception()
+          | mfa_method_not_found_exception()
+          | invalid_sms_role_trust_relationship_exception()
+          | invalid_parameter_exception()
+          | invalid_user_pool_configuration_exception()
+          | not_authorized_exception()
+          | user_lambda_validation_exception()
+          | invalid_lambda_response_exception()
+          | user_not_found_exception()
+          | password_reset_required_exception()
+          | resource_not_found_exception()
+          | invalid_sms_role_access_policy_exception()
+          | too_many_requests_exception()
+          | user_not_confirmed_exception()
+
+  @type admin_link_provider_for_user_errors() ::
+          internal_error_exception()
+          | limit_exceeded_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | user_not_found_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | alias_exists_exception()
+
+  @type admin_list_devices_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | invalid_user_pool_configuration_exception()
+          | not_authorized_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type admin_list_groups_for_user_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | user_not_found_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type admin_list_user_auth_events_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | user_pool_add_on_not_enabled_exception()
+          | not_authorized_exception()
+          | user_not_found_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type admin_remove_user_from_group_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | user_not_found_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type admin_reset_user_password_errors() ::
+          unexpected_lambda_exception()
+          | internal_error_exception()
+          | invalid_sms_role_trust_relationship_exception()
+          | limit_exceeded_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | user_lambda_validation_exception()
+          | invalid_lambda_response_exception()
+          | user_not_found_exception()
+          | resource_not_found_exception()
+          | invalid_sms_role_access_policy_exception()
+          | too_many_requests_exception()
+          | invalid_email_role_access_policy_exception()
+
+  @type admin_respond_to_auth_challenge_errors() ::
+          unexpected_lambda_exception()
+          | internal_error_exception()
+          | mfa_method_not_found_exception()
+          | invalid_password_exception()
+          | invalid_sms_role_trust_relationship_exception()
+          | software_token_mfa_not_found_exception()
+          | invalid_parameter_exception()
+          | invalid_user_pool_configuration_exception()
+          | not_authorized_exception()
+          | user_lambda_validation_exception()
+          | expired_code_exception()
+          | invalid_lambda_response_exception()
+          | user_not_found_exception()
+          | password_reset_required_exception()
+          | resource_not_found_exception()
+          | code_mismatch_exception()
+          | invalid_sms_role_access_policy_exception()
+          | too_many_requests_exception()
+          | alias_exists_exception()
+          | user_not_confirmed_exception()
+
+  @type admin_set_user_mfa_preference_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | user_not_found_exception()
+          | password_reset_required_exception()
+          | resource_not_found_exception()
+          | user_not_confirmed_exception()
+
+  @type admin_set_user_password_errors() ::
+          internal_error_exception()
+          | invalid_password_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | user_not_found_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type admin_set_user_settings_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | user_not_found_exception()
+          | resource_not_found_exception()
+
+  @type admin_update_auth_event_feedback_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | user_pool_add_on_not_enabled_exception()
+          | not_authorized_exception()
+          | user_not_found_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type admin_update_device_status_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | invalid_user_pool_configuration_exception()
+          | not_authorized_exception()
+          | user_not_found_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type admin_update_user_attributes_errors() ::
+          unexpected_lambda_exception()
+          | internal_error_exception()
+          | invalid_sms_role_trust_relationship_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | user_lambda_validation_exception()
+          | invalid_lambda_response_exception()
+          | user_not_found_exception()
+          | resource_not_found_exception()
+          | invalid_sms_role_access_policy_exception()
+          | too_many_requests_exception()
+          | alias_exists_exception()
+          | invalid_email_role_access_policy_exception()
+
+  @type admin_user_global_sign_out_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | user_not_found_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type associate_software_token_errors() ::
+          internal_error_exception()
+          | concurrent_modification_exception()
+          | software_token_mfa_not_found_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | resource_not_found_exception()
+          | forbidden_exception()
+
+  @type change_password_errors() ::
+          internal_error_exception()
+          | invalid_password_exception()
+          | limit_exceeded_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | user_not_found_exception()
+          | password_reset_required_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+          | user_not_confirmed_exception()
+
+  @type confirm_device_errors() ::
+          internal_error_exception()
+          | invalid_password_exception()
+          | username_exists_exception()
+          | invalid_parameter_exception()
+          | invalid_user_pool_configuration_exception()
+          | not_authorized_exception()
+          | invalid_lambda_response_exception()
+          | user_not_found_exception()
+          | password_reset_required_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+          | user_not_confirmed_exception()
+
+  @type confirm_forgot_password_errors() ::
+          unexpected_lambda_exception()
+          | internal_error_exception()
+          | invalid_password_exception()
+          | limit_exceeded_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | user_lambda_validation_exception()
+          | expired_code_exception()
+          | invalid_lambda_response_exception()
+          | user_not_found_exception()
+          | resource_not_found_exception()
+          | code_mismatch_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+          | user_not_confirmed_exception()
+          | too_many_failed_attempts_exception()
+
+  @type confirm_sign_up_errors() ::
+          unexpected_lambda_exception()
+          | internal_error_exception()
+          | limit_exceeded_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | user_lambda_validation_exception()
+          | expired_code_exception()
+          | invalid_lambda_response_exception()
+          | user_not_found_exception()
+          | resource_not_found_exception()
+          | code_mismatch_exception()
+          | too_many_requests_exception()
+          | alias_exists_exception()
+          | forbidden_exception()
+          | too_many_failed_attempts_exception()
+
+  @type create_group_errors() ::
+          internal_error_exception()
+          | limit_exceeded_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | group_exists_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type create_identity_provider_errors() ::
+          internal_error_exception()
+          | limit_exceeded_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | duplicate_provider_exception()
+
+  @type create_resource_server_errors() ::
+          internal_error_exception()
+          | limit_exceeded_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type create_user_import_job_errors() ::
+          internal_error_exception()
+          | precondition_not_met_exception()
+          | limit_exceeded_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type create_user_pool_errors() ::
+          internal_error_exception()
+          | invalid_sms_role_trust_relationship_exception()
+          | limit_exceeded_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | user_pool_tagging_exception()
+          | invalid_sms_role_access_policy_exception()
+          | too_many_requests_exception()
+          | invalid_email_role_access_policy_exception()
+
+  @type create_user_pool_client_errors() ::
+          internal_error_exception()
+          | limit_exceeded_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | invalid_o_auth_flow_exception()
+          | scope_does_not_exist_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type create_user_pool_domain_errors() ::
+          internal_error_exception()
+          | limit_exceeded_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | resource_not_found_exception()
+
+  @type delete_group_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type delete_identity_provider_errors() ::
+          internal_error_exception()
+          | concurrent_modification_exception()
+          | invalid_parameter_exception()
+          | unsupported_identity_provider_exception()
+          | not_authorized_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type delete_resource_server_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type delete_user_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | user_not_found_exception()
+          | password_reset_required_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+          | user_not_confirmed_exception()
+
+  @type delete_user_attributes_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | user_not_found_exception()
+          | password_reset_required_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+          | user_not_confirmed_exception()
+
+  @type delete_user_pool_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | user_import_in_progress_exception()
+
+  @type delete_user_pool_client_errors() ::
+          internal_error_exception()
+          | concurrent_modification_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type delete_user_pool_domain_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | resource_not_found_exception()
+
+  @type describe_identity_provider_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type describe_resource_server_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type describe_risk_configuration_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | user_pool_add_on_not_enabled_exception()
+          | not_authorized_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type describe_user_import_job_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type describe_user_pool_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | user_pool_tagging_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type describe_user_pool_client_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type describe_user_pool_domain_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | resource_not_found_exception()
+
+  @type forget_device_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | invalid_user_pool_configuration_exception()
+          | not_authorized_exception()
+          | user_not_found_exception()
+          | password_reset_required_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+          | user_not_confirmed_exception()
+
+  @type forgot_password_errors() ::
+          unexpected_lambda_exception()
+          | internal_error_exception()
+          | invalid_sms_role_trust_relationship_exception()
+          | code_delivery_failure_exception()
+          | limit_exceeded_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | user_lambda_validation_exception()
+          | invalid_lambda_response_exception()
+          | user_not_found_exception()
+          | resource_not_found_exception()
+          | invalid_sms_role_access_policy_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+          | invalid_email_role_access_policy_exception()
+
+  @type get_csv_header_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type get_device_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | invalid_user_pool_configuration_exception()
+          | not_authorized_exception()
+          | user_not_found_exception()
+          | password_reset_required_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+          | user_not_confirmed_exception()
+
+  @type get_group_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type get_identity_provider_by_identifier_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type get_log_delivery_configuration_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type get_signing_certificate_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | resource_not_found_exception()
+
+  @type get_ui_customization_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type get_user_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | user_not_found_exception()
+          | password_reset_required_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+          | user_not_confirmed_exception()
+
+  @type get_user_attribute_verification_code_errors() ::
+          unexpected_lambda_exception()
+          | internal_error_exception()
+          | invalid_sms_role_trust_relationship_exception()
+          | code_delivery_failure_exception()
+          | limit_exceeded_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | user_lambda_validation_exception()
+          | invalid_lambda_response_exception()
+          | user_not_found_exception()
+          | password_reset_required_exception()
+          | resource_not_found_exception()
+          | invalid_sms_role_access_policy_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+          | invalid_email_role_access_policy_exception()
+          | user_not_confirmed_exception()
+
+  @type get_user_pool_mfa_config_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type global_sign_out_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | password_reset_required_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+          | user_not_confirmed_exception()
+
+  @type initiate_auth_errors() ::
+          unexpected_lambda_exception()
+          | internal_error_exception()
+          | invalid_sms_role_trust_relationship_exception()
+          | invalid_parameter_exception()
+          | invalid_user_pool_configuration_exception()
+          | not_authorized_exception()
+          | user_lambda_validation_exception()
+          | invalid_lambda_response_exception()
+          | user_not_found_exception()
+          | password_reset_required_exception()
+          | resource_not_found_exception()
+          | invalid_sms_role_access_policy_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+          | user_not_confirmed_exception()
+
+  @type list_devices_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | invalid_user_pool_configuration_exception()
+          | not_authorized_exception()
+          | user_not_found_exception()
+          | password_reset_required_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+          | user_not_confirmed_exception()
+
+  @type list_groups_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type list_identity_providers_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type list_resource_servers_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type list_tags_for_resource_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type list_user_import_jobs_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type list_user_pool_clients_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type list_user_pools_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | too_many_requests_exception()
+
+  @type list_users_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type list_users_in_group_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type resend_confirmation_code_errors() ::
+          unexpected_lambda_exception()
+          | internal_error_exception()
+          | invalid_sms_role_trust_relationship_exception()
+          | code_delivery_failure_exception()
+          | limit_exceeded_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | user_lambda_validation_exception()
+          | invalid_lambda_response_exception()
+          | user_not_found_exception()
+          | resource_not_found_exception()
+          | invalid_sms_role_access_policy_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+          | invalid_email_role_access_policy_exception()
+
+  @type respond_to_auth_challenge_errors() ::
+          unexpected_lambda_exception()
+          | internal_error_exception()
+          | mfa_method_not_found_exception()
+          | invalid_password_exception()
+          | invalid_sms_role_trust_relationship_exception()
+          | software_token_mfa_not_found_exception()
+          | invalid_parameter_exception()
+          | invalid_user_pool_configuration_exception()
+          | not_authorized_exception()
+          | user_lambda_validation_exception()
+          | expired_code_exception()
+          | invalid_lambda_response_exception()
+          | user_not_found_exception()
+          | password_reset_required_exception()
+          | resource_not_found_exception()
+          | code_mismatch_exception()
+          | invalid_sms_role_access_policy_exception()
+          | too_many_requests_exception()
+          | alias_exists_exception()
+          | forbidden_exception()
+          | user_not_confirmed_exception()
+
+  @type revoke_token_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+          | unauthorized_exception()
+          | unsupported_operation_exception()
+          | unsupported_token_type_exception()
+
+  @type set_log_delivery_configuration_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type set_risk_configuration_errors() ::
+          internal_error_exception()
+          | code_delivery_failure_exception()
+          | invalid_parameter_exception()
+          | user_pool_add_on_not_enabled_exception()
+          | not_authorized_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | invalid_email_role_access_policy_exception()
+
+  @type set_ui_customization_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type set_user_mfa_preference_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | user_not_found_exception()
+          | password_reset_required_exception()
+          | resource_not_found_exception()
+          | forbidden_exception()
+          | user_not_confirmed_exception()
+
+  @type set_user_pool_mfa_config_errors() ::
+          internal_error_exception()
+          | invalid_sms_role_trust_relationship_exception()
+          | concurrent_modification_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | resource_not_found_exception()
+          | invalid_sms_role_access_policy_exception()
+          | too_many_requests_exception()
+
+  @type set_user_settings_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | user_not_found_exception()
+          | password_reset_required_exception()
+          | resource_not_found_exception()
+          | forbidden_exception()
+          | user_not_confirmed_exception()
+
+  @type sign_up_errors() ::
+          unexpected_lambda_exception()
+          | internal_error_exception()
+          | invalid_password_exception()
+          | invalid_sms_role_trust_relationship_exception()
+          | code_delivery_failure_exception()
+          | username_exists_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | user_lambda_validation_exception()
+          | invalid_lambda_response_exception()
+          | resource_not_found_exception()
+          | invalid_sms_role_access_policy_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+          | invalid_email_role_access_policy_exception()
+
+  @type start_user_import_job_errors() ::
+          internal_error_exception()
+          | precondition_not_met_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type stop_user_import_job_errors() ::
+          internal_error_exception()
+          | precondition_not_met_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type tag_resource_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type untag_resource_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type update_auth_event_feedback_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | user_pool_add_on_not_enabled_exception()
+          | not_authorized_exception()
+          | user_not_found_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type update_device_status_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | invalid_user_pool_configuration_exception()
+          | not_authorized_exception()
+          | user_not_found_exception()
+          | password_reset_required_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+          | user_not_confirmed_exception()
+
+  @type update_group_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type update_identity_provider_errors() ::
+          internal_error_exception()
+          | concurrent_modification_exception()
+          | invalid_parameter_exception()
+          | unsupported_identity_provider_exception()
+          | not_authorized_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type update_resource_server_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type update_user_attributes_errors() ::
+          unexpected_lambda_exception()
+          | internal_error_exception()
+          | invalid_sms_role_trust_relationship_exception()
+          | code_delivery_failure_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | user_lambda_validation_exception()
+          | expired_code_exception()
+          | invalid_lambda_response_exception()
+          | user_not_found_exception()
+          | password_reset_required_exception()
+          | resource_not_found_exception()
+          | code_mismatch_exception()
+          | invalid_sms_role_access_policy_exception()
+          | too_many_requests_exception()
+          | alias_exists_exception()
+          | forbidden_exception()
+          | invalid_email_role_access_policy_exception()
+          | user_not_confirmed_exception()
+
+  @type update_user_pool_errors() ::
+          internal_error_exception()
+          | invalid_sms_role_trust_relationship_exception()
+          | concurrent_modification_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | user_pool_tagging_exception()
+          | resource_not_found_exception()
+          | invalid_sms_role_access_policy_exception()
+          | too_many_requests_exception()
+          | invalid_email_role_access_policy_exception()
+          | user_import_in_progress_exception()
+
+  @type update_user_pool_client_errors() ::
+          internal_error_exception()
+          | concurrent_modification_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | invalid_o_auth_flow_exception()
+          | scope_does_not_exist_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type update_user_pool_domain_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type verify_software_token_errors() ::
+          internal_error_exception()
+          | enable_software_token_mfa_exception()
+          | software_token_mfa_not_found_exception()
+          | invalid_parameter_exception()
+          | invalid_user_pool_configuration_exception()
+          | not_authorized_exception()
+          | user_not_found_exception()
+          | password_reset_required_exception()
+          | resource_not_found_exception()
+          | code_mismatch_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+          | user_not_confirmed_exception()
+
+  @type verify_user_attribute_errors() ::
+          internal_error_exception()
+          | limit_exceeded_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | expired_code_exception()
+          | user_not_found_exception()
+          | password_reset_required_exception()
+          | resource_not_found_exception()
+          | code_mismatch_exception()
+          | too_many_requests_exception()
+          | alias_exists_exception()
+          | forbidden_exception()
+          | user_not_confirmed_exception()
 
   def metadata do
     %{
@@ -3454,12 +5026,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec add_custom_attributes(map(), add_custom_attributes_request(), list()) ::
           {:ok, add_custom_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, user_import_in_progress_exception()}
+          | {:error, add_custom_attributes_errors()}
   def add_custom_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3491,12 +5058,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec admin_add_user_to_group(map(), admin_add_user_to_group_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, user_not_found_exception()}
+          | {:error, admin_add_user_to_group_errors()}
   def admin_add_user_to_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3541,17 +5103,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec admin_confirm_sign_up(map(), admin_confirm_sign_up_request(), list()) ::
           {:ok, admin_confirm_sign_up_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_lambda_response_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_failed_attempts_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unexpected_lambda_exception()}
-          | {:error, user_lambda_validation_exception()}
-          | {:error, user_not_found_exception()}
+          | {:error, admin_confirm_sign_up_errors()}
   def admin_confirm_sign_up(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3619,22 +5171,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec admin_create_user(map(), admin_create_user_request(), list()) ::
           {:ok, admin_create_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, code_delivery_failure_exception()}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_lambda_response_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, invalid_password_exception()}
-          | {:error, invalid_sms_role_access_policy_exception()}
-          | {:error, invalid_sms_role_trust_relationship_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, precondition_not_met_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unexpected_lambda_exception()}
-          | {:error, unsupported_user_state_exception()}
-          | {:error, user_lambda_validation_exception()}
-          | {:error, username_exists_exception()}
-          | {:error, user_not_found_exception()}
+          | {:error, admin_create_user_errors()}
   def admin_create_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3664,12 +5201,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec admin_delete_user(map(), admin_delete_user_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, user_not_found_exception()}
+          | {:error, admin_delete_user_errors()}
   def admin_delete_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3700,12 +5232,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec admin_delete_user_attributes(map(), admin_delete_user_attributes_request(), list()) ::
           {:ok, admin_delete_user_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, user_not_found_exception()}
+          | {:error, admin_delete_user_attributes_errors()}
   def admin_delete_user_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3774,13 +5301,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec admin_disable_provider_for_user(map(), admin_disable_provider_for_user_request(), list()) ::
           {:ok, admin_disable_provider_for_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, alias_exists_exception()}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, user_not_found_exception()}
+          | {:error, admin_disable_provider_for_user_errors()}
   def admin_disable_provider_for_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3812,12 +5333,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec admin_disable_user(map(), admin_disable_user_request(), list()) ::
           {:ok, admin_disable_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, user_not_found_exception()}
+          | {:error, admin_disable_user_errors()}
   def admin_disable_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3847,12 +5363,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec admin_enable_user(map(), admin_enable_user_request(), list()) ::
           {:ok, admin_enable_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, user_not_found_exception()}
+          | {:error, admin_enable_user_errors()}
   def admin_enable_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3880,13 +5391,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec admin_forget_device(map(), admin_forget_device_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, invalid_user_pool_configuration_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, user_not_found_exception()}
+          | {:error, admin_forget_device_errors()}
   def admin_forget_device(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3914,12 +5419,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec admin_get_device(map(), admin_get_device_request(), list()) ::
           {:ok, admin_get_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, invalid_user_pool_configuration_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, admin_get_device_errors()}
   def admin_get_device(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3950,12 +5450,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec admin_get_user(map(), admin_get_user_request(), list()) ::
           {:ok, admin_get_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, user_not_found_exception()}
+          | {:error, admin_get_user_errors()}
   def admin_get_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4009,21 +5504,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec admin_initiate_auth(map(), admin_initiate_auth_request(), list()) ::
           {:ok, admin_initiate_auth_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_lambda_response_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, invalid_sms_role_access_policy_exception()}
-          | {:error, invalid_sms_role_trust_relationship_exception()}
-          | {:error, invalid_user_pool_configuration_exception()}
-          | {:error, mfa_method_not_found_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, password_reset_required_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unexpected_lambda_exception()}
-          | {:error, user_lambda_validation_exception()}
-          | {:error, user_not_confirmed_exception()}
-          | {:error, user_not_found_exception()}
+          | {:error, admin_initiate_auth_errors()}
   def admin_initiate_auth(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4071,14 +5552,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec admin_link_provider_for_user(map(), admin_link_provider_for_user_request(), list()) ::
           {:ok, admin_link_provider_for_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, alias_exists_exception()}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, user_not_found_exception()}
+          | {:error, admin_link_provider_for_user_errors()}
   def admin_link_provider_for_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4106,12 +5580,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec admin_list_devices(map(), admin_list_devices_request(), list()) ::
           {:ok, admin_list_devices_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, invalid_user_pool_configuration_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, admin_list_devices_errors()}
   def admin_list_devices(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4139,12 +5608,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec admin_list_groups_for_user(map(), admin_list_groups_for_user_request(), list()) ::
           {:ok, admin_list_groups_for_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, user_not_found_exception()}
+          | {:error, admin_list_groups_for_user_errors()}
   def admin_list_groups_for_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4174,13 +5638,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec admin_list_user_auth_events(map(), admin_list_user_auth_events_request(), list()) ::
           {:ok, admin_list_user_auth_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, user_not_found_exception()}
-          | {:error, user_pool_add_on_not_enabled_exception()}
+          | {:error, admin_list_user_auth_events_errors()}
   def admin_list_user_auth_events(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4208,12 +5666,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec admin_remove_user_from_group(map(), admin_remove_user_from_group_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, user_not_found_exception()}
+          | {:error, admin_remove_user_from_group_errors()}
   def admin_remove_user_from_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4290,19 +5743,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec admin_reset_user_password(map(), admin_reset_user_password_request(), list()) ::
           {:ok, admin_reset_user_password_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_email_role_access_policy_exception()}
-          | {:error, invalid_lambda_response_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, invalid_sms_role_access_policy_exception()}
-          | {:error, invalid_sms_role_trust_relationship_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unexpected_lambda_exception()}
-          | {:error, user_lambda_validation_exception()}
-          | {:error, user_not_found_exception()}
+          | {:error, admin_reset_user_password_errors()}
   def admin_reset_user_password(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4368,26 +5809,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec admin_respond_to_auth_challenge(map(), admin_respond_to_auth_challenge_request(), list()) ::
           {:ok, admin_respond_to_auth_challenge_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, alias_exists_exception()}
-          | {:error, code_mismatch_exception()}
-          | {:error, expired_code_exception()}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_lambda_response_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, invalid_password_exception()}
-          | {:error, invalid_sms_role_access_policy_exception()}
-          | {:error, invalid_sms_role_trust_relationship_exception()}
-          | {:error, invalid_user_pool_configuration_exception()}
-          | {:error, mfa_method_not_found_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, password_reset_required_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, software_token_mfa_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unexpected_lambda_exception()}
-          | {:error, user_lambda_validation_exception()}
-          | {:error, user_not_confirmed_exception()}
-          | {:error, user_not_found_exception()}
+          | {:error, admin_respond_to_auth_challenge_errors()}
   def admin_respond_to_auth_challenge(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4423,13 +5845,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec admin_set_user_mfa_preference(map(), admin_set_user_mfa_preference_request(), list()) ::
           {:ok, admin_set_user_mfa_preference_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, password_reset_required_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, user_not_confirmed_exception()}
-          | {:error, user_not_found_exception()}
+          | {:error, admin_set_user_mfa_preference_errors()}
   def admin_set_user_mfa_preference(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4488,13 +5904,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec admin_set_user_password(map(), admin_set_user_password_request(), list()) ::
           {:ok, admin_set_user_password_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, invalid_password_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, user_not_found_exception()}
+          | {:error, admin_set_user_password_errors()}
   def admin_set_user_password(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4529,11 +5939,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec admin_set_user_settings(map(), admin_set_user_settings_request(), list()) ::
           {:ok, admin_set_user_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, user_not_found_exception()}
+          | {:error, admin_set_user_settings_errors()}
   def admin_set_user_settings(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4570,13 +5976,7 @@ defmodule AWS.CognitoIdentityProvider do
         ) ::
           {:ok, admin_update_auth_event_feedback_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, user_not_found_exception()}
-          | {:error, user_pool_add_on_not_enabled_exception()}
+          | {:error, admin_update_auth_event_feedback_errors()}
   def admin_update_auth_event_feedback(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4604,13 +6004,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec admin_update_device_status(map(), admin_update_device_status_request(), list()) ::
           {:ok, admin_update_device_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, invalid_user_pool_configuration_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, user_not_found_exception()}
+          | {:error, admin_update_device_status_errors()}
   def admin_update_device_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4676,19 +6070,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec admin_update_user_attributes(map(), admin_update_user_attributes_request(), list()) ::
           {:ok, admin_update_user_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, alias_exists_exception()}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_email_role_access_policy_exception()}
-          | {:error, invalid_lambda_response_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, invalid_sms_role_access_policy_exception()}
-          | {:error, invalid_sms_role_trust_relationship_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unexpected_lambda_exception()}
-          | {:error, user_lambda_validation_exception()}
-          | {:error, user_not_found_exception()}
+          | {:error, admin_update_user_attributes_errors()}
   def admin_update_user_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4746,12 +6128,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec admin_user_global_sign_out(map(), admin_user_global_sign_out_request(), list()) ::
           {:ok, admin_user_global_sign_out_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, user_not_found_exception()}
+          | {:error, admin_user_global_sign_out_errors()}
   def admin_user_global_sign_out(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4798,13 +6175,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec associate_software_token(map(), associate_software_token_request(), list()) ::
           {:ok, associate_software_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, software_token_mfa_not_found_exception()}
+          | {:error, associate_software_token_errors()}
   def associate_software_token(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4828,17 +6199,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec change_password(map(), change_password_request(), list()) ::
           {:ok, change_password_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, forbidden_exception()}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, invalid_password_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, password_reset_required_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, user_not_confirmed_exception()}
-          | {:error, user_not_found_exception()}
+          | {:error, change_password_errors()}
   def change_password(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4866,19 +6227,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec confirm_device(map(), confirm_device_request(), list()) ::
           {:ok, confirm_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, forbidden_exception()}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_lambda_response_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, invalid_password_exception()}
-          | {:error, invalid_user_pool_configuration_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, password_reset_required_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, username_exists_exception()}
-          | {:error, user_not_confirmed_exception()}
-          | {:error, user_not_found_exception()}
+          | {:error, confirm_device_errors()}
   def confirm_device(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4899,22 +6248,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec confirm_forgot_password(map(), confirm_forgot_password_request(), list()) ::
           {:ok, confirm_forgot_password_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, code_mismatch_exception()}
-          | {:error, expired_code_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_lambda_response_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, invalid_password_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_failed_attempts_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unexpected_lambda_exception()}
-          | {:error, user_lambda_validation_exception()}
-          | {:error, user_not_confirmed_exception()}
-          | {:error, user_not_found_exception()}
+          | {:error, confirm_forgot_password_errors()}
   def confirm_forgot_password(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4957,21 +6291,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec confirm_sign_up(map(), confirm_sign_up_request(), list()) ::
           {:ok, confirm_sign_up_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, alias_exists_exception()}
-          | {:error, code_mismatch_exception()}
-          | {:error, expired_code_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_lambda_response_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_failed_attempts_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unexpected_lambda_exception()}
-          | {:error, user_lambda_validation_exception()}
-          | {:error, user_not_found_exception()}
+          | {:error, confirm_sign_up_errors()}
   def confirm_sign_up(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4999,13 +6319,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec create_group(map(), create_group_request(), list()) ::
           {:ok, create_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, group_exists_exception()}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, create_group_errors()}
   def create_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5034,13 +6348,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec create_identity_provider(map(), create_identity_provider_request(), list()) ::
           {:ok, create_identity_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, duplicate_provider_exception()}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, create_identity_provider_errors()}
   def create_identity_provider(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5068,12 +6376,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec create_resource_server(map(), create_resource_server_request(), list()) ::
           {:ok, create_resource_server_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, create_resource_server_errors()}
   def create_resource_server(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5101,13 +6404,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec create_user_import_job(map(), create_user_import_job_request(), list()) ::
           {:ok, create_user_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, precondition_not_met_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, create_user_import_job_errors()}
   def create_user_import_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5167,15 +6464,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec create_user_pool(map(), create_user_pool_request(), list()) ::
           {:ok, create_user_pool_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_email_role_access_policy_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, invalid_sms_role_access_policy_exception()}
-          | {:error, invalid_sms_role_trust_relationship_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, user_pool_tagging_exception()}
+          | {:error, create_user_pool_errors()}
   def create_user_pool(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5211,14 +6500,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec create_user_pool_client(map(), create_user_pool_client_request(), list()) ::
           {:ok, create_user_pool_client_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_o_auth_flow_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, scope_does_not_exist_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, create_user_pool_client_errors()}
   def create_user_pool_client(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5246,11 +6528,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec create_user_pool_domain(map(), create_user_pool_domain_request(), list()) ::
           {:ok, create_user_pool_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, create_user_pool_domain_errors()}
   def create_user_pool_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5265,11 +6543,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec delete_group(map(), delete_group_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, delete_group_errors()}
   def delete_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5282,13 +6556,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec delete_identity_provider(map(), delete_identity_provider_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unsupported_identity_provider_exception()}
+          | {:error, delete_identity_provider_errors()}
   def delete_identity_provider(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5301,11 +6569,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec delete_resource_server(map(), delete_resource_server_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, delete_resource_server_errors()}
   def delete_resource_server(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5329,15 +6593,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec delete_user(map(), delete_user_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, forbidden_exception()}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, password_reset_required_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, user_not_confirmed_exception()}
-          | {:error, user_not_found_exception()}
+          | {:error, delete_user_errors()}
   def delete_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5361,15 +6617,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec delete_user_attributes(map(), delete_user_attributes_request(), list()) ::
           {:ok, delete_user_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, forbidden_exception()}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, password_reset_required_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, user_not_confirmed_exception()}
-          | {:error, user_not_found_exception()}
+          | {:error, delete_user_attributes_errors()}
   def delete_user_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5382,12 +6630,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec delete_user_pool(map(), delete_user_pool_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, user_import_in_progress_exception()}
+          | {:error, delete_user_pool_errors()}
   def delete_user_pool(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5400,12 +6643,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec delete_user_pool_client(map(), delete_user_pool_client_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, delete_user_pool_client_errors()}
   def delete_user_pool_client(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5418,10 +6656,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec delete_user_pool_domain(map(), delete_user_pool_domain_request(), list()) ::
           {:ok, delete_user_pool_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, delete_user_pool_domain_errors()}
   def delete_user_pool_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5434,11 +6669,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec describe_identity_provider(map(), describe_identity_provider_request(), list()) ::
           {:ok, describe_identity_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, describe_identity_provider_errors()}
   def describe_identity_provider(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5451,11 +6682,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec describe_resource_server(map(), describe_resource_server_request(), list()) ::
           {:ok, describe_resource_server_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, describe_resource_server_errors()}
   def describe_resource_server(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5468,12 +6695,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec describe_risk_configuration(map(), describe_risk_configuration_request(), list()) ::
           {:ok, describe_risk_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, user_pool_add_on_not_enabled_exception()}
+          | {:error, describe_risk_configuration_errors()}
   def describe_risk_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5486,11 +6708,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec describe_user_import_job(map(), describe_user_import_job_request(), list()) ::
           {:ok, describe_user_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, describe_user_import_job_errors()}
   def describe_user_import_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5518,12 +6736,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec describe_user_pool(map(), describe_user_pool_request(), list()) ::
           {:ok, describe_user_pool_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, user_pool_tagging_exception()}
+          | {:error, describe_user_pool_errors()}
   def describe_user_pool(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5552,11 +6765,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec describe_user_pool_client(map(), describe_user_pool_client_request(), list()) ::
           {:ok, describe_user_pool_client_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, describe_user_pool_client_errors()}
   def describe_user_pool_client(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5569,10 +6778,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec describe_user_pool_domain(map(), describe_user_pool_domain_request(), list()) ::
           {:ok, describe_user_pool_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, describe_user_pool_domain_errors()}
   def describe_user_pool_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5599,16 +6805,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec forget_device(map(), forget_device_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, forbidden_exception()}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, invalid_user_pool_configuration_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, password_reset_required_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, user_not_confirmed_exception()}
-          | {:error, user_not_found_exception()}
+          | {:error, forget_device_errors()}
   def forget_device(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5676,21 +6873,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec forgot_password(map(), forgot_password_request(), list()) ::
           {:ok, forgot_password_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, code_delivery_failure_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_email_role_access_policy_exception()}
-          | {:error, invalid_lambda_response_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, invalid_sms_role_access_policy_exception()}
-          | {:error, invalid_sms_role_trust_relationship_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unexpected_lambda_exception()}
-          | {:error, user_lambda_validation_exception()}
-          | {:error, user_not_found_exception()}
+          | {:error, forgot_password_errors()}
   def forgot_password(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5705,11 +6888,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec get_csv_header(map(), get_csv_header_request(), list()) ::
           {:ok, get_csv_header_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, get_csv_header_errors()}
   def get_csv_header(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5736,16 +6915,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec get_device(map(), get_device_request(), list()) ::
           {:ok, get_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, forbidden_exception()}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, invalid_user_pool_configuration_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, password_reset_required_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, user_not_confirmed_exception()}
-          | {:error, user_not_found_exception()}
+          | {:error, get_device_errors()}
   def get_device(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5760,11 +6930,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec get_group(map(), get_group_request(), list()) ::
           {:ok, get_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, get_group_errors()}
   def get_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5781,11 +6947,7 @@ defmodule AWS.CognitoIdentityProvider do
         ) ::
           {:ok, get_identity_provider_by_identifier_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, get_identity_provider_by_identifier_errors()}
   def get_identity_provider_by_identifier(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5798,11 +6960,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec get_log_delivery_configuration(map(), get_log_delivery_configuration_request(), list()) ::
           {:ok, get_log_delivery_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, get_log_delivery_configuration_errors()}
   def get_log_delivery_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5823,9 +6981,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec get_signing_certificate(map(), get_signing_certificate_request(), list()) ::
           {:ok, get_signing_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, get_signing_certificate_errors()}
   def get_signing_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5845,11 +7001,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec get_ui_customization(map(), get_ui_customization_request(), list()) ::
           {:ok, get_ui_customization_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, get_ui_customization_errors()}
   def get_ui_customization(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5873,15 +7025,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec get_user(map(), get_user_request(), list()) ::
           {:ok, get_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, forbidden_exception()}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, password_reset_required_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, user_not_confirmed_exception()}
-          | {:error, user_not_found_exception()}
+          | {:error, get_user_errors()}
   def get_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5939,23 +7083,7 @@ defmodule AWS.CognitoIdentityProvider do
         ) ::
           {:ok, get_user_attribute_verification_code_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, code_delivery_failure_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_email_role_access_policy_exception()}
-          | {:error, invalid_lambda_response_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, invalid_sms_role_access_policy_exception()}
-          | {:error, invalid_sms_role_trust_relationship_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, password_reset_required_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unexpected_lambda_exception()}
-          | {:error, user_lambda_validation_exception()}
-          | {:error, user_not_confirmed_exception()}
-          | {:error, user_not_found_exception()}
+          | {:error, get_user_attribute_verification_code_errors()}
   def get_user_attribute_verification_code(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5968,11 +7096,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec get_user_pool_mfa_config(map(), get_user_pool_mfa_config_request(), list()) ::
           {:ok, get_user_pool_mfa_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, get_user_pool_mfa_config_errors()}
   def get_user_pool_mfa_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6026,14 +7150,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec global_sign_out(map(), global_sign_out_request(), list()) ::
           {:ok, global_sign_out_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, forbidden_exception()}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, password_reset_required_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, user_not_confirmed_exception()}
+          | {:error, global_sign_out_errors()}
   def global_sign_out(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6084,21 +7201,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec initiate_auth(map(), initiate_auth_request(), list()) ::
           {:ok, initiate_auth_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, forbidden_exception()}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_lambda_response_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, invalid_sms_role_access_policy_exception()}
-          | {:error, invalid_sms_role_trust_relationship_exception()}
-          | {:error, invalid_user_pool_configuration_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, password_reset_required_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unexpected_lambda_exception()}
-          | {:error, user_lambda_validation_exception()}
-          | {:error, user_not_confirmed_exception()}
-          | {:error, user_not_found_exception()}
+          | {:error, initiate_auth_errors()}
   def initiate_auth(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6127,16 +7230,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec list_devices(map(), list_devices_request(), list()) ::
           {:ok, list_devices_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, forbidden_exception()}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, invalid_user_pool_configuration_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, password_reset_required_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, user_not_confirmed_exception()}
-          | {:error, user_not_found_exception()}
+          | {:error, list_devices_errors()}
   def list_devices(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6164,11 +7258,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec list_groups(map(), list_groups_request(), list()) ::
           {:ok, list_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, list_groups_errors()}
   def list_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6196,11 +7286,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec list_identity_providers(map(), list_identity_providers_request(), list()) ::
           {:ok, list_identity_providers_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, list_identity_providers_errors()}
   def list_identity_providers(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6228,11 +7314,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec list_resource_servers(map(), list_resource_servers_request(), list()) ::
           {:ok, list_resource_servers_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, list_resource_servers_errors()}
   def list_resource_servers(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6251,11 +7333,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6283,11 +7361,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec list_user_import_jobs(map(), list_user_import_jobs_request(), list()) ::
           {:ok, list_user_import_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, list_user_import_jobs_errors()}
   def list_user_import_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6315,11 +7389,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec list_user_pool_clients(map(), list_user_pool_clients_request(), list()) ::
           {:ok, list_user_pool_clients_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, list_user_pool_clients_errors()}
   def list_user_pool_clients(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6347,10 +7417,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec list_user_pools(map(), list_user_pools_request(), list()) ::
           {:ok, list_user_pools_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, list_user_pools_errors()}
   def list_user_pools(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6378,11 +7445,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec list_users(map(), list_users_request(), list()) ::
           {:ok, list_users_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, list_users_errors()}
   def list_users(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6410,11 +7473,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec list_users_in_group(map(), list_users_in_group_request(), list()) ::
           {:ok, list_users_in_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, list_users_in_group_errors()}
   def list_users_in_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6463,21 +7522,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec resend_confirmation_code(map(), resend_confirmation_code_request(), list()) ::
           {:ok, resend_confirmation_code_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, code_delivery_failure_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_email_role_access_policy_exception()}
-          | {:error, invalid_lambda_response_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, invalid_sms_role_access_policy_exception()}
-          | {:error, invalid_sms_role_trust_relationship_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unexpected_lambda_exception()}
-          | {:error, user_lambda_validation_exception()}
-          | {:error, user_not_found_exception()}
+          | {:error, resend_confirmation_code_errors()}
   def resend_confirmation_code(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6536,27 +7581,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec respond_to_auth_challenge(map(), respond_to_auth_challenge_request(), list()) ::
           {:ok, respond_to_auth_challenge_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, alias_exists_exception()}
-          | {:error, code_mismatch_exception()}
-          | {:error, expired_code_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_lambda_response_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, invalid_password_exception()}
-          | {:error, invalid_sms_role_access_policy_exception()}
-          | {:error, invalid_sms_role_trust_relationship_exception()}
-          | {:error, invalid_user_pool_configuration_exception()}
-          | {:error, mfa_method_not_found_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, password_reset_required_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, software_token_mfa_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unexpected_lambda_exception()}
-          | {:error, user_lambda_validation_exception()}
-          | {:error, user_not_confirmed_exception()}
-          | {:error, user_not_found_exception()}
+          | {:error, respond_to_auth_challenge_errors()}
   def respond_to_auth_challenge(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6583,13 +7608,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec revoke_token(map(), revoke_token_request(), list()) ::
           {:ok, revoke_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, forbidden_exception()}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unauthorized_exception()}
-          | {:error, unsupported_operation_exception()}
-          | {:error, unsupported_token_type_exception()}
+          | {:error, revoke_token_errors()}
   def revoke_token(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6602,11 +7621,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec set_log_delivery_configuration(map(), set_log_delivery_configuration_request(), list()) ::
           {:ok, set_log_delivery_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, set_log_delivery_configuration_errors()}
   def set_log_delivery_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6627,14 +7642,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec set_risk_configuration(map(), set_risk_configuration_request(), list()) ::
           {:ok, set_risk_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, code_delivery_failure_exception()}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_email_role_access_policy_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, user_pool_add_on_not_enabled_exception()}
+          | {:error, set_risk_configuration_errors()}
   def set_risk_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6663,11 +7671,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec set_ui_customization(map(), set_ui_customization_request(), list()) ::
           {:ok, set_ui_customization_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, set_ui_customization_errors()}
   def set_ui_customization(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6708,14 +7712,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec set_user_mfa_preference(map(), set_user_mfa_preference_request(), list()) ::
           {:ok, set_user_mfa_preference_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, forbidden_exception()}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, password_reset_required_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, user_not_confirmed_exception()}
-          | {:error, user_not_found_exception()}
+          | {:error, set_user_mfa_preference_errors()}
   def set_user_mfa_preference(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6754,14 +7751,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec set_user_pool_mfa_config(map(), set_user_pool_mfa_config_request(), list()) ::
           {:ok, set_user_pool_mfa_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, invalid_sms_role_access_policy_exception()}
-          | {:error, invalid_sms_role_trust_relationship_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, set_user_pool_mfa_config_errors()}
   def set_user_pool_mfa_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6792,14 +7782,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec set_user_settings(map(), set_user_settings_request(), list()) ::
           {:ok, set_user_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, forbidden_exception()}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, password_reset_required_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, user_not_confirmed_exception()}
-          | {:error, user_not_found_exception()}
+          | {:error, set_user_settings_errors()}
   def set_user_settings(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6848,21 +7831,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec sign_up(map(), sign_up_request(), list()) ::
           {:ok, sign_up_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, code_delivery_failure_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_email_role_access_policy_exception()}
-          | {:error, invalid_lambda_response_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, invalid_password_exception()}
-          | {:error, invalid_sms_role_access_policy_exception()}
-          | {:error, invalid_sms_role_trust_relationship_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unexpected_lambda_exception()}
-          | {:error, user_lambda_validation_exception()}
-          | {:error, username_exists_exception()}
+          | {:error, sign_up_errors()}
   def sign_up(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6875,12 +7844,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec start_user_import_job(map(), start_user_import_job_request(), list()) ::
           {:ok, start_user_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, precondition_not_met_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, start_user_import_job_errors()}
   def start_user_import_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6893,12 +7857,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec stop_user_import_job(map(), stop_user_import_job_request(), list()) ::
           {:ok, stop_user_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, precondition_not_met_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, stop_user_import_job_errors()}
   def stop_user_import_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6935,11 +7894,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6955,11 +7910,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6986,13 +7937,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec update_auth_event_feedback(map(), update_auth_event_feedback_request(), list()) ::
           {:ok, update_auth_event_feedback_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, user_not_found_exception()}
-          | {:error, user_pool_add_on_not_enabled_exception()}
+          | {:error, update_auth_event_feedback_errors()}
   def update_auth_event_feedback(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7019,16 +7964,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec update_device_status(map(), update_device_status_request(), list()) ::
           {:ok, update_device_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, forbidden_exception()}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, invalid_user_pool_configuration_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, password_reset_required_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, user_not_confirmed_exception()}
-          | {:error, user_not_found_exception()}
+          | {:error, update_device_status_errors()}
   def update_device_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7056,11 +7992,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec update_group(map(), update_group_request(), list()) ::
           {:ok, update_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, update_group_errors()}
   def update_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7088,13 +8020,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec update_identity_provider(map(), update_identity_provider_request(), list()) ::
           {:ok, update_identity_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unsupported_identity_provider_exception()}
+          | {:error, update_identity_provider_errors()}
   def update_identity_provider(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7127,11 +8053,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec update_resource_server(map(), update_resource_server_request(), list()) ::
           {:ok, update_resource_server_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, update_resource_server_errors()}
   def update_resource_server(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7189,25 +8111,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec update_user_attributes(map(), update_user_attributes_request(), list()) ::
           {:ok, update_user_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, alias_exists_exception()}
-          | {:error, code_delivery_failure_exception()}
-          | {:error, code_mismatch_exception()}
-          | {:error, expired_code_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_email_role_access_policy_exception()}
-          | {:error, invalid_lambda_response_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, invalid_sms_role_access_policy_exception()}
-          | {:error, invalid_sms_role_trust_relationship_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, password_reset_required_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unexpected_lambda_exception()}
-          | {:error, user_lambda_validation_exception()}
-          | {:error, user_not_confirmed_exception()}
-          | {:error, user_not_found_exception()}
+          | {:error, update_user_attributes_errors()}
   def update_user_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7269,17 +8173,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec update_user_pool(map(), update_user_pool_request(), list()) ::
           {:ok, update_user_pool_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_email_role_access_policy_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, invalid_sms_role_access_policy_exception()}
-          | {:error, invalid_sms_role_trust_relationship_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, user_import_in_progress_exception()}
-          | {:error, user_pool_tagging_exception()}
+          | {:error, update_user_pool_errors()}
   def update_user_pool(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7318,14 +8212,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec update_user_pool_client(map(), update_user_pool_client_request(), list()) ::
           {:ok, update_user_pool_client_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_o_auth_flow_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, scope_does_not_exist_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, update_user_pool_client_errors()}
   def update_user_pool_client(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7390,11 +8277,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec update_user_pool_domain(map(), update_user_pool_domain_request(), list()) ::
           {:ok, update_user_pool_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, update_user_pool_domain_errors()}
   def update_user_pool_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7420,19 +8303,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec verify_software_token(map(), verify_software_token_request(), list()) ::
           {:ok, verify_software_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, code_mismatch_exception()}
-          | {:error, enable_software_token_mfa_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, invalid_user_pool_configuration_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, password_reset_required_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, software_token_mfa_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, user_not_confirmed_exception()}
-          | {:error, user_not_found_exception()}
+          | {:error, verify_software_token_errors()}
   def verify_software_token(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7463,19 +8334,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec verify_user_attribute(map(), verify_user_attribute_request(), list()) ::
           {:ok, verify_user_attribute_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, alias_exists_exception()}
-          | {:error, code_mismatch_exception()}
-          | {:error, expired_code_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, internal_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, password_reset_required_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, user_not_confirmed_exception()}
-          | {:error, user_not_found_exception()}
+          | {:error, verify_user_attribute_errors()}
   def verify_user_attribute(%Client{} = client, input, options \\ []) do
     meta = metadata()
 

@@ -37,2290 +37,3041 @@ defmodule AWS.AppStream do
   @typedoc """
 
   ## Example:
-  describe_app_block_builders_result() :: %{
-    "AppBlockBuilders" => list(app_block_builder()()),
-    "NextToken" => String.t()
-  }
+      
+      describe_app_block_builders_result() :: %{
+        "AppBlockBuilders" => list(app_block_builder()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type describe_app_block_builders_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_usage_report_subscriptions_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+      
+      describe_usage_report_subscriptions_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type describe_usage_report_subscriptions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  image_builder() :: %{
-    "AccessEndpoints" => list(access_endpoint()()),
-    "AppstreamAgentVersion" => String.t(),
-    "Arn" => String.t(),
-    "CreatedTime" => non_neg_integer(),
-    "Description" => String.t(),
-    "DisplayName" => String.t(),
-    "DomainJoinInfo" => domain_join_info(),
-    "EnableDefaultInternetAccess" => boolean(),
-    "IamRoleArn" => String.t(),
-    "ImageArn" => String.t(),
-    "ImageBuilderErrors" => list(resource_error()()),
-    "InstanceType" => String.t(),
-    "Name" => String.t(),
-    "NetworkAccessConfiguration" => network_access_configuration(),
-    "Platform" => list(any()),
-    "State" => list(any()),
-    "StateChangeReason" => image_builder_state_change_reason(),
-    "VpcConfig" => vpc_config()
-  }
+      
+      image_builder() :: %{
+        "AccessEndpoints" => list(access_endpoint()()),
+        "AppstreamAgentVersion" => String.t(),
+        "Arn" => String.t(),
+        "CreatedTime" => non_neg_integer(),
+        "Description" => String.t(),
+        "DisplayName" => String.t(),
+        "DomainJoinInfo" => domain_join_info(),
+        "EnableDefaultInternetAccess" => boolean(),
+        "IamRoleArn" => String.t(),
+        "ImageArn" => String.t(),
+        "ImageBuilderErrors" => list(resource_error()()),
+        "InstanceType" => String.t(),
+        "Name" => String.t(),
+        "NetworkAccessConfiguration" => network_access_configuration(),
+        "Platform" => list(any()),
+        "State" => list(any()),
+        "StateChangeReason" => image_builder_state_change_reason(),
+        "VpcConfig" => vpc_config()
+      }
+      
   """
   @type image_builder() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_image_builder_result() :: %{
-    "ImageBuilder" => image_builder()
-  }
+      
+      start_image_builder_result() :: %{
+        "ImageBuilder" => image_builder()
+      }
+      
   """
   @type start_image_builder_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_request() :: %{
-    required("ResourceArn") => String.t(),
-    required("Tags") => map()
-  }
+      
+      tag_resource_request() :: %{
+        required("ResourceArn") => String.t(),
+        required("Tags") => map()
+      }
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_image_result() :: %{
-    "Image" => image()
-  }
+      
+      delete_image_result() :: %{
+        "Image" => image()
+      }
+      
   """
   @type delete_image_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_fleet_request() :: %{
-    required("Name") => String.t()
-  }
+      
+      delete_fleet_request() :: %{
+        required("Name") => String.t()
+      }
+      
   """
   @type delete_fleet_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_disassociate_user_stack_request() :: %{
-    required("UserStackAssociations") => list(user_stack_association()())
-  }
+      
+      batch_disassociate_user_stack_request() :: %{
+        required("UserStackAssociations") => list(user_stack_association()())
+      }
+      
   """
   @type batch_disassociate_user_stack_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  user_stack_association() :: %{
-    "AuthenticationType" => list(any()),
-    "SendEmailNotification" => boolean(),
-    "StackName" => String.t(),
-    "UserName" => String.t()
-  }
+      
+      user_stack_association() :: %{
+        "AuthenticationType" => list(any()),
+        "SendEmailNotification" => boolean(),
+        "StackName" => String.t(),
+        "UserName" => String.t()
+      }
+      
   """
   @type user_stack_association() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disable_user_result() :: %{
-
-  }
+      
+      disable_user_result() :: %{}
+      
   """
-  @type disable_user_result() :: %{String.t() => any()}
+  @type disable_user_result() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_application_result() :: %{
-    "Application" => application()
-  }
+      
+      create_application_result() :: %{
+        "Application" => application()
+      }
+      
   """
   @type create_application_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disassociate_app_block_builder_app_block_result() :: %{
-
-  }
+      
+      disassociate_app_block_builder_app_block_result() :: %{}
+      
   """
-  @type disassociate_app_block_builder_app_block_result() :: %{String.t() => any()}
+  @type disassociate_app_block_builder_app_block_result() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_entitlement_result() :: %{
-    "Entitlement" => entitlement()
-  }
+      
+      create_entitlement_result() :: %{
+        "Entitlement" => entitlement()
+      }
+      
   """
   @type create_entitlement_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stop_app_block_builder_result() :: %{
-    "AppBlockBuilder" => app_block_builder()
-  }
+      
+      stop_app_block_builder_result() :: %{
+        "AppBlockBuilder" => app_block_builder()
+      }
+      
   """
   @type stop_app_block_builder_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_streaming_url_result() :: %{
-    "Expires" => non_neg_integer(),
-    "StreamingURL" => String.t()
-  }
+      
+      create_streaming_url_result() :: %{
+        "Expires" => non_neg_integer(),
+        "StreamingURL" => String.t()
+      }
+      
   """
   @type create_streaming_url_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_app_blocks_result() :: %{
-    "AppBlocks" => list(app_block()()),
-    "NextToken" => String.t()
-  }
+      
+      describe_app_blocks_result() :: %{
+        "AppBlocks" => list(app_block()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type describe_app_blocks_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_app_block_builder_request() :: %{
-    optional("AccessEndpoints") => list(access_endpoint()()),
-    optional("Description") => String.t(),
-    optional("DisplayName") => String.t(),
-    optional("EnableDefaultInternetAccess") => boolean(),
-    optional("IamRoleArn") => String.t(),
-    optional("Tags") => map(),
-    required("InstanceType") => String.t(),
-    required("Name") => String.t(),
-    required("Platform") => list(any()),
-    required("VpcConfig") => vpc_config()
-  }
+      
+      create_app_block_builder_request() :: %{
+        optional("AccessEndpoints") => list(access_endpoint()()),
+        optional("Description") => String.t(),
+        optional("DisplayName") => String.t(),
+        optional("EnableDefaultInternetAccess") => boolean(),
+        optional("IamRoleArn") => String.t(),
+        optional("Tags") => map(),
+        required("InstanceType") => String.t(),
+        required("Name") => String.t(),
+        required("Platform") => list(any()),
+        required("VpcConfig") => vpc_config()
+      }
+      
   """
   @type create_app_block_builder_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stop_fleet_result() :: %{
-
-  }
+      
+      stop_fleet_result() :: %{}
+      
   """
-  @type stop_fleet_result() :: %{String.t() => any()}
+  @type stop_fleet_result() :: %{}
 
   @typedoc """
 
   ## Example:
-  untag_resource_response() :: %{
-
-  }
+      
+      untag_resource_response() :: %{}
+      
   """
-  @type untag_resource_response() :: %{String.t() => any()}
+  @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  update_directory_config_request() :: %{
-    optional("CertificateBasedAuthProperties") => certificate_based_auth_properties(),
-    optional("OrganizationalUnitDistinguishedNames") => list(String.t()()),
-    optional("ServiceAccountCredentials") => service_account_credentials(),
-    required("DirectoryName") => String.t()
-  }
+      
+      update_directory_config_request() :: %{
+        optional("CertificateBasedAuthProperties") => certificate_based_auth_properties(),
+        optional("OrganizationalUnitDistinguishedNames") => list(String.t()()),
+        optional("ServiceAccountCredentials") => service_account_credentials(),
+        required("DirectoryName") => String.t()
+      }
+      
   """
   @type update_directory_config_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_stack_request() :: %{
-    optional("AccessEndpoints") => list(access_endpoint()()),
-    optional("ApplicationSettings") => application_settings(),
-    optional("Description") => String.t(),
-    optional("DisplayName") => String.t(),
-    optional("EmbedHostDomains") => list(String.t()()),
-    optional("FeedbackURL") => String.t(),
-    optional("RedirectURL") => String.t(),
-    optional("StorageConnectors") => list(storage_connector()()),
-    optional("StreamingExperienceSettings") => streaming_experience_settings(),
-    optional("Tags") => map(),
-    optional("UserSettings") => list(user_setting()()),
-    required("Name") => String.t()
-  }
+      
+      create_stack_request() :: %{
+        optional("AccessEndpoints") => list(access_endpoint()()),
+        optional("ApplicationSettings") => application_settings(),
+        optional("Description") => String.t(),
+        optional("DisplayName") => String.t(),
+        optional("EmbedHostDomains") => list(String.t()()),
+        optional("FeedbackURL") => String.t(),
+        optional("RedirectURL") => String.t(),
+        optional("StorageConnectors") => list(storage_connector()()),
+        optional("StreamingExperienceSettings") => streaming_experience_settings(),
+        optional("Tags") => map(),
+        optional("UserSettings") => list(user_setting()()),
+        required("Name") => String.t()
+      }
+      
   """
   @type create_stack_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_stack_request() :: %{
-    optional("AccessEndpoints") => list(access_endpoint()()),
-    optional("ApplicationSettings") => application_settings(),
-    optional("AttributesToDelete") => list(list(any())()),
-    optional("DeleteStorageConnectors") => boolean(),
-    optional("Description") => String.t(),
-    optional("DisplayName") => String.t(),
-    optional("EmbedHostDomains") => list(String.t()()),
-    optional("FeedbackURL") => String.t(),
-    optional("RedirectURL") => String.t(),
-    optional("StorageConnectors") => list(storage_connector()()),
-    optional("StreamingExperienceSettings") => streaming_experience_settings(),
-    optional("UserSettings") => list(user_setting()()),
-    required("Name") => String.t()
-  }
+      
+      update_stack_request() :: %{
+        optional("AccessEndpoints") => list(access_endpoint()()),
+        optional("ApplicationSettings") => application_settings(),
+        optional("AttributesToDelete") => list(list(any())()),
+        optional("DeleteStorageConnectors") => boolean(),
+        optional("Description") => String.t(),
+        optional("DisplayName") => String.t(),
+        optional("EmbedHostDomains") => list(String.t()()),
+        optional("FeedbackURL") => String.t(),
+        optional("RedirectURL") => String.t(),
+        optional("StorageConnectors") => list(storage_connector()()),
+        optional("StreamingExperienceSettings") => streaming_experience_settings(),
+        optional("UserSettings") => list(user_setting()()),
+        required("Name") => String.t()
+      }
+      
   """
   @type update_stack_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  app_block_builder() :: %{
-    "AccessEndpoints" => list(access_endpoint()()),
-    "AppBlockBuilderErrors" => list(resource_error()()),
-    "Arn" => String.t(),
-    "CreatedTime" => non_neg_integer(),
-    "Description" => String.t(),
-    "DisplayName" => String.t(),
-    "EnableDefaultInternetAccess" => boolean(),
-    "IamRoleArn" => String.t(),
-    "InstanceType" => String.t(),
-    "Name" => String.t(),
-    "Platform" => list(any()),
-    "State" => list(any()),
-    "StateChangeReason" => app_block_builder_state_change_reason(),
-    "VpcConfig" => vpc_config()
-  }
+      
+      app_block_builder() :: %{
+        "AccessEndpoints" => list(access_endpoint()()),
+        "AppBlockBuilderErrors" => list(resource_error()()),
+        "Arn" => String.t(),
+        "CreatedTime" => non_neg_integer(),
+        "Description" => String.t(),
+        "DisplayName" => String.t(),
+        "EnableDefaultInternetAccess" => boolean(),
+        "IamRoleArn" => String.t(),
+        "InstanceType" => String.t(),
+        "Name" => String.t(),
+        "Platform" => list(any()),
+        "State" => list(any()),
+        "StateChangeReason" => app_block_builder_state_change_reason(),
+        "VpcConfig" => vpc_config()
+      }
+      
   """
   @type app_block_builder() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_in_use_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      resource_in_use_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type resource_in_use_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_images_result() :: %{
-    "Images" => list(image()()),
-    "NextToken" => String.t()
-  }
+      
+      describe_images_result() :: %{
+        "Images" => list(image()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type describe_images_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_fleet_request() :: %{
-    optional("ComputeCapacity") => compute_capacity(),
-    optional("Description") => String.t(),
-    optional("DisconnectTimeoutInSeconds") => integer(),
-    optional("DisplayName") => String.t(),
-    optional("DomainJoinInfo") => domain_join_info(),
-    optional("EnableDefaultInternetAccess") => boolean(),
-    optional("FleetType") => list(any()),
-    optional("IamRoleArn") => String.t(),
-    optional("IdleDisconnectTimeoutInSeconds") => integer(),
-    optional("ImageArn") => String.t(),
-    optional("ImageName") => String.t(),
-    optional("MaxConcurrentSessions") => integer(),
-    optional("MaxSessionsPerInstance") => integer(),
-    optional("MaxUserDurationInSeconds") => integer(),
-    optional("Platform") => list(any()),
-    optional("SessionScriptS3Location") => s3_location(),
-    optional("StreamView") => list(any()),
-    optional("Tags") => map(),
-    optional("UsbDeviceFilterStrings") => list(String.t()()),
-    optional("VpcConfig") => vpc_config(),
-    required("InstanceType") => String.t(),
-    required("Name") => String.t()
-  }
+      
+      create_fleet_request() :: %{
+        optional("ComputeCapacity") => compute_capacity(),
+        optional("Description") => String.t(),
+        optional("DisconnectTimeoutInSeconds") => integer(),
+        optional("DisplayName") => String.t(),
+        optional("DomainJoinInfo") => domain_join_info(),
+        optional("EnableDefaultInternetAccess") => boolean(),
+        optional("FleetType") => list(any()),
+        optional("IamRoleArn") => String.t(),
+        optional("IdleDisconnectTimeoutInSeconds") => integer(),
+        optional("ImageArn") => String.t(),
+        optional("ImageName") => String.t(),
+        optional("MaxConcurrentSessions") => integer(),
+        optional("MaxSessionsPerInstance") => integer(),
+        optional("MaxUserDurationInSeconds") => integer(),
+        optional("Platform") => list(any()),
+        optional("SessionScriptS3Location") => s3_location(),
+        optional("StreamView") => list(any()),
+        optional("Tags") => map(),
+        optional("UsbDeviceFilterStrings") => list(String.t()()),
+        optional("VpcConfig") => vpc_config(),
+        required("InstanceType") => String.t(),
+        required("Name") => String.t()
+      }
+      
   """
   @type create_fleet_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_associated_stacks_request() :: %{
-    optional("NextToken") => String.t(),
-    required("FleetName") => String.t()
-  }
+      
+      list_associated_stacks_request() :: %{
+        optional("NextToken") => String.t(),
+        required("FleetName") => String.t()
+      }
+      
   """
   @type list_associated_stacks_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_image_builders_result() :: %{
-    "ImageBuilders" => list(image_builder()()),
-    "NextToken" => String.t()
-  }
+      
+      describe_image_builders_result() :: %{
+        "ImageBuilders" => list(image_builder()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type describe_image_builders_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_usage_report_subscription_request() :: %{
-
-  }
+      
+      delete_usage_report_subscription_request() :: %{}
+      
   """
-  @type delete_usage_report_subscription_request() :: %{String.t() => any()}
+  @type delete_usage_report_subscription_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  describe_images_request() :: %{
-    optional("Arns") => list(String.t()()),
-    optional("MaxResults") => integer(),
-    optional("Names") => list(String.t()()),
-    optional("NextToken") => String.t(),
-    optional("Type") => list(any())
-  }
+      
+      describe_images_request() :: %{
+        optional("Arns") => list(String.t()()),
+        optional("MaxResults") => integer(),
+        optional("Names") => list(String.t()()),
+        optional("NextToken") => String.t(),
+        optional("Type") => list(any())
+      }
+      
   """
   @type describe_images_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  copy_image_request() :: %{
-    optional("DestinationImageDescription") => String.t(),
-    required("DestinationImageName") => String.t(),
-    required("DestinationRegion") => String.t(),
-    required("SourceImageName") => String.t()
-  }
+      
+      copy_image_request() :: %{
+        optional("DestinationImageDescription") => String.t(),
+        required("DestinationImageName") => String.t(),
+        required("DestinationRegion") => String.t(),
+        required("SourceImageName") => String.t()
+      }
+      
   """
   @type copy_image_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_app_block_request() :: %{
-    optional("Description") => String.t(),
-    optional("DisplayName") => String.t(),
-    optional("PackagingType") => list(any()),
-    optional("PostSetupScriptDetails") => script_details(),
-    optional("SetupScriptDetails") => script_details(),
-    optional("Tags") => map(),
-    required("Name") => String.t(),
-    required("SourceS3Location") => s3_location()
-  }
+      
+      create_app_block_request() :: %{
+        optional("Description") => String.t(),
+        optional("DisplayName") => String.t(),
+        optional("PackagingType") => list(any()),
+        optional("PostSetupScriptDetails") => script_details(),
+        optional("SetupScriptDetails") => script_details(),
+        optional("Tags") => map(),
+        required("Name") => String.t(),
+        required("SourceS3Location") => s3_location()
+      }
+      
   """
   @type create_app_block_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  network_access_configuration() :: %{
-    "EniId" => String.t(),
-    "EniPrivateIpAddress" => String.t()
-  }
+      
+      network_access_configuration() :: %{
+        "EniId" => String.t(),
+        "EniPrivateIpAddress" => String.t()
+      }
+      
   """
   @type network_access_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disassociate_application_from_entitlement_result() :: %{
-
-  }
+      
+      disassociate_application_from_entitlement_result() :: %{}
+      
   """
-  @type disassociate_application_from_entitlement_result() :: %{String.t() => any()}
+  @type disassociate_application_from_entitlement_result() :: %{}
 
   @typedoc """
 
   ## Example:
-  image_permissions() :: %{
-    "allowFleet" => boolean(),
-    "allowImageBuilder" => boolean()
-  }
+      
+      image_permissions() :: %{
+        "allowFleet" => boolean(),
+        "allowImageBuilder" => boolean()
+      }
+      
   """
   @type image_permissions() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  application_fleet_association() :: %{
-    "ApplicationArn" => String.t(),
-    "FleetName" => String.t()
-  }
+      
+      application_fleet_association() :: %{
+        "ApplicationArn" => String.t(),
+        "FleetName" => String.t()
+      }
+      
   """
   @type application_fleet_association() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  image_state_change_reason() :: %{
-    "Code" => list(any()),
-    "Message" => String.t()
-  }
+      
+      image_state_change_reason() :: %{
+        "Code" => list(any()),
+        "Message" => String.t()
+      }
+      
   """
   @type image_state_change_reason() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  associate_app_block_builder_app_block_result() :: %{
-    "AppBlockBuilderAppBlockAssociation" => app_block_builder_app_block_association()
-  }
+      
+      associate_app_block_builder_app_block_result() :: %{
+        "AppBlockBuilderAppBlockAssociation" => app_block_builder_app_block_association()
+      }
+      
   """
   @type associate_app_block_builder_app_block_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_app_block_builder_request() :: %{
-    optional("AccessEndpoints") => list(access_endpoint()()),
-    optional("AttributesToDelete") => list(list(any())()),
-    optional("Description") => String.t(),
-    optional("DisplayName") => String.t(),
-    optional("EnableDefaultInternetAccess") => boolean(),
-    optional("IamRoleArn") => String.t(),
-    optional("InstanceType") => String.t(),
-    optional("Platform") => list(any()),
-    optional("VpcConfig") => vpc_config(),
-    required("Name") => String.t()
-  }
+      
+      update_app_block_builder_request() :: %{
+        optional("AccessEndpoints") => list(access_endpoint()()),
+        optional("AttributesToDelete") => list(list(any())()),
+        optional("Description") => String.t(),
+        optional("DisplayName") => String.t(),
+        optional("EnableDefaultInternetAccess") => boolean(),
+        optional("IamRoleArn") => String.t(),
+        optional("InstanceType") => String.t(),
+        optional("Platform") => list(any()),
+        optional("VpcConfig") => vpc_config(),
+        required("Name") => String.t()
+      }
+      
   """
   @type update_app_block_builder_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_image_permissions_request() :: %{
-    required("Name") => String.t(),
-    required("SharedAccountId") => String.t()
-  }
+      
+      delete_image_permissions_request() :: %{
+        required("Name") => String.t(),
+        required("SharedAccountId") => String.t()
+      }
+      
   """
   @type delete_image_permissions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_image_builder_result() :: %{
-    "ImageBuilder" => image_builder()
-  }
+      
+      create_image_builder_result() :: %{
+        "ImageBuilder" => image_builder()
+      }
+      
   """
   @type create_image_builder_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  associate_application_fleet_result() :: %{
-    "ApplicationFleetAssociation" => application_fleet_association()
-  }
+      
+      associate_application_fleet_result() :: %{
+        "ApplicationFleetAssociation" => application_fleet_association()
+      }
+      
   """
   @type associate_application_fleet_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_stack_result() :: %{
-    "Stack" => stack()
-  }
+      
+      create_stack_result() :: %{
+        "Stack" => stack()
+      }
+      
   """
   @type create_stack_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_app_block_builder_streaming_url_request() :: %{
-    optional("Validity") => float(),
-    required("AppBlockBuilderName") => String.t()
-  }
+      
+      create_app_block_builder_streaming_url_request() :: %{
+        optional("Validity") => float(),
+        required("AppBlockBuilderName") => String.t()
+      }
+      
   """
   @type create_app_block_builder_streaming_url_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_image_builders_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("Names") => list(String.t()()),
-    optional("NextToken") => String.t()
-  }
+      
+      describe_image_builders_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("Names") => list(String.t()()),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type describe_image_builders_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  expire_session_request() :: %{
-    required("SessionId") => String.t()
-  }
+      
+      expire_session_request() :: %{
+        required("SessionId") => String.t()
+      }
+      
   """
   @type expire_session_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_application_fleet_associations_request() :: %{
-    optional("ApplicationArn") => String.t(),
-    optional("FleetName") => String.t(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+      
+      describe_application_fleet_associations_request() :: %{
+        optional("ApplicationArn") => String.t(),
+        optional("FleetName") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type describe_application_fleet_associations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_users_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("AuthenticationType") => list(any())
-  }
+      
+      describe_users_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("AuthenticationType") => list(any())
+      }
+      
   """
   @type describe_users_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_image_permissions_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("SharedAwsAccountIds") => list(String.t()()),
-    required("Name") => String.t()
-  }
+      
+      describe_image_permissions_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("SharedAwsAccountIds") => list(String.t()()),
+        required("Name") => String.t()
+      }
+      
   """
   @type describe_image_permissions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_updated_image_result() :: %{
-    "canUpdateImage" => boolean(),
-    "image" => image()
-  }
+      
+      create_updated_image_result() :: %{
+        "canUpdateImage" => boolean(),
+        "image" => image()
+      }
+      
   """
   @type create_updated_image_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  request_limit_exceeded_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      request_limit_exceeded_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type request_limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_not_available_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      resource_not_available_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type resource_not_available_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  app_block_builder_state_change_reason() :: %{
-    "Code" => list(any()),
-    "Message" => String.t()
-  }
+      
+      app_block_builder_state_change_reason() :: %{
+        "Code" => list(any()),
+        "Message" => String.t()
+      }
+      
   """
   @type app_block_builder_state_change_reason() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_directory_config_result() :: %{
-    "DirectoryConfig" => directory_config()
-  }
+      
+      update_directory_config_result() :: %{
+        "DirectoryConfig" => directory_config()
+      }
+      
   """
   @type update_directory_config_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_app_block_result() :: %{
-    "AppBlock" => app_block()
-  }
+      
+      create_app_block_result() :: %{
+        "AppBlock" => app_block()
+      }
+      
   """
   @type create_app_block_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_app_blocks_request() :: %{
-    optional("Arns") => list(String.t()()),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+      
+      describe_app_blocks_request() :: %{
+        optional("Arns") => list(String.t()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type describe_app_blocks_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disassociate_application_fleet_result() :: %{
-
-  }
+      
+      disassociate_application_fleet_result() :: %{}
+      
   """
-  @type disassociate_application_fleet_result() :: %{String.t() => any()}
+  @type disassociate_application_fleet_result() :: %{}
 
   @typedoc """
 
   ## Example:
-  untag_resource_request() :: %{
-    required("ResourceArn") => String.t(),
-    required("TagKeys") => list(String.t()())
-  }
+      
+      untag_resource_request() :: %{
+        required("ResourceArn") => String.t(),
+        required("TagKeys") => list(String.t()())
+      }
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_app_block_builder_request() :: %{
-    required("Name") => String.t()
-  }
+      
+      delete_app_block_builder_request() :: %{
+        required("Name") => String.t()
+      }
+      
   """
   @type delete_app_block_builder_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disassociate_fleet_result() :: %{
-
-  }
+      
+      disassociate_fleet_result() :: %{}
+      
   """
-  @type disassociate_fleet_result() :: %{String.t() => any()}
+  @type disassociate_fleet_result() :: %{}
 
   @typedoc """
 
   ## Example:
-  delete_usage_report_subscription_result() :: %{
-
-  }
+      
+      delete_usage_report_subscription_result() :: %{}
+      
   """
-  @type delete_usage_report_subscription_result() :: %{String.t() => any()}
+  @type delete_usage_report_subscription_result() :: %{}
 
   @typedoc """
 
   ## Example:
-  access_endpoint() :: %{
-    "EndpointType" => list(any()),
-    "VpceId" => String.t()
-  }
+      
+      access_endpoint() :: %{
+        "EndpointType" => list(any()),
+        "VpceId" => String.t()
+      }
+      
   """
   @type access_endpoint() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_user_result() :: %{
-
-  }
+      
+      create_user_result() :: %{}
+      
   """
-  @type create_user_result() :: %{String.t() => any()}
+  @type create_user_result() :: %{}
 
   @typedoc """
 
   ## Example:
-  delete_app_block_builder_result() :: %{
-
-  }
+      
+      delete_app_block_builder_result() :: %{}
+      
   """
-  @type delete_app_block_builder_result() :: %{String.t() => any()}
+  @type delete_app_block_builder_result() :: %{}
 
   @typedoc """
 
   ## Example:
-  delete_entitlement_result() :: %{
-
-  }
+      
+      delete_entitlement_result() :: %{}
+      
   """
-  @type delete_entitlement_result() :: %{String.t() => any()}
+  @type delete_entitlement_result() :: %{}
 
   @typedoc """
 
   ## Example:
-  associate_application_to_entitlement_request() :: %{
-    required("ApplicationIdentifier") => String.t(),
-    required("EntitlementName") => String.t(),
-    required("StackName") => String.t()
-  }
+      
+      associate_application_to_entitlement_request() :: %{
+        required("ApplicationIdentifier") => String.t(),
+        required("EntitlementName") => String.t(),
+        required("StackName") => String.t()
+      }
+      
   """
   @type associate_application_to_entitlement_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_parameter_combination_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      invalid_parameter_combination_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type invalid_parameter_combination_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_app_block_builder_streaming_url_result() :: %{
-    "Expires" => non_neg_integer(),
-    "StreamingURL" => String.t()
-  }
+      
+      create_app_block_builder_streaming_url_result() :: %{
+        "Expires" => non_neg_integer(),
+        "StreamingURL" => String.t()
+      }
+      
   """
   @type create_app_block_builder_streaming_url_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stop_fleet_request() :: %{
-    required("Name") => String.t()
-  }
+      
+      stop_fleet_request() :: %{
+        required("Name") => String.t()
+      }
+      
   """
   @type stop_fleet_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_fleet_result() :: %{
-    "Fleet" => fleet()
-  }
+      
+      update_fleet_result() :: %{
+        "Fleet" => fleet()
+      }
+      
   """
   @type update_fleet_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_stack_request() :: %{
-    required("Name") => String.t()
-  }
+      
+      delete_stack_request() :: %{
+        required("Name") => String.t()
+      }
+      
   """
   @type delete_stack_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stack() :: %{
-    "AccessEndpoints" => list(access_endpoint()()),
-    "ApplicationSettings" => application_settings_response(),
-    "Arn" => String.t(),
-    "CreatedTime" => non_neg_integer(),
-    "Description" => String.t(),
-    "DisplayName" => String.t(),
-    "EmbedHostDomains" => list(String.t()()),
-    "FeedbackURL" => String.t(),
-    "Name" => String.t(),
-    "RedirectURL" => String.t(),
-    "StackErrors" => list(stack_error()()),
-    "StorageConnectors" => list(storage_connector()()),
-    "StreamingExperienceSettings" => streaming_experience_settings(),
-    "UserSettings" => list(user_setting()())
-  }
+      
+      stack() :: %{
+        "AccessEndpoints" => list(access_endpoint()()),
+        "ApplicationSettings" => application_settings_response(),
+        "Arn" => String.t(),
+        "CreatedTime" => non_neg_integer(),
+        "Description" => String.t(),
+        "DisplayName" => String.t(),
+        "EmbedHostDomains" => list(String.t()()),
+        "FeedbackURL" => String.t(),
+        "Name" => String.t(),
+        "RedirectURL" => String.t(),
+        "StackErrors" => list(stack_error()()),
+        "StorageConnectors" => list(storage_connector()()),
+        "StreamingExperienceSettings" => streaming_experience_settings(),
+        "UserSettings" => list(user_setting()())
+      }
+      
   """
   @type stack() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  enable_user_result() :: %{
-
-  }
+      
+      enable_user_result() :: %{}
+      
   """
-  @type enable_user_result() :: %{String.t() => any()}
+  @type enable_user_result() :: %{}
 
   @typedoc """
 
   ## Example:
-  delete_app_block_result() :: %{
-
-  }
+      
+      delete_app_block_result() :: %{}
+      
   """
-  @type delete_app_block_result() :: %{String.t() => any()}
+  @type delete_app_block_result() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_usage_report_subscription_request() :: %{
-
-  }
+      
+      create_usage_report_subscription_request() :: %{}
+      
   """
-  @type create_usage_report_subscription_request() :: %{String.t() => any()}
+  @type create_usage_report_subscription_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  stop_image_builder_request() :: %{
-    required("Name") => String.t()
-  }
+      
+      stop_image_builder_request() :: %{
+        required("Name") => String.t()
+      }
+      
   """
   @type stop_image_builder_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  compute_capacity_status() :: %{
-    "ActiveUserSessions" => integer(),
-    "ActualUserSessions" => integer(),
-    "Available" => integer(),
-    "AvailableUserSessions" => integer(),
-    "Desired" => integer(),
-    "DesiredUserSessions" => integer(),
-    "InUse" => integer(),
-    "Running" => integer()
-  }
+      
+      compute_capacity_status() :: %{
+        "ActiveUserSessions" => integer(),
+        "ActualUserSessions" => integer(),
+        "Available" => integer(),
+        "AvailableUserSessions" => integer(),
+        "Desired" => integer(),
+        "DesiredUserSessions" => integer(),
+        "InUse" => integer(),
+        "Running" => integer()
+      }
+      
   """
   @type compute_capacity_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_directory_configs_result() :: %{
-    "DirectoryConfigs" => list(directory_config()()),
-    "NextToken" => String.t()
-  }
+      
+      describe_directory_configs_result() :: %{
+        "DirectoryConfigs" => list(directory_config()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type describe_directory_configs_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disassociate_application_from_entitlement_request() :: %{
-    required("ApplicationIdentifier") => String.t(),
-    required("EntitlementName") => String.t(),
-    required("StackName") => String.t()
-  }
+      
+      disassociate_application_from_entitlement_request() :: %{
+        required("ApplicationIdentifier") => String.t(),
+        required("EntitlementName") => String.t(),
+        required("StackName") => String.t()
+      }
+      
   """
   @type disassociate_application_from_entitlement_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  associate_application_fleet_request() :: %{
-    required("ApplicationArn") => String.t(),
-    required("FleetName") => String.t()
-  }
+      
+      associate_application_fleet_request() :: %{
+        required("ApplicationArn") => String.t(),
+        required("FleetName") => String.t()
+      }
+      
   """
   @type associate_application_fleet_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  certificate_based_auth_properties() :: %{
-    "CertificateAuthorityArn" => String.t(),
-    "Status" => list(any())
-  }
+      
+      certificate_based_auth_properties() :: %{
+        "CertificateAuthorityArn" => String.t(),
+        "Status" => list(any())
+      }
+      
   """
   @type certificate_based_auth_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_not_found_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      resource_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  compute_capacity() :: %{
-    "DesiredInstances" => integer(),
-    "DesiredSessions" => integer()
-  }
+      
+      compute_capacity() :: %{
+        "DesiredInstances" => integer(),
+        "DesiredSessions" => integer()
+      }
+      
   """
   @type compute_capacity() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  fleet_error() :: %{
-    "ErrorCode" => list(any()),
-    "ErrorMessage" => String.t()
-  }
+      
+      fleet_error() :: %{
+        "ErrorCode" => list(any()),
+        "ErrorMessage" => String.t()
+      }
+      
   """
   @type fleet_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_updated_image_request() :: %{
-    optional("dryRun") => boolean(),
-    optional("newImageDescription") => String.t(),
-    optional("newImageDisplayName") => String.t(),
-    optional("newImageTags") => map(),
-    required("existingImageName") => String.t(),
-    required("newImageName") => String.t()
-  }
+      
+      create_updated_image_request() :: %{
+        optional("dryRun") => boolean(),
+        optional("newImageDescription") => String.t(),
+        optional("newImageDisplayName") => String.t(),
+        optional("newImageTags") => map(),
+        required("existingImageName") => String.t(),
+        required("newImageName") => String.t()
+      }
+      
   """
   @type create_updated_image_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  associate_application_to_entitlement_result() :: %{
-
-  }
+      
+      associate_application_to_entitlement_result() :: %{}
+      
   """
-  @type associate_application_to_entitlement_result() :: %{String.t() => any()}
+  @type associate_application_to_entitlement_result() :: %{}
 
   @typedoc """
 
   ## Example:
-  describe_stacks_request() :: %{
-    optional("Names") => list(String.t()()),
-    optional("NextToken") => String.t()
-  }
+      
+      describe_stacks_request() :: %{
+        optional("Names") => list(String.t()()),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type describe_stacks_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  app_block() :: %{
-    "AppBlockErrors" => list(error_details()()),
-    "Arn" => String.t(),
-    "CreatedTime" => non_neg_integer(),
-    "Description" => String.t(),
-    "DisplayName" => String.t(),
-    "Name" => String.t(),
-    "PackagingType" => list(any()),
-    "PostSetupScriptDetails" => script_details(),
-    "SetupScriptDetails" => script_details(),
-    "SourceS3Location" => s3_location(),
-    "State" => list(any())
-  }
+      
+      app_block() :: %{
+        "AppBlockErrors" => list(error_details()()),
+        "Arn" => String.t(),
+        "CreatedTime" => non_neg_integer(),
+        "Description" => String.t(),
+        "DisplayName" => String.t(),
+        "Name" => String.t(),
+        "PackagingType" => list(any()),
+        "PostSetupScriptDetails" => script_details(),
+        "SetupScriptDetails" => script_details(),
+        "SourceS3Location" => s3_location(),
+        "State" => list(any())
+      }
+      
   """
   @type app_block() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_fleet_request() :: %{
-    optional("AttributesToDelete") => list(list(any())()),
-    optional("ComputeCapacity") => compute_capacity(),
-    optional("DeleteVpcConfig") => boolean(),
-    optional("Description") => String.t(),
-    optional("DisconnectTimeoutInSeconds") => integer(),
-    optional("DisplayName") => String.t(),
-    optional("DomainJoinInfo") => domain_join_info(),
-    optional("EnableDefaultInternetAccess") => boolean(),
-    optional("IamRoleArn") => String.t(),
-    optional("IdleDisconnectTimeoutInSeconds") => integer(),
-    optional("ImageArn") => String.t(),
-    optional("ImageName") => String.t(),
-    optional("InstanceType") => String.t(),
-    optional("MaxConcurrentSessions") => integer(),
-    optional("MaxSessionsPerInstance") => integer(),
-    optional("MaxUserDurationInSeconds") => integer(),
-    optional("Name") => String.t(),
-    optional("Platform") => list(any()),
-    optional("SessionScriptS3Location") => s3_location(),
-    optional("StreamView") => list(any()),
-    optional("UsbDeviceFilterStrings") => list(String.t()()),
-    optional("VpcConfig") => vpc_config()
-  }
+      
+      update_fleet_request() :: %{
+        optional("AttributesToDelete") => list(list(any())()),
+        optional("ComputeCapacity") => compute_capacity(),
+        optional("DeleteVpcConfig") => boolean(),
+        optional("Description") => String.t(),
+        optional("DisconnectTimeoutInSeconds") => integer(),
+        optional("DisplayName") => String.t(),
+        optional("DomainJoinInfo") => domain_join_info(),
+        optional("EnableDefaultInternetAccess") => boolean(),
+        optional("IamRoleArn") => String.t(),
+        optional("IdleDisconnectTimeoutInSeconds") => integer(),
+        optional("ImageArn") => String.t(),
+        optional("ImageName") => String.t(),
+        optional("InstanceType") => String.t(),
+        optional("MaxConcurrentSessions") => integer(),
+        optional("MaxSessionsPerInstance") => integer(),
+        optional("MaxUserDurationInSeconds") => integer(),
+        optional("Name") => String.t(),
+        optional("Platform") => list(any()),
+        optional("SessionScriptS3Location") => s3_location(),
+        optional("StreamView") => list(any()),
+        optional("UsbDeviceFilterStrings") => list(String.t()()),
+        optional("VpcConfig") => vpc_config()
+      }
+      
   """
   @type update_fleet_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  usage_report_subscription() :: %{
-    "LastGeneratedReportDate" => non_neg_integer(),
-    "S3BucketName" => String.t(),
-    "Schedule" => list(any()),
-    "SubscriptionErrors" => list(last_report_generation_execution_error()())
-  }
+      
+      usage_report_subscription() :: %{
+        "LastGeneratedReportDate" => non_neg_integer(),
+        "S3BucketName" => String.t(),
+        "Schedule" => list(any()),
+        "SubscriptionErrors" => list(last_report_generation_execution_error()())
+      }
+      
   """
   @type usage_report_subscription() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_entitlement_result() :: %{
-    "Entitlement" => entitlement()
-  }
+      
+      update_entitlement_result() :: %{
+        "Entitlement" => entitlement()
+      }
+      
   """
   @type update_entitlement_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_app_block_builder_app_block_associations_request() :: %{
-    optional("AppBlockArn") => String.t(),
-    optional("AppBlockBuilderName") => String.t(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+      
+      describe_app_block_builder_app_block_associations_request() :: %{
+        optional("AppBlockArn") => String.t(),
+        optional("AppBlockBuilderName") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type describe_app_block_builder_app_block_associations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_image_builder_request() :: %{
-    optional("AccessEndpoints") => list(access_endpoint()()),
-    optional("AppstreamAgentVersion") => String.t(),
-    optional("Description") => String.t(),
-    optional("DisplayName") => String.t(),
-    optional("DomainJoinInfo") => domain_join_info(),
-    optional("EnableDefaultInternetAccess") => boolean(),
-    optional("IamRoleArn") => String.t(),
-    optional("ImageArn") => String.t(),
-    optional("ImageName") => String.t(),
-    optional("Tags") => map(),
-    optional("VpcConfig") => vpc_config(),
-    required("InstanceType") => String.t(),
-    required("Name") => String.t()
-  }
+      
+      create_image_builder_request() :: %{
+        optional("AccessEndpoints") => list(access_endpoint()()),
+        optional("AppstreamAgentVersion") => String.t(),
+        optional("Description") => String.t(),
+        optional("DisplayName") => String.t(),
+        optional("DomainJoinInfo") => domain_join_info(),
+        optional("EnableDefaultInternetAccess") => boolean(),
+        optional("IamRoleArn") => String.t(),
+        optional("ImageArn") => String.t(),
+        optional("ImageName") => String.t(),
+        optional("Tags") => map(),
+        optional("VpcConfig") => vpc_config(),
+        required("InstanceType") => String.t(),
+        required("Name") => String.t()
+      }
+      
   """
   @type create_image_builder_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  application() :: %{
-    "AppBlockArn" => String.t(),
-    "Arn" => String.t(),
-    "CreatedTime" => non_neg_integer(),
-    "Description" => String.t(),
-    "DisplayName" => String.t(),
-    "Enabled" => boolean(),
-    "IconS3Location" => s3_location(),
-    "IconURL" => String.t(),
-    "InstanceFamilies" => list(String.t()()),
-    "LaunchParameters" => String.t(),
-    "LaunchPath" => String.t(),
-    "Metadata" => map(),
-    "Name" => String.t(),
-    "Platforms" => list(list(any())()),
-    "WorkingDirectory" => String.t()
-  }
+      
+      application() :: %{
+        "AppBlockArn" => String.t(),
+        "Arn" => String.t(),
+        "CreatedTime" => non_neg_integer(),
+        "Description" => String.t(),
+        "DisplayName" => String.t(),
+        "Enabled" => boolean(),
+        "IconS3Location" => s3_location(),
+        "IconURL" => String.t(),
+        "InstanceFamilies" => list(String.t()()),
+        "LaunchParameters" => String.t(),
+        "LaunchPath" => String.t(),
+        "Metadata" => map(),
+        "Name" => String.t(),
+        "Platforms" => list(list(any())()),
+        "WorkingDirectory" => String.t()
+      }
+      
   """
   @type application() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  user_setting() :: %{
-    "Action" => list(any()),
-    "MaximumLength" => integer(),
-    "Permission" => list(any())
-  }
+      
+      user_setting() :: %{
+        "Action" => list(any()),
+        "MaximumLength" => integer(),
+        "Permission" => list(any())
+      }
+      
   """
   @type user_setting() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disassociate_application_fleet_request() :: %{
-    required("ApplicationArn") => String.t(),
-    required("FleetName") => String.t()
-  }
+      
+      disassociate_application_fleet_request() :: %{
+        required("ApplicationArn") => String.t(),
+        required("FleetName") => String.t()
+      }
+      
   """
   @type disassociate_application_fleet_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_entitled_applications_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("EntitlementName") => String.t(),
-    required("StackName") => String.t()
-  }
+      
+      list_entitled_applications_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("EntitlementName") => String.t(),
+        required("StackName") => String.t()
+      }
+      
   """
   @type list_entitled_applications_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  expire_session_result() :: %{
-
-  }
+      
+      expire_session_result() :: %{}
+      
   """
-  @type expire_session_result() :: %{String.t() => any()}
+  @type expire_session_result() :: %{}
 
   @typedoc """
 
   ## Example:
-  vpc_config() :: %{
-    "SecurityGroupIds" => list(String.t()()),
-    "SubnetIds" => list(String.t()())
-  }
+      
+      vpc_config() :: %{
+        "SecurityGroupIds" => list(String.t()()),
+        "SubnetIds" => list(String.t()())
+      }
+      
   """
   @type vpc_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  entitlement_attribute() :: %{
-    "Name" => String.t(),
-    "Value" => String.t()
-  }
+      
+      entitlement_attribute() :: %{
+        "Name" => String.t(),
+        "Value" => String.t()
+      }
+      
   """
   @type entitlement_attribute() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_user_stack_associations_result() :: %{
-    "NextToken" => String.t(),
-    "UserStackAssociations" => list(user_stack_association()())
-  }
+      
+      describe_user_stack_associations_result() :: %{
+        "NextToken" => String.t(),
+        "UserStackAssociations" => list(user_stack_association()())
+      }
+      
   """
   @type describe_user_stack_associations_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_directory_configs_request() :: %{
-    optional("DirectoryNames") => list(String.t()()),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+      
+      describe_directory_configs_request() :: %{
+        optional("DirectoryNames") => list(String.t()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type describe_directory_configs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  storage_connector() :: %{
-    "ConnectorType" => list(any()),
-    "Domains" => list(String.t()()),
-    "ResourceIdentifier" => String.t()
-  }
+      
+      storage_connector() :: %{
+        "ConnectorType" => list(any()),
+        "Domains" => list(String.t()()),
+        "ResourceIdentifier" => String.t()
+      }
+      
   """
   @type storage_connector() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  copy_image_response() :: %{
-    "DestinationImageName" => String.t()
-  }
+      
+      copy_image_response() :: %{
+        "DestinationImageName" => String.t()
+      }
+      
   """
   @type copy_image_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  error_details() :: %{
-    "ErrorCode" => String.t(),
-    "ErrorMessage" => String.t()
-  }
+      
+      error_details() :: %{
+        "ErrorCode" => String.t(),
+        "ErrorMessage" => String.t()
+      }
+      
   """
   @type error_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_applications_request() :: %{
-    optional("Arns") => list(String.t()()),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+      
+      describe_applications_request() :: %{
+        optional("Arns") => list(String.t()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type describe_applications_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_response() :: %{
-    "Tags" => map()
-  }
+      
+      list_tags_for_resource_response() :: %{
+        "Tags" => map()
+      }
+      
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_application_request() :: %{
-    optional("Description") => String.t(),
-    optional("DisplayName") => String.t(),
-    optional("LaunchParameters") => String.t(),
-    optional("Tags") => map(),
-    optional("WorkingDirectory") => String.t(),
-    required("AppBlockArn") => String.t(),
-    required("IconS3Location") => s3_location(),
-    required("InstanceFamilies") => list(String.t()()),
-    required("LaunchPath") => String.t(),
-    required("Name") => String.t(),
-    required("Platforms") => list(list(any())())
-  }
+      
+      create_application_request() :: %{
+        optional("Description") => String.t(),
+        optional("DisplayName") => String.t(),
+        optional("LaunchParameters") => String.t(),
+        optional("Tags") => map(),
+        optional("WorkingDirectory") => String.t(),
+        required("AppBlockArn") => String.t(),
+        required("IconS3Location") => s3_location(),
+        required("InstanceFamilies") => list(String.t()()),
+        required("LaunchPath") => String.t(),
+        required("Name") => String.t(),
+        required("Platforms") => list(list(any())())
+      }
+      
   """
   @type create_application_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_fleet_result() :: %{
-
-  }
+      
+      delete_fleet_result() :: %{}
+      
   """
-  @type delete_fleet_result() :: %{String.t() => any()}
+  @type delete_fleet_result() :: %{}
 
   @typedoc """
 
   ## Example:
-  start_fleet_request() :: %{
-    required("Name") => String.t()
-  }
+      
+      start_fleet_request() :: %{
+        required("Name") => String.t()
+      }
+      
   """
   @type start_fleet_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_image_builder_result() :: %{
-    "ImageBuilder" => image_builder()
-  }
+      
+      delete_image_builder_result() :: %{
+        "ImageBuilder" => image_builder()
+      }
+      
   """
   @type delete_image_builder_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_error() :: %{
-    "ErrorCode" => list(any()),
-    "ErrorMessage" => String.t(),
-    "ErrorTimestamp" => non_neg_integer()
-  }
+      
+      resource_error() :: %{
+        "ErrorCode" => list(any()),
+        "ErrorMessage" => String.t(),
+        "ErrorTimestamp" => non_neg_integer()
+      }
+      
   """
   @type resource_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  operation_not_permitted_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      operation_not_permitted_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type operation_not_permitted_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  s3_location() :: %{
-    "S3Bucket" => String.t(),
-    "S3Key" => String.t()
-  }
+      
+      s3_location() :: %{
+        "S3Bucket" => String.t(),
+        "S3Key" => String.t()
+      }
+      
   """
   @type s3_location() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_app_block_request() :: %{
-    required("Name") => String.t()
-  }
+      
+      delete_app_block_request() :: %{
+        required("Name") => String.t()
+      }
+      
   """
   @type delete_app_block_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stop_app_block_builder_request() :: %{
-    required("Name") => String.t()
-  }
+      
+      stop_app_block_builder_request() :: %{
+        required("Name") => String.t()
+      }
+      
   """
   @type stop_app_block_builder_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_image_permissions_request() :: %{
-    required("ImagePermissions") => image_permissions(),
-    required("Name") => String.t(),
-    required("SharedAccountId") => String.t()
-  }
+      
+      update_image_permissions_request() :: %{
+        required("ImagePermissions") => image_permissions(),
+        required("Name") => String.t(),
+        required("SharedAccountId") => String.t()
+      }
+      
   """
   @type update_image_permissions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disassociate_app_block_builder_app_block_request() :: %{
-    required("AppBlockArn") => String.t(),
-    required("AppBlockBuilderName") => String.t()
-  }
+      
+      disassociate_app_block_builder_app_block_request() :: %{
+        required("AppBlockArn") => String.t(),
+        required("AppBlockBuilderName") => String.t()
+      }
+      
   """
   @type disassociate_app_block_builder_app_block_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  app_block_builder_app_block_association() :: %{
-    "AppBlockArn" => String.t(),
-    "AppBlockBuilderName" => String.t()
-  }
+      
+      app_block_builder_app_block_association() :: %{
+        "AppBlockArn" => String.t(),
+        "AppBlockBuilderName" => String.t()
+      }
+      
   """
   @type app_block_builder_app_block_association() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  associate_fleet_result() :: %{
-
-  }
+      
+      associate_fleet_result() :: %{}
+      
   """
-  @type associate_fleet_result() :: %{String.t() => any()}
+  @type associate_fleet_result() :: %{}
 
   @typedoc """
 
   ## Example:
-  session() :: %{
-    "AuthenticationType" => list(any()),
-    "ConnectionState" => list(any()),
-    "FleetName" => String.t(),
-    "Id" => String.t(),
-    "InstanceId" => String.t(),
-    "MaxExpirationTime" => non_neg_integer(),
-    "NetworkAccessConfiguration" => network_access_configuration(),
-    "StackName" => String.t(),
-    "StartTime" => non_neg_integer(),
-    "State" => list(any()),
-    "UserId" => String.t()
-  }
+      
+      session() :: %{
+        "AuthenticationType" => list(any()),
+        "ConnectionState" => list(any()),
+        "FleetName" => String.t(),
+        "Id" => String.t(),
+        "InstanceId" => String.t(),
+        "MaxExpirationTime" => non_neg_integer(),
+        "NetworkAccessConfiguration" => network_access_configuration(),
+        "StackName" => String.t(),
+        "StartTime" => non_neg_integer(),
+        "State" => list(any()),
+        "UserId" => String.t()
+      }
+      
   """
   @type session() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_stack_result() :: %{
-    "Stack" => stack()
-  }
+      
+      update_stack_result() :: %{
+        "Stack" => stack()
+      }
+      
   """
   @type update_stack_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_entitled_applications_result() :: %{
-    "EntitledApplications" => list(entitled_application()()),
-    "NextToken" => String.t()
-  }
+      
+      list_entitled_applications_result() :: %{
+        "EntitledApplications" => list(entitled_application()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_entitled_applications_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  streaming_experience_settings() :: %{
-    "PreferredProtocol" => list(any())
-  }
+      
+      streaming_experience_settings() :: %{
+        "PreferredProtocol" => list(any())
+      }
+      
   """
   @type streaming_experience_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_user_request() :: %{
-    required("AuthenticationType") => list(any()),
-    required("UserName") => String.t()
-  }
+      
+      delete_user_request() :: %{
+        required("AuthenticationType") => list(any()),
+        required("UserName") => String.t()
+      }
+      
   """
   @type delete_user_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  entitlement_not_found_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      entitlement_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type entitlement_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_directory_config_result() :: %{
-
-  }
+      
+      delete_directory_config_result() :: %{}
+      
   """
-  @type delete_directory_config_result() :: %{String.t() => any()}
+  @type delete_directory_config_result() :: %{}
 
   @typedoc """
 
   ## Example:
-  invalid_role_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      invalid_role_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type invalid_role_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_image_request() :: %{
-    required("Name") => String.t()
-  }
+      
+      delete_image_request() :: %{
+        required("Name") => String.t()
+      }
+      
   """
   @type delete_image_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_streaming_url_request() :: %{
-    optional("ApplicationId") => String.t(),
-    optional("SessionContext") => String.t(),
-    optional("Validity") => float(),
-    required("FleetName") => String.t(),
-    required("StackName") => String.t(),
-    required("UserId") => String.t()
-  }
+      
+      create_streaming_url_request() :: %{
+        optional("ApplicationId") => String.t(),
+        optional("SessionContext") => String.t(),
+        optional("Validity") => float(),
+        required("FleetName") => String.t(),
+        required("StackName") => String.t(),
+        required("UserId") => String.t()
+      }
+      
   """
   @type create_streaming_url_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_image_builder_streaming_url_request() :: %{
-    optional("Validity") => float(),
-    required("Name") => String.t()
-  }
+      
+      create_image_builder_streaming_url_request() :: %{
+        optional("Validity") => float(),
+        required("Name") => String.t()
+      }
+      
   """
   @type create_image_builder_streaming_url_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_application_request() :: %{
-    optional("AppBlockArn") => String.t(),
-    optional("AttributesToDelete") => list(list(any())()),
-    optional("Description") => String.t(),
-    optional("DisplayName") => String.t(),
-    optional("IconS3Location") => s3_location(),
-    optional("LaunchParameters") => String.t(),
-    optional("LaunchPath") => String.t(),
-    optional("WorkingDirectory") => String.t(),
-    required("Name") => String.t()
-  }
+      
+      update_application_request() :: %{
+        optional("AppBlockArn") => String.t(),
+        optional("AttributesToDelete") => list(list(any())()),
+        optional("Description") => String.t(),
+        optional("DisplayName") => String.t(),
+        optional("IconS3Location") => s3_location(),
+        optional("LaunchParameters") => String.t(),
+        optional("LaunchPath") => String.t(),
+        optional("WorkingDirectory") => String.t(),
+        required("Name") => String.t()
+      }
+      
   """
   @type update_application_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_image_builder_request() :: %{
-    required("Name") => String.t()
-  }
+      
+      delete_image_builder_request() :: %{
+        required("Name") => String.t()
+      }
+      
   """
   @type delete_image_builder_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_account_status_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      invalid_account_status_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type invalid_account_status_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_associated_fleets_request() :: %{
-    optional("NextToken") => String.t(),
-    required("StackName") => String.t()
-  }
+      
+      list_associated_fleets_request() :: %{
+        optional("NextToken") => String.t(),
+        required("StackName") => String.t()
+      }
+      
   """
   @type list_associated_fleets_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stack_error() :: %{
-    "ErrorCode" => list(any()),
-    "ErrorMessage" => String.t()
-  }
+      
+      stack_error() :: %{
+        "ErrorCode" => list(any()),
+        "ErrorMessage" => String.t()
+      }
+      
   """
   @type stack_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_associated_fleets_result() :: %{
-    "Names" => list(String.t()()),
-    "NextToken" => String.t()
-  }
+      
+      list_associated_fleets_result() :: %{
+        "Names" => list(String.t()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_associated_fleets_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_disassociate_user_stack_result() :: %{
-    "errors" => list(user_stack_association_error()())
-  }
+      
+      batch_disassociate_user_stack_result() :: %{
+        "errors" => list(user_stack_association_error()())
+      }
+      
   """
   @type batch_disassociate_user_stack_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_application_result() :: %{
-
-  }
+      
+      delete_application_result() :: %{}
+      
   """
-  @type delete_application_result() :: %{String.t() => any()}
+  @type delete_application_result() :: %{}
 
   @typedoc """
 
   ## Example:
-  batch_associate_user_stack_request() :: %{
-    required("UserStackAssociations") => list(user_stack_association()())
-  }
+      
+      batch_associate_user_stack_request() :: %{
+        required("UserStackAssociations") => list(user_stack_association()())
+      }
+      
   """
   @type batch_associate_user_stack_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_users_result() :: %{
-    "NextToken" => String.t(),
-    "Users" => list(user()())
-  }
+      
+      describe_users_result() :: %{
+        "NextToken" => String.t(),
+        "Users" => list(user()())
+      }
+      
   """
   @type describe_users_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_stacks_result() :: %{
-    "NextToken" => String.t(),
-    "Stacks" => list(stack()())
-  }
+      
+      describe_stacks_result() :: %{
+        "NextToken" => String.t(),
+        "Stacks" => list(stack()())
+      }
+      
   """
   @type describe_stacks_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  image_builder_state_change_reason() :: %{
-    "Code" => list(any()),
-    "Message" => String.t()
-  }
+      
+      image_builder_state_change_reason() :: %{
+        "Code" => list(any()),
+        "Message" => String.t()
+      }
+      
   """
   @type image_builder_state_change_reason() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_application_result() :: %{
-    "Application" => application()
-  }
+      
+      update_application_result() :: %{
+        "Application" => application()
+      }
+      
   """
   @type update_application_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  entitlement() :: %{
-    "AppVisibility" => list(any()),
-    "Attributes" => list(entitlement_attribute()()),
-    "CreatedTime" => non_neg_integer(),
-    "Description" => String.t(),
-    "LastModifiedTime" => non_neg_integer(),
-    "Name" => String.t(),
-    "StackName" => String.t()
-  }
+      
+      entitlement() :: %{
+        "AppVisibility" => list(any()),
+        "Attributes" => list(entitlement_attribute()()),
+        "CreatedTime" => non_neg_integer(),
+        "Description" => String.t(),
+        "LastModifiedTime" => non_neg_integer(),
+        "Name" => String.t(),
+        "StackName" => String.t()
+      }
+      
   """
   @type entitlement() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  image() :: %{
-    "Applications" => list(application()()),
-    "AppstreamAgentVersion" => String.t(),
-    "Arn" => String.t(),
-    "BaseImageArn" => String.t(),
-    "CreatedTime" => non_neg_integer(),
-    "Description" => String.t(),
-    "DisplayName" => String.t(),
-    "ImageBuilderName" => String.t(),
-    "ImageBuilderSupported" => boolean(),
-    "ImageErrors" => list(resource_error()()),
-    "ImagePermissions" => image_permissions(),
-    "Name" => String.t(),
-    "Platform" => list(any()),
-    "PublicBaseImageReleasedDate" => non_neg_integer(),
-    "State" => list(any()),
-    "StateChangeReason" => image_state_change_reason(),
-    "Visibility" => list(any())
-  }
+      
+      image() :: %{
+        "Applications" => list(application()()),
+        "AppstreamAgentVersion" => String.t(),
+        "Arn" => String.t(),
+        "BaseImageArn" => String.t(),
+        "CreatedTime" => non_neg_integer(),
+        "Description" => String.t(),
+        "DisplayName" => String.t(),
+        "ImageBuilderName" => String.t(),
+        "ImageBuilderSupported" => boolean(),
+        "ImageErrors" => list(resource_error()()),
+        "ImagePermissions" => image_permissions(),
+        "Name" => String.t(),
+        "Platform" => list(any()),
+        "PublicBaseImageReleasedDate" => non_neg_integer(),
+        "State" => list(any()),
+        "StateChangeReason" => image_state_change_reason(),
+        "Visibility" => list(any())
+      }
+      
   """
   @type image() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_entitlements_result() :: %{
-    "Entitlements" => list(entitlement()()),
-    "NextToken" => String.t()
-  }
+      
+      describe_entitlements_result() :: %{
+        "Entitlements" => list(entitlement()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type describe_entitlements_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  shared_image_permissions() :: %{
-    "imagePermissions" => image_permissions(),
-    "sharedAccountId" => String.t()
-  }
+      
+      shared_image_permissions() :: %{
+        "imagePermissions" => image_permissions(),
+        "sharedAccountId" => String.t()
+      }
+      
   """
   @type shared_image_permissions() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  application_settings() :: %{
-    "Enabled" => boolean(),
-    "SettingsGroup" => String.t()
-  }
+      
+      application_settings() :: %{
+        "Enabled" => boolean(),
+        "SettingsGroup" => String.t()
+      }
+      
   """
   @type application_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  incompatible_image_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      incompatible_image_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type incompatible_image_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_image_builder_streaming_url_result() :: %{
-    "Expires" => non_neg_integer(),
-    "StreamingURL" => String.t()
-  }
+      
+      create_image_builder_streaming_url_result() :: %{
+        "Expires" => non_neg_integer(),
+        "StreamingURL" => String.t()
+      }
+      
   """
   @type create_image_builder_streaming_url_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_fleet_result() :: %{
-    "Fleet" => fleet()
-  }
+      
+      create_fleet_result() :: %{
+        "Fleet" => fleet()
+      }
+      
   """
   @type create_fleet_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_app_block_builder_app_block_associations_result() :: %{
-    "AppBlockBuilderAppBlockAssociations" => list(app_block_builder_app_block_association()()),
-    "NextToken" => String.t()
-  }
+      
+      describe_app_block_builder_app_block_associations_result() :: %{
+        "AppBlockBuilderAppBlockAssociations" => list(app_block_builder_app_block_association()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type describe_app_block_builder_app_block_associations_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_response() :: %{
-
-  }
+      
+      tag_resource_response() :: %{}
+      
   """
-  @type tag_resource_response() :: %{String.t() => any()}
+  @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  directory_config() :: %{
-    "CertificateBasedAuthProperties" => certificate_based_auth_properties(),
-    "CreatedTime" => non_neg_integer(),
-    "DirectoryName" => String.t(),
-    "OrganizationalUnitDistinguishedNames" => list(String.t()()),
-    "ServiceAccountCredentials" => service_account_credentials()
-  }
+      
+      directory_config() :: %{
+        "CertificateBasedAuthProperties" => certificate_based_auth_properties(),
+        "CreatedTime" => non_neg_integer(),
+        "DirectoryName" => String.t(),
+        "OrganizationalUnitDistinguishedNames" => list(String.t()()),
+        "ServiceAccountCredentials" => service_account_credentials()
+      }
+      
   """
   @type directory_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_associate_user_stack_result() :: %{
-    "errors" => list(user_stack_association_error()())
-  }
+      
+      batch_associate_user_stack_result() :: %{
+        "errors" => list(user_stack_association_error()())
+      }
+      
   """
   @type batch_associate_user_stack_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  concurrent_modification_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      concurrent_modification_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type concurrent_modification_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_image_permissions_result() :: %{
-    "Name" => String.t(),
-    "NextToken" => String.t(),
-    "SharedImagePermissionsList" => list(shared_image_permissions()())
-  }
+      
+      describe_image_permissions_result() :: %{
+        "Name" => String.t(),
+        "NextToken" => String.t(),
+        "SharedImagePermissionsList" => list(shared_image_permissions()())
+      }
+      
   """
   @type describe_image_permissions_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_user_result() :: %{
-
-  }
+      
+      delete_user_result() :: %{}
+      
   """
-  @type delete_user_result() :: %{String.t() => any()}
+  @type delete_user_result() :: %{}
 
   @typedoc """
 
   ## Example:
-  associate_app_block_builder_app_block_request() :: %{
-    required("AppBlockArn") => String.t(),
-    required("AppBlockBuilderName") => String.t()
-  }
+      
+      associate_app_block_builder_app_block_request() :: %{
+        required("AppBlockArn") => String.t(),
+        required("AppBlockBuilderName") => String.t()
+      }
+      
   """
   @type associate_app_block_builder_app_block_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_app_block_builder_result() :: %{
-    "AppBlockBuilder" => app_block_builder()
-  }
+      
+      create_app_block_builder_result() :: %{
+        "AppBlockBuilder" => app_block_builder()
+      }
+      
   """
   @type create_app_block_builder_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_request() :: %{
-    required("ResourceArn") => String.t()
-  }
+      
+      list_tags_for_resource_request() :: %{
+        required("ResourceArn") => String.t()
+      }
+      
   """
   @type list_tags_for_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  service_account_credentials() :: %{
-    "AccountName" => String.t(),
-    "AccountPassword" => String.t()
-  }
+      
+      service_account_credentials() :: %{
+        "AccountName" => String.t(),
+        "AccountPassword" => String.t()
+      }
+      
   """
   @type service_account_credentials() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_fleet_result() :: %{
-
-  }
+      
+      start_fleet_result() :: %{}
+      
   """
-  @type start_fleet_result() :: %{String.t() => any()}
+  @type start_fleet_result() :: %{}
 
   @typedoc """
 
   ## Example:
-  enable_user_request() :: %{
-    required("AuthenticationType") => list(any()),
-    required("UserName") => String.t()
-  }
+      
+      enable_user_request() :: %{
+        required("AuthenticationType") => list(any()),
+        required("UserName") => String.t()
+      }
+      
   """
   @type enable_user_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  script_details() :: %{
-    "ExecutableParameters" => String.t(),
-    "ExecutablePath" => String.t(),
-    "ScriptS3Location" => s3_location(),
-    "TimeoutInSeconds" => integer()
-  }
+      
+      script_details() :: %{
+        "ExecutableParameters" => String.t(),
+        "ExecutablePath" => String.t(),
+        "ScriptS3Location" => s3_location(),
+        "TimeoutInSeconds" => integer()
+      }
+      
   """
   @type script_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disassociate_fleet_request() :: %{
-    required("FleetName") => String.t(),
-    required("StackName") => String.t()
-  }
+      
+      disassociate_fleet_request() :: %{
+        required("FleetName") => String.t(),
+        required("StackName") => String.t()
+      }
+      
   """
   @type disassociate_fleet_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_entitlement_request() :: %{
-    required("Name") => String.t(),
-    required("StackName") => String.t()
-  }
+      
+      delete_entitlement_request() :: %{
+        required("Name") => String.t(),
+        required("StackName") => String.t()
+      }
+      
   """
   @type delete_entitlement_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_stack_result() :: %{
-
-  }
+      
+      delete_stack_result() :: %{}
+      
   """
-  @type delete_stack_result() :: %{String.t() => any()}
+  @type delete_stack_result() :: %{}
 
   @typedoc """
 
   ## Example:
-  user() :: %{
-    "Arn" => String.t(),
-    "AuthenticationType" => list(any()),
-    "CreatedTime" => non_neg_integer(),
-    "Enabled" => boolean(),
-    "FirstName" => String.t(),
-    "LastName" => String.t(),
-    "Status" => String.t(),
-    "UserName" => String.t()
-  }
+      
+      user() :: %{
+        "Arn" => String.t(),
+        "AuthenticationType" => list(any()),
+        "CreatedTime" => non_neg_integer(),
+        "Enabled" => boolean(),
+        "FirstName" => String.t(),
+        "LastName" => String.t(),
+        "Status" => String.t(),
+        "UserName" => String.t()
+      }
+      
   """
   @type user() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_sessions_request() :: %{
-    optional("AuthenticationType") => list(any()),
-    optional("InstanceId") => String.t(),
-    optional("Limit") => integer(),
-    optional("NextToken") => String.t(),
-    optional("UserId") => String.t(),
-    required("FleetName") => String.t(),
-    required("StackName") => String.t()
-  }
+      
+      describe_sessions_request() :: %{
+        optional("AuthenticationType") => list(any()),
+        optional("InstanceId") => String.t(),
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t(),
+        optional("UserId") => String.t(),
+        required("FleetName") => String.t(),
+        required("StackName") => String.t()
+      }
+      
   """
   @type describe_sessions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_usage_report_subscription_result() :: %{
-    "S3BucketName" => String.t(),
-    "Schedule" => list(any())
-  }
+      
+      create_usage_report_subscription_result() :: %{
+        "S3BucketName" => String.t(),
+        "Schedule" => list(any())
+      }
+      
   """
   @type create_usage_report_subscription_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  limit_exceeded_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      limit_exceeded_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_directory_config_result() :: %{
-    "DirectoryConfig" => directory_config()
-  }
+      
+      create_directory_config_result() :: %{
+        "DirectoryConfig" => directory_config()
+      }
+      
   """
   @type create_directory_config_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  last_report_generation_execution_error() :: %{
-    "ErrorCode" => list(any()),
-    "ErrorMessage" => String.t()
-  }
+      
+      last_report_generation_execution_error() :: %{
+        "ErrorCode" => list(any()),
+        "ErrorMessage" => String.t()
+      }
+      
   """
   @type last_report_generation_execution_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_fleets_result() :: %{
-    "Fleets" => list(fleet()()),
-    "NextToken" => String.t()
-  }
+      
+      describe_fleets_result() :: %{
+        "Fleets" => list(fleet()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type describe_fleets_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_usage_report_subscriptions_result() :: %{
-    "NextToken" => String.t(),
-    "UsageReportSubscriptions" => list(usage_report_subscription()())
-  }
+      
+      describe_usage_report_subscriptions_result() :: %{
+        "NextToken" => String.t(),
+        "UsageReportSubscriptions" => list(usage_report_subscription()())
+      }
+      
   """
   @type describe_usage_report_subscriptions_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_associated_stacks_result() :: %{
-    "Names" => list(String.t()()),
-    "NextToken" => String.t()
-  }
+      
+      list_associated_stacks_result() :: %{
+        "Names" => list(String.t()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_associated_stacks_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  associate_fleet_request() :: %{
-    required("FleetName") => String.t(),
-    required("StackName") => String.t()
-  }
+      
+      associate_fleet_request() :: %{
+        required("FleetName") => String.t(),
+        required("StackName") => String.t()
+      }
+      
   """
   @type associate_fleet_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_app_block_builders_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("Names") => list(String.t()()),
-    optional("NextToken") => String.t()
-  }
+      
+      describe_app_block_builders_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("Names") => list(String.t()()),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type describe_app_block_builders_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_user_stack_associations_request() :: %{
-    optional("AuthenticationType") => list(any()),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("StackName") => String.t(),
-    optional("UserName") => String.t()
-  }
+      
+      describe_user_stack_associations_request() :: %{
+        optional("AuthenticationType") => list(any()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("StackName") => String.t(),
+        optional("UserName") => String.t()
+      }
+      
   """
   @type describe_user_stack_associations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_already_exists_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      resource_already_exists_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type resource_already_exists_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stop_image_builder_result() :: %{
-    "ImageBuilder" => image_builder()
-  }
+      
+      stop_image_builder_result() :: %{
+        "ImageBuilder" => image_builder()
+      }
+      
   """
   @type stop_image_builder_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_app_block_builder_result() :: %{
-    "AppBlockBuilder" => app_block_builder()
-  }
+      
+      start_app_block_builder_result() :: %{
+        "AppBlockBuilder" => app_block_builder()
+      }
+      
   """
   @type start_app_block_builder_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_image_builder_request() :: %{
-    optional("AppstreamAgentVersion") => String.t(),
-    required("Name") => String.t()
-  }
+      
+      start_image_builder_request() :: %{
+        optional("AppstreamAgentVersion") => String.t(),
+        required("Name") => String.t()
+      }
+      
   """
   @type start_image_builder_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_app_block_builder_request() :: %{
-    required("Name") => String.t()
-  }
+      
+      start_app_block_builder_request() :: %{
+        required("Name") => String.t()
+      }
+      
   """
   @type start_app_block_builder_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_app_block_builder_result() :: %{
-    "AppBlockBuilder" => app_block_builder()
-  }
+      
+      update_app_block_builder_result() :: %{
+        "AppBlockBuilder" => app_block_builder()
+      }
+      
   """
   @type update_app_block_builder_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_image_permissions_result() :: %{
-
-  }
+      
+      delete_image_permissions_result() :: %{}
+      
   """
-  @type delete_image_permissions_result() :: %{String.t() => any()}
+  @type delete_image_permissions_result() :: %{}
 
   @typedoc """
 
   ## Example:
-  entitlement_already_exists_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      entitlement_already_exists_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type entitlement_already_exists_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_entitlement_request() :: %{
-    optional("AppVisibility") => list(any()),
-    optional("Attributes") => list(entitlement_attribute()()),
-    optional("Description") => String.t(),
-    required("Name") => String.t(),
-    required("StackName") => String.t()
-  }
+      
+      update_entitlement_request() :: %{
+        optional("AppVisibility") => list(any()),
+        optional("Attributes") => list(entitlement_attribute()()),
+        optional("Description") => String.t(),
+        required("Name") => String.t(),
+        required("StackName") => String.t()
+      }
+      
   """
   @type update_entitlement_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_application_fleet_associations_result() :: %{
-    "ApplicationFleetAssociations" => list(application_fleet_association()()),
-    "NextToken" => String.t()
-  }
+      
+      describe_application_fleet_associations_result() :: %{
+        "ApplicationFleetAssociations" => list(application_fleet_association()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type describe_application_fleet_associations_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_image_permissions_result() :: %{
-
-  }
+      
+      update_image_permissions_result() :: %{}
+      
   """
-  @type update_image_permissions_result() :: %{String.t() => any()}
+  @type update_image_permissions_result() :: %{}
 
   @typedoc """
 
   ## Example:
-  disable_user_request() :: %{
-    required("AuthenticationType") => list(any()),
-    required("UserName") => String.t()
-  }
+      
+      disable_user_request() :: %{
+        required("AuthenticationType") => list(any()),
+        required("UserName") => String.t()
+      }
+      
   """
   @type disable_user_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  application_settings_response() :: %{
-    "Enabled" => boolean(),
-    "S3BucketName" => String.t(),
-    "SettingsGroup" => String.t()
-  }
+      
+      application_settings_response() :: %{
+        "Enabled" => boolean(),
+        "S3BucketName" => String.t(),
+        "SettingsGroup" => String.t()
+      }
+      
   """
   @type application_settings_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  domain_join_info() :: %{
-    "DirectoryName" => String.t(),
-    "OrganizationalUnitDistinguishedName" => String.t()
-  }
+      
+      domain_join_info() :: %{
+        "DirectoryName" => String.t(),
+        "OrganizationalUnitDistinguishedName" => String.t()
+      }
+      
   """
   @type domain_join_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_fleets_request() :: %{
-    optional("Names") => list(String.t()()),
-    optional("NextToken") => String.t()
-  }
+      
+      describe_fleets_request() :: %{
+        optional("Names") => list(String.t()()),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type describe_fleets_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  fleet() :: %{
-    "Arn" => String.t(),
-    "ComputeCapacityStatus" => compute_capacity_status(),
-    "CreatedTime" => non_neg_integer(),
-    "Description" => String.t(),
-    "DisconnectTimeoutInSeconds" => integer(),
-    "DisplayName" => String.t(),
-    "DomainJoinInfo" => domain_join_info(),
-    "EnableDefaultInternetAccess" => boolean(),
-    "FleetErrors" => list(fleet_error()()),
-    "FleetType" => list(any()),
-    "IamRoleArn" => String.t(),
-    "IdleDisconnectTimeoutInSeconds" => integer(),
-    "ImageArn" => String.t(),
-    "ImageName" => String.t(),
-    "InstanceType" => String.t(),
-    "MaxConcurrentSessions" => integer(),
-    "MaxSessionsPerInstance" => integer(),
-    "MaxUserDurationInSeconds" => integer(),
-    "Name" => String.t(),
-    "Platform" => list(any()),
-    "SessionScriptS3Location" => s3_location(),
-    "State" => list(any()),
-    "StreamView" => list(any()),
-    "UsbDeviceFilterStrings" => list(String.t()()),
-    "VpcConfig" => vpc_config()
-  }
+      
+      fleet() :: %{
+        "Arn" => String.t(),
+        "ComputeCapacityStatus" => compute_capacity_status(),
+        "CreatedTime" => non_neg_integer(),
+        "Description" => String.t(),
+        "DisconnectTimeoutInSeconds" => integer(),
+        "DisplayName" => String.t(),
+        "DomainJoinInfo" => domain_join_info(),
+        "EnableDefaultInternetAccess" => boolean(),
+        "FleetErrors" => list(fleet_error()()),
+        "FleetType" => list(any()),
+        "IamRoleArn" => String.t(),
+        "IdleDisconnectTimeoutInSeconds" => integer(),
+        "ImageArn" => String.t(),
+        "ImageName" => String.t(),
+        "InstanceType" => String.t(),
+        "MaxConcurrentSessions" => integer(),
+        "MaxSessionsPerInstance" => integer(),
+        "MaxUserDurationInSeconds" => integer(),
+        "Name" => String.t(),
+        "Platform" => list(any()),
+        "SessionScriptS3Location" => s3_location(),
+        "State" => list(any()),
+        "StreamView" => list(any()),
+        "UsbDeviceFilterStrings" => list(String.t()()),
+        "VpcConfig" => vpc_config()
+      }
+      
   """
   @type fleet() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_entitlements_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("Name") => String.t(),
-    optional("NextToken") => String.t(),
-    required("StackName") => String.t()
-  }
+      
+      describe_entitlements_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("Name") => String.t(),
+        optional("NextToken") => String.t(),
+        required("StackName") => String.t()
+      }
+      
   """
   @type describe_entitlements_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_applications_result() :: %{
-    "Applications" => list(application()()),
-    "NextToken" => String.t()
-  }
+      
+      describe_applications_result() :: %{
+        "Applications" => list(application()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type describe_applications_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  entitled_application() :: %{
-    "ApplicationIdentifier" => String.t()
-  }
+      
+      entitled_application() :: %{
+        "ApplicationIdentifier" => String.t()
+      }
+      
   """
   @type entitled_application() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_sessions_result() :: %{
-    "NextToken" => String.t(),
-    "Sessions" => list(session()())
-  }
+      
+      describe_sessions_result() :: %{
+        "NextToken" => String.t(),
+        "Sessions" => list(session()())
+      }
+      
   """
   @type describe_sessions_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  user_stack_association_error() :: %{
-    "ErrorCode" => list(any()),
-    "ErrorMessage" => String.t(),
-    "UserStackAssociation" => user_stack_association()
-  }
+      
+      user_stack_association_error() :: %{
+        "ErrorCode" => list(any()),
+        "ErrorMessage" => String.t(),
+        "UserStackAssociation" => user_stack_association()
+      }
+      
   """
   @type user_stack_association_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_application_request() :: %{
-    required("Name") => String.t()
-  }
+      
+      delete_application_request() :: %{
+        required("Name") => String.t()
+      }
+      
   """
   @type delete_application_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_user_request() :: %{
-    optional("FirstName") => String.t(),
-    optional("LastName") => String.t(),
-    optional("MessageAction") => list(any()),
-    required("AuthenticationType") => list(any()),
-    required("UserName") => String.t()
-  }
+      
+      create_user_request() :: %{
+        optional("FirstName") => String.t(),
+        optional("LastName") => String.t(),
+        optional("MessageAction") => list(any()),
+        required("AuthenticationType") => list(any()),
+        required("UserName") => String.t()
+      }
+      
   """
   @type create_user_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_entitlement_request() :: %{
-    optional("Description") => String.t(),
-    required("AppVisibility") => list(any()),
-    required("Attributes") => list(entitlement_attribute()()),
-    required("Name") => String.t(),
-    required("StackName") => String.t()
-  }
+      
+      create_entitlement_request() :: %{
+        optional("Description") => String.t(),
+        required("AppVisibility") => list(any()),
+        required("Attributes") => list(entitlement_attribute()()),
+        required("Name") => String.t(),
+        required("StackName") => String.t()
+      }
+      
   """
   @type create_entitlement_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_directory_config_request() :: %{
-    optional("CertificateBasedAuthProperties") => certificate_based_auth_properties(),
-    optional("ServiceAccountCredentials") => service_account_credentials(),
-    required("DirectoryName") => String.t(),
-    required("OrganizationalUnitDistinguishedNames") => list(String.t()())
-  }
+      
+      create_directory_config_request() :: %{
+        optional("CertificateBasedAuthProperties") => certificate_based_auth_properties(),
+        optional("ServiceAccountCredentials") => service_account_credentials(),
+        required("DirectoryName") => String.t(),
+        required("OrganizationalUnitDistinguishedNames") => list(String.t()())
+      }
+      
   """
   @type create_directory_config_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_directory_config_request() :: %{
-    required("DirectoryName") => String.t()
-  }
+      
+      delete_directory_config_request() :: %{
+        required("DirectoryName") => String.t()
+      }
+      
   """
   @type delete_directory_config_request() :: %{String.t() => any()}
+
+  @type associate_app_block_builder_app_block_errors() ::
+          limit_exceeded_exception()
+          | concurrent_modification_exception()
+          | operation_not_permitted_exception()
+          | resource_not_found_exception()
+          | invalid_parameter_combination_exception()
+
+  @type associate_application_fleet_errors() ::
+          limit_exceeded_exception()
+          | concurrent_modification_exception()
+          | operation_not_permitted_exception()
+          | resource_not_found_exception()
+          | invalid_parameter_combination_exception()
+
+  @type associate_application_to_entitlement_errors() ::
+          limit_exceeded_exception()
+          | entitlement_not_found_exception()
+          | operation_not_permitted_exception()
+          | resource_not_found_exception()
+
+  @type associate_fleet_errors() ::
+          limit_exceeded_exception()
+          | concurrent_modification_exception()
+          | incompatible_image_exception()
+          | invalid_account_status_exception()
+          | operation_not_permitted_exception()
+          | resource_not_found_exception()
+
+  @type batch_associate_user_stack_errors() ::
+          operation_not_permitted_exception() | invalid_parameter_combination_exception()
+
+  @type batch_disassociate_user_stack_errors() ::
+          operation_not_permitted_exception() | invalid_parameter_combination_exception()
+
+  @type copy_image_errors() ::
+          resource_already_exists_exception()
+          | limit_exceeded_exception()
+          | incompatible_image_exception()
+          | invalid_account_status_exception()
+          | resource_not_found_exception()
+          | resource_not_available_exception()
+
+  @type create_app_block_errors() ::
+          resource_already_exists_exception()
+          | limit_exceeded_exception()
+          | concurrent_modification_exception()
+          | operation_not_permitted_exception()
+
+  @type create_app_block_builder_errors() ::
+          resource_already_exists_exception()
+          | limit_exceeded_exception()
+          | concurrent_modification_exception()
+          | invalid_account_status_exception()
+          | invalid_role_exception()
+          | operation_not_permitted_exception()
+          | resource_not_found_exception()
+          | invalid_parameter_combination_exception()
+          | resource_not_available_exception()
+          | request_limit_exceeded_exception()
+
+  @type create_app_block_builder_streaming_url_errors() ::
+          operation_not_permitted_exception() | resource_not_found_exception()
+
+  @type create_application_errors() ::
+          resource_already_exists_exception()
+          | limit_exceeded_exception()
+          | concurrent_modification_exception()
+          | operation_not_permitted_exception()
+          | resource_not_found_exception()
+
+  @type create_directory_config_errors() ::
+          resource_already_exists_exception()
+          | limit_exceeded_exception()
+          | invalid_account_status_exception()
+          | invalid_role_exception()
+          | operation_not_permitted_exception()
+          | resource_not_found_exception()
+
+  @type create_entitlement_errors() ::
+          entitlement_already_exists_exception()
+          | limit_exceeded_exception()
+          | operation_not_permitted_exception()
+          | resource_not_found_exception()
+
+  @type create_fleet_errors() ::
+          resource_already_exists_exception()
+          | limit_exceeded_exception()
+          | concurrent_modification_exception()
+          | incompatible_image_exception()
+          | invalid_account_status_exception()
+          | invalid_role_exception()
+          | operation_not_permitted_exception()
+          | resource_not_found_exception()
+          | invalid_parameter_combination_exception()
+          | resource_not_available_exception()
+          | request_limit_exceeded_exception()
+
+  @type create_image_builder_errors() ::
+          resource_already_exists_exception()
+          | limit_exceeded_exception()
+          | concurrent_modification_exception()
+          | incompatible_image_exception()
+          | invalid_account_status_exception()
+          | invalid_role_exception()
+          | operation_not_permitted_exception()
+          | resource_not_found_exception()
+          | invalid_parameter_combination_exception()
+          | resource_not_available_exception()
+          | request_limit_exceeded_exception()
+
+  @type create_image_builder_streaming_url_errors() ::
+          operation_not_permitted_exception() | resource_not_found_exception()
+
+  @type create_stack_errors() ::
+          resource_already_exists_exception()
+          | limit_exceeded_exception()
+          | concurrent_modification_exception()
+          | invalid_account_status_exception()
+          | invalid_role_exception()
+          | operation_not_permitted_exception()
+          | resource_not_found_exception()
+          | invalid_parameter_combination_exception()
+
+  @type create_streaming_url_errors() ::
+          operation_not_permitted_exception()
+          | resource_not_found_exception()
+          | invalid_parameter_combination_exception()
+          | resource_not_available_exception()
+
+  @type create_updated_image_errors() ::
+          resource_already_exists_exception()
+          | limit_exceeded_exception()
+          | concurrent_modification_exception()
+          | incompatible_image_exception()
+          | invalid_account_status_exception()
+          | operation_not_permitted_exception()
+          | resource_not_found_exception()
+
+  @type create_usage_report_subscription_errors() ::
+          limit_exceeded_exception()
+          | invalid_account_status_exception()
+          | invalid_role_exception()
+
+  @type create_user_errors() ::
+          resource_already_exists_exception()
+          | limit_exceeded_exception()
+          | invalid_account_status_exception()
+          | operation_not_permitted_exception()
+          | invalid_parameter_combination_exception()
+
+  @type delete_app_block_errors() ::
+          concurrent_modification_exception()
+          | resource_not_found_exception()
+          | resource_in_use_exception()
+
+  @type delete_app_block_builder_errors() ::
+          concurrent_modification_exception()
+          | operation_not_permitted_exception()
+          | resource_not_found_exception()
+          | resource_in_use_exception()
+
+  @type delete_application_errors() ::
+          concurrent_modification_exception()
+          | operation_not_permitted_exception()
+          | resource_not_found_exception()
+          | resource_in_use_exception()
+
+  @type delete_directory_config_errors() ::
+          resource_not_found_exception() | resource_in_use_exception()
+
+  @type delete_entitlement_errors() ::
+          concurrent_modification_exception()
+          | entitlement_not_found_exception()
+          | operation_not_permitted_exception()
+          | resource_not_found_exception()
+
+  @type delete_fleet_errors() ::
+          concurrent_modification_exception()
+          | resource_not_found_exception()
+          | resource_in_use_exception()
+
+  @type delete_image_errors() ::
+          concurrent_modification_exception()
+          | operation_not_permitted_exception()
+          | resource_not_found_exception()
+          | resource_in_use_exception()
+
+  @type delete_image_builder_errors() ::
+          concurrent_modification_exception()
+          | operation_not_permitted_exception()
+          | resource_not_found_exception()
+
+  @type delete_image_permissions_errors() ::
+          resource_not_found_exception() | resource_not_available_exception()
+
+  @type delete_stack_errors() ::
+          concurrent_modification_exception()
+          | operation_not_permitted_exception()
+          | resource_not_found_exception()
+          | resource_in_use_exception()
+
+  @type delete_usage_report_subscription_errors() ::
+          invalid_account_status_exception() | resource_not_found_exception()
+
+  @type delete_user_errors() :: resource_not_found_exception()
+
+  @type describe_app_block_builder_app_block_associations_errors() ::
+          operation_not_permitted_exception() | invalid_parameter_combination_exception()
+
+  @type describe_app_block_builders_errors() ::
+          operation_not_permitted_exception() | resource_not_found_exception()
+
+  @type describe_app_blocks_errors() ::
+          operation_not_permitted_exception() | resource_not_found_exception()
+
+  @type describe_application_fleet_associations_errors() ::
+          operation_not_permitted_exception() | invalid_parameter_combination_exception()
+
+  @type describe_applications_errors() ::
+          operation_not_permitted_exception() | resource_not_found_exception()
+
+  @type describe_directory_configs_errors() :: resource_not_found_exception()
+
+  @type describe_entitlements_errors() ::
+          entitlement_not_found_exception()
+          | operation_not_permitted_exception()
+          | resource_not_found_exception()
+
+  @type describe_fleets_errors() :: resource_not_found_exception()
+
+  @type describe_image_builders_errors() :: resource_not_found_exception()
+
+  @type describe_image_permissions_errors() :: resource_not_found_exception()
+
+  @type describe_images_errors() ::
+          resource_not_found_exception() | invalid_parameter_combination_exception()
+
+  @type describe_sessions_errors() :: invalid_parameter_combination_exception()
+
+  @type describe_stacks_errors() :: resource_not_found_exception()
+
+  @type describe_usage_report_subscriptions_errors() ::
+          invalid_account_status_exception() | resource_not_found_exception()
+
+  @type describe_user_stack_associations_errors() ::
+          operation_not_permitted_exception() | invalid_parameter_combination_exception()
+
+  @type describe_users_errors() ::
+          operation_not_permitted_exception()
+          | resource_not_found_exception()
+          | invalid_parameter_combination_exception()
+
+  @type disable_user_errors() :: resource_not_found_exception()
+
+  @type disassociate_app_block_builder_app_block_errors() ::
+          concurrent_modification_exception()
+          | operation_not_permitted_exception()
+          | resource_not_found_exception()
+          | invalid_parameter_combination_exception()
+
+  @type disassociate_application_fleet_errors() ::
+          concurrent_modification_exception()
+          | operation_not_permitted_exception()
+          | invalid_parameter_combination_exception()
+
+  @type disassociate_application_from_entitlement_errors() ::
+          entitlement_not_found_exception()
+          | operation_not_permitted_exception()
+          | resource_not_found_exception()
+
+  @type disassociate_fleet_errors() ::
+          concurrent_modification_exception()
+          | operation_not_permitted_exception()
+          | resource_not_found_exception()
+          | resource_in_use_exception()
+
+  @type enable_user_errors() ::
+          invalid_account_status_exception() | resource_not_found_exception()
+
+  @type list_entitled_applications_errors() ::
+          entitlement_not_found_exception()
+          | operation_not_permitted_exception()
+          | resource_not_found_exception()
+
+  @type list_tags_for_resource_errors() :: resource_not_found_exception()
+
+  @type start_app_block_builder_errors() ::
+          limit_exceeded_exception()
+          | concurrent_modification_exception()
+          | invalid_account_status_exception()
+          | operation_not_permitted_exception()
+          | resource_not_found_exception()
+          | resource_not_available_exception()
+          | request_limit_exceeded_exception()
+
+  @type start_fleet_errors() ::
+          limit_exceeded_exception()
+          | concurrent_modification_exception()
+          | invalid_account_status_exception()
+          | invalid_role_exception()
+          | operation_not_permitted_exception()
+          | resource_not_found_exception()
+          | resource_not_available_exception()
+          | request_limit_exceeded_exception()
+
+  @type start_image_builder_errors() ::
+          concurrent_modification_exception()
+          | incompatible_image_exception()
+          | invalid_account_status_exception()
+          | resource_not_found_exception()
+          | resource_not_available_exception()
+
+  @type stop_app_block_builder_errors() ::
+          concurrent_modification_exception()
+          | operation_not_permitted_exception()
+          | resource_not_found_exception()
+
+  @type stop_fleet_errors() ::
+          concurrent_modification_exception() | resource_not_found_exception()
+
+  @type stop_image_builder_errors() ::
+          concurrent_modification_exception()
+          | operation_not_permitted_exception()
+          | resource_not_found_exception()
+
+  @type tag_resource_errors() ::
+          limit_exceeded_exception()
+          | invalid_account_status_exception()
+          | resource_not_found_exception()
+
+  @type untag_resource_errors() :: resource_not_found_exception()
+
+  @type update_app_block_builder_errors() ::
+          limit_exceeded_exception()
+          | concurrent_modification_exception()
+          | invalid_account_status_exception()
+          | invalid_role_exception()
+          | operation_not_permitted_exception()
+          | resource_not_found_exception()
+          | invalid_parameter_combination_exception()
+          | resource_not_available_exception()
+          | request_limit_exceeded_exception()
+          | resource_in_use_exception()
+
+  @type update_application_errors() ::
+          concurrent_modification_exception()
+          | operation_not_permitted_exception()
+          | resource_not_found_exception()
+
+  @type update_directory_config_errors() ::
+          concurrent_modification_exception()
+          | invalid_role_exception()
+          | operation_not_permitted_exception()
+          | resource_not_found_exception()
+          | resource_in_use_exception()
+
+  @type update_entitlement_errors() ::
+          concurrent_modification_exception()
+          | entitlement_not_found_exception()
+          | operation_not_permitted_exception()
+          | resource_not_found_exception()
+
+  @type update_fleet_errors() ::
+          limit_exceeded_exception()
+          | concurrent_modification_exception()
+          | incompatible_image_exception()
+          | invalid_account_status_exception()
+          | invalid_role_exception()
+          | operation_not_permitted_exception()
+          | resource_not_found_exception()
+          | invalid_parameter_combination_exception()
+          | resource_not_available_exception()
+          | request_limit_exceeded_exception()
+          | resource_in_use_exception()
+
+  @type update_image_permissions_errors() ::
+          limit_exceeded_exception()
+          | resource_not_found_exception()
+          | resource_not_available_exception()
+
+  @type update_stack_errors() ::
+          limit_exceeded_exception()
+          | concurrent_modification_exception()
+          | incompatible_image_exception()
+          | invalid_account_status_exception()
+          | invalid_role_exception()
+          | operation_not_permitted_exception()
+          | resource_not_found_exception()
+          | invalid_parameter_combination_exception()
+          | resource_in_use_exception()
 
   def metadata do
     %{
@@ -2347,11 +3098,7 @@ defmodule AWS.AppStream do
         ) ::
           {:ok, associate_app_block_builder_app_block_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, invalid_parameter_combination_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, operation_not_permitted_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, associate_app_block_builder_app_block_errors()}
   def associate_app_block_builder_app_block(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2366,11 +3113,7 @@ defmodule AWS.AppStream do
   @spec associate_application_fleet(map(), associate_application_fleet_request(), list()) ::
           {:ok, associate_application_fleet_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, invalid_parameter_combination_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, operation_not_permitted_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, associate_application_fleet_errors()}
   def associate_application_fleet(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2387,10 +3130,7 @@ defmodule AWS.AppStream do
         ) ::
           {:ok, associate_application_to_entitlement_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, entitlement_not_found_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, operation_not_permitted_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, associate_application_to_entitlement_errors()}
   def associate_application_to_entitlement(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2403,12 +3143,7 @@ defmodule AWS.AppStream do
   @spec associate_fleet(map(), associate_fleet_request(), list()) ::
           {:ok, associate_fleet_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, incompatible_image_exception()}
-          | {:error, invalid_account_status_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, operation_not_permitted_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, associate_fleet_errors()}
   def associate_fleet(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2424,8 +3159,7 @@ defmodule AWS.AppStream do
   @spec batch_associate_user_stack(map(), batch_associate_user_stack_request(), list()) ::
           {:ok, batch_associate_user_stack_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_combination_exception()}
-          | {:error, operation_not_permitted_exception()}
+          | {:error, batch_associate_user_stack_errors()}
   def batch_associate_user_stack(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2438,8 +3172,7 @@ defmodule AWS.AppStream do
   @spec batch_disassociate_user_stack(map(), batch_disassociate_user_stack_request(), list()) ::
           {:ok, batch_disassociate_user_stack_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_combination_exception()}
-          | {:error, operation_not_permitted_exception()}
+          | {:error, batch_disassociate_user_stack_errors()}
   def batch_disassociate_user_stack(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2455,12 +3188,7 @@ defmodule AWS.AppStream do
   @spec copy_image(map(), copy_image_request(), list()) ::
           {:ok, copy_image_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, incompatible_image_exception()}
-          | {:error, invalid_account_status_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_already_exists_exception()}
-          | {:error, resource_not_available_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, copy_image_errors()}
   def copy_image(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2485,10 +3213,7 @@ defmodule AWS.AppStream do
   @spec create_app_block(map(), create_app_block_request(), list()) ::
           {:ok, create_app_block_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, operation_not_permitted_exception()}
-          | {:error, resource_already_exists_exception()}
+          | {:error, create_app_block_errors()}
   def create_app_block(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2501,16 +3226,7 @@ defmodule AWS.AppStream do
   @spec create_app_block_builder(map(), create_app_block_builder_request(), list()) ::
           {:ok, create_app_block_builder_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, invalid_account_status_exception()}
-          | {:error, invalid_parameter_combination_exception()}
-          | {:error, invalid_role_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, operation_not_permitted_exception()}
-          | {:error, request_limit_exceeded_exception()}
-          | {:error, resource_already_exists_exception()}
-          | {:error, resource_not_available_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, create_app_block_builder_errors()}
   def create_app_block_builder(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2527,8 +3243,7 @@ defmodule AWS.AppStream do
         ) ::
           {:ok, create_app_block_builder_streaming_url_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, operation_not_permitted_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, create_app_block_builder_streaming_url_errors()}
   def create_app_block_builder_streaming_url(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2553,11 +3268,7 @@ defmodule AWS.AppStream do
   @spec create_application(map(), create_application_request(), list()) ::
           {:ok, create_application_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, operation_not_permitted_exception()}
-          | {:error, resource_already_exists_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, create_application_errors()}
   def create_application(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2573,12 +3284,7 @@ defmodule AWS.AppStream do
   @spec create_directory_config(map(), create_directory_config_request(), list()) ::
           {:ok, create_directory_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_account_status_exception()}
-          | {:error, invalid_role_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, operation_not_permitted_exception()}
-          | {:error, resource_already_exists_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, create_directory_config_errors()}
   def create_directory_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2600,10 +3306,7 @@ defmodule AWS.AppStream do
   @spec create_entitlement(map(), create_entitlement_request(), list()) ::
           {:ok, create_entitlement_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, entitlement_already_exists_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, operation_not_permitted_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, create_entitlement_errors()}
   def create_entitlement(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2619,17 +3322,7 @@ defmodule AWS.AppStream do
   @spec create_fleet(map(), create_fleet_request(), list()) ::
           {:ok, create_fleet_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, incompatible_image_exception()}
-          | {:error, invalid_account_status_exception()}
-          | {:error, invalid_parameter_combination_exception()}
-          | {:error, invalid_role_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, operation_not_permitted_exception()}
-          | {:error, request_limit_exceeded_exception()}
-          | {:error, resource_already_exists_exception()}
-          | {:error, resource_not_available_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, create_fleet_errors()}
   def create_fleet(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2647,17 +3340,7 @@ defmodule AWS.AppStream do
   @spec create_image_builder(map(), create_image_builder_request(), list()) ::
           {:ok, create_image_builder_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, incompatible_image_exception()}
-          | {:error, invalid_account_status_exception()}
-          | {:error, invalid_parameter_combination_exception()}
-          | {:error, invalid_role_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, operation_not_permitted_exception()}
-          | {:error, request_limit_exceeded_exception()}
-          | {:error, resource_already_exists_exception()}
-          | {:error, resource_not_available_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, create_image_builder_errors()}
   def create_image_builder(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2674,8 +3357,7 @@ defmodule AWS.AppStream do
         ) ::
           {:ok, create_image_builder_streaming_url_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, operation_not_permitted_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, create_image_builder_streaming_url_errors()}
   def create_image_builder_streaming_url(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2691,14 +3373,7 @@ defmodule AWS.AppStream do
   @spec create_stack(map(), create_stack_request(), list()) ::
           {:ok, create_stack_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, invalid_account_status_exception()}
-          | {:error, invalid_parameter_combination_exception()}
-          | {:error, invalid_role_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, operation_not_permitted_exception()}
-          | {:error, resource_already_exists_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, create_stack_errors()}
   def create_stack(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2714,10 +3389,7 @@ defmodule AWS.AppStream do
   @spec create_streaming_url(map(), create_streaming_url_request(), list()) ::
           {:ok, create_streaming_url_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_combination_exception()}
-          | {:error, operation_not_permitted_exception()}
-          | {:error, resource_not_available_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, create_streaming_url_errors()}
   def create_streaming_url(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2735,13 +3407,7 @@ defmodule AWS.AppStream do
   @spec create_updated_image(map(), create_updated_image_request(), list()) ::
           {:ok, create_updated_image_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, incompatible_image_exception()}
-          | {:error, invalid_account_status_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, operation_not_permitted_exception()}
-          | {:error, resource_already_exists_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, create_updated_image_errors()}
   def create_updated_image(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2760,9 +3426,7 @@ defmodule AWS.AppStream do
         ) ::
           {:ok, create_usage_report_subscription_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_account_status_exception()}
-          | {:error, invalid_role_exception()}
-          | {:error, limit_exceeded_exception()}
+          | {:error, create_usage_report_subscription_errors()}
   def create_usage_report_subscription(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2775,11 +3439,7 @@ defmodule AWS.AppStream do
   @spec create_user(map(), create_user_request(), list()) ::
           {:ok, create_user_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_account_status_exception()}
-          | {:error, invalid_parameter_combination_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, operation_not_permitted_exception()}
-          | {:error, resource_already_exists_exception()}
+          | {:error, create_user_errors()}
   def create_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2792,9 +3452,7 @@ defmodule AWS.AppStream do
   @spec delete_app_block(map(), delete_app_block_request(), list()) ::
           {:ok, delete_app_block_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, resource_in_use_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, delete_app_block_errors()}
   def delete_app_block(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2810,10 +3468,7 @@ defmodule AWS.AppStream do
   @spec delete_app_block_builder(map(), delete_app_block_builder_request(), list()) ::
           {:ok, delete_app_block_builder_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, operation_not_permitted_exception()}
-          | {:error, resource_in_use_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, delete_app_block_builder_errors()}
   def delete_app_block_builder(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2826,10 +3481,7 @@ defmodule AWS.AppStream do
   @spec delete_application(map(), delete_application_request(), list()) ::
           {:ok, delete_application_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, operation_not_permitted_exception()}
-          | {:error, resource_in_use_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, delete_application_errors()}
   def delete_application(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2845,8 +3497,7 @@ defmodule AWS.AppStream do
   @spec delete_directory_config(map(), delete_directory_config_request(), list()) ::
           {:ok, delete_directory_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_in_use_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, delete_directory_config_errors()}
   def delete_directory_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2859,10 +3510,7 @@ defmodule AWS.AppStream do
   @spec delete_entitlement(map(), delete_entitlement_request(), list()) ::
           {:ok, delete_entitlement_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, entitlement_not_found_exception()}
-          | {:error, operation_not_permitted_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, delete_entitlement_errors()}
   def delete_entitlement(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2875,9 +3523,7 @@ defmodule AWS.AppStream do
   @spec delete_fleet(map(), delete_fleet_request(), list()) ::
           {:ok, delete_fleet_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, resource_in_use_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, delete_fleet_errors()}
   def delete_fleet(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2893,10 +3539,7 @@ defmodule AWS.AppStream do
   @spec delete_image(map(), delete_image_request(), list()) ::
           {:ok, delete_image_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, operation_not_permitted_exception()}
-          | {:error, resource_in_use_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, delete_image_errors()}
   def delete_image(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2909,9 +3552,7 @@ defmodule AWS.AppStream do
   @spec delete_image_builder(map(), delete_image_builder_request(), list()) ::
           {:ok, delete_image_builder_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, operation_not_permitted_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, delete_image_builder_errors()}
   def delete_image_builder(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2927,8 +3568,7 @@ defmodule AWS.AppStream do
   @spec delete_image_permissions(map(), delete_image_permissions_request(), list()) ::
           {:ok, delete_image_permissions_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_available_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, delete_image_permissions_errors()}
   def delete_image_permissions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2945,10 +3585,7 @@ defmodule AWS.AppStream do
   @spec delete_stack(map(), delete_stack_request(), list()) ::
           {:ok, delete_stack_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, operation_not_permitted_exception()}
-          | {:error, resource_in_use_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, delete_stack_errors()}
   def delete_stack(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2965,8 +3602,7 @@ defmodule AWS.AppStream do
         ) ::
           {:ok, delete_usage_report_subscription_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_account_status_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, delete_usage_report_subscription_errors()}
   def delete_usage_report_subscription(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2979,7 +3615,7 @@ defmodule AWS.AppStream do
   @spec delete_user(map(), delete_user_request(), list()) ::
           {:ok, delete_user_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found_exception()}
+          | {:error, delete_user_errors()}
   def delete_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2996,8 +3632,7 @@ defmodule AWS.AppStream do
         ) ::
           {:ok, describe_app_block_builder_app_block_associations_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_combination_exception()}
-          | {:error, operation_not_permitted_exception()}
+          | {:error, describe_app_block_builder_app_block_associations_errors()}
   def describe_app_block_builder_app_block_associations(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3016,8 +3651,7 @@ defmodule AWS.AppStream do
   @spec describe_app_block_builders(map(), describe_app_block_builders_request(), list()) ::
           {:ok, describe_app_block_builders_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, operation_not_permitted_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, describe_app_block_builders_errors()}
   def describe_app_block_builders(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3030,8 +3664,7 @@ defmodule AWS.AppStream do
   @spec describe_app_blocks(map(), describe_app_blocks_request(), list()) ::
           {:ok, describe_app_blocks_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, operation_not_permitted_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, describe_app_blocks_errors()}
   def describe_app_blocks(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3050,8 +3683,7 @@ defmodule AWS.AppStream do
         ) ::
           {:ok, describe_application_fleet_associations_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_combination_exception()}
-          | {:error, operation_not_permitted_exception()}
+          | {:error, describe_application_fleet_associations_errors()}
   def describe_application_fleet_associations(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3064,8 +3696,7 @@ defmodule AWS.AppStream do
   @spec describe_applications(map(), describe_applications_request(), list()) ::
           {:ok, describe_applications_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, operation_not_permitted_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, describe_applications_errors()}
   def describe_applications(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3086,7 +3717,7 @@ defmodule AWS.AppStream do
   @spec describe_directory_configs(map(), describe_directory_configs_request(), list()) ::
           {:ok, describe_directory_configs_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found_exception()}
+          | {:error, describe_directory_configs_errors()}
   def describe_directory_configs(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3099,9 +3730,7 @@ defmodule AWS.AppStream do
   @spec describe_entitlements(map(), describe_entitlements_request(), list()) ::
           {:ok, describe_entitlements_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, entitlement_not_found_exception()}
-          | {:error, operation_not_permitted_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, describe_entitlements_errors()}
   def describe_entitlements(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3117,7 +3746,7 @@ defmodule AWS.AppStream do
   @spec describe_fleets(map(), describe_fleets_request(), list()) ::
           {:ok, describe_fleets_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found_exception()}
+          | {:error, describe_fleets_errors()}
   def describe_fleets(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3133,7 +3762,7 @@ defmodule AWS.AppStream do
   @spec describe_image_builders(map(), describe_image_builders_request(), list()) ::
           {:ok, describe_image_builders_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found_exception()}
+          | {:error, describe_image_builders_errors()}
   def describe_image_builders(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3147,7 +3776,7 @@ defmodule AWS.AppStream do
   @spec describe_image_permissions(map(), describe_image_permissions_request(), list()) ::
           {:ok, describe_image_permissions_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found_exception()}
+          | {:error, describe_image_permissions_errors()}
   def describe_image_permissions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3163,8 +3792,7 @@ defmodule AWS.AppStream do
   @spec describe_images(map(), describe_images_request(), list()) ::
           {:ok, describe_images_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_combination_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, describe_images_errors()}
   def describe_images(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3183,7 +3811,7 @@ defmodule AWS.AppStream do
   @spec describe_sessions(map(), describe_sessions_request(), list()) ::
           {:ok, describe_sessions_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_combination_exception()}
+          | {:error, describe_sessions_errors()}
   def describe_sessions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3199,7 +3827,7 @@ defmodule AWS.AppStream do
   @spec describe_stacks(map(), describe_stacks_request(), list()) ::
           {:ok, describe_stacks_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found_exception()}
+          | {:error, describe_stacks_errors()}
   def describe_stacks(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3216,8 +3844,7 @@ defmodule AWS.AppStream do
         ) ::
           {:ok, describe_usage_report_subscriptions_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_account_status_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, describe_usage_report_subscriptions_errors()}
   def describe_usage_report_subscriptions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3243,8 +3870,7 @@ defmodule AWS.AppStream do
         ) ::
           {:ok, describe_user_stack_associations_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_combination_exception()}
-          | {:error, operation_not_permitted_exception()}
+          | {:error, describe_user_stack_associations_errors()}
   def describe_user_stack_associations(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3257,9 +3883,7 @@ defmodule AWS.AppStream do
   @spec describe_users(map(), describe_users_request(), list()) ::
           {:ok, describe_users_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_combination_exception()}
-          | {:error, operation_not_permitted_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, describe_users_errors()}
   def describe_users(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3275,7 +3899,7 @@ defmodule AWS.AppStream do
   @spec disable_user(map(), disable_user_request(), list()) ::
           {:ok, disable_user_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found_exception()}
+          | {:error, disable_user_errors()}
   def disable_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3292,10 +3916,7 @@ defmodule AWS.AppStream do
         ) ::
           {:ok, disassociate_app_block_builder_app_block_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, invalid_parameter_combination_exception()}
-          | {:error, operation_not_permitted_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, disassociate_app_block_builder_app_block_errors()}
   def disassociate_app_block_builder_app_block(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3308,9 +3929,7 @@ defmodule AWS.AppStream do
   @spec disassociate_application_fleet(map(), disassociate_application_fleet_request(), list()) ::
           {:ok, disassociate_application_fleet_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, invalid_parameter_combination_exception()}
-          | {:error, operation_not_permitted_exception()}
+          | {:error, disassociate_application_fleet_errors()}
   def disassociate_application_fleet(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3327,9 +3946,7 @@ defmodule AWS.AppStream do
         ) ::
           {:ok, disassociate_application_from_entitlement_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, entitlement_not_found_exception()}
-          | {:error, operation_not_permitted_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, disassociate_application_from_entitlement_errors()}
   def disassociate_application_from_entitlement(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3342,10 +3959,7 @@ defmodule AWS.AppStream do
   @spec disassociate_fleet(map(), disassociate_fleet_request(), list()) ::
           {:ok, disassociate_fleet_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, operation_not_permitted_exception()}
-          | {:error, resource_in_use_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, disassociate_fleet_errors()}
   def disassociate_fleet(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3361,8 +3975,7 @@ defmodule AWS.AppStream do
   @spec enable_user(map(), enable_user_request(), list()) ::
           {:ok, enable_user_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_account_status_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, enable_user_errors()}
   def enable_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3411,9 +4024,7 @@ defmodule AWS.AppStream do
   @spec list_entitled_applications(map(), list_entitled_applications_request(), list()) ::
           {:ok, list_entitled_applications_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, entitlement_not_found_exception()}
-          | {:error, operation_not_permitted_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, list_entitled_applications_errors()}
   def list_entitled_applications(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3431,7 +4042,7 @@ defmodule AWS.AppStream do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found_exception()}
+          | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3451,13 +4062,7 @@ defmodule AWS.AppStream do
   @spec start_app_block_builder(map(), start_app_block_builder_request(), list()) ::
           {:ok, start_app_block_builder_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, invalid_account_status_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, operation_not_permitted_exception()}
-          | {:error, request_limit_exceeded_exception()}
-          | {:error, resource_not_available_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, start_app_block_builder_errors()}
   def start_app_block_builder(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3470,14 +4075,7 @@ defmodule AWS.AppStream do
   @spec start_fleet(map(), start_fleet_request(), list()) ::
           {:ok, start_fleet_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, invalid_account_status_exception()}
-          | {:error, invalid_role_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, operation_not_permitted_exception()}
-          | {:error, request_limit_exceeded_exception()}
-          | {:error, resource_not_available_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, start_fleet_errors()}
   def start_fleet(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3490,11 +4088,7 @@ defmodule AWS.AppStream do
   @spec start_image_builder(map(), start_image_builder_request(), list()) ::
           {:ok, start_image_builder_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, incompatible_image_exception()}
-          | {:error, invalid_account_status_exception()}
-          | {:error, resource_not_available_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, start_image_builder_errors()}
   def start_image_builder(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3511,9 +4105,7 @@ defmodule AWS.AppStream do
   @spec stop_app_block_builder(map(), stop_app_block_builder_request(), list()) ::
           {:ok, stop_app_block_builder_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, operation_not_permitted_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, stop_app_block_builder_errors()}
   def stop_app_block_builder(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3526,8 +4118,7 @@ defmodule AWS.AppStream do
   @spec stop_fleet(map(), stop_fleet_request(), list()) ::
           {:ok, stop_fleet_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, stop_fleet_errors()}
   def stop_fleet(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3540,9 +4131,7 @@ defmodule AWS.AppStream do
   @spec stop_image_builder(map(), stop_image_builder_request(), list()) ::
           {:ok, stop_image_builder_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, operation_not_permitted_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, stop_image_builder_errors()}
   def stop_image_builder(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3567,9 +4156,7 @@ defmodule AWS.AppStream do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_account_status_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3588,7 +4175,7 @@ defmodule AWS.AppStream do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found_exception()}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3607,16 +4194,7 @@ defmodule AWS.AppStream do
   @spec update_app_block_builder(map(), update_app_block_builder_request(), list()) ::
           {:ok, update_app_block_builder_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, invalid_account_status_exception()}
-          | {:error, invalid_parameter_combination_exception()}
-          | {:error, invalid_role_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, operation_not_permitted_exception()}
-          | {:error, request_limit_exceeded_exception()}
-          | {:error, resource_in_use_exception()}
-          | {:error, resource_not_available_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, update_app_block_builder_errors()}
   def update_app_block_builder(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3629,9 +4207,7 @@ defmodule AWS.AppStream do
   @spec update_application(map(), update_application_request(), list()) ::
           {:ok, update_application_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, operation_not_permitted_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, update_application_errors()}
   def update_application(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3647,11 +4223,7 @@ defmodule AWS.AppStream do
   @spec update_directory_config(map(), update_directory_config_request(), list()) ::
           {:ok, update_directory_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, invalid_role_exception()}
-          | {:error, operation_not_permitted_exception()}
-          | {:error, resource_in_use_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, update_directory_config_errors()}
   def update_directory_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3664,10 +4236,7 @@ defmodule AWS.AppStream do
   @spec update_entitlement(map(), update_entitlement_request(), list()) ::
           {:ok, update_entitlement_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, entitlement_not_found_exception()}
-          | {:error, operation_not_permitted_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, update_entitlement_errors()}
   def update_entitlement(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3704,17 +4273,7 @@ defmodule AWS.AppStream do
   @spec update_fleet(map(), update_fleet_request(), list()) ::
           {:ok, update_fleet_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, incompatible_image_exception()}
-          | {:error, invalid_account_status_exception()}
-          | {:error, invalid_parameter_combination_exception()}
-          | {:error, invalid_role_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, operation_not_permitted_exception()}
-          | {:error, request_limit_exceeded_exception()}
-          | {:error, resource_in_use_exception()}
-          | {:error, resource_not_available_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, update_fleet_errors()}
   def update_fleet(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3727,9 +4286,7 @@ defmodule AWS.AppStream do
   @spec update_image_permissions(map(), update_image_permissions_request(), list()) ::
           {:ok, update_image_permissions_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_available_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, update_image_permissions_errors()}
   def update_image_permissions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3742,15 +4299,7 @@ defmodule AWS.AppStream do
   @spec update_stack(map(), update_stack_request(), list()) ::
           {:ok, update_stack_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, incompatible_image_exception()}
-          | {:error, invalid_account_status_exception()}
-          | {:error, invalid_parameter_combination_exception()}
-          | {:error, invalid_role_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, operation_not_permitted_exception()}
-          | {:error, resource_in_use_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, update_stack_errors()}
   def update_stack(%Client{} = client, input, options \\ []) do
     meta = metadata()
 

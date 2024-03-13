@@ -26,2038 +26,2702 @@ defmodule AWS.Elasticsearch do
   @typedoc """
 
   ## Example:
-  describe_elasticsearch_domain_request() :: %{
 
-  }
+      describe_elasticsearch_domain_request() :: %{}
+
   """
-  @type describe_elasticsearch_domain_request() :: %{String.t() => any()}
+  @type describe_elasticsearch_domain_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_domain_names_request() :: %{
-    optional("EngineType") => list(any())
-  }
+
+      list_domain_names_request() :: %{
+        optional("EngineType") => list(any())
+      }
+
   """
   @type list_domain_names_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  upgrade_elasticsearch_domain_response() :: %{
-    "ChangeProgressDetails" => change_progress_details(),
-    "DomainName" => String.t(),
-    "PerformCheckOnly" => boolean(),
-    "TargetVersion" => String.t()
-  }
+
+      upgrade_elasticsearch_domain_response() :: %{
+        "ChangeProgressDetails" => change_progress_details(),
+        "DomainName" => String.t(),
+        "PerformCheckOnly" => boolean(),
+        "TargetVersion" => String.t()
+      }
+
   """
   @type upgrade_elasticsearch_domain_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  modifying_properties() :: %{
-    "ActiveValue" => String.t(),
-    "Name" => String.t(),
-    "PendingValue" => String.t(),
-    "ValueType" => list(any())
-  }
+
+      modifying_properties() :: %{
+        "ActiveValue" => String.t(),
+        "Name" => String.t(),
+        "PendingValue" => String.t(),
+        "ValueType" => list(any())
+      }
+
   """
   @type modifying_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  auto_tune_options_output() :: %{
-    "ErrorMessage" => String.t(),
-    "State" => list(any())
-  }
+
+      auto_tune_options_output() :: %{
+        "ErrorMessage" => String.t(),
+        "State" => list(any())
+      }
+
   """
   @type auto_tune_options_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_domain_auto_tunes_response() :: %{
-    "AutoTunes" => list(auto_tune()()),
-    "NextToken" => String.t()
-  }
+
+      describe_domain_auto_tunes_response() :: %{
+        "AutoTunes" => list(auto_tune()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type describe_domain_auto_tunes_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_compatible_elasticsearch_versions_response() :: %{
-    "CompatibleElasticsearchVersions" => list(compatible_versions_map()())
-  }
+
+      get_compatible_elasticsearch_versions_response() :: %{
+        "CompatibleElasticsearchVersions" => list(compatible_versions_map()())
+      }
+
   """
   @type get_compatible_elasticsearch_versions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_vpc_endpoints_for_domain_response() :: %{
-    "NextToken" => String.t(),
-    "VpcEndpointSummaryList" => list(vpc_endpoint_summary()())
-  }
+
+      list_vpc_endpoints_for_domain_response() :: %{
+        "NextToken" => String.t(),
+        "VpcEndpointSummaryList" => list(vpc_endpoint_summary()())
+      }
+
   """
   @type list_vpc_endpoints_for_domain_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_elasticsearch_domains_request() :: %{
-    required("DomainNames") => list(String.t()())
-  }
+
+      describe_elasticsearch_domains_request() :: %{
+        required("DomainNames") => list(String.t()())
+      }
+
   """
   @type describe_elasticsearch_domains_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_domain_auto_tunes_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      describe_domain_auto_tunes_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type describe_domain_auto_tunes_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  package_source() :: %{
-    "S3BucketName" => String.t(),
-    "S3Key" => String.t()
-  }
+
+      package_source() :: %{
+        "S3BucketName" => String.t(),
+        "S3Key" => String.t()
+      }
+
   """
   @type package_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  compatible_versions_map() :: %{
-    "SourceVersion" => String.t(),
-    "TargetVersions" => list(String.t()())
-  }
+
+      compatible_versions_map() :: %{
+        "SourceVersion" => String.t(),
+        "TargetVersions" => list(String.t()())
+      }
+
   """
   @type compatible_versions_map() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  snapshot_options() :: %{
-    "AutomatedSnapshotStartHour" => integer()
-  }
+
+      snapshot_options() :: %{
+        "AutomatedSnapshotStartHour" => integer()
+      }
+
   """
   @type snapshot_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  auto_tune_details() :: %{
-    "ScheduledAutoTuneDetails" => scheduled_auto_tune_details()
-  }
+
+      auto_tune_details() :: %{
+        "ScheduledAutoTuneDetails" => scheduled_auto_tune_details()
+      }
+
   """
   @type auto_tune_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_outbound_cross_cluster_search_connections_request() :: %{
-    optional("Filters") => list(filter()()),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      describe_outbound_cross_cluster_search_connections_request() :: %{
+        optional("Filters") => list(filter()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type describe_outbound_cross_cluster_search_connections_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  authorize_vpc_endpoint_access_response() :: %{
-    "AuthorizedPrincipal" => authorized_principal()
-  }
+
+      authorize_vpc_endpoint_access_response() :: %{
+        "AuthorizedPrincipal" => authorized_principal()
+      }
+
   """
   @type authorize_vpc_endpoint_access_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  elasticsearch_cluster_config_status() :: %{
-    "Options" => elasticsearch_cluster_config(),
-    "Status" => option_status()
-  }
+
+      elasticsearch_cluster_config_status() :: %{
+        "Options" => elasticsearch_cluster_config(),
+        "Status" => option_status()
+      }
+
   """
   @type elasticsearch_cluster_config_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  package_details() :: %{
-    "AvailablePackageVersion" => String.t(),
-    "CreatedAt" => non_neg_integer(),
-    "ErrorDetails" => error_details(),
-    "LastUpdatedAt" => non_neg_integer(),
-    "PackageDescription" => String.t(),
-    "PackageID" => String.t(),
-    "PackageName" => String.t(),
-    "PackageStatus" => list(any()),
-    "PackageType" => list(any())
-  }
+
+      package_details() :: %{
+        "AvailablePackageVersion" => String.t(),
+        "CreatedAt" => non_neg_integer(),
+        "ErrorDetails" => error_details(),
+        "LastUpdatedAt" => non_neg_integer(),
+        "PackageDescription" => String.t(),
+        "PackageID" => String.t(),
+        "PackageName" => String.t(),
+        "PackageStatus" => list(any()),
+        "PackageType" => list(any())
+      }
+
   """
   @type package_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_domain_change_progress_request() :: %{
-    optional("ChangeId") => String.t()
-  }
+
+      describe_domain_change_progress_request() :: %{
+        optional("ChangeId") => String.t()
+      }
+
   """
   @type describe_domain_change_progress_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_package_request() :: %{
-    optional("PackageDescription") => String.t(),
-    required("PackageName") => String.t(),
-    required("PackageSource") => package_source(),
-    required("PackageType") => list(any())
-  }
+
+      create_package_request() :: %{
+        optional("PackageDescription") => String.t(),
+        required("PackageName") => String.t(),
+        required("PackageSource") => package_source(),
+        required("PackageType") => list(any())
+      }
+
   """
   @type create_package_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  auto_tune_status() :: %{
-    "CreationDate" => non_neg_integer(),
-    "ErrorMessage" => String.t(),
-    "PendingDeletion" => boolean(),
-    "State" => list(any()),
-    "UpdateDate" => non_neg_integer(),
-    "UpdateVersion" => integer()
-  }
+
+      auto_tune_status() :: %{
+        "CreationDate" => non_neg_integer(),
+        "ErrorMessage" => String.t(),
+        "PendingDeletion" => boolean(),
+        "State" => list(any()),
+        "UpdateDate" => non_neg_integer(),
+        "UpdateVersion" => integer()
+      }
+
   """
   @type auto_tune_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  elasticsearch_cluster_config() :: %{
-    "ColdStorageOptions" => cold_storage_options(),
-    "DedicatedMasterCount" => integer(),
-    "DedicatedMasterEnabled" => boolean(),
-    "DedicatedMasterType" => list(any()),
-    "InstanceCount" => integer(),
-    "InstanceType" => list(any()),
-    "WarmCount" => integer(),
-    "WarmEnabled" => boolean(),
-    "WarmType" => list(any()),
-    "ZoneAwarenessConfig" => zone_awareness_config(),
-    "ZoneAwarenessEnabled" => boolean()
-  }
+
+      elasticsearch_cluster_config() :: %{
+        "ColdStorageOptions" => cold_storage_options(),
+        "DedicatedMasterCount" => integer(),
+        "DedicatedMasterEnabled" => boolean(),
+        "DedicatedMasterType" => list(any()),
+        "InstanceCount" => integer(),
+        "InstanceType" => list(any()),
+        "WarmCount" => integer(),
+        "WarmEnabled" => boolean(),
+        "WarmType" => list(any()),
+        "ZoneAwarenessConfig" => zone_awareness_config(),
+        "ZoneAwarenessEnabled" => boolean()
+      }
+
   """
   @type elasticsearch_cluster_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_vpc_endpoints_request() :: %{
-    optional("NextToken") => String.t()
-  }
+
+      list_vpc_endpoints_request() :: %{
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_vpc_endpoints_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cold_storage_options() :: %{
-    "Enabled" => boolean()
-  }
+
+      cold_storage_options() :: %{
+        "Enabled" => boolean()
+      }
+
   """
   @type cold_storage_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_vpc_endpoints_request() :: %{
-    required("VpcEndpointIds") => list(String.t()())
-  }
+
+      describe_vpc_endpoints_request() :: %{
+        required("VpcEndpointIds") => list(String.t()())
+      }
+
   """
   @type describe_vpc_endpoints_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  auto_tune_options_status() :: %{
-    "Options" => auto_tune_options(),
-    "Status" => auto_tune_status()
-  }
+
+      auto_tune_options_status() :: %{
+        "Options" => auto_tune_options(),
+        "Status" => auto_tune_status()
+      }
+
   """
   @type auto_tune_options_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  purchase_reserved_elasticsearch_instance_offering_request() :: %{
-    optional("InstanceCount") => integer(),
-    required("ReservationName") => String.t(),
-    required("ReservedElasticsearchInstanceOfferingId") => String.t()
-  }
+
+      purchase_reserved_elasticsearch_instance_offering_request() :: %{
+        optional("InstanceCount") => integer(),
+        required("ReservationName") => String.t(),
+        required("ReservedElasticsearchInstanceOfferingId") => String.t()
+      }
+
   """
   @type purchase_reserved_elasticsearch_instance_offering_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  accept_inbound_cross_cluster_search_connection_request() :: %{
 
-  }
+      accept_inbound_cross_cluster_search_connection_request() :: %{}
+
   """
-  @type accept_inbound_cross_cluster_search_connection_request() :: %{String.t() => any()}
+  @type accept_inbound_cross_cluster_search_connection_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  snapshot_options_status() :: %{
-    "Options" => snapshot_options(),
-    "Status" => option_status()
-  }
+
+      snapshot_options_status() :: %{
+        "Options" => snapshot_options(),
+        "Status" => option_status()
+      }
+
   """
   @type snapshot_options_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  vpc_endpoint_summary() :: %{
-    "DomainArn" => String.t(),
-    "Status" => list(any()),
-    "VpcEndpointId" => String.t(),
-    "VpcEndpointOwner" => String.t()
-  }
+
+      vpc_endpoint_summary() :: %{
+        "DomainArn" => String.t(),
+        "Status" => list(any()),
+        "VpcEndpointId" => String.t(),
+        "VpcEndpointOwner" => String.t()
+      }
+
   """
   @type vpc_endpoint_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  recurring_charge() :: %{
-    "RecurringChargeAmount" => float(),
-    "RecurringChargeFrequency" => String.t()
-  }
+
+      recurring_charge() :: %{
+        "RecurringChargeAmount" => float(),
+        "RecurringChargeFrequency" => String.t()
+      }
+
   """
   @type recurring_charge() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_vpc_endpoints_response() :: %{
-    "NextToken" => String.t(),
-    "VpcEndpointSummaryList" => list(vpc_endpoint_summary()())
-  }
+
+      list_vpc_endpoints_response() :: %{
+        "NextToken" => String.t(),
+        "VpcEndpointSummaryList" => list(vpc_endpoint_summary()())
+      }
+
   """
   @type list_vpc_endpoints_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  vpc_derived_info() :: %{
-    "AvailabilityZones" => list(String.t()()),
-    "SecurityGroupIds" => list(String.t()()),
-    "SubnetIds" => list(String.t()()),
-    "VPCId" => String.t()
-  }
+
+      vpc_derived_info() :: %{
+        "AvailabilityZones" => list(String.t()()),
+        "SecurityGroupIds" => list(String.t()()),
+        "SubnetIds" => list(String.t()()),
+        "VPCId" => String.t()
+      }
+
   """
   @type vpc_derived_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_reserved_elasticsearch_instances_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("ReservedElasticsearchInstanceId") => String.t()
-  }
+
+      describe_reserved_elasticsearch_instances_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("ReservedElasticsearchInstanceId") => String.t()
+      }
+
   """
   @type describe_reserved_elasticsearch_instances_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  saml_idp() :: %{
-    "EntityId" => String.t(),
-    "MetadataContent" => String.t()
-  }
+
+      saml_idp() :: %{
+        "EntityId" => String.t(),
+        "MetadataContent" => String.t()
+      }
+
   """
   @type saml_idp() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_elasticsearch_instance_type_limits_response() :: %{
-    "LimitsByRole" => map()
-  }
+
+      describe_elasticsearch_instance_type_limits_response() :: %{
+        "LimitsByRole" => map()
+      }
+
   """
   @type describe_elasticsearch_instance_type_limits_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_response() :: %{
-    "TagList" => list(tag()())
-  }
+
+      list_tags_response() :: %{
+        "TagList" => list(tag()())
+      }
+
   """
   @type list_tags_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  storage_type_limit() :: %{
-    "LimitName" => String.t(),
-    "LimitValues" => list(String.t()())
-  }
+
+      storage_type_limit() :: %{
+        "LimitName" => String.t(),
+        "LimitValues" => list(String.t()())
+      }
+
   """
   @type storage_type_limit() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_outbound_cross_cluster_search_connection_response() :: %{
-    "ConnectionAlias" => String.t(),
-    "ConnectionStatus" => outbound_cross_cluster_search_connection_status(),
-    "CrossClusterSearchConnectionId" => String.t(),
-    "DestinationDomainInfo" => domain_information(),
-    "SourceDomainInfo" => domain_information()
-  }
+
+      create_outbound_cross_cluster_search_connection_response() :: %{
+        "ConnectionAlias" => String.t(),
+        "ConnectionStatus" => outbound_cross_cluster_search_connection_status(),
+        "CrossClusterSearchConnectionId" => String.t(),
+        "DestinationDomainInfo" => domain_information(),
+        "SourceDomainInfo" => domain_information()
+      }
+
   """
   @type create_outbound_cross_cluster_search_connection_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ebs_options_status() :: %{
-    "Options" => ebs_options(),
-    "Status" => option_status()
-  }
+
+      ebs_options_status() :: %{
+        "Options" => ebs_options(),
+        "Status" => option_status()
+      }
+
   """
   @type ebs_options_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  authorized_principal() :: %{
-    "Principal" => String.t(),
-    "PrincipalType" => list(any())
-  }
+
+      authorized_principal() :: %{
+        "Principal" => String.t(),
+        "PrincipalType" => list(any())
+      }
+
   """
   @type authorized_principal() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disabled_operation_exception() :: %{
-    "message" => String.t()
-  }
+
+      disabled_operation_exception() :: %{
+        "message" => String.t()
+      }
+
   """
   @type disabled_operation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_vpc_endpoint_response() :: %{
-    "VpcEndpointSummary" => vpc_endpoint_summary()
-  }
+
+      delete_vpc_endpoint_response() :: %{
+        "VpcEndpointSummary" => vpc_endpoint_summary()
+      }
+
   """
   @type delete_vpc_endpoint_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_elasticsearch_domain_request() :: %{
 
-  }
+      delete_elasticsearch_domain_request() :: %{}
+
   """
-  @type delete_elasticsearch_domain_request() :: %{String.t() => any()}
+  @type delete_elasticsearch_domain_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  storage_type() :: %{
-    "StorageSubTypeName" => String.t(),
-    "StorageTypeLimits" => list(storage_type_limit()()),
-    "StorageTypeName" => String.t()
-  }
+
+      storage_type() :: %{
+        "StorageSubTypeName" => String.t(),
+        "StorageTypeLimits" => list(storage_type_limit()()),
+        "StorageTypeName" => String.t()
+      }
+
   """
   @type storage_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_package_response() :: %{
-    "PackageDetails" => package_details()
-  }
+
+      update_package_response() :: %{
+        "PackageDetails" => package_details()
+      }
+
   """
   @type update_package_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_elasticsearch_domain_request() :: %{
-    optional("AccessPolicies") => String.t(),
-    optional("AdvancedOptions") => map(),
-    optional("AdvancedSecurityOptions") => advanced_security_options_input(),
-    optional("AutoTuneOptions") => auto_tune_options_input(),
-    optional("CognitoOptions") => cognito_options(),
-    optional("DomainEndpointOptions") => domain_endpoint_options(),
-    optional("EBSOptions") => ebs_options(),
-    optional("ElasticsearchClusterConfig") => elasticsearch_cluster_config(),
-    optional("ElasticsearchVersion") => String.t(),
-    optional("EncryptionAtRestOptions") => encryption_at_rest_options(),
-    optional("LogPublishingOptions") => map(),
-    optional("NodeToNodeEncryptionOptions") => node_to_node_encryption_options(),
-    optional("SnapshotOptions") => snapshot_options(),
-    optional("TagList") => list(tag()()),
-    optional("VPCOptions") => vpc_options(),
-    required("DomainName") => String.t()
-  }
+
+      create_elasticsearch_domain_request() :: %{
+        optional("AccessPolicies") => String.t(),
+        optional("AdvancedOptions") => map(),
+        optional("AdvancedSecurityOptions") => advanced_security_options_input(),
+        optional("AutoTuneOptions") => auto_tune_options_input(),
+        optional("CognitoOptions") => cognito_options(),
+        optional("DomainEndpointOptions") => domain_endpoint_options(),
+        optional("EBSOptions") => ebs_options(),
+        optional("ElasticsearchClusterConfig") => elasticsearch_cluster_config(),
+        optional("ElasticsearchVersion") => String.t(),
+        optional("EncryptionAtRestOptions") => encryption_at_rest_options(),
+        optional("LogPublishingOptions") => map(),
+        optional("NodeToNodeEncryptionOptions") => node_to_node_encryption_options(),
+        optional("SnapshotOptions") => snapshot_options(),
+        optional("TagList") => list(tag()()),
+        optional("VPCOptions") => vpc_options(),
+        required("DomainName") => String.t()
+      }
+
   """
   @type create_elasticsearch_domain_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  additional_limit() :: %{
-    "LimitName" => String.t(),
-    "LimitValues" => list(String.t()())
-  }
+
+      additional_limit() :: %{
+        "LimitName" => String.t(),
+        "LimitValues" => list(String.t()())
+      }
+
   """
   @type additional_limit() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  vpc_derived_info_status() :: %{
-    "Options" => vpc_derived_info(),
-    "Status" => option_status()
-  }
+
+      vpc_derived_info_status() :: %{
+        "Options" => vpc_derived_info(),
+        "Status" => option_status()
+      }
+
   """
   @type vpc_derived_info_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  inbound_cross_cluster_search_connection_status() :: %{
-    "Message" => String.t(),
-    "StatusCode" => list(any())
-  }
+
+      inbound_cross_cluster_search_connection_status() :: %{
+        "Message" => String.t(),
+        "StatusCode" => list(any())
+      }
+
   """
   @type inbound_cross_cluster_search_connection_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cancel_domain_config_change_request() :: %{
-    optional("DryRun") => boolean()
-  }
+
+      cancel_domain_config_change_request() :: %{
+        optional("DryRun") => boolean()
+      }
+
   """
   @type cancel_domain_config_change_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  saml_options_output() :: %{
-    "Enabled" => boolean(),
-    "Idp" => saml_idp(),
-    "RolesKey" => String.t(),
-    "SessionTimeoutMinutes" => integer(),
-    "SubjectKey" => String.t()
-  }
+
+      saml_options_output() :: %{
+        "Enabled" => boolean(),
+        "Idp" => saml_idp(),
+        "RolesKey" => String.t(),
+        "SessionTimeoutMinutes" => integer(),
+        "SubjectKey" => String.t()
+      }
+
   """
   @type saml_options_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cognito_options_status() :: %{
-    "Options" => cognito_options(),
-    "Status" => option_status()
-  }
+
+      cognito_options_status() :: %{
+        "Options" => cognito_options(),
+        "Status" => option_status()
+      }
+
   """
   @type cognito_options_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_inbound_cross_cluster_search_connections_response() :: %{
-    "CrossClusterSearchConnections" => list(inbound_cross_cluster_search_connection()()),
-    "NextToken" => String.t()
-  }
+
+      describe_inbound_cross_cluster_search_connections_response() :: %{
+        "CrossClusterSearchConnections" => list(inbound_cross_cluster_search_connection()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type describe_inbound_cross_cluster_search_connections_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  auto_tune_maintenance_schedule() :: %{
-    "CronExpressionForRecurrence" => String.t(),
-    "Duration" => duration(),
-    "StartAt" => non_neg_integer()
-  }
+
+      auto_tune_maintenance_schedule() :: %{
+        "CronExpressionForRecurrence" => String.t(),
+        "Duration" => duration(),
+        "StartAt" => non_neg_integer()
+      }
+
   """
   @type auto_tune_maintenance_schedule() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_packages_for_domain_response() :: %{
-    "DomainPackageDetailsList" => list(domain_package_details()()),
-    "NextToken" => String.t()
-  }
+
+      list_packages_for_domain_response() :: %{
+        "DomainPackageDetailsList" => list(domain_package_details()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_packages_for_domain_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  change_progress_status_details() :: %{
-    "ChangeId" => String.t(),
-    "ChangeProgressStages" => list(change_progress_stage()()),
-    "CompletedProperties" => list(String.t()()),
-    "ConfigChangeStatus" => list(any()),
-    "InitiatedBy" => list(any()),
-    "LastUpdatedTime" => non_neg_integer(),
-    "PendingProperties" => list(String.t()()),
-    "StartTime" => non_neg_integer(),
-    "Status" => list(any()),
-    "TotalNumberOfStages" => integer()
-  }
+
+      change_progress_status_details() :: %{
+        "ChangeId" => String.t(),
+        "ChangeProgressStages" => list(change_progress_stage()()),
+        "CompletedProperties" => list(String.t()()),
+        "ConfigChangeStatus" => list(any()),
+        "InitiatedBy" => list(any()),
+        "LastUpdatedTime" => non_neg_integer(),
+        "PendingProperties" => list(String.t()()),
+        "StartTime" => non_neg_integer(),
+        "Status" => list(any()),
+        "TotalNumberOfStages" => integer()
+      }
+
   """
   @type change_progress_status_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_elasticsearch_domain_config_response() :: %{
-    "DomainConfig" => elasticsearch_domain_config()
-  }
+
+      describe_elasticsearch_domain_config_response() :: %{
+        "DomainConfig" => elasticsearch_domain_config()
+      }
+
   """
   @type describe_elasticsearch_domain_config_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  add_tags_request() :: %{
-    required("ARN") => String.t(),
-    required("TagList") => list(tag()())
-  }
+
+      add_tags_request() :: %{
+        required("ARN") => String.t(),
+        required("TagList") => list(tag()())
+      }
+
   """
   @type add_tags_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_reserved_elasticsearch_instance_offerings_response() :: %{
-    "NextToken" => String.t(),
-    "ReservedElasticsearchInstanceOfferings" => list(reserved_elasticsearch_instance_offering()())
-  }
+
+      describe_reserved_elasticsearch_instance_offerings_response() :: %{
+        "NextToken" => String.t(),
+        "ReservedElasticsearchInstanceOfferings" => list(reserved_elasticsearch_instance_offering()())
+      }
+
   """
   @type describe_reserved_elasticsearch_instance_offerings_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  upgrade_history() :: %{
-    "StartTimestamp" => non_neg_integer(),
-    "StepsList" => list(upgrade_step_item()()),
-    "UpgradeName" => String.t(),
-    "UpgradeStatus" => list(any())
-  }
+
+      upgrade_history() :: %{
+        "StartTimestamp" => non_neg_integer(),
+        "StepsList" => list(upgrade_step_item()()),
+        "UpgradeName" => String.t(),
+        "UpgradeStatus" => list(any())
+      }
+
   """
   @type upgrade_history() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_elasticsearch_instance_types_request() :: %{
-    optional("DomainName") => String.t(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      list_elasticsearch_instance_types_request() :: %{
+        optional("DomainName") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_elasticsearch_instance_types_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  conflict_exception() :: %{
-    "message" => String.t()
-  }
+
+      conflict_exception() :: %{
+        "message" => String.t()
+      }
+
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_package_response() :: %{
-    "PackageDetails" => package_details()
-  }
+
+      delete_package_response() :: %{
+        "PackageDetails" => package_details()
+      }
+
   """
   @type delete_package_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_not_found_exception() :: %{
-    "message" => String.t()
-  }
+
+      resource_not_found_exception() :: %{
+        "message" => String.t()
+      }
+
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_packages_response() :: %{
-    "NextToken" => String.t(),
-    "PackageDetailsList" => list(package_details()())
-  }
+
+      describe_packages_response() :: %{
+        "NextToken" => String.t(),
+        "PackageDetailsList" => list(package_details()())
+      }
+
   """
   @type describe_packages_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag() :: %{
-    "Key" => String.t(),
-    "Value" => String.t()
-  }
+
+      tag() :: %{
+        "Key" => String.t(),
+        "Value" => String.t()
+      }
+
   """
   @type tag() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  dry_run_results() :: %{
-    optional("DeploymentType") => String.t(),
-    optional("Message") => String.t()
-  }
+
+      dry_run_results() :: %{
+        optional("DeploymentType") => String.t(),
+        optional("Message") => String.t()
+      }
+
   """
   @type dry_run_results() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  advanced_security_options() :: %{
-    "AnonymousAuthDisableDate" => non_neg_integer(),
-    "AnonymousAuthEnabled" => boolean(),
-    "Enabled" => boolean(),
-    "InternalUserDatabaseEnabled" => boolean(),
-    "SAMLOptions" => saml_options_output()
-  }
+
+      advanced_security_options() :: %{
+        "AnonymousAuthDisableDate" => non_neg_integer(),
+        "AnonymousAuthEnabled" => boolean(),
+        "Enabled" => boolean(),
+        "InternalUserDatabaseEnabled" => boolean(),
+        "SAMLOptions" => saml_options_output()
+      }
+
   """
   @type advanced_security_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  option_status() :: %{
-    "CreationDate" => non_neg_integer(),
-    "PendingDeletion" => boolean(),
-    "State" => list(any()),
-    "UpdateDate" => non_neg_integer(),
-    "UpdateVersion" => integer()
-  }
+
+      option_status() :: %{
+        "CreationDate" => non_neg_integer(),
+        "PendingDeletion" => boolean(),
+        "State" => list(any()),
+        "UpdateDate" => non_neg_integer(),
+        "UpdateVersion" => integer()
+      }
+
   """
   @type option_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  reject_inbound_cross_cluster_search_connection_request() :: %{
 
-  }
+      reject_inbound_cross_cluster_search_connection_request() :: %{}
+
   """
-  @type reject_inbound_cross_cluster_search_connection_request() :: %{String.t() => any()}
+  @type reject_inbound_cross_cluster_search_connection_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  cancel_domain_config_change_response() :: %{
-    "CancelledChangeIds" => list(String.t()()),
-    "CancelledChangeProperties" => list(cancelled_change_property()()),
-    "DryRun" => boolean()
-  }
+
+      cancel_domain_config_change_response() :: %{
+        "CancelledChangeIds" => list(String.t()()),
+        "CancelledChangeProperties" => list(cancelled_change_property()()),
+        "DryRun" => boolean()
+      }
+
   """
   @type cancel_domain_config_change_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_inbound_cross_cluster_search_connection_response() :: %{
-    "CrossClusterSearchConnection" => inbound_cross_cluster_search_connection()
-  }
+
+      delete_inbound_cross_cluster_search_connection_response() :: %{
+        "CrossClusterSearchConnection" => inbound_cross_cluster_search_connection()
+      }
+
   """
   @type delete_inbound_cross_cluster_search_connection_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  node_to_node_encryption_options_status() :: %{
-    "Options" => node_to_node_encryption_options(),
-    "Status" => option_status()
-  }
+
+      node_to_node_encryption_options_status() :: %{
+        "Options" => node_to_node_encryption_options(),
+        "Status" => option_status()
+      }
+
   """
   @type node_to_node_encryption_options_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_upgrade_history_response() :: %{
-    "NextToken" => String.t(),
-    "UpgradeHistories" => list(upgrade_history()())
-  }
+
+      get_upgrade_history_response() :: %{
+        "NextToken" => String.t(),
+        "UpgradeHistories" => list(upgrade_history()())
+      }
+
   """
   @type get_upgrade_history_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_elasticsearch_instance_type_limits_request() :: %{
-    optional("DomainName") => String.t()
-  }
+
+      describe_elasticsearch_instance_type_limits_request() :: %{
+        optional("DomainName") => String.t()
+      }
+
   """
   @type describe_elasticsearch_instance_type_limits_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_elasticsearch_domain_response() :: %{
-    "DomainStatus" => elasticsearch_domain_status()
-  }
+
+      create_elasticsearch_domain_response() :: %{
+        "DomainStatus" => elasticsearch_domain_status()
+      }
+
   """
   @type create_elasticsearch_domain_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_elasticsearch_domain_response() :: %{
-    "DomainStatus" => elasticsearch_domain_status()
-  }
+
+      describe_elasticsearch_domain_response() :: %{
+        "DomainStatus" => elasticsearch_domain_status()
+      }
+
   """
   @type describe_elasticsearch_domain_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_elasticsearch_domain_response() :: %{
-    "DomainStatus" => elasticsearch_domain_status()
-  }
+
+      delete_elasticsearch_domain_response() :: %{
+        "DomainStatus" => elasticsearch_domain_status()
+      }
+
   """
   @type delete_elasticsearch_domain_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cancel_elasticsearch_service_software_update_request() :: %{
-    required("DomainName") => String.t()
-  }
+
+      cancel_elasticsearch_service_software_update_request() :: %{
+        required("DomainName") => String.t()
+      }
+
   """
   @type cancel_elasticsearch_service_software_update_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_vpc_endpoints_response() :: %{
-    "VpcEndpointErrors" => list(vpc_endpoint_error()()),
-    "VpcEndpoints" => list(vpc_endpoint()())
-  }
+
+      describe_vpc_endpoints_response() :: %{
+        "VpcEndpointErrors" => list(vpc_endpoint_error()()),
+        "VpcEndpoints" => list(vpc_endpoint()())
+      }
+
   """
   @type describe_vpc_endpoints_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_elasticsearch_service_software_update_request() :: %{
-    required("DomainName") => String.t()
-  }
+
+      start_elasticsearch_service_software_update_request() :: %{
+        required("DomainName") => String.t()
+      }
+
   """
   @type start_elasticsearch_service_software_update_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_packages_filter() :: %{
-    "Name" => list(any()),
-    "Value" => list(String.t()())
-  }
+
+      describe_packages_filter() :: %{
+        "Name" => list(any()),
+        "Value" => list(String.t()())
+      }
+
   """
   @type describe_packages_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_elasticsearch_domain_config_request() :: %{
-    optional("AccessPolicies") => String.t(),
-    optional("AdvancedOptions") => map(),
-    optional("AdvancedSecurityOptions") => advanced_security_options_input(),
-    optional("AutoTuneOptions") => auto_tune_options(),
-    optional("CognitoOptions") => cognito_options(),
-    optional("DomainEndpointOptions") => domain_endpoint_options(),
-    optional("DryRun") => boolean(),
-    optional("EBSOptions") => ebs_options(),
-    optional("ElasticsearchClusterConfig") => elasticsearch_cluster_config(),
-    optional("EncryptionAtRestOptions") => encryption_at_rest_options(),
-    optional("LogPublishingOptions") => map(),
-    optional("NodeToNodeEncryptionOptions") => node_to_node_encryption_options(),
-    optional("SnapshotOptions") => snapshot_options(),
-    optional("VPCOptions") => vpc_options()
-  }
+
+      update_elasticsearch_domain_config_request() :: %{
+        optional("AccessPolicies") => String.t(),
+        optional("AdvancedOptions") => map(),
+        optional("AdvancedSecurityOptions") => advanced_security_options_input(),
+        optional("AutoTuneOptions") => auto_tune_options(),
+        optional("CognitoOptions") => cognito_options(),
+        optional("DomainEndpointOptions") => domain_endpoint_options(),
+        optional("DryRun") => boolean(),
+        optional("EBSOptions") => ebs_options(),
+        optional("ElasticsearchClusterConfig") => elasticsearch_cluster_config(),
+        optional("EncryptionAtRestOptions") => encryption_at_rest_options(),
+        optional("LogPublishingOptions") => map(),
+        optional("NodeToNodeEncryptionOptions") => node_to_node_encryption_options(),
+        optional("SnapshotOptions") => snapshot_options(),
+        optional("VPCOptions") => vpc_options()
+      }
+
   """
   @type update_elasticsearch_domain_config_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_vpc_endpoint_response() :: %{
-    "VpcEndpoint" => vpc_endpoint()
-  }
+
+      update_vpc_endpoint_response() :: %{
+        "VpcEndpoint" => vpc_endpoint()
+      }
+
   """
   @type update_vpc_endpoint_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  error_details() :: %{
-    optional("ErrorMessage") => String.t(),
-    optional("ErrorType") => String.t()
-  }
+
+      error_details() :: %{
+        optional("ErrorMessage") => String.t(),
+        optional("ErrorType") => String.t()
+      }
+
   """
   @type error_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  encryption_at_rest_options() :: %{
-    "Enabled" => boolean(),
-    "KmsKeyId" => String.t()
-  }
+
+      encryption_at_rest_options() :: %{
+        "Enabled" => boolean(),
+        "KmsKeyId" => String.t()
+      }
+
   """
   @type encryption_at_rest_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_package_version_history_response() :: %{
-    "NextToken" => String.t(),
-    "PackageID" => String.t(),
-    "PackageVersionHistoryList" => list(package_version_history()())
-  }
+
+      get_package_version_history_response() :: %{
+        "NextToken" => String.t(),
+        "PackageID" => String.t(),
+        "PackageVersionHistoryList" => list(package_version_history()())
+      }
+
   """
   @type get_package_version_history_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_vpc_endpoints_for_domain_request() :: %{
-    optional("NextToken") => String.t()
-  }
+
+      list_vpc_endpoints_for_domain_request() :: %{
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_vpc_endpoints_for_domain_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  saml_options_input() :: %{
-    "Enabled" => boolean(),
-    "Idp" => saml_idp(),
-    "MasterBackendRole" => String.t(),
-    "MasterUserName" => String.t(),
-    "RolesKey" => String.t(),
-    "SessionTimeoutMinutes" => integer(),
-    "SubjectKey" => String.t()
-  }
+
+      saml_options_input() :: %{
+        "Enabled" => boolean(),
+        "Idp" => saml_idp(),
+        "MasterBackendRole" => String.t(),
+        "MasterUserName" => String.t(),
+        "RolesKey" => String.t(),
+        "SessionTimeoutMinutes" => integer(),
+        "SubjectKey" => String.t()
+      }
+
   """
   @type saml_options_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  vpc_endpoint() :: %{
-    "DomainArn" => String.t(),
-    "Endpoint" => String.t(),
-    "Status" => list(any()),
-    "VpcEndpointId" => String.t(),
-    "VpcEndpointOwner" => String.t(),
-    "VpcOptions" => vpc_derived_info()
-  }
+
+      vpc_endpoint() :: %{
+        "DomainArn" => String.t(),
+        "Endpoint" => String.t(),
+        "Status" => list(any()),
+        "VpcEndpointId" => String.t(),
+        "VpcEndpointOwner" => String.t(),
+        "VpcOptions" => vpc_derived_info()
+      }
+
   """
   @type vpc_endpoint() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_package_version_history_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      get_package_version_history_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type get_package_version_history_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  scheduled_auto_tune_details() :: %{
-    "Action" => String.t(),
-    "ActionType" => list(any()),
-    "Date" => non_neg_integer(),
-    "Severity" => list(any())
-  }
+
+      scheduled_auto_tune_details() :: %{
+        "Action" => String.t(),
+        "ActionType" => list(any()),
+        "Date" => non_neg_integer(),
+        "Severity" => list(any())
+      }
+
   """
   @type scheduled_auto_tune_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ebs_options() :: %{
-    "EBSEnabled" => boolean(),
-    "Iops" => integer(),
-    "Throughput" => integer(),
-    "VolumeSize" => integer(),
-    "VolumeType" => list(any())
-  }
+
+      ebs_options() :: %{
+        "EBSEnabled" => boolean(),
+        "Iops" => integer(),
+        "Throughput" => integer(),
+        "VolumeSize" => integer(),
+        "VolumeType" => list(any())
+      }
+
   """
   @type ebs_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_package_request() :: %{
-    optional("CommitMessage") => String.t(),
-    optional("PackageDescription") => String.t(),
-    required("PackageID") => String.t(),
-    required("PackageSource") => package_source()
-  }
+
+      update_package_request() :: %{
+        optional("CommitMessage") => String.t(),
+        optional("PackageDescription") => String.t(),
+        required("PackageID") => String.t(),
+        required("PackageSource") => package_source()
+      }
+
   """
   @type update_package_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_domain_names_response() :: %{
-    "DomainNames" => list(domain_info()())
-  }
+
+      list_domain_names_response() :: %{
+        "DomainNames" => list(domain_info()())
+      }
+
   """
   @type list_domain_names_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  reserved_elasticsearch_instance() :: %{
-    "CurrencyCode" => String.t(),
-    "Duration" => integer(),
-    "ElasticsearchInstanceCount" => integer(),
-    "ElasticsearchInstanceType" => list(any()),
-    "FixedPrice" => float(),
-    "PaymentOption" => list(any()),
-    "RecurringCharges" => list(recurring_charge()()),
-    "ReservationName" => String.t(),
-    "ReservedElasticsearchInstanceId" => String.t(),
-    "ReservedElasticsearchInstanceOfferingId" => String.t(),
-    "StartTime" => non_neg_integer(),
-    "State" => String.t(),
-    "UsagePrice" => float()
-  }
+
+      reserved_elasticsearch_instance() :: %{
+        "CurrencyCode" => String.t(),
+        "Duration" => integer(),
+        "ElasticsearchInstanceCount" => integer(),
+        "ElasticsearchInstanceType" => list(any()),
+        "FixedPrice" => float(),
+        "PaymentOption" => list(any()),
+        "RecurringCharges" => list(recurring_charge()()),
+        "ReservationName" => String.t(),
+        "ReservedElasticsearchInstanceId" => String.t(),
+        "ReservedElasticsearchInstanceOfferingId" => String.t(),
+        "StartTime" => non_neg_integer(),
+        "State" => String.t(),
+        "UsagePrice" => float()
+      }
+
   """
   @type reserved_elasticsearch_instance() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  associate_package_request() :: %{
 
-  }
+      associate_package_request() :: %{}
+
   """
-  @type associate_package_request() :: %{String.t() => any()}
+  @type associate_package_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  elasticsearch_domain_config() :: %{
-    "AccessPolicies" => access_policies_status(),
-    "AdvancedOptions" => advanced_options_status(),
-    "AdvancedSecurityOptions" => advanced_security_options_status(),
-    "AutoTuneOptions" => auto_tune_options_status(),
-    "ChangeProgressDetails" => change_progress_details(),
-    "CognitoOptions" => cognito_options_status(),
-    "DomainEndpointOptions" => domain_endpoint_options_status(),
-    "EBSOptions" => ebs_options_status(),
-    "ElasticsearchClusterConfig" => elasticsearch_cluster_config_status(),
-    "ElasticsearchVersion" => elasticsearch_version_status(),
-    "EncryptionAtRestOptions" => encryption_at_rest_options_status(),
-    "LogPublishingOptions" => log_publishing_options_status(),
-    "ModifyingProperties" => list(modifying_properties()()),
-    "NodeToNodeEncryptionOptions" => node_to_node_encryption_options_status(),
-    "SnapshotOptions" => snapshot_options_status(),
-    "VPCOptions" => vpc_derived_info_status()
-  }
+
+      elasticsearch_domain_config() :: %{
+        "AccessPolicies" => access_policies_status(),
+        "AdvancedOptions" => advanced_options_status(),
+        "AdvancedSecurityOptions" => advanced_security_options_status(),
+        "AutoTuneOptions" => auto_tune_options_status(),
+        "ChangeProgressDetails" => change_progress_details(),
+        "CognitoOptions" => cognito_options_status(),
+        "DomainEndpointOptions" => domain_endpoint_options_status(),
+        "EBSOptions" => ebs_options_status(),
+        "ElasticsearchClusterConfig" => elasticsearch_cluster_config_status(),
+        "ElasticsearchVersion" => elasticsearch_version_status(),
+        "EncryptionAtRestOptions" => encryption_at_rest_options_status(),
+        "LogPublishingOptions" => log_publishing_options_status(),
+        "ModifyingProperties" => list(modifying_properties()()),
+        "NodeToNodeEncryptionOptions" => node_to_node_encryption_options_status(),
+        "SnapshotOptions" => snapshot_options_status(),
+        "VPCOptions" => vpc_derived_info_status()
+      }
+
   """
   @type elasticsearch_domain_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  filter() :: %{
-    "Name" => String.t(),
-    "Values" => list(String.t()())
-  }
+
+      filter() :: %{
+        "Name" => String.t(),
+        "Values" => list(String.t()())
+      }
+
   """
   @type filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  dissociate_package_request() :: %{
 
-  }
+      dissociate_package_request() :: %{}
+
   """
-  @type dissociate_package_request() :: %{String.t() => any()}
+  @type dissociate_package_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  describe_outbound_cross_cluster_search_connections_response() :: %{
-    "CrossClusterSearchConnections" => list(outbound_cross_cluster_search_connection()()),
-    "NextToken" => String.t()
-  }
+
+      describe_outbound_cross_cluster_search_connections_response() :: %{
+        "CrossClusterSearchConnections" => list(outbound_cross_cluster_search_connection()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type describe_outbound_cross_cluster_search_connections_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_outbound_cross_cluster_search_connection_request() :: %{
 
-  }
+      delete_outbound_cross_cluster_search_connection_request() :: %{}
+
   """
-  @type delete_outbound_cross_cluster_search_connection_request() :: %{String.t() => any()}
+  @type delete_outbound_cross_cluster_search_connection_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  start_elasticsearch_service_software_update_response() :: %{
-    "ServiceSoftwareOptions" => service_software_options()
-  }
+
+      start_elasticsearch_service_software_update_response() :: %{
+        "ServiceSoftwareOptions" => service_software_options()
+      }
+
   """
   @type start_elasticsearch_service_software_update_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cancel_elasticsearch_service_software_update_response() :: %{
-    "ServiceSoftwareOptions" => service_software_options()
-  }
+
+      cancel_elasticsearch_service_software_update_response() :: %{
+        "ServiceSoftwareOptions" => service_software_options()
+      }
+
   """
   @type cancel_elasticsearch_service_software_update_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  domain_information() :: %{
-    optional("OwnerId") => String.t(),
-    optional("Region") => String.t(),
-    required("DomainName") => String.t()
-  }
+
+      domain_information() :: %{
+        optional("OwnerId") => String.t(),
+        optional("Region") => String.t(),
+        required("DomainName") => String.t()
+      }
+
   """
   @type domain_information() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  advanced_security_options_input() :: %{
-    "AnonymousAuthEnabled" => boolean(),
-    "Enabled" => boolean(),
-    "InternalUserDatabaseEnabled" => boolean(),
-    "MasterUserOptions" => master_user_options(),
-    "SAMLOptions" => saml_options_input()
-  }
+
+      advanced_security_options_input() :: %{
+        "AnonymousAuthEnabled" => boolean(),
+        "Enabled" => boolean(),
+        "InternalUserDatabaseEnabled" => boolean(),
+        "MasterUserOptions" => master_user_options(),
+        "SAMLOptions" => saml_options_input()
+      }
+
   """
   @type advanced_security_options_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  domain_info() :: %{
-    optional("DomainName") => String.t(),
-    optional("EngineType") => list(any())
-  }
+
+      domain_info() :: %{
+        optional("DomainName") => String.t(),
+        optional("EngineType") => list(any())
+      }
+
   """
   @type domain_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cognito_options() :: %{
-    "Enabled" => boolean(),
-    "IdentityPoolId" => String.t(),
-    "RoleArn" => String.t(),
-    "UserPoolId" => String.t()
-  }
+
+      cognito_options() :: %{
+        "Enabled" => boolean(),
+        "IdentityPoolId" => String.t(),
+        "RoleArn" => String.t(),
+        "UserPoolId" => String.t()
+      }
+
   """
   @type cognito_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_vpc_endpoint_access_request() :: %{
-    optional("NextToken") => String.t()
-  }
+
+      list_vpc_endpoint_access_request() :: %{
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_vpc_endpoint_access_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_vpc_endpoint_request() :: %{
-    optional("ClientToken") => String.t(),
-    required("DomainArn") => String.t(),
-    required("VpcOptions") => vpc_options()
-  }
+
+      create_vpc_endpoint_request() :: %{
+        optional("ClientToken") => String.t(),
+        required("DomainArn") => String.t(),
+        required("VpcOptions") => vpc_options()
+      }
+
   """
   @type create_vpc_endpoint_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  auto_tune_options_input() :: %{
-    "DesiredState" => list(any()),
-    "MaintenanceSchedules" => list(auto_tune_maintenance_schedule()())
-  }
+
+      auto_tune_options_input() :: %{
+        "DesiredState" => list(any()),
+        "MaintenanceSchedules" => list(auto_tune_maintenance_schedule()())
+      }
+
   """
   @type auto_tune_options_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cancelled_change_property() :: %{
-    "ActiveValue" => String.t(),
-    "CancelledValue" => String.t(),
-    "PropertyName" => String.t()
-  }
+
+      cancelled_change_property() :: %{
+        "ActiveValue" => String.t(),
+        "CancelledValue" => String.t(),
+        "PropertyName" => String.t()
+      }
+
   """
   @type cancelled_change_property() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_domain_change_progress_response() :: %{
-    "ChangeProgressStatus" => change_progress_status_details()
-  }
+
+      describe_domain_change_progress_response() :: %{
+        "ChangeProgressStatus" => change_progress_status_details()
+      }
+
   """
   @type describe_domain_change_progress_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  instance_limits() :: %{
-    "InstanceCountLimits" => instance_count_limits()
-  }
+
+      instance_limits() :: %{
+        "InstanceCountLimits" => instance_count_limits()
+      }
+
   """
   @type instance_limits() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_type_exception() :: %{
-    "message" => String.t()
-  }
+
+      invalid_type_exception() :: %{
+        "message" => String.t()
+      }
+
   """
   @type invalid_type_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  change_progress_details() :: %{
-    "ChangeId" => String.t(),
-    "ConfigChangeStatus" => list(any()),
-    "InitiatedBy" => list(any()),
-    "LastUpdatedTime" => non_neg_integer(),
-    "Message" => String.t(),
-    "StartTime" => non_neg_integer()
-  }
+
+      change_progress_details() :: %{
+        "ChangeId" => String.t(),
+        "ConfigChangeStatus" => list(any()),
+        "InitiatedBy" => list(any()),
+        "LastUpdatedTime" => non_neg_integer(),
+        "Message" => String.t(),
+        "StartTime" => non_neg_integer()
+      }
+
   """
   @type change_progress_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  zone_awareness_config() :: %{
-    "AvailabilityZoneCount" => integer()
-  }
+
+      zone_awareness_config() :: %{
+        "AvailabilityZoneCount" => integer()
+      }
+
   """
   @type zone_awareness_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_upgrade_history_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      get_upgrade_history_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type get_upgrade_history_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  change_progress_stage() :: %{
-    "Description" => String.t(),
-    "LastUpdated" => non_neg_integer(),
-    "Name" => String.t(),
-    "Status" => String.t()
-  }
+
+      change_progress_stage() :: %{
+        "Description" => String.t(),
+        "LastUpdated" => non_neg_integer(),
+        "Name" => String.t(),
+        "Status" => String.t()
+      }
+
   """
   @type change_progress_stage() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  dissociate_package_response() :: %{
-    "DomainPackageDetails" => domain_package_details()
-  }
+
+      dissociate_package_response() :: %{
+        "DomainPackageDetails" => domain_package_details()
+      }
+
   """
   @type dissociate_package_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_package_request() :: %{
 
-  }
+      delete_package_request() :: %{}
+
   """
-  @type delete_package_request() :: %{String.t() => any()}
+  @type delete_package_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  describe_reserved_elasticsearch_instance_offerings_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("ReservedElasticsearchInstanceOfferingId") => String.t()
-  }
+
+      describe_reserved_elasticsearch_instance_offerings_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("ReservedElasticsearchInstanceOfferingId") => String.t()
+      }
+
   """
   @type describe_reserved_elasticsearch_instance_offerings_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  internal_exception() :: %{
-    "message" => String.t()
-  }
+
+      internal_exception() :: %{
+        "message" => String.t()
+      }
+
   """
   @type internal_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  access_denied_exception() :: %{
-    "message" => String.t()
-  }
+
+      access_denied_exception() :: %{
+        "message" => String.t()
+      }
+
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_compatible_elasticsearch_versions_request() :: %{
-    optional("DomainName") => String.t()
-  }
+
+      get_compatible_elasticsearch_versions_request() :: %{
+        optional("DomainName") => String.t()
+      }
+
   """
   @type get_compatible_elasticsearch_versions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  upgrade_elasticsearch_domain_request() :: %{
-    optional("PerformCheckOnly") => boolean(),
-    required("DomainName") => String.t(),
-    required("TargetVersion") => String.t()
-  }
+
+      upgrade_elasticsearch_domain_request() :: %{
+        optional("PerformCheckOnly") => boolean(),
+        required("DomainName") => String.t(),
+        required("TargetVersion") => String.t()
+      }
+
   """
   @type upgrade_elasticsearch_domain_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_elasticsearch_domain_config_request() :: %{
 
-  }
+      describe_elasticsearch_domain_config_request() :: %{}
+
   """
-  @type describe_elasticsearch_domain_config_request() :: %{String.t() => any()}
+  @type describe_elasticsearch_domain_config_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_packages_for_domain_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      list_packages_for_domain_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_packages_for_domain_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  advanced_security_options_status() :: %{
-    "Options" => advanced_security_options(),
-    "Status" => option_status()
-  }
+
+      advanced_security_options_status() :: %{
+        "Options" => advanced_security_options(),
+        "Status" => option_status()
+      }
+
   """
   @type advanced_security_options_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  duration() :: %{
-    "Unit" => list(any()),
-    "Value" => float()
-  }
+
+      duration() :: %{
+        "Unit" => list(any()),
+        "Value" => float()
+      }
+
   """
   @type duration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  purchase_reserved_elasticsearch_instance_offering_response() :: %{
-    "ReservationName" => String.t(),
-    "ReservedElasticsearchInstanceId" => String.t()
-  }
+
+      purchase_reserved_elasticsearch_instance_offering_response() :: %{
+        "ReservationName" => String.t(),
+        "ReservedElasticsearchInstanceId" => String.t()
+      }
+
   """
   @type purchase_reserved_elasticsearch_instance_offering_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_domains_for_package_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      list_domains_for_package_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_domains_for_package_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  authorize_vpc_endpoint_access_request() :: %{
-    required("Account") => String.t()
-  }
+
+      authorize_vpc_endpoint_access_request() :: %{
+        required("Account") => String.t()
+      }
+
   """
   @type authorize_vpc_endpoint_access_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  service_software_options() :: %{
-    "AutomatedUpdateDate" => non_neg_integer(),
-    "Cancellable" => boolean(),
-    "CurrentVersion" => String.t(),
-    "Description" => String.t(),
-    "NewVersion" => String.t(),
-    "OptionalDeployment" => boolean(),
-    "UpdateAvailable" => boolean(),
-    "UpdateStatus" => list(any())
-  }
+
+      service_software_options() :: %{
+        "AutomatedUpdateDate" => non_neg_integer(),
+        "Cancellable" => boolean(),
+        "CurrentVersion" => String.t(),
+        "Description" => String.t(),
+        "NewVersion" => String.t(),
+        "OptionalDeployment" => boolean(),
+        "UpdateAvailable" => boolean(),
+        "UpdateStatus" => list(any())
+      }
+
   """
   @type service_software_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  log_publishing_options_status() :: %{
-    "Options" => map(),
-    "Status" => option_status()
-  }
+
+      log_publishing_options_status() :: %{
+        "Options" => map(),
+        "Status" => option_status()
+      }
+
   """
   @type log_publishing_options_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  validation_exception() :: %{
-    "message" => String.t()
-  }
+
+      validation_exception() :: %{
+        "message" => String.t()
+      }
+
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_outbound_cross_cluster_search_connection_response() :: %{
-    "CrossClusterSearchConnection" => outbound_cross_cluster_search_connection()
-  }
+
+      delete_outbound_cross_cluster_search_connection_response() :: %{
+        "CrossClusterSearchConnection" => outbound_cross_cluster_search_connection()
+      }
+
   """
   @type delete_outbound_cross_cluster_search_connection_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  auto_tune_options() :: %{
-    "DesiredState" => list(any()),
-    "MaintenanceSchedules" => list(auto_tune_maintenance_schedule()()),
-    "RollbackOnDisable" => list(any())
-  }
+
+      auto_tune_options() :: %{
+        "DesiredState" => list(any()),
+        "MaintenanceSchedules" => list(auto_tune_maintenance_schedule()()),
+        "RollbackOnDisable" => list(any())
+      }
+
   """
   @type auto_tune_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  elasticsearch_domain_status() :: %{
-    "ARN" => String.t(),
-    "AccessPolicies" => String.t(),
-    "AdvancedOptions" => map(),
-    "AdvancedSecurityOptions" => advanced_security_options(),
-    "AutoTuneOptions" => auto_tune_options_output(),
-    "ChangeProgressDetails" => change_progress_details(),
-    "CognitoOptions" => cognito_options(),
-    "Created" => boolean(),
-    "Deleted" => boolean(),
-    "DomainEndpointOptions" => domain_endpoint_options(),
-    "DomainId" => String.t(),
-    "DomainName" => String.t(),
-    "DomainProcessingStatus" => list(any()),
-    "EBSOptions" => ebs_options(),
-    "ElasticsearchClusterConfig" => elasticsearch_cluster_config(),
-    "ElasticsearchVersion" => String.t(),
-    "EncryptionAtRestOptions" => encryption_at_rest_options(),
-    "Endpoint" => String.t(),
-    "Endpoints" => map(),
-    "LogPublishingOptions" => map(),
-    "ModifyingProperties" => list(modifying_properties()()),
-    "NodeToNodeEncryptionOptions" => node_to_node_encryption_options(),
-    "Processing" => boolean(),
-    "ServiceSoftwareOptions" => service_software_options(),
-    "SnapshotOptions" => snapshot_options(),
-    "UpgradeProcessing" => boolean(),
-    "VPCOptions" => vpc_derived_info()
-  }
+
+      elasticsearch_domain_status() :: %{
+        "ARN" => String.t(),
+        "AccessPolicies" => String.t(),
+        "AdvancedOptions" => map(),
+        "AdvancedSecurityOptions" => advanced_security_options(),
+        "AutoTuneOptions" => auto_tune_options_output(),
+        "ChangeProgressDetails" => change_progress_details(),
+        "CognitoOptions" => cognito_options(),
+        "Created" => boolean(),
+        "Deleted" => boolean(),
+        "DomainEndpointOptions" => domain_endpoint_options(),
+        "DomainId" => String.t(),
+        "DomainName" => String.t(),
+        "DomainProcessingStatus" => list(any()),
+        "EBSOptions" => ebs_options(),
+        "ElasticsearchClusterConfig" => elasticsearch_cluster_config(),
+        "ElasticsearchVersion" => String.t(),
+        "EncryptionAtRestOptions" => encryption_at_rest_options(),
+        "Endpoint" => String.t(),
+        "Endpoints" => map(),
+        "LogPublishingOptions" => map(),
+        "ModifyingProperties" => list(modifying_properties()()),
+        "NodeToNodeEncryptionOptions" => node_to_node_encryption_options(),
+        "Processing" => boolean(),
+        "ServiceSoftwareOptions" => service_software_options(),
+        "SnapshotOptions" => snapshot_options(),
+        "UpgradeProcessing" => boolean(),
+        "VPCOptions" => vpc_derived_info()
+      }
+
   """
   @type elasticsearch_domain_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_upgrade_status_request() :: %{
 
-  }
+      get_upgrade_status_request() :: %{}
+
   """
-  @type get_upgrade_status_request() :: %{String.t() => any()}
+  @type get_upgrade_status_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  delete_vpc_endpoint_request() :: %{
 
-  }
+      delete_vpc_endpoint_request() :: %{}
+
   """
-  @type delete_vpc_endpoint_request() :: %{String.t() => any()}
+  @type delete_vpc_endpoint_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  inbound_cross_cluster_search_connection() :: %{
-    "ConnectionStatus" => inbound_cross_cluster_search_connection_status(),
-    "CrossClusterSearchConnectionId" => String.t(),
-    "DestinationDomainInfo" => domain_information(),
-    "SourceDomainInfo" => domain_information()
-  }
+
+      inbound_cross_cluster_search_connection() :: %{
+        "ConnectionStatus" => inbound_cross_cluster_search_connection_status(),
+        "CrossClusterSearchConnectionId" => String.t(),
+        "DestinationDomainInfo" => domain_information(),
+        "SourceDomainInfo" => domain_information()
+      }
+
   """
   @type inbound_cross_cluster_search_connection() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  base_exception() :: %{
-    "message" => String.t()
-  }
+
+      base_exception() :: %{
+        "message" => String.t()
+      }
+
   """
   @type base_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  node_to_node_encryption_options() :: %{
-    "Enabled" => boolean()
-  }
+
+      node_to_node_encryption_options() :: %{
+        "Enabled" => boolean()
+      }
+
   """
   @type node_to_node_encryption_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_package_response() :: %{
-    "PackageDetails" => package_details()
-  }
+
+      create_package_response() :: %{
+        "PackageDetails" => package_details()
+      }
+
   """
   @type create_package_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  limits() :: %{
-    "AdditionalLimits" => list(additional_limit()()),
-    "InstanceLimits" => instance_limits(),
-    "StorageTypes" => list(storage_type()())
-  }
+
+      limits() :: %{
+        "AdditionalLimits" => list(additional_limit()()),
+        "InstanceLimits" => instance_limits(),
+        "StorageTypes" => list(storage_type()())
+      }
+
   """
   @type limits() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  revoke_vpc_endpoint_access_request() :: %{
-    required("Account") => String.t()
-  }
+
+      revoke_vpc_endpoint_access_request() :: %{
+        required("Account") => String.t()
+      }
+
   """
   @type revoke_vpc_endpoint_access_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  elasticsearch_version_status() :: %{
-    "Options" => String.t(),
-    "Status" => option_status()
-  }
+
+      elasticsearch_version_status() :: %{
+        "Options" => String.t(),
+        "Status" => option_status()
+      }
+
   """
   @type elasticsearch_version_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  vpc_options() :: %{
-    "SecurityGroupIds" => list(String.t()()),
-    "SubnetIds" => list(String.t()())
-  }
+
+      vpc_options() :: %{
+        "SecurityGroupIds" => list(String.t()()),
+        "SubnetIds" => list(String.t()())
+      }
+
   """
   @type vpc_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  outbound_cross_cluster_search_connection_status() :: %{
-    "Message" => String.t(),
-    "StatusCode" => list(any())
-  }
+
+      outbound_cross_cluster_search_connection_status() :: %{
+        "Message" => String.t(),
+        "StatusCode" => list(any())
+      }
+
   """
   @type outbound_cross_cluster_search_connection_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  limit_exceeded_exception() :: %{
-    "message" => String.t()
-  }
+
+      limit_exceeded_exception() :: %{
+        "message" => String.t()
+      }
+
   """
   @type limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_inbound_cross_cluster_search_connections_request() :: %{
-    optional("Filters") => list(filter()()),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      describe_inbound_cross_cluster_search_connections_request() :: %{
+        optional("Filters") => list(filter()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type describe_inbound_cross_cluster_search_connections_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_vpc_endpoint_response() :: %{
-    "VpcEndpoint" => vpc_endpoint()
-  }
+
+      create_vpc_endpoint_response() :: %{
+        "VpcEndpoint" => vpc_endpoint()
+      }
+
   """
   @type create_vpc_endpoint_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  domain_endpoint_options_status() :: %{
-    "Options" => domain_endpoint_options(),
-    "Status" => option_status()
-  }
+
+      domain_endpoint_options_status() :: %{
+        "Options" => domain_endpoint_options(),
+        "Status" => option_status()
+      }
+
   """
   @type domain_endpoint_options_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  domain_package_details() :: %{
-    "DomainName" => String.t(),
-    "DomainPackageStatus" => list(any()),
-    "ErrorDetails" => error_details(),
-    "LastUpdated" => non_neg_integer(),
-    "PackageID" => String.t(),
-    "PackageName" => String.t(),
-    "PackageType" => list(any()),
-    "PackageVersion" => String.t(),
-    "ReferencePath" => String.t()
-  }
+
+      domain_package_details() :: %{
+        "DomainName" => String.t(),
+        "DomainPackageStatus" => list(any()),
+        "ErrorDetails" => error_details(),
+        "LastUpdated" => non_neg_integer(),
+        "PackageID" => String.t(),
+        "PackageName" => String.t(),
+        "PackageType" => list(any()),
+        "PackageVersion" => String.t(),
+        "ReferencePath" => String.t()
+      }
+
   """
   @type domain_package_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  advanced_options_status() :: %{
-    "Options" => map(),
-    "Status" => option_status()
-  }
+
+      advanced_options_status() :: %{
+        "Options" => map(),
+        "Status" => option_status()
+      }
+
   """
   @type advanced_options_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  access_policies_status() :: %{
-    "Options" => String.t(),
-    "Status" => option_status()
-  }
+
+      access_policies_status() :: %{
+        "Options" => String.t(),
+        "Status" => option_status()
+      }
+
   """
   @type access_policies_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  package_version_history() :: %{
-    "CommitMessage" => String.t(),
-    "CreatedAt" => non_neg_integer(),
-    "PackageVersion" => String.t()
-  }
+
+      package_version_history() :: %{
+        "CommitMessage" => String.t(),
+        "CreatedAt" => non_neg_integer(),
+        "PackageVersion" => String.t()
+      }
+
   """
   @type package_version_history() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_elasticsearch_versions_response() :: %{
-    "ElasticsearchVersions" => list(String.t()()),
-    "NextToken" => String.t()
-  }
+
+      list_elasticsearch_versions_response() :: %{
+        "ElasticsearchVersions" => list(String.t()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_elasticsearch_versions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_already_exists_exception() :: %{
-    "message" => String.t()
-  }
+
+      resource_already_exists_exception() :: %{
+        "message" => String.t()
+      }
+
   """
   @type resource_already_exists_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_vpc_endpoint_request() :: %{
-    required("VpcEndpointId") => String.t(),
-    required("VpcOptions") => vpc_options()
-  }
+
+      update_vpc_endpoint_request() :: %{
+        required("VpcEndpointId") => String.t(),
+        required("VpcOptions") => vpc_options()
+      }
+
   """
   @type update_vpc_endpoint_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  remove_tags_request() :: %{
-    required("ARN") => String.t(),
-    required("TagKeys") => list(String.t()())
-  }
+
+      remove_tags_request() :: %{
+        required("ARN") => String.t(),
+        required("TagKeys") => list(String.t()())
+      }
+
   """
   @type remove_tags_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_request() :: %{
-    required("ARN") => String.t()
-  }
+
+      list_tags_request() :: %{
+        required("ARN") => String.t()
+      }
+
   """
   @type list_tags_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  auto_tune() :: %{
-    "AutoTuneDetails" => auto_tune_details(),
-    "AutoTuneType" => list(any())
-  }
+
+      auto_tune() :: %{
+        "AutoTuneDetails" => auto_tune_details(),
+        "AutoTuneType" => list(any())
+      }
+
   """
   @type auto_tune() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_packages_request() :: %{
-    optional("Filters") => list(describe_packages_filter()()),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      describe_packages_request() :: %{
+        optional("Filters") => list(describe_packages_filter()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type describe_packages_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_outbound_cross_cluster_search_connection_request() :: %{
-    required("ConnectionAlias") => String.t(),
-    required("DestinationDomainInfo") => domain_information(),
-    required("SourceDomainInfo") => domain_information()
-  }
+
+      create_outbound_cross_cluster_search_connection_request() :: %{
+        required("ConnectionAlias") => String.t(),
+        required("DestinationDomainInfo") => domain_information(),
+        required("SourceDomainInfo") => domain_information()
+      }
+
   """
   @type create_outbound_cross_cluster_search_connection_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  upgrade_step_item() :: %{
-    "Issues" => list(String.t()()),
-    "ProgressPercent" => float(),
-    "UpgradeStep" => list(any()),
-    "UpgradeStepStatus" => list(any())
-  }
+
+      upgrade_step_item() :: %{
+        "Issues" => list(String.t()()),
+        "ProgressPercent" => float(),
+        "UpgradeStep" => list(any()),
+        "UpgradeStepStatus" => list(any())
+      }
+
   """
   @type upgrade_step_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  outbound_cross_cluster_search_connection() :: %{
-    "ConnectionAlias" => String.t(),
-    "ConnectionStatus" => outbound_cross_cluster_search_connection_status(),
-    "CrossClusterSearchConnectionId" => String.t(),
-    "DestinationDomainInfo" => domain_information(),
-    "SourceDomainInfo" => domain_information()
-  }
+
+      outbound_cross_cluster_search_connection() :: %{
+        "ConnectionAlias" => String.t(),
+        "ConnectionStatus" => outbound_cross_cluster_search_connection_status(),
+        "CrossClusterSearchConnectionId" => String.t(),
+        "DestinationDomainInfo" => domain_information(),
+        "SourceDomainInfo" => domain_information()
+      }
+
   """
   @type outbound_cross_cluster_search_connection() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  log_publishing_option() :: %{
-    "CloudWatchLogsLogGroupArn" => String.t(),
-    "Enabled" => boolean()
-  }
+
+      log_publishing_option() :: %{
+        "CloudWatchLogsLogGroupArn" => String.t(),
+        "Enabled" => boolean()
+      }
+
   """
   @type log_publishing_option() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  accept_inbound_cross_cluster_search_connection_response() :: %{
-    "CrossClusterSearchConnection" => inbound_cross_cluster_search_connection()
-  }
+
+      accept_inbound_cross_cluster_search_connection_response() :: %{
+        "CrossClusterSearchConnection" => inbound_cross_cluster_search_connection()
+      }
+
   """
   @type accept_inbound_cross_cluster_search_connection_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_elasticsearch_versions_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      list_elasticsearch_versions_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_elasticsearch_versions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_vpc_endpoint_access_response() :: %{
-    "AuthorizedPrincipalList" => list(authorized_principal()()),
-    "NextToken" => String.t()
-  }
+
+      list_vpc_endpoint_access_response() :: %{
+        "AuthorizedPrincipalList" => list(authorized_principal()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_vpc_endpoint_access_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_reserved_elasticsearch_instances_response() :: %{
-    "NextToken" => String.t(),
-    "ReservedElasticsearchInstances" => list(reserved_elasticsearch_instance()())
-  }
+
+      describe_reserved_elasticsearch_instances_response() :: %{
+        "NextToken" => String.t(),
+        "ReservedElasticsearchInstances" => list(reserved_elasticsearch_instance()())
+      }
+
   """
   @type describe_reserved_elasticsearch_instances_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  vpc_endpoint_error() :: %{
-    "ErrorCode" => list(any()),
-    "ErrorMessage" => String.t(),
-    "VpcEndpointId" => String.t()
-  }
+
+      vpc_endpoint_error() :: %{
+        "ErrorCode" => list(any()),
+        "ErrorMessage" => String.t(),
+        "VpcEndpointId" => String.t()
+      }
+
   """
   @type vpc_endpoint_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_upgrade_status_response() :: %{
-    "StepStatus" => list(any()),
-    "UpgradeName" => String.t(),
-    "UpgradeStep" => list(any())
-  }
+
+      get_upgrade_status_response() :: %{
+        "StepStatus" => list(any()),
+        "UpgradeName" => String.t(),
+        "UpgradeStep" => list(any())
+      }
+
   """
   @type get_upgrade_status_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_elasticsearch_domain_config_response() :: %{
-    "DomainConfig" => elasticsearch_domain_config(),
-    "DryRunResults" => dry_run_results()
-  }
+
+      update_elasticsearch_domain_config_response() :: %{
+        "DomainConfig" => elasticsearch_domain_config(),
+        "DryRunResults" => dry_run_results()
+      }
+
   """
   @type update_elasticsearch_domain_config_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  domain_endpoint_options() :: %{
-    "CustomEndpoint" => String.t(),
-    "CustomEndpointCertificateArn" => String.t(),
-    "CustomEndpointEnabled" => boolean(),
-    "EnforceHTTPS" => boolean(),
-    "TLSSecurityPolicy" => list(any())
-  }
+
+      domain_endpoint_options() :: %{
+        "CustomEndpoint" => String.t(),
+        "CustomEndpointCertificateArn" => String.t(),
+        "CustomEndpointEnabled" => boolean(),
+        "EnforceHTTPS" => boolean(),
+        "TLSSecurityPolicy" => list(any())
+      }
+
   """
   @type domain_endpoint_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  associate_package_response() :: %{
-    "DomainPackageDetails" => domain_package_details()
-  }
+
+      associate_package_response() :: %{
+        "DomainPackageDetails" => domain_package_details()
+      }
+
   """
   @type associate_package_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_elasticsearch_domains_response() :: %{
-    "DomainStatusList" => list(elasticsearch_domain_status()())
-  }
+
+      describe_elasticsearch_domains_response() :: %{
+        "DomainStatusList" => list(elasticsearch_domain_status()())
+      }
+
   """
   @type describe_elasticsearch_domains_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  encryption_at_rest_options_status() :: %{
-    "Options" => encryption_at_rest_options(),
-    "Status" => option_status()
-  }
+
+      encryption_at_rest_options_status() :: %{
+        "Options" => encryption_at_rest_options(),
+        "Status" => option_status()
+      }
+
   """
   @type encryption_at_rest_options_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_elasticsearch_instance_types_response() :: %{
-    "ElasticsearchInstanceTypes" => list(list(any())()),
-    "NextToken" => String.t()
-  }
+
+      list_elasticsearch_instance_types_response() :: %{
+        "ElasticsearchInstanceTypes" => list(list(any())()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_elasticsearch_instance_types_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  instance_count_limits() :: %{
-    "MaximumInstanceCount" => integer(),
-    "MinimumInstanceCount" => integer()
-  }
+
+      instance_count_limits() :: %{
+        "MaximumInstanceCount" => integer(),
+        "MinimumInstanceCount" => integer()
+      }
+
   """
   @type instance_count_limits() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  revoke_vpc_endpoint_access_response() :: %{
 
-  }
+      revoke_vpc_endpoint_access_response() :: %{}
+
   """
-  @type revoke_vpc_endpoint_access_response() :: %{String.t() => any()}
+  @type revoke_vpc_endpoint_access_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  delete_inbound_cross_cluster_search_connection_request() :: %{
 
-  }
+      delete_inbound_cross_cluster_search_connection_request() :: %{}
+
   """
-  @type delete_inbound_cross_cluster_search_connection_request() :: %{String.t() => any()}
+  @type delete_inbound_cross_cluster_search_connection_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_domains_for_package_response() :: %{
-    "DomainPackageDetailsList" => list(domain_package_details()()),
-    "NextToken" => String.t()
-  }
+
+      list_domains_for_package_response() :: %{
+        "DomainPackageDetailsList" => list(domain_package_details()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_domains_for_package_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_pagination_token_exception() :: %{
-    "message" => String.t()
-  }
+
+      invalid_pagination_token_exception() :: %{
+        "message" => String.t()
+      }
+
   """
   @type invalid_pagination_token_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  reserved_elasticsearch_instance_offering() :: %{
-    "CurrencyCode" => String.t(),
-    "Duration" => integer(),
-    "ElasticsearchInstanceType" => list(any()),
-    "FixedPrice" => float(),
-    "PaymentOption" => list(any()),
-    "RecurringCharges" => list(recurring_charge()()),
-    "ReservedElasticsearchInstanceOfferingId" => String.t(),
-    "UsagePrice" => float()
-  }
+
+      reserved_elasticsearch_instance_offering() :: %{
+        "CurrencyCode" => String.t(),
+        "Duration" => integer(),
+        "ElasticsearchInstanceType" => list(any()),
+        "FixedPrice" => float(),
+        "PaymentOption" => list(any()),
+        "RecurringCharges" => list(recurring_charge()()),
+        "ReservedElasticsearchInstanceOfferingId" => String.t(),
+        "UsagePrice" => float()
+      }
+
   """
   @type reserved_elasticsearch_instance_offering() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  master_user_options() :: %{
-    "MasterUserARN" => String.t(),
-    "MasterUserName" => String.t(),
-    "MasterUserPassword" => String.t()
-  }
+
+      master_user_options() :: %{
+        "MasterUserARN" => String.t(),
+        "MasterUserName" => String.t(),
+        "MasterUserPassword" => String.t()
+      }
+
   """
   @type master_user_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  reject_inbound_cross_cluster_search_connection_response() :: %{
-    "CrossClusterSearchConnection" => inbound_cross_cluster_search_connection()
-  }
+
+      reject_inbound_cross_cluster_search_connection_response() :: %{
+        "CrossClusterSearchConnection" => inbound_cross_cluster_search_connection()
+      }
+
   """
   @type reject_inbound_cross_cluster_search_connection_response() :: %{String.t() => any()}
+
+  @type accept_inbound_cross_cluster_search_connection_errors() ::
+          limit_exceeded_exception()
+          | resource_not_found_exception()
+          | disabled_operation_exception()
+
+  @type add_tags_errors() ::
+          limit_exceeded_exception()
+          | base_exception()
+          | validation_exception()
+          | internal_exception()
+
+  @type associate_package_errors() ::
+          base_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type authorize_vpc_endpoint_access_errors() ::
+          limit_exceeded_exception()
+          | base_exception()
+          | validation_exception()
+          | internal_exception()
+          | resource_not_found_exception()
+          | disabled_operation_exception()
+
+  @type cancel_domain_config_change_errors() ::
+          base_exception()
+          | validation_exception()
+          | internal_exception()
+          | resource_not_found_exception()
+          | disabled_operation_exception()
+
+  @type cancel_elasticsearch_service_software_update_errors() ::
+          base_exception()
+          | validation_exception()
+          | internal_exception()
+          | resource_not_found_exception()
+
+  @type create_elasticsearch_domain_errors() ::
+          resource_already_exists_exception()
+          | limit_exceeded_exception()
+          | base_exception()
+          | validation_exception()
+          | internal_exception()
+          | invalid_type_exception()
+          | disabled_operation_exception()
+
+  @type create_outbound_cross_cluster_search_connection_errors() ::
+          resource_already_exists_exception()
+          | limit_exceeded_exception()
+          | internal_exception()
+          | disabled_operation_exception()
+
+  @type create_package_errors() ::
+          resource_already_exists_exception()
+          | limit_exceeded_exception()
+          | base_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_exception()
+          | invalid_type_exception()
+
+  @type create_vpc_endpoint_errors() ::
+          limit_exceeded_exception()
+          | base_exception()
+          | validation_exception()
+          | internal_exception()
+          | conflict_exception()
+          | disabled_operation_exception()
+
+  @type delete_elasticsearch_domain_errors() ::
+          base_exception()
+          | validation_exception()
+          | internal_exception()
+          | resource_not_found_exception()
+
+  @type delete_elasticsearch_service_role_errors() ::
+          base_exception() | validation_exception() | internal_exception()
+
+  @type delete_inbound_cross_cluster_search_connection_errors() ::
+          resource_not_found_exception() | disabled_operation_exception()
+
+  @type delete_outbound_cross_cluster_search_connection_errors() ::
+          resource_not_found_exception() | disabled_operation_exception()
+
+  @type delete_package_errors() ::
+          base_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_vpc_endpoint_errors() ::
+          base_exception()
+          | internal_exception()
+          | resource_not_found_exception()
+          | disabled_operation_exception()
+
+  @type describe_domain_auto_tunes_errors() ::
+          base_exception()
+          | validation_exception()
+          | internal_exception()
+          | resource_not_found_exception()
+
+  @type describe_domain_change_progress_errors() ::
+          base_exception()
+          | validation_exception()
+          | internal_exception()
+          | resource_not_found_exception()
+
+  @type describe_elasticsearch_domain_errors() ::
+          base_exception()
+          | validation_exception()
+          | internal_exception()
+          | resource_not_found_exception()
+
+  @type describe_elasticsearch_domain_config_errors() ::
+          base_exception()
+          | validation_exception()
+          | internal_exception()
+          | resource_not_found_exception()
+
+  @type describe_elasticsearch_domains_errors() ::
+          base_exception() | validation_exception() | internal_exception()
+
+  @type describe_elasticsearch_instance_type_limits_errors() ::
+          limit_exceeded_exception()
+          | base_exception()
+          | validation_exception()
+          | internal_exception()
+          | invalid_type_exception()
+          | resource_not_found_exception()
+
+  @type describe_inbound_cross_cluster_search_connections_errors() ::
+          invalid_pagination_token_exception() | disabled_operation_exception()
+
+  @type describe_outbound_cross_cluster_search_connections_errors() ::
+          invalid_pagination_token_exception() | disabled_operation_exception()
+
+  @type describe_packages_errors() ::
+          base_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_exception()
+          | resource_not_found_exception()
+
+  @type describe_reserved_elasticsearch_instance_offerings_errors() ::
+          validation_exception()
+          | internal_exception()
+          | resource_not_found_exception()
+          | disabled_operation_exception()
+
+  @type describe_reserved_elasticsearch_instances_errors() ::
+          validation_exception()
+          | internal_exception()
+          | resource_not_found_exception()
+          | disabled_operation_exception()
+
+  @type describe_vpc_endpoints_errors() ::
+          base_exception()
+          | validation_exception()
+          | internal_exception()
+          | disabled_operation_exception()
+
+  @type dissociate_package_errors() ::
+          base_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type get_compatible_elasticsearch_versions_errors() ::
+          base_exception()
+          | validation_exception()
+          | internal_exception()
+          | resource_not_found_exception()
+          | disabled_operation_exception()
+
+  @type get_package_version_history_errors() ::
+          base_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_exception()
+          | resource_not_found_exception()
+
+  @type get_upgrade_history_errors() ::
+          base_exception()
+          | validation_exception()
+          | internal_exception()
+          | resource_not_found_exception()
+          | disabled_operation_exception()
+
+  @type get_upgrade_status_errors() ::
+          base_exception()
+          | validation_exception()
+          | internal_exception()
+          | resource_not_found_exception()
+          | disabled_operation_exception()
+
+  @type list_domain_names_errors() :: base_exception() | validation_exception()
+
+  @type list_domains_for_package_errors() ::
+          base_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_exception()
+          | resource_not_found_exception()
+
+  @type list_elasticsearch_instance_types_errors() ::
+          base_exception()
+          | validation_exception()
+          | internal_exception()
+          | resource_not_found_exception()
+
+  @type list_elasticsearch_versions_errors() ::
+          base_exception()
+          | validation_exception()
+          | internal_exception()
+          | resource_not_found_exception()
+
+  @type list_packages_for_domain_errors() ::
+          base_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_exception()
+          | resource_not_found_exception()
+
+  @type list_tags_errors() ::
+          base_exception()
+          | validation_exception()
+          | internal_exception()
+          | resource_not_found_exception()
+
+  @type list_vpc_endpoint_access_errors() ::
+          base_exception()
+          | internal_exception()
+          | resource_not_found_exception()
+          | disabled_operation_exception()
+
+  @type list_vpc_endpoints_errors() ::
+          base_exception() | internal_exception() | disabled_operation_exception()
+
+  @type list_vpc_endpoints_for_domain_errors() ::
+          base_exception()
+          | internal_exception()
+          | resource_not_found_exception()
+          | disabled_operation_exception()
+
+  @type purchase_reserved_elasticsearch_instance_offering_errors() ::
+          resource_already_exists_exception()
+          | limit_exceeded_exception()
+          | validation_exception()
+          | internal_exception()
+          | resource_not_found_exception()
+          | disabled_operation_exception()
+
+  @type reject_inbound_cross_cluster_search_connection_errors() ::
+          resource_not_found_exception() | disabled_operation_exception()
+
+  @type remove_tags_errors() :: base_exception() | validation_exception() | internal_exception()
+
+  @type revoke_vpc_endpoint_access_errors() ::
+          base_exception()
+          | validation_exception()
+          | internal_exception()
+          | resource_not_found_exception()
+          | disabled_operation_exception()
+
+  @type start_elasticsearch_service_software_update_errors() ::
+          base_exception()
+          | validation_exception()
+          | internal_exception()
+          | resource_not_found_exception()
+
+  @type update_elasticsearch_domain_config_errors() ::
+          limit_exceeded_exception()
+          | base_exception()
+          | validation_exception()
+          | internal_exception()
+          | invalid_type_exception()
+          | resource_not_found_exception()
+
+  @type update_package_errors() ::
+          limit_exceeded_exception()
+          | base_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_exception()
+          | resource_not_found_exception()
+
+  @type update_vpc_endpoint_errors() ::
+          base_exception()
+          | validation_exception()
+          | internal_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | disabled_operation_exception()
+
+  @type upgrade_elasticsearch_domain_errors() ::
+          resource_already_exists_exception()
+          | base_exception()
+          | validation_exception()
+          | internal_exception()
+          | resource_not_found_exception()
+          | disabled_operation_exception()
 
   def metadata do
     %{
@@ -2086,9 +2750,7 @@ defmodule AWS.Elasticsearch do
         ) ::
           {:ok, accept_inbound_cross_cluster_search_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, disabled_operation_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, accept_inbound_cross_cluster_search_connection_errors()}
   def accept_inbound_cross_cluster_search_connection(
         %Client{} = client,
         cross_cluster_search_connection_id,
@@ -2117,10 +2779,7 @@ defmodule AWS.Elasticsearch do
   @spec add_tags(map(), add_tags_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, base_exception()}
-          | {:error, internal_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, validation_exception()}
+          | {:error, add_tags_errors()}
   def add_tags(%Client{} = client, input, options \\ []) do
     url_path = "/2015-01-01/tags"
     headers = []
@@ -2147,12 +2806,7 @@ defmodule AWS.Elasticsearch do
   @spec associate_package(map(), String.t(), String.t(), associate_package_request(), list()) ::
           {:ok, associate_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, base_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, associate_package_errors()}
   def associate_package(%Client{} = client, domain_name, package_id, input, options \\ []) do
     url_path =
       "/2015-01-01/packages/associate/#{AWS.Util.encode_uri(package_id)}/#{AWS.Util.encode_uri(domain_name)}"
@@ -2187,12 +2841,7 @@ defmodule AWS.Elasticsearch do
         ) ::
           {:ok, authorize_vpc_endpoint_access_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, base_exception()}
-          | {:error, disabled_operation_exception()}
-          | {:error, internal_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, authorize_vpc_endpoint_access_errors()}
   def authorize_vpc_endpoint_access(%Client{} = client, domain_name, input, options \\ []) do
     url_path =
       "/2015-01-01/es/domain/#{AWS.Util.encode_uri(domain_name)}/authorizeVpcEndpointAccess"
@@ -2226,11 +2875,7 @@ defmodule AWS.Elasticsearch do
         ) ::
           {:ok, cancel_domain_config_change_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, base_exception()}
-          | {:error, disabled_operation_exception()}
-          | {:error, internal_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, cancel_domain_config_change_errors()}
   def cancel_domain_config_change(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/2015-01-01/es/domain/#{AWS.Util.encode_uri(domain_name)}/config/cancel"
     headers = []
@@ -2264,10 +2909,7 @@ defmodule AWS.Elasticsearch do
         ) ::
           {:ok, cancel_elasticsearch_service_software_update_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, base_exception()}
-          | {:error, internal_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, cancel_elasticsearch_service_software_update_errors()}
   def cancel_elasticsearch_service_software_update(%Client{} = client, input, options \\ []) do
     url_path = "/2015-01-01/es/serviceSoftwareUpdate/cancel"
     headers = []
@@ -2298,13 +2940,7 @@ defmodule AWS.Elasticsearch do
   @spec create_elasticsearch_domain(map(), create_elasticsearch_domain_request(), list()) ::
           {:ok, create_elasticsearch_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, base_exception()}
-          | {:error, disabled_operation_exception()}
-          | {:error, internal_exception()}
-          | {:error, invalid_type_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_already_exists_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_elasticsearch_domain_errors()}
   def create_elasticsearch_domain(%Client{} = client, input, options \\ []) do
     url_path = "/2015-01-01/es/domain"
     headers = []
@@ -2336,10 +2972,7 @@ defmodule AWS.Elasticsearch do
         ) ::
           {:ok, create_outbound_cross_cluster_search_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, disabled_operation_exception()}
-          | {:error, internal_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_already_exists_exception()}
+          | {:error, create_outbound_cross_cluster_search_connection_errors()}
   def create_outbound_cross_cluster_search_connection(%Client{} = client, input, options \\ []) do
     url_path = "/2015-01-01/es/ccs/outboundConnection"
     headers = []
@@ -2366,13 +2999,7 @@ defmodule AWS.Elasticsearch do
   @spec create_package(map(), create_package_request(), list()) ::
           {:ok, create_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, base_exception()}
-          | {:error, internal_exception()}
-          | {:error, invalid_type_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_already_exists_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_package_errors()}
   def create_package(%Client{} = client, input, options \\ []) do
     url_path = "/2015-01-01/packages"
     headers = []
@@ -2399,12 +3026,7 @@ defmodule AWS.Elasticsearch do
   @spec create_vpc_endpoint(map(), create_vpc_endpoint_request(), list()) ::
           {:ok, create_vpc_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, base_exception()}
-          | {:error, conflict_exception()}
-          | {:error, disabled_operation_exception()}
-          | {:error, internal_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_vpc_endpoint_errors()}
   def create_vpc_endpoint(%Client{} = client, input, options \\ []) do
     url_path = "/2015-01-01/es/vpcEndpoints"
     headers = []
@@ -2438,10 +3060,7 @@ defmodule AWS.Elasticsearch do
         ) ::
           {:ok, delete_elasticsearch_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, base_exception()}
-          | {:error, internal_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_elasticsearch_domain_errors()}
   def delete_elasticsearch_domain(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/2015-01-01/es/domain/#{AWS.Util.encode_uri(domain_name)}"
     headers = []
@@ -2474,9 +3093,7 @@ defmodule AWS.Elasticsearch do
   @spec delete_elasticsearch_service_role(map(), %{}, list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, base_exception()}
-          | {:error, internal_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_elasticsearch_service_role_errors()}
   def delete_elasticsearch_service_role(%Client{} = client, input, options \\ []) do
     url_path = "/2015-01-01/es/role"
     headers = []
@@ -2509,8 +3126,7 @@ defmodule AWS.Elasticsearch do
         ) ::
           {:ok, delete_inbound_cross_cluster_search_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, disabled_operation_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, delete_inbound_cross_cluster_search_connection_errors()}
   def delete_inbound_cross_cluster_search_connection(
         %Client{} = client,
         cross_cluster_search_connection_id,
@@ -2550,8 +3166,7 @@ defmodule AWS.Elasticsearch do
         ) ::
           {:ok, delete_outbound_cross_cluster_search_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, disabled_operation_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, delete_outbound_cross_cluster_search_connection_errors()}
   def delete_outbound_cross_cluster_search_connection(
         %Client{} = client,
         cross_cluster_search_connection_id,
@@ -2585,12 +3200,7 @@ defmodule AWS.Elasticsearch do
   @spec delete_package(map(), String.t(), delete_package_request(), list()) ::
           {:ok, delete_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, base_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_package_errors()}
   def delete_package(%Client{} = client, package_id, input, options \\ []) do
     url_path = "/2015-01-01/packages/#{AWS.Util.encode_uri(package_id)}"
     headers = []
@@ -2617,10 +3227,7 @@ defmodule AWS.Elasticsearch do
   @spec delete_vpc_endpoint(map(), String.t(), delete_vpc_endpoint_request(), list()) ::
           {:ok, delete_vpc_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, base_exception()}
-          | {:error, disabled_operation_exception()}
-          | {:error, internal_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, delete_vpc_endpoint_errors()}
   def delete_vpc_endpoint(%Client{} = client, vpc_endpoint_id, input, options \\ []) do
     url_path = "/2015-01-01/es/vpcEndpoints/#{AWS.Util.encode_uri(vpc_endpoint_id)}"
     headers = []
@@ -2648,10 +3255,7 @@ defmodule AWS.Elasticsearch do
   @spec describe_domain_auto_tunes(map(), String.t(), list()) ::
           {:ok, describe_domain_auto_tunes_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, base_exception()}
-          | {:error, internal_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, describe_domain_auto_tunes_errors()}
   def describe_domain_auto_tunes(%Client{} = client, domain_name, options \\ []) do
     url_path = "/2015-01-01/es/domain/#{AWS.Util.encode_uri(domain_name)}/autoTunes"
     headers = []
@@ -2670,10 +3274,7 @@ defmodule AWS.Elasticsearch do
   @spec describe_domain_change_progress(map(), String.t(), String.t() | nil, list()) ::
           {:ok, describe_domain_change_progress_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, base_exception()}
-          | {:error, internal_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, describe_domain_change_progress_errors()}
   def describe_domain_change_progress(
         %Client{} = client,
         domain_name,
@@ -2703,10 +3304,7 @@ defmodule AWS.Elasticsearch do
   @spec describe_elasticsearch_domain(map(), String.t(), list()) ::
           {:ok, describe_elasticsearch_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, base_exception()}
-          | {:error, internal_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, describe_elasticsearch_domain_errors()}
   def describe_elasticsearch_domain(%Client{} = client, domain_name, options \\ []) do
     url_path = "/2015-01-01/es/domain/#{AWS.Util.encode_uri(domain_name)}"
     headers = []
@@ -2725,10 +3323,7 @@ defmodule AWS.Elasticsearch do
   @spec describe_elasticsearch_domain_config(map(), String.t(), list()) ::
           {:ok, describe_elasticsearch_domain_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, base_exception()}
-          | {:error, internal_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, describe_elasticsearch_domain_config_errors()}
   def describe_elasticsearch_domain_config(%Client{} = client, domain_name, options \\ []) do
     url_path = "/2015-01-01/es/domain/#{AWS.Util.encode_uri(domain_name)}/config"
     headers = []
@@ -2746,9 +3341,7 @@ defmodule AWS.Elasticsearch do
   @spec describe_elasticsearch_domains(map(), describe_elasticsearch_domains_request(), list()) ::
           {:ok, describe_elasticsearch_domains_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, base_exception()}
-          | {:error, internal_exception()}
-          | {:error, validation_exception()}
+          | {:error, describe_elasticsearch_domains_errors()}
   def describe_elasticsearch_domains(%Client{} = client, input, options \\ []) do
     url_path = "/2015-01-01/es/domain-info"
     headers = []
@@ -2792,12 +3385,7 @@ defmodule AWS.Elasticsearch do
         ) ::
           {:ok, describe_elasticsearch_instance_type_limits_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, base_exception()}
-          | {:error, internal_exception()}
-          | {:error, invalid_type_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, describe_elasticsearch_instance_type_limits_errors()}
   def describe_elasticsearch_instance_type_limits(
         %Client{} = client,
         elasticsearch_version,
@@ -2833,8 +3421,7 @@ defmodule AWS.Elasticsearch do
         ) ::
           {:ok, describe_inbound_cross_cluster_search_connections_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, disabled_operation_exception()}
-          | {:error, invalid_pagination_token_exception()}
+          | {:error, describe_inbound_cross_cluster_search_connections_errors()}
   def describe_inbound_cross_cluster_search_connections(%Client{} = client, input, options \\ []) do
     url_path = "/2015-01-01/es/ccs/inboundConnection/search"
     headers = []
@@ -2865,8 +3452,7 @@ defmodule AWS.Elasticsearch do
         ) ::
           {:ok, describe_outbound_cross_cluster_search_connections_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, disabled_operation_exception()}
-          | {:error, invalid_pagination_token_exception()}
+          | {:error, describe_outbound_cross_cluster_search_connections_errors()}
   def describe_outbound_cross_cluster_search_connections(%Client{} = client, input, options \\ []) do
     url_path = "/2015-01-01/es/ccs/outboundConnection/search"
     headers = []
@@ -2895,11 +3481,7 @@ defmodule AWS.Elasticsearch do
   @spec describe_packages(map(), describe_packages_request(), list()) ::
           {:ok, describe_packages_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, base_exception()}
-          | {:error, internal_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, describe_packages_errors()}
   def describe_packages(%Client{} = client, input, options \\ []) do
     url_path = "/2015-01-01/packages/describe"
     headers = []
@@ -2932,10 +3514,7 @@ defmodule AWS.Elasticsearch do
         ) ::
           {:ok, describe_reserved_elasticsearch_instance_offerings_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, disabled_operation_exception()}
-          | {:error, internal_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, describe_reserved_elasticsearch_instance_offerings_errors()}
   def describe_reserved_elasticsearch_instance_offerings(
         %Client{} = client,
         max_results \\ nil,
@@ -2985,10 +3564,7 @@ defmodule AWS.Elasticsearch do
         ) ::
           {:ok, describe_reserved_elasticsearch_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, disabled_operation_exception()}
-          | {:error, internal_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, describe_reserved_elasticsearch_instances_errors()}
   def describe_reserved_elasticsearch_instances(
         %Client{} = client,
         max_results \\ nil,
@@ -3032,10 +3608,7 @@ defmodule AWS.Elasticsearch do
   @spec describe_vpc_endpoints(map(), describe_vpc_endpoints_request(), list()) ::
           {:ok, describe_vpc_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, base_exception()}
-          | {:error, disabled_operation_exception()}
-          | {:error, internal_exception()}
-          | {:error, validation_exception()}
+          | {:error, describe_vpc_endpoints_errors()}
   def describe_vpc_endpoints(%Client{} = client, input, options \\ []) do
     url_path = "/2015-01-01/es/vpcEndpoints/describe"
     headers = []
@@ -3062,12 +3635,7 @@ defmodule AWS.Elasticsearch do
   @spec dissociate_package(map(), String.t(), String.t(), dissociate_package_request(), list()) ::
           {:ok, dissociate_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, base_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, dissociate_package_errors()}
   def dissociate_package(%Client{} = client, domain_name, package_id, input, options \\ []) do
     url_path =
       "/2015-01-01/packages/dissociate/#{AWS.Util.encode_uri(package_id)}/#{AWS.Util.encode_uri(domain_name)}"
@@ -3107,11 +3675,7 @@ defmodule AWS.Elasticsearch do
   @spec get_compatible_elasticsearch_versions(map(), String.t() | nil, list()) ::
           {:ok, get_compatible_elasticsearch_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, base_exception()}
-          | {:error, disabled_operation_exception()}
-          | {:error, internal_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_compatible_elasticsearch_versions_errors()}
   def get_compatible_elasticsearch_versions(%Client{} = client, domain_name \\ nil, options \\ []) do
     url_path = "/2015-01-01/es/compatibleVersions"
     headers = []
@@ -3136,11 +3700,7 @@ defmodule AWS.Elasticsearch do
   @spec get_package_version_history(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, get_package_version_history_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, base_exception()}
-          | {:error, internal_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_package_version_history_errors()}
   def get_package_version_history(
         %Client{} = client,
         package_id,
@@ -3178,11 +3738,7 @@ defmodule AWS.Elasticsearch do
   @spec get_upgrade_history(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, get_upgrade_history_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, base_exception()}
-          | {:error, disabled_operation_exception()}
-          | {:error, internal_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_upgrade_history_errors()}
   def get_upgrade_history(
         %Client{} = client,
         domain_name,
@@ -3220,11 +3776,7 @@ defmodule AWS.Elasticsearch do
   @spec get_upgrade_status(map(), String.t(), list()) ::
           {:ok, get_upgrade_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, base_exception()}
-          | {:error, disabled_operation_exception()}
-          | {:error, internal_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_upgrade_status_errors()}
   def get_upgrade_status(%Client{} = client, domain_name, options \\ []) do
     url_path = "/2015-01-01/es/upgradeDomain/#{AWS.Util.encode_uri(domain_name)}/status"
     headers = []
@@ -3242,8 +3794,7 @@ defmodule AWS.Elasticsearch do
   @spec list_domain_names(map(), String.t() | nil, list()) ::
           {:ok, list_domain_names_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, base_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_domain_names_errors()}
   def list_domain_names(%Client{} = client, engine_type \\ nil, options \\ []) do
     url_path = "/2015-01-01/domain"
     headers = []
@@ -3267,11 +3818,7 @@ defmodule AWS.Elasticsearch do
   @spec list_domains_for_package(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_domains_for_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, base_exception()}
-          | {:error, internal_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_domains_for_package_errors()}
   def list_domains_for_package(
         %Client{} = client,
         package_id,
@@ -3316,10 +3863,7 @@ defmodule AWS.Elasticsearch do
         ) ::
           {:ok, list_elasticsearch_instance_types_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, base_exception()}
-          | {:error, internal_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_elasticsearch_instance_types_errors()}
   def list_elasticsearch_instance_types(
         %Client{} = client,
         elasticsearch_version,
@@ -3364,10 +3908,7 @@ defmodule AWS.Elasticsearch do
   @spec list_elasticsearch_versions(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_elasticsearch_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, base_exception()}
-          | {:error, internal_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_elasticsearch_versions_errors()}
   def list_elasticsearch_versions(
         %Client{} = client,
         max_results \\ nil,
@@ -3403,11 +3944,7 @@ defmodule AWS.Elasticsearch do
   @spec list_packages_for_domain(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_packages_for_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, base_exception()}
-          | {:error, internal_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_packages_for_domain_errors()}
   def list_packages_for_domain(
         %Client{} = client,
         domain_name,
@@ -3444,10 +3981,7 @@ defmodule AWS.Elasticsearch do
   @spec list_tags(map(), String.t(), list()) ::
           {:ok, list_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, base_exception()}
-          | {:error, internal_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_tags_errors()}
   def list_tags(%Client{} = client, arn, options \\ []) do
     url_path = "/2015-01-01/tags"
     headers = []
@@ -3473,10 +4007,7 @@ defmodule AWS.Elasticsearch do
   @spec list_vpc_endpoint_access(map(), String.t(), String.t() | nil, list()) ::
           {:ok, list_vpc_endpoint_access_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, base_exception()}
-          | {:error, disabled_operation_exception()}
-          | {:error, internal_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, list_vpc_endpoint_access_errors()}
   def list_vpc_endpoint_access(%Client{} = client, domain_name, next_token \\ nil, options \\ []) do
     url_path = "/2015-01-01/es/domain/#{AWS.Util.encode_uri(domain_name)}/listVpcEndpointAccess"
     headers = []
@@ -3501,9 +4032,7 @@ defmodule AWS.Elasticsearch do
   @spec list_vpc_endpoints(map(), String.t() | nil, list()) ::
           {:ok, list_vpc_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, base_exception()}
-          | {:error, disabled_operation_exception()}
-          | {:error, internal_exception()}
+          | {:error, list_vpc_endpoints_errors()}
   def list_vpc_endpoints(%Client{} = client, next_token \\ nil, options \\ []) do
     url_path = "/2015-01-01/es/vpcEndpoints"
     headers = []
@@ -3528,10 +4057,7 @@ defmodule AWS.Elasticsearch do
   @spec list_vpc_endpoints_for_domain(map(), String.t(), String.t() | nil, list()) ::
           {:ok, list_vpc_endpoints_for_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, base_exception()}
-          | {:error, disabled_operation_exception()}
-          | {:error, internal_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, list_vpc_endpoints_for_domain_errors()}
   def list_vpc_endpoints_for_domain(
         %Client{} = client,
         domain_name,
@@ -3564,12 +4090,7 @@ defmodule AWS.Elasticsearch do
         ) ::
           {:ok, purchase_reserved_elasticsearch_instance_offering_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, disabled_operation_exception()}
-          | {:error, internal_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_already_exists_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, purchase_reserved_elasticsearch_instance_offering_errors()}
   def purchase_reserved_elasticsearch_instance_offering(%Client{} = client, input, options \\ []) do
     url_path = "/2015-01-01/es/purchaseReservedInstanceOffering"
     headers = []
@@ -3602,8 +4123,7 @@ defmodule AWS.Elasticsearch do
         ) ::
           {:ok, reject_inbound_cross_cluster_search_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, disabled_operation_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, reject_inbound_cross_cluster_search_connection_errors()}
   def reject_inbound_cross_cluster_search_connection(
         %Client{} = client,
         cross_cluster_search_connection_id,
@@ -3627,9 +4147,7 @@ defmodule AWS.Elasticsearch do
   @spec remove_tags(map(), remove_tags_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, base_exception()}
-          | {:error, internal_exception()}
-          | {:error, validation_exception()}
+          | {:error, remove_tags_errors()}
   def remove_tags(%Client{} = client, input, options \\ []) do
     url_path = "/2015-01-01/tags-removal"
     headers = []
@@ -3663,11 +4181,7 @@ defmodule AWS.Elasticsearch do
         ) ::
           {:ok, revoke_vpc_endpoint_access_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, base_exception()}
-          | {:error, disabled_operation_exception()}
-          | {:error, internal_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, revoke_vpc_endpoint_access_errors()}
   def revoke_vpc_endpoint_access(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/2015-01-01/es/domain/#{AWS.Util.encode_uri(domain_name)}/revokeVpcEndpointAccess"
     headers = []
@@ -3698,10 +4212,7 @@ defmodule AWS.Elasticsearch do
         ) ::
           {:ok, start_elasticsearch_service_software_update_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, base_exception()}
-          | {:error, internal_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, start_elasticsearch_service_software_update_errors()}
   def start_elasticsearch_service_software_update(%Client{} = client, input, options \\ []) do
     url_path = "/2015-01-01/es/serviceSoftwareUpdate/start"
     headers = []
@@ -3734,12 +4245,7 @@ defmodule AWS.Elasticsearch do
         ) ::
           {:ok, update_elasticsearch_domain_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, base_exception()}
-          | {:error, internal_exception()}
-          | {:error, invalid_type_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_elasticsearch_domain_config_errors()}
   def update_elasticsearch_domain_config(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/2015-01-01/es/domain/#{AWS.Util.encode_uri(domain_name)}/config"
     headers = []
@@ -3766,12 +4272,7 @@ defmodule AWS.Elasticsearch do
   @spec update_package(map(), update_package_request(), list()) ::
           {:ok, update_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, base_exception()}
-          | {:error, internal_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_package_errors()}
   def update_package(%Client{} = client, input, options \\ []) do
     url_path = "/2015-01-01/packages/update"
     headers = []
@@ -3798,12 +4299,7 @@ defmodule AWS.Elasticsearch do
   @spec update_vpc_endpoint(map(), update_vpc_endpoint_request(), list()) ::
           {:ok, update_vpc_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, base_exception()}
-          | {:error, conflict_exception()}
-          | {:error, disabled_operation_exception()}
-          | {:error, internal_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_vpc_endpoint_errors()}
   def update_vpc_endpoint(%Client{} = client, input, options \\ []) do
     url_path = "/2015-01-01/es/vpcEndpoints/update"
     headers = []
@@ -3831,12 +4327,7 @@ defmodule AWS.Elasticsearch do
   @spec upgrade_elasticsearch_domain(map(), upgrade_elasticsearch_domain_request(), list()) ::
           {:ok, upgrade_elasticsearch_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, base_exception()}
-          | {:error, disabled_operation_exception()}
-          | {:error, internal_exception()}
-          | {:error, resource_already_exists_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, upgrade_elasticsearch_domain_errors()}
   def upgrade_elasticsearch_domain(%Client{} = client, input, options \\ []) do
     url_path = "/2015-01-01/es/upgradeDomain"
     headers = []

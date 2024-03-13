@@ -27,607 +27,814 @@ defmodule AWS.RUM do
   @typedoc """
 
   ## Example:
-  put_rum_metrics_destination_response() :: %{
 
-  }
+      put_rum_metrics_destination_response() :: %{}
+
   """
-  @type put_rum_metrics_destination_response() :: %{String.t() => any()}
+  @type put_rum_metrics_destination_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  data_storage() :: %{
-    "CwLog" => cw_log()
-  }
+
+      data_storage() :: %{
+        "CwLog" => cw_log()
+      }
+
   """
   @type data_storage() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_request() :: %{
-    required("Tags") => map()
-  }
+
+      tag_resource_request() :: %{
+        required("Tags") => map()
+      }
+
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  query_filter() :: %{
-    "Name" => String.t(),
-    "Values" => list(String.t()())
-  }
+
+      query_filter() :: %{
+        "Name" => String.t(),
+        "Values" => list(String.t()())
+      }
+
   """
   @type query_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_rum_events_request() :: %{
-    required("AppMonitorDetails") => app_monitor_details(),
-    required("BatchId") => [String.t()],
-    required("RumEvents") => list(rum_event()()),
-    required("UserDetails") => user_details()
-  }
+
+      put_rum_events_request() :: %{
+        required("AppMonitorDetails") => app_monitor_details(),
+        required("BatchId") => [String.t()],
+        required("RumEvents") => list(rum_event()()),
+        required("UserDetails") => user_details()
+      }
+
   """
   @type put_rum_events_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  app_monitor_summary() :: %{
-    "Created" => String.t(),
-    "Id" => String.t(),
-    "LastModified" => String.t(),
-    "Name" => String.t(),
-    "State" => String.t()
-  }
+
+      app_monitor_summary() :: %{
+        "Created" => String.t(),
+        "Id" => String.t(),
+        "LastModified" => String.t(),
+        "Name" => String.t(),
+        "State" => String.t()
+      }
+
   """
   @type app_monitor_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_app_monitor_response() :: %{
-    optional("AppMonitor") => app_monitor()
-  }
+
+      get_app_monitor_response() :: %{
+        optional("AppMonitor") => app_monitor()
+      }
+
   """
   @type get_app_monitor_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  app_monitor_details() :: %{
-    "id" => [String.t()],
-    "name" => [String.t()],
-    "version" => [String.t()]
-  }
+
+      app_monitor_details() :: %{
+        "id" => [String.t()],
+        "name" => [String.t()],
+        "version" => [String.t()]
+      }
+
   """
   @type app_monitor_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_response() :: %{
 
-  }
+      untag_resource_response() :: %{}
+
   """
-  @type untag_resource_response() :: %{String.t() => any()}
+  @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  metric_destination_summary() :: %{
-    "Destination" => String.t(),
-    "DestinationArn" => String.t(),
-    "IamRoleArn" => String.t()
-  }
+
+      metric_destination_summary() :: %{
+        "Destination" => String.t(),
+        "DestinationArn" => String.t(),
+        "IamRoleArn" => String.t()
+      }
+
   """
   @type metric_destination_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cw_log() :: %{
-    "CwLogEnabled" => [boolean()],
-    "CwLogGroup" => [String.t()]
-  }
+
+      cw_log() :: %{
+        "CwLogEnabled" => [boolean()],
+        "CwLogGroup" => [String.t()]
+      }
+
   """
   @type cw_log() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_delete_rum_metric_definitions_request() :: %{
-    optional("DestinationArn") => String.t(),
-    required("Destination") => String.t(),
-    required("MetricDefinitionIds") => list(String.t()())
-  }
+
+      batch_delete_rum_metric_definitions_request() :: %{
+        optional("DestinationArn") => String.t(),
+        required("Destination") => String.t(),
+        required("MetricDefinitionIds") => list(String.t()())
+      }
+
   """
   @type batch_delete_rum_metric_definitions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  app_monitor_configuration() :: %{
-    "AllowCookies" => [boolean()],
-    "EnableXRay" => [boolean()],
-    "ExcludedPages" => list(String.t()()),
-    "FavoritePages" => list([String.t()]()),
-    "GuestRoleArn" => String.t(),
-    "IdentityPoolId" => String.t(),
-    "IncludedPages" => list(String.t()()),
-    "SessionSampleRate" => float(),
-    "Telemetries" => list(String.t()())
-  }
+
+      app_monitor_configuration() :: %{
+        "AllowCookies" => [boolean()],
+        "EnableXRay" => [boolean()],
+        "ExcludedPages" => list(String.t()()),
+        "FavoritePages" => list([String.t()]()),
+        "GuestRoleArn" => String.t(),
+        "IdentityPoolId" => String.t(),
+        "IncludedPages" => list(String.t()()),
+        "SessionSampleRate" => float(),
+        "Telemetries" => list(String.t()())
+      }
+
   """
   @type app_monitor_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  user_details() :: %{
-    "sessionId" => [String.t()],
-    "userId" => [String.t()]
-  }
+
+      user_details() :: %{
+        "sessionId" => [String.t()],
+        "userId" => [String.t()]
+      }
+
   """
   @type user_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_app_monitor_request() :: %{
-    optional("AppMonitorConfiguration") => app_monitor_configuration(),
-    optional("CustomEvents") => custom_events(),
-    optional("CwLogEnabled") => [boolean()],
-    optional("Domain") => String.t()
-  }
+
+      update_app_monitor_request() :: %{
+        optional("AppMonitorConfiguration") => app_monitor_configuration(),
+        optional("CustomEvents") => custom_events(),
+        optional("CwLogEnabled") => [boolean()],
+        optional("Domain") => String.t()
+      }
+
   """
   @type update_app_monitor_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_app_monitor_data_request() :: %{
-    optional("Filters") => list(query_filter()()),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("TimeRange") => time_range()
-  }
+
+      get_app_monitor_data_request() :: %{
+        optional("Filters") => list(query_filter()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("TimeRange") => time_range()
+      }
+
   """
   @type get_app_monitor_data_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  metric_definition() :: %{
-    "DimensionKeys" => map(),
-    "EventPattern" => String.t(),
-    "MetricDefinitionId" => String.t(),
-    "Name" => String.t(),
-    "Namespace" => String.t(),
-    "UnitLabel" => String.t(),
-    "ValueKey" => String.t()
-  }
+
+      metric_definition() :: %{
+        "DimensionKeys" => map(),
+        "EventPattern" => String.t(),
+        "MetricDefinitionId" => String.t(),
+        "Name" => String.t(),
+        "Namespace" => String.t(),
+        "UnitLabel" => String.t(),
+        "ValueKey" => String.t()
+      }
+
   """
   @type metric_definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_app_monitors_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => [String.t()]
-  }
+
+      list_app_monitors_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => [String.t()]
+      }
+
   """
   @type list_app_monitors_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_request() :: %{
-    required("TagKeys") => list(String.t()())
-  }
+
+      untag_resource_request() :: %{
+        required("TagKeys") => list(String.t()())
+      }
+
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  rum_event() :: %{
-    "details" => String.t(),
-    "id" => [String.t()],
-    "metadata" => String.t(),
-    "timestamp" => [non_neg_integer()],
-    "type" => [String.t()]
-  }
+
+      rum_event() :: %{
+        "details" => String.t(),
+        "id" => [String.t()],
+        "metadata" => String.t(),
+        "timestamp" => [non_neg_integer()],
+        "type" => [String.t()]
+      }
+
   """
   @type rum_event() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_app_monitor_request() :: %{
 
-  }
+      get_app_monitor_request() :: %{}
+
   """
-  @type get_app_monitor_request() :: %{String.t() => any()}
+  @type get_app_monitor_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_app_monitor_response() :: %{
-    optional("Id") => String.t()
-  }
+
+      create_app_monitor_response() :: %{
+        optional("Id") => String.t()
+      }
+
   """
   @type create_app_monitor_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  app_monitor() :: %{
-    "AppMonitorConfiguration" => app_monitor_configuration(),
-    "Created" => String.t(),
-    "CustomEvents" => custom_events(),
-    "DataStorage" => data_storage(),
-    "Domain" => String.t(),
-    "Id" => String.t(),
-    "LastModified" => String.t(),
-    "Name" => String.t(),
-    "State" => String.t(),
-    "Tags" => map()
-  }
+
+      app_monitor() :: %{
+        "AppMonitorConfiguration" => app_monitor_configuration(),
+        "Created" => String.t(),
+        "CustomEvents" => custom_events(),
+        "DataStorage" => data_storage(),
+        "Domain" => String.t(),
+        "Id" => String.t(),
+        "LastModified" => String.t(),
+        "Name" => String.t(),
+        "State" => String.t(),
+        "Tags" => map()
+      }
+
   """
   @type app_monitor() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_app_monitor_response() :: %{
 
-  }
+      delete_app_monitor_response() :: %{}
+
   """
-  @type delete_app_monitor_response() :: %{String.t() => any()}
+  @type delete_app_monitor_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_app_monitor_request() :: %{
-    optional("AppMonitorConfiguration") => app_monitor_configuration(),
-    optional("CustomEvents") => custom_events(),
-    optional("CwLogEnabled") => [boolean()],
-    optional("Tags") => map(),
-    required("Domain") => String.t(),
-    required("Name") => String.t()
-  }
+
+      create_app_monitor_request() :: %{
+        optional("AppMonitorConfiguration") => app_monitor_configuration(),
+        optional("CustomEvents") => custom_events(),
+        optional("CwLogEnabled") => [boolean()],
+        optional("Tags") => map(),
+        required("Domain") => String.t(),
+        required("Name") => String.t()
+      }
+
   """
   @type create_app_monitor_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_rum_metrics_destination_request() :: %{
-    optional("DestinationArn") => String.t(),
-    required("Destination") => String.t()
-  }
+
+      delete_rum_metrics_destination_request() :: %{
+        optional("DestinationArn") => String.t(),
+        required("Destination") => String.t()
+      }
+
   """
   @type delete_rum_metrics_destination_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_create_rum_metric_definitions_error() :: %{
-    "ErrorCode" => [String.t()],
-    "ErrorMessage" => [String.t()],
-    "MetricDefinition" => metric_definition_request()
-  }
+
+      batch_create_rum_metric_definitions_error() :: %{
+        "ErrorCode" => [String.t()],
+        "ErrorMessage" => [String.t()],
+        "MetricDefinition" => metric_definition_request()
+      }
+
   """
   @type batch_create_rum_metric_definitions_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_create_rum_metric_definitions_request() :: %{
-    optional("DestinationArn") => String.t(),
-    required("Destination") => String.t(),
-    required("MetricDefinitions") => list(metric_definition_request()())
-  }
+
+      batch_create_rum_metric_definitions_request() :: %{
+        optional("DestinationArn") => String.t(),
+        required("Destination") => String.t(),
+        required("MetricDefinitions") => list(metric_definition_request()())
+      }
+
   """
   @type batch_create_rum_metric_definitions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_rum_metric_definition_request() :: %{
-    optional("DestinationArn") => String.t(),
-    required("Destination") => String.t(),
-    required("MetricDefinition") => metric_definition_request(),
-    required("MetricDefinitionId") => String.t()
-  }
+
+      update_rum_metric_definition_request() :: %{
+        optional("DestinationArn") => String.t(),
+        required("Destination") => String.t(),
+        required("MetricDefinition") => metric_definition_request(),
+        required("MetricDefinitionId") => String.t()
+      }
+
   """
   @type update_rum_metric_definition_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  conflict_exception() :: %{
-    "message" => [String.t()],
-    "resourceName" => [String.t()],
-    "resourceType" => [String.t()]
-  }
+
+      conflict_exception() :: %{
+        "message" => [String.t()],
+        "resourceName" => [String.t()],
+        "resourceType" => [String.t()]
+      }
+
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_not_found_exception() :: %{
-    "message" => [String.t()],
-    "resourceName" => [String.t()],
-    "resourceType" => [String.t()]
-  }
+
+      resource_not_found_exception() :: %{
+        "message" => [String.t()],
+        "resourceName" => [String.t()],
+        "resourceType" => [String.t()]
+      }
+
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_delete_rum_metric_definitions_response() :: %{
-    optional("MetricDefinitionIds") => list(String.t()()),
-    required("Errors") => list(batch_delete_rum_metric_definitions_error()())
-  }
+
+      batch_delete_rum_metric_definitions_response() :: %{
+        optional("MetricDefinitionIds") => list(String.t()()),
+        required("Errors") => list(batch_delete_rum_metric_definitions_error()())
+      }
+
   """
   @type batch_delete_rum_metric_definitions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  service_quota_exceeded_exception() :: %{
-    "message" => [String.t()]
-  }
+
+      service_quota_exceeded_exception() :: %{
+        "message" => [String.t()]
+      }
+
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_delete_rum_metric_definitions_error() :: %{
-    "ErrorCode" => [String.t()],
-    "ErrorMessage" => [String.t()],
-    "MetricDefinitionId" => String.t()
-  }
+
+      batch_delete_rum_metric_definitions_error() :: %{
+        "ErrorCode" => [String.t()],
+        "ErrorMessage" => [String.t()],
+        "MetricDefinitionId" => String.t()
+      }
+
   """
   @type batch_delete_rum_metric_definitions_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_app_monitor_data_response() :: %{
-    optional("Events") => list(String.t()()),
-    optional("NextToken") => String.t()
-  }
+
+      get_app_monitor_data_response() :: %{
+        optional("Events") => list(String.t()()),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type get_app_monitor_data_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_rum_events_response() :: %{
 
-  }
+      put_rum_events_response() :: %{}
+
   """
-  @type put_rum_events_response() :: %{String.t() => any()}
+  @type put_rum_events_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  put_rum_metrics_destination_request() :: %{
-    optional("DestinationArn") => String.t(),
-    optional("IamRoleArn") => String.t(),
-    required("Destination") => String.t()
-  }
+
+      put_rum_metrics_destination_request() :: %{
+        optional("DestinationArn") => String.t(),
+        optional("IamRoleArn") => String.t(),
+        required("Destination") => String.t()
+      }
+
   """
   @type put_rum_metrics_destination_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_response() :: %{
-    required("ResourceArn") => String.t(),
-    required("Tags") => map()
-  }
+
+      list_tags_for_resource_response() :: %{
+        required("ResourceArn") => String.t(),
+        required("Tags") => map()
+      }
+
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_app_monitor_request() :: %{
 
-  }
+      delete_app_monitor_request() :: %{}
+
   """
-  @type delete_app_monitor_request() :: %{String.t() => any()}
+  @type delete_app_monitor_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_rum_metrics_destinations_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => [String.t()]
-  }
+
+      list_rum_metrics_destinations_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => [String.t()]
+      }
+
   """
   @type list_rum_metrics_destinations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_rum_metrics_destination_response() :: %{
 
-  }
+      delete_rum_metrics_destination_response() :: %{}
+
   """
-  @type delete_rum_metrics_destination_response() :: %{String.t() => any()}
+  @type delete_rum_metrics_destination_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  batch_get_rum_metric_definitions_response() :: %{
-    optional("MetricDefinitions") => list(metric_definition()()),
-    optional("NextToken") => [String.t()]
-  }
+
+      batch_get_rum_metric_definitions_response() :: %{
+        optional("MetricDefinitions") => list(metric_definition()()),
+        optional("NextToken") => [String.t()]
+      }
+
   """
   @type batch_get_rum_metric_definitions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  internal_server_exception() :: %{
-    "message" => [String.t()],
-    "retryAfterSeconds" => [integer()]
-  }
+
+      internal_server_exception() :: %{
+        "message" => [String.t()],
+        "retryAfterSeconds" => [integer()]
+      }
+
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_get_rum_metric_definitions_request() :: %{
-    optional("DestinationArn") => String.t(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => [String.t()],
-    required("Destination") => String.t()
-  }
+
+      batch_get_rum_metric_definitions_request() :: %{
+        optional("DestinationArn") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => [String.t()],
+        required("Destination") => String.t()
+      }
+
   """
   @type batch_get_rum_metric_definitions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  time_range() :: %{
-    "After" => float(),
-    "Before" => float()
-  }
+
+      time_range() :: %{
+        "After" => float(),
+        "Before" => float()
+      }
+
   """
   @type time_range() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  access_denied_exception() :: %{
-    "message" => [String.t()]
-  }
+
+      access_denied_exception() :: %{
+        "message" => [String.t()]
+      }
+
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_response() :: %{
 
-  }
+      tag_resource_response() :: %{}
+
   """
-  @type tag_resource_response() :: %{String.t() => any()}
+  @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  batch_create_rum_metric_definitions_response() :: %{
-    optional("MetricDefinitions") => list(metric_definition()()),
-    required("Errors") => list(batch_create_rum_metric_definitions_error()())
-  }
+
+      batch_create_rum_metric_definitions_response() :: %{
+        optional("MetricDefinitions") => list(metric_definition()()),
+        required("Errors") => list(batch_create_rum_metric_definitions_error()())
+      }
+
   """
   @type batch_create_rum_metric_definitions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  validation_exception() :: %{
-    "message" => [String.t()]
-  }
+
+      validation_exception() :: %{
+        "message" => [String.t()]
+      }
+
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_request() :: %{
 
-  }
+      list_tags_for_resource_request() :: %{}
+
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  update_app_monitor_response() :: %{
 
-  }
+      update_app_monitor_response() :: %{}
+
   """
-  @type update_app_monitor_response() :: %{String.t() => any()}
+  @type update_app_monitor_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  throttling_exception() :: %{
-    "message" => [String.t()],
-    "quotaCode" => [String.t()],
-    "retryAfterSeconds" => [integer()],
-    "serviceCode" => [String.t()]
-  }
+
+      throttling_exception() :: %{
+        "message" => [String.t()],
+        "quotaCode" => [String.t()],
+        "retryAfterSeconds" => [integer()],
+        "serviceCode" => [String.t()]
+      }
+
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  metric_definition_request() :: %{
-    "DimensionKeys" => map(),
-    "EventPattern" => String.t(),
-    "Name" => String.t(),
-    "Namespace" => String.t(),
-    "UnitLabel" => String.t(),
-    "ValueKey" => String.t()
-  }
+
+      metric_definition_request() :: %{
+        "DimensionKeys" => map(),
+        "EventPattern" => String.t(),
+        "Name" => String.t(),
+        "Namespace" => String.t(),
+        "UnitLabel" => String.t(),
+        "ValueKey" => String.t()
+      }
+
   """
   @type metric_definition_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_rum_metric_definition_response() :: %{
 
-  }
+      update_rum_metric_definition_response() :: %{}
+
   """
-  @type update_rum_metric_definition_response() :: %{String.t() => any()}
+  @type update_rum_metric_definition_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_app_monitors_response() :: %{
-    optional("AppMonitorSummaries") => list(app_monitor_summary()()),
-    optional("NextToken") => [String.t()]
-  }
+
+      list_app_monitors_response() :: %{
+        optional("AppMonitorSummaries") => list(app_monitor_summary()()),
+        optional("NextToken") => [String.t()]
+      }
+
   """
   @type list_app_monitors_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_rum_metrics_destinations_response() :: %{
-    optional("Destinations") => list(metric_destination_summary()()),
-    optional("NextToken") => [String.t()]
-  }
+
+      list_rum_metrics_destinations_response() :: %{
+        optional("Destinations") => list(metric_destination_summary()()),
+        optional("NextToken") => [String.t()]
+      }
+
   """
   @type list_rum_metrics_destinations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  custom_events() :: %{
-    "Status" => String.t()
-  }
+
+      custom_events() :: %{
+        "Status" => String.t()
+      }
+
   """
   @type custom_events() :: %{String.t() => any()}
+
+  @type batch_create_rum_metric_definitions_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type batch_delete_rum_metric_definitions_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type batch_get_rum_metric_definitions_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type create_app_monitor_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_app_monitor_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_rum_metrics_destination_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type get_app_monitor_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_app_monitor_data_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_app_monitors_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_rum_metrics_destinations_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_tags_for_resource_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
+
+  @type put_rum_events_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type put_rum_metrics_destination_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type tag_resource_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
+
+  @type untag_resource_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
+
+  @type update_app_monitor_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_rum_metric_definition_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   def metadata do
     %{
@@ -722,13 +929,7 @@ defmodule AWS.RUM do
         ) ::
           {:ok, batch_create_rum_metric_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, batch_create_rum_metric_definitions_errors()}
   def batch_create_rum_metric_definitions(
         %Client{} = client,
         app_monitor_name,
@@ -775,12 +976,7 @@ defmodule AWS.RUM do
         ) ::
           {:ok, batch_delete_rum_metric_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, batch_delete_rum_metric_definitions_errors()}
   def batch_delete_rum_metric_definitions(
         %Client{} = client,
         app_monitor_name,
@@ -828,10 +1024,7 @@ defmodule AWS.RUM do
         ) ::
           {:ok, batch_get_rum_metric_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, batch_get_rum_metric_definitions_errors()}
   def batch_get_rum_metric_definitions(
         %Client{} = client,
         app_monitor_name,
@@ -901,13 +1094,7 @@ defmodule AWS.RUM do
   @spec create_app_monitor(map(), create_app_monitor_request(), list()) ::
           {:ok, create_app_monitor_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_app_monitor_errors()}
   def create_app_monitor(%Client{} = client, input, options \\ []) do
     url_path = "/appmonitor"
     headers = []
@@ -936,12 +1123,7 @@ defmodule AWS.RUM do
   @spec delete_app_monitor(map(), String.t(), delete_app_monitor_request(), list()) ::
           {:ok, delete_app_monitor_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_app_monitor_errors()}
   def delete_app_monitor(%Client{} = client, name, input, options \\ []) do
     url_path = "/appmonitor/#{AWS.Util.encode_uri(name)}"
     headers = []
@@ -975,12 +1157,7 @@ defmodule AWS.RUM do
         ) ::
           {:ok, delete_rum_metrics_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_rum_metrics_destination_errors()}
   def delete_rum_metrics_destination(%Client{} = client, app_monitor_name, input, options \\ []) do
     url_path = "/rummetrics/#{AWS.Util.encode_uri(app_monitor_name)}/metricsdestination"
     headers = []
@@ -1013,11 +1190,7 @@ defmodule AWS.RUM do
   @spec get_app_monitor(map(), String.t(), list()) ::
           {:ok, get_app_monitor_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_app_monitor_errors()}
   def get_app_monitor(%Client{} = client, name, options \\ []) do
     url_path = "/appmonitor/#{AWS.Util.encode_uri(name)}"
     headers = []
@@ -1036,11 +1209,7 @@ defmodule AWS.RUM do
   @spec get_app_monitor_data(map(), String.t(), get_app_monitor_data_request(), list()) ::
           {:ok, get_app_monitor_data_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_app_monitor_data_errors()}
   def get_app_monitor_data(%Client{} = client, name, input, options \\ []) do
     url_path = "/appmonitor/#{AWS.Util.encode_uri(name)}/data"
     headers = []
@@ -1067,10 +1236,7 @@ defmodule AWS.RUM do
   @spec list_app_monitors(map(), list_app_monitors_request(), list()) ::
           {:ok, list_app_monitors_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_app_monitors_errors()}
   def list_app_monitors(%Client{} = client, input, options \\ []) do
     url_path = "/appmonitors"
     headers = []
@@ -1114,10 +1280,7 @@ defmodule AWS.RUM do
         ) ::
           {:ok, list_rum_metrics_destinations_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_rum_metrics_destinations_errors()}
   def list_rum_metrics_destinations(
         %Client{} = client,
         app_monitor_name,
@@ -1154,9 +1317,7 @@ defmodule AWS.RUM do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -1181,11 +1342,7 @@ defmodule AWS.RUM do
   @spec put_rum_events(map(), String.t(), put_rum_events_request(), list()) ::
           {:ok, put_rum_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, put_rum_events_errors()}
   def put_rum_events(%Client{} = client, id, input, options \\ []) do
     url_path = "/appmonitors/#{AWS.Util.encode_uri(id)}/"
     headers = []
@@ -1224,12 +1381,7 @@ defmodule AWS.RUM do
         ) ::
           {:ok, put_rum_metrics_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, put_rum_metrics_destination_errors()}
   def put_rum_metrics_destination(%Client{} = client, app_monitor_name, input, options \\ []) do
     url_path = "/rummetrics/#{AWS.Util.encode_uri(app_monitor_name)}/metricsdestination"
     headers = []
@@ -1280,9 +1432,7 @@ defmodule AWS.RUM do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -1309,9 +1459,7 @@ defmodule AWS.RUM do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -1360,12 +1508,7 @@ defmodule AWS.RUM do
   @spec update_app_monitor(map(), String.t(), update_app_monitor_request(), list()) ::
           {:ok, update_app_monitor_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_app_monitor_errors()}
   def update_app_monitor(%Client{} = client, name, input, options \\ []) do
     url_path = "/appmonitor/#{AWS.Util.encode_uri(name)}"
     headers = []
@@ -1401,13 +1544,7 @@ defmodule AWS.RUM do
         ) ::
           {:ok, update_rum_metric_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_rum_metric_definition_errors()}
   def update_rum_metric_definition(%Client{} = client, app_monitor_name, input, options \\ []) do
     url_path = "/rummetrics/#{AWS.Util.encode_uri(app_monitor_name)}/metrics"
     headers = []

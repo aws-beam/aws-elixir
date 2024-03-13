@@ -43,623 +43,835 @@ defmodule AWS.Keyspaces do
   @typedoc """
 
   ## Example:
-  partition_key() :: %{
-    "name" => String.t()
-  }
+      
+      partition_key() :: %{
+        "name" => String.t()
+      }
+      
   """
   @type partition_key() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_request() :: %{
-    required("resourceArn") => String.t(),
-    required("tags") => list(tag()())
-  }
+      
+      tag_resource_request() :: %{
+        required("resourceArn") => String.t(),
+        required("tags") => list(tag()())
+      }
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_table_request() :: %{
-    optional("addColumns") => list(column_definition()()),
-    optional("autoScalingSpecification") => auto_scaling_specification(),
-    optional("capacitySpecification") => capacity_specification(),
-    optional("clientSideTimestamps") => client_side_timestamps(),
-    optional("defaultTimeToLive") => integer(),
-    optional("encryptionSpecification") => encryption_specification(),
-    optional("pointInTimeRecovery") => point_in_time_recovery(),
-    optional("replicaSpecifications") => list(replica_specification()()),
-    optional("ttl") => time_to_live(),
-    required("keyspaceName") => String.t(),
-    required("tableName") => String.t()
-  }
+      
+      update_table_request() :: %{
+        optional("addColumns") => list(column_definition()()),
+        optional("autoScalingSpecification") => auto_scaling_specification(),
+        optional("capacitySpecification") => capacity_specification(),
+        optional("clientSideTimestamps") => client_side_timestamps(),
+        optional("defaultTimeToLive") => integer(),
+        optional("encryptionSpecification") => encryption_specification(),
+        optional("pointInTimeRecovery") => point_in_time_recovery(),
+        optional("replicaSpecifications") => list(replica_specification()()),
+        optional("ttl") => time_to_live(),
+        required("keyspaceName") => String.t(),
+        required("tableName") => String.t()
+      }
+      
   """
   @type update_table_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  keyspace_summary() :: %{
-    "keyspaceName" => String.t(),
-    "replicationRegions" => list(String.t()()),
-    "replicationStrategy" => String.t(),
-    "resourceArn" => String.t()
-  }
+      
+      keyspace_summary() :: %{
+        "keyspaceName" => String.t(),
+        "replicationRegions" => list(String.t()()),
+        "replicationStrategy" => String.t(),
+        "resourceArn" => String.t()
+      }
+      
   """
   @type keyspace_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  replica_specification() :: %{
-    "readCapacityAutoScaling" => auto_scaling_settings(),
-    "readCapacityUnits" => float(),
-    "region" => String.t()
-  }
+      
+      replica_specification() :: %{
+        "readCapacityAutoScaling" => auto_scaling_settings(),
+        "readCapacityUnits" => float(),
+        "region" => String.t()
+      }
+      
   """
   @type replica_specification() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  replication_specification() :: %{
-    "regionList" => list(String.t()()),
-    "replicationStrategy" => String.t()
-  }
+      
+      replication_specification() :: %{
+        "regionList" => list(String.t()()),
+        "replicationStrategy" => String.t()
+      }
+      
   """
   @type replication_specification() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_keyspaces_response() :: %{
-    optional("nextToken") => String.t(),
-    required("keyspaces") => list(keyspace_summary()())
-  }
+      
+      list_keyspaces_response() :: %{
+        optional("nextToken") => String.t(),
+        required("keyspaces") => list(keyspace_summary()())
+      }
+      
   """
   @type list_keyspaces_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  schema_definition() :: %{
-    "allColumns" => list(column_definition()()),
-    "clusteringKeys" => list(clustering_key()()),
-    "partitionKeys" => list(partition_key()()),
-    "staticColumns" => list(static_column()())
-  }
+      
+      schema_definition() :: %{
+        "allColumns" => list(column_definition()()),
+        "clusteringKeys" => list(clustering_key()()),
+        "partitionKeys" => list(partition_key()()),
+        "staticColumns" => list(static_column()())
+      }
+      
   """
   @type schema_definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_response() :: %{
-
-  }
+      
+      untag_resource_response() :: %{}
+      
   """
-  @type untag_resource_response() :: %{String.t() => any()}
+  @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  delete_table_request() :: %{
-    required("keyspaceName") => String.t(),
-    required("tableName") => String.t()
-  }
+      
+      delete_table_request() :: %{
+        required("keyspaceName") => String.t(),
+        required("tableName") => String.t()
+      }
+      
   """
   @type delete_table_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  table_summary() :: %{
-    "keyspaceName" => String.t(),
-    "resourceArn" => String.t(),
-    "tableName" => String.t()
-  }
+      
+      table_summary() :: %{
+        "keyspaceName" => String.t(),
+        "resourceArn" => String.t(),
+        "tableName" => String.t()
+      }
+      
   """
   @type table_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  target_tracking_scaling_policy_configuration() :: %{
-    "disableScaleIn" => boolean(),
-    "scaleInCooldown" => integer(),
-    "scaleOutCooldown" => integer(),
-    "targetValue" => float()
-  }
+      
+      target_tracking_scaling_policy_configuration() :: %{
+        "disableScaleIn" => boolean(),
+        "scaleInCooldown" => integer(),
+        "scaleOutCooldown" => integer(),
+        "targetValue" => float()
+      }
+      
   """
   @type target_tracking_scaling_policy_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_table_request() :: %{
-    required("keyspaceName") => String.t(),
-    required("tableName") => String.t()
-  }
+      
+      get_table_request() :: %{
+        required("keyspaceName") => String.t(),
+        required("tableName") => String.t()
+      }
+      
   """
   @type get_table_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_table_request() :: %{
-    optional("autoScalingSpecification") => auto_scaling_specification(),
-    optional("capacitySpecification") => capacity_specification(),
-    optional("clientSideTimestamps") => client_side_timestamps(),
-    optional("comment") => comment(),
-    optional("defaultTimeToLive") => integer(),
-    optional("encryptionSpecification") => encryption_specification(),
-    optional("pointInTimeRecovery") => point_in_time_recovery(),
-    optional("replicaSpecifications") => list(replica_specification()()),
-    optional("tags") => list(tag()()),
-    optional("ttl") => time_to_live(),
-    required("keyspaceName") => String.t(),
-    required("schemaDefinition") => schema_definition(),
-    required("tableName") => String.t()
-  }
+      
+      create_table_request() :: %{
+        optional("autoScalingSpecification") => auto_scaling_specification(),
+        optional("capacitySpecification") => capacity_specification(),
+        optional("clientSideTimestamps") => client_side_timestamps(),
+        optional("comment") => comment(),
+        optional("defaultTimeToLive") => integer(),
+        optional("encryptionSpecification") => encryption_specification(),
+        optional("pointInTimeRecovery") => point_in_time_recovery(),
+        optional("replicaSpecifications") => list(replica_specification()()),
+        optional("tags") => list(tag()()),
+        optional("ttl") => time_to_live(),
+        required("keyspaceName") => String.t(),
+        required("schemaDefinition") => schema_definition(),
+        required("tableName") => String.t()
+      }
+      
   """
   @type create_table_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_table_response() :: %{
-    optional("capacitySpecification") => capacity_specification_summary(),
-    optional("clientSideTimestamps") => client_side_timestamps(),
-    optional("comment") => comment(),
-    optional("creationTimestamp") => non_neg_integer(),
-    optional("defaultTimeToLive") => integer(),
-    optional("encryptionSpecification") => encryption_specification(),
-    optional("pointInTimeRecovery") => point_in_time_recovery_summary(),
-    optional("replicaSpecifications") => list(replica_specification_summary()()),
-    optional("schemaDefinition") => schema_definition(),
-    optional("status") => String.t(),
-    optional("ttl") => time_to_live(),
-    required("keyspaceName") => String.t(),
-    required("resourceArn") => String.t(),
-    required("tableName") => String.t()
-  }
+      
+      get_table_response() :: %{
+        optional("capacitySpecification") => capacity_specification_summary(),
+        optional("clientSideTimestamps") => client_side_timestamps(),
+        optional("comment") => comment(),
+        optional("creationTimestamp") => non_neg_integer(),
+        optional("defaultTimeToLive") => integer(),
+        optional("encryptionSpecification") => encryption_specification(),
+        optional("pointInTimeRecovery") => point_in_time_recovery_summary(),
+        optional("replicaSpecifications") => list(replica_specification_summary()()),
+        optional("schemaDefinition") => schema_definition(),
+        optional("status") => String.t(),
+        optional("ttl") => time_to_live(),
+        required("keyspaceName") => String.t(),
+        required("resourceArn") => String.t(),
+        required("tableName") => String.t()
+      }
+      
   """
   @type get_table_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  auto_scaling_policy() :: %{
-    "targetTrackingScalingPolicyConfiguration" => target_tracking_scaling_policy_configuration()
-  }
+      
+      auto_scaling_policy() :: %{
+        "targetTrackingScalingPolicyConfiguration" => target_tracking_scaling_policy_configuration()
+      }
+      
   """
   @type auto_scaling_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  client_side_timestamps() :: %{
-    "status" => String.t()
-  }
+      
+      client_side_timestamps() :: %{
+        "status" => String.t()
+      }
+      
   """
   @type client_side_timestamps() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_request() :: %{
-    required("resourceArn") => String.t(),
-    required("tags") => list(tag()())
-  }
+      
+      untag_resource_request() :: %{
+        required("resourceArn") => String.t(),
+        required("tags") => list(tag()())
+      }
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  capacity_specification() :: %{
-    "readCapacityUnits" => float(),
-    "throughputMode" => String.t(),
-    "writeCapacityUnits" => float()
-  }
+      
+      capacity_specification() :: %{
+        "readCapacityUnits" => float(),
+        "throughputMode" => String.t(),
+        "writeCapacityUnits" => float()
+      }
+      
   """
   @type capacity_specification() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_keyspace_request() :: %{
-    optional("replicationSpecification") => replication_specification(),
-    optional("tags") => list(tag()()),
-    required("keyspaceName") => String.t()
-  }
+      
+      create_keyspace_request() :: %{
+        optional("replicationSpecification") => replication_specification(),
+        optional("tags") => list(tag()()),
+        required("keyspaceName") => String.t()
+      }
+      
   """
   @type create_keyspace_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_keyspace_request() :: %{
-    required("keyspaceName") => String.t()
-  }
+      
+      delete_keyspace_request() :: %{
+        required("keyspaceName") => String.t()
+      }
+      
   """
   @type delete_keyspace_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  auto_scaling_settings() :: %{
-    "autoScalingDisabled" => boolean(),
-    "maximumUnits" => float(),
-    "minimumUnits" => float(),
-    "scalingPolicy" => auto_scaling_policy()
-  }
+      
+      auto_scaling_settings() :: %{
+        "autoScalingDisabled" => boolean(),
+        "maximumUnits" => float(),
+        "minimumUnits" => float(),
+        "scalingPolicy" => auto_scaling_policy()
+      }
+      
   """
   @type auto_scaling_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  conflict_exception() :: %{
-    "message" => [String.t()]
-  }
+      
+      conflict_exception() :: %{
+        "message" => [String.t()]
+      }
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_not_found_exception() :: %{
-    "message" => [String.t()],
-    "resourceArn" => String.t()
-  }
+      
+      resource_not_found_exception() :: %{
+        "message" => [String.t()],
+        "resourceArn" => String.t()
+      }
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tables_response() :: %{
-    optional("nextToken") => String.t(),
-    optional("tables") => list(table_summary()())
-  }
+      
+      list_tables_response() :: %{
+        optional("nextToken") => String.t(),
+        optional("tables") => list(table_summary()())
+      }
+      
   """
   @type list_tables_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  auto_scaling_specification() :: %{
-    "readCapacityAutoScaling" => auto_scaling_settings(),
-    "writeCapacityAutoScaling" => auto_scaling_settings()
-  }
+      
+      auto_scaling_specification() :: %{
+        "readCapacityAutoScaling" => auto_scaling_settings(),
+        "writeCapacityAutoScaling" => auto_scaling_settings()
+      }
+      
   """
   @type auto_scaling_specification() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  comment() :: %{
-    "message" => [String.t()]
-  }
+      
+      comment() :: %{
+        "message" => [String.t()]
+      }
+      
   """
   @type comment() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag() :: %{
-    "key" => String.t(),
-    "value" => String.t()
-  }
+      
+      tag() :: %{
+        "key" => String.t(),
+        "value" => String.t()
+      }
+      
   """
   @type tag() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_table_response() :: %{
-    required("resourceArn") => String.t()
-  }
+      
+      create_table_response() :: %{
+        required("resourceArn") => String.t()
+      }
+      
   """
   @type create_table_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  point_in_time_recovery() :: %{
-    "status" => String.t()
-  }
+      
+      point_in_time_recovery() :: %{
+        "status" => String.t()
+      }
+      
   """
   @type point_in_time_recovery() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  service_quota_exceeded_exception() :: %{
-    "message" => [String.t()]
-  }
+      
+      service_quota_exceeded_exception() :: %{
+        "message" => [String.t()]
+      }
+      
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_response() :: %{
-    optional("nextToken") => String.t(),
-    optional("tags") => list(tag()())
-  }
+      
+      list_tags_for_resource_response() :: %{
+        optional("nextToken") => String.t(),
+        optional("tags") => list(tag()())
+      }
+      
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_keyspace_response() :: %{
-
-  }
+      
+      delete_keyspace_response() :: %{}
+      
   """
-  @type delete_keyspace_response() :: %{String.t() => any()}
+  @type delete_keyspace_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  replica_specification_summary() :: %{
-    "capacitySpecification" => capacity_specification_summary(),
-    "region" => String.t(),
-    "status" => String.t()
-  }
+      
+      replica_specification_summary() :: %{
+        "capacitySpecification" => capacity_specification_summary(),
+        "region" => String.t(),
+        "status" => String.t()
+      }
+      
   """
   @type replica_specification_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_table_auto_scaling_settings_request() :: %{
-    required("keyspaceName") => String.t(),
-    required("tableName") => String.t()
-  }
+      
+      get_table_auto_scaling_settings_request() :: %{
+        required("keyspaceName") => String.t(),
+        required("tableName") => String.t()
+      }
+      
   """
   @type get_table_auto_scaling_settings_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  internal_server_exception() :: %{
-    "message" => [String.t()]
-  }
+      
+      internal_server_exception() :: %{
+        "message" => [String.t()]
+      }
+      
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_keyspaces_request() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t()
-  }
+      
+      list_keyspaces_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+      
   """
   @type list_keyspaces_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  point_in_time_recovery_summary() :: %{
-    "earliestRestorableTimestamp" => non_neg_integer(),
-    "status" => String.t()
-  }
+      
+      point_in_time_recovery_summary() :: %{
+        "earliestRestorableTimestamp" => non_neg_integer(),
+        "status" => String.t()
+      }
+      
   """
   @type point_in_time_recovery_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_table_response() :: %{
-
-  }
+      
+      delete_table_response() :: %{}
+      
   """
-  @type delete_table_response() :: %{String.t() => any()}
+  @type delete_table_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  access_denied_exception() :: %{
-    "message" => [String.t()]
-  }
+      
+      access_denied_exception() :: %{
+        "message" => [String.t()]
+      }
+      
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  capacity_specification_summary() :: %{
-    "lastUpdateToPayPerRequestTimestamp" => non_neg_integer(),
-    "readCapacityUnits" => float(),
-    "throughputMode" => String.t(),
-    "writeCapacityUnits" => float()
-  }
+      
+      capacity_specification_summary() :: %{
+        "lastUpdateToPayPerRequestTimestamp" => non_neg_integer(),
+        "readCapacityUnits" => float(),
+        "throughputMode" => String.t(),
+        "writeCapacityUnits" => float()
+      }
+      
   """
   @type capacity_specification_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_response() :: %{
-
-  }
+      
+      tag_resource_response() :: %{}
+      
   """
-  @type tag_resource_response() :: %{String.t() => any()}
+  @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  clustering_key() :: %{
-    "name" => String.t(),
-    "orderBy" => String.t()
-  }
+      
+      clustering_key() :: %{
+        "name" => String.t(),
+        "orderBy" => String.t()
+      }
+      
   """
   @type clustering_key() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  restore_table_request() :: %{
-    optional("autoScalingSpecification") => auto_scaling_specification(),
-    optional("capacitySpecificationOverride") => capacity_specification(),
-    optional("encryptionSpecificationOverride") => encryption_specification(),
-    optional("pointInTimeRecoveryOverride") => point_in_time_recovery(),
-    optional("replicaSpecifications") => list(replica_specification()()),
-    optional("restoreTimestamp") => non_neg_integer(),
-    optional("tagsOverride") => list(tag()()),
-    required("sourceKeyspaceName") => String.t(),
-    required("sourceTableName") => String.t(),
-    required("targetKeyspaceName") => String.t(),
-    required("targetTableName") => String.t()
-  }
+      
+      restore_table_request() :: %{
+        optional("autoScalingSpecification") => auto_scaling_specification(),
+        optional("capacitySpecificationOverride") => capacity_specification(),
+        optional("encryptionSpecificationOverride") => encryption_specification(),
+        optional("pointInTimeRecoveryOverride") => point_in_time_recovery(),
+        optional("replicaSpecifications") => list(replica_specification()()),
+        optional("restoreTimestamp") => non_neg_integer(),
+        optional("tagsOverride") => list(tag()()),
+        required("sourceKeyspaceName") => String.t(),
+        required("sourceTableName") => String.t(),
+        required("targetKeyspaceName") => String.t(),
+        required("targetTableName") => String.t()
+      }
+      
   """
   @type restore_table_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  validation_exception() :: %{
-    "message" => [String.t()]
-  }
+      
+      validation_exception() :: %{
+        "message" => [String.t()]
+      }
+      
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_request() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t(),
-    required("resourceArn") => String.t()
-  }
+      
+      list_tags_for_resource_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        required("resourceArn") => String.t()
+      }
+      
   """
   @type list_tags_for_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_keyspace_request() :: %{
-    required("keyspaceName") => String.t()
-  }
+      
+      get_keyspace_request() :: %{
+        required("keyspaceName") => String.t()
+      }
+      
   """
   @type get_keyspace_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_keyspace_response() :: %{
-    optional("replicationRegions") => list(String.t()()),
-    required("keyspaceName") => String.t(),
-    required("replicationStrategy") => String.t(),
-    required("resourceArn") => String.t()
-  }
+      
+      get_keyspace_response() :: %{
+        optional("replicationRegions") => list(String.t()()),
+        required("keyspaceName") => String.t(),
+        required("replicationStrategy") => String.t(),
+        required("resourceArn") => String.t()
+      }
+      
   """
   @type get_keyspace_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  replica_auto_scaling_specification() :: %{
-    "autoScalingSpecification" => auto_scaling_specification(),
-    "region" => String.t()
-  }
+      
+      replica_auto_scaling_specification() :: %{
+        "autoScalingSpecification" => auto_scaling_specification(),
+        "region" => String.t()
+      }
+      
   """
   @type replica_auto_scaling_specification() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  restore_table_response() :: %{
-    required("restoredTableARN") => String.t()
-  }
+      
+      restore_table_response() :: %{
+        required("restoredTableARN") => String.t()
+      }
+      
   """
   @type restore_table_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_table_auto_scaling_settings_response() :: %{
-    "autoScalingSpecification" => auto_scaling_specification(),
-    "keyspaceName" => String.t(),
-    "replicaSpecifications" => list(replica_auto_scaling_specification()()),
-    "resourceArn" => String.t(),
-    "tableName" => String.t()
-  }
+      
+      get_table_auto_scaling_settings_response() :: %{
+        "autoScalingSpecification" => auto_scaling_specification(),
+        "keyspaceName" => String.t(),
+        "replicaSpecifications" => list(replica_auto_scaling_specification()()),
+        "resourceArn" => String.t(),
+        "tableName" => String.t()
+      }
+      
   """
   @type get_table_auto_scaling_settings_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  time_to_live() :: %{
-    "status" => String.t()
-  }
+      
+      time_to_live() :: %{
+        "status" => String.t()
+      }
+      
   """
   @type time_to_live() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  encryption_specification() :: %{
-    "kmsKeyIdentifier" => String.t(),
-    "type" => String.t()
-  }
+      
+      encryption_specification() :: %{
+        "kmsKeyIdentifier" => String.t(),
+        "type" => String.t()
+      }
+      
   """
   @type encryption_specification() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_table_response() :: %{
-    required("resourceArn") => String.t()
-  }
+      
+      update_table_response() :: %{
+        required("resourceArn") => String.t()
+      }
+      
   """
   @type update_table_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  static_column() :: %{
-    "name" => String.t()
-  }
+      
+      static_column() :: %{
+        "name" => String.t()
+      }
+      
   """
   @type static_column() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_keyspace_response() :: %{
-    required("resourceArn") => String.t()
-  }
+      
+      create_keyspace_response() :: %{
+        required("resourceArn") => String.t()
+      }
+      
   """
   @type create_keyspace_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tables_request() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t(),
-    required("keyspaceName") => String.t()
-  }
+      
+      list_tables_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        required("keyspaceName") => String.t()
+      }
+      
   """
   @type list_tables_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  column_definition() :: %{
-    "name" => String.t(),
-    "type" => String.t()
-  }
+      
+      column_definition() :: %{
+        "name" => String.t(),
+        "type" => String.t()
+      }
+      
   """
   @type column_definition() :: %{String.t() => any()}
+
+  @type create_keyspace_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+
+  @type create_table_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_keyspace_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_table_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type get_keyspace_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+
+  @type get_table_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+
+  @type get_table_auto_scaling_settings_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+
+  @type list_keyspaces_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+
+  @type list_tables_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+
+  @type list_tags_for_resource_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+
+  @type restore_table_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type tag_resource_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+
+  @type untag_resource_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_table_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   def metadata do
     %{
@@ -693,11 +905,7 @@ defmodule AWS.Keyspaces do
   @spec create_keyspace(map(), create_keyspace_request(), list()) ::
           {:ok, create_keyspace_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_keyspace_errors()}
   def create_keyspace(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -723,12 +931,7 @@ defmodule AWS.Keyspaces do
   @spec create_table(map(), create_table_request(), list()) ::
           {:ok, create_table_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_table_errors()}
   def create_table(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -741,12 +944,7 @@ defmodule AWS.Keyspaces do
   @spec delete_keyspace(map(), delete_keyspace_request(), list()) ::
           {:ok, delete_keyspace_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_keyspace_errors()}
   def delete_keyspace(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -769,12 +967,7 @@ defmodule AWS.Keyspaces do
   @spec delete_table(map(), delete_table_request(), list()) ::
           {:ok, delete_table_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_table_errors()}
   def delete_table(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -787,11 +980,7 @@ defmodule AWS.Keyspaces do
   @spec get_keyspace(map(), get_keyspace_request(), list()) ::
           {:ok, get_keyspace_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_keyspace_errors()}
   def get_keyspace(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -810,11 +999,7 @@ defmodule AWS.Keyspaces do
   @spec get_table(map(), get_table_request(), list()) ::
           {:ok, get_table_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_table_errors()}
   def get_table(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -853,11 +1038,7 @@ defmodule AWS.Keyspaces do
   @spec get_table_auto_scaling_settings(map(), get_table_auto_scaling_settings_request(), list()) ::
           {:ok, get_table_auto_scaling_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_table_auto_scaling_settings_errors()}
   def get_table_auto_scaling_settings(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -870,11 +1051,7 @@ defmodule AWS.Keyspaces do
   @spec list_keyspaces(map(), list_keyspaces_request(), list()) ::
           {:ok, list_keyspaces_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_keyspaces_errors()}
   def list_keyspaces(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -887,11 +1064,7 @@ defmodule AWS.Keyspaces do
   @spec list_tables(map(), list_tables_request(), list()) ::
           {:ok, list_tables_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_tables_errors()}
   def list_tables(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -905,11 +1078,7 @@ defmodule AWS.Keyspaces do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -980,12 +1149,7 @@ defmodule AWS.Keyspaces do
   @spec restore_table(map(), restore_table_request(), list()) ::
           {:ok, restore_table_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, validation_exception()}
+          | {:error, restore_table_errors()}
   def restore_table(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1010,11 +1174,7 @@ defmodule AWS.Keyspaces do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, validation_exception()}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1027,12 +1187,7 @@ defmodule AWS.Keyspaces do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, validation_exception()}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1050,12 +1205,7 @@ defmodule AWS.Keyspaces do
   @spec update_table(map(), update_table_request(), list()) ::
           {:ok, update_table_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_table_errors()}
   def update_table(%Client{} = client, input, options \\ []) do
     meta = metadata()
 

@@ -18,86 +18,106 @@ defmodule AWS.ApiGatewayManagementApi do
   @typedoc """
 
   ## Example:
-  delete_connection_request() :: %{
 
-  }
+      delete_connection_request() :: %{}
+
   """
-  @type delete_connection_request() :: %{String.t() => any()}
+  @type delete_connection_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  forbidden_exception() :: %{
 
-  }
+      forbidden_exception() :: %{}
+
   """
-  @type forbidden_exception() :: %{String.t() => any()}
+  @type forbidden_exception() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_connection_request() :: %{
 
-  }
+      get_connection_request() :: %{}
+
   """
-  @type get_connection_request() :: %{String.t() => any()}
+  @type get_connection_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_connection_response() :: %{
-    "ConnectedAt" => non_neg_integer(),
-    "Identity" => identity(),
-    "LastActiveAt" => non_neg_integer()
-  }
+
+      get_connection_response() :: %{
+        "ConnectedAt" => non_neg_integer(),
+        "Identity" => identity(),
+        "LastActiveAt" => non_neg_integer()
+      }
+
   """
   @type get_connection_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  gone_exception() :: %{
 
-  }
+      gone_exception() :: %{}
+
   """
-  @type gone_exception() :: %{String.t() => any()}
+  @type gone_exception() :: %{}
 
   @typedoc """
 
   ## Example:
-  identity() :: %{
-    required("SourceIp") => String.t(),
-    required("UserAgent") => String.t()
-  }
+
+      identity() :: %{
+        required("SourceIp") => String.t(),
+        required("UserAgent") => String.t()
+      }
+
   """
   @type identity() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  limit_exceeded_exception() :: %{
 
-  }
+      limit_exceeded_exception() :: %{}
+
   """
-  @type limit_exceeded_exception() :: %{String.t() => any()}
+  @type limit_exceeded_exception() :: %{}
 
   @typedoc """
 
   ## Example:
-  payload_too_large_exception() :: %{
-    "Message" => String.t()
-  }
+
+      payload_too_large_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type payload_too_large_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  post_to_connection_request() :: %{
-    required("Data") => binary()
-  }
+
+      post_to_connection_request() :: %{
+        required("Data") => binary()
+      }
+
   """
   @type post_to_connection_request() :: %{String.t() => any()}
+
+  @type delete_connection_errors() ::
+          limit_exceeded_exception() | gone_exception() | forbidden_exception()
+
+  @type get_connection_errors() ::
+          limit_exceeded_exception() | gone_exception() | forbidden_exception()
+
+  @type post_to_connection_errors() ::
+          payload_too_large_exception()
+          | limit_exceeded_exception()
+          | gone_exception()
+          | forbidden_exception()
 
   def metadata do
     %{
@@ -120,9 +140,7 @@ defmodule AWS.ApiGatewayManagementApi do
   @spec delete_connection(map(), String.t(), delete_connection_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, forbidden_exception()}
-          | {:error, gone_exception()}
-          | {:error, limit_exceeded_exception()}
+          | {:error, delete_connection_errors()}
   def delete_connection(%Client{} = client, connection_id, input, options \\ []) do
     url_path = "/@connections/#{AWS.Util.encode_uri(connection_id)}"
     headers = []
@@ -149,9 +167,7 @@ defmodule AWS.ApiGatewayManagementApi do
   @spec get_connection(map(), String.t(), list()) ::
           {:ok, get_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, forbidden_exception()}
-          | {:error, gone_exception()}
-          | {:error, limit_exceeded_exception()}
+          | {:error, get_connection_errors()}
   def get_connection(%Client{} = client, connection_id, options \\ []) do
     url_path = "/@connections/#{AWS.Util.encode_uri(connection_id)}"
     headers = []
@@ -168,10 +184,7 @@ defmodule AWS.ApiGatewayManagementApi do
   @spec post_to_connection(map(), String.t(), post_to_connection_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, forbidden_exception()}
-          | {:error, gone_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, payload_too_large_exception()}
+          | {:error, post_to_connection_errors()}
   def post_to_connection(%Client{} = client, connection_id, input, options \\ []) do
     url_path = "/@connections/#{AWS.Util.encode_uri(connection_id)}"
     headers = []

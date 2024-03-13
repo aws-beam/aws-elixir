@@ -105,835 +105,1168 @@ defmodule AWS.Detective do
   @typedoc """
 
   ## Example:
-  tag_resource_request() :: %{
-    required("Tags") => map()
-  }
+
+      tag_resource_request() :: %{
+        required("Tags") => map()
+      }
+
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  administrator() :: %{
-    "AccountId" => String.t(),
-    "DelegationTime" => non_neg_integer(),
-    "GraphArn" => String.t()
-  }
+
+      administrator() :: %{
+        "AccountId" => String.t(),
+        "DelegationTime" => non_neg_integer(),
+        "GraphArn" => String.t()
+      }
+
   """
   @type administrator() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_organization_configuration_request() :: %{
-    required("GraphArn") => String.t()
-  }
+
+      describe_organization_configuration_request() :: %{
+        required("GraphArn") => String.t()
+      }
+
   """
   @type describe_organization_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_members_response() :: %{
-    "MemberDetails" => list(member_detail()()),
-    "UnprocessedAccounts" => list(unprocessed_account()())
-  }
+
+      get_members_response() :: %{
+        "MemberDetails" => list(member_detail()()),
+        "UnprocessedAccounts" => list(unprocessed_account()())
+      }
+
   """
   @type get_members_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  new_aso_detail() :: %{
-    "Aso" => String.t(),
-    "IsNewForEntireAccount" => boolean()
-  }
+
+      new_aso_detail() :: %{
+        "Aso" => String.t(),
+        "IsNewForEntireAccount" => boolean()
+      }
+
   """
   @type new_aso_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_response() :: %{
 
-  }
+      untag_resource_response() :: %{}
+
   """
-  @type untag_resource_response() :: %{String.t() => any()}
+  @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  filter_criteria() :: %{
-    "CreatedTime" => date_filter(),
-    "EntityArn" => string_filter(),
-    "Severity" => string_filter(),
-    "State" => string_filter(),
-    "Status" => string_filter()
-  }
+
+      filter_criteria() :: %{
+        "CreatedTime" => date_filter(),
+        "EntityArn" => string_filter(),
+        "Severity" => string_filter(),
+        "State" => string_filter(),
+        "Status" => string_filter()
+      }
+
   """
   @type filter_criteria() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_datasource_packages_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("GraphArn") => String.t()
-  }
+
+      list_datasource_packages_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("GraphArn") => String.t()
+      }
+
   """
   @type list_datasource_packages_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_graph_request() :: %{
-    optional("Tags") => map()
-  }
+
+      create_graph_request() :: %{
+        optional("Tags") => map()
+      }
+
   """
   @type create_graph_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  new_user_agent_detail() :: %{
-    "IsNewForEntireAccount" => boolean(),
-    "UserAgent" => String.t()
-  }
+
+      new_user_agent_detail() :: %{
+        "IsNewForEntireAccount" => boolean(),
+        "UserAgent" => String.t()
+      }
+
   """
   @type new_user_agent_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_datasource_packages_request() :: %{
-    required("DatasourcePackages") => list(list(any())()),
-    required("GraphArn") => String.t()
-  }
+
+      update_datasource_packages_request() :: %{
+        required("DatasourcePackages") => list(list(any())()),
+        required("GraphArn") => String.t()
+      }
+
   """
   @type update_datasource_packages_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_investigation_request() :: %{
-    required("EntityArn") => String.t(),
-    required("GraphArn") => String.t(),
-    required("ScopeEndTime") => non_neg_integer(),
-    required("ScopeStartTime") => non_neg_integer()
-  }
+
+      start_investigation_request() :: %{
+        required("EntityArn") => String.t(),
+        required("GraphArn") => String.t(),
+        required("ScopeEndTime") => non_neg_integer(),
+        required("ScopeStartTime") => non_neg_integer()
+      }
+
   """
   @type start_investigation_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_request() :: %{
-    required("TagKeys") => list(String.t()())
-  }
+
+      untag_resource_request() :: %{
+        required("TagKeys") => list(String.t()())
+      }
+
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_investigation_response() :: %{
-    "InvestigationId" => String.t()
-  }
+
+      start_investigation_response() :: %{
+        "InvestigationId" => String.t()
+      }
+
   """
   @type start_investigation_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_requests_exception() :: %{
-    "Message" => String.t()
-  }
+
+      too_many_requests_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type too_many_requests_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_graphs_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      list_graphs_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_graphs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_members_response() :: %{
-    "AccountIds" => list(String.t()()),
-    "UnprocessedAccounts" => list(unprocessed_account()())
-  }
+
+      delete_members_response() :: %{
+        "AccountIds" => list(String.t()()),
+        "UnprocessedAccounts" => list(unprocessed_account()())
+      }
+
   """
   @type delete_members_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_investigations_response() :: %{
-    "InvestigationDetails" => list(investigation_detail()()),
-    "NextToken" => String.t()
-  }
+
+      list_investigations_response() :: %{
+        "InvestigationDetails" => list(investigation_detail()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_investigations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  related_finding_group_detail() :: %{
-    "Id" => String.t()
-  }
+
+      related_finding_group_detail() :: %{
+        "Id" => String.t()
+      }
+
   """
   @type related_finding_group_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_organization_configuration_response() :: %{
-    "AutoEnable" => boolean()
-  }
+
+      describe_organization_configuration_response() :: %{
+        "AutoEnable" => boolean()
+      }
+
   """
   @type describe_organization_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  conflict_exception() :: %{
-    "Message" => String.t()
-  }
+
+      conflict_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_not_found_exception() :: %{
-    "Message" => String.t()
-  }
+
+      resource_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_investigations_request() :: %{
-    optional("FilterCriteria") => filter_criteria(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("SortCriteria") => sort_criteria(),
-    required("GraphArn") => String.t()
-  }
+
+      list_investigations_request() :: %{
+        optional("FilterCriteria") => filter_criteria(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("SortCriteria") => sort_criteria(),
+        required("GraphArn") => String.t()
+      }
+
   """
   @type list_investigations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_members_request() :: %{
-    required("AccountIds") => list(String.t()()),
-    required("GraphArn") => String.t()
-  }
+
+      get_members_request() :: %{
+        required("AccountIds") => list(String.t()()),
+        required("GraphArn") => String.t()
+      }
+
   """
   @type get_members_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_members_request() :: %{
-    optional("DisableEmailNotification") => boolean(),
-    optional("Message") => String.t(),
-    required("Accounts") => list(account()()),
-    required("GraphArn") => String.t()
-  }
+
+      create_members_request() :: %{
+        optional("DisableEmailNotification") => boolean(),
+        optional("Message") => String.t(),
+        required("Accounts") => list(account()()),
+        required("GraphArn") => String.t()
+      }
+
   """
   @type create_members_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  graph() :: %{
-    "Arn" => String.t(),
-    "CreatedTime" => non_neg_integer()
-  }
+
+      graph() :: %{
+        "Arn" => String.t(),
+        "CreatedTime" => non_neg_integer()
+      }
+
   """
   @type graph() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_get_graph_member_datasources_response() :: %{
-    "MemberDatasources" => list(membership_datasources()()),
-    "UnprocessedAccounts" => list(unprocessed_account()())
-  }
+
+      batch_get_graph_member_datasources_response() :: %{
+        "MemberDatasources" => list(membership_datasources()()),
+        "UnprocessedAccounts" => list(unprocessed_account()())
+      }
+
   """
   @type batch_get_graph_member_datasources_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  service_quota_exceeded_exception() :: %{
-    "Message" => String.t(),
-    "Resources" => list(String.t()())
-  }
+
+      service_quota_exceeded_exception() :: %{
+        "Message" => String.t(),
+        "Resources" => list(String.t()())
+      }
+
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_members_request() :: %{
-    required("AccountIds") => list(String.t()()),
-    required("GraphArn") => String.t()
-  }
+
+      delete_members_request() :: %{
+        required("AccountIds") => list(String.t()()),
+        required("GraphArn") => String.t()
+      }
+
   """
   @type delete_members_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  timestamp_for_collection() :: %{
-    "Timestamp" => non_neg_integer()
-  }
+
+      timestamp_for_collection() :: %{
+        "Timestamp" => non_neg_integer()
+      }
+
   """
   @type timestamp_for_collection() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  account() :: %{
-    "AccountId" => String.t(),
-    "EmailAddress" => String.t()
-  }
+
+      account() :: %{
+        "AccountId" => String.t(),
+        "EmailAddress" => String.t()
+      }
+
   """
   @type account() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  unprocessed_graph() :: %{
-    "GraphArn" => String.t(),
-    "Reason" => String.t()
-  }
+
+      unprocessed_graph() :: %{
+        "GraphArn" => String.t(),
+        "Reason" => String.t()
+      }
+
   """
   @type unprocessed_graph() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_get_membership_datasources_response() :: %{
-    "MembershipDatasources" => list(membership_datasources()()),
-    "UnprocessedGraphs" => list(unprocessed_graph()())
-  }
+
+      batch_get_membership_datasources_response() :: %{
+        "MembershipDatasources" => list(membership_datasources()()),
+        "UnprocessedGraphs" => list(unprocessed_graph()())
+      }
+
   """
   @type batch_get_membership_datasources_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_get_graph_member_datasources_request() :: %{
-    required("AccountIds") => list(String.t()()),
-    required("GraphArn") => String.t()
-  }
+
+      batch_get_graph_member_datasources_request() :: %{
+        required("AccountIds") => list(String.t()()),
+        required("GraphArn") => String.t()
+      }
+
   """
   @type batch_get_graph_member_datasources_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_investigation_state_request() :: %{
-    required("GraphArn") => String.t(),
-    required("InvestigationId") => String.t(),
-    required("State") => list(any())
-  }
+
+      update_investigation_state_request() :: %{
+        required("GraphArn") => String.t(),
+        required("InvestigationId") => String.t(),
+        required("State") => list(any())
+      }
+
   """
   @type update_investigation_state_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_response() :: %{
-    "Tags" => map()
-  }
+
+      list_tags_for_resource_response() :: %{
+        "Tags" => map()
+      }
+
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  date_filter() :: %{
-    "EndInclusive" => non_neg_integer(),
-    "StartInclusive" => non_neg_integer()
-  }
+
+      date_filter() :: %{
+        "EndInclusive" => non_neg_integer(),
+        "StartInclusive" => non_neg_integer()
+      }
+
   """
   @type date_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  reject_invitation_request() :: %{
-    required("GraphArn") => String.t()
-  }
+
+      reject_invitation_request() :: %{
+        required("GraphArn") => String.t()
+      }
+
   """
   @type reject_invitation_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  investigation_detail() :: %{
-    "CreatedTime" => non_neg_integer(),
-    "EntityArn" => String.t(),
-    "EntityType" => list(any()),
-    "InvestigationId" => String.t(),
-    "Severity" => list(any()),
-    "State" => list(any()),
-    "Status" => list(any())
-  }
+
+      investigation_detail() :: %{
+        "CreatedTime" => non_neg_integer(),
+        "EntityArn" => String.t(),
+        "EntityType" => list(any()),
+        "InvestigationId" => String.t(),
+        "Severity" => list(any()),
+        "State" => list(any()),
+        "Status" => list(any())
+      }
+
   """
   @type investigation_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  impossible_travel_detail() :: %{
-    "EndingIpAddress" => String.t(),
-    "EndingLocation" => String.t(),
-    "HourlyTimeDelta" => integer(),
-    "StartingIpAddress" => String.t(),
-    "StartingLocation" => String.t()
-  }
+
+      impossible_travel_detail() :: %{
+        "EndingIpAddress" => String.t(),
+        "EndingLocation" => String.t(),
+        "HourlyTimeDelta" => integer(),
+        "StartingIpAddress" => String.t(),
+        "StartingLocation" => String.t()
+      }
+
   """
   @type impossible_travel_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_graph_request() :: %{
-    required("GraphArn") => String.t()
-  }
+
+      delete_graph_request() :: %{
+        required("GraphArn") => String.t()
+      }
+
   """
   @type delete_graph_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  internal_server_exception() :: %{
-    "Message" => String.t()
-  }
+
+      internal_server_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_get_membership_datasources_request() :: %{
-    required("GraphArns") => list(String.t()())
-  }
+
+      batch_get_membership_datasources_request() :: %{
+        required("GraphArns") => list(String.t()())
+      }
+
   """
   @type batch_get_membership_datasources_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_organization_configuration_request() :: %{
-    optional("AutoEnable") => boolean(),
-    required("GraphArn") => String.t()
-  }
+
+      update_organization_configuration_request() :: %{
+        optional("AutoEnable") => boolean(),
+        required("GraphArn") => String.t()
+      }
+
   """
   @type update_organization_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  enable_organization_admin_account_request() :: %{
-    required("AccountId") => String.t()
-  }
+
+      enable_organization_admin_account_request() :: %{
+        required("AccountId") => String.t()
+      }
+
   """
   @type enable_organization_admin_account_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_graphs_response() :: %{
-    "GraphList" => list(graph()()),
-    "NextToken" => String.t()
-  }
+
+      list_graphs_response() :: %{
+        "GraphList" => list(graph()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_graphs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  datasource_package_usage_info() :: %{
-    "VolumeUsageInBytes" => float(),
-    "VolumeUsageUpdateTime" => non_neg_integer()
-  }
+
+      datasource_package_usage_info() :: %{
+        "VolumeUsageInBytes" => float(),
+        "VolumeUsageUpdateTime" => non_neg_integer()
+      }
+
   """
   @type datasource_package_usage_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_datasource_packages_response() :: %{
-    "DatasourcePackages" => map(),
-    "NextToken" => String.t()
-  }
+
+      list_datasource_packages_response() :: %{
+        "DatasourcePackages" => map(),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_datasource_packages_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  membership_datasources() :: %{
-    "AccountId" => String.t(),
-    "DatasourcePackageIngestHistory" => map(),
-    "GraphArn" => String.t()
-  }
+
+      membership_datasources() :: %{
+        "AccountId" => String.t(),
+        "DatasourcePackageIngestHistory" => map(),
+        "GraphArn" => String.t()
+      }
+
   """
   @type membership_datasources() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_organization_admin_accounts_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      list_organization_admin_accounts_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_organization_admin_accounts_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  sort_criteria() :: %{
-    "Field" => list(any()),
-    "SortOrder" => list(any())
-  }
+
+      sort_criteria() :: %{
+        "Field" => list(any()),
+        "SortOrder" => list(any())
+      }
+
   """
   @type sort_criteria() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  access_denied_exception() :: %{
-    "ErrorCode" => list(any()),
-    "ErrorCodeReason" => String.t(),
-    "Message" => String.t(),
-    "SubErrorCode" => list(any()),
-    "SubErrorCodeReason" => String.t()
-  }
+
+      access_denied_exception() :: %{
+        "ErrorCode" => list(any()),
+        "ErrorCodeReason" => String.t(),
+        "Message" => String.t(),
+        "SubErrorCode" => list(any()),
+        "SubErrorCodeReason" => String.t()
+      }
+
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  new_geolocation_detail() :: %{
-    "IpAddress" => String.t(),
-    "IsNewForEntireAccount" => boolean(),
-    "Location" => String.t()
-  }
+
+      new_geolocation_detail() :: %{
+        "IpAddress" => String.t(),
+        "IsNewForEntireAccount" => boolean(),
+        "Location" => String.t()
+      }
+
   """
   @type new_geolocation_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  accept_invitation_request() :: %{
-    required("GraphArn") => String.t()
-  }
+
+      accept_invitation_request() :: %{
+        required("GraphArn") => String.t()
+      }
+
   """
   @type accept_invitation_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_response() :: %{
 
-  }
+      tag_resource_response() :: %{}
+
   """
-  @type tag_resource_response() :: %{String.t() => any()}
+  @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_graph_response() :: %{
-    "GraphArn" => String.t()
-  }
+
+      create_graph_response() :: %{
+        "GraphArn" => String.t()
+      }
+
   """
   @type create_graph_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_members_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("GraphArn") => String.t()
-  }
+
+      list_members_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("GraphArn") => String.t()
+      }
+
   """
   @type list_members_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_members_response() :: %{
-    "MemberDetails" => list(member_detail()()),
-    "NextToken" => String.t()
-  }
+
+      list_members_response() :: %{
+        "MemberDetails" => list(member_detail()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_members_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_investigation_request() :: %{
-    required("GraphArn") => String.t(),
-    required("InvestigationId") => String.t()
-  }
+
+      get_investigation_request() :: %{
+        required("GraphArn") => String.t(),
+        required("InvestigationId") => String.t()
+      }
+
   """
   @type get_investigation_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_investigation_response() :: %{
-    "CreatedTime" => non_neg_integer(),
-    "EntityArn" => String.t(),
-    "EntityType" => list(any()),
-    "GraphArn" => String.t(),
-    "InvestigationId" => String.t(),
-    "ScopeEndTime" => non_neg_integer(),
-    "ScopeStartTime" => non_neg_integer(),
-    "Severity" => list(any()),
-    "State" => list(any()),
-    "Status" => list(any())
-  }
+
+      get_investigation_response() :: %{
+        "CreatedTime" => non_neg_integer(),
+        "EntityArn" => String.t(),
+        "EntityType" => list(any()),
+        "GraphArn" => String.t(),
+        "InvestigationId" => String.t(),
+        "ScopeEndTime" => non_neg_integer(),
+        "ScopeStartTime" => non_neg_integer(),
+        "Severity" => list(any()),
+        "State" => list(any()),
+        "Status" => list(any())
+      }
+
   """
   @type get_investigation_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  validation_exception() :: %{
-    "ErrorCode" => list(any()),
-    "ErrorCodeReason" => String.t(),
-    "Message" => String.t()
-  }
+
+      validation_exception() :: %{
+        "ErrorCode" => list(any()),
+        "ErrorCodeReason" => String.t(),
+        "Message" => String.t()
+      }
+
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_request() :: %{
 
-  }
+      list_tags_for_resource_request() :: %{}
+
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_invitations_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      list_invitations_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_invitations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  indicator_detail() :: %{
-    "FlaggedIpAddressDetail" => flagged_ip_address_detail(),
-    "ImpossibleTravelDetail" => impossible_travel_detail(),
-    "NewAsoDetail" => new_aso_detail(),
-    "NewGeolocationDetail" => new_geolocation_detail(),
-    "NewUserAgentDetail" => new_user_agent_detail(),
-    "RelatedFindingDetail" => related_finding_detail(),
-    "RelatedFindingGroupDetail" => related_finding_group_detail(),
-    "TTPsObservedDetail" => t_t_ps_observed_detail()
-  }
+
+      indicator_detail() :: %{
+        "FlaggedIpAddressDetail" => flagged_ip_address_detail(),
+        "ImpossibleTravelDetail" => impossible_travel_detail(),
+        "NewAsoDetail" => new_aso_detail(),
+        "NewGeolocationDetail" => new_geolocation_detail(),
+        "NewUserAgentDetail" => new_user_agent_detail(),
+        "RelatedFindingDetail" => related_finding_detail(),
+        "RelatedFindingGroupDetail" => related_finding_group_detail(),
+        "TTPsObservedDetail" => t_t_ps_observed_detail()
+      }
+
   """
   @type indicator_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  string_filter() :: %{
-    "Value" => String.t()
-  }
+
+      string_filter() :: %{
+        "Value" => String.t()
+      }
+
   """
   @type string_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  flagged_ip_address_detail() :: %{
-    "IpAddress" => String.t(),
-    "Reason" => list(any())
-  }
+
+      flagged_ip_address_detail() :: %{
+        "IpAddress" => String.t(),
+        "Reason" => list(any())
+      }
+
   """
   @type flagged_ip_address_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  related_finding_detail() :: %{
-    "Arn" => String.t(),
-    "IpAddress" => String.t(),
-    "Type" => String.t()
-  }
+
+      related_finding_detail() :: %{
+        "Arn" => String.t(),
+        "IpAddress" => String.t(),
+        "Type" => String.t()
+      }
+
   """
   @type related_finding_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  unprocessed_account() :: %{
-    "AccountId" => String.t(),
-    "Reason" => String.t()
-  }
+
+      unprocessed_account() :: %{
+        "AccountId" => String.t(),
+        "Reason" => String.t()
+      }
+
   """
   @type unprocessed_account() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_monitoring_member_request() :: %{
-    required("AccountId") => String.t(),
-    required("GraphArn") => String.t()
-  }
+
+      start_monitoring_member_request() :: %{
+        required("AccountId") => String.t(),
+        required("GraphArn") => String.t()
+      }
+
   """
   @type start_monitoring_member_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_indicators_response() :: %{
-    "GraphArn" => String.t(),
-    "Indicators" => list(indicator()()),
-    "InvestigationId" => String.t(),
-    "NextToken" => String.t()
-  }
+
+      list_indicators_response() :: %{
+        "GraphArn" => String.t(),
+        "Indicators" => list(indicator()()),
+        "InvestigationId" => String.t(),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_indicators_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  datasource_package_ingest_detail() :: %{
-    "DatasourcePackageIngestState" => list(any()),
-    "LastIngestStateChange" => map()
-  }
+
+      datasource_package_ingest_detail() :: %{
+        "DatasourcePackageIngestState" => list(any()),
+        "LastIngestStateChange" => map()
+      }
+
   """
   @type datasource_package_ingest_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_organization_admin_accounts_response() :: %{
-    "Administrators" => list(administrator()()),
-    "NextToken" => String.t()
-  }
+
+      list_organization_admin_accounts_response() :: %{
+        "Administrators" => list(administrator()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_organization_admin_accounts_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_indicators_request() :: %{
-    optional("IndicatorType") => list(any()),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("GraphArn") => String.t(),
-    required("InvestigationId") => String.t()
-  }
+
+      list_indicators_request() :: %{
+        optional("IndicatorType") => list(any()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("GraphArn") => String.t(),
+        required("InvestigationId") => String.t()
+      }
+
   """
   @type list_indicators_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disassociate_membership_request() :: %{
-    required("GraphArn") => String.t()
-  }
+
+      disassociate_membership_request() :: %{
+        required("GraphArn") => String.t()
+      }
+
   """
   @type disassociate_membership_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  t_t_ps_observed_detail() :: %{
-    "APIFailureCount" => float(),
-    "APIName" => String.t(),
-    "APISuccessCount" => float(),
-    "IpAddress" => String.t(),
-    "Procedure" => String.t(),
-    "Tactic" => String.t(),
-    "Technique" => String.t()
-  }
+
+      t_t_ps_observed_detail() :: %{
+        "APIFailureCount" => float(),
+        "APIName" => String.t(),
+        "APISuccessCount" => float(),
+        "IpAddress" => String.t(),
+        "Procedure" => String.t(),
+        "Tactic" => String.t(),
+        "Technique" => String.t()
+      }
+
   """
   @type t_t_ps_observed_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_members_response() :: %{
-    "Members" => list(member_detail()()),
-    "UnprocessedAccounts" => list(unprocessed_account()())
-  }
+
+      create_members_response() :: %{
+        "Members" => list(member_detail()()),
+        "UnprocessedAccounts" => list(unprocessed_account()())
+      }
+
   """
   @type create_members_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  member_detail() :: %{
-    "AccountId" => String.t(),
-    "AdministratorId" => String.t(),
-    "DatasourcePackageIngestStates" => map(),
-    "DisabledReason" => list(any()),
-    "EmailAddress" => String.t(),
-    "GraphArn" => String.t(),
-    "InvitationType" => list(any()),
-    "InvitedTime" => non_neg_integer(),
-    "MasterId" => String.t(),
-    "PercentOfGraphUtilization" => float(),
-    "PercentOfGraphUtilizationUpdatedTime" => non_neg_integer(),
-    "Status" => list(any()),
-    "UpdatedTime" => non_neg_integer(),
-    "VolumeUsageByDatasourcePackage" => map(),
-    "VolumeUsageInBytes" => float(),
-    "VolumeUsageUpdatedTime" => non_neg_integer()
-  }
+
+      member_detail() :: %{
+        "AccountId" => String.t(),
+        "AdministratorId" => String.t(),
+        "DatasourcePackageIngestStates" => map(),
+        "DisabledReason" => list(any()),
+        "EmailAddress" => String.t(),
+        "GraphArn" => String.t(),
+        "InvitationType" => list(any()),
+        "InvitedTime" => non_neg_integer(),
+        "MasterId" => String.t(),
+        "PercentOfGraphUtilization" => float(),
+        "PercentOfGraphUtilizationUpdatedTime" => non_neg_integer(),
+        "Status" => list(any()),
+        "UpdatedTime" => non_neg_integer(),
+        "VolumeUsageByDatasourcePackage" => map(),
+        "VolumeUsageInBytes" => float(),
+        "VolumeUsageUpdatedTime" => non_neg_integer()
+      }
+
   """
   @type member_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_invitations_response() :: %{
-    "Invitations" => list(member_detail()()),
-    "NextToken" => String.t()
-  }
+
+      list_invitations_response() :: %{
+        "Invitations" => list(member_detail()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_invitations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  indicator() :: %{
-    "IndicatorDetail" => indicator_detail(),
-    "IndicatorType" => list(any())
-  }
+
+      indicator() :: %{
+        "IndicatorDetail" => indicator_detail(),
+        "IndicatorType" => list(any())
+      }
+
   """
   @type indicator() :: %{String.t() => any()}
+
+  @type accept_invitation_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type batch_get_graph_member_datasources_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type batch_get_membership_datasources_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type create_graph_errors() ::
+          access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+
+  @type create_members_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+
+  @type delete_graph_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type delete_members_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type describe_organization_configuration_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | too_many_requests_exception()
+
+  @type disable_organization_admin_account_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | too_many_requests_exception()
+
+  @type disassociate_membership_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type enable_organization_admin_account_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | too_many_requests_exception()
+
+  @type get_investigation_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type get_members_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_datasource_packages_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_graphs_errors() ::
+          validation_exception() | access_denied_exception() | internal_server_exception()
+
+  @type list_indicators_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type list_investigations_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type list_invitations_errors() ::
+          validation_exception() | access_denied_exception() | internal_server_exception()
+
+  @type list_members_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_organization_admin_accounts_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | too_many_requests_exception()
+
+  @type list_tags_for_resource_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type reject_invitation_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type start_investigation_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type start_monitoring_member_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type tag_resource_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type untag_resource_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type update_datasource_packages_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+
+  @type update_investigation_state_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type update_organization_configuration_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | too_many_requests_exception()
 
   def metadata do
     %{
@@ -963,11 +1296,7 @@ defmodule AWS.Detective do
   @spec accept_invitation(map(), accept_invitation_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, accept_invitation_errors()}
   def accept_invitation(%Client{} = client, input, options \\ []) do
     url_path = "/invitation"
     headers = []
@@ -988,10 +1317,7 @@ defmodule AWS.Detective do
         ) ::
           {:ok, batch_get_graph_member_datasources_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, batch_get_graph_member_datasources_errors()}
   def batch_get_graph_member_datasources(%Client{} = client, input, options \\ []) do
     url_path = "/graph/datasources/get"
     headers = []
@@ -1022,10 +1348,7 @@ defmodule AWS.Detective do
         ) ::
           {:ok, batch_get_membership_datasources_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, batch_get_membership_datasources_errors()}
   def batch_get_membership_datasources(%Client{} = client, input, options \\ []) do
     url_path = "/membership/datasources/get"
     headers = []
@@ -1068,10 +1391,7 @@ defmodule AWS.Detective do
   @spec create_graph(map(), create_graph_request(), list()) ::
           {:ok, create_graph_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, service_quota_exceeded_exception()}
+          | {:error, create_graph_errors()}
   def create_graph(%Client{} = client, input, options \\ []) do
     url_path = "/graph"
     headers = []
@@ -1139,11 +1459,7 @@ defmodule AWS.Detective do
   @spec create_members(map(), create_members_request(), list()) ::
           {:ok, create_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_members_errors()}
   def create_members(%Client{} = client, input, options \\ []) do
     url_path = "/graph/members"
     headers = []
@@ -1176,10 +1492,7 @@ defmodule AWS.Detective do
   @spec delete_graph(map(), delete_graph_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_graph_errors()}
   def delete_graph(%Client{} = client, input, options \\ []) do
     url_path = "/graph/removal"
     headers = []
@@ -1228,11 +1541,7 @@ defmodule AWS.Detective do
   @spec delete_members(map(), delete_members_request(), list()) ::
           {:ok, delete_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_members_errors()}
   def delete_members(%Client{} = client, input, options \\ []) do
     url_path = "/graph/members/removal"
     headers = []
@@ -1269,10 +1578,7 @@ defmodule AWS.Detective do
         ) ::
           {:ok, describe_organization_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, validation_exception()}
+          | {:error, describe_organization_configuration_errors()}
   def describe_organization_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/orgs/describeOrganizationConfiguration"
     headers = []
@@ -1312,10 +1618,7 @@ defmodule AWS.Detective do
   @spec disable_organization_admin_account(map(), %{}, list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, validation_exception()}
+          | {:error, disable_organization_admin_account_errors()}
   def disable_organization_admin_account(%Client{} = client, input, options \\ []) do
     url_path = "/orgs/disableAdminAccount"
     headers = []
@@ -1351,11 +1654,7 @@ defmodule AWS.Detective do
   @spec disassociate_membership(map(), disassociate_membership_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, disassociate_membership_errors()}
   def disassociate_membership(%Client{} = client, input, options \\ []) do
     url_path = "/membership/removal"
     headers = []
@@ -1404,10 +1703,7 @@ defmodule AWS.Detective do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, validation_exception()}
+          | {:error, enable_organization_admin_account_errors()}
   def enable_organization_admin_account(%Client{} = client, input, options \\ []) do
     url_path = "/orgs/enableAdminAccount"
     headers = []
@@ -1440,11 +1736,7 @@ defmodule AWS.Detective do
   @spec get_investigation(map(), get_investigation_request(), list()) ::
           {:ok, get_investigation_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_investigation_errors()}
   def get_investigation(%Client{} = client, input, options \\ []) do
     url_path = "/investigations/getInvestigation"
     headers = []
@@ -1472,10 +1764,7 @@ defmodule AWS.Detective do
   @spec get_members(map(), get_members_request(), list()) ::
           {:ok, get_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_members_errors()}
   def get_members(%Client{} = client, input, options \\ []) do
     url_path = "/graph/members/get"
     headers = []
@@ -1502,10 +1791,7 @@ defmodule AWS.Detective do
   @spec list_datasource_packages(map(), list_datasource_packages_request(), list()) ::
           {:ok, list_datasource_packages_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_datasource_packages_errors()}
   def list_datasource_packages(%Client{} = client, input, options \\ []) do
     url_path = "/graph/datasources/list"
     headers = []
@@ -1540,9 +1826,7 @@ defmodule AWS.Detective do
   @spec list_graphs(map(), list_graphs_request(), list()) ::
           {:ok, list_graphs_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_graphs_errors()}
   def list_graphs(%Client{} = client, input, options \\ []) do
     url_path = "/graphs/list"
     headers = []
@@ -1573,11 +1857,7 @@ defmodule AWS.Detective do
   @spec list_indicators(map(), list_indicators_request(), list()) ::
           {:ok, list_indicators_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_indicators_errors()}
   def list_indicators(%Client{} = client, input, options \\ []) do
     url_path = "/investigations/listIndicators"
     headers = []
@@ -1612,11 +1892,7 @@ defmodule AWS.Detective do
   @spec list_investigations(map(), list_investigations_request(), list()) ::
           {:ok, list_investigations_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_investigations_errors()}
   def list_investigations(%Client{} = client, input, options \\ []) do
     url_path = "/investigations/listInvestigations"
     headers = []
@@ -1655,9 +1931,7 @@ defmodule AWS.Detective do
   @spec list_invitations(map(), list_invitations_request(), list()) ::
           {:ok, list_invitations_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_invitations_errors()}
   def list_invitations(%Client{} = client, input, options \\ []) do
     url_path = "/invitations/list"
     headers = []
@@ -1693,10 +1967,7 @@ defmodule AWS.Detective do
   @spec list_members(map(), list_members_request(), list()) ::
           {:ok, list_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_members_errors()}
   def list_members(%Client{} = client, input, options \\ []) do
     url_path = "/graph/members/list"
     headers = []
@@ -1730,10 +2001,7 @@ defmodule AWS.Detective do
         ) ::
           {:ok, list_organization_admin_accounts_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_organization_admin_accounts_errors()}
   def list_organization_admin_accounts(%Client{} = client, input, options \\ []) do
     url_path = "/orgs/adminAccountslist"
     headers = []
@@ -1760,10 +2028,7 @@ defmodule AWS.Detective do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -1789,11 +2054,7 @@ defmodule AWS.Detective do
   @spec reject_invitation(map(), reject_invitation_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, reject_invitation_errors()}
   def reject_invitation(%Client{} = client, input, options \\ []) do
     url_path = "/invitation/removal"
     headers = []
@@ -1826,11 +2087,7 @@ defmodule AWS.Detective do
   @spec start_investigation(map(), start_investigation_request(), list()) ::
           {:ok, start_investigation_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, validation_exception()}
+          | {:error, start_investigation_errors()}
   def start_investigation(%Client{} = client, input, options \\ []) do
     url_path = "/investigations/startInvestigation"
     headers = []
@@ -1868,12 +2125,7 @@ defmodule AWS.Detective do
   @spec start_monitoring_member(map(), start_monitoring_member_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, validation_exception()}
+          | {:error, start_monitoring_member_errors()}
   def start_monitoring_member(%Client{} = client, input, options \\ []) do
     url_path = "/graph/member/monitoringstate"
     headers = []
@@ -1900,10 +2152,7 @@ defmodule AWS.Detective do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -1930,10 +2179,7 @@ defmodule AWS.Detective do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -1965,11 +2211,7 @@ defmodule AWS.Detective do
   @spec update_datasource_packages(map(), update_datasource_packages_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_datasource_packages_errors()}
   def update_datasource_packages(%Client{} = client, input, options \\ []) do
     url_path = "/graph/datasources/update"
     headers = []
@@ -1996,11 +2238,7 @@ defmodule AWS.Detective do
   @spec update_investigation_state(map(), update_investigation_state_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_investigation_state_errors()}
   def update_investigation_state(%Client{} = client, input, options \\ []) do
     url_path = "/investigations/updateInvestigationState"
     headers = []
@@ -2035,10 +2273,7 @@ defmodule AWS.Detective do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_organization_configuration_errors()}
   def update_organization_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/orgs/updateOrganizationConfiguration"
     headers = []

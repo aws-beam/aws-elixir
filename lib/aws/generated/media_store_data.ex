@@ -17,162 +17,202 @@ defmodule AWS.MediaStoreData do
   @typedoc """
 
   ## Example:
-  container_not_found_exception() :: %{
-    "Message" => String.t()
-  }
+
+      container_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type container_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_object_request() :: %{
 
-  }
+      delete_object_request() :: %{}
+
   """
-  @type delete_object_request() :: %{String.t() => any()}
+  @type delete_object_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  delete_object_response() :: %{
 
-  }
+      delete_object_response() :: %{}
+
   """
-  @type delete_object_response() :: %{String.t() => any()}
+  @type delete_object_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  describe_object_request() :: %{
 
-  }
+      describe_object_request() :: %{}
+
   """
-  @type describe_object_request() :: %{String.t() => any()}
+  @type describe_object_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  describe_object_response() :: %{
-    "CacheControl" => String.t(),
-    "ContentLength" => float(),
-    "ContentType" => String.t(),
-    "ETag" => String.t(),
-    "LastModified" => non_neg_integer()
-  }
+
+      describe_object_response() :: %{
+        "CacheControl" => String.t(),
+        "ContentLength" => float(),
+        "ContentType" => String.t(),
+        "ETag" => String.t(),
+        "LastModified" => non_neg_integer()
+      }
+
   """
   @type describe_object_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_object_request() :: %{
-    optional("Range") => String.t()
-  }
+
+      get_object_request() :: %{
+        optional("Range") => String.t()
+      }
+
   """
   @type get_object_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_object_response() :: %{
-    "Body" => binary(),
-    "CacheControl" => String.t(),
-    "ContentLength" => float(),
-    "ContentRange" => String.t(),
-    "ContentType" => String.t(),
-    "ETag" => String.t(),
-    "LastModified" => non_neg_integer(),
-    "StatusCode" => integer()
-  }
+
+      get_object_response() :: %{
+        "Body" => binary(),
+        "CacheControl" => String.t(),
+        "ContentLength" => float(),
+        "ContentRange" => String.t(),
+        "ContentType" => String.t(),
+        "ETag" => String.t(),
+        "LastModified" => non_neg_integer(),
+        "StatusCode" => integer()
+      }
+
   """
   @type get_object_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  internal_server_error() :: %{
-    "Message" => String.t()
-  }
+
+      internal_server_error() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type internal_server_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  item() :: %{
-    "ContentLength" => float(),
-    "ContentType" => String.t(),
-    "ETag" => String.t(),
-    "LastModified" => non_neg_integer(),
-    "Name" => String.t(),
-    "Type" => list(any())
-  }
+
+      item() :: %{
+        "ContentLength" => float(),
+        "ContentType" => String.t(),
+        "ETag" => String.t(),
+        "LastModified" => non_neg_integer(),
+        "Name" => String.t(),
+        "Type" => list(any())
+      }
+
   """
   @type item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_items_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("Path") => String.t()
-  }
+
+      list_items_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("Path") => String.t()
+      }
+
   """
   @type list_items_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_items_response() :: %{
-    "Items" => list(item()()),
-    "NextToken" => String.t()
-  }
+
+      list_items_response() :: %{
+        "Items" => list(item()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_items_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  object_not_found_exception() :: %{
-    "Message" => String.t()
-  }
+
+      object_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type object_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_object_request() :: %{
-    optional("CacheControl") => String.t(),
-    optional("ContentType") => String.t(),
-    optional("StorageClass") => list(any()),
-    optional("UploadAvailability") => list(any()),
-    required("Body") => binary()
-  }
+
+      put_object_request() :: %{
+        optional("CacheControl") => String.t(),
+        optional("ContentType") => String.t(),
+        optional("StorageClass") => list(any()),
+        optional("UploadAvailability") => list(any()),
+        required("Body") => binary()
+      }
+
   """
   @type put_object_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_object_response() :: %{
-    "ContentSHA256" => String.t(),
-    "ETag" => String.t(),
-    "StorageClass" => list(any())
-  }
+
+      put_object_response() :: %{
+        "ContentSHA256" => String.t(),
+        "ETag" => String.t(),
+        "StorageClass" => list(any())
+      }
+
   """
   @type put_object_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  requested_range_not_satisfiable_exception() :: %{
-    "Message" => String.t()
-  }
+
+      requested_range_not_satisfiable_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type requested_range_not_satisfiable_exception() :: %{String.t() => any()}
+
+  @type delete_object_errors() ::
+          object_not_found_exception() | internal_server_error() | container_not_found_exception()
+
+  @type describe_object_errors() ::
+          object_not_found_exception() | internal_server_error() | container_not_found_exception()
+
+  @type get_object_errors() ::
+          requested_range_not_satisfiable_exception()
+          | object_not_found_exception()
+          | internal_server_error()
+          | container_not_found_exception()
+
+  @type list_items_errors() :: internal_server_error() | container_not_found_exception()
+
+  @type put_object_errors() :: internal_server_error() | container_not_found_exception()
 
   def metadata do
     %{
@@ -195,9 +235,7 @@ defmodule AWS.MediaStoreData do
   @spec delete_object(map(), String.t(), delete_object_request(), list()) ::
           {:ok, delete_object_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, container_not_found_exception()}
-          | {:error, internal_server_error()}
-          | {:error, object_not_found_exception()}
+          | {:error, delete_object_errors()}
   def delete_object(%Client{} = client, path, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_multi_segment_uri(path)}"
     headers = []
@@ -224,9 +262,7 @@ defmodule AWS.MediaStoreData do
   @spec describe_object(map(), String.t(), describe_object_request(), list()) ::
           {:ok, describe_object_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, container_not_found_exception()}
-          | {:error, internal_server_error()}
-          | {:error, object_not_found_exception()}
+          | {:error, describe_object_errors()}
   def describe_object(%Client{} = client, path, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_multi_segment_uri(path)}"
     headers = []
@@ -269,10 +305,7 @@ defmodule AWS.MediaStoreData do
   @spec get_object(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_object_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, container_not_found_exception()}
-          | {:error, internal_server_error()}
-          | {:error, object_not_found_exception()}
-          | {:error, requested_range_not_satisfiable_exception()}
+          | {:error, get_object_errors()}
   def get_object(%Client{} = client, path, range \\ nil, options \\ []) do
     url_path = "/#{AWS.Util.encode_multi_segment_uri(path)}"
     headers = []
@@ -319,8 +352,7 @@ defmodule AWS.MediaStoreData do
   @spec list_items(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_items_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, container_not_found_exception()}
-          | {:error, internal_server_error()}
+          | {:error, list_items_errors()}
   def list_items(
         %Client{} = client,
         max_results \\ nil,
@@ -367,8 +399,7 @@ defmodule AWS.MediaStoreData do
   @spec put_object(map(), String.t(), put_object_request(), list()) ::
           {:ok, put_object_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, container_not_found_exception()}
-          | {:error, internal_server_error()}
+          | {:error, put_object_errors()}
   def put_object(%Client{} = client, path, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_multi_segment_uri(path)}"
 

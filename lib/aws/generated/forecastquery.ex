@@ -12,110 +12,146 @@ defmodule AWS.Forecastquery do
   @typedoc """
 
   ## Example:
-  data_point() :: %{
-    "Timestamp" => String.t(),
-    "Value" => float()
-  }
+      
+      data_point() :: %{
+        "Timestamp" => String.t(),
+        "Value" => float()
+      }
+      
   """
   @type data_point() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  forecast() :: %{
-    "Predictions" => map()
-  }
+      
+      forecast() :: %{
+        "Predictions" => map()
+      }
+      
   """
   @type forecast() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_input_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      invalid_input_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type invalid_input_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_next_token_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      invalid_next_token_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type invalid_next_token_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  limit_exceeded_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      limit_exceeded_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  query_forecast_request() :: %{
-    optional("EndDate") => String.t(),
-    optional("NextToken") => String.t(),
-    optional("StartDate") => String.t(),
-    required("Filters") => map(),
-    required("ForecastArn") => String.t()
-  }
+      
+      query_forecast_request() :: %{
+        optional("EndDate") => String.t(),
+        optional("NextToken") => String.t(),
+        optional("StartDate") => String.t(),
+        required("Filters") => map(),
+        required("ForecastArn") => String.t()
+      }
+      
   """
   @type query_forecast_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  query_forecast_response() :: %{
-    "Forecast" => forecast()
-  }
+      
+      query_forecast_response() :: %{
+        "Forecast" => forecast()
+      }
+      
   """
   @type query_forecast_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  query_what_if_forecast_request() :: %{
-    optional("EndDate") => String.t(),
-    optional("NextToken") => String.t(),
-    optional("StartDate") => String.t(),
-    required("Filters") => map(),
-    required("WhatIfForecastArn") => String.t()
-  }
+      
+      query_what_if_forecast_request() :: %{
+        optional("EndDate") => String.t(),
+        optional("NextToken") => String.t(),
+        optional("StartDate") => String.t(),
+        required("Filters") => map(),
+        required("WhatIfForecastArn") => String.t()
+      }
+      
   """
   @type query_what_if_forecast_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  query_what_if_forecast_response() :: %{
-    "Forecast" => forecast()
-  }
+      
+      query_what_if_forecast_response() :: %{
+        "Forecast" => forecast()
+      }
+      
   """
   @type query_what_if_forecast_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_in_use_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      resource_in_use_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type resource_in_use_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_not_found_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      resource_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @type query_forecast_errors() ::
+          resource_not_found_exception()
+          | resource_in_use_exception()
+          | limit_exceeded_exception()
+          | invalid_next_token_exception()
+          | invalid_input_exception()
+
+  @type query_what_if_forecast_errors() ::
+          resource_not_found_exception()
+          | resource_in_use_exception()
+          | limit_exceeded_exception()
+          | invalid_next_token_exception()
+          | invalid_input_exception()
 
   def metadata do
     %{
@@ -155,11 +191,7 @@ defmodule AWS.Forecastquery do
   @spec query_forecast(map(), query_forecast_request(), list()) ::
           {:ok, query_forecast_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_input_exception()}
-          | {:error, invalid_next_token_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_in_use_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, query_forecast_errors()}
   def query_forecast(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -172,11 +204,7 @@ defmodule AWS.Forecastquery do
   @spec query_what_if_forecast(map(), query_what_if_forecast_request(), list()) ::
           {:ok, query_what_if_forecast_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_input_exception()}
-          | {:error, invalid_next_token_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_in_use_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, query_what_if_forecast_errors()}
   def query_what_if_forecast(%Client{} = client, input, options \\ []) do
     meta = metadata()
 

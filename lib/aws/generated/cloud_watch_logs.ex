@@ -62,1895 +62,2671 @@ defmodule AWS.CloudWatchLogs do
   @typedoc """
 
   ## Example:
-  invalid_sequence_token_exception() :: %{
-    "expectedSequenceToken" => String.t(),
-    "message" => String.t()
-  }
+      
+      invalid_sequence_token_exception() :: %{
+        "expectedSequenceToken" => String.t(),
+        "message" => String.t()
+      }
+      
   """
   @type invalid_sequence_token_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_anomalies_response() :: %{
-    "anomalies" => list(anomaly()()),
-    "nextToken" => String.t()
-  }
+      
+      list_anomalies_response() :: %{
+        "anomalies" => list(anomaly()()),
+        "nextToken" => String.t()
+      }
+      
   """
   @type list_anomalies_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_resource_policies_request() :: %{
-    optional("limit") => integer(),
-    optional("nextToken") => String.t()
-  }
+      
+      describe_resource_policies_request() :: %{
+        optional("limit") => integer(),
+        optional("nextToken") => String.t()
+      }
+      
   """
   @type describe_resource_policies_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delivery() :: %{
-    "arn" => String.t(),
-    "deliveryDestinationArn" => String.t(),
-    "deliveryDestinationType" => list(any()),
-    "deliverySourceName" => String.t(),
-    "id" => String.t(),
-    "tags" => map()
-  }
+      
+      delivery() :: %{
+        "arn" => String.t(),
+        "deliveryDestinationArn" => String.t(),
+        "deliveryDestinationType" => list(any()),
+        "deliverySourceName" => String.t(),
+        "id" => String.t(),
+        "tags" => map()
+      }
+      
   """
   @type delivery() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_request() :: %{
-    required("resourceArn") => String.t(),
-    required("tags") => map()
-  }
+      
+      tag_resource_request() :: %{
+        required("resourceArn") => String.t(),
+        required("tags") => map()
+      }
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_log_groups_request() :: %{
-    optional("accountIdentifiers") => list(String.t()()),
-    optional("includeLinkedAccounts") => boolean(),
-    optional("limit") => integer(),
-    optional("logGroupClass") => list(any()),
-    optional("logGroupNamePattern") => String.t(),
-    optional("logGroupNamePrefix") => String.t(),
-    optional("nextToken") => String.t()
-  }
+      
+      describe_log_groups_request() :: %{
+        optional("accountIdentifiers") => list(String.t()()),
+        optional("includeLinkedAccounts") => boolean(),
+        optional("limit") => integer(),
+        optional("logGroupClass") => list(any()),
+        optional("logGroupNamePattern") => String.t(),
+        optional("logGroupNamePrefix") => String.t(),
+        optional("nextToken") => String.t()
+      }
+      
   """
   @type describe_log_groups_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_query_definition_request() :: %{
-    required("queryDefinitionId") => String.t()
-  }
+      
+      delete_query_definition_request() :: %{
+        required("queryDefinitionId") => String.t()
+      }
+      
   """
   @type delete_query_definition_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_log_anomaly_detector_request() :: %{
-    required("anomalyDetectorArn") => String.t()
-  }
+      
+      get_log_anomaly_detector_request() :: %{
+        required("anomalyDetectorArn") => String.t()
+      }
+      
   """
   @type get_log_anomaly_detector_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_delivery_destination_policy_request() :: %{
-    required("deliveryDestinationName") => String.t(),
-    required("deliveryDestinationPolicy") => String.t()
-  }
+      
+      put_delivery_destination_policy_request() :: %{
+        required("deliveryDestinationName") => String.t(),
+        required("deliveryDestinationPolicy") => String.t()
+      }
+      
   """
   @type put_delivery_destination_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  account_policy() :: %{
-    "accountId" => String.t(),
-    "lastUpdatedTime" => float(),
-    "policyDocument" => String.t(),
-    "policyName" => String.t(),
-    "policyType" => list(any()),
-    "scope" => list(any()),
-    "selectionCriteria" => String.t()
-  }
+      
+      account_policy() :: %{
+        "accountId" => String.t(),
+        "lastUpdatedTime" => float(),
+        "policyDocument" => String.t(),
+        "policyName" => String.t(),
+        "policyType" => list(any()),
+        "scope" => list(any()),
+        "selectionCriteria" => String.t()
+      }
+      
   """
   @type account_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_export_task_request() :: %{
-    optional("destinationPrefix") => String.t(),
-    optional("logStreamNamePrefix") => String.t(),
-    optional("taskName") => String.t(),
-    required("destination") => String.t(),
-    required("from") => float(),
-    required("logGroupName") => String.t(),
-    required("to") => float()
-  }
+      
+      create_export_task_request() :: %{
+        optional("destinationPrefix") => String.t(),
+        optional("logStreamNamePrefix") => String.t(),
+        optional("taskName") => String.t(),
+        required("destination") => String.t(),
+        required("from") => float(),
+        required("logGroupName") => String.t(),
+        required("to") => float()
+      }
+      
   """
   @type create_export_task_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_log_group_request() :: %{
-    required("logGroupName") => String.t(),
-    required("tags") => map()
-  }
+      
+      tag_log_group_request() :: %{
+        required("logGroupName") => String.t(),
+        required("tags") => map()
+      }
+      
   """
   @type tag_log_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_query_definitions_request() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t(),
-    optional("queryDefinitionNamePrefix") => String.t()
-  }
+      
+      describe_query_definitions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("queryDefinitionNamePrefix") => String.t()
+      }
+      
   """
   @type describe_query_definitions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_log_group_response() :: %{
-    "tags" => map()
-  }
+      
+      list_tags_log_group_response() :: %{
+        "tags" => map()
+      }
+      
   """
   @type list_tags_log_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_destination_response() :: %{
-    "destination" => destination()
-  }
+      
+      put_destination_response() :: %{
+        "destination" => destination()
+      }
+      
   """
   @type put_destination_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  filter_log_events_response() :: %{
-    "events" => list(filtered_log_event()()),
-    "nextToken" => String.t(),
-    "searchedLogStreams" => list(searched_log_stream()())
-  }
+      
+      filter_log_events_response() :: %{
+        "events" => list(filtered_log_event()()),
+        "nextToken" => String.t(),
+        "searchedLogStreams" => list(searched_log_stream()())
+      }
+      
   """
   @type filter_log_events_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_destination_request() :: %{
-    optional("tags") => map(),
-    required("destinationName") => String.t(),
-    required("roleArn") => String.t(),
-    required("targetArn") => String.t()
-  }
+      
+      put_destination_request() :: %{
+        optional("tags") => map(),
+        required("destinationName") => String.t(),
+        required("roleArn") => String.t(),
+        required("targetArn") => String.t()
+      }
+      
   """
   @type put_destination_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_query_results_response() :: %{
-    "encryptionKey" => String.t(),
-    "results" => list(list(result_field()())()),
-    "statistics" => query_statistics(),
-    "status" => list(any())
-  }
+      
+      get_query_results_response() :: %{
+        "encryptionKey" => String.t(),
+        "results" => list(list(result_field()())()),
+        "statistics" => query_statistics(),
+        "status" => list(any())
+      }
+      
   """
   @type get_query_results_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_queries_request() :: %{
-    optional("logGroupName") => String.t(),
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t(),
-    optional("status") => list(any())
-  }
+      
+      describe_queries_request() :: %{
+        optional("logGroupName") => String.t(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("status") => list(any())
+      }
+      
   """
   @type describe_queries_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_account_policy_response() :: %{
-    "accountPolicy" => account_policy()
-  }
+      
+      put_account_policy_response() :: %{
+        "accountPolicy" => account_policy()
+      }
+      
   """
   @type put_account_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_queries_response() :: %{
-    "nextToken" => String.t(),
-    "queries" => list(query_info()())
-  }
+      
+      describe_queries_response() :: %{
+        "nextToken" => String.t(),
+        "queries" => list(query_info()())
+      }
+      
   """
   @type describe_queries_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_log_events_request() :: %{
-    optional("sequenceToken") => String.t(),
-    required("logEvents") => list(input_log_event()()),
-    required("logGroupName") => String.t(),
-    required("logStreamName") => String.t()
-  }
+      
+      put_log_events_request() :: %{
+        optional("sequenceToken") => String.t(),
+        required("logEvents") => list(input_log_event()()),
+        required("logGroupName") => String.t(),
+        required("logStreamName") => String.t()
+      }
+      
   """
   @type put_log_events_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_account_policy_request() :: %{
-    optional("scope") => list(any()),
-    optional("selectionCriteria") => String.t(),
-    required("policyDocument") => String.t(),
-    required("policyName") => String.t(),
-    required("policyType") => list(any())
-  }
+      
+      put_account_policy_request() :: %{
+        optional("scope") => list(any()),
+        optional("selectionCriteria") => String.t(),
+        required("policyDocument") => String.t(),
+        required("policyName") => String.t(),
+        required("policyType") => list(any())
+      }
+      
   """
   @type put_account_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  data_already_accepted_exception() :: %{
-    "expectedSequenceToken" => String.t(),
-    "message" => String.t()
-  }
+      
+      data_already_accepted_exception() :: %{
+        "expectedSequenceToken" => String.t(),
+        "message" => String.t()
+      }
+      
   """
   @type data_already_accepted_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  export_task_execution_info() :: %{
-    "completionTime" => float(),
-    "creationTime" => float()
-  }
+      
+      export_task_execution_info() :: %{
+        "completionTime" => float(),
+        "creationTime" => float()
+      }
+      
   """
   @type export_task_execution_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_data_protection_policy_request() :: %{
-    required("logGroupIdentifier") => String.t(),
-    required("policyDocument") => String.t()
-  }
+      
+      put_data_protection_policy_request() :: %{
+        required("logGroupIdentifier") => String.t(),
+        required("policyDocument") => String.t()
+      }
+      
   """
   @type put_data_protection_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_query_results_request() :: %{
-    required("queryId") => String.t()
-  }
+      
+      get_query_results_request() :: %{
+        required("queryId") => String.t()
+      }
+      
   """
   @type get_query_results_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_delivery_request() :: %{
-    required("id") => String.t()
-  }
+      
+      get_delivery_request() :: %{
+        required("id") => String.t()
+      }
+      
   """
   @type get_delivery_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  live_tail_session_metadata() :: %{
-    "sampled" => boolean()
-  }
+      
+      live_tail_session_metadata() :: %{
+        "sampled" => boolean()
+      }
+      
   """
   @type live_tail_session_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_log_group_request() :: %{
-    optional("kmsKeyId") => String.t(),
-    optional("logGroupClass") => list(any()),
-    optional("tags") => map(),
-    required("logGroupName") => String.t()
-  }
+      
+      create_log_group_request() :: %{
+        optional("kmsKeyId") => String.t(),
+        optional("logGroupClass") => list(any()),
+        optional("tags") => map(),
+        required("logGroupName") => String.t()
+      }
+      
   """
   @type create_log_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_delivery_destination_request() :: %{
-    optional("outputFormat") => list(any()),
-    optional("tags") => map(),
-    required("deliveryDestinationConfiguration") => delivery_destination_configuration(),
-    required("name") => String.t()
-  }
+      
+      put_delivery_destination_request() :: %{
+        optional("outputFormat") => list(any()),
+        optional("tags") => map(),
+        required("deliveryDestinationConfiguration") => delivery_destination_configuration(),
+        required("name") => String.t()
+      }
+      
   """
   @type put_delivery_destination_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_delivery_source_response() :: %{
-    "deliverySource" => delivery_source()
-  }
+      
+      get_delivery_source_response() :: %{
+        "deliverySource" => delivery_source()
+      }
+      
   """
   @type get_delivery_source_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  subscription_filter() :: %{
-    "creationTime" => float(),
-    "destinationArn" => String.t(),
-    "distribution" => list(any()),
-    "filterName" => String.t(),
-    "filterPattern" => String.t(),
-    "logGroupName" => String.t(),
-    "roleArn" => String.t()
-  }
+      
+      subscription_filter() :: %{
+        "creationTime" => float(),
+        "destinationArn" => String.t(),
+        "distribution" => list(any()),
+        "filterName" => String.t(),
+        "filterPattern" => String.t(),
+        "logGroupName" => String.t(),
+        "roleArn" => String.t()
+      }
+      
   """
   @type subscription_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_export_tasks_response() :: %{
-    "exportTasks" => list(export_task()()),
-    "nextToken" => String.t()
-  }
+      
+      describe_export_tasks_response() :: %{
+        "exportTasks" => list(export_task()()),
+        "nextToken" => String.t()
+      }
+      
   """
   @type describe_export_tasks_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  live_tail_session_start() :: %{
-    "logEventFilterPattern" => String.t(),
-    "logGroupIdentifiers" => list(String.t()()),
-    "logStreamNamePrefixes" => list(String.t()()),
-    "logStreamNames" => list(String.t()()),
-    "requestId" => String.t(),
-    "sessionId" => String.t()
-  }
+      
+      live_tail_session_start() :: %{
+        "logEventFilterPattern" => String.t(),
+        "logGroupIdentifiers" => list(String.t()()),
+        "logStreamNamePrefixes" => list(String.t()()),
+        "logStreamNames" => list(String.t()()),
+        "requestId" => String.t(),
+        "sessionId" => String.t()
+      }
+      
   """
   @type live_tail_session_start() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_log_stream_request() :: %{
-    required("logGroupName") => String.t(),
-    required("logStreamName") => String.t()
-  }
+      
+      create_log_stream_request() :: %{
+        required("logGroupName") => String.t(),
+        required("logStreamName") => String.t()
+      }
+      
   """
   @type create_log_stream_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_log_record_response() :: %{
-    "logRecord" => map()
-  }
+      
+      get_log_record_response() :: %{
+        "logRecord" => map()
+      }
+      
   """
   @type get_log_record_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_operation_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_operation_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_operation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_delivery_response() :: %{
-    "delivery" => delivery()
-  }
+      
+      create_delivery_response() :: %{
+        "delivery" => delivery()
+      }
+      
   """
   @type create_delivery_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_account_policies_response() :: %{
-    "accountPolicies" => list(account_policy()())
-  }
+      
+      describe_account_policies_response() :: %{
+        "accountPolicies" => list(account_policy()())
+      }
+      
   """
   @type describe_account_policies_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_anomaly_request() :: %{
-    optional("anomalyId") => String.t(),
-    optional("patternId") => String.t(),
-    optional("suppressionPeriod") => suppression_period(),
-    optional("suppressionType") => list(any()),
-    required("anomalyDetectorArn") => String.t()
-  }
+      
+      update_anomaly_request() :: %{
+        optional("anomalyId") => String.t(),
+        optional("patternId") => String.t(),
+        optional("suppressionPeriod") => suppression_period(),
+        optional("suppressionType") => list(any()),
+        required("anomalyDetectorArn") => String.t()
+      }
+      
   """
   @type update_anomaly_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_retention_policy_request() :: %{
-    required("logGroupName") => String.t(),
-    required("retentionInDays") => integer()
-  }
+      
+      put_retention_policy_request() :: %{
+        required("logGroupName") => String.t(),
+        required("retentionInDays") => integer()
+      }
+      
   """
   @type put_retention_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_query_request() :: %{
-    optional("limit") => integer(),
-    optional("logGroupIdentifiers") => list(String.t()()),
-    optional("logGroupName") => String.t(),
-    optional("logGroupNames") => list(String.t()()),
-    required("endTime") => float(),
-    required("queryString") => String.t(),
-    required("startTime") => float()
-  }
+      
+      start_query_request() :: %{
+        optional("limit") => integer(),
+        optional("logGroupIdentifiers") => list(String.t()()),
+        optional("logGroupName") => String.t(),
+        optional("logGroupNames") => list(String.t()()),
+        required("endTime") => float(),
+        required("queryString") => String.t(),
+        required("startTime") => float()
+      }
+      
   """
   @type start_query_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_deliveries_request() :: %{
-    optional("limit") => integer(),
-    optional("nextToken") => String.t()
-  }
+      
+      describe_deliveries_request() :: %{
+        optional("limit") => integer(),
+        optional("nextToken") => String.t()
+      }
+      
   """
   @type describe_deliveries_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  session_timeout_exception() :: %{
-    "message" => String.t()
-  }
+      
+      session_timeout_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type session_timeout_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_log_group_fields_response() :: %{
-    "logGroupFields" => list(log_group_field()())
-  }
+      
+      get_log_group_fields_response() :: %{
+        "logGroupFields" => list(log_group_field()())
+      }
+      
   """
   @type get_log_group_fields_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_log_anomaly_detector_request() :: %{
-    optional("anomalyVisibilityTime") => float(),
-    optional("evaluationFrequency") => list(any()),
-    optional("filterPattern") => String.t(),
-    required("anomalyDetectorArn") => String.t(),
-    required("enabled") => boolean()
-  }
+      
+      update_log_anomaly_detector_request() :: %{
+        optional("anomalyVisibilityTime") => float(),
+        optional("evaluationFrequency") => list(any()),
+        optional("filterPattern") => String.t(),
+        required("anomalyDetectorArn") => String.t(),
+        required("enabled") => boolean()
+      }
+      
   """
   @type update_log_anomaly_detector_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_metric_filters_request() :: %{
-    optional("filterNamePrefix") => String.t(),
-    optional("limit") => integer(),
-    optional("logGroupName") => String.t(),
-    optional("metricName") => String.t(),
-    optional("metricNamespace") => String.t(),
-    optional("nextToken") => String.t()
-  }
+      
+      describe_metric_filters_request() :: %{
+        optional("filterNamePrefix") => String.t(),
+        optional("limit") => integer(),
+        optional("logGroupName") => String.t(),
+        optional("metricName") => String.t(),
+        optional("metricNamespace") => String.t(),
+        optional("nextToken") => String.t()
+      }
+      
   """
   @type describe_metric_filters_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  session_streaming_exception() :: %{
-    "message" => String.t()
-  }
+      
+      session_streaming_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type session_streaming_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_data_protection_policy_response() :: %{
-    "lastUpdatedTime" => float(),
-    "logGroupIdentifier" => String.t(),
-    "policyDocument" => String.t()
-  }
+      
+      put_data_protection_policy_response() :: %{
+        "lastUpdatedTime" => float(),
+        "logGroupIdentifier" => String.t(),
+        "policyDocument" => String.t()
+      }
+      
   """
   @type put_data_protection_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_request() :: %{
-    required("resourceArn") => String.t(),
-    required("tagKeys") => list(String.t()())
-  }
+      
+      untag_resource_request() :: %{
+        required("resourceArn") => String.t(),
+        required("tagKeys") => list(String.t()())
+      }
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_destinations_response() :: %{
-    "destinations" => list(destination()()),
-    "nextToken" => String.t()
-  }
+      
+      describe_destinations_response() :: %{
+        "destinations" => list(destination()()),
+        "nextToken" => String.t()
+      }
+      
   """
   @type describe_destinations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  live_tail_session_update() :: %{
-    "sessionMetadata" => live_tail_session_metadata(),
-    "sessionResults" => list(live_tail_session_log_event()())
-  }
+      
+      live_tail_session_update() :: %{
+        "sessionMetadata" => live_tail_session_metadata(),
+        "sessionResults" => list(live_tail_session_log_event()())
+      }
+      
   """
   @type live_tail_session_update() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  query_compile_error_location() :: %{
-    "endCharOffset" => integer(),
-    "startCharOffset" => integer()
-  }
+      
+      query_compile_error_location() :: %{
+        "endCharOffset" => integer(),
+        "startCharOffset" => integer()
+      }
+      
   """
   @type query_compile_error_location() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  operation_aborted_exception() :: %{
-    "message" => String.t()
-  }
+      
+      operation_aborted_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type operation_aborted_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_query_definitions_response() :: %{
-    "nextToken" => String.t(),
-    "queryDefinitions" => list(query_definition()())
-  }
+      
+      describe_query_definitions_response() :: %{
+        "nextToken" => String.t(),
+        "queryDefinitions" => list(query_definition()())
+      }
+      
   """
   @type describe_query_definitions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_delivery_response() :: %{
-    "delivery" => delivery()
-  }
+      
+      get_delivery_response() :: %{
+        "delivery" => delivery()
+      }
+      
   """
   @type get_delivery_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_subscription_filters_request() :: %{
-    optional("filterNamePrefix") => String.t(),
-    optional("limit") => integer(),
-    optional("nextToken") => String.t(),
-    required("logGroupName") => String.t()
-  }
+      
+      describe_subscription_filters_request() :: %{
+        optional("filterNamePrefix") => String.t(),
+        optional("limit") => integer(),
+        optional("nextToken") => String.t(),
+        required("logGroupName") => String.t()
+      }
+      
   """
   @type describe_subscription_filters_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_destination_policy_request() :: %{
-    optional("forceUpdate") => boolean(),
-    required("accessPolicy") => String.t(),
-    required("destinationName") => String.t()
-  }
+      
+      put_destination_policy_request() :: %{
+        optional("forceUpdate") => boolean(),
+        required("accessPolicy") => String.t(),
+        required("destinationName") => String.t()
+      }
+      
   """
   @type put_destination_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  input_log_event() :: %{
-    "message" => String.t(),
-    "timestamp" => float()
-  }
+      
+      input_log_event() :: %{
+        "message" => String.t(),
+        "timestamp" => float()
+      }
+      
   """
   @type input_log_event() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_retention_policy_request() :: %{
-    required("logGroupName") => String.t()
-  }
+      
+      delete_retention_policy_request() :: %{
+        required("logGroupName") => String.t()
+      }
+      
   """
   @type delete_retention_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  malformed_query_exception() :: %{
-    "message" => String.t(),
-    "queryCompileError" => query_compile_error()
-  }
+      
+      malformed_query_exception() :: %{
+        "message" => String.t(),
+        "queryCompileError" => query_compile_error()
+      }
+      
   """
   @type malformed_query_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  live_tail_session_log_event() :: %{
-    "ingestionTime" => float(),
-    "logGroupIdentifier" => String.t(),
-    "logStreamName" => String.t(),
-    "message" => String.t(),
-    "timestamp" => float()
-  }
+      
+      live_tail_session_log_event() :: %{
+        "ingestionTime" => float(),
+        "logGroupIdentifier" => String.t(),
+        "logStreamName" => String.t(),
+        "message" => String.t(),
+        "timestamp" => float()
+      }
+      
   """
   @type live_tail_session_log_event() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_delivery_destination_request() :: %{
-    required("name") => String.t()
-  }
+      
+      get_delivery_destination_request() :: %{
+        required("name") => String.t()
+      }
+      
   """
   @type get_delivery_destination_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  conflict_exception() :: %{
-    "message" => String.t()
-  }
+      
+      conflict_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_not_found_exception() :: %{
-    "message" => String.t()
-  }
+      
+      resource_not_found_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_log_anomaly_detector_request() :: %{
-    required("anomalyDetectorArn") => String.t()
-  }
+      
+      delete_log_anomaly_detector_request() :: %{
+        required("anomalyDetectorArn") => String.t()
+      }
+      
   """
   @type delete_log_anomaly_detector_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disassociate_kms_key_request() :: %{
-    optional("logGroupName") => String.t(),
-    optional("resourceIdentifier") => String.t()
-  }
+      
+      disassociate_kms_key_request() :: %{
+        optional("logGroupName") => String.t(),
+        optional("resourceIdentifier") => String.t()
+      }
+      
   """
   @type disassociate_kms_key_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_export_tasks_request() :: %{
-    optional("limit") => integer(),
-    optional("nextToken") => String.t(),
-    optional("statusCode") => list(any()),
-    optional("taskId") => String.t()
-  }
+      
+      describe_export_tasks_request() :: %{
+        optional("limit") => integer(),
+        optional("nextToken") => String.t(),
+        optional("statusCode") => list(any()),
+        optional("taskId") => String.t()
+      }
+      
   """
   @type describe_export_tasks_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_log_anomaly_detector_response() :: %{
-    "anomalyDetectorStatus" => list(any()),
-    "anomalyVisibilityTime" => float(),
-    "creationTimeStamp" => float(),
-    "detectorName" => String.t(),
-    "evaluationFrequency" => list(any()),
-    "filterPattern" => String.t(),
-    "kmsKeyId" => String.t(),
-    "lastModifiedTimeStamp" => float(),
-    "logGroupArnList" => list(String.t()())
-  }
+      
+      get_log_anomaly_detector_response() :: %{
+        "anomalyDetectorStatus" => list(any()),
+        "anomalyVisibilityTime" => float(),
+        "creationTimeStamp" => float(),
+        "detectorName" => String.t(),
+        "evaluationFrequency" => list(any()),
+        "filterPattern" => String.t(),
+        "kmsKeyId" => String.t(),
+        "lastModifiedTimeStamp" => float(),
+        "logGroupArnList" => list(String.t()())
+      }
+      
   """
   @type get_log_anomaly_detector_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_query_definition_response() :: %{
-    "success" => boolean()
-  }
+      
+      delete_query_definition_response() :: %{
+        "success" => boolean()
+      }
+      
   """
   @type delete_query_definition_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_log_streams_response() :: %{
-    "logStreams" => list(log_stream()()),
-    "nextToken" => String.t()
-  }
+      
+      describe_log_streams_response() :: %{
+        "logStreams" => list(log_stream()()),
+        "nextToken" => String.t()
+      }
+      
   """
   @type describe_log_streams_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_delivery_destination_policy_response() :: %{
-    "policy" => policy()
-  }
+      
+      put_delivery_destination_policy_response() :: %{
+        "policy" => policy()
+      }
+      
   """
   @type put_delivery_destination_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  export_task_status() :: %{
-    "code" => list(any()),
-    "message" => String.t()
-  }
+      
+      export_task_status() :: %{
+        "code" => list(any()),
+        "message" => String.t()
+      }
+      
   """
   @type export_task_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delivery_destination_configuration() :: %{
-    "destinationResourceArn" => String.t()
-  }
+      
+      delivery_destination_configuration() :: %{
+        "destinationResourceArn" => String.t()
+      }
+      
   """
   @type delivery_destination_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  suppression_period() :: %{
-    "suppressionUnit" => list(any()),
-    "value" => integer()
-  }
+      
+      suppression_period() :: %{
+        "suppressionUnit" => list(any()),
+        "value" => integer()
+      }
+      
   """
   @type suppression_period() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  service_quota_exceeded_exception() :: %{
-    "message" => String.t()
-  }
+      
+      service_quota_exceeded_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  pattern_token() :: %{
-    "dynamicTokenPosition" => integer(),
-    "enumerations" => map(),
-    "isDynamic" => boolean(),
-    "tokenString" => String.t()
-  }
+      
+      pattern_token() :: %{
+        "dynamicTokenPosition" => integer(),
+        "enumerations" => map(),
+        "isDynamic" => boolean(),
+        "tokenString" => String.t()
+      }
+      
   """
   @type pattern_token() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_log_stream_request() :: %{
-    required("logGroupName") => String.t(),
-    required("logStreamName") => String.t()
-  }
+      
+      delete_log_stream_request() :: %{
+        required("logGroupName") => String.t(),
+        required("logStreamName") => String.t()
+      }
+      
   """
   @type delete_log_stream_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_export_task_response() :: %{
-    "taskId" => String.t()
-  }
+      
+      create_export_task_response() :: %{
+        "taskId" => String.t()
+      }
+      
   """
   @type create_export_task_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_delivery_destinations_response() :: %{
-    "deliveryDestinations" => list(delivery_destination()()),
-    "nextToken" => String.t()
-  }
+      
+      describe_delivery_destinations_response() :: %{
+        "deliveryDestinations" => list(delivery_destination()()),
+        "nextToken" => String.t()
+      }
+      
   """
   @type describe_delivery_destinations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  associate_kms_key_request() :: %{
-    optional("logGroupName") => String.t(),
-    optional("resourceIdentifier") => String.t(),
-    required("kmsKeyId") => String.t()
-  }
+      
+      associate_kms_key_request() :: %{
+        optional("logGroupName") => String.t(),
+        optional("resourceIdentifier") => String.t(),
+        required("kmsKeyId") => String.t()
+      }
+      
   """
   @type associate_kms_key_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_log_record_request() :: %{
-    optional("unmask") => boolean(),
-    required("logRecordPointer") => String.t()
-  }
+      
+      get_log_record_request() :: %{
+        optional("unmask") => boolean(),
+        required("logRecordPointer") => String.t()
+      }
+      
   """
   @type get_log_record_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_delivery_destination_policy_request() :: %{
-    required("deliveryDestinationName") => String.t()
-  }
+      
+      delete_delivery_destination_policy_request() :: %{
+        required("deliveryDestinationName") => String.t()
+      }
+      
   """
   @type delete_delivery_destination_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  metric_filter_match_record() :: %{
-    "eventMessage" => String.t(),
-    "eventNumber" => float(),
-    "extractedValues" => map()
-  }
+      
+      metric_filter_match_record() :: %{
+        "eventMessage" => String.t(),
+        "eventNumber" => float(),
+        "extractedValues" => map()
+      }
+      
   """
   @type metric_filter_match_record() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stop_query_request() :: %{
-    required("queryId") => String.t()
-  }
+      
+      stop_query_request() :: %{
+        required("queryId") => String.t()
+      }
+      
   """
   @type stop_query_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stop_query_response() :: %{
-    "success" => boolean()
-  }
+      
+      stop_query_response() :: %{
+        "success" => boolean()
+      }
+      
   """
   @type stop_query_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_log_anomaly_detector_response() :: %{
-    "anomalyDetectorArn" => String.t()
-  }
+      
+      create_log_anomaly_detector_response() :: %{
+        "anomalyDetectorArn" => String.t()
+      }
+      
   """
   @type create_log_anomaly_detector_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_delivery_source_request() :: %{
-    optional("tags") => map(),
-    required("logType") => String.t(),
-    required("name") => String.t(),
-    required("resourceArn") => String.t()
-  }
+      
+      put_delivery_source_request() :: %{
+        optional("tags") => map(),
+        required("logType") => String.t(),
+        required("name") => String.t(),
+        required("resourceArn") => String.t()
+      }
+      
   """
   @type put_delivery_source_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  log_group_field() :: %{
-    "name" => String.t(),
-    "percent" => integer()
-  }
+      
+      log_group_field() :: %{
+        "name" => String.t(),
+        "percent" => integer()
+      }
+      
   """
   @type log_group_field() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  log_stream() :: %{
-    "arn" => String.t(),
-    "creationTime" => float(),
-    "firstEventTimestamp" => float(),
-    "lastEventTimestamp" => float(),
-    "lastIngestionTime" => float(),
-    "logStreamName" => String.t(),
-    "storedBytes" => float(),
-    "uploadSequenceToken" => String.t()
-  }
+      
+      log_stream() :: %{
+        "arn" => String.t(),
+        "creationTime" => float(),
+        "firstEventTimestamp" => float(),
+        "lastEventTimestamp" => float(),
+        "lastIngestionTime" => float(),
+        "logStreamName" => String.t(),
+        "storedBytes" => float(),
+        "uploadSequenceToken" => String.t()
+      }
+      
   """
   @type log_stream() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_response() :: %{
-    "tags" => map()
-  }
+      
+      list_tags_for_resource_response() :: %{
+        "tags" => map()
+      }
+      
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_metric_filter_request() :: %{
-    required("filterName") => String.t(),
-    required("filterPattern") => String.t(),
-    required("logGroupName") => String.t(),
-    required("metricTransformations") => list(metric_transformation()())
-  }
+      
+      put_metric_filter_request() :: %{
+        required("filterName") => String.t(),
+        required("filterPattern") => String.t(),
+        required("logGroupName") => String.t(),
+        required("metricTransformations") => list(metric_transformation()())
+      }
+      
   """
   @type put_metric_filter_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  filter_log_events_request() :: %{
-    optional("endTime") => float(),
-    optional("filterPattern") => String.t(),
-    optional("interleaved") => boolean(),
-    optional("limit") => integer(),
-    optional("logGroupIdentifier") => String.t(),
-    optional("logGroupName") => String.t(),
-    optional("logStreamNamePrefix") => String.t(),
-    optional("logStreamNames") => list(String.t()()),
-    optional("nextToken") => String.t(),
-    optional("startTime") => float(),
-    optional("unmask") => boolean()
-  }
+      
+      filter_log_events_request() :: %{
+        optional("endTime") => float(),
+        optional("filterPattern") => String.t(),
+        optional("interleaved") => boolean(),
+        optional("limit") => integer(),
+        optional("logGroupIdentifier") => String.t(),
+        optional("logGroupName") => String.t(),
+        optional("logStreamNamePrefix") => String.t(),
+        optional("logStreamNames") => list(String.t()()),
+        optional("nextToken") => String.t(),
+        optional("startTime") => float(),
+        optional("unmask") => boolean()
+      }
+      
   """
   @type filter_log_events_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_deliveries_response() :: %{
-    "deliveries" => list(delivery()()),
-    "nextToken" => String.t()
-  }
+      
+      describe_deliveries_response() :: %{
+        "deliveries" => list(delivery()()),
+        "nextToken" => String.t()
+      }
+      
   """
   @type describe_deliveries_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  service_unavailable_exception() :: %{
-    "message" => String.t()
-  }
+      
+      service_unavailable_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type service_unavailable_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_destination_request() :: %{
-    required("destinationName") => String.t()
-  }
+      
+      delete_destination_request() :: %{
+        required("destinationName") => String.t()
+      }
+      
   """
   @type delete_destination_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_account_policy_request() :: %{
-    required("policyName") => String.t(),
-    required("policyType") => list(any())
-  }
+      
+      delete_account_policy_request() :: %{
+        required("policyName") => String.t(),
+        required("policyType") => list(any())
+      }
+      
   """
   @type delete_account_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_log_groups_response() :: %{
-    "logGroups" => list(log_group()()),
-    "nextToken" => String.t()
-  }
+      
+      describe_log_groups_response() :: %{
+        "logGroups" => list(log_group()()),
+        "nextToken" => String.t()
+      }
+      
   """
   @type describe_log_groups_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_log_group_request() :: %{
-    required("logGroupName") => String.t(),
-    required("tags") => list(String.t()())
-  }
+      
+      untag_log_group_request() :: %{
+        required("logGroupName") => String.t(),
+        required("tags") => list(String.t()())
+      }
+      
   """
   @type untag_log_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_subscription_filter_request() :: %{
-    optional("distribution") => list(any()),
-    optional("roleArn") => String.t(),
-    required("destinationArn") => String.t(),
-    required("filterName") => String.t(),
-    required("filterPattern") => String.t(),
-    required("logGroupName") => String.t()
-  }
+      
+      put_subscription_filter_request() :: %{
+        optional("distribution") => list(any()),
+        optional("roleArn") => String.t(),
+        required("destinationArn") => String.t(),
+        required("filterName") => String.t(),
+        required("filterPattern") => String.t(),
+        required("logGroupName") => String.t()
+      }
+      
   """
   @type put_subscription_filter_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_delivery_sources_response() :: %{
-    "deliverySources" => list(delivery_source()()),
-    "nextToken" => String.t()
-  }
+      
+      describe_delivery_sources_response() :: %{
+        "deliverySources" => list(delivery_source()()),
+        "nextToken" => String.t()
+      }
+      
   """
   @type describe_delivery_sources_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_live_tail_response() :: %{
-    "responseStream" => list()
-  }
+      
+      start_live_tail_response() :: %{
+        "responseStream" => list()
+      }
+      
   """
   @type start_live_tail_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delivery_destination() :: %{
-    "arn" => String.t(),
-    "deliveryDestinationConfiguration" => delivery_destination_configuration(),
-    "deliveryDestinationType" => list(any()),
-    "name" => String.t(),
-    "outputFormat" => list(any()),
-    "tags" => map()
-  }
+      
+      delivery_destination() :: %{
+        "arn" => String.t(),
+        "deliveryDestinationConfiguration" => delivery_destination_configuration(),
+        "deliveryDestinationType" => list(any()),
+        "name" => String.t(),
+        "outputFormat" => list(any()),
+        "tags" => map()
+      }
+      
   """
   @type delivery_destination() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  query_compile_error() :: %{
-    "location" => query_compile_error_location(),
-    "message" => String.t()
-  }
+      
+      query_compile_error() :: %{
+        "location" => query_compile_error_location(),
+        "message" => String.t()
+      }
+      
   """
   @type query_compile_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_delivery_destination_response() :: %{
-    "deliveryDestination" => delivery_destination()
-  }
+      
+      get_delivery_destination_response() :: %{
+        "deliveryDestination" => delivery_destination()
+      }
+      
   """
   @type get_delivery_destination_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_log_anomaly_detector_request() :: %{
-    optional("anomalyVisibilityTime") => float(),
-    optional("detectorName") => String.t(),
-    optional("evaluationFrequency") => list(any()),
-    optional("filterPattern") => String.t(),
-    optional("kmsKeyId") => String.t(),
-    optional("tags") => map(),
-    required("logGroupArnList") => list(String.t()())
-  }
+      
+      create_log_anomaly_detector_request() :: %{
+        optional("anomalyVisibilityTime") => float(),
+        optional("detectorName") => String.t(),
+        optional("evaluationFrequency") => list(any()),
+        optional("filterPattern") => String.t(),
+        optional("kmsKeyId") => String.t(),
+        optional("tags") => map(),
+        required("logGroupArnList") => list(String.t()())
+      }
+      
   """
   @type create_log_anomaly_detector_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_delivery_destination_policy_response() :: %{
-    "policy" => policy()
-  }
+      
+      get_delivery_destination_policy_response() :: %{
+        "policy" => policy()
+      }
+      
   """
   @type get_delivery_destination_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_log_group_fields_request() :: %{
-    optional("logGroupIdentifier") => String.t(),
-    optional("logGroupName") => String.t(),
-    optional("time") => float()
-  }
+      
+      get_log_group_fields_request() :: %{
+        optional("logGroupIdentifier") => String.t(),
+        optional("logGroupName") => String.t(),
+        optional("time") => float()
+      }
+      
   """
   @type get_log_group_fields_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_query_definition_request() :: %{
-    optional("clientToken") => String.t(),
-    optional("logGroupNames") => list(String.t()()),
-    optional("queryDefinitionId") => String.t(),
-    required("name") => String.t(),
-    required("queryString") => String.t()
-  }
+      
+      put_query_definition_request() :: %{
+        optional("clientToken") => String.t(),
+        optional("logGroupNames") => list(String.t()()),
+        optional("queryDefinitionId") => String.t(),
+        required("name") => String.t(),
+        required("queryString") => String.t()
+      }
+      
   """
   @type put_query_definition_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  export_task() :: %{
-    "destination" => String.t(),
-    "destinationPrefix" => String.t(),
-    "executionInfo" => export_task_execution_info(),
-    "from" => float(),
-    "logGroupName" => String.t(),
-    "status" => export_task_status(),
-    "taskId" => String.t(),
-    "taskName" => String.t(),
-    "to" => float()
-  }
+      
+      export_task() :: %{
+        "destination" => String.t(),
+        "destinationPrefix" => String.t(),
+        "executionInfo" => export_task_execution_info(),
+        "from" => float(),
+        "logGroupName" => String.t(),
+        "status" => export_task_status(),
+        "taskId" => String.t(),
+        "taskName" => String.t(),
+        "to" => float()
+      }
+      
   """
   @type export_task() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  metric_transformation() :: %{
-    "defaultValue" => float(),
-    "dimensions" => map(),
-    "metricName" => String.t(),
-    "metricNamespace" => String.t(),
-    "metricValue" => String.t(),
-    "unit" => list(any())
-  }
+      
+      metric_transformation() :: %{
+        "defaultValue" => float(),
+        "dimensions" => map(),
+        "metricName" => String.t(),
+        "metricNamespace" => String.t(),
+        "metricValue" => String.t(),
+        "unit" => list(any())
+      }
+      
   """
   @type metric_transformation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_log_group_request() :: %{
-    required("logGroupName") => String.t()
-  }
+      
+      list_tags_log_group_request() :: %{
+        required("logGroupName") => String.t()
+      }
+      
   """
   @type list_tags_log_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_policy() :: %{
-    "lastUpdatedTime" => float(),
-    "policyDocument" => String.t(),
-    "policyName" => String.t()
-  }
+      
+      resource_policy() :: %{
+        "lastUpdatedTime" => float(),
+        "policyDocument" => String.t(),
+        "policyName" => String.t()
+      }
+      
   """
   @type resource_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  anomaly() :: %{
-    "active" => boolean(),
-    "anomalyDetectorArn" => String.t(),
-    "anomalyId" => String.t(),
-    "description" => String.t(),
-    "firstSeen" => float(),
-    "histogram" => map(),
-    "isPatternLevelSuppression" => boolean(),
-    "lastSeen" => float(),
-    "logGroupArnList" => list(String.t()()),
-    "logSamples" => list(String.t()()),
-    "patternId" => String.t(),
-    "patternRegex" => String.t(),
-    "patternString" => String.t(),
-    "patternTokens" => list(pattern_token()()),
-    "priority" => String.t(),
-    "state" => list(any()),
-    "suppressed" => boolean(),
-    "suppressedDate" => float(),
-    "suppressedUntil" => float()
-  }
+      
+      anomaly() :: %{
+        "active" => boolean(),
+        "anomalyDetectorArn" => String.t(),
+        "anomalyId" => String.t(),
+        "description" => String.t(),
+        "firstSeen" => float(),
+        "histogram" => map(),
+        "isPatternLevelSuppression" => boolean(),
+        "lastSeen" => float(),
+        "logGroupArnList" => list(String.t()()),
+        "logSamples" => list(String.t()()),
+        "patternId" => String.t(),
+        "patternRegex" => String.t(),
+        "patternString" => String.t(),
+        "patternTokens" => list(pattern_token()()),
+        "priority" => String.t(),
+        "state" => list(any()),
+        "suppressed" => boolean(),
+        "suppressedDate" => float(),
+        "suppressedUntil" => float()
+      }
+      
   """
   @type anomaly() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_anomalies_request() :: %{
-    optional("anomalyDetectorArn") => String.t(),
-    optional("limit") => integer(),
-    optional("nextToken") => String.t(),
-    optional("suppressionState") => list(any())
-  }
+      
+      list_anomalies_request() :: %{
+        optional("anomalyDetectorArn") => String.t(),
+        optional("limit") => integer(),
+        optional("nextToken") => String.t(),
+        optional("suppressionState") => list(any())
+      }
+      
   """
   @type list_anomalies_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_delivery_destination_response() :: %{
-    "deliveryDestination" => delivery_destination()
-  }
+      
+      put_delivery_destination_response() :: %{
+        "deliveryDestination" => delivery_destination()
+      }
+      
   """
   @type put_delivery_destination_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_delivery_sources_request() :: %{
-    optional("limit") => integer(),
-    optional("nextToken") => String.t()
-  }
+      
+      describe_delivery_sources_request() :: %{
+        optional("limit") => integer(),
+        optional("nextToken") => String.t()
+      }
+      
   """
   @type describe_delivery_sources_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_query_response() :: %{
-    "queryId" => String.t()
-  }
+      
+      start_query_response() :: %{
+        "queryId" => String.t()
+      }
+      
   """
   @type start_query_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_live_tail_request() :: %{
-    optional("logEventFilterPattern") => String.t(),
-    optional("logStreamNamePrefixes") => list(String.t()()),
-    optional("logStreamNames") => list(String.t()()),
-    required("logGroupIdentifiers") => list(String.t()())
-  }
+      
+      start_live_tail_request() :: %{
+        optional("logEventFilterPattern") => String.t(),
+        optional("logStreamNamePrefixes") => list(String.t()()),
+        optional("logStreamNames") => list(String.t()()),
+        required("logGroupIdentifiers") => list(String.t()())
+      }
+      
   """
   @type start_live_tail_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  filtered_log_event() :: %{
-    "eventId" => String.t(),
-    "ingestionTime" => float(),
-    "logStreamName" => String.t(),
-    "message" => String.t(),
-    "timestamp" => float()
-  }
+      
+      filtered_log_event() :: %{
+        "eventId" => String.t(),
+        "ingestionTime" => float(),
+        "logStreamName" => String.t(),
+        "message" => String.t(),
+        "timestamp" => float()
+      }
+      
   """
   @type filtered_log_event() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_data_protection_policy_request() :: %{
-    required("logGroupIdentifier") => String.t()
-  }
+      
+      delete_data_protection_policy_request() :: %{
+        required("logGroupIdentifier") => String.t()
+      }
+      
   """
   @type delete_data_protection_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  policy() :: %{
-    "deliveryDestinationPolicy" => String.t()
-  }
+      
+      policy() :: %{
+        "deliveryDestinationPolicy" => String.t()
+      }
+      
   """
   @type policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_resource_policy_request() :: %{
-    optional("policyDocument") => String.t(),
-    optional("policyName") => String.t()
-  }
+      
+      put_resource_policy_request() :: %{
+        optional("policyDocument") => String.t(),
+        optional("policyName") => String.t()
+      }
+      
   """
   @type put_resource_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_delivery_source_request() :: %{
-    required("name") => String.t()
-  }
+      
+      delete_delivery_source_request() :: %{
+        required("name") => String.t()
+      }
+      
   """
   @type delete_delivery_source_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  access_denied_exception() :: %{
-    "message" => String.t()
-  }
+      
+      access_denied_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_parameter_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_parameter_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_parameter_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_log_events_request() :: %{
-    optional("endTime") => float(),
-    optional("limit") => integer(),
-    optional("logGroupIdentifier") => String.t(),
-    optional("logGroupName") => String.t(),
-    optional("nextToken") => String.t(),
-    optional("startFromHead") => boolean(),
-    optional("startTime") => float(),
-    optional("unmask") => boolean(),
-    required("logStreamName") => String.t()
-  }
+      
+      get_log_events_request() :: %{
+        optional("endTime") => float(),
+        optional("limit") => integer(),
+        optional("logGroupIdentifier") => String.t(),
+        optional("logGroupName") => String.t(),
+        optional("nextToken") => String.t(),
+        optional("startFromHead") => boolean(),
+        optional("startTime") => float(),
+        optional("unmask") => boolean(),
+        required("logStreamName") => String.t()
+      }
+      
   """
   @type get_log_events_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  rejected_log_events_info() :: %{
-    "expiredLogEventEndIndex" => integer(),
-    "tooNewLogEventStartIndex" => integer(),
-    "tooOldLogEventEndIndex" => integer()
-  }
+      
+      rejected_log_events_info() :: %{
+        "expiredLogEventEndIndex" => integer(),
+        "tooNewLogEventStartIndex" => integer(),
+        "tooOldLogEventEndIndex" => integer()
+      }
+      
   """
   @type rejected_log_events_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_data_protection_policy_request() :: %{
-    required("logGroupIdentifier") => String.t()
-  }
+      
+      get_data_protection_policy_request() :: %{
+        required("logGroupIdentifier") => String.t()
+      }
+      
   """
   @type get_data_protection_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_log_events_response() :: %{
-    "events" => list(output_log_event()()),
-    "nextBackwardToken" => String.t(),
-    "nextForwardToken" => String.t()
-  }
+      
+      get_log_events_response() :: %{
+        "events" => list(output_log_event()()),
+        "nextBackwardToken" => String.t(),
+        "nextForwardToken" => String.t()
+      }
+      
   """
   @type get_log_events_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  output_log_event() :: %{
-    "ingestionTime" => float(),
-    "message" => String.t(),
-    "timestamp" => float()
-  }
+      
+      output_log_event() :: %{
+        "ingestionTime" => float(),
+        "message" => String.t(),
+        "timestamp" => float()
+      }
+      
   """
   @type output_log_event() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  searched_log_stream() :: %{
-    "logStreamName" => String.t(),
-    "searchedCompletely" => boolean()
-  }
+      
+      searched_log_stream() :: %{
+        "logStreamName" => String.t(),
+        "searchedCompletely" => boolean()
+      }
+      
   """
   @type searched_log_stream() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_account_policies_request() :: %{
-    optional("accountIdentifiers") => list(String.t()()),
-    optional("policyName") => String.t(),
-    required("policyType") => list(any())
-  }
+      
+      describe_account_policies_request() :: %{
+        optional("accountIdentifiers") => list(String.t()()),
+        optional("policyName") => String.t(),
+        required("policyType") => list(any())
+      }
+      
   """
   @type describe_account_policies_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  metric_filter() :: %{
-    "creationTime" => float(),
-    "filterName" => String.t(),
-    "filterPattern" => String.t(),
-    "logGroupName" => String.t(),
-    "metricTransformations" => list(metric_transformation()())
-  }
+      
+      metric_filter() :: %{
+        "creationTime" => float(),
+        "filterName" => String.t(),
+        "filterPattern" => String.t(),
+        "logGroupName" => String.t(),
+        "metricTransformations" => list(metric_transformation()())
+      }
+      
   """
   @type metric_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  validation_exception() :: %{
-    "message" => String.t()
-  }
+      
+      validation_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_request() :: %{
-    required("resourceArn") => String.t()
-  }
+      
+      list_tags_for_resource_request() :: %{
+        required("resourceArn") => String.t()
+      }
+      
   """
   @type list_tags_for_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  destination() :: %{
-    "accessPolicy" => String.t(),
-    "arn" => String.t(),
-    "creationTime" => float(),
-    "destinationName" => String.t(),
-    "roleArn" => String.t(),
-    "targetArn" => String.t()
-  }
+      
+      destination() :: %{
+        "accessPolicy" => String.t(),
+        "arn" => String.t(),
+        "creationTime" => float(),
+        "destinationName" => String.t(),
+        "roleArn" => String.t(),
+        "targetArn" => String.t()
+      }
+      
   """
   @type destination() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_log_events_response() :: %{
-    "nextSequenceToken" => String.t(),
-    "rejectedLogEventsInfo" => rejected_log_events_info()
-  }
+      
+      put_log_events_response() :: %{
+        "nextSequenceToken" => String.t(),
+        "rejectedLogEventsInfo" => rejected_log_events_info()
+      }
+      
   """
   @type put_log_events_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_delivery_source_response() :: %{
-    "deliverySource" => delivery_source()
-  }
+      
+      put_delivery_source_response() :: %{
+        "deliverySource" => delivery_source()
+      }
+      
   """
   @type put_delivery_source_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_delivery_request() :: %{
-    required("id") => String.t()
-  }
+      
+      delete_delivery_request() :: %{
+        required("id") => String.t()
+      }
+      
   """
   @type delete_delivery_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  throttling_exception() :: %{
-    "message" => String.t()
-  }
+      
+      throttling_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  log_group() :: %{
-    "arn" => String.t(),
-    "creationTime" => float(),
-    "dataProtectionStatus" => list(any()),
-    "inheritedProperties" => list(list(any())()),
-    "kmsKeyId" => String.t(),
-    "logGroupArn" => String.t(),
-    "logGroupClass" => list(any()),
-    "logGroupName" => String.t(),
-    "metricFilterCount" => integer(),
-    "retentionInDays" => integer(),
-    "storedBytes" => float()
-  }
+      
+      log_group() :: %{
+        "arn" => String.t(),
+        "creationTime" => float(),
+        "dataProtectionStatus" => list(any()),
+        "inheritedProperties" => list(list(any())()),
+        "kmsKeyId" => String.t(),
+        "logGroupArn" => String.t(),
+        "logGroupClass" => list(any()),
+        "logGroupName" => String.t(),
+        "metricFilterCount" => integer(),
+        "retentionInDays" => integer(),
+        "storedBytes" => float()
+      }
+      
   """
   @type log_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_log_anomaly_detectors_request() :: %{
-    optional("filterLogGroupArn") => String.t(),
-    optional("limit") => integer(),
-    optional("nextToken") => String.t()
-  }
+      
+      list_log_anomaly_detectors_request() :: %{
+        optional("filterLogGroupArn") => String.t(),
+        optional("limit") => integer(),
+        optional("nextToken") => String.t()
+      }
+      
   """
   @type list_log_anomaly_detectors_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_log_streams_request() :: %{
-    optional("descending") => boolean(),
-    optional("limit") => integer(),
-    optional("logGroupIdentifier") => String.t(),
-    optional("logGroupName") => String.t(),
-    optional("logStreamNamePrefix") => String.t(),
-    optional("nextToken") => String.t(),
-    optional("orderBy") => list(any())
-  }
+      
+      describe_log_streams_request() :: %{
+        optional("descending") => boolean(),
+        optional("limit") => integer(),
+        optional("logGroupIdentifier") => String.t(),
+        optional("logGroupName") => String.t(),
+        optional("logStreamNamePrefix") => String.t(),
+        optional("nextToken") => String.t(),
+        optional("orderBy") => list(any())
+      }
+      
   """
   @type describe_log_streams_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  result_field() :: %{
-    "field" => String.t(),
-    "value" => String.t()
-  }
+      
+      result_field() :: %{
+        "field" => String.t(),
+        "value" => String.t()
+      }
+      
   """
   @type result_field() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_resource_policy_response() :: %{
-    "resourcePolicy" => resource_policy()
-  }
+      
+      put_resource_policy_response() :: %{
+        "resourcePolicy" => resource_policy()
+      }
+      
   """
   @type put_resource_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_delivery_source_request() :: %{
-    required("name") => String.t()
-  }
+      
+      get_delivery_source_request() :: %{
+        required("name") => String.t()
+      }
+      
   """
   @type get_delivery_source_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  limit_exceeded_exception() :: %{
-    "message" => String.t()
-  }
+      
+      limit_exceeded_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_metric_filter_request() :: %{
-    required("filterName") => String.t(),
-    required("logGroupName") => String.t()
-  }
+      
+      delete_metric_filter_request() :: %{
+        required("filterName") => String.t(),
+        required("logGroupName") => String.t()
+      }
+      
   """
   @type delete_metric_filter_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_resource_policies_response() :: %{
-    "nextToken" => String.t(),
-    "resourcePolicies" => list(resource_policy()())
-  }
+      
+      describe_resource_policies_response() :: %{
+        "nextToken" => String.t(),
+        "resourcePolicies" => list(resource_policy()())
+      }
+      
   """
   @type describe_resource_policies_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_subscription_filters_response() :: %{
-    "nextToken" => String.t(),
-    "subscriptionFilters" => list(subscription_filter()())
-  }
+      
+      describe_subscription_filters_response() :: %{
+        "nextToken" => String.t(),
+        "subscriptionFilters" => list(subscription_filter()())
+      }
+      
   """
   @type describe_subscription_filters_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  query_statistics() :: %{
-    "bytesScanned" => float(),
-    "recordsMatched" => float(),
-    "recordsScanned" => float()
-  }
+      
+      query_statistics() :: %{
+        "bytesScanned" => float(),
+        "recordsMatched" => float(),
+        "recordsScanned" => float()
+      }
+      
   """
   @type query_statistics() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_data_protection_policy_response() :: %{
-    "lastUpdatedTime" => float(),
-    "logGroupIdentifier" => String.t(),
-    "policyDocument" => String.t()
-  }
+      
+      get_data_protection_policy_response() :: %{
+        "lastUpdatedTime" => float(),
+        "logGroupIdentifier" => String.t(),
+        "policyDocument" => String.t()
+      }
+      
   """
   @type get_data_protection_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delivery_source() :: %{
-    "arn" => String.t(),
-    "logType" => String.t(),
-    "name" => String.t(),
-    "resourceArns" => list(String.t()()),
-    "service" => String.t(),
-    "tags" => map()
-  }
+      
+      delivery_source() :: %{
+        "arn" => String.t(),
+        "logType" => String.t(),
+        "name" => String.t(),
+        "resourceArns" => list(String.t()()),
+        "service" => String.t(),
+        "tags" => map()
+      }
+      
   """
   @type delivery_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_resource_policy_request() :: %{
-    optional("policyName") => String.t()
-  }
+      
+      delete_resource_policy_request() :: %{
+        optional("policyName") => String.t()
+      }
+      
   """
   @type delete_resource_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  anomaly_detector() :: %{
-    "anomalyDetectorArn" => String.t(),
-    "anomalyDetectorStatus" => list(any()),
-    "anomalyVisibilityTime" => float(),
-    "creationTimeStamp" => float(),
-    "detectorName" => String.t(),
-    "evaluationFrequency" => list(any()),
-    "filterPattern" => String.t(),
-    "kmsKeyId" => String.t(),
-    "lastModifiedTimeStamp" => float(),
-    "logGroupArnList" => list(String.t()())
-  }
+      
+      anomaly_detector() :: %{
+        "anomalyDetectorArn" => String.t(),
+        "anomalyDetectorStatus" => list(any()),
+        "anomalyVisibilityTime" => float(),
+        "creationTimeStamp" => float(),
+        "detectorName" => String.t(),
+        "evaluationFrequency" => list(any()),
+        "filterPattern" => String.t(),
+        "kmsKeyId" => String.t(),
+        "lastModifiedTimeStamp" => float(),
+        "logGroupArnList" => list(String.t()())
+      }
+      
   """
   @type anomaly_detector() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_log_anomaly_detectors_response() :: %{
-    "anomalyDetectors" => list(anomaly_detector()()),
-    "nextToken" => String.t()
-  }
+      
+      list_log_anomaly_detectors_response() :: %{
+        "anomalyDetectors" => list(anomaly_detector()()),
+        "nextToken" => String.t()
+      }
+      
   """
   @type list_log_anomaly_detectors_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_delivery_destination_request() :: %{
-    required("name") => String.t()
-  }
+      
+      delete_delivery_destination_request() :: %{
+        required("name") => String.t()
+      }
+      
   """
   @type delete_delivery_destination_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cancel_export_task_request() :: %{
-    required("taskId") => String.t()
-  }
+      
+      cancel_export_task_request() :: %{
+        required("taskId") => String.t()
+      }
+      
   """
   @type cancel_export_task_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_already_exists_exception() :: %{
-    "message" => String.t()
-  }
+      
+      resource_already_exists_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type resource_already_exists_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_subscription_filter_request() :: %{
-    required("filterName") => String.t(),
-    required("logGroupName") => String.t()
-  }
+      
+      delete_subscription_filter_request() :: %{
+        required("filterName") => String.t(),
+        required("logGroupName") => String.t()
+      }
+      
   """
   @type delete_subscription_filter_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_destinations_request() :: %{
-    optional("DestinationNamePrefix") => String.t(),
-    optional("limit") => integer(),
-    optional("nextToken") => String.t()
-  }
+      
+      describe_destinations_request() :: %{
+        optional("DestinationNamePrefix") => String.t(),
+        optional("limit") => integer(),
+        optional("nextToken") => String.t()
+      }
+      
   """
   @type describe_destinations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  test_metric_filter_response() :: %{
-    "matches" => list(metric_filter_match_record()())
-  }
+      
+      test_metric_filter_response() :: %{
+        "matches" => list(metric_filter_match_record()())
+      }
+      
   """
   @type test_metric_filter_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  query_definition() :: %{
-    "lastModified" => float(),
-    "logGroupNames" => list(String.t()()),
-    "name" => String.t(),
-    "queryDefinitionId" => String.t(),
-    "queryString" => String.t()
-  }
+      
+      query_definition() :: %{
+        "lastModified" => float(),
+        "logGroupNames" => list(String.t()()),
+        "name" => String.t(),
+        "queryDefinitionId" => String.t(),
+        "queryString" => String.t()
+      }
+      
   """
   @type query_definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_delivery_destination_policy_request() :: %{
-    required("deliveryDestinationName") => String.t()
-  }
+      
+      get_delivery_destination_policy_request() :: %{
+        required("deliveryDestinationName") => String.t()
+      }
+      
   """
   @type get_delivery_destination_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_delivery_destinations_request() :: %{
-    optional("limit") => integer(),
-    optional("nextToken") => String.t()
-  }
+      
+      describe_delivery_destinations_request() :: %{
+        optional("limit") => integer(),
+        optional("nextToken") => String.t()
+      }
+      
   """
   @type describe_delivery_destinations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_delivery_request() :: %{
-    optional("tags") => map(),
-    required("deliveryDestinationArn") => String.t(),
-    required("deliverySourceName") => String.t()
-  }
+      
+      create_delivery_request() :: %{
+        optional("tags") => map(),
+        required("deliveryDestinationArn") => String.t(),
+        required("deliverySourceName") => String.t()
+      }
+      
   """
   @type create_delivery_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_log_group_request() :: %{
-    required("logGroupName") => String.t()
-  }
+      
+      delete_log_group_request() :: %{
+        required("logGroupName") => String.t()
+      }
+      
   """
   @type delete_log_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  test_metric_filter_request() :: %{
-    required("filterPattern") => String.t(),
-    required("logEventMessages") => list(String.t()())
-  }
+      
+      test_metric_filter_request() :: %{
+        required("filterPattern") => String.t(),
+        required("logEventMessages") => list(String.t()())
+      }
+      
   """
   @type test_metric_filter_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  query_info() :: %{
-    "createTime" => float(),
-    "logGroupName" => String.t(),
-    "queryId" => String.t(),
-    "queryString" => String.t(),
-    "status" => list(any())
-  }
+      
+      query_info() :: %{
+        "createTime" => float(),
+        "logGroupName" => String.t(),
+        "queryId" => String.t(),
+        "queryString" => String.t(),
+        "status" => list(any())
+      }
+      
   """
   @type query_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  unrecognized_client_exception() :: %{
-    "message" => String.t()
-  }
+      
+      unrecognized_client_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type unrecognized_client_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_tags_exception() :: %{
-    "message" => String.t(),
-    "resourceName" => String.t()
-  }
+      
+      too_many_tags_exception() :: %{
+        "message" => String.t(),
+        "resourceName" => String.t()
+      }
+      
   """
   @type too_many_tags_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_metric_filters_response() :: %{
-    "metricFilters" => list(metric_filter()()),
-    "nextToken" => String.t()
-  }
+      
+      describe_metric_filters_response() :: %{
+        "metricFilters" => list(metric_filter()()),
+        "nextToken" => String.t()
+      }
+      
   """
   @type describe_metric_filters_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_query_definition_response() :: %{
-    "queryDefinitionId" => String.t()
-  }
+      
+      put_query_definition_response() :: %{
+        "queryDefinitionId" => String.t()
+      }
+      
   """
   @type put_query_definition_response() :: %{String.t() => any()}
+
+  @type associate_kms_key_errors() ::
+          invalid_parameter_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | operation_aborted_exception()
+
+  @type cancel_export_task_errors() ::
+          invalid_parameter_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | invalid_operation_exception()
+
+  @type create_delivery_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | service_unavailable_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_export_task_errors() ::
+          resource_already_exists_exception()
+          | limit_exceeded_exception()
+          | invalid_parameter_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | operation_aborted_exception()
+
+  @type create_log_anomaly_detector_errors() ::
+          limit_exceeded_exception()
+          | invalid_parameter_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | operation_aborted_exception()
+
+  @type create_log_group_errors() ::
+          resource_already_exists_exception()
+          | limit_exceeded_exception()
+          | invalid_parameter_exception()
+          | service_unavailable_exception()
+          | operation_aborted_exception()
+
+  @type create_log_stream_errors() ::
+          resource_already_exists_exception()
+          | invalid_parameter_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+
+  @type delete_account_policy_errors() ::
+          invalid_parameter_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | operation_aborted_exception()
+
+  @type delete_data_protection_policy_errors() ::
+          invalid_parameter_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | operation_aborted_exception()
+
+  @type delete_delivery_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | service_unavailable_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_delivery_destination_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | service_unavailable_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_delivery_destination_policy_errors() ::
+          validation_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_delivery_source_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | service_unavailable_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_destination_errors() ::
+          invalid_parameter_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | operation_aborted_exception()
+
+  @type delete_log_anomaly_detector_errors() ::
+          invalid_parameter_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | operation_aborted_exception()
+
+  @type delete_log_group_errors() ::
+          invalid_parameter_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | operation_aborted_exception()
+
+  @type delete_log_stream_errors() ::
+          invalid_parameter_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | operation_aborted_exception()
+
+  @type delete_metric_filter_errors() ::
+          invalid_parameter_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | operation_aborted_exception()
+
+  @type delete_query_definition_errors() ::
+          invalid_parameter_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+
+  @type delete_resource_policy_errors() ::
+          invalid_parameter_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+
+  @type delete_retention_policy_errors() ::
+          invalid_parameter_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | operation_aborted_exception()
+
+  @type delete_subscription_filter_errors() ::
+          invalid_parameter_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | operation_aborted_exception()
+
+  @type describe_account_policies_errors() ::
+          invalid_parameter_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | operation_aborted_exception()
+
+  @type describe_deliveries_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | service_unavailable_exception()
+          | service_quota_exceeded_exception()
+
+  @type describe_delivery_destinations_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | service_unavailable_exception()
+          | service_quota_exceeded_exception()
+
+  @type describe_delivery_sources_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | service_unavailable_exception()
+          | service_quota_exceeded_exception()
+
+  @type describe_destinations_errors() ::
+          invalid_parameter_exception() | service_unavailable_exception()
+
+  @type describe_export_tasks_errors() ::
+          invalid_parameter_exception() | service_unavailable_exception()
+
+  @type describe_log_groups_errors() ::
+          invalid_parameter_exception() | service_unavailable_exception()
+
+  @type describe_log_streams_errors() ::
+          invalid_parameter_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+
+  @type describe_metric_filters_errors() ::
+          invalid_parameter_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+
+  @type describe_queries_errors() ::
+          invalid_parameter_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+
+  @type describe_query_definitions_errors() ::
+          invalid_parameter_exception() | service_unavailable_exception()
+
+  @type describe_resource_policies_errors() ::
+          invalid_parameter_exception() | service_unavailable_exception()
+
+  @type describe_subscription_filters_errors() ::
+          invalid_parameter_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+
+  @type disassociate_kms_key_errors() ::
+          invalid_parameter_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | operation_aborted_exception()
+
+  @type filter_log_events_errors() ::
+          invalid_parameter_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+
+  @type get_data_protection_policy_errors() ::
+          invalid_parameter_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | operation_aborted_exception()
+
+  @type get_delivery_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | service_unavailable_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+
+  @type get_delivery_destination_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | service_unavailable_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+
+  @type get_delivery_destination_policy_errors() ::
+          validation_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+
+  @type get_delivery_source_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | service_unavailable_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+
+  @type get_log_anomaly_detector_errors() ::
+          invalid_parameter_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | operation_aborted_exception()
+
+  @type get_log_events_errors() ::
+          invalid_parameter_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+
+  @type get_log_group_fields_errors() ::
+          limit_exceeded_exception()
+          | invalid_parameter_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+
+  @type get_log_record_errors() ::
+          limit_exceeded_exception()
+          | invalid_parameter_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+
+  @type get_query_results_errors() ::
+          invalid_parameter_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+
+  @type list_anomalies_errors() ::
+          invalid_parameter_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | operation_aborted_exception()
+
+  @type list_log_anomaly_detectors_errors() ::
+          invalid_parameter_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | operation_aborted_exception()
+
+  @type list_tags_for_resource_errors() ::
+          invalid_parameter_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+
+  @type list_tags_log_group_errors() ::
+          service_unavailable_exception() | resource_not_found_exception()
+
+  @type put_account_policy_errors() ::
+          limit_exceeded_exception()
+          | invalid_parameter_exception()
+          | service_unavailable_exception()
+          | operation_aborted_exception()
+
+  @type put_data_protection_policy_errors() ::
+          limit_exceeded_exception()
+          | invalid_parameter_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | operation_aborted_exception()
+
+  @type put_delivery_destination_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | service_unavailable_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type put_delivery_destination_policy_errors() ::
+          validation_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type put_delivery_source_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | service_unavailable_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type put_destination_errors() ::
+          invalid_parameter_exception()
+          | service_unavailable_exception()
+          | operation_aborted_exception()
+
+  @type put_destination_policy_errors() ::
+          invalid_parameter_exception()
+          | service_unavailable_exception()
+          | operation_aborted_exception()
+
+  @type put_log_events_errors() ::
+          unrecognized_client_exception()
+          | invalid_parameter_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | data_already_accepted_exception()
+          | invalid_sequence_token_exception()
+
+  @type put_metric_filter_errors() ::
+          limit_exceeded_exception()
+          | invalid_parameter_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | operation_aborted_exception()
+
+  @type put_query_definition_errors() ::
+          limit_exceeded_exception()
+          | invalid_parameter_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+
+  @type put_resource_policy_errors() ::
+          limit_exceeded_exception()
+          | invalid_parameter_exception()
+          | service_unavailable_exception()
+
+  @type put_retention_policy_errors() ::
+          invalid_parameter_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | operation_aborted_exception()
+
+  @type put_subscription_filter_errors() ::
+          limit_exceeded_exception()
+          | invalid_parameter_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | operation_aborted_exception()
+
+  @type start_live_tail_errors() ::
+          limit_exceeded_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | invalid_operation_exception()
+
+  @type start_query_errors() ::
+          limit_exceeded_exception()
+          | invalid_parameter_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | malformed_query_exception()
+
+  @type stop_query_errors() ::
+          invalid_parameter_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+
+  @type tag_log_group_errors() :: invalid_parameter_exception() | resource_not_found_exception()
+
+  @type tag_resource_errors() ::
+          too_many_tags_exception()
+          | invalid_parameter_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+
+  @type test_metric_filter_errors() ::
+          invalid_parameter_exception() | service_unavailable_exception()
+
+  @type untag_log_group_errors() :: resource_not_found_exception()
+
+  @type untag_resource_errors() ::
+          invalid_parameter_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+
+  @type update_anomaly_errors() ::
+          invalid_parameter_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | operation_aborted_exception()
+
+  @type update_log_anomaly_detector_errors() ::
+          invalid_parameter_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | operation_aborted_exception()
 
   def metadata do
     %{
@@ -2033,10 +2809,7 @@ defmodule AWS.CloudWatchLogs do
   @spec associate_kms_key(map(), associate_kms_key_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, operation_aborted_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_unavailable_exception()}
+          | {:error, associate_kms_key_errors()}
   def associate_kms_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2051,10 +2824,7 @@ defmodule AWS.CloudWatchLogs do
   @spec cancel_export_task(map(), cancel_export_task_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_operation_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_unavailable_exception()}
+          | {:error, cancel_export_task_errors()}
   def cancel_export_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2116,13 +2886,7 @@ defmodule AWS.CloudWatchLogs do
   @spec create_delivery(map(), create_delivery_request(), list()) ::
           {:ok, create_delivery_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_delivery_errors()}
   def create_delivery(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2167,12 +2931,7 @@ defmodule AWS.CloudWatchLogs do
   @spec create_export_task(map(), create_export_task_request(), list()) ::
           {:ok, create_export_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, operation_aborted_exception()}
-          | {:error, resource_already_exists_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_unavailable_exception()}
+          | {:error, create_export_task_errors()}
   def create_export_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2223,11 +2982,7 @@ defmodule AWS.CloudWatchLogs do
   @spec create_log_anomaly_detector(map(), create_log_anomaly_detector_request(), list()) ::
           {:ok, create_log_anomaly_detector_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, operation_aborted_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_unavailable_exception()}
+          | {:error, create_log_anomaly_detector_errors()}
   def create_log_anomaly_detector(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2278,11 +3033,7 @@ defmodule AWS.CloudWatchLogs do
   @spec create_log_group(map(), create_log_group_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, operation_aborted_exception()}
-          | {:error, resource_already_exists_exception()}
-          | {:error, service_unavailable_exception()}
+          | {:error, create_log_group_errors()}
   def create_log_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2316,10 +3067,7 @@ defmodule AWS.CloudWatchLogs do
   @spec create_log_stream(map(), create_log_stream_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, resource_already_exists_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_unavailable_exception()}
+          | {:error, create_log_stream_errors()}
   def create_log_stream(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2350,10 +3098,7 @@ defmodule AWS.CloudWatchLogs do
   @spec delete_account_policy(map(), delete_account_policy_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, operation_aborted_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_unavailable_exception()}
+          | {:error, delete_account_policy_errors()}
   def delete_account_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2369,10 +3114,7 @@ defmodule AWS.CloudWatchLogs do
   @spec delete_data_protection_policy(map(), delete_data_protection_policy_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, operation_aborted_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_unavailable_exception()}
+          | {:error, delete_data_protection_policy_errors()}
   def delete_data_protection_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2390,12 +3132,7 @@ defmodule AWS.CloudWatchLogs do
   @spec delete_delivery(map(), delete_delivery_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_delivery_errors()}
   def delete_delivery(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2417,12 +3154,7 @@ defmodule AWS.CloudWatchLogs do
   @spec delete_delivery_destination(map(), delete_delivery_destination_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_delivery_destination_errors()}
   def delete_delivery_destination(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2443,10 +3175,7 @@ defmodule AWS.CloudWatchLogs do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_delivery_destination_policy_errors()}
   def delete_delivery_destination_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2468,12 +3197,7 @@ defmodule AWS.CloudWatchLogs do
   @spec delete_delivery_source(map(), delete_delivery_source_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_delivery_source_errors()}
   def delete_delivery_source(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2490,10 +3214,7 @@ defmodule AWS.CloudWatchLogs do
   @spec delete_destination(map(), delete_destination_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, operation_aborted_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_unavailable_exception()}
+          | {:error, delete_destination_errors()}
   def delete_destination(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2506,10 +3227,7 @@ defmodule AWS.CloudWatchLogs do
   @spec delete_log_anomaly_detector(map(), delete_log_anomaly_detector_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, operation_aborted_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_unavailable_exception()}
+          | {:error, delete_log_anomaly_detector_errors()}
   def delete_log_anomaly_detector(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2523,10 +3241,7 @@ defmodule AWS.CloudWatchLogs do
   @spec delete_log_group(map(), delete_log_group_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, operation_aborted_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_unavailable_exception()}
+          | {:error, delete_log_group_errors()}
   def delete_log_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2541,10 +3256,7 @@ defmodule AWS.CloudWatchLogs do
   @spec delete_log_stream(map(), delete_log_stream_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, operation_aborted_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_unavailable_exception()}
+          | {:error, delete_log_stream_errors()}
   def delete_log_stream(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2557,10 +3269,7 @@ defmodule AWS.CloudWatchLogs do
   @spec delete_metric_filter(map(), delete_metric_filter_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, operation_aborted_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_unavailable_exception()}
+          | {:error, delete_metric_filter_errors()}
   def delete_metric_filter(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2581,9 +3290,7 @@ defmodule AWS.CloudWatchLogs do
   @spec delete_query_definition(map(), delete_query_definition_request(), list()) ::
           {:ok, delete_query_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_unavailable_exception()}
+          | {:error, delete_query_definition_errors()}
   def delete_query_definition(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2599,9 +3306,7 @@ defmodule AWS.CloudWatchLogs do
   @spec delete_resource_policy(map(), delete_resource_policy_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_unavailable_exception()}
+          | {:error, delete_resource_policy_errors()}
   def delete_resource_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2617,10 +3322,7 @@ defmodule AWS.CloudWatchLogs do
   @spec delete_retention_policy(map(), delete_retention_policy_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, operation_aborted_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_unavailable_exception()}
+          | {:error, delete_retention_policy_errors()}
   def delete_retention_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2633,10 +3335,7 @@ defmodule AWS.CloudWatchLogs do
   @spec delete_subscription_filter(map(), delete_subscription_filter_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, operation_aborted_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_unavailable_exception()}
+          | {:error, delete_subscription_filter_errors()}
   def delete_subscription_filter(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2649,10 +3348,7 @@ defmodule AWS.CloudWatchLogs do
   @spec describe_account_policies(map(), describe_account_policies_request(), list()) ::
           {:ok, describe_account_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, operation_aborted_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_unavailable_exception()}
+          | {:error, describe_account_policies_errors()}
   def describe_account_policies(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2681,10 +3377,7 @@ defmodule AWS.CloudWatchLogs do
   @spec describe_deliveries(map(), describe_deliveries_request(), list()) ::
           {:ok, describe_deliveries_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, describe_deliveries_errors()}
   def describe_deliveries(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2698,10 +3391,7 @@ defmodule AWS.CloudWatchLogs do
   @spec describe_delivery_destinations(map(), describe_delivery_destinations_request(), list()) ::
           {:ok, describe_delivery_destinations_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, describe_delivery_destinations_errors()}
   def describe_delivery_destinations(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2714,10 +3404,7 @@ defmodule AWS.CloudWatchLogs do
   @spec describe_delivery_sources(map(), describe_delivery_sources_request(), list()) ::
           {:ok, describe_delivery_sources_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, describe_delivery_sources_errors()}
   def describe_delivery_sources(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2732,8 +3419,7 @@ defmodule AWS.CloudWatchLogs do
   @spec describe_destinations(map(), describe_destinations_request(), list()) ::
           {:ok, describe_destinations_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, service_unavailable_exception()}
+          | {:error, describe_destinations_errors()}
   def describe_destinations(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2749,8 +3435,7 @@ defmodule AWS.CloudWatchLogs do
   @spec describe_export_tasks(map(), describe_export_tasks_request(), list()) ::
           {:ok, describe_export_tasks_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, service_unavailable_exception()}
+          | {:error, describe_export_tasks_errors()}
   def describe_export_tasks(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2791,8 +3476,7 @@ defmodule AWS.CloudWatchLogs do
   @spec describe_log_groups(map(), describe_log_groups_request(), list()) ::
           {:ok, describe_log_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, service_unavailable_exception()}
+          | {:error, describe_log_groups_errors()}
   def describe_log_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2820,9 +3504,7 @@ defmodule AWS.CloudWatchLogs do
   @spec describe_log_streams(map(), describe_log_streams_request(), list()) ::
           {:ok, describe_log_streams_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_unavailable_exception()}
+          | {:error, describe_log_streams_errors()}
   def describe_log_streams(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2840,9 +3522,7 @@ defmodule AWS.CloudWatchLogs do
   @spec describe_metric_filters(map(), describe_metric_filters_request(), list()) ::
           {:ok, describe_metric_filters_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_unavailable_exception()}
+          | {:error, describe_metric_filters_errors()}
   def describe_metric_filters(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2860,9 +3540,7 @@ defmodule AWS.CloudWatchLogs do
   @spec describe_queries(map(), describe_queries_request(), list()) ::
           {:ok, describe_queries_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_unavailable_exception()}
+          | {:error, describe_queries_errors()}
   def describe_queries(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2884,8 +3562,7 @@ defmodule AWS.CloudWatchLogs do
   @spec describe_query_definitions(map(), describe_query_definitions_request(), list()) ::
           {:ok, describe_query_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, service_unavailable_exception()}
+          | {:error, describe_query_definitions_errors()}
   def describe_query_definitions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2898,8 +3575,7 @@ defmodule AWS.CloudWatchLogs do
   @spec describe_resource_policies(map(), describe_resource_policies_request(), list()) ::
           {:ok, describe_resource_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, service_unavailable_exception()}
+          | {:error, describe_resource_policies_errors()}
   def describe_resource_policies(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2915,9 +3591,7 @@ defmodule AWS.CloudWatchLogs do
   @spec describe_subscription_filters(map(), describe_subscription_filters_request(), list()) ::
           {:ok, describe_subscription_filters_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_unavailable_exception()}
+          | {:error, describe_subscription_filters_errors()}
   def describe_subscription_filters(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2962,10 +3636,7 @@ defmodule AWS.CloudWatchLogs do
   @spec disassociate_kms_key(map(), disassociate_kms_key_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, operation_aborted_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_unavailable_exception()}
+          | {:error, disassociate_kms_key_errors()}
   def disassociate_kms_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3006,9 +3677,7 @@ defmodule AWS.CloudWatchLogs do
   @spec filter_log_events(map(), filter_log_events_request(), list()) ::
           {:ok, filter_log_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_unavailable_exception()}
+          | {:error, filter_log_events_errors()}
   def filter_log_events(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3021,10 +3690,7 @@ defmodule AWS.CloudWatchLogs do
   @spec get_data_protection_policy(map(), get_data_protection_policy_request(), list()) ::
           {:ok, get_data_protection_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, operation_aborted_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_unavailable_exception()}
+          | {:error, get_data_protection_policy_errors()}
   def get_data_protection_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3058,11 +3724,7 @@ defmodule AWS.CloudWatchLogs do
   @spec get_delivery(map(), get_delivery_request(), list()) ::
           {:ok, get_delivery_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_delivery_errors()}
   def get_delivery(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3075,11 +3737,7 @@ defmodule AWS.CloudWatchLogs do
   @spec get_delivery_destination(map(), get_delivery_destination_request(), list()) ::
           {:ok, get_delivery_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_delivery_destination_errors()}
   def get_delivery_destination(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3096,9 +3754,7 @@ defmodule AWS.CloudWatchLogs do
   @spec get_delivery_destination_policy(map(), get_delivery_destination_policy_request(), list()) ::
           {:ok, get_delivery_destination_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_delivery_destination_policy_errors()}
   def get_delivery_destination_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3111,11 +3767,7 @@ defmodule AWS.CloudWatchLogs do
   @spec get_delivery_source(map(), get_delivery_source_request(), list()) ::
           {:ok, get_delivery_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_delivery_source_errors()}
   def get_delivery_source(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3128,10 +3780,7 @@ defmodule AWS.CloudWatchLogs do
   @spec get_log_anomaly_detector(map(), get_log_anomaly_detector_request(), list()) ::
           {:ok, get_log_anomaly_detector_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, operation_aborted_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_unavailable_exception()}
+          | {:error, get_log_anomaly_detector_errors()}
   def get_log_anomaly_detector(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3163,9 +3812,7 @@ defmodule AWS.CloudWatchLogs do
   @spec get_log_events(map(), get_log_events_request(), list()) ::
           {:ok, get_log_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_unavailable_exception()}
+          | {:error, get_log_events_errors()}
   def get_log_events(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3201,10 +3848,7 @@ defmodule AWS.CloudWatchLogs do
   @spec get_log_group_fields(map(), get_log_group_fields_request(), list()) ::
           {:ok, get_log_group_fields_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_unavailable_exception()}
+          | {:error, get_log_group_fields_errors()}
   def get_log_group_fields(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3223,10 +3867,7 @@ defmodule AWS.CloudWatchLogs do
   @spec get_log_record(map(), get_log_record_request(), list()) ::
           {:ok, get_log_record_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_unavailable_exception()}
+          | {:error, get_log_record_errors()}
   def get_log_record(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3260,9 +3901,7 @@ defmodule AWS.CloudWatchLogs do
   @spec get_query_results(map(), get_query_results_request(), list()) ::
           {:ok, get_query_results_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_unavailable_exception()}
+          | {:error, get_query_results_errors()}
   def get_query_results(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3278,10 +3917,7 @@ defmodule AWS.CloudWatchLogs do
   @spec list_anomalies(map(), list_anomalies_request(), list()) ::
           {:ok, list_anomalies_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, operation_aborted_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_unavailable_exception()}
+          | {:error, list_anomalies_errors()}
   def list_anomalies(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3294,10 +3930,7 @@ defmodule AWS.CloudWatchLogs do
   @spec list_log_anomaly_detectors(map(), list_log_anomaly_detectors_request(), list()) ::
           {:ok, list_log_anomaly_detectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, operation_aborted_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_unavailable_exception()}
+          | {:error, list_log_anomaly_detectors_errors()}
   def list_log_anomaly_detectors(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3313,9 +3946,7 @@ defmodule AWS.CloudWatchLogs do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_unavailable_exception()}
+          | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3335,8 +3966,7 @@ defmodule AWS.CloudWatchLogs do
   @spec list_tags_log_group(map(), list_tags_log_group_request(), list()) ::
           {:ok, list_tags_log_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_unavailable_exception()}
+          | {:error, list_tags_log_group_errors()}
   def list_tags_log_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3439,10 +4069,7 @@ defmodule AWS.CloudWatchLogs do
   @spec put_account_policy(map(), put_account_policy_request(), list()) ::
           {:ok, put_account_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, operation_aborted_exception()}
-          | {:error, service_unavailable_exception()}
+          | {:error, put_account_policy_errors()}
   def put_account_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3492,11 +4119,7 @@ defmodule AWS.CloudWatchLogs do
   @spec put_data_protection_policy(map(), put_data_protection_policy_request(), list()) ::
           {:ok, put_data_protection_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, operation_aborted_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_unavailable_exception()}
+          | {:error, put_data_protection_policy_errors()}
   def put_data_protection_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3557,12 +4180,7 @@ defmodule AWS.CloudWatchLogs do
   @spec put_delivery_destination(map(), put_delivery_destination_request(), list()) ::
           {:ok, put_delivery_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, put_delivery_destination_errors()}
   def put_delivery_destination(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3616,10 +4234,7 @@ defmodule AWS.CloudWatchLogs do
   @spec put_delivery_destination_policy(map(), put_delivery_destination_policy_request(), list()) ::
           {:ok, put_delivery_destination_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, validation_exception()}
+          | {:error, put_delivery_destination_policy_errors()}
   def put_delivery_destination_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3681,12 +4296,7 @@ defmodule AWS.CloudWatchLogs do
   @spec put_delivery_source(map(), put_delivery_source_request(), list()) ::
           {:ok, put_delivery_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, put_delivery_source_errors()}
   def put_delivery_source(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3720,9 +4330,7 @@ defmodule AWS.CloudWatchLogs do
   @spec put_destination(map(), put_destination_request(), list()) ::
           {:ok, put_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, operation_aborted_exception()}
-          | {:error, service_unavailable_exception()}
+          | {:error, put_destination_errors()}
   def put_destination(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3741,9 +4349,7 @@ defmodule AWS.CloudWatchLogs do
   @spec put_destination_policy(map(), put_destination_policy_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, operation_aborted_exception()}
-          | {:error, service_unavailable_exception()}
+          | {:error, put_destination_policy_errors()}
   def put_destination_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3808,12 +4414,7 @@ defmodule AWS.CloudWatchLogs do
   @spec put_log_events(map(), put_log_events_request(), list()) ::
           {:ok, put_log_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, data_already_accepted_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, invalid_sequence_token_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, unrecognized_client_exception()}
+          | {:error, put_log_events_errors()}
   def put_log_events(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3856,11 +4457,7 @@ defmodule AWS.CloudWatchLogs do
   @spec put_metric_filter(map(), put_metric_filter_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, operation_aborted_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_unavailable_exception()}
+          | {:error, put_metric_filter_errors()}
   def put_metric_filter(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3890,10 +4487,7 @@ defmodule AWS.CloudWatchLogs do
   @spec put_query_definition(map(), put_query_definition_request(), list()) ::
           {:ok, put_query_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_unavailable_exception()}
+          | {:error, put_query_definition_errors()}
   def put_query_definition(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3911,9 +4505,7 @@ defmodule AWS.CloudWatchLogs do
   @spec put_resource_policy(map(), put_resource_policy_request(), list()) ::
           {:ok, put_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, service_unavailable_exception()}
+          | {:error, put_resource_policy_errors()}
   def put_resource_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3959,10 +4551,7 @@ defmodule AWS.CloudWatchLogs do
   @spec put_retention_policy(map(), put_retention_policy_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, operation_aborted_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_unavailable_exception()}
+          | {:error, put_retention_policy_errors()}
   def put_retention_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4014,11 +4603,7 @@ defmodule AWS.CloudWatchLogs do
   @spec put_subscription_filter(map(), put_subscription_filter_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, operation_aborted_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_unavailable_exception()}
+          | {:error, put_subscription_filter_errors()}
   def put_subscription_filter(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4085,11 +4670,7 @@ defmodule AWS.CloudWatchLogs do
   @spec start_live_tail(map(), start_live_tail_request(), list()) ::
           {:ok, start_live_tail_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, invalid_operation_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, start_live_tail_errors()}
   def start_live_tail(%Client{} = client, input, options \\ []) do
     meta = metadata() |> Map.put_new(:host_prefix, "streaming-")
 
@@ -4138,11 +4719,7 @@ defmodule AWS.CloudWatchLogs do
   @spec start_query(map(), start_query_request(), list()) ::
           {:ok, start_query_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, malformed_query_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_unavailable_exception()}
+          | {:error, start_query_errors()}
   def start_query(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4158,9 +4735,7 @@ defmodule AWS.CloudWatchLogs do
   @spec stop_query(map(), stop_query_request(), list()) ::
           {:ok, stop_query_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_unavailable_exception()}
+          | {:error, stop_query_errors()}
   def stop_query(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4199,8 +4774,7 @@ defmodule AWS.CloudWatchLogs do
   @spec tag_log_group(map(), tag_log_group_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, tag_log_group_errors()}
   def tag_log_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4234,10 +4808,7 @@ defmodule AWS.CloudWatchLogs do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, too_many_tags_exception()}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4254,8 +4825,7 @@ defmodule AWS.CloudWatchLogs do
   @spec test_metric_filter(map(), test_metric_filter_request(), list()) ::
           {:ok, test_metric_filter_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, service_unavailable_exception()}
+          | {:error, test_metric_filter_errors()}
   def test_metric_filter(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4290,7 +4860,7 @@ defmodule AWS.CloudWatchLogs do
   @spec untag_log_group(map(), untag_log_group_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found_exception()}
+          | {:error, untag_log_group_errors()}
   def untag_log_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4303,9 +4873,7 @@ defmodule AWS.CloudWatchLogs do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_unavailable_exception()}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4337,10 +4905,7 @@ defmodule AWS.CloudWatchLogs do
   @spec update_anomaly(map(), update_anomaly_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, operation_aborted_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_unavailable_exception()}
+          | {:error, update_anomaly_errors()}
   def update_anomaly(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4353,10 +4918,7 @@ defmodule AWS.CloudWatchLogs do
   @spec update_log_anomaly_detector(map(), update_log_anomaly_detector_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, operation_aborted_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_unavailable_exception()}
+          | {:error, update_log_anomaly_detector_errors()}
   def update_log_anomaly_detector(%Client{} = client, input, options \\ []) do
     meta = metadata()
 

@@ -92,1569 +92,2436 @@ defmodule AWS.Organizations do
   @typedoc """
 
   ## Example:
-  organization() :: %{
-    "Arn" => String.t(),
-    "AvailablePolicyTypes" => list(policy_type_summary()()),
-    "FeatureSet" => list(any()),
-    "Id" => String.t(),
-    "MasterAccountArn" => String.t(),
-    "MasterAccountEmail" => String.t(),
-    "MasterAccountId" => String.t()
-  }
+      
+      organization() :: %{
+        "Arn" => String.t(),
+        "AvailablePolicyTypes" => list(policy_type_summary()()),
+        "FeatureSet" => list(any()),
+        "Id" => String.t(),
+        "MasterAccountArn" => String.t(),
+        "MasterAccountEmail" => String.t(),
+        "MasterAccountId" => String.t()
+      }
+      
   """
   @type organization() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  policy_target_summary() :: %{
-    "Arn" => String.t(),
-    "Name" => String.t(),
-    "TargetId" => String.t(),
-    "Type" => list(any())
-  }
+      
+      policy_target_summary() :: %{
+        "Arn" => String.t(),
+        "Name" => String.t(),
+        "TargetId" => String.t(),
+        "Type" => list(any())
+      }
+      
   """
   @type policy_target_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  handshake_constraint_violation_exception() :: %{
-    "Message" => String.t(),
-    "Reason" => list(any())
-  }
+      
+      handshake_constraint_violation_exception() :: %{
+        "Message" => String.t(),
+        "Reason" => list(any())
+      }
+      
   """
   @type handshake_constraint_violation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_gov_cloud_account_response() :: %{
-    "CreateAccountStatus" => create_account_status()
-  }
+      
+      create_gov_cloud_account_response() :: %{
+        "CreateAccountStatus" => create_account_status()
+      }
+      
   """
   @type create_gov_cloud_account_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  remove_account_from_organization_request() :: %{
-    required("AccountId") => String.t()
-  }
+      
+      remove_account_from_organization_request() :: %{
+        required("AccountId") => String.t()
+      }
+      
   """
   @type remove_account_from_organization_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  organizational_unit_not_found_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      organizational_unit_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type organizational_unit_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_aws_service_access_for_organization_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+      
+      list_aws_service_access_for_organization_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type list_aws_service_access_for_organization_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_request() :: %{
-    required("ResourceId") => String.t(),
-    required("Tags") => list(tag()())
-  }
+      
+      tag_resource_request() :: %{
+        required("ResourceId") => String.t(),
+        required("Tags") => list(tag()())
+      }
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_create_account_status_response() :: %{
-    "CreateAccountStatuses" => list(create_account_status()()),
-    "NextToken" => String.t()
-  }
+      
+      list_create_account_status_response() :: %{
+        "CreateAccountStatuses" => list(create_account_status()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_create_account_status_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  duplicate_account_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      duplicate_account_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type duplicate_account_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  move_account_request() :: %{
-    required("AccountId") => String.t(),
-    required("DestinationParentId") => String.t(),
-    required("SourceParentId") => String.t()
-  }
+      
+      move_account_request() :: %{
+        required("AccountId") => String.t(),
+        required("DestinationParentId") => String.t(),
+        required("SourceParentId") => String.t()
+      }
+      
   """
   @type move_account_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  duplicate_handshake_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      duplicate_handshake_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type duplicate_handshake_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_account_request() :: %{
-    required("AccountId") => String.t()
-  }
+      
+      describe_account_request() :: %{
+        required("AccountId") => String.t()
+      }
+      
   """
   @type describe_account_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  finalizing_organization_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      finalizing_organization_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type finalizing_organization_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_organizational_unit_request() :: %{
-    optional("Name") => String.t(),
-    required("OrganizationalUnitId") => String.t()
-  }
+      
+      update_organizational_unit_request() :: %{
+        optional("Name") => String.t(),
+        required("OrganizationalUnitId") => String.t()
+      }
+      
   """
   @type update_organizational_unit_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  enabled_service_principal() :: %{
-    "DateEnabled" => non_neg_integer(),
-    "ServicePrincipal" => String.t()
-  }
+      
+      enabled_service_principal() :: %{
+        "DateEnabled" => non_neg_integer(),
+        "ServicePrincipal" => String.t()
+      }
+      
   """
   @type enabled_service_principal() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_policies_response() :: %{
-    "NextToken" => String.t(),
-    "Policies" => list(policy_summary()())
-  }
+      
+      list_policies_response() :: %{
+        "NextToken" => String.t(),
+        "Policies" => list(policy_summary()())
+      }
+      
   """
   @type list_policies_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  decline_handshake_request() :: %{
-    required("HandshakeId") => String.t()
-  }
+      
+      decline_handshake_request() :: %{
+        required("HandshakeId") => String.t()
+      }
+      
   """
   @type decline_handshake_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_roots_response() :: %{
-    "NextToken" => String.t(),
-    "Roots" => list(root()())
-  }
+      
+      list_roots_response() :: %{
+        "NextToken" => String.t(),
+        "Roots" => list(root()())
+      }
+      
   """
   @type list_roots_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  root() :: %{
-    "Arn" => String.t(),
-    "Id" => String.t(),
-    "Name" => String.t(),
-    "PolicyTypes" => list(policy_type_summary()())
-  }
+      
+      root() :: %{
+        "Arn" => String.t(),
+        "Id" => String.t(),
+        "Name" => String.t(),
+        "PolicyTypes" => list(policy_type_summary()())
+      }
+      
   """
   @type root() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  aws_organizations_not_in_use_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      aws_organizations_not_in_use_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type aws_organizations_not_in_use_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_policies_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("Filter") => list(any())
-  }
+      
+      list_policies_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("Filter") => list(any())
+      }
+      
   """
   @type list_policies_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_policies_for_target_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("Filter") => list(any()),
-    required("TargetId") => String.t()
-  }
+      
+      list_policies_for_target_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("Filter") => list(any()),
+        required("TargetId") => String.t()
+      }
+      
   """
   @type list_policies_for_target_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_accounts_for_parent_response() :: %{
-    "Accounts" => list(account()()),
-    "NextToken" => String.t()
-  }
+      
+      list_accounts_for_parent_response() :: %{
+        "Accounts" => list(account()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_accounts_for_parent_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_organizational_units_for_parent_response() :: %{
-    "NextToken" => String.t(),
-    "OrganizationalUnits" => list(organizational_unit()())
-  }
+      
+      list_organizational_units_for_parent_response() :: %{
+        "NextToken" => String.t(),
+        "OrganizationalUnits" => list(organizational_unit()())
+      }
+      
   """
   @type list_organizational_units_for_parent_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  duplicate_organizational_unit_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      duplicate_organizational_unit_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type duplicate_organizational_unit_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_policy_request() :: %{
-    optional("Tags") => list(tag()()),
-    required("Content") => String.t(),
-    required("Description") => String.t(),
-    required("Name") => String.t(),
-    required("Type") => list(any())
-  }
+      
+      create_policy_request() :: %{
+        optional("Tags") => list(tag()()),
+        required("Content") => String.t(),
+        required("Description") => String.t(),
+        required("Name") => String.t(),
+        required("Type") => list(any())
+      }
+      
   """
   @type create_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_create_account_status_request() :: %{
-    required("CreateAccountRequestId") => String.t()
-  }
+      
+      describe_create_account_status_request() :: %{
+        required("CreateAccountRequestId") => String.t()
+      }
+      
   """
   @type describe_create_account_status_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_account_status_not_found_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      create_account_status_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type create_account_status_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cancel_handshake_request() :: %{
-    required("HandshakeId") => String.t()
-  }
+      
+      cancel_handshake_request() :: %{
+        required("HandshakeId") => String.t()
+      }
+      
   """
   @type cancel_handshake_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_parents_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("ChildId") => String.t()
-  }
+      
+      list_parents_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("ChildId") => String.t()
+      }
+      
   """
   @type list_parents_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  handshake_party() :: %{
-    "Id" => String.t(),
-    "Type" => list(any())
-  }
+      
+      handshake_party() :: %{
+        "Id" => String.t(),
+        "Type" => list(any())
+      }
+      
   """
   @type handshake_party() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  policy_type_not_available_for_organization_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      policy_type_not_available_for_organization_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type policy_type_not_available_for_organization_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  detach_policy_request() :: %{
-    required("PolicyId") => String.t(),
-    required("TargetId") => String.t()
-  }
+      
+      detach_policy_request() :: %{
+        required("PolicyId") => String.t(),
+        required("TargetId") => String.t()
+      }
+      
   """
   @type detach_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_policy_response() :: %{
-    "Policy" => policy()
-  }
+      
+      update_policy_response() :: %{
+        "Policy" => policy()
+      }
+      
   """
   @type update_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_request() :: %{
-    required("ResourceId") => String.t(),
-    required("TagKeys") => list(String.t()())
-  }
+      
+      untag_resource_request() :: %{
+        required("ResourceId") => String.t(),
+        required("TagKeys") => list(String.t()())
+      }
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_roots_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+      
+      list_roots_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type list_roots_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_requests_exception() :: %{
-    "Message" => String.t(),
-    "Type" => String.t()
-  }
+      
+      too_many_requests_exception() :: %{
+        "Message" => String.t(),
+        "Type" => String.t()
+      }
+      
   """
   @type too_many_requests_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  register_delegated_administrator_request() :: %{
-    required("AccountId") => String.t(),
-    required("ServicePrincipal") => String.t()
-  }
+      
+      register_delegated_administrator_request() :: %{
+        required("AccountId") => String.t(),
+        required("ServicePrincipal") => String.t()
+      }
+      
   """
   @type register_delegated_administrator_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_organizational_unit_request() :: %{
-    optional("Tags") => list(tag()()),
-    required("Name") => String.t(),
-    required("ParentId") => String.t()
-  }
+      
+      create_organizational_unit_request() :: %{
+        optional("Tags") => list(tag()()),
+        required("Name") => String.t(),
+        required("ParentId") => String.t()
+      }
+      
   """
   @type create_organizational_unit_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_account_response() :: %{
-    "Account" => account()
-  }
+      
+      describe_account_response() :: %{
+        "Account" => account()
+      }
+      
   """
   @type describe_account_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  handshake_not_found_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      handshake_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type handshake_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  accept_handshake_request() :: %{
-    required("HandshakeId") => String.t()
-  }
+      
+      accept_handshake_request() :: %{
+        required("HandshakeId") => String.t()
+      }
+      
   """
   @type accept_handshake_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_organizational_units_for_parent_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("ParentId") => String.t()
-  }
+      
+      list_organizational_units_for_parent_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("ParentId") => String.t()
+      }
+      
   """
   @type list_organizational_units_for_parent_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  duplicate_policy_attachment_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      duplicate_policy_attachment_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type duplicate_policy_attachment_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  enable_policy_type_request() :: %{
-    required("PolicyType") => list(any()),
-    required("RootId") => String.t()
-  }
+      
+      enable_policy_type_request() :: %{
+        required("PolicyType") => list(any()),
+        required("RootId") => String.t()
+      }
+      
   """
   @type enable_policy_type_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cancel_handshake_response() :: %{
-    "Handshake" => handshake()
-  }
+      
+      cancel_handshake_response() :: %{
+        "Handshake" => handshake()
+      }
+      
   """
   @type cancel_handshake_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_create_account_status_response() :: %{
-    "CreateAccountStatus" => create_account_status()
-  }
+      
+      describe_create_account_status_response() :: %{
+        "CreateAccountStatus" => create_account_status()
+      }
+      
   """
   @type describe_create_account_status_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_organizational_unit_response() :: %{
-    "OrganizationalUnit" => organizational_unit()
-  }
+      
+      create_organizational_unit_response() :: %{
+        "OrganizationalUnit" => organizational_unit()
+      }
+      
   """
   @type create_organizational_unit_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  decline_handshake_response() :: %{
-    "Handshake" => handshake()
-  }
+      
+      decline_handshake_response() :: %{
+        "Handshake" => handshake()
+      }
+      
   """
   @type decline_handshake_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  policy_not_found_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      policy_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type policy_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_handshakes_for_organization_request() :: %{
-    optional("Filter") => handshake_filter(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+      
+      list_handshakes_for_organization_request() :: %{
+        optional("Filter") => handshake_filter(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type list_handshakes_for_organization_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  organization_not_empty_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      organization_not_empty_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type organization_not_empty_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_targets_for_policy_response() :: %{
-    "NextToken" => String.t(),
-    "Targets" => list(policy_target_summary()())
-  }
+      
+      list_targets_for_policy_response() :: %{
+        "NextToken" => String.t(),
+        "Targets" => list(policy_target_summary()())
+      }
+      
   """
   @type list_targets_for_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  conflict_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      conflict_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_effective_policy_request() :: %{
-    optional("TargetId") => String.t(),
-    required("PolicyType") => list(any())
-  }
+      
+      describe_effective_policy_request() :: %{
+        optional("TargetId") => String.t(),
+        required("PolicyType") => list(any())
+      }
+      
   """
   @type describe_effective_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  child_not_found_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      child_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type child_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_accounts_response() :: %{
-    "Accounts" => list(account()()),
-    "NextToken" => String.t()
-  }
+      
+      list_accounts_response() :: %{
+        "Accounts" => list(account()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_accounts_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  enable_all_features_response() :: %{
-    "Handshake" => handshake()
-  }
+      
+      enable_all_features_response() :: %{
+        "Handshake" => handshake()
+      }
+      
   """
   @type enable_all_features_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag() :: %{
-    "Key" => String.t(),
-    "Value" => String.t()
-  }
+      
+      tag() :: %{
+        "Key" => String.t(),
+        "Value" => String.t()
+      }
+      
   """
   @type tag() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  child() :: %{
-    "Id" => String.t(),
-    "Type" => list(any())
-  }
+      
+      child() :: %{
+        "Id" => String.t(),
+        "Type" => list(any())
+      }
+      
   """
   @type child() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_delegated_administrators_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("ServicePrincipal") => String.t()
-  }
+      
+      list_delegated_administrators_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("ServicePrincipal") => String.t()
+      }
+      
   """
   @type list_delegated_administrators_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disable_policy_type_response() :: %{
-    "Root" => root()
-  }
+      
+      disable_policy_type_response() :: %{
+        "Root" => root()
+      }
+      
   """
   @type disable_policy_type_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  handshake_already_in_state_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      handshake_already_in_state_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type handshake_already_in_state_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  duplicate_policy_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      duplicate_policy_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type duplicate_policy_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  effective_policy() :: %{
-    "LastUpdatedTimestamp" => non_neg_integer(),
-    "PolicyContent" => String.t(),
-    "PolicyType" => list(any()),
-    "TargetId" => String.t()
-  }
+      
+      effective_policy() :: %{
+        "LastUpdatedTimestamp" => non_neg_integer(),
+        "PolicyContent" => String.t(),
+        "PolicyType" => list(any()),
+        "TargetId" => String.t()
+      }
+      
   """
   @type effective_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  attach_policy_request() :: %{
-    required("PolicyId") => String.t(),
-    required("TargetId") => String.t()
-  }
+      
+      attach_policy_request() :: %{
+        required("PolicyId") => String.t(),
+        required("TargetId") => String.t()
+      }
+      
   """
   @type attach_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  account_already_closed_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      account_already_closed_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type account_already_closed_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  account_not_registered_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      account_not_registered_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type account_not_registered_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_account_status() :: %{
-    "AccountId" => String.t(),
-    "AccountName" => String.t(),
-    "CompletedTimestamp" => non_neg_integer(),
-    "FailureReason" => list(any()),
-    "GovCloudAccountId" => String.t(),
-    "Id" => String.t(),
-    "RequestedTimestamp" => non_neg_integer(),
-    "State" => list(any())
-  }
+      
+      create_account_status() :: %{
+        "AccountId" => String.t(),
+        "AccountName" => String.t(),
+        "CompletedTimestamp" => non_neg_integer(),
+        "FailureReason" => list(any()),
+        "GovCloudAccountId" => String.t(),
+        "Id" => String.t(),
+        "RequestedTimestamp" => non_neg_integer(),
+        "State" => list(any())
+      }
+      
   """
   @type create_account_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  account() :: %{
-    "Arn" => String.t(),
-    "Email" => String.t(),
-    "Id" => String.t(),
-    "JoinedMethod" => list(any()),
-    "JoinedTimestamp" => non_neg_integer(),
-    "Name" => String.t(),
-    "Status" => list(any())
-  }
+      
+      account() :: %{
+        "Arn" => String.t(),
+        "Email" => String.t(),
+        "Id" => String.t(),
+        "JoinedMethod" => list(any()),
+        "JoinedTimestamp" => non_neg_integer(),
+        "Name" => String.t(),
+        "Status" => list(any())
+      }
+      
   """
   @type account() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_organizational_unit_response() :: %{
-    "OrganizationalUnit" => organizational_unit()
-  }
+      
+      update_organizational_unit_response() :: %{
+        "OrganizationalUnit" => organizational_unit()
+      }
+      
   """
   @type update_organizational_unit_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_handshakes_for_organization_response() :: %{
-    "Handshakes" => list(handshake()()),
-    "NextToken" => String.t()
-  }
+      
+      list_handshakes_for_organization_response() :: %{
+        "Handshakes" => list(handshake()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_handshakes_for_organization_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delegated_service() :: %{
-    "DelegationEnabledDate" => non_neg_integer(),
-    "ServicePrincipal" => String.t()
-  }
+      
+      delegated_service() :: %{
+        "DelegationEnabledDate" => non_neg_integer(),
+        "ServicePrincipal" => String.t()
+      }
+      
   """
   @type delegated_service() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  service_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      service_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type service_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_policy_request() :: %{
-    required("PolicyId") => String.t()
-  }
+      
+      describe_policy_request() :: %{
+        required("PolicyId") => String.t()
+      }
+      
   """
   @type describe_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invite_account_to_organization_request() :: %{
-    optional("Notes") => String.t(),
-    optional("Tags") => list(tag()()),
-    required("Target") => handshake_party()
-  }
+      
+      invite_account_to_organization_request() :: %{
+        optional("Notes") => String.t(),
+        optional("Tags") => list(tag()()),
+        required("Target") => handshake_party()
+      }
+      
   """
   @type invite_account_to_organization_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_input_exception() :: %{
-    "Message" => String.t(),
-    "Reason" => list(any())
-  }
+      
+      invalid_input_exception() :: %{
+        "Message" => String.t(),
+        "Reason" => list(any())
+      }
+      
   """
   @type invalid_input_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_response() :: %{
-    "NextToken" => String.t(),
-    "Tags" => list(tag()())
-  }
+      
+      list_tags_for_resource_response() :: %{
+        "NextToken" => String.t(),
+        "Tags" => list(tag()())
+      }
+      
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_policy_request() :: %{
-    optional("Content") => String.t(),
-    optional("Description") => String.t(),
-    optional("Name") => String.t(),
-    required("PolicyId") => String.t()
-  }
+      
+      update_policy_request() :: %{
+        optional("Content") => String.t(),
+        optional("Description") => String.t(),
+        optional("Name") => String.t(),
+        required("PolicyId") => String.t()
+      }
+      
   """
   @type update_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_effective_policy_response() :: %{
-    "EffectivePolicy" => effective_policy()
-  }
+      
+      describe_effective_policy_response() :: %{
+        "EffectivePolicy" => effective_policy()
+      }
+      
   """
   @type describe_effective_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  account_not_found_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      account_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type account_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  parent_not_found_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      parent_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type parent_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  root_not_found_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      root_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type root_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  effective_policy_not_found_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      effective_policy_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type effective_policy_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_policy_response() :: %{
-    "Policy" => policy()
-  }
+      
+      create_policy_response() :: %{
+        "Policy" => policy()
+      }
+      
   """
   @type create_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_organizational_unit_response() :: %{
-    "OrganizationalUnit" => organizational_unit()
-  }
+      
+      describe_organizational_unit_response() :: %{
+        "OrganizationalUnit" => organizational_unit()
+      }
+      
   """
   @type describe_organizational_unit_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_organization_response() :: %{
-    "Organization" => organization()
-  }
+      
+      describe_organization_response() :: %{
+        "Organization" => organization()
+      }
+      
   """
   @type describe_organization_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  unsupported_api_endpoint_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      unsupported_api_endpoint_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type unsupported_api_endpoint_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  master_cannot_leave_organization_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      master_cannot_leave_organization_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type master_cannot_leave_organization_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  handshake_filter() :: %{
-    "ActionType" => list(any()),
-    "ParentHandshakeId" => String.t()
-  }
+      
+      handshake_filter() :: %{
+        "ActionType" => list(any()),
+        "ParentHandshakeId" => String.t()
+      }
+      
   """
   @type handshake_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_account_request() :: %{
-    optional("IamUserAccessToBilling") => list(any()),
-    optional("RoleName") => String.t(),
-    optional("Tags") => list(tag()()),
-    required("AccountName") => String.t(),
-    required("Email") => String.t()
-  }
+      
+      create_account_request() :: %{
+        optional("IamUserAccessToBilling") => list(any()),
+        optional("RoleName") => String.t(),
+        optional("Tags") => list(tag()()),
+        required("AccountName") => String.t(),
+        required("Email") => String.t()
+      }
+      
   """
   @type create_account_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  organizational_unit_not_empty_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      organizational_unit_not_empty_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type organizational_unit_not_empty_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_policy() :: %{
-    "Content" => String.t(),
-    "ResourcePolicySummary" => resource_policy_summary()
-  }
+      
+      resource_policy() :: %{
+        "Content" => String.t(),
+        "ResourcePolicySummary" => resource_policy_summary()
+      }
+      
   """
   @type resource_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_policy_request() :: %{
-    required("PolicyId") => String.t()
-  }
+      
+      delete_policy_request() :: %{
+        required("PolicyId") => String.t()
+      }
+      
   """
   @type delete_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_aws_service_access_for_organization_response() :: %{
-    "EnabledServicePrincipals" => list(enabled_service_principal()()),
-    "NextToken" => String.t()
-  }
+      
+      list_aws_service_access_for_organization_response() :: %{
+        "EnabledServicePrincipals" => list(enabled_service_principal()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_aws_service_access_for_organization_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disable_policy_type_request() :: %{
-    required("PolicyType") => list(any()),
-    required("RootId") => String.t()
-  }
+      
+      disable_policy_type_request() :: %{
+        required("PolicyType") => list(any()),
+        required("RootId") => String.t()
+      }
+      
   """
   @type disable_policy_type_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  handshake() :: %{
-    "Action" => list(any()),
-    "Arn" => String.t(),
-    "ExpirationTimestamp" => non_neg_integer(),
-    "Id" => String.t(),
-    "Parties" => list(handshake_party()()),
-    "RequestedTimestamp" => non_neg_integer(),
-    "Resources" => list(handshake_resource()()),
-    "State" => list(any())
-  }
+      
+      handshake() :: %{
+        "Action" => list(any()),
+        "Arn" => String.t(),
+        "ExpirationTimestamp" => non_neg_integer(),
+        "Id" => String.t(),
+        "Parties" => list(handshake_party()()),
+        "RequestedTimestamp" => non_neg_integer(),
+        "Resources" => list(handshake_resource()()),
+        "State" => list(any())
+      }
+      
   """
   @type handshake() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  policy() :: %{
-    "Content" => String.t(),
-    "PolicySummary" => policy_summary()
-  }
+      
+      policy() :: %{
+        "Content" => String.t(),
+        "PolicySummary" => policy_summary()
+      }
+      
   """
   @type policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_resource_policy_request() :: %{
-    optional("Tags") => list(tag()()),
-    required("Content") => String.t()
-  }
+      
+      put_resource_policy_request() :: %{
+        optional("Tags") => list(tag()()),
+        required("Content") => String.t()
+      }
+      
   """
   @type put_resource_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_policies_for_target_response() :: %{
-    "NextToken" => String.t(),
-    "Policies" => list(policy_summary()())
-  }
+      
+      list_policies_for_target_response() :: %{
+        "NextToken" => String.t(),
+        "Policies" => list(policy_summary()())
+      }
+      
   """
   @type list_policies_for_target_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_organizational_unit_request() :: %{
-    required("OrganizationalUnitId") => String.t()
-  }
+      
+      delete_organizational_unit_request() :: %{
+        required("OrganizationalUnitId") => String.t()
+      }
+      
   """
   @type delete_organizational_unit_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  already_in_organization_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      already_in_organization_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type already_in_organization_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  access_denied_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      access_denied_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  deregister_delegated_administrator_request() :: %{
-    required("AccountId") => String.t(),
-    required("ServicePrincipal") => String.t()
-  }
+      
+      deregister_delegated_administrator_request() :: %{
+        required("AccountId") => String.t(),
+        required("ServicePrincipal") => String.t()
+      }
+      
   """
   @type deregister_delegated_administrator_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_children_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("ChildType") => list(any()),
-    required("ParentId") => String.t()
-  }
+      
+      list_children_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("ChildType") => list(any()),
+        required("ParentId") => String.t()
+      }
+      
   """
   @type list_children_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_handshake_transition_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      invalid_handshake_transition_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type invalid_handshake_transition_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invite_account_to_organization_response() :: %{
-    "Handshake" => handshake()
-  }
+      
+      invite_account_to_organization_response() :: %{
+        "Handshake" => handshake()
+      }
+      
   """
   @type invite_account_to_organization_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  policy_type_not_enabled_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      policy_type_not_enabled_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type policy_type_not_enabled_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  concurrent_modification_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      concurrent_modification_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type concurrent_modification_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  accept_handshake_response() :: %{
-    "Handshake" => handshake()
-  }
+      
+      accept_handshake_response() :: %{
+        "Handshake" => handshake()
+      }
+      
   """
   @type accept_handshake_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  close_account_request() :: %{
-    required("AccountId") => String.t()
-  }
+      
+      close_account_request() :: %{
+        required("AccountId") => String.t()
+      }
+      
   """
   @type close_account_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  policy_in_use_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      policy_in_use_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type policy_in_use_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_children_response() :: %{
-    "Children" => list(child()()),
-    "NextToken" => String.t()
-  }
+      
+      list_children_response() :: %{
+        "Children" => list(child()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_children_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  constraint_violation_exception() :: %{
-    "Message" => String.t(),
-    "Reason" => list(any())
-  }
+      
+      constraint_violation_exception() :: %{
+        "Message" => String.t(),
+        "Reason" => list(any())
+      }
+      
   """
   @type constraint_violation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  account_already_registered_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      account_already_registered_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type account_already_registered_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  account_owner_not_verified_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      account_owner_not_verified_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type account_owner_not_verified_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_request() :: %{
-    optional("NextToken") => String.t(),
-    required("ResourceId") => String.t()
-  }
+      
+      list_tags_for_resource_request() :: %{
+        optional("NextToken") => String.t(),
+        required("ResourceId") => String.t()
+      }
+      
   """
   @type list_tags_for_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  handshake_resource() :: %{
-    "Resources" => list(handshake_resource()()),
-    "Type" => list(any()),
-    "Value" => String.t()
-  }
+      
+      handshake_resource() :: %{
+        "Resources" => list(handshake_resource()()),
+        "Type" => list(any()),
+        "Value" => String.t()
+      }
+      
   """
   @type handshake_resource() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  target_not_found_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      target_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type target_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_parents_response() :: %{
-    "NextToken" => String.t(),
-    "Parents" => list(parent()())
-  }
+      
+      list_parents_response() :: %{
+        "NextToken" => String.t(),
+        "Parents" => list(parent()())
+      }
+      
   """
   @type list_parents_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_organization_response() :: %{
-    "Organization" => organization()
-  }
+      
+      create_organization_response() :: %{
+        "Organization" => organization()
+      }
+      
   """
   @type create_organization_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  policy_not_attached_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      policy_not_attached_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type policy_not_attached_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_targets_for_policy_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("PolicyId") => String.t()
-  }
+      
+      list_targets_for_policy_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("PolicyId") => String.t()
+      }
+      
   """
   @type list_targets_for_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  malformed_policy_document_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      malformed_policy_document_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type malformed_policy_document_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  policy_summary() :: %{
-    "Arn" => String.t(),
-    "AwsManaged" => boolean(),
-    "Description" => String.t(),
-    "Id" => String.t(),
-    "Name" => String.t(),
-    "Type" => list(any())
-  }
+      
+      policy_summary() :: %{
+        "Arn" => String.t(),
+        "AwsManaged" => boolean(),
+        "Description" => String.t(),
+        "Id" => String.t(),
+        "Name" => String.t(),
+        "Type" => list(any())
+      }
+      
   """
   @type policy_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_resource_policy_response() :: %{
-    "ResourcePolicy" => resource_policy()
-  }
+      
+      describe_resource_policy_response() :: %{
+        "ResourcePolicy" => resource_policy()
+      }
+      
   """
   @type describe_resource_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  organizational_unit() :: %{
-    "Arn" => String.t(),
-    "Id" => String.t(),
-    "Name" => String.t()
-  }
+      
+      organizational_unit() :: %{
+        "Arn" => String.t(),
+        "Id" => String.t(),
+        "Name" => String.t()
+      }
+      
   """
   @type organizational_unit() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_delegated_services_for_account_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("AccountId") => String.t()
-  }
+      
+      list_delegated_services_for_account_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("AccountId") => String.t()
+      }
+      
   """
   @type list_delegated_services_for_account_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_organizational_unit_request() :: %{
-    required("OrganizationalUnitId") => String.t()
-  }
+      
+      describe_organizational_unit_request() :: %{
+        required("OrganizationalUnitId") => String.t()
+      }
+      
   """
   @type describe_organizational_unit_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_handshakes_for_account_response() :: %{
-    "Handshakes" => list(handshake()()),
-    "NextToken" => String.t()
-  }
+      
+      list_handshakes_for_account_response() :: %{
+        "Handshakes" => list(handshake()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_handshakes_for_account_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_delegated_administrators_response() :: %{
-    "DelegatedAdministrators" => list(delegated_administrator()()),
-    "NextToken" => String.t()
-  }
+      
+      list_delegated_administrators_response() :: %{
+        "DelegatedAdministrators" => list(delegated_administrator()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_delegated_administrators_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  enable_policy_type_response() :: %{
-    "Root" => root()
-  }
+      
+      enable_policy_type_response() :: %{
+        "Root" => root()
+      }
+      
   """
   @type enable_policy_type_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  enable_all_features_request() :: %{
-
-  }
+      
+      enable_all_features_request() :: %{}
+      
   """
-  @type enable_all_features_request() :: %{String.t() => any()}
+  @type enable_all_features_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  put_resource_policy_response() :: %{
-    "ResourcePolicy" => resource_policy()
-  }
+      
+      put_resource_policy_response() :: %{
+        "ResourcePolicy" => resource_policy()
+      }
+      
   """
   @type put_resource_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  destination_parent_not_found_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      destination_parent_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type destination_parent_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  source_parent_not_found_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      source_parent_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type source_parent_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  access_denied_for_dependency_exception() :: %{
-    "Message" => String.t(),
-    "Reason" => list(any())
-  }
+      
+      access_denied_for_dependency_exception() :: %{
+        "Message" => String.t(),
+        "Reason" => list(any())
+      }
+      
   """
   @type access_denied_for_dependency_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_delegated_services_for_account_response() :: %{
-    "DelegatedServices" => list(delegated_service()()),
-    "NextToken" => String.t()
-  }
+      
+      list_delegated_services_for_account_response() :: %{
+        "DelegatedServices" => list(delegated_service()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_delegated_services_for_account_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_account_response() :: %{
-    "CreateAccountStatus" => create_account_status()
-  }
+      
+      create_account_response() :: %{
+        "CreateAccountStatus" => create_account_status()
+      }
+      
   """
   @type create_account_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  policy_changes_in_progress_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      policy_changes_in_progress_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type policy_changes_in_progress_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disable_aws_service_access_request() :: %{
-    required("ServicePrincipal") => String.t()
-  }
+      
+      disable_aws_service_access_request() :: %{
+        required("ServicePrincipal") => String.t()
+      }
+      
   """
   @type disable_aws_service_access_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  parent() :: %{
-    "Id" => String.t(),
-    "Type" => list(any())
-  }
+      
+      parent() :: %{
+        "Id" => String.t(),
+        "Type" => list(any())
+      }
+      
   """
   @type parent() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_accounts_for_parent_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("ParentId") => String.t()
-  }
+      
+      list_accounts_for_parent_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("ParentId") => String.t()
+      }
+      
   """
   @type list_accounts_for_parent_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_policy_summary() :: %{
-    "Arn" => String.t(),
-    "Id" => String.t()
-  }
+      
+      resource_policy_summary() :: %{
+        "Arn" => String.t(),
+        "Id" => String.t()
+      }
+      
   """
   @type resource_policy_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_policy_not_found_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      resource_policy_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type resource_policy_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  enable_aws_service_access_request() :: %{
-    required("ServicePrincipal") => String.t()
-  }
+      
+      enable_aws_service_access_request() :: %{
+        required("ServicePrincipal") => String.t()
+      }
+      
   """
   @type enable_aws_service_access_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_gov_cloud_account_request() :: %{
-    optional("IamUserAccessToBilling") => list(any()),
-    optional("RoleName") => String.t(),
-    optional("Tags") => list(tag()()),
-    required("AccountName") => String.t(),
-    required("Email") => String.t()
-  }
+      
+      create_gov_cloud_account_request() :: %{
+        optional("IamUserAccessToBilling") => list(any()),
+        optional("RoleName") => String.t(),
+        optional("Tags") => list(tag()()),
+        required("AccountName") => String.t(),
+        required("Email") => String.t()
+      }
+      
   """
   @type create_gov_cloud_account_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_handshake_response() :: %{
-    "Handshake" => handshake()
-  }
+      
+      describe_handshake_response() :: %{
+        "Handshake" => handshake()
+      }
+      
   """
   @type describe_handshake_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_accounts_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+      
+      list_accounts_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type list_accounts_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_handshakes_for_account_request() :: %{
-    optional("Filter") => handshake_filter(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+      
+      list_handshakes_for_account_request() :: %{
+        optional("Filter") => handshake_filter(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type list_handshakes_for_account_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_create_account_status_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("States") => list(list(any())())
-  }
+      
+      list_create_account_status_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("States") => list(list(any())())
+      }
+      
   """
   @type list_create_account_status_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delegated_administrator() :: %{
-    "Arn" => String.t(),
-    "DelegationEnabledDate" => non_neg_integer(),
-    "Email" => String.t(),
-    "Id" => String.t(),
-    "JoinedMethod" => list(any()),
-    "JoinedTimestamp" => non_neg_integer(),
-    "Name" => String.t(),
-    "Status" => list(any())
-  }
+      
+      delegated_administrator() :: %{
+        "Arn" => String.t(),
+        "DelegationEnabledDate" => non_neg_integer(),
+        "Email" => String.t(),
+        "Id" => String.t(),
+        "JoinedMethod" => list(any()),
+        "JoinedTimestamp" => non_neg_integer(),
+        "Name" => String.t(),
+        "Status" => list(any())
+      }
+      
   """
   @type delegated_administrator() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  policy_type_summary() :: %{
-    "Status" => list(any()),
-    "Type" => list(any())
-  }
+      
+      policy_type_summary() :: %{
+        "Status" => list(any()),
+        "Type" => list(any())
+      }
+      
   """
   @type policy_type_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_handshake_request() :: %{
-    required("HandshakeId") => String.t()
-  }
+      
+      describe_handshake_request() :: %{
+        required("HandshakeId") => String.t()
+      }
+      
   """
   @type describe_handshake_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_policy_response() :: %{
-    "Policy" => policy()
-  }
+      
+      describe_policy_response() :: %{
+        "Policy" => policy()
+      }
+      
   """
   @type describe_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  policy_type_already_enabled_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      policy_type_already_enabled_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type policy_type_already_enabled_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_organization_request() :: %{
-    optional("FeatureSet") => list(any())
-  }
+      
+      create_organization_request() :: %{
+        optional("FeatureSet") => list(any())
+      }
+      
   """
   @type create_organization_request() :: %{String.t() => any()}
+
+  @type accept_handshake_errors() ::
+          access_denied_for_dependency_exception()
+          | concurrent_modification_exception()
+          | invalid_handshake_transition_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | handshake_already_in_state_exception()
+          | handshake_not_found_exception()
+          | too_many_requests_exception()
+          | aws_organizations_not_in_use_exception()
+          | handshake_constraint_violation_exception()
+
+  @type attach_policy_errors() ::
+          policy_changes_in_progress_exception()
+          | target_not_found_exception()
+          | constraint_violation_exception()
+          | concurrent_modification_exception()
+          | policy_type_not_enabled_exception()
+          | access_denied_exception()
+          | unsupported_api_endpoint_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | policy_not_found_exception()
+          | duplicate_policy_attachment_exception()
+          | too_many_requests_exception()
+          | aws_organizations_not_in_use_exception()
+
+  @type cancel_handshake_errors() ::
+          concurrent_modification_exception()
+          | invalid_handshake_transition_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | handshake_already_in_state_exception()
+          | handshake_not_found_exception()
+          | too_many_requests_exception()
+
+  @type close_account_errors() ::
+          constraint_violation_exception()
+          | concurrent_modification_exception()
+          | access_denied_exception()
+          | unsupported_api_endpoint_exception()
+          | account_not_found_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | account_already_closed_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | aws_organizations_not_in_use_exception()
+
+  @type create_account_errors() ::
+          constraint_violation_exception()
+          | concurrent_modification_exception()
+          | access_denied_exception()
+          | unsupported_api_endpoint_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | too_many_requests_exception()
+          | aws_organizations_not_in_use_exception()
+          | finalizing_organization_exception()
+
+  @type create_gov_cloud_account_errors() ::
+          constraint_violation_exception()
+          | concurrent_modification_exception()
+          | access_denied_exception()
+          | unsupported_api_endpoint_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | too_many_requests_exception()
+          | aws_organizations_not_in_use_exception()
+          | finalizing_organization_exception()
+
+  @type create_organization_errors() ::
+          access_denied_for_dependency_exception()
+          | constraint_violation_exception()
+          | concurrent_modification_exception()
+          | access_denied_exception()
+          | already_in_organization_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | too_many_requests_exception()
+
+  @type create_organizational_unit_errors() ::
+          constraint_violation_exception()
+          | concurrent_modification_exception()
+          | access_denied_exception()
+          | parent_not_found_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | too_many_requests_exception()
+          | duplicate_organizational_unit_exception()
+          | aws_organizations_not_in_use_exception()
+
+  @type create_policy_errors() ::
+          malformed_policy_document_exception()
+          | constraint_violation_exception()
+          | concurrent_modification_exception()
+          | access_denied_exception()
+          | unsupported_api_endpoint_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | duplicate_policy_exception()
+          | too_many_requests_exception()
+          | policy_type_not_available_for_organization_exception()
+          | aws_organizations_not_in_use_exception()
+
+  @type decline_handshake_errors() ::
+          concurrent_modification_exception()
+          | invalid_handshake_transition_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | handshake_already_in_state_exception()
+          | handshake_not_found_exception()
+          | too_many_requests_exception()
+
+  @type delete_organization_errors() ::
+          concurrent_modification_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | organization_not_empty_exception()
+          | too_many_requests_exception()
+          | aws_organizations_not_in_use_exception()
+
+  @type delete_organizational_unit_errors() ::
+          concurrent_modification_exception()
+          | access_denied_exception()
+          | organizational_unit_not_empty_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | too_many_requests_exception()
+          | aws_organizations_not_in_use_exception()
+          | organizational_unit_not_found_exception()
+
+  @type delete_policy_errors() ::
+          policy_in_use_exception()
+          | concurrent_modification_exception()
+          | access_denied_exception()
+          | unsupported_api_endpoint_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | policy_not_found_exception()
+          | too_many_requests_exception()
+          | aws_organizations_not_in_use_exception()
+
+  @type delete_resource_policy_errors() ::
+          resource_policy_not_found_exception()
+          | constraint_violation_exception()
+          | concurrent_modification_exception()
+          | access_denied_exception()
+          | unsupported_api_endpoint_exception()
+          | service_exception()
+          | too_many_requests_exception()
+          | aws_organizations_not_in_use_exception()
+
+  @type deregister_delegated_administrator_errors() ::
+          constraint_violation_exception()
+          | concurrent_modification_exception()
+          | access_denied_exception()
+          | unsupported_api_endpoint_exception()
+          | account_not_found_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | account_not_registered_exception()
+          | too_many_requests_exception()
+          | aws_organizations_not_in_use_exception()
+
+  @type describe_account_errors() ::
+          access_denied_exception()
+          | account_not_found_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | too_many_requests_exception()
+          | aws_organizations_not_in_use_exception()
+
+  @type describe_create_account_status_errors() ::
+          access_denied_exception()
+          | unsupported_api_endpoint_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | too_many_requests_exception()
+          | create_account_status_not_found_exception()
+          | aws_organizations_not_in_use_exception()
+
+  @type describe_effective_policy_errors() ::
+          target_not_found_exception()
+          | constraint_violation_exception()
+          | access_denied_exception()
+          | unsupported_api_endpoint_exception()
+          | effective_policy_not_found_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | too_many_requests_exception()
+          | aws_organizations_not_in_use_exception()
+
+  @type describe_handshake_errors() ::
+          concurrent_modification_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | handshake_not_found_exception()
+          | too_many_requests_exception()
+
+  @type describe_organization_errors() ::
+          concurrent_modification_exception()
+          | access_denied_exception()
+          | service_exception()
+          | too_many_requests_exception()
+          | aws_organizations_not_in_use_exception()
+
+  @type describe_organizational_unit_errors() ::
+          access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | too_many_requests_exception()
+          | aws_organizations_not_in_use_exception()
+          | organizational_unit_not_found_exception()
+
+  @type describe_policy_errors() ::
+          access_denied_exception()
+          | unsupported_api_endpoint_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | policy_not_found_exception()
+          | too_many_requests_exception()
+          | aws_organizations_not_in_use_exception()
+
+  @type describe_resource_policy_errors() ::
+          resource_policy_not_found_exception()
+          | constraint_violation_exception()
+          | access_denied_exception()
+          | unsupported_api_endpoint_exception()
+          | service_exception()
+          | too_many_requests_exception()
+          | aws_organizations_not_in_use_exception()
+
+  @type detach_policy_errors() ::
+          policy_changes_in_progress_exception()
+          | policy_not_attached_exception()
+          | target_not_found_exception()
+          | constraint_violation_exception()
+          | concurrent_modification_exception()
+          | access_denied_exception()
+          | unsupported_api_endpoint_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | policy_not_found_exception()
+          | too_many_requests_exception()
+          | aws_organizations_not_in_use_exception()
+
+  @type disable_aws_service_access_errors() ::
+          constraint_violation_exception()
+          | concurrent_modification_exception()
+          | access_denied_exception()
+          | unsupported_api_endpoint_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | too_many_requests_exception()
+          | aws_organizations_not_in_use_exception()
+
+  @type disable_policy_type_errors() ::
+          policy_changes_in_progress_exception()
+          | constraint_violation_exception()
+          | concurrent_modification_exception()
+          | policy_type_not_enabled_exception()
+          | access_denied_exception()
+          | unsupported_api_endpoint_exception()
+          | root_not_found_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | too_many_requests_exception()
+          | aws_organizations_not_in_use_exception()
+
+  @type enable_all_features_errors() ::
+          concurrent_modification_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | too_many_requests_exception()
+          | aws_organizations_not_in_use_exception()
+          | handshake_constraint_violation_exception()
+
+  @type enable_aws_service_access_errors() ::
+          constraint_violation_exception()
+          | concurrent_modification_exception()
+          | access_denied_exception()
+          | unsupported_api_endpoint_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | too_many_requests_exception()
+          | aws_organizations_not_in_use_exception()
+
+  @type enable_policy_type_errors() ::
+          policy_type_already_enabled_exception()
+          | policy_changes_in_progress_exception()
+          | constraint_violation_exception()
+          | concurrent_modification_exception()
+          | access_denied_exception()
+          | unsupported_api_endpoint_exception()
+          | root_not_found_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | too_many_requests_exception()
+          | policy_type_not_available_for_organization_exception()
+          | aws_organizations_not_in_use_exception()
+
+  @type invite_account_to_organization_errors() ::
+          account_owner_not_verified_exception()
+          | constraint_violation_exception()
+          | concurrent_modification_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | too_many_requests_exception()
+          | aws_organizations_not_in_use_exception()
+          | finalizing_organization_exception()
+          | duplicate_handshake_exception()
+          | handshake_constraint_violation_exception()
+
+  @type leave_organization_errors() ::
+          constraint_violation_exception()
+          | concurrent_modification_exception()
+          | access_denied_exception()
+          | master_cannot_leave_organization_exception()
+          | account_not_found_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | too_many_requests_exception()
+          | aws_organizations_not_in_use_exception()
+
+  @type list_accounts_errors() ::
+          access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | too_many_requests_exception()
+          | aws_organizations_not_in_use_exception()
+
+  @type list_accounts_for_parent_errors() ::
+          access_denied_exception()
+          | parent_not_found_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | too_many_requests_exception()
+          | aws_organizations_not_in_use_exception()
+
+  @type list_aws_service_access_for_organization_errors() ::
+          constraint_violation_exception()
+          | access_denied_exception()
+          | unsupported_api_endpoint_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | too_many_requests_exception()
+          | aws_organizations_not_in_use_exception()
+
+  @type list_children_errors() ::
+          access_denied_exception()
+          | parent_not_found_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | too_many_requests_exception()
+          | aws_organizations_not_in_use_exception()
+
+  @type list_create_account_status_errors() ::
+          access_denied_exception()
+          | unsupported_api_endpoint_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | too_many_requests_exception()
+          | aws_organizations_not_in_use_exception()
+
+  @type list_delegated_administrators_errors() ::
+          constraint_violation_exception()
+          | access_denied_exception()
+          | unsupported_api_endpoint_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | too_many_requests_exception()
+          | aws_organizations_not_in_use_exception()
+
+  @type list_delegated_services_for_account_errors() ::
+          constraint_violation_exception()
+          | access_denied_exception()
+          | unsupported_api_endpoint_exception()
+          | account_not_found_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | account_not_registered_exception()
+          | too_many_requests_exception()
+          | aws_organizations_not_in_use_exception()
+
+  @type list_handshakes_for_account_errors() ::
+          concurrent_modification_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | too_many_requests_exception()
+
+  @type list_handshakes_for_organization_errors() ::
+          concurrent_modification_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | too_many_requests_exception()
+          | aws_organizations_not_in_use_exception()
+
+  @type list_organizational_units_for_parent_errors() ::
+          access_denied_exception()
+          | parent_not_found_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | too_many_requests_exception()
+          | aws_organizations_not_in_use_exception()
+
+  @type list_parents_errors() ::
+          access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | child_not_found_exception()
+          | too_many_requests_exception()
+          | aws_organizations_not_in_use_exception()
+
+  @type list_policies_errors() ::
+          access_denied_exception()
+          | unsupported_api_endpoint_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | too_many_requests_exception()
+          | aws_organizations_not_in_use_exception()
+
+  @type list_policies_for_target_errors() ::
+          target_not_found_exception()
+          | access_denied_exception()
+          | unsupported_api_endpoint_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | too_many_requests_exception()
+          | aws_organizations_not_in_use_exception()
+
+  @type list_roots_errors() ::
+          access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | too_many_requests_exception()
+          | aws_organizations_not_in_use_exception()
+
+  @type list_tags_for_resource_errors() ::
+          target_not_found_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | too_many_requests_exception()
+          | aws_organizations_not_in_use_exception()
+
+  @type list_targets_for_policy_errors() ::
+          access_denied_exception()
+          | unsupported_api_endpoint_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | policy_not_found_exception()
+          | too_many_requests_exception()
+          | aws_organizations_not_in_use_exception()
+
+  @type move_account_errors() ::
+          source_parent_not_found_exception()
+          | destination_parent_not_found_exception()
+          | concurrent_modification_exception()
+          | access_denied_exception()
+          | account_not_found_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | too_many_requests_exception()
+          | aws_organizations_not_in_use_exception()
+          | duplicate_account_exception()
+
+  @type put_resource_policy_errors() ::
+          constraint_violation_exception()
+          | concurrent_modification_exception()
+          | access_denied_exception()
+          | unsupported_api_endpoint_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | too_many_requests_exception()
+          | aws_organizations_not_in_use_exception()
+
+  @type register_delegated_administrator_errors() ::
+          account_already_registered_exception()
+          | constraint_violation_exception()
+          | concurrent_modification_exception()
+          | access_denied_exception()
+          | unsupported_api_endpoint_exception()
+          | account_not_found_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | too_many_requests_exception()
+          | aws_organizations_not_in_use_exception()
+
+  @type remove_account_from_organization_errors() ::
+          constraint_violation_exception()
+          | concurrent_modification_exception()
+          | access_denied_exception()
+          | master_cannot_leave_organization_exception()
+          | account_not_found_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | too_many_requests_exception()
+          | aws_organizations_not_in_use_exception()
+
+  @type tag_resource_errors() ::
+          target_not_found_exception()
+          | constraint_violation_exception()
+          | concurrent_modification_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | too_many_requests_exception()
+          | aws_organizations_not_in_use_exception()
+
+  @type untag_resource_errors() ::
+          target_not_found_exception()
+          | constraint_violation_exception()
+          | concurrent_modification_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | too_many_requests_exception()
+          | aws_organizations_not_in_use_exception()
+
+  @type update_organizational_unit_errors() ::
+          concurrent_modification_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | too_many_requests_exception()
+          | duplicate_organizational_unit_exception()
+          | aws_organizations_not_in_use_exception()
+          | organizational_unit_not_found_exception()
+
+  @type update_policy_errors() ::
+          policy_changes_in_progress_exception()
+          | malformed_policy_document_exception()
+          | constraint_violation_exception()
+          | concurrent_modification_exception()
+          | access_denied_exception()
+          | unsupported_api_endpoint_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | duplicate_policy_exception()
+          | policy_not_found_exception()
+          | too_many_requests_exception()
+          | aws_organizations_not_in_use_exception()
 
   def metadata do
     %{
@@ -1716,17 +2583,7 @@ defmodule AWS.Organizations do
   @spec accept_handshake(map(), accept_handshake_request(), list()) ::
           {:ok, accept_handshake_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, access_denied_for_dependency_exception()}
-          | {:error, aws_organizations_not_in_use_exception()}
-          | {:error, concurrent_modification_exception()}
-          | {:error, handshake_already_in_state_exception()}
-          | {:error, handshake_constraint_violation_exception()}
-          | {:error, handshake_not_found_exception()}
-          | {:error, invalid_handshake_transition_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, service_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, accept_handshake_errors()}
   def accept_handshake(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1763,19 +2620,7 @@ defmodule AWS.Organizations do
   @spec attach_policy(map(), attach_policy_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, aws_organizations_not_in_use_exception()}
-          | {:error, concurrent_modification_exception()}
-          | {:error, constraint_violation_exception()}
-          | {:error, duplicate_policy_attachment_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, policy_changes_in_progress_exception()}
-          | {:error, policy_not_found_exception()}
-          | {:error, policy_type_not_enabled_exception()}
-          | {:error, service_exception()}
-          | {:error, target_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unsupported_api_endpoint_exception()}
+          | {:error, attach_policy_errors()}
   def attach_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1800,14 +2645,7 @@ defmodule AWS.Organizations do
   @spec cancel_handshake(map(), cancel_handshake_request(), list()) ::
           {:ok, cancel_handshake_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, concurrent_modification_exception()}
-          | {:error, handshake_already_in_state_exception()}
-          | {:error, handshake_not_found_exception()}
-          | {:error, invalid_handshake_transition_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, service_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, cancel_handshake_errors()}
   def cancel_handshake(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1874,17 +2712,7 @@ defmodule AWS.Organizations do
   @spec close_account(map(), close_account_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, account_already_closed_exception()}
-          | {:error, account_not_found_exception()}
-          | {:error, aws_organizations_not_in_use_exception()}
-          | {:error, concurrent_modification_exception()}
-          | {:error, conflict_exception()}
-          | {:error, constraint_violation_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, service_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unsupported_api_endpoint_exception()}
+          | {:error, close_account_errors()}
   def close_account(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1984,15 +2812,7 @@ defmodule AWS.Organizations do
   @spec create_account(map(), create_account_request(), list()) ::
           {:ok, create_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, aws_organizations_not_in_use_exception()}
-          | {:error, concurrent_modification_exception()}
-          | {:error, constraint_violation_exception()}
-          | {:error, finalizing_organization_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, service_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unsupported_api_endpoint_exception()}
+          | {:error, create_account_errors()}
   def create_account(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2159,15 +2979,7 @@ defmodule AWS.Organizations do
   @spec create_gov_cloud_account(map(), create_gov_cloud_account_request(), list()) ::
           {:ok, create_gov_cloud_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, aws_organizations_not_in_use_exception()}
-          | {:error, concurrent_modification_exception()}
-          | {:error, constraint_violation_exception()}
-          | {:error, finalizing_organization_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, service_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unsupported_api_endpoint_exception()}
+          | {:error, create_gov_cloud_account_errors()}
   def create_gov_cloud_account(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2199,14 +3011,7 @@ defmodule AWS.Organizations do
   @spec create_organization(map(), create_organization_request(), list()) ::
           {:ok, create_organization_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, access_denied_for_dependency_exception()}
-          | {:error, already_in_organization_exception()}
-          | {:error, concurrent_modification_exception()}
-          | {:error, constraint_violation_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, service_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, create_organization_errors()}
   def create_organization(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2237,15 +3042,7 @@ defmodule AWS.Organizations do
   @spec create_organizational_unit(map(), create_organizational_unit_request(), list()) ::
           {:ok, create_organizational_unit_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, aws_organizations_not_in_use_exception()}
-          | {:error, concurrent_modification_exception()}
-          | {:error, constraint_violation_exception()}
-          | {:error, duplicate_organizational_unit_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, parent_not_found_exception()}
-          | {:error, service_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, create_organizational_unit_errors()}
   def create_organizational_unit(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2270,17 +3067,7 @@ defmodule AWS.Organizations do
   @spec create_policy(map(), create_policy_request(), list()) ::
           {:ok, create_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, aws_organizations_not_in_use_exception()}
-          | {:error, concurrent_modification_exception()}
-          | {:error, constraint_violation_exception()}
-          | {:error, duplicate_policy_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, malformed_policy_document_exception()}
-          | {:error, policy_type_not_available_for_organization_exception()}
-          | {:error, service_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unsupported_api_endpoint_exception()}
+          | {:error, create_policy_errors()}
   def create_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2306,14 +3093,7 @@ defmodule AWS.Organizations do
   @spec decline_handshake(map(), decline_handshake_request(), list()) ::
           {:ok, decline_handshake_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, concurrent_modification_exception()}
-          | {:error, handshake_already_in_state_exception()}
-          | {:error, handshake_not_found_exception()}
-          | {:error, invalid_handshake_transition_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, service_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, decline_handshake_errors()}
   def decline_handshake(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2329,13 +3109,7 @@ defmodule AWS.Organizations do
   @spec delete_organization(map(), %{}, list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, aws_organizations_not_in_use_exception()}
-          | {:error, concurrent_modification_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, organization_not_empty_exception()}
-          | {:error, service_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, delete_organization_errors()}
   def delete_organization(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2353,14 +3127,7 @@ defmodule AWS.Organizations do
   @spec delete_organizational_unit(map(), delete_organizational_unit_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, aws_organizations_not_in_use_exception()}
-          | {:error, concurrent_modification_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, organizational_unit_not_empty_exception()}
-          | {:error, organizational_unit_not_found_exception()}
-          | {:error, service_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, delete_organizational_unit_errors()}
   def delete_organizational_unit(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2382,15 +3149,7 @@ defmodule AWS.Organizations do
   @spec delete_policy(map(), delete_policy_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, aws_organizations_not_in_use_exception()}
-          | {:error, concurrent_modification_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, policy_in_use_exception()}
-          | {:error, policy_not_found_exception()}
-          | {:error, service_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unsupported_api_endpoint_exception()}
+          | {:error, delete_policy_errors()}
   def delete_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2405,14 +3164,7 @@ defmodule AWS.Organizations do
   @spec delete_resource_policy(map(), %{}, list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, aws_organizations_not_in_use_exception()}
-          | {:error, concurrent_modification_exception()}
-          | {:error, constraint_violation_exception()}
-          | {:error, resource_policy_not_found_exception()}
-          | {:error, service_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unsupported_api_endpoint_exception()}
+          | {:error, delete_resource_policy_errors()}
   def delete_resource_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2447,16 +3199,7 @@ defmodule AWS.Organizations do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, account_not_found_exception()}
-          | {:error, account_not_registered_exception()}
-          | {:error, aws_organizations_not_in_use_exception()}
-          | {:error, concurrent_modification_exception()}
-          | {:error, constraint_violation_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, service_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unsupported_api_endpoint_exception()}
+          | {:error, deregister_delegated_administrator_errors()}
   def deregister_delegated_administrator(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2473,12 +3216,7 @@ defmodule AWS.Organizations do
   @spec describe_account(map(), describe_account_request(), list()) ::
           {:ok, describe_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, account_not_found_exception()}
-          | {:error, aws_organizations_not_in_use_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, service_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, describe_account_errors()}
   def describe_account(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2495,13 +3233,7 @@ defmodule AWS.Organizations do
   @spec describe_create_account_status(map(), describe_create_account_status_request(), list()) ::
           {:ok, describe_create_account_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, aws_organizations_not_in_use_exception()}
-          | {:error, create_account_status_not_found_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, service_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unsupported_api_endpoint_exception()}
+          | {:error, describe_create_account_status_errors()}
   def describe_create_account_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2530,15 +3262,7 @@ defmodule AWS.Organizations do
   @spec describe_effective_policy(map(), describe_effective_policy_request(), list()) ::
           {:ok, describe_effective_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, aws_organizations_not_in_use_exception()}
-          | {:error, constraint_violation_exception()}
-          | {:error, effective_policy_not_found_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, service_exception()}
-          | {:error, target_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unsupported_api_endpoint_exception()}
+          | {:error, describe_effective_policy_errors()}
   def describe_effective_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2561,12 +3285,7 @@ defmodule AWS.Organizations do
   @spec describe_handshake(map(), describe_handshake_request(), list()) ::
           {:ok, describe_handshake_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, concurrent_modification_exception()}
-          | {:error, handshake_not_found_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, service_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, describe_handshake_errors()}
   def describe_handshake(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2587,11 +3306,7 @@ defmodule AWS.Organizations do
   @spec describe_organization(map(), %{}, list()) ::
           {:ok, describe_organization_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, aws_organizations_not_in_use_exception()}
-          | {:error, concurrent_modification_exception()}
-          | {:error, service_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, describe_organization_errors()}
   def describe_organization(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2608,12 +3323,7 @@ defmodule AWS.Organizations do
   @spec describe_organizational_unit(map(), describe_organizational_unit_request(), list()) ::
           {:ok, describe_organizational_unit_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, aws_organizations_not_in_use_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, organizational_unit_not_found_exception()}
-          | {:error, service_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, describe_organizational_unit_errors()}
   def describe_organizational_unit(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2630,13 +3340,7 @@ defmodule AWS.Organizations do
   @spec describe_policy(map(), describe_policy_request(), list()) ::
           {:ok, describe_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, aws_organizations_not_in_use_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, policy_not_found_exception()}
-          | {:error, service_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unsupported_api_endpoint_exception()}
+          | {:error, describe_policy_errors()}
   def describe_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2653,13 +3357,7 @@ defmodule AWS.Organizations do
   @spec describe_resource_policy(map(), %{}, list()) ::
           {:ok, describe_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, aws_organizations_not_in_use_exception()}
-          | {:error, constraint_violation_exception()}
-          | {:error, resource_policy_not_found_exception()}
-          | {:error, service_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unsupported_api_endpoint_exception()}
+          | {:error, describe_resource_policy_errors()}
   def describe_resource_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2698,18 +3396,7 @@ defmodule AWS.Organizations do
   @spec detach_policy(map(), detach_policy_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, aws_organizations_not_in_use_exception()}
-          | {:error, concurrent_modification_exception()}
-          | {:error, constraint_violation_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, policy_changes_in_progress_exception()}
-          | {:error, policy_not_attached_exception()}
-          | {:error, policy_not_found_exception()}
-          | {:error, service_exception()}
-          | {:error, target_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unsupported_api_endpoint_exception()}
+          | {:error, detach_policy_errors()}
   def detach_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2793,14 +3480,7 @@ defmodule AWS.Organizations do
   @spec disable_aws_service_access(map(), disable_aws_service_access_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, aws_organizations_not_in_use_exception()}
-          | {:error, concurrent_modification_exception()}
-          | {:error, constraint_violation_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, service_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unsupported_api_endpoint_exception()}
+          | {:error, disable_aws_service_access_errors()}
   def disable_aws_service_access(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2836,17 +3516,7 @@ defmodule AWS.Organizations do
   @spec disable_policy_type(map(), disable_policy_type_request(), list()) ::
           {:ok, disable_policy_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, aws_organizations_not_in_use_exception()}
-          | {:error, concurrent_modification_exception()}
-          | {:error, constraint_violation_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, policy_changes_in_progress_exception()}
-          | {:error, policy_type_not_enabled_exception()}
-          | {:error, root_not_found_exception()}
-          | {:error, service_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unsupported_api_endpoint_exception()}
+          | {:error, disable_policy_type_errors()}
   def disable_policy_type(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2908,13 +3578,7 @@ defmodule AWS.Organizations do
   @spec enable_all_features(map(), enable_all_features_request(), list()) ::
           {:ok, enable_all_features_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, aws_organizations_not_in_use_exception()}
-          | {:error, concurrent_modification_exception()}
-          | {:error, handshake_constraint_violation_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, service_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, enable_all_features_errors()}
   def enable_all_features(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2956,14 +3620,7 @@ defmodule AWS.Organizations do
   @spec enable_aws_service_access(map(), enable_aws_service_access_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, aws_organizations_not_in_use_exception()}
-          | {:error, concurrent_modification_exception()}
-          | {:error, constraint_violation_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, service_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unsupported_api_endpoint_exception()}
+          | {:error, enable_aws_service_access_errors()}
   def enable_aws_service_access(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2997,18 +3654,7 @@ defmodule AWS.Organizations do
   @spec enable_policy_type(map(), enable_policy_type_request(), list()) ::
           {:ok, enable_policy_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, aws_organizations_not_in_use_exception()}
-          | {:error, concurrent_modification_exception()}
-          | {:error, constraint_violation_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, policy_changes_in_progress_exception()}
-          | {:error, policy_type_already_enabled_exception()}
-          | {:error, policy_type_not_available_for_organization_exception()}
-          | {:error, root_not_found_exception()}
-          | {:error, service_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unsupported_api_endpoint_exception()}
+          | {:error, enable_policy_type_errors()}
   def enable_policy_type(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3050,17 +3696,7 @@ defmodule AWS.Organizations do
   @spec invite_account_to_organization(map(), invite_account_to_organization_request(), list()) ::
           {:ok, invite_account_to_organization_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, account_owner_not_verified_exception()}
-          | {:error, aws_organizations_not_in_use_exception()}
-          | {:error, concurrent_modification_exception()}
-          | {:error, constraint_violation_exception()}
-          | {:error, duplicate_handshake_exception()}
-          | {:error, finalizing_organization_exception()}
-          | {:error, handshake_constraint_violation_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, service_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, invite_account_to_organization_errors()}
   def invite_account_to_organization(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3144,15 +3780,7 @@ defmodule AWS.Organizations do
   @spec leave_organization(map(), %{}, list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, account_not_found_exception()}
-          | {:error, aws_organizations_not_in_use_exception()}
-          | {:error, concurrent_modification_exception()}
-          | {:error, constraint_violation_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, master_cannot_leave_organization_exception()}
-          | {:error, service_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, leave_organization_errors()}
   def leave_organization(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3181,11 +3809,7 @@ defmodule AWS.Organizations do
   @spec list_accounts(map(), list_accounts_request(), list()) ::
           {:ok, list_accounts_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, aws_organizations_not_in_use_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, service_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, list_accounts_errors()}
   def list_accounts(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3219,12 +3843,7 @@ defmodule AWS.Organizations do
   @spec list_accounts_for_parent(map(), list_accounts_for_parent_request(), list()) ::
           {:ok, list_accounts_for_parent_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, aws_organizations_not_in_use_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, parent_not_found_exception()}
-          | {:error, service_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, list_accounts_for_parent_errors()}
   def list_accounts_for_parent(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3257,13 +3876,7 @@ defmodule AWS.Organizations do
         ) ::
           {:ok, list_aws_service_access_for_organization_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, aws_organizations_not_in_use_exception()}
-          | {:error, constraint_violation_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, service_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unsupported_api_endpoint_exception()}
+          | {:error, list_aws_service_access_for_organization_errors()}
   def list_aws_service_access_for_organization(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3293,12 +3906,7 @@ defmodule AWS.Organizations do
   @spec list_children(map(), list_children_request(), list()) ::
           {:ok, list_children_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, aws_organizations_not_in_use_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, parent_not_found_exception()}
-          | {:error, service_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, list_children_errors()}
   def list_children(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3325,12 +3933,7 @@ defmodule AWS.Organizations do
   @spec list_create_account_status(map(), list_create_account_status_request(), list()) ::
           {:ok, list_create_account_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, aws_organizations_not_in_use_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, service_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unsupported_api_endpoint_exception()}
+          | {:error, list_create_account_status_errors()}
   def list_create_account_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3349,13 +3952,7 @@ defmodule AWS.Organizations do
   @spec list_delegated_administrators(map(), list_delegated_administrators_request(), list()) ::
           {:ok, list_delegated_administrators_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, aws_organizations_not_in_use_exception()}
-          | {:error, constraint_violation_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, service_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unsupported_api_endpoint_exception()}
+          | {:error, list_delegated_administrators_errors()}
   def list_delegated_administrators(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3378,15 +3975,7 @@ defmodule AWS.Organizations do
         ) ::
           {:ok, list_delegated_services_for_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, account_not_found_exception()}
-          | {:error, account_not_registered_exception()}
-          | {:error, aws_organizations_not_in_use_exception()}
-          | {:error, constraint_violation_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, service_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unsupported_api_endpoint_exception()}
+          | {:error, list_delegated_services_for_account_errors()}
   def list_delegated_services_for_account(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3417,11 +4006,7 @@ defmodule AWS.Organizations do
   @spec list_handshakes_for_account(map(), list_handshakes_for_account_request(), list()) ::
           {:ok, list_handshakes_for_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, concurrent_modification_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, service_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, list_handshakes_for_account_errors()}
   def list_handshakes_for_account(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3462,12 +4047,7 @@ defmodule AWS.Organizations do
         ) ::
           {:ok, list_handshakes_for_organization_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, aws_organizations_not_in_use_exception()}
-          | {:error, concurrent_modification_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, service_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, list_handshakes_for_organization_errors()}
   def list_handshakes_for_organization(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3496,12 +4076,7 @@ defmodule AWS.Organizations do
         ) ::
           {:ok, list_organizational_units_for_parent_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, aws_organizations_not_in_use_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, parent_not_found_exception()}
-          | {:error, service_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, list_organizational_units_for_parent_errors()}
   def list_organizational_units_for_parent(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3533,12 +4108,7 @@ defmodule AWS.Organizations do
   @spec list_parents(map(), list_parents_request(), list()) ::
           {:ok, list_parents_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, aws_organizations_not_in_use_exception()}
-          | {:error, child_not_found_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, service_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, list_parents_errors()}
   def list_parents(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3563,12 +4133,7 @@ defmodule AWS.Organizations do
   @spec list_policies(map(), list_policies_request(), list()) ::
           {:ok, list_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, aws_organizations_not_in_use_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, service_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unsupported_api_endpoint_exception()}
+          | {:error, list_policies_errors()}
   def list_policies(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3597,13 +4162,7 @@ defmodule AWS.Organizations do
   @spec list_policies_for_target(map(), list_policies_for_target_request(), list()) ::
           {:ok, list_policies_for_target_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, aws_organizations_not_in_use_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, service_exception()}
-          | {:error, target_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unsupported_api_endpoint_exception()}
+          | {:error, list_policies_for_target_errors()}
   def list_policies_for_target(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3636,11 +4195,7 @@ defmodule AWS.Organizations do
   @spec list_roots(map(), list_roots_request(), list()) ::
           {:ok, list_roots_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, aws_organizations_not_in_use_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, service_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, list_roots_errors()}
   def list_roots(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3671,12 +4226,7 @@ defmodule AWS.Organizations do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, aws_organizations_not_in_use_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, service_exception()}
-          | {:error, target_not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3702,13 +4252,7 @@ defmodule AWS.Organizations do
   @spec list_targets_for_policy(map(), list_targets_for_policy_request(), list()) ::
           {:ok, list_targets_for_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, aws_organizations_not_in_use_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, policy_not_found_exception()}
-          | {:error, service_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unsupported_api_endpoint_exception()}
+          | {:error, list_targets_for_policy_errors()}
   def list_targets_for_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3725,16 +4269,7 @@ defmodule AWS.Organizations do
   @spec move_account(map(), move_account_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, account_not_found_exception()}
-          | {:error, aws_organizations_not_in_use_exception()}
-          | {:error, concurrent_modification_exception()}
-          | {:error, destination_parent_not_found_exception()}
-          | {:error, duplicate_account_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, service_exception()}
-          | {:error, source_parent_not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, move_account_errors()}
   def move_account(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3749,14 +4284,7 @@ defmodule AWS.Organizations do
   @spec put_resource_policy(map(), put_resource_policy_request(), list()) ::
           {:ok, put_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, aws_organizations_not_in_use_exception()}
-          | {:error, concurrent_modification_exception()}
-          | {:error, constraint_violation_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, service_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unsupported_api_endpoint_exception()}
+          | {:error, put_resource_policy_errors()}
   def put_resource_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3788,16 +4316,7 @@ defmodule AWS.Organizations do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, account_already_registered_exception()}
-          | {:error, account_not_found_exception()}
-          | {:error, aws_organizations_not_in_use_exception()}
-          | {:error, concurrent_modification_exception()}
-          | {:error, constraint_violation_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, service_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unsupported_api_endpoint_exception()}
+          | {:error, register_delegated_administrator_errors()}
   def register_delegated_administrator(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3847,15 +4366,7 @@ defmodule AWS.Organizations do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, account_not_found_exception()}
-          | {:error, aws_organizations_not_in_use_exception()}
-          | {:error, concurrent_modification_exception()}
-          | {:error, constraint_violation_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, master_cannot_leave_organization_exception()}
-          | {:error, service_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, remove_account_from_organization_errors()}
   def remove_account_from_organization(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3886,14 +4397,7 @@ defmodule AWS.Organizations do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, aws_organizations_not_in_use_exception()}
-          | {:error, concurrent_modification_exception()}
-          | {:error, constraint_violation_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, service_exception()}
-          | {:error, target_not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3924,14 +4428,7 @@ defmodule AWS.Organizations do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, aws_organizations_not_in_use_exception()}
-          | {:error, concurrent_modification_exception()}
-          | {:error, constraint_violation_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, service_exception()}
-          | {:error, target_not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3950,14 +4447,7 @@ defmodule AWS.Organizations do
   @spec update_organizational_unit(map(), update_organizational_unit_request(), list()) ::
           {:ok, update_organizational_unit_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, aws_organizations_not_in_use_exception()}
-          | {:error, concurrent_modification_exception()}
-          | {:error, duplicate_organizational_unit_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, organizational_unit_not_found_exception()}
-          | {:error, service_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, update_organizational_unit_errors()}
   def update_organizational_unit(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3978,18 +4468,7 @@ defmodule AWS.Organizations do
   @spec update_policy(map(), update_policy_request(), list()) ::
           {:ok, update_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, aws_organizations_not_in_use_exception()}
-          | {:error, concurrent_modification_exception()}
-          | {:error, constraint_violation_exception()}
-          | {:error, duplicate_policy_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, malformed_policy_document_exception()}
-          | {:error, policy_changes_in_progress_exception()}
-          | {:error, policy_not_found_exception()}
-          | {:error, service_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unsupported_api_endpoint_exception()}
+          | {:error, update_policy_errors()}
   def update_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 

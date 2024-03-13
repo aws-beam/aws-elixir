@@ -24,685 +24,888 @@ defmodule AWS.PaymentCryptographyData do
   @typedoc """
 
   ## Example:
-  session_key_amex() :: %{
-    "PanSequenceNumber" => String.t(),
-    "PrimaryAccountNumber" => String.t()
-  }
+
+      session_key_amex() :: %{
+        "PanSequenceNumber" => String.t(),
+        "PrimaryAccountNumber" => String.t()
+      }
+
   """
   @type session_key_amex() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  amex_card_security_code_version1() :: %{
-    "CardExpiryDate" => String.t()
-  }
+
+      amex_card_security_code_version1() :: %{
+        "CardExpiryDate" => String.t()
+      }
+
   """
   @type amex_card_security_code_version1() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  asymmetric_encryption_attributes() :: %{
-    "PaddingType" => String.t()
-  }
+
+      asymmetric_encryption_attributes() :: %{
+        "PaddingType" => String.t()
+      }
+
   """
   @type asymmetric_encryption_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  discover_dynamic_card_verification_code() :: %{
-    "ApplicationTransactionCounter" => String.t(),
-    "CardExpiryDate" => String.t(),
-    "UnpredictableNumber" => String.t()
-  }
+
+      discover_dynamic_card_verification_code() :: %{
+        "ApplicationTransactionCounter" => String.t(),
+        "CardExpiryDate" => String.t(),
+        "UnpredictableNumber" => String.t()
+      }
+
   """
   @type discover_dynamic_card_verification_code() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  visa_pin_verification_value() :: %{
-    "EncryptedPinBlock" => String.t(),
-    "PinVerificationKeyIndex" => integer()
-  }
+
+      visa_pin_verification_value() :: %{
+        "EncryptedPinBlock" => String.t(),
+        "PinVerificationKeyIndex" => integer()
+      }
+
   """
   @type visa_pin_verification_value() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ibm3624_pin_offset() :: %{
-    "DecimalizationTable" => String.t(),
-    "EncryptedPinBlock" => String.t(),
-    "PinValidationData" => String.t(),
-    "PinValidationDataPadCharacter" => String.t()
-  }
+
+      ibm3624_pin_offset() :: %{
+        "DecimalizationTable" => String.t(),
+        "EncryptedPinBlock" => String.t(),
+        "PinValidationData" => String.t(),
+        "PinValidationDataPadCharacter" => String.t()
+      }
+
   """
   @type ibm3624_pin_offset() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  translation_pin_data_iso_format034() :: %{
-    "PrimaryAccountNumber" => String.t()
-  }
+
+      translation_pin_data_iso_format034() :: %{
+        "PrimaryAccountNumber" => String.t()
+      }
+
   """
   @type translation_pin_data_iso_format034() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  translate_pin_data_input() :: %{
-    optional("IncomingDukptAttributes") => dukpt_derivation_attributes(),
-    optional("OutgoingDukptAttributes") => dukpt_derivation_attributes(),
-    required("EncryptedPinBlock") => String.t(),
-    required("IncomingKeyIdentifier") => String.t(),
-    required("IncomingTranslationAttributes") => list(),
-    required("OutgoingKeyIdentifier") => String.t(),
-    required("OutgoingTranslationAttributes") => list()
-  }
+
+      translate_pin_data_input() :: %{
+        optional("IncomingDukptAttributes") => dukpt_derivation_attributes(),
+        optional("OutgoingDukptAttributes") => dukpt_derivation_attributes(),
+        required("EncryptedPinBlock") => String.t(),
+        required("IncomingKeyIdentifier") => String.t(),
+        required("IncomingTranslationAttributes") => list(),
+        required("OutgoingKeyIdentifier") => String.t(),
+        required("OutgoingTranslationAttributes") => list()
+      }
+
   """
   @type translate_pin_data_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  encrypt_data_output() :: %{
-    "CipherText" => String.t(),
-    "KeyArn" => String.t(),
-    "KeyCheckValue" => String.t()
-  }
+
+      encrypt_data_output() :: %{
+        "CipherText" => String.t(),
+        "KeyArn" => String.t(),
+        "KeyCheckValue" => String.t()
+      }
+
   """
   @type encrypt_data_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  verify_mac_output() :: %{
-    "KeyArn" => String.t(),
-    "KeyCheckValue" => String.t()
-  }
+
+      verify_mac_output() :: %{
+        "KeyArn" => String.t(),
+        "KeyCheckValue" => String.t()
+      }
+
   """
   @type verify_mac_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cryptogram_verification_arpc_method1() :: %{
-    "AuthResponseCode" => String.t()
-  }
+
+      cryptogram_verification_arpc_method1() :: %{
+        "AuthResponseCode" => String.t()
+      }
+
   """
   @type cryptogram_verification_arpc_method1() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  dynamic_card_verification_value() :: %{
-    "ApplicationTransactionCounter" => String.t(),
-    "CardExpiryDate" => String.t(),
-    "PanSequenceNumber" => String.t(),
-    "ServiceCode" => String.t()
-  }
+
+      dynamic_card_verification_value() :: %{
+        "ApplicationTransactionCounter" => String.t(),
+        "CardExpiryDate" => String.t(),
+        "PanSequenceNumber" => String.t(),
+        "ServiceCode" => String.t()
+      }
+
   """
   @type dynamic_card_verification_value() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  card_holder_verification_value() :: %{
-    "ApplicationTransactionCounter" => String.t(),
-    "PanSequenceNumber" => String.t(),
-    "UnpredictableNumber" => String.t()
-  }
+
+      card_holder_verification_value() :: %{
+        "ApplicationTransactionCounter" => String.t(),
+        "PanSequenceNumber" => String.t(),
+        "UnpredictableNumber" => String.t()
+      }
+
   """
   @type card_holder_verification_value() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  mac_algorithm_dukpt() :: %{
-    "DukptDerivationType" => String.t(),
-    "DukptKeyVariant" => String.t(),
-    "KeySerialNumber" => String.t()
-  }
+
+      mac_algorithm_dukpt() :: %{
+        "DukptDerivationType" => String.t(),
+        "DukptKeyVariant" => String.t(),
+        "KeySerialNumber" => String.t()
+      }
+
   """
   @type mac_algorithm_dukpt() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cryptogram_verification_arpc_method2() :: %{
-    "CardStatusUpdate" => String.t(),
-    "ProprietaryAuthenticationData" => String.t()
-  }
+
+      cryptogram_verification_arpc_method2() :: %{
+        "CardStatusUpdate" => String.t(),
+        "ProprietaryAuthenticationData" => String.t()
+      }
+
   """
   @type cryptogram_verification_arpc_method2() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  verify_card_validation_data_input() :: %{
-    required("KeyIdentifier") => String.t(),
-    required("PrimaryAccountNumber") => String.t(),
-    required("ValidationData") => String.t(),
-    required("VerificationAttributes") => list()
-  }
+
+      verify_card_validation_data_input() :: %{
+        required("KeyIdentifier") => String.t(),
+        required("PrimaryAccountNumber") => String.t(),
+        required("ValidationData") => String.t(),
+        required("VerificationAttributes") => list()
+      }
+
   """
   @type verify_card_validation_data_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  amex_card_security_code_version2() :: %{
-    "CardExpiryDate" => String.t(),
-    "ServiceCode" => String.t()
-  }
+
+      amex_card_security_code_version2() :: %{
+        "CardExpiryDate" => String.t(),
+        "ServiceCode" => String.t()
+      }
+
   """
   @type amex_card_security_code_version2() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_not_found_exception() :: %{
-    "ResourceId" => [String.t()]
-  }
+
+      resource_not_found_exception() :: %{
+        "ResourceId" => [String.t()]
+      }
+
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  encrypt_data_input() :: %{
-    required("EncryptionAttributes") => list(),
-    required("PlainText") => String.t()
-  }
+
+      encrypt_data_input() :: %{
+        required("EncryptionAttributes") => list(),
+        required("PlainText") => String.t()
+      }
+
   """
   @type encrypt_data_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  dynamic_card_verification_code() :: %{
-    "ApplicationTransactionCounter" => String.t(),
-    "PanSequenceNumber" => String.t(),
-    "TrackData" => String.t(),
-    "UnpredictableNumber" => String.t()
-  }
+
+      dynamic_card_verification_code() :: %{
+        "ApplicationTransactionCounter" => String.t(),
+        "PanSequenceNumber" => String.t(),
+        "TrackData" => String.t(),
+        "UnpredictableNumber" => String.t()
+      }
+
   """
   @type dynamic_card_verification_code() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  dukpt_attributes() :: %{
-    "DukptDerivationType" => String.t(),
-    "KeySerialNumber" => String.t()
-  }
+
+      dukpt_attributes() :: %{
+        "DukptDerivationType" => String.t(),
+        "KeySerialNumber" => String.t()
+      }
+
   """
   @type dukpt_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  emv_encryption_attributes() :: %{
-    "InitializationVector" => String.t(),
-    "MajorKeyDerivationMode" => String.t(),
-    "Mode" => String.t(),
-    "PanSequenceNumber" => String.t(),
-    "PrimaryAccountNumber" => String.t(),
-    "SessionDerivationData" => String.t()
-  }
+
+      emv_encryption_attributes() :: %{
+        "InitializationVector" => String.t(),
+        "MajorKeyDerivationMode" => String.t(),
+        "Mode" => String.t(),
+        "PanSequenceNumber" => String.t(),
+        "PrimaryAccountNumber" => String.t(),
+        "SessionDerivationData" => String.t()
+      }
+
   """
   @type emv_encryption_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  verify_mac_input() :: %{
-    optional("MacLength") => integer(),
-    required("KeyIdentifier") => String.t(),
-    required("Mac") => String.t(),
-    required("MessageData") => String.t(),
-    required("VerificationAttributes") => list()
-  }
+
+      verify_mac_input() :: %{
+        optional("MacLength") => integer(),
+        required("KeyIdentifier") => String.t(),
+        required("Mac") => String.t(),
+        required("MessageData") => String.t(),
+        required("VerificationAttributes") => list()
+      }
+
   """
   @type verify_mac_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  generate_pin_data_input() :: %{
-    optional("PinDataLength") => integer(),
-    required("EncryptionKeyIdentifier") => String.t(),
-    required("GenerationAttributes") => list(),
-    required("GenerationKeyIdentifier") => String.t(),
-    required("PinBlockFormat") => String.t(),
-    required("PrimaryAccountNumber") => String.t()
-  }
+
+      generate_pin_data_input() :: %{
+        optional("PinDataLength") => integer(),
+        required("EncryptionKeyIdentifier") => String.t(),
+        required("GenerationAttributes") => list(),
+        required("GenerationKeyIdentifier") => String.t(),
+        required("PinBlockFormat") => String.t(),
+        required("PrimaryAccountNumber") => String.t()
+      }
+
   """
   @type generate_pin_data_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  generate_mac_input() :: %{
-    optional("MacLength") => integer(),
-    required("GenerationAttributes") => list(),
-    required("KeyIdentifier") => String.t(),
-    required("MessageData") => String.t()
-  }
+
+      generate_mac_input() :: %{
+        optional("MacLength") => integer(),
+        required("GenerationAttributes") => list(),
+        required("KeyIdentifier") => String.t(),
+        required("MessageData") => String.t()
+      }
+
   """
   @type generate_mac_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  card_verification_value2() :: %{
-    "CardExpiryDate" => String.t()
-  }
+
+      card_verification_value2() :: %{
+        "CardExpiryDate" => String.t()
+      }
+
   """
   @type card_verification_value2() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  verify_auth_request_cryptogram_output() :: %{
-    "AuthResponseValue" => String.t(),
-    "KeyArn" => String.t(),
-    "KeyCheckValue" => String.t()
-  }
+
+      verify_auth_request_cryptogram_output() :: %{
+        "AuthResponseValue" => String.t(),
+        "KeyArn" => String.t(),
+        "KeyCheckValue" => String.t()
+      }
+
   """
   @type verify_auth_request_cryptogram_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  visa_pin() :: %{
-    "PinVerificationKeyIndex" => integer()
-  }
+
+      visa_pin() :: %{
+        "PinVerificationKeyIndex" => integer()
+      }
+
   """
   @type visa_pin() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  mac_algorithm_emv() :: %{
-    "MajorKeyDerivationMode" => String.t(),
-    "PanSequenceNumber" => String.t(),
-    "PrimaryAccountNumber" => String.t(),
-    "SessionKeyDerivationMode" => String.t(),
-    "SessionKeyDerivationValue" => list()
-  }
+
+      mac_algorithm_emv() :: %{
+        "MajorKeyDerivationMode" => String.t(),
+        "PanSequenceNumber" => String.t(),
+        "PrimaryAccountNumber" => String.t(),
+        "SessionKeyDerivationMode" => String.t(),
+        "SessionKeyDerivationValue" => list()
+      }
+
   """
   @type mac_algorithm_emv() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  validation_exception_field() :: %{
-    "message" => [String.t()],
-    "path" => [String.t()]
-  }
+
+      validation_exception_field() :: %{
+        "message" => [String.t()],
+        "path" => [String.t()]
+      }
+
   """
   @type validation_exception_field() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ibm3624_pin_verification() :: %{
-    "DecimalizationTable" => String.t(),
-    "PinOffset" => String.t(),
-    "PinValidationData" => String.t(),
-    "PinValidationDataPadCharacter" => String.t()
-  }
+
+      ibm3624_pin_verification() :: %{
+        "DecimalizationTable" => String.t(),
+        "PinOffset" => String.t(),
+        "PinValidationData" => String.t(),
+        "PinValidationDataPadCharacter" => String.t()
+      }
+
   """
   @type ibm3624_pin_verification() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  visa_pin_verification() :: %{
-    "PinVerificationKeyIndex" => integer(),
-    "VerificationValue" => String.t()
-  }
+
+      visa_pin_verification() :: %{
+        "PinVerificationKeyIndex" => integer(),
+        "VerificationValue" => String.t()
+      }
+
   """
   @type visa_pin_verification() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  session_key_emv_common() :: %{
-    "ApplicationTransactionCounter" => String.t(),
-    "PanSequenceNumber" => String.t(),
-    "PrimaryAccountNumber" => String.t()
-  }
+
+      session_key_emv_common() :: %{
+        "ApplicationTransactionCounter" => String.t(),
+        "PanSequenceNumber" => String.t(),
+        "PrimaryAccountNumber" => String.t()
+      }
+
   """
   @type session_key_emv_common() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ibm3624_natural_pin() :: %{
-    "DecimalizationTable" => String.t(),
-    "PinValidationData" => String.t(),
-    "PinValidationDataPadCharacter" => String.t()
-  }
+
+      ibm3624_natural_pin() :: %{
+        "DecimalizationTable" => String.t(),
+        "PinValidationData" => String.t(),
+        "PinValidationDataPadCharacter" => String.t()
+      }
+
   """
   @type ibm3624_natural_pin() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  internal_server_exception() :: %{
-    "Message" => [String.t()]
-  }
+
+      internal_server_exception() :: %{
+        "Message" => [String.t()]
+      }
+
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  session_key_emv2000() :: %{
-    "ApplicationTransactionCounter" => String.t(),
-    "PanSequenceNumber" => String.t(),
-    "PrimaryAccountNumber" => String.t()
-  }
+
+      session_key_emv2000() :: %{
+        "ApplicationTransactionCounter" => String.t(),
+        "PanSequenceNumber" => String.t(),
+        "PrimaryAccountNumber" => String.t()
+      }
+
   """
   @type session_key_emv2000() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  symmetric_encryption_attributes() :: %{
-    "InitializationVector" => String.t(),
-    "Mode" => String.t(),
-    "PaddingType" => String.t()
-  }
+
+      symmetric_encryption_attributes() :: %{
+        "InitializationVector" => String.t(),
+        "Mode" => String.t(),
+        "PaddingType" => String.t()
+      }
+
   """
   @type symmetric_encryption_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  verify_card_validation_data_output() :: %{
-    "KeyArn" => String.t(),
-    "KeyCheckValue" => String.t()
-  }
+
+      verify_card_validation_data_output() :: %{
+        "KeyArn" => String.t(),
+        "KeyCheckValue" => String.t()
+      }
+
   """
   @type verify_card_validation_data_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  verification_failed_exception() :: %{
-    "Message" => [String.t()],
-    "Reason" => String.t()
-  }
+
+      verification_failed_exception() :: %{
+        "Message" => [String.t()],
+        "Reason" => String.t()
+      }
+
   """
   @type verification_failed_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  access_denied_exception() :: %{
-    "Message" => [String.t()]
-  }
+
+      access_denied_exception() :: %{
+        "Message" => [String.t()]
+      }
+
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  verify_pin_data_input() :: %{
-    optional("DukptAttributes") => dukpt_attributes(),
-    optional("PinDataLength") => integer(),
-    required("EncryptedPinBlock") => String.t(),
-    required("EncryptionKeyIdentifier") => String.t(),
-    required("PinBlockFormat") => String.t(),
-    required("PrimaryAccountNumber") => String.t(),
-    required("VerificationAttributes") => list(),
-    required("VerificationKeyIdentifier") => String.t()
-  }
+
+      verify_pin_data_input() :: %{
+        optional("DukptAttributes") => dukpt_attributes(),
+        optional("PinDataLength") => integer(),
+        required("EncryptedPinBlock") => String.t(),
+        required("EncryptionKeyIdentifier") => String.t(),
+        required("PinBlockFormat") => String.t(),
+        required("PrimaryAccountNumber") => String.t(),
+        required("VerificationAttributes") => list(),
+        required("VerificationKeyIdentifier") => String.t()
+      }
+
   """
   @type verify_pin_data_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  session_key_mastercard() :: %{
-    "ApplicationTransactionCounter" => String.t(),
-    "PanSequenceNumber" => String.t(),
-    "PrimaryAccountNumber" => String.t(),
-    "UnpredictableNumber" => String.t()
-  }
+
+      session_key_mastercard() :: %{
+        "ApplicationTransactionCounter" => String.t(),
+        "PanSequenceNumber" => String.t(),
+        "PrimaryAccountNumber" => String.t(),
+        "UnpredictableNumber" => String.t()
+      }
+
   """
   @type session_key_mastercard() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  decrypt_data_output() :: %{
-    "KeyArn" => String.t(),
-    "KeyCheckValue" => String.t(),
-    "PlainText" => String.t()
-  }
+
+      decrypt_data_output() :: %{
+        "KeyArn" => String.t(),
+        "KeyCheckValue" => String.t(),
+        "PlainText" => String.t()
+      }
+
   """
   @type decrypt_data_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  re_encrypt_data_input() :: %{
-    required("CipherText") => String.t(),
-    required("IncomingEncryptionAttributes") => list(),
-    required("OutgoingEncryptionAttributes") => list(),
-    required("OutgoingKeyIdentifier") => String.t()
-  }
+
+      re_encrypt_data_input() :: %{
+        required("CipherText") => String.t(),
+        required("IncomingEncryptionAttributes") => list(),
+        required("OutgoingEncryptionAttributes") => list(),
+        required("OutgoingKeyIdentifier") => String.t()
+      }
+
   """
   @type re_encrypt_data_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  generate_card_validation_data_output() :: %{
-    "KeyArn" => String.t(),
-    "KeyCheckValue" => String.t(),
-    "ValidationData" => String.t()
-  }
+
+      generate_card_validation_data_output() :: %{
+        "KeyArn" => String.t(),
+        "KeyCheckValue" => String.t(),
+        "ValidationData" => String.t()
+      }
+
   """
   @type generate_card_validation_data_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  re_encrypt_data_output() :: %{
-    "CipherText" => String.t(),
-    "KeyArn" => String.t(),
-    "KeyCheckValue" => String.t()
-  }
+
+      re_encrypt_data_output() :: %{
+        "CipherText" => String.t(),
+        "KeyArn" => String.t(),
+        "KeyCheckValue" => String.t()
+      }
+
   """
   @type re_encrypt_data_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  generate_pin_data_output() :: %{
-    "EncryptedPinBlock" => String.t(),
-    "EncryptionKeyArn" => String.t(),
-    "EncryptionKeyCheckValue" => String.t(),
-    "GenerationKeyArn" => String.t(),
-    "GenerationKeyCheckValue" => String.t(),
-    "PinData" => list()
-  }
+
+      generate_pin_data_output() :: %{
+        "EncryptedPinBlock" => String.t(),
+        "EncryptionKeyArn" => String.t(),
+        "EncryptionKeyCheckValue" => String.t(),
+        "GenerationKeyArn" => String.t(),
+        "GenerationKeyCheckValue" => String.t(),
+        "PinData" => list()
+      }
+
   """
   @type generate_pin_data_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  card_verification_value1() :: %{
-    "CardExpiryDate" => String.t(),
-    "ServiceCode" => String.t()
-  }
+
+      card_verification_value1() :: %{
+        "CardExpiryDate" => String.t(),
+        "ServiceCode" => String.t()
+      }
+
   """
   @type card_verification_value1() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  decrypt_data_input() :: %{
-    required("CipherText") => String.t(),
-    required("DecryptionAttributes") => list()
-  }
+
+      decrypt_data_input() :: %{
+        required("CipherText") => String.t(),
+        required("DecryptionAttributes") => list()
+      }
+
   """
   @type decrypt_data_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  validation_exception() :: %{
-    "fieldList" => list(validation_exception_field()()),
-    "message" => [String.t()]
-  }
+
+      validation_exception() :: %{
+        "fieldList" => list(validation_exception_field()()),
+        "message" => [String.t()]
+      }
+
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  verify_auth_request_cryptogram_input() :: %{
-    optional("AuthResponseAttributes") => list(),
-    required("AuthRequestCryptogram") => String.t(),
-    required("KeyIdentifier") => String.t(),
-    required("MajorKeyDerivationMode") => String.t(),
-    required("SessionKeyDerivationAttributes") => list(),
-    required("TransactionData") => String.t()
-  }
+
+      verify_auth_request_cryptogram_input() :: %{
+        optional("AuthResponseAttributes") => list(),
+        required("AuthRequestCryptogram") => String.t(),
+        required("KeyIdentifier") => String.t(),
+        required("MajorKeyDerivationMode") => String.t(),
+        required("SessionKeyDerivationAttributes") => list(),
+        required("TransactionData") => String.t()
+      }
+
   """
   @type verify_auth_request_cryptogram_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  throttling_exception() :: %{
-    "Message" => [String.t()]
-  }
+
+      throttling_exception() :: %{
+        "Message" => [String.t()]
+      }
+
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  generate_card_validation_data_input() :: %{
-    optional("ValidationDataLength") => integer(),
-    required("GenerationAttributes") => list(),
-    required("KeyIdentifier") => String.t(),
-    required("PrimaryAccountNumber") => String.t()
-  }
+
+      generate_card_validation_data_input() :: %{
+        optional("ValidationDataLength") => integer(),
+        required("GenerationAttributes") => list(),
+        required("KeyIdentifier") => String.t(),
+        required("PrimaryAccountNumber") => String.t()
+      }
+
   """
   @type generate_card_validation_data_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ibm3624_random_pin() :: %{
-    "DecimalizationTable" => String.t(),
-    "PinValidationData" => String.t(),
-    "PinValidationDataPadCharacter" => String.t()
-  }
+
+      ibm3624_random_pin() :: %{
+        "DecimalizationTable" => String.t(),
+        "PinValidationData" => String.t(),
+        "PinValidationDataPadCharacter" => String.t()
+      }
+
   """
   @type ibm3624_random_pin() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  translate_pin_data_output() :: %{
-    "KeyArn" => String.t(),
-    "KeyCheckValue" => String.t(),
-    "PinBlock" => String.t()
-  }
+
+      translate_pin_data_output() :: %{
+        "KeyArn" => String.t(),
+        "KeyCheckValue" => String.t(),
+        "PinBlock" => String.t()
+      }
+
   """
   @type translate_pin_data_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  session_key_visa() :: %{
-    "PanSequenceNumber" => String.t(),
-    "PrimaryAccountNumber" => String.t()
-  }
+
+      session_key_visa() :: %{
+        "PanSequenceNumber" => String.t(),
+        "PrimaryAccountNumber" => String.t()
+      }
+
   """
   @type session_key_visa() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  verify_pin_data_output() :: %{
-    "EncryptionKeyArn" => String.t(),
-    "EncryptionKeyCheckValue" => String.t(),
-    "VerificationKeyArn" => String.t(),
-    "VerificationKeyCheckValue" => String.t()
-  }
+
+      verify_pin_data_output() :: %{
+        "EncryptionKeyArn" => String.t(),
+        "EncryptionKeyCheckValue" => String.t(),
+        "VerificationKeyArn" => String.t(),
+        "VerificationKeyCheckValue" => String.t()
+      }
+
   """
   @type verify_pin_data_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ibm3624_pin_from_offset() :: %{
-    "DecimalizationTable" => String.t(),
-    "PinOffset" => String.t(),
-    "PinValidationData" => String.t(),
-    "PinValidationDataPadCharacter" => String.t()
-  }
+
+      ibm3624_pin_from_offset() :: %{
+        "DecimalizationTable" => String.t(),
+        "PinOffset" => String.t(),
+        "PinValidationData" => String.t(),
+        "PinValidationDataPadCharacter" => String.t()
+      }
+
   """
   @type ibm3624_pin_from_offset() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  translation_pin_data_iso_format1() :: %{
 
-  }
+      translation_pin_data_iso_format1() :: %{}
+
   """
-  @type translation_pin_data_iso_format1() :: %{String.t() => any()}
+  @type translation_pin_data_iso_format1() :: %{}
 
   @typedoc """
 
   ## Example:
-  generate_mac_output() :: %{
-    "KeyArn" => String.t(),
-    "KeyCheckValue" => String.t(),
-    "Mac" => String.t()
-  }
+
+      generate_mac_output() :: %{
+        "KeyArn" => String.t(),
+        "KeyCheckValue" => String.t(),
+        "Mac" => String.t()
+      }
+
   """
   @type generate_mac_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  dukpt_derivation_attributes() :: %{
-    "DukptKeyDerivationType" => String.t(),
-    "DukptKeyVariant" => String.t(),
-    "KeySerialNumber" => String.t()
-  }
+
+      dukpt_derivation_attributes() :: %{
+        "DukptKeyDerivationType" => String.t(),
+        "DukptKeyVariant" => String.t(),
+        "KeySerialNumber" => String.t()
+      }
+
   """
   @type dukpt_derivation_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  dukpt_encryption_attributes() :: %{
-    "DukptKeyDerivationType" => String.t(),
-    "DukptKeyVariant" => String.t(),
-    "InitializationVector" => String.t(),
-    "KeySerialNumber" => String.t(),
-    "Mode" => String.t()
-  }
+
+      dukpt_encryption_attributes() :: %{
+        "DukptKeyDerivationType" => String.t(),
+        "DukptKeyVariant" => String.t(),
+        "InitializationVector" => String.t(),
+        "KeySerialNumber" => String.t(),
+        "Mode" => String.t()
+      }
+
   """
   @type dukpt_encryption_attributes() :: %{String.t() => any()}
+
+  @type decrypt_data_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type encrypt_data_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type generate_card_validation_data_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type generate_mac_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type generate_pin_data_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type re_encrypt_data_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type translate_pin_data_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type verify_auth_request_cryptogram_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | verification_failed_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type verify_card_validation_data_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | verification_failed_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type verify_mac_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | verification_failed_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type verify_pin_data_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | verification_failed_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
 
   def metadata do
     %{
@@ -769,11 +972,7 @@ defmodule AWS.PaymentCryptographyData do
   @spec decrypt_data(map(), String.t(), decrypt_data_input(), list()) ::
           {:ok, decrypt_data_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, decrypt_data_errors()}
   def decrypt_data(%Client{} = client, key_identifier, input, options \\ []) do
     url_path = "/keys/#{AWS.Util.encode_uri(key_identifier)}/decrypt"
     headers = []
@@ -853,11 +1052,7 @@ defmodule AWS.PaymentCryptographyData do
   @spec encrypt_data(map(), String.t(), encrypt_data_input(), list()) ::
           {:ok, encrypt_data_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, encrypt_data_errors()}
   def encrypt_data(%Client{} = client, key_identifier, input, options \\ []) do
     url_path = "/keys/#{AWS.Util.encode_uri(key_identifier)}/encrypt"
     headers = []
@@ -917,11 +1112,7 @@ defmodule AWS.PaymentCryptographyData do
   @spec generate_card_validation_data(map(), generate_card_validation_data_input(), list()) ::
           {:ok, generate_card_validation_data_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, generate_card_validation_data_errors()}
   def generate_card_validation_data(%Client{} = client, input, options \\ []) do
     url_path = "/cardvalidationdata/generate"
     headers = []
@@ -975,11 +1166,7 @@ defmodule AWS.PaymentCryptographyData do
   @spec generate_mac(map(), generate_mac_input(), list()) ::
           {:ok, generate_mac_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, generate_mac_errors()}
   def generate_mac(%Client{} = client, input, options \\ []) do
     url_path = "/mac/generate"
     headers = []
@@ -1037,11 +1224,7 @@ defmodule AWS.PaymentCryptographyData do
   @spec generate_pin_data(map(), generate_pin_data_input(), list()) ::
           {:ok, generate_pin_data_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, generate_pin_data_errors()}
   def generate_pin_data(%Client{} = client, input, options \\ []) do
     url_path = "/pindata/generate"
     headers = []
@@ -1111,11 +1294,7 @@ defmodule AWS.PaymentCryptographyData do
   @spec re_encrypt_data(map(), String.t(), re_encrypt_data_input(), list()) ::
           {:ok, re_encrypt_data_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, re_encrypt_data_errors()}
   def re_encrypt_data(%Client{} = client, incoming_key_identifier, input, options \\ []) do
     url_path = "/keys/#{AWS.Util.encode_uri(incoming_key_identifier)}/reencrypt"
     headers = []
@@ -1180,11 +1359,7 @@ defmodule AWS.PaymentCryptographyData do
   @spec translate_pin_data(map(), translate_pin_data_input(), list()) ::
           {:ok, translate_pin_data_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, translate_pin_data_errors()}
   def translate_pin_data(%Client{} = client, input, options \\ []) do
     url_path = "/pindata/translate"
     headers = []
@@ -1245,12 +1420,7 @@ defmodule AWS.PaymentCryptographyData do
   @spec verify_auth_request_cryptogram(map(), verify_auth_request_cryptogram_input(), list()) ::
           {:ok, verify_auth_request_cryptogram_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
-          | {:error, verification_failed_exception()}
+          | {:error, verify_auth_request_cryptogram_errors()}
   def verify_auth_request_cryptogram(%Client{} = client, input, options \\ []) do
     url_path = "/cryptogram/verify"
     headers = []
@@ -1312,12 +1482,7 @@ defmodule AWS.PaymentCryptographyData do
   @spec verify_card_validation_data(map(), verify_card_validation_data_input(), list()) ::
           {:ok, verify_card_validation_data_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
-          | {:error, verification_failed_exception()}
+          | {:error, verify_card_validation_data_errors()}
   def verify_card_validation_data(%Client{} = client, input, options \\ []) do
     url_path = "/cardvalidationdata/verify"
     headers = []
@@ -1363,12 +1528,7 @@ defmodule AWS.PaymentCryptographyData do
   @spec verify_mac(map(), verify_mac_input(), list()) ::
           {:ok, verify_mac_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
-          | {:error, verification_failed_exception()}
+          | {:error, verify_mac_errors()}
   def verify_mac(%Client{} = client, input, options \\ []) do
     url_path = "/mac/verify"
     headers = []
@@ -1423,12 +1583,7 @@ defmodule AWS.PaymentCryptographyData do
   @spec verify_pin_data(map(), verify_pin_data_input(), list()) ::
           {:ok, verify_pin_data_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
-          | {:error, verification_failed_exception()}
+          | {:error, verify_pin_data_errors()}
   def verify_pin_data(%Client{} = client, input, options \\ []) do
     url_path = "/pindata/verify"
     headers = []

@@ -24,1550 +24,1762 @@ defmodule AWS.MediaTailor do
   @typedoc """
 
   ## Example:
-  put_channel_policy_request() :: %{
-    required("Policy") => String.t()
-  }
+
+      put_channel_policy_request() :: %{
+        required("Policy") => String.t()
+      }
+
   """
   @type put_channel_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_program_response() :: %{
 
-  }
+      delete_program_response() :: %{}
+
   """
-  @type delete_program_response() :: %{String.t() => any()}
+  @type delete_program_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  live_pre_roll_configuration() :: %{
-    "AdDecisionServerUrl" => String.t(),
-    "MaxDurationSeconds" => integer()
-  }
+
+      live_pre_roll_configuration() :: %{
+        "AdDecisionServerUrl" => String.t(),
+        "MaxDurationSeconds" => integer()
+      }
+
   """
   @type live_pre_roll_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_channel_request() :: %{
 
-  }
+      delete_channel_request() :: %{}
+
   """
-  @type delete_channel_request() :: %{String.t() => any()}
+  @type delete_channel_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  response_output_item() :: %{
-    "DashPlaylistSettings" => dash_playlist_settings(),
-    "HlsPlaylistSettings" => hls_playlist_settings(),
-    "ManifestName" => String.t(),
-    "PlaybackUrl" => String.t(),
-    "SourceGroup" => String.t()
-  }
+
+      response_output_item() :: %{
+        "DashPlaylistSettings" => dash_playlist_settings(),
+        "HlsPlaylistSettings" => hls_playlist_settings(),
+        "ManifestName" => String.t(),
+        "PlaybackUrl" => String.t(),
+        "SourceGroup" => String.t()
+      }
+
   """
   @type response_output_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_channel_policy_response() :: %{
 
-  }
+      put_channel_policy_response() :: %{}
+
   """
-  @type put_channel_policy_response() :: %{String.t() => any()}
+  @type put_channel_policy_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  vod_source() :: %{
-    "Arn" => String.t(),
-    "CreationTime" => non_neg_integer(),
-    "HttpPackageConfigurations" => list(http_package_configuration()()),
-    "LastModifiedTime" => non_neg_integer(),
-    "SourceLocationName" => String.t(),
-    "Tags" => map(),
-    "VodSourceName" => String.t()
-  }
+
+      vod_source() :: %{
+        "Arn" => String.t(),
+        "CreationTime" => non_neg_integer(),
+        "HttpPackageConfigurations" => list(http_package_configuration()()),
+        "LastModifiedTime" => non_neg_integer(),
+        "SourceLocationName" => String.t(),
+        "Tags" => map(),
+        "VodSourceName" => String.t()
+      }
+
   """
   @type vod_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_request() :: %{
-    required("Tags") => map()
-  }
+
+      tag_resource_request() :: %{
+        required("Tags") => map()
+      }
+
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_vod_source_request() :: %{
 
-  }
+      describe_vod_source_request() :: %{}
+
   """
-  @type describe_vod_source_request() :: %{String.t() => any()}
+  @type describe_vod_source_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  configure_logs_for_playback_configuration_response() :: %{
-    optional("PlaybackConfigurationName") => String.t(),
-    required("PercentEnabled") => integer()
-  }
+
+      configure_logs_for_playback_configuration_response() :: %{
+        optional("PlaybackConfigurationName") => String.t(),
+        required("PercentEnabled") => integer()
+      }
+
   """
   @type configure_logs_for_playback_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_vod_source_response() :: %{
-    optional("Arn") => String.t(),
-    optional("CreationTime") => non_neg_integer(),
-    optional("HttpPackageConfigurations") => list(http_package_configuration()()),
-    optional("LastModifiedTime") => non_neg_integer(),
-    optional("SourceLocationName") => String.t(),
-    optional("Tags") => map(),
-    optional("VodSourceName") => String.t()
-  }
+
+      update_vod_source_response() :: %{
+        optional("Arn") => String.t(),
+        optional("CreationTime") => non_neg_integer(),
+        optional("HttpPackageConfigurations") => list(http_package_configuration()()),
+        optional("LastModifiedTime") => non_neg_integer(),
+        optional("SourceLocationName") => String.t(),
+        optional("Tags") => map(),
+        optional("VodSourceName") => String.t()
+      }
+
   """
   @type update_vod_source_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_vod_source_request() :: %{
 
-  }
+      delete_vod_source_request() :: %{}
+
   """
-  @type delete_vod_source_request() :: %{String.t() => any()}
+  @type delete_vod_source_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  describe_vod_source_response() :: %{
-    optional("AdBreakOpportunities") => list(ad_break_opportunity()()),
-    optional("Arn") => String.t(),
-    optional("CreationTime") => non_neg_integer(),
-    optional("HttpPackageConfigurations") => list(http_package_configuration()()),
-    optional("LastModifiedTime") => non_neg_integer(),
-    optional("SourceLocationName") => String.t(),
-    optional("Tags") => map(),
-    optional("VodSourceName") => String.t()
-  }
+
+      describe_vod_source_response() :: %{
+        optional("AdBreakOpportunities") => list(ad_break_opportunity()()),
+        optional("Arn") => String.t(),
+        optional("CreationTime") => non_neg_integer(),
+        optional("HttpPackageConfigurations") => list(http_package_configuration()()),
+        optional("LastModifiedTime") => non_neg_integer(),
+        optional("SourceLocationName") => String.t(),
+        optional("Tags") => map(),
+        optional("VodSourceName") => String.t()
+      }
+
   """
   @type describe_vod_source_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_channel_response() :: %{
-    optional("Arn") => String.t(),
-    optional("ChannelName") => String.t(),
-    optional("ChannelState") => list(any()),
-    optional("CreationTime") => non_neg_integer(),
-    optional("FillerSlate") => slate_source(),
-    optional("LastModifiedTime") => non_neg_integer(),
-    optional("Outputs") => list(response_output_item()()),
-    optional("PlaybackMode") => String.t(),
-    optional("Tags") => map(),
-    optional("Tier") => String.t(),
-    optional("TimeShiftConfiguration") => time_shift_configuration()
-  }
+
+      create_channel_response() :: %{
+        optional("Arn") => String.t(),
+        optional("ChannelName") => String.t(),
+        optional("ChannelState") => list(any()),
+        optional("CreationTime") => non_neg_integer(),
+        optional("FillerSlate") => slate_source(),
+        optional("LastModifiedTime") => non_neg_integer(),
+        optional("Outputs") => list(response_output_item()()),
+        optional("PlaybackMode") => String.t(),
+        optional("Tags") => map(),
+        optional("Tier") => String.t(),
+        optional("TimeShiftConfiguration") => time_shift_configuration()
+      }
+
   """
   @type create_channel_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  configure_logs_for_channel_request() :: %{
-    required("ChannelName") => String.t(),
-    required("LogTypes") => list(list(any())())
-  }
+
+      configure_logs_for_channel_request() :: %{
+        required("ChannelName") => String.t(),
+        required("LogTypes") => list(list(any())())
+      }
+
   """
   @type configure_logs_for_channel_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_playback_configuration_request() :: %{
 
-  }
+      delete_playback_configuration_request() :: %{}
+
   """
-  @type delete_playback_configuration_request() :: %{String.t() => any()}
+  @type delete_playback_configuration_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  delete_vod_source_response() :: %{
 
-  }
+      delete_vod_source_response() :: %{}
+
   """
-  @type delete_vod_source_response() :: %{String.t() => any()}
+  @type delete_vod_source_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  delete_channel_response() :: %{
 
-  }
+      delete_channel_response() :: %{}
+
   """
-  @type delete_channel_response() :: %{String.t() => any()}
+  @type delete_channel_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  playback_configuration() :: %{
-    "AdDecisionServerUrl" => String.t(),
-    "AvailSuppression" => avail_suppression(),
-    "Bumper" => bumper(),
-    "CdnConfiguration" => cdn_configuration(),
-    "ConfigurationAliases" => map(),
-    "DashConfiguration" => dash_configuration(),
-    "HlsConfiguration" => hls_configuration(),
-    "LivePreRollConfiguration" => live_pre_roll_configuration(),
-    "LogConfiguration" => log_configuration(),
-    "ManifestProcessingRules" => manifest_processing_rules(),
-    "Name" => String.t(),
-    "PersonalizationThresholdSeconds" => integer(),
-    "PlaybackConfigurationArn" => String.t(),
-    "PlaybackEndpointPrefix" => String.t(),
-    "SessionInitializationEndpointPrefix" => String.t(),
-    "SlateAdUrl" => String.t(),
-    "Tags" => map(),
-    "TranscodeProfileName" => String.t(),
-    "VideoContentSourceUrl" => String.t()
-  }
+
+      playback_configuration() :: %{
+        "AdDecisionServerUrl" => String.t(),
+        "AvailSuppression" => avail_suppression(),
+        "Bumper" => bumper(),
+        "CdnConfiguration" => cdn_configuration(),
+        "ConfigurationAliases" => map(),
+        "DashConfiguration" => dash_configuration(),
+        "HlsConfiguration" => hls_configuration(),
+        "LivePreRollConfiguration" => live_pre_roll_configuration(),
+        "LogConfiguration" => log_configuration(),
+        "ManifestProcessingRules" => manifest_processing_rules(),
+        "Name" => String.t(),
+        "PersonalizationThresholdSeconds" => integer(),
+        "PlaybackConfigurationArn" => String.t(),
+        "PlaybackEndpointPrefix" => String.t(),
+        "SessionInitializationEndpointPrefix" => String.t(),
+        "SlateAdUrl" => String.t(),
+        "Tags" => map(),
+        "TranscodeProfileName" => String.t(),
+        "VideoContentSourceUrl" => String.t()
+      }
+
   """
   @type playback_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_channel_schedule_request() :: %{
-    optional("DurationMinutes") => String.t(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      get_channel_schedule_request() :: %{
+        optional("DurationMinutes") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type get_channel_schedule_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_alerts_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("ResourceArn") => String.t()
-  }
+
+      list_alerts_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("ResourceArn") => String.t()
+      }
+
   """
   @type list_alerts_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_prefetch_schedules_response() :: %{
-    optional("Items") => list(prefetch_schedule()()),
-    optional("NextToken") => String.t()
-  }
+
+      list_prefetch_schedules_response() :: %{
+        optional("Items") => list(prefetch_schedule()()),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_prefetch_schedules_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  prefetch_consumption() :: %{
-    "AvailMatchingCriteria" => list(avail_matching_criteria()()),
-    "EndTime" => non_neg_integer(),
-    "StartTime" => non_neg_integer()
-  }
+
+      prefetch_consumption() :: %{
+        "AvailMatchingCriteria" => list(avail_matching_criteria()()),
+        "EndTime" => non_neg_integer(),
+        "StartTime" => non_neg_integer()
+      }
+
   """
   @type prefetch_consumption() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_channel_policy_request() :: %{
 
-  }
+      delete_channel_policy_request() :: %{}
+
   """
-  @type delete_channel_policy_request() :: %{String.t() => any()}
+  @type delete_channel_policy_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_vod_sources_response() :: %{
-    optional("Items") => list(vod_source()()),
-    optional("NextToken") => String.t()
-  }
+
+      list_vod_sources_response() :: %{
+        optional("Items") => list(vod_source()()),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_vod_sources_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  configure_logs_for_playback_configuration_request() :: %{
-    "PercentEnabled" => integer(),
-    "PlaybackConfigurationName" => String.t()
-  }
+
+      configure_logs_for_playback_configuration_request() :: %{
+        "PercentEnabled" => integer(),
+        "PlaybackConfigurationName" => String.t()
+      }
+
   """
   @type configure_logs_for_playback_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_source_location_response() :: %{
-    optional("AccessConfiguration") => access_configuration(),
-    optional("Arn") => String.t(),
-    optional("CreationTime") => non_neg_integer(),
-    optional("DefaultSegmentDeliveryConfiguration") => default_segment_delivery_configuration(),
-    optional("HttpConfiguration") => http_configuration(),
-    optional("LastModifiedTime") => non_neg_integer(),
-    optional("SegmentDeliveryConfigurations") => list(segment_delivery_configuration()()),
-    optional("SourceLocationName") => String.t(),
-    optional("Tags") => map()
-  }
+
+      update_source_location_response() :: %{
+        optional("AccessConfiguration") => access_configuration(),
+        optional("Arn") => String.t(),
+        optional("CreationTime") => non_neg_integer(),
+        optional("DefaultSegmentDeliveryConfiguration") => default_segment_delivery_configuration(),
+        optional("HttpConfiguration") => http_configuration(),
+        optional("LastModifiedTime") => non_neg_integer(),
+        optional("SegmentDeliveryConfigurations") => list(segment_delivery_configuration()()),
+        optional("SourceLocationName") => String.t(),
+        optional("Tags") => map()
+      }
+
   """
   @type update_source_location_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  default_segment_delivery_configuration() :: %{
-    "BaseUrl" => String.t()
-  }
+
+      default_segment_delivery_configuration() :: %{
+        "BaseUrl" => String.t()
+      }
+
   """
   @type default_segment_delivery_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_channel_schedule_response() :: %{
-    optional("Items") => list(schedule_entry()()),
-    optional("NextToken") => String.t()
-  }
+
+      get_channel_schedule_response() :: %{
+        optional("Items") => list(schedule_entry()()),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type get_channel_schedule_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_request() :: %{
-    required("TagKeys") => list(String.t()())
-  }
+
+      untag_resource_request() :: %{
+        required("TagKeys") => list(String.t()())
+      }
+
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ad_break_opportunity() :: %{
-    "OffsetMillis" => float()
-  }
+
+      ad_break_opportunity() :: %{
+        "OffsetMillis" => float()
+      }
+
   """
   @type ad_break_opportunity() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_prefetch_schedule_request() :: %{
 
-  }
+      get_prefetch_schedule_request() :: %{}
+
   """
-  @type get_prefetch_schedule_request() :: %{String.t() => any()}
+  @type get_prefetch_schedule_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  manifest_processing_rules() :: %{
-    "AdMarkerPassthrough" => ad_marker_passthrough()
-  }
+
+      manifest_processing_rules() :: %{
+        "AdMarkerPassthrough" => ad_marker_passthrough()
+      }
+
   """
   @type manifest_processing_rules() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  dash_playlist_settings() :: %{
-    "ManifestWindowSeconds" => integer(),
-    "MinBufferTimeSeconds" => integer(),
-    "MinUpdatePeriodSeconds" => integer(),
-    "SuggestedPresentationDelaySeconds" => integer()
-  }
+
+      dash_playlist_settings() :: %{
+        "ManifestWindowSeconds" => integer(),
+        "MinBufferTimeSeconds" => integer(),
+        "MinUpdatePeriodSeconds" => integer(),
+        "SuggestedPresentationDelaySeconds" => integer()
+      }
+
   """
   @type dash_playlist_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stop_channel_request() :: %{
 
-  }
+      stop_channel_request() :: %{}
+
   """
-  @type stop_channel_request() :: %{String.t() => any()}
+  @type stop_channel_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  describe_source_location_response() :: %{
-    optional("AccessConfiguration") => access_configuration(),
-    optional("Arn") => String.t(),
-    optional("CreationTime") => non_neg_integer(),
-    optional("DefaultSegmentDeliveryConfiguration") => default_segment_delivery_configuration(),
-    optional("HttpConfiguration") => http_configuration(),
-    optional("LastModifiedTime") => non_neg_integer(),
-    optional("SegmentDeliveryConfigurations") => list(segment_delivery_configuration()()),
-    optional("SourceLocationName") => String.t(),
-    optional("Tags") => map()
-  }
+
+      describe_source_location_response() :: %{
+        optional("AccessConfiguration") => access_configuration(),
+        optional("Arn") => String.t(),
+        optional("CreationTime") => non_neg_integer(),
+        optional("DefaultSegmentDeliveryConfiguration") => default_segment_delivery_configuration(),
+        optional("HttpConfiguration") => http_configuration(),
+        optional("LastModifiedTime") => non_neg_integer(),
+        optional("SegmentDeliveryConfigurations") => list(segment_delivery_configuration()()),
+        optional("SourceLocationName") => String.t(),
+        optional("Tags") => map()
+      }
+
   """
   @type describe_source_location_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_playback_configurations_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      list_playback_configurations_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_playback_configurations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_prefetch_schedule_response() :: %{
-    optional("Arn") => String.t(),
-    optional("Consumption") => prefetch_consumption(),
-    optional("Name") => String.t(),
-    optional("PlaybackConfigurationName") => String.t(),
-    optional("Retrieval") => prefetch_retrieval(),
-    optional("StreamId") => String.t()
-  }
+
+      get_prefetch_schedule_response() :: %{
+        optional("Arn") => String.t(),
+        optional("Consumption") => prefetch_consumption(),
+        optional("Name") => String.t(),
+        optional("PlaybackConfigurationName") => String.t(),
+        optional("Retrieval") => prefetch_retrieval(),
+        optional("StreamId") => String.t()
+      }
+
   """
   @type get_prefetch_schedule_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  clip_range() :: %{
-    "EndOffsetMillis" => float()
-  }
+
+      clip_range() :: %{
+        "EndOffsetMillis" => float()
+      }
+
   """
   @type clip_range() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_program_response() :: %{
-    optional("AdBreaks") => list(ad_break()()),
-    optional("Arn") => String.t(),
-    optional("ChannelName") => String.t(),
-    optional("ClipRange") => clip_range(),
-    optional("CreationTime") => non_neg_integer(),
-    optional("DurationMillis") => float(),
-    optional("LiveSourceName") => String.t(),
-    optional("ProgramName") => String.t(),
-    optional("ScheduledStartTime") => non_neg_integer(),
-    optional("SourceLocationName") => String.t(),
-    optional("VodSourceName") => String.t()
-  }
+
+      create_program_response() :: %{
+        optional("AdBreaks") => list(ad_break()()),
+        optional("Arn") => String.t(),
+        optional("ChannelName") => String.t(),
+        optional("ClipRange") => clip_range(),
+        optional("CreationTime") => non_neg_integer(),
+        optional("DurationMillis") => float(),
+        optional("LiveSourceName") => String.t(),
+        optional("ProgramName") => String.t(),
+        optional("ScheduledStartTime") => non_neg_integer(),
+        optional("SourceLocationName") => String.t(),
+        optional("VodSourceName") => String.t()
+      }
+
   """
   @type create_program_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_live_sources_response() :: %{
-    optional("Items") => list(live_source()()),
-    optional("NextToken") => String.t()
-  }
+
+      list_live_sources_response() :: %{
+        optional("Items") => list(live_source()()),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_live_sources_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_source_location_response() :: %{
-    optional("AccessConfiguration") => access_configuration(),
-    optional("Arn") => String.t(),
-    optional("CreationTime") => non_neg_integer(),
-    optional("DefaultSegmentDeliveryConfiguration") => default_segment_delivery_configuration(),
-    optional("HttpConfiguration") => http_configuration(),
-    optional("LastModifiedTime") => non_neg_integer(),
-    optional("SegmentDeliveryConfigurations") => list(segment_delivery_configuration()()),
-    optional("SourceLocationName") => String.t(),
-    optional("Tags") => map()
-  }
+
+      create_source_location_response() :: %{
+        optional("AccessConfiguration") => access_configuration(),
+        optional("Arn") => String.t(),
+        optional("CreationTime") => non_neg_integer(),
+        optional("DefaultSegmentDeliveryConfiguration") => default_segment_delivery_configuration(),
+        optional("HttpConfiguration") => http_configuration(),
+        optional("LastModifiedTime") => non_neg_integer(),
+        optional("SegmentDeliveryConfigurations") => list(segment_delivery_configuration()()),
+        optional("SourceLocationName") => String.t(),
+        optional("Tags") => map()
+      }
+
   """
   @type create_source_location_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_live_source_request() :: %{
-    required("HttpPackageConfigurations") => list(http_package_configuration()())
-  }
+
+      update_live_source_request() :: %{
+        required("HttpPackageConfigurations") => list(http_package_configuration()())
+      }
+
   """
   @type update_live_source_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  secrets_manager_access_token_configuration() :: %{
-    "HeaderName" => String.t(),
-    "SecretArn" => String.t(),
-    "SecretStringKey" => String.t()
-  }
+
+      secrets_manager_access_token_configuration() :: %{
+        "HeaderName" => String.t(),
+        "SecretArn" => String.t(),
+        "SecretStringKey" => String.t()
+      }
+
   """
   @type secrets_manager_access_token_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stop_channel_response() :: %{
 
-  }
+      stop_channel_response() :: %{}
+
   """
-  @type stop_channel_response() :: %{String.t() => any()}
+  @type stop_channel_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  start_channel_request() :: %{
 
-  }
+      start_channel_request() :: %{}
+
   """
-  @type start_channel_request() :: %{String.t() => any()}
+  @type start_channel_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_playback_configuration_request() :: %{
 
-  }
+      get_playback_configuration_request() :: %{}
+
   """
-  @type get_playback_configuration_request() :: %{String.t() => any()}
+  @type get_playback_configuration_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  http_configuration() :: %{
-    "BaseUrl" => String.t()
-  }
+
+      http_configuration() :: %{
+        "BaseUrl" => String.t()
+      }
+
   """
   @type http_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cdn_configuration() :: %{
-    "AdSegmentUrlPrefix" => String.t(),
-    "ContentSegmentUrlPrefix" => String.t()
-  }
+
+      cdn_configuration() :: %{
+        "AdSegmentUrlPrefix" => String.t(),
+        "ContentSegmentUrlPrefix" => String.t()
+      }
+
   """
   @type cdn_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  avail_suppression() :: %{
-    "FillPolicy" => list(any()),
-    "Mode" => list(any()),
-    "Value" => String.t()
-  }
+
+      avail_suppression() :: %{
+        "FillPolicy" => list(any()),
+        "Mode" => list(any()),
+        "Value" => String.t()
+      }
+
   """
   @type avail_suppression() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_program_schedule_configuration() :: %{
-    "ClipRange" => clip_range(),
-    "Transition" => update_program_transition()
-  }
+
+      update_program_schedule_configuration() :: %{
+        "ClipRange" => clip_range(),
+        "Transition" => update_program_transition()
+      }
+
   """
   @type update_program_schedule_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  http_package_configuration() :: %{
-    "Path" => String.t(),
-    "SourceGroup" => String.t(),
-    "Type" => list(any())
-  }
+
+      http_package_configuration() :: %{
+        "Path" => String.t(),
+        "SourceGroup" => String.t(),
+        "Type" => list(any())
+      }
+
   """
   @type http_package_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_live_source_request() :: %{
-    optional("Tags") => map(),
-    required("HttpPackageConfigurations") => list(http_package_configuration()())
-  }
+
+      create_live_source_request() :: %{
+        optional("Tags") => map(),
+        required("HttpPackageConfigurations") => list(http_package_configuration()())
+      }
+
   """
   @type create_live_source_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_prefetch_schedule_response() :: %{
-    optional("Arn") => String.t(),
-    optional("Consumption") => prefetch_consumption(),
-    optional("Name") => String.t(),
-    optional("PlaybackConfigurationName") => String.t(),
-    optional("Retrieval") => prefetch_retrieval(),
-    optional("StreamId") => String.t()
-  }
+
+      create_prefetch_schedule_response() :: %{
+        optional("Arn") => String.t(),
+        optional("Consumption") => prefetch_consumption(),
+        optional("Name") => String.t(),
+        optional("PlaybackConfigurationName") => String.t(),
+        optional("Retrieval") => prefetch_retrieval(),
+        optional("StreamId") => String.t()
+      }
+
   """
   @type create_prefetch_schedule_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_channel_policy_response() :: %{
 
-  }
+      delete_channel_policy_response() :: %{}
+
   """
-  @type delete_channel_policy_response() :: %{String.t() => any()}
+  @type delete_channel_policy_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  describe_channel_response() :: %{
-    optional("Arn") => String.t(),
-    optional("ChannelName") => String.t(),
-    optional("ChannelState") => list(any()),
-    optional("CreationTime") => non_neg_integer(),
-    optional("FillerSlate") => slate_source(),
-    optional("LastModifiedTime") => non_neg_integer(),
-    optional("Outputs") => list(response_output_item()()),
-    optional("PlaybackMode") => String.t(),
-    optional("Tags") => map(),
-    optional("Tier") => String.t(),
-    optional("TimeShiftConfiguration") => time_shift_configuration(),
-    required("LogConfiguration") => log_configuration_for_channel()
-  }
+
+      describe_channel_response() :: %{
+        optional("Arn") => String.t(),
+        optional("ChannelName") => String.t(),
+        optional("ChannelState") => list(any()),
+        optional("CreationTime") => non_neg_integer(),
+        optional("FillerSlate") => slate_source(),
+        optional("LastModifiedTime") => non_neg_integer(),
+        optional("Outputs") => list(response_output_item()()),
+        optional("PlaybackMode") => String.t(),
+        optional("Tags") => map(),
+        optional("Tier") => String.t(),
+        optional("TimeShiftConfiguration") => time_shift_configuration(),
+        required("LogConfiguration") => log_configuration_for_channel()
+      }
+
   """
   @type describe_channel_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  log_configuration_for_channel() :: %{
-    "LogTypes" => list(list(any())())
-  }
+
+      log_configuration_for_channel() :: %{
+        "LogTypes" => list(list(any())())
+      }
+
   """
   @type log_configuration_for_channel() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_channel_request() :: %{
 
-  }
+      describe_channel_request() :: %{}
+
   """
-  @type describe_channel_request() :: %{String.t() => any()}
+  @type describe_channel_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  live_source() :: %{
-    "Arn" => String.t(),
-    "CreationTime" => non_neg_integer(),
-    "HttpPackageConfigurations" => list(http_package_configuration()()),
-    "LastModifiedTime" => non_neg_integer(),
-    "LiveSourceName" => String.t(),
-    "SourceLocationName" => String.t(),
-    "Tags" => map()
-  }
+
+      live_source() :: %{
+        "Arn" => String.t(),
+        "CreationTime" => non_neg_integer(),
+        "HttpPackageConfigurations" => list(http_package_configuration()()),
+        "LastModifiedTime" => non_neg_integer(),
+        "LiveSourceName" => String.t(),
+        "SourceLocationName" => String.t(),
+        "Tags" => map()
+      }
+
   """
   @type live_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  schedule_entry() :: %{
-    "ApproximateDurationSeconds" => float(),
-    "ApproximateStartTime" => non_neg_integer(),
-    "Arn" => String.t(),
-    "ChannelName" => String.t(),
-    "LiveSourceName" => String.t(),
-    "ProgramName" => String.t(),
-    "ScheduleAdBreaks" => list(schedule_ad_break()()),
-    "ScheduleEntryType" => list(any()),
-    "SourceLocationName" => String.t(),
-    "VodSourceName" => String.t()
-  }
+
+      schedule_entry() :: %{
+        "ApproximateDurationSeconds" => float(),
+        "ApproximateStartTime" => non_neg_integer(),
+        "Arn" => String.t(),
+        "ChannelName" => String.t(),
+        "LiveSourceName" => String.t(),
+        "ProgramName" => String.t(),
+        "ScheduleAdBreaks" => list(schedule_ad_break()()),
+        "ScheduleEntryType" => list(any()),
+        "SourceLocationName" => String.t(),
+        "VodSourceName" => String.t()
+      }
+
   """
   @type schedule_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_channel_request() :: %{
-    optional("FillerSlate") => slate_source(),
-    optional("Tags") => map(),
-    optional("Tier") => list(any()),
-    optional("TimeShiftConfiguration") => time_shift_configuration(),
-    required("Outputs") => list(request_output_item()()),
-    required("PlaybackMode") => list(any())
-  }
+
+      create_channel_request() :: %{
+        optional("FillerSlate") => slate_source(),
+        optional("Tags") => map(),
+        optional("Tier") => list(any()),
+        optional("TimeShiftConfiguration") => time_shift_configuration(),
+        required("Outputs") => list(request_output_item()()),
+        required("PlaybackMode") => list(any())
+      }
+
   """
   @type create_channel_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_source_location_request() :: %{
 
-  }
+      describe_source_location_request() :: %{}
+
   """
-  @type describe_source_location_request() :: %{String.t() => any()}
+  @type describe_source_location_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_response() :: %{
-    optional("Tags") => map()
-  }
+
+      list_tags_for_resource_response() :: %{
+        optional("Tags") => map()
+      }
+
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_channel_policy_response() :: %{
-    optional("Policy") => String.t()
-  }
+
+      get_channel_policy_response() :: %{
+        optional("Policy") => String.t()
+      }
+
   """
   @type get_channel_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  prefetch_retrieval() :: %{
-    "DynamicVariables" => map(),
-    "EndTime" => non_neg_integer(),
-    "StartTime" => non_neg_integer()
-  }
+
+      prefetch_retrieval() :: %{
+        "DynamicVariables" => map(),
+        "EndTime" => non_neg_integer(),
+        "StartTime" => non_neg_integer()
+      }
+
   """
   @type prefetch_retrieval() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  configure_logs_for_channel_response() :: %{
-    optional("ChannelName") => String.t(),
-    optional("LogTypes") => list(list(any())())
-  }
+
+      configure_logs_for_channel_response() :: %{
+        optional("ChannelName") => String.t(),
+        optional("LogTypes") => list(list(any())())
+      }
+
   """
   @type configure_logs_for_channel_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_channels_response() :: %{
-    optional("Items") => list(channel()()),
-    optional("NextToken") => String.t()
-  }
+
+      list_channels_response() :: %{
+        optional("Items") => list(channel()()),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_channels_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_prefetch_schedule_request() :: %{
-    optional("StreamId") => String.t(),
-    required("Consumption") => prefetch_consumption(),
-    required("Retrieval") => prefetch_retrieval()
-  }
+
+      create_prefetch_schedule_request() :: %{
+        optional("StreamId") => String.t(),
+        required("Consumption") => prefetch_consumption(),
+        required("Retrieval") => prefetch_retrieval()
+      }
+
   """
   @type create_prefetch_schedule_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_prefetch_schedule_response() :: %{
 
-  }
+      delete_prefetch_schedule_response() :: %{}
+
   """
-  @type delete_prefetch_schedule_response() :: %{String.t() => any()}
+  @type delete_prefetch_schedule_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  update_channel_request() :: %{
-    optional("FillerSlate") => slate_source(),
-    optional("TimeShiftConfiguration") => time_shift_configuration(),
-    required("Outputs") => list(request_output_item()())
-  }
+
+      update_channel_request() :: %{
+        optional("FillerSlate") => slate_source(),
+        optional("TimeShiftConfiguration") => time_shift_configuration(),
+        required("Outputs") => list(request_output_item()())
+      }
+
   """
   @type update_channel_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  dash_configuration() :: %{
-    "ManifestEndpointPrefix" => String.t(),
-    "MpdLocation" => String.t(),
-    "OriginManifestType" => list(any())
-  }
+
+      dash_configuration() :: %{
+        "ManifestEndpointPrefix" => String.t(),
+        "MpdLocation" => String.t(),
+        "OriginManifestType" => list(any())
+      }
+
   """
   @type dash_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_source_location_request() :: %{
 
-  }
+      delete_source_location_request() :: %{}
+
   """
-  @type delete_source_location_request() :: %{String.t() => any()}
+  @type delete_source_location_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  update_source_location_request() :: %{
-    optional("AccessConfiguration") => access_configuration(),
-    optional("DefaultSegmentDeliveryConfiguration") => default_segment_delivery_configuration(),
-    optional("SegmentDeliveryConfigurations") => list(segment_delivery_configuration()()),
-    required("HttpConfiguration") => http_configuration()
-  }
+
+      update_source_location_request() :: %{
+        optional("AccessConfiguration") => access_configuration(),
+        optional("DefaultSegmentDeliveryConfiguration") => default_segment_delivery_configuration(),
+        optional("SegmentDeliveryConfigurations") => list(segment_delivery_configuration()()),
+        required("HttpConfiguration") => http_configuration()
+      }
+
   """
   @type update_source_location_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_source_locations_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      list_source_locations_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_source_locations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  time_shift_configuration() :: %{
-    "MaxTimeDelaySeconds" => integer()
-  }
+
+      time_shift_configuration() :: %{
+        "MaxTimeDelaySeconds" => integer()
+      }
+
   """
   @type time_shift_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_program_response() :: %{
-    optional("AdBreaks") => list(ad_break()()),
-    optional("Arn") => String.t(),
-    optional("ChannelName") => String.t(),
-    optional("ClipRange") => clip_range(),
-    optional("CreationTime") => non_neg_integer(),
-    optional("DurationMillis") => [float()],
-    optional("LiveSourceName") => String.t(),
-    optional("ProgramName") => String.t(),
-    optional("ScheduledStartTime") => non_neg_integer(),
-    optional("SourceLocationName") => String.t(),
-    optional("VodSourceName") => String.t()
-  }
+
+      describe_program_response() :: %{
+        optional("AdBreaks") => list(ad_break()()),
+        optional("Arn") => String.t(),
+        optional("ChannelName") => String.t(),
+        optional("ClipRange") => clip_range(),
+        optional("CreationTime") => non_neg_integer(),
+        optional("DurationMillis") => [float()],
+        optional("LiveSourceName") => String.t(),
+        optional("ProgramName") => String.t(),
+        optional("ScheduledStartTime") => non_neg_integer(),
+        optional("SourceLocationName") => String.t(),
+        optional("VodSourceName") => String.t()
+      }
+
   """
   @type describe_program_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ad_break() :: %{
-    "AdBreakMetadata" => list(key_value_pair()()),
-    "MessageType" => list(any()),
-    "OffsetMillis" => float(),
-    "Slate" => slate_source(),
-    "SpliceInsertMessage" => splice_insert_message(),
-    "TimeSignalMessage" => time_signal_message()
-  }
+
+      ad_break() :: %{
+        "AdBreakMetadata" => list(key_value_pair()()),
+        "MessageType" => list(any()),
+        "OffsetMillis" => float(),
+        "Slate" => slate_source(),
+        "SpliceInsertMessage" => splice_insert_message(),
+        "TimeSignalMessage" => time_signal_message()
+      }
+
   """
   @type ad_break() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  slate_source() :: %{
-    "SourceLocationName" => String.t(),
-    "VodSourceName" => String.t()
-  }
+
+      slate_source() :: %{
+        "SourceLocationName" => String.t(),
+        "VodSourceName" => String.t()
+      }
+
   """
   @type slate_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ad_marker_passthrough() :: %{
-    "Enabled" => boolean()
-  }
+
+      ad_marker_passthrough() :: %{
+        "Enabled" => boolean()
+      }
+
   """
   @type ad_marker_passthrough() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_vod_sources_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      list_vod_sources_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_vod_sources_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_program_request() :: %{
-    optional("AdBreaks") => list(ad_break()()),
-    optional("LiveSourceName") => String.t(),
-    optional("VodSourceName") => String.t(),
-    required("ScheduleConfiguration") => schedule_configuration(),
-    required("SourceLocationName") => String.t()
-  }
+
+      create_program_request() :: %{
+        optional("AdBreaks") => list(ad_break()()),
+        optional("LiveSourceName") => String.t(),
+        optional("VodSourceName") => String.t(),
+        required("ScheduleConfiguration") => schedule_configuration(),
+        required("SourceLocationName") => String.t()
+      }
+
   """
   @type create_program_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_prefetch_schedule_request() :: %{
 
-  }
+      delete_prefetch_schedule_request() :: %{}
+
   """
-  @type delete_prefetch_schedule_request() :: %{String.t() => any()}
+  @type delete_prefetch_schedule_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  segmentation_descriptor() :: %{
-    "SegmentNum" => [integer()],
-    "SegmentationEventId" => [integer()],
-    "SegmentationTypeId" => [integer()],
-    "SegmentationUpid" => [String.t()],
-    "SegmentationUpidType" => [integer()],
-    "SegmentsExpected" => [integer()],
-    "SubSegmentNum" => [integer()],
-    "SubSegmentsExpected" => [integer()]
-  }
+
+      segmentation_descriptor() :: %{
+        "SegmentNum" => [integer()],
+        "SegmentationEventId" => [integer()],
+        "SegmentationTypeId" => [integer()],
+        "SegmentationUpid" => [String.t()],
+        "SegmentationUpidType" => [integer()],
+        "SegmentsExpected" => [integer()],
+        "SubSegmentNum" => [integer()],
+        "SubSegmentsExpected" => [integer()]
+      }
+
   """
   @type segmentation_descriptor() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  transition() :: %{
-    "DurationMillis" => float(),
-    "RelativePosition" => list(any()),
-    "RelativeProgram" => String.t(),
-    "ScheduledStartTimeMillis" => float(),
-    "Type" => String.t()
-  }
+
+      transition() :: %{
+        "DurationMillis" => float(),
+        "RelativePosition" => list(any()),
+        "RelativeProgram" => String.t(),
+        "ScheduledStartTimeMillis" => float(),
+        "Type" => String.t()
+      }
+
   """
   @type transition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_program_request() :: %{
-    optional("AdBreaks") => list(ad_break()()),
-    required("ScheduleConfiguration") => update_program_schedule_configuration()
-  }
+
+      update_program_request() :: %{
+        optional("AdBreaks") => list(ad_break()()),
+        required("ScheduleConfiguration") => update_program_schedule_configuration()
+      }
+
   """
   @type update_program_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_playback_configuration_response() :: %{
-    optional("AdDecisionServerUrl") => String.t(),
-    optional("AvailSuppression") => avail_suppression(),
-    optional("Bumper") => bumper(),
-    optional("CdnConfiguration") => cdn_configuration(),
-    optional("ConfigurationAliases") => map(),
-    optional("DashConfiguration") => dash_configuration(),
-    optional("HlsConfiguration") => hls_configuration(),
-    optional("LivePreRollConfiguration") => live_pre_roll_configuration(),
-    optional("LogConfiguration") => log_configuration(),
-    optional("ManifestProcessingRules") => manifest_processing_rules(),
-    optional("Name") => String.t(),
-    optional("PersonalizationThresholdSeconds") => integer(),
-    optional("PlaybackConfigurationArn") => String.t(),
-    optional("PlaybackEndpointPrefix") => String.t(),
-    optional("SessionInitializationEndpointPrefix") => String.t(),
-    optional("SlateAdUrl") => String.t(),
-    optional("Tags") => map(),
-    optional("TranscodeProfileName") => String.t(),
-    optional("VideoContentSourceUrl") => String.t()
-  }
+
+      get_playback_configuration_response() :: %{
+        optional("AdDecisionServerUrl") => String.t(),
+        optional("AvailSuppression") => avail_suppression(),
+        optional("Bumper") => bumper(),
+        optional("CdnConfiguration") => cdn_configuration(),
+        optional("ConfigurationAliases") => map(),
+        optional("DashConfiguration") => dash_configuration(),
+        optional("HlsConfiguration") => hls_configuration(),
+        optional("LivePreRollConfiguration") => live_pre_roll_configuration(),
+        optional("LogConfiguration") => log_configuration(),
+        optional("ManifestProcessingRules") => manifest_processing_rules(),
+        optional("Name") => String.t(),
+        optional("PersonalizationThresholdSeconds") => integer(),
+        optional("PlaybackConfigurationArn") => String.t(),
+        optional("PlaybackEndpointPrefix") => String.t(),
+        optional("SessionInitializationEndpointPrefix") => String.t(),
+        optional("SlateAdUrl") => String.t(),
+        optional("Tags") => map(),
+        optional("TranscodeProfileName") => String.t(),
+        optional("VideoContentSourceUrl") => String.t()
+      }
+
   """
   @type get_playback_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_program_request() :: %{
 
-  }
+      describe_program_request() :: %{}
+
   """
-  @type describe_program_request() :: %{String.t() => any()}
+  @type describe_program_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  delete_live_source_response() :: %{
 
-  }
+      delete_live_source_response() :: %{}
+
   """
-  @type delete_live_source_response() :: %{String.t() => any()}
+  @type delete_live_source_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  source_location() :: %{
-    "AccessConfiguration" => access_configuration(),
-    "Arn" => String.t(),
-    "CreationTime" => non_neg_integer(),
-    "DefaultSegmentDeliveryConfiguration" => default_segment_delivery_configuration(),
-    "HttpConfiguration" => http_configuration(),
-    "LastModifiedTime" => non_neg_integer(),
-    "SegmentDeliveryConfigurations" => list(segment_delivery_configuration()()),
-    "SourceLocationName" => String.t(),
-    "Tags" => map()
-  }
+
+      source_location() :: %{
+        "AccessConfiguration" => access_configuration(),
+        "Arn" => String.t(),
+        "CreationTime" => non_neg_integer(),
+        "DefaultSegmentDeliveryConfiguration" => default_segment_delivery_configuration(),
+        "HttpConfiguration" => http_configuration(),
+        "LastModifiedTime" => non_neg_integer(),
+        "SegmentDeliveryConfigurations" => list(segment_delivery_configuration()()),
+        "SourceLocationName" => String.t(),
+        "Tags" => map()
+      }
+
   """
   @type source_location() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  time_signal_message() :: %{
-    "SegmentationDescriptors" => list(segmentation_descriptor()())
-  }
+
+      time_signal_message() :: %{
+        "SegmentationDescriptors" => list(segmentation_descriptor()())
+      }
+
   """
   @type time_signal_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  key_value_pair() :: %{
-    "Key" => [String.t()],
-    "Value" => [String.t()]
-  }
+
+      key_value_pair() :: %{
+        "Key" => [String.t()],
+        "Value" => [String.t()]
+      }
+
   """
   @type key_value_pair() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_request() :: %{
 
-  }
+      list_tags_for_resource_request() :: %{}
+
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  update_live_source_response() :: %{
-    optional("Arn") => String.t(),
-    optional("CreationTime") => non_neg_integer(),
-    optional("HttpPackageConfigurations") => list(http_package_configuration()()),
-    optional("LastModifiedTime") => non_neg_integer(),
-    optional("LiveSourceName") => String.t(),
-    optional("SourceLocationName") => String.t(),
-    optional("Tags") => map()
-  }
+
+      update_live_source_response() :: %{
+        optional("Arn") => String.t(),
+        optional("CreationTime") => non_neg_integer(),
+        optional("HttpPackageConfigurations") => list(http_package_configuration()()),
+        optional("LastModifiedTime") => non_neg_integer(),
+        optional("LiveSourceName") => String.t(),
+        optional("SourceLocationName") => String.t(),
+        optional("Tags") => map()
+      }
+
   """
   @type update_live_source_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_live_source_response() :: %{
-    optional("Arn") => String.t(),
-    optional("CreationTime") => non_neg_integer(),
-    optional("HttpPackageConfigurations") => list(http_package_configuration()()),
-    optional("LastModifiedTime") => non_neg_integer(),
-    optional("LiveSourceName") => String.t(),
-    optional("SourceLocationName") => String.t(),
-    optional("Tags") => map()
-  }
+
+      create_live_source_response() :: %{
+        optional("Arn") => String.t(),
+        optional("CreationTime") => non_neg_integer(),
+        optional("HttpPackageConfigurations") => list(http_package_configuration()()),
+        optional("LastModifiedTime") => non_neg_integer(),
+        optional("LiveSourceName") => String.t(),
+        optional("SourceLocationName") => String.t(),
+        optional("Tags") => map()
+      }
+
   """
   @type create_live_source_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  request_output_item() :: %{
-    "DashPlaylistSettings" => dash_playlist_settings(),
-    "HlsPlaylistSettings" => hls_playlist_settings(),
-    "ManifestName" => String.t(),
-    "SourceGroup" => String.t()
-  }
+
+      request_output_item() :: %{
+        "DashPlaylistSettings" => dash_playlist_settings(),
+        "HlsPlaylistSettings" => hls_playlist_settings(),
+        "ManifestName" => String.t(),
+        "SourceGroup" => String.t()
+      }
+
   """
   @type request_output_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  schedule_configuration() :: %{
-    "ClipRange" => clip_range(),
-    "Transition" => transition()
-  }
+
+      schedule_configuration() :: %{
+        "ClipRange" => clip_range(),
+        "Transition" => transition()
+      }
+
   """
   @type schedule_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  alert() :: %{
-    "AlertCode" => String.t(),
-    "AlertMessage" => String.t(),
-    "Category" => list(any()),
-    "LastModifiedTime" => non_neg_integer(),
-    "RelatedResourceArns" => list(String.t()()),
-    "ResourceArn" => String.t()
-  }
+
+      alert() :: %{
+        "AlertCode" => String.t(),
+        "AlertMessage" => String.t(),
+        "Category" => list(any()),
+        "LastModifiedTime" => non_neg_integer(),
+        "RelatedResourceArns" => list(String.t()()),
+        "ResourceArn" => String.t()
+      }
+
   """
   @type alert() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_program_request() :: %{
 
-  }
+      delete_program_request() :: %{}
+
   """
-  @type delete_program_request() :: %{String.t() => any()}
+  @type delete_program_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  delete_playback_configuration_response() :: %{
 
-  }
+      delete_playback_configuration_response() :: %{}
+
   """
-  @type delete_playback_configuration_response() :: %{String.t() => any()}
+  @type delete_playback_configuration_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  channel() :: %{
-    "Arn" => String.t(),
-    "ChannelName" => String.t(),
-    "ChannelState" => String.t(),
-    "CreationTime" => non_neg_integer(),
-    "FillerSlate" => slate_source(),
-    "LastModifiedTime" => non_neg_integer(),
-    "LogConfiguration" => log_configuration_for_channel(),
-    "Outputs" => list(response_output_item()()),
-    "PlaybackMode" => String.t(),
-    "Tags" => map(),
-    "Tier" => String.t()
-  }
+
+      channel() :: %{
+        "Arn" => String.t(),
+        "ChannelName" => String.t(),
+        "ChannelState" => String.t(),
+        "CreationTime" => non_neg_integer(),
+        "FillerSlate" => slate_source(),
+        "LastModifiedTime" => non_neg_integer(),
+        "LogConfiguration" => log_configuration_for_channel(),
+        "Outputs" => list(response_output_item()()),
+        "PlaybackMode" => String.t(),
+        "Tags" => map(),
+        "Tier" => String.t()
+      }
+
   """
   @type channel() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_vod_source_request() :: %{
-    required("HttpPackageConfigurations") => list(http_package_configuration()())
-  }
+
+      update_vod_source_request() :: %{
+        required("HttpPackageConfigurations") => list(http_package_configuration()())
+      }
+
   """
   @type update_vod_source_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_channel_response() :: %{
 
-  }
+      start_channel_response() :: %{}
+
   """
-  @type start_channel_response() :: %{String.t() => any()}
+  @type start_channel_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  put_playback_configuration_request() :: %{
-    optional("AdDecisionServerUrl") => String.t(),
-    optional("AvailSuppression") => avail_suppression(),
-    optional("Bumper") => bumper(),
-    optional("CdnConfiguration") => cdn_configuration(),
-    optional("ConfigurationAliases") => map(),
-    optional("DashConfiguration") => dash_configuration_for_put(),
-    optional("LivePreRollConfiguration") => live_pre_roll_configuration(),
-    optional("ManifestProcessingRules") => manifest_processing_rules(),
-    optional("PersonalizationThresholdSeconds") => integer(),
-    optional("SlateAdUrl") => String.t(),
-    optional("Tags") => map(),
-    optional("TranscodeProfileName") => String.t(),
-    optional("VideoContentSourceUrl") => String.t(),
-    required("Name") => String.t()
-  }
+
+      put_playback_configuration_request() :: %{
+        optional("AdDecisionServerUrl") => String.t(),
+        optional("AvailSuppression") => avail_suppression(),
+        optional("Bumper") => bumper(),
+        optional("CdnConfiguration") => cdn_configuration(),
+        optional("ConfigurationAliases") => map(),
+        optional("DashConfiguration") => dash_configuration_for_put(),
+        optional("LivePreRollConfiguration") => live_pre_roll_configuration(),
+        optional("ManifestProcessingRules") => manifest_processing_rules(),
+        optional("PersonalizationThresholdSeconds") => integer(),
+        optional("SlateAdUrl") => String.t(),
+        optional("Tags") => map(),
+        optional("TranscodeProfileName") => String.t(),
+        optional("VideoContentSourceUrl") => String.t(),
+        required("Name") => String.t()
+      }
+
   """
   @type put_playback_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_program_response() :: %{
-    optional("AdBreaks") => list(ad_break()()),
-    optional("Arn") => String.t(),
-    optional("ChannelName") => String.t(),
-    optional("ClipRange") => clip_range(),
-    optional("CreationTime") => non_neg_integer(),
-    optional("DurationMillis") => float(),
-    optional("LiveSourceName") => String.t(),
-    optional("ProgramName") => String.t(),
-    optional("ScheduledStartTime") => non_neg_integer(),
-    optional("SourceLocationName") => String.t(),
-    optional("VodSourceName") => String.t()
-  }
+
+      update_program_response() :: %{
+        optional("AdBreaks") => list(ad_break()()),
+        optional("Arn") => String.t(),
+        optional("ChannelName") => String.t(),
+        optional("ClipRange") => clip_range(),
+        optional("CreationTime") => non_neg_integer(),
+        optional("DurationMillis") => float(),
+        optional("LiveSourceName") => String.t(),
+        optional("ProgramName") => String.t(),
+        optional("ScheduledStartTime") => non_neg_integer(),
+        optional("SourceLocationName") => String.t(),
+        optional("VodSourceName") => String.t()
+      }
+
   """
   @type update_program_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_alerts_response() :: %{
-    optional("Items") => list(alert()()),
-    optional("NextToken") => String.t()
-  }
+
+      list_alerts_response() :: %{
+        optional("Items") => list(alert()()),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_alerts_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  schedule_ad_break() :: %{
-    "ApproximateDurationSeconds" => float(),
-    "ApproximateStartTime" => non_neg_integer(),
-    "SourceLocationName" => String.t(),
-    "VodSourceName" => String.t()
-  }
+
+      schedule_ad_break() :: %{
+        "ApproximateDurationSeconds" => float(),
+        "ApproximateStartTime" => non_neg_integer(),
+        "SourceLocationName" => String.t(),
+        "VodSourceName" => String.t()
+      }
+
   """
   @type schedule_ad_break() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  hls_configuration() :: %{
-    "ManifestEndpointPrefix" => String.t()
-  }
+
+      hls_configuration() :: %{
+        "ManifestEndpointPrefix" => String.t()
+      }
+
   """
   @type hls_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_vod_source_response() :: %{
-    optional("Arn") => String.t(),
-    optional("CreationTime") => non_neg_integer(),
-    optional("HttpPackageConfigurations") => list(http_package_configuration()()),
-    optional("LastModifiedTime") => non_neg_integer(),
-    optional("SourceLocationName") => String.t(),
-    optional("Tags") => map(),
-    optional("VodSourceName") => String.t()
-  }
+
+      create_vod_source_response() :: %{
+        optional("Arn") => String.t(),
+        optional("CreationTime") => non_neg_integer(),
+        optional("HttpPackageConfigurations") => list(http_package_configuration()()),
+        optional("LastModifiedTime") => non_neg_integer(),
+        optional("SourceLocationName") => String.t(),
+        optional("Tags") => map(),
+        optional("VodSourceName") => String.t()
+      }
+
   """
   @type create_vod_source_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_prefetch_schedules_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("StreamId") => String.t()
-  }
+
+      list_prefetch_schedules_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("StreamId") => String.t()
+      }
+
   """
   @type list_prefetch_schedules_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  avail_matching_criteria() :: %{
-    "DynamicVariable" => String.t(),
-    "Operator" => list(any())
-  }
+
+      avail_matching_criteria() :: %{
+        "DynamicVariable" => String.t(),
+        "Operator" => list(any())
+      }
+
   """
   @type avail_matching_criteria() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  bad_request_exception() :: %{
-    "Message" => String.t()
-  }
+
+      bad_request_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type bad_request_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_vod_source_request() :: %{
-    optional("Tags") => map(),
-    required("HttpPackageConfigurations") => list(http_package_configuration()())
-  }
+
+      create_vod_source_request() :: %{
+        optional("Tags") => map(),
+        required("HttpPackageConfigurations") => list(http_package_configuration()())
+      }
+
   """
   @type create_vod_source_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_channel_response() :: %{
-    optional("Arn") => String.t(),
-    optional("ChannelName") => String.t(),
-    optional("ChannelState") => list(any()),
-    optional("CreationTime") => non_neg_integer(),
-    optional("FillerSlate") => slate_source(),
-    optional("LastModifiedTime") => non_neg_integer(),
-    optional("Outputs") => list(response_output_item()()),
-    optional("PlaybackMode") => String.t(),
-    optional("Tags") => map(),
-    optional("Tier") => String.t(),
-    optional("TimeShiftConfiguration") => time_shift_configuration()
-  }
+
+      update_channel_response() :: %{
+        optional("Arn") => String.t(),
+        optional("ChannelName") => String.t(),
+        optional("ChannelState") => list(any()),
+        optional("CreationTime") => non_neg_integer(),
+        optional("FillerSlate") => slate_source(),
+        optional("LastModifiedTime") => non_neg_integer(),
+        optional("Outputs") => list(response_output_item()()),
+        optional("PlaybackMode") => String.t(),
+        optional("Tags") => map(),
+        optional("Tier") => String.t(),
+        optional("TimeShiftConfiguration") => time_shift_configuration()
+      }
+
   """
   @type update_channel_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_playback_configuration_response() :: %{
-    optional("AdDecisionServerUrl") => String.t(),
-    optional("AvailSuppression") => avail_suppression(),
-    optional("Bumper") => bumper(),
-    optional("CdnConfiguration") => cdn_configuration(),
-    optional("ConfigurationAliases") => map(),
-    optional("DashConfiguration") => dash_configuration(),
-    optional("HlsConfiguration") => hls_configuration(),
-    optional("LivePreRollConfiguration") => live_pre_roll_configuration(),
-    optional("LogConfiguration") => log_configuration(),
-    optional("ManifestProcessingRules") => manifest_processing_rules(),
-    optional("Name") => String.t(),
-    optional("PersonalizationThresholdSeconds") => integer(),
-    optional("PlaybackConfigurationArn") => String.t(),
-    optional("PlaybackEndpointPrefix") => String.t(),
-    optional("SessionInitializationEndpointPrefix") => String.t(),
-    optional("SlateAdUrl") => String.t(),
-    optional("Tags") => map(),
-    optional("TranscodeProfileName") => String.t(),
-    optional("VideoContentSourceUrl") => String.t()
-  }
+
+      put_playback_configuration_response() :: %{
+        optional("AdDecisionServerUrl") => String.t(),
+        optional("AvailSuppression") => avail_suppression(),
+        optional("Bumper") => bumper(),
+        optional("CdnConfiguration") => cdn_configuration(),
+        optional("ConfigurationAliases") => map(),
+        optional("DashConfiguration") => dash_configuration(),
+        optional("HlsConfiguration") => hls_configuration(),
+        optional("LivePreRollConfiguration") => live_pre_roll_configuration(),
+        optional("LogConfiguration") => log_configuration(),
+        optional("ManifestProcessingRules") => manifest_processing_rules(),
+        optional("Name") => String.t(),
+        optional("PersonalizationThresholdSeconds") => integer(),
+        optional("PlaybackConfigurationArn") => String.t(),
+        optional("PlaybackEndpointPrefix") => String.t(),
+        optional("SessionInitializationEndpointPrefix") => String.t(),
+        optional("SlateAdUrl") => String.t(),
+        optional("Tags") => map(),
+        optional("TranscodeProfileName") => String.t(),
+        optional("VideoContentSourceUrl") => String.t()
+      }
+
   """
   @type put_playback_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_channel_policy_request() :: %{
 
-  }
+      get_channel_policy_request() :: %{}
+
   """
-  @type get_channel_policy_request() :: %{String.t() => any()}
+  @type get_channel_policy_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  describe_live_source_response() :: %{
-    optional("Arn") => String.t(),
-    optional("CreationTime") => non_neg_integer(),
-    optional("HttpPackageConfigurations") => list(http_package_configuration()()),
-    optional("LastModifiedTime") => non_neg_integer(),
-    optional("LiveSourceName") => String.t(),
-    optional("SourceLocationName") => String.t(),
-    optional("Tags") => map()
-  }
+
+      describe_live_source_response() :: %{
+        optional("Arn") => String.t(),
+        optional("CreationTime") => non_neg_integer(),
+        optional("HttpPackageConfigurations") => list(http_package_configuration()()),
+        optional("LastModifiedTime") => non_neg_integer(),
+        optional("LiveSourceName") => String.t(),
+        optional("SourceLocationName") => String.t(),
+        optional("Tags") => map()
+      }
+
   """
   @type describe_live_source_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  segment_delivery_configuration() :: %{
-    "BaseUrl" => String.t(),
-    "Name" => String.t()
-  }
+
+      segment_delivery_configuration() :: %{
+        "BaseUrl" => String.t(),
+        "Name" => String.t()
+      }
+
   """
   @type segment_delivery_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  access_configuration() :: %{
-    "AccessType" => list(any()),
-    "SecretsManagerAccessTokenConfiguration" => secrets_manager_access_token_configuration()
-  }
+
+      access_configuration() :: %{
+        "AccessType" => list(any()),
+        "SecretsManagerAccessTokenConfiguration" => secrets_manager_access_token_configuration()
+      }
+
   """
   @type access_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_source_location_request() :: %{
-    optional("AccessConfiguration") => access_configuration(),
-    optional("DefaultSegmentDeliveryConfiguration") => default_segment_delivery_configuration(),
-    optional("SegmentDeliveryConfigurations") => list(segment_delivery_configuration()()),
-    optional("Tags") => map(),
-    required("HttpConfiguration") => http_configuration()
-  }
+
+      create_source_location_request() :: %{
+        optional("AccessConfiguration") => access_configuration(),
+        optional("DefaultSegmentDeliveryConfiguration") => default_segment_delivery_configuration(),
+        optional("SegmentDeliveryConfigurations") => list(segment_delivery_configuration()()),
+        optional("Tags") => map(),
+        required("HttpConfiguration") => http_configuration()
+      }
+
   """
   @type create_source_location_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  log_configuration() :: %{
-    "PercentEnabled" => integer()
-  }
+
+      log_configuration() :: %{
+        "PercentEnabled" => integer()
+      }
+
   """
   @type log_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_source_location_response() :: %{
 
-  }
+      delete_source_location_response() :: %{}
+
   """
-  @type delete_source_location_response() :: %{String.t() => any()}
+  @type delete_source_location_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_live_sources_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      list_live_sources_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_live_sources_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_program_transition() :: %{
-    "DurationMillis" => float(),
-    "ScheduledStartTimeMillis" => float()
-  }
+
+      update_program_transition() :: %{
+        "DurationMillis" => float(),
+        "ScheduledStartTimeMillis" => float()
+      }
+
   """
   @type update_program_transition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_channels_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      list_channels_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_channels_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_source_locations_response() :: %{
-    optional("Items") => list(source_location()()),
-    optional("NextToken") => String.t()
-  }
+
+      list_source_locations_response() :: %{
+        optional("Items") => list(source_location()()),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_source_locations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  bumper() :: %{
-    "EndUrl" => String.t(),
-    "StartUrl" => String.t()
-  }
+
+      bumper() :: %{
+        "EndUrl" => String.t(),
+        "StartUrl" => String.t()
+      }
+
   """
   @type bumper() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  dash_configuration_for_put() :: %{
-    "MpdLocation" => String.t(),
-    "OriginManifestType" => list(any())
-  }
+
+      dash_configuration_for_put() :: %{
+        "MpdLocation" => String.t(),
+        "OriginManifestType" => list(any())
+      }
+
   """
   @type dash_configuration_for_put() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_live_source_request() :: %{
 
-  }
+      delete_live_source_request() :: %{}
+
   """
-  @type delete_live_source_request() :: %{String.t() => any()}
+  @type delete_live_source_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  prefetch_schedule() :: %{
-    "Arn" => String.t(),
-    "Consumption" => prefetch_consumption(),
-    "Name" => String.t(),
-    "PlaybackConfigurationName" => String.t(),
-    "Retrieval" => prefetch_retrieval(),
-    "StreamId" => String.t()
-  }
+
+      prefetch_schedule() :: %{
+        "Arn" => String.t(),
+        "Consumption" => prefetch_consumption(),
+        "Name" => String.t(),
+        "PlaybackConfigurationName" => String.t(),
+        "Retrieval" => prefetch_retrieval(),
+        "StreamId" => String.t()
+      }
+
   """
   @type prefetch_schedule() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_playback_configurations_response() :: %{
-    optional("Items") => list(playback_configuration()()),
-    optional("NextToken") => String.t()
-  }
+
+      list_playback_configurations_response() :: %{
+        optional("Items") => list(playback_configuration()()),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_playback_configurations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  hls_playlist_settings() :: %{
-    "AdMarkupType" => list(list(any())()),
-    "ManifestWindowSeconds" => integer()
-  }
+
+      hls_playlist_settings() :: %{
+        "AdMarkupType" => list(list(any())()),
+        "ManifestWindowSeconds" => integer()
+      }
+
   """
   @type hls_playlist_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_live_source_request() :: %{
 
-  }
+      describe_live_source_request() :: %{}
+
   """
-  @type describe_live_source_request() :: %{String.t() => any()}
+  @type describe_live_source_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  splice_insert_message() :: %{
-    "AvailNum" => integer(),
-    "AvailsExpected" => integer(),
-    "SpliceEventId" => integer(),
-    "UniqueProgramId" => integer()
-  }
+
+      splice_insert_message() :: %{
+        "AvailNum" => integer(),
+        "AvailsExpected" => integer(),
+        "SpliceEventId" => integer(),
+        "UniqueProgramId" => integer()
+      }
+
   """
   @type splice_insert_message() :: %{String.t() => any()}
+
+  @type list_tags_for_resource_errors() :: bad_request_exception()
+
+  @type tag_resource_errors() :: bad_request_exception()
+
+  @type untag_resource_errors() :: bad_request_exception()
 
   def metadata do
     %{
@@ -2533,7 +2745,7 @@ defmodule AWS.MediaTailor do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
+          | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -2667,7 +2879,7 @@ defmodule AWS.MediaTailor do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -2694,7 +2906,7 @@ defmodule AWS.MediaTailor do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []

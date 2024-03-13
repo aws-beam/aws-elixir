@@ -33,1124 +33,1478 @@ defmodule AWS.GreengrassV2 do
   @typedoc """
 
   ## Example:
-  lambda_function_recipe_source() :: %{
-    "componentDependencies" => map(),
-    "componentLambdaParameters" => lambda_execution_parameters(),
-    "componentName" => String.t(),
-    "componentPlatforms" => list(component_platform()()),
-    "componentVersion" => String.t(),
-    "lambdaArn" => String.t()
-  }
+
+      lambda_function_recipe_source() :: %{
+        "componentDependencies" => map(),
+        "componentLambdaParameters" => lambda_execution_parameters(),
+        "componentName" => String.t(),
+        "componentPlatforms" => list(component_platform()()),
+        "componentVersion" => String.t(),
+        "lambdaArn" => String.t()
+      }
+
   """
   @type lambda_function_recipe_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  deployment_component_update_policy() :: %{
-    "action" => list(any()),
-    "timeoutInSeconds" => integer()
-  }
+
+      deployment_component_update_policy() :: %{
+        "action" => list(any()),
+        "timeoutInSeconds" => integer()
+      }
+
   """
   @type deployment_component_update_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disassociate_service_role_from_account_response() :: %{
-    "disassociatedAt" => String.t()
-  }
+
+      disassociate_service_role_from_account_response() :: %{
+        "disassociatedAt" => String.t()
+      }
+
   """
   @type disassociate_service_role_from_account_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_component_version_response() :: %{
-    "arn" => String.t(),
-    "componentName" => String.t(),
-    "componentVersion" => String.t(),
-    "creationTimestamp" => non_neg_integer(),
-    "status" => cloud_component_status()
-  }
+
+      create_component_version_response() :: %{
+        "arn" => String.t(),
+        "componentName" => String.t(),
+        "componentVersion" => String.t(),
+        "creationTimestamp" => non_neg_integer(),
+        "status" => cloud_component_status()
+      }
+
   """
   @type create_component_version_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_request() :: %{
-    required("tags") => map()
-  }
+
+      tag_resource_request() :: %{
+        required("tags") => map()
+      }
+
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_deployments_request() :: %{
-    optional("historyFilter") => list(any()),
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t(),
-    optional("parentTargetArn") => String.t(),
-    optional("targetArn") => String.t()
-  }
+
+      list_deployments_request() :: %{
+        optional("historyFilter") => list(any()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("parentTargetArn") => String.t(),
+        optional("targetArn") => String.t()
+      }
+
   """
   @type list_deployments_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_connectivity_info_response() :: %{
-    "message" => String.t(),
-    "version" => String.t()
-  }
+
+      update_connectivity_info_response() :: %{
+        "message" => String.t(),
+        "version" => String.t()
+      }
+
   """
   @type update_connectivity_info_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_component_versions_response() :: %{
-    "componentVersions" => list(component_version_list_item()()),
-    "nextToken" => String.t()
-  }
+
+      list_component_versions_response() :: %{
+        "componentVersions" => list(component_version_list_item()()),
+        "nextToken" => String.t()
+      }
+
   """
   @type list_component_versions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_component_version_artifact_request() :: %{
 
-  }
+      get_component_version_artifact_request() :: %{}
+
   """
-  @type get_component_version_artifact_request() :: %{String.t() => any()}
+  @type get_component_version_artifact_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  disassociate_client_device_from_core_device_entry() :: %{
-    "thingName" => String.t()
-  }
+
+      disassociate_client_device_from_core_device_entry() :: %{
+        "thingName" => String.t()
+      }
+
   """
   @type disassociate_client_device_from_core_device_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  deployment() :: %{
-    "creationTimestamp" => non_neg_integer(),
-    "deploymentId" => String.t(),
-    "deploymentName" => String.t(),
-    "deploymentStatus" => list(any()),
-    "isLatestForTarget" => boolean(),
-    "parentTargetArn" => String.t(),
-    "revisionId" => String.t(),
-    "targetArn" => String.t()
-  }
+
+      deployment() :: %{
+        "creationTimestamp" => non_neg_integer(),
+        "deploymentId" => String.t(),
+        "deploymentName" => String.t(),
+        "deploymentStatus" => list(any()),
+        "isLatestForTarget" => boolean(),
+        "parentTargetArn" => String.t(),
+        "revisionId" => String.t(),
+        "targetArn" => String.t()
+      }
+
   """
   @type deployment() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  component_dependency_requirement() :: %{
-    "dependencyType" => list(any()),
-    "versionRequirement" => String.t()
-  }
+
+      component_dependency_requirement() :: %{
+        "dependencyType" => list(any()),
+        "versionRequirement" => String.t()
+      }
+
   """
   @type component_dependency_requirement() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_response() :: %{
 
-  }
+      untag_resource_response() :: %{}
+
   """
-  @type untag_resource_response() :: %{String.t() => any()}
+  @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  lambda_execution_parameters() :: %{
-    "environmentVariables" => map(),
-    "eventSources" => list(lambda_event_source()()),
-    "execArgs" => list(String.t()()),
-    "inputPayloadEncodingType" => list(any()),
-    "linuxProcessParams" => lambda_linux_process_params(),
-    "maxIdleTimeInSeconds" => integer(),
-    "maxInstancesCount" => integer(),
-    "maxQueueSize" => integer(),
-    "pinned" => boolean(),
-    "statusTimeoutInSeconds" => integer(),
-    "timeoutInSeconds" => integer()
-  }
+
+      lambda_execution_parameters() :: %{
+        "environmentVariables" => map(),
+        "eventSources" => list(lambda_event_source()()),
+        "execArgs" => list(String.t()()),
+        "inputPayloadEncodingType" => list(any()),
+        "linuxProcessParams" => lambda_linux_process_params(),
+        "maxIdleTimeInSeconds" => integer(),
+        "maxInstancesCount" => integer(),
+        "maxQueueSize" => integer(),
+        "pinned" => boolean(),
+        "statusTimeoutInSeconds" => integer(),
+        "timeoutInSeconds" => integer()
+      }
+
   """
   @type lambda_execution_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_deployments_response() :: %{
-    "deployments" => list(deployment()()),
-    "nextToken" => String.t()
-  }
+
+      list_deployments_response() :: %{
+        "deployments" => list(deployment()()),
+        "nextToken" => String.t()
+      }
+
   """
   @type list_deployments_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_core_devices_request() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t(),
-    optional("status") => list(any()),
-    optional("thingGroupArn") => String.t()
-  }
+
+      list_core_devices_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("status") => list(any()),
+        optional("thingGroupArn") => String.t()
+      }
+
   """
   @type list_core_devices_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  lambda_volume_mount() :: %{
-    "addGroupOwner" => boolean(),
-    "destinationPath" => String.t(),
-    "permission" => list(any()),
-    "sourcePath" => String.t()
-  }
+
+      lambda_volume_mount() :: %{
+        "addGroupOwner" => boolean(),
+        "destinationPath" => String.t(),
+        "permission" => list(any()),
+        "sourcePath" => String.t()
+      }
+
   """
   @type lambda_volume_mount() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_deployment_request() :: %{
-    optional("clientToken") => String.t(),
-    optional("components") => map(),
-    optional("deploymentName") => String.t(),
-    optional("deploymentPolicies") => deployment_policies(),
-    optional("iotJobConfiguration") => deployment_io_t_job_configuration(),
-    optional("parentTargetArn") => String.t(),
-    optional("tags") => map(),
-    required("targetArn") => String.t()
-  }
+
+      create_deployment_request() :: %{
+        optional("clientToken") => String.t(),
+        optional("components") => map(),
+        optional("deploymentName") => String.t(),
+        optional("deploymentPolicies") => deployment_policies(),
+        optional("iotJobConfiguration") => deployment_io_t_job_configuration(),
+        optional("parentTargetArn") => String.t(),
+        optional("tags") => map(),
+        required("targetArn") => String.t()
+      }
+
   """
   @type create_deployment_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_core_device_response() :: %{
-    "architecture" => String.t(),
-    "coreDeviceThingName" => String.t(),
-    "coreVersion" => String.t(),
-    "lastStatusUpdateTimestamp" => non_neg_integer(),
-    "platform" => String.t(),
-    "status" => list(any()),
-    "tags" => map()
-  }
+
+      get_core_device_response() :: %{
+        "architecture" => String.t(),
+        "coreDeviceThingName" => String.t(),
+        "coreVersion" => String.t(),
+        "lastStatusUpdateTimestamp" => non_neg_integer(),
+        "platform" => String.t(),
+        "status" => list(any()),
+        "tags" => map()
+      }
+
   """
   @type get_core_device_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_core_devices_response() :: %{
-    "coreDevices" => list(core_device()()),
-    "nextToken" => String.t()
-  }
+
+      list_core_devices_response() :: %{
+        "coreDevices" => list(core_device()()),
+        "nextToken" => String.t()
+      }
+
   """
   @type list_core_devices_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_core_device_request() :: %{
 
-  }
+      delete_core_device_request() :: %{}
+
   """
-  @type delete_core_device_request() :: %{String.t() => any()}
+  @type delete_core_device_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  delete_component_request() :: %{
 
-  }
+      delete_component_request() :: %{}
+
   """
-  @type delete_component_request() :: %{String.t() => any()}
+  @type delete_component_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  lambda_event_source() :: %{
-    "topic" => String.t(),
-    "type" => list(any())
-  }
+
+      lambda_event_source() :: %{
+        "topic" => String.t(),
+        "type" => list(any())
+      }
+
   """
   @type lambda_event_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_component_response() :: %{
-    "recipe" => binary(),
-    "recipeOutputFormat" => list(any()),
-    "tags" => map()
-  }
+
+      get_component_response() :: %{
+        "recipe" => binary(),
+        "recipeOutputFormat" => list(any()),
+        "tags" => map()
+      }
+
   """
   @type get_component_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  system_resource_limits() :: %{
-    "cpus" => float(),
-    "memory" => float()
-  }
+
+      system_resource_limits() :: %{
+        "cpus" => float(),
+        "memory" => float()
+      }
+
   """
   @type system_resource_limits() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_installed_components_response() :: %{
-    "installedComponents" => list(installed_component()()),
-    "nextToken" => String.t()
-  }
+
+      list_installed_components_response() :: %{
+        "installedComponents" => list(installed_component()()),
+        "nextToken" => String.t()
+      }
+
   """
   @type list_installed_components_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  io_t_job_executions_rollout_config() :: %{
-    "exponentialRate" => io_t_job_exponential_rollout_rate(),
-    "maximumPerMinute" => integer()
-  }
+
+      io_t_job_executions_rollout_config() :: %{
+        "exponentialRate" => io_t_job_exponential_rollout_rate(),
+        "maximumPerMinute" => integer()
+      }
+
   """
   @type io_t_job_executions_rollout_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  core_device() :: %{
-    "coreDeviceThingName" => String.t(),
-    "lastStatusUpdateTimestamp" => non_neg_integer(),
-    "status" => list(any())
-  }
+
+      core_device() :: %{
+        "coreDeviceThingName" => String.t(),
+        "lastStatusUpdateTimestamp" => non_neg_integer(),
+        "status" => list(any())
+      }
+
   """
   @type core_device() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_deployment_response() :: %{
-    "deploymentId" => String.t(),
-    "iotJobArn" => String.t(),
-    "iotJobId" => String.t()
-  }
+
+      create_deployment_response() :: %{
+        "deploymentId" => String.t(),
+        "iotJobArn" => String.t(),
+        "iotJobId" => String.t()
+      }
+
   """
   @type create_deployment_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_request() :: %{
-    required("tagKeys") => list(String.t()())
-  }
+
+      untag_resource_request() :: %{
+        required("tagKeys") => list(String.t()())
+      }
+
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  io_t_job_exponential_rollout_rate() :: %{
-    "baseRatePerMinute" => integer(),
-    "incrementFactor" => float(),
-    "rateIncreaseCriteria" => io_t_job_rate_increase_criteria()
-  }
+
+      io_t_job_exponential_rollout_rate() :: %{
+        "baseRatePerMinute" => integer(),
+        "incrementFactor" => float(),
+        "rateIncreaseCriteria" => io_t_job_rate_increase_criteria()
+      }
+
   """
   @type io_t_job_exponential_rollout_rate() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_service_role_for_account_request() :: %{
 
-  }
+      get_service_role_for_account_request() :: %{}
+
   """
-  @type get_service_role_for_account_request() :: %{String.t() => any()}
+  @type get_service_role_for_account_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  associate_client_device_with_core_device_error_entry() :: %{
-    "code" => String.t(),
-    "message" => String.t(),
-    "thingName" => String.t()
-  }
+
+      associate_client_device_with_core_device_error_entry() :: %{
+        "code" => String.t(),
+        "message" => String.t(),
+        "thingName" => String.t()
+      }
+
   """
   @type associate_client_device_with_core_device_error_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_connectivity_info_request() :: %{
-    required("connectivityInfo") => list(connectivity_info()())
-  }
+
+      update_connectivity_info_request() :: %{
+        required("connectivityInfo") => list(connectivity_info()())
+      }
+
   """
   @type update_connectivity_info_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_core_device_request() :: %{
 
-  }
+      get_core_device_request() :: %{}
+
   """
-  @type get_core_device_request() :: %{String.t() => any()}
+  @type get_core_device_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  deployment_configuration_validation_policy() :: %{
-    "timeoutInSeconds" => integer()
-  }
+
+      deployment_configuration_validation_policy() :: %{
+        "timeoutInSeconds" => integer()
+      }
+
   """
   @type deployment_configuration_validation_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_component_versions_request() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t()
-  }
+
+      list_component_versions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
   """
   @type list_component_versions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  effective_deployment() :: %{
-    "coreDeviceExecutionStatus" => list(any()),
-    "creationTimestamp" => non_neg_integer(),
-    "deploymentId" => String.t(),
-    "deploymentName" => String.t(),
-    "description" => String.t(),
-    "iotJobArn" => String.t(),
-    "iotJobId" => String.t(),
-    "modifiedTimestamp" => non_neg_integer(),
-    "reason" => String.t(),
-    "statusDetails" => effective_deployment_status_details(),
-    "targetArn" => String.t()
-  }
+
+      effective_deployment() :: %{
+        "coreDeviceExecutionStatus" => list(any()),
+        "creationTimestamp" => non_neg_integer(),
+        "deploymentId" => String.t(),
+        "deploymentName" => String.t(),
+        "description" => String.t(),
+        "iotJobArn" => String.t(),
+        "iotJobId" => String.t(),
+        "modifiedTimestamp" => non_neg_integer(),
+        "reason" => String.t(),
+        "statusDetails" => effective_deployment_status_details(),
+        "targetArn" => String.t()
+      }
+
   """
   @type effective_deployment() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  request_already_in_progress_exception() :: %{
-    "message" => String.t()
-  }
+
+      request_already_in_progress_exception() :: %{
+        "message" => String.t()
+      }
+
   """
   @type request_already_in_progress_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cancel_deployment_request() :: %{
 
-  }
+      cancel_deployment_request() :: %{}
+
   """
-  @type cancel_deployment_request() :: %{String.t() => any()}
+  @type cancel_deployment_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  connectivity_info() :: %{
-    "hostAddress" => String.t(),
-    "id" => String.t(),
-    "metadata" => String.t(),
-    "portNumber" => integer()
-  }
+
+      connectivity_info() :: %{
+        "hostAddress" => String.t(),
+        "id" => String.t(),
+        "metadata" => String.t(),
+        "portNumber" => integer()
+      }
+
   """
   @type connectivity_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_connectivity_info_response() :: %{
-    "connectivityInfo" => list(connectivity_info()()),
-    "message" => String.t()
-  }
+
+      get_connectivity_info_response() :: %{
+        "connectivityInfo" => list(connectivity_info()()),
+        "message" => String.t()
+      }
+
   """
   @type get_connectivity_info_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  installed_component() :: %{
-    "componentName" => String.t(),
-    "componentVersion" => String.t(),
-    "isRoot" => boolean(),
-    "lastInstallationSource" => String.t(),
-    "lastReportedTimestamp" => non_neg_integer(),
-    "lastStatusChangeTimestamp" => non_neg_integer(),
-    "lifecycleState" => list(any()),
-    "lifecycleStateDetails" => String.t(),
-    "lifecycleStatusCodes" => list(String.t()())
-  }
+
+      installed_component() :: %{
+        "componentName" => String.t(),
+        "componentVersion" => String.t(),
+        "isRoot" => boolean(),
+        "lastInstallationSource" => String.t(),
+        "lastReportedTimestamp" => non_neg_integer(),
+        "lastStatusChangeTimestamp" => non_neg_integer(),
+        "lifecycleState" => list(any()),
+        "lifecycleStateDetails" => String.t(),
+        "lifecycleStatusCodes" => list(String.t()())
+      }
+
   """
   @type installed_component() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_component_version_request() :: %{
-    optional("clientToken") => String.t(),
-    optional("inlineRecipe") => binary(),
-    optional("lambdaFunction") => lambda_function_recipe_source(),
-    optional("tags") => map()
-  }
+
+      create_component_version_request() :: %{
+        optional("clientToken") => String.t(),
+        optional("inlineRecipe") => binary(),
+        optional("lambdaFunction") => lambda_function_recipe_source(),
+        optional("tags") => map()
+      }
+
   """
   @type create_component_version_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  conflict_exception() :: %{
-    "message" => String.t(),
-    "resourceId" => String.t(),
-    "resourceType" => String.t()
-  }
+
+      conflict_exception() :: %{
+        "message" => String.t(),
+        "resourceId" => String.t(),
+        "resourceType" => String.t()
+      }
+
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_not_found_exception() :: %{
-    "message" => String.t(),
-    "resourceId" => String.t(),
-    "resourceType" => String.t()
-  }
+
+      resource_not_found_exception() :: %{
+        "message" => String.t(),
+        "resourceId" => String.t(),
+        "resourceType" => String.t()
+      }
+
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_components_request() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t(),
-    optional("scope") => list(any())
-  }
+
+      list_components_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("scope") => list(any())
+      }
+
   """
   @type list_components_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_disassociate_client_device_from_core_device_response() :: %{
-    "errorEntries" => list(disassociate_client_device_from_core_device_error_entry()())
-  }
+
+      batch_disassociate_client_device_from_core_device_response() :: %{
+        "errorEntries" => list(disassociate_client_device_from_core_device_error_entry()())
+      }
+
   """
   @type batch_disassociate_client_device_from_core_device_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  service_quota_exceeded_exception() :: %{
-    "message" => String.t(),
-    "quotaCode" => String.t(),
-    "resourceId" => String.t(),
-    "resourceType" => String.t(),
-    "serviceCode" => String.t()
-  }
+
+      service_quota_exceeded_exception() :: %{
+        "message" => String.t(),
+        "quotaCode" => String.t(),
+        "resourceId" => String.t(),
+        "resourceType" => String.t(),
+        "serviceCode" => String.t()
+      }
+
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  component_latest_version() :: %{
-    "arn" => String.t(),
-    "componentVersion" => String.t(),
-    "creationTimestamp" => non_neg_integer(),
-    "description" => String.t(),
-    "platforms" => list(component_platform()()),
-    "publisher" => String.t()
-  }
+
+      component_latest_version() :: %{
+        "arn" => String.t(),
+        "componentVersion" => String.t(),
+        "creationTimestamp" => non_neg_integer(),
+        "description" => String.t(),
+        "platforms" => list(component_platform()()),
+        "publisher" => String.t()
+      }
+
   """
   @type component_latest_version() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  deployment_io_t_job_configuration() :: %{
-    "abortConfig" => io_t_job_abort_config(),
-    "jobExecutionsRolloutConfig" => io_t_job_executions_rollout_config(),
-    "timeoutConfig" => io_t_job_timeout_config()
-  }
+
+      deployment_io_t_job_configuration() :: %{
+        "abortConfig" => io_t_job_abort_config(),
+        "jobExecutionsRolloutConfig" => io_t_job_executions_rollout_config(),
+        "timeoutConfig" => io_t_job_timeout_config()
+      }
+
   """
   @type deployment_io_t_job_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  component() :: %{
-    "arn" => String.t(),
-    "componentName" => String.t(),
-    "latestVersion" => component_latest_version()
-  }
+
+      component() :: %{
+        "arn" => String.t(),
+        "componentName" => String.t(),
+        "latestVersion" => component_latest_version()
+      }
+
   """
   @type component() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_deployment_request() :: %{
 
-  }
+      get_deployment_request() :: %{}
+
   """
-  @type get_deployment_request() :: %{String.t() => any()}
+  @type get_deployment_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  resolved_component_version() :: %{
-    "arn" => String.t(),
-    "componentName" => String.t(),
-    "componentVersion" => String.t(),
-    "message" => String.t(),
-    "recipe" => binary(),
-    "vendorGuidance" => list(any())
-  }
+
+      resolved_component_version() :: %{
+        "arn" => String.t(),
+        "componentName" => String.t(),
+        "componentVersion" => String.t(),
+        "message" => String.t(),
+        "recipe" => binary(),
+        "vendorGuidance" => list(any())
+      }
+
   """
   @type resolved_component_version() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  component_platform() :: %{
-    "attributes" => map(),
-    "name" => String.t()
-  }
+
+      component_platform() :: %{
+        "attributes" => map(),
+        "name" => String.t()
+      }
+
   """
   @type component_platform() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  io_t_job_rate_increase_criteria() :: %{
-    "numberOfNotifiedThings" => integer(),
-    "numberOfSucceededThings" => integer()
-  }
+
+      io_t_job_rate_increase_criteria() :: %{
+        "numberOfNotifiedThings" => integer(),
+        "numberOfSucceededThings" => integer()
+      }
+
   """
   @type io_t_job_rate_increase_criteria() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cloud_component_status() :: %{
-    "componentState" => list(any()),
-    "errors" => map(),
-    "message" => String.t(),
-    "vendorGuidance" => list(any()),
-    "vendorGuidanceMessage" => String.t()
-  }
+
+      cloud_component_status() :: %{
+        "componentState" => list(any()),
+        "errors" => map(),
+        "message" => String.t(),
+        "vendorGuidance" => list(any()),
+        "vendorGuidanceMessage" => String.t()
+      }
+
   """
   @type cloud_component_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  component_run_with() :: %{
-    "posixUser" => String.t(),
-    "systemResourceLimits" => system_resource_limits(),
-    "windowsUser" => String.t()
-  }
+
+      component_run_with() :: %{
+        "posixUser" => String.t(),
+        "systemResourceLimits" => system_resource_limits(),
+        "windowsUser" => String.t()
+      }
+
   """
   @type component_run_with() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_response() :: %{
-    "tags" => map()
-  }
+
+      list_tags_for_resource_response() :: %{
+        "tags" => map()
+      }
+
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  effective_deployment_status_details() :: %{
-    "errorStack" => list(String.t()()),
-    "errorTypes" => list(String.t()())
-  }
+
+      effective_deployment_status_details() :: %{
+        "errorStack" => list(String.t()()),
+        "errorTypes" => list(String.t()())
+      }
+
   """
   @type effective_deployment_status_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  validation_exception_field() :: %{
-    "message" => String.t(),
-    "name" => String.t()
-  }
+
+      validation_exception_field() :: %{
+        "message" => String.t(),
+        "name" => String.t()
+      }
+
   """
   @type validation_exception_field() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  component_deployment_specification() :: %{
-    "componentVersion" => String.t(),
-    "configurationUpdate" => component_configuration_update(),
-    "runWith" => component_run_with()
-  }
+
+      component_deployment_specification() :: %{
+        "componentVersion" => String.t(),
+        "configurationUpdate" => component_configuration_update(),
+        "runWith" => component_run_with()
+      }
+
   """
   @type component_deployment_specification() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_client_devices_associated_with_core_device_response() :: %{
-    "associatedClientDevices" => list(associated_client_device()()),
-    "nextToken" => String.t()
-  }
+
+      list_client_devices_associated_with_core_device_response() :: %{
+        "associatedClientDevices" => list(associated_client_device()()),
+        "nextToken" => String.t()
+      }
+
   """
   @type list_client_devices_associated_with_core_device_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_connectivity_info_request() :: %{
 
-  }
+      get_connectivity_info_request() :: %{}
+
   """
-  @type get_connectivity_info_request() :: %{String.t() => any()}
+  @type get_connectivity_info_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  associate_service_role_to_account_request() :: %{
-    required("roleArn") => String.t()
-  }
+
+      associate_service_role_to_account_request() :: %{
+        required("roleArn") => String.t()
+      }
+
   """
   @type associate_service_role_to_account_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  deployment_policies() :: %{
-    "componentUpdatePolicy" => deployment_component_update_policy(),
-    "configurationValidationPolicy" => deployment_configuration_validation_policy(),
-    "failureHandlingPolicy" => list(any())
-  }
+
+      deployment_policies() :: %{
+        "componentUpdatePolicy" => deployment_component_update_policy(),
+        "configurationValidationPolicy" => deployment_configuration_validation_policy(),
+        "failureHandlingPolicy" => list(any())
+      }
+
   """
   @type deployment_policies() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_deployment_request() :: %{
 
-  }
+      delete_deployment_request() :: %{}
+
   """
-  @type delete_deployment_request() :: %{String.t() => any()}
+  @type delete_deployment_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  internal_server_exception() :: %{
-    "message" => String.t(),
-    "retryAfterSeconds" => integer()
-  }
+
+      internal_server_exception() :: %{
+        "message" => String.t(),
+        "retryAfterSeconds" => integer()
+      }
+
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  component_configuration_update() :: %{
-    "merge" => String.t(),
-    "reset" => list(String.t()())
-  }
+
+      component_configuration_update() :: %{
+        "merge" => String.t(),
+        "reset" => list(String.t()())
+      }
+
   """
   @type component_configuration_update() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  associate_client_device_with_core_device_entry() :: %{
-    "thingName" => String.t()
-  }
+
+      associate_client_device_with_core_device_entry() :: %{
+        "thingName" => String.t()
+      }
+
   """
   @type associate_client_device_with_core_device_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  io_t_job_timeout_config() :: %{
-    "inProgressTimeoutInMinutes" => float()
-  }
+
+      io_t_job_timeout_config() :: %{
+        "inProgressTimeoutInMinutes" => float()
+      }
+
   """
   @type io_t_job_timeout_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resolve_component_candidates_response() :: %{
-    "resolvedComponentVersions" => list(resolved_component_version()())
-  }
+
+      resolve_component_candidates_response() :: %{
+        "resolvedComponentVersions" => list(resolved_component_version()())
+      }
+
   """
   @type resolve_component_candidates_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disassociate_client_device_from_core_device_error_entry() :: %{
-    "code" => String.t(),
-    "message" => String.t(),
-    "thingName" => String.t()
-  }
+
+      disassociate_client_device_from_core_device_error_entry() :: %{
+        "code" => String.t(),
+        "message" => String.t(),
+        "thingName" => String.t()
+      }
+
   """
   @type disassociate_client_device_from_core_device_error_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_disassociate_client_device_from_core_device_request() :: %{
-    optional("entries") => list(disassociate_client_device_from_core_device_entry()())
-  }
+
+      batch_disassociate_client_device_from_core_device_request() :: %{
+        optional("entries") => list(disassociate_client_device_from_core_device_entry()())
+      }
+
   """
   @type batch_disassociate_client_device_from_core_device_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  access_denied_exception() :: %{
-    "message" => String.t()
-  }
+
+      access_denied_exception() :: %{
+        "message" => String.t()
+      }
+
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_response() :: %{
 
-  }
+      tag_resource_response() :: %{}
+
   """
-  @type tag_resource_response() :: %{String.t() => any()}
+  @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  io_t_job_abort_config() :: %{
-    "criteriaList" => list(io_t_job_abort_criteria()())
-  }
+
+      io_t_job_abort_config() :: %{
+        "criteriaList" => list(io_t_job_abort_criteria()())
+      }
+
   """
   @type io_t_job_abort_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  component_version_list_item() :: %{
-    "arn" => String.t(),
-    "componentName" => String.t(),
-    "componentVersion" => String.t()
-  }
+
+      component_version_list_item() :: %{
+        "arn" => String.t(),
+        "componentName" => String.t(),
+        "componentVersion" => String.t()
+      }
+
   """
   @type component_version_list_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  lambda_container_params() :: %{
-    "devices" => list(lambda_device_mount()()),
-    "memorySizeInKB" => integer(),
-    "mountROSysfs" => boolean(),
-    "volumes" => list(lambda_volume_mount()())
-  }
+
+      lambda_container_params() :: %{
+        "devices" => list(lambda_device_mount()()),
+        "memorySizeInKB" => integer(),
+        "mountROSysfs" => boolean(),
+        "volumes" => list(lambda_volume_mount()())
+      }
+
   """
   @type lambda_container_params() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  validation_exception() :: %{
-    "fields" => list(validation_exception_field()()),
-    "message" => String.t(),
-    "reason" => list(any())
-  }
+
+      validation_exception() :: %{
+        "fields" => list(validation_exception_field()()),
+        "message" => String.t(),
+        "reason" => list(any())
+      }
+
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_request() :: %{
 
-  }
+      list_tags_for_resource_request() :: %{}
+
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  cancel_deployment_response() :: %{
-    "message" => String.t()
-  }
+
+      cancel_deployment_response() :: %{
+        "message" => String.t()
+      }
+
   """
   @type cancel_deployment_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_deployment_response() :: %{
-    "components" => map(),
-    "creationTimestamp" => non_neg_integer(),
-    "deploymentId" => String.t(),
-    "deploymentName" => String.t(),
-    "deploymentPolicies" => deployment_policies(),
-    "deploymentStatus" => list(any()),
-    "iotJobArn" => String.t(),
-    "iotJobConfiguration" => deployment_io_t_job_configuration(),
-    "iotJobId" => String.t(),
-    "isLatestForTarget" => boolean(),
-    "parentTargetArn" => String.t(),
-    "revisionId" => String.t(),
-    "tags" => map(),
-    "targetArn" => String.t()
-  }
+
+      get_deployment_response() :: %{
+        "components" => map(),
+        "creationTimestamp" => non_neg_integer(),
+        "deploymentId" => String.t(),
+        "deploymentName" => String.t(),
+        "deploymentPolicies" => deployment_policies(),
+        "deploymentStatus" => list(any()),
+        "iotJobArn" => String.t(),
+        "iotJobConfiguration" => deployment_io_t_job_configuration(),
+        "iotJobId" => String.t(),
+        "isLatestForTarget" => boolean(),
+        "parentTargetArn" => String.t(),
+        "revisionId" => String.t(),
+        "tags" => map(),
+        "targetArn" => String.t()
+      }
+
   """
   @type get_deployment_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  throttling_exception() :: %{
-    "message" => String.t(),
-    "quotaCode" => String.t(),
-    "retryAfterSeconds" => integer(),
-    "serviceCode" => String.t()
-  }
+
+      throttling_exception() :: %{
+        "message" => String.t(),
+        "quotaCode" => String.t(),
+        "retryAfterSeconds" => integer(),
+        "serviceCode" => String.t()
+      }
+
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_component_response() :: %{
-    "arn" => String.t(),
-    "componentName" => String.t(),
-    "componentVersion" => String.t(),
-    "creationTimestamp" => non_neg_integer(),
-    "description" => String.t(),
-    "platforms" => list(component_platform()()),
-    "publisher" => String.t(),
-    "status" => cloud_component_status(),
-    "tags" => map()
-  }
+
+      describe_component_response() :: %{
+        "arn" => String.t(),
+        "componentName" => String.t(),
+        "componentVersion" => String.t(),
+        "creationTimestamp" => non_neg_integer(),
+        "description" => String.t(),
+        "platforms" => list(component_platform()()),
+        "publisher" => String.t(),
+        "status" => cloud_component_status(),
+        "tags" => map()
+      }
+
   """
   @type describe_component_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_effective_deployments_request() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t()
-  }
+
+      list_effective_deployments_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
   """
   @type list_effective_deployments_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_components_response() :: %{
-    "components" => list(component()()),
-    "nextToken" => String.t()
-  }
+
+      list_components_response() :: %{
+        "components" => list(component()()),
+        "nextToken" => String.t()
+      }
+
   """
   @type list_components_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_component_version_artifact_response() :: %{
-    "preSignedUrl" => String.t()
-  }
+
+      get_component_version_artifact_response() :: %{
+        "preSignedUrl" => String.t()
+      }
+
   """
   @type get_component_version_artifact_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_installed_components_request() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t(),
-    optional("topologyFilter") => list(any())
-  }
+
+      list_installed_components_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("topologyFilter") => list(any())
+      }
+
   """
   @type list_installed_components_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_associate_client_device_with_core_device_response() :: %{
-    "errorEntries" => list(associate_client_device_with_core_device_error_entry()())
-  }
+
+      batch_associate_client_device_with_core_device_response() :: %{
+        "errorEntries" => list(associate_client_device_with_core_device_error_entry()())
+      }
+
   """
   @type batch_associate_client_device_with_core_device_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_client_devices_associated_with_core_device_request() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t()
-  }
+
+      list_client_devices_associated_with_core_device_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
   """
   @type list_client_devices_associated_with_core_device_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  associated_client_device() :: %{
-    "associationTimestamp" => non_neg_integer(),
-    "thingName" => String.t()
-  }
+
+      associated_client_device() :: %{
+        "associationTimestamp" => non_neg_integer(),
+        "thingName" => String.t()
+      }
+
   """
   @type associated_client_device() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_component_request() :: %{
 
-  }
+      describe_component_request() :: %{}
+
   """
-  @type describe_component_request() :: %{String.t() => any()}
+  @type describe_component_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  component_candidate() :: %{
-    "componentName" => String.t(),
-    "componentVersion" => String.t(),
-    "versionRequirements" => map()
-  }
+
+      component_candidate() :: %{
+        "componentName" => String.t(),
+        "componentVersion" => String.t(),
+        "versionRequirements" => map()
+      }
+
   """
   @type component_candidate() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_effective_deployments_response() :: %{
-    "effectiveDeployments" => list(effective_deployment()()),
-    "nextToken" => String.t()
-  }
+
+      list_effective_deployments_response() :: %{
+        "effectiveDeployments" => list(effective_deployment()()),
+        "nextToken" => String.t()
+      }
+
   """
   @type list_effective_deployments_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  lambda_linux_process_params() :: %{
-    "containerParams" => lambda_container_params(),
-    "isolationMode" => list(any())
-  }
+
+      lambda_linux_process_params() :: %{
+        "containerParams" => lambda_container_params(),
+        "isolationMode" => list(any())
+      }
+
   """
   @type lambda_linux_process_params() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_service_role_for_account_response() :: %{
-    "associatedAt" => String.t(),
-    "roleArn" => String.t()
-  }
+
+      get_service_role_for_account_response() :: %{
+        "associatedAt" => String.t(),
+        "roleArn" => String.t()
+      }
+
   """
   @type get_service_role_for_account_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_associate_client_device_with_core_device_request() :: %{
-    optional("entries") => list(associate_client_device_with_core_device_entry()())
-  }
+
+      batch_associate_client_device_with_core_device_request() :: %{
+        optional("entries") => list(associate_client_device_with_core_device_entry()())
+      }
+
   """
   @type batch_associate_client_device_with_core_device_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  io_t_job_abort_criteria() :: %{
-    "action" => list(any()),
-    "failureType" => list(any()),
-    "minNumberOfExecutedThings" => integer(),
-    "thresholdPercentage" => float()
-  }
+
+      io_t_job_abort_criteria() :: %{
+        "action" => list(any()),
+        "failureType" => list(any()),
+        "minNumberOfExecutedThings" => integer(),
+        "thresholdPercentage" => float()
+      }
+
   """
   @type io_t_job_abort_criteria() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  associate_service_role_to_account_response() :: %{
-    "associatedAt" => String.t()
-  }
+
+      associate_service_role_to_account_response() :: %{
+        "associatedAt" => String.t()
+      }
+
   """
   @type associate_service_role_to_account_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disassociate_service_role_from_account_request() :: %{
 
-  }
+      disassociate_service_role_from_account_request() :: %{}
+
   """
-  @type disassociate_service_role_from_account_request() :: %{String.t() => any()}
+  @type disassociate_service_role_from_account_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_component_request() :: %{
-    optional("recipeOutputFormat") => list(any())
-  }
+
+      get_component_request() :: %{
+        optional("recipeOutputFormat") => list(any())
+      }
+
   """
   @type get_component_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resolve_component_candidates_request() :: %{
-    optional("componentCandidates") => list(component_candidate()()),
-    optional("platform") => component_platform()
-  }
+
+      resolve_component_candidates_request() :: %{
+        optional("componentCandidates") => list(component_candidate()()),
+        optional("platform") => component_platform()
+      }
+
   """
   @type resolve_component_candidates_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  lambda_device_mount() :: %{
-    "addGroupOwner" => boolean(),
-    "path" => String.t(),
-    "permission" => list(any())
-  }
+
+      lambda_device_mount() :: %{
+        "addGroupOwner" => boolean(),
+        "path" => String.t(),
+        "permission" => list(any())
+      }
+
   """
   @type lambda_device_mount() :: %{String.t() => any()}
+
+  @type associate_service_role_to_account_errors() ::
+          validation_exception() | internal_server_exception()
+
+  @type batch_associate_client_device_with_core_device_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type batch_disassociate_client_device_from_core_device_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type cancel_deployment_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_component_version_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+          | request_already_in_progress_exception()
+
+  @type create_deployment_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | request_already_in_progress_exception()
+
+  @type delete_component_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_core_device_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_deployment_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type describe_component_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type disassociate_service_role_from_account_errors() :: internal_server_exception()
+
+  @type get_component_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_component_version_artifact_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_connectivity_info_errors() :: validation_exception() | internal_server_exception()
+
+  @type get_core_device_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_deployment_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_service_role_for_account_errors() :: internal_server_exception()
+
+  @type list_client_devices_associated_with_core_device_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_component_versions_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_components_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_core_devices_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_deployments_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_effective_deployments_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_installed_components_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_tags_for_resource_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
+
+  @type resolve_component_candidates_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type tag_resource_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
+
+  @type untag_resource_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
+
+  @type update_connectivity_info_errors() :: validation_exception() | internal_server_exception()
 
   def metadata do
     %{
@@ -1189,8 +1543,7 @@ defmodule AWS.GreengrassV2 do
         ) ::
           {:ok, associate_service_role_to_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, validation_exception()}
+          | {:error, associate_service_role_to_account_errors()}
   def associate_service_role_to_account(%Client{} = client, input, options \\ []) do
     url_path = "/greengrass/servicerole"
     headers = []
@@ -1230,11 +1583,7 @@ defmodule AWS.GreengrassV2 do
         ) ::
           {:ok, batch_associate_client_device_with_core_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, batch_associate_client_device_with_core_device_errors()}
   def batch_associate_client_device_with_core_device(
         %Client{} = client,
         core_device_thing_name,
@@ -1278,11 +1627,7 @@ defmodule AWS.GreengrassV2 do
         ) ::
           {:ok, batch_disassociate_client_device_from_core_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, batch_disassociate_client_device_from_core_device_errors()}
   def batch_disassociate_client_device_from_core_device(
         %Client{} = client,
         core_device_thing_name,
@@ -1321,12 +1666,7 @@ defmodule AWS.GreengrassV2 do
   @spec cancel_deployment(map(), String.t(), cancel_deployment_request(), list()) ::
           {:ok, cancel_deployment_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, cancel_deployment_errors()}
   def cancel_deployment(%Client{} = client, deployment_id, input, options \\ []) do
     url_path = "/greengrass/v2/deployments/#{AWS.Util.encode_uri(deployment_id)}/cancel"
     headers = []
@@ -1418,13 +1758,7 @@ defmodule AWS.GreengrassV2 do
   @spec create_component_version(map(), create_component_version_request(), list()) ::
           {:ok, create_component_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, request_already_in_progress_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_component_version_errors()}
   def create_component_version(%Client{} = client, input, options \\ []) do
     url_path = "/greengrass/v2/createComponentVersion"
     headers = []
@@ -1472,13 +1806,7 @@ defmodule AWS.GreengrassV2 do
   @spec create_deployment(map(), create_deployment_request(), list()) ::
           {:ok, create_deployment_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, request_already_in_progress_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_deployment_errors()}
   def create_deployment(%Client{} = client, input, options \\ []) do
     url_path = "/greengrass/v2/deployments"
     headers = []
@@ -1513,12 +1841,7 @@ defmodule AWS.GreengrassV2 do
   @spec delete_component(map(), String.t(), delete_component_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_component_errors()}
   def delete_component(%Client{} = client, arn, input, options \\ []) do
     url_path = "/greengrass/v2/components/#{AWS.Util.encode_uri(arn)}"
     headers = []
@@ -1553,12 +1876,7 @@ defmodule AWS.GreengrassV2 do
   @spec delete_core_device(map(), String.t(), delete_core_device_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_core_device_errors()}
   def delete_core_device(%Client{} = client, core_device_thing_name, input, options \\ []) do
     url_path = "/greengrass/v2/coreDevices/#{AWS.Util.encode_uri(core_device_thing_name)}"
     headers = []
@@ -1595,12 +1913,7 @@ defmodule AWS.GreengrassV2 do
   @spec delete_deployment(map(), String.t(), delete_deployment_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_deployment_errors()}
   def delete_deployment(%Client{} = client, deployment_id, input, options \\ []) do
     url_path = "/greengrass/v2/deployments/#{AWS.Util.encode_uri(deployment_id)}"
     headers = []
@@ -1627,11 +1940,7 @@ defmodule AWS.GreengrassV2 do
   @spec describe_component(map(), String.t(), list()) ::
           {:ok, describe_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, describe_component_errors()}
   def describe_component(%Client{} = client, arn, options \\ []) do
     url_path = "/greengrass/v2/components/#{AWS.Util.encode_uri(arn)}/metadata"
     headers = []
@@ -1659,7 +1968,7 @@ defmodule AWS.GreengrassV2 do
         ) ::
           {:ok, disassociate_service_role_from_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
+          | {:error, disassociate_service_role_from_account_errors()}
   def disassociate_service_role_from_account(%Client{} = client, input, options \\ []) do
     url_path = "/greengrass/servicerole"
     headers = []
@@ -1686,11 +1995,7 @@ defmodule AWS.GreengrassV2 do
   @spec get_component(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_component_errors()}
   def get_component(%Client{} = client, arn, recipe_output_format \\ nil, options \\ []) do
     url_path = "/greengrass/v2/components/#{AWS.Util.encode_uri(arn)}"
     headers = []
@@ -1719,11 +2024,7 @@ defmodule AWS.GreengrassV2 do
   @spec get_component_version_artifact(map(), String.t(), String.t(), list()) ::
           {:ok, get_component_version_artifact_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_component_version_artifact_errors()}
   def get_component_version_artifact(%Client{} = client, arn, artifact_name, options \\ []) do
     url_path =
       "/greengrass/v2/components/#{AWS.Util.encode_uri(arn)}/artifacts/#{AWS.Util.encode_multi_segment_uri(artifact_name)}"
@@ -1751,8 +2052,7 @@ defmodule AWS.GreengrassV2 do
   @spec get_connectivity_info(map(), String.t(), list()) ::
           {:ok, get_connectivity_info_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_connectivity_info_errors()}
   def get_connectivity_info(%Client{} = client, thing_name, options \\ []) do
     url_path = "/greengrass/things/#{AWS.Util.encode_uri(thing_name)}/connectivityInfo"
     headers = []
@@ -1798,11 +2098,7 @@ defmodule AWS.GreengrassV2 do
   @spec get_core_device(map(), String.t(), list()) ::
           {:ok, get_core_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_core_device_errors()}
   def get_core_device(%Client{} = client, core_device_thing_name, options \\ []) do
     url_path = "/greengrass/v2/coreDevices/#{AWS.Util.encode_uri(core_device_thing_name)}"
     headers = []
@@ -1821,11 +2117,7 @@ defmodule AWS.GreengrassV2 do
   @spec get_deployment(map(), String.t(), list()) ::
           {:ok, get_deployment_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_deployment_errors()}
   def get_deployment(%Client{} = client, deployment_id, options \\ []) do
     url_path = "/greengrass/v2/deployments/#{AWS.Util.encode_uri(deployment_id)}"
     headers = []
@@ -1849,7 +2141,7 @@ defmodule AWS.GreengrassV2 do
   @spec get_service_role_for_account(map(), list()) ::
           {:ok, get_service_role_for_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
+          | {:error, get_service_role_for_account_errors()}
   def get_service_role_for_account(%Client{} = client, options \\ []) do
     url_path = "/greengrass/servicerole"
     headers = []
@@ -1873,11 +2165,7 @@ defmodule AWS.GreengrassV2 do
         ) ::
           {:ok, list_client_devices_associated_with_core_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_client_devices_associated_with_core_device_errors()}
   def list_client_devices_associated_with_core_device(
         %Client{} = client,
         core_device_thing_name,
@@ -1919,11 +2207,7 @@ defmodule AWS.GreengrassV2 do
   @spec list_component_versions(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_component_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_component_versions_errors()}
   def list_component_versions(
         %Client{} = client,
         arn,
@@ -1963,11 +2247,7 @@ defmodule AWS.GreengrassV2 do
   @spec list_components(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_components_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_components_errors()}
   def list_components(
         %Client{} = client,
         max_results \\ nil,
@@ -2047,10 +2327,7 @@ defmodule AWS.GreengrassV2 do
         ) ::
           {:ok, list_core_devices_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_core_devices_errors()}
   def list_core_devices(
         %Client{} = client,
         max_results \\ nil,
@@ -2110,10 +2387,7 @@ defmodule AWS.GreengrassV2 do
         ) ::
           {:ok, list_deployments_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_deployments_errors()}
   def list_deployments(
         %Client{} = client,
         history_filter \\ nil,
@@ -2174,11 +2448,7 @@ defmodule AWS.GreengrassV2 do
   @spec list_effective_deployments(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_effective_deployments_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_effective_deployments_errors()}
   def list_effective_deployments(
         %Client{} = client,
         core_device_thing_name,
@@ -2259,11 +2529,7 @@ defmodule AWS.GreengrassV2 do
         ) ::
           {:ok, list_installed_components_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_installed_components_errors()}
   def list_installed_components(
         %Client{} = client,
         core_device_thing_name,
@@ -2310,9 +2576,7 @@ defmodule AWS.GreengrassV2 do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -2352,12 +2616,7 @@ defmodule AWS.GreengrassV2 do
   @spec resolve_component_candidates(map(), resolve_component_candidates_request(), list()) ::
           {:ok, resolve_component_candidates_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, resolve_component_candidates_errors()}
   def resolve_component_candidates(%Client{} = client, input, options \\ []) do
     url_path = "/greengrass/v2/resolveComponentCandidates"
     headers = []
@@ -2387,9 +2646,7 @@ defmodule AWS.GreengrassV2 do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -2416,9 +2673,7 @@ defmodule AWS.GreengrassV2 do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -2459,8 +2714,7 @@ defmodule AWS.GreengrassV2 do
   @spec update_connectivity_info(map(), String.t(), update_connectivity_info_request(), list()) ::
           {:ok, update_connectivity_info_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_connectivity_info_errors()}
   def update_connectivity_info(%Client{} = client, thing_name, input, options \\ []) do
     url_path = "/greengrass/things/#{AWS.Util.encode_uri(thing_name)}/connectivityInfo"
     headers = []

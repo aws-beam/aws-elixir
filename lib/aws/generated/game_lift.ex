@@ -79,3088 +79,4287 @@ defmodule AWS.GameLift do
   @typedoc """
 
   ## Example:
-  update_game_server_input() :: %{
-    optional("GameServerData") => String.t(),
-    optional("HealthCheck") => list(any()),
-    optional("UtilizationStatus") => list(any()),
-    required("GameServerGroupName") => String.t(),
-    required("GameServerId") => String.t()
-  }
+      
+      update_game_server_input() :: %{
+        optional("GameServerData") => String.t(),
+        optional("HealthCheck") => list(any()),
+        optional("UtilizationStatus") => list(any()),
+        required("GameServerGroupName") => String.t(),
+        required("GameServerId") => String.t()
+      }
+      
   """
   @type update_game_server_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_fleet_status_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      invalid_fleet_status_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type invalid_fleet_status_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_game_server_group_input() :: %{
-    optional("BalancingStrategy") => list(any()),
-    optional("GameServerProtectionPolicy") => list(any()),
-    optional("InstanceDefinitions") => list(instance_definition()()),
-    optional("RoleArn") => String.t(),
-    required("GameServerGroupName") => String.t()
-  }
+      
+      update_game_server_group_input() :: %{
+        optional("BalancingStrategy") => list(any()),
+        optional("GameServerProtectionPolicy") => list(any()),
+        optional("InstanceDefinitions") => list(instance_definition()()),
+        optional("RoleArn") => String.t(),
+        required("GameServerGroupName") => String.t()
+      }
+      
   """
   @type update_game_server_group_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_compute_input() :: %{
-    optional("Limit") => integer(),
-    optional("Location") => String.t(),
-    optional("NextToken") => String.t(),
-    required("FleetId") => String.t()
-  }
+      
+      list_compute_input() :: %{
+        optional("Limit") => integer(),
+        optional("Location") => String.t(),
+        optional("NextToken") => String.t(),
+        required("FleetId") => String.t()
+      }
+      
   """
   @type list_compute_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  fleet_utilization() :: %{
-    "ActiveGameSessionCount" => integer(),
-    "ActiveServerProcessCount" => integer(),
-    "CurrentPlayerSessionCount" => integer(),
-    "FleetArn" => String.t(),
-    "FleetId" => String.t(),
-    "Location" => String.t(),
-    "MaximumPlayerSessionCount" => integer()
-  }
+      
+      fleet_utilization() :: %{
+        "ActiveGameSessionCount" => integer(),
+        "ActiveServerProcessCount" => integer(),
+        "CurrentPlayerSessionCount" => integer(),
+        "FleetArn" => String.t(),
+        "FleetId" => String.t(),
+        "Location" => String.t(),
+        "MaximumPlayerSessionCount" => integer()
+      }
+      
   """
   @type fleet_utilization() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_fleet_port_settings_output() :: %{
-    "FleetArn" => String.t(),
-    "FleetId" => String.t()
-  }
+      
+      update_fleet_port_settings_output() :: %{
+        "FleetArn" => String.t(),
+        "FleetId" => String.t()
+      }
+      
   """
   @type update_fleet_port_settings_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  deregister_compute_output() :: %{
-
-  }
+      
+      deregister_compute_output() :: %{}
+      
   """
-  @type deregister_compute_output() :: %{String.t() => any()}
+  @type deregister_compute_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  game_session_connection_info() :: %{
-    "DnsName" => String.t(),
-    "GameSessionArn" => String.t(),
-    "IpAddress" => String.t(),
-    "MatchedPlayerSessions" => list(matched_player_session()()),
-    "Port" => integer()
-  }
+      
+      game_session_connection_info() :: %{
+        "DnsName" => String.t(),
+        "GameSessionArn" => String.t(),
+        "IpAddress" => String.t(),
+        "MatchedPlayerSessions" => list(matched_player_session()()),
+        "Port" => integer()
+      }
+      
   """
   @type game_session_connection_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_matchmaking_input() :: %{
-    required("TicketIds") => list(String.t()())
-  }
+      
+      describe_matchmaking_input() :: %{
+        required("TicketIds") => list(String.t()())
+      }
+      
   """
   @type describe_matchmaking_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  instance_access() :: %{
-    "Credentials" => instance_credentials(),
-    "FleetId" => String.t(),
-    "InstanceId" => String.t(),
-    "IpAddress" => String.t(),
-    "OperatingSystem" => list(any())
-  }
+      
+      instance_access() :: %{
+        "Credentials" => instance_credentials(),
+        "FleetId" => String.t(),
+        "InstanceId" => String.t(),
+        "IpAddress" => String.t(),
+        "OperatingSystem" => list(any())
+      }
+      
   """
   @type instance_access() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_request() :: %{
-    required("ResourceARN") => String.t(),
-    required("Tags") => list(tag()())
-  }
+      
+      tag_resource_request() :: %{
+        required("ResourceARN") => String.t(),
+        required("Tags") => list(tag()())
+      }
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_locations_output() :: %{
-    "Locations" => list(location_model()()),
-    "NextToken" => String.t()
-  }
+      
+      list_locations_output() :: %{
+        "Locations" => list(location_model()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_locations_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  player_latency() :: %{
-    "LatencyInMilliseconds" => float(),
-    "PlayerId" => String.t(),
-    "RegionIdentifier" => String.t()
-  }
+      
+      player_latency() :: %{
+        "LatencyInMilliseconds" => float(),
+        "PlayerId" => String.t(),
+        "RegionIdentifier" => String.t()
+      }
+      
   """
   @type player_latency() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tagging_failed_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      tagging_failed_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type tagging_failed_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  game_server_instance() :: %{
-    "GameServerGroupArn" => String.t(),
-    "GameServerGroupName" => String.t(),
-    "InstanceId" => String.t(),
-    "InstanceStatus" => list(any())
-  }
+      
+      game_server_instance() :: %{
+        "GameServerGroupArn" => String.t(),
+        "GameServerGroupName" => String.t(),
+        "InstanceId" => String.t(),
+        "InstanceStatus" => list(any())
+      }
+      
   """
   @type game_server_instance() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_compute_output() :: %{
-    "ComputeList" => list(compute()()),
-    "NextToken" => String.t()
-  }
+      
+      list_compute_output() :: %{
+        "ComputeList" => list(compute()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_compute_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  priority_configuration() :: %{
-    "LocationOrder" => list(String.t()()),
-    "PriorityOrder" => list(list(any())())
-  }
+      
+      priority_configuration() :: %{
+        "LocationOrder" => list(String.t()()),
+        "PriorityOrder" => list(list(any())())
+      }
+      
   """
   @type priority_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  unauthorized_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      unauthorized_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type unauthorized_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_fleet_port_settings_input() :: %{
-    optional("Location") => String.t(),
-    required("FleetId") => String.t()
-  }
+      
+      describe_fleet_port_settings_input() :: %{
+        optional("Location") => String.t(),
+        required("FleetId") => String.t()
+      }
+      
   """
   @type describe_fleet_port_settings_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_location_input() :: %{
-    optional("Tags") => list(tag()()),
-    required("LocationName") => String.t()
-  }
+      
+      create_location_input() :: %{
+        optional("Tags") => list(tag()()),
+        required("LocationName") => String.t()
+      }
+      
   """
   @type create_location_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_script_input() :: %{
-    required("ScriptId") => String.t()
-  }
+      
+      delete_script_input() :: %{
+        required("ScriptId") => String.t()
+      }
+      
   """
   @type delete_script_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_scaling_policy_output() :: %{
-    "Name" => String.t()
-  }
+      
+      put_scaling_policy_output() :: %{
+        "Name" => String.t()
+      }
+      
   """
   @type put_scaling_policy_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resolve_alias_input() :: %{
-    required("AliasId") => String.t()
-  }
+      
+      resolve_alias_input() :: %{
+        required("AliasId") => String.t()
+      }
+      
   """
   @type resolve_alias_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  matched_player_session() :: %{
-    "PlayerId" => String.t(),
-    "PlayerSessionId" => String.t()
-  }
+      
+      matched_player_session() :: %{
+        "PlayerId" => String.t(),
+        "PlayerSessionId" => String.t()
+      }
+      
   """
   @type matched_player_session() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_game_server_group_output() :: %{
-    "GameServerGroup" => game_server_group()
-  }
+      
+      create_game_server_group_output() :: %{
+        "GameServerGroup" => game_server_group()
+      }
+      
   """
   @type create_game_server_group_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_script_output() :: %{
-    "Script" => script()
-  }
+      
+      describe_script_output() :: %{
+        "Script" => script()
+      }
+      
   """
   @type describe_script_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_game_server_group_input() :: %{
-    required("GameServerGroupName") => String.t()
-  }
+      
+      describe_game_server_group_input() :: %{
+        required("GameServerGroupName") => String.t()
+      }
+      
   """
   @type describe_game_server_group_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_fleet_location_capacity_output() :: %{
-    "FleetCapacity" => fleet_capacity()
-  }
+      
+      describe_fleet_location_capacity_output() :: %{
+        "FleetCapacity" => fleet_capacity()
+      }
+      
   """
   @type describe_fleet_location_capacity_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_fleets_output() :: %{
-    "FleetIds" => list(String.t()()),
-    "NextToken" => String.t()
-  }
+      
+      list_fleets_output() :: %{
+        "FleetIds" => list(String.t()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_fleets_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  instance_credentials() :: %{
-    "Secret" => String.t(),
-    "UserName" => String.t()
-  }
+      
+      instance_credentials() :: %{
+        "Secret" => String.t(),
+        "UserName" => String.t()
+      }
+      
   """
   @type instance_credentials() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_fleet_location_attributes_output() :: %{
-    "FleetArn" => String.t(),
-    "FleetId" => String.t(),
-    "LocationAttributes" => list(location_attributes()()),
-    "NextToken" => String.t()
-  }
+      
+      describe_fleet_location_attributes_output() :: %{
+        "FleetArn" => String.t(),
+        "FleetId" => String.t(),
+        "LocationAttributes" => list(location_attributes()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type describe_fleet_location_attributes_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  build() :: %{
-    "BuildArn" => String.t(),
-    "BuildId" => String.t(),
-    "CreationTime" => non_neg_integer(),
-    "Name" => String.t(),
-    "OperatingSystem" => list(any()),
-    "ServerSdkVersion" => String.t(),
-    "SizeOnDisk" => float(),
-    "Status" => list(any()),
-    "Version" => String.t()
-  }
+      
+      build() :: %{
+        "BuildArn" => String.t(),
+        "BuildId" => String.t(),
+        "CreationTime" => non_neg_integer(),
+        "Name" => String.t(),
+        "OperatingSystem" => list(any()),
+        "ServerSdkVersion" => String.t(),
+        "SizeOnDisk" => float(),
+        "Status" => list(any()),
+        "Version" => String.t()
+      }
+      
   """
   @type build() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  instance_definition() :: %{
-    "InstanceType" => list(any()),
-    "WeightedCapacity" => String.t()
-  }
+      
+      instance_definition() :: %{
+        "InstanceType" => list(any()),
+        "WeightedCapacity" => String.t()
+      }
+      
   """
   @type instance_definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_matchmaking_rule_set_output() :: %{
-
-  }
+      
+      delete_matchmaking_rule_set_output() :: %{}
+      
   """
-  @type delete_matchmaking_rule_set_output() :: %{String.t() => any()}
+  @type delete_matchmaking_rule_set_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  start_matchmaking_output() :: %{
-    "MatchmakingTicket" => matchmaking_ticket()
-  }
+      
+      start_matchmaking_output() :: %{
+        "MatchmakingTicket" => matchmaking_ticket()
+      }
+      
   """
   @type start_matchmaking_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_compute_output() :: %{
-    "Compute" => compute()
-  }
+      
+      describe_compute_output() :: %{
+        "Compute" => compute()
+      }
+      
   """
   @type describe_compute_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_response() :: %{
-
-  }
+      
+      untag_resource_response() :: %{}
+      
   """
-  @type untag_resource_response() :: %{String.t() => any()}
+  @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  game_server_group() :: %{
-    "AutoScalingGroupArn" => String.t(),
-    "BalancingStrategy" => list(any()),
-    "CreationTime" => non_neg_integer(),
-    "GameServerGroupArn" => String.t(),
-    "GameServerGroupName" => String.t(),
-    "GameServerProtectionPolicy" => list(any()),
-    "InstanceDefinitions" => list(instance_definition()()),
-    "LastUpdatedTime" => non_neg_integer(),
-    "RoleArn" => String.t(),
-    "Status" => list(any()),
-    "StatusReason" => String.t(),
-    "SuspendedActions" => list(list(any())())
-  }
+      
+      game_server_group() :: %{
+        "AutoScalingGroupArn" => String.t(),
+        "BalancingStrategy" => list(any()),
+        "CreationTime" => non_neg_integer(),
+        "GameServerGroupArn" => String.t(),
+        "GameServerGroupName" => String.t(),
+        "GameServerProtectionPolicy" => list(any()),
+        "InstanceDefinitions" => list(instance_definition()()),
+        "LastUpdatedTime" => non_neg_integer(),
+        "RoleArn" => String.t(),
+        "Status" => list(any()),
+        "StatusReason" => String.t(),
+        "SuspendedActions" => list(list(any())())
+      }
+      
   """
   @type game_server_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resume_game_server_group_input() :: %{
-    required("GameServerGroupName") => String.t(),
-    required("ResumeActions") => list(list(any())())
-  }
+      
+      resume_game_server_group_input() :: %{
+        required("GameServerGroupName") => String.t(),
+        required("ResumeActions") => list(list(any())())
+      }
+      
   """
   @type resume_game_server_group_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_fleet_location_attributes_input() :: %{
-    optional("Limit") => integer(),
-    optional("Locations") => list(String.t()()),
-    optional("NextToken") => String.t(),
-    required("FleetId") => String.t()
-  }
+      
+      describe_fleet_location_attributes_input() :: %{
+        optional("Limit") => integer(),
+        optional("Locations") => list(String.t()()),
+        optional("NextToken") => String.t(),
+        required("FleetId") => String.t()
+      }
+      
   """
   @type describe_fleet_location_attributes_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_fleet_locations_output() :: %{
-    "FleetArn" => String.t(),
-    "FleetId" => String.t(),
-    "LocationStates" => list(location_state()())
-  }
+      
+      delete_fleet_locations_output() :: %{
+        "FleetArn" => String.t(),
+        "FleetId" => String.t(),
+        "LocationStates" => list(location_state()())
+      }
+      
   """
   @type delete_fleet_locations_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_fleet_location_capacity_input() :: %{
-    required("FleetId") => String.t(),
-    required("Location") => String.t()
-  }
+      
+      describe_fleet_location_capacity_input() :: %{
+        required("FleetId") => String.t(),
+        required("Location") => String.t()
+      }
+      
   """
   @type describe_fleet_location_capacity_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_game_session_queues_output() :: %{
-    "GameSessionQueues" => list(game_session_queue()()),
-    "NextToken" => String.t()
-  }
+      
+      describe_game_session_queues_output() :: %{
+        "GameSessionQueues" => list(game_session_queue()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type describe_game_session_queues_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_player_sessions_output() :: %{
-    "PlayerSessions" => list(player_session()())
-  }
+      
+      create_player_sessions_output() :: %{
+        "PlayerSessions" => list(player_session()())
+      }
+      
   """
   @type create_player_sessions_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_matchmaking_configuration_input() :: %{
-    required("Name") => String.t()
-  }
+      
+      delete_matchmaking_configuration_input() :: %{
+        required("Name") => String.t()
+      }
+      
   """
   @type delete_matchmaking_configuration_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_build_output() :: %{
-    "Build" => build()
-  }
+      
+      update_build_output() :: %{
+        "Build" => build()
+      }
+      
   """
   @type update_build_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  validate_matchmaking_rule_set_output() :: %{
-    "Valid" => boolean()
-  }
+      
+      validate_matchmaking_rule_set_output() :: %{
+        "Valid" => boolean()
+      }
+      
   """
   @type validate_matchmaking_rule_set_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  compute() :: %{
-    "ComputeArn" => String.t(),
-    "ComputeName" => String.t(),
-    "ComputeStatus" => list(any()),
-    "CreationTime" => non_neg_integer(),
-    "DnsName" => String.t(),
-    "FleetArn" => String.t(),
-    "FleetId" => String.t(),
-    "GameLiftServiceSdkEndpoint" => String.t(),
-    "IpAddress" => String.t(),
-    "Location" => String.t(),
-    "OperatingSystem" => list(any()),
-    "Type" => list(any())
-  }
+      
+      compute() :: %{
+        "ComputeArn" => String.t(),
+        "ComputeName" => String.t(),
+        "ComputeStatus" => list(any()),
+        "CreationTime" => non_neg_integer(),
+        "DnsName" => String.t(),
+        "FleetArn" => String.t(),
+        "FleetId" => String.t(),
+        "GameLiftServiceSdkEndpoint" => String.t(),
+        "IpAddress" => String.t(),
+        "Location" => String.t(),
+        "OperatingSystem" => list(any()),
+        "Type" => list(any())
+      }
+      
   """
   @type compute() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_game_session_queue_output() :: %{
-
-  }
+      
+      delete_game_session_queue_output() :: %{}
+      
   """
-  @type delete_game_session_queue_output() :: %{String.t() => any()}
+  @type delete_game_session_queue_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_vpc_peering_connection_input() :: %{
-    required("FleetId") => String.t(),
-    required("PeerVpcAwsAccountId") => String.t(),
-    required("PeerVpcId") => String.t()
-  }
+      
+      create_vpc_peering_connection_input() :: %{
+        required("FleetId") => String.t(),
+        required("PeerVpcAwsAccountId") => String.t(),
+        required("PeerVpcId") => String.t()
+      }
+      
   """
   @type create_vpc_peering_connection_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_fleet_location_utilization_output() :: %{
-    "FleetUtilization" => fleet_utilization()
-  }
+      
+      describe_fleet_location_utilization_output() :: %{
+        "FleetUtilization" => fleet_utilization()
+      }
+      
   """
   @type describe_fleet_location_utilization_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  matchmaking_configuration() :: %{
-    "AcceptanceRequired" => boolean(),
-    "AcceptanceTimeoutSeconds" => integer(),
-    "AdditionalPlayerCount" => integer(),
-    "BackfillMode" => list(any()),
-    "ConfigurationArn" => String.t(),
-    "CreationTime" => non_neg_integer(),
-    "CustomEventData" => String.t(),
-    "Description" => String.t(),
-    "FlexMatchMode" => list(any()),
-    "GameProperties" => list(game_property()()),
-    "GameSessionData" => String.t(),
-    "GameSessionQueueArns" => list(String.t()()),
-    "Name" => String.t(),
-    "NotificationTarget" => String.t(),
-    "RequestTimeoutSeconds" => integer(),
-    "RuleSetArn" => String.t(),
-    "RuleSetName" => String.t()
-  }
+      
+      matchmaking_configuration() :: %{
+        "AcceptanceRequired" => boolean(),
+        "AcceptanceTimeoutSeconds" => integer(),
+        "AdditionalPlayerCount" => integer(),
+        "BackfillMode" => list(any()),
+        "ConfigurationArn" => String.t(),
+        "CreationTime" => non_neg_integer(),
+        "CustomEventData" => String.t(),
+        "Description" => String.t(),
+        "FlexMatchMode" => list(any()),
+        "GameProperties" => list(game_property()()),
+        "GameSessionData" => String.t(),
+        "GameSessionQueueArns" => list(String.t()()),
+        "Name" => String.t(),
+        "NotificationTarget" => String.t(),
+        "RequestTimeoutSeconds" => integer(),
+        "RuleSetArn" => String.t(),
+        "RuleSetName" => String.t()
+      }
+      
   """
   @type matchmaking_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_vpc_peering_authorizations_output() :: %{
-    "VpcPeeringAuthorizations" => list(vpc_peering_authorization()())
-  }
+      
+      describe_vpc_peering_authorizations_output() :: %{
+        "VpcPeeringAuthorizations" => list(vpc_peering_authorization()())
+      }
+      
   """
   @type describe_vpc_peering_authorizations_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  suspend_game_server_group_input() :: %{
-    required("GameServerGroupName") => String.t(),
-    required("SuspendActions") => list(list(any())())
-  }
+      
+      suspend_game_server_group_input() :: %{
+        required("GameServerGroupName") => String.t(),
+        required("SuspendActions") => list(list(any())())
+      }
+      
   """
   @type suspend_game_server_group_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  game_server_group_auto_scaling_policy() :: %{
-    "EstimatedInstanceWarmup" => integer(),
-    "TargetTrackingConfiguration" => target_tracking_configuration()
-  }
+      
+      game_server_group_auto_scaling_policy() :: %{
+        "EstimatedInstanceWarmup" => integer(),
+        "TargetTrackingConfiguration" => target_tracking_configuration()
+      }
+      
   """
   @type game_server_group_auto_scaling_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  runtime_configuration() :: %{
-    "GameSessionActivationTimeoutSeconds" => integer(),
-    "MaxConcurrentGameSessionActivations" => integer(),
-    "ServerProcesses" => list(server_process()())
-  }
+      
+      runtime_configuration() :: %{
+        "GameSessionActivationTimeoutSeconds" => integer(),
+        "MaxConcurrentGameSessionActivations" => integer(),
+        "ServerProcesses" => list(server_process()())
+      }
+      
   """
   @type runtime_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  player_session() :: %{
-    "CreationTime" => non_neg_integer(),
-    "DnsName" => String.t(),
-    "FleetArn" => String.t(),
-    "FleetId" => String.t(),
-    "GameSessionId" => String.t(),
-    "IpAddress" => String.t(),
-    "PlayerData" => String.t(),
-    "PlayerId" => String.t(),
-    "PlayerSessionId" => String.t(),
-    "Port" => integer(),
-    "Status" => list(any()),
-    "TerminationTime" => non_neg_integer()
-  }
+      
+      player_session() :: %{
+        "CreationTime" => non_neg_integer(),
+        "DnsName" => String.t(),
+        "FleetArn" => String.t(),
+        "FleetId" => String.t(),
+        "GameSessionId" => String.t(),
+        "IpAddress" => String.t(),
+        "PlayerData" => String.t(),
+        "PlayerId" => String.t(),
+        "PlayerSessionId" => String.t(),
+        "Port" => integer(),
+        "Status" => list(any()),
+        "TerminationTime" => non_neg_integer()
+      }
+      
   """
   @type player_session() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_fleet_input() :: %{
-    required("FleetId") => String.t()
-  }
+      
+      delete_fleet_input() :: %{
+        required("FleetId") => String.t()
+      }
+      
   """
   @type delete_fleet_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  player() :: %{
-    "LatencyInMs" => map(),
-    "PlayerAttributes" => map(),
-    "PlayerId" => String.t(),
-    "Team" => String.t()
-  }
+      
+      player() :: %{
+        "LatencyInMs" => map(),
+        "PlayerAttributes" => map(),
+        "PlayerId" => String.t(),
+        "Team" => String.t()
+      }
+      
   """
   @type player() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_fleet_attributes_input() :: %{
-    optional("AnywhereConfiguration") => anywhere_configuration(),
-    optional("Description") => String.t(),
-    optional("MetricGroups") => list(String.t()()),
-    optional("Name") => String.t(),
-    optional("NewGameSessionProtectionPolicy") => list(any()),
-    optional("ResourceCreationLimitPolicy") => resource_creation_limit_policy(),
-    required("FleetId") => String.t()
-  }
+      
+      update_fleet_attributes_input() :: %{
+        optional("AnywhereConfiguration") => anywhere_configuration(),
+        optional("Description") => String.t(),
+        optional("MetricGroups") => list(String.t()()),
+        optional("Name") => String.t(),
+        optional("NewGameSessionProtectionPolicy") => list(any()),
+        optional("ResourceCreationLimitPolicy") => resource_creation_limit_policy(),
+        required("FleetId") => String.t()
+      }
+      
   """
   @type update_fleet_attributes_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_runtime_configuration_output() :: %{
-    "RuntimeConfiguration" => runtime_configuration()
-  }
+      
+      describe_runtime_configuration_output() :: %{
+        "RuntimeConfiguration" => runtime_configuration()
+      }
+      
   """
   @type describe_runtime_configuration_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_aliases_output() :: %{
-    "Aliases" => list(alias()()),
-    "NextToken" => String.t()
-  }
+      
+      list_aliases_output() :: %{
+        "Aliases" => list(alias()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_aliases_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  out_of_capacity_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      out_of_capacity_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type out_of_capacity_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  scaling_policy() :: %{
-    "ComparisonOperator" => list(any()),
-    "EvaluationPeriods" => integer(),
-    "FleetArn" => String.t(),
-    "FleetId" => String.t(),
-    "Location" => String.t(),
-    "MetricName" => list(any()),
-    "Name" => String.t(),
-    "PolicyType" => list(any()),
-    "ScalingAdjustment" => integer(),
-    "ScalingAdjustmentType" => list(any()),
-    "Status" => list(any()),
-    "TargetConfiguration" => target_configuration(),
-    "Threshold" => float(),
-    "UpdateStatus" => list(any())
-  }
+      
+      scaling_policy() :: %{
+        "ComparisonOperator" => list(any()),
+        "EvaluationPeriods" => integer(),
+        "FleetArn" => String.t(),
+        "FleetId" => String.t(),
+        "Location" => String.t(),
+        "MetricName" => list(any()),
+        "Name" => String.t(),
+        "PolicyType" => list(any()),
+        "ScalingAdjustment" => integer(),
+        "ScalingAdjustmentType" => list(any()),
+        "Status" => list(any()),
+        "TargetConfiguration" => target_configuration(),
+        "Threshold" => float(),
+        "UpdateStatus" => list(any())
+      }
+      
   """
   @type scaling_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_vpc_peering_connections_output() :: %{
-    "VpcPeeringConnections" => list(vpc_peering_connection()())
-  }
+      
+      describe_vpc_peering_connections_output() :: %{
+        "VpcPeeringConnections" => list(vpc_peering_connection()())
+      }
+      
   """
   @type describe_vpc_peering_connections_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_builds_input() :: %{
-    optional("Limit") => integer(),
-    optional("NextToken") => String.t(),
-    optional("Status") => list(any())
-  }
+      
+      list_builds_input() :: %{
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t(),
+        optional("Status") => list(any())
+      }
+      
   """
   @type list_builds_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_game_session_log_url_output() :: %{
-    "PreSignedUrl" => String.t()
-  }
+      
+      get_game_session_log_url_output() :: %{
+        "PreSignedUrl" => String.t()
+      }
+      
   """
   @type get_game_session_log_url_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_matchmaking_configuration_output() :: %{
-    "Configuration" => matchmaking_configuration()
-  }
+      
+      update_matchmaking_configuration_output() :: %{
+        "Configuration" => matchmaking_configuration()
+      }
+      
   """
   @type update_matchmaking_configuration_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_game_server_group_output() :: %{
-    "GameServerGroup" => game_server_group()
-  }
+      
+      describe_game_server_group_output() :: %{
+        "GameServerGroup" => game_server_group()
+      }
+      
   """
   @type describe_game_server_group_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_ec2_instance_limits_input() :: %{
-    optional("EC2InstanceType") => list(any()),
-    optional("Location") => String.t()
-  }
+      
+      describe_ec2_instance_limits_input() :: %{
+        optional("EC2InstanceType") => list(any()),
+        optional("Location") => String.t()
+      }
+      
   """
   @type describe_ec2_instance_limits_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_fleet_port_settings_output() :: %{
-    "FleetArn" => String.t(),
-    "FleetId" => String.t(),
-    "InboundPermissions" => list(ip_permission()()),
-    "Location" => String.t(),
-    "UpdateStatus" => list(any())
-  }
+      
+      describe_fleet_port_settings_output() :: %{
+        "FleetArn" => String.t(),
+        "FleetId" => String.t(),
+        "InboundPermissions" => list(ip_permission()()),
+        "Location" => String.t(),
+        "UpdateStatus" => list(any())
+      }
+      
   """
   @type describe_fleet_port_settings_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_vpc_peering_connections_input() :: %{
-    optional("FleetId") => String.t()
-  }
+      
+      describe_vpc_peering_connections_input() :: %{
+        optional("FleetId") => String.t()
+      }
+      
   """
   @type describe_vpc_peering_connections_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  placed_player_session() :: %{
-    "PlayerId" => String.t(),
-    "PlayerSessionId" => String.t()
-  }
+      
+      placed_player_session() :: %{
+        "PlayerId" => String.t(),
+        "PlayerSessionId" => String.t()
+      }
+      
   """
   @type placed_player_session() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  deregister_game_server_input() :: %{
-    required("GameServerGroupName") => String.t(),
-    required("GameServerId") => String.t()
-  }
+      
+      deregister_game_server_input() :: %{
+        required("GameServerGroupName") => String.t(),
+        required("GameServerId") => String.t()
+      }
+      
   """
   @type deregister_game_server_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  internal_service_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      internal_service_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type internal_service_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  desired_player_session() :: %{
-    "PlayerData" => String.t(),
-    "PlayerId" => String.t()
-  }
+      
+      desired_player_session() :: %{
+        "PlayerData" => String.t(),
+        "PlayerId" => String.t()
+      }
+      
   """
   @type desired_player_session() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_game_session_placement_output() :: %{
-    "GameSessionPlacement" => game_session_placement()
-  }
+      
+      start_game_session_placement_output() :: %{
+        "GameSessionPlacement" => game_session_placement()
+      }
+      
   """
   @type start_game_session_placement_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  fleet_capacity_exceeded_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      fleet_capacity_exceeded_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type fleet_capacity_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_matchmaking_rule_set_input() :: %{
-    optional("Tags") => list(tag()()),
-    required("Name") => String.t(),
-    required("RuleSetBody") => String.t()
-  }
+      
+      create_matchmaking_rule_set_input() :: %{
+        optional("Tags") => list(tag()()),
+        required("Name") => String.t(),
+        required("RuleSetBody") => String.t()
+      }
+      
   """
   @type create_matchmaking_rule_set_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_request() :: %{
-    required("ResourceARN") => String.t(),
-    required("TagKeys") => list(String.t()())
-  }
+      
+      untag_resource_request() :: %{
+        required("ResourceARN") => String.t(),
+        required("TagKeys") => list(String.t()())
+      }
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_game_server_input() :: %{
-    required("GameServerGroupName") => String.t(),
-    required("GameServerId") => String.t()
-  }
+      
+      describe_game_server_input() :: %{
+        required("GameServerGroupName") => String.t(),
+        required("GameServerId") => String.t()
+      }
+      
   """
   @type describe_game_server_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  fleet_capacity() :: %{
-    "FleetArn" => String.t(),
-    "FleetId" => String.t(),
-    "InstanceCounts" => ec2_instance_counts(),
-    "InstanceType" => list(any()),
-    "Location" => String.t()
-  }
+      
+      fleet_capacity() :: %{
+        "FleetArn" => String.t(),
+        "FleetId" => String.t(),
+        "InstanceCounts" => ec2_instance_counts(),
+        "InstanceType" => list(any()),
+        "Location" => String.t()
+      }
+      
   """
   @type fleet_capacity() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_scaling_policy_input() :: %{
-    optional("ComparisonOperator") => list(any()),
-    optional("EvaluationPeriods") => integer(),
-    optional("PolicyType") => list(any()),
-    optional("ScalingAdjustment") => integer(),
-    optional("ScalingAdjustmentType") => list(any()),
-    optional("TargetConfiguration") => target_configuration(),
-    optional("Threshold") => float(),
-    required("FleetId") => String.t(),
-    required("MetricName") => list(any()),
-    required("Name") => String.t()
-  }
+      
+      put_scaling_policy_input() :: %{
+        optional("ComparisonOperator") => list(any()),
+        optional("EvaluationPeriods") => integer(),
+        optional("PolicyType") => list(any()),
+        optional("ScalingAdjustment") => integer(),
+        optional("ScalingAdjustmentType") => list(any()),
+        optional("TargetConfiguration") => target_configuration(),
+        optional("Threshold") => float(),
+        required("FleetId") => String.t(),
+        required("MetricName") => list(any()),
+        required("Name") => String.t()
+      }
+      
   """
   @type put_scaling_policy_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_scripts_input() :: %{
-    optional("Limit") => integer(),
-    optional("NextToken") => String.t()
-  }
+      
+      list_scripts_input() :: %{
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type list_scripts_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_fleet_port_settings_input() :: %{
-    optional("InboundPermissionAuthorizations") => list(ip_permission()()),
-    optional("InboundPermissionRevocations") => list(ip_permission()()),
-    required("FleetId") => String.t()
-  }
+      
+      update_fleet_port_settings_input() :: %{
+        optional("InboundPermissionAuthorizations") => list(ip_permission()()),
+        optional("InboundPermissionRevocations") => list(ip_permission()()),
+        required("FleetId") => String.t()
+      }
+      
   """
   @type update_fleet_port_settings_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  accept_match_input() :: %{
-    required("AcceptanceType") => list(any()),
-    required("PlayerIds") => list(String.t()()),
-    required("TicketId") => String.t()
-  }
+      
+      accept_match_input() :: %{
+        required("AcceptanceType") => list(any()),
+        required("PlayerIds") => list(String.t()()),
+        required("TicketId") => String.t()
+      }
+      
   """
   @type accept_match_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stop_game_session_placement_input() :: %{
-    required("PlacementId") => String.t()
-  }
+      
+      stop_game_session_placement_input() :: %{
+        required("PlacementId") => String.t()
+      }
+      
   """
   @type stop_game_session_placement_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  location_configuration() :: %{
-    "Location" => String.t()
-  }
+      
+      location_configuration() :: %{
+        "Location" => String.t()
+      }
+      
   """
   @type location_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  server_process() :: %{
-    "ConcurrentExecutions" => integer(),
-    "LaunchPath" => String.t(),
-    "Parameters" => String.t()
-  }
+      
+      server_process() :: %{
+        "ConcurrentExecutions" => integer(),
+        "LaunchPath" => String.t(),
+        "Parameters" => String.t()
+      }
+      
   """
   @type server_process() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  location_state() :: %{
-    "Location" => String.t(),
-    "Status" => list(any())
-  }
+      
+      location_state() :: %{
+        "Location" => String.t(),
+        "Status" => list(any())
+      }
+      
   """
   @type location_state() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_game_session_output() :: %{
-    "GameSession" => game_session()
-  }
+      
+      create_game_session_output() :: %{
+        "GameSession" => game_session()
+      }
+      
   """
   @type create_game_session_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resolve_alias_output() :: %{
-    "FleetArn" => String.t(),
-    "FleetId" => String.t()
-  }
+      
+      resolve_alias_output() :: %{
+        "FleetArn" => String.t(),
+        "FleetId" => String.t()
+      }
+      
   """
   @type resolve_alias_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_fleet_location_utilization_input() :: %{
-    required("FleetId") => String.t(),
-    required("Location") => String.t()
-  }
+      
+      describe_fleet_location_utilization_input() :: %{
+        required("FleetId") => String.t(),
+        required("Location") => String.t()
+      }
+      
   """
   @type describe_fleet_location_utilization_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  request_upload_credentials_output() :: %{
-    "StorageLocation" => s3_location(),
-    "UploadCredentials" => aws_credentials()
-  }
+      
+      request_upload_credentials_output() :: %{
+        "StorageLocation" => s3_location(),
+        "UploadCredentials" => aws_credentials()
+      }
+      
   """
   @type request_upload_credentials_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_matchmaking_configurations_input() :: %{
-    optional("Limit") => integer(),
-    optional("Names") => list(String.t()()),
-    optional("NextToken") => String.t(),
-    optional("RuleSetName") => String.t()
-  }
+      
+      describe_matchmaking_configurations_input() :: %{
+        optional("Limit") => integer(),
+        optional("Names") => list(String.t()()),
+        optional("NextToken") => String.t(),
+        optional("RuleSetName") => String.t()
+      }
+      
   """
   @type describe_matchmaking_configurations_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  register_game_server_output() :: %{
-    "GameServer" => game_server()
-  }
+      
+      register_game_server_output() :: %{
+        "GameServer" => game_server()
+      }
+      
   """
   @type register_game_server_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_alias_input() :: %{
-    required("AliasId") => String.t()
-  }
+      
+      delete_alias_input() :: %{
+        required("AliasId") => String.t()
+      }
+      
   """
   @type delete_alias_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_game_server_group_output() :: %{
-    "GameServerGroup" => game_server_group()
-  }
+      
+      update_game_server_group_output() :: %{
+        "GameServerGroup" => game_server_group()
+      }
+      
   """
   @type update_game_server_group_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  request_upload_credentials_input() :: %{
-    required("BuildId") => String.t()
-  }
+      
+      request_upload_credentials_input() :: %{
+        required("BuildId") => String.t()
+      }
+      
   """
   @type request_upload_credentials_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  game_session_queue() :: %{
-    "CustomEventData" => String.t(),
-    "Destinations" => list(game_session_queue_destination()()),
-    "FilterConfiguration" => filter_configuration(),
-    "GameSessionQueueArn" => String.t(),
-    "Name" => String.t(),
-    "NotificationTarget" => String.t(),
-    "PlayerLatencyPolicies" => list(player_latency_policy()()),
-    "PriorityConfiguration" => priority_configuration(),
-    "TimeoutInSeconds" => integer()
-  }
+      
+      game_session_queue() :: %{
+        "CustomEventData" => String.t(),
+        "Destinations" => list(game_session_queue_destination()()),
+        "FilterConfiguration" => filter_configuration(),
+        "GameSessionQueueArn" => String.t(),
+        "Name" => String.t(),
+        "NotificationTarget" => String.t(),
+        "PlayerLatencyPolicies" => list(player_latency_policy()()),
+        "PriorityConfiguration" => priority_configuration(),
+        "TimeoutInSeconds" => integer()
+      }
+      
   """
   @type game_session_queue() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  accept_match_output() :: %{
-
-  }
+      
+      accept_match_output() :: %{}
+      
   """
-  @type accept_match_output() :: %{String.t() => any()}
+  @type accept_match_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  location_attributes() :: %{
-    "LocationState" => location_state(),
-    "StoppedActions" => list(list(any())()),
-    "UpdateStatus" => list(any())
-  }
+      
+      location_attributes() :: %{
+        "LocationState" => location_state(),
+        "StoppedActions" => list(list(any())()),
+        "UpdateStatus" => list(any())
+      }
+      
   """
   @type location_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  claim_game_server_input() :: %{
-    optional("FilterOption") => claim_filter_option(),
-    optional("GameServerData") => String.t(),
-    optional("GameServerId") => String.t(),
-    required("GameServerGroupName") => String.t()
-  }
+      
+      claim_game_server_input() :: %{
+        optional("FilterOption") => claim_filter_option(),
+        optional("GameServerData") => String.t(),
+        optional("GameServerId") => String.t(),
+        required("GameServerGroupName") => String.t()
+      }
+      
   """
   @type claim_game_server_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_game_server_groups_output() :: %{
-    "GameServerGroups" => list(game_server_group()()),
-    "NextToken" => String.t()
-  }
+      
+      list_game_server_groups_output() :: %{
+        "GameServerGroups" => list(game_server_group()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_game_server_groups_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_vpc_peering_authorization_input() :: %{
-    required("GameLiftAwsAccountId") => String.t(),
-    required("PeerVpcId") => String.t()
-  }
+      
+      delete_vpc_peering_authorization_input() :: %{
+        required("GameLiftAwsAccountId") => String.t(),
+        required("PeerVpcId") => String.t()
+      }
+      
   """
   @type delete_vpc_peering_authorization_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_vpc_peering_connection_input() :: %{
-    required("FleetId") => String.t(),
-    required("VpcPeeringConnectionId") => String.t()
-  }
+      
+      delete_vpc_peering_connection_input() :: %{
+        required("FleetId") => String.t(),
+        required("VpcPeeringConnectionId") => String.t()
+      }
+      
   """
   @type delete_vpc_peering_connection_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_fleet_utilization_output() :: %{
-    "FleetUtilization" => list(fleet_utilization()()),
-    "NextToken" => String.t()
-  }
+      
+      describe_fleet_utilization_output() :: %{
+        "FleetUtilization" => list(fleet_utilization()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type describe_fleet_utilization_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_script_input() :: %{
-    required("ScriptId") => String.t()
-  }
+      
+      describe_script_input() :: %{
+        required("ScriptId") => String.t()
+      }
+      
   """
   @type describe_script_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  search_game_sessions_input() :: %{
-    optional("AliasId") => String.t(),
-    optional("FilterExpression") => String.t(),
-    optional("FleetId") => String.t(),
-    optional("Limit") => integer(),
-    optional("Location") => String.t(),
-    optional("NextToken") => String.t(),
-    optional("SortExpression") => String.t()
-  }
+      
+      search_game_sessions_input() :: %{
+        optional("AliasId") => String.t(),
+        optional("FilterExpression") => String.t(),
+        optional("FleetId") => String.t(),
+        optional("Limit") => integer(),
+        optional("Location") => String.t(),
+        optional("NextToken") => String.t(),
+        optional("SortExpression") => String.t()
+      }
+      
   """
   @type search_game_sessions_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_script_output() :: %{
-    "Script" => script()
-  }
+      
+      update_script_output() :: %{
+        "Script" => script()
+      }
+      
   """
   @type update_script_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  conflict_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      conflict_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_game_session_queue_input() :: %{
-    optional("CustomEventData") => String.t(),
-    optional("Destinations") => list(game_session_queue_destination()()),
-    optional("FilterConfiguration") => filter_configuration(),
-    optional("NotificationTarget") => String.t(),
-    optional("PlayerLatencyPolicies") => list(player_latency_policy()()),
-    optional("PriorityConfiguration") => priority_configuration(),
-    optional("TimeoutInSeconds") => integer(),
-    required("Name") => String.t()
-  }
+      
+      update_game_session_queue_input() :: %{
+        optional("CustomEventData") => String.t(),
+        optional("Destinations") => list(game_session_queue_destination()()),
+        optional("FilterConfiguration") => filter_configuration(),
+        optional("NotificationTarget") => String.t(),
+        optional("PlayerLatencyPolicies") => list(player_latency_policy()()),
+        optional("PriorityConfiguration") => priority_configuration(),
+        optional("TimeoutInSeconds") => integer(),
+        required("Name") => String.t()
+      }
+      
   """
   @type update_game_session_queue_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_location_input() :: %{
-    required("LocationName") => String.t()
-  }
+      
+      delete_location_input() :: %{
+        required("LocationName") => String.t()
+      }
+      
   """
   @type delete_location_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_fleet_capacity_input() :: %{
-    optional("FleetIds") => list(String.t()()),
-    optional("Limit") => integer(),
-    optional("NextToken") => String.t()
-  }
+      
+      describe_fleet_capacity_input() :: %{
+        optional("FleetIds") => list(String.t()()),
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type describe_fleet_capacity_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_compute_access_output() :: %{
-    "ComputeArn" => String.t(),
-    "ComputeName" => String.t(),
-    "Credentials" => aws_credentials(),
-    "FleetArn" => String.t(),
-    "FleetId" => String.t()
-  }
+      
+      get_compute_access_output() :: %{
+        "ComputeArn" => String.t(),
+        "ComputeName" => String.t(),
+        "Credentials" => aws_credentials(),
+        "FleetArn" => String.t(),
+        "FleetId" => String.t()
+      }
+      
   """
   @type get_compute_access_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_matchmaking_rule_sets_input() :: %{
-    optional("Limit") => integer(),
-    optional("Names") => list(String.t()()),
-    optional("NextToken") => String.t()
-  }
+      
+      describe_matchmaking_rule_sets_input() :: %{
+        optional("Limit") => integer(),
+        optional("Names") => list(String.t()()),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type describe_matchmaking_rule_sets_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag() :: %{
-    "Key" => String.t(),
-    "Value" => String.t()
-  }
+      
+      tag() :: %{
+        "Key" => String.t(),
+        "Value" => String.t()
+      }
+      
   """
   @type tag() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_game_sessions_output() :: %{
-    "GameSessions" => list(game_session()()),
-    "NextToken" => String.t()
-  }
+      
+      describe_game_sessions_output() :: %{
+        "GameSessions" => list(game_session()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type describe_game_sessions_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_fleet_events_input() :: %{
-    optional("EndTime") => non_neg_integer(),
-    optional("Limit") => integer(),
-    optional("NextToken") => String.t(),
-    optional("StartTime") => non_neg_integer(),
-    required("FleetId") => String.t()
-  }
+      
+      describe_fleet_events_input() :: %{
+        optional("EndTime") => non_neg_integer(),
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t(),
+        optional("StartTime") => non_neg_integer(),
+        required("FleetId") => String.t()
+      }
+      
   """
   @type describe_fleet_events_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_request_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      invalid_request_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type invalid_request_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_matchmaking_output() :: %{
-    "TicketList" => list(matchmaking_ticket()())
-  }
+      
+      describe_matchmaking_output() :: %{
+        "TicketList" => list(matchmaking_ticket()())
+      }
+      
   """
   @type describe_matchmaking_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_alias_input() :: %{
-    required("AliasId") => String.t()
-  }
+      
+      describe_alias_input() :: %{
+        required("AliasId") => String.t()
+      }
+      
   """
   @type describe_alias_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_runtime_configuration_input() :: %{
-    required("FleetId") => String.t(),
-    required("RuntimeConfiguration") => runtime_configuration()
-  }
+      
+      update_runtime_configuration_input() :: %{
+        required("FleetId") => String.t(),
+        required("RuntimeConfiguration") => runtime_configuration()
+      }
+      
   """
   @type update_runtime_configuration_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_alias_output() :: %{
-    "Alias" => alias()
-  }
+      
+      create_alias_output() :: %{
+        "Alias" => alias()
+      }
+      
   """
   @type create_alias_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_game_session_queue_output() :: %{
-    "GameSessionQueue" => game_session_queue()
-  }
+      
+      update_game_session_queue_output() :: %{
+        "GameSessionQueue" => game_session_queue()
+      }
+      
   """
   @type update_game_session_queue_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_fleet_capacity_input() :: %{
-    optional("DesiredInstances") => integer(),
-    optional("Location") => String.t(),
-    optional("MaxSize") => integer(),
-    optional("MinSize") => integer(),
-    required("FleetId") => String.t()
-  }
+      
+      update_fleet_capacity_input() :: %{
+        optional("DesiredInstances") => integer(),
+        optional("Location") => String.t(),
+        optional("MaxSize") => integer(),
+        optional("MinSize") => integer(),
+        required("FleetId") => String.t()
+      }
+      
   """
   @type update_fleet_capacity_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  idempotent_parameter_mismatch_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      idempotent_parameter_mismatch_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type idempotent_parameter_mismatch_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_player_session_input() :: %{
-    optional("PlayerData") => String.t(),
-    required("GameSessionId") => String.t(),
-    required("PlayerId") => String.t()
-  }
+      
+      create_player_session_input() :: %{
+        optional("PlayerData") => String.t(),
+        required("GameSessionId") => String.t(),
+        required("PlayerId") => String.t()
+      }
+      
   """
   @type create_player_session_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ec2_instance_counts() :: %{
-    "ACTIVE" => integer(),
-    "DESIRED" => integer(),
-    "IDLE" => integer(),
-    "MAXIMUM" => integer(),
-    "MINIMUM" => integer(),
-    "PENDING" => integer(),
-    "TERMINATING" => integer()
-  }
+      
+      ec2_instance_counts() :: %{
+        "ACTIVE" => integer(),
+        "DESIRED" => integer(),
+        "IDLE" => integer(),
+        "MAXIMUM" => integer(),
+        "MINIMUM" => integer(),
+        "PENDING" => integer(),
+        "TERMINATING" => integer()
+      }
+      
   """
   @type ec2_instance_counts() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_alias_output() :: %{
-    "Alias" => alias()
-  }
+      
+      update_alias_output() :: %{
+        "Alias" => alias()
+      }
+      
   """
   @type update_alias_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_fleet_locations_input() :: %{
-    required("FleetId") => String.t(),
-    required("Locations") => list(String.t()())
-  }
+      
+      delete_fleet_locations_input() :: %{
+        required("FleetId") => String.t(),
+        required("Locations") => list(String.t()())
+      }
+      
   """
   @type delete_fleet_locations_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_build_input() :: %{
-    required("BuildId") => String.t()
-  }
+      
+      describe_build_input() :: %{
+        required("BuildId") => String.t()
+      }
+      
   """
   @type describe_build_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  not_found_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      not_found_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  player_latency_policy() :: %{
-    "MaximumIndividualPlayerLatencyMilliseconds" => integer(),
-    "PolicyDurationSeconds" => integer()
-  }
+      
+      player_latency_policy() :: %{
+        "MaximumIndividualPlayerLatencyMilliseconds" => integer(),
+        "PolicyDurationSeconds" => integer()
+      }
+      
   """
   @type player_latency_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_build_input() :: %{
-    optional("Name") => String.t(),
-    optional("Version") => String.t(),
-    required("BuildId") => String.t()
-  }
+      
+      update_build_input() :: %{
+        optional("Name") => String.t(),
+        optional("Version") => String.t(),
+        required("BuildId") => String.t()
+      }
+      
   """
   @type update_build_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  register_compute_output() :: %{
-    "Compute" => compute()
-  }
+      
+      register_compute_output() :: %{
+        "Compute" => compute()
+      }
+      
   """
   @type register_compute_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ip_permission() :: %{
-    "FromPort" => integer(),
-    "IpRange" => String.t(),
-    "Protocol" => list(any()),
-    "ToPort" => integer()
-  }
+      
+      ip_permission() :: %{
+        "FromPort" => integer(),
+        "IpRange" => String.t(),
+        "Protocol" => list(any()),
+        "ToPort" => integer()
+      }
+      
   """
   @type ip_permission() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_fleet_locations_input() :: %{
-    required("FleetId") => String.t(),
-    required("Locations") => list(location_configuration()())
-  }
+      
+      create_fleet_locations_input() :: %{
+        required("FleetId") => String.t(),
+        required("Locations") => list(location_configuration()())
+      }
+      
   """
   @type create_fleet_locations_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_script_input() :: %{
-    optional("Name") => String.t(),
-    optional("StorageLocation") => s3_location(),
-    optional("Version") => String.t(),
-    optional("ZipFile") => binary(),
-    required("ScriptId") => String.t()
-  }
+      
+      update_script_input() :: %{
+        optional("Name") => String.t(),
+        optional("StorageLocation") => s3_location(),
+        optional("Version") => String.t(),
+        optional("ZipFile") => binary(),
+        required("ScriptId") => String.t()
+      }
+      
   """
   @type update_script_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_vpc_peering_connection_output() :: %{
-
-  }
+      
+      delete_vpc_peering_connection_output() :: %{}
+      
   """
-  @type delete_vpc_peering_connection_output() :: %{String.t() => any()}
+  @type delete_vpc_peering_connection_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  describe_game_sessions_input() :: %{
-    optional("AliasId") => String.t(),
-    optional("FleetId") => String.t(),
-    optional("GameSessionId") => String.t(),
-    optional("Limit") => integer(),
-    optional("Location") => String.t(),
-    optional("NextToken") => String.t(),
-    optional("StatusFilter") => String.t()
-  }
+      
+      describe_game_sessions_input() :: %{
+        optional("AliasId") => String.t(),
+        optional("FleetId") => String.t(),
+        optional("GameSessionId") => String.t(),
+        optional("Limit") => integer(),
+        optional("Location") => String.t(),
+        optional("NextToken") => String.t(),
+        optional("StatusFilter") => String.t()
+      }
+      
   """
   @type describe_game_sessions_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  filter_configuration() :: %{
-    "AllowedLocations" => list(String.t()())
-  }
+      
+      filter_configuration() :: %{
+        "AllowedLocations" => list(String.t()())
+      }
+      
   """
   @type filter_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_matchmaking_rule_set_output() :: %{
-    "RuleSet" => matchmaking_rule_set()
-  }
+      
+      create_matchmaking_rule_set_output() :: %{
+        "RuleSet" => matchmaking_rule_set()
+      }
+      
   """
   @type create_matchmaking_rule_set_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_matchmaking_configuration_input() :: %{
-    optional("AcceptanceTimeoutSeconds") => integer(),
-    optional("AdditionalPlayerCount") => integer(),
-    optional("BackfillMode") => list(any()),
-    optional("CustomEventData") => String.t(),
-    optional("Description") => String.t(),
-    optional("FlexMatchMode") => list(any()),
-    optional("GameProperties") => list(game_property()()),
-    optional("GameSessionData") => String.t(),
-    optional("GameSessionQueueArns") => list(String.t()()),
-    optional("NotificationTarget") => String.t(),
-    optional("Tags") => list(tag()()),
-    required("AcceptanceRequired") => boolean(),
-    required("Name") => String.t(),
-    required("RequestTimeoutSeconds") => integer(),
-    required("RuleSetName") => String.t()
-  }
+      
+      create_matchmaking_configuration_input() :: %{
+        optional("AcceptanceTimeoutSeconds") => integer(),
+        optional("AdditionalPlayerCount") => integer(),
+        optional("BackfillMode") => list(any()),
+        optional("CustomEventData") => String.t(),
+        optional("Description") => String.t(),
+        optional("FlexMatchMode") => list(any()),
+        optional("GameProperties") => list(game_property()()),
+        optional("GameSessionData") => String.t(),
+        optional("GameSessionQueueArns") => list(String.t()()),
+        optional("NotificationTarget") => String.t(),
+        optional("Tags") => list(tag()()),
+        required("AcceptanceRequired") => boolean(),
+        required("Name") => String.t(),
+        required("RequestTimeoutSeconds") => integer(),
+        required("RuleSetName") => String.t()
+      }
+      
   """
   @type create_matchmaking_configuration_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_game_session_placement_input() :: %{
-    optional("DesiredPlayerSessions") => list(desired_player_session()()),
-    optional("GameProperties") => list(game_property()()),
-    optional("GameSessionData") => String.t(),
-    optional("GameSessionName") => String.t(),
-    optional("PlayerLatencies") => list(player_latency()()),
-    required("GameSessionQueueName") => String.t(),
-    required("MaximumPlayerSessionCount") => integer(),
-    required("PlacementId") => String.t()
-  }
+      
+      start_game_session_placement_input() :: %{
+        optional("DesiredPlayerSessions") => list(desired_player_session()()),
+        optional("GameProperties") => list(game_property()()),
+        optional("GameSessionData") => String.t(),
+        optional("GameSessionName") => String.t(),
+        optional("PlayerLatencies") => list(player_latency()()),
+        required("GameSessionQueueName") => String.t(),
+        required("MaximumPlayerSessionCount") => integer(),
+        required("PlacementId") => String.t()
+      }
+      
   """
   @type start_game_session_placement_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_game_session_placement_input() :: %{
-    required("PlacementId") => String.t()
-  }
+      
+      describe_game_session_placement_input() :: %{
+        required("PlacementId") => String.t()
+      }
+      
   """
   @type describe_game_session_placement_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_response() :: %{
-    "Tags" => list(tag()())
-  }
+      
+      list_tags_for_resource_response() :: %{
+        "Tags" => list(tag()())
+      }
+      
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_fleet_locations_output() :: %{
-    "FleetArn" => String.t(),
-    "FleetId" => String.t(),
-    "LocationStates" => list(location_state()())
-  }
+      
+      create_fleet_locations_output() :: %{
+        "FleetArn" => String.t(),
+        "FleetId" => String.t(),
+        "LocationStates" => list(location_state()())
+      }
+      
   """
   @type create_fleet_locations_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stop_matchmaking_input() :: %{
-    required("TicketId") => String.t()
-  }
+      
+      stop_matchmaking_input() :: %{
+        required("TicketId") => String.t()
+      }
+      
   """
   @type stop_matchmaking_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  vpc_peering_authorization() :: %{
-    "CreationTime" => non_neg_integer(),
-    "ExpirationTime" => non_neg_integer(),
-    "GameLiftAwsAccountId" => String.t(),
-    "PeerVpcAwsAccountId" => String.t(),
-    "PeerVpcId" => String.t()
-  }
+      
+      vpc_peering_authorization() :: %{
+        "CreationTime" => non_neg_integer(),
+        "ExpirationTime" => non_neg_integer(),
+        "GameLiftAwsAccountId" => String.t(),
+        "PeerVpcAwsAccountId" => String.t(),
+        "PeerVpcId" => String.t()
+      }
+      
   """
   @type vpc_peering_authorization() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_runtime_configuration_input() :: %{
-    required("FleetId") => String.t()
-  }
+      
+      describe_runtime_configuration_input() :: %{
+        required("FleetId") => String.t()
+      }
+      
   """
   @type describe_runtime_configuration_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_alias_input() :: %{
-    optional("Description") => String.t(),
-    optional("Name") => String.t(),
-    optional("RoutingStrategy") => routing_strategy(),
-    required("AliasId") => String.t()
-  }
+      
+      update_alias_input() :: %{
+        optional("Description") => String.t(),
+        optional("Name") => String.t(),
+        optional("RoutingStrategy") => routing_strategy(),
+        required("AliasId") => String.t()
+      }
+      
   """
   @type update_alias_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_matchmaking_configuration_output() :: %{
-
-  }
+      
+      delete_matchmaking_configuration_output() :: %{}
+      
   """
-  @type delete_matchmaking_configuration_output() :: %{String.t() => any()}
+  @type delete_matchmaking_configuration_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_compute_access_input() :: %{
-    required("ComputeName") => String.t(),
-    required("FleetId") => String.t()
-  }
+      
+      get_compute_access_input() :: %{
+        required("ComputeName") => String.t(),
+        required("FleetId") => String.t()
+      }
+      
   """
   @type get_compute_access_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  attribute_value() :: %{
-    "N" => float(),
-    "S" => String.t(),
-    "SDM" => map(),
-    "SL" => list(String.t()())
-  }
+      
+      attribute_value() :: %{
+        "N" => float(),
+        "S" => String.t(),
+        "SDM" => map(),
+        "SL" => list(String.t()())
+      }
+      
   """
   @type attribute_value() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_matchmaking_configuration_output() :: %{
-    "Configuration" => matchmaking_configuration()
-  }
+      
+      create_matchmaking_configuration_output() :: %{
+        "Configuration" => matchmaking_configuration()
+      }
+      
   """
   @type create_matchmaking_configuration_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  anywhere_configuration() :: %{
-    "Cost" => String.t()
-  }
+      
+      anywhere_configuration() :: %{
+        "Cost" => String.t()
+      }
+      
   """
   @type anywhere_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  s3_location() :: %{
-    "Bucket" => String.t(),
-    "Key" => String.t(),
-    "ObjectVersion" => String.t(),
-    "RoleArn" => String.t()
-  }
+      
+      s3_location() :: %{
+        "Bucket" => String.t(),
+        "Key" => String.t(),
+        "ObjectVersion" => String.t(),
+        "RoleArn" => String.t()
+      }
+      
   """
   @type s3_location() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_build_input() :: %{
-    required("BuildId") => String.t()
-  }
+      
+      delete_build_input() :: %{
+        required("BuildId") => String.t()
+      }
+      
   """
   @type delete_build_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_player_sessions_output() :: %{
-    "NextToken" => String.t(),
-    "PlayerSessions" => list(player_session()())
-  }
+      
+      describe_player_sessions_output() :: %{
+        "NextToken" => String.t(),
+        "PlayerSessions" => list(player_session()())
+      }
+      
   """
   @type describe_player_sessions_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_instances_output() :: %{
-    "Instances" => list(instance()()),
-    "NextToken" => String.t()
-  }
+      
+      describe_instances_output() :: %{
+        "Instances" => list(instance()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type describe_instances_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_aliases_input() :: %{
-    optional("Limit") => integer(),
-    optional("Name") => String.t(),
-    optional("NextToken") => String.t(),
-    optional("RoutingStrategyType") => list(any())
-  }
+      
+      list_aliases_input() :: %{
+        optional("Limit") => integer(),
+        optional("Name") => String.t(),
+        optional("NextToken") => String.t(),
+        optional("RoutingStrategyType") => list(any())
+      }
+      
   """
   @type list_aliases_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_fleet_utilization_input() :: %{
-    optional("FleetIds") => list(String.t()()),
-    optional("Limit") => integer(),
-    optional("NextToken") => String.t()
-  }
+      
+      describe_fleet_utilization_input() :: %{
+        optional("FleetIds") => list(String.t()()),
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type describe_fleet_utilization_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_instance_access_input() :: %{
-    required("FleetId") => String.t(),
-    required("InstanceId") => String.t()
-  }
+      
+      get_instance_access_input() :: %{
+        required("FleetId") => String.t(),
+        required("InstanceId") => String.t()
+      }
+      
   """
   @type get_instance_access_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_fleet_output() :: %{
-    "FleetAttributes" => fleet_attributes(),
-    "LocationStates" => list(location_state()())
-  }
+      
+      create_fleet_output() :: %{
+        "FleetAttributes" => fleet_attributes(),
+        "LocationStates" => list(location_state()())
+      }
+      
   """
   @type create_fleet_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  fleet_attributes() :: %{
-    "AnywhereConfiguration" => anywhere_configuration(),
-    "BuildArn" => String.t(),
-    "BuildId" => String.t(),
-    "CertificateConfiguration" => certificate_configuration(),
-    "ComputeType" => list(any()),
-    "CreationTime" => non_neg_integer(),
-    "Description" => String.t(),
-    "FleetArn" => String.t(),
-    "FleetId" => String.t(),
-    "FleetType" => list(any()),
-    "InstanceRoleArn" => String.t(),
-    "InstanceRoleCredentialsProvider" => list(any()),
-    "InstanceType" => list(any()),
-    "LogPaths" => list(String.t()()),
-    "MetricGroups" => list(String.t()()),
-    "Name" => String.t(),
-    "NewGameSessionProtectionPolicy" => list(any()),
-    "OperatingSystem" => list(any()),
-    "ResourceCreationLimitPolicy" => resource_creation_limit_policy(),
-    "ScriptArn" => String.t(),
-    "ScriptId" => String.t(),
-    "ServerLaunchParameters" => String.t(),
-    "ServerLaunchPath" => String.t(),
-    "Status" => list(any()),
-    "StoppedActions" => list(list(any())()),
-    "TerminationTime" => non_neg_integer()
-  }
+      
+      fleet_attributes() :: %{
+        "AnywhereConfiguration" => anywhere_configuration(),
+        "BuildArn" => String.t(),
+        "BuildId" => String.t(),
+        "CertificateConfiguration" => certificate_configuration(),
+        "ComputeType" => list(any()),
+        "CreationTime" => non_neg_integer(),
+        "Description" => String.t(),
+        "FleetArn" => String.t(),
+        "FleetId" => String.t(),
+        "FleetType" => list(any()),
+        "InstanceRoleArn" => String.t(),
+        "InstanceRoleCredentialsProvider" => list(any()),
+        "InstanceType" => list(any()),
+        "LogPaths" => list(String.t()()),
+        "MetricGroups" => list(String.t()()),
+        "Name" => String.t(),
+        "NewGameSessionProtectionPolicy" => list(any()),
+        "OperatingSystem" => list(any()),
+        "ResourceCreationLimitPolicy" => resource_creation_limit_policy(),
+        "ScriptArn" => String.t(),
+        "ScriptId" => String.t(),
+        "ServerLaunchParameters" => String.t(),
+        "ServerLaunchPath" => String.t(),
+        "Status" => list(any()),
+        "StoppedActions" => list(list(any())()),
+        "TerminationTime" => non_neg_integer()
+      }
+      
   """
   @type fleet_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_game_server_groups_input() :: %{
-    optional("Limit") => integer(),
-    optional("NextToken") => String.t()
-  }
+      
+      list_game_server_groups_input() :: %{
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type list_game_server_groups_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_player_sessions_input() :: %{
-    optional("GameSessionId") => String.t(),
-    optional("Limit") => integer(),
-    optional("NextToken") => String.t(),
-    optional("PlayerId") => String.t(),
-    optional("PlayerSessionId") => String.t(),
-    optional("PlayerSessionStatusFilter") => String.t()
-  }
+      
+      describe_player_sessions_input() :: %{
+        optional("GameSessionId") => String.t(),
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t(),
+        optional("PlayerId") => String.t(),
+        optional("PlayerSessionId") => String.t(),
+        optional("PlayerSessionStatusFilter") => String.t()
+      }
+      
   """
   @type describe_player_sessions_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_game_session_input() :: %{
-    optional("GameProperties") => list(game_property()()),
-    optional("MaximumPlayerSessionCount") => integer(),
-    optional("Name") => String.t(),
-    optional("PlayerSessionCreationPolicy") => list(any()),
-    optional("ProtectionPolicy") => list(any()),
-    required("GameSessionId") => String.t()
-  }
+      
+      update_game_session_input() :: %{
+        optional("GameProperties") => list(game_property()()),
+        optional("MaximumPlayerSessionCount") => integer(),
+        optional("Name") => String.t(),
+        optional("PlayerSessionCreationPolicy") => list(any()),
+        optional("ProtectionPolicy") => list(any()),
+        required("GameSessionId") => String.t()
+      }
+      
   """
   @type update_game_session_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  matchmaking_ticket() :: %{
-    "ConfigurationArn" => String.t(),
-    "ConfigurationName" => String.t(),
-    "EndTime" => non_neg_integer(),
-    "EstimatedWaitTime" => integer(),
-    "GameSessionConnectionInfo" => game_session_connection_info(),
-    "Players" => list(player()()),
-    "StartTime" => non_neg_integer(),
-    "Status" => list(any()),
-    "StatusMessage" => String.t(),
-    "StatusReason" => String.t(),
-    "TicketId" => String.t()
-  }
+      
+      matchmaking_ticket() :: %{
+        "ConfigurationArn" => String.t(),
+        "ConfigurationName" => String.t(),
+        "EndTime" => non_neg_integer(),
+        "EstimatedWaitTime" => integer(),
+        "GameSessionConnectionInfo" => game_session_connection_info(),
+        "Players" => list(player()()),
+        "StartTime" => non_neg_integer(),
+        "Status" => list(any()),
+        "StatusMessage" => String.t(),
+        "StatusReason" => String.t(),
+        "TicketId" => String.t()
+      }
+      
   """
   @type matchmaking_ticket() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_fleet_capacity_output() :: %{
-    "FleetArn" => String.t(),
-    "FleetId" => String.t(),
-    "Location" => String.t()
-  }
+      
+      update_fleet_capacity_output() :: %{
+        "FleetArn" => String.t(),
+        "FleetId" => String.t(),
+        "Location" => String.t()
+      }
+      
   """
   @type update_fleet_capacity_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_game_server_output() :: %{
-    "GameServer" => game_server()
-  }
+      
+      update_game_server_output() :: %{
+        "GameServer" => game_server()
+      }
+      
   """
   @type update_game_server_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_game_session_queue_input() :: %{
-    optional("CustomEventData") => String.t(),
-    optional("Destinations") => list(game_session_queue_destination()()),
-    optional("FilterConfiguration") => filter_configuration(),
-    optional("NotificationTarget") => String.t(),
-    optional("PlayerLatencyPolicies") => list(player_latency_policy()()),
-    optional("PriorityConfiguration") => priority_configuration(),
-    optional("Tags") => list(tag()()),
-    optional("TimeoutInSeconds") => integer(),
-    required("Name") => String.t()
-  }
+      
+      create_game_session_queue_input() :: %{
+        optional("CustomEventData") => String.t(),
+        optional("Destinations") => list(game_session_queue_destination()()),
+        optional("FilterConfiguration") => filter_configuration(),
+        optional("NotificationTarget") => String.t(),
+        optional("PlayerLatencyPolicies") => list(player_latency_policy()()),
+        optional("PriorityConfiguration") => priority_configuration(),
+        optional("Tags") => list(tag()()),
+        optional("TimeoutInSeconds") => integer(),
+        required("Name") => String.t()
+      }
+      
   """
   @type create_game_session_queue_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_game_session_details_input() :: %{
-    optional("AliasId") => String.t(),
-    optional("FleetId") => String.t(),
-    optional("GameSessionId") => String.t(),
-    optional("Limit") => integer(),
-    optional("Location") => String.t(),
-    optional("NextToken") => String.t(),
-    optional("StatusFilter") => String.t()
-  }
+      
+      describe_game_session_details_input() :: %{
+        optional("AliasId") => String.t(),
+        optional("FleetId") => String.t(),
+        optional("GameSessionId") => String.t(),
+        optional("Limit") => integer(),
+        optional("Location") => String.t(),
+        optional("NextToken") => String.t(),
+        optional("StatusFilter") => String.t()
+      }
+      
   """
   @type describe_game_session_details_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_fleet_actions_output() :: %{
-    "FleetArn" => String.t(),
-    "FleetId" => String.t()
-  }
+      
+      start_fleet_actions_output() :: %{
+        "FleetArn" => String.t(),
+        "FleetId" => String.t()
+      }
+      
   """
   @type start_fleet_actions_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  validate_matchmaking_rule_set_input() :: %{
-    required("RuleSetBody") => String.t()
-  }
+      
+      validate_matchmaking_rule_set_input() :: %{
+        required("RuleSetBody") => String.t()
+      }
+      
   """
   @type validate_matchmaking_rule_set_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_fleets_input() :: %{
-    optional("BuildId") => String.t(),
-    optional("Limit") => integer(),
-    optional("NextToken") => String.t(),
-    optional("ScriptId") => String.t()
-  }
+      
+      list_fleets_input() :: %{
+        optional("BuildId") => String.t(),
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t(),
+        optional("ScriptId") => String.t()
+      }
+      
   """
   @type list_fleets_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_game_servers_input() :: %{
-    optional("Limit") => integer(),
-    optional("NextToken") => String.t(),
-    optional("SortOrder") => list(any()),
-    required("GameServerGroupName") => String.t()
-  }
+      
+      list_game_servers_input() :: %{
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t(),
+        optional("SortOrder") => list(any()),
+        required("GameServerGroupName") => String.t()
+      }
+      
   """
   @type list_game_servers_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_fleet_input() :: %{
-    optional("AnywhereConfiguration") => anywhere_configuration(),
-    optional("BuildId") => String.t(),
-    optional("CertificateConfiguration") => certificate_configuration(),
-    optional("ComputeType") => list(any()),
-    optional("Description") => String.t(),
-    optional("EC2InboundPermissions") => list(ip_permission()()),
-    optional("EC2InstanceType") => list(any()),
-    optional("FleetType") => list(any()),
-    optional("InstanceRoleArn") => String.t(),
-    optional("InstanceRoleCredentialsProvider") => list(any()),
-    optional("Locations") => list(location_configuration()()),
-    optional("LogPaths") => list(String.t()()),
-    optional("MetricGroups") => list(String.t()()),
-    optional("NewGameSessionProtectionPolicy") => list(any()),
-    optional("PeerVpcAwsAccountId") => String.t(),
-    optional("PeerVpcId") => String.t(),
-    optional("ResourceCreationLimitPolicy") => resource_creation_limit_policy(),
-    optional("RuntimeConfiguration") => runtime_configuration(),
-    optional("ScriptId") => String.t(),
-    optional("ServerLaunchParameters") => String.t(),
-    optional("ServerLaunchPath") => String.t(),
-    optional("Tags") => list(tag()()),
-    required("Name") => String.t()
-  }
+      
+      create_fleet_input() :: %{
+        optional("AnywhereConfiguration") => anywhere_configuration(),
+        optional("BuildId") => String.t(),
+        optional("CertificateConfiguration") => certificate_configuration(),
+        optional("ComputeType") => list(any()),
+        optional("Description") => String.t(),
+        optional("EC2InboundPermissions") => list(ip_permission()()),
+        optional("EC2InstanceType") => list(any()),
+        optional("FleetType") => list(any()),
+        optional("InstanceRoleArn") => String.t(),
+        optional("InstanceRoleCredentialsProvider") => list(any()),
+        optional("Locations") => list(location_configuration()()),
+        optional("LogPaths") => list(String.t()()),
+        optional("MetricGroups") => list(String.t()()),
+        optional("NewGameSessionProtectionPolicy") => list(any()),
+        optional("PeerVpcAwsAccountId") => String.t(),
+        optional("PeerVpcId") => String.t(),
+        optional("ResourceCreationLimitPolicy") => resource_creation_limit_policy(),
+        optional("RuntimeConfiguration") => runtime_configuration(),
+        optional("ScriptId") => String.t(),
+        optional("ServerLaunchParameters") => String.t(),
+        optional("ServerLaunchPath") => String.t(),
+        optional("Tags") => list(tag()()),
+        required("Name") => String.t()
+      }
+      
   """
   @type create_fleet_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_matchmaking_input() :: %{
-    optional("TicketId") => String.t(),
-    required("ConfigurationName") => String.t(),
-    required("Players") => list(player()())
-  }
+      
+      start_matchmaking_input() :: %{
+        optional("TicketId") => String.t(),
+        required("ConfigurationName") => String.t(),
+        required("Players") => list(player()())
+      }
+      
   """
   @type start_matchmaking_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stop_fleet_actions_output() :: %{
-    "FleetArn" => String.t(),
-    "FleetId" => String.t()
-  }
+      
+      stop_fleet_actions_output() :: %{
+        "FleetArn" => String.t(),
+        "FleetId" => String.t()
+      }
+      
   """
   @type stop_fleet_actions_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  claim_filter_option() :: %{
-    "InstanceStatuses" => list(list(any())())
-  }
+      
+      claim_filter_option() :: %{
+        "InstanceStatuses" => list(list(any())())
+      }
+      
   """
   @type claim_filter_option() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_game_session_queue_input() :: %{
-    required("Name") => String.t()
-  }
+      
+      delete_game_session_queue_input() :: %{
+        required("Name") => String.t()
+      }
+      
   """
   @type delete_game_session_queue_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  deregister_compute_input() :: %{
-    required("ComputeName") => String.t(),
-    required("FleetId") => String.t()
-  }
+      
+      deregister_compute_input() :: %{
+        required("ComputeName") => String.t(),
+        required("FleetId") => String.t()
+      }
+      
   """
   @type deregister_compute_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_fleet_events_output() :: %{
-    "Events" => list(event()()),
-    "NextToken" => String.t()
-  }
+      
+      describe_fleet_events_output() :: %{
+        "Events" => list(event()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type describe_fleet_events_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_vpc_peering_authorization_output() :: %{
-    "VpcPeeringAuthorization" => vpc_peering_authorization()
-  }
+      
+      create_vpc_peering_authorization_output() :: %{
+        "VpcPeeringAuthorization" => vpc_peering_authorization()
+      }
+      
   """
   @type create_vpc_peering_authorization_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_game_session_queue_output() :: %{
-    "GameSessionQueue" => game_session_queue()
-  }
+      
+      create_game_session_queue_output() :: %{
+        "GameSessionQueue" => game_session_queue()
+      }
+      
   """
   @type create_game_session_queue_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  location_model() :: %{
-    "LocationArn" => String.t(),
-    "LocationName" => String.t()
-  }
+      
+      location_model() :: %{
+        "LocationArn" => String.t(),
+        "LocationName" => String.t()
+      }
+      
   """
   @type location_model() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  event() :: %{
-    "EventCode" => list(any()),
-    "EventId" => String.t(),
-    "EventTime" => non_neg_integer(),
-    "Message" => String.t(),
-    "PreSignedLogUrl" => String.t(),
-    "ResourceId" => String.t()
-  }
+      
+      event() :: %{
+        "EventCode" => list(any()),
+        "EventId" => String.t(),
+        "EventTime" => non_neg_integer(),
+        "Message" => String.t(),
+        "PreSignedLogUrl" => String.t(),
+        "ResourceId" => String.t()
+      }
+      
   """
   @type event() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_instances_input() :: %{
-    optional("InstanceId") => String.t(),
-    optional("Limit") => integer(),
-    optional("Location") => String.t(),
-    optional("NextToken") => String.t(),
-    required("FleetId") => String.t()
-  }
+      
+      describe_instances_input() :: %{
+        optional("InstanceId") => String.t(),
+        optional("Limit") => integer(),
+        optional("Location") => String.t(),
+        optional("NextToken") => String.t(),
+        required("FleetId") => String.t()
+      }
+      
   """
   @type describe_instances_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_game_server_output() :: %{
-    "GameServer" => game_server()
-  }
+      
+      describe_game_server_output() :: %{
+        "GameServer" => game_server()
+      }
+      
   """
   @type describe_game_server_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_vpc_peering_authorization_input() :: %{
-    required("GameLiftAwsAccountId") => String.t(),
-    required("PeerVpcId") => String.t()
-  }
+      
+      create_vpc_peering_authorization_input() :: %{
+        required("GameLiftAwsAccountId") => String.t(),
+        required("PeerVpcId") => String.t()
+      }
+      
   """
   @type create_vpc_peering_authorization_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_game_session_queues_input() :: %{
-    optional("Limit") => integer(),
-    optional("Names") => list(String.t()()),
-    optional("NextToken") => String.t()
-  }
+      
+      describe_game_session_queues_input() :: %{
+        optional("Limit") => integer(),
+        optional("Names") => list(String.t()()),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type describe_game_session_queues_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  search_game_sessions_output() :: %{
-    "GameSessions" => list(game_session()()),
-    "NextToken" => String.t()
-  }
+      
+      search_game_sessions_output() :: %{
+        "GameSessions" => list(game_session()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type search_game_sessions_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_match_backfill_output() :: %{
-    "MatchmakingTicket" => matchmaking_ticket()
-  }
+      
+      start_match_backfill_output() :: %{
+        "MatchmakingTicket" => matchmaking_ticket()
+      }
+      
   """
   @type start_match_backfill_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  alias() :: %{
-    "AliasArn" => String.t(),
-    "AliasId" => String.t(),
-    "CreationTime" => non_neg_integer(),
-    "Description" => String.t(),
-    "LastUpdatedTime" => non_neg_integer(),
-    "Name" => String.t(),
-    "RoutingStrategy" => routing_strategy()
-  }
+      
+      alias() :: %{
+        "AliasArn" => String.t(),
+        "AliasId" => String.t(),
+        "CreationTime" => non_neg_integer(),
+        "Description" => String.t(),
+        "LastUpdatedTime" => non_neg_integer(),
+        "Name" => String.t(),
+        "RoutingStrategy" => routing_strategy()
+      }
+      
   """
   @type alias() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_runtime_configuration_output() :: %{
-    "RuntimeConfiguration" => runtime_configuration()
-  }
+      
+      update_runtime_configuration_output() :: %{
+        "RuntimeConfiguration" => runtime_configuration()
+      }
+      
   """
   @type update_runtime_configuration_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  instance() :: %{
-    "CreationTime" => non_neg_integer(),
-    "DnsName" => String.t(),
-    "FleetArn" => String.t(),
-    "FleetId" => String.t(),
-    "InstanceId" => String.t(),
-    "IpAddress" => String.t(),
-    "Location" => String.t(),
-    "OperatingSystem" => list(any()),
-    "Status" => list(any()),
-    "Type" => list(any())
-  }
+      
+      instance() :: %{
+        "CreationTime" => non_neg_integer(),
+        "DnsName" => String.t(),
+        "FleetArn" => String.t(),
+        "FleetId" => String.t(),
+        "InstanceId" => String.t(),
+        "IpAddress" => String.t(),
+        "Location" => String.t(),
+        "OperatingSystem" => list(any()),
+        "Status" => list(any()),
+        "Type" => list(any())
+      }
+      
   """
   @type instance() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_game_session_log_url_input() :: %{
-    required("GameSessionId") => String.t()
-  }
+      
+      get_game_session_log_url_input() :: %{
+        required("GameSessionId") => String.t()
+      }
+      
   """
   @type get_game_session_log_url_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_fleet_actions_input() :: %{
-    optional("Location") => String.t(),
-    required("Actions") => list(list(any())()),
-    required("FleetId") => String.t()
-  }
+      
+      start_fleet_actions_input() :: %{
+        optional("Location") => String.t(),
+        required("Actions") => list(list(any())()),
+        required("FleetId") => String.t()
+      }
+      
   """
   @type start_fleet_actions_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_matchmaking_configuration_input() :: %{
-    optional("AcceptanceRequired") => boolean(),
-    optional("AcceptanceTimeoutSeconds") => integer(),
-    optional("AdditionalPlayerCount") => integer(),
-    optional("BackfillMode") => list(any()),
-    optional("CustomEventData") => String.t(),
-    optional("Description") => String.t(),
-    optional("FlexMatchMode") => list(any()),
-    optional("GameProperties") => list(game_property()()),
-    optional("GameSessionData") => String.t(),
-    optional("GameSessionQueueArns") => list(String.t()()),
-    optional("NotificationTarget") => String.t(),
-    optional("RequestTimeoutSeconds") => integer(),
-    optional("RuleSetName") => String.t(),
-    required("Name") => String.t()
-  }
+      
+      update_matchmaking_configuration_input() :: %{
+        optional("AcceptanceRequired") => boolean(),
+        optional("AcceptanceTimeoutSeconds") => integer(),
+        optional("AdditionalPlayerCount") => integer(),
+        optional("BackfillMode") => list(any()),
+        optional("CustomEventData") => String.t(),
+        optional("Description") => String.t(),
+        optional("FlexMatchMode") => list(any()),
+        optional("GameProperties") => list(game_property()()),
+        optional("GameSessionData") => String.t(),
+        optional("GameSessionQueueArns") => list(String.t()()),
+        optional("NotificationTarget") => String.t(),
+        optional("RequestTimeoutSeconds") => integer(),
+        optional("RuleSetName") => String.t(),
+        required("Name") => String.t()
+      }
+      
   """
   @type update_matchmaking_configuration_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resume_game_server_group_output() :: %{
-    "GameServerGroup" => game_server_group()
-  }
+      
+      resume_game_server_group_output() :: %{
+        "GameServerGroup" => game_server_group()
+      }
+      
   """
   @type resume_game_server_group_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_vpc_peering_authorization_output() :: %{
-
-  }
+      
+      delete_vpc_peering_authorization_output() :: %{}
+      
   """
-  @type delete_vpc_peering_authorization_output() :: %{String.t() => any()}
+  @type delete_vpc_peering_authorization_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  unsupported_region_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      unsupported_region_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type unsupported_region_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_scripts_output() :: %{
-    "NextToken" => String.t(),
-    "Scripts" => list(script()())
-  }
+      
+      list_scripts_output() :: %{
+        "NextToken" => String.t(),
+        "Scripts" => list(script()())
+      }
+      
   """
   @type list_scripts_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_game_server_group_input() :: %{
-    optional("DeleteOption") => list(any()),
-    required("GameServerGroupName") => String.t()
-  }
+      
+      delete_game_server_group_input() :: %{
+        optional("DeleteOption") => list(any()),
+        required("GameServerGroupName") => String.t()
+      }
+      
   """
   @type delete_game_server_group_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  game_session_full_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      game_session_full_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type game_session_full_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_response() :: %{
-
-  }
+      
+      tag_resource_response() :: %{}
+      
   """
-  @type tag_resource_response() :: %{String.t() => any()}
+  @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  aws_credentials() :: %{
-    "AccessKeyId" => String.t(),
-    "SecretAccessKey" => String.t(),
-    "SessionToken" => String.t()
-  }
+      
+      aws_credentials() :: %{
+        "AccessKeyId" => String.t(),
+        "SecretAccessKey" => String.t(),
+        "SessionToken" => String.t()
+      }
+      
   """
   @type aws_credentials() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_matchmaking_rule_sets_output() :: %{
-    "NextToken" => String.t(),
-    "RuleSets" => list(matchmaking_rule_set()())
-  }
+      
+      describe_matchmaking_rule_sets_output() :: %{
+        "NextToken" => String.t(),
+        "RuleSets" => list(matchmaking_rule_set()())
+      }
+      
   """
   @type describe_matchmaking_rule_sets_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  game_property() :: %{
-    "Key" => String.t(),
-    "Value" => String.t()
-  }
+      
+      game_property() :: %{
+        "Key" => String.t(),
+        "Value" => String.t()
+      }
+      
   """
   @type game_property() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  suspend_game_server_group_output() :: %{
-    "GameServerGroup" => game_server_group()
-  }
+      
+      suspend_game_server_group_output() :: %{
+        "GameServerGroup" => game_server_group()
+      }
+      
   """
   @type suspend_game_server_group_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_instance_access_output() :: %{
-    "InstanceAccess" => instance_access()
-  }
+      
+      get_instance_access_output() :: %{
+        "InstanceAccess" => instance_access()
+      }
+      
   """
   @type get_instance_access_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_fleet_attributes_input() :: %{
-    optional("FleetIds") => list(String.t()()),
-    optional("Limit") => integer(),
-    optional("NextToken") => String.t()
-  }
+      
+      describe_fleet_attributes_input() :: %{
+        optional("FleetIds") => list(String.t()()),
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type describe_fleet_attributes_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_location_output() :: %{
-    "Location" => location_model()
-  }
+      
+      create_location_output() :: %{
+        "Location" => location_model()
+      }
+      
   """
   @type create_location_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_game_session_input() :: %{
-    optional("AliasId") => String.t(),
-    optional("CreatorId") => String.t(),
-    optional("FleetId") => String.t(),
-    optional("GameProperties") => list(game_property()()),
-    optional("GameSessionData") => String.t(),
-    optional("GameSessionId") => String.t(),
-    optional("IdempotencyToken") => String.t(),
-    optional("Location") => String.t(),
-    optional("Name") => String.t(),
-    required("MaximumPlayerSessionCount") => integer()
-  }
+      
+      create_game_session_input() :: %{
+        optional("AliasId") => String.t(),
+        optional("CreatorId") => String.t(),
+        optional("FleetId") => String.t(),
+        optional("GameProperties") => list(game_property()()),
+        optional("GameSessionData") => String.t(),
+        optional("GameSessionId") => String.t(),
+        optional("IdempotencyToken") => String.t(),
+        optional("Location") => String.t(),
+        optional("Name") => String.t(),
+        required("MaximumPlayerSessionCount") => integer()
+      }
+      
   """
   @type create_game_session_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  routing_strategy() :: %{
-    "FleetId" => String.t(),
-    "Message" => String.t(),
-    "Type" => list(any())
-  }
+      
+      routing_strategy() :: %{
+        "FleetId" => String.t(),
+        "Message" => String.t(),
+        "Type" => list(any())
+      }
+      
   """
   @type routing_strategy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  game_session_queue_destination() :: %{
-    "DestinationArn" => String.t()
-  }
+      
+      game_session_queue_destination() :: %{
+        "DestinationArn" => String.t()
+      }
+      
   """
   @type game_session_queue_destination() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_game_server_instances_output() :: %{
-    "GameServerInstances" => list(game_server_instance()()),
-    "NextToken" => String.t()
-  }
+      
+      describe_game_server_instances_output() :: %{
+        "GameServerInstances" => list(game_server_instance()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type describe_game_server_instances_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_compute_auth_token_output() :: %{
-    "AuthToken" => String.t(),
-    "ComputeArn" => String.t(),
-    "ComputeName" => String.t(),
-    "ExpirationTimestamp" => non_neg_integer(),
-    "FleetArn" => String.t(),
-    "FleetId" => String.t()
-  }
+      
+      get_compute_auth_token_output() :: %{
+        "AuthToken" => String.t(),
+        "ComputeArn" => String.t(),
+        "ComputeName" => String.t(),
+        "ExpirationTimestamp" => non_neg_integer(),
+        "FleetArn" => String.t(),
+        "FleetId" => String.t()
+      }
+      
   """
   @type get_compute_auth_token_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_ec2_instance_limits_output() :: %{
-    "EC2InstanceLimits" => list(ec2_instance_limit()())
-  }
+      
+      describe_ec2_instance_limits_output() :: %{
+        "EC2InstanceLimits" => list(ec2_instance_limit()())
+      }
+      
   """
   @type describe_ec2_instance_limits_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_game_server_group_output() :: %{
-    "GameServerGroup" => game_server_group()
-  }
+      
+      delete_game_server_group_output() :: %{
+        "GameServerGroup" => game_server_group()
+      }
+      
   """
   @type delete_game_server_group_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_build_output() :: %{
-    "Build" => build()
-  }
+      
+      describe_build_output() :: %{
+        "Build" => build()
+      }
+      
   """
   @type describe_build_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_scaling_policy_input() :: %{
-    required("FleetId") => String.t(),
-    required("Name") => String.t()
-  }
+      
+      delete_scaling_policy_input() :: %{
+        required("FleetId") => String.t(),
+        required("Name") => String.t()
+      }
+      
   """
   @type delete_scaling_policy_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_request() :: %{
-    required("ResourceARN") => String.t()
-  }
+      
+      list_tags_for_resource_request() :: %{
+        required("ResourceARN") => String.t()
+      }
+      
   """
   @type list_tags_for_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_fleet_capacity_output() :: %{
-    "FleetCapacity" => list(fleet_capacity()()),
-    "NextToken" => String.t()
-  }
+      
+      describe_fleet_capacity_output() :: %{
+        "FleetCapacity" => list(fleet_capacity()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type describe_fleet_capacity_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_locations_input() :: %{
-    optional("Filters") => list(list(any())()),
-    optional("Limit") => integer(),
-    optional("NextToken") => String.t()
-  }
+      
+      list_locations_input() :: %{
+        optional("Filters") => list(list(any())()),
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type list_locations_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_fleet_attributes_output() :: %{
-    "FleetAttributes" => list(fleet_attributes()()),
-    "NextToken" => String.t()
-  }
+      
+      describe_fleet_attributes_output() :: %{
+        "FleetAttributes" => list(fleet_attributes()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type describe_fleet_attributes_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  script() :: %{
-    "CreationTime" => non_neg_integer(),
-    "Name" => String.t(),
-    "ScriptArn" => String.t(),
-    "ScriptId" => String.t(),
-    "SizeOnDisk" => float(),
-    "StorageLocation" => s3_location(),
-    "Version" => String.t()
-  }
+      
+      script() :: %{
+        "CreationTime" => non_neg_integer(),
+        "Name" => String.t(),
+        "ScriptArn" => String.t(),
+        "ScriptId" => String.t(),
+        "SizeOnDisk" => float(),
+        "StorageLocation" => s3_location(),
+        "Version" => String.t()
+      }
+      
   """
   @type script() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_creation_limit_policy() :: %{
-    "NewGameSessionsPerCreator" => integer(),
-    "PolicyPeriodInMinutes" => integer()
-  }
+      
+      resource_creation_limit_policy() :: %{
+        "NewGameSessionsPerCreator" => integer(),
+        "PolicyPeriodInMinutes" => integer()
+      }
+      
   """
   @type resource_creation_limit_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  game_server() :: %{
-    "ClaimStatus" => list(any()),
-    "ConnectionInfo" => String.t(),
-    "GameServerData" => String.t(),
-    "GameServerGroupArn" => String.t(),
-    "GameServerGroupName" => String.t(),
-    "GameServerId" => String.t(),
-    "InstanceId" => String.t(),
-    "LastClaimTime" => non_neg_integer(),
-    "LastHealthCheckTime" => non_neg_integer(),
-    "RegistrationTime" => non_neg_integer(),
-    "UtilizationStatus" => list(any())
-  }
+      
+      game_server() :: %{
+        "ClaimStatus" => list(any()),
+        "ConnectionInfo" => String.t(),
+        "GameServerData" => String.t(),
+        "GameServerGroupArn" => String.t(),
+        "GameServerGroupName" => String.t(),
+        "GameServerId" => String.t(),
+        "InstanceId" => String.t(),
+        "LastClaimTime" => non_neg_integer(),
+        "LastHealthCheckTime" => non_neg_integer(),
+        "RegistrationTime" => non_neg_integer(),
+        "UtilizationStatus" => list(any())
+      }
+      
   """
   @type game_server() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_player_session_output() :: %{
-    "PlayerSession" => player_session()
-  }
+      
+      create_player_session_output() :: %{
+        "PlayerSession" => player_session()
+      }
+      
   """
   @type create_player_session_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_alias_output() :: %{
-    "Alias" => alias()
-  }
+      
+      describe_alias_output() :: %{
+        "Alias" => alias()
+      }
+      
   """
   @type describe_alias_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_game_session_placement_output() :: %{
-    "GameSessionPlacement" => game_session_placement()
-  }
+      
+      describe_game_session_placement_output() :: %{
+        "GameSessionPlacement" => game_session_placement()
+      }
+      
   """
   @type describe_game_session_placement_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_game_session_status_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      invalid_game_session_status_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type invalid_game_session_status_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  register_compute_input() :: %{
-    optional("CertificatePath") => String.t(),
-    optional("DnsName") => String.t(),
-    optional("IpAddress") => String.t(),
-    optional("Location") => String.t(),
-    required("ComputeName") => String.t(),
-    required("FleetId") => String.t()
-  }
+      
+      register_compute_input() :: %{
+        optional("CertificatePath") => String.t(),
+        optional("DnsName") => String.t(),
+        optional("IpAddress") => String.t(),
+        optional("Location") => String.t(),
+        required("ComputeName") => String.t(),
+        required("FleetId") => String.t()
+      }
+      
   """
   @type register_compute_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_location_output() :: %{
-
-  }
+      
+      delete_location_output() :: %{}
+      
   """
-  @type delete_location_output() :: %{String.t() => any()}
+  @type delete_location_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  limit_exceeded_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      limit_exceeded_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stop_matchmaking_output() :: %{
-
-  }
+      
+      stop_matchmaking_output() :: %{}
+      
   """
-  @type stop_matchmaking_output() :: %{String.t() => any()}
+  @type stop_matchmaking_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_alias_input() :: %{
-    optional("Description") => String.t(),
-    optional("Tags") => list(tag()()),
-    required("Name") => String.t(),
-    required("RoutingStrategy") => routing_strategy()
-  }
+      
+      create_alias_input() :: %{
+        optional("Description") => String.t(),
+        optional("Tags") => list(tag()()),
+        required("Name") => String.t(),
+        required("RoutingStrategy") => routing_strategy()
+      }
+      
   """
   @type create_alias_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_match_backfill_input() :: %{
-    optional("GameSessionArn") => String.t(),
-    optional("TicketId") => String.t(),
-    required("ConfigurationName") => String.t(),
-    required("Players") => list(player()())
-  }
+      
+      start_match_backfill_input() :: %{
+        optional("GameSessionArn") => String.t(),
+        optional("TicketId") => String.t(),
+        required("ConfigurationName") => String.t(),
+        required("Players") => list(player()())
+      }
+      
   """
   @type start_match_backfill_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ec2_instance_limit() :: %{
-    "CurrentInstances" => integer(),
-    "EC2InstanceType" => list(any()),
-    "InstanceLimit" => integer(),
-    "Location" => String.t()
-  }
+      
+      ec2_instance_limit() :: %{
+        "CurrentInstances" => integer(),
+        "EC2InstanceType" => list(any()),
+        "InstanceLimit" => integer(),
+        "Location" => String.t()
+      }
+      
   """
   @type ec2_instance_limit() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_compute_auth_token_input() :: %{
-    required("ComputeName") => String.t(),
-    required("FleetId") => String.t()
-  }
+      
+      get_compute_auth_token_input() :: %{
+        required("ComputeName") => String.t(),
+        required("FleetId") => String.t()
+      }
+      
   """
   @type get_compute_auth_token_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  target_configuration() :: %{
-    "TargetValue" => float()
-  }
+      
+      target_configuration() :: %{
+        "TargetValue" => float()
+      }
+      
   """
   @type target_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  launch_template_specification() :: %{
-    "LaunchTemplateId" => String.t(),
-    "LaunchTemplateName" => String.t(),
-    "Version" => String.t()
-  }
+      
+      launch_template_specification() :: %{
+        "LaunchTemplateId" => String.t(),
+        "LaunchTemplateName" => String.t(),
+        "Version" => String.t()
+      }
+      
   """
   @type launch_template_specification() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  claim_game_server_output() :: %{
-    "GameServer" => game_server()
-  }
+      
+      claim_game_server_output() :: %{
+        "GameServer" => game_server()
+      }
+      
   """
   @type claim_game_server_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_scaling_policies_input() :: %{
-    optional("Limit") => integer(),
-    optional("Location") => String.t(),
-    optional("NextToken") => String.t(),
-    optional("StatusFilter") => list(any()),
-    required("FleetId") => String.t()
-  }
+      
+      describe_scaling_policies_input() :: %{
+        optional("Limit") => integer(),
+        optional("Location") => String.t(),
+        optional("NextToken") => String.t(),
+        optional("StatusFilter") => list(any()),
+        required("FleetId") => String.t()
+      }
+      
   """
   @type describe_scaling_policies_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_game_servers_output() :: %{
-    "GameServers" => list(game_server()()),
-    "NextToken" => String.t()
-  }
+      
+      list_game_servers_output() :: %{
+        "GameServers" => list(game_server()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_game_servers_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  vpc_peering_connection_status() :: %{
-    "Code" => String.t(),
-    "Message" => String.t()
-  }
+      
+      vpc_peering_connection_status() :: %{
+        "Code" => String.t(),
+        "Message" => String.t()
+      }
+      
   """
   @type vpc_peering_connection_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_scaling_policies_output() :: %{
-    "NextToken" => String.t(),
-    "ScalingPolicies" => list(scaling_policy()())
-  }
+      
+      describe_scaling_policies_output() :: %{
+        "NextToken" => String.t(),
+        "ScalingPolicies" => list(scaling_policy()())
+      }
+      
   """
   @type describe_scaling_policies_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_matchmaking_rule_set_input() :: %{
-    required("Name") => String.t()
-  }
+      
+      delete_matchmaking_rule_set_input() :: %{
+        required("Name") => String.t()
+      }
+      
   """
   @type delete_matchmaking_rule_set_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_build_input() :: %{
-    optional("Name") => String.t(),
-    optional("OperatingSystem") => list(any()),
-    optional("ServerSdkVersion") => String.t(),
-    optional("StorageLocation") => s3_location(),
-    optional("Tags") => list(tag()()),
-    optional("Version") => String.t()
-  }
+      
+      create_build_input() :: %{
+        optional("Name") => String.t(),
+        optional("OperatingSystem") => list(any()),
+        optional("ServerSdkVersion") => String.t(),
+        optional("StorageLocation") => s3_location(),
+        optional("Tags") => list(tag()()),
+        optional("Version") => String.t()
+      }
+      
   """
   @type create_build_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  vpc_peering_connection() :: %{
-    "FleetArn" => String.t(),
-    "FleetId" => String.t(),
-    "GameLiftVpcId" => String.t(),
-    "IpV4CidrBlock" => String.t(),
-    "PeerVpcId" => String.t(),
-    "Status" => vpc_peering_connection_status(),
-    "VpcPeeringConnectionId" => String.t()
-  }
+      
+      vpc_peering_connection() :: %{
+        "FleetArn" => String.t(),
+        "FleetId" => String.t(),
+        "GameLiftVpcId" => String.t(),
+        "IpV4CidrBlock" => String.t(),
+        "PeerVpcId" => String.t(),
+        "Status" => vpc_peering_connection_status(),
+        "VpcPeeringConnectionId" => String.t()
+      }
+      
   """
   @type vpc_peering_connection() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_fleet_attributes_output() :: %{
-    "FleetArn" => String.t(),
-    "FleetId" => String.t()
-  }
+      
+      update_fleet_attributes_output() :: %{
+        "FleetArn" => String.t(),
+        "FleetId" => String.t()
+      }
+      
   """
   @type update_fleet_attributes_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_build_output() :: %{
-    "Build" => build(),
-    "StorageLocation" => s3_location(),
-    "UploadCredentials" => aws_credentials()
-  }
+      
+      create_build_output() :: %{
+        "Build" => build(),
+        "StorageLocation" => s3_location(),
+        "UploadCredentials" => aws_credentials()
+      }
+      
   """
   @type create_build_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_game_session_details_output() :: %{
-    "GameSessionDetails" => list(game_session_detail()()),
-    "NextToken" => String.t()
-  }
+      
+      describe_game_session_details_output() :: %{
+        "GameSessionDetails" => list(game_session_detail()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type describe_game_session_details_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_vpc_peering_connection_output() :: %{
-
-  }
+      
+      create_vpc_peering_connection_output() :: %{}
+      
   """
-  @type create_vpc_peering_connection_output() :: %{String.t() => any()}
+  @type create_vpc_peering_connection_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  game_session_detail() :: %{
-    "GameSession" => game_session(),
-    "ProtectionPolicy" => list(any())
-  }
+      
+      game_session_detail() :: %{
+        "GameSession" => game_session(),
+        "ProtectionPolicy" => list(any())
+      }
+      
   """
   @type game_session_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stop_game_session_placement_output() :: %{
-    "GameSessionPlacement" => game_session_placement()
-  }
+      
+      stop_game_session_placement_output() :: %{
+        "GameSessionPlacement" => game_session_placement()
+      }
+      
   """
   @type stop_game_session_placement_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_vpc_peering_authorizations_input() :: %{
-
-  }
+      
+      describe_vpc_peering_authorizations_input() :: %{}
+      
   """
-  @type describe_vpc_peering_authorizations_input() :: %{String.t() => any()}
+  @type describe_vpc_peering_authorizations_input() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_game_server_group_input() :: %{
-    optional("AutoScalingPolicy") => game_server_group_auto_scaling_policy(),
-    optional("BalancingStrategy") => list(any()),
-    optional("GameServerProtectionPolicy") => list(any()),
-    optional("Tags") => list(tag()()),
-    optional("VpcSubnets") => list(String.t()()),
-    required("GameServerGroupName") => String.t(),
-    required("InstanceDefinitions") => list(instance_definition()()),
-    required("LaunchTemplate") => launch_template_specification(),
-    required("MaxSize") => integer(),
-    required("MinSize") => integer(),
-    required("RoleArn") => String.t()
-  }
+      
+      create_game_server_group_input() :: %{
+        optional("AutoScalingPolicy") => game_server_group_auto_scaling_policy(),
+        optional("BalancingStrategy") => list(any()),
+        optional("GameServerProtectionPolicy") => list(any()),
+        optional("Tags") => list(tag()()),
+        optional("VpcSubnets") => list(String.t()()),
+        required("GameServerGroupName") => String.t(),
+        required("InstanceDefinitions") => list(instance_definition()()),
+        required("LaunchTemplate") => launch_template_specification(),
+        required("MaxSize") => integer(),
+        required("MinSize") => integer(),
+        required("RoleArn") => String.t()
+      }
+      
   """
   @type create_game_server_group_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stop_fleet_actions_input() :: %{
-    optional("Location") => String.t(),
-    required("Actions") => list(list(any())()),
-    required("FleetId") => String.t()
-  }
+      
+      stop_fleet_actions_input() :: %{
+        optional("Location") => String.t(),
+        required("Actions") => list(list(any())()),
+        required("FleetId") => String.t()
+      }
+      
   """
   @type stop_fleet_actions_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  certificate_configuration() :: %{
-    "CertificateType" => list(any())
-  }
+      
+      certificate_configuration() :: %{
+        "CertificateType" => list(any())
+      }
+      
   """
   @type certificate_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  matchmaking_rule_set() :: %{
-    "CreationTime" => non_neg_integer(),
-    "RuleSetArn" => String.t(),
-    "RuleSetBody" => String.t(),
-    "RuleSetName" => String.t()
-  }
+      
+      matchmaking_rule_set() :: %{
+        "CreationTime" => non_neg_integer(),
+        "RuleSetArn" => String.t(),
+        "RuleSetBody" => String.t(),
+        "RuleSetName" => String.t()
+      }
+      
   """
   @type matchmaking_rule_set() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_compute_input() :: %{
-    required("ComputeName") => String.t(),
-    required("FleetId") => String.t()
-  }
+      
+      describe_compute_input() :: %{
+        required("ComputeName") => String.t(),
+        required("FleetId") => String.t()
+      }
+      
   """
   @type describe_compute_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  register_game_server_input() :: %{
-    optional("ConnectionInfo") => String.t(),
-    optional("GameServerData") => String.t(),
-    required("GameServerGroupName") => String.t(),
-    required("GameServerId") => String.t(),
-    required("InstanceId") => String.t()
-  }
+      
+      register_game_server_input() :: %{
+        optional("ConnectionInfo") => String.t(),
+        optional("GameServerData") => String.t(),
+        required("GameServerGroupName") => String.t(),
+        required("GameServerId") => String.t(),
+        required("InstanceId") => String.t()
+      }
+      
   """
   @type register_game_server_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_player_sessions_input() :: %{
-    optional("PlayerDataMap") => map(),
-    required("GameSessionId") => String.t(),
-    required("PlayerIds") => list(String.t()())
-  }
+      
+      create_player_sessions_input() :: %{
+        optional("PlayerDataMap") => map(),
+        required("GameSessionId") => String.t(),
+        required("PlayerIds") => list(String.t()())
+      }
+      
   """
   @type create_player_sessions_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  game_session_placement() :: %{
-    "DnsName" => String.t(),
-    "EndTime" => non_neg_integer(),
-    "GameProperties" => list(game_property()()),
-    "GameSessionArn" => String.t(),
-    "GameSessionData" => String.t(),
-    "GameSessionId" => String.t(),
-    "GameSessionName" => String.t(),
-    "GameSessionQueueName" => String.t(),
-    "GameSessionRegion" => String.t(),
-    "IpAddress" => String.t(),
-    "MatchmakerData" => String.t(),
-    "MaximumPlayerSessionCount" => integer(),
-    "PlacedPlayerSessions" => list(placed_player_session()()),
-    "PlacementId" => String.t(),
-    "PlayerLatencies" => list(player_latency()()),
-    "Port" => integer(),
-    "StartTime" => non_neg_integer(),
-    "Status" => list(any())
-  }
+      
+      game_session_placement() :: %{
+        "DnsName" => String.t(),
+        "EndTime" => non_neg_integer(),
+        "GameProperties" => list(game_property()()),
+        "GameSessionArn" => String.t(),
+        "GameSessionData" => String.t(),
+        "GameSessionId" => String.t(),
+        "GameSessionName" => String.t(),
+        "GameSessionQueueName" => String.t(),
+        "GameSessionRegion" => String.t(),
+        "IpAddress" => String.t(),
+        "MatchmakerData" => String.t(),
+        "MaximumPlayerSessionCount" => integer(),
+        "PlacedPlayerSessions" => list(placed_player_session()()),
+        "PlacementId" => String.t(),
+        "PlayerLatencies" => list(player_latency()()),
+        "Port" => integer(),
+        "StartTime" => non_neg_integer(),
+        "Status" => list(any())
+      }
+      
   """
   @type game_session_placement() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  game_session() :: %{
-    "CreationTime" => non_neg_integer(),
-    "CreatorId" => String.t(),
-    "CurrentPlayerSessionCount" => integer(),
-    "DnsName" => String.t(),
-    "FleetArn" => String.t(),
-    "FleetId" => String.t(),
-    "GameProperties" => list(game_property()()),
-    "GameSessionData" => String.t(),
-    "GameSessionId" => String.t(),
-    "IpAddress" => String.t(),
-    "Location" => String.t(),
-    "MatchmakerData" => String.t(),
-    "MaximumPlayerSessionCount" => integer(),
-    "Name" => String.t(),
-    "PlayerSessionCreationPolicy" => list(any()),
-    "Port" => integer(),
-    "Status" => list(any()),
-    "StatusReason" => list(any()),
-    "TerminationTime" => non_neg_integer()
-  }
+      
+      game_session() :: %{
+        "CreationTime" => non_neg_integer(),
+        "CreatorId" => String.t(),
+        "CurrentPlayerSessionCount" => integer(),
+        "DnsName" => String.t(),
+        "FleetArn" => String.t(),
+        "FleetId" => String.t(),
+        "GameProperties" => list(game_property()()),
+        "GameSessionData" => String.t(),
+        "GameSessionId" => String.t(),
+        "IpAddress" => String.t(),
+        "Location" => String.t(),
+        "MatchmakerData" => String.t(),
+        "MaximumPlayerSessionCount" => integer(),
+        "Name" => String.t(),
+        "PlayerSessionCreationPolicy" => list(any()),
+        "Port" => integer(),
+        "Status" => list(any()),
+        "StatusReason" => list(any()),
+        "TerminationTime" => non_neg_integer()
+      }
+      
   """
   @type game_session() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_game_session_output() :: %{
-    "GameSession" => game_session()
-  }
+      
+      update_game_session_output() :: %{
+        "GameSession" => game_session()
+      }
+      
   """
   @type update_game_session_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_builds_output() :: %{
-    "Builds" => list(build()()),
-    "NextToken" => String.t()
-  }
+      
+      list_builds_output() :: %{
+        "Builds" => list(build()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_builds_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_script_input() :: %{
-    optional("Name") => String.t(),
-    optional("StorageLocation") => s3_location(),
-    optional("Tags") => list(tag()()),
-    optional("Version") => String.t(),
-    optional("ZipFile") => binary()
-  }
+      
+      create_script_input() :: %{
+        optional("Name") => String.t(),
+        optional("StorageLocation") => s3_location(),
+        optional("Tags") => list(tag()()),
+        optional("Version") => String.t(),
+        optional("ZipFile") => binary()
+      }
+      
   """
   @type create_script_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_script_output() :: %{
-    "Script" => script()
-  }
+      
+      create_script_output() :: %{
+        "Script" => script()
+      }
+      
   """
   @type create_script_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  target_tracking_configuration() :: %{
-    "TargetValue" => float()
-  }
+      
+      target_tracking_configuration() :: %{
+        "TargetValue" => float()
+      }
+      
   """
   @type target_tracking_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_matchmaking_configurations_output() :: %{
-    "Configurations" => list(matchmaking_configuration()()),
-    "NextToken" => String.t()
-  }
+      
+      describe_matchmaking_configurations_output() :: %{
+        "Configurations" => list(matchmaking_configuration()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type describe_matchmaking_configurations_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_game_server_instances_input() :: %{
-    optional("InstanceIds") => list(String.t()()),
-    optional("Limit") => integer(),
-    optional("NextToken") => String.t(),
-    required("GameServerGroupName") => String.t()
-  }
+      
+      describe_game_server_instances_input() :: %{
+        optional("InstanceIds") => list(String.t()()),
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t(),
+        required("GameServerGroupName") => String.t()
+      }
+      
   """
   @type describe_game_server_instances_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  terminal_routing_strategy_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      terminal_routing_strategy_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type terminal_routing_strategy_exception() :: %{String.t() => any()}
+
+  @type accept_match_errors() ::
+          unsupported_region_exception()
+          | not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+
+  @type claim_game_server_errors() ::
+          not_found_exception()
+          | invalid_request_exception()
+          | conflict_exception()
+          | internal_service_exception()
+          | out_of_capacity_exception()
+          | unauthorized_exception()
+
+  @type create_alias_errors() ::
+          limit_exceeded_exception()
+          | invalid_request_exception()
+          | conflict_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+          | tagging_failed_exception()
+
+  @type create_build_errors() ::
+          invalid_request_exception()
+          | conflict_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+          | tagging_failed_exception()
+
+  @type create_fleet_errors() ::
+          limit_exceeded_exception()
+          | unsupported_region_exception()
+          | not_found_exception()
+          | invalid_request_exception()
+          | conflict_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+          | tagging_failed_exception()
+
+  @type create_fleet_locations_errors() ::
+          limit_exceeded_exception()
+          | unsupported_region_exception()
+          | not_found_exception()
+          | invalid_request_exception()
+          | conflict_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+          | invalid_fleet_status_exception()
+
+  @type create_game_server_group_errors() ::
+          limit_exceeded_exception()
+          | invalid_request_exception()
+          | conflict_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+
+  @type create_game_session_errors() ::
+          terminal_routing_strategy_exception()
+          | limit_exceeded_exception()
+          | unsupported_region_exception()
+          | not_found_exception()
+          | idempotent_parameter_mismatch_exception()
+          | invalid_request_exception()
+          | conflict_exception()
+          | fleet_capacity_exceeded_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+          | invalid_fleet_status_exception()
+
+  @type create_game_session_queue_errors() ::
+          limit_exceeded_exception()
+          | not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+          | tagging_failed_exception()
+
+  @type create_location_errors() ::
+          limit_exceeded_exception()
+          | invalid_request_exception()
+          | conflict_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+          | tagging_failed_exception()
+
+  @type create_matchmaking_configuration_errors() ::
+          limit_exceeded_exception()
+          | unsupported_region_exception()
+          | not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | tagging_failed_exception()
+
+  @type create_matchmaking_rule_set_errors() ::
+          limit_exceeded_exception()
+          | unsupported_region_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | tagging_failed_exception()
+
+  @type create_player_session_errors() ::
+          terminal_routing_strategy_exception()
+          | invalid_game_session_status_exception()
+          | game_session_full_exception()
+          | not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+
+  @type create_player_sessions_errors() ::
+          terminal_routing_strategy_exception()
+          | invalid_game_session_status_exception()
+          | game_session_full_exception()
+          | not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+
+  @type create_script_errors() ::
+          invalid_request_exception()
+          | conflict_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+          | tagging_failed_exception()
+
+  @type create_vpc_peering_authorization_errors() ::
+          not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+
+  @type create_vpc_peering_connection_errors() ::
+          not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+
+  @type delete_alias_errors() ::
+          not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+          | tagging_failed_exception()
+
+  @type delete_build_errors() ::
+          not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+          | tagging_failed_exception()
+
+  @type delete_fleet_errors() ::
+          not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+          | tagging_failed_exception()
+          | invalid_fleet_status_exception()
+
+  @type delete_fleet_locations_errors() ::
+          unsupported_region_exception()
+          | not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+
+  @type delete_game_server_group_errors() ::
+          not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+
+  @type delete_game_session_queue_errors() ::
+          not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+          | tagging_failed_exception()
+
+  @type delete_location_errors() ::
+          not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+
+  @type delete_matchmaking_configuration_errors() ::
+          unsupported_region_exception()
+          | not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | tagging_failed_exception()
+
+  @type delete_matchmaking_rule_set_errors() ::
+          unsupported_region_exception()
+          | not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | tagging_failed_exception()
+
+  @type delete_scaling_policy_errors() ::
+          not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+
+  @type delete_script_errors() ::
+          not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+          | tagging_failed_exception()
+
+  @type delete_vpc_peering_authorization_errors() ::
+          not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+
+  @type delete_vpc_peering_connection_errors() ::
+          not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+
+  @type deregister_compute_errors() ::
+          not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+
+  @type deregister_game_server_errors() ::
+          not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+
+  @type describe_alias_errors() ::
+          not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+
+  @type describe_build_errors() ::
+          not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+
+  @type describe_compute_errors() ::
+          not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+
+  @type describe_ec2_instance_limits_errors() ::
+          unsupported_region_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+
+  @type describe_fleet_attributes_errors() ::
+          not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+
+  @type describe_fleet_capacity_errors() ::
+          not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+
+  @type describe_fleet_events_errors() ::
+          not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+
+  @type describe_fleet_location_attributes_errors() ::
+          unsupported_region_exception()
+          | not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+
+  @type describe_fleet_location_capacity_errors() ::
+          unsupported_region_exception()
+          | not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+
+  @type describe_fleet_location_utilization_errors() ::
+          unsupported_region_exception()
+          | not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+
+  @type describe_fleet_port_settings_errors() ::
+          unsupported_region_exception()
+          | not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+
+  @type describe_fleet_utilization_errors() ::
+          not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+
+  @type describe_game_server_errors() ::
+          not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+
+  @type describe_game_server_group_errors() ::
+          not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+
+  @type describe_game_server_instances_errors() ::
+          not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+
+  @type describe_game_session_details_errors() ::
+          terminal_routing_strategy_exception()
+          | unsupported_region_exception()
+          | not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+
+  @type describe_game_session_placement_errors() ::
+          not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+
+  @type describe_game_session_queues_errors() ::
+          not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+
+  @type describe_game_sessions_errors() ::
+          terminal_routing_strategy_exception()
+          | unsupported_region_exception()
+          | not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+
+  @type describe_instances_errors() ::
+          unsupported_region_exception()
+          | not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+
+  @type describe_matchmaking_errors() ::
+          unsupported_region_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+
+  @type describe_matchmaking_configurations_errors() ::
+          unsupported_region_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+
+  @type describe_matchmaking_rule_sets_errors() ::
+          unsupported_region_exception()
+          | not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+
+  @type describe_player_sessions_errors() ::
+          not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+
+  @type describe_runtime_configuration_errors() ::
+          not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+
+  @type describe_scaling_policies_errors() ::
+          unsupported_region_exception()
+          | not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+
+  @type describe_script_errors() ::
+          not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+
+  @type describe_vpc_peering_authorizations_errors() ::
+          invalid_request_exception() | internal_service_exception() | unauthorized_exception()
+
+  @type describe_vpc_peering_connections_errors() ::
+          not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+
+  @type get_compute_access_errors() ::
+          not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+
+  @type get_compute_auth_token_errors() ::
+          not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+
+  @type get_game_session_log_url_errors() ::
+          not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+
+  @type get_instance_access_errors() ::
+          not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+
+  @type list_aliases_errors() ::
+          invalid_request_exception() | internal_service_exception() | unauthorized_exception()
+
+  @type list_builds_errors() ::
+          invalid_request_exception() | internal_service_exception() | unauthorized_exception()
+
+  @type list_compute_errors() ::
+          invalid_request_exception() | internal_service_exception() | unauthorized_exception()
+
+  @type list_fleets_errors() ::
+          not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+
+  @type list_game_server_groups_errors() ::
+          invalid_request_exception() | internal_service_exception() | unauthorized_exception()
+
+  @type list_game_servers_errors() ::
+          invalid_request_exception() | internal_service_exception() | unauthorized_exception()
+
+  @type list_locations_errors() ::
+          invalid_request_exception() | internal_service_exception() | unauthorized_exception()
+
+  @type list_scripts_errors() ::
+          invalid_request_exception() | internal_service_exception() | unauthorized_exception()
+
+  @type list_tags_for_resource_errors() ::
+          not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | tagging_failed_exception()
+
+  @type put_scaling_policy_errors() ::
+          not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+
+  @type register_compute_errors() ::
+          limit_exceeded_exception()
+          | invalid_request_exception()
+          | conflict_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+
+  @type register_game_server_errors() ::
+          limit_exceeded_exception()
+          | invalid_request_exception()
+          | conflict_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+
+  @type request_upload_credentials_errors() ::
+          not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+
+  @type resolve_alias_errors() ::
+          terminal_routing_strategy_exception()
+          | not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+
+  @type resume_game_server_group_errors() ::
+          not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+
+  @type search_game_sessions_errors() ::
+          terminal_routing_strategy_exception()
+          | unsupported_region_exception()
+          | not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+
+  @type start_fleet_actions_errors() ::
+          unsupported_region_exception()
+          | not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+
+  @type start_game_session_placement_errors() ::
+          not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+
+  @type start_match_backfill_errors() ::
+          unsupported_region_exception()
+          | not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+
+  @type start_matchmaking_errors() ::
+          unsupported_region_exception()
+          | not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+
+  @type stop_fleet_actions_errors() ::
+          unsupported_region_exception()
+          | not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+
+  @type stop_game_session_placement_errors() ::
+          not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+
+  @type stop_matchmaking_errors() ::
+          unsupported_region_exception()
+          | not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+
+  @type suspend_game_server_group_errors() ::
+          not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+
+  @type tag_resource_errors() ::
+          not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | tagging_failed_exception()
+
+  @type untag_resource_errors() ::
+          not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | tagging_failed_exception()
+
+  @type update_alias_errors() ::
+          not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+
+  @type update_build_errors() ::
+          not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+
+  @type update_fleet_attributes_errors() ::
+          limit_exceeded_exception()
+          | not_found_exception()
+          | invalid_request_exception()
+          | conflict_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+          | invalid_fleet_status_exception()
+
+  @type update_fleet_capacity_errors() ::
+          limit_exceeded_exception()
+          | unsupported_region_exception()
+          | not_found_exception()
+          | invalid_request_exception()
+          | conflict_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+          | invalid_fleet_status_exception()
+
+  @type update_fleet_port_settings_errors() ::
+          limit_exceeded_exception()
+          | not_found_exception()
+          | invalid_request_exception()
+          | conflict_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+          | invalid_fleet_status_exception()
+
+  @type update_game_server_errors() ::
+          not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+
+  @type update_game_server_group_errors() ::
+          not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+
+  @type update_game_session_errors() ::
+          invalid_game_session_status_exception()
+          | not_found_exception()
+          | invalid_request_exception()
+          | conflict_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+
+  @type update_game_session_queue_errors() ::
+          not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+
+  @type update_matchmaking_configuration_errors() ::
+          unsupported_region_exception()
+          | not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+
+  @type update_runtime_configuration_errors() ::
+          not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+          | invalid_fleet_status_exception()
+
+  @type update_script_errors() ::
+          not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+
+  @type validate_matchmaking_rule_set_errors() ::
+          unsupported_region_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
 
   def metadata do
     %{
@@ -3230,10 +4429,7 @@ defmodule AWS.GameLift do
   @spec accept_match(map(), accept_match_input(), list()) ::
           {:ok, accept_match_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, unsupported_region_exception()}
+          | {:error, accept_match_errors()}
   def accept_match(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3298,12 +4494,7 @@ defmodule AWS.GameLift do
   @spec claim_game_server(map(), claim_game_server_input(), list()) ::
           {:ok, claim_game_server_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, out_of_capacity_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, claim_game_server_errors()}
   def claim_game_server(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3344,12 +4535,7 @@ defmodule AWS.GameLift do
   @spec create_alias(map(), create_alias_input(), list()) ::
           {:ok, create_alias_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, tagging_failed_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, create_alias_errors()}
   def create_alias(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3409,11 +4595,7 @@ defmodule AWS.GameLift do
   @spec create_build(map(), create_build_input(), list()) ::
           {:ok, create_build_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, tagging_failed_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, create_build_errors()}
   def create_build(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3484,14 +4666,7 @@ defmodule AWS.GameLift do
   @spec create_fleet(map(), create_fleet_input(), list()) ::
           {:ok, create_fleet_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, not_found_exception()}
-          | {:error, tagging_failed_exception()}
-          | {:error, unauthorized_exception()}
-          | {:error, unsupported_region_exception()}
+          | {:error, create_fleet_errors()}
   def create_fleet(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3533,14 +4708,7 @@ defmodule AWS.GameLift do
   @spec create_fleet_locations(map(), create_fleet_locations_input(), list()) ::
           {:ok, create_fleet_locations_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_fleet_status_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, not_found_exception()}
-          | {:error, unauthorized_exception()}
-          | {:error, unsupported_region_exception()}
+          | {:error, create_fleet_locations_errors()}
   def create_fleet_locations(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3612,11 +4780,7 @@ defmodule AWS.GameLift do
   @spec create_game_server_group(map(), create_game_server_group_input(), list()) ::
           {:ok, create_game_server_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, create_game_server_group_errors()}
   def create_game_server_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3683,17 +4847,7 @@ defmodule AWS.GameLift do
   @spec create_game_session(map(), create_game_session_input(), list()) ::
           {:ok, create_game_session_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, fleet_capacity_exceeded_exception()}
-          | {:error, idempotent_parameter_mismatch_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_fleet_status_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, not_found_exception()}
-          | {:error, terminal_routing_strategy_exception()}
-          | {:error, unauthorized_exception()}
-          | {:error, unsupported_region_exception()}
+          | {:error, create_game_session_errors()}
   def create_game_session(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3771,12 +4925,7 @@ defmodule AWS.GameLift do
   @spec create_game_session_queue(map(), create_game_session_queue_input(), list()) ::
           {:ok, create_game_session_queue_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, not_found_exception()}
-          | {:error, tagging_failed_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, create_game_session_queue_errors()}
   def create_game_session_queue(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3789,12 +4938,7 @@ defmodule AWS.GameLift do
   @spec create_location(map(), create_location_input(), list()) ::
           {:ok, create_location_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, tagging_failed_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, create_location_errors()}
   def create_location(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3842,12 +4986,7 @@ defmodule AWS.GameLift do
   @spec create_matchmaking_configuration(map(), create_matchmaking_configuration_input(), list()) ::
           {:ok, create_matchmaking_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, not_found_exception()}
-          | {:error, tagging_failed_exception()}
-          | {:error, unsupported_region_exception()}
+          | {:error, create_matchmaking_configuration_errors()}
   def create_matchmaking_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3889,11 +5028,7 @@ defmodule AWS.GameLift do
   @spec create_matchmaking_rule_set(map(), create_matchmaking_rule_set_input(), list()) ::
           {:ok, create_matchmaking_rule_set_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, tagging_failed_exception()}
-          | {:error, unsupported_region_exception()}
+          | {:error, create_matchmaking_rule_set_errors()}
   def create_matchmaking_rule_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3931,13 +5066,7 @@ defmodule AWS.GameLift do
   @spec create_player_session(map(), create_player_session_input(), list()) ::
           {:ok, create_player_session_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, game_session_full_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_game_session_status_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, terminal_routing_strategy_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, create_player_session_errors()}
   def create_player_session(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3972,13 +5101,7 @@ defmodule AWS.GameLift do
   @spec create_player_sessions(map(), create_player_sessions_input(), list()) ::
           {:ok, create_player_sessions_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, game_session_full_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_game_session_status_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, terminal_routing_strategy_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, create_player_sessions_errors()}
   def create_player_sessions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4036,11 +5159,7 @@ defmodule AWS.GameLift do
   @spec create_script(map(), create_script_input(), list()) ::
           {:ok, create_script_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, tagging_failed_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, create_script_errors()}
   def create_script(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4098,10 +5217,7 @@ defmodule AWS.GameLift do
   @spec create_vpc_peering_authorization(map(), create_vpc_peering_authorization_input(), list()) ::
           {:ok, create_vpc_peering_authorization_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, create_vpc_peering_authorization_errors()}
   def create_vpc_peering_authorization(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4156,10 +5272,7 @@ defmodule AWS.GameLift do
   @spec create_vpc_peering_connection(map(), create_vpc_peering_connection_input(), list()) ::
           {:ok, create_vpc_peering_connection_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, create_vpc_peering_connection_errors()}
   def create_vpc_peering_connection(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4181,11 +5294,7 @@ defmodule AWS.GameLift do
   @spec delete_alias(map(), delete_alias_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, tagging_failed_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, delete_alias_errors()}
   def delete_alias(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4212,11 +5321,7 @@ defmodule AWS.GameLift do
   @spec delete_build(map(), delete_build_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, tagging_failed_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, delete_build_errors()}
   def delete_build(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4249,12 +5354,7 @@ defmodule AWS.GameLift do
   @spec delete_fleet(map(), delete_fleet_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_fleet_status_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, tagging_failed_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, delete_fleet_errors()}
   def delete_fleet(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4284,11 +5384,7 @@ defmodule AWS.GameLift do
   @spec delete_fleet_locations(map(), delete_fleet_locations_input(), list()) ::
           {:ok, delete_fleet_locations_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, unauthorized_exception()}
-          | {:error, unsupported_region_exception()}
+          | {:error, delete_fleet_locations_errors()}
   def delete_fleet_locations(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4342,10 +5438,7 @@ defmodule AWS.GameLift do
   @spec delete_game_server_group(map(), delete_game_server_group_input(), list()) ::
           {:ok, delete_game_server_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, delete_game_server_group_errors()}
   def delete_game_server_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4363,11 +5456,7 @@ defmodule AWS.GameLift do
   @spec delete_game_session_queue(map(), delete_game_session_queue_input(), list()) ::
           {:ok, delete_game_session_queue_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, tagging_failed_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, delete_game_session_queue_errors()}
   def delete_game_session_queue(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4384,10 +5473,7 @@ defmodule AWS.GameLift do
   @spec delete_location(map(), delete_location_input(), list()) ::
           {:ok, delete_location_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, delete_location_errors()}
   def delete_location(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4405,11 +5491,7 @@ defmodule AWS.GameLift do
   @spec delete_matchmaking_configuration(map(), delete_matchmaking_configuration_input(), list()) ::
           {:ok, delete_matchmaking_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, tagging_failed_exception()}
-          | {:error, unsupported_region_exception()}
+          | {:error, delete_matchmaking_configuration_errors()}
   def delete_matchmaking_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4433,11 +5515,7 @@ defmodule AWS.GameLift do
   @spec delete_matchmaking_rule_set(map(), delete_matchmaking_rule_set_input(), list()) ::
           {:ok, delete_matchmaking_rule_set_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, tagging_failed_exception()}
-          | {:error, unsupported_region_exception()}
+          | {:error, delete_matchmaking_rule_set_errors()}
   def delete_matchmaking_rule_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4460,10 +5538,7 @@ defmodule AWS.GameLift do
   @spec delete_scaling_policy(map(), delete_scaling_policy_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, delete_scaling_policy_errors()}
   def delete_scaling_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4496,11 +5571,7 @@ defmodule AWS.GameLift do
   @spec delete_script(map(), delete_script_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, tagging_failed_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, delete_script_errors()}
   def delete_script(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4521,10 +5592,7 @@ defmodule AWS.GameLift do
   @spec delete_vpc_peering_authorization(map(), delete_vpc_peering_authorization_input(), list()) ::
           {:ok, delete_vpc_peering_authorization_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, delete_vpc_peering_authorization_errors()}
   def delete_vpc_peering_authorization(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4550,10 +5618,7 @@ defmodule AWS.GameLift do
   @spec delete_vpc_peering_connection(map(), delete_vpc_peering_connection_input(), list()) ::
           {:ok, delete_vpc_peering_connection_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, delete_vpc_peering_connection_errors()}
   def delete_vpc_peering_connection(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4569,10 +5634,7 @@ defmodule AWS.GameLift do
   @spec deregister_compute(map(), deregister_compute_input(), list()) ::
           {:ok, deregister_compute_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, deregister_compute_errors()}
   def deregister_compute(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4603,10 +5665,7 @@ defmodule AWS.GameLift do
   @spec deregister_game_server(map(), deregister_game_server_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, deregister_game_server_errors()}
   def deregister_game_server(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4630,10 +5689,7 @@ defmodule AWS.GameLift do
   @spec describe_alias(map(), describe_alias_input(), list()) ::
           {:ok, describe_alias_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, describe_alias_errors()}
   def describe_alias(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4656,10 +5712,7 @@ defmodule AWS.GameLift do
   @spec describe_build(map(), describe_build_input(), list()) ::
           {:ok, describe_build_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, describe_build_errors()}
   def describe_build(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4684,10 +5737,7 @@ defmodule AWS.GameLift do
   @spec describe_compute(map(), describe_compute_input(), list()) ::
           {:ok, describe_compute_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, describe_compute_errors()}
   def describe_compute(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4765,10 +5815,7 @@ defmodule AWS.GameLift do
   @spec describe_ec2_instance_limits(map(), describe_ec2_instance_limits_input(), list()) ::
           {:ok, describe_ec2_instance_limits_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, unauthorized_exception()}
-          | {:error, unsupported_region_exception()}
+          | {:error, describe_ec2_instance_limits_errors()}
   def describe_ec2_instance_limits(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4808,10 +5855,7 @@ defmodule AWS.GameLift do
   @spec describe_fleet_attributes(map(), describe_fleet_attributes_input(), list()) ::
           {:ok, describe_fleet_attributes_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, describe_fleet_attributes_errors()}
   def describe_fleet_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4861,10 +5905,7 @@ defmodule AWS.GameLift do
   @spec describe_fleet_capacity(map(), describe_fleet_capacity_input(), list()) ::
           {:ok, describe_fleet_capacity_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, describe_fleet_capacity_errors()}
   def describe_fleet_capacity(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4894,10 +5935,7 @@ defmodule AWS.GameLift do
   @spec describe_fleet_events(map(), describe_fleet_events_input(), list()) ::
           {:ok, describe_fleet_events_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, describe_fleet_events_errors()}
   def describe_fleet_events(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4942,11 +5980,7 @@ defmodule AWS.GameLift do
         ) ::
           {:ok, describe_fleet_location_attributes_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, unauthorized_exception()}
-          | {:error, unsupported_region_exception()}
+          | {:error, describe_fleet_location_attributes_errors()}
   def describe_fleet_location_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4979,11 +6013,7 @@ defmodule AWS.GameLift do
   @spec describe_fleet_location_capacity(map(), describe_fleet_location_capacity_input(), list()) ::
           {:ok, describe_fleet_location_capacity_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, unauthorized_exception()}
-          | {:error, unsupported_region_exception()}
+          | {:error, describe_fleet_location_capacity_errors()}
   def describe_fleet_location_capacity(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5019,11 +6049,7 @@ defmodule AWS.GameLift do
         ) ::
           {:ok, describe_fleet_location_utilization_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, unauthorized_exception()}
-          | {:error, unsupported_region_exception()}
+          | {:error, describe_fleet_location_utilization_errors()}
   def describe_fleet_location_utilization(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5063,11 +6089,7 @@ defmodule AWS.GameLift do
   @spec describe_fleet_port_settings(map(), describe_fleet_port_settings_input(), list()) ::
           {:ok, describe_fleet_port_settings_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, unauthorized_exception()}
-          | {:error, unsupported_region_exception()}
+          | {:error, describe_fleet_port_settings_errors()}
   def describe_fleet_port_settings(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5118,10 +6140,7 @@ defmodule AWS.GameLift do
   @spec describe_fleet_utilization(map(), describe_fleet_utilization_input(), list()) ::
           {:ok, describe_fleet_utilization_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, describe_fleet_utilization_errors()}
   def describe_fleet_utilization(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5150,10 +6169,7 @@ defmodule AWS.GameLift do
   @spec describe_game_server(map(), describe_game_server_input(), list()) ::
           {:ok, describe_game_server_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, describe_game_server_errors()}
   def describe_game_server(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5186,10 +6202,7 @@ defmodule AWS.GameLift do
   @spec describe_game_server_group(map(), describe_game_server_group_input(), list()) ::
           {:ok, describe_game_server_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, describe_game_server_group_errors()}
   def describe_game_server_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5233,10 +6246,7 @@ defmodule AWS.GameLift do
   @spec describe_game_server_instances(map(), describe_game_server_instances_input(), list()) ::
           {:ok, describe_game_server_instances_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, describe_game_server_instances_errors()}
   def describe_game_server_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5285,12 +6295,7 @@ defmodule AWS.GameLift do
   @spec describe_game_session_details(map(), describe_game_session_details_input(), list()) ::
           {:ok, describe_game_session_details_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, terminal_routing_strategy_exception()}
-          | {:error, unauthorized_exception()}
-          | {:error, unsupported_region_exception()}
+          | {:error, describe_game_session_details_errors()}
   def describe_game_session_details(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5315,10 +6320,7 @@ defmodule AWS.GameLift do
   @spec describe_game_session_placement(map(), describe_game_session_placement_input(), list()) ::
           {:ok, describe_game_session_placement_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, describe_game_session_placement_errors()}
   def describe_game_session_placement(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5344,10 +6346,7 @@ defmodule AWS.GameLift do
   @spec describe_game_session_queues(map(), describe_game_session_queues_input(), list()) ::
           {:ok, describe_game_session_queues_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, describe_game_session_queues_errors()}
   def describe_game_session_queues(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5405,12 +6404,7 @@ defmodule AWS.GameLift do
   @spec describe_game_sessions(map(), describe_game_sessions_input(), list()) ::
           {:ok, describe_game_sessions_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, terminal_routing_strategy_exception()}
-          | {:error, unauthorized_exception()}
-          | {:error, unsupported_region_exception()}
+          | {:error, describe_game_sessions_errors()}
   def describe_game_sessions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5464,11 +6458,7 @@ defmodule AWS.GameLift do
   @spec describe_instances(map(), describe_instances_input(), list()) ::
           {:ok, describe_instances_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, unauthorized_exception()}
-          | {:error, unsupported_region_exception()}
+          | {:error, describe_instances_errors()}
   def describe_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5507,9 +6497,7 @@ defmodule AWS.GameLift do
   @spec describe_matchmaking(map(), describe_matchmaking_input(), list()) ::
           {:ok, describe_matchmaking_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, unsupported_region_exception()}
+          | {:error, describe_matchmaking_errors()}
   def describe_matchmaking(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5541,9 +6529,7 @@ defmodule AWS.GameLift do
         ) ::
           {:ok, describe_matchmaking_configurations_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, unsupported_region_exception()}
+          | {:error, describe_matchmaking_configurations_errors()}
   def describe_matchmaking_configurations(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5568,10 +6554,7 @@ defmodule AWS.GameLift do
   @spec describe_matchmaking_rule_sets(map(), describe_matchmaking_rule_sets_input(), list()) ::
           {:ok, describe_matchmaking_rule_sets_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, unsupported_region_exception()}
+          | {:error, describe_matchmaking_rule_sets_errors()}
   def describe_matchmaking_rule_sets(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5612,10 +6595,7 @@ defmodule AWS.GameLift do
   @spec describe_player_sessions(map(), describe_player_sessions_input(), list()) ::
           {:ok, describe_player_sessions_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, describe_player_sessions_errors()}
   def describe_player_sessions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5647,10 +6627,7 @@ defmodule AWS.GameLift do
   @spec describe_runtime_configuration(map(), describe_runtime_configuration_input(), list()) ::
           {:ok, describe_runtime_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, describe_runtime_configuration_errors()}
   def describe_runtime_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5675,11 +6652,7 @@ defmodule AWS.GameLift do
   @spec describe_scaling_policies(map(), describe_scaling_policies_input(), list()) ::
           {:ok, describe_scaling_policies_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, unauthorized_exception()}
-          | {:error, unsupported_region_exception()}
+          | {:error, describe_scaling_policies_errors()}
   def describe_scaling_policies(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5704,10 +6677,7 @@ defmodule AWS.GameLift do
   @spec describe_script(map(), describe_script_input(), list()) ::
           {:ok, describe_script_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, describe_script_errors()}
   def describe_script(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5733,9 +6703,7 @@ defmodule AWS.GameLift do
         ) ::
           {:ok, describe_vpc_peering_authorizations_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, describe_vpc_peering_authorizations_errors()}
   def describe_vpc_peering_authorizations(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5765,10 +6733,7 @@ defmodule AWS.GameLift do
   @spec describe_vpc_peering_connections(map(), describe_vpc_peering_connections_input(), list()) ::
           {:ok, describe_vpc_peering_connections_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, describe_vpc_peering_connections_errors()}
   def describe_vpc_peering_connections(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5806,10 +6771,7 @@ defmodule AWS.GameLift do
   @spec get_compute_access(map(), get_compute_access_input(), list()) ::
           {:ok, get_compute_access_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, get_compute_access_errors()}
   def get_compute_access(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5850,10 +6812,7 @@ defmodule AWS.GameLift do
   @spec get_compute_auth_token(map(), get_compute_auth_token_input(), list()) ::
           {:ok, get_compute_auth_token_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, get_compute_auth_token_errors()}
   def get_compute_auth_token(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5878,10 +6837,7 @@ defmodule AWS.GameLift do
   @spec get_game_session_log_url(map(), get_game_session_log_url_input(), list()) ::
           {:ok, get_game_session_log_url_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, get_game_session_log_url_errors()}
   def get_game_session_log_url(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5932,10 +6888,7 @@ defmodule AWS.GameLift do
   @spec get_instance_access(map(), get_instance_access_input(), list()) ::
           {:ok, get_instance_access_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, get_instance_access_errors()}
   def get_instance_access(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5959,9 +6912,7 @@ defmodule AWS.GameLift do
   @spec list_aliases(map(), list_aliases_input(), list()) ::
           {:ok, list_aliases_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, list_aliases_errors()}
   def list_aliases(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5989,9 +6940,7 @@ defmodule AWS.GameLift do
   @spec list_builds(map(), list_builds_input(), list()) ::
           {:ok, list_builds_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, list_builds_errors()}
   def list_builds(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6019,9 +6968,7 @@ defmodule AWS.GameLift do
   @spec list_compute(map(), list_compute_input(), list()) ::
           {:ok, list_compute_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, list_compute_errors()}
   def list_compute(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6070,10 +7017,7 @@ defmodule AWS.GameLift do
   @spec list_fleets(map(), list_fleets_input(), list()) ::
           {:ok, list_fleets_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, list_fleets_errors()}
   def list_fleets(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6086,9 +7030,7 @@ defmodule AWS.GameLift do
   @spec list_game_server_groups(map(), list_game_server_groups_input(), list()) ::
           {:ok, list_game_server_groups_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, list_game_server_groups_errors()}
   def list_game_server_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6115,9 +7057,7 @@ defmodule AWS.GameLift do
   @spec list_game_servers(map(), list_game_servers_input(), list()) ::
           {:ok, list_game_servers_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, list_game_servers_errors()}
   def list_game_servers(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6130,9 +7070,7 @@ defmodule AWS.GameLift do
   @spec list_locations(map(), list_locations_input(), list()) ::
           {:ok, list_locations_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, list_locations_errors()}
   def list_locations(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6155,9 +7093,7 @@ defmodule AWS.GameLift do
   @spec list_scripts(map(), list_scripts_input(), list()) ::
           {:ok, list_scripts_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, list_scripts_errors()}
   def list_scripts(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6190,10 +7126,7 @@ defmodule AWS.GameLift do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, tagging_failed_exception()}
+          | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6297,10 +7230,7 @@ defmodule AWS.GameLift do
   @spec put_scaling_policy(map(), put_scaling_policy_input(), list()) ::
           {:ok, put_scaling_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, put_scaling_policy_errors()}
   def put_scaling_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6350,11 +7280,7 @@ defmodule AWS.GameLift do
   @spec register_compute(map(), register_compute_input(), list()) ::
           {:ok, register_compute_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, register_compute_errors()}
   def register_compute(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6397,11 +7323,7 @@ defmodule AWS.GameLift do
   @spec register_game_server(map(), register_game_server_input(), list()) ::
           {:ok, register_game_server_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, register_game_server_errors()}
   def register_game_server(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6429,10 +7351,7 @@ defmodule AWS.GameLift do
   @spec request_upload_credentials(map(), request_upload_credentials_input(), list()) ::
           {:ok, request_upload_credentials_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, request_upload_credentials_errors()}
   def request_upload_credentials(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6449,11 +7368,7 @@ defmodule AWS.GameLift do
   @spec resolve_alias(map(), resolve_alias_input(), list()) ::
           {:ok, resolve_alias_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, terminal_routing_strategy_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, resolve_alias_errors()}
   def resolve_alias(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6490,10 +7405,7 @@ defmodule AWS.GameLift do
   @spec resume_game_server_group(map(), resume_game_server_group_input(), list()) ::
           {:ok, resume_game_server_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, resume_game_server_group_errors()}
   def resume_game_server_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6602,12 +7514,7 @@ defmodule AWS.GameLift do
   @spec search_game_sessions(map(), search_game_sessions_input(), list()) ::
           {:ok, search_game_sessions_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, terminal_routing_strategy_exception()}
-          | {:error, unauthorized_exception()}
-          | {:error, unsupported_region_exception()}
+          | {:error, search_game_sessions_errors()}
   def search_game_sessions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6645,11 +7552,7 @@ defmodule AWS.GameLift do
   @spec start_fleet_actions(map(), start_fleet_actions_input(), list()) ::
           {:ok, start_fleet_actions_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, unauthorized_exception()}
-          | {:error, unsupported_region_exception()}
+          | {:error, start_fleet_actions_errors()}
   def start_fleet_actions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6719,10 +7622,7 @@ defmodule AWS.GameLift do
   @spec start_game_session_placement(map(), start_game_session_placement_input(), list()) ::
           {:ok, start_game_session_placement_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, start_game_session_placement_errors()}
   def start_game_session_placement(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6793,10 +7693,7 @@ defmodule AWS.GameLift do
   @spec start_match_backfill(map(), start_match_backfill_input(), list()) ::
           {:ok, start_match_backfill_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, unsupported_region_exception()}
+          | {:error, start_match_backfill_errors()}
   def start_match_backfill(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6850,10 +7747,7 @@ defmodule AWS.GameLift do
   @spec start_matchmaking(map(), start_matchmaking_input(), list()) ::
           {:ok, start_matchmaking_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, unsupported_region_exception()}
+          | {:error, start_matchmaking_errors()}
   def start_matchmaking(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6898,11 +7792,7 @@ defmodule AWS.GameLift do
   @spec stop_fleet_actions(map(), stop_fleet_actions_input(), list()) ::
           {:ok, stop_fleet_actions_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, unauthorized_exception()}
-          | {:error, unsupported_region_exception()}
+          | {:error, stop_fleet_actions_errors()}
   def stop_fleet_actions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6920,10 +7810,7 @@ defmodule AWS.GameLift do
   @spec stop_game_session_placement(map(), stop_game_session_placement_input(), list()) ::
           {:ok, stop_game_session_placement_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, stop_game_session_placement_errors()}
   def stop_game_session_placement(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6957,10 +7844,7 @@ defmodule AWS.GameLift do
   @spec stop_matchmaking(map(), stop_matchmaking_input(), list()) ::
           {:ok, stop_matchmaking_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, unsupported_region_exception()}
+          | {:error, stop_matchmaking_errors()}
   def stop_matchmaking(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7004,10 +7888,7 @@ defmodule AWS.GameLift do
   @spec suspend_game_server_group(map(), suspend_game_server_group_input(), list()) ::
           {:ok, suspend_game_server_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, suspend_game_server_group_errors()}
   def suspend_game_server_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7046,10 +7927,7 @@ defmodule AWS.GameLift do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, tagging_failed_exception()}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7086,10 +7964,7 @@ defmodule AWS.GameLift do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, tagging_failed_exception()}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7113,10 +7988,7 @@ defmodule AWS.GameLift do
   @spec update_alias(map(), update_alias_input(), list()) ::
           {:ok, update_alias_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, update_alias_errors()}
   def update_alias(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7141,10 +8013,7 @@ defmodule AWS.GameLift do
   @spec update_build(map(), update_build_input(), list()) ::
           {:ok, update_build_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, update_build_errors()}
   def update_build(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7169,13 +8038,7 @@ defmodule AWS.GameLift do
   @spec update_fleet_attributes(map(), update_fleet_attributes_input(), list()) ::
           {:ok, update_fleet_attributes_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_fleet_status_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, not_found_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, update_fleet_attributes_errors()}
   def update_fleet_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7244,14 +8107,7 @@ defmodule AWS.GameLift do
   @spec update_fleet_capacity(map(), update_fleet_capacity_input(), list()) ::
           {:ok, update_fleet_capacity_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_fleet_status_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, not_found_exception()}
-          | {:error, unauthorized_exception()}
-          | {:error, unsupported_region_exception()}
+          | {:error, update_fleet_capacity_errors()}
   def update_fleet_capacity(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7284,13 +8140,7 @@ defmodule AWS.GameLift do
   @spec update_fleet_port_settings(map(), update_fleet_port_settings_input(), list()) ::
           {:ok, update_fleet_port_settings_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_fleet_status_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, not_found_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, update_fleet_port_settings_errors()}
   def update_fleet_port_settings(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7342,10 +8192,7 @@ defmodule AWS.GameLift do
   @spec update_game_server(map(), update_game_server_input(), list()) ::
           {:ok, update_game_server_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, update_game_server_errors()}
   def update_game_server(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7380,10 +8227,7 @@ defmodule AWS.GameLift do
   @spec update_game_server_group(map(), update_game_server_group_input(), list()) ::
           {:ok, update_game_server_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, update_game_server_group_errors()}
   def update_game_server_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7403,12 +8247,7 @@ defmodule AWS.GameLift do
   @spec update_game_session(map(), update_game_session_input(), list()) ::
           {:ok, update_game_session_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_game_session_status_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, update_game_session_errors()}
   def update_game_session(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7434,10 +8273,7 @@ defmodule AWS.GameLift do
   @spec update_game_session_queue(map(), update_game_session_queue_input(), list()) ::
           {:ok, update_game_session_queue_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, update_game_session_queue_errors()}
   def update_game_session_queue(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7459,10 +8295,7 @@ defmodule AWS.GameLift do
   @spec update_matchmaking_configuration(map(), update_matchmaking_configuration_input(), list()) ::
           {:ok, update_matchmaking_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, unsupported_region_exception()}
+          | {:error, update_matchmaking_configuration_errors()}
   def update_matchmaking_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7499,11 +8332,7 @@ defmodule AWS.GameLift do
   @spec update_runtime_configuration(map(), update_runtime_configuration_input(), list()) ::
           {:ok, update_runtime_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_fleet_status_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, update_runtime_configuration_errors()}
   def update_runtime_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7540,10 +8369,7 @@ defmodule AWS.GameLift do
   @spec update_script(map(), update_script_input(), list()) ::
           {:ok, update_script_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, update_script_errors()}
   def update_script(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7567,9 +8393,7 @@ defmodule AWS.GameLift do
   @spec validate_matchmaking_rule_set(map(), validate_matchmaking_rule_set_input(), list()) ::
           {:ok, validate_matchmaking_rule_set_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, unsupported_region_exception()}
+          | {:error, validate_matchmaking_rule_set_errors()}
   def validate_matchmaking_rule_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
 

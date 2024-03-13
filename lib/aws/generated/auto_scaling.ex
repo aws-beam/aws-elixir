@@ -19,2180 +19,2707 @@ defmodule AWS.AutoScaling do
   @typedoc """
 
   ## Example:
-  step_adjustment() :: %{
-    "MetricIntervalLowerBound" => float(),
-    "MetricIntervalUpperBound" => float(),
-    "ScalingAdjustment" => integer()
-  }
+      
+      step_adjustment() :: %{
+        "MetricIntervalLowerBound" => float(),
+        "MetricIntervalUpperBound" => float(),
+        "ScalingAdjustment" => integer()
+      }
+      
   """
   @type step_adjustment() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_lifecycle_hooks_type() :: %{
-    optional("LifecycleHookNames") => list(String.t()()),
-    required("AutoScalingGroupName") => String.t()
-  }
+      
+      describe_lifecycle_hooks_type() :: %{
+        optional("LifecycleHookNames") => list(String.t()()),
+        required("AutoScalingGroupName") => String.t()
+      }
+      
   """
   @type describe_lifecycle_hooks_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_metric_collection_types_answer() :: %{
-    optional("Granularities") => list(metric_granularity_type()()),
-    optional("Metrics") => list(metric_collection_type()())
-  }
+      
+      describe_metric_collection_types_answer() :: %{
+        optional("Granularities") => list(metric_granularity_type()()),
+        optional("Metrics") => list(metric_collection_type()())
+      }
+      
   """
   @type describe_metric_collection_types_answer() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_account_limits_answer() :: %{
-    optional("MaxNumberOfAutoScalingGroups") => integer(),
-    optional("MaxNumberOfLaunchConfigurations") => integer(),
-    optional("NumberOfAutoScalingGroups") => integer(),
-    optional("NumberOfLaunchConfigurations") => integer()
-  }
+      
+      describe_account_limits_answer() :: %{
+        optional("MaxNumberOfAutoScalingGroups") => integer(),
+        optional("MaxNumberOfLaunchConfigurations") => integer(),
+        optional("NumberOfAutoScalingGroups") => integer(),
+        optional("NumberOfLaunchConfigurations") => integer()
+      }
+      
   """
   @type describe_account_limits_answer() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  adjustment_type() :: %{
-    "AdjustmentType" => String.t()
-  }
+      
+      adjustment_type() :: %{
+        "AdjustmentType" => String.t()
+      }
+      
   """
   @type adjustment_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_load_balancers_request() :: %{
-    optional("MaxRecords") => integer(),
-    optional("NextToken") => String.t(),
-    required("AutoScalingGroupName") => String.t()
-  }
+      
+      describe_load_balancers_request() :: %{
+        optional("MaxRecords") => integer(),
+        optional("NextToken") => String.t(),
+        required("AutoScalingGroupName") => String.t()
+      }
+      
   """
   @type describe_load_balancers_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  predictive_scaling_metric_specification() :: %{
-    "CustomizedCapacityMetricSpecification" => predictive_scaling_customized_capacity_metric(),
-    "CustomizedLoadMetricSpecification" => predictive_scaling_customized_load_metric(),
-    "CustomizedScalingMetricSpecification" => predictive_scaling_customized_scaling_metric(),
-    "PredefinedLoadMetricSpecification" => predictive_scaling_predefined_load_metric(),
-    "PredefinedMetricPairSpecification" => predictive_scaling_predefined_metric_pair(),
-    "PredefinedScalingMetricSpecification" => predictive_scaling_predefined_scaling_metric(),
-    "TargetValue" => float()
-  }
+      
+      predictive_scaling_metric_specification() :: %{
+        "CustomizedCapacityMetricSpecification" => predictive_scaling_customized_capacity_metric(),
+        "CustomizedLoadMetricSpecification" => predictive_scaling_customized_load_metric(),
+        "CustomizedScalingMetricSpecification" => predictive_scaling_customized_scaling_metric(),
+        "PredefinedLoadMetricSpecification" => predictive_scaling_predefined_load_metric(),
+        "PredefinedMetricPairSpecification" => predictive_scaling_predefined_metric_pair(),
+        "PredefinedScalingMetricSpecification" => predictive_scaling_predefined_scaling_metric(),
+        "TargetValue" => float()
+      }
+      
   """
   @type predictive_scaling_metric_specification() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  rollback_instance_refresh_answer() :: %{
-    optional("InstanceRefreshId") => String.t()
-  }
+      
+      rollback_instance_refresh_answer() :: %{
+        optional("InstanceRefreshId") => String.t()
+      }
+      
   """
   @type rollback_instance_refresh_answer() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_notification_configurations_type() :: %{
-    optional("AutoScalingGroupNames") => list(String.t()()),
-    optional("MaxRecords") => integer(),
-    optional("NextToken") => String.t()
-  }
+      
+      describe_notification_configurations_type() :: %{
+        optional("AutoScalingGroupNames") => list(String.t()()),
+        optional("MaxRecords") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type describe_notification_configurations_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  policy_arn_type() :: %{
-    "Alarms" => list(alarm()()),
-    "PolicyARN" => String.t()
-  }
+      
+      policy_arn_type() :: %{
+        "Alarms" => list(alarm()()),
+        "PolicyARN" => String.t()
+      }
+      
   """
   @type policy_arn_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  instance_refresh() :: %{
-    "AutoScalingGroupName" => String.t(),
-    "DesiredConfiguration" => desired_configuration(),
-    "EndTime" => non_neg_integer(),
-    "InstanceRefreshId" => String.t(),
-    "InstancesToUpdate" => integer(),
-    "PercentageComplete" => integer(),
-    "Preferences" => refresh_preferences(),
-    "ProgressDetails" => instance_refresh_progress_details(),
-    "RollbackDetails" => rollback_details(),
-    "StartTime" => non_neg_integer(),
-    "Status" => list(any()),
-    "StatusReason" => String.t()
-  }
+      
+      instance_refresh() :: %{
+        "AutoScalingGroupName" => String.t(),
+        "DesiredConfiguration" => desired_configuration(),
+        "EndTime" => non_neg_integer(),
+        "InstanceRefreshId" => String.t(),
+        "InstancesToUpdate" => integer(),
+        "PercentageComplete" => integer(),
+        "Preferences" => refresh_preferences(),
+        "ProgressDetails" => instance_refresh_progress_details(),
+        "RollbackDetails" => rollback_details(),
+        "StartTime" => non_neg_integer(),
+        "Status" => list(any()),
+        "StatusReason" => String.t()
+      }
+      
   """
   @type instance_refresh() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_launch_configuration_type() :: %{
-    optional("AssociatePublicIpAddress") => boolean(),
-    optional("BlockDeviceMappings") => list(block_device_mapping()()),
-    optional("ClassicLinkVPCId") => String.t(),
-    optional("ClassicLinkVPCSecurityGroups") => list(String.t()()),
-    optional("EbsOptimized") => boolean(),
-    optional("IamInstanceProfile") => String.t(),
-    optional("ImageId") => String.t(),
-    optional("InstanceId") => String.t(),
-    optional("InstanceMonitoring") => instance_monitoring(),
-    optional("InstanceType") => String.t(),
-    optional("KernelId") => String.t(),
-    optional("KeyName") => String.t(),
-    optional("MetadataOptions") => instance_metadata_options(),
-    optional("PlacementTenancy") => String.t(),
-    optional("RamdiskId") => String.t(),
-    optional("SecurityGroups") => list(String.t()()),
-    optional("SpotPrice") => String.t(),
-    optional("UserData") => String.t(),
-    required("LaunchConfigurationName") => String.t()
-  }
+      
+      create_launch_configuration_type() :: %{
+        optional("AssociatePublicIpAddress") => boolean(),
+        optional("BlockDeviceMappings") => list(block_device_mapping()()),
+        optional("ClassicLinkVPCId") => String.t(),
+        optional("ClassicLinkVPCSecurityGroups") => list(String.t()()),
+        optional("EbsOptimized") => boolean(),
+        optional("IamInstanceProfile") => String.t(),
+        optional("ImageId") => String.t(),
+        optional("InstanceId") => String.t(),
+        optional("InstanceMonitoring") => instance_monitoring(),
+        optional("InstanceType") => String.t(),
+        optional("KernelId") => String.t(),
+        optional("KeyName") => String.t(),
+        optional("MetadataOptions") => instance_metadata_options(),
+        optional("PlacementTenancy") => String.t(),
+        optional("RamdiskId") => String.t(),
+        optional("SecurityGroups") => list(String.t()()),
+        optional("SpotPrice") => String.t(),
+        optional("UserData") => String.t(),
+        required("LaunchConfigurationName") => String.t()
+      }
+      
   """
   @type create_launch_configuration_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_warm_pool_answer() :: %{
-
-  }
+      
+      delete_warm_pool_answer() :: %{}
+      
   """
-  @type delete_warm_pool_answer() :: %{String.t() => any()}
+  @type delete_warm_pool_answer() :: %{}
 
   @typedoc """
 
   ## Example:
-  instance_refresh_progress_details() :: %{
-    "LivePoolProgress" => instance_refresh_live_pool_progress(),
-    "WarmPoolProgress" => instance_refresh_warm_pool_progress()
-  }
+      
+      instance_refresh_progress_details() :: %{
+        "LivePoolProgress" => instance_refresh_live_pool_progress(),
+        "WarmPoolProgress" => instance_refresh_warm_pool_progress()
+      }
+      
   """
   @type instance_refresh_progress_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tags_type() :: %{
-    optional("NextToken") => String.t(),
-    optional("Tags") => list(tag_description()())
-  }
+      
+      tags_type() :: %{
+        optional("NextToken") => String.t(),
+        optional("Tags") => list(tag_description()())
+      }
+      
   """
   @type tags_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  traffic_source_identifier() :: %{
-    "Identifier" => String.t(),
-    "Type" => String.t()
-  }
+      
+      traffic_source_identifier() :: %{
+        "Identifier" => String.t(),
+        "Type" => String.t()
+      }
+      
   """
   @type traffic_source_identifier() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  exit_standby_query() :: %{
-    optional("InstanceIds") => list(String.t()()),
-    required("AutoScalingGroupName") => String.t()
-  }
+      
+      exit_standby_query() :: %{
+        optional("InstanceIds") => list(String.t()()),
+        required("AutoScalingGroupName") => String.t()
+      }
+      
   """
   @type exit_standby_query() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_tags_type() :: %{
-    required("Tags") => list(tag()())
-  }
+      
+      delete_tags_type() :: %{
+        required("Tags") => list(tag()())
+      }
+      
   """
   @type delete_tags_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_instance_refresh_type() :: %{
-    optional("DesiredConfiguration") => desired_configuration(),
-    optional("Preferences") => refresh_preferences(),
-    optional("Strategy") => list(any()),
-    required("AutoScalingGroupName") => String.t()
-  }
+      
+      start_instance_refresh_type() :: %{
+        optional("DesiredConfiguration") => desired_configuration(),
+        optional("Preferences") => refresh_preferences(),
+        optional("Strategy") => list(any()),
+        required("AutoScalingGroupName") => String.t()
+      }
+      
   """
   @type start_instance_refresh_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  process_type() :: %{
-    "ProcessName" => String.t()
-  }
+      
+      process_type() :: %{
+        "ProcessName" => String.t()
+      }
+      
   """
   @type process_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_scheduled_actions_type() :: %{
-    optional("AutoScalingGroupName") => String.t(),
-    optional("EndTime") => non_neg_integer(),
-    optional("MaxRecords") => integer(),
-    optional("NextToken") => String.t(),
-    optional("ScheduledActionNames") => list(String.t()()),
-    optional("StartTime") => non_neg_integer()
-  }
+      
+      describe_scheduled_actions_type() :: %{
+        optional("AutoScalingGroupName") => String.t(),
+        optional("EndTime") => non_neg_integer(),
+        optional("MaxRecords") => integer(),
+        optional("NextToken") => String.t(),
+        optional("ScheduledActionNames") => list(String.t()()),
+        optional("StartTime") => non_neg_integer()
+      }
+      
   """
   @type describe_scheduled_actions_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  block_device_mapping() :: %{
-    "DeviceName" => String.t(),
-    "Ebs" => ebs(),
-    "NoDevice" => boolean(),
-    "VirtualName" => String.t()
-  }
+      
+      block_device_mapping() :: %{
+        "DeviceName" => String.t(),
+        "Ebs" => ebs(),
+        "NoDevice" => boolean(),
+        "VirtualName" => String.t()
+      }
+      
   """
   @type block_device_mapping() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  metric() :: %{
-    "Dimensions" => list(metric_dimension()()),
-    "MetricName" => String.t(),
-    "Namespace" => String.t()
-  }
+      
+      metric() :: %{
+        "Dimensions" => list(metric_dimension()()),
+        "MetricName" => String.t(),
+        "Namespace" => String.t()
+      }
+      
   """
   @type metric() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  predictive_scaling_predefined_metric_pair() :: %{
-    "PredefinedMetricType" => list(any()),
-    "ResourceLabel" => String.t()
-  }
+      
+      predictive_scaling_predefined_metric_pair() :: %{
+        "PredefinedMetricType" => list(any()),
+        "ResourceLabel" => String.t()
+      }
+      
   """
   @type predictive_scaling_predefined_metric_pair() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  enter_standby_answer() :: %{
-    optional("Activities") => list(activity()())
-  }
+      
+      enter_standby_answer() :: %{
+        optional("Activities") => list(activity()())
+      }
+      
   """
   @type enter_standby_answer() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  instance_reuse_policy() :: %{
-    "ReuseOnScaleIn" => boolean()
-  }
+      
+      instance_reuse_policy() :: %{
+        "ReuseOnScaleIn" => boolean()
+      }
+      
   """
   @type instance_reuse_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  alarm() :: %{
-    "AlarmARN" => String.t(),
-    "AlarmName" => String.t()
-  }
+      
+      alarm() :: %{
+        "AlarmARN" => String.t(),
+        "AlarmName" => String.t()
+      }
+      
   """
   @type alarm() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  traffic_source_state() :: %{
-    "Identifier" => String.t(),
-    "State" => String.t(),
-    "TrafficSource" => String.t(),
-    "Type" => String.t()
-  }
+      
+      traffic_source_state() :: %{
+        "Identifier" => String.t(),
+        "State" => String.t(),
+        "TrafficSource" => String.t(),
+        "Type" => String.t()
+      }
+      
   """
   @type traffic_source_state() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  metric_granularity_type() :: %{
-    "Granularity" => String.t()
-  }
+      
+      metric_granularity_type() :: %{
+        "Granularity" => String.t()
+      }
+      
   """
   @type metric_granularity_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_warm_pool_type() :: %{
-    optional("MaxRecords") => integer(),
-    optional("NextToken") => String.t(),
-    required("AutoScalingGroupName") => String.t()
-  }
+      
+      describe_warm_pool_type() :: %{
+        optional("MaxRecords") => integer(),
+        optional("NextToken") => String.t(),
+        required("AutoScalingGroupName") => String.t()
+      }
+      
   """
   @type describe_warm_pool_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  lifecycle_hook() :: %{
-    "AutoScalingGroupName" => String.t(),
-    "DefaultResult" => String.t(),
-    "GlobalTimeout" => integer(),
-    "HeartbeatTimeout" => integer(),
-    "LifecycleHookName" => String.t(),
-    "LifecycleTransition" => String.t(),
-    "NotificationMetadata" => String.t(),
-    "NotificationTargetARN" => String.t(),
-    "RoleARN" => String.t()
-  }
+      
+      lifecycle_hook() :: %{
+        "AutoScalingGroupName" => String.t(),
+        "DefaultResult" => String.t(),
+        "GlobalTimeout" => integer(),
+        "HeartbeatTimeout" => integer(),
+        "LifecycleHookName" => String.t(),
+        "LifecycleTransition" => String.t(),
+        "NotificationMetadata" => String.t(),
+        "NotificationTargetARN" => String.t(),
+        "RoleARN" => String.t()
+      }
+      
   """
   @type lifecycle_hook() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  limit_exceeded_fault() :: %{
-    "message" => String.t()
-  }
+      
+      limit_exceeded_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type limit_exceeded_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_traffic_sources_request() :: %{
-    optional("MaxRecords") => integer(),
-    optional("NextToken") => String.t(),
-    optional("TrafficSourceType") => String.t(),
-    required("AutoScalingGroupName") => String.t()
-  }
+      
+      describe_traffic_sources_request() :: %{
+        optional("MaxRecords") => integer(),
+        optional("NextToken") => String.t(),
+        optional("TrafficSourceType") => String.t(),
+        required("AutoScalingGroupName") => String.t()
+      }
+      
   """
   @type describe_traffic_sources_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_auto_scaling_group_type() :: %{
-    optional("ForceDelete") => boolean(),
-    required("AutoScalingGroupName") => String.t()
-  }
+      
+      delete_auto_scaling_group_type() :: %{
+        optional("ForceDelete") => boolean(),
+        required("AutoScalingGroupName") => String.t()
+      }
+      
   """
   @type delete_auto_scaling_group_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  record_lifecycle_action_heartbeat_answer() :: %{
-
-  }
+      
+      record_lifecycle_action_heartbeat_answer() :: %{}
+      
   """
-  @type record_lifecycle_action_heartbeat_answer() :: %{String.t() => any()}
+  @type record_lifecycle_action_heartbeat_answer() :: %{}
 
   @typedoc """
 
   ## Example:
-  describe_lifecycle_hooks_answer() :: %{
-    optional("LifecycleHooks") => list(lifecycle_hook()())
-  }
+      
+      describe_lifecycle_hooks_answer() :: %{
+        optional("LifecycleHooks") => list(lifecycle_hook()())
+      }
+      
   """
   @type describe_lifecycle_hooks_answer() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_lifecycle_hook_answer() :: %{
-
-  }
+      
+      put_lifecycle_hook_answer() :: %{}
+      
   """
-  @type put_lifecycle_hook_answer() :: %{String.t() => any()}
+  @type put_lifecycle_hook_answer() :: %{}
 
   @typedoc """
 
   ## Example:
-  memory_gi_b_per_v_cpu_request() :: %{
-    "Max" => float(),
-    "Min" => float()
-  }
+      
+      memory_gi_b_per_v_cpu_request() :: %{
+        "Max" => float(),
+        "Min" => float()
+      }
+      
   """
   @type memory_gi_b_per_v_cpu_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cancel_instance_refresh_answer() :: %{
-    optional("InstanceRefreshId") => String.t()
-  }
+      
+      cancel_instance_refresh_answer() :: %{
+        optional("InstanceRefreshId") => String.t()
+      }
+      
   """
   @type cancel_instance_refresh_answer() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  scaling_policy() :: %{
-    "AdjustmentType" => String.t(),
-    "Alarms" => list(alarm()()),
-    "AutoScalingGroupName" => String.t(),
-    "Cooldown" => integer(),
-    "Enabled" => boolean(),
-    "EstimatedInstanceWarmup" => integer(),
-    "MetricAggregationType" => String.t(),
-    "MinAdjustmentMagnitude" => integer(),
-    "MinAdjustmentStep" => integer(),
-    "PolicyARN" => String.t(),
-    "PolicyName" => String.t(),
-    "PolicyType" => String.t(),
-    "PredictiveScalingConfiguration" => predictive_scaling_configuration(),
-    "ScalingAdjustment" => integer(),
-    "StepAdjustments" => list(step_adjustment()()),
-    "TargetTrackingConfiguration" => target_tracking_configuration()
-  }
+      
+      scaling_policy() :: %{
+        "AdjustmentType" => String.t(),
+        "Alarms" => list(alarm()()),
+        "AutoScalingGroupName" => String.t(),
+        "Cooldown" => integer(),
+        "Enabled" => boolean(),
+        "EstimatedInstanceWarmup" => integer(),
+        "MetricAggregationType" => String.t(),
+        "MinAdjustmentMagnitude" => integer(),
+        "MinAdjustmentStep" => integer(),
+        "PolicyARN" => String.t(),
+        "PolicyName" => String.t(),
+        "PolicyType" => String.t(),
+        "PredictiveScalingConfiguration" => predictive_scaling_configuration(),
+        "ScalingAdjustment" => integer(),
+        "StepAdjustments" => list(step_adjustment()()),
+        "TargetTrackingConfiguration" => target_tracking_configuration()
+      }
+      
   """
   @type scaling_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_notification_configurations_answer() :: %{
-    optional("NextToken") => String.t(),
-    required("NotificationConfigurations") => list(notification_configuration()())
-  }
+      
+      describe_notification_configurations_answer() :: %{
+        optional("NextToken") => String.t(),
+        required("NotificationConfigurations") => list(notification_configuration()())
+      }
+      
   """
   @type describe_notification_configurations_answer() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  instance_maintenance_policy() :: %{
-    "MaxHealthyPercentage" => integer(),
-    "MinHealthyPercentage" => integer()
-  }
+      
+      instance_maintenance_policy() :: %{
+        "MaxHealthyPercentage" => integer(),
+        "MinHealthyPercentage" => integer()
+      }
+      
   """
   @type instance_maintenance_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  scheduled_actions_type() :: %{
-    optional("NextToken") => String.t(),
-    optional("ScheduledUpdateGroupActions") => list(scheduled_update_group_action()())
-  }
+      
+      scheduled_actions_type() :: %{
+        optional("NextToken") => String.t(),
+        optional("ScheduledUpdateGroupActions") => list(scheduled_update_group_action()())
+      }
+      
   """
   @type scheduled_actions_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  attach_load_balancers_type() :: %{
-    required("AutoScalingGroupName") => String.t(),
-    required("LoadBalancerNames") => list(String.t()())
-  }
+      
+      attach_load_balancers_type() :: %{
+        required("AutoScalingGroupName") => String.t(),
+        required("LoadBalancerNames") => list(String.t()())
+      }
+      
   """
   @type attach_load_balancers_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  lifecycle_hook_specification() :: %{
-    "DefaultResult" => String.t(),
-    "HeartbeatTimeout" => integer(),
-    "LifecycleHookName" => String.t(),
-    "LifecycleTransition" => String.t(),
-    "NotificationMetadata" => String.t(),
-    "NotificationTargetARN" => String.t(),
-    "RoleARN" => String.t()
-  }
+      
+      lifecycle_hook_specification() :: %{
+        "DefaultResult" => String.t(),
+        "HeartbeatTimeout" => integer(),
+        "LifecycleHookName" => String.t(),
+        "LifecycleTransition" => String.t(),
+        "NotificationMetadata" => String.t(),
+        "NotificationTargetARN" => String.t(),
+        "RoleARN" => String.t()
+      }
+      
   """
   @type lifecycle_hook_specification() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_load_balancer_target_groups_response() :: %{
-    "LoadBalancerTargetGroups" => list(load_balancer_target_group_state()()),
-    "NextToken" => String.t()
-  }
+      
+      describe_load_balancer_target_groups_response() :: %{
+        "LoadBalancerTargetGroups" => list(load_balancer_target_group_state()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type describe_load_balancer_target_groups_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  scaling_process_query() :: %{
-    optional("ScalingProcesses") => list(String.t()()),
-    required("AutoScalingGroupName") => String.t()
-  }
+      
+      scaling_process_query() :: %{
+        optional("ScalingProcesses") => list(String.t()()),
+        required("AutoScalingGroupName") => String.t()
+      }
+      
   """
   @type scaling_process_query() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  launch_configuration_names_type() :: %{
-    optional("LaunchConfigurationNames") => list(String.t()()),
-    optional("MaxRecords") => integer(),
-    optional("NextToken") => String.t()
-  }
+      
+      launch_configuration_names_type() :: %{
+        optional("LaunchConfigurationNames") => list(String.t()()),
+        optional("MaxRecords") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type launch_configuration_names_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  attach_load_balancers_result_type() :: %{
-
-  }
+      
+      attach_load_balancers_result_type() :: %{}
+      
   """
-  @type attach_load_balancers_result_type() :: %{String.t() => any()}
+  @type attach_load_balancers_result_type() :: %{}
 
   @typedoc """
 
   ## Example:
-  detach_instances_answer() :: %{
-    optional("Activities") => list(activity()())
-  }
+      
+      detach_instances_answer() :: %{
+        optional("Activities") => list(activity()())
+      }
+      
   """
   @type detach_instances_answer() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  enabled_metric() :: %{
-    "Granularity" => String.t(),
-    "Metric" => String.t()
-  }
+      
+      enabled_metric() :: %{
+        "Granularity" => String.t(),
+        "Metric" => String.t()
+      }
+      
   """
   @type enabled_metric() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_predictive_scaling_forecast_answer() :: %{
-    required("CapacityForecast") => capacity_forecast(),
-    required("LoadForecast") => list(load_forecast()()),
-    required("UpdateTime") => non_neg_integer()
-  }
+      
+      get_predictive_scaling_forecast_answer() :: %{
+        required("CapacityForecast") => capacity_forecast(),
+        required("LoadForecast") => list(load_forecast()()),
+        required("UpdateTime") => non_neg_integer()
+      }
+      
   """
   @type get_predictive_scaling_forecast_answer() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  scaling_activity_in_progress_fault() :: %{
-    "message" => String.t()
-  }
+      
+      scaling_activity_in_progress_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type scaling_activity_in_progress_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_policies_type() :: %{
-    optional("AutoScalingGroupName") => String.t(),
-    optional("MaxRecords") => integer(),
-    optional("NextToken") => String.t(),
-    optional("PolicyNames") => list(String.t()()),
-    optional("PolicyTypes") => list(String.t()())
-  }
+      
+      describe_policies_type() :: %{
+        optional("AutoScalingGroupName") => String.t(),
+        optional("MaxRecords") => integer(),
+        optional("NextToken") => String.t(),
+        optional("PolicyNames") => list(String.t()()),
+        optional("PolicyTypes") => list(String.t()())
+      }
+      
   """
   @type describe_policies_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  mixed_instances_policy() :: %{
-    "InstancesDistribution" => instances_distribution(),
-    "LaunchTemplate" => launch_template()
-  }
+      
+      mixed_instances_policy() :: %{
+        "InstancesDistribution" => instances_distribution(),
+        "LaunchTemplate" => launch_template()
+      }
+      
   """
   @type mixed_instances_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  launch_configurations_type() :: %{
-    optional("NextToken") => String.t(),
-    required("LaunchConfigurations") => list(launch_configuration()())
-  }
+      
+      launch_configurations_type() :: %{
+        optional("NextToken") => String.t(),
+        required("LaunchConfigurations") => list(launch_configuration()())
+      }
+      
   """
   @type launch_configurations_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_notification_configuration_type() :: %{
-    required("AutoScalingGroupName") => String.t(),
-    required("TopicARN") => String.t()
-  }
+      
+      delete_notification_configuration_type() :: %{
+        required("AutoScalingGroupName") => String.t(),
+        required("TopicARN") => String.t()
+      }
+      
   """
   @type delete_notification_configuration_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  predictive_scaling_predefined_load_metric() :: %{
-    "PredefinedMetricType" => list(any()),
-    "ResourceLabel" => String.t()
-  }
+      
+      predictive_scaling_predefined_load_metric() :: %{
+        "PredefinedMetricType" => list(any()),
+        "ResourceLabel" => String.t()
+      }
+      
   """
   @type predictive_scaling_predefined_load_metric() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  customized_metric_specification() :: %{
-    "Dimensions" => list(metric_dimension()()),
-    "MetricName" => String.t(),
-    "Metrics" => list(target_tracking_metric_data_query()()),
-    "Namespace" => String.t(),
-    "Statistic" => list(any()),
-    "Unit" => String.t()
-  }
+      
+      customized_metric_specification() :: %{
+        "Dimensions" => list(metric_dimension()()),
+        "MetricName" => String.t(),
+        "Metrics" => list(target_tracking_metric_data_query()()),
+        "Namespace" => String.t(),
+        "Statistic" => list(any()),
+        "Unit" => String.t()
+      }
+      
   """
   @type customized_metric_specification() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  auto_scaling_group_names_type() :: %{
-    optional("AutoScalingGroupNames") => list(String.t()()),
-    optional("Filters") => list(filter()()),
-    optional("MaxRecords") => integer(),
-    optional("NextToken") => String.t()
-  }
+      
+      auto_scaling_group_names_type() :: %{
+        optional("AutoScalingGroupNames") => list(String.t()()),
+        optional("Filters") => list(filter()()),
+        optional("MaxRecords") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type auto_scaling_group_names_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_traffic_sources_response() :: %{
-    "NextToken" => String.t(),
-    "TrafficSources" => list(traffic_source_state()())
-  }
+      
+      describe_traffic_sources_response() :: %{
+        "NextToken" => String.t(),
+        "TrafficSources" => list(traffic_source_state()())
+      }
+      
   """
   @type describe_traffic_sources_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_instance_refreshes_type() :: %{
-    optional("InstanceRefreshIds") => list(String.t()()),
-    optional("MaxRecords") => integer(),
-    optional("NextToken") => String.t(),
-    required("AutoScalingGroupName") => String.t()
-  }
+      
+      describe_instance_refreshes_type() :: %{
+        optional("InstanceRefreshIds") => list(String.t()()),
+        optional("MaxRecords") => integer(),
+        optional("NextToken") => String.t(),
+        required("AutoScalingGroupName") => String.t()
+      }
+      
   """
   @type describe_instance_refreshes_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_notification_configuration_type() :: %{
-    required("AutoScalingGroupName") => String.t(),
-    required("NotificationTypes") => list(String.t()()),
-    required("TopicARN") => String.t()
-  }
+      
+      put_notification_configuration_type() :: %{
+        required("AutoScalingGroupName") => String.t(),
+        required("NotificationTypes") => list(String.t()()),
+        required("TopicARN") => String.t()
+      }
+      
   """
   @type put_notification_configuration_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  policies_type() :: %{
-    optional("NextToken") => String.t(),
-    optional("ScalingPolicies") => list(scaling_policy()())
-  }
+      
+      policies_type() :: %{
+        optional("NextToken") => String.t(),
+        optional("ScalingPolicies") => list(scaling_policy()())
+      }
+      
   """
   @type policies_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cancel_instance_refresh_type() :: %{
-    required("AutoScalingGroupName") => String.t()
-  }
+      
+      cancel_instance_refresh_type() :: %{
+        required("AutoScalingGroupName") => String.t()
+      }
+      
   """
   @type cancel_instance_refresh_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  execute_policy_type() :: %{
-    optional("AutoScalingGroupName") => String.t(),
-    optional("BreachThreshold") => float(),
-    optional("HonorCooldown") => boolean(),
-    optional("MetricValue") => float(),
-    required("PolicyName") => String.t()
-  }
+      
+      execute_policy_type() :: %{
+        optional("AutoScalingGroupName") => String.t(),
+        optional("BreachThreshold") => float(),
+        optional("HonorCooldown") => boolean(),
+        optional("MetricValue") => float(),
+        required("PolicyName") => String.t()
+      }
+      
   """
   @type execute_policy_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  detach_load_balancers_result_type() :: %{
-
-  }
+      
+      detach_load_balancers_result_type() :: %{}
+      
   """
-  @type detach_load_balancers_result_type() :: %{String.t() => any()}
+  @type detach_load_balancers_result_type() :: %{}
 
   @typedoc """
 
   ## Example:
-  active_instance_refresh_not_found_fault() :: %{
-    "message" => String.t()
-  }
+      
+      active_instance_refresh_not_found_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type active_instance_refresh_not_found_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  predictive_scaling_predefined_scaling_metric() :: %{
-    "PredefinedMetricType" => list(any()),
-    "ResourceLabel" => String.t()
-  }
+      
+      predictive_scaling_predefined_scaling_metric() :: %{
+        "PredefinedMetricType" => list(any()),
+        "ResourceLabel" => String.t()
+      }
+      
   """
   @type predictive_scaling_predefined_scaling_metric() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  predictive_scaling_customized_load_metric() :: %{
-    "MetricDataQueries" => list(metric_data_query()())
-  }
+      
+      predictive_scaling_customized_load_metric() :: %{
+        "MetricDataQueries" => list(metric_data_query()())
+      }
+      
   """
   @type predictive_scaling_customized_load_metric() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_tags_type() :: %{
-    optional("Filters") => list(filter()()),
-    optional("MaxRecords") => integer(),
-    optional("NextToken") => String.t()
-  }
+      
+      describe_tags_type() :: %{
+        optional("Filters") => list(filter()()),
+        optional("MaxRecords") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type describe_tags_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  warm_pool_configuration() :: %{
-    "InstanceReusePolicy" => instance_reuse_policy(),
-    "MaxGroupPreparedCapacity" => integer(),
-    "MinSize" => integer(),
-    "PoolState" => list(any()),
-    "Status" => list(any())
-  }
+      
+      warm_pool_configuration() :: %{
+        "InstanceReusePolicy" => instance_reuse_policy(),
+        "MaxGroupPreparedCapacity" => integer(),
+        "MinSize" => integer(),
+        "PoolState" => list(any()),
+        "Status" => list(any())
+      }
+      
   """
   @type warm_pool_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  v_cpu_count_request() :: %{
-    "Max" => integer(),
-    "Min" => integer()
-  }
+      
+      v_cpu_count_request() :: %{
+        "Max" => integer(),
+        "Min" => integer()
+      }
+      
   """
   @type v_cpu_count_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  terminate_instance_in_auto_scaling_group_type() :: %{
-    required("InstanceId") => String.t(),
-    required("ShouldDecrementDesiredCapacity") => boolean()
-  }
+      
+      terminate_instance_in_auto_scaling_group_type() :: %{
+        required("InstanceId") => String.t(),
+        required("ShouldDecrementDesiredCapacity") => boolean()
+      }
+      
   """
   @type terminate_instance_in_auto_scaling_group_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  complete_lifecycle_action_type() :: %{
-    optional("InstanceId") => String.t(),
-    optional("LifecycleActionToken") => String.t(),
-    required("AutoScalingGroupName") => String.t(),
-    required("LifecycleActionResult") => String.t(),
-    required("LifecycleHookName") => String.t()
-  }
+      
+      complete_lifecycle_action_type() :: %{
+        optional("InstanceId") => String.t(),
+        optional("LifecycleActionToken") => String.t(),
+        required("AutoScalingGroupName") => String.t(),
+        required("LifecycleActionResult") => String.t(),
+        required("LifecycleHookName") => String.t()
+      }
+      
   """
   @type complete_lifecycle_action_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  activity() :: %{
-    "ActivityId" => String.t(),
-    "AutoScalingGroupARN" => String.t(),
-    "AutoScalingGroupName" => String.t(),
-    "AutoScalingGroupState" => String.t(),
-    "Cause" => String.t(),
-    "Description" => String.t(),
-    "Details" => String.t(),
-    "EndTime" => non_neg_integer(),
-    "Progress" => integer(),
-    "StartTime" => non_neg_integer(),
-    "StatusCode" => list(any()),
-    "StatusMessage" => String.t()
-  }
+      
+      activity() :: %{
+        "ActivityId" => String.t(),
+        "AutoScalingGroupARN" => String.t(),
+        "AutoScalingGroupName" => String.t(),
+        "AutoScalingGroupState" => String.t(),
+        "Cause" => String.t(),
+        "Description" => String.t(),
+        "Details" => String.t(),
+        "EndTime" => non_neg_integer(),
+        "Progress" => integer(),
+        "StartTime" => non_neg_integer(),
+        "StatusCode" => list(any()),
+        "StatusMessage" => String.t()
+      }
+      
   """
   @type activity() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  instances_distribution() :: %{
-    "OnDemandAllocationStrategy" => String.t(),
-    "OnDemandBaseCapacity" => integer(),
-    "OnDemandPercentageAboveBaseCapacity" => integer(),
-    "SpotAllocationStrategy" => String.t(),
-    "SpotInstancePools" => integer(),
-    "SpotMaxPrice" => String.t()
-  }
+      
+      instances_distribution() :: %{
+        "OnDemandAllocationStrategy" => String.t(),
+        "OnDemandBaseCapacity" => integer(),
+        "OnDemandPercentageAboveBaseCapacity" => integer(),
+        "SpotAllocationStrategy" => String.t(),
+        "SpotInstancePools" => integer(),
+        "SpotMaxPrice" => String.t()
+      }
+      
   """
   @type instances_distribution() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  attach_traffic_sources_result_type() :: %{
-
-  }
+      
+      attach_traffic_sources_result_type() :: %{}
+      
   """
-  @type attach_traffic_sources_result_type() :: %{String.t() => any()}
+  @type attach_traffic_sources_result_type() :: %{}
 
   @typedoc """
 
   ## Example:
-  describe_load_balancers_response() :: %{
-    "LoadBalancers" => list(load_balancer_state()()),
-    "NextToken" => String.t()
-  }
+      
+      describe_load_balancers_response() :: %{
+        "LoadBalancers" => list(load_balancer_state()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type describe_load_balancers_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag() :: %{
-    "Key" => String.t(),
-    "PropagateAtLaunch" => boolean(),
-    "ResourceId" => String.t(),
-    "ResourceType" => String.t(),
-    "Value" => String.t()
-  }
+      
+      tag() :: %{
+        "Key" => String.t(),
+        "PropagateAtLaunch" => boolean(),
+        "ResourceId" => String.t(),
+        "ResourceType" => String.t(),
+        "Value" => String.t()
+      }
+      
   """
   @type tag() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  scheduled_update_group_action() :: %{
-    "AutoScalingGroupName" => String.t(),
-    "DesiredCapacity" => integer(),
-    "EndTime" => non_neg_integer(),
-    "MaxSize" => integer(),
-    "MinSize" => integer(),
-    "Recurrence" => String.t(),
-    "ScheduledActionARN" => String.t(),
-    "ScheduledActionName" => String.t(),
-    "StartTime" => non_neg_integer(),
-    "Time" => non_neg_integer(),
-    "TimeZone" => String.t()
-  }
+      
+      scheduled_update_group_action() :: %{
+        "AutoScalingGroupName" => String.t(),
+        "DesiredCapacity" => integer(),
+        "EndTime" => non_neg_integer(),
+        "MaxSize" => integer(),
+        "MinSize" => integer(),
+        "Recurrence" => String.t(),
+        "ScheduledActionARN" => String.t(),
+        "ScheduledActionName" => String.t(),
+        "StartTime" => non_neg_integer(),
+        "Time" => non_neg_integer(),
+        "TimeZone" => String.t()
+      }
+      
   """
   @type scheduled_update_group_action() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  load_forecast() :: %{
-    "MetricSpecification" => predictive_scaling_metric_specification(),
-    "Timestamps" => list(non_neg_integer()()),
-    "Values" => list(float()())
-  }
+      
+      load_forecast() :: %{
+        "MetricSpecification" => predictive_scaling_metric_specification(),
+        "Timestamps" => list(non_neg_integer()()),
+        "Values" => list(float()())
+      }
+      
   """
   @type load_forecast() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  irreversible_instance_refresh_fault() :: %{
-    "message" => String.t()
-  }
+      
+      irreversible_instance_refresh_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type irreversible_instance_refresh_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  record_lifecycle_action_heartbeat_type() :: %{
-    optional("InstanceId") => String.t(),
-    optional("LifecycleActionToken") => String.t(),
-    required("AutoScalingGroupName") => String.t(),
-    required("LifecycleHookName") => String.t()
-  }
+      
+      record_lifecycle_action_heartbeat_type() :: %{
+        optional("InstanceId") => String.t(),
+        optional("LifecycleActionToken") => String.t(),
+        required("AutoScalingGroupName") => String.t(),
+        required("LifecycleHookName") => String.t()
+      }
+      
   """
   @type record_lifecycle_action_heartbeat_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  accelerator_count_request() :: %{
-    "Max" => integer(),
-    "Min" => integer()
-  }
+      
+      accelerator_count_request() :: %{
+        "Max" => integer(),
+        "Min" => integer()
+      }
+      
   """
   @type accelerator_count_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  metric_data_query() :: %{
-    "Expression" => String.t(),
-    "Id" => String.t(),
-    "Label" => String.t(),
-    "MetricStat" => metric_stat(),
-    "ReturnData" => boolean()
-  }
+      
+      metric_data_query() :: %{
+        "Expression" => String.t(),
+        "Id" => String.t(),
+        "Label" => String.t(),
+        "MetricStat" => metric_stat(),
+        "ReturnData" => boolean()
+      }
+      
   """
   @type metric_data_query() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ebs() :: %{
-    "DeleteOnTermination" => boolean(),
-    "Encrypted" => boolean(),
-    "Iops" => integer(),
-    "SnapshotId" => String.t(),
-    "Throughput" => integer(),
-    "VolumeSize" => integer(),
-    "VolumeType" => String.t()
-  }
+      
+      ebs() :: %{
+        "DeleteOnTermination" => boolean(),
+        "Encrypted" => boolean(),
+        "Iops" => integer(),
+        "SnapshotId" => String.t(),
+        "Throughput" => integer(),
+        "VolumeSize" => integer(),
+        "VolumeType" => String.t()
+      }
+      
   """
   @type ebs() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_scheduled_update_group_action_type() :: %{
-    optional("DesiredCapacity") => integer(),
-    optional("EndTime") => non_neg_integer(),
-    optional("MaxSize") => integer(),
-    optional("MinSize") => integer(),
-    optional("Recurrence") => String.t(),
-    optional("StartTime") => non_neg_integer(),
-    optional("Time") => non_neg_integer(),
-    optional("TimeZone") => String.t(),
-    required("AutoScalingGroupName") => String.t(),
-    required("ScheduledActionName") => String.t()
-  }
+      
+      put_scheduled_update_group_action_type() :: %{
+        optional("DesiredCapacity") => integer(),
+        optional("EndTime") => non_neg_integer(),
+        optional("MaxSize") => integer(),
+        optional("MinSize") => integer(),
+        optional("Recurrence") => String.t(),
+        optional("StartTime") => non_neg_integer(),
+        optional("Time") => non_neg_integer(),
+        optional("TimeZone") => String.t(),
+        required("AutoScalingGroupName") => String.t(),
+        required("ScheduledActionName") => String.t()
+      }
+      
   """
   @type put_scheduled_update_group_action_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_description() :: %{
-    "Key" => String.t(),
-    "PropagateAtLaunch" => boolean(),
-    "ResourceId" => String.t(),
-    "ResourceType" => String.t(),
-    "Value" => String.t()
-  }
+      
+      tag_description() :: %{
+        "Key" => String.t(),
+        "PropagateAtLaunch" => boolean(),
+        "ResourceId" => String.t(),
+        "ResourceType" => String.t(),
+        "Value" => String.t()
+      }
+      
   """
   @type tag_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  target_tracking_metric_stat() :: %{
-    "Metric" => metric(),
-    "Stat" => String.t(),
-    "Unit" => String.t()
-  }
+      
+      target_tracking_metric_stat() :: %{
+        "Metric" => metric(),
+        "Stat" => String.t(),
+        "Unit" => String.t()
+      }
+      
   """
   @type target_tracking_metric_stat() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  detach_traffic_sources_type() :: %{
-    required("AutoScalingGroupName") => String.t(),
-    required("TrafficSources") => list(traffic_source_identifier()())
-  }
+      
+      detach_traffic_sources_type() :: %{
+        required("AutoScalingGroupName") => String.t(),
+        required("TrafficSources") => list(traffic_source_identifier()())
+      }
+      
   """
   @type detach_traffic_sources_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  detach_load_balancers_type() :: %{
-    required("AutoScalingGroupName") => String.t(),
-    required("LoadBalancerNames") => list(String.t()())
-  }
+      
+      detach_load_balancers_type() :: %{
+        required("AutoScalingGroupName") => String.t(),
+        required("LoadBalancerNames") => list(String.t()())
+      }
+      
   """
   @type detach_load_balancers_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_contention_fault() :: %{
-    "message" => String.t()
-  }
+      
+      resource_contention_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type resource_contention_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  auto_scaling_instance_details() :: %{
-    "AutoScalingGroupName" => String.t(),
-    "AvailabilityZone" => String.t(),
-    "HealthStatus" => String.t(),
-    "InstanceId" => String.t(),
-    "InstanceType" => String.t(),
-    "LaunchConfigurationName" => String.t(),
-    "LaunchTemplate" => launch_template_specification(),
-    "LifecycleState" => String.t(),
-    "ProtectedFromScaleIn" => boolean(),
-    "WeightedCapacity" => String.t()
-  }
+      
+      auto_scaling_instance_details() :: %{
+        "AutoScalingGroupName" => String.t(),
+        "AvailabilityZone" => String.t(),
+        "HealthStatus" => String.t(),
+        "InstanceId" => String.t(),
+        "InstanceType" => String.t(),
+        "LaunchConfigurationName" => String.t(),
+        "LaunchTemplate" => launch_template_specification(),
+        "LifecycleState" => String.t(),
+        "ProtectedFromScaleIn" => boolean(),
+        "WeightedCapacity" => String.t()
+      }
+      
   """
   @type auto_scaling_instance_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  load_balancer_state() :: %{
-    "LoadBalancerName" => String.t(),
-    "State" => String.t()
-  }
+      
+      load_balancer_state() :: %{
+        "LoadBalancerName" => String.t(),
+        "State" => String.t()
+      }
+      
   """
   @type load_balancer_state() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  attach_traffic_sources_type() :: %{
-    required("AutoScalingGroupName") => String.t(),
-    required("TrafficSources") => list(traffic_source_identifier()())
-  }
+      
+      attach_traffic_sources_type() :: %{
+        required("AutoScalingGroupName") => String.t(),
+        required("TrafficSources") => list(traffic_source_identifier()())
+      }
+      
   """
   @type attach_traffic_sources_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  predictive_scaling_customized_scaling_metric() :: %{
-    "MetricDataQueries" => list(metric_data_query()())
-  }
+      
+      predictive_scaling_customized_scaling_metric() :: %{
+        "MetricDataQueries" => list(metric_data_query()())
+      }
+      
   """
   @type predictive_scaling_customized_scaling_metric() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  suspended_process() :: %{
-    "ProcessName" => String.t(),
-    "SuspensionReason" => String.t()
-  }
+      
+      suspended_process() :: %{
+        "ProcessName" => String.t(),
+        "SuspensionReason" => String.t()
+      }
+      
   """
   @type suspended_process() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  scheduled_update_group_action_request() :: %{
-    "DesiredCapacity" => integer(),
-    "EndTime" => non_neg_integer(),
-    "MaxSize" => integer(),
-    "MinSize" => integer(),
-    "Recurrence" => String.t(),
-    "ScheduledActionName" => String.t(),
-    "StartTime" => non_neg_integer(),
-    "TimeZone" => String.t()
-  }
+      
+      scheduled_update_group_action_request() :: %{
+        "DesiredCapacity" => integer(),
+        "EndTime" => non_neg_integer(),
+        "MaxSize" => integer(),
+        "MinSize" => integer(),
+        "Recurrence" => String.t(),
+        "ScheduledActionName" => String.t(),
+        "StartTime" => non_neg_integer(),
+        "TimeZone" => String.t()
+      }
+      
   """
   @type scheduled_update_group_action_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  enter_standby_query() :: %{
-    optional("InstanceIds") => list(String.t()()),
-    required("AutoScalingGroupName") => String.t(),
-    required("ShouldDecrementDesiredCapacity") => boolean()
-  }
+      
+      enter_standby_query() :: %{
+        optional("InstanceIds") => list(String.t()()),
+        required("AutoScalingGroupName") => String.t(),
+        required("ShouldDecrementDesiredCapacity") => boolean()
+      }
+      
   """
   @type enter_standby_query() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  complete_lifecycle_action_answer() :: %{
-
-  }
+      
+      complete_lifecycle_action_answer() :: %{}
+      
   """
-  @type complete_lifecycle_action_answer() :: %{String.t() => any()}
+  @type complete_lifecycle_action_answer() :: %{}
 
   @typedoc """
 
   ## Example:
-  describe_lifecycle_hook_types_answer() :: %{
-    optional("LifecycleHookTypes") => list(String.t()())
-  }
+      
+      describe_lifecycle_hook_types_answer() :: %{
+        optional("LifecycleHookTypes") => list(String.t()())
+      }
+      
   """
   @type describe_lifecycle_hook_types_answer() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  detach_load_balancer_target_groups_type() :: %{
-    required("AutoScalingGroupName") => String.t(),
-    required("TargetGroupARNs") => list(String.t()())
-  }
+      
+      detach_load_balancer_target_groups_type() :: %{
+        required("AutoScalingGroupName") => String.t(),
+        required("TargetGroupARNs") => list(String.t()())
+      }
+      
   """
   @type detach_load_balancer_target_groups_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_lifecycle_hook_type() :: %{
-    optional("DefaultResult") => String.t(),
-    optional("HeartbeatTimeout") => integer(),
-    optional("LifecycleTransition") => String.t(),
-    optional("NotificationMetadata") => String.t(),
-    optional("NotificationTargetARN") => String.t(),
-    optional("RoleARN") => String.t(),
-    required("AutoScalingGroupName") => String.t(),
-    required("LifecycleHookName") => String.t()
-  }
+      
+      put_lifecycle_hook_type() :: %{
+        optional("DefaultResult") => String.t(),
+        optional("HeartbeatTimeout") => integer(),
+        optional("LifecycleTransition") => String.t(),
+        optional("NotificationMetadata") => String.t(),
+        optional("NotificationTargetARN") => String.t(),
+        optional("RoleARN") => String.t(),
+        required("AutoScalingGroupName") => String.t(),
+        required("LifecycleHookName") => String.t()
+      }
+      
   """
   @type put_lifecycle_hook_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  launch_template_overrides() :: %{
-    "InstanceRequirements" => instance_requirements(),
-    "InstanceType" => String.t(),
-    "LaunchTemplateSpecification" => launch_template_specification(),
-    "WeightedCapacity" => String.t()
-  }
+      
+      launch_template_overrides() :: %{
+        "InstanceRequirements" => instance_requirements(),
+        "InstanceType" => String.t(),
+        "LaunchTemplateSpecification" => launch_template_specification(),
+        "WeightedCapacity" => String.t()
+      }
+      
   """
   @type launch_template_overrides() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_termination_policy_types_answer() :: %{
-    optional("TerminationPolicyTypes") => list(String.t()())
-  }
+      
+      describe_termination_policy_types_answer() :: %{
+        optional("TerminationPolicyTypes") => list(String.t()())
+      }
+      
   """
   @type describe_termination_policy_types_answer() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_or_update_tags_type() :: %{
-    required("Tags") => list(tag()())
-  }
+      
+      create_or_update_tags_type() :: %{
+        required("Tags") => list(tag()())
+      }
+      
   """
   @type create_or_update_tags_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  failed_scheduled_update_group_action_request() :: %{
-    "ErrorCode" => String.t(),
-    "ErrorMessage" => String.t(),
-    "ScheduledActionName" => String.t()
-  }
+      
+      failed_scheduled_update_group_action_request() :: %{
+        "ErrorCode" => String.t(),
+        "ErrorMessage" => String.t(),
+        "ScheduledActionName" => String.t()
+      }
+      
   """
   @type failed_scheduled_update_group_action_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  filter() :: %{
-    "Name" => String.t(),
-    "Values" => list(String.t()())
-  }
+      
+      filter() :: %{
+        "Name" => String.t(),
+        "Values" => list(String.t()())
+      }
+      
   """
   @type filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  metric_dimension() :: %{
-    "Name" => String.t(),
-    "Value" => String.t()
-  }
+      
+      metric_dimension() :: %{
+        "Name" => String.t(),
+        "Value" => String.t()
+      }
+      
   """
   @type metric_dimension() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_auto_scaling_group_type() :: %{
-    optional("AvailabilityZones") => list(String.t()()),
-    optional("CapacityRebalance") => boolean(),
-    optional("Context") => String.t(),
-    optional("DefaultCooldown") => integer(),
-    optional("DefaultInstanceWarmup") => integer(),
-    optional("DesiredCapacity") => integer(),
-    optional("DesiredCapacityType") => String.t(),
-    optional("HealthCheckGracePeriod") => integer(),
-    optional("HealthCheckType") => String.t(),
-    optional("InstanceId") => String.t(),
-    optional("InstanceMaintenancePolicy") => instance_maintenance_policy(),
-    optional("LaunchConfigurationName") => String.t(),
-    optional("LaunchTemplate") => launch_template_specification(),
-    optional("LifecycleHookSpecificationList") => list(lifecycle_hook_specification()()),
-    optional("LoadBalancerNames") => list(String.t()()),
-    optional("MaxInstanceLifetime") => integer(),
-    optional("MixedInstancesPolicy") => mixed_instances_policy(),
-    optional("NewInstancesProtectedFromScaleIn") => boolean(),
-    optional("PlacementGroup") => String.t(),
-    optional("ServiceLinkedRoleARN") => String.t(),
-    optional("Tags") => list(tag()()),
-    optional("TargetGroupARNs") => list(String.t()()),
-    optional("TerminationPolicies") => list(String.t()()),
-    optional("TrafficSources") => list(traffic_source_identifier()()),
-    optional("VPCZoneIdentifier") => String.t(),
-    required("AutoScalingGroupName") => String.t(),
-    required("MaxSize") => integer(),
-    required("MinSize") => integer()
-  }
+      
+      create_auto_scaling_group_type() :: %{
+        optional("AvailabilityZones") => list(String.t()()),
+        optional("CapacityRebalance") => boolean(),
+        optional("Context") => String.t(),
+        optional("DefaultCooldown") => integer(),
+        optional("DefaultInstanceWarmup") => integer(),
+        optional("DesiredCapacity") => integer(),
+        optional("DesiredCapacityType") => String.t(),
+        optional("HealthCheckGracePeriod") => integer(),
+        optional("HealthCheckType") => String.t(),
+        optional("InstanceId") => String.t(),
+        optional("InstanceMaintenancePolicy") => instance_maintenance_policy(),
+        optional("LaunchConfigurationName") => String.t(),
+        optional("LaunchTemplate") => launch_template_specification(),
+        optional("LifecycleHookSpecificationList") => list(lifecycle_hook_specification()()),
+        optional("LoadBalancerNames") => list(String.t()()),
+        optional("MaxInstanceLifetime") => integer(),
+        optional("MixedInstancesPolicy") => mixed_instances_policy(),
+        optional("NewInstancesProtectedFromScaleIn") => boolean(),
+        optional("PlacementGroup") => String.t(),
+        optional("ServiceLinkedRoleARN") => String.t(),
+        optional("Tags") => list(tag()()),
+        optional("TargetGroupARNs") => list(String.t()()),
+        optional("TerminationPolicies") => list(String.t()()),
+        optional("TrafficSources") => list(traffic_source_identifier()()),
+        optional("VPCZoneIdentifier") => String.t(),
+        required("AutoScalingGroupName") => String.t(),
+        required("MaxSize") => integer(),
+        required("MinSize") => integer()
+      }
+      
   """
   @type create_auto_scaling_group_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_predictive_scaling_forecast_type() :: %{
-    required("AutoScalingGroupName") => String.t(),
-    required("EndTime") => non_neg_integer(),
-    required("PolicyName") => String.t(),
-    required("StartTime") => non_neg_integer()
-  }
+      
+      get_predictive_scaling_forecast_type() :: %{
+        required("AutoScalingGroupName") => String.t(),
+        required("EndTime") => non_neg_integer(),
+        required("PolicyName") => String.t(),
+        required("StartTime") => non_neg_integer()
+      }
+      
   """
   @type get_predictive_scaling_forecast_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  network_bandwidth_gbps_request() :: %{
-    "Max" => float(),
-    "Min" => float()
-  }
+      
+      network_bandwidth_gbps_request() :: %{
+        "Max" => float(),
+        "Min" => float()
+      }
+      
   """
   @type network_bandwidth_gbps_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_warm_pool_type() :: %{
-    optional("InstanceReusePolicy") => instance_reuse_policy(),
-    optional("MaxGroupPreparedCapacity") => integer(),
-    optional("MinSize") => integer(),
-    optional("PoolState") => list(any()),
-    required("AutoScalingGroupName") => String.t()
-  }
+      
+      put_warm_pool_type() :: %{
+        optional("InstanceReusePolicy") => instance_reuse_policy(),
+        optional("MaxGroupPreparedCapacity") => integer(),
+        optional("MinSize") => integer(),
+        optional("PoolState") => list(any()),
+        required("AutoScalingGroupName") => String.t()
+      }
+      
   """
   @type put_warm_pool_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_instance_refresh_answer() :: %{
-    optional("InstanceRefreshId") => String.t()
-  }
+      
+      start_instance_refresh_answer() :: %{
+        optional("InstanceRefreshId") => String.t()
+      }
+      
   """
   @type start_instance_refresh_answer() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  notification_configuration() :: %{
-    "AutoScalingGroupName" => String.t(),
-    "NotificationType" => String.t(),
-    "TopicARN" => String.t()
-  }
+      
+      notification_configuration() :: %{
+        "AutoScalingGroupName" => String.t(),
+        "NotificationType" => String.t(),
+        "TopicARN" => String.t()
+      }
+      
   """
   @type notification_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_in_use_fault() :: %{
-    "message" => String.t()
-  }
+      
+      resource_in_use_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type resource_in_use_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  instance_refresh_warm_pool_progress() :: %{
-    "InstancesToUpdate" => integer(),
-    "PercentageComplete" => integer()
-  }
+      
+      instance_refresh_warm_pool_progress() :: %{
+        "InstancesToUpdate" => integer(),
+        "PercentageComplete" => integer()
+      }
+      
   """
   @type instance_refresh_warm_pool_progress() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_delete_scheduled_action_type() :: %{
-    required("AutoScalingGroupName") => String.t(),
-    required("ScheduledActionNames") => list(String.t()())
-  }
+      
+      batch_delete_scheduled_action_type() :: %{
+        required("AutoScalingGroupName") => String.t(),
+        required("ScheduledActionNames") => list(String.t()())
+      }
+      
   """
   @type batch_delete_scheduled_action_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  exit_standby_answer() :: %{
-    optional("Activities") => list(activity()())
-  }
+      
+      exit_standby_answer() :: %{
+        optional("Activities") => list(activity()())
+      }
+      
   """
   @type exit_standby_answer() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_adjustment_types_answer() :: %{
-    optional("AdjustmentTypes") => list(adjustment_type()())
-  }
+      
+      describe_adjustment_types_answer() :: %{
+        optional("AdjustmentTypes") => list(adjustment_type()())
+      }
+      
   """
   @type describe_adjustment_types_answer() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  already_exists_fault() :: %{
-    "message" => String.t()
-  }
+      
+      already_exists_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type already_exists_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  launch_configuration_name_type() :: %{
-    required("LaunchConfigurationName") => String.t()
-  }
+      
+      launch_configuration_name_type() :: %{
+        required("LaunchConfigurationName") => String.t()
+      }
+      
   """
   @type launch_configuration_name_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  accelerator_total_memory_mi_b_request() :: %{
-    "Max" => integer(),
-    "Min" => integer()
-  }
+      
+      accelerator_total_memory_mi_b_request() :: %{
+        "Max" => integer(),
+        "Min" => integer()
+      }
+      
   """
   @type accelerator_total_memory_mi_b_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  activity_type() :: %{
-    optional("Activity") => activity()
-  }
+      
+      activity_type() :: %{
+        optional("Activity") => activity()
+      }
+      
   """
   @type activity_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  processes_type() :: %{
-    optional("Processes") => list(process_type()())
-  }
+      
+      processes_type() :: %{
+        optional("Processes") => list(process_type()())
+      }
+      
   """
   @type processes_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  detach_traffic_sources_result_type() :: %{
-
-  }
+      
+      detach_traffic_sources_result_type() :: %{}
+      
   """
-  @type detach_traffic_sources_result_type() :: %{String.t() => any()}
+  @type detach_traffic_sources_result_type() :: %{}
 
   @typedoc """
 
   ## Example:
-  delete_warm_pool_type() :: %{
-    optional("ForceDelete") => boolean(),
-    required("AutoScalingGroupName") => String.t()
-  }
+      
+      delete_warm_pool_type() :: %{
+        optional("ForceDelete") => boolean(),
+        required("AutoScalingGroupName") => String.t()
+      }
+      
   """
   @type delete_warm_pool_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_warm_pool_answer() :: %{
-    optional("Instances") => list(instance()()),
-    optional("NextToken") => String.t(),
-    optional("WarmPoolConfiguration") => warm_pool_configuration()
-  }
+      
+      describe_warm_pool_answer() :: %{
+        optional("Instances") => list(instance()()),
+        optional("NextToken") => String.t(),
+        optional("WarmPoolConfiguration") => warm_pool_configuration()
+      }
+      
   """
   @type describe_warm_pool_answer() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  instance() :: %{
-    "AvailabilityZone" => String.t(),
-    "HealthStatus" => String.t(),
-    "InstanceId" => String.t(),
-    "InstanceType" => String.t(),
-    "LaunchConfigurationName" => String.t(),
-    "LaunchTemplate" => launch_template_specification(),
-    "LifecycleState" => list(any()),
-    "ProtectedFromScaleIn" => boolean(),
-    "WeightedCapacity" => String.t()
-  }
+      
+      instance() :: %{
+        "AvailabilityZone" => String.t(),
+        "HealthStatus" => String.t(),
+        "InstanceId" => String.t(),
+        "InstanceType" => String.t(),
+        "LaunchConfigurationName" => String.t(),
+        "LaunchTemplate" => launch_template_specification(),
+        "LifecycleState" => list(any()),
+        "ProtectedFromScaleIn" => boolean(),
+        "WeightedCapacity" => String.t()
+      }
+      
   """
   @type instance() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  detach_instances_query() :: %{
-    optional("InstanceIds") => list(String.t()()),
-    required("AutoScalingGroupName") => String.t(),
-    required("ShouldDecrementDesiredCapacity") => boolean()
-  }
+      
+      detach_instances_query() :: %{
+        optional("InstanceIds") => list(String.t()()),
+        required("AutoScalingGroupName") => String.t(),
+        required("ShouldDecrementDesiredCapacity") => boolean()
+      }
+      
   """
   @type detach_instances_query() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  instance_metadata_options() :: %{
-    "HttpEndpoint" => list(any()),
-    "HttpPutResponseHopLimit" => integer(),
-    "HttpTokens" => list(any())
-  }
+      
+      instance_metadata_options() :: %{
+        "HttpEndpoint" => list(any()),
+        "HttpPutResponseHopLimit" => integer(),
+        "HttpTokens" => list(any())
+      }
+      
   """
   @type instance_metadata_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  load_balancer_target_group_state() :: %{
-    "LoadBalancerTargetGroupARN" => String.t(),
-    "State" => String.t()
-  }
+      
+      load_balancer_target_group_state() :: %{
+        "LoadBalancerTargetGroupARN" => String.t(),
+        "State" => String.t()
+      }
+      
   """
   @type load_balancer_target_group_state() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  predefined_metric_specification() :: %{
-    "PredefinedMetricType" => list(any()),
-    "ResourceLabel" => String.t()
-  }
+      
+      predefined_metric_specification() :: %{
+        "PredefinedMetricType" => list(any()),
+        "ResourceLabel" => String.t()
+      }
+      
   """
   @type predefined_metric_specification() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  metric_stat() :: %{
-    "Metric" => metric(),
-    "Stat" => String.t(),
-    "Unit" => String.t()
-  }
+      
+      metric_stat() :: %{
+        "Metric" => metric(),
+        "Stat" => String.t(),
+        "Unit" => String.t()
+      }
+      
   """
   @type metric_stat() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  activities_type() :: %{
-    optional("NextToken") => String.t(),
-    required("Activities") => list(activity()())
-  }
+      
+      activities_type() :: %{
+        optional("NextToken") => String.t(),
+        required("Activities") => list(activity()())
+      }
+      
   """
   @type activities_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  attach_instances_query() :: %{
-    optional("InstanceIds") => list(String.t()()),
-    required("AutoScalingGroupName") => String.t()
-  }
+      
+      attach_instances_query() :: %{
+        optional("InstanceIds") => list(String.t()()),
+        required("AutoScalingGroupName") => String.t()
+      }
+      
   """
   @type attach_instances_query() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  instance_requirements() :: %{
-    "AcceleratorCount" => accelerator_count_request(),
-    "AcceleratorManufacturers" => list(list(any())()),
-    "AcceleratorNames" => list(list(any())()),
-    "AcceleratorTotalMemoryMiB" => accelerator_total_memory_mi_b_request(),
-    "AcceleratorTypes" => list(list(any())()),
-    "AllowedInstanceTypes" => list(String.t()()),
-    "BareMetal" => list(any()),
-    "BaselineEbsBandwidthMbps" => baseline_ebs_bandwidth_mbps_request(),
-    "BurstablePerformance" => list(any()),
-    "CpuManufacturers" => list(list(any())()),
-    "ExcludedInstanceTypes" => list(String.t()()),
-    "InstanceGenerations" => list(list(any())()),
-    "LocalStorage" => list(any()),
-    "LocalStorageTypes" => list(list(any())()),
-    "MaxSpotPriceAsPercentageOfOptimalOnDemandPrice" => integer(),
-    "MemoryGiBPerVCpu" => memory_gi_b_per_v_cpu_request(),
-    "MemoryMiB" => memory_mi_b_request(),
-    "NetworkBandwidthGbps" => network_bandwidth_gbps_request(),
-    "NetworkInterfaceCount" => network_interface_count_request(),
-    "OnDemandMaxPricePercentageOverLowestPrice" => integer(),
-    "RequireHibernateSupport" => boolean(),
-    "SpotMaxPricePercentageOverLowestPrice" => integer(),
-    "TotalLocalStorageGB" => total_local_storage_g_b_request(),
-    "VCpuCount" => v_cpu_count_request()
-  }
+      
+      instance_requirements() :: %{
+        "AcceleratorCount" => accelerator_count_request(),
+        "AcceleratorManufacturers" => list(list(any())()),
+        "AcceleratorNames" => list(list(any())()),
+        "AcceleratorTotalMemoryMiB" => accelerator_total_memory_mi_b_request(),
+        "AcceleratorTypes" => list(list(any())()),
+        "AllowedInstanceTypes" => list(String.t()()),
+        "BareMetal" => list(any()),
+        "BaselineEbsBandwidthMbps" => baseline_ebs_bandwidth_mbps_request(),
+        "BurstablePerformance" => list(any()),
+        "CpuManufacturers" => list(list(any())()),
+        "ExcludedInstanceTypes" => list(String.t()()),
+        "InstanceGenerations" => list(list(any())()),
+        "LocalStorage" => list(any()),
+        "LocalStorageTypes" => list(list(any())()),
+        "MaxSpotPriceAsPercentageOfOptimalOnDemandPrice" => integer(),
+        "MemoryGiBPerVCpu" => memory_gi_b_per_v_cpu_request(),
+        "MemoryMiB" => memory_mi_b_request(),
+        "NetworkBandwidthGbps" => network_bandwidth_gbps_request(),
+        "NetworkInterfaceCount" => network_interface_count_request(),
+        "OnDemandMaxPricePercentageOverLowestPrice" => integer(),
+        "RequireHibernateSupport" => boolean(),
+        "SpotMaxPricePercentageOverLowestPrice" => integer(),
+        "TotalLocalStorageGB" => total_local_storage_g_b_request(),
+        "VCpuCount" => v_cpu_count_request()
+      }
+      
   """
   @type instance_requirements() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  instance_monitoring() :: %{
-    "Enabled" => boolean()
-  }
+      
+      instance_monitoring() :: %{
+        "Enabled" => boolean()
+      }
+      
   """
   @type instance_monitoring() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  set_desired_capacity_type() :: %{
-    optional("HonorCooldown") => boolean(),
-    required("AutoScalingGroupName") => String.t(),
-    required("DesiredCapacity") => integer()
-  }
+      
+      set_desired_capacity_type() :: %{
+        optional("HonorCooldown") => boolean(),
+        required("AutoScalingGroupName") => String.t(),
+        required("DesiredCapacity") => integer()
+      }
+      
   """
   @type set_desired_capacity_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  auto_scaling_group() :: %{
-    "Status" => String.t(),
-    "InstanceMaintenancePolicy" => instance_maintenance_policy(),
-    "EnabledMetrics" => list(enabled_metric()()),
-    "SuspendedProcesses" => list(suspended_process()()),
-    "Tags" => list(tag_description()()),
-    "WarmPoolSize" => integer(),
-    "ServiceLinkedRoleARN" => String.t(),
-    "Context" => String.t(),
-    "DefaultCooldown" => integer(),
-    "MaxInstanceLifetime" => integer(),
-    "LoadBalancerNames" => list(String.t()()),
-    "MinSize" => integer(),
-    "HealthCheckGracePeriod" => integer(),
-    "AvailabilityZones" => list(String.t()()),
-    "DesiredCapacityType" => String.t(),
-    "TrafficSources" => list(traffic_source_identifier()()),
-    "VPCZoneIdentifier" => String.t(),
-    "MaxSize" => integer(),
-    "CapacityRebalance" => boolean(),
-    "Instances" => list(instance()()),
-    "TerminationPolicies" => list(String.t()()),
-    "LaunchConfigurationName" => String.t(),
-    "HealthCheckType" => String.t(),
-    "PlacementGroup" => String.t(),
-    "AutoScalingGroupARN" => String.t(),
-    "DesiredCapacity" => integer(),
-    "WarmPoolConfiguration" => warm_pool_configuration(),
-    "DefaultInstanceWarmup" => integer(),
-    "AutoScalingGroupName" => String.t(),
-    "PredictedCapacity" => integer(),
-    "TargetGroupARNs" => list(String.t()()),
-    "MixedInstancesPolicy" => mixed_instances_policy(),
-    "CreatedTime" => non_neg_integer(),
-    "NewInstancesProtectedFromScaleIn" => boolean(),
-    "LaunchTemplate" => launch_template_specification()
-  }
+      
+      auto_scaling_group() :: %{
+        "Status" => String.t(),
+        "InstanceMaintenancePolicy" => instance_maintenance_policy(),
+        "EnabledMetrics" => list(enabled_metric()()),
+        "SuspendedProcesses" => list(suspended_process()()),
+        "Tags" => list(tag_description()()),
+        "WarmPoolSize" => integer(),
+        "ServiceLinkedRoleARN" => String.t(),
+        "Context" => String.t(),
+        "DefaultCooldown" => integer(),
+        "MaxInstanceLifetime" => integer(),
+        "LoadBalancerNames" => list(String.t()()),
+        "MinSize" => integer(),
+        "HealthCheckGracePeriod" => integer(),
+        "AvailabilityZones" => list(String.t()()),
+        "DesiredCapacityType" => String.t(),
+        "TrafficSources" => list(traffic_source_identifier()()),
+        "VPCZoneIdentifier" => String.t(),
+        "MaxSize" => integer(),
+        "CapacityRebalance" => boolean(),
+        "Instances" => list(instance()()),
+        "TerminationPolicies" => list(String.t()()),
+        "LaunchConfigurationName" => String.t(),
+        "HealthCheckType" => String.t(),
+        "PlacementGroup" => String.t(),
+        "AutoScalingGroupARN" => String.t(),
+        "DesiredCapacity" => integer(),
+        "WarmPoolConfiguration" => warm_pool_configuration(),
+        "DefaultInstanceWarmup" => integer(),
+        "AutoScalingGroupName" => String.t(),
+        "PredictedCapacity" => integer(),
+        "TargetGroupARNs" => list(String.t()()),
+        "MixedInstancesPolicy" => mixed_instances_policy(),
+        "CreatedTime" => non_neg_integer(),
+        "NewInstancesProtectedFromScaleIn" => boolean(),
+        "LaunchTemplate" => launch_template_specification()
+      }
+      
   """
   @type auto_scaling_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_put_scheduled_update_group_action_answer() :: %{
-    optional("FailedScheduledUpdateGroupActions") => list(failed_scheduled_update_group_action_request()())
-  }
+      
+      batch_put_scheduled_update_group_action_answer() :: %{
+        optional("FailedScheduledUpdateGroupActions") => list(failed_scheduled_update_group_action_request()())
+      }
+      
   """
   @type batch_put_scheduled_update_group_action_answer() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_auto_scaling_notification_types_answer() :: %{
-    optional("AutoScalingNotificationTypes") => list(String.t()())
-  }
+      
+      describe_auto_scaling_notification_types_answer() :: %{
+        optional("AutoScalingNotificationTypes") => list(String.t()())
+      }
+      
   """
   @type describe_auto_scaling_notification_types_answer() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  refresh_preferences() :: %{
-    "AlarmSpecification" => alarm_specification(),
-    "AutoRollback" => boolean(),
-    "CheckpointDelay" => integer(),
-    "CheckpointPercentages" => list(integer()()),
-    "InstanceWarmup" => integer(),
-    "MaxHealthyPercentage" => integer(),
-    "MinHealthyPercentage" => integer(),
-    "ScaleInProtectedInstances" => list(any()),
-    "SkipMatching" => boolean(),
-    "StandbyInstances" => list(any())
-  }
+      
+      refresh_preferences() :: %{
+        "AlarmSpecification" => alarm_specification(),
+        "AutoRollback" => boolean(),
+        "CheckpointDelay" => integer(),
+        "CheckpointPercentages" => list(integer()()),
+        "InstanceWarmup" => integer(),
+        "MaxHealthyPercentage" => integer(),
+        "MinHealthyPercentage" => integer(),
+        "ScaleInProtectedInstances" => list(any()),
+        "SkipMatching" => boolean(),
+        "StandbyInstances" => list(any())
+      }
+      
   """
   @type refresh_preferences() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  launch_template() :: %{
-    "LaunchTemplateSpecification" => launch_template_specification(),
-    "Overrides" => list(launch_template_overrides()())
-  }
+      
+      launch_template() :: %{
+        "LaunchTemplateSpecification" => launch_template_specification(),
+        "Overrides" => list(launch_template_overrides()())
+      }
+      
   """
   @type launch_template() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_put_scheduled_update_group_action_type() :: %{
-    required("AutoScalingGroupName") => String.t(),
-    required("ScheduledUpdateGroupActions") => list(scheduled_update_group_action_request()())
-  }
+      
+      batch_put_scheduled_update_group_action_type() :: %{
+        required("AutoScalingGroupName") => String.t(),
+        required("ScheduledUpdateGroupActions") => list(scheduled_update_group_action_request()())
+      }
+      
   """
   @type batch_put_scheduled_update_group_action_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_instance_refreshes_answer() :: %{
-    optional("InstanceRefreshes") => list(instance_refresh()()),
-    optional("NextToken") => String.t()
-  }
+      
+      describe_instance_refreshes_answer() :: %{
+        optional("InstanceRefreshes") => list(instance_refresh()()),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type describe_instance_refreshes_answer() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_warm_pool_answer() :: %{
-
-  }
+      
+      put_warm_pool_answer() :: %{}
+      
   """
-  @type put_warm_pool_answer() :: %{String.t() => any()}
+  @type put_warm_pool_answer() :: %{}
 
   @typedoc """
 
   ## Example:
-  update_auto_scaling_group_type() :: %{
-    optional("AvailabilityZones") => list(String.t()()),
-    optional("CapacityRebalance") => boolean(),
-    optional("Context") => String.t(),
-    optional("DefaultCooldown") => integer(),
-    optional("DefaultInstanceWarmup") => integer(),
-    optional("DesiredCapacity") => integer(),
-    optional("DesiredCapacityType") => String.t(),
-    optional("HealthCheckGracePeriod") => integer(),
-    optional("HealthCheckType") => String.t(),
-    optional("InstanceMaintenancePolicy") => instance_maintenance_policy(),
-    optional("LaunchConfigurationName") => String.t(),
-    optional("LaunchTemplate") => launch_template_specification(),
-    optional("MaxInstanceLifetime") => integer(),
-    optional("MaxSize") => integer(),
-    optional("MinSize") => integer(),
-    optional("MixedInstancesPolicy") => mixed_instances_policy(),
-    optional("NewInstancesProtectedFromScaleIn") => boolean(),
-    optional("PlacementGroup") => String.t(),
-    optional("ServiceLinkedRoleARN") => String.t(),
-    optional("TerminationPolicies") => list(String.t()()),
-    optional("VPCZoneIdentifier") => String.t(),
-    required("AutoScalingGroupName") => String.t()
-  }
+      
+      update_auto_scaling_group_type() :: %{
+        optional("AvailabilityZones") => list(String.t()()),
+        optional("CapacityRebalance") => boolean(),
+        optional("Context") => String.t(),
+        optional("DefaultCooldown") => integer(),
+        optional("DefaultInstanceWarmup") => integer(),
+        optional("DesiredCapacity") => integer(),
+        optional("DesiredCapacityType") => String.t(),
+        optional("HealthCheckGracePeriod") => integer(),
+        optional("HealthCheckType") => String.t(),
+        optional("InstanceMaintenancePolicy") => instance_maintenance_policy(),
+        optional("LaunchConfigurationName") => String.t(),
+        optional("LaunchTemplate") => launch_template_specification(),
+        optional("MaxInstanceLifetime") => integer(),
+        optional("MaxSize") => integer(),
+        optional("MinSize") => integer(),
+        optional("MixedInstancesPolicy") => mixed_instances_policy(),
+        optional("NewInstancesProtectedFromScaleIn") => boolean(),
+        optional("PlacementGroup") => String.t(),
+        optional("ServiceLinkedRoleARN") => String.t(),
+        optional("TerminationPolicies") => list(String.t()()),
+        optional("VPCZoneIdentifier") => String.t(),
+        required("AutoScalingGroupName") => String.t()
+      }
+      
   """
   @type update_auto_scaling_group_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_load_balancer_target_groups_request() :: %{
-    optional("MaxRecords") => integer(),
-    optional("NextToken") => String.t(),
-    required("AutoScalingGroupName") => String.t()
-  }
+      
+      describe_load_balancer_target_groups_request() :: %{
+        optional("MaxRecords") => integer(),
+        optional("NextToken") => String.t(),
+        required("AutoScalingGroupName") => String.t()
+      }
+      
   """
   @type describe_load_balancer_target_groups_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  instance_refresh_in_progress_fault() :: %{
-    "message" => String.t()
-  }
+      
+      instance_refresh_in_progress_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type instance_refresh_in_progress_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_scheduled_action_type() :: %{
-    required("AutoScalingGroupName") => String.t(),
-    required("ScheduledActionName") => String.t()
-  }
+      
+      delete_scheduled_action_type() :: %{
+        required("AutoScalingGroupName") => String.t(),
+        required("ScheduledActionName") => String.t()
+      }
+      
   """
   @type delete_scheduled_action_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  launch_configuration() :: %{
-    "AssociatePublicIpAddress" => boolean(),
-    "BlockDeviceMappings" => list(block_device_mapping()()),
-    "ClassicLinkVPCId" => String.t(),
-    "ClassicLinkVPCSecurityGroups" => list(String.t()()),
-    "CreatedTime" => non_neg_integer(),
-    "EbsOptimized" => boolean(),
-    "IamInstanceProfile" => String.t(),
-    "ImageId" => String.t(),
-    "InstanceMonitoring" => instance_monitoring(),
-    "InstanceType" => String.t(),
-    "KernelId" => String.t(),
-    "KeyName" => String.t(),
-    "LaunchConfigurationARN" => String.t(),
-    "LaunchConfigurationName" => String.t(),
-    "MetadataOptions" => instance_metadata_options(),
-    "PlacementTenancy" => String.t(),
-    "RamdiskId" => String.t(),
-    "SecurityGroups" => list(String.t()()),
-    "SpotPrice" => String.t(),
-    "UserData" => String.t()
-  }
+      
+      launch_configuration() :: %{
+        "AssociatePublicIpAddress" => boolean(),
+        "BlockDeviceMappings" => list(block_device_mapping()()),
+        "ClassicLinkVPCId" => String.t(),
+        "ClassicLinkVPCSecurityGroups" => list(String.t()()),
+        "CreatedTime" => non_neg_integer(),
+        "EbsOptimized" => boolean(),
+        "IamInstanceProfile" => String.t(),
+        "ImageId" => String.t(),
+        "InstanceMonitoring" => instance_monitoring(),
+        "InstanceType" => String.t(),
+        "KernelId" => String.t(),
+        "KeyName" => String.t(),
+        "LaunchConfigurationARN" => String.t(),
+        "LaunchConfigurationName" => String.t(),
+        "MetadataOptions" => instance_metadata_options(),
+        "PlacementTenancy" => String.t(),
+        "RamdiskId" => String.t(),
+        "SecurityGroups" => list(String.t()()),
+        "SpotPrice" => String.t(),
+        "UserData" => String.t()
+      }
+      
   """
   @type launch_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  attach_load_balancer_target_groups_type() :: %{
-    required("AutoScalingGroupName") => String.t(),
-    required("TargetGroupARNs") => list(String.t()())
-  }
+      
+      attach_load_balancer_target_groups_type() :: %{
+        required("AutoScalingGroupName") => String.t(),
+        required("TargetGroupARNs") => list(String.t()())
+      }
+      
   """
   @type attach_load_balancer_target_groups_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  launch_template_specification() :: %{
-    "LaunchTemplateId" => String.t(),
-    "LaunchTemplateName" => String.t(),
-    "Version" => String.t()
-  }
+      
+      launch_template_specification() :: %{
+        "LaunchTemplateId" => String.t(),
+        "LaunchTemplateName" => String.t(),
+        "Version" => String.t()
+      }
+      
   """
   @type launch_template_specification() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  rollback_details() :: %{
-    "InstancesToUpdateOnRollback" => integer(),
-    "PercentageCompleteOnRollback" => integer(),
-    "ProgressDetailsOnRollback" => instance_refresh_progress_details(),
-    "RollbackReason" => String.t(),
-    "RollbackStartTime" => non_neg_integer()
-  }
+      
+      rollback_details() :: %{
+        "InstancesToUpdateOnRollback" => integer(),
+        "PercentageCompleteOnRollback" => integer(),
+        "ProgressDetailsOnRollback" => instance_refresh_progress_details(),
+        "RollbackReason" => String.t(),
+        "RollbackStartTime" => non_neg_integer()
+      }
+      
   """
   @type rollback_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  set_instance_protection_query() :: %{
-    required("AutoScalingGroupName") => String.t(),
-    required("InstanceIds") => list(String.t()()),
-    required("ProtectedFromScaleIn") => boolean()
-  }
+      
+      set_instance_protection_query() :: %{
+        required("AutoScalingGroupName") => String.t(),
+        required("InstanceIds") => list(String.t()()),
+        required("ProtectedFromScaleIn") => boolean()
+      }
+      
   """
   @type set_instance_protection_query() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  memory_mi_b_request() :: %{
-    "Max" => integer(),
-    "Min" => integer()
-  }
+      
+      memory_mi_b_request() :: %{
+        "Max" => integer(),
+        "Min" => integer()
+      }
+      
   """
   @type memory_mi_b_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  network_interface_count_request() :: %{
-    "Max" => integer(),
-    "Min" => integer()
-  }
+      
+      network_interface_count_request() :: %{
+        "Max" => integer(),
+        "Min" => integer()
+      }
+      
   """
   @type network_interface_count_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  set_instance_health_query() :: %{
-    optional("ShouldRespectGracePeriod") => boolean(),
-    required("HealthStatus") => String.t(),
-    required("InstanceId") => String.t()
-  }
+      
+      set_instance_health_query() :: %{
+        optional("ShouldRespectGracePeriod") => boolean(),
+        required("HealthStatus") => String.t(),
+        required("InstanceId") => String.t()
+      }
+      
   """
   @type set_instance_health_query() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_lifecycle_hook_type() :: %{
-    required("AutoScalingGroupName") => String.t(),
-    required("LifecycleHookName") => String.t()
-  }
+      
+      delete_lifecycle_hook_type() :: %{
+        required("AutoScalingGroupName") => String.t(),
+        required("LifecycleHookName") => String.t()
+      }
+      
   """
   @type delete_lifecycle_hook_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disable_metrics_collection_query() :: %{
-    optional("Metrics") => list(String.t()()),
-    required("AutoScalingGroupName") => String.t()
-  }
+      
+      disable_metrics_collection_query() :: %{
+        optional("Metrics") => list(String.t()()),
+        required("AutoScalingGroupName") => String.t()
+      }
+      
   """
   @type disable_metrics_collection_query() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  total_local_storage_g_b_request() :: %{
-    "Max" => float(),
-    "Min" => float()
-  }
+      
+      total_local_storage_g_b_request() :: %{
+        "Max" => float(),
+        "Min" => float()
+      }
+      
   """
   @type total_local_storage_g_b_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  service_linked_role_failure() :: %{
-    "message" => String.t()
-  }
+      
+      service_linked_role_failure() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type service_linked_role_failure() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  set_instance_protection_answer() :: %{
-
-  }
+      
+      set_instance_protection_answer() :: %{}
+      
   """
-  @type set_instance_protection_answer() :: %{String.t() => any()}
+  @type set_instance_protection_answer() :: %{}
 
   @typedoc """
 
   ## Example:
-  predictive_scaling_customized_capacity_metric() :: %{
-    "MetricDataQueries" => list(metric_data_query()())
-  }
+      
+      predictive_scaling_customized_capacity_metric() :: %{
+        "MetricDataQueries" => list(metric_data_query()())
+      }
+      
   """
   @type predictive_scaling_customized_capacity_metric() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  rollback_instance_refresh_type() :: %{
-    required("AutoScalingGroupName") => String.t()
-  }
+      
+      rollback_instance_refresh_type() :: %{
+        required("AutoScalingGroupName") => String.t()
+      }
+      
   """
   @type rollback_instance_refresh_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  target_tracking_metric_data_query() :: %{
-    "Expression" => String.t(),
-    "Id" => String.t(),
-    "Label" => String.t(),
-    "MetricStat" => target_tracking_metric_stat(),
-    "ReturnData" => boolean()
-  }
+      
+      target_tracking_metric_data_query() :: %{
+        "Expression" => String.t(),
+        "Id" => String.t(),
+        "Label" => String.t(),
+        "MetricStat" => target_tracking_metric_stat(),
+        "ReturnData" => boolean()
+      }
+      
   """
   @type target_tracking_metric_data_query() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  capacity_forecast() :: %{
-    "Timestamps" => list(non_neg_integer()()),
-    "Values" => list(float()())
-  }
+      
+      capacity_forecast() :: %{
+        "Timestamps" => list(non_neg_integer()()),
+        "Values" => list(float()())
+      }
+      
   """
   @type capacity_forecast() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  auto_scaling_instances_type() :: %{
-    optional("AutoScalingInstances") => list(auto_scaling_instance_details()()),
-    optional("NextToken") => String.t()
-  }
+      
+      auto_scaling_instances_type() :: %{
+        optional("AutoScalingInstances") => list(auto_scaling_instance_details()()),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type auto_scaling_instances_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  detach_load_balancer_target_groups_result_type() :: %{
-
-  }
+      
+      detach_load_balancer_target_groups_result_type() :: %{}
+      
   """
-  @type detach_load_balancer_target_groups_result_type() :: %{String.t() => any()}
+  @type detach_load_balancer_target_groups_result_type() :: %{}
 
   @typedoc """
 
   ## Example:
-  alarm_specification() :: %{
-    "Alarms" => list(String.t()())
-  }
+      
+      alarm_specification() :: %{
+        "Alarms" => list(String.t()())
+      }
+      
   """
   @type alarm_specification() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_scaling_activities_type() :: %{
-    optional("ActivityIds") => list(String.t()()),
-    optional("AutoScalingGroupName") => String.t(),
-    optional("IncludeDeletedGroups") => boolean(),
-    optional("MaxRecords") => integer(),
-    optional("NextToken") => String.t()
-  }
+      
+      describe_scaling_activities_type() :: %{
+        optional("ActivityIds") => list(String.t()()),
+        optional("AutoScalingGroupName") => String.t(),
+        optional("IncludeDeletedGroups") => boolean(),
+        optional("MaxRecords") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type describe_scaling_activities_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_lifecycle_hook_answer() :: %{
-
-  }
+      
+      delete_lifecycle_hook_answer() :: %{}
+      
   """
-  @type delete_lifecycle_hook_answer() :: %{String.t() => any()}
+  @type delete_lifecycle_hook_answer() :: %{}
 
   @typedoc """
 
   ## Example:
-  describe_auto_scaling_instances_type() :: %{
-    optional("InstanceIds") => list(String.t()()),
-    optional("MaxRecords") => integer(),
-    optional("NextToken") => String.t()
-  }
+      
+      describe_auto_scaling_instances_type() :: %{
+        optional("InstanceIds") => list(String.t()()),
+        optional("MaxRecords") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type describe_auto_scaling_instances_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  instance_refresh_live_pool_progress() :: %{
-    "InstancesToUpdate" => integer(),
-    "PercentageComplete" => integer()
-  }
+      
+      instance_refresh_live_pool_progress() :: %{
+        "InstancesToUpdate" => integer(),
+        "PercentageComplete" => integer()
+      }
+      
   """
   @type instance_refresh_live_pool_progress() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  auto_scaling_groups_type() :: %{
-    optional("NextToken") => String.t(),
-    required("AutoScalingGroups") => list(auto_scaling_group()())
-  }
+      
+      auto_scaling_groups_type() :: %{
+        optional("NextToken") => String.t(),
+        required("AutoScalingGroups") => list(auto_scaling_group()())
+      }
+      
   """
   @type auto_scaling_groups_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  metric_collection_type() :: %{
-    "Metric" => String.t()
-  }
+      
+      metric_collection_type() :: %{
+        "Metric" => String.t()
+      }
+      
   """
   @type metric_collection_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_delete_scheduled_action_answer() :: %{
-    optional("FailedScheduledActions") => list(failed_scheduled_update_group_action_request()())
-  }
+      
+      batch_delete_scheduled_action_answer() :: %{
+        optional("FailedScheduledActions") => list(failed_scheduled_update_group_action_request()())
+      }
+      
   """
   @type batch_delete_scheduled_action_answer() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  enable_metrics_collection_query() :: %{
-    optional("Metrics") => list(String.t()()),
-    required("AutoScalingGroupName") => String.t(),
-    required("Granularity") => String.t()
-  }
+      
+      enable_metrics_collection_query() :: %{
+        optional("Metrics") => list(String.t()()),
+        required("AutoScalingGroupName") => String.t(),
+        required("Granularity") => String.t()
+      }
+      
   """
   @type enable_metrics_collection_query() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  desired_configuration() :: %{
-    "LaunchTemplate" => launch_template_specification(),
-    "MixedInstancesPolicy" => mixed_instances_policy()
-  }
+      
+      desired_configuration() :: %{
+        "LaunchTemplate" => launch_template_specification(),
+        "MixedInstancesPolicy" => mixed_instances_policy()
+      }
+      
   """
   @type desired_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_next_token() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_next_token() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_next_token() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  baseline_ebs_bandwidth_mbps_request() :: %{
-    "Max" => integer(),
-    "Min" => integer()
-  }
+      
+      baseline_ebs_bandwidth_mbps_request() :: %{
+        "Max" => integer(),
+        "Min" => integer()
+      }
+      
   """
   @type baseline_ebs_bandwidth_mbps_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_scaling_policy_type() :: %{
-    optional("AdjustmentType") => String.t(),
-    optional("Cooldown") => integer(),
-    optional("Enabled") => boolean(),
-    optional("EstimatedInstanceWarmup") => integer(),
-    optional("MetricAggregationType") => String.t(),
-    optional("MinAdjustmentMagnitude") => integer(),
-    optional("MinAdjustmentStep") => integer(),
-    optional("PolicyType") => String.t(),
-    optional("PredictiveScalingConfiguration") => predictive_scaling_configuration(),
-    optional("ScalingAdjustment") => integer(),
-    optional("StepAdjustments") => list(step_adjustment()()),
-    optional("TargetTrackingConfiguration") => target_tracking_configuration(),
-    required("AutoScalingGroupName") => String.t(),
-    required("PolicyName") => String.t()
-  }
+      
+      put_scaling_policy_type() :: %{
+        optional("AdjustmentType") => String.t(),
+        optional("Cooldown") => integer(),
+        optional("Enabled") => boolean(),
+        optional("EstimatedInstanceWarmup") => integer(),
+        optional("MetricAggregationType") => String.t(),
+        optional("MinAdjustmentMagnitude") => integer(),
+        optional("MinAdjustmentStep") => integer(),
+        optional("PolicyType") => String.t(),
+        optional("PredictiveScalingConfiguration") => predictive_scaling_configuration(),
+        optional("ScalingAdjustment") => integer(),
+        optional("StepAdjustments") => list(step_adjustment()()),
+        optional("TargetTrackingConfiguration") => target_tracking_configuration(),
+        required("AutoScalingGroupName") => String.t(),
+        required("PolicyName") => String.t()
+      }
+      
   """
   @type put_scaling_policy_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  attach_load_balancer_target_groups_result_type() :: %{
-
-  }
+      
+      attach_load_balancer_target_groups_result_type() :: %{}
+      
   """
-  @type attach_load_balancer_target_groups_result_type() :: %{String.t() => any()}
+  @type attach_load_balancer_target_groups_result_type() :: %{}
 
   @typedoc """
 
   ## Example:
-  predictive_scaling_configuration() :: %{
-    "MaxCapacityBreachBehavior" => list(any()),
-    "MaxCapacityBuffer" => integer(),
-    "MetricSpecifications" => list(predictive_scaling_metric_specification()()),
-    "Mode" => list(any()),
-    "SchedulingBufferTime" => integer()
-  }
+      
+      predictive_scaling_configuration() :: %{
+        "MaxCapacityBreachBehavior" => list(any()),
+        "MaxCapacityBuffer" => integer(),
+        "MetricSpecifications" => list(predictive_scaling_metric_specification()()),
+        "Mode" => list(any()),
+        "SchedulingBufferTime" => integer()
+      }
+      
   """
   @type predictive_scaling_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  target_tracking_configuration() :: %{
-    "CustomizedMetricSpecification" => customized_metric_specification(),
-    "DisableScaleIn" => boolean(),
-    "PredefinedMetricSpecification" => predefined_metric_specification(),
-    "TargetValue" => float()
-  }
+      
+      target_tracking_configuration() :: %{
+        "CustomizedMetricSpecification" => customized_metric_specification(),
+        "DisableScaleIn" => boolean(),
+        "PredefinedMetricSpecification" => predefined_metric_specification(),
+        "TargetValue" => float()
+      }
+      
   """
   @type target_tracking_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_policy_type() :: %{
-    optional("AutoScalingGroupName") => String.t(),
-    required("PolicyName") => String.t()
-  }
+      
+      delete_policy_type() :: %{
+        optional("AutoScalingGroupName") => String.t(),
+        required("PolicyName") => String.t()
+      }
+      
   """
   @type delete_policy_type() :: %{String.t() => any()}
+
+  @type attach_instances_errors() :: service_linked_role_failure() | resource_contention_fault()
+
+  @type attach_load_balancer_target_groups_errors() ::
+          service_linked_role_failure() | resource_contention_fault()
+
+  @type attach_load_balancers_errors() ::
+          service_linked_role_failure() | resource_contention_fault()
+
+  @type attach_traffic_sources_errors() ::
+          service_linked_role_failure() | resource_contention_fault()
+
+  @type batch_delete_scheduled_action_errors() :: resource_contention_fault()
+
+  @type batch_put_scheduled_update_group_action_errors() ::
+          already_exists_fault() | resource_contention_fault() | limit_exceeded_fault()
+
+  @type cancel_instance_refresh_errors() ::
+          resource_contention_fault()
+          | active_instance_refresh_not_found_fault()
+          | limit_exceeded_fault()
+
+  @type complete_lifecycle_action_errors() :: resource_contention_fault()
+
+  @type create_auto_scaling_group_errors() ::
+          service_linked_role_failure()
+          | already_exists_fault()
+          | resource_contention_fault()
+          | limit_exceeded_fault()
+
+  @type create_launch_configuration_errors() ::
+          already_exists_fault() | resource_contention_fault() | limit_exceeded_fault()
+
+  @type create_or_update_tags_errors() ::
+          already_exists_fault()
+          | resource_in_use_fault()
+          | resource_contention_fault()
+          | limit_exceeded_fault()
+
+  @type delete_auto_scaling_group_errors() ::
+          resource_in_use_fault()
+          | resource_contention_fault()
+          | scaling_activity_in_progress_fault()
+
+  @type delete_launch_configuration_errors() ::
+          resource_in_use_fault() | resource_contention_fault()
+
+  @type delete_lifecycle_hook_errors() :: resource_contention_fault()
+
+  @type delete_notification_configuration_errors() :: resource_contention_fault()
+
+  @type delete_policy_errors() :: service_linked_role_failure() | resource_contention_fault()
+
+  @type delete_scheduled_action_errors() :: resource_contention_fault()
+
+  @type delete_tags_errors() :: resource_in_use_fault() | resource_contention_fault()
+
+  @type delete_warm_pool_errors() ::
+          resource_in_use_fault()
+          | resource_contention_fault()
+          | scaling_activity_in_progress_fault()
+          | limit_exceeded_fault()
+
+  @type describe_account_limits_errors() :: resource_contention_fault()
+
+  @type describe_adjustment_types_errors() :: resource_contention_fault()
+
+  @type describe_auto_scaling_groups_errors() ::
+          invalid_next_token() | resource_contention_fault()
+
+  @type describe_auto_scaling_instances_errors() ::
+          invalid_next_token() | resource_contention_fault()
+
+  @type describe_auto_scaling_notification_types_errors() :: resource_contention_fault()
+
+  @type describe_instance_refreshes_errors() :: invalid_next_token() | resource_contention_fault()
+
+  @type describe_launch_configurations_errors() ::
+          invalid_next_token() | resource_contention_fault()
+
+  @type describe_lifecycle_hook_types_errors() :: resource_contention_fault()
+
+  @type describe_lifecycle_hooks_errors() :: resource_contention_fault()
+
+  @type describe_load_balancer_target_groups_errors() ::
+          invalid_next_token() | resource_contention_fault()
+
+  @type describe_load_balancers_errors() :: invalid_next_token() | resource_contention_fault()
+
+  @type describe_metric_collection_types_errors() :: resource_contention_fault()
+
+  @type describe_notification_configurations_errors() ::
+          invalid_next_token() | resource_contention_fault()
+
+  @type describe_policies_errors() ::
+          invalid_next_token() | service_linked_role_failure() | resource_contention_fault()
+
+  @type describe_scaling_activities_errors() :: invalid_next_token() | resource_contention_fault()
+
+  @type describe_scaling_process_types_errors() :: resource_contention_fault()
+
+  @type describe_scheduled_actions_errors() :: invalid_next_token() | resource_contention_fault()
+
+  @type describe_tags_errors() :: invalid_next_token() | resource_contention_fault()
+
+  @type describe_termination_policy_types_errors() :: resource_contention_fault()
+
+  @type describe_traffic_sources_errors() :: invalid_next_token() | resource_contention_fault()
+
+  @type describe_warm_pool_errors() ::
+          invalid_next_token() | resource_contention_fault() | limit_exceeded_fault()
+
+  @type detach_instances_errors() :: resource_contention_fault()
+
+  @type detach_load_balancer_target_groups_errors() :: resource_contention_fault()
+
+  @type detach_load_balancers_errors() :: resource_contention_fault()
+
+  @type detach_traffic_sources_errors() :: resource_contention_fault()
+
+  @type disable_metrics_collection_errors() :: resource_contention_fault()
+
+  @type enable_metrics_collection_errors() :: resource_contention_fault()
+
+  @type enter_standby_errors() :: resource_contention_fault()
+
+  @type execute_policy_errors() ::
+          resource_contention_fault() | scaling_activity_in_progress_fault()
+
+  @type exit_standby_errors() :: resource_contention_fault()
+
+  @type get_predictive_scaling_forecast_errors() :: resource_contention_fault()
+
+  @type put_lifecycle_hook_errors() :: resource_contention_fault() | limit_exceeded_fault()
+
+  @type put_notification_configuration_errors() ::
+          service_linked_role_failure() | resource_contention_fault() | limit_exceeded_fault()
+
+  @type put_scaling_policy_errors() ::
+          service_linked_role_failure() | resource_contention_fault() | limit_exceeded_fault()
+
+  @type put_scheduled_update_group_action_errors() ::
+          already_exists_fault() | resource_contention_fault() | limit_exceeded_fault()
+
+  @type put_warm_pool_errors() :: resource_contention_fault() | limit_exceeded_fault()
+
+  @type record_lifecycle_action_heartbeat_errors() :: resource_contention_fault()
+
+  @type resume_processes_errors() :: resource_in_use_fault() | resource_contention_fault()
+
+  @type rollback_instance_refresh_errors() ::
+          resource_contention_fault()
+          | irreversible_instance_refresh_fault()
+          | active_instance_refresh_not_found_fault()
+          | limit_exceeded_fault()
+
+  @type set_desired_capacity_errors() ::
+          resource_contention_fault() | scaling_activity_in_progress_fault()
+
+  @type set_instance_health_errors() :: resource_contention_fault()
+
+  @type set_instance_protection_errors() :: resource_contention_fault() | limit_exceeded_fault()
+
+  @type start_instance_refresh_errors() ::
+          instance_refresh_in_progress_fault()
+          | resource_contention_fault()
+          | limit_exceeded_fault()
+
+  @type suspend_processes_errors() :: resource_in_use_fault() | resource_contention_fault()
+
+  @type terminate_instance_in_auto_scaling_group_errors() ::
+          resource_contention_fault() | scaling_activity_in_progress_fault()
+
+  @type update_auto_scaling_group_errors() ::
+          service_linked_role_failure()
+          | resource_contention_fault()
+          | scaling_activity_in_progress_fault()
 
   def metadata do
     %{
@@ -2233,8 +2760,7 @@ defmodule AWS.AutoScaling do
   @spec attach_instances(map(), attach_instances_query(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_contention_fault()}
-          | {:error, service_linked_role_failure()}
+          | {:error, attach_instances_errors()}
   def attach_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2289,8 +2815,7 @@ defmodule AWS.AutoScaling do
         ) ::
           {:ok, attach_load_balancer_target_groups_result_type(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_contention_fault()}
-          | {:error, service_linked_role_failure()}
+          | {:error, attach_load_balancer_target_groups_errors()}
   def attach_load_balancer_target_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2328,8 +2853,7 @@ defmodule AWS.AutoScaling do
   @spec attach_load_balancers(map(), attach_load_balancers_type(), list()) ::
           {:ok, attach_load_balancers_result_type(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_contention_fault()}
-          | {:error, service_linked_role_failure()}
+          | {:error, attach_load_balancers_errors()}
   def attach_load_balancers(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2369,8 +2893,7 @@ defmodule AWS.AutoScaling do
   @spec attach_traffic_sources(map(), attach_traffic_sources_type(), list()) ::
           {:ok, attach_traffic_sources_result_type(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_contention_fault()}
-          | {:error, service_linked_role_failure()}
+          | {:error, attach_traffic_sources_errors()}
   def attach_traffic_sources(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2383,7 +2906,7 @@ defmodule AWS.AutoScaling do
   @spec batch_delete_scheduled_action(map(), batch_delete_scheduled_action_type(), list()) ::
           {:ok, batch_delete_scheduled_action_answer(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_contention_fault()}
+          | {:error, batch_delete_scheduled_action_errors()}
   def batch_delete_scheduled_action(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2401,9 +2924,7 @@ defmodule AWS.AutoScaling do
         ) ::
           {:ok, batch_put_scheduled_update_group_action_answer(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, already_exists_fault()}
-          | {:error, limit_exceeded_fault()}
-          | {:error, resource_contention_fault()}
+          | {:error, batch_put_scheduled_update_group_action_errors()}
   def batch_put_scheduled_update_group_action(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2429,9 +2950,7 @@ defmodule AWS.AutoScaling do
   @spec cancel_instance_refresh(map(), cancel_instance_refresh_type(), list()) ::
           {:ok, cancel_instance_refresh_answer(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, active_instance_refresh_not_found_fault()}
-          | {:error, limit_exceeded_fault()}
-          | {:error, resource_contention_fault()}
+          | {:error, cancel_instance_refresh_errors()}
   def cancel_instance_refresh(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2484,7 +3003,7 @@ defmodule AWS.AutoScaling do
   @spec complete_lifecycle_action(map(), complete_lifecycle_action_type(), list()) ::
           {:ok, complete_lifecycle_action_answer(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_contention_fault()}
+          | {:error, complete_lifecycle_action_errors()}
   def complete_lifecycle_action(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2521,10 +3040,7 @@ defmodule AWS.AutoScaling do
   @spec create_auto_scaling_group(map(), create_auto_scaling_group_type(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, already_exists_fault()}
-          | {:error, limit_exceeded_fault()}
-          | {:error, resource_contention_fault()}
-          | {:error, service_linked_role_failure()}
+          | {:error, create_auto_scaling_group_errors()}
   def create_auto_scaling_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2556,9 +3072,7 @@ defmodule AWS.AutoScaling do
   @spec create_launch_configuration(map(), create_launch_configuration_type(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, already_exists_fault()}
-          | {:error, limit_exceeded_fault()}
-          | {:error, resource_contention_fault()}
+          | {:error, create_launch_configuration_errors()}
   def create_launch_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2578,10 +3092,7 @@ defmodule AWS.AutoScaling do
   @spec create_or_update_tags(map(), create_or_update_tags_type(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, already_exists_fault()}
-          | {:error, limit_exceeded_fault()}
-          | {:error, resource_contention_fault()}
-          | {:error, resource_in_use_fault()}
+          | {:error, create_or_update_tags_errors()}
   def create_or_update_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2619,9 +3130,7 @@ defmodule AWS.AutoScaling do
   @spec delete_auto_scaling_group(map(), delete_auto_scaling_group_type(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_contention_fault()}
-          | {:error, resource_in_use_fault()}
-          | {:error, scaling_activity_in_progress_fault()}
+          | {:error, delete_auto_scaling_group_errors()}
   def delete_auto_scaling_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2638,8 +3147,7 @@ defmodule AWS.AutoScaling do
   @spec delete_launch_configuration(map(), launch_configuration_name_type(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_contention_fault()}
-          | {:error, resource_in_use_fault()}
+          | {:error, delete_launch_configuration_errors()}
   def delete_launch_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2656,7 +3164,7 @@ defmodule AWS.AutoScaling do
   @spec delete_lifecycle_hook(map(), delete_lifecycle_hook_type(), list()) ::
           {:ok, delete_lifecycle_hook_answer(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_contention_fault()}
+          | {:error, delete_lifecycle_hook_errors()}
   def delete_lifecycle_hook(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2669,7 +3177,7 @@ defmodule AWS.AutoScaling do
   @spec delete_notification_configuration(map(), delete_notification_configuration_type(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_contention_fault()}
+          | {:error, delete_notification_configuration_errors()}
   def delete_notification_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2690,8 +3198,7 @@ defmodule AWS.AutoScaling do
   @spec delete_policy(map(), delete_policy_type(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_contention_fault()}
-          | {:error, service_linked_role_failure()}
+          | {:error, delete_policy_errors()}
   def delete_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2704,7 +3211,7 @@ defmodule AWS.AutoScaling do
   @spec delete_scheduled_action(map(), delete_scheduled_action_type(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_contention_fault()}
+          | {:error, delete_scheduled_action_errors()}
   def delete_scheduled_action(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2717,8 +3224,7 @@ defmodule AWS.AutoScaling do
   @spec delete_tags(map(), delete_tags_type(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_contention_fault()}
-          | {:error, resource_in_use_fault()}
+          | {:error, delete_tags_errors()}
   def delete_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2735,10 +3241,7 @@ defmodule AWS.AutoScaling do
   @spec delete_warm_pool(map(), delete_warm_pool_type(), list()) ::
           {:ok, delete_warm_pool_answer(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, limit_exceeded_fault()}
-          | {:error, resource_contention_fault()}
-          | {:error, resource_in_use_fault()}
-          | {:error, scaling_activity_in_progress_fault()}
+          | {:error, delete_warm_pool_errors()}
   def delete_warm_pool(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2759,7 +3262,7 @@ defmodule AWS.AutoScaling do
   @spec describe_account_limits(map(), %{}, list()) ::
           {:ok, describe_account_limits_answer(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_contention_fault()}
+          | {:error, describe_account_limits_errors()}
   def describe_account_limits(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2787,7 +3290,7 @@ defmodule AWS.AutoScaling do
   @spec describe_adjustment_types(map(), %{}, list()) ::
           {:ok, describe_adjustment_types_answer(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_contention_fault()}
+          | {:error, describe_adjustment_types_errors()}
   def describe_adjustment_types(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2813,8 +3316,7 @@ defmodule AWS.AutoScaling do
   @spec describe_auto_scaling_groups(map(), auto_scaling_group_names_type(), list()) ::
           {:ok, auto_scaling_groups_type(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_next_token()}
-          | {:error, resource_contention_fault()}
+          | {:error, describe_auto_scaling_groups_errors()}
   def describe_auto_scaling_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2827,8 +3329,7 @@ defmodule AWS.AutoScaling do
   @spec describe_auto_scaling_instances(map(), describe_auto_scaling_instances_type(), list()) ::
           {:ok, auto_scaling_instances_type(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_next_token()}
-          | {:error, resource_contention_fault()}
+          | {:error, describe_auto_scaling_instances_errors()}
   def describe_auto_scaling_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2841,7 +3342,7 @@ defmodule AWS.AutoScaling do
   @spec describe_auto_scaling_notification_types(map(), %{}, list()) ::
           {:ok, describe_auto_scaling_notification_types_answer(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_contention_fault()}
+          | {:error, describe_auto_scaling_notification_types_errors()}
   def describe_auto_scaling_notification_types(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2873,8 +3374,7 @@ defmodule AWS.AutoScaling do
   @spec describe_instance_refreshes(map(), describe_instance_refreshes_type(), list()) ::
           {:ok, describe_instance_refreshes_answer(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_next_token()}
-          | {:error, resource_contention_fault()}
+          | {:error, describe_instance_refreshes_errors()}
   def describe_instance_refreshes(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2887,8 +3387,7 @@ defmodule AWS.AutoScaling do
   @spec describe_launch_configurations(map(), launch_configuration_names_type(), list()) ::
           {:ok, launch_configurations_type(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_next_token()}
-          | {:error, resource_contention_fault()}
+          | {:error, describe_launch_configurations_errors()}
   def describe_launch_configurations(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2911,7 +3410,7 @@ defmodule AWS.AutoScaling do
   @spec describe_lifecycle_hook_types(map(), %{}, list()) ::
           {:ok, describe_lifecycle_hook_types_answer(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_contention_fault()}
+          | {:error, describe_lifecycle_hook_types_errors()}
   def describe_lifecycle_hook_types(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2924,7 +3423,7 @@ defmodule AWS.AutoScaling do
   @spec describe_lifecycle_hooks(map(), describe_lifecycle_hooks_type(), list()) ::
           {:ok, describe_lifecycle_hooks_answer(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_contention_fault()}
+          | {:error, describe_lifecycle_hooks_errors()}
   def describe_lifecycle_hooks(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2986,8 +3485,7 @@ defmodule AWS.AutoScaling do
         ) ::
           {:ok, describe_load_balancer_target_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_next_token()}
-          | {:error, resource_contention_fault()}
+          | {:error, describe_load_balancer_target_groups_errors()}
   def describe_load_balancer_target_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3044,8 +3542,7 @@ defmodule AWS.AutoScaling do
   @spec describe_load_balancers(map(), describe_load_balancers_request(), list()) ::
           {:ok, describe_load_balancers_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_next_token()}
-          | {:error, resource_contention_fault()}
+          | {:error, describe_load_balancers_errors()}
   def describe_load_balancers(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3058,7 +3555,7 @@ defmodule AWS.AutoScaling do
   @spec describe_metric_collection_types(map(), %{}, list()) ::
           {:ok, describe_metric_collection_types_answer(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_contention_fault()}
+          | {:error, describe_metric_collection_types_errors()}
   def describe_metric_collection_types(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3077,8 +3574,7 @@ defmodule AWS.AutoScaling do
         ) ::
           {:ok, describe_notification_configurations_answer(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_next_token()}
-          | {:error, resource_contention_fault()}
+          | {:error, describe_notification_configurations_errors()}
   def describe_notification_configurations(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3091,9 +3587,7 @@ defmodule AWS.AutoScaling do
   @spec describe_policies(map(), describe_policies_type(), list()) ::
           {:ok, policies_type(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_next_token()}
-          | {:error, resource_contention_fault()}
-          | {:error, service_linked_role_failure()}
+          | {:error, describe_policies_errors()}
   def describe_policies(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3120,8 +3614,7 @@ defmodule AWS.AutoScaling do
   @spec describe_scaling_activities(map(), describe_scaling_activities_type(), list()) ::
           {:ok, activities_type(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_next_token()}
-          | {:error, resource_contention_fault()}
+          | {:error, describe_scaling_activities_errors()}
   def describe_scaling_activities(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3135,7 +3628,7 @@ defmodule AWS.AutoScaling do
   @spec describe_scaling_process_types(map(), %{}, list()) ::
           {:ok, processes_type(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_contention_fault()}
+          | {:error, describe_scaling_process_types_errors()}
   def describe_scaling_process_types(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3154,8 +3647,7 @@ defmodule AWS.AutoScaling do
   @spec describe_scheduled_actions(map(), describe_scheduled_actions_type(), list()) ::
           {:ok, scheduled_actions_type(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_next_token()}
-          | {:error, resource_contention_fault()}
+          | {:error, describe_scheduled_actions_errors()}
   def describe_scheduled_actions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3182,8 +3674,7 @@ defmodule AWS.AutoScaling do
   @spec describe_tags(map(), describe_tags_type(), list()) ::
           {:ok, tags_type(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_next_token()}
-          | {:error, resource_contention_fault()}
+          | {:error, describe_tags_errors()}
   def describe_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3201,7 +3692,7 @@ defmodule AWS.AutoScaling do
   @spec describe_termination_policy_types(map(), %{}, list()) ::
           {:ok, describe_termination_policy_types_answer(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_contention_fault()}
+          | {:error, describe_termination_policy_types_errors()}
   def describe_termination_policy_types(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3222,8 +3713,7 @@ defmodule AWS.AutoScaling do
   @spec describe_traffic_sources(map(), describe_traffic_sources_request(), list()) ::
           {:ok, describe_traffic_sources_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_next_token()}
-          | {:error, resource_contention_fault()}
+          | {:error, describe_traffic_sources_errors()}
   def describe_traffic_sources(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3240,9 +3730,7 @@ defmodule AWS.AutoScaling do
   @spec describe_warm_pool(map(), describe_warm_pool_type(), list()) ::
           {:ok, describe_warm_pool_answer(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_next_token()}
-          | {:error, limit_exceeded_fault()}
-          | {:error, resource_contention_fault()}
+          | {:error, describe_warm_pool_errors()}
   def describe_warm_pool(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3273,7 +3761,7 @@ defmodule AWS.AutoScaling do
   @spec detach_instances(map(), detach_instances_query(), list()) ::
           {:ok, detach_instances_answer(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_contention_fault()}
+          | {:error, detach_instances_errors()}
   def detach_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3311,7 +3799,7 @@ defmodule AWS.AutoScaling do
         ) ::
           {:ok, detach_load_balancer_target_groups_result_type(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_contention_fault()}
+          | {:error, detach_load_balancer_target_groups_errors()}
   def detach_load_balancer_target_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3345,7 +3833,7 @@ defmodule AWS.AutoScaling do
   @spec detach_load_balancers(map(), detach_load_balancers_type(), list()) ::
           {:ok, detach_load_balancers_result_type(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_contention_fault()}
+          | {:error, detach_load_balancers_errors()}
   def detach_load_balancers(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3364,7 +3852,7 @@ defmodule AWS.AutoScaling do
   @spec detach_traffic_sources(map(), detach_traffic_sources_type(), list()) ::
           {:ok, detach_traffic_sources_result_type(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_contention_fault()}
+          | {:error, detach_traffic_sources_errors()}
   def detach_traffic_sources(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3377,7 +3865,7 @@ defmodule AWS.AutoScaling do
   @spec disable_metrics_collection(map(), disable_metrics_collection_query(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_contention_fault()}
+          | {:error, disable_metrics_collection_errors()}
   def disable_metrics_collection(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3399,7 +3887,7 @@ defmodule AWS.AutoScaling do
   @spec enable_metrics_collection(map(), enable_metrics_collection_query(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_contention_fault()}
+          | {:error, enable_metrics_collection_errors()}
   def enable_metrics_collection(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3428,7 +3916,7 @@ defmodule AWS.AutoScaling do
   @spec enter_standby(map(), enter_standby_query(), list()) ::
           {:ok, enter_standby_answer(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_contention_fault()}
+          | {:error, enter_standby_errors()}
   def enter_standby(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3444,8 +3932,7 @@ defmodule AWS.AutoScaling do
   @spec execute_policy(map(), execute_policy_type(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_contention_fault()}
-          | {:error, scaling_activity_in_progress_fault()}
+          | {:error, execute_policy_errors()}
   def execute_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3466,7 +3953,7 @@ defmodule AWS.AutoScaling do
   @spec exit_standby(map(), exit_standby_query(), list()) ::
           {:ok, exit_standby_answer(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_contention_fault()}
+          | {:error, exit_standby_errors()}
   def exit_standby(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3495,7 +3982,7 @@ defmodule AWS.AutoScaling do
   @spec get_predictive_scaling_forecast(map(), get_predictive_scaling_forecast_type(), list()) ::
           {:ok, get_predictive_scaling_forecast_answer(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_contention_fault()}
+          | {:error, get_predictive_scaling_forecast_errors()}
   def get_predictive_scaling_forecast(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3558,8 +4045,7 @@ defmodule AWS.AutoScaling do
   @spec put_lifecycle_hook(map(), put_lifecycle_hook_type(), list()) ::
           {:ok, put_lifecycle_hook_answer(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, limit_exceeded_fault()}
-          | {:error, resource_contention_fault()}
+          | {:error, put_lifecycle_hook_errors()}
   def put_lifecycle_hook(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3588,9 +4074,7 @@ defmodule AWS.AutoScaling do
   @spec put_notification_configuration(map(), put_notification_configuration_type(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, limit_exceeded_fault()}
-          | {:error, resource_contention_fault()}
-          | {:error, service_linked_role_failure()}
+          | {:error, put_notification_configuration_errors()}
   def put_notification_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3621,9 +4105,7 @@ defmodule AWS.AutoScaling do
   @spec put_scaling_policy(map(), put_scaling_policy_type(), list()) ::
           {:ok, policy_arn_type(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, limit_exceeded_fault()}
-          | {:error, resource_contention_fault()}
-          | {:error, service_linked_role_failure()}
+          | {:error, put_scaling_policy_errors()}
   def put_scaling_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3648,9 +4130,7 @@ defmodule AWS.AutoScaling do
   @spec put_scheduled_update_group_action(map(), put_scheduled_update_group_action_type(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, already_exists_fault()}
-          | {:error, limit_exceeded_fault()}
-          | {:error, resource_contention_fault()}
+          | {:error, put_scheduled_update_group_action_errors()}
   def put_scheduled_update_group_action(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3683,8 +4163,7 @@ defmodule AWS.AutoScaling do
   @spec put_warm_pool(map(), put_warm_pool_type(), list()) ::
           {:ok, put_warm_pool_answer(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, limit_exceeded_fault()}
-          | {:error, resource_contention_fault()}
+          | {:error, put_warm_pool_errors()}
   def put_warm_pool(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3739,7 +4218,7 @@ defmodule AWS.AutoScaling do
   @spec record_lifecycle_action_heartbeat(map(), record_lifecycle_action_heartbeat_type(), list()) ::
           {:ok, record_lifecycle_action_heartbeat_answer(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_contention_fault()}
+          | {:error, record_lifecycle_action_heartbeat_errors()}
   def record_lifecycle_action_heartbeat(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3758,8 +4237,7 @@ defmodule AWS.AutoScaling do
   @spec resume_processes(map(), scaling_process_query(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_contention_fault()}
-          | {:error, resource_in_use_fault()}
+          | {:error, resume_processes_errors()}
   def resume_processes(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3804,10 +4282,7 @@ defmodule AWS.AutoScaling do
   @spec rollback_instance_refresh(map(), rollback_instance_refresh_type(), list()) ::
           {:ok, rollback_instance_refresh_answer(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, active_instance_refresh_not_found_fault()}
-          | {:error, irreversible_instance_refresh_fault()}
-          | {:error, limit_exceeded_fault()}
-          | {:error, resource_contention_fault()}
+          | {:error, rollback_instance_refresh_errors()}
   def rollback_instance_refresh(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3829,8 +4304,7 @@ defmodule AWS.AutoScaling do
   @spec set_desired_capacity(map(), set_desired_capacity_type(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_contention_fault()}
-          | {:error, scaling_activity_in_progress_fault()}
+          | {:error, set_desired_capacity_errors()}
   def set_desired_capacity(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3846,7 +4320,7 @@ defmodule AWS.AutoScaling do
   @spec set_instance_health(map(), set_instance_health_query(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_contention_fault()}
+          | {:error, set_instance_health_errors()}
   def set_instance_health(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3873,8 +4347,7 @@ defmodule AWS.AutoScaling do
   @spec set_instance_protection(map(), set_instance_protection_query(), list()) ::
           {:ok, set_instance_protection_answer(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, limit_exceeded_fault()}
-          | {:error, resource_contention_fault()}
+          | {:error, set_instance_protection_errors()}
   def set_instance_protection(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3923,9 +4396,7 @@ defmodule AWS.AutoScaling do
   @spec start_instance_refresh(map(), start_instance_refresh_type(), list()) ::
           {:ok, start_instance_refresh_answer(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, instance_refresh_in_progress_fault()}
-          | {:error, limit_exceeded_fault()}
-          | {:error, resource_contention_fault()}
+          | {:error, start_instance_refresh_errors()}
   def start_instance_refresh(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3949,8 +4420,7 @@ defmodule AWS.AutoScaling do
   @spec suspend_processes(map(), scaling_process_query(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_contention_fault()}
-          | {:error, resource_in_use_fault()}
+          | {:error, suspend_processes_errors()}
   def suspend_processes(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3988,8 +4458,7 @@ defmodule AWS.AutoScaling do
         ) ::
           {:ok, activity_type(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_contention_fault()}
-          | {:error, scaling_activity_in_progress_fault()}
+          | {:error, terminate_instance_in_auto_scaling_group_errors()}
   def terminate_instance_in_auto_scaling_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4059,9 +4528,7 @@ defmodule AWS.AutoScaling do
   @spec update_auto_scaling_group(map(), update_auto_scaling_group_type(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_contention_fault()}
-          | {:error, scaling_activity_in_progress_fault()}
-          | {:error, service_linked_role_failure()}
+          | {:error, update_auto_scaling_group_errors()}
   def update_auto_scaling_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 

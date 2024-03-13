@@ -13,3070 +13,3674 @@ defmodule AWS.S3Control do
   @typedoc """
 
   ## Example:
-  region_report() :: %{
-    "Bucket" => String.t(),
-    "BucketAccountId" => String.t(),
-    "Region" => String.t()
-  }
+
+      region_report() :: %{
+        "Bucket" => String.t(),
+        "BucketAccountId" => String.t(),
+        "Region" => String.t()
+      }
+
   """
   @type region_report() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_bucket_policy_request() :: %{
-    optional("ConfirmRemoveSelfBucketAccess") => boolean(),
-    required("AccountId") => String.t(),
-    required("Policy") => String.t()
-  }
+
+      put_bucket_policy_request() :: %{
+        optional("ConfirmRemoveSelfBucketAccess") => boolean(),
+        required("AccountId") => String.t(),
+        required("Policy") => String.t()
+      }
+
   """
   @type put_bucket_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_multi_region_access_point_policy_request() :: %{
-    required("AccountId") => String.t(),
-    required("ClientToken") => String.t(),
-    required("Details") => put_multi_region_access_point_policy_input()
-  }
+
+      put_multi_region_access_point_policy_request() :: %{
+        required("AccountId") => String.t(),
+        required("ClientToken") => String.t(),
+        required("Details") => put_multi_region_access_point_policy_input()
+      }
+
   """
   @type put_multi_region_access_point_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  storage_lens_group_level_selection_criteria() :: %{
-    "Exclude" => list(String.t()()),
-    "Include" => list(String.t()())
-  }
+
+      storage_lens_group_level_selection_criteria() :: %{
+        "Exclude" => list(String.t()()),
+        "Include" => list(String.t()())
+      }
+
   """
   @type storage_lens_group_level_selection_criteria() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  job_manifest() :: %{
-    "Location" => job_manifest_location(),
-    "Spec" => job_manifest_spec()
-  }
+
+      job_manifest() :: %{
+        "Location" => job_manifest_location(),
+        "Spec" => job_manifest_spec()
+      }
+
   """
   @type job_manifest() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_storage_lens_configuration_tagging_result() :: %{
-    "Tags" => list(storage_lens_tag()())
-  }
+
+      get_storage_lens_configuration_tagging_result() :: %{
+        "Tags" => list(storage_lens_tag()())
+      }
+
   """
   @type get_storage_lens_configuration_tagging_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_multi_region_access_point_request() :: %{
-    required("AccountId") => String.t(),
-    required("ClientToken") => String.t(),
-    required("Details") => delete_multi_region_access_point_input()
-  }
+
+      delete_multi_region_access_point_request() :: %{
+        required("AccountId") => String.t(),
+        required("ClientToken") => String.t(),
+        required("Details") => delete_multi_region_access_point_input()
+      }
+
   """
   @type delete_multi_region_access_point_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  encryption_configuration() :: %{
-    "ReplicaKmsKeyID" => String.t()
-  }
+
+      encryption_configuration() :: %{
+        "ReplicaKmsKeyID" => String.t()
+      }
+
   """
   @type encryption_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_request() :: %{
-    required("AccountId") => String.t(),
-    required("Tags") => list(tag()())
-  }
+
+      tag_resource_request() :: %{
+        required("AccountId") => String.t(),
+        required("Tags") => list(tag()())
+      }
+
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  no_such_public_access_block_configuration() :: %{
-    "Message" => String.t()
-  }
+
+      no_such_public_access_block_configuration() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type no_such_public_access_block_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_bucket_versioning_request() :: %{
-    optional("MFA") => String.t(),
-    required("AccountId") => String.t(),
-    required("VersioningConfiguration") => versioning_configuration()
-  }
+
+      put_bucket_versioning_request() :: %{
+        optional("MFA") => String.t(),
+        required("AccountId") => String.t(),
+        required("VersioningConfiguration") => versioning_configuration()
+      }
+
   """
   @type put_bucket_versioning_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  multi_region_access_point_regional_response() :: %{
-    "Name" => String.t(),
-    "RequestStatus" => String.t()
-  }
+
+      multi_region_access_point_regional_response() :: %{
+        "Name" => String.t(),
+        "RequestStatus" => String.t()
+      }
+
   """
   @type multi_region_access_point_regional_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_storage_lens_configuration_request() :: %{
-    required("AccountId") => String.t()
-  }
+
+      get_storage_lens_configuration_request() :: %{
+        required("AccountId") => String.t()
+      }
+
   """
   @type get_storage_lens_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_access_point_configuration_for_object_lambda_result() :: %{
-    "Configuration" => object_lambda_configuration()
-  }
+
+      get_access_point_configuration_for_object_lambda_result() :: %{
+        "Configuration" => object_lambda_configuration()
+      }
+
   """
   @type get_access_point_configuration_for_object_lambda_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  public_access_block_configuration() :: %{
-    "BlockPublicAcls" => boolean(),
-    "BlockPublicPolicy" => boolean(),
-    "IgnorePublicAcls" => boolean(),
-    "RestrictPublicBuckets" => boolean()
-  }
+
+      public_access_block_configuration() :: %{
+        "BlockPublicAcls" => boolean(),
+        "BlockPublicPolicy" => boolean(),
+        "IgnorePublicAcls" => boolean(),
+        "RestrictPublicBuckets" => boolean()
+      }
+
   """
   @type public_access_block_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  storage_lens_data_export() :: %{
-    "CloudWatchMetrics" => cloud_watch_metrics(),
-    "S3BucketDestination" => s3_bucket_destination()
-  }
+
+      storage_lens_data_export() :: %{
+        "CloudWatchMetrics" => cloud_watch_metrics(),
+        "S3BucketDestination" => s3_bucket_destination()
+      }
+
   """
   @type storage_lens_data_export() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  storage_lens_group_level() :: %{
-    "SelectionCriteria" => storage_lens_group_level_selection_criteria()
-  }
+
+      storage_lens_group_level() :: %{
+        "SelectionCriteria" => storage_lens_group_level_selection_criteria()
+      }
+
   """
   @type storage_lens_group_level() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  prefix_level_storage_metrics() :: %{
-    "IsEnabled" => boolean(),
-    "SelectionCriteria" => selection_criteria()
-  }
+
+      prefix_level_storage_metrics() :: %{
+        "IsEnabled" => boolean(),
+        "SelectionCriteria" => selection_criteria()
+      }
+
   """
   @type prefix_level_storage_metrics() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_access_grants_instance_result() :: %{
-    "AccessGrantsInstanceArn" => String.t(),
-    "AccessGrantsInstanceId" => String.t(),
-    "CreatedAt" => non_neg_integer(),
-    "IdentityCenterArn" => String.t()
-  }
+
+      create_access_grants_instance_result() :: %{
+        "AccessGrantsInstanceArn" => String.t(),
+        "AccessGrantsInstanceId" => String.t(),
+        "CreatedAt" => non_neg_integer(),
+        "IdentityCenterArn" => String.t()
+      }
+
   """
   @type create_access_grants_instance_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  generated_manifest_encryption() :: %{
-    "SSEKMS" => sse_kms_encryption(),
-    "SSES3" => sse_s3_encryption()
-  }
+
+      generated_manifest_encryption() :: %{
+        "SSEKMS" => sse_kms_encryption(),
+        "SSES3" => sse_s3_encryption()
+      }
+
   """
   @type generated_manifest_encryption() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_job_result() :: %{
-    "Job" => job_descriptor()
-  }
+
+      describe_job_result() :: %{
+        "Job" => job_descriptor()
+      }
+
   """
   @type describe_job_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  match_object_age() :: %{
-    "DaysGreaterThan" => integer(),
-    "DaysLessThan" => integer()
-  }
+
+      match_object_age() :: %{
+        "DaysGreaterThan" => integer(),
+        "DaysLessThan" => integer()
+      }
+
   """
   @type match_object_age() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_jobs_result() :: %{
-    "Jobs" => list(job_list_descriptor()()),
-    "NextToken" => String.t()
-  }
+
+      list_jobs_result() :: %{
+        "Jobs" => list(job_list_descriptor()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_jobs_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_public_access_block_request() :: %{
-    required("AccountId") => String.t(),
-    required("PublicAccessBlockConfiguration") => public_access_block_configuration()
-  }
+
+      put_public_access_block_request() :: %{
+        required("AccountId") => String.t(),
+        required("PublicAccessBlockConfiguration") => public_access_block_configuration()
+      }
+
   """
   @type put_public_access_block_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_access_grant_result() :: %{
-    "AccessGrantArn" => String.t(),
-    "AccessGrantId" => String.t(),
-    "AccessGrantsLocationConfiguration" => access_grants_location_configuration(),
-    "AccessGrantsLocationId" => String.t(),
-    "ApplicationArn" => String.t(),
-    "CreatedAt" => non_neg_integer(),
-    "GrantScope" => String.t(),
-    "Grantee" => grantee(),
-    "Permission" => list(any())
-  }
+
+      get_access_grant_result() :: %{
+        "AccessGrantArn" => String.t(),
+        "AccessGrantId" => String.t(),
+        "AccessGrantsLocationConfiguration" => access_grants_location_configuration(),
+        "AccessGrantsLocationId" => String.t(),
+        "ApplicationArn" => String.t(),
+        "CreatedAt" => non_neg_integer(),
+        "GrantScope" => String.t(),
+        "Grantee" => grantee(),
+        "Permission" => list(any())
+      }
+
   """
   @type get_access_grant_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  vpc_configuration() :: %{
-    "VpcId" => String.t()
-  }
+
+      vpc_configuration() :: %{
+        "VpcId" => String.t()
+      }
+
   """
   @type vpc_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  s3_access_control_list() :: %{
-    "Grants" => list(s3_grant()()),
-    "Owner" => s3_object_owner()
-  }
+
+      s3_access_control_list() :: %{
+        "Grants" => list(s3_grant()()),
+        "Owner" => s3_object_owner()
+      }
+
   """
   @type s3_access_control_list() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  abort_incomplete_multipart_upload() :: %{
-    "DaysAfterInitiation" => integer()
-  }
+
+      abort_incomplete_multipart_upload() :: %{
+        "DaysAfterInitiation" => integer()
+      }
+
   """
   @type abort_incomplete_multipart_upload() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  lifecycle_rule() :: %{
-    "AbortIncompleteMultipartUpload" => abort_incomplete_multipart_upload(),
-    "Expiration" => lifecycle_expiration(),
-    "Filter" => lifecycle_rule_filter(),
-    "ID" => String.t(),
-    "NoncurrentVersionExpiration" => noncurrent_version_expiration(),
-    "NoncurrentVersionTransitions" => list(noncurrent_version_transition()()),
-    "Status" => list(any()),
-    "Transitions" => list(transition()())
-  }
+
+      lifecycle_rule() :: %{
+        "AbortIncompleteMultipartUpload" => abort_incomplete_multipart_upload(),
+        "Expiration" => lifecycle_expiration(),
+        "Filter" => lifecycle_rule_filter(),
+        "ID" => String.t(),
+        "NoncurrentVersionExpiration" => noncurrent_version_expiration(),
+        "NoncurrentVersionTransitions" => list(noncurrent_version_transition()()),
+        "Status" => list(any()),
+        "Transitions" => list(transition()())
+      }
+
   """
   @type lifecycle_rule() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_result() :: %{
 
-  }
+      untag_resource_result() :: %{}
+
   """
-  @type untag_resource_result() :: %{String.t() => any()}
+  @type untag_resource_result() :: %{}
 
   @typedoc """
 
   ## Example:
-  delete_public_access_block_request() :: %{
-    required("AccountId") => String.t()
-  }
+
+      delete_public_access_block_request() :: %{
+        required("AccountId") => String.t()
+      }
+
   """
   @type delete_public_access_block_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_access_grants_instance_resource_policy_result() :: %{
-    "CreatedAt" => non_neg_integer(),
-    "Organization" => String.t(),
-    "Policy" => String.t()
-  }
+
+      put_access_grants_instance_resource_policy_result() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "Organization" => String.t(),
+        "Policy" => String.t()
+      }
+
   """
   @type put_access_grants_instance_resource_policy_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  object_lambda_configuration() :: %{
-    "AllowedFeatures" => list(list(any())()),
-    "CloudWatchMetricsEnabled" => boolean(),
-    "SupportingAccessPoint" => String.t(),
-    "TransformationConfigurations" => list(object_lambda_transformation_configuration()())
-  }
+
+      object_lambda_configuration() :: %{
+        "AllowedFeatures" => list(list(any())()),
+        "CloudWatchMetricsEnabled" => boolean(),
+        "SupportingAccessPoint" => String.t(),
+        "TransformationConfigurations" => list(object_lambda_transformation_configuration()())
+      }
+
   """
   @type object_lambda_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_multi_region_access_point_policy_result() :: %{
-    "Policy" => multi_region_access_point_policy_document()
-  }
+
+      get_multi_region_access_point_policy_result() :: %{
+        "Policy" => multi_region_access_point_policy_document()
+      }
+
   """
   @type get_multi_region_access_point_policy_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  versioning_configuration() :: %{
-    "MFADelete" => list(any()),
-    "Status" => list(any())
-  }
+
+      versioning_configuration() :: %{
+        "MFADelete" => list(any()),
+        "Status" => list(any())
+      }
+
   """
   @type versioning_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  job_report() :: %{
-    "Bucket" => String.t(),
-    "Enabled" => boolean(),
-    "Format" => list(any()),
-    "Prefix" => String.t(),
-    "ReportScope" => list(any())
-  }
+
+      job_report() :: %{
+        "Bucket" => String.t(),
+        "Enabled" => boolean(),
+        "Format" => list(any()),
+        "Prefix" => String.t(),
+        "ReportScope" => list(any())
+      }
+
   """
   @type job_report() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_storage_lens_group_request() :: %{
-    optional("Tags") => list(tag()()),
-    required("AccountId") => String.t(),
-    required("StorageLensGroup") => storage_lens_group()
-  }
+
+      create_storage_lens_group_request() :: %{
+        optional("Tags") => list(tag()()),
+        required("AccountId") => String.t(),
+        required("StorageLensGroup") => storage_lens_group()
+      }
+
   """
   @type create_storage_lens_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_access_grants_result() :: %{
-    "AccessGrantsList" => list(list_access_grant_entry()()),
-    "NextToken" => String.t()
-  }
+
+      list_access_grants_result() :: %{
+        "AccessGrantsList" => list(list_access_grant_entry()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_access_grants_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_access_grants_instance_resource_policy_request() :: %{
-    optional("Organization") => String.t(),
-    required("AccountId") => String.t(),
-    required("Policy") => String.t()
-  }
+
+      put_access_grants_instance_resource_policy_request() :: %{
+        optional("Organization") => String.t(),
+        required("AccountId") => String.t(),
+        required("Policy") => String.t()
+      }
+
   """
   @type put_access_grants_instance_resource_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_job_tagging_request() :: %{
-    required("AccountId") => String.t()
-  }
+
+      delete_job_tagging_request() :: %{
+        required("AccountId") => String.t()
+      }
+
   """
   @type delete_job_tagging_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_jobs_request() :: %{
-    optional("JobStatuses") => list(list(any())()),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("AccountId") => String.t()
-  }
+
+      list_jobs_request() :: %{
+        optional("JobStatuses") => list(list(any())()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("AccountId") => String.t()
+      }
+
   """
   @type list_jobs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_access_grants_instance_request() :: %{
-    optional("IdentityCenterArn") => String.t(),
-    optional("Tags") => list(tag()()),
-    required("AccountId") => String.t()
-  }
+
+      create_access_grants_instance_request() :: %{
+        optional("IdentityCenterArn") => String.t(),
+        optional("Tags") => list(tag()()),
+        required("AccountId") => String.t()
+      }
+
   """
   @type create_access_grants_instance_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  source_selection_criteria() :: %{
-    "ReplicaModifications" => replica_modifications(),
-    "SseKmsEncryptedObjects" => sse_kms_encrypted_objects()
-  }
+
+      source_selection_criteria() :: %{
+        "ReplicaModifications" => replica_modifications(),
+        "SseKmsEncryptedObjects" => sse_kms_encrypted_objects()
+      }
+
   """
   @type source_selection_criteria() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_job_tagging_request() :: %{
-    required("AccountId") => String.t(),
-    required("Tags") => list(s3_tag()())
-  }
+
+      put_job_tagging_request() :: %{
+        required("AccountId") => String.t(),
+        required("Tags") => list(s3_tag()())
+      }
+
   """
   @type put_job_tagging_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  lifecycle_configuration() :: %{
-    "Rules" => list(lifecycle_rule()())
-  }
+
+      lifecycle_configuration() :: %{
+        "Rules" => list(lifecycle_rule()())
+      }
+
   """
   @type lifecycle_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_storage_lens_group_entry() :: %{
-    "HomeRegion" => String.t(),
-    "Name" => String.t(),
-    "StorageLensGroupArn" => String.t()
-  }
+
+      list_storage_lens_group_entry() :: %{
+        "HomeRegion" => String.t(),
+        "Name" => String.t(),
+        "StorageLensGroupArn" => String.t()
+      }
+
   """
   @type list_storage_lens_group_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_bucket_tagging_request() :: %{
-    required("AccountId") => String.t()
-  }
+
+      delete_bucket_tagging_request() :: %{
+        required("AccountId") => String.t()
+      }
+
   """
   @type delete_bucket_tagging_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_storage_lens_group_request() :: %{
-    required("AccountId") => String.t()
-  }
+
+      get_storage_lens_group_request() :: %{
+        required("AccountId") => String.t()
+      }
+
   """
   @type get_storage_lens_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  prefix_level() :: %{
-    "StorageMetrics" => prefix_level_storage_metrics()
-  }
+
+      prefix_level() :: %{
+        "StorageMetrics" => prefix_level_storage_metrics()
+      }
+
   """
   @type prefix_level() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_access_grant_result() :: %{
-    "AccessGrantArn" => String.t(),
-    "AccessGrantId" => String.t(),
-    "AccessGrantsLocationConfiguration" => access_grants_location_configuration(),
-    "AccessGrantsLocationId" => String.t(),
-    "ApplicationArn" => String.t(),
-    "CreatedAt" => non_neg_integer(),
-    "GrantScope" => String.t(),
-    "Grantee" => grantee(),
-    "Permission" => list(any())
-  }
+
+      create_access_grant_result() :: %{
+        "AccessGrantArn" => String.t(),
+        "AccessGrantId" => String.t(),
+        "AccessGrantsLocationConfiguration" => access_grants_location_configuration(),
+        "AccessGrantsLocationId" => String.t(),
+        "ApplicationArn" => String.t(),
+        "CreatedAt" => non_neg_integer(),
+        "GrantScope" => String.t(),
+        "Grantee" => grantee(),
+        "Permission" => list(any())
+      }
+
   """
   @type create_access_grant_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  credentials() :: %{
-    "AccessKeyId" => String.t(),
-    "Expiration" => non_neg_integer(),
-    "SecretAccessKey" => String.t(),
-    "SessionToken" => String.t()
-  }
+
+      credentials() :: %{
+        "AccessKeyId" => String.t(),
+        "Expiration" => non_neg_integer(),
+        "SecretAccessKey" => String.t(),
+        "SessionToken" => String.t()
+      }
+
   """
   @type credentials() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_bucket_replication_request() :: %{
-    required("AccountId") => String.t(),
-    required("ReplicationConfiguration") => replication_configuration()
-  }
+
+      put_bucket_replication_request() :: %{
+        required("AccountId") => String.t(),
+        required("ReplicationConfiguration") => replication_configuration()
+      }
+
   """
   @type put_bucket_replication_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_access_point_for_object_lambda_result() :: %{
-    "Alias" => object_lambda_access_point_alias(),
-    "ObjectLambdaAccessPointArn" => String.t()
-  }
+
+      create_access_point_for_object_lambda_result() :: %{
+        "Alias" => object_lambda_access_point_alias(),
+        "ObjectLambdaAccessPointArn" => String.t()
+      }
+
   """
   @type create_access_point_for_object_lambda_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  job_status_exception() :: %{
-    "Message" => String.t()
-  }
+
+      job_status_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type job_status_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_access_grants_instance_for_prefix_result() :: %{
-    "AccessGrantsInstanceArn" => String.t(),
-    "AccessGrantsInstanceId" => String.t()
-  }
+
+      get_access_grants_instance_for_prefix_result() :: %{
+        "AccessGrantsInstanceArn" => String.t(),
+        "AccessGrantsInstanceId" => String.t()
+      }
+
   """
   @type get_access_grants_instance_for_prefix_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  associate_access_grants_identity_center_request() :: %{
-    required("AccountId") => String.t(),
-    required("IdentityCenterArn") => String.t()
-  }
+
+      associate_access_grants_identity_center_request() :: %{
+        required("AccountId") => String.t(),
+        required("IdentityCenterArn") => String.t()
+      }
+
   """
   @type associate_access_grants_identity_center_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_storage_lens_configurations_result() :: %{
-    "NextToken" => String.t(),
-    "StorageLensConfigurationList" => list(list_storage_lens_configuration_entry()())
-  }
+
+      list_storage_lens_configurations_result() :: %{
+        "NextToken" => String.t(),
+        "StorageLensConfigurationList" => list(list_storage_lens_configuration_entry()())
+      }
+
   """
   @type list_storage_lens_configurations_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_multi_region_access_point_input() :: %{
-    "Name" => String.t()
-  }
+
+      delete_multi_region_access_point_input() :: %{
+        "Name" => String.t()
+      }
+
   """
   @type delete_multi_region_access_point_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_multi_region_access_point_operation_result() :: %{
-    "AsyncOperation" => async_operation()
-  }
+
+      describe_multi_region_access_point_operation_result() :: %{
+        "AsyncOperation" => async_operation()
+      }
+
   """
   @type describe_multi_region_access_point_operation_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_access_point_for_object_lambda_request() :: %{
-    required("AccountId") => String.t()
-  }
+
+      get_access_point_for_object_lambda_request() :: %{
+        required("AccountId") => String.t()
+      }
+
   """
   @type get_access_point_for_object_lambda_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_access_points_for_object_lambda_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("AccountId") => String.t()
-  }
+
+      list_access_points_for_object_lambda_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("AccountId") => String.t()
+      }
+
   """
   @type list_access_points_for_object_lambda_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_job_tagging_result() :: %{
-    "Tags" => list(s3_tag()())
-  }
+
+      get_job_tagging_result() :: %{
+        "Tags" => list(s3_tag()())
+      }
+
   """
   @type get_job_tagging_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_access_grants_location_request() :: %{
-    optional("Tags") => list(tag()()),
-    required("AccountId") => String.t(),
-    required("IAMRoleArn") => String.t(),
-    required("LocationScope") => String.t()
-  }
+
+      create_access_grants_location_request() :: %{
+        optional("Tags") => list(tag()()),
+        required("AccountId") => String.t(),
+        required("IAMRoleArn") => String.t(),
+        required("LocationScope") => String.t()
+      }
+
   """
   @type create_access_grants_location_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  async_operation() :: %{
-    "CreationTime" => non_neg_integer(),
-    "Operation" => list(any()),
-    "RequestParameters" => async_request_parameters(),
-    "RequestStatus" => String.t(),
-    "RequestTokenARN" => String.t(),
-    "ResponseDetails" => async_response_details()
-  }
+
+      async_operation() :: %{
+        "CreationTime" => non_neg_integer(),
+        "Operation" => list(any()),
+        "RequestParameters" => async_request_parameters(),
+        "RequestStatus" => String.t(),
+        "RequestTokenARN" => String.t(),
+        "ResponseDetails" => async_response_details()
+      }
+
   """
   @type async_operation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_access_point_policy_for_object_lambda_request() :: %{
-    required("AccountId") => String.t()
-  }
+
+      delete_access_point_policy_for_object_lambda_request() :: %{
+        required("AccountId") => String.t()
+      }
+
   """
   @type delete_access_point_policy_for_object_lambda_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  s3_bucket_destination() :: %{
-    "AccountId" => String.t(),
-    "Arn" => String.t(),
-    "Encryption" => storage_lens_data_export_encryption(),
-    "Format" => list(any()),
-    "OutputSchemaVersion" => list(any()),
-    "Prefix" => String.t()
-  }
+
+      s3_bucket_destination() :: %{
+        "AccountId" => String.t(),
+        "Arn" => String.t(),
+        "Encryption" => storage_lens_data_export_encryption(),
+        "Format" => list(any()),
+        "OutputSchemaVersion" => list(any()),
+        "Prefix" => String.t()
+      }
+
   """
   @type s3_bucket_destination() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_storage_lens_group_result() :: %{
-    "StorageLensGroup" => storage_lens_group()
-  }
+
+      get_storage_lens_group_result() :: %{
+        "StorageLensGroup" => storage_lens_group()
+      }
+
   """
   @type get_storage_lens_group_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_access_grants_instance_resource_policy_request() :: %{
-    required("AccountId") => String.t()
-  }
+
+      get_access_grants_instance_resource_policy_request() :: %{
+        required("AccountId") => String.t()
+      }
+
   """
   @type get_access_grants_instance_resource_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  grantee() :: %{
-    "GranteeIdentifier" => String.t(),
-    "GranteeType" => list(any())
-  }
+
+      grantee() :: %{
+        "GranteeIdentifier" => String.t(),
+        "GranteeType" => list(any())
+      }
+
   """
   @type grantee() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  bucket_level() :: %{
-    "ActivityMetrics" => activity_metrics(),
-    "AdvancedCostOptimizationMetrics" => advanced_cost_optimization_metrics(),
-    "AdvancedDataProtectionMetrics" => advanced_data_protection_metrics(),
-    "DetailedStatusCodesMetrics" => detailed_status_codes_metrics(),
-    "PrefixLevel" => prefix_level()
-  }
+
+      bucket_level() :: %{
+        "ActivityMetrics" => activity_metrics(),
+        "AdvancedCostOptimizationMetrics" => advanced_cost_optimization_metrics(),
+        "AdvancedDataProtectionMetrics" => advanced_data_protection_metrics(),
+        "DetailedStatusCodesMetrics" => detailed_status_codes_metrics(),
+        "PrefixLevel" => prefix_level()
+      }
+
   """
   @type bucket_level() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_access_point_policy_status_result() :: %{
-    "PolicyStatus" => policy_status()
-  }
+
+      get_access_point_policy_status_result() :: %{
+        "PolicyStatus" => policy_status()
+      }
+
   """
   @type get_access_point_policy_status_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  s3_grantee() :: %{
-    "DisplayName" => String.t(),
-    "Identifier" => String.t(),
-    "TypeIdentifier" => list(any())
-  }
+
+      s3_grantee() :: %{
+        "DisplayName" => String.t(),
+        "Identifier" => String.t(),
+        "TypeIdentifier" => list(any())
+      }
+
   """
   @type s3_grantee() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_job_request() :: %{
-    optional("ConfirmationRequired") => boolean(),
-    optional("Description") => String.t(),
-    optional("Manifest") => job_manifest(),
-    optional("ManifestGenerator") => list(),
-    optional("Tags") => list(s3_tag()()),
-    required("AccountId") => String.t(),
-    required("ClientRequestToken") => String.t(),
-    required("Operation") => job_operation(),
-    required("Priority") => integer(),
-    required("Report") => job_report(),
-    required("RoleArn") => String.t()
-  }
+
+      create_job_request() :: %{
+        optional("ConfirmationRequired") => boolean(),
+        optional("Description") => String.t(),
+        optional("Manifest") => job_manifest(),
+        optional("ManifestGenerator") => list(),
+        optional("Tags") => list(s3_tag()()),
+        required("AccountId") => String.t(),
+        required("ClientRequestToken") => String.t(),
+        required("Operation") => job_operation(),
+        required("Priority") => integer(),
+        required("Report") => job_report(),
+        required("RoleArn") => String.t()
+      }
+
   """
   @type create_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_access_point_policy_for_object_lambda_result() :: %{
-    "Policy" => String.t()
-  }
+
+      get_access_point_policy_for_object_lambda_result() :: %{
+        "Policy" => String.t()
+      }
+
   """
   @type get_access_point_policy_for_object_lambda_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  storage_lens_tag() :: %{
-    "Key" => String.t(),
-    "Value" => String.t()
-  }
+
+      storage_lens_tag() :: %{
+        "Key" => String.t(),
+        "Value" => String.t()
+      }
+
   """
   @type storage_lens_tag() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_access_grant_entry() :: %{
-    "AccessGrantArn" => String.t(),
-    "AccessGrantId" => String.t(),
-    "AccessGrantsLocationConfiguration" => access_grants_location_configuration(),
-    "AccessGrantsLocationId" => String.t(),
-    "ApplicationArn" => String.t(),
-    "CreatedAt" => non_neg_integer(),
-    "GrantScope" => String.t(),
-    "Grantee" => grantee(),
-    "Permission" => list(any())
-  }
+
+      list_access_grant_entry() :: %{
+        "AccessGrantArn" => String.t(),
+        "AccessGrantId" => String.t(),
+        "AccessGrantsLocationConfiguration" => access_grants_location_configuration(),
+        "AccessGrantsLocationId" => String.t(),
+        "ApplicationArn" => String.t(),
+        "CreatedAt" => non_neg_integer(),
+        "GrantScope" => String.t(),
+        "Grantee" => grantee(),
+        "Permission" => list(any())
+      }
+
   """
   @type list_access_grant_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  storage_lens_group_filter() :: %{
-    "And" => storage_lens_group_and_operator(),
-    "MatchAnyPrefix" => list(String.t()()),
-    "MatchAnySuffix" => list(String.t()()),
-    "MatchAnyTag" => list(s3_tag()()),
-    "MatchObjectAge" => match_object_age(),
-    "MatchObjectSize" => match_object_size(),
-    "Or" => storage_lens_group_or_operator()
-  }
+
+      storage_lens_group_filter() :: %{
+        "And" => storage_lens_group_and_operator(),
+        "MatchAnyPrefix" => list(String.t()()),
+        "MatchAnySuffix" => list(String.t()()),
+        "MatchAnyTag" => list(s3_tag()()),
+        "MatchObjectAge" => match_object_age(),
+        "MatchObjectSize" => match_object_size(),
+        "Or" => storage_lens_group_or_operator()
+      }
+
   """
   @type storage_lens_group_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  storage_lens_group_or_operator() :: %{
-    "MatchAnyPrefix" => list(String.t()()),
-    "MatchAnySuffix" => list(String.t()()),
-    "MatchAnyTag" => list(s3_tag()()),
-    "MatchObjectAge" => match_object_age(),
-    "MatchObjectSize" => match_object_size()
-  }
+
+      storage_lens_group_or_operator() :: %{
+        "MatchAnyPrefix" => list(String.t()()),
+        "MatchAnySuffix" => list(String.t()()),
+        "MatchAnyTag" => list(s3_tag()()),
+        "MatchObjectAge" => match_object_age(),
+        "MatchObjectSize" => match_object_size()
+      }
+
   """
   @type storage_lens_group_or_operator() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  proposed_multi_region_access_point_policy() :: %{
-    "Policy" => String.t()
-  }
+
+      proposed_multi_region_access_point_policy() :: %{
+        "Policy" => String.t()
+      }
+
   """
   @type proposed_multi_region_access_point_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  include() :: %{
-    "Buckets" => list(String.t()()),
-    "Regions" => list(String.t()())
-  }
+
+      include() :: %{
+        "Buckets" => list(String.t()()),
+        "Regions" => list(String.t()())
+      }
+
   """
   @type include() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  internal_service_exception() :: %{
-    "Message" => String.t()
-  }
+
+      internal_service_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type internal_service_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_multi_region_access_point_policy_input() :: %{
-    "Name" => String.t(),
-    "Policy" => String.t()
-  }
+
+      put_multi_region_access_point_policy_input() :: %{
+        "Name" => String.t(),
+        "Policy" => String.t()
+      }
+
   """
   @type put_multi_region_access_point_policy_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_access_grants_instance_result() :: %{
-    "AccessGrantsInstanceArn" => String.t(),
-    "AccessGrantsInstanceId" => String.t(),
-    "CreatedAt" => non_neg_integer(),
-    "IdentityCenterArn" => String.t()
-  }
+
+      get_access_grants_instance_result() :: %{
+        "AccessGrantsInstanceArn" => String.t(),
+        "AccessGrantsInstanceId" => String.t(),
+        "CreatedAt" => non_neg_integer(),
+        "IdentityCenterArn" => String.t()
+      }
+
   """
   @type get_access_grants_instance_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  sse_kms_encryption() :: %{
-    "KeyId" => String.t()
-  }
+
+      sse_kms_encryption() :: %{
+        "KeyId" => String.t()
+      }
+
   """
   @type sse_kms_encryption() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_bucket_versioning_request() :: %{
-    required("AccountId") => String.t()
-  }
+
+      get_bucket_versioning_request() :: %{
+        required("AccountId") => String.t()
+      }
+
   """
   @type get_bucket_versioning_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_request() :: %{
-    required("AccountId") => String.t(),
-    required("TagKeys") => list(String.t()())
-  }
+
+      untag_resource_request() :: %{
+        required("AccountId") => String.t(),
+        required("TagKeys") => list(String.t()())
+      }
+
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  advanced_data_protection_metrics() :: %{
-    "IsEnabled" => boolean()
-  }
+
+      advanced_data_protection_metrics() :: %{
+        "IsEnabled" => boolean()
+      }
+
   """
   @type advanced_data_protection_metrics() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_access_point_for_object_lambda_request() :: %{
-    required("AccountId") => String.t(),
-    required("Configuration") => object_lambda_configuration()
-  }
+
+      create_access_point_for_object_lambda_request() :: %{
+        required("AccountId") => String.t(),
+        required("Configuration") => object_lambda_configuration()
+      }
+
   """
   @type create_access_point_for_object_lambda_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_requests_exception() :: %{
-    "Message" => String.t()
-  }
+
+      too_many_requests_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type too_many_requests_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  sse_kms_encrypted_objects() :: %{
-    "Status" => list(any())
-  }
+
+      sse_kms_encrypted_objects() :: %{
+        "Status" => list(any())
+      }
+
   """
   @type sse_kms_encrypted_objects() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  job_manifest_location() :: %{
-    "ETag" => String.t(),
-    "ObjectArn" => String.t(),
-    "ObjectVersionId" => String.t()
-  }
+
+      job_manifest_location() :: %{
+        "ETag" => String.t(),
+        "ObjectArn" => String.t(),
+        "ObjectVersionId" => String.t()
+      }
+
   """
   @type job_manifest_location() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_access_points_for_object_lambda_result() :: %{
-    "NextToken" => String.t(),
-    "ObjectLambdaAccessPointList" => list(object_lambda_access_point()())
-  }
+
+      list_access_points_for_object_lambda_result() :: %{
+        "NextToken" => String.t(),
+        "ObjectLambdaAccessPointList" => list(object_lambda_access_point()())
+      }
+
   """
   @type list_access_points_for_object_lambda_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_storage_lens_configuration_request() :: %{
-    optional("Tags") => list(storage_lens_tag()()),
-    required("AccountId") => String.t(),
-    required("StorageLensConfiguration") => storage_lens_configuration()
-  }
+
+      put_storage_lens_configuration_request() :: %{
+        optional("Tags") => list(storage_lens_tag()()),
+        required("AccountId") => String.t(),
+        required("StorageLensConfiguration") => storage_lens_configuration()
+      }
+
   """
   @type put_storage_lens_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_storage_lens_configuration_result() :: %{
-    "StorageLensConfiguration" => storage_lens_configuration()
-  }
+
+      get_storage_lens_configuration_result() :: %{
+        "StorageLensConfiguration" => storage_lens_configuration()
+      }
+
   """
   @type get_storage_lens_configuration_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  s3_job_manifest_generator() :: %{
-    "EnableManifestOutput" => boolean(),
-    "ExpectedBucketOwner" => String.t(),
-    "Filter" => job_manifest_generator_filter(),
-    "ManifestOutputLocation" => s3_manifest_output_location(),
-    "SourceBucket" => String.t()
-  }
+
+      s3_job_manifest_generator() :: %{
+        "EnableManifestOutput" => boolean(),
+        "ExpectedBucketOwner" => String.t(),
+        "Filter" => job_manifest_generator_filter(),
+        "ManifestOutputLocation" => s3_manifest_output_location(),
+        "SourceBucket" => String.t()
+      }
+
   """
   @type s3_job_manifest_generator() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_regional_buckets_result() :: %{
-    "NextToken" => String.t(),
-    "RegionalBucketList" => list(regional_bucket()())
-  }
+
+      list_regional_buckets_result() :: %{
+        "NextToken" => String.t(),
+        "RegionalBucketList" => list(regional_bucket()())
+      }
+
   """
   @type list_regional_buckets_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_bucket_lifecycle_configuration_request() :: %{
-    required("AccountId") => String.t()
-  }
+
+      delete_bucket_lifecycle_configuration_request() :: %{
+        required("AccountId") => String.t()
+      }
+
   """
   @type delete_bucket_lifecycle_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  object_lambda_access_point() :: %{
-    "Alias" => object_lambda_access_point_alias(),
-    "Name" => String.t(),
-    "ObjectLambdaAccessPointArn" => String.t()
-  }
+
+      object_lambda_access_point() :: %{
+        "Alias" => object_lambda_access_point_alias(),
+        "Name" => String.t(),
+        "ObjectLambdaAccessPointArn" => String.t()
+      }
+
   """
   @type object_lambda_access_point() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  replication_rule_filter() :: %{
-    "And" => replication_rule_and_operator(),
-    "Prefix" => String.t(),
-    "Tag" => s3_tag()
-  }
+
+      replication_rule_filter() :: %{
+        "And" => replication_rule_and_operator(),
+        "Prefix" => String.t(),
+        "Tag" => s3_tag()
+      }
+
   """
   @type replication_rule_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_storage_lens_configuration_tagging_request() :: %{
-    required("AccountId") => String.t()
-  }
+
+      delete_storage_lens_configuration_tagging_request() :: %{
+        required("AccountId") => String.t()
+      }
+
   """
   @type delete_storage_lens_configuration_tagging_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_multi_region_access_point_request() :: %{
-    required("AccountId") => String.t(),
-    required("ClientToken") => String.t(),
-    required("Details") => create_multi_region_access_point_input()
-  }
+
+      create_multi_region_access_point_request() :: %{
+        required("AccountId") => String.t(),
+        required("ClientToken") => String.t(),
+        required("Details") => create_multi_region_access_point_input()
+      }
+
   """
   @type create_multi_region_access_point_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  job_operation() :: %{
-    "LambdaInvoke" => lambda_invoke_operation(),
-    "S3DeleteObjectTagging" => s3_delete_object_tagging_operation(),
-    "S3InitiateRestoreObject" => s3_initiate_restore_object_operation(),
-    "S3PutObjectAcl" => s3_set_object_acl_operation(),
-    "S3PutObjectCopy" => s3_copy_object_operation(),
-    "S3PutObjectLegalHold" => s3_set_object_legal_hold_operation(),
-    "S3PutObjectRetention" => s3_set_object_retention_operation(),
-    "S3PutObjectTagging" => s3_set_object_tagging_operation(),
-    "S3ReplicateObject" => s3_replicate_object_operation()
-  }
+
+      job_operation() :: %{
+        "LambdaInvoke" => lambda_invoke_operation(),
+        "S3DeleteObjectTagging" => s3_delete_object_tagging_operation(),
+        "S3InitiateRestoreObject" => s3_initiate_restore_object_operation(),
+        "S3PutObjectAcl" => s3_set_object_acl_operation(),
+        "S3PutObjectCopy" => s3_copy_object_operation(),
+        "S3PutObjectLegalHold" => s3_set_object_legal_hold_operation(),
+        "S3PutObjectRetention" => s3_set_object_retention_operation(),
+        "S3PutObjectTagging" => s3_set_object_tagging_operation(),
+        "S3ReplicateObject" => s3_replicate_object_operation()
+      }
+
   """
   @type job_operation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_storage_lens_groups_request() :: %{
-    optional("NextToken") => String.t(),
-    required("AccountId") => String.t()
-  }
+
+      list_storage_lens_groups_request() :: %{
+        optional("NextToken") => String.t(),
+        required("AccountId") => String.t()
+      }
+
   """
   @type list_storage_lens_groups_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  bucket_already_owned_by_you() :: %{
 
-  }
+      bucket_already_owned_by_you() :: %{}
+
   """
-  @type bucket_already_owned_by_you() :: %{String.t() => any()}
+  @type bucket_already_owned_by_you() :: %{}
 
   @typedoc """
 
   ## Example:
-  delete_bucket_policy_request() :: %{
-    required("AccountId") => String.t()
-  }
+
+      delete_bucket_policy_request() :: %{
+        required("AccountId") => String.t()
+      }
+
   """
   @type delete_bucket_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_multi_region_access_point_policy_result() :: %{
-    "RequestTokenARN" => String.t()
-  }
+
+      put_multi_region_access_point_policy_result() :: %{
+        "RequestTokenARN" => String.t()
+      }
+
   """
   @type put_multi_region_access_point_policy_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_storage_lens_configuration_request() :: %{
-    required("AccountId") => String.t()
-  }
+
+      delete_storage_lens_configuration_request() :: %{
+        required("AccountId") => String.t()
+      }
+
   """
   @type delete_storage_lens_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  dissociate_access_grants_identity_center_request() :: %{
-    required("AccountId") => String.t()
-  }
+
+      dissociate_access_grants_identity_center_request() :: %{
+        required("AccountId") => String.t()
+      }
+
   """
   @type dissociate_access_grants_identity_center_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  noncurrent_version_expiration() :: %{
-    "NewerNoncurrentVersions" => integer(),
-    "NoncurrentDays" => integer()
-  }
+
+      noncurrent_version_expiration() :: %{
+        "NewerNoncurrentVersions" => integer(),
+        "NoncurrentDays" => integer()
+      }
+
   """
   @type noncurrent_version_expiration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_storage_lens_configuration_tagging_result() :: %{
 
-  }
+      delete_storage_lens_configuration_tagging_result() :: %{}
+
   """
-  @type delete_storage_lens_configuration_tagging_result() :: %{String.t() => any()}
+  @type delete_storage_lens_configuration_tagging_result() :: %{}
 
   @typedoc """
 
   ## Example:
-  submit_multi_region_access_point_routes_result() :: %{
 
-  }
+      submit_multi_region_access_point_routes_result() :: %{}
+
   """
-  @type submit_multi_region_access_point_routes_result() :: %{String.t() => any()}
+  @type submit_multi_region_access_point_routes_result() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_access_grants_instances_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("AccountId") => String.t()
-  }
+
+      list_access_grants_instances_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("AccountId") => String.t()
+      }
+
   """
   @type list_access_grants_instances_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  multi_region_access_points_async_response() :: %{
-    "Regions" => list(multi_region_access_point_regional_response()())
-  }
+
+      multi_region_access_points_async_response() :: %{
+        "Regions" => list(multi_region_access_point_regional_response()())
+      }
+
   """
   @type multi_region_access_points_async_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_multi_region_access_points_result() :: %{
-    "AccessPoints" => list(multi_region_access_point_report()()),
-    "NextToken" => String.t()
-  }
+
+      list_multi_region_access_points_result() :: %{
+        "AccessPoints" => list(multi_region_access_point_report()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_multi_region_access_points_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_bucket_request() :: %{
-    required("AccountId") => String.t()
-  }
+
+      delete_bucket_request() :: %{
+        required("AccountId") => String.t()
+      }
+
   """
   @type delete_bucket_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_multi_region_access_point_policy_status_result() :: %{
-    "Established" => policy_status()
-  }
+
+      get_multi_region_access_point_policy_status_result() :: %{
+        "Established" => policy_status()
+      }
+
   """
   @type get_multi_region_access_point_policy_status_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_access_point_request() :: %{
-    optional("BucketAccountId") => String.t(),
-    optional("PublicAccessBlockConfiguration") => public_access_block_configuration(),
-    optional("VpcConfiguration") => vpc_configuration(),
-    required("AccountId") => String.t(),
-    required("Bucket") => String.t()
-  }
+
+      create_access_point_request() :: %{
+        optional("BucketAccountId") => String.t(),
+        optional("PublicAccessBlockConfiguration") => public_access_block_configuration(),
+        optional("VpcConfiguration") => vpc_configuration(),
+        required("AccountId") => String.t(),
+        required("Bucket") => String.t()
+      }
+
   """
   @type create_access_point_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_access_grants_instance_request() :: %{
-    required("AccountId") => String.t()
-  }
+
+      delete_access_grants_instance_request() :: %{
+        required("AccountId") => String.t()
+      }
+
   """
   @type delete_access_grants_instance_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  submit_multi_region_access_point_routes_request() :: %{
-    required("AccountId") => String.t(),
-    required("RouteUpdates") => list(multi_region_access_point_route()())
-  }
+
+      submit_multi_region_access_point_routes_request() :: %{
+        required("AccountId") => String.t(),
+        required("RouteUpdates") => list(multi_region_access_point_route()())
+      }
+
   """
   @type submit_multi_region_access_point_routes_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  metrics() :: %{
-    "EventThreshold" => replication_time_value(),
-    "Status" => list(any())
-  }
+
+      metrics() :: %{
+        "EventThreshold" => replication_time_value(),
+        "Status" => list(any())
+      }
+
   """
   @type metrics() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_multi_region_access_point_result() :: %{
-    "RequestTokenARN" => String.t()
-  }
+
+      create_multi_region_access_point_result() :: %{
+        "RequestTokenARN" => String.t()
+      }
+
   """
   @type create_multi_region_access_point_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  region() :: %{
-    "Bucket" => String.t(),
-    "BucketAccountId" => String.t()
-  }
+
+      region() :: %{
+        "Bucket" => String.t(),
+        "BucketAccountId" => String.t()
+      }
+
   """
   @type region() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_storage_lens_configuration_tagging_request() :: %{
-    required("AccountId") => String.t()
-  }
+
+      get_storage_lens_configuration_tagging_request() :: %{
+        required("AccountId") => String.t()
+      }
+
   """
   @type get_storage_lens_configuration_tagging_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_access_point_policy_for_object_lambda_request() :: %{
-    required("AccountId") => String.t()
-  }
+
+      get_access_point_policy_for_object_lambda_request() :: %{
+        required("AccountId") => String.t()
+      }
+
   """
   @type get_access_point_policy_for_object_lambda_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_access_point_request() :: %{
-    required("AccountId") => String.t()
-  }
+
+      get_access_point_request() :: %{
+        required("AccountId") => String.t()
+      }
+
   """
   @type get_access_point_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  replica_modifications() :: %{
-    "Status" => list(any())
-  }
+
+      replica_modifications() :: %{
+        "Status" => list(any())
+      }
+
   """
   @type replica_modifications() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  replication_time_value() :: %{
-    "Minutes" => integer()
-  }
+
+      replication_time_value() :: %{
+        "Minutes" => integer()
+      }
+
   """
   @type replication_time_value() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_access_grants_location_request() :: %{
-    required("AccountId") => String.t(),
-    required("IAMRoleArn") => String.t()
-  }
+
+      update_access_grants_location_request() :: %{
+        required("AccountId") => String.t(),
+        required("IAMRoleArn") => String.t()
+      }
+
   """
   @type update_access_grants_location_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  exclude() :: %{
-    "Buckets" => list(String.t()()),
-    "Regions" => list(String.t()())
-  }
+
+      exclude() :: %{
+        "Buckets" => list(String.t()()),
+        "Regions" => list(String.t()())
+      }
+
   """
   @type exclude() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  policy_status() :: %{
-    "IsPublic" => boolean()
-  }
+
+      policy_status() :: %{
+        "IsPublic" => boolean()
+      }
+
   """
   @type policy_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_bucket_replication_request() :: %{
-    required("AccountId") => String.t()
-  }
+
+      get_bucket_replication_request() :: %{
+        required("AccountId") => String.t()
+      }
+
   """
   @type get_bucket_replication_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  s3_initiate_restore_object_operation() :: %{
-    "ExpirationInDays" => integer(),
-    "GlacierJobTier" => list(any())
-  }
+
+      s3_initiate_restore_object_operation() :: %{
+        "ExpirationInDays" => integer(),
+        "GlacierJobTier" => list(any())
+      }
+
   """
   @type s3_initiate_restore_object_operation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  replication_configuration() :: %{
-    "Role" => String.t(),
-    "Rules" => list(replication_rule()())
-  }
+
+      replication_configuration() :: %{
+        "Role" => String.t(),
+        "Rules" => list(replication_rule()())
+      }
+
   """
   @type replication_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  s3_access_control_policy() :: %{
-    "AccessControlList" => s3_access_control_list(),
-    "CannedAccessControlList" => list(any())
-  }
+
+      s3_access_control_policy() :: %{
+        "AccessControlList" => s3_access_control_list(),
+        "CannedAccessControlList" => list(any())
+      }
+
   """
   @type s3_access_control_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_access_point_configuration_for_object_lambda_request() :: %{
-    required("AccountId") => String.t()
-  }
+
+      get_access_point_configuration_for_object_lambda_request() :: %{
+        required("AccountId") => String.t()
+      }
+
   """
   @type get_access_point_configuration_for_object_lambda_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_access_grant_request() :: %{
-    required("AccountId") => String.t()
-  }
+
+      get_access_grant_request() :: %{
+        required("AccountId") => String.t()
+      }
+
   """
   @type get_access_grant_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  s3_grant() :: %{
-    "Grantee" => s3_grantee(),
-    "Permission" => list(any())
-  }
+
+      s3_grant() :: %{
+        "Grantee" => s3_grantee(),
+        "Permission" => list(any())
+      }
+
   """
   @type s3_grant() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag() :: %{
-    "Key" => String.t(),
-    "Value" => String.t()
-  }
+
+      tag() :: %{
+        "Key" => String.t(),
+        "Value" => String.t()
+      }
+
   """
   @type tag() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_data_access_request() :: %{
-    optional("DurationSeconds") => integer(),
-    optional("Privilege") => list(any()),
-    optional("TargetType") => list(any()),
-    required("AccountId") => String.t(),
-    required("Permission") => list(any()),
-    required("Target") => String.t()
-  }
+
+      get_data_access_request() :: %{
+        optional("DurationSeconds") => integer(),
+        optional("Privilege") => list(any()),
+        optional("TargetType") => list(any()),
+        required("AccountId") => String.t(),
+        required("Permission") => list(any()),
+        required("Target") => String.t()
+      }
+
   """
   @type get_data_access_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_bucket_policy_result() :: %{
-    "Policy" => String.t()
-  }
+
+      get_bucket_policy_result() :: %{
+        "Policy" => String.t()
+      }
+
   """
   @type get_bucket_policy_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_request_exception() :: %{
-    "Message" => String.t()
-  }
+
+      invalid_request_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type invalid_request_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  noncurrent_version_transition() :: %{
-    "NoncurrentDays" => integer(),
-    "StorageClass" => list(any())
-  }
+
+      noncurrent_version_transition() :: %{
+        "NoncurrentDays" => integer(),
+        "StorageClass" => list(any())
+      }
+
   """
   @type noncurrent_version_transition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_access_grants_location_result() :: %{
-    "AccessGrantsLocationArn" => String.t(),
-    "AccessGrantsLocationId" => String.t(),
-    "CreatedAt" => non_neg_integer(),
-    "IAMRoleArn" => String.t(),
-    "LocationScope" => String.t()
-  }
+
+      get_access_grants_location_result() :: %{
+        "AccessGrantsLocationArn" => String.t(),
+        "AccessGrantsLocationId" => String.t(),
+        "CreatedAt" => non_neg_integer(),
+        "IAMRoleArn" => String.t(),
+        "LocationScope" => String.t()
+      }
+
   """
   @type get_access_grants_location_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  lifecycle_rule_filter() :: %{
-    "And" => lifecycle_rule_and_operator(),
-    "ObjectSizeGreaterThan" => float(),
-    "ObjectSizeLessThan" => float(),
-    "Prefix" => String.t(),
-    "Tag" => s3_tag()
-  }
+
+      lifecycle_rule_filter() :: %{
+        "And" => lifecycle_rule_and_operator(),
+        "ObjectSizeGreaterThan" => float(),
+        "ObjectSizeLessThan" => float(),
+        "Prefix" => String.t(),
+        "Tag" => s3_tag()
+      }
+
   """
   @type lifecycle_rule_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_storage_lens_group_request() :: %{
-    required("AccountId") => String.t()
-  }
+
+      delete_storage_lens_group_request() :: %{
+        required("AccountId") => String.t()
+      }
+
   """
   @type delete_storage_lens_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_next_token_exception() :: %{
-    "Message" => String.t()
-  }
+
+      invalid_next_token_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type invalid_next_token_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_job_status_result() :: %{
-    "JobId" => String.t(),
-    "Status" => list(any()),
-    "StatusUpdateReason" => String.t()
-  }
+
+      update_job_status_result() :: %{
+        "JobId" => String.t(),
+        "Status" => list(any()),
+        "StatusUpdateReason" => String.t()
+      }
+
   """
   @type update_job_status_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_multi_region_access_points_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("AccountId") => String.t()
-  }
+
+      list_multi_region_access_points_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("AccountId") => String.t()
+      }
+
   """
   @type list_multi_region_access_points_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  multi_region_access_point_policy_document() :: %{
-    "Established" => established_multi_region_access_point_policy(),
-    "Proposed" => proposed_multi_region_access_point_policy()
-  }
+
+      multi_region_access_point_policy_document() :: %{
+        "Established" => established_multi_region_access_point_policy(),
+        "Proposed" => proposed_multi_region_access_point_policy()
+      }
+
   """
   @type multi_region_access_point_policy_document() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_access_grants_instance_entry() :: %{
-    "AccessGrantsInstanceArn" => String.t(),
-    "AccessGrantsInstanceId" => String.t(),
-    "CreatedAt" => non_neg_integer(),
-    "IdentityCenterArn" => String.t()
-  }
+
+      list_access_grants_instance_entry() :: %{
+        "AccessGrantsInstanceArn" => String.t(),
+        "AccessGrantsInstanceId" => String.t(),
+        "CreatedAt" => non_neg_integer(),
+        "IdentityCenterArn" => String.t()
+      }
+
   """
   @type list_access_grants_instance_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_access_grants_instance_resource_policy_result() :: %{
-    "CreatedAt" => non_neg_integer(),
-    "Organization" => String.t(),
-    "Policy" => String.t()
-  }
+
+      get_access_grants_instance_resource_policy_result() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "Organization" => String.t(),
+        "Policy" => String.t()
+      }
+
   """
   @type get_access_grants_instance_resource_policy_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  job_failure() :: %{
-    "FailureCode" => String.t(),
-    "FailureReason" => String.t()
-  }
+
+      job_failure() :: %{
+        "FailureCode" => String.t(),
+        "FailureReason" => String.t()
+      }
+
   """
   @type job_failure() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_bucket_configuration() :: %{
-    "LocationConstraint" => list(any())
-  }
+
+      create_bucket_configuration() :: %{
+        "LocationConstraint" => list(any())
+      }
+
   """
   @type create_bucket_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  not_found_exception() :: %{
-    "Message" => String.t()
-  }
+
+      not_found_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  bucket_already_exists() :: %{
 
-  }
+      bucket_already_exists() :: %{}
+
   """
-  @type bucket_already_exists() :: %{String.t() => any()}
+  @type bucket_already_exists() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_bucket_replication_result() :: %{
-    "ReplicationConfiguration" => replication_configuration()
-  }
+
+      get_bucket_replication_result() :: %{
+        "ReplicationConfiguration" => replication_configuration()
+      }
+
   """
   @type get_bucket_replication_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  regional_bucket() :: %{
-    "Bucket" => String.t(),
-    "BucketArn" => String.t(),
-    "CreationDate" => non_neg_integer(),
-    "OutpostId" => String.t(),
-    "PublicAccessBlockEnabled" => boolean()
-  }
+
+      regional_bucket() :: %{
+        "Bucket" => String.t(),
+        "BucketArn" => String.t(),
+        "CreationDate" => non_neg_integer(),
+        "OutpostId" => String.t(),
+        "PublicAccessBlockEnabled" => boolean()
+      }
+
   """
   @type regional_bucket() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  async_response_details() :: %{
-    "ErrorDetails" => async_error_details(),
-    "MultiRegionAccessPointDetails" => multi_region_access_points_async_response()
-  }
+
+      async_response_details() :: %{
+        "ErrorDetails" => async_error_details(),
+        "MultiRegionAccessPointDetails" => multi_region_access_points_async_response()
+      }
+
   """
   @type async_response_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  s3_set_object_acl_operation() :: %{
-    "AccessControlPolicy" => s3_access_control_policy()
-  }
+
+      s3_set_object_acl_operation() :: %{
+        "AccessControlPolicy" => s3_access_control_policy()
+      }
+
   """
   @type s3_set_object_acl_operation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  async_request_parameters() :: %{
-    "CreateMultiRegionAccessPointRequest" => create_multi_region_access_point_input(),
-    "DeleteMultiRegionAccessPointRequest" => delete_multi_region_access_point_input(),
-    "PutMultiRegionAccessPointPolicyRequest" => put_multi_region_access_point_policy_input()
-  }
+
+      async_request_parameters() :: %{
+        "CreateMultiRegionAccessPointRequest" => create_multi_region_access_point_input(),
+        "DeleteMultiRegionAccessPointRequest" => delete_multi_region_access_point_input(),
+        "PutMultiRegionAccessPointPolicyRequest" => put_multi_region_access_point_policy_input()
+      }
+
   """
   @type async_request_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tagging() :: %{
-    "TagSet" => list(s3_tag()())
-  }
+
+      tagging() :: %{
+        "TagSet" => list(s3_tag()())
+      }
+
   """
   @type tagging() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  activity_metrics() :: %{
-    "IsEnabled" => boolean()
-  }
+
+      activity_metrics() :: %{
+        "IsEnabled" => boolean()
+      }
+
   """
   @type activity_metrics() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  access_control_translation() :: %{
-    "Owner" => list(any())
-  }
+
+      access_control_translation() :: %{
+        "Owner" => list(any())
+      }
+
   """
   @type access_control_translation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_access_grants_location_result() :: %{
-    "AccessGrantsLocationArn" => String.t(),
-    "AccessGrantsLocationId" => String.t(),
-    "CreatedAt" => non_neg_integer(),
-    "IAMRoleArn" => String.t(),
-    "LocationScope" => String.t()
-  }
+
+      create_access_grants_location_result() :: %{
+        "AccessGrantsLocationArn" => String.t(),
+        "AccessGrantsLocationId" => String.t(),
+        "CreatedAt" => non_neg_integer(),
+        "IAMRoleArn" => String.t(),
+        "LocationScope" => String.t()
+      }
+
   """
   @type create_access_grants_location_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_job_request() :: %{
-    required("AccountId") => String.t()
-  }
+
+      describe_job_request() :: %{
+        required("AccountId") => String.t()
+      }
+
   """
   @type describe_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  storage_lens_data_export_encryption() :: %{
-    "SSEKMS" => sse_kms(),
-    "SSES3" => sse_s3()
-  }
+
+      storage_lens_data_export_encryption() :: %{
+        "SSEKMS" => sse_kms(),
+        "SSES3" => sse_s3()
+      }
+
   """
   @type storage_lens_data_export_encryption() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  storage_lens_group_and_operator() :: %{
-    "MatchAnyPrefix" => list(String.t()()),
-    "MatchAnySuffix" => list(String.t()()),
-    "MatchAnyTag" => list(s3_tag()()),
-    "MatchObjectAge" => match_object_age(),
-    "MatchObjectSize" => match_object_size()
-  }
+
+      storage_lens_group_and_operator() :: %{
+        "MatchAnyPrefix" => list(String.t()()),
+        "MatchAnySuffix" => list(String.t()()),
+        "MatchAnyTag" => list(s3_tag()()),
+        "MatchObjectAge" => match_object_age(),
+        "MatchObjectSize" => match_object_size()
+      }
+
   """
   @type storage_lens_group_and_operator() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  object_lambda_transformation_configuration() :: %{
-    "Actions" => list(list(any())()),
-    "ContentTransformation" => list()
-  }
+
+      object_lambda_transformation_configuration() :: %{
+        "Actions" => list(list(any())()),
+        "ContentTransformation" => list()
+      }
+
   """
   @type object_lambda_transformation_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  job_descriptor() :: %{
-    "ConfirmationRequired" => boolean(),
-    "CreationTime" => non_neg_integer(),
-    "Description" => String.t(),
-    "FailureReasons" => list(job_failure()()),
-    "GeneratedManifestDescriptor" => s3_generated_manifest_descriptor(),
-    "JobArn" => String.t(),
-    "JobId" => String.t(),
-    "Manifest" => job_manifest(),
-    "ManifestGenerator" => list(),
-    "Operation" => job_operation(),
-    "Priority" => integer(),
-    "ProgressSummary" => job_progress_summary(),
-    "Report" => job_report(),
-    "RoleArn" => String.t(),
-    "Status" => list(any()),
-    "StatusUpdateReason" => String.t(),
-    "SuspendedCause" => String.t(),
-    "SuspendedDate" => non_neg_integer(),
-    "TerminationDate" => non_neg_integer()
-  }
+
+      job_descriptor() :: %{
+        "ConfirmationRequired" => boolean(),
+        "CreationTime" => non_neg_integer(),
+        "Description" => String.t(),
+        "FailureReasons" => list(job_failure()()),
+        "GeneratedManifestDescriptor" => s3_generated_manifest_descriptor(),
+        "JobArn" => String.t(),
+        "JobId" => String.t(),
+        "Manifest" => job_manifest(),
+        "ManifestGenerator" => list(),
+        "Operation" => job_operation(),
+        "Priority" => integer(),
+        "ProgressSummary" => job_progress_summary(),
+        "Report" => job_report(),
+        "RoleArn" => String.t(),
+        "Status" => list(any()),
+        "StatusUpdateReason" => String.t(),
+        "SuspendedCause" => String.t(),
+        "SuspendedDate" => non_neg_integer(),
+        "TerminationDate" => non_neg_integer()
+      }
+
   """
   @type job_descriptor() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  detailed_status_codes_metrics() :: %{
-    "IsEnabled" => boolean()
-  }
+
+      detailed_status_codes_metrics() :: %{
+        "IsEnabled" => boolean()
+      }
+
   """
   @type detailed_status_codes_metrics() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_access_point_policy_status_request() :: %{
-    required("AccountId") => String.t()
-  }
+
+      get_access_point_policy_status_request() :: %{
+        required("AccountId") => String.t()
+      }
+
   """
   @type get_access_point_policy_status_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  job_manifest_spec() :: %{
-    "Fields" => list(list(any())()),
-    "Format" => list(any())
-  }
+
+      job_manifest_spec() :: %{
+        "Fields" => list(list(any())()),
+        "Format" => list(any())
+      }
+
   """
   @type job_manifest_spec() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  s3_object_metadata() :: %{
-    "CacheControl" => String.t(),
-    "ContentDisposition" => String.t(),
-    "ContentEncoding" => String.t(),
-    "ContentLanguage" => String.t(),
-    "ContentLength" => float(),
-    "ContentMD5" => String.t(),
-    "ContentType" => String.t(),
-    "HttpExpiresDate" => non_neg_integer(),
-    "RequesterCharged" => boolean(),
-    "SSEAlgorithm" => list(any()),
-    "UserMetadata" => map()
-  }
+
+      s3_object_metadata() :: %{
+        "CacheControl" => String.t(),
+        "ContentDisposition" => String.t(),
+        "ContentEncoding" => String.t(),
+        "ContentLanguage" => String.t(),
+        "ContentLength" => float(),
+        "ContentMD5" => String.t(),
+        "ContentType" => String.t(),
+        "HttpExpiresDate" => non_neg_integer(),
+        "RequesterCharged" => boolean(),
+        "SSEAlgorithm" => list(any()),
+        "UserMetadata" => map()
+      }
+
   """
   @type s3_object_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_access_grants_instances_result() :: %{
-    "AccessGrantsInstancesList" => list(list_access_grants_instance_entry()()),
-    "NextToken" => String.t()
-  }
+
+      list_access_grants_instances_result() :: %{
+        "AccessGrantsInstancesList" => list(list_access_grants_instance_entry()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_access_grants_instances_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_multi_region_access_point_result() :: %{
-    "RequestTokenARN" => String.t()
-  }
+
+      delete_multi_region_access_point_result() :: %{
+        "RequestTokenARN" => String.t()
+      }
+
   """
   @type delete_multi_region_access_point_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  established_multi_region_access_point_policy() :: %{
-    "Policy" => String.t()
-  }
+
+      established_multi_region_access_point_policy() :: %{
+        "Policy" => String.t()
+      }
+
   """
   @type established_multi_region_access_point_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_access_grants_location_result() :: %{
-    "AccessGrantsLocationArn" => String.t(),
-    "AccessGrantsLocationId" => String.t(),
-    "CreatedAt" => non_neg_integer(),
-    "IAMRoleArn" => String.t(),
-    "LocationScope" => String.t()
-  }
+
+      update_access_grants_location_result() :: %{
+        "AccessGrantsLocationArn" => String.t(),
+        "AccessGrantsLocationId" => String.t(),
+        "CreatedAt" => non_neg_integer(),
+        "IAMRoleArn" => String.t(),
+        "LocationScope" => String.t()
+      }
+
   """
   @type update_access_grants_location_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_job_tagging_result() :: %{
 
-  }
+      delete_job_tagging_result() :: %{}
+
   """
-  @type delete_job_tagging_result() :: %{String.t() => any()}
+  @type delete_job_tagging_result() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_multi_region_access_point_input() :: %{
-    "Name" => String.t(),
-    "PublicAccessBlock" => public_access_block_configuration(),
-    "Regions" => list(region()())
-  }
+
+      create_multi_region_access_point_input() :: %{
+        "Name" => String.t(),
+        "PublicAccessBlock" => public_access_block_configuration(),
+        "Regions" => list(region()())
+      }
+
   """
   @type create_multi_region_access_point_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  storage_lens_group() :: %{
-    "Filter" => storage_lens_group_filter(),
-    "Name" => String.t(),
-    "StorageLensGroupArn" => String.t()
-  }
+
+      storage_lens_group() :: %{
+        "Filter" => storage_lens_group_filter(),
+        "Name" => String.t(),
+        "StorageLensGroupArn" => String.t()
+      }
+
   """
   @type storage_lens_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_access_point_for_object_lambda_result() :: %{
-    "Alias" => object_lambda_access_point_alias(),
-    "CreationDate" => non_neg_integer(),
-    "Name" => String.t(),
-    "PublicAccessBlockConfiguration" => public_access_block_configuration()
-  }
+
+      get_access_point_for_object_lambda_result() :: %{
+        "Alias" => object_lambda_access_point_alias(),
+        "CreationDate" => non_neg_integer(),
+        "Name" => String.t(),
+        "PublicAccessBlockConfiguration" => public_access_block_configuration()
+      }
+
   """
   @type get_access_point_for_object_lambda_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_bucket_result() :: %{
-    "BucketArn" => String.t(),
-    "Location" => String.t()
-  }
+
+      create_bucket_result() :: %{
+        "BucketArn" => String.t(),
+        "Location" => String.t()
+      }
+
   """
   @type create_bucket_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  s3_replicate_object_operation() :: %{
 
-  }
+      s3_replicate_object_operation() :: %{}
+
   """
-  @type s3_replicate_object_operation() :: %{String.t() => any()}
+  @type s3_replicate_object_operation() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_regional_buckets_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("OutpostId") => String.t(),
-    required("AccountId") => String.t()
-  }
+
+      list_regional_buckets_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("OutpostId") => String.t(),
+        required("AccountId") => String.t()
+      }
+
   """
   @type list_regional_buckets_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  s3_manifest_output_location() :: %{
-    "Bucket" => String.t(),
-    "ExpectedManifestBucketOwner" => String.t(),
-    "ManifestEncryption" => generated_manifest_encryption(),
-    "ManifestFormat" => list(any()),
-    "ManifestPrefix" => String.t()
-  }
+
+      s3_manifest_output_location() :: %{
+        "Bucket" => String.t(),
+        "ExpectedManifestBucketOwner" => String.t(),
+        "ManifestEncryption" => generated_manifest_encryption(),
+        "ManifestFormat" => list(any()),
+        "ManifestPrefix" => String.t()
+      }
+
   """
   @type s3_manifest_output_location() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_access_point_request() :: %{
-    required("AccountId") => String.t()
-  }
+
+      delete_access_point_request() :: %{
+        required("AccountId") => String.t()
+      }
+
   """
   @type delete_access_point_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  lambda_invoke_operation() :: %{
-    "FunctionArn" => String.t(),
-    "InvocationSchemaVersion" => String.t(),
-    "UserArguments" => map()
-  }
+
+      lambda_invoke_operation() :: %{
+        "FunctionArn" => String.t(),
+        "InvocationSchemaVersion" => String.t(),
+        "UserArguments" => map()
+      }
+
   """
   @type lambda_invoke_operation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_bucket_lifecycle_configuration_request() :: %{
-    required("AccountId") => String.t()
-  }
+
+      get_bucket_lifecycle_configuration_request() :: %{
+        required("AccountId") => String.t()
+      }
+
   """
   @type get_bucket_lifecycle_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_access_grants_instance_resource_policy_request() :: %{
-    required("AccountId") => String.t()
-  }
+
+      delete_access_grants_instance_resource_policy_request() :: %{
+        required("AccountId") => String.t()
+      }
+
   """
   @type delete_access_grants_instance_resource_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  storage_lens_aws_org() :: %{
-    "Arn" => String.t()
-  }
+
+      storage_lens_aws_org() :: %{
+        "Arn" => String.t()
+      }
+
   """
   @type storage_lens_aws_org() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_result() :: %{
-    "Tags" => list(tag()())
-  }
+
+      list_tags_for_resource_result() :: %{
+        "Tags" => list(tag()())
+      }
+
   """
   @type list_tags_for_resource_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  async_error_details() :: %{
-    "Code" => String.t(),
-    "Message" => String.t(),
-    "RequestId" => String.t(),
-    "Resource" => String.t()
-  }
+
+      async_error_details() :: %{
+        "Code" => String.t(),
+        "Message" => String.t(),
+        "RequestId" => String.t(),
+        "Resource" => String.t()
+      }
+
   """
   @type async_error_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  job_list_descriptor() :: %{
-    "CreationTime" => non_neg_integer(),
-    "Description" => String.t(),
-    "JobId" => String.t(),
-    "Operation" => list(any()),
-    "Priority" => integer(),
-    "ProgressSummary" => job_progress_summary(),
-    "Status" => list(any()),
-    "TerminationDate" => non_neg_integer()
-  }
+
+      job_list_descriptor() :: %{
+        "CreationTime" => non_neg_integer(),
+        "Description" => String.t(),
+        "JobId" => String.t(),
+        "Operation" => list(any()),
+        "Priority" => integer(),
+        "ProgressSummary" => job_progress_summary(),
+        "Status" => list(any()),
+        "TerminationDate" => non_neg_integer()
+      }
+
   """
   @type job_list_descriptor() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_access_point_for_object_lambda_request() :: %{
-    required("AccountId") => String.t()
-  }
+
+      delete_access_point_for_object_lambda_request() :: %{
+        required("AccountId") => String.t()
+      }
+
   """
   @type delete_access_point_for_object_lambda_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_bucket_request() :: %{
-    required("AccountId") => String.t()
-  }
+
+      get_bucket_request() :: %{
+        required("AccountId") => String.t()
+      }
+
   """
   @type get_bucket_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  s3_copy_object_operation() :: %{
-    "AccessControlGrants" => list(s3_grant()()),
-    "BucketKeyEnabled" => boolean(),
-    "CannedAccessControlList" => list(any()),
-    "ChecksumAlgorithm" => list(any()),
-    "MetadataDirective" => list(any()),
-    "ModifiedSinceConstraint" => non_neg_integer(),
-    "NewObjectMetadata" => s3_object_metadata(),
-    "NewObjectTagging" => list(s3_tag()()),
-    "ObjectLockLegalHoldStatus" => list(any()),
-    "ObjectLockMode" => list(any()),
-    "ObjectLockRetainUntilDate" => non_neg_integer(),
-    "RedirectLocation" => String.t(),
-    "RequesterPays" => boolean(),
-    "SSEAwsKmsKeyId" => String.t(),
-    "StorageClass" => list(any()),
-    "TargetKeyPrefix" => String.t(),
-    "TargetResource" => String.t(),
-    "UnModifiedSinceConstraint" => non_neg_integer()
-  }
+
+      s3_copy_object_operation() :: %{
+        "AccessControlGrants" => list(s3_grant()()),
+        "BucketKeyEnabled" => boolean(),
+        "CannedAccessControlList" => list(any()),
+        "ChecksumAlgorithm" => list(any()),
+        "MetadataDirective" => list(any()),
+        "ModifiedSinceConstraint" => non_neg_integer(),
+        "NewObjectMetadata" => s3_object_metadata(),
+        "NewObjectTagging" => list(s3_tag()()),
+        "ObjectLockLegalHoldStatus" => list(any()),
+        "ObjectLockMode" => list(any()),
+        "ObjectLockRetainUntilDate" => non_neg_integer(),
+        "RedirectLocation" => String.t(),
+        "RequesterPays" => boolean(),
+        "SSEAwsKmsKeyId" => String.t(),
+        "StorageClass" => list(any()),
+        "TargetKeyPrefix" => String.t(),
+        "TargetResource" => String.t(),
+        "UnModifiedSinceConstraint" => non_neg_integer()
+      }
+
   """
   @type s3_copy_object_operation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_bucket_policy_request() :: %{
-    required("AccountId") => String.t()
-  }
+
+      get_bucket_policy_request() :: %{
+        required("AccountId") => String.t()
+      }
+
   """
   @type get_bucket_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_public_access_block_output() :: %{
-    "PublicAccessBlockConfiguration" => public_access_block_configuration()
-  }
+
+      get_public_access_block_output() :: %{
+        "PublicAccessBlockConfiguration" => public_access_block_configuration()
+      }
+
   """
   @type get_public_access_block_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_access_point_policy_request() :: %{
-    required("AccountId") => String.t()
-  }
+
+      delete_access_point_policy_request() :: %{
+        required("AccountId") => String.t()
+      }
+
   """
   @type delete_access_point_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  aws_lambda_transformation() :: %{
-    "FunctionArn" => String.t(),
-    "FunctionPayload" => String.t()
-  }
+
+      aws_lambda_transformation() :: %{
+        "FunctionArn" => String.t(),
+        "FunctionPayload" => String.t()
+      }
+
   """
   @type aws_lambda_transformation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_bucket_tagging_result() :: %{
-    "TagSet" => list(s3_tag()())
-  }
+
+      get_bucket_tagging_result() :: %{
+        "TagSet" => list(s3_tag()())
+      }
+
   """
   @type get_bucket_tagging_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_marker_replication() :: %{
-    "Status" => list(any())
-  }
+
+      delete_marker_replication() :: %{
+        "Status" => list(any())
+      }
+
   """
   @type delete_marker_replication() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_bucket_request() :: %{
-    optional("ACL") => list(any()),
-    optional("CreateBucketConfiguration") => create_bucket_configuration(),
-    optional("GrantFullControl") => String.t(),
-    optional("GrantRead") => String.t(),
-    optional("GrantReadACP") => String.t(),
-    optional("GrantWrite") => String.t(),
-    optional("GrantWriteACP") => String.t(),
-    optional("ObjectLockEnabledForBucket") => boolean(),
-    optional("OutpostId") => String.t()
-  }
+
+      create_bucket_request() :: %{
+        optional("ACL") => list(any()),
+        optional("CreateBucketConfiguration") => create_bucket_configuration(),
+        optional("GrantFullControl") => String.t(),
+        optional("GrantRead") => String.t(),
+        optional("GrantReadACP") => String.t(),
+        optional("GrantWrite") => String.t(),
+        optional("GrantWriteACP") => String.t(),
+        optional("ObjectLockEnabledForBucket") => boolean(),
+        optional("OutpostId") => String.t()
+      }
+
   """
   @type create_bucket_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  key_name_constraint() :: %{
-    "MatchAnyPrefix" => list(String.t()()),
-    "MatchAnySubstring" => list(String.t()()),
-    "MatchAnySuffix" => list(String.t()())
-  }
+
+      key_name_constraint() :: %{
+        "MatchAnyPrefix" => list(String.t()()),
+        "MatchAnySubstring" => list(String.t()()),
+        "MatchAnySuffix" => list(String.t()())
+      }
+
   """
   @type key_name_constraint() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_bucket_result() :: %{
-    "Bucket" => String.t(),
-    "CreationDate" => non_neg_integer(),
-    "PublicAccessBlockEnabled" => boolean()
-  }
+
+      get_bucket_result() :: %{
+        "Bucket" => String.t(),
+        "CreationDate" => non_neg_integer(),
+        "PublicAccessBlockEnabled" => boolean()
+      }
+
   """
   @type get_bucket_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_job_tagging_request() :: %{
-    required("AccountId") => String.t()
-  }
+
+      get_job_tagging_request() :: %{
+        required("AccountId") => String.t()
+      }
+
   """
   @type get_job_tagging_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_data_access_result() :: %{
-    "Credentials" => credentials(),
-    "MatchedGrantTarget" => String.t()
-  }
+
+      get_data_access_result() :: %{
+        "Credentials" => credentials(),
+        "MatchedGrantTarget" => String.t()
+      }
+
   """
   @type get_data_access_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_access_point_policy_request() :: %{
-    required("AccountId") => String.t()
-  }
+
+      get_access_point_policy_request() :: %{
+        required("AccountId") => String.t()
+      }
+
   """
   @type get_access_point_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  job_timers() :: %{
-    "ElapsedTimeInActiveSeconds" => float()
-  }
+
+      job_timers() :: %{
+        "ElapsedTimeInActiveSeconds" => float()
+      }
+
   """
   @type job_timers() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  existing_object_replication() :: %{
-    "Status" => list(any())
-  }
+
+      existing_object_replication() :: %{
+        "Status" => list(any())
+      }
+
   """
   @type existing_object_replication() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  transition() :: %{
-    "Date" => non_neg_integer(),
-    "Days" => integer(),
-    "StorageClass" => list(any())
-  }
+
+      transition() :: %{
+        "Date" => non_neg_integer(),
+        "Days" => integer(),
+        "StorageClass" => list(any())
+      }
+
   """
   @type transition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  multi_region_access_point_route() :: %{
-    "Bucket" => String.t(),
-    "Region" => String.t(),
-    "TrafficDialPercentage" => integer()
-  }
+
+      multi_region_access_point_route() :: %{
+        "Bucket" => String.t(),
+        "Region" => String.t(),
+        "TrafficDialPercentage" => integer()
+      }
+
   """
   @type multi_region_access_point_route() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  s3_delete_object_tagging_operation() :: %{
 
-  }
+      s3_delete_object_tagging_operation() :: %{}
+
   """
-  @type s3_delete_object_tagging_operation() :: %{String.t() => any()}
+  @type s3_delete_object_tagging_operation() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_multi_region_access_point_request() :: %{
-    required("AccountId") => String.t()
-  }
+
+      get_multi_region_access_point_request() :: %{
+        required("AccountId") => String.t()
+      }
+
   """
   @type get_multi_region_access_point_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  job_manifest_generator_filter() :: %{
-    "CreatedAfter" => non_neg_integer(),
-    "CreatedBefore" => non_neg_integer(),
-    "EligibleForReplication" => boolean(),
-    "KeyNameConstraint" => key_name_constraint(),
-    "MatchAnyStorageClass" => list(list(any())()),
-    "ObjectReplicationStatuses" => list(list(any())()),
-    "ObjectSizeGreaterThanBytes" => float(),
-    "ObjectSizeLessThanBytes" => float()
-  }
+
+      job_manifest_generator_filter() :: %{
+        "CreatedAfter" => non_neg_integer(),
+        "CreatedBefore" => non_neg_integer(),
+        "EligibleForReplication" => boolean(),
+        "KeyNameConstraint" => key_name_constraint(),
+        "MatchAnyStorageClass" => list(list(any())()),
+        "ObjectReplicationStatuses" => list(list(any())()),
+        "ObjectSizeGreaterThanBytes" => float(),
+        "ObjectSizeLessThanBytes" => float()
+      }
+
   """
   @type job_manifest_generator_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  multi_region_access_point_report() :: %{
-    "Alias" => String.t(),
-    "CreatedAt" => non_neg_integer(),
-    "Name" => String.t(),
-    "PublicAccessBlock" => public_access_block_configuration(),
-    "Regions" => list(region_report()()),
-    "Status" => list(any())
-  }
+
+      multi_region_access_point_report() :: %{
+        "Alias" => String.t(),
+        "CreatedAt" => non_neg_integer(),
+        "Name" => String.t(),
+        "PublicAccessBlock" => public_access_block_configuration(),
+        "Regions" => list(region_report()()),
+        "Status" => list(any())
+      }
+
   """
   @type multi_region_access_point_report() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_bucket_tagging_request() :: %{
-    required("AccountId") => String.t()
-  }
+
+      get_bucket_tagging_request() :: %{
+        required("AccountId") => String.t()
+      }
+
   """
   @type get_bucket_tagging_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  sse_s3_encryption() :: %{
 
-  }
+      sse_s3_encryption() :: %{}
+
   """
-  @type sse_s3_encryption() :: %{String.t() => any()}
+  @type sse_s3_encryption() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_access_grants_locations_result() :: %{
-    "AccessGrantsLocationsList" => list(list_access_grants_locations_entry()()),
-    "NextToken" => String.t()
-  }
+
+      list_access_grants_locations_result() :: %{
+        "AccessGrantsLocationsList" => list(list_access_grants_locations_entry()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_access_grants_locations_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_access_point_policy_status_for_object_lambda_request() :: %{
-    required("AccountId") => String.t()
-  }
+
+      get_access_point_policy_status_for_object_lambda_request() :: %{
+        required("AccountId") => String.t()
+      }
+
   """
   @type get_access_point_policy_status_for_object_lambda_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  access_grants_location_configuration() :: %{
-    "S3SubPrefix" => String.t()
-  }
+
+      access_grants_location_configuration() :: %{
+        "S3SubPrefix" => String.t()
+      }
+
   """
   @type access_grants_location_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  sse_s3() :: %{
 
-  }
+      sse_s3() :: %{}
+
   """
-  @type sse_s3() :: %{String.t() => any()}
+  @type sse_s3() :: %{}
 
   @typedoc """
 
   ## Example:
-  put_access_point_policy_for_object_lambda_request() :: %{
-    required("AccountId") => String.t(),
-    required("Policy") => String.t()
-  }
+
+      put_access_point_policy_for_object_lambda_request() :: %{
+        required("AccountId") => String.t(),
+        required("Policy") => String.t()
+      }
+
   """
   @type put_access_point_policy_for_object_lambda_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_access_grants_request() :: %{
-    optional("ApplicationArn") => String.t(),
-    optional("GrantScope") => String.t(),
-    optional("GranteeIdentifier") => String.t(),
-    optional("GranteeType") => list(any()),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("Permission") => list(any()),
-    required("AccountId") => String.t()
-  }
+
+      list_access_grants_request() :: %{
+        optional("ApplicationArn") => String.t(),
+        optional("GrantScope") => String.t(),
+        optional("GranteeIdentifier") => String.t(),
+        optional("GranteeType") => list(any()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("Permission") => list(any()),
+        required("AccountId") => String.t()
+      }
+
   """
   @type list_access_grants_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_access_grants_location_request() :: %{
-    required("AccountId") => String.t()
-  }
+
+      delete_access_grants_location_request() :: %{
+        required("AccountId") => String.t()
+      }
+
   """
   @type delete_access_grants_location_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_multi_region_access_point_routes_request() :: %{
-    required("AccountId") => String.t()
-  }
+
+      get_multi_region_access_point_routes_request() :: %{
+        required("AccountId") => String.t()
+      }
+
   """
   @type get_multi_region_access_point_routes_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  replication_rule() :: %{
-    "Bucket" => String.t(),
-    "DeleteMarkerReplication" => delete_marker_replication(),
-    "Destination" => destination(),
-    "ExistingObjectReplication" => existing_object_replication(),
-    "Filter" => replication_rule_filter(),
-    "ID" => String.t(),
-    "Prefix" => String.t(),
-    "Priority" => integer(),
-    "SourceSelectionCriteria" => source_selection_criteria(),
-    "Status" => list(any())
-  }
+
+      replication_rule() :: %{
+        "Bucket" => String.t(),
+        "DeleteMarkerReplication" => delete_marker_replication(),
+        "Destination" => destination(),
+        "ExistingObjectReplication" => existing_object_replication(),
+        "Filter" => replication_rule_filter(),
+        "ID" => String.t(),
+        "Prefix" => String.t(),
+        "Priority" => integer(),
+        "SourceSelectionCriteria" => source_selection_criteria(),
+        "Status" => list(any())
+      }
+
   """
   @type replication_rule() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  s3_retention() :: %{
-    "Mode" => list(any()),
-    "RetainUntilDate" => non_neg_integer()
-  }
+
+      s3_retention() :: %{
+        "Mode" => list(any()),
+        "RetainUntilDate" => non_neg_integer()
+      }
+
   """
   @type s3_retention() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  match_object_size() :: %{
-    "BytesGreaterThan" => float(),
-    "BytesLessThan" => float()
-  }
+
+      match_object_size() :: %{
+        "BytesGreaterThan" => float(),
+        "BytesLessThan" => float()
+      }
+
   """
   @type match_object_size() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_job_priority_result() :: %{
-    "JobId" => String.t(),
-    "Priority" => integer()
-  }
+
+      update_job_priority_result() :: %{
+        "JobId" => String.t(),
+        "Priority" => integer()
+      }
+
   """
   @type update_job_priority_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_request() :: %{
-    required("AccountId") => String.t()
-  }
+
+      list_tags_for_resource_request() :: %{
+        required("AccountId") => String.t()
+      }
+
   """
   @type list_tags_for_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  access_point() :: %{
-    "AccessPointArn" => String.t(),
-    "Alias" => String.t(),
-    "Bucket" => String.t(),
-    "BucketAccountId" => String.t(),
-    "Name" => String.t(),
-    "NetworkOrigin" => list(any()),
-    "VpcConfiguration" => vpc_configuration()
-  }
+
+      access_point() :: %{
+        "AccessPointArn" => String.t(),
+        "Alias" => String.t(),
+        "Bucket" => String.t(),
+        "BucketAccountId" => String.t(),
+        "Name" => String.t(),
+        "NetworkOrigin" => list(any()),
+        "VpcConfiguration" => vpc_configuration()
+      }
+
   """
   @type access_point() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cloud_watch_metrics() :: %{
-    "IsEnabled" => boolean()
-  }
+
+      cloud_watch_metrics() :: %{
+        "IsEnabled" => boolean()
+      }
+
   """
   @type cloud_watch_metrics() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_bucket_versioning_result() :: %{
-    "MFADelete" => list(any()),
-    "Status" => list(any())
-  }
+
+      get_bucket_versioning_result() :: %{
+        "MFADelete" => list(any()),
+        "Status" => list(any())
+      }
+
   """
   @type get_bucket_versioning_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  idempotency_exception() :: %{
-    "Message" => String.t()
-  }
+
+      idempotency_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type idempotency_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  destination() :: %{
-    "AccessControlTranslation" => access_control_translation(),
-    "Account" => String.t(),
-    "Bucket" => String.t(),
-    "EncryptionConfiguration" => encryption_configuration(),
-    "Metrics" => metrics(),
-    "ReplicationTime" => replication_time(),
-    "StorageClass" => list(any())
-  }
+
+      destination() :: %{
+        "AccessControlTranslation" => access_control_translation(),
+        "Account" => String.t(),
+        "Bucket" => String.t(),
+        "EncryptionConfiguration" => encryption_configuration(),
+        "Metrics" => metrics(),
+        "ReplicationTime" => replication_time(),
+        "StorageClass" => list(any())
+      }
+
   """
   @type destination() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_job_status_request() :: %{
-    optional("StatusUpdateReason") => String.t(),
-    required("AccountId") => String.t(),
-    required("RequestedJobStatus") => list(any())
-  }
+
+      update_job_status_request() :: %{
+        optional("StatusUpdateReason") => String.t(),
+        required("AccountId") => String.t(),
+        required("RequestedJobStatus") => list(any())
+      }
+
   """
   @type update_job_status_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  lifecycle_expiration() :: %{
-    "Date" => non_neg_integer(),
-    "Days" => integer(),
-    "ExpiredObjectDeleteMarker" => boolean()
-  }
+
+      lifecycle_expiration() :: %{
+        "Date" => non_neg_integer(),
+        "Days" => integer(),
+        "ExpiredObjectDeleteMarker" => boolean()
+      }
+
   """
   @type lifecycle_expiration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  s3_set_object_legal_hold_operation() :: %{
-    "LegalHold" => s3_object_lock_legal_hold()
-  }
+
+      s3_set_object_legal_hold_operation() :: %{
+        "LegalHold" => s3_object_lock_legal_hold()
+      }
+
   """
   @type s3_set_object_legal_hold_operation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_job_result() :: %{
-    "JobId" => String.t()
-  }
+
+      create_job_result() :: %{
+        "JobId" => String.t()
+      }
+
   """
   @type create_job_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_bucket_tagging_request() :: %{
-    required("AccountId") => String.t(),
-    required("Tagging") => tagging()
-  }
+
+      put_bucket_tagging_request() :: %{
+        required("AccountId") => String.t(),
+        required("Tagging") => tagging()
+      }
+
   """
   @type put_bucket_tagging_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_access_grants_instance_for_prefix_request() :: %{
-    required("AccountId") => String.t(),
-    required("S3Prefix") => String.t()
-  }
+
+      get_access_grants_instance_for_prefix_request() :: %{
+        required("AccountId") => String.t(),
+        required("S3Prefix") => String.t()
+      }
+
   """
   @type get_access_grants_instance_for_prefix_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  sse_kms() :: %{
-    "KeyId" => String.t()
-  }
+
+      sse_kms() :: %{
+        "KeyId" => String.t()
+      }
+
   """
   @type sse_kms() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_job_priority_request() :: %{
-    required("AccountId") => String.t(),
-    required("Priority") => integer()
-  }
+
+      update_job_priority_request() :: %{
+        required("AccountId") => String.t(),
+        required("Priority") => integer()
+      }
+
   """
   @type update_job_priority_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_access_point_result() :: %{
-    "AccessPointArn" => String.t(),
-    "Alias" => String.t(),
-    "Bucket" => String.t(),
-    "BucketAccountId" => String.t(),
-    "CreationDate" => non_neg_integer(),
-    "Endpoints" => map(),
-    "Name" => String.t(),
-    "NetworkOrigin" => list(any()),
-    "PublicAccessBlockConfiguration" => public_access_block_configuration(),
-    "VpcConfiguration" => vpc_configuration()
-  }
+
+      get_access_point_result() :: %{
+        "AccessPointArn" => String.t(),
+        "Alias" => String.t(),
+        "Bucket" => String.t(),
+        "BucketAccountId" => String.t(),
+        "CreationDate" => non_neg_integer(),
+        "Endpoints" => map(),
+        "Name" => String.t(),
+        "NetworkOrigin" => list(any()),
+        "PublicAccessBlockConfiguration" => public_access_block_configuration(),
+        "VpcConfiguration" => vpc_configuration()
+      }
+
   """
   @type get_access_point_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_storage_lens_configuration_tagging_result() :: %{
 
-  }
+      put_storage_lens_configuration_tagging_result() :: %{}
+
   """
-  @type put_storage_lens_configuration_tagging_result() :: %{String.t() => any()}
+  @type put_storage_lens_configuration_tagging_result() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_access_points_result() :: %{
-    "AccessPointList" => list(access_point()()),
-    "NextToken" => String.t()
-  }
+
+      list_access_points_result() :: %{
+        "AccessPointList" => list(access_point()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_access_points_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_result() :: %{
 
-  }
+      tag_resource_result() :: %{}
+
   """
-  @type tag_resource_result() :: %{String.t() => any()}
+  @type tag_resource_result() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_multi_region_access_point_policy_request() :: %{
-    required("AccountId") => String.t()
-  }
+
+      get_multi_region_access_point_policy_request() :: %{
+        required("AccountId") => String.t()
+      }
+
   """
   @type get_multi_region_access_point_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  replication_rule_and_operator() :: %{
-    "Prefix" => String.t(),
-    "Tags" => list(s3_tag()())
-  }
+
+      replication_rule_and_operator() :: %{
+        "Prefix" => String.t(),
+        "Tags" => list(s3_tag()())
+      }
+
   """
   @type replication_rule_and_operator() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_access_point_policy_status_for_object_lambda_result() :: %{
-    "PolicyStatus" => policy_status()
-  }
+
+      get_access_point_policy_status_for_object_lambda_result() :: %{
+        "PolicyStatus" => policy_status()
+      }
+
   """
   @type get_access_point_policy_status_for_object_lambda_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  bad_request_exception() :: %{
-    "Message" => String.t()
-  }
+
+      bad_request_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type bad_request_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_multi_region_access_point_routes_result() :: %{
-    "Mrap" => String.t(),
-    "Routes" => list(multi_region_access_point_route()())
-  }
+
+      get_multi_region_access_point_routes_result() :: %{
+        "Mrap" => String.t(),
+        "Routes" => list(multi_region_access_point_route()())
+      }
+
   """
   @type get_multi_region_access_point_routes_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  object_lambda_access_point_alias() :: %{
-    "Status" => list(any()),
-    "Value" => String.t()
-  }
+
+      object_lambda_access_point_alias() :: %{
+        "Status" => list(any()),
+        "Value" => String.t()
+      }
+
   """
   @type object_lambda_access_point_alias() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_public_access_block_request() :: %{
-    required("AccountId") => String.t()
-  }
+
+      get_public_access_block_request() :: %{
+        required("AccountId") => String.t()
+      }
+
   """
   @type get_public_access_block_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_access_point_policy_request() :: %{
-    required("AccountId") => String.t(),
-    required("Policy") => String.t()
-  }
+
+      put_access_point_policy_request() :: %{
+        required("AccountId") => String.t(),
+        required("Policy") => String.t()
+      }
+
   """
   @type put_access_point_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  selection_criteria() :: %{
-    "Delimiter" => String.t(),
-    "MaxDepth" => integer(),
-    "MinStorageBytesPercentage" => float()
-  }
+
+      selection_criteria() :: %{
+        "Delimiter" => String.t(),
+        "MaxDepth" => integer(),
+        "MinStorageBytesPercentage" => float()
+      }
+
   """
   @type selection_criteria() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_access_point_result() :: %{
-    "AccessPointArn" => String.t(),
-    "Alias" => String.t()
-  }
+
+      create_access_point_result() :: %{
+        "AccessPointArn" => String.t(),
+        "Alias" => String.t()
+      }
+
   """
   @type create_access_point_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_storage_lens_configuration_entry() :: %{
-    "HomeRegion" => String.t(),
-    "Id" => String.t(),
-    "IsEnabled" => boolean(),
-    "StorageLensArn" => String.t()
-  }
+
+      list_storage_lens_configuration_entry() :: %{
+        "HomeRegion" => String.t(),
+        "Id" => String.t(),
+        "IsEnabled" => boolean(),
+        "StorageLensArn" => String.t()
+      }
+
   """
   @type list_storage_lens_configuration_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  replication_time() :: %{
-    "Status" => list(any()),
-    "Time" => replication_time_value()
-  }
+
+      replication_time() :: %{
+        "Status" => list(any()),
+        "Time" => replication_time_value()
+      }
+
   """
   @type replication_time() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  s3_object_owner() :: %{
-    "DisplayName" => String.t(),
-    "ID" => String.t()
-  }
+
+      s3_object_owner() :: %{
+        "DisplayName" => String.t(),
+        "ID" => String.t()
+      }
+
   """
   @type s3_object_owner() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_access_points_request() :: %{
-    optional("Bucket") => String.t(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("AccountId") => String.t()
-  }
+
+      list_access_points_request() :: %{
+        optional("Bucket") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("AccountId") => String.t()
+      }
+
   """
   @type list_access_points_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_storage_lens_configuration_tagging_request() :: %{
-    required("AccountId") => String.t(),
-    required("Tags") => list(storage_lens_tag()())
-  }
+
+      put_storage_lens_configuration_tagging_request() :: %{
+        required("AccountId") => String.t(),
+        required("Tags") => list(storage_lens_tag()())
+      }
+
   """
   @type put_storage_lens_configuration_tagging_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_access_point_policy_result() :: %{
-    "Policy" => String.t()
-  }
+
+      get_access_point_policy_result() :: %{
+        "Policy" => String.t()
+      }
+
   """
   @type get_access_point_policy_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_multi_region_access_point_policy_status_request() :: %{
-    required("AccountId") => String.t()
-  }
+
+      get_multi_region_access_point_policy_status_request() :: %{
+        required("AccountId") => String.t()
+      }
+
   """
   @type get_multi_region_access_point_policy_status_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  storage_lens_configuration() :: %{
-    "AccountLevel" => account_level(),
-    "AwsOrg" => storage_lens_aws_org(),
-    "DataExport" => storage_lens_data_export(),
-    "Exclude" => exclude(),
-    "Id" => String.t(),
-    "Include" => include(),
-    "IsEnabled" => boolean(),
-    "StorageLensArn" => String.t()
-  }
+
+      storage_lens_configuration() :: %{
+        "AccountLevel" => account_level(),
+        "AwsOrg" => storage_lens_aws_org(),
+        "DataExport" => storage_lens_data_export(),
+        "Exclude" => exclude(),
+        "Id" => String.t(),
+        "Include" => include(),
+        "IsEnabled" => boolean(),
+        "StorageLensArn" => String.t()
+      }
+
   """
   @type storage_lens_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  s3_set_object_tagging_operation() :: %{
-    "TagSet" => list(s3_tag()())
-  }
+
+      s3_set_object_tagging_operation() :: %{
+        "TagSet" => list(s3_tag()())
+      }
+
   """
   @type s3_set_object_tagging_operation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_bucket_lifecycle_configuration_request() :: %{
-    optional("LifecycleConfiguration") => lifecycle_configuration(),
-    required("AccountId") => String.t()
-  }
+
+      put_bucket_lifecycle_configuration_request() :: %{
+        optional("LifecycleConfiguration") => lifecycle_configuration(),
+        required("AccountId") => String.t()
+      }
+
   """
   @type put_bucket_lifecycle_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_access_grant_request() :: %{
-    required("AccountId") => String.t()
-  }
+
+      delete_access_grant_request() :: %{
+        required("AccountId") => String.t()
+      }
+
   """
   @type delete_access_grant_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  s3_tag() :: %{
-    "Key" => String.t(),
-    "Value" => String.t()
-  }
+
+      s3_tag() :: %{
+        "Key" => String.t(),
+        "Value" => String.t()
+      }
+
   """
   @type s3_tag() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  s3_generated_manifest_descriptor() :: %{
-    "Format" => list(any()),
-    "Location" => job_manifest_location()
-  }
+
+      s3_generated_manifest_descriptor() :: %{
+        "Format" => list(any()),
+        "Location" => job_manifest_location()
+      }
+
   """
   @type s3_generated_manifest_descriptor() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  advanced_cost_optimization_metrics() :: %{
-    "IsEnabled" => boolean()
-  }
+
+      advanced_cost_optimization_metrics() :: %{
+        "IsEnabled" => boolean()
+      }
+
   """
   @type advanced_cost_optimization_metrics() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_access_grant_request() :: %{
-    optional("AccessGrantsLocationConfiguration") => access_grants_location_configuration(),
-    optional("ApplicationArn") => String.t(),
-    optional("S3PrefixType") => list(any()),
-    optional("Tags") => list(tag()()),
-    required("AccessGrantsLocationId") => String.t(),
-    required("AccountId") => String.t(),
-    required("Grantee") => grantee(),
-    required("Permission") => list(any())
-  }
+
+      create_access_grant_request() :: %{
+        optional("AccessGrantsLocationConfiguration") => access_grants_location_configuration(),
+        optional("ApplicationArn") => String.t(),
+        optional("S3PrefixType") => list(any()),
+        optional("Tags") => list(tag()()),
+        required("AccessGrantsLocationId") => String.t(),
+        required("AccountId") => String.t(),
+        required("Grantee") => grantee(),
+        required("Permission") => list(any())
+      }
+
   """
   @type create_access_grant_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_bucket_lifecycle_configuration_result() :: %{
-    "Rules" => list(lifecycle_rule()())
-  }
+
+      get_bucket_lifecycle_configuration_result() :: %{
+        "Rules" => list(lifecycle_rule()())
+      }
+
   """
   @type get_bucket_lifecycle_configuration_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_access_grants_locations_request() :: %{
-    optional("LocationScope") => String.t(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("AccountId") => String.t()
-  }
+
+      list_access_grants_locations_request() :: %{
+        optional("LocationScope") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("AccountId") => String.t()
+      }
+
   """
   @type list_access_grants_locations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_multi_region_access_point_operation_request() :: %{
-    required("AccountId") => String.t()
-  }
+
+      describe_multi_region_access_point_operation_request() :: %{
+        required("AccountId") => String.t()
+      }
+
   """
   @type describe_multi_region_access_point_operation_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  s3_set_object_retention_operation() :: %{
-    "BypassGovernanceRetention" => boolean(),
-    "Retention" => s3_retention()
-  }
+
+      s3_set_object_retention_operation() :: %{
+        "BypassGovernanceRetention" => boolean(),
+        "Retention" => s3_retention()
+      }
+
   """
   @type s3_set_object_retention_operation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_access_grants_locations_entry() :: %{
-    "AccessGrantsLocationArn" => String.t(),
-    "AccessGrantsLocationId" => String.t(),
-    "CreatedAt" => non_neg_integer(),
-    "IAMRoleArn" => String.t(),
-    "LocationScope" => String.t()
-  }
+
+      list_access_grants_locations_entry() :: %{
+        "AccessGrantsLocationArn" => String.t(),
+        "AccessGrantsLocationId" => String.t(),
+        "CreatedAt" => non_neg_integer(),
+        "IAMRoleArn" => String.t(),
+        "LocationScope" => String.t()
+      }
+
   """
   @type list_access_grants_locations_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_storage_lens_group_request() :: %{
-    required("AccountId") => String.t(),
-    required("StorageLensGroup") => storage_lens_group()
-  }
+
+      update_storage_lens_group_request() :: %{
+        required("AccountId") => String.t(),
+        required("StorageLensGroup") => storage_lens_group()
+      }
+
   """
   @type update_storage_lens_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  account_level() :: %{
-    "ActivityMetrics" => activity_metrics(),
-    "AdvancedCostOptimizationMetrics" => advanced_cost_optimization_metrics(),
-    "AdvancedDataProtectionMetrics" => advanced_data_protection_metrics(),
-    "BucketLevel" => bucket_level(),
-    "DetailedStatusCodesMetrics" => detailed_status_codes_metrics(),
-    "StorageLensGroupLevel" => storage_lens_group_level()
-  }
+
+      account_level() :: %{
+        "ActivityMetrics" => activity_metrics(),
+        "AdvancedCostOptimizationMetrics" => advanced_cost_optimization_metrics(),
+        "AdvancedDataProtectionMetrics" => advanced_data_protection_metrics(),
+        "BucketLevel" => bucket_level(),
+        "DetailedStatusCodesMetrics" => detailed_status_codes_metrics(),
+        "StorageLensGroupLevel" => storage_lens_group_level()
+      }
+
   """
   @type account_level() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_storage_lens_groups_result() :: %{
-    "NextToken" => String.t(),
-    "StorageLensGroupList" => list(list_storage_lens_group_entry()())
-  }
+
+      list_storage_lens_groups_result() :: %{
+        "NextToken" => String.t(),
+        "StorageLensGroupList" => list(list_storage_lens_group_entry()())
+      }
+
   """
   @type list_storage_lens_groups_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_access_grants_location_request() :: %{
-    required("AccountId") => String.t()
-  }
+
+      get_access_grants_location_request() :: %{
+        required("AccountId") => String.t()
+      }
+
   """
   @type get_access_grants_location_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  s3_object_lock_legal_hold() :: %{
-    "Status" => list(any())
-  }
+
+      s3_object_lock_legal_hold() :: %{
+        "Status" => list(any())
+      }
+
   """
   @type s3_object_lock_legal_hold() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_bucket_replication_request() :: %{
-    required("AccountId") => String.t()
-  }
+
+      delete_bucket_replication_request() :: %{
+        required("AccountId") => String.t()
+      }
+
   """
   @type delete_bucket_replication_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_job_tagging_result() :: %{
 
-  }
+      put_job_tagging_result() :: %{}
+
   """
-  @type put_job_tagging_result() :: %{String.t() => any()}
+  @type put_job_tagging_result() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_storage_lens_configurations_request() :: %{
-    optional("NextToken") => String.t(),
-    required("AccountId") => String.t()
-  }
+
+      list_storage_lens_configurations_request() :: %{
+        optional("NextToken") => String.t(),
+        required("AccountId") => String.t()
+      }
+
   """
   @type list_storage_lens_configurations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  job_progress_summary() :: %{
-    "NumberOfTasksFailed" => float(),
-    "NumberOfTasksSucceeded" => float(),
-    "Timers" => job_timers(),
-    "TotalNumberOfTasks" => float()
-  }
+
+      job_progress_summary() :: %{
+        "NumberOfTasksFailed" => float(),
+        "NumberOfTasksSucceeded" => float(),
+        "Timers" => job_timers(),
+        "TotalNumberOfTasks" => float()
+      }
+
   """
   @type job_progress_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_access_point_configuration_for_object_lambda_request() :: %{
-    required("AccountId") => String.t(),
-    required("Configuration") => object_lambda_configuration()
-  }
+
+      put_access_point_configuration_for_object_lambda_request() :: %{
+        required("AccountId") => String.t(),
+        required("Configuration") => object_lambda_configuration()
+      }
+
   """
   @type put_access_point_configuration_for_object_lambda_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_tags_exception() :: %{
-    "Message" => String.t()
-  }
+
+      too_many_tags_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type too_many_tags_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_multi_region_access_point_result() :: %{
-    "AccessPoint" => multi_region_access_point_report()
-  }
+
+      get_multi_region_access_point_result() :: %{
+        "AccessPoint" => multi_region_access_point_report()
+      }
+
   """
   @type get_multi_region_access_point_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  lifecycle_rule_and_operator() :: %{
-    "ObjectSizeGreaterThan" => float(),
-    "ObjectSizeLessThan" => float(),
-    "Prefix" => String.t(),
-    "Tags" => list(s3_tag()())
-  }
+
+      lifecycle_rule_and_operator() :: %{
+        "ObjectSizeGreaterThan" => float(),
+        "ObjectSizeLessThan" => float(),
+        "Prefix" => String.t(),
+        "Tags" => list(s3_tag()())
+      }
+
   """
   @type lifecycle_rule_and_operator() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_access_grants_instance_request() :: %{
-    required("AccountId") => String.t()
-  }
+
+      get_access_grants_instance_request() :: %{
+        required("AccountId") => String.t()
+      }
+
   """
   @type get_access_grants_instance_request() :: %{String.t() => any()}
+
+  @type create_bucket_errors() :: bucket_already_exists() | bucket_already_owned_by_you()
+
+  @type create_job_errors() ::
+          bad_request_exception()
+          | idempotency_exception()
+          | too_many_requests_exception()
+          | internal_service_exception()
+
+  @type delete_job_tagging_errors() ::
+          not_found_exception() | too_many_requests_exception() | internal_service_exception()
+
+  @type describe_job_errors() ::
+          bad_request_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | internal_service_exception()
+
+  @type get_job_tagging_errors() ::
+          not_found_exception() | too_many_requests_exception() | internal_service_exception()
+
+  @type get_public_access_block_errors() :: no_such_public_access_block_configuration()
+
+  @type list_jobs_errors() ::
+          invalid_next_token_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+
+  @type put_job_tagging_errors() ::
+          too_many_tags_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | internal_service_exception()
+
+  @type update_job_priority_errors() ::
+          bad_request_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | internal_service_exception()
+
+  @type update_job_status_errors() ::
+          bad_request_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | internal_service_exception()
+          | job_status_exception()
 
   def metadata do
     %{
@@ -3483,8 +4087,7 @@ defmodule AWS.S3Control do
   @spec create_bucket(map(), String.t(), create_bucket_request(), list()) ::
           {:ok, create_bucket_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bucket_already_exists()}
-          | {:error, bucket_already_owned_by_you()}
+          | {:error, create_bucket_errors()}
   def create_bucket(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/v20180820/bucket/#{AWS.Util.encode_uri(bucket)}"
 
@@ -3559,10 +4162,7 @@ defmodule AWS.S3Control do
   @spec create_job(map(), create_job_request(), list()) ::
           {:ok, create_job_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, idempotency_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, create_job_errors()}
   def create_job(%Client{} = client, input, options \\ []) do
     url_path = "/v20180820/jobs"
 
@@ -4550,9 +5150,7 @@ defmodule AWS.S3Control do
   @spec delete_job_tagging(map(), String.t(), delete_job_tagging_request(), list()) ::
           {:ok, delete_job_tagging_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, delete_job_tagging_errors()}
   def delete_job_tagging(%Client{} = client, job_id, input, options \\ []) do
     url_path = "/v20180820/jobs/#{AWS.Util.encode_uri(job_id)}/tagging"
 
@@ -4879,10 +5477,7 @@ defmodule AWS.S3Control do
   @spec describe_job(map(), String.t(), String.t(), list()) ::
           {:ok, describe_job_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, describe_job_errors()}
   def describe_job(%Client{} = client, job_id, account_id, options \\ []) do
     url_path = "/v20180820/jobs/#{AWS.Util.encode_uri(job_id)}"
     headers = []
@@ -6031,9 +6626,7 @@ defmodule AWS.S3Control do
   @spec get_job_tagging(map(), String.t(), String.t(), list()) ::
           {:ok, get_job_tagging_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, get_job_tagging_errors()}
   def get_job_tagging(%Client{} = client, job_id, account_id, options \\ []) do
     url_path = "/v20180820/jobs/#{AWS.Util.encode_uri(job_id)}/tagging"
     headers = []
@@ -6275,7 +6868,7 @@ defmodule AWS.S3Control do
   @spec get_public_access_block(map(), String.t(), list()) ::
           {:ok, get_public_access_block_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, no_such_public_access_block_configuration()}
+          | {:error, get_public_access_block_errors()}
   def get_public_access_block(%Client{} = client, account_id, options \\ []) do
     url_path = "/v20180820/configuration/publicAccessBlock"
     headers = []
@@ -6837,9 +7430,7 @@ defmodule AWS.S3Control do
   @spec list_jobs(map(), String.t() | nil, String.t() | nil, String.t() | nil, String.t(), list()) ::
           {:ok, list_jobs_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_next_token_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, list_jobs_errors()}
   def list_jobs(
         %Client{} = client,
         job_statuses \\ nil,
@@ -7906,10 +8497,7 @@ defmodule AWS.S3Control do
   @spec put_job_tagging(map(), String.t(), put_job_tagging_request(), list()) ::
           {:ok, put_job_tagging_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, too_many_tags_exception()}
+          | {:error, put_job_tagging_errors()}
   def put_job_tagging(%Client{} = client, job_id, input, options \\ []) do
     url_path = "/v20180820/jobs/#{AWS.Util.encode_uri(job_id)}/tagging"
 
@@ -8381,10 +8969,7 @@ defmodule AWS.S3Control do
   @spec update_job_priority(map(), String.t(), update_job_priority_request(), list()) ::
           {:ok, update_job_priority_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, update_job_priority_errors()}
   def update_job_priority(%Client{} = client, job_id, input, options \\ []) do
     url_path = "/v20180820/jobs/#{AWS.Util.encode_uri(job_id)}/priority"
 
@@ -8451,11 +9036,7 @@ defmodule AWS.S3Control do
   @spec update_job_status(map(), String.t(), update_job_status_request(), list()) ::
           {:ok, update_job_status_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, job_status_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, update_job_status_errors()}
   def update_job_status(%Client{} = client, job_id, input, options \\ []) do
     url_path = "/v20180820/jobs/#{AWS.Util.encode_uri(job_id)}/status"
 

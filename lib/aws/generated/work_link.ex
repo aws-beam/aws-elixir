@@ -24,780 +24,1119 @@ defmodule AWS.WorkLink do
   @typedoc """
 
   ## Example:
-  associate_domain_request() :: %{
-    optional("DisplayName") => String.t(),
-    required("AcmCertificateArn") => String.t(),
-    required("DomainName") => String.t(),
-    required("FleetArn") => String.t()
-  }
+
+      associate_domain_request() :: %{
+        optional("DisplayName") => String.t(),
+        required("AcmCertificateArn") => String.t(),
+        required("DomainName") => String.t(),
+        required("FleetArn") => String.t()
+      }
+
   """
   @type associate_domain_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  restore_domain_access_request() :: %{
-    required("DomainName") => String.t(),
-    required("FleetArn") => String.t()
-  }
+
+      restore_domain_access_request() :: %{
+        required("DomainName") => String.t(),
+        required("FleetArn") => String.t()
+      }
+
   """
   @type restore_domain_access_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_devices_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("FleetArn") => String.t()
-  }
+
+      list_devices_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("FleetArn") => String.t()
+      }
+
   """
   @type list_devices_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  website_ca_summary() :: %{
-    "CreatedTime" => non_neg_integer(),
-    "DisplayName" => String.t(),
-    "WebsiteCaId" => String.t()
-  }
+
+      website_ca_summary() :: %{
+        "CreatedTime" => non_neg_integer(),
+        "DisplayName" => String.t(),
+        "WebsiteCaId" => String.t()
+      }
+
   """
   @type website_ca_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_request() :: %{
-    required("Tags") => map()
-  }
+
+      tag_resource_request() :: %{
+        required("Tags") => map()
+      }
+
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_identity_provider_configuration_request() :: %{
-    optional("IdentityProviderSamlMetadata") => String.t(),
-    required("FleetArn") => String.t(),
-    required("IdentityProviderType") => list(any())
-  }
+
+      update_identity_provider_configuration_request() :: %{
+        optional("IdentityProviderSamlMetadata") => String.t(),
+        required("FleetArn") => String.t(),
+        required("IdentityProviderType") => list(any())
+      }
+
   """
   @type update_identity_provider_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_fleet_request() :: %{
-    required("FleetArn") => String.t()
-  }
+
+      delete_fleet_request() :: %{
+        required("FleetArn") => String.t()
+      }
+
   """
   @type delete_fleet_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disassociate_website_authorization_provider_response() :: %{
 
-  }
+      disassociate_website_authorization_provider_response() :: %{}
+
   """
-  @type disassociate_website_authorization_provider_response() :: %{String.t() => any()}
+  @type disassociate_website_authorization_provider_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  unauthorized_exception() :: %{
-    "Message" => String.t()
-  }
+
+      unauthorized_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type unauthorized_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_device_policy_configuration_request() :: %{
-    optional("DeviceCaCertificate") => String.t(),
-    required("FleetArn") => String.t()
-  }
+
+      update_device_policy_configuration_request() :: %{
+        optional("DeviceCaCertificate") => String.t(),
+        required("FleetArn") => String.t()
+      }
+
   """
   @type update_device_policy_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disassociate_website_certificate_authority_response() :: %{
 
-  }
+      disassociate_website_certificate_authority_response() :: %{}
+
   """
-  @type disassociate_website_certificate_authority_response() :: %{String.t() => any()}
+  @type disassociate_website_certificate_authority_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  untag_resource_response() :: %{
 
-  }
+      untag_resource_response() :: %{}
+
   """
-  @type untag_resource_response() :: %{String.t() => any()}
+  @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  update_audit_stream_configuration_response() :: %{
 
-  }
+      update_audit_stream_configuration_response() :: %{}
+
   """
-  @type update_audit_stream_configuration_response() :: %{String.t() => any()}
+  @type update_audit_stream_configuration_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  restore_domain_access_response() :: %{
 
-  }
+      restore_domain_access_response() :: %{}
+
   """
-  @type restore_domain_access_response() :: %{String.t() => any()}
+  @type restore_domain_access_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  update_company_network_configuration_request() :: %{
-    required("FleetArn") => String.t(),
-    required("SecurityGroupIds") => list(String.t()()),
-    required("SubnetIds") => list(String.t()()),
-    required("VpcId") => String.t()
-  }
+
+      update_company_network_configuration_request() :: %{
+        required("FleetArn") => String.t(),
+        required("SecurityGroupIds") => list(String.t()()),
+        required("SubnetIds") => list(String.t()()),
+        required("VpcId") => String.t()
+      }
+
   """
   @type update_company_network_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_fleet_request() :: %{
-    optional("DisplayName") => String.t(),
-    optional("OptimizeForEndUserLocation") => boolean(),
-    optional("Tags") => map(),
-    required("FleetName") => String.t()
-  }
+
+      create_fleet_request() :: %{
+        optional("DisplayName") => String.t(),
+        optional("OptimizeForEndUserLocation") => boolean(),
+        optional("Tags") => map(),
+        required("FleetName") => String.t()
+      }
+
   """
   @type create_fleet_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  domain_summary() :: %{
-    "CreatedTime" => non_neg_integer(),
-    "DisplayName" => String.t(),
-    "DomainName" => String.t(),
-    "DomainStatus" => list(any())
-  }
+
+      domain_summary() :: %{
+        "CreatedTime" => non_neg_integer(),
+        "DisplayName" => String.t(),
+        "DomainName" => String.t(),
+        "DomainStatus" => list(any())
+      }
+
   """
   @type domain_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  revoke_domain_access_response() :: %{
 
-  }
+      revoke_domain_access_response() :: %{}
+
   """
-  @type revoke_domain_access_response() :: %{String.t() => any()}
+  @type revoke_domain_access_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  delete_fleet_response() :: %{
 
-  }
+      delete_fleet_response() :: %{}
+
   """
-  @type delete_fleet_response() :: %{String.t() => any()}
+  @type delete_fleet_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  describe_fleet_metadata_response() :: %{
-    "CompanyCode" => String.t(),
-    "CreatedTime" => non_neg_integer(),
-    "DisplayName" => String.t(),
-    "FleetName" => String.t(),
-    "FleetStatus" => list(any()),
-    "LastUpdatedTime" => non_neg_integer(),
-    "OptimizeForEndUserLocation" => boolean(),
-    "Tags" => map()
-  }
+
+      describe_fleet_metadata_response() :: %{
+        "CompanyCode" => String.t(),
+        "CreatedTime" => non_neg_integer(),
+        "DisplayName" => String.t(),
+        "FleetName" => String.t(),
+        "FleetStatus" => list(any()),
+        "LastUpdatedTime" => non_neg_integer(),
+        "OptimizeForEndUserLocation" => boolean(),
+        "Tags" => map()
+      }
+
   """
   @type describe_fleet_metadata_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_fleets_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      list_fleets_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_fleets_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_identity_provider_configuration_response() :: %{
-    "IdentityProviderSamlMetadata" => String.t(),
-    "IdentityProviderType" => list(any()),
-    "ServiceProviderSamlMetadata" => String.t()
-  }
+
+      describe_identity_provider_configuration_response() :: %{
+        "IdentityProviderSamlMetadata" => String.t(),
+        "IdentityProviderType" => list(any()),
+        "ServiceProviderSamlMetadata" => String.t()
+      }
+
   """
   @type describe_identity_provider_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  website_authorization_provider_summary() :: %{
-    "AuthorizationProviderId" => String.t(),
-    "AuthorizationProviderType" => list(any()),
-    "CreatedTime" => non_neg_integer(),
-    "DomainName" => String.t()
-  }
+
+      website_authorization_provider_summary() :: %{
+        "AuthorizationProviderId" => String.t(),
+        "AuthorizationProviderType" => list(any()),
+        "CreatedTime" => non_neg_integer(),
+        "DomainName" => String.t()
+      }
+
   """
   @type website_authorization_provider_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_website_authorization_providers_response() :: %{
-    "NextToken" => String.t(),
-    "WebsiteAuthorizationProviders" => list(website_authorization_provider_summary()())
-  }
+
+      list_website_authorization_providers_response() :: %{
+        "NextToken" => String.t(),
+        "WebsiteAuthorizationProviders" => list(website_authorization_provider_summary()())
+      }
+
   """
   @type list_website_authorization_providers_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_fleets_response() :: %{
-    "FleetSummaryList" => list(fleet_summary()()),
-    "NextToken" => String.t()
-  }
+
+      list_fleets_response() :: %{
+        "FleetSummaryList" => list(fleet_summary()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_fleets_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_request() :: %{
-    required("TagKeys") => list(String.t()())
-  }
+
+      untag_resource_request() :: %{
+        required("TagKeys") => list(String.t()())
+      }
+
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_requests_exception() :: %{
-    "Message" => String.t()
-  }
+
+      too_many_requests_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type too_many_requests_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_website_certificate_authority_request() :: %{
-    required("FleetArn") => String.t(),
-    required("WebsiteCaId") => String.t()
-  }
+
+      describe_website_certificate_authority_request() :: %{
+        required("FleetArn") => String.t(),
+        required("WebsiteCaId") => String.t()
+      }
+
   """
   @type describe_website_certificate_authority_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_company_network_configuration_response() :: %{
-    "SecurityGroupIds" => list(String.t()()),
-    "SubnetIds" => list(String.t()()),
-    "VpcId" => String.t()
-  }
+
+      describe_company_network_configuration_response() :: %{
+        "SecurityGroupIds" => list(String.t()()),
+        "SubnetIds" => list(String.t()()),
+        "VpcId" => String.t()
+      }
+
   """
   @type describe_company_network_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  sign_out_user_response() :: %{
 
-  }
+      sign_out_user_response() :: %{}
+
   """
-  @type sign_out_user_response() :: %{String.t() => any()}
+  @type sign_out_user_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  update_fleet_metadata_request() :: %{
-    optional("DisplayName") => String.t(),
-    optional("OptimizeForEndUserLocation") => boolean(),
-    required("FleetArn") => String.t()
-  }
+
+      update_fleet_metadata_request() :: %{
+        optional("DisplayName") => String.t(),
+        optional("OptimizeForEndUserLocation") => boolean(),
+        required("FleetArn") => String.t()
+      }
+
   """
   @type update_fleet_metadata_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_identity_provider_configuration_response() :: %{
 
-  }
+      update_identity_provider_configuration_response() :: %{}
+
   """
-  @type update_identity_provider_configuration_response() :: %{String.t() => any()}
+  @type update_identity_provider_configuration_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  update_domain_metadata_request() :: %{
-    optional("DisplayName") => String.t(),
-    required("DomainName") => String.t(),
-    required("FleetArn") => String.t()
-  }
+
+      update_domain_metadata_request() :: %{
+        optional("DisplayName") => String.t(),
+        required("DomainName") => String.t(),
+        required("FleetArn") => String.t()
+      }
+
   """
   @type update_domain_metadata_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_audit_stream_configuration_request() :: %{
-    required("FleetArn") => String.t()
-  }
+
+      describe_audit_stream_configuration_request() :: %{
+        required("FleetArn") => String.t()
+      }
+
   """
   @type describe_audit_stream_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_fleet_metadata_request() :: %{
-    required("FleetArn") => String.t()
-  }
+
+      describe_fleet_metadata_request() :: %{
+        required("FleetArn") => String.t()
+      }
+
   """
   @type describe_fleet_metadata_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_not_found_exception() :: %{
-    "Message" => String.t()
-  }
+
+      resource_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disassociate_website_authorization_provider_request() :: %{
-    required("AuthorizationProviderId") => String.t(),
-    required("FleetArn") => String.t()
-  }
+
+      disassociate_website_authorization_provider_request() :: %{
+        required("AuthorizationProviderId") => String.t(),
+        required("FleetArn") => String.t()
+      }
+
   """
   @type disassociate_website_authorization_provider_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  associate_website_authorization_provider_request() :: %{
-    optional("DomainName") => String.t(),
-    required("AuthorizationProviderType") => list(any()),
-    required("FleetArn") => String.t()
-  }
+
+      associate_website_authorization_provider_request() :: %{
+        optional("DomainName") => String.t(),
+        required("AuthorizationProviderType") => list(any()),
+        required("FleetArn") => String.t()
+      }
+
   """
   @type associate_website_authorization_provider_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_audit_stream_configuration_request() :: %{
-    optional("AuditStreamArn") => String.t(),
-    required("FleetArn") => String.t()
-  }
+
+      update_audit_stream_configuration_request() :: %{
+        optional("AuditStreamArn") => String.t(),
+        required("FleetArn") => String.t()
+      }
+
   """
   @type update_audit_stream_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disassociate_website_certificate_authority_request() :: %{
-    required("FleetArn") => String.t(),
-    required("WebsiteCaId") => String.t()
-  }
+
+      disassociate_website_certificate_authority_request() :: %{
+        required("FleetArn") => String.t(),
+        required("WebsiteCaId") => String.t()
+      }
+
   """
   @type disassociate_website_certificate_authority_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_request_exception() :: %{
-    "Message" => String.t()
-  }
+
+      invalid_request_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type invalid_request_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_device_request() :: %{
-    required("DeviceId") => String.t(),
-    required("FleetArn") => String.t()
-  }
+
+      describe_device_request() :: %{
+        required("DeviceId") => String.t(),
+        required("FleetArn") => String.t()
+      }
+
   """
   @type describe_device_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  associate_domain_response() :: %{
 
-  }
+      associate_domain_response() :: %{}
+
   """
-  @type associate_domain_response() :: %{String.t() => any()}
+  @type associate_domain_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_domains_response() :: %{
-    "Domains" => list(domain_summary()()),
-    "NextToken" => String.t()
-  }
+
+      list_domains_response() :: %{
+        "Domains" => list(domain_summary()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_domains_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disassociate_domain_request() :: %{
-    required("DomainName") => String.t(),
-    required("FleetArn") => String.t()
-  }
+
+      disassociate_domain_request() :: %{
+        required("DomainName") => String.t(),
+        required("FleetArn") => String.t()
+      }
+
   """
   @type disassociate_domain_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_website_certificate_authorities_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("FleetArn") => String.t()
-  }
+
+      list_website_certificate_authorities_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("FleetArn") => String.t()
+      }
+
   """
   @type list_website_certificate_authorities_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_identity_provider_configuration_request() :: %{
-    required("FleetArn") => String.t()
-  }
+
+      describe_identity_provider_configuration_request() :: %{
+        required("FleetArn") => String.t()
+      }
+
   """
   @type describe_identity_provider_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  fleet_summary() :: %{
-    "CompanyCode" => String.t(),
-    "CreatedTime" => non_neg_integer(),
-    "DisplayName" => String.t(),
-    "FleetArn" => String.t(),
-    "FleetName" => String.t(),
-    "FleetStatus" => list(any()),
-    "LastUpdatedTime" => non_neg_integer(),
-    "Tags" => map()
-  }
+
+      fleet_summary() :: %{
+        "CompanyCode" => String.t(),
+        "CreatedTime" => non_neg_integer(),
+        "DisplayName" => String.t(),
+        "FleetArn" => String.t(),
+        "FleetName" => String.t(),
+        "FleetStatus" => list(any()),
+        "LastUpdatedTime" => non_neg_integer(),
+        "Tags" => map()
+      }
+
   """
   @type fleet_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_domain_metadata_response() :: %{
 
-  }
+      update_domain_metadata_response() :: %{}
+
   """
-  @type update_domain_metadata_response() :: %{String.t() => any()}
+  @type update_domain_metadata_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_response() :: %{
-    "Tags" => map()
-  }
+
+      list_tags_for_resource_response() :: %{
+        "Tags" => map()
+      }
+
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_domain_response() :: %{
-    "AcmCertificateArn" => String.t(),
-    "CreatedTime" => non_neg_integer(),
-    "DisplayName" => String.t(),
-    "DomainName" => String.t(),
-    "DomainStatus" => list(any())
-  }
+
+      describe_domain_response() :: %{
+        "AcmCertificateArn" => String.t(),
+        "CreatedTime" => non_neg_integer(),
+        "DisplayName" => String.t(),
+        "DomainName" => String.t(),
+        "DomainStatus" => list(any())
+      }
+
   """
   @type describe_domain_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_devices_response() :: %{
-    "Devices" => list(device_summary()()),
-    "NextToken" => String.t()
-  }
+
+      list_devices_response() :: %{
+        "Devices" => list(device_summary()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_devices_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_device_policy_configuration_response() :: %{
-    "DeviceCaCertificate" => String.t()
-  }
+
+      describe_device_policy_configuration_response() :: %{
+        "DeviceCaCertificate" => String.t()
+      }
+
   """
   @type describe_device_policy_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_website_certificate_authority_response() :: %{
-    "Certificate" => String.t(),
-    "CreatedTime" => non_neg_integer(),
-    "DisplayName" => String.t()
-  }
+
+      describe_website_certificate_authority_response() :: %{
+        "Certificate" => String.t(),
+        "CreatedTime" => non_neg_integer(),
+        "DisplayName" => String.t()
+      }
+
   """
   @type describe_website_certificate_authority_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  associate_website_certificate_authority_request() :: %{
-    optional("DisplayName") => String.t(),
-    required("Certificate") => String.t(),
-    required("FleetArn") => String.t()
-  }
+
+      associate_website_certificate_authority_request() :: %{
+        optional("DisplayName") => String.t(),
+        required("Certificate") => String.t(),
+        required("FleetArn") => String.t()
+      }
+
   """
   @type associate_website_certificate_authority_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  sign_out_user_request() :: %{
-    required("FleetArn") => String.t(),
-    required("Username") => String.t()
-  }
+
+      sign_out_user_request() :: %{
+        required("FleetArn") => String.t(),
+        required("Username") => String.t()
+      }
+
   """
   @type sign_out_user_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  device_summary() :: %{
-    "DeviceId" => String.t(),
-    "DeviceStatus" => list(any())
-  }
+
+      device_summary() :: %{
+        "DeviceId" => String.t(),
+        "DeviceStatus" => list(any())
+      }
+
   """
   @type device_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_domains_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("FleetArn") => String.t()
-  }
+
+      list_domains_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("FleetArn") => String.t()
+      }
+
   """
   @type list_domains_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disassociate_domain_response() :: %{
 
-  }
+      disassociate_domain_response() :: %{}
+
   """
-  @type disassociate_domain_response() :: %{String.t() => any()}
+  @type disassociate_domain_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  describe_domain_request() :: %{
-    required("DomainName") => String.t(),
-    required("FleetArn") => String.t()
-  }
+
+      describe_domain_request() :: %{
+        required("DomainName") => String.t(),
+        required("FleetArn") => String.t()
+      }
+
   """
   @type describe_domain_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  revoke_domain_access_request() :: %{
-    required("DomainName") => String.t(),
-    required("FleetArn") => String.t()
-  }
+
+      revoke_domain_access_request() :: %{
+        required("DomainName") => String.t(),
+        required("FleetArn") => String.t()
+      }
+
   """
   @type revoke_domain_access_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_audit_stream_configuration_response() :: %{
-    "AuditStreamArn" => String.t()
-  }
+
+      describe_audit_stream_configuration_response() :: %{
+        "AuditStreamArn" => String.t()
+      }
+
   """
   @type describe_audit_stream_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_response() :: %{
 
-  }
+      tag_resource_response() :: %{}
+
   """
-  @type tag_resource_response() :: %{String.t() => any()}
+  @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  describe_device_policy_configuration_request() :: %{
-    required("FleetArn") => String.t()
-  }
+
+      describe_device_policy_configuration_request() :: %{
+        required("FleetArn") => String.t()
+      }
+
   """
   @type describe_device_policy_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_request() :: %{
 
-  }
+      list_tags_for_resource_request() :: %{}
+
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  associate_website_certificate_authority_response() :: %{
-    "WebsiteCaId" => String.t()
-  }
+
+      associate_website_certificate_authority_response() :: %{
+        "WebsiteCaId" => String.t()
+      }
+
   """
   @type associate_website_certificate_authority_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  internal_server_error_exception() :: %{
-    "Message" => String.t()
-  }
+
+      internal_server_error_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type internal_server_error_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_website_authorization_providers_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("FleetArn") => String.t()
-  }
+
+      list_website_authorization_providers_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("FleetArn") => String.t()
+      }
+
   """
   @type list_website_authorization_providers_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  associate_website_authorization_provider_response() :: %{
-    "AuthorizationProviderId" => String.t()
-  }
+
+      associate_website_authorization_provider_response() :: %{
+        "AuthorizationProviderId" => String.t()
+      }
+
   """
   @type associate_website_authorization_provider_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_fleet_metadata_response() :: %{
 
-  }
+      update_fleet_metadata_response() :: %{}
+
   """
-  @type update_fleet_metadata_response() :: %{String.t() => any()}
+  @type update_fleet_metadata_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  resource_already_exists_exception() :: %{
-    "Message" => String.t()
-  }
+
+      resource_already_exists_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type resource_already_exists_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_company_network_configuration_response() :: %{
 
-  }
+      update_company_network_configuration_response() :: %{}
+
   """
-  @type update_company_network_configuration_response() :: %{String.t() => any()}
+  @type update_company_network_configuration_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  describe_company_network_configuration_request() :: %{
-    required("FleetArn") => String.t()
-  }
+
+      describe_company_network_configuration_request() :: %{
+        required("FleetArn") => String.t()
+      }
+
   """
   @type describe_company_network_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_website_certificate_authorities_response() :: %{
-    "NextToken" => String.t(),
-    "WebsiteCertificateAuthorities" => list(website_ca_summary()())
-  }
+
+      list_website_certificate_authorities_response() :: %{
+        "NextToken" => String.t(),
+        "WebsiteCertificateAuthorities" => list(website_ca_summary()())
+      }
+
   """
   @type list_website_certificate_authorities_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_fleet_response() :: %{
-    "FleetArn" => String.t()
-  }
+
+      create_fleet_response() :: %{
+        "FleetArn" => String.t()
+      }
+
   """
   @type create_fleet_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_device_policy_configuration_response() :: %{
 
-  }
+      update_device_policy_configuration_response() :: %{}
+
   """
-  @type update_device_policy_configuration_response() :: %{String.t() => any()}
+  @type update_device_policy_configuration_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  describe_device_response() :: %{
-    "FirstAccessedTime" => non_neg_integer(),
-    "LastAccessedTime" => non_neg_integer(),
-    "Manufacturer" => String.t(),
-    "Model" => String.t(),
-    "OperatingSystem" => String.t(),
-    "OperatingSystemVersion" => String.t(),
-    "PatchLevel" => String.t(),
-    "Status" => list(any()),
-    "Username" => String.t()
-  }
+
+      describe_device_response() :: %{
+        "FirstAccessedTime" => non_neg_integer(),
+        "LastAccessedTime" => non_neg_integer(),
+        "Manufacturer" => String.t(),
+        "Model" => String.t(),
+        "OperatingSystem" => String.t(),
+        "OperatingSystemVersion" => String.t(),
+        "PatchLevel" => String.t(),
+        "Status" => list(any()),
+        "Username" => String.t()
+      }
+
   """
   @type describe_device_response() :: %{String.t() => any()}
+
+  @type associate_domain_errors() ::
+          resource_already_exists_exception()
+          | internal_server_error_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | unauthorized_exception()
+
+  @type associate_website_authorization_provider_errors() ::
+          resource_already_exists_exception()
+          | internal_server_error_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | unauthorized_exception()
+
+  @type associate_website_certificate_authority_errors() ::
+          resource_already_exists_exception()
+          | internal_server_error_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | unauthorized_exception()
+
+  @type create_fleet_errors() ::
+          resource_already_exists_exception()
+          | internal_server_error_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | unauthorized_exception()
+
+  @type delete_fleet_errors() ::
+          internal_server_error_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | unauthorized_exception()
+
+  @type describe_audit_stream_configuration_errors() ::
+          internal_server_error_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | unauthorized_exception()
+
+  @type describe_company_network_configuration_errors() ::
+          internal_server_error_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | unauthorized_exception()
+
+  @type describe_device_errors() ::
+          internal_server_error_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | unauthorized_exception()
+
+  @type describe_device_policy_configuration_errors() ::
+          internal_server_error_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | unauthorized_exception()
+
+  @type describe_domain_errors() ::
+          internal_server_error_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | unauthorized_exception()
+
+  @type describe_fleet_metadata_errors() ::
+          internal_server_error_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | unauthorized_exception()
+
+  @type describe_identity_provider_configuration_errors() ::
+          internal_server_error_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | unauthorized_exception()
+
+  @type describe_website_certificate_authority_errors() ::
+          internal_server_error_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | unauthorized_exception()
+
+  @type disassociate_domain_errors() ::
+          internal_server_error_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | unauthorized_exception()
+
+  @type disassociate_website_authorization_provider_errors() ::
+          resource_already_exists_exception()
+          | internal_server_error_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | unauthorized_exception()
+
+  @type disassociate_website_certificate_authority_errors() ::
+          internal_server_error_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | unauthorized_exception()
+
+  @type list_devices_errors() ::
+          internal_server_error_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | unauthorized_exception()
+
+  @type list_domains_errors() ::
+          internal_server_error_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | unauthorized_exception()
+
+  @type list_fleets_errors() ::
+          internal_server_error_exception()
+          | invalid_request_exception()
+          | too_many_requests_exception()
+          | unauthorized_exception()
+
+  @type list_tags_for_resource_errors() :: invalid_request_exception()
+
+  @type list_website_authorization_providers_errors() ::
+          internal_server_error_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | unauthorized_exception()
+
+  @type list_website_certificate_authorities_errors() ::
+          internal_server_error_exception()
+          | invalid_request_exception()
+          | too_many_requests_exception()
+          | unauthorized_exception()
+
+  @type restore_domain_access_errors() ::
+          internal_server_error_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | unauthorized_exception()
+
+  @type revoke_domain_access_errors() ::
+          internal_server_error_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | unauthorized_exception()
+
+  @type sign_out_user_errors() ::
+          internal_server_error_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | unauthorized_exception()
+
+  @type tag_resource_errors() :: invalid_request_exception()
+
+  @type untag_resource_errors() :: invalid_request_exception()
+
+  @type update_audit_stream_configuration_errors() ::
+          internal_server_error_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | unauthorized_exception()
+
+  @type update_company_network_configuration_errors() ::
+          internal_server_error_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | unauthorized_exception()
+
+  @type update_device_policy_configuration_errors() ::
+          internal_server_error_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | unauthorized_exception()
+
+  @type update_domain_metadata_errors() ::
+          internal_server_error_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | unauthorized_exception()
+
+  @type update_fleet_metadata_errors() ::
+          internal_server_error_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | unauthorized_exception()
+
+  @type update_identity_provider_configuration_errors() ::
+          internal_server_error_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | unauthorized_exception()
 
   def metadata do
     %{
@@ -820,12 +1159,7 @@ defmodule AWS.WorkLink do
   @spec associate_domain(map(), associate_domain_request(), list()) ::
           {:ok, associate_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, resource_already_exists_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, associate_domain_errors()}
   def associate_domain(%Client{} = client, input, options \\ []) do
     url_path = "/associateDomain"
     headers = []
@@ -859,12 +1193,7 @@ defmodule AWS.WorkLink do
         ) ::
           {:ok, associate_website_authorization_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, resource_already_exists_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, associate_website_authorization_provider_errors()}
   def associate_website_authorization_provider(%Client{} = client, input, options \\ []) do
     url_path = "/associateWebsiteAuthorizationProvider"
     headers = []
@@ -896,12 +1225,7 @@ defmodule AWS.WorkLink do
         ) ::
           {:ok, associate_website_certificate_authority_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, resource_already_exists_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, associate_website_certificate_authority_errors()}
   def associate_website_certificate_authority(%Client{} = client, input, options \\ []) do
     url_path = "/associateWebsiteCertificateAuthority"
     headers = []
@@ -932,12 +1256,7 @@ defmodule AWS.WorkLink do
   @spec create_fleet(map(), create_fleet_request(), list()) ::
           {:ok, create_fleet_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, resource_already_exists_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, create_fleet_errors()}
   def create_fleet(%Client{} = client, input, options \\ []) do
     url_path = "/createFleet"
     headers = []
@@ -966,11 +1285,7 @@ defmodule AWS.WorkLink do
   @spec delete_fleet(map(), delete_fleet_request(), list()) ::
           {:ok, delete_fleet_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, delete_fleet_errors()}
   def delete_fleet(%Client{} = client, input, options \\ []) do
     url_path = "/deleteFleet"
     headers = []
@@ -1002,11 +1317,7 @@ defmodule AWS.WorkLink do
         ) ::
           {:ok, describe_audit_stream_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, describe_audit_stream_configuration_errors()}
   def describe_audit_stream_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/describeAuditStreamConfiguration"
     headers = []
@@ -1039,11 +1350,7 @@ defmodule AWS.WorkLink do
         ) ::
           {:ok, describe_company_network_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, describe_company_network_configuration_errors()}
   def describe_company_network_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/describeCompanyNetworkConfiguration"
     headers = []
@@ -1070,11 +1377,7 @@ defmodule AWS.WorkLink do
   @spec describe_device(map(), describe_device_request(), list()) ::
           {:ok, describe_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, describe_device_errors()}
   def describe_device(%Client{} = client, input, options \\ []) do
     url_path = "/describeDevice"
     headers = []
@@ -1105,11 +1408,7 @@ defmodule AWS.WorkLink do
         ) ::
           {:ok, describe_device_policy_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, describe_device_policy_configuration_errors()}
   def describe_device_policy_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/describeDevicePolicyConfiguration"
     headers = []
@@ -1136,11 +1435,7 @@ defmodule AWS.WorkLink do
   @spec describe_domain(map(), describe_domain_request(), list()) ::
           {:ok, describe_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, describe_domain_errors()}
   def describe_domain(%Client{} = client, input, options \\ []) do
     url_path = "/describeDomain"
     headers = []
@@ -1168,11 +1463,7 @@ defmodule AWS.WorkLink do
   @spec describe_fleet_metadata(map(), describe_fleet_metadata_request(), list()) ::
           {:ok, describe_fleet_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, describe_fleet_metadata_errors()}
   def describe_fleet_metadata(%Client{} = client, input, options \\ []) do
     url_path = "/describeFleetMetadata"
     headers = []
@@ -1203,11 +1494,7 @@ defmodule AWS.WorkLink do
         ) ::
           {:ok, describe_identity_provider_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, describe_identity_provider_configuration_errors()}
   def describe_identity_provider_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/describeIdentityProviderConfiguration"
     headers = []
@@ -1238,11 +1525,7 @@ defmodule AWS.WorkLink do
         ) ::
           {:ok, describe_website_certificate_authority_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, describe_website_certificate_authority_errors()}
   def describe_website_certificate_authority(%Client{} = client, input, options \\ []) do
     url_path = "/describeWebsiteCertificateAuthority"
     headers = []
@@ -1271,11 +1554,7 @@ defmodule AWS.WorkLink do
   @spec disassociate_domain(map(), disassociate_domain_request(), list()) ::
           {:ok, disassociate_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, disassociate_domain_errors()}
   def disassociate_domain(%Client{} = client, input, options \\ []) do
     url_path = "/disassociateDomain"
     headers = []
@@ -1311,12 +1590,7 @@ defmodule AWS.WorkLink do
         ) ::
           {:ok, disassociate_website_authorization_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, resource_already_exists_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, disassociate_website_authorization_provider_errors()}
   def disassociate_website_authorization_provider(%Client{} = client, input, options \\ []) do
     url_path = "/disassociateWebsiteAuthorizationProvider"
     headers = []
@@ -1347,11 +1621,7 @@ defmodule AWS.WorkLink do
         ) ::
           {:ok, disassociate_website_certificate_authority_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, disassociate_website_certificate_authority_errors()}
   def disassociate_website_certificate_authority(%Client{} = client, input, options \\ []) do
     url_path = "/disassociateWebsiteCertificateAuthority"
     headers = []
@@ -1378,11 +1648,7 @@ defmodule AWS.WorkLink do
   @spec list_devices(map(), list_devices_request(), list()) ::
           {:ok, list_devices_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, list_devices_errors()}
   def list_devices(%Client{} = client, input, options \\ []) do
     url_path = "/listDevices"
     headers = []
@@ -1409,11 +1675,7 @@ defmodule AWS.WorkLink do
   @spec list_domains(map(), list_domains_request(), list()) ::
           {:ok, list_domains_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, list_domains_errors()}
   def list_domains(%Client{} = client, input, options \\ []) do
     url_path = "/listDomains"
     headers = []
@@ -1440,10 +1702,7 @@ defmodule AWS.WorkLink do
   @spec list_fleets(map(), list_fleets_request(), list()) ::
           {:ok, list_fleets_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, list_fleets_errors()}
   def list_fleets(%Client{} = client, input, options \\ []) do
     url_path = "/listFleets"
     headers = []
@@ -1470,7 +1729,7 @@ defmodule AWS.WorkLink do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_request_exception()}
+          | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -1492,11 +1751,7 @@ defmodule AWS.WorkLink do
         ) ::
           {:ok, list_website_authorization_providers_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, list_website_authorization_providers_errors()}
   def list_website_authorization_providers(%Client{} = client, input, options \\ []) do
     url_path = "/listWebsiteAuthorizationProviders"
     headers = []
@@ -1528,10 +1783,7 @@ defmodule AWS.WorkLink do
         ) ::
           {:ok, list_website_certificate_authorities_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, list_website_certificate_authorities_errors()}
   def list_website_certificate_authorities(%Client{} = client, input, options \\ []) do
     url_path = "/listWebsiteCertificateAuthorities"
     headers = []
@@ -1558,11 +1810,7 @@ defmodule AWS.WorkLink do
   @spec restore_domain_access(map(), restore_domain_access_request(), list()) ::
           {:ok, restore_domain_access_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, restore_domain_access_errors()}
   def restore_domain_access(%Client{} = client, input, options \\ []) do
     url_path = "/restoreDomainAccess"
     headers = []
@@ -1589,11 +1837,7 @@ defmodule AWS.WorkLink do
   @spec revoke_domain_access(map(), revoke_domain_access_request(), list()) ::
           {:ok, revoke_domain_access_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, revoke_domain_access_errors()}
   def revoke_domain_access(%Client{} = client, input, options \\ []) do
     url_path = "/revokeDomainAccess"
     headers = []
@@ -1623,11 +1867,7 @@ defmodule AWS.WorkLink do
   @spec sign_out_user(map(), sign_out_user_request(), list()) ::
           {:ok, sign_out_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, sign_out_user_errors()}
   def sign_out_user(%Client{} = client, input, options \\ []) do
     url_path = "/signOutUser"
     headers = []
@@ -1657,7 +1897,7 @@ defmodule AWS.WorkLink do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_request_exception()}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -1684,7 +1924,7 @@ defmodule AWS.WorkLink do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_request_exception()}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -1720,11 +1960,7 @@ defmodule AWS.WorkLink do
         ) ::
           {:ok, update_audit_stream_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, update_audit_stream_configuration_errors()}
   def update_audit_stream_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/updateAuditStreamConfiguration"
     headers = []
@@ -1755,11 +1991,7 @@ defmodule AWS.WorkLink do
         ) ::
           {:ok, update_company_network_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, update_company_network_configuration_errors()}
   def update_company_network_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/updateCompanyNetworkConfiguration"
     headers = []
@@ -1790,11 +2022,7 @@ defmodule AWS.WorkLink do
         ) ::
           {:ok, update_device_policy_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, update_device_policy_configuration_errors()}
   def update_device_policy_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/updateDevicePolicyConfiguration"
     headers = []
@@ -1821,11 +2049,7 @@ defmodule AWS.WorkLink do
   @spec update_domain_metadata(map(), update_domain_metadata_request(), list()) ::
           {:ok, update_domain_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, update_domain_metadata_errors()}
   def update_domain_metadata(%Client{} = client, input, options \\ []) do
     url_path = "/updateDomainMetadata"
     headers = []
@@ -1852,11 +2076,7 @@ defmodule AWS.WorkLink do
   @spec update_fleet_metadata(map(), update_fleet_metadata_request(), list()) ::
           {:ok, update_fleet_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, update_fleet_metadata_errors()}
   def update_fleet_metadata(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateFleetMetadata"
     headers = []
@@ -1887,11 +2107,7 @@ defmodule AWS.WorkLink do
         ) ::
           {:ok, update_identity_provider_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unauthorized_exception()}
+          | {:error, update_identity_provider_configuration_errors()}
   def update_identity_provider_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/updateIdentityProviderConfiguration"
     headers = []

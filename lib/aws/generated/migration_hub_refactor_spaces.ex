@@ -30,919 +30,1210 @@ defmodule AWS.MigrationHubRefactorSpaces do
   @typedoc """
 
   ## Example:
-  lambda_endpoint_summary() :: %{
-    "Arn" => String.t()
-  }
+
+      lambda_endpoint_summary() :: %{
+        "Arn" => String.t()
+      }
+
   """
   @type lambda_endpoint_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  environment_vpc() :: %{
-    "AccountId" => String.t(),
-    "CidrBlocks" => list(String.t()()),
-    "CreatedTime" => non_neg_integer(),
-    "EnvironmentId" => String.t(),
-    "LastUpdatedTime" => non_neg_integer(),
-    "VpcId" => String.t(),
-    "VpcName" => String.t()
-  }
+
+      environment_vpc() :: %{
+        "AccountId" => String.t(),
+        "CidrBlocks" => list(String.t()()),
+        "CreatedTime" => non_neg_integer(),
+        "EnvironmentId" => String.t(),
+        "LastUpdatedTime" => non_neg_integer(),
+        "VpcId" => String.t(),
+        "VpcName" => String.t()
+      }
+
   """
   @type environment_vpc() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_request() :: %{
-    required("Tags") => map()
-  }
+
+      tag_resource_request() :: %{
+        required("Tags") => map()
+      }
+
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_resource_policy_response() :: %{
 
-  }
+      delete_resource_policy_response() :: %{}
+
   """
-  @type delete_resource_policy_response() :: %{String.t() => any()}
+  @type delete_resource_policy_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  default_route_input() :: %{
-    "ActivationState" => String.t()
-  }
+
+      default_route_input() :: %{
+        "ActivationState" => String.t()
+      }
+
   """
   @type default_route_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  api_gateway_proxy_input() :: %{
-    "EndpointType" => String.t(),
-    "StageName" => String.t()
-  }
+
+      api_gateway_proxy_input() :: %{
+        "EndpointType" => String.t(),
+        "StageName" => String.t()
+      }
+
   """
   @type api_gateway_proxy_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_route_response() :: %{
-    optional("ApplicationId") => String.t(),
-    optional("Arn") => String.t(),
-    optional("LastUpdatedTime") => non_neg_integer(),
-    optional("RouteId") => String.t(),
-    optional("ServiceId") => String.t(),
-    optional("State") => String.t()
-  }
+
+      update_route_response() :: %{
+        optional("ApplicationId") => String.t(),
+        optional("Arn") => String.t(),
+        optional("LastUpdatedTime") => non_neg_integer(),
+        optional("RouteId") => String.t(),
+        optional("ServiceId") => String.t(),
+        optional("State") => String.t()
+      }
+
   """
   @type update_route_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_service_response() :: %{
-    optional("ApplicationId") => String.t(),
-    optional("Arn") => String.t(),
-    optional("CreatedByAccountId") => String.t(),
-    optional("CreatedTime") => non_neg_integer(),
-    optional("Description") => String.t(),
-    optional("EndpointType") => String.t(),
-    optional("EnvironmentId") => String.t(),
-    optional("Error") => error_response(),
-    optional("LambdaEndpoint") => lambda_endpoint_config(),
-    optional("LastUpdatedTime") => non_neg_integer(),
-    optional("Name") => String.t(),
-    optional("OwnerAccountId") => String.t(),
-    optional("ServiceId") => String.t(),
-    optional("State") => String.t(),
-    optional("Tags") => map(),
-    optional("UrlEndpoint") => url_endpoint_config(),
-    optional("VpcId") => String.t()
-  }
+
+      get_service_response() :: %{
+        optional("ApplicationId") => String.t(),
+        optional("Arn") => String.t(),
+        optional("CreatedByAccountId") => String.t(),
+        optional("CreatedTime") => non_neg_integer(),
+        optional("Description") => String.t(),
+        optional("EndpointType") => String.t(),
+        optional("EnvironmentId") => String.t(),
+        optional("Error") => error_response(),
+        optional("LambdaEndpoint") => lambda_endpoint_config(),
+        optional("LastUpdatedTime") => non_neg_integer(),
+        optional("Name") => String.t(),
+        optional("OwnerAccountId") => String.t(),
+        optional("ServiceId") => String.t(),
+        optional("State") => String.t(),
+        optional("Tags") => map(),
+        optional("UrlEndpoint") => url_endpoint_config(),
+        optional("VpcId") => String.t()
+      }
+
   """
   @type get_service_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  lambda_endpoint_config() :: %{
-    "Arn" => String.t()
-  }
+
+      lambda_endpoint_config() :: %{
+        "Arn" => String.t()
+      }
+
   """
   @type lambda_endpoint_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_response() :: %{
 
-  }
+      untag_resource_response() :: %{}
+
   """
-  @type untag_resource_response() :: %{String.t() => any()}
+  @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  route_summary() :: %{
-    "AppendSourcePath" => boolean(),
-    "ApplicationId" => String.t(),
-    "Arn" => String.t(),
-    "CreatedByAccountId" => String.t(),
-    "CreatedTime" => non_neg_integer(),
-    "EnvironmentId" => String.t(),
-    "Error" => error_response(),
-    "IncludeChildPaths" => boolean(),
-    "LastUpdatedTime" => non_neg_integer(),
-    "Methods" => list(String.t()()),
-    "OwnerAccountId" => String.t(),
-    "PathResourceToId" => map(),
-    "RouteId" => String.t(),
-    "RouteType" => String.t(),
-    "ServiceId" => String.t(),
-    "SourcePath" => String.t(),
-    "State" => String.t(),
-    "Tags" => map()
-  }
+
+      route_summary() :: %{
+        "AppendSourcePath" => boolean(),
+        "ApplicationId" => String.t(),
+        "Arn" => String.t(),
+        "CreatedByAccountId" => String.t(),
+        "CreatedTime" => non_neg_integer(),
+        "EnvironmentId" => String.t(),
+        "Error" => error_response(),
+        "IncludeChildPaths" => boolean(),
+        "LastUpdatedTime" => non_neg_integer(),
+        "Methods" => list(String.t()()),
+        "OwnerAccountId" => String.t(),
+        "PathResourceToId" => map(),
+        "RouteId" => String.t(),
+        "RouteType" => String.t(),
+        "ServiceId" => String.t(),
+        "SourcePath" => String.t(),
+        "State" => String.t(),
+        "Tags" => map()
+      }
+
   """
   @type route_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  environment_summary() :: %{
-    "Arn" => String.t(),
-    "CreatedTime" => non_neg_integer(),
-    "Description" => String.t(),
-    "EnvironmentId" => String.t(),
-    "Error" => error_response(),
-    "LastUpdatedTime" => non_neg_integer(),
-    "Name" => String.t(),
-    "NetworkFabricType" => String.t(),
-    "OwnerAccountId" => String.t(),
-    "State" => String.t(),
-    "Tags" => map(),
-    "TransitGatewayId" => String.t()
-  }
+
+      environment_summary() :: %{
+        "Arn" => String.t(),
+        "CreatedTime" => non_neg_integer(),
+        "Description" => String.t(),
+        "EnvironmentId" => String.t(),
+        "Error" => error_response(),
+        "LastUpdatedTime" => non_neg_integer(),
+        "Name" => String.t(),
+        "NetworkFabricType" => String.t(),
+        "OwnerAccountId" => String.t(),
+        "State" => String.t(),
+        "Tags" => map(),
+        "TransitGatewayId" => String.t()
+      }
+
   """
   @type environment_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_environment_request() :: %{
 
-  }
+      get_environment_request() :: %{}
+
   """
-  @type get_environment_request() :: %{String.t() => any()}
+  @type get_environment_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  lambda_endpoint_input() :: %{
-    "Arn" => String.t()
-  }
+
+      lambda_endpoint_input() :: %{
+        "Arn" => String.t()
+      }
+
   """
   @type lambda_endpoint_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_resource_policy_response() :: %{
-    optional("Policy") => String.t()
-  }
+
+      get_resource_policy_response() :: %{
+        optional("Policy") => String.t()
+      }
+
   """
   @type get_resource_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_environment_response() :: %{
-    optional("Arn") => String.t(),
-    optional("CreatedTime") => non_neg_integer(),
-    optional("Description") => String.t(),
-    optional("EnvironmentId") => String.t(),
-    optional("Error") => error_response(),
-    optional("LastUpdatedTime") => non_neg_integer(),
-    optional("Name") => String.t(),
-    optional("NetworkFabricType") => String.t(),
-    optional("OwnerAccountId") => String.t(),
-    optional("State") => String.t(),
-    optional("Tags") => map(),
-    optional("TransitGatewayId") => String.t()
-  }
+
+      get_environment_response() :: %{
+        optional("Arn") => String.t(),
+        optional("CreatedTime") => non_neg_integer(),
+        optional("Description") => String.t(),
+        optional("EnvironmentId") => String.t(),
+        optional("Error") => error_response(),
+        optional("LastUpdatedTime") => non_neg_integer(),
+        optional("Name") => String.t(),
+        optional("NetworkFabricType") => String.t(),
+        optional("OwnerAccountId") => String.t(),
+        optional("State") => String.t(),
+        optional("Tags") => map(),
+        optional("TransitGatewayId") => String.t()
+      }
+
   """
   @type get_environment_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_request() :: %{
-    required("TagKeys") => list(String.t()())
-  }
+
+      untag_resource_request() :: %{
+        required("TagKeys") => list(String.t()())
+      }
+
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_service_request() :: %{
 
-  }
+      get_service_request() :: %{}
+
   """
-  @type get_service_request() :: %{String.t() => any()}
+  @type get_service_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_services_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      list_services_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_services_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  conflict_exception() :: %{
-    "Message" => String.t(),
-    "ResourceId" => String.t(),
-    "ResourceType" => String.t()
-  }
+
+      conflict_exception() :: %{
+        "Message" => String.t(),
+        "ResourceId" => String.t(),
+        "ResourceType" => String.t()
+      }
+
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_not_found_exception() :: %{
-    "Message" => String.t(),
-    "ResourceId" => String.t(),
-    "ResourceType" => String.t()
-  }
+
+      resource_not_found_exception() :: %{
+        "Message" => String.t(),
+        "ResourceId" => String.t(),
+        "ResourceType" => String.t()
+      }
+
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_services_response() :: %{
-    optional("NextToken") => String.t(),
-    optional("ServiceSummaryList") => list(service_summary()())
-  }
+
+      list_services_response() :: %{
+        optional("NextToken") => String.t(),
+        optional("ServiceSummaryList") => list(service_summary()())
+      }
+
   """
   @type list_services_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  service_quota_exceeded_exception() :: %{
-    "Message" => String.t(),
-    "QuotaCode" => String.t(),
-    "ResourceId" => String.t(),
-    "ResourceType" => String.t(),
-    "ServiceCode" => String.t()
-  }
+
+      service_quota_exceeded_exception() :: %{
+        "Message" => String.t(),
+        "QuotaCode" => String.t(),
+        "ResourceId" => String.t(),
+        "ResourceType" => String.t(),
+        "ServiceCode" => String.t()
+      }
+
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  service_summary() :: %{
-    "ApplicationId" => String.t(),
-    "Arn" => String.t(),
-    "CreatedByAccountId" => String.t(),
-    "CreatedTime" => non_neg_integer(),
-    "Description" => String.t(),
-    "EndpointType" => String.t(),
-    "EnvironmentId" => String.t(),
-    "Error" => error_response(),
-    "LambdaEndpoint" => lambda_endpoint_summary(),
-    "LastUpdatedTime" => non_neg_integer(),
-    "Name" => String.t(),
-    "OwnerAccountId" => String.t(),
-    "ServiceId" => String.t(),
-    "State" => String.t(),
-    "Tags" => map(),
-    "UrlEndpoint" => url_endpoint_summary(),
-    "VpcId" => String.t()
-  }
+
+      service_summary() :: %{
+        "ApplicationId" => String.t(),
+        "Arn" => String.t(),
+        "CreatedByAccountId" => String.t(),
+        "CreatedTime" => non_neg_integer(),
+        "Description" => String.t(),
+        "EndpointType" => String.t(),
+        "EnvironmentId" => String.t(),
+        "Error" => error_response(),
+        "LambdaEndpoint" => lambda_endpoint_summary(),
+        "LastUpdatedTime" => non_neg_integer(),
+        "Name" => String.t(),
+        "OwnerAccountId" => String.t(),
+        "ServiceId" => String.t(),
+        "State" => String.t(),
+        "Tags" => map(),
+        "UrlEndpoint" => url_endpoint_summary(),
+        "VpcId" => String.t()
+      }
+
   """
   @type service_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_service_request() :: %{
-    optional("ClientToken") => String.t(),
-    optional("Description") => String.t(),
-    optional("LambdaEndpoint") => lambda_endpoint_input(),
-    optional("Tags") => map(),
-    optional("UrlEndpoint") => url_endpoint_input(),
-    optional("VpcId") => String.t(),
-    required("EndpointType") => String.t(),
-    required("Name") => String.t()
-  }
+
+      create_service_request() :: %{
+        optional("ClientToken") => String.t(),
+        optional("Description") => String.t(),
+        optional("LambdaEndpoint") => lambda_endpoint_input(),
+        optional("Tags") => map(),
+        optional("UrlEndpoint") => url_endpoint_input(),
+        optional("VpcId") => String.t(),
+        required("EndpointType") => String.t(),
+        required("Name") => String.t()
+      }
+
   """
   @type create_service_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  error_response() :: %{
-    "AccountId" => String.t(),
-    "AdditionalDetails" => map(),
-    "Code" => String.t(),
-    "Message" => String.t(),
-    "ResourceIdentifier" => String.t(),
-    "ResourceType" => String.t()
-  }
+
+      error_response() :: %{
+        "AccountId" => String.t(),
+        "AdditionalDetails" => map(),
+        "Code" => String.t(),
+        "Message" => String.t(),
+        "ResourceIdentifier" => String.t(),
+        "ResourceType" => String.t()
+      }
+
   """
   @type error_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_response() :: %{
-    optional("Tags") => map()
-  }
+
+      list_tags_for_resource_response() :: %{
+        optional("Tags") => map()
+      }
+
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_application_request() :: %{
-    optional("ApiGatewayProxy") => api_gateway_proxy_input(),
-    optional("ClientToken") => String.t(),
-    optional("Tags") => map(),
-    required("Name") => String.t(),
-    required("ProxyType") => String.t(),
-    required("VpcId") => String.t()
-  }
+
+      create_application_request() :: %{
+        optional("ApiGatewayProxy") => api_gateway_proxy_input(),
+        optional("ClientToken") => String.t(),
+        optional("Tags") => map(),
+        required("Name") => String.t(),
+        required("ProxyType") => String.t(),
+        required("VpcId") => String.t()
+      }
+
   """
   @type create_application_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_environments_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      list_environments_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_environments_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_application_response() :: %{
-    optional("ApiGatewayProxy") => api_gateway_proxy_input(),
-    optional("ApplicationId") => String.t(),
-    optional("Arn") => String.t(),
-    optional("CreatedByAccountId") => String.t(),
-    optional("CreatedTime") => non_neg_integer(),
-    optional("EnvironmentId") => String.t(),
-    optional("LastUpdatedTime") => non_neg_integer(),
-    optional("Name") => String.t(),
-    optional("OwnerAccountId") => String.t(),
-    optional("ProxyType") => String.t(),
-    optional("State") => String.t(),
-    optional("Tags") => map(),
-    optional("VpcId") => String.t()
-  }
+
+      create_application_response() :: %{
+        optional("ApiGatewayProxy") => api_gateway_proxy_input(),
+        optional("ApplicationId") => String.t(),
+        optional("Arn") => String.t(),
+        optional("CreatedByAccountId") => String.t(),
+        optional("CreatedTime") => non_neg_integer(),
+        optional("EnvironmentId") => String.t(),
+        optional("LastUpdatedTime") => non_neg_integer(),
+        optional("Name") => String.t(),
+        optional("OwnerAccountId") => String.t(),
+        optional("ProxyType") => String.t(),
+        optional("State") => String.t(),
+        optional("Tags") => map(),
+        optional("VpcId") => String.t()
+      }
+
   """
   @type create_application_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_resource_policy_request() :: %{
 
-  }
+      get_resource_policy_request() :: %{}
+
   """
-  @type get_resource_policy_request() :: %{String.t() => any()}
+  @type get_resource_policy_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  update_route_request() :: %{
-    required("ActivationState") => String.t()
-  }
+
+      update_route_request() :: %{
+        required("ActivationState") => String.t()
+      }
+
   """
   @type update_route_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_application_response() :: %{
-    optional("ApplicationId") => String.t(),
-    optional("Arn") => String.t(),
-    optional("EnvironmentId") => String.t(),
-    optional("LastUpdatedTime") => non_neg_integer(),
-    optional("Name") => String.t(),
-    optional("State") => String.t()
-  }
+
+      delete_application_response() :: %{
+        optional("ApplicationId") => String.t(),
+        optional("Arn") => String.t(),
+        optional("EnvironmentId") => String.t(),
+        optional("LastUpdatedTime") => non_neg_integer(),
+        optional("Name") => String.t(),
+        optional("State") => String.t()
+      }
+
   """
   @type delete_application_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  url_endpoint_config() :: %{
-    "HealthUrl" => String.t(),
-    "Url" => String.t()
-  }
+
+      url_endpoint_config() :: %{
+        "HealthUrl" => String.t(),
+        "Url" => String.t()
+      }
+
   """
   @type url_endpoint_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_environment_response() :: %{
-    optional("Arn") => String.t(),
-    optional("CreatedTime") => non_neg_integer(),
-    optional("Description") => String.t(),
-    optional("EnvironmentId") => String.t(),
-    optional("LastUpdatedTime") => non_neg_integer(),
-    optional("Name") => String.t(),
-    optional("NetworkFabricType") => String.t(),
-    optional("OwnerAccountId") => String.t(),
-    optional("State") => String.t(),
-    optional("Tags") => map()
-  }
+
+      create_environment_response() :: %{
+        optional("Arn") => String.t(),
+        optional("CreatedTime") => non_neg_integer(),
+        optional("Description") => String.t(),
+        optional("EnvironmentId") => String.t(),
+        optional("LastUpdatedTime") => non_neg_integer(),
+        optional("Name") => String.t(),
+        optional("NetworkFabricType") => String.t(),
+        optional("OwnerAccountId") => String.t(),
+        optional("State") => String.t(),
+        optional("Tags") => map()
+      }
+
   """
   @type create_environment_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  uri_path_route_input() :: %{
-    "ActivationState" => String.t(),
-    "AppendSourcePath" => boolean(),
-    "IncludeChildPaths" => boolean(),
-    "Methods" => list(String.t()()),
-    "SourcePath" => String.t()
-  }
+
+      uri_path_route_input() :: %{
+        "ActivationState" => String.t(),
+        "AppendSourcePath" => boolean(),
+        "IncludeChildPaths" => boolean(),
+        "Methods" => list(String.t()()),
+        "SourcePath" => String.t()
+      }
+
   """
   @type uri_path_route_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  internal_server_exception() :: %{
-    "Message" => String.t()
-  }
+
+      internal_server_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_environment_request() :: %{
 
-  }
+      delete_environment_request() :: %{}
+
   """
-  @type delete_environment_request() :: %{String.t() => any()}
+  @type delete_environment_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_routes_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      list_routes_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_routes_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_application_response() :: %{
-    optional("ApiGatewayProxy") => api_gateway_proxy_config(),
-    optional("ApplicationId") => String.t(),
-    optional("Arn") => String.t(),
-    optional("CreatedByAccountId") => String.t(),
-    optional("CreatedTime") => non_neg_integer(),
-    optional("EnvironmentId") => String.t(),
-    optional("Error") => error_response(),
-    optional("LastUpdatedTime") => non_neg_integer(),
-    optional("Name") => String.t(),
-    optional("OwnerAccountId") => String.t(),
-    optional("ProxyType") => String.t(),
-    optional("State") => String.t(),
-    optional("Tags") => map(),
-    optional("VpcId") => String.t()
-  }
+
+      get_application_response() :: %{
+        optional("ApiGatewayProxy") => api_gateway_proxy_config(),
+        optional("ApplicationId") => String.t(),
+        optional("Arn") => String.t(),
+        optional("CreatedByAccountId") => String.t(),
+        optional("CreatedTime") => non_neg_integer(),
+        optional("EnvironmentId") => String.t(),
+        optional("Error") => error_response(),
+        optional("LastUpdatedTime") => non_neg_integer(),
+        optional("Name") => String.t(),
+        optional("OwnerAccountId") => String.t(),
+        optional("ProxyType") => String.t(),
+        optional("State") => String.t(),
+        optional("Tags") => map(),
+        optional("VpcId") => String.t()
+      }
+
   """
   @type get_application_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_applications_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      list_applications_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_applications_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_route_response() :: %{
-    optional("AppendSourcePath") => boolean(),
-    optional("ApplicationId") => String.t(),
-    optional("Arn") => String.t(),
-    optional("CreatedByAccountId") => String.t(),
-    optional("CreatedTime") => non_neg_integer(),
-    optional("EnvironmentId") => String.t(),
-    optional("Error") => error_response(),
-    optional("IncludeChildPaths") => boolean(),
-    optional("LastUpdatedTime") => non_neg_integer(),
-    optional("Methods") => list(String.t()()),
-    optional("OwnerAccountId") => String.t(),
-    optional("PathResourceToId") => map(),
-    optional("RouteId") => String.t(),
-    optional("RouteType") => String.t(),
-    optional("ServiceId") => String.t(),
-    optional("SourcePath") => String.t(),
-    optional("State") => String.t(),
-    optional("Tags") => map()
-  }
+
+      get_route_response() :: %{
+        optional("AppendSourcePath") => boolean(),
+        optional("ApplicationId") => String.t(),
+        optional("Arn") => String.t(),
+        optional("CreatedByAccountId") => String.t(),
+        optional("CreatedTime") => non_neg_integer(),
+        optional("EnvironmentId") => String.t(),
+        optional("Error") => error_response(),
+        optional("IncludeChildPaths") => boolean(),
+        optional("LastUpdatedTime") => non_neg_integer(),
+        optional("Methods") => list(String.t()()),
+        optional("OwnerAccountId") => String.t(),
+        optional("PathResourceToId") => map(),
+        optional("RouteId") => String.t(),
+        optional("RouteType") => String.t(),
+        optional("ServiceId") => String.t(),
+        optional("SourcePath") => String.t(),
+        optional("State") => String.t(),
+        optional("Tags") => map()
+      }
+
   """
   @type get_route_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_resource_policy_request() :: %{
-    required("Policy") => String.t(),
-    required("ResourceArn") => String.t()
-  }
+
+      put_resource_policy_request() :: %{
+        required("Policy") => String.t(),
+        required("ResourceArn") => String.t()
+      }
+
   """
   @type put_resource_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  api_gateway_proxy_config() :: %{
-    "ApiGatewayId" => String.t(),
-    "EndpointType" => String.t(),
-    "NlbArn" => String.t(),
-    "NlbName" => String.t(),
-    "ProxyUrl" => String.t(),
-    "StageName" => String.t(),
-    "VpcLinkId" => String.t()
-  }
+
+      api_gateway_proxy_config() :: %{
+        "ApiGatewayId" => String.t(),
+        "EndpointType" => String.t(),
+        "NlbArn" => String.t(),
+        "NlbName" => String.t(),
+        "ProxyUrl" => String.t(),
+        "StageName" => String.t(),
+        "VpcLinkId" => String.t()
+      }
+
   """
   @type api_gateway_proxy_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  access_denied_exception() :: %{
-    "Message" => String.t()
-  }
+
+      access_denied_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_response() :: %{
 
-  }
+      tag_resource_response() :: %{}
+
   """
-  @type tag_resource_response() :: %{String.t() => any()}
+  @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_routes_response() :: %{
-    optional("NextToken") => String.t(),
-    optional("RouteSummaryList") => list(route_summary()())
-  }
+
+      list_routes_response() :: %{
+        optional("NextToken") => String.t(),
+        optional("RouteSummaryList") => list(route_summary()())
+      }
+
   """
   @type list_routes_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_environment_vpcs_response() :: %{
-    optional("EnvironmentVpcList") => list(environment_vpc()()),
-    optional("NextToken") => String.t()
-  }
+
+      list_environment_vpcs_response() :: %{
+        optional("EnvironmentVpcList") => list(environment_vpc()()),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_environment_vpcs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  url_endpoint_input() :: %{
-    "HealthUrl" => String.t(),
-    "Url" => String.t()
-  }
+
+      url_endpoint_input() :: %{
+        "HealthUrl" => String.t(),
+        "Url" => String.t()
+      }
+
   """
   @type url_endpoint_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_route_response() :: %{
-    optional("ApplicationId") => String.t(),
-    optional("Arn") => String.t(),
-    optional("LastUpdatedTime") => non_neg_integer(),
-    optional("RouteId") => String.t(),
-    optional("ServiceId") => String.t(),
-    optional("State") => String.t()
-  }
+
+      delete_route_response() :: %{
+        optional("ApplicationId") => String.t(),
+        optional("Arn") => String.t(),
+        optional("LastUpdatedTime") => non_neg_integer(),
+        optional("RouteId") => String.t(),
+        optional("ServiceId") => String.t(),
+        optional("State") => String.t()
+      }
+
   """
   @type delete_route_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_resource_policy_exception() :: %{
-    "Message" => String.t()
-  }
+
+      invalid_resource_policy_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type invalid_resource_policy_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_route_response() :: %{
-    optional("ApplicationId") => String.t(),
-    optional("Arn") => String.t(),
-    optional("CreatedByAccountId") => String.t(),
-    optional("CreatedTime") => non_neg_integer(),
-    optional("LastUpdatedTime") => non_neg_integer(),
-    optional("OwnerAccountId") => String.t(),
-    optional("RouteId") => String.t(),
-    optional("RouteType") => String.t(),
-    optional("ServiceId") => String.t(),
-    optional("State") => String.t(),
-    optional("Tags") => map(),
-    optional("UriPathRoute") => uri_path_route_input()
-  }
+
+      create_route_response() :: %{
+        optional("ApplicationId") => String.t(),
+        optional("Arn") => String.t(),
+        optional("CreatedByAccountId") => String.t(),
+        optional("CreatedTime") => non_neg_integer(),
+        optional("LastUpdatedTime") => non_neg_integer(),
+        optional("OwnerAccountId") => String.t(),
+        optional("RouteId") => String.t(),
+        optional("RouteType") => String.t(),
+        optional("ServiceId") => String.t(),
+        optional("State") => String.t(),
+        optional("Tags") => map(),
+        optional("UriPathRoute") => uri_path_route_input()
+      }
+
   """
   @type create_route_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  validation_exception() :: %{
-    "Message" => String.t()
-  }
+
+      validation_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_request() :: %{
 
-  }
+      list_tags_for_resource_request() :: %{}
+
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  delete_service_request() :: %{
 
-  }
+      delete_service_request() :: %{}
+
   """
-  @type delete_service_request() :: %{String.t() => any()}
+  @type delete_service_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  delete_route_request() :: %{
 
-  }
+      delete_route_request() :: %{}
+
   """
-  @type delete_route_request() :: %{String.t() => any()}
+  @type delete_route_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  throttling_exception() :: %{
-    "Message" => String.t(),
-    "QuotaCode" => String.t(),
-    "RetryAfterSeconds" => integer(),
-    "ServiceCode" => String.t()
-  }
+
+      throttling_exception() :: %{
+        "Message" => String.t(),
+        "QuotaCode" => String.t(),
+        "RetryAfterSeconds" => integer(),
+        "ServiceCode" => String.t()
+      }
+
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_environments_response() :: %{
-    optional("EnvironmentSummaryList") => list(environment_summary()()),
-    optional("NextToken") => String.t()
-  }
+
+      list_environments_response() :: %{
+        optional("EnvironmentSummaryList") => list(environment_summary()()),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_environments_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  application_summary() :: %{
-    "ApiGatewayProxy" => api_gateway_proxy_summary(),
-    "ApplicationId" => String.t(),
-    "Arn" => String.t(),
-    "CreatedByAccountId" => String.t(),
-    "CreatedTime" => non_neg_integer(),
-    "EnvironmentId" => String.t(),
-    "Error" => error_response(),
-    "LastUpdatedTime" => non_neg_integer(),
-    "Name" => String.t(),
-    "OwnerAccountId" => String.t(),
-    "ProxyType" => String.t(),
-    "State" => String.t(),
-    "Tags" => map(),
-    "VpcId" => String.t()
-  }
+
+      application_summary() :: %{
+        "ApiGatewayProxy" => api_gateway_proxy_summary(),
+        "ApplicationId" => String.t(),
+        "Arn" => String.t(),
+        "CreatedByAccountId" => String.t(),
+        "CreatedTime" => non_neg_integer(),
+        "EnvironmentId" => String.t(),
+        "Error" => error_response(),
+        "LastUpdatedTime" => non_neg_integer(),
+        "Name" => String.t(),
+        "OwnerAccountId" => String.t(),
+        "ProxyType" => String.t(),
+        "State" => String.t(),
+        "Tags" => map(),
+        "VpcId" => String.t()
+      }
+
   """
   @type application_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_resource_policy_response() :: %{
 
-  }
+      put_resource_policy_response() :: %{}
+
   """
-  @type put_resource_policy_response() :: %{String.t() => any()}
+  @type put_resource_policy_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_applications_response() :: %{
-    optional("ApplicationSummaryList") => list(application_summary()()),
-    optional("NextToken") => String.t()
-  }
+
+      list_applications_response() :: %{
+        optional("ApplicationSummaryList") => list(application_summary()()),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_applications_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_resource_policy_request() :: %{
 
-  }
+      delete_resource_policy_request() :: %{}
+
   """
-  @type delete_resource_policy_request() :: %{String.t() => any()}
+  @type delete_resource_policy_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  api_gateway_proxy_summary() :: %{
-    "ApiGatewayId" => String.t(),
-    "EndpointType" => String.t(),
-    "NlbArn" => String.t(),
-    "NlbName" => String.t(),
-    "ProxyUrl" => String.t(),
-    "StageName" => String.t(),
-    "VpcLinkId" => String.t()
-  }
+
+      api_gateway_proxy_summary() :: %{
+        "ApiGatewayId" => String.t(),
+        "EndpointType" => String.t(),
+        "NlbArn" => String.t(),
+        "NlbName" => String.t(),
+        "ProxyUrl" => String.t(),
+        "StageName" => String.t(),
+        "VpcLinkId" => String.t()
+      }
+
   """
   @type api_gateway_proxy_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_service_response() :: %{
-    optional("ApplicationId") => String.t(),
-    optional("Arn") => String.t(),
-    optional("EnvironmentId") => String.t(),
-    optional("LastUpdatedTime") => non_neg_integer(),
-    optional("Name") => String.t(),
-    optional("ServiceId") => String.t(),
-    optional("State") => String.t()
-  }
+
+      delete_service_response() :: %{
+        optional("ApplicationId") => String.t(),
+        optional("Arn") => String.t(),
+        optional("EnvironmentId") => String.t(),
+        optional("LastUpdatedTime") => non_neg_integer(),
+        optional("Name") => String.t(),
+        optional("ServiceId") => String.t(),
+        optional("State") => String.t()
+      }
+
   """
   @type delete_service_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_route_request() :: %{
-    optional("ClientToken") => String.t(),
-    optional("DefaultRoute") => default_route_input(),
-    optional("Tags") => map(),
-    optional("UriPathRoute") => uri_path_route_input(),
-    required("RouteType") => String.t(),
-    required("ServiceIdentifier") => String.t()
-  }
+
+      create_route_request() :: %{
+        optional("ClientToken") => String.t(),
+        optional("DefaultRoute") => default_route_input(),
+        optional("Tags") => map(),
+        optional("UriPathRoute") => uri_path_route_input(),
+        required("RouteType") => String.t(),
+        required("ServiceIdentifier") => String.t()
+      }
+
   """
   @type create_route_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_environment_request() :: %{
-    optional("ClientToken") => String.t(),
-    optional("Description") => String.t(),
-    optional("Tags") => map(),
-    required("Name") => String.t(),
-    required("NetworkFabricType") => String.t()
-  }
+
+      create_environment_request() :: %{
+        optional("ClientToken") => String.t(),
+        optional("Description") => String.t(),
+        optional("Tags") => map(),
+        required("Name") => String.t(),
+        required("NetworkFabricType") => String.t()
+      }
+
   """
   @type create_environment_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_environment_vpcs_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      list_environment_vpcs_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_environment_vpcs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_service_response() :: %{
-    optional("ApplicationId") => String.t(),
-    optional("Arn") => String.t(),
-    optional("CreatedByAccountId") => String.t(),
-    optional("CreatedTime") => non_neg_integer(),
-    optional("Description") => String.t(),
-    optional("EndpointType") => String.t(),
-    optional("EnvironmentId") => String.t(),
-    optional("LambdaEndpoint") => lambda_endpoint_input(),
-    optional("LastUpdatedTime") => non_neg_integer(),
-    optional("Name") => String.t(),
-    optional("OwnerAccountId") => String.t(),
-    optional("ServiceId") => String.t(),
-    optional("State") => String.t(),
-    optional("Tags") => map(),
-    optional("UrlEndpoint") => url_endpoint_input(),
-    optional("VpcId") => String.t()
-  }
+
+      create_service_response() :: %{
+        optional("ApplicationId") => String.t(),
+        optional("Arn") => String.t(),
+        optional("CreatedByAccountId") => String.t(),
+        optional("CreatedTime") => non_neg_integer(),
+        optional("Description") => String.t(),
+        optional("EndpointType") => String.t(),
+        optional("EnvironmentId") => String.t(),
+        optional("LambdaEndpoint") => lambda_endpoint_input(),
+        optional("LastUpdatedTime") => non_neg_integer(),
+        optional("Name") => String.t(),
+        optional("OwnerAccountId") => String.t(),
+        optional("ServiceId") => String.t(),
+        optional("State") => String.t(),
+        optional("Tags") => map(),
+        optional("UrlEndpoint") => url_endpoint_input(),
+        optional("VpcId") => String.t()
+      }
+
   """
   @type create_service_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_application_request() :: %{
 
-  }
+      get_application_request() :: %{}
+
   """
-  @type get_application_request() :: %{String.t() => any()}
+  @type get_application_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  delete_environment_response() :: %{
-    optional("Arn") => String.t(),
-    optional("EnvironmentId") => String.t(),
-    optional("LastUpdatedTime") => non_neg_integer(),
-    optional("Name") => String.t(),
-    optional("State") => String.t()
-  }
+
+      delete_environment_response() :: %{
+        optional("Arn") => String.t(),
+        optional("EnvironmentId") => String.t(),
+        optional("LastUpdatedTime") => non_neg_integer(),
+        optional("Name") => String.t(),
+        optional("State") => String.t()
+      }
+
   """
   @type delete_environment_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_route_request() :: %{
 
-  }
+      get_route_request() :: %{}
+
   """
-  @type get_route_request() :: %{String.t() => any()}
+  @type get_route_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  delete_application_request() :: %{
 
-  }
+      delete_application_request() :: %{}
+
   """
-  @type delete_application_request() :: %{String.t() => any()}
+  @type delete_application_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  url_endpoint_summary() :: %{
-    "HealthUrl" => String.t(),
-    "Url" => String.t()
-  }
+
+      url_endpoint_summary() :: %{
+        "HealthUrl" => String.t(),
+        "Url" => String.t()
+      }
+
   """
   @type url_endpoint_summary() :: %{String.t() => any()}
+
+  @type create_application_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_environment_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_route_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_service_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_application_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_environment_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_resource_policy_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type delete_route_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_service_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type get_application_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_environment_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_resource_policy_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_route_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_service_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_applications_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type list_environment_vpcs_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_environments_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_routes_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type list_services_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type list_tags_for_resource_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
+
+  @type put_resource_policy_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | invalid_resource_policy_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type tag_resource_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
+
+  @type untag_resource_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
+
+  @type update_route_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
 
   def metadata do
     %{
@@ -984,13 +1275,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   @spec create_application(map(), String.t(), create_application_request(), list()) ::
           {:ok, create_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_application_errors()}
   def create_application(%Client{} = client, environment_identifier, input, options \\ []) do
     url_path = "/environments/#{AWS.Util.encode_uri(environment_identifier)}/applications"
     headers = []
@@ -1036,13 +1321,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   @spec create_environment(map(), create_environment_request(), list()) ::
           {:ok, create_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_environment_errors()}
   def create_environment(%Client{} = client, input, options \\ []) do
     url_path = "/environments"
     headers = []
@@ -1173,13 +1452,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   @spec create_route(map(), String.t(), String.t(), create_route_request(), list()) ::
           {:ok, create_route_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_route_errors()}
   def create_route(
         %Client{} = client,
         application_identifier,
@@ -1227,13 +1500,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   @spec create_service(map(), String.t(), String.t(), create_service_request(), list()) ::
           {:ok, create_service_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_service_errors()}
   def create_service(
         %Client{} = client,
         application_identifier,
@@ -1271,12 +1538,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   @spec delete_application(map(), String.t(), String.t(), delete_application_request(), list()) ::
           {:ok, delete_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_application_errors()}
   def delete_application(
         %Client{} = client,
         application_identifier,
@@ -1314,12 +1576,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   @spec delete_environment(map(), String.t(), delete_environment_request(), list()) ::
           {:ok, delete_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_environment_errors()}
   def delete_environment(%Client{} = client, environment_identifier, input, options \\ []) do
     url_path = "/environments/#{AWS.Util.encode_uri(environment_identifier)}"
     headers = []
@@ -1346,11 +1603,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   @spec delete_resource_policy(map(), String.t(), delete_resource_policy_request(), list()) ::
           {:ok, delete_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_resource_policy_errors()}
   def delete_resource_policy(%Client{} = client, identifier, input, options \\ []) do
     url_path = "/resourcepolicy/#{AWS.Util.encode_uri(identifier)}"
     headers = []
@@ -1377,12 +1630,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   @spec delete_route(map(), String.t(), String.t(), String.t(), delete_route_request(), list()) ::
           {:ok, delete_route_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_route_errors()}
   def delete_route(
         %Client{} = client,
         application_identifier,
@@ -1425,12 +1673,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
         ) ::
           {:ok, delete_service_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_service_errors()}
   def delete_service(
         %Client{} = client,
         application_identifier,
@@ -1466,11 +1709,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   @spec get_application(map(), String.t(), String.t(), list()) ::
           {:ok, get_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_application_errors()}
   def get_application(
         %Client{} = client,
         application_identifier,
@@ -1494,11 +1733,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   @spec get_environment(map(), String.t(), list()) ::
           {:ok, get_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_environment_errors()}
   def get_environment(%Client{} = client, environment_identifier, options \\ []) do
     url_path = "/environments/#{AWS.Util.encode_uri(environment_identifier)}"
     headers = []
@@ -1515,11 +1750,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   @spec get_resource_policy(map(), String.t(), list()) ::
           {:ok, get_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_resource_policy_errors()}
   def get_resource_policy(%Client{} = client, identifier, options \\ []) do
     url_path = "/resourcepolicy/#{AWS.Util.encode_uri(identifier)}"
     headers = []
@@ -1536,11 +1767,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   @spec get_route(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_route_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_route_errors()}
   def get_route(
         %Client{} = client,
         application_identifier,
@@ -1565,11 +1792,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   @spec get_service(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_service_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_service_errors()}
   def get_service(
         %Client{} = client,
         application_identifier,
@@ -1595,13 +1818,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   @spec list_applications(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_applications_errors()}
   def list_applications(
         %Client{} = client,
         environment_identifier,
@@ -1640,11 +1857,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   @spec list_environment_vpcs(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_environment_vpcs_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_environment_vpcs_errors()}
   def list_environment_vpcs(
         %Client{} = client,
         environment_identifier,
@@ -1683,11 +1896,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   @spec list_environments(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_environments_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_environments_errors()}
   def list_environments(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/environments"
     headers = []
@@ -1719,13 +1928,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   @spec list_routes(map(), String.t(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_routes_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_routes_errors()}
   def list_routes(
         %Client{} = client,
         application_identifier,
@@ -1766,13 +1969,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   @spec list_services(map(), String.t(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_services_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_services_errors()}
   def list_services(
         %Client{} = client,
         application_identifier,
@@ -1815,9 +2012,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -1841,12 +2036,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   @spec put_resource_policy(map(), put_resource_policy_request(), list()) ::
           {:ok, put_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, invalid_resource_policy_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, put_resource_policy_errors()}
   def put_resource_policy(%Client{} = client, input, options \\ []) do
     url_path = "/resourcepolicy"
     headers = []
@@ -1872,9 +2062,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -1906,9 +2094,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -1940,11 +2126,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   @spec update_route(map(), String.t(), String.t(), String.t(), update_route_request(), list()) ::
           {:ok, update_route_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_route_errors()}
   def update_route(
         %Client{} = client,
         application_identifier,

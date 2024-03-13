@@ -47,4767 +47,5637 @@ defmodule AWS.Redshift do
   @typedoc """
 
   ## Example:
-  endpoint_authorization_not_found_fault() :: %{
-    "message" => String.t()
-  }
+      
+      endpoint_authorization_not_found_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type endpoint_authorization_not_found_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_scheduled_actions_message() :: %{
-    optional("Active") => boolean(),
-    optional("EndTime") => non_neg_integer(),
-    optional("Filters") => list(scheduled_action_filter()()),
-    optional("Marker") => String.t(),
-    optional("MaxRecords") => integer(),
-    optional("ScheduledActionName") => String.t(),
-    optional("StartTime") => non_neg_integer(),
-    optional("TargetActionType") => list(any())
-  }
+      
+      describe_scheduled_actions_message() :: %{
+        optional("Active") => boolean(),
+        optional("EndTime") => non_neg_integer(),
+        optional("Filters") => list(scheduled_action_filter()()),
+        optional("Marker") => String.t(),
+        optional("MaxRecords") => integer(),
+        optional("ScheduledActionName") => String.t(),
+        optional("StartTime") => non_neg_integer(),
+        optional("TargetActionType") => list(any())
+      }
+      
   """
   @type describe_scheduled_actions_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_cluster_result() :: %{
-    "Cluster" => cluster()
-  }
+      
+      delete_cluster_result() :: %{
+        "Cluster" => cluster()
+      }
+      
   """
   @type delete_cluster_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  event_subscriptions_message() :: %{
-    "EventSubscriptionsList" => list(event_subscription()()),
-    "Marker" => String.t()
-  }
+      
+      event_subscriptions_message() :: %{
+        "EventSubscriptionsList" => list(event_subscription()()),
+        "Marker" => String.t()
+      }
+      
   """
   @type event_subscriptions_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_cluster_subnet_group_state_fault() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_cluster_subnet_group_state_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_cluster_subnet_group_state_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_not_found_fault() :: %{
-    "message" => String.t()
-  }
+      
+      resource_not_found_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type resource_not_found_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  table_restore_status() :: %{
-    "ClusterIdentifier" => String.t(),
-    "Message" => String.t(),
-    "NewTableName" => String.t(),
-    "ProgressInMegaBytes" => float(),
-    "RequestTime" => non_neg_integer(),
-    "SnapshotIdentifier" => String.t(),
-    "SourceDatabaseName" => String.t(),
-    "SourceSchemaName" => String.t(),
-    "SourceTableName" => String.t(),
-    "Status" => list(any()),
-    "TableRestoreRequestId" => String.t(),
-    "TargetDatabaseName" => String.t(),
-    "TargetSchemaName" => String.t(),
-    "TotalDataInMegaBytes" => float()
-  }
+      
+      table_restore_status() :: %{
+        "ClusterIdentifier" => String.t(),
+        "Message" => String.t(),
+        "NewTableName" => String.t(),
+        "ProgressInMegaBytes" => float(),
+        "RequestTime" => non_neg_integer(),
+        "SnapshotIdentifier" => String.t(),
+        "SourceDatabaseName" => String.t(),
+        "SourceSchemaName" => String.t(),
+        "SourceTableName" => String.t(),
+        "Status" => list(any()),
+        "TableRestoreRequestId" => String.t(),
+        "TargetDatabaseName" => String.t(),
+        "TargetSchemaName" => String.t(),
+        "TotalDataInMegaBytes" => float()
+      }
+      
   """
   @type table_restore_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_data_shares_for_producer_message() :: %{
-    optional("Marker") => String.t(),
-    optional("MaxRecords") => integer(),
-    optional("ProducerArn") => String.t(),
-    optional("Status") => list(any())
-  }
+      
+      describe_data_shares_for_producer_message() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxRecords") => integer(),
+        optional("ProducerArn") => String.t(),
+        optional("Status") => list(any())
+      }
+      
   """
   @type describe_data_shares_for_producer_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  recommended_action() :: %{
-    "Command" => String.t(),
-    "Database" => String.t(),
-    "Text" => String.t(),
-    "Type" => list(any())
-  }
+      
+      recommended_action() :: %{
+        "Command" => String.t(),
+        "Database" => String.t(),
+        "Text" => String.t(),
+        "Type" => list(any())
+      }
+      
   """
   @type recommended_action() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cluster_on_latest_revision_fault() :: %{
-    "message" => String.t()
-  }
+      
+      cluster_on_latest_revision_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type cluster_on_latest_revision_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  schedule_definition_type_unsupported_fault() :: %{
-    "message" => String.t()
-  }
+      
+      schedule_definition_type_unsupported_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type schedule_definition_type_unsupported_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_snapshot_copy_grant_state_fault() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_snapshot_copy_grant_state_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_snapshot_copy_grant_state_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  endpoint_access_list() :: %{
-    optional("EndpointAccessList") => list(endpoint_access()()),
-    optional("Marker") => String.t()
-  }
+      
+      endpoint_access_list() :: %{
+        optional("EndpointAccessList") => list(endpoint_access()()),
+        optional("Marker") => String.t()
+      }
+      
   """
   @type endpoint_access_list() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  subnet_already_in_use() :: %{
-    "message" => String.t()
-  }
+      
+      subnet_already_in_use() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type subnet_already_in_use() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  modify_cluster_db_revision_message() :: %{
-    required("ClusterIdentifier") => String.t(),
-    required("RevisionTarget") => String.t()
-  }
+      
+      modify_cluster_db_revision_message() :: %{
+        required("ClusterIdentifier") => String.t(),
+        required("RevisionTarget") => String.t()
+      }
+      
   """
   @type modify_cluster_db_revision_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cluster_associated_to_schedule() :: %{
-    "ClusterIdentifier" => String.t(),
-    "ScheduleAssociationState" => list(any())
-  }
+      
+      cluster_associated_to_schedule() :: %{
+        "ClusterIdentifier" => String.t(),
+        "ScheduleAssociationState" => list(any())
+      }
+      
   """
   @type cluster_associated_to_schedule() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  reserved_node_configuration_option() :: %{
-    "SourceReservedNode" => reserved_node(),
-    "TargetReservedNodeCount" => integer(),
-    "TargetReservedNodeOffering" => reserved_node_offering()
-  }
+      
+      reserved_node_configuration_option() :: %{
+        "SourceReservedNode" => reserved_node(),
+        "TargetReservedNodeCount" => integer(),
+        "TargetReservedNodeOffering" => reserved_node_offering()
+      }
+      
   """
   @type reserved_node_configuration_option() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_recommendations_result() :: %{
-    "Marker" => String.t(),
-    "Recommendations" => list(recommendation()())
-  }
+      
+      list_recommendations_result() :: %{
+        "Marker" => String.t(),
+        "Recommendations" => list(recommendation()())
+      }
+      
   """
   @type list_recommendations_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  event_categories_map() :: %{
-    "Events" => list(event_info_map()()),
-    "SourceType" => String.t()
-  }
+      
+      event_categories_map() :: %{
+        "Events" => list(event_info_map()()),
+        "SourceType" => String.t()
+      }
+      
   """
   @type event_categories_map() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_snapshot_schedules_message() :: %{
-    optional("ClusterIdentifier") => String.t(),
-    optional("Marker") => String.t(),
-    optional("MaxRecords") => integer(),
-    optional("ScheduleIdentifier") => String.t(),
-    optional("TagKeys") => list(String.t()()),
-    optional("TagValues") => list(String.t()())
-  }
+      
+      describe_snapshot_schedules_message() :: %{
+        optional("ClusterIdentifier") => String.t(),
+        optional("Marker") => String.t(),
+        optional("MaxRecords") => integer(),
+        optional("ScheduleIdentifier") => String.t(),
+        optional("TagKeys") => list(String.t()()),
+        optional("TagValues") => list(String.t()())
+      }
+      
   """
   @type describe_snapshot_schedules_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  authorize_data_share_message() :: %{
-    optional("AllowWrites") => boolean(),
-    required("ConsumerIdentifier") => String.t(),
-    required("DataShareArn") => String.t()
-  }
+      
+      authorize_data_share_message() :: %{
+        optional("AllowWrites") => boolean(),
+        required("ConsumerIdentifier") => String.t(),
+        required("DataShareArn") => String.t()
+      }
+      
   """
   @type authorize_data_share_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_resize_message() :: %{
-    required("ClusterIdentifier") => String.t()
-  }
+      
+      describe_resize_message() :: %{
+        required("ClusterIdentifier") => String.t()
+      }
+      
   """
   @type describe_resize_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  snapshot_schedule_already_exists_fault() :: %{
-    "message" => String.t()
-  }
+      
+      snapshot_schedule_already_exists_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type snapshot_schedule_already_exists_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disable_snapshot_copy_result() :: %{
-    "Cluster" => cluster()
-  }
+      
+      disable_snapshot_copy_result() :: %{
+        "Cluster" => cluster()
+      }
+      
   """
   @type disable_snapshot_copy_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_cluster_parameter_groups_message() :: %{
-    optional("Marker") => String.t(),
-    optional("MaxRecords") => integer(),
-    optional("ParameterGroupName") => String.t(),
-    optional("TagKeys") => list(String.t()()),
-    optional("TagValues") => list(String.t()())
-  }
+      
+      describe_cluster_parameter_groups_message() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxRecords") => integer(),
+        optional("ParameterGroupName") => String.t(),
+        optional("TagKeys") => list(String.t()()),
+        optional("TagValues") => list(String.t()())
+      }
+      
   """
   @type describe_cluster_parameter_groups_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  modify_cluster_snapshot_result() :: %{
-    "Snapshot" => snapshot()
-  }
+      
+      modify_cluster_snapshot_result() :: %{
+        "Snapshot" => snapshot()
+      }
+      
   """
   @type modify_cluster_snapshot_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_cluster_snapshot_message() :: %{
-    optional("ManualSnapshotRetentionPeriod") => integer(),
-    optional("Tags") => list(tag()()),
-    required("ClusterIdentifier") => String.t(),
-    required("SnapshotIdentifier") => String.t()
-  }
+      
+      create_cluster_snapshot_message() :: %{
+        optional("ManualSnapshotRetentionPeriod") => integer(),
+        optional("Tags") => list(tag()()),
+        required("ClusterIdentifier") => String.t(),
+        required("SnapshotIdentifier") => String.t()
+      }
+      
   """
   @type create_cluster_snapshot_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  subscription_severity_not_found_fault() :: %{
-    "message" => String.t()
-  }
+      
+      subscription_severity_not_found_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type subscription_severity_not_found_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_reserved_node_exchange_offerings_output_message() :: %{
-    "Marker" => String.t(),
-    "ReservedNodeOfferings" => list(reserved_node_offering()())
-  }
+      
+      get_reserved_node_exchange_offerings_output_message() :: %{
+        "Marker" => String.t(),
+        "ReservedNodeOfferings" => list(reserved_node_offering()())
+      }
+      
   """
   @type get_reserved_node_exchange_offerings_output_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_snapshot_copy_grant_message() :: %{
-    required("SnapshotCopyGrantName") => String.t()
-  }
+      
+      delete_snapshot_copy_grant_message() :: %{
+        required("SnapshotCopyGrantName") => String.t()
+      }
+      
   """
   @type delete_snapshot_copy_grant_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  modify_cluster_maintenance_result() :: %{
-    "Cluster" => cluster()
-  }
+      
+      modify_cluster_maintenance_result() :: %{
+        "Cluster" => cluster()
+      }
+      
   """
   @type modify_cluster_maintenance_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  inbound_integration() :: %{
-    "CreateTime" => non_neg_integer(),
-    "Errors" => list(integration_error()()),
-    "IntegrationArn" => String.t(),
-    "SourceArn" => String.t(),
-    "Status" => list(any()),
-    "TargetArn" => String.t()
-  }
+      
+      inbound_integration() :: %{
+        "CreateTime" => non_neg_integer(),
+        "Errors" => list(integration_error()()),
+        "IntegrationArn" => String.t(),
+        "SourceArn" => String.t(),
+        "Status" => list(any()),
+        "TargetArn" => String.t()
+      }
+      
   """
   @type inbound_integration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  availability_zone() :: %{
-    "Name" => String.t(),
-    "SupportedPlatforms" => list(supported_platform()())
-  }
+      
+      availability_zone() :: %{
+        "Name" => String.t(),
+        "SupportedPlatforms" => list(supported_platform()())
+      }
+      
   """
   @type availability_zone() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_policy_fault() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_policy_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_policy_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  usage_limit_not_found_fault() :: %{
-    "message" => String.t()
-  }
+      
+      usage_limit_not_found_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type usage_limit_not_found_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cluster_security_group_quota_exceeded_fault() :: %{
-    "message" => String.t()
-  }
+      
+      cluster_security_group_quota_exceeded_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type cluster_security_group_quota_exceeded_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cluster_subnet_group_not_found_fault() :: %{
-    "message" => String.t()
-  }
+      
+      cluster_subnet_group_not_found_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type cluster_subnet_group_not_found_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_cluster_parameter_group_message() :: %{
-    required("ParameterGroupName") => String.t()
-  }
+      
+      delete_cluster_parameter_group_message() :: %{
+        required("ParameterGroupName") => String.t()
+      }
+      
   """
   @type delete_cluster_parameter_group_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_cluster_security_groups_message() :: %{
-    optional("ClusterSecurityGroupName") => String.t(),
-    optional("Marker") => String.t(),
-    optional("MaxRecords") => integer(),
-    optional("TagKeys") => list(String.t()()),
-    optional("TagValues") => list(String.t()())
-  }
+      
+      describe_cluster_security_groups_message() :: %{
+        optional("ClusterSecurityGroupName") => String.t(),
+        optional("Marker") => String.t(),
+        optional("MaxRecords") => integer(),
+        optional("TagKeys") => list(String.t()()),
+        optional("TagValues") => list(String.t()())
+      }
+      
   """
   @type describe_cluster_security_groups_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_snapshot_copy_grants_message() :: %{
-    optional("Marker") => String.t(),
-    optional("MaxRecords") => integer(),
-    optional("SnapshotCopyGrantName") => String.t(),
-    optional("TagKeys") => list(String.t()()),
-    optional("TagValues") => list(String.t()())
-  }
+      
+      describe_snapshot_copy_grants_message() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxRecords") => integer(),
+        optional("SnapshotCopyGrantName") => String.t(),
+        optional("TagKeys") => list(String.t()()),
+        optional("TagValues") => list(String.t()())
+      }
+      
   """
   @type describe_snapshot_copy_grants_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_snapshot_schedule_message() :: %{
-    optional("DryRun") => boolean(),
-    optional("NextInvocations") => integer(),
-    optional("ScheduleDefinitions") => list(String.t()()),
-    optional("ScheduleDescription") => String.t(),
-    optional("ScheduleIdentifier") => String.t(),
-    optional("Tags") => list(tag()())
-  }
+      
+      create_snapshot_schedule_message() :: %{
+        optional("DryRun") => boolean(),
+        optional("NextInvocations") => integer(),
+        optional("ScheduleDefinitions") => list(String.t()()),
+        optional("ScheduleDescription") => String.t(),
+        optional("ScheduleIdentifier") => String.t(),
+        optional("Tags") => list(tag()())
+      }
+      
   """
   @type create_snapshot_schedule_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_authentication_profile_result() :: %{
-    "AuthenticationProfileContent" => String.t(),
-    "AuthenticationProfileName" => String.t()
-  }
+      
+      create_authentication_profile_result() :: %{
+        "AuthenticationProfileContent" => String.t(),
+        "AuthenticationProfileName" => String.t()
+      }
+      
   """
   @type create_authentication_profile_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  modify_authentication_profile_result() :: %{
-    "AuthenticationProfileContent" => String.t(),
-    "AuthenticationProfileName" => String.t()
-  }
+      
+      modify_authentication_profile_result() :: %{
+        "AuthenticationProfileContent" => String.t(),
+        "AuthenticationProfileName" => String.t()
+      }
+      
   """
   @type modify_authentication_profile_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  attribute_value_target() :: %{
-    "AttributeValue" => String.t()
-  }
+      
+      attribute_value_target() :: %{
+        "AttributeValue" => String.t()
+      }
+      
   """
   @type attribute_value_target() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_cluster_db_revisions_message() :: %{
-    optional("ClusterIdentifier") => String.t(),
-    optional("Marker") => String.t(),
-    optional("MaxRecords") => integer()
-  }
+      
+      describe_cluster_db_revisions_message() :: %{
+        optional("ClusterIdentifier") => String.t(),
+        optional("Marker") => String.t(),
+        optional("MaxRecords") => integer()
+      }
+      
   """
   @type describe_cluster_db_revisions_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_tags_message() :: %{
-    required("ResourceName") => String.t(),
-    required("Tags") => list(tag()())
-  }
+      
+      create_tags_message() :: %{
+        required("ResourceName") => String.t(),
+        required("Tags") => list(tag()())
+      }
+      
   """
   @type create_tags_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  modify_event_subscription_message() :: %{
-    optional("Enabled") => boolean(),
-    optional("EventCategories") => list(String.t()()),
-    optional("Severity") => String.t(),
-    optional("SnsTopicArn") => String.t(),
-    optional("SourceIds") => list(String.t()()),
-    optional("SourceType") => String.t(),
-    required("SubscriptionName") => String.t()
-  }
+      
+      modify_event_subscription_message() :: %{
+        optional("Enabled") => boolean(),
+        optional("EventCategories") => list(String.t()()),
+        optional("Severity") => String.t(),
+        optional("SnsTopicArn") => String.t(),
+        optional("SourceIds") => list(String.t()()),
+        optional("SourceType") => String.t(),
+        required("SubscriptionName") => String.t()
+      }
+      
   """
   @type modify_event_subscription_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_default_cluster_parameters_message() :: %{
-    optional("Marker") => String.t(),
-    optional("MaxRecords") => integer(),
-    required("ParameterGroupFamily") => String.t()
-  }
+      
+      describe_default_cluster_parameters_message() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxRecords") => integer(),
+        required("ParameterGroupFamily") => String.t()
+      }
+      
   """
   @type describe_default_cluster_parameters_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  hsm_configuration() :: %{
-    "Description" => String.t(),
-    "HsmConfigurationIdentifier" => String.t(),
-    "HsmIpAddress" => String.t(),
-    "HsmPartitionName" => String.t(),
-    "Tags" => list(tag()())
-  }
+      
+      hsm_configuration() :: %{
+        "Description" => String.t(),
+        "HsmConfigurationIdentifier" => String.t(),
+        "HsmIpAddress" => String.t(),
+        "HsmPartitionName" => String.t(),
+        "Tags" => list(tag()())
+      }
+      
   """
   @type hsm_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  pause_cluster_message() :: %{
-    "ClusterIdentifier" => String.t()
-  }
+      
+      pause_cluster_message() :: %{
+        "ClusterIdentifier" => String.t()
+      }
+      
   """
   @type pause_cluster_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  scheduled_action_filter() :: %{
-    "Name" => list(any()),
-    "Values" => list(String.t()())
-  }
+      
+      scheduled_action_filter() :: %{
+        "Name" => list(any()),
+        "Values" => list(String.t()())
+      }
+      
   """
   @type scheduled_action_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_s3_bucket_name_fault() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_s3_bucket_name_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_s3_bucket_name_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cluster_subnet_group_quota_exceeded_fault() :: %{
-    "message" => String.t()
-  }
+      
+      cluster_subnet_group_quota_exceeded_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type cluster_subnet_group_quota_exceeded_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  modify_redshift_idc_application_message() :: %{
-    optional("AuthorizedTokenIssuerList") => list(authorized_token_issuer()()),
-    optional("IamRoleArn") => String.t(),
-    optional("IdcDisplayName") => String.t(),
-    optional("IdentityNamespace") => String.t(),
-    optional("ServiceIntegrations") => list(list()()),
-    required("RedshiftIdcApplicationArn") => String.t()
-  }
+      
+      modify_redshift_idc_application_message() :: %{
+        optional("AuthorizedTokenIssuerList") => list(authorized_token_issuer()()),
+        optional("IamRoleArn") => String.t(),
+        optional("IdcDisplayName") => String.t(),
+        optional("IdentityNamespace") => String.t(),
+        optional("ServiceIntegrations") => list(list()()),
+        required("RedshiftIdcApplicationArn") => String.t()
+      }
+      
   """
   @type modify_redshift_idc_application_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  purchase_reserved_node_offering_result() :: %{
-    "ReservedNode" => reserved_node()
-  }
+      
+      purchase_reserved_node_offering_result() :: %{
+        "ReservedNode" => reserved_node()
+      }
+      
   """
   @type purchase_reserved_node_offering_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_resource_policy_result() :: %{
-    "ResourcePolicy" => resource_policy()
-  }
+      
+      put_resource_policy_result() :: %{
+        "ResourcePolicy" => resource_policy()
+      }
+      
   """
   @type put_resource_policy_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  reject_data_share_message() :: %{
-    required("DataShareArn") => String.t()
-  }
+      
+      reject_data_share_message() :: %{
+        required("DataShareArn") => String.t()
+      }
+      
   """
   @type reject_data_share_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  snapshot_copy_grant_not_found_fault() :: %{
-    "message" => String.t()
-  }
+      
+      snapshot_copy_grant_not_found_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type snapshot_copy_grant_not_found_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  reserved_node_already_exists_fault() :: %{
-    "message" => String.t()
-  }
+      
+      reserved_node_already_exists_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type reserved_node_already_exists_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_usage_limit_message() :: %{
-    required("UsageLimitId") => String.t()
-  }
+      
+      delete_usage_limit_message() :: %{
+        required("UsageLimitId") => String.t()
+      }
+      
   """
   @type delete_usage_limit_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cluster_subnet_group() :: %{
-    "ClusterSubnetGroupName" => String.t(),
-    "Description" => String.t(),
-    "SubnetGroupStatus" => String.t(),
-    "Subnets" => list(subnet()()),
-    "SupportedClusterIpAddressTypes" => list(String.t()()),
-    "Tags" => list(tag()()),
-    "VpcId" => String.t()
-  }
+      
+      cluster_subnet_group() :: %{
+        "ClusterSubnetGroupName" => String.t(),
+        "Description" => String.t(),
+        "SubnetGroupStatus" => String.t(),
+        "Subnets" => list(subnet()()),
+        "SupportedClusterIpAddressTypes" => list(String.t()()),
+        "Tags" => list(tag()()),
+        "VpcId" => String.t()
+      }
+      
   """
   @type cluster_subnet_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_snapshot_copy_grant_result() :: %{
-    "SnapshotCopyGrant" => snapshot_copy_grant()
-  }
+      
+      create_snapshot_copy_grant_result() :: %{
+        "SnapshotCopyGrant" => snapshot_copy_grant()
+      }
+      
   """
   @type create_snapshot_copy_grant_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  event_subscription() :: %{
-    "CustSubscriptionId" => String.t(),
-    "CustomerAwsId" => String.t(),
-    "Enabled" => boolean(),
-    "EventCategoriesList" => list(String.t()()),
-    "Severity" => String.t(),
-    "SnsTopicArn" => String.t(),
-    "SourceIdsList" => list(String.t()()),
-    "SourceType" => String.t(),
-    "Status" => String.t(),
-    "SubscriptionCreationTime" => non_neg_integer(),
-    "Tags" => list(tag()())
-  }
+      
+      event_subscription() :: %{
+        "CustSubscriptionId" => String.t(),
+        "CustomerAwsId" => String.t(),
+        "Enabled" => boolean(),
+        "EventCategoriesList" => list(String.t()()),
+        "Severity" => String.t(),
+        "SnsTopicArn" => String.t(),
+        "SourceIdsList" => list(String.t()()),
+        "SourceType" => String.t(),
+        "Status" => String.t(),
+        "SubscriptionCreationTime" => non_neg_integer(),
+        "Tags" => list(tag()())
+      }
+      
   """
   @type event_subscription() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ec2_security_group() :: %{
-    "EC2SecurityGroupName" => String.t(),
-    "EC2SecurityGroupOwnerId" => String.t(),
-    "Status" => String.t(),
-    "Tags" => list(tag()())
-  }
+      
+      ec2_security_group() :: %{
+        "EC2SecurityGroupName" => String.t(),
+        "EC2SecurityGroupOwnerId" => String.t(),
+        "Status" => String.t(),
+        "Tags" => list(tag()())
+      }
+      
   """
   @type ec2_security_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  authorize_snapshot_access_message() :: %{
-    optional("SnapshotArn") => String.t(),
-    optional("SnapshotClusterIdentifier") => String.t(),
-    optional("SnapshotIdentifier") => String.t(),
-    required("AccountWithRestoreAccess") => String.t()
-  }
+      
+      authorize_snapshot_access_message() :: %{
+        optional("SnapshotArn") => String.t(),
+        optional("SnapshotClusterIdentifier") => String.t(),
+        optional("SnapshotIdentifier") => String.t(),
+        required("AccountWithRestoreAccess") => String.t()
+      }
+      
   """
   @type authorize_snapshot_access_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resize_not_found_fault() :: %{
-    "message" => String.t()
-  }
+      
+      resize_not_found_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type resize_not_found_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  recurring_charge() :: %{
-    "RecurringChargeAmount" => float(),
-    "RecurringChargeFrequency" => String.t()
-  }
+      
+      recurring_charge() :: %{
+        "RecurringChargeAmount" => float(),
+        "RecurringChargeFrequency" => String.t()
+      }
+      
   """
   @type recurring_charge() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  limit_exceeded_fault() :: %{
-    "message" => String.t()
-  }
+      
+      limit_exceeded_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type limit_exceeded_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_restore_fault() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_restore_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_restore_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  modify_scheduled_action_message() :: %{
-    optional("Enable") => boolean(),
-    optional("EndTime") => non_neg_integer(),
-    optional("IamRole") => String.t(),
-    optional("Schedule") => String.t(),
-    optional("ScheduledActionDescription") => String.t(),
-    optional("StartTime") => non_neg_integer(),
-    optional("TargetAction") => scheduled_action_type(),
-    required("ScheduledActionName") => String.t()
-  }
+      
+      modify_scheduled_action_message() :: %{
+        optional("Enable") => boolean(),
+        optional("EndTime") => non_neg_integer(),
+        optional("IamRole") => String.t(),
+        optional("Schedule") => String.t(),
+        optional("ScheduledActionDescription") => String.t(),
+        optional("StartTime") => non_neg_integer(),
+        optional("TargetAction") => scheduled_action_type(),
+        required("ScheduledActionName") => String.t()
+      }
+      
   """
   @type modify_scheduled_action_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  modify_endpoint_access_message() :: %{
-    optional("VpcSecurityGroupIds") => list(String.t()()),
-    required("EndpointName") => String.t()
-  }
+      
+      modify_endpoint_access_message() :: %{
+        optional("VpcSecurityGroupIds") => list(String.t()()),
+        required("EndpointName") => String.t()
+      }
+      
   """
   @type modify_endpoint_access_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_modify_cluster_snapshots_limit_exceeded_fault() :: %{
-    "message" => String.t()
-  }
+      
+      batch_modify_cluster_snapshots_limit_exceeded_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type batch_modify_cluster_snapshots_limit_exceeded_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  authorize_cluster_security_group_ingress_message() :: %{
-    optional("CIDRIP") => String.t(),
-    optional("EC2SecurityGroupName") => String.t(),
-    optional("EC2SecurityGroupOwnerId") => String.t(),
-    required("ClusterSecurityGroupName") => String.t()
-  }
+      
+      authorize_cluster_security_group_ingress_message() :: %{
+        optional("CIDRIP") => String.t(),
+        optional("EC2SecurityGroupName") => String.t(),
+        optional("EC2SecurityGroupOwnerId") => String.t(),
+        required("ClusterSecurityGroupName") => String.t()
+      }
+      
   """
   @type authorize_cluster_security_group_ingress_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cluster_not_found_fault() :: %{
-    "message" => String.t()
-  }
+      
+      cluster_not_found_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type cluster_not_found_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  network_interface() :: %{
-    "AvailabilityZone" => String.t(),
-    "Ipv6Address" => String.t(),
-    "NetworkInterfaceId" => String.t(),
-    "PrivateIpAddress" => String.t(),
-    "SubnetId" => String.t()
-  }
+      
+      network_interface() :: %{
+        "AvailabilityZone" => String.t(),
+        "Ipv6Address" => String.t(),
+        "NetworkInterfaceId" => String.t(),
+        "PrivateIpAddress" => String.t(),
+        "SubnetId" => String.t()
+      }
+      
   """
   @type network_interface() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  modify_snapshot_copy_retention_period_message() :: %{
-    optional("Manual") => boolean(),
-    required("ClusterIdentifier") => String.t(),
-    required("RetentionPeriod") => integer()
-  }
+      
+      modify_snapshot_copy_retention_period_message() :: %{
+        optional("Manual") => boolean(),
+        required("ClusterIdentifier") => String.t(),
+        required("RetentionPeriod") => integer()
+      }
+      
   """
   @type modify_snapshot_copy_retention_period_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  integration_error() :: %{
-    "ErrorCode" => String.t(),
-    "ErrorMessage" => String.t()
-  }
+      
+      integration_error() :: %{
+        "ErrorCode" => String.t(),
+        "ErrorMessage" => String.t()
+      }
+      
   """
   @type integration_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_tags_message() :: %{
-    required("ResourceName") => String.t(),
-    required("TagKeys") => list(String.t()())
-  }
+      
+      delete_tags_message() :: %{
+        required("ResourceName") => String.t(),
+        required("TagKeys") => list(String.t()())
+      }
+      
   """
   @type delete_tags_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  subnet() :: %{
-    "SubnetAvailabilityZone" => availability_zone(),
-    "SubnetIdentifier" => String.t(),
-    "SubnetStatus" => String.t()
-  }
+      
+      subnet() :: %{
+        "SubnetAvailabilityZone" => availability_zone(),
+        "SubnetIdentifier" => String.t(),
+        "SubnetStatus" => String.t()
+      }
+      
   """
   @type subnet() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  redshift_idc_application_already_exists_fault() :: %{
-    "message" => String.t()
-  }
+      
+      redshift_idc_application_already_exists_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type redshift_idc_application_already_exists_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_subnet() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_subnet() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_subnet() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  failover_primary_compute_result() :: %{
-    "Cluster" => cluster()
-  }
+      
+      failover_primary_compute_result() :: %{
+        "Cluster" => cluster()
+      }
+      
   """
   @type failover_primary_compute_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  modify_cluster_iam_roles_result() :: %{
-    "Cluster" => cluster()
-  }
+      
+      modify_cluster_iam_roles_result() :: %{
+        "Cluster" => cluster()
+      }
+      
   """
   @type modify_cluster_iam_roles_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  modify_cluster_iam_roles_message() :: %{
-    optional("AddIamRoles") => list(String.t()()),
-    optional("DefaultIamRoleArn") => String.t(),
-    optional("RemoveIamRoles") => list(String.t()()),
-    required("ClusterIdentifier") => String.t()
-  }
+      
+      modify_cluster_iam_roles_message() :: %{
+        optional("AddIamRoles") => list(String.t()()),
+        optional("DefaultIamRoleArn") => String.t(),
+        optional("RemoveIamRoles") => list(String.t()()),
+        required("ClusterIdentifier") => String.t()
+      }
+      
   """
   @type modify_cluster_iam_roles_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_reserved_nodes_message() :: %{
-    optional("Marker") => String.t(),
-    optional("MaxRecords") => integer(),
-    optional("ReservedNodeId") => String.t()
-  }
+      
+      describe_reserved_nodes_message() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxRecords") => integer(),
+        optional("ReservedNodeId") => String.t()
+      }
+      
   """
   @type describe_reserved_nodes_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_data_share_fault() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_data_share_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_data_share_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  node_configuration_option() :: %{
-    "EstimatedDiskUtilizationPercent" => float(),
-    "Mode" => list(any()),
-    "NodeType" => String.t(),
-    "NumberOfNodes" => integer()
-  }
+      
+      node_configuration_option() :: %{
+        "EstimatedDiskUtilizationPercent" => float(),
+        "Mode" => list(any()),
+        "NodeType" => String.t(),
+        "NumberOfNodes" => integer()
+      }
+      
   """
   @type node_configuration_option() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_inbound_integrations_message() :: %{
-    optional("IntegrationArn") => String.t(),
-    optional("Marker") => String.t(),
-    optional("MaxRecords") => integer(),
-    optional("TargetArn") => String.t()
-  }
+      
+      describe_inbound_integrations_message() :: %{
+        optional("IntegrationArn") => String.t(),
+        optional("Marker") => String.t(),
+        optional("MaxRecords") => integer(),
+        optional("TargetArn") => String.t()
+      }
+      
   """
   @type describe_inbound_integrations_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  snapshot_copy_already_disabled_fault() :: %{
-    "message" => String.t()
-  }
+      
+      snapshot_copy_already_disabled_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type snapshot_copy_already_disabled_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  dependent_service_request_throttling_fault() :: %{
-    "message" => String.t()
-  }
+      
+      dependent_service_request_throttling_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type dependent_service_request_throttling_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  modify_cluster_snapshot_message() :: %{
-    optional("Force") => boolean(),
-    optional("ManualSnapshotRetentionPeriod") => integer(),
-    required("SnapshotIdentifier") => String.t()
-  }
+      
+      modify_cluster_snapshot_message() :: %{
+        optional("Force") => boolean(),
+        optional("ManualSnapshotRetentionPeriod") => integer(),
+        required("SnapshotIdentifier") => String.t()
+      }
+      
   """
   @type modify_cluster_snapshot_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_cluster_parameter_group_message() :: %{
-    optional("Tags") => list(tag()()),
-    required("Description") => String.t(),
-    required("ParameterGroupFamily") => String.t(),
-    required("ParameterGroupName") => String.t()
-  }
+      
+      create_cluster_parameter_group_message() :: %{
+        optional("Tags") => list(tag()()),
+        required("Description") => String.t(),
+        required("ParameterGroupFamily") => String.t(),
+        required("ParameterGroupName") => String.t()
+      }
+      
   """
   @type create_cluster_parameter_group_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  unsupported_operation_fault() :: %{
-    "message" => String.t()
-  }
+      
+      unsupported_operation_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type unsupported_operation_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cluster_parameter_group_name_message() :: %{
-    "ParameterGroupName" => String.t(),
-    "ParameterGroupStatus" => String.t()
-  }
+      
+      cluster_parameter_group_name_message() :: %{
+        "ParameterGroupName" => String.t(),
+        "ParameterGroupStatus" => String.t()
+      }
+      
   """
   @type cluster_parameter_group_name_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_resource_policy_message() :: %{
-    required("ResourceArn") => String.t()
-  }
+      
+      get_resource_policy_message() :: %{
+        required("ResourceArn") => String.t()
+      }
+      
   """
   @type get_resource_policy_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_data_shares_for_consumer_result() :: %{
-    "DataShares" => list(data_share()()),
-    "Marker" => String.t()
-  }
+      
+      describe_data_shares_for_consumer_result() :: %{
+        "DataShares" => list(data_share()()),
+        "Marker" => String.t()
+      }
+      
   """
   @type describe_data_shares_for_consumer_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  authentication_profile() :: %{
-    "AuthenticationProfileContent" => String.t(),
-    "AuthenticationProfileName" => String.t()
-  }
+      
+      authentication_profile() :: %{
+        "AuthenticationProfileContent" => String.t(),
+        "AuthenticationProfileName" => String.t()
+      }
+      
   """
   @type authentication_profile() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cluster_quota_exceeded_fault() :: %{
-    "message" => String.t()
-  }
+      
+      cluster_quota_exceeded_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type cluster_quota_exceeded_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  subscription_already_exist_fault() :: %{
-    "message" => String.t()
-  }
+      
+      subscription_already_exist_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type subscription_already_exist_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cluster_snapshot_quota_exceeded_fault() :: %{
-    "message" => String.t()
-  }
+      
+      cluster_snapshot_quota_exceeded_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type cluster_snapshot_quota_exceeded_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  hsm_configuration_not_found_fault() :: %{
-    "message" => String.t()
-  }
+      
+      hsm_configuration_not_found_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type hsm_configuration_not_found_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_data_shares_result() :: %{
-    "DataShares" => list(data_share()()),
-    "Marker" => String.t()
-  }
+      
+      describe_data_shares_result() :: %{
+        "DataShares" => list(data_share()()),
+        "Marker" => String.t()
+      }
+      
   """
   @type describe_data_shares_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  pause_cluster_result() :: %{
-    "Cluster" => cluster()
-  }
+      
+      pause_cluster_result() :: %{
+        "Cluster" => cluster()
+      }
+      
   """
   @type pause_cluster_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  endpoint_authorization() :: %{
-    "AllowedAllVPCs" => boolean(),
-    "AllowedVPCs" => list(String.t()()),
-    "AuthorizeTime" => non_neg_integer(),
-    "ClusterIdentifier" => String.t(),
-    "ClusterStatus" => String.t(),
-    "EndpointCount" => integer(),
-    "Grantee" => String.t(),
-    "Grantor" => String.t(),
-    "Status" => list(any())
-  }
+      
+      endpoint_authorization() :: %{
+        "AllowedAllVPCs" => boolean(),
+        "AllowedVPCs" => list(String.t()()),
+        "AuthorizeTime" => non_neg_integer(),
+        "ClusterIdentifier" => String.t(),
+        "ClusterStatus" => String.t(),
+        "EndpointCount" => integer(),
+        "Grantee" => String.t(),
+        "Grantor" => String.t(),
+        "Status" => list(any())
+      }
+      
   """
   @type endpoint_authorization() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_cluster_track_fault() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_cluster_track_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_cluster_track_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_cluster_parameter_group_result() :: %{
-    "ClusterParameterGroup" => cluster_parameter_group()
-  }
+      
+      create_cluster_parameter_group_result() :: %{
+        "ClusterParameterGroup" => cluster_parameter_group()
+      }
+      
   """
   @type create_cluster_parameter_group_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  reboot_cluster_message() :: %{
-    required("ClusterIdentifier") => String.t()
-  }
+      
+      reboot_cluster_message() :: %{
+        required("ClusterIdentifier") => String.t()
+      }
+      
   """
   @type reboot_cluster_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  hsm_client_certificate_quota_exceeded_fault() :: %{
-    "message" => String.t()
-  }
+      
+      hsm_client_certificate_quota_exceeded_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type hsm_client_certificate_quota_exceeded_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  data_transfer_progress() :: %{
-    "CurrentRateInMegaBytesPerSecond" => float(),
-    "DataTransferredInMegaBytes" => float(),
-    "ElapsedTimeInSeconds" => float(),
-    "EstimatedTimeToCompletionInSeconds" => float(),
-    "Status" => String.t(),
-    "TotalDataInMegaBytes" => float()
-  }
+      
+      data_transfer_progress() :: %{
+        "CurrentRateInMegaBytesPerSecond" => float(),
+        "DataTransferredInMegaBytes" => float(),
+        "ElapsedTimeInSeconds" => float(),
+        "EstimatedTimeToCompletionInSeconds" => float(),
+        "Status" => String.t(),
+        "TotalDataInMegaBytes" => float()
+      }
+      
   """
   @type data_transfer_progress() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  subscription_event_id_not_found_fault() :: %{
-    "message" => String.t()
-  }
+      
+      subscription_event_id_not_found_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type subscription_event_id_not_found_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  partner_integration_input_message() :: %{
-    required("AccountId") => String.t(),
-    required("ClusterIdentifier") => String.t(),
-    required("DatabaseName") => String.t(),
-    required("PartnerName") => String.t()
-  }
+      
+      partner_integration_input_message() :: %{
+        required("AccountId") => String.t(),
+        required("ClusterIdentifier") => String.t(),
+        required("DatabaseName") => String.t(),
+        required("PartnerName") => String.t()
+      }
+      
   """
   @type partner_integration_input_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_cluster_parameter_group_state_fault() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_cluster_parameter_group_state_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_cluster_parameter_group_state_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  certificate_association() :: %{
-    "ClusterIdentifier" => String.t(),
-    "CustomDomainName" => String.t()
-  }
+      
+      certificate_association() :: %{
+        "ClusterIdentifier" => String.t(),
+        "CustomDomainName" => String.t()
+      }
+      
   """
   @type certificate_association() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_cluster_security_group_message() :: %{
-    optional("Tags") => list(tag()()),
-    required("ClusterSecurityGroupName") => String.t(),
-    required("Description") => String.t()
-  }
+      
+      create_cluster_security_group_message() :: %{
+        optional("Tags") => list(tag()()),
+        required("ClusterSecurityGroupName") => String.t(),
+        required("Description") => String.t()
+      }
+      
   """
   @type create_cluster_security_group_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  snapshot_copy_grant_already_exists_fault() :: %{
-    "message" => String.t()
-  }
+      
+      snapshot_copy_grant_already_exists_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type snapshot_copy_grant_already_exists_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_hsm_configurations_message() :: %{
-    optional("HsmConfigurationIdentifier") => String.t(),
-    optional("Marker") => String.t(),
-    optional("MaxRecords") => integer(),
-    optional("TagKeys") => list(String.t()()),
-    optional("TagValues") => list(String.t()())
-  }
+      
+      describe_hsm_configurations_message() :: %{
+        optional("HsmConfigurationIdentifier") => String.t(),
+        optional("Marker") => String.t(),
+        optional("MaxRecords") => integer(),
+        optional("TagKeys") => list(String.t()()),
+        optional("TagValues") => list(String.t()())
+      }
+      
   """
   @type describe_hsm_configurations_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_namespace_fault() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_namespace_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_namespace_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_custom_domain_association_message() :: %{
-    required("ClusterIdentifier") => String.t(),
-    required("CustomDomainName") => String.t()
-  }
+      
+      delete_custom_domain_association_message() :: %{
+        required("ClusterIdentifier") => String.t(),
+        required("CustomDomainName") => String.t()
+      }
+      
   """
   @type delete_custom_domain_association_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  accept_reserved_node_exchange_input_message() :: %{
-    required("ReservedNodeId") => String.t(),
-    required("TargetReservedNodeOfferingId") => String.t()
-  }
+      
+      accept_reserved_node_exchange_input_message() :: %{
+        required("ReservedNodeId") => String.t(),
+        required("TargetReservedNodeOfferingId") => String.t()
+      }
+      
   """
   @type accept_reserved_node_exchange_input_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cluster_version() :: %{
-    "ClusterParameterGroupFamily" => String.t(),
-    "ClusterVersion" => String.t(),
-    "Description" => String.t()
-  }
+      
+      cluster_version() :: %{
+        "ClusterParameterGroupFamily" => String.t(),
+        "ClusterVersion" => String.t(),
+        "Description" => String.t()
+      }
+      
   """
   @type cluster_version() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_reserved_node_exchange_offerings_input_message() :: %{
-    optional("Marker") => String.t(),
-    optional("MaxRecords") => integer(),
-    required("ReservedNodeId") => String.t()
-  }
+      
+      get_reserved_node_exchange_offerings_input_message() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxRecords") => integer(),
+        required("ReservedNodeId") => String.t()
+      }
+      
   """
   @type get_reserved_node_exchange_offerings_input_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  scheduled_action_type_unsupported_fault() :: %{
-    "message" => String.t()
-  }
+      
+      scheduled_action_type_unsupported_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type scheduled_action_type_unsupported_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disable_snapshot_copy_message() :: %{
-    required("ClusterIdentifier") => String.t()
-  }
+      
+      disable_snapshot_copy_message() :: %{
+        required("ClusterIdentifier") => String.t()
+      }
+      
   """
   @type disable_snapshot_copy_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  endpoints_per_authorization_limit_exceeded_fault() :: %{
-    "message" => String.t()
-  }
+      
+      endpoints_per_authorization_limit_exceeded_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type endpoints_per_authorization_limit_exceeded_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  reserved_nodes_message() :: %{
-    "Marker" => String.t(),
-    "ReservedNodes" => list(reserved_node()())
-  }
+      
+      reserved_nodes_message() :: %{
+        "Marker" => String.t(),
+        "ReservedNodes" => list(reserved_node()())
+      }
+      
   """
   @type reserved_nodes_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cluster_credentials() :: %{
-    "DbPassword" => String.t(),
-    "DbUser" => String.t(),
-    "Expiration" => non_neg_integer()
-  }
+      
+      cluster_credentials() :: %{
+        "DbPassword" => String.t(),
+        "DbUser" => String.t(),
+        "Expiration" => non_neg_integer()
+      }
+      
   """
   @type cluster_credentials() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_cluster_snapshot_state_fault() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_cluster_snapshot_state_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_cluster_snapshot_state_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_cluster_subnet_groups_message() :: %{
-    optional("ClusterSubnetGroupName") => String.t(),
-    optional("Marker") => String.t(),
-    optional("MaxRecords") => integer(),
-    optional("TagKeys") => list(String.t()()),
-    optional("TagValues") => list(String.t()())
-  }
+      
+      describe_cluster_subnet_groups_message() :: %{
+        optional("ClusterSubnetGroupName") => String.t(),
+        optional("Marker") => String.t(),
+        optional("MaxRecords") => integer(),
+        optional("TagKeys") => list(String.t()()),
+        optional("TagValues") => list(String.t()())
+      }
+      
   """
   @type describe_cluster_subnet_groups_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  reserved_node_offering() :: %{
-    "CurrencyCode" => String.t(),
-    "Duration" => integer(),
-    "FixedPrice" => float(),
-    "NodeType" => String.t(),
-    "OfferingType" => String.t(),
-    "RecurringCharges" => list(recurring_charge()()),
-    "ReservedNodeOfferingId" => String.t(),
-    "ReservedNodeOfferingType" => list(any()),
-    "UsagePrice" => float()
-  }
+      
+      reserved_node_offering() :: %{
+        "CurrencyCode" => String.t(),
+        "Duration" => integer(),
+        "FixedPrice" => float(),
+        "NodeType" => String.t(),
+        "OfferingType" => String.t(),
+        "RecurringCharges" => list(recurring_charge()()),
+        "ReservedNodeOfferingId" => String.t(),
+        "ReservedNodeOfferingType" => list(any()),
+        "UsagePrice" => float()
+      }
+      
   """
   @type reserved_node_offering() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  reserved_node_already_migrated_fault() :: %{
-    "message" => String.t()
-  }
+      
+      reserved_node_already_migrated_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type reserved_node_already_migrated_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  modify_snapshot_schedule_message() :: %{
-    required("ScheduleDefinitions") => list(String.t()()),
-    required("ScheduleIdentifier") => String.t()
-  }
+      
+      modify_snapshot_schedule_message() :: %{
+        required("ScheduleDefinitions") => list(String.t()()),
+        required("ScheduleIdentifier") => String.t()
+      }
+      
   """
   @type modify_snapshot_schedule_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  authorize_endpoint_access_message() :: %{
-    optional("ClusterIdentifier") => String.t(),
-    optional("VpcIds") => list(String.t()()),
-    required("Account") => String.t()
-  }
+      
+      authorize_endpoint_access_message() :: %{
+        optional("ClusterIdentifier") => String.t(),
+        optional("VpcIds") => list(String.t()()),
+        required("Account") => String.t()
+      }
+      
   """
   @type authorize_endpoint_access_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_account_attributes_message() :: %{
-    optional("AttributeNames") => list(String.t()())
-  }
+      
+      describe_account_attributes_message() :: %{
+        optional("AttributeNames") => list(String.t()())
+      }
+      
   """
   @type describe_account_attributes_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  authentication_profile_already_exists_fault() :: %{
-    "message" => String.t()
-  }
+      
+      authentication_profile_already_exists_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type authentication_profile_already_exists_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  restore_table_from_cluster_snapshot_message() :: %{
-    optional("EnableCaseSensitiveIdentifier") => boolean(),
-    optional("SourceSchemaName") => String.t(),
-    optional("TargetDatabaseName") => String.t(),
-    optional("TargetSchemaName") => String.t(),
-    required("ClusterIdentifier") => String.t(),
-    required("NewTableName") => String.t(),
-    required("SnapshotIdentifier") => String.t(),
-    required("SourceDatabaseName") => String.t(),
-    required("SourceTableName") => String.t()
-  }
+      
+      restore_table_from_cluster_snapshot_message() :: %{
+        optional("EnableCaseSensitiveIdentifier") => boolean(),
+        optional("SourceSchemaName") => String.t(),
+        optional("TargetDatabaseName") => String.t(),
+        optional("TargetSchemaName") => String.t(),
+        required("ClusterIdentifier") => String.t(),
+        required("NewTableName") => String.t(),
+        required("SnapshotIdentifier") => String.t(),
+        required("SourceDatabaseName") => String.t(),
+        required("SourceTableName") => String.t()
+      }
+      
   """
   @type restore_table_from_cluster_snapshot_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_authentication_profile_request_fault() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_authentication_profile_request_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_authentication_profile_request_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  unauthorized_operation() :: %{
-    "message" => String.t()
-  }
+      
+      unauthorized_operation() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type unauthorized_operation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_scheduled_action_message() :: %{
-    required("ScheduledActionName") => String.t()
-  }
+      
+      delete_scheduled_action_message() :: %{
+        required("ScheduledActionName") => String.t()
+      }
+      
   """
   @type delete_scheduled_action_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_vpc_network_state_fault() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_vpc_network_state_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_vpc_network_state_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_redshift_idc_application_result() :: %{
-    "RedshiftIdcApplication" => redshift_idc_application()
-  }
+      
+      create_redshift_idc_application_result() :: %{
+        "RedshiftIdcApplication" => redshift_idc_application()
+      }
+      
   """
   @type create_redshift_idc_application_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_table_restore_status_message() :: %{
-    optional("ClusterIdentifier") => String.t(),
-    optional("Marker") => String.t(),
-    optional("MaxRecords") => integer(),
-    optional("TableRestoreRequestId") => String.t()
-  }
+      
+      describe_table_restore_status_message() :: %{
+        optional("ClusterIdentifier") => String.t(),
+        optional("Marker") => String.t(),
+        optional("MaxRecords") => integer(),
+        optional("TableRestoreRequestId") => String.t()
+      }
+      
   """
   @type describe_table_restore_status_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cluster_security_group_already_exists_fault() :: %{
-    "message" => String.t()
-  }
+      
+      cluster_security_group_already_exists_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type cluster_security_group_already_exists_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  snapshot_schedule_quota_exceeded_fault() :: %{
-    "message" => String.t()
-  }
+      
+      snapshot_schedule_quota_exceeded_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type snapshot_schedule_quota_exceeded_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_elastic_ip_fault() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_elastic_ip_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_elastic_ip_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_tag_fault() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_tag_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_tag_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_event_subscription_message() :: %{
-    optional("Enabled") => boolean(),
-    optional("EventCategories") => list(String.t()()),
-    optional("Severity") => String.t(),
-    optional("SourceIds") => list(String.t()()),
-    optional("SourceType") => String.t(),
-    optional("Tags") => list(tag()()),
-    required("SnsTopicArn") => String.t(),
-    required("SubscriptionName") => String.t()
-  }
+      
+      create_event_subscription_message() :: %{
+        optional("Enabled") => boolean(),
+        optional("EventCategories") => list(String.t()()),
+        optional("Severity") => String.t(),
+        optional("SourceIds") => list(String.t()()),
+        optional("SourceType") => String.t(),
+        optional("Tags") => list(tag()()),
+        required("SnsTopicArn") => String.t(),
+        required("SubscriptionName") => String.t()
+      }
+      
   """
   @type create_event_subscription_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  scheduled_action_type() :: %{
-    "PauseCluster" => pause_cluster_message(),
-    "ResizeCluster" => resize_cluster_message(),
-    "ResumeCluster" => resume_cluster_message()
-  }
+      
+      scheduled_action_type() :: %{
+        "PauseCluster" => pause_cluster_message(),
+        "ResizeCluster" => resize_cluster_message(),
+        "ResumeCluster" => resume_cluster_message()
+      }
+      
   """
   @type scheduled_action_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_snapshot_copy_grant_message() :: %{
-    optional("KmsKeyId") => String.t(),
-    optional("Tags") => list(tag()()),
-    required("SnapshotCopyGrantName") => String.t()
-  }
+      
+      create_snapshot_copy_grant_message() :: %{
+        optional("KmsKeyId") => String.t(),
+        optional("Tags") => list(tag()()),
+        required("SnapshotCopyGrantName") => String.t()
+      }
+      
   """
   @type create_snapshot_copy_grant_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_cluster_credentials_with_iam_message() :: %{
-    optional("ClusterIdentifier") => String.t(),
-    optional("CustomDomainName") => String.t(),
-    optional("DbName") => String.t(),
-    optional("DurationSeconds") => integer()
-  }
+      
+      get_cluster_credentials_with_iam_message() :: %{
+        optional("ClusterIdentifier") => String.t(),
+        optional("CustomDomainName") => String.t(),
+        optional("DbName") => String.t(),
+        optional("DurationSeconds") => integer()
+      }
+      
   """
   @type get_cluster_credentials_with_iam_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  endpoint_authorization_list() :: %{
-    optional("EndpointAuthorizationList") => list(endpoint_authorization()()),
-    optional("Marker") => String.t()
-  }
+      
+      endpoint_authorization_list() :: %{
+        optional("EndpointAuthorizationList") => list(endpoint_authorization()()),
+        optional("Marker") => String.t()
+      }
+      
   """
   @type endpoint_authorization_list() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  bucket_not_found_fault() :: %{
-    "message" => String.t()
-  }
+      
+      bucket_not_found_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type bucket_not_found_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  modify_cluster_result() :: %{
-    "Cluster" => cluster()
-  }
+      
+      modify_cluster_result() :: %{
+        "Cluster" => cluster()
+      }
+      
   """
   @type modify_cluster_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  orderable_cluster_options_message() :: %{
-    "Marker" => String.t(),
-    "OrderableClusterOptions" => list(orderable_cluster_option()())
-  }
+      
+      orderable_cluster_options_message() :: %{
+        "Marker" => String.t(),
+        "OrderableClusterOptions" => list(orderable_cluster_option()())
+      }
+      
   """
   @type orderable_cluster_options_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_event_subscriptions_message() :: %{
-    optional("Marker") => String.t(),
-    optional("MaxRecords") => integer(),
-    optional("SubscriptionName") => String.t(),
-    optional("TagKeys") => list(String.t()()),
-    optional("TagValues") => list(String.t()())
-  }
+      
+      describe_event_subscriptions_message() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxRecords") => integer(),
+        optional("SubscriptionName") => String.t(),
+        optional("TagKeys") => list(String.t()()),
+        optional("TagValues") => list(String.t()())
+      }
+      
   """
   @type describe_event_subscriptions_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cluster_parameter_group_status() :: %{
-    "ClusterParameterStatusList" => list(cluster_parameter_status()()),
-    "ParameterApplyStatus" => String.t(),
-    "ParameterGroupName" => String.t()
-  }
+      
+      cluster_parameter_group_status() :: %{
+        "ClusterParameterStatusList" => list(cluster_parameter_status()()),
+        "ParameterApplyStatus" => String.t(),
+        "ParameterGroupName" => String.t()
+      }
+      
   """
   @type cluster_parameter_group_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  in_progress_table_restore_quota_exceeded_fault() :: %{
-    "message" => String.t()
-  }
+      
+      in_progress_table_restore_quota_exceeded_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type in_progress_table_restore_quota_exceeded_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_hsm_configuration_message() :: %{
-    required("HsmConfigurationIdentifier") => String.t()
-  }
+      
+      delete_hsm_configuration_message() :: %{
+        required("HsmConfigurationIdentifier") => String.t()
+      }
+      
   """
   @type delete_hsm_configuration_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_recommendations_message() :: %{
-    optional("ClusterIdentifier") => String.t(),
-    optional("Marker") => String.t(),
-    optional("MaxRecords") => integer(),
-    optional("NamespaceArn") => String.t()
-  }
+      
+      list_recommendations_message() :: %{
+        optional("ClusterIdentifier") => String.t(),
+        optional("Marker") => String.t(),
+        optional("MaxRecords") => integer(),
+        optional("NamespaceArn") => String.t()
+      }
+      
   """
   @type list_recommendations_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  endpoint_authorizations_per_cluster_limit_exceeded_fault() :: %{
-    "message" => String.t()
-  }
+      
+      endpoint_authorizations_per_cluster_limit_exceeded_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type endpoint_authorizations_per_cluster_limit_exceeded_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  snapshot_copy_grant_message() :: %{
-    "Marker" => String.t(),
-    "SnapshotCopyGrants" => list(snapshot_copy_grant()())
-  }
+      
+      snapshot_copy_grant_message() :: %{
+        "Marker" => String.t(),
+        "SnapshotCopyGrants" => list(snapshot_copy_grant()())
+      }
+      
   """
   @type snapshot_copy_grant_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  pending_modified_values() :: %{
-    "AutomatedSnapshotRetentionPeriod" => integer(),
-    "ClusterIdentifier" => String.t(),
-    "ClusterType" => String.t(),
-    "ClusterVersion" => String.t(),
-    "EncryptionType" => String.t(),
-    "EnhancedVpcRouting" => boolean(),
-    "MaintenanceTrackName" => String.t(),
-    "MasterUserPassword" => String.t(),
-    "NodeType" => String.t(),
-    "NumberOfNodes" => integer(),
-    "PubliclyAccessible" => boolean()
-  }
+      
+      pending_modified_values() :: %{
+        "AutomatedSnapshotRetentionPeriod" => integer(),
+        "ClusterIdentifier" => String.t(),
+        "ClusterType" => String.t(),
+        "ClusterVersion" => String.t(),
+        "EncryptionType" => String.t(),
+        "EnhancedVpcRouting" => boolean(),
+        "MaintenanceTrackName" => String.t(),
+        "MasterUserPassword" => String.t(),
+        "NodeType" => String.t(),
+        "NumberOfNodes" => integer(),
+        "PubliclyAccessible" => boolean()
+      }
+      
   """
   @type pending_modified_values() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cancel_resize_message() :: %{
-    required("ClusterIdentifier") => String.t()
-  }
+      
+      cancel_resize_message() :: %{
+        required("ClusterIdentifier") => String.t()
+      }
+      
   """
   @type cancel_resize_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_tags_message() :: %{
-    optional("Marker") => String.t(),
-    optional("MaxRecords") => integer(),
-    optional("ResourceName") => String.t(),
-    optional("ResourceType") => String.t(),
-    optional("TagKeys") => list(String.t()()),
-    optional("TagValues") => list(String.t()())
-  }
+      
+      describe_tags_message() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxRecords") => integer(),
+        optional("ResourceName") => String.t(),
+        optional("ResourceType") => String.t(),
+        optional("TagKeys") => list(String.t()()),
+        optional("TagValues") => list(String.t()())
+      }
+      
   """
   @type describe_tags_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cluster_parameter_group_not_found_fault() :: %{
-    "message" => String.t()
-  }
+      
+      cluster_parameter_group_not_found_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type cluster_parameter_group_not_found_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  authorization_not_found_fault() :: %{
-    "message" => String.t()
-  }
+      
+      authorization_not_found_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type authorization_not_found_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  snapshot_copy_already_enabled_fault() :: %{
-    "message" => String.t()
-  }
+      
+      snapshot_copy_already_enabled_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type snapshot_copy_already_enabled_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  copy_cluster_snapshot_message() :: %{
-    optional("ManualSnapshotRetentionPeriod") => integer(),
-    optional("SourceSnapshotClusterIdentifier") => String.t(),
-    required("SourceSnapshotIdentifier") => String.t(),
-    required("TargetSnapshotIdentifier") => String.t()
-  }
+      
+      copy_cluster_snapshot_message() :: %{
+        optional("ManualSnapshotRetentionPeriod") => integer(),
+        optional("SourceSnapshotClusterIdentifier") => String.t(),
+        required("SourceSnapshotIdentifier") => String.t(),
+        required("TargetSnapshotIdentifier") => String.t()
+      }
+      
   """
   @type copy_cluster_snapshot_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  dependent_service_access_denied_fault() :: %{
-    "message" => String.t()
-  }
+      
+      dependent_service_access_denied_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type dependent_service_access_denied_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  orderable_cluster_option() :: %{
-    "AvailabilityZones" => list(availability_zone()()),
-    "ClusterType" => String.t(),
-    "ClusterVersion" => String.t(),
-    "NodeType" => String.t()
-  }
+      
+      orderable_cluster_option() :: %{
+        "AvailabilityZones" => list(availability_zone()()),
+        "ClusterType" => String.t(),
+        "ClusterVersion" => String.t(),
+        "NodeType" => String.t()
+      }
+      
   """
   @type orderable_cluster_option() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_hsm_configuration_state_fault() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_hsm_configuration_state_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_hsm_configuration_state_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  event_info_map() :: %{
-    "EventCategories" => list(String.t()()),
-    "EventDescription" => String.t(),
-    "EventId" => String.t(),
-    "Severity" => String.t()
-  }
+      
+      event_info_map() :: %{
+        "EventCategories" => list(String.t()()),
+        "EventDescription" => String.t(),
+        "EventId" => String.t(),
+        "Severity" => String.t()
+      }
+      
   """
   @type event_info_map() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_modify_cluster_snapshots_output_message() :: %{
-    "Errors" => list(snapshot_error_message()()),
-    "Resources" => list(String.t()())
-  }
+      
+      batch_modify_cluster_snapshots_output_message() :: %{
+        "Errors" => list(snapshot_error_message()()),
+        "Resources" => list(String.t()())
+      }
+      
   """
   @type batch_modify_cluster_snapshots_output_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cluster_db_revisions_message() :: %{
-    "ClusterDbRevisions" => list(cluster_db_revision()()),
-    "Marker" => String.t()
-  }
+      
+      cluster_db_revisions_message() :: %{
+        "ClusterDbRevisions" => list(cluster_db_revision()()),
+        "Marker" => String.t()
+      }
+      
   """
   @type cluster_db_revisions_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  associate_data_share_consumer_message() :: %{
-    optional("AllowWrites") => boolean(),
-    optional("AssociateEntireAccount") => boolean(),
-    optional("ConsumerArn") => String.t(),
-    optional("ConsumerRegion") => String.t(),
-    required("DataShareArn") => String.t()
-  }
+      
+      associate_data_share_consumer_message() :: %{
+        optional("AllowWrites") => boolean(),
+        optional("AssociateEntireAccount") => boolean(),
+        optional("ConsumerArn") => String.t(),
+        optional("ConsumerRegion") => String.t(),
+        required("DataShareArn") => String.t()
+      }
+      
   """
   @type associate_data_share_consumer_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cluster_node() :: %{
-    "NodeRole" => String.t(),
-    "PrivateIPAddress" => String.t(),
-    "PublicIPAddress" => String.t()
-  }
+      
+      cluster_node() :: %{
+        "NodeRole" => String.t(),
+        "PrivateIPAddress" => String.t(),
+        "PublicIPAddress" => String.t()
+      }
+      
   """
   @type cluster_node() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  modify_cluster_subnet_group_message() :: %{
-    optional("Description") => String.t(),
-    required("ClusterSubnetGroupName") => String.t(),
-    required("SubnetIds") => list(String.t()())
-  }
+      
+      modify_cluster_subnet_group_message() :: %{
+        optional("Description") => String.t(),
+        required("ClusterSubnetGroupName") => String.t(),
+        required("SubnetIds") => list(String.t()())
+      }
+      
   """
   @type modify_cluster_subnet_group_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_cluster_subnet_group_result() :: %{
-    "ClusterSubnetGroup" => cluster_subnet_group()
-  }
+      
+      create_cluster_subnet_group_result() :: %{
+        "ClusterSubnetGroup" => cluster_subnet_group()
+      }
+      
   """
   @type create_cluster_subnet_group_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_usage_limit_fault() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_usage_limit_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_usage_limit_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_redshift_idc_application_message() :: %{
-    required("RedshiftIdcApplicationArn") => String.t()
-  }
+      
+      delete_redshift_idc_application_message() :: %{
+        required("RedshiftIdcApplicationArn") => String.t()
+      }
+      
   """
   @type delete_redshift_idc_application_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  deferred_maintenance_window() :: %{
-    "DeferMaintenanceEndTime" => non_neg_integer(),
-    "DeferMaintenanceIdentifier" => String.t(),
-    "DeferMaintenanceStartTime" => non_neg_integer()
-  }
+      
+      deferred_maintenance_window() :: %{
+        "DeferMaintenanceEndTime" => non_neg_integer(),
+        "DeferMaintenanceIdentifier" => String.t(),
+        "DeferMaintenanceStartTime" => non_neg_integer()
+      }
+      
   """
   @type deferred_maintenance_window() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag() :: %{
-    "Key" => String.t(),
-    "Value" => String.t()
-  }
+      
+      tag() :: %{
+        "Key" => String.t(),
+        "Value" => String.t()
+      }
+      
   """
   @type tag() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  purchase_reserved_node_offering_message() :: %{
-    optional("NodeCount") => integer(),
-    required("ReservedNodeOfferingId") => String.t()
-  }
+      
+      purchase_reserved_node_offering_message() :: %{
+        optional("NodeCount") => integer(),
+        required("ReservedNodeOfferingId") => String.t()
+      }
+      
   """
   @type purchase_reserved_node_offering_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cluster_parameter_groups_message() :: %{
-    "Marker" => String.t(),
-    "ParameterGroups" => list(cluster_parameter_group()())
-  }
+      
+      cluster_parameter_groups_message() :: %{
+        "Marker" => String.t(),
+        "ParameterGroups" => list(cluster_parameter_group()())
+      }
+      
   """
   @type cluster_parameter_groups_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  authorization_already_exists_fault() :: %{
-    "message" => String.t()
-  }
+      
+      authorization_already_exists_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type authorization_already_exists_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  modify_cluster_parameter_group_message() :: %{
-    required("ParameterGroupName") => String.t(),
-    required("Parameters") => list(parameter()())
-  }
+      
+      modify_cluster_parameter_group_message() :: %{
+        required("ParameterGroupName") => String.t(),
+        required("Parameters") => list(parameter()())
+      }
+      
   """
   @type modify_cluster_parameter_group_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_cluster_result() :: %{
-    "Cluster" => cluster()
-  }
+      
+      create_cluster_result() :: %{
+        "Cluster" => cluster()
+      }
+      
   """
   @type create_cluster_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cluster() :: %{
-    "DBName" => String.t(),
-    "AutomatedSnapshotRetentionPeriod" => integer(),
-    "DefaultIamRoleArn" => String.t(),
-    "VpcSecurityGroups" => list(vpc_security_group_membership()()),
-    "Tags" => list(tag()()),
-    "Encrypted" => boolean(),
-    "PendingActions" => list(String.t()()),
-    "CustomDomainName" => String.t(),
-    "MultiAZ" => String.t(),
-    "IpAddressType" => String.t(),
-    "EnhancedVpcRouting" => boolean(),
-    "PreferredMaintenanceWindow" => String.t(),
-    "ClusterAvailabilityStatus" => String.t(),
-    "ClusterRevisionNumber" => String.t(),
-    "ClusterNamespaceArn" => String.t(),
-    "RestoreStatus" => restore_status(),
-    "PendingModifiedValues" => pending_modified_values(),
-    "KmsKeyId" => String.t(),
-    "VpcId" => String.t(),
-    "ClusterSecurityGroups" => list(cluster_security_group_membership()()),
-    "AvailabilityZone" => String.t(),
-    "ManualSnapshotRetentionPeriod" => integer(),
-    "CustomDomainCertificateExpiryDate" => non_neg_integer(),
-    "SnapshotScheduleState" => list(any()),
-    "ExpectedNextSnapshotScheduleTimeStatus" => String.t(),
-    "CustomDomainCertificateArn" => String.t(),
-    "ResizeInfo" => resize_info(),
-    "ClusterCreateTime" => non_neg_integer(),
-    "AquaConfiguration" => aqua_configuration(),
-    "TotalStorageCapacityInMegaBytes" => float(),
-    "AllowVersionUpgrade" => boolean(),
-    "ClusterSnapshotCopyStatus" => cluster_snapshot_copy_status(),
-    "NodeType" => String.t(),
-    "HsmStatus" => hsm_status(),
-    "MaintenanceTrackName" => String.t(),
-    "ClusterSubnetGroupName" => String.t(),
-    "ClusterNodes" => list(cluster_node()()),
-    "ClusterStatus" => String.t(),
-    "MasterUsername" => String.t(),
-    "MultiAZSecondary" => secondary_cluster_info(),
-    "ClusterVersion" => String.t(),
-    "ClusterIdentifier" => String.t(),
-    "ClusterPublicKey" => String.t(),
-    "NumberOfNodes" => integer(),
-    "DataTransferProgress" => data_transfer_progress(),
-    "MasterPasswordSecretArn" => String.t(),
-    "IamRoles" => list(cluster_iam_role()()),
-    "NextMaintenanceWindowStartTime" => non_neg_integer(),
-    "PubliclyAccessible" => boolean(),
-    "MasterPasswordSecretKmsKeyId" => String.t(),
-    "ElasticResizeNumberOfNodeOptions" => String.t(),
-    "ModifyStatus" => String.t(),
-    "Endpoint" => endpoint(),
-    "AvailabilityZoneRelocationStatus" => String.t(),
-    "SnapshotScheduleIdentifier" => String.t(),
-    "ElasticIpStatus" => elastic_ip_status(),
-    "DeferredMaintenanceWindows" => list(deferred_maintenance_window()()),
-    "ClusterParameterGroups" => list(cluster_parameter_group_status()()),
-    "ExpectedNextSnapshotScheduleTime" => non_neg_integer(),
-    "ReservedNodeExchangeStatus" => reserved_node_exchange_status()
-  }
+      
+      cluster() :: %{
+        "DBName" => String.t(),
+        "AutomatedSnapshotRetentionPeriod" => integer(),
+        "DefaultIamRoleArn" => String.t(),
+        "VpcSecurityGroups" => list(vpc_security_group_membership()()),
+        "Tags" => list(tag()()),
+        "Encrypted" => boolean(),
+        "PendingActions" => list(String.t()()),
+        "CustomDomainName" => String.t(),
+        "MultiAZ" => String.t(),
+        "IpAddressType" => String.t(),
+        "EnhancedVpcRouting" => boolean(),
+        "PreferredMaintenanceWindow" => String.t(),
+        "ClusterAvailabilityStatus" => String.t(),
+        "ClusterRevisionNumber" => String.t(),
+        "ClusterNamespaceArn" => String.t(),
+        "RestoreStatus" => restore_status(),
+        "PendingModifiedValues" => pending_modified_values(),
+        "KmsKeyId" => String.t(),
+        "VpcId" => String.t(),
+        "ClusterSecurityGroups" => list(cluster_security_group_membership()()),
+        "AvailabilityZone" => String.t(),
+        "ManualSnapshotRetentionPeriod" => integer(),
+        "CustomDomainCertificateExpiryDate" => non_neg_integer(),
+        "SnapshotScheduleState" => list(any()),
+        "ExpectedNextSnapshotScheduleTimeStatus" => String.t(),
+        "CustomDomainCertificateArn" => String.t(),
+        "ResizeInfo" => resize_info(),
+        "ClusterCreateTime" => non_neg_integer(),
+        "AquaConfiguration" => aqua_configuration(),
+        "TotalStorageCapacityInMegaBytes" => float(),
+        "AllowVersionUpgrade" => boolean(),
+        "ClusterSnapshotCopyStatus" => cluster_snapshot_copy_status(),
+        "NodeType" => String.t(),
+        "HsmStatus" => hsm_status(),
+        "MaintenanceTrackName" => String.t(),
+        "ClusterSubnetGroupName" => String.t(),
+        "ClusterNodes" => list(cluster_node()()),
+        "ClusterStatus" => String.t(),
+        "MasterUsername" => String.t(),
+        "MultiAZSecondary" => secondary_cluster_info(),
+        "ClusterVersion" => String.t(),
+        "ClusterIdentifier" => String.t(),
+        "ClusterPublicKey" => String.t(),
+        "NumberOfNodes" => integer(),
+        "DataTransferProgress" => data_transfer_progress(),
+        "MasterPasswordSecretArn" => String.t(),
+        "IamRoles" => list(cluster_iam_role()()),
+        "NextMaintenanceWindowStartTime" => non_neg_integer(),
+        "PubliclyAccessible" => boolean(),
+        "MasterPasswordSecretKmsKeyId" => String.t(),
+        "ElasticResizeNumberOfNodeOptions" => String.t(),
+        "ModifyStatus" => String.t(),
+        "Endpoint" => endpoint(),
+        "AvailabilityZoneRelocationStatus" => String.t(),
+        "SnapshotScheduleIdentifier" => String.t(),
+        "ElasticIpStatus" => elastic_ip_status(),
+        "DeferredMaintenanceWindows" => list(deferred_maintenance_window()()),
+        "ClusterParameterGroups" => list(cluster_parameter_group_status()()),
+        "ExpectedNextSnapshotScheduleTime" => non_neg_integer(),
+        "ReservedNodeExchangeStatus" => reserved_node_exchange_status()
+      }
+      
   """
   @type cluster() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  reset_cluster_parameter_group_message() :: %{
-    optional("Parameters") => list(parameter()()),
-    optional("ResetAllParameters") => boolean(),
-    required("ParameterGroupName") => String.t()
-  }
+      
+      reset_cluster_parameter_group_message() :: %{
+        optional("Parameters") => list(parameter()()),
+        optional("ResetAllParameters") => boolean(),
+        required("ParameterGroupName") => String.t()
+      }
+      
   """
   @type reset_cluster_parameter_group_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_resource_policy_message() :: %{
-    required("Policy") => String.t(),
-    required("ResourceArn") => String.t()
-  }
+      
+      put_resource_policy_message() :: %{
+        required("Policy") => String.t(),
+        required("ResourceArn") => String.t()
+      }
+      
   """
   @type put_resource_policy_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  inbound_integrations_message() :: %{
-    "InboundIntegrations" => list(inbound_integration()()),
-    "Marker" => String.t()
-  }
+      
+      inbound_integrations_message() :: %{
+        "InboundIntegrations" => list(inbound_integration()()),
+        "Marker" => String.t()
+      }
+      
   """
   @type inbound_integrations_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  endpoints_per_cluster_limit_exceeded_fault() :: %{
-    "message" => String.t()
-  }
+      
+      endpoints_per_cluster_limit_exceeded_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type endpoints_per_cluster_limit_exceeded_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  accept_reserved_node_exchange_output_message() :: %{
-    "ExchangedReservedNode" => reserved_node()
-  }
+      
+      accept_reserved_node_exchange_output_message() :: %{
+        "ExchangedReservedNode" => reserved_node()
+      }
+      
   """
   @type accept_reserved_node_exchange_output_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  recommendation() :: %{
-    "ClusterIdentifier" => String.t(),
-    "CreatedAt" => non_neg_integer(),
-    "Description" => String.t(),
-    "Id" => String.t(),
-    "ImpactRanking" => list(any()),
-    "NamespaceArn" => String.t(),
-    "Observation" => String.t(),
-    "RecommendationText" => String.t(),
-    "RecommendationType" => String.t(),
-    "RecommendedActions" => list(recommended_action()()),
-    "ReferenceLinks" => list(reference_link()()),
-    "Title" => String.t()
-  }
+      
+      recommendation() :: %{
+        "ClusterIdentifier" => String.t(),
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t(),
+        "Id" => String.t(),
+        "ImpactRanking" => list(any()),
+        "NamespaceArn" => String.t(),
+        "Observation" => String.t(),
+        "RecommendationText" => String.t(),
+        "RecommendationType" => String.t(),
+        "RecommendedActions" => list(recommended_action()()),
+        "ReferenceLinks" => list(reference_link()()),
+        "Title" => String.t()
+      }
+      
   """
   @type recommendation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_authentication_profile_message() :: %{
-    required("AuthenticationProfileContent") => String.t(),
-    required("AuthenticationProfileName") => String.t()
-  }
+      
+      create_authentication_profile_message() :: %{
+        required("AuthenticationProfileContent") => String.t(),
+        required("AuthenticationProfileName") => String.t()
+      }
+      
   """
   @type create_authentication_profile_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  snapshot_sorting_entity() :: %{
-    "Attribute" => list(any()),
-    "SortOrder" => list(any())
-  }
+      
+      snapshot_sorting_entity() :: %{
+        "Attribute" => list(any()),
+        "SortOrder" => list(any())
+      }
+      
   """
   @type snapshot_sorting_entity() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_authentication_profile_message() :: %{
-    required("AuthenticationProfileName") => String.t()
-  }
+      
+      delete_authentication_profile_message() :: %{
+        required("AuthenticationProfileName") => String.t()
+      }
+      
   """
   @type delete_authentication_profile_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resume_cluster_message() :: %{
-    "ClusterIdentifier" => String.t()
-  }
+      
+      resume_cluster_message() :: %{
+        "ClusterIdentifier" => String.t()
+      }
+      
   """
   @type resume_cluster_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cluster_security_group_membership() :: %{
-    "ClusterSecurityGroupName" => String.t(),
-    "Status" => String.t()
-  }
+      
+      cluster_security_group_membership() :: %{
+        "ClusterSecurityGroupName" => String.t(),
+        "Status" => String.t()
+      }
+      
   """
   @type cluster_security_group_membership() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ip_range() :: %{
-    "CIDRIP" => String.t(),
-    "Status" => String.t(),
-    "Tags" => list(tag()())
-  }
+      
+      ip_range() :: %{
+        "CIDRIP" => String.t(),
+        "Status" => String.t(),
+        "Tags" => list(tag()())
+      }
+      
   """
   @type ip_range() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  scheduled_action() :: %{
-    "EndTime" => non_neg_integer(),
-    "IamRole" => String.t(),
-    "NextInvocations" => list(non_neg_integer()()),
-    "Schedule" => String.t(),
-    "ScheduledActionDescription" => String.t(),
-    "ScheduledActionName" => String.t(),
-    "StartTime" => non_neg_integer(),
-    "State" => list(any()),
-    "TargetAction" => scheduled_action_type()
-  }
+      
+      scheduled_action() :: %{
+        "EndTime" => non_neg_integer(),
+        "IamRole" => String.t(),
+        "NextInvocations" => list(non_neg_integer()()),
+        "Schedule" => String.t(),
+        "ScheduledActionDescription" => String.t(),
+        "ScheduledActionName" => String.t(),
+        "StartTime" => non_neg_integer(),
+        "State" => list(any()),
+        "TargetAction" => scheduled_action_type()
+      }
+      
   """
   @type scheduled_action() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_authentication_profiles_result() :: %{
-    "AuthenticationProfiles" => list(authentication_profile()())
-  }
+      
+      describe_authentication_profiles_result() :: %{
+        "AuthenticationProfiles" => list(authentication_profile()())
+      }
+      
   """
   @type describe_authentication_profiles_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_endpoint_authorization_message() :: %{
-    optional("Account") => String.t(),
-    optional("ClusterIdentifier") => String.t(),
-    optional("Grantee") => boolean(),
-    optional("Marker") => String.t(),
-    optional("MaxRecords") => integer()
-  }
+      
+      describe_endpoint_authorization_message() :: %{
+        optional("Account") => String.t(),
+        optional("ClusterIdentifier") => String.t(),
+        optional("Grantee") => boolean(),
+        optional("Marker") => String.t(),
+        optional("MaxRecords") => integer()
+      }
+      
   """
   @type describe_endpoint_authorization_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  source_not_found_fault() :: %{
-    "message" => String.t()
-  }
+      
+      source_not_found_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type source_not_found_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  insufficient_s3_bucket_policy_fault() :: %{
-    "message" => String.t()
-  }
+      
+      insufficient_s3_bucket_policy_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type insufficient_s3_bucket_policy_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_resource_policy_result() :: %{
-    "ResourcePolicy" => resource_policy()
-  }
+      
+      get_resource_policy_result() :: %{
+        "ResourcePolicy" => resource_policy()
+      }
+      
   """
   @type get_resource_policy_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  node_configuration_options_filter() :: %{
-    "Name" => list(any()),
-    "Operator" => list(any()),
-    "Values" => list(String.t()())
-  }
+      
+      node_configuration_options_filter() :: %{
+        "Name" => list(any()),
+        "Operator" => list(any()),
+        "Values" => list(String.t()())
+      }
+      
   """
   @type node_configuration_options_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  redshift_idc_application_not_exists_fault() :: %{
-    "message" => String.t()
-  }
+      
+      redshift_idc_application_not_exists_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type redshift_idc_application_not_exists_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_hsm_client_certificate_state_fault() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_hsm_client_certificate_state_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_hsm_client_certificate_state_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  parameter() :: %{
-    "AllowedValues" => String.t(),
-    "ApplyType" => list(any()),
-    "DataType" => String.t(),
-    "Description" => String.t(),
-    "IsModifiable" => boolean(),
-    "MinimumEngineVersion" => String.t(),
-    "ParameterName" => String.t(),
-    "ParameterValue" => String.t(),
-    "Source" => String.t()
-  }
+      
+      parameter() :: %{
+        "AllowedValues" => String.t(),
+        "ApplyType" => list(any()),
+        "DataType" => String.t(),
+        "Description" => String.t(),
+        "IsModifiable" => boolean(),
+        "MinimumEngineVersion" => String.t(),
+        "ParameterName" => String.t(),
+        "ParameterValue" => String.t(),
+        "Source" => String.t()
+      }
+      
   """
   @type parameter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  redshift_idc_application() :: %{
-    "AuthorizedTokenIssuerList" => list(authorized_token_issuer()()),
-    "IamRoleArn" => String.t(),
-    "IdcDisplayName" => String.t(),
-    "IdcInstanceArn" => String.t(),
-    "IdcManagedApplicationArn" => String.t(),
-    "IdcOnboardStatus" => String.t(),
-    "IdentityNamespace" => String.t(),
-    "RedshiftIdcApplicationArn" => String.t(),
-    "RedshiftIdcApplicationName" => String.t(),
-    "ServiceIntegrations" => list(list()())
-  }
+      
+      redshift_idc_application() :: %{
+        "AuthorizedTokenIssuerList" => list(authorized_token_issuer()()),
+        "IamRoleArn" => String.t(),
+        "IdcDisplayName" => String.t(),
+        "IdcInstanceArn" => String.t(),
+        "IdcManagedApplicationArn" => String.t(),
+        "IdcOnboardStatus" => String.t(),
+        "IdentityNamespace" => String.t(),
+        "RedshiftIdcApplicationArn" => String.t(),
+        "RedshiftIdcApplicationName" => String.t(),
+        "ServiceIntegrations" => list(list()())
+      }
+      
   """
   @type redshift_idc_application() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  association() :: %{
-    "CertificateAssociations" => list(certificate_association()()),
-    "CustomDomainCertificateArn" => String.t(),
-    "CustomDomainCertificateExpiryDate" => non_neg_integer()
-  }
+      
+      association() :: %{
+        "CertificateAssociations" => list(certificate_association()()),
+        "CustomDomainCertificateArn" => String.t(),
+        "CustomDomainCertificateExpiryDate" => non_neg_integer()
+      }
+      
   """
   @type association() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cluster_extended_credentials() :: %{
-    optional("DbPassword") => String.t(),
-    optional("DbUser") => String.t(),
-    optional("Expiration") => non_neg_integer(),
-    optional("NextRefreshTime") => non_neg_integer()
-  }
+      
+      cluster_extended_credentials() :: %{
+        optional("DbPassword") => String.t(),
+        optional("DbUser") => String.t(),
+        optional("Expiration") => non_neg_integer(),
+        optional("NextRefreshTime") => non_neg_integer()
+      }
+      
   """
   @type cluster_extended_credentials() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  modify_custom_domain_association_result() :: %{
-    "ClusterIdentifier" => String.t(),
-    "CustomDomainCertExpiryTime" => String.t(),
-    "CustomDomainCertificateArn" => String.t(),
-    "CustomDomainName" => String.t()
-  }
+      
+      modify_custom_domain_association_result() :: %{
+        "ClusterIdentifier" => String.t(),
+        "CustomDomainCertExpiryTime" => String.t(),
+        "CustomDomainCertificateArn" => String.t(),
+        "CustomDomainName" => String.t()
+      }
+      
   """
   @type modify_custom_domain_association_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  scheduled_actions_message() :: %{
-    "Marker" => String.t(),
-    "ScheduledActions" => list(scheduled_action()())
-  }
+      
+      scheduled_actions_message() :: %{
+        "Marker" => String.t(),
+        "ScheduledActions" => list(scheduled_action()())
+      }
+      
   """
   @type scheduled_actions_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  modify_usage_limit_message() :: %{
-    optional("Amount") => float(),
-    optional("BreachAction") => list(any()),
-    required("UsageLimitId") => String.t()
-  }
+      
+      modify_usage_limit_message() :: %{
+        optional("Amount") => float(),
+        optional("BreachAction") => list(any()),
+        required("UsageLimitId") => String.t()
+      }
+      
   """
   @type modify_usage_limit_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_reserved_node_state_fault() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_reserved_node_state_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_reserved_node_state_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  hsm_client_certificate() :: %{
-    "HsmClientCertificateIdentifier" => String.t(),
-    "HsmClientCertificatePublicKey" => String.t(),
-    "Tags" => list(tag()())
-  }
+      
+      hsm_client_certificate() :: %{
+        "HsmClientCertificateIdentifier" => String.t(),
+        "HsmClientCertificatePublicKey" => String.t(),
+        "Tags" => list(tag()())
+      }
+      
   """
   @type hsm_client_certificate() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_delete_cluster_snapshots_request() :: %{
-    required("Identifiers") => list(delete_cluster_snapshot_message()())
-  }
+      
+      batch_delete_cluster_snapshots_request() :: %{
+        required("Identifiers") => list(delete_cluster_snapshot_message()())
+      }
+      
   """
   @type batch_delete_cluster_snapshots_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  authentication_profile_not_found_fault() :: %{
-    "message" => String.t()
-  }
+      
+      authentication_profile_not_found_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type authentication_profile_not_found_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cluster_snapshot_already_exists_fault() :: %{
-    "message" => String.t()
-  }
+      
+      cluster_snapshot_already_exists_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type cluster_snapshot_already_exists_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  reserved_node() :: %{
-    "CurrencyCode" => String.t(),
-    "Duration" => integer(),
-    "FixedPrice" => float(),
-    "NodeCount" => integer(),
-    "NodeType" => String.t(),
-    "OfferingType" => String.t(),
-    "RecurringCharges" => list(recurring_charge()()),
-    "ReservedNodeId" => String.t(),
-    "ReservedNodeOfferingId" => String.t(),
-    "ReservedNodeOfferingType" => list(any()),
-    "StartTime" => non_neg_integer(),
-    "State" => String.t(),
-    "UsagePrice" => float()
-  }
+      
+      reserved_node() :: %{
+        "CurrencyCode" => String.t(),
+        "Duration" => integer(),
+        "FixedPrice" => float(),
+        "NodeCount" => integer(),
+        "NodeType" => String.t(),
+        "OfferingType" => String.t(),
+        "RecurringCharges" => list(recurring_charge()()),
+        "ReservedNodeId" => String.t(),
+        "ReservedNodeOfferingId" => String.t(),
+        "ReservedNodeOfferingType" => list(any()),
+        "StartTime" => non_neg_integer(),
+        "State" => String.t(),
+        "UsagePrice" => float()
+      }
+      
   """
   @type reserved_node() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  incompatible_orderable_options() :: %{
-    "message" => String.t()
-  }
+      
+      incompatible_orderable_options() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type incompatible_orderable_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  snapshot_copy_grant() :: %{
-    "KmsKeyId" => String.t(),
-    "SnapshotCopyGrantName" => String.t(),
-    "Tags" => list(tag()())
-  }
+      
+      snapshot_copy_grant() :: %{
+        "KmsKeyId" => String.t(),
+        "SnapshotCopyGrantName" => String.t(),
+        "Tags" => list(tag()())
+      }
+      
   """
   @type snapshot_copy_grant() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resize_cluster_message() :: %{
-    "Classic" => boolean(),
-    "ClusterIdentifier" => String.t(),
-    "ClusterType" => String.t(),
-    "NodeType" => String.t(),
-    "NumberOfNodes" => integer(),
-    "ReservedNodeId" => String.t(),
-    "TargetReservedNodeOfferingId" => String.t()
-  }
+      
+      resize_cluster_message() :: %{
+        "Classic" => boolean(),
+        "ClusterIdentifier" => String.t(),
+        "ClusterType" => String.t(),
+        "NodeType" => String.t(),
+        "NumberOfNodes" => integer(),
+        "ReservedNodeId" => String.t(),
+        "TargetReservedNodeOfferingId" => String.t()
+      }
+      
   """
   @type resize_cluster_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  hsm_client_certificate_not_found_fault() :: %{
-    "message" => String.t()
-  }
+      
+      hsm_client_certificate_not_found_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type hsm_client_certificate_not_found_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  hsm_configuration_quota_exceeded_fault() :: %{
-    "message" => String.t()
-  }
+      
+      hsm_configuration_quota_exceeded_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type hsm_configuration_quota_exceeded_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  data_share() :: %{
-    optional("AllowPubliclyAccessibleConsumers") => boolean(),
-    optional("DataShareArn") => String.t(),
-    optional("DataShareAssociations") => list(data_share_association()()),
-    optional("ManagedBy") => String.t(),
-    optional("ProducerArn") => String.t()
-  }
+      
+      data_share() :: %{
+        optional("AllowPubliclyAccessibleConsumers") => boolean(),
+        optional("DataShareArn") => String.t(),
+        optional("DataShareAssociations") => list(data_share_association()()),
+        optional("ManagedBy") => String.t(),
+        optional("ProducerArn") => String.t()
+      }
+      
   """
   @type data_share() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  revoke_endpoint_access_message() :: %{
-    optional("Account") => String.t(),
-    optional("ClusterIdentifier") => String.t(),
-    optional("Force") => boolean(),
-    optional("VpcIds") => list(String.t()())
-  }
+      
+      revoke_endpoint_access_message() :: %{
+        optional("Account") => String.t(),
+        optional("ClusterIdentifier") => String.t(),
+        optional("Force") => boolean(),
+        optional("VpcIds") => list(String.t()())
+      }
+      
   """
   @type revoke_endpoint_access_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  hsm_configuration_already_exists_fault() :: %{
-    "message" => String.t()
-  }
+      
+      hsm_configuration_already_exists_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type hsm_configuration_already_exists_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cluster_parameter_status() :: %{
-    "ParameterApplyErrorDescription" => String.t(),
-    "ParameterApplyStatus" => String.t(),
-    "ParameterName" => String.t()
-  }
+      
+      cluster_parameter_status() :: %{
+        "ParameterApplyErrorDescription" => String.t(),
+        "ParameterApplyStatus" => String.t(),
+        "ParameterName" => String.t()
+      }
+      
   """
   @type cluster_parameter_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  number_of_nodes_quota_exceeded_fault() :: %{
-    "message" => String.t()
-  }
+      
+      number_of_nodes_quota_exceeded_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type number_of_nodes_quota_exceeded_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  vpc_endpoint() :: %{
-    "NetworkInterfaces" => list(network_interface()()),
-    "VpcEndpointId" => String.t(),
-    "VpcId" => String.t()
-  }
+      
+      vpc_endpoint() :: %{
+        "NetworkInterfaces" => list(network_interface()()),
+        "VpcEndpointId" => String.t(),
+        "VpcId" => String.t()
+      }
+      
   """
   @type vpc_endpoint() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cluster_parameter_group_quota_exceeded_fault() :: %{
-    "message" => String.t()
-  }
+      
+      cluster_parameter_group_quota_exceeded_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type cluster_parameter_group_quota_exceeded_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_s3_key_prefix_fault() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_s3_key_prefix_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_s3_key_prefix_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_hsm_client_certificate_result() :: %{
-    "HsmClientCertificate" => hsm_client_certificate()
-  }
+      
+      create_hsm_client_certificate_result() :: %{
+        "HsmClientCertificate" => hsm_client_certificate()
+      }
+      
   """
   @type create_hsm_client_certificate_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  reserved_node_offerings_message() :: %{
-    "Marker" => String.t(),
-    "ReservedNodeOfferings" => list(reserved_node_offering()())
-  }
+      
+      reserved_node_offerings_message() :: %{
+        "Marker" => String.t(),
+        "ReservedNodeOfferings" => list(reserved_node_offering()())
+      }
+      
   """
   @type reserved_node_offerings_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  subscription_not_found_fault() :: %{
-    "message" => String.t()
-  }
+      
+      subscription_not_found_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type subscription_not_found_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  redshift_idc_application_quota_exceeded_fault() :: %{
-    "message" => String.t()
-  }
+      
+      redshift_idc_application_quota_exceeded_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type redshift_idc_application_quota_exceeded_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_data_shares_message() :: %{
-    optional("DataShareArn") => String.t(),
-    optional("Marker") => String.t(),
-    optional("MaxRecords") => integer()
-  }
+      
+      describe_data_shares_message() :: %{
+        optional("DataShareArn") => String.t(),
+        optional("Marker") => String.t(),
+        optional("MaxRecords") => integer()
+      }
+      
   """
   @type describe_data_shares_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resize_cluster_result() :: %{
-    "Cluster" => cluster()
-  }
+      
+      resize_cluster_result() :: %{
+        "Cluster" => cluster()
+      }
+      
   """
   @type resize_cluster_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  table_limit_exceeded_fault() :: %{
-    "message" => String.t()
-  }
+      
+      table_limit_exceeded_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type table_limit_exceeded_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_cluster_parameters_message() :: %{
-    optional("Marker") => String.t(),
-    optional("MaxRecords") => integer(),
-    optional("Source") => String.t(),
-    required("ParameterGroupName") => String.t()
-  }
+      
+      describe_cluster_parameters_message() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxRecords") => integer(),
+        optional("Source") => String.t(),
+        required("ParameterGroupName") => String.t()
+      }
+      
   """
   @type describe_cluster_parameters_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_reserved_node_exchange_configuration_options_input_message() :: %{
-    optional("ClusterIdentifier") => String.t(),
-    optional("Marker") => String.t(),
-    optional("MaxRecords") => integer(),
-    optional("SnapshotIdentifier") => String.t(),
-    required("ActionType") => list(any())
-  }
+      
+      get_reserved_node_exchange_configuration_options_input_message() :: %{
+        optional("ClusterIdentifier") => String.t(),
+        optional("Marker") => String.t(),
+        optional("MaxRecords") => integer(),
+        optional("SnapshotIdentifier") => String.t(),
+        required("ActionType") => list(any())
+      }
+      
   """
   @type get_reserved_node_exchange_configuration_options_input_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  elastic_ip_status() :: %{
-    "ElasticIp" => String.t(),
-    "Status" => String.t()
-  }
+      
+      elastic_ip_status() :: %{
+        "ElasticIp" => String.t(),
+        "Status" => String.t()
+      }
+      
   """
   @type elastic_ip_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  reboot_cluster_result() :: %{
-    "Cluster" => cluster()
-  }
+      
+      reboot_cluster_result() :: %{
+        "Cluster" => cluster()
+      }
+      
   """
   @type reboot_cluster_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_redshift_idc_applications_message() :: %{
-    optional("Marker") => String.t(),
-    optional("MaxRecords") => integer(),
-    optional("RedshiftIdcApplicationArn") => String.t()
-  }
+      
+      describe_redshift_idc_applications_message() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxRecords") => integer(),
+        optional("RedshiftIdcApplicationArn") => String.t()
+      }
+      
   """
   @type describe_redshift_idc_applications_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  usage_limit_list() :: %{
-    optional("Marker") => String.t(),
-    optional("UsageLimits") => list(usage_limit()())
-  }
+      
+      usage_limit_list() :: %{
+        optional("Marker") => String.t(),
+        optional("UsageLimits") => list(usage_limit()())
+      }
+      
   """
   @type usage_limit_list() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_hsm_client_certificate_message() :: %{
-    required("HsmClientCertificateIdentifier") => String.t()
-  }
+      
+      delete_hsm_client_certificate_message() :: %{
+        required("HsmClientCertificateIdentifier") => String.t()
+      }
+      
   """
   @type delete_hsm_client_certificate_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cluster_parameter_group_details() :: %{
-    "Marker" => String.t(),
-    "Parameters" => list(parameter()())
-  }
+      
+      cluster_parameter_group_details() :: %{
+        "Marker" => String.t(),
+        "Parameters" => list(parameter()())
+      }
+      
   """
   @type cluster_parameter_group_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  logging_status() :: %{
-    "BucketName" => String.t(),
-    "LastFailureMessage" => String.t(),
-    "LastFailureTime" => non_neg_integer(),
-    "LastSuccessfulDeliveryTime" => non_neg_integer(),
-    "LogDestinationType" => list(any()),
-    "LogExports" => list(String.t()()),
-    "LoggingEnabled" => boolean(),
-    "S3KeyPrefix" => String.t()
-  }
+      
+      logging_status() :: %{
+        "BucketName" => String.t(),
+        "LastFailureMessage" => String.t(),
+        "LastFailureTime" => non_neg_integer(),
+        "LastSuccessfulDeliveryTime" => non_neg_integer(),
+        "LogDestinationType" => list(any()),
+        "LogExports" => list(String.t()()),
+        "LoggingEnabled" => boolean(),
+        "S3KeyPrefix" => String.t()
+      }
+      
   """
   @type logging_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  account_attribute_list() :: %{
-    optional("AccountAttributes") => list(account_attribute()())
-  }
+      
+      account_attribute_list() :: %{
+        optional("AccountAttributes") => list(account_attribute()())
+      }
+      
   """
   @type account_attribute_list() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_cluster_subnet_group_message() :: %{
-    required("ClusterSubnetGroupName") => String.t()
-  }
+      
+      delete_cluster_subnet_group_message() :: %{
+        required("ClusterSubnetGroupName") => String.t()
+      }
+      
   """
   @type delete_cluster_subnet_group_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cluster_versions_message() :: %{
-    "ClusterVersions" => list(cluster_version()()),
-    "Marker" => String.t()
-  }
+      
+      cluster_versions_message() :: %{
+        "ClusterVersions" => list(cluster_version()()),
+        "Marker" => String.t()
+      }
+      
   """
   @type cluster_versions_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  integration_not_found_fault() :: %{
-    "message" => String.t()
-  }
+      
+      integration_not_found_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type integration_not_found_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_cluster_snapshot_schedule_state_fault() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_cluster_snapshot_schedule_state_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_cluster_snapshot_schedule_state_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cluster_subnet_quota_exceeded_fault() :: %{
-    "message" => String.t()
-  }
+      
+      cluster_subnet_quota_exceeded_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type cluster_subnet_quota_exceeded_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  snapshot_copy_disabled_fault() :: %{
-    "message" => String.t()
-  }
+      
+      snapshot_copy_disabled_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type snapshot_copy_disabled_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  custom_cname_association_fault() :: %{
-    "message" => String.t()
-  }
+      
+      custom_cname_association_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type custom_cname_association_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  endpoint() :: %{
-    "Address" => String.t(),
-    "Port" => integer(),
-    "VpcEndpoints" => list(vpc_endpoint()())
-  }
+      
+      endpoint() :: %{
+        "Address" => String.t(),
+        "Port" => integer(),
+        "VpcEndpoints" => list(vpc_endpoint()())
+      }
+      
   """
   @type endpoint() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  events_message() :: %{
-    "Events" => list(event()()),
-    "Marker" => String.t()
-  }
+      
+      events_message() :: %{
+        "Events" => list(event()()),
+        "Marker" => String.t()
+      }
+      
   """
   @type events_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tagged_resource_list_message() :: %{
-    "Marker" => String.t(),
-    "TaggedResources" => list(tagged_resource()())
-  }
+      
+      tagged_resource_list_message() :: %{
+        "Marker" => String.t(),
+        "TaggedResources" => list(tagged_resource()())
+      }
+      
   """
   @type tagged_resource_list_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cluster_subnet_group_already_exists_fault() :: %{
-    "message" => String.t()
-  }
+      
+      cluster_subnet_group_already_exists_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type cluster_subnet_group_already_exists_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  snapshot_error_message() :: %{
-    "FailureCode" => String.t(),
-    "FailureReason" => String.t(),
-    "SnapshotClusterIdentifier" => String.t(),
-    "SnapshotIdentifier" => String.t()
-  }
+      
+      snapshot_error_message() :: %{
+        "FailureCode" => String.t(),
+        "FailureReason" => String.t(),
+        "SnapshotClusterIdentifier" => String.t(),
+        "SnapshotIdentifier" => String.t()
+      }
+      
   """
   @type snapshot_error_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cluster_iam_role() :: %{
-    "ApplyStatus" => String.t(),
-    "IamRoleArn" => String.t()
-  }
+      
+      cluster_iam_role() :: %{
+        "ApplyStatus" => String.t(),
+        "IamRoleArn" => String.t()
+      }
+      
   """
   @type cluster_iam_role() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_event_subscription_message() :: %{
-    required("SubscriptionName") => String.t()
-  }
+      
+      delete_event_subscription_message() :: %{
+        required("SubscriptionName") => String.t()
+      }
+      
   """
   @type delete_event_subscription_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_cluster_security_group_result() :: %{
-    "ClusterSecurityGroup" => cluster_security_group()
-  }
+      
+      create_cluster_security_group_result() :: %{
+        "ClusterSecurityGroup" => cluster_security_group()
+      }
+      
   """
   @type create_cluster_security_group_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  scheduled_action_quota_exceeded_fault() :: %{
-    "message" => String.t()
-  }
+      
+      scheduled_action_quota_exceeded_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type scheduled_action_quota_exceeded_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  enable_snapshot_copy_message() :: %{
-    optional("ManualSnapshotRetentionPeriod") => integer(),
-    optional("RetentionPeriod") => integer(),
-    optional("SnapshotCopyGrantName") => String.t(),
-    required("ClusterIdentifier") => String.t(),
-    required("DestinationRegion") => String.t()
-  }
+      
+      enable_snapshot_copy_message() :: %{
+        optional("ManualSnapshotRetentionPeriod") => integer(),
+        optional("RetentionPeriod") => integer(),
+        optional("SnapshotCopyGrantName") => String.t(),
+        required("ClusterIdentifier") => String.t(),
+        required("DestinationRegion") => String.t()
+      }
+      
   """
   @type enable_snapshot_copy_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_policy() :: %{
-    "Policy" => String.t(),
-    "ResourceArn" => String.t()
-  }
+      
+      resource_policy() :: %{
+        "Policy" => String.t(),
+        "ResourceArn" => String.t()
+      }
+      
   """
   @type resource_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_cluster_tracks_message() :: %{
-    optional("MaintenanceTrackName") => String.t(),
-    optional("Marker") => String.t(),
-    optional("MaxRecords") => integer()
-  }
+      
+      describe_cluster_tracks_message() :: %{
+        optional("MaintenanceTrackName") => String.t(),
+        optional("Marker") => String.t(),
+        optional("MaxRecords") => integer()
+      }
+      
   """
   @type describe_cluster_tracks_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resize_info() :: %{
-    "AllowCancelResize" => boolean(),
-    "ResizeType" => String.t()
-  }
+      
+      resize_info() :: %{
+        "AllowCancelResize" => boolean(),
+        "ResizeType" => String.t()
+      }
+      
   """
   @type resize_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  reserved_node_not_found_fault() :: %{
-    "message" => String.t()
-  }
+      
+      reserved_node_not_found_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type reserved_node_not_found_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  snapshot_copy_grant_quota_exceeded_fault() :: %{
-    "message" => String.t()
-  }
+      
+      snapshot_copy_grant_quota_exceeded_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type snapshot_copy_grant_quota_exceeded_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  custom_domain_association_not_found_fault() :: %{
-    "message" => String.t()
-  }
+      
+      custom_domain_association_not_found_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type custom_domain_association_not_found_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  subscription_category_not_found_fault() :: %{
-    "message" => String.t()
-  }
+      
+      subscription_category_not_found_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type subscription_category_not_found_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_redshift_idc_application_message() :: %{
-    optional("AuthorizedTokenIssuerList") => list(authorized_token_issuer()()),
-    optional("IdentityNamespace") => String.t(),
-    optional("ServiceIntegrations") => list(list()()),
-    required("IamRoleArn") => String.t(),
-    required("IdcDisplayName") => String.t(),
-    required("IdcInstanceArn") => String.t(),
-    required("RedshiftIdcApplicationName") => String.t()
-  }
+      
+      create_redshift_idc_application_message() :: %{
+        optional("AuthorizedTokenIssuerList") => list(authorized_token_issuer()()),
+        optional("IdentityNamespace") => String.t(),
+        optional("ServiceIntegrations") => list(list()()),
+        required("IamRoleArn") => String.t(),
+        required("IdcDisplayName") => String.t(),
+        required("IdcInstanceArn") => String.t(),
+        required("RedshiftIdcApplicationName") => String.t()
+      }
+      
   """
   @type create_redshift_idc_application_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  s_n_s_invalid_topic_fault() :: %{
-    "message" => String.t()
-  }
+      
+      s_n_s_invalid_topic_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type s_n_s_invalid_topic_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_partner_status_input_message() :: %{
-    optional("StatusMessage") => String.t(),
-    required("AccountId") => String.t(),
-    required("ClusterIdentifier") => String.t(),
-    required("DatabaseName") => String.t(),
-    required("PartnerName") => String.t(),
-    required("Status") => list(any())
-  }
+      
+      update_partner_status_input_message() :: %{
+        optional("StatusMessage") => String.t(),
+        required("AccountId") => String.t(),
+        required("ClusterIdentifier") => String.t(),
+        required("DatabaseName") => String.t(),
+        required("PartnerName") => String.t(),
+        required("Status") => list(any())
+      }
+      
   """
   @type update_partner_status_input_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_reserved_node_offerings_message() :: %{
-    optional("Marker") => String.t(),
-    optional("MaxRecords") => integer(),
-    optional("ReservedNodeOfferingId") => String.t()
-  }
+      
+      describe_reserved_node_offerings_message() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxRecords") => integer(),
+        optional("ReservedNodeOfferingId") => String.t()
+      }
+      
   """
   @type describe_reserved_node_offerings_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  event() :: %{
-    "Date" => non_neg_integer(),
-    "EventCategories" => list(String.t()()),
-    "EventId" => String.t(),
-    "Message" => String.t(),
-    "Severity" => String.t(),
-    "SourceIdentifier" => String.t(),
-    "SourceType" => list(any())
-  }
+      
+      event() :: %{
+        "Date" => non_neg_integer(),
+        "EventCategories" => list(String.t()()),
+        "EventId" => String.t(),
+        "Message" => String.t(),
+        "Severity" => String.t(),
+        "SourceIdentifier" => String.t(),
+        "SourceType" => list(any())
+      }
+      
   """
   @type event() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_event_subscription_result() :: %{
-    "EventSubscription" => event_subscription()
-  }
+      
+      create_event_subscription_result() :: %{
+        "EventSubscription" => event_subscription()
+      }
+      
   """
   @type create_event_subscription_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  clusters_message() :: %{
-    "Clusters" => list(cluster()()),
-    "Marker" => String.t()
-  }
+      
+      clusters_message() :: %{
+        "Clusters" => list(cluster()()),
+        "Marker" => String.t()
+      }
+      
   """
   @type clusters_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  enable_snapshot_copy_result() :: %{
-    "Cluster" => cluster()
-  }
+      
+      enable_snapshot_copy_result() :: %{
+        "Cluster" => cluster()
+      }
+      
   """
   @type enable_snapshot_copy_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  deauthorize_data_share_message() :: %{
-    required("ConsumerIdentifier") => String.t(),
-    required("DataShareArn") => String.t()
-  }
+      
+      deauthorize_data_share_message() :: %{
+        required("ConsumerIdentifier") => String.t(),
+        required("DataShareArn") => String.t()
+      }
+      
   """
   @type deauthorize_data_share_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  data_share_association() :: %{
-    "ConsumerAcceptedWrites" => boolean(),
-    "ConsumerIdentifier" => String.t(),
-    "ConsumerRegion" => String.t(),
-    "CreatedDate" => non_neg_integer(),
-    "ProducerAllowedWrites" => boolean(),
-    "Status" => list(any()),
-    "StatusChangeDate" => non_neg_integer()
-  }
+      
+      data_share_association() :: %{
+        "ConsumerAcceptedWrites" => boolean(),
+        "ConsumerIdentifier" => String.t(),
+        "ConsumerRegion" => String.t(),
+        "CreatedDate" => non_neg_integer(),
+        "ProducerAllowedWrites" => boolean(),
+        "Status" => list(any()),
+        "StatusChangeDate" => non_neg_integer()
+      }
+      
   """
   @type data_share_association() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  revoke_snapshot_access_result() :: %{
-    "Snapshot" => snapshot()
-  }
+      
+      revoke_snapshot_access_result() :: %{
+        "Snapshot" => snapshot()
+      }
+      
   """
   @type revoke_snapshot_access_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  snapshot() :: %{
-    "Status" => String.t(),
-    "TotalBackupSizeInMegaBytes" => float(),
-    "DBName" => String.t(),
-    "BackupProgressInMegaBytes" => float(),
-    "ManualSnapshotRemainingDays" => integer(),
-    "Tags" => list(tag()()),
-    "Encrypted" => boolean(),
-    "OwnerAccount" => String.t(),
-    "EnhancedVpcRouting" => boolean(),
-    "SnapshotRetentionStartTime" => non_neg_integer(),
-    "EncryptedWithHSM" => boolean(),
-    "EstimatedSecondsToCompletion" => float(),
-    "SourceRegion" => String.t(),
-    "KmsKeyId" => String.t(),
-    "VpcId" => String.t(),
-    "AvailabilityZone" => String.t(),
-    "ManualSnapshotRetentionPeriod" => integer(),
-    "EngineFullVersion" => String.t(),
-    "AccountsWithRestoreAccess" => list(account_with_restore_access()()),
-    "ClusterCreateTime" => non_neg_integer(),
-    "Port" => integer(),
-    "NodeType" => String.t(),
-    "MaintenanceTrackName" => String.t(),
-    "ElapsedTimeInSeconds" => float(),
-    "MasterUsername" => String.t(),
-    "SnapshotCreateTime" => non_neg_integer(),
-    "ClusterVersion" => String.t(),
-    "ClusterIdentifier" => String.t(),
-    "NumberOfNodes" => integer(),
-    "MasterPasswordSecretArn" => String.t(),
-    "CurrentBackupRateInMegaBytesPerSecond" => float(),
-    "SnapshotType" => String.t(),
-    "ActualIncrementalBackupSizeInMegaBytes" => float(),
-    "MasterPasswordSecretKmsKeyId" => String.t(),
-    "SnapshotIdentifier" => String.t(),
-    "RestorableNodeTypes" => list(String.t()())
-  }
+      
+      snapshot() :: %{
+        "Status" => String.t(),
+        "TotalBackupSizeInMegaBytes" => float(),
+        "DBName" => String.t(),
+        "BackupProgressInMegaBytes" => float(),
+        "ManualSnapshotRemainingDays" => integer(),
+        "Tags" => list(tag()()),
+        "Encrypted" => boolean(),
+        "OwnerAccount" => String.t(),
+        "EnhancedVpcRouting" => boolean(),
+        "SnapshotRetentionStartTime" => non_neg_integer(),
+        "EncryptedWithHSM" => boolean(),
+        "EstimatedSecondsToCompletion" => float(),
+        "SourceRegion" => String.t(),
+        "KmsKeyId" => String.t(),
+        "VpcId" => String.t(),
+        "AvailabilityZone" => String.t(),
+        "ManualSnapshotRetentionPeriod" => integer(),
+        "EngineFullVersion" => String.t(),
+        "AccountsWithRestoreAccess" => list(account_with_restore_access()()),
+        "ClusterCreateTime" => non_neg_integer(),
+        "Port" => integer(),
+        "NodeType" => String.t(),
+        "MaintenanceTrackName" => String.t(),
+        "ElapsedTimeInSeconds" => float(),
+        "MasterUsername" => String.t(),
+        "SnapshotCreateTime" => non_neg_integer(),
+        "ClusterVersion" => String.t(),
+        "ClusterIdentifier" => String.t(),
+        "NumberOfNodes" => integer(),
+        "MasterPasswordSecretArn" => String.t(),
+        "CurrentBackupRateInMegaBytesPerSecond" => float(),
+        "SnapshotType" => String.t(),
+        "ActualIncrementalBackupSizeInMegaBytes" => float(),
+        "MasterPasswordSecretKmsKeyId" => String.t(),
+        "SnapshotIdentifier" => String.t(),
+        "RestorableNodeTypes" => list(String.t()())
+      }
+      
   """
   @type snapshot() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  restore_status() :: %{
-    "CurrentRestoreRateInMegaBytesPerSecond" => float(),
-    "ElapsedTimeInSeconds" => float(),
-    "EstimatedTimeToCompletionInSeconds" => float(),
-    "ProgressInMegaBytes" => float(),
-    "SnapshotSizeInMegaBytes" => float(),
-    "Status" => String.t()
-  }
+      
+      restore_status() :: %{
+        "CurrentRestoreRateInMegaBytesPerSecond" => float(),
+        "ElapsedTimeInSeconds" => float(),
+        "EstimatedTimeToCompletionInSeconds" => float(),
+        "ProgressInMegaBytes" => float(),
+        "SnapshotSizeInMegaBytes" => float(),
+        "Status" => String.t()
+      }
+      
   """
   @type restore_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  unauthorized_partner_integration_fault() :: %{
-    "message" => String.t()
-  }
+      
+      unauthorized_partner_integration_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type unauthorized_partner_integration_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_orderable_cluster_options_message() :: %{
-    optional("ClusterVersion") => String.t(),
-    optional("Marker") => String.t(),
-    optional("MaxRecords") => integer(),
-    optional("NodeType") => String.t()
-  }
+      
+      describe_orderable_cluster_options_message() :: %{
+        optional("ClusterVersion") => String.t(),
+        optional("Marker") => String.t(),
+        optional("MaxRecords") => integer(),
+        optional("NodeType") => String.t()
+      }
+      
   """
   @type describe_orderable_cluster_options_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  snapshot_message() :: %{
-    "Marker" => String.t(),
-    "Snapshots" => list(snapshot()())
-  }
+      
+      snapshot_message() :: %{
+        "Marker" => String.t(),
+        "Snapshots" => list(snapshot()())
+      }
+      
   """
   @type snapshot_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  scheduled_action_already_exists_fault() :: %{
-    "message" => String.t()
-  }
+      
+      scheduled_action_already_exists_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type scheduled_action_already_exists_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  modify_cluster_subnet_group_result() :: %{
-    "ClusterSubnetGroup" => cluster_subnet_group()
-  }
+      
+      modify_cluster_subnet_group_result() :: %{
+        "ClusterSubnetGroup" => cluster_subnet_group()
+      }
+      
   """
   @type modify_cluster_subnet_group_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  s_n_s_topic_arn_not_found_fault() :: %{
-    "message" => String.t()
-  }
+      
+      s_n_s_topic_arn_not_found_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type s_n_s_topic_arn_not_found_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resume_cluster_result() :: %{
-    "Cluster" => cluster()
-  }
+      
+      resume_cluster_result() :: %{
+        "Cluster" => cluster()
+      }
+      
   """
   @type resume_cluster_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cluster_parameter_group_already_exists_fault() :: %{
-    "message" => String.t()
-  }
+      
+      cluster_parameter_group_already_exists_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type cluster_parameter_group_already_exists_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_subscription_state_fault() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_subscription_state_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_subscription_state_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_hsm_configuration_result() :: %{
-    "HsmConfiguration" => hsm_configuration()
-  }
+      
+      create_hsm_configuration_result() :: %{
+        "HsmConfiguration" => hsm_configuration()
+      }
+      
   """
   @type create_hsm_configuration_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_logging_status_message() :: %{
-    required("ClusterIdentifier") => String.t()
-  }
+      
+      describe_logging_status_message() :: %{
+        required("ClusterIdentifier") => String.t()
+      }
+      
   """
   @type describe_logging_status_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  hsm_client_certificate_message() :: %{
-    "HsmClientCertificates" => list(hsm_client_certificate()()),
-    "Marker" => String.t()
-  }
+      
+      hsm_client_certificate_message() :: %{
+        "HsmClientCertificates" => list(hsm_client_certificate()()),
+        "Marker" => String.t()
+      }
+      
   """
   @type hsm_client_certificate_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  customer_storage_message() :: %{
-    "TotalBackupSizeInMegaBytes" => float(),
-    "TotalProvisionedStorageInMegaBytes" => float()
-  }
+      
+      customer_storage_message() :: %{
+        "TotalBackupSizeInMegaBytes" => float(),
+        "TotalProvisionedStorageInMegaBytes" => float()
+      }
+      
   """
   @type customer_storage_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ipv6_cidr_block_not_found_fault() :: %{
-    "message" => String.t()
-  }
+      
+      ipv6_cidr_block_not_found_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type ipv6_cidr_block_not_found_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cluster_db_revision() :: %{
-    "ClusterIdentifier" => String.t(),
-    "CurrentDatabaseRevision" => String.t(),
-    "DatabaseRevisionReleaseDate" => non_neg_integer(),
-    "RevisionTargets" => list(revision_target()())
-  }
+      
+      cluster_db_revision() :: %{
+        "ClusterIdentifier" => String.t(),
+        "CurrentDatabaseRevision" => String.t(),
+        "DatabaseRevisionReleaseDate" => non_neg_integer(),
+        "RevisionTargets" => list(revision_target()())
+      }
+      
   """
   @type cluster_db_revision() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disable_logging_message() :: %{
-    required("ClusterIdentifier") => String.t()
-  }
+      
+      disable_logging_message() :: %{
+        required("ClusterIdentifier") => String.t()
+      }
+      
   """
   @type disable_logging_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_custom_domain_associations_message() :: %{
-    optional("CustomDomainCertificateArn") => String.t(),
-    optional("CustomDomainName") => String.t(),
-    optional("Marker") => String.t(),
-    optional("MaxRecords") => integer()
-  }
+      
+      describe_custom_domain_associations_message() :: %{
+        optional("CustomDomainCertificateArn") => String.t(),
+        optional("CustomDomainName") => String.t(),
+        optional("Marker") => String.t(),
+        optional("MaxRecords") => integer()
+      }
+      
   """
   @type describe_custom_domain_associations_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  reference_link() :: %{
-    "Link" => String.t(),
-    "Text" => String.t()
-  }
+      
+      reference_link() :: %{
+        "Link" => String.t(),
+        "Text" => String.t()
+      }
+      
   """
   @type reference_link() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  modify_cluster_db_revision_result() :: %{
-    "Cluster" => cluster()
-  }
+      
+      modify_cluster_db_revision_result() :: %{
+        "Cluster" => cluster()
+      }
+      
   """
   @type modify_cluster_db_revision_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_modify_cluster_snapshots_message() :: %{
-    optional("Force") => boolean(),
-    optional("ManualSnapshotRetentionPeriod") => integer(),
-    required("SnapshotIdentifierList") => list(String.t()())
-  }
+      
+      batch_modify_cluster_snapshots_message() :: %{
+        optional("Force") => boolean(),
+        optional("ManualSnapshotRetentionPeriod") => integer(),
+        required("SnapshotIdentifierList") => list(String.t()())
+      }
+      
   """
   @type batch_modify_cluster_snapshots_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  modify_custom_domain_association_message() :: %{
-    required("ClusterIdentifier") => String.t(),
-    required("CustomDomainCertificateArn") => String.t(),
-    required("CustomDomainName") => String.t()
-  }
+      
+      modify_custom_domain_association_message() :: %{
+        required("ClusterIdentifier") => String.t(),
+        required("CustomDomainCertificateArn") => String.t(),
+        required("CustomDomainName") => String.t()
+      }
+      
   """
   @type modify_custom_domain_association_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_endpoint_access_message() :: %{
-    optional("ClusterIdentifier") => String.t(),
-    optional("EndpointName") => String.t(),
-    optional("Marker") => String.t(),
-    optional("MaxRecords") => integer(),
-    optional("ResourceOwner") => String.t(),
-    optional("VpcId") => String.t()
-  }
+      
+      describe_endpoint_access_message() :: %{
+        optional("ClusterIdentifier") => String.t(),
+        optional("EndpointName") => String.t(),
+        optional("Marker") => String.t(),
+        optional("MaxRecords") => integer(),
+        optional("ResourceOwner") => String.t(),
+        optional("VpcId") => String.t()
+      }
+      
   """
   @type describe_endpoint_access_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  event_categories_message() :: %{
-    "EventCategoriesMapList" => list(event_categories_map()())
-  }
+      
+      event_categories_message() :: %{
+        "EventCategoriesMapList" => list(event_categories_map()())
+      }
+      
   """
   @type event_categories_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  supported_operation() :: %{
-    "OperationName" => String.t()
-  }
+      
+      supported_operation() :: %{
+        "OperationName" => String.t()
+      }
+      
   """
   @type supported_operation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  revoke_cluster_security_group_ingress_message() :: %{
-    optional("CIDRIP") => String.t(),
-    optional("EC2SecurityGroupName") => String.t(),
-    optional("EC2SecurityGroupOwnerId") => String.t(),
-    required("ClusterSecurityGroupName") => String.t()
-  }
+      
+      revoke_cluster_security_group_ingress_message() :: %{
+        optional("CIDRIP") => String.t(),
+        optional("EC2SecurityGroupName") => String.t(),
+        optional("EC2SecurityGroupOwnerId") => String.t(),
+        required("ClusterSecurityGroupName") => String.t()
+      }
+      
   """
   @type revoke_cluster_security_group_ingress_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  restore_from_cluster_snapshot_result() :: %{
-    "Cluster" => cluster()
-  }
+      
+      restore_from_cluster_snapshot_result() :: %{
+        "Cluster" => cluster()
+      }
+      
   """
   @type restore_from_cluster_snapshot_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_default_cluster_parameters_result() :: %{
-    "DefaultClusterParameters" => default_cluster_parameters()
-  }
+      
+      describe_default_cluster_parameters_result() :: %{
+        "DefaultClusterParameters" => default_cluster_parameters()
+      }
+      
   """
   @type describe_default_cluster_parameters_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tagged_resource() :: %{
-    "ResourceName" => String.t(),
-    "ResourceType" => String.t(),
-    "Tag" => tag()
-  }
+      
+      tagged_resource() :: %{
+        "ResourceName" => String.t(),
+        "ResourceType" => String.t(),
+        "Tag" => tag()
+      }
+      
   """
   @type tagged_resource() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  failover_primary_compute_input_message() :: %{
-    required("ClusterIdentifier") => String.t()
-  }
+      
+      failover_primary_compute_input_message() :: %{
+        required("ClusterIdentifier") => String.t()
+      }
+      
   """
   @type failover_primary_compute_input_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_events_message() :: %{
-    optional("Duration") => integer(),
-    optional("EndTime") => non_neg_integer(),
-    optional("Marker") => String.t(),
-    optional("MaxRecords") => integer(),
-    optional("SourceIdentifier") => String.t(),
-    optional("SourceType") => list(any()),
-    optional("StartTime") => non_neg_integer()
-  }
+      
+      describe_events_message() :: %{
+        optional("Duration") => integer(),
+        optional("EndTime") => non_neg_integer(),
+        optional("Marker") => String.t(),
+        optional("MaxRecords") => integer(),
+        optional("SourceIdentifier") => String.t(),
+        optional("SourceType") => list(any()),
+        optional("StartTime") => non_neg_integer()
+      }
+      
   """
   @type describe_events_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  account_with_restore_access() :: %{
-    "AccountAlias" => String.t(),
-    "AccountId" => String.t()
-  }
+      
+      account_with_restore_access() :: %{
+        "AccountAlias" => String.t(),
+        "AccountId" => String.t()
+      }
+      
   """
   @type account_with_restore_access() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_cluster_security_group_state_fault() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_cluster_security_group_state_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_cluster_security_group_state_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_cluster_snapshots_message() :: %{
-    optional("ClusterExists") => boolean(),
-    optional("ClusterIdentifier") => String.t(),
-    optional("EndTime") => non_neg_integer(),
-    optional("Marker") => String.t(),
-    optional("MaxRecords") => integer(),
-    optional("OwnerAccount") => String.t(),
-    optional("SnapshotArn") => String.t(),
-    optional("SnapshotIdentifier") => String.t(),
-    optional("SnapshotType") => String.t(),
-    optional("SortingEntities") => list(snapshot_sorting_entity()()),
-    optional("StartTime") => non_neg_integer(),
-    optional("TagKeys") => list(String.t()()),
-    optional("TagValues") => list(String.t()())
-  }
+      
+      describe_cluster_snapshots_message() :: %{
+        optional("ClusterExists") => boolean(),
+        optional("ClusterIdentifier") => String.t(),
+        optional("EndTime") => non_neg_integer(),
+        optional("Marker") => String.t(),
+        optional("MaxRecords") => integer(),
+        optional("OwnerAccount") => String.t(),
+        optional("SnapshotArn") => String.t(),
+        optional("SnapshotIdentifier") => String.t(),
+        optional("SnapshotType") => String.t(),
+        optional("SortingEntities") => list(snapshot_sorting_entity()()),
+        optional("StartTime") => non_neg_integer(),
+        optional("TagKeys") => list(String.t()()),
+        optional("TagValues") => list(String.t()())
+      }
+      
   """
   @type describe_cluster_snapshots_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  endpoint_not_found_fault() :: %{
-    "message" => String.t()
-  }
+      
+      endpoint_not_found_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type endpoint_not_found_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cluster_subnet_group_message() :: %{
-    "ClusterSubnetGroups" => list(cluster_subnet_group()()),
-    "Marker" => String.t()
-  }
+      
+      cluster_subnet_group_message() :: %{
+        "ClusterSubnetGroups" => list(cluster_subnet_group()()),
+        "Marker" => String.t()
+      }
+      
   """
   @type cluster_subnet_group_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_cluster_message() :: %{
-    optional("IamRoles") => list(String.t()()),
-    required("NodeType") => String.t(),
-    optional("EnhancedVpcRouting") => boolean(),
-    optional("MasterPasswordSecretKmsKeyId") => String.t(),
-    optional("MasterUserPassword") => String.t(),
-    optional("HsmClientCertificateIdentifier") => String.t(),
-    optional("ClusterVersion") => String.t(),
-    optional("Encrypted") => boolean(),
-    optional("MaintenanceTrackName") => String.t(),
-    optional("RedshiftIdcApplicationArn") => String.t(),
-    optional("SnapshotScheduleIdentifier") => String.t(),
-    optional("HsmConfigurationIdentifier") => String.t(),
-    optional("LoadSampleData") => String.t(),
-    optional("IpAddressType") => String.t(),
-    optional("NumberOfNodes") => integer(),
-    optional("AvailabilityZoneRelocation") => boolean(),
-    optional("AvailabilityZone") => String.t(),
-    optional("ManageMasterPassword") => boolean(),
-    optional("ClusterSubnetGroupName") => String.t(),
-    optional("ClusterType") => String.t(),
-    optional("AdditionalInfo") => String.t(),
-    optional("AquaConfigurationStatus") => list(any()),
-    optional("AllowVersionUpgrade") => boolean(),
-    optional("ClusterSecurityGroups") => list(String.t()()),
-    optional("PubliclyAccessible") => boolean(),
-    optional("ManualSnapshotRetentionPeriod") => integer(),
-    optional("DefaultIamRoleArn") => String.t(),
-    required("ClusterIdentifier") => String.t(),
-    required("MasterUsername") => String.t(),
-    optional("Port") => integer(),
-    optional("ElasticIp") => String.t(),
-    optional("MultiAZ") => boolean(),
-    optional("VpcSecurityGroupIds") => list(String.t()()),
-    optional("AutomatedSnapshotRetentionPeriod") => integer(),
-    optional("KmsKeyId") => String.t(),
-    optional("DBName") => String.t(),
-    optional("PreferredMaintenanceWindow") => String.t(),
-    optional("ClusterParameterGroupName") => String.t(),
-    optional("Tags") => list(tag()())
-  }
+      
+      create_cluster_message() :: %{
+        optional("IamRoles") => list(String.t()()),
+        required("NodeType") => String.t(),
+        optional("EnhancedVpcRouting") => boolean(),
+        optional("MasterPasswordSecretKmsKeyId") => String.t(),
+        optional("MasterUserPassword") => String.t(),
+        optional("HsmClientCertificateIdentifier") => String.t(),
+        optional("ClusterVersion") => String.t(),
+        optional("Encrypted") => boolean(),
+        optional("MaintenanceTrackName") => String.t(),
+        optional("RedshiftIdcApplicationArn") => String.t(),
+        optional("SnapshotScheduleIdentifier") => String.t(),
+        optional("HsmConfigurationIdentifier") => String.t(),
+        optional("LoadSampleData") => String.t(),
+        optional("IpAddressType") => String.t(),
+        optional("NumberOfNodes") => integer(),
+        optional("AvailabilityZoneRelocation") => boolean(),
+        optional("AvailabilityZone") => String.t(),
+        optional("ManageMasterPassword") => boolean(),
+        optional("ClusterSubnetGroupName") => String.t(),
+        optional("ClusterType") => String.t(),
+        optional("AdditionalInfo") => String.t(),
+        optional("AquaConfigurationStatus") => list(any()),
+        optional("AllowVersionUpgrade") => boolean(),
+        optional("ClusterSecurityGroups") => list(String.t()()),
+        optional("PubliclyAccessible") => boolean(),
+        optional("ManualSnapshotRetentionPeriod") => integer(),
+        optional("DefaultIamRoleArn") => String.t(),
+        required("ClusterIdentifier") => String.t(),
+        required("MasterUsername") => String.t(),
+        optional("Port") => integer(),
+        optional("ElasticIp") => String.t(),
+        optional("MultiAZ") => boolean(),
+        optional("VpcSecurityGroupIds") => list(String.t()()),
+        optional("AutomatedSnapshotRetentionPeriod") => integer(),
+        optional("KmsKeyId") => String.t(),
+        optional("DBName") => String.t(),
+        optional("PreferredMaintenanceWindow") => String.t(),
+        optional("ClusterParameterGroupName") => String.t(),
+        optional("Tags") => list(tag()())
+      }
+      
   """
   @type create_cluster_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_authentication_profile_result() :: %{
-    "AuthenticationProfileName" => String.t()
-  }
+      
+      delete_authentication_profile_result() :: %{
+        "AuthenticationProfileName" => String.t()
+      }
+      
   """
   @type delete_authentication_profile_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cluster_snapshot_copy_status() :: %{
-    "DestinationRegion" => String.t(),
-    "ManualSnapshotRetentionPeriod" => integer(),
-    "RetentionPeriod" => float(),
-    "SnapshotCopyGrantName" => String.t()
-  }
+      
+      cluster_snapshot_copy_status() :: %{
+        "DestinationRegion" => String.t(),
+        "ManualSnapshotRetentionPeriod" => integer(),
+        "RetentionPeriod" => float(),
+        "SnapshotCopyGrantName" => String.t()
+      }
+      
   """
   @type cluster_snapshot_copy_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  usage_limit() :: %{
-    "Amount" => float(),
-    "BreachAction" => list(any()),
-    "ClusterIdentifier" => String.t(),
-    "FeatureType" => list(any()),
-    "LimitType" => list(any()),
-    "Period" => list(any()),
-    "Tags" => list(tag()()),
-    "UsageLimitId" => String.t()
-  }
+      
+      usage_limit() :: %{
+        "Amount" => float(),
+        "BreachAction" => list(any()),
+        "ClusterIdentifier" => String.t(),
+        "FeatureType" => list(any()),
+        "LimitType" => list(any()),
+        "Period" => list(any()),
+        "Tags" => list(tag()()),
+        "UsageLimitId" => String.t()
+      }
+      
   """
   @type usage_limit() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  snapshot_schedule_update_in_progress_fault() :: %{
-    "message" => String.t()
-  }
+      
+      snapshot_schedule_update_in_progress_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type snapshot_schedule_update_in_progress_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  scheduled_action_not_found_fault() :: %{
-    "message" => String.t()
-  }
+      
+      scheduled_action_not_found_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type scheduled_action_not_found_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_cluster_subnet_state_fault() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_cluster_subnet_state_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_cluster_subnet_state_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  enable_logging_message() :: %{
-    optional("BucketName") => String.t(),
-    optional("LogDestinationType") => list(any()),
-    optional("LogExports") => list(String.t()()),
-    optional("S3KeyPrefix") => String.t(),
-    required("ClusterIdentifier") => String.t()
-  }
+      
+      enable_logging_message() :: %{
+        optional("BucketName") => String.t(),
+        optional("LogDestinationType") => list(any()),
+        optional("LogExports") => list(String.t()()),
+        optional("S3KeyPrefix") => String.t(),
+        required("ClusterIdentifier") => String.t()
+      }
+      
   """
   @type enable_logging_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  reserved_node_exchange_status() :: %{
-    "RequestTime" => non_neg_integer(),
-    "ReservedNodeExchangeRequestId" => String.t(),
-    "SourceReservedNodeCount" => integer(),
-    "SourceReservedNodeId" => String.t(),
-    "SourceReservedNodeType" => String.t(),
-    "Status" => list(any()),
-    "TargetReservedNodeCount" => integer(),
-    "TargetReservedNodeOfferingId" => String.t(),
-    "TargetReservedNodeType" => String.t()
-  }
+      
+      reserved_node_exchange_status() :: %{
+        "RequestTime" => non_neg_integer(),
+        "ReservedNodeExchangeRequestId" => String.t(),
+        "SourceReservedNodeCount" => integer(),
+        "SourceReservedNodeId" => String.t(),
+        "SourceReservedNodeType" => String.t(),
+        "Status" => list(any()),
+        "TargetReservedNodeCount" => integer(),
+        "TargetReservedNodeOfferingId" => String.t(),
+        "TargetReservedNodeType" => String.t()
+      }
+      
   """
   @type reserved_node_exchange_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_redshift_idc_applications_result() :: %{
-    "Marker" => String.t(),
-    "RedshiftIdcApplications" => list(redshift_idc_application()())
-  }
+      
+      describe_redshift_idc_applications_result() :: %{
+        "Marker" => String.t(),
+        "RedshiftIdcApplications" => list(redshift_idc_application()())
+      }
+      
   """
   @type describe_redshift_idc_applications_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  modify_event_subscription_result() :: %{
-    "EventSubscription" => event_subscription()
-  }
+      
+      modify_event_subscription_result() :: %{
+        "EventSubscription" => event_subscription()
+      }
+      
   """
   @type modify_event_subscription_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_delete_request_size_exceeded_fault() :: %{
-    "message" => String.t()
-  }
+      
+      batch_delete_request_size_exceeded_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type batch_delete_request_size_exceeded_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_endpoint_access_message() :: %{
-    optional("ClusterIdentifier") => String.t(),
-    optional("ResourceOwner") => String.t(),
-    optional("VpcSecurityGroupIds") => list(String.t()()),
-    required("EndpointName") => String.t(),
-    required("SubnetGroupName") => String.t()
-  }
+      
+      create_endpoint_access_message() :: %{
+        optional("ClusterIdentifier") => String.t(),
+        optional("ResourceOwner") => String.t(),
+        optional("VpcSecurityGroupIds") => list(String.t()()),
+        required("EndpointName") => String.t(),
+        required("SubnetGroupName") => String.t()
+      }
+      
   """
   @type create_endpoint_access_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_data_shares_for_consumer_message() :: %{
-    optional("ConsumerArn") => String.t(),
-    optional("Marker") => String.t(),
-    optional("MaxRecords") => integer(),
-    optional("Status") => list(any())
-  }
+      
+      describe_data_shares_for_consumer_message() :: %{
+        optional("ConsumerArn") => String.t(),
+        optional("Marker") => String.t(),
+        optional("MaxRecords") => integer(),
+        optional("Status") => list(any())
+      }
+      
   """
   @type describe_data_shares_for_consumer_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_endpoint_state_fault() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_endpoint_state_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_endpoint_state_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_snapshot_schedules_output_message() :: %{
-    "Marker" => String.t(),
-    "SnapshotSchedules" => list(snapshot_schedule()())
-  }
+      
+      describe_snapshot_schedules_output_message() :: %{
+        "Marker" => String.t(),
+        "SnapshotSchedules" => list(snapshot_schedule()())
+      }
+      
   """
   @type describe_snapshot_schedules_output_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  reserved_node_exchange_not_found_fault() :: %{
-    "message" => String.t()
-  }
+      
+      reserved_node_exchange_not_found_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type reserved_node_exchange_not_found_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_target() :: %{
-    "DatabaseVersion" => String.t(),
-    "MaintenanceTrackName" => String.t(),
-    "SupportedOperations" => list(supported_operation()())
-  }
+      
+      update_target() :: %{
+        "DatabaseVersion" => String.t(),
+        "MaintenanceTrackName" => String.t(),
+        "SupportedOperations" => list(supported_operation()())
+      }
+      
   """
   @type update_target() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_usage_limit_message() :: %{
-    optional("BreachAction") => list(any()),
-    optional("Period") => list(any()),
-    optional("Tags") => list(tag()()),
-    required("Amount") => float(),
-    required("ClusterIdentifier") => String.t(),
-    required("FeatureType") => list(any()),
-    required("LimitType") => list(any())
-  }
+      
+      create_usage_limit_message() :: %{
+        optional("BreachAction") => list(any()),
+        optional("Period") => list(any()),
+        optional("Tags") => list(tag()()),
+        required("Amount") => float(),
+        required("ClusterIdentifier") => String.t(),
+        required("FeatureType") => list(any()),
+        required("LimitType") => list(any())
+      }
+      
   """
   @type create_usage_limit_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  rotate_encryption_key_result() :: %{
-    "Cluster" => cluster()
-  }
+      
+      rotate_encryption_key_result() :: %{
+        "Cluster" => cluster()
+      }
+      
   """
   @type rotate_encryption_key_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  modify_authentication_profile_message() :: %{
-    required("AuthenticationProfileContent") => String.t(),
-    required("AuthenticationProfileName") => String.t()
-  }
+      
+      modify_authentication_profile_message() :: %{
+        required("AuthenticationProfileContent") => String.t(),
+        required("AuthenticationProfileName") => String.t()
+      }
+      
   """
   @type modify_authentication_profile_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_clusters_message() :: %{
-    optional("ClusterIdentifier") => String.t(),
-    optional("Marker") => String.t(),
-    optional("MaxRecords") => integer(),
-    optional("TagKeys") => list(String.t()()),
-    optional("TagValues") => list(String.t()())
-  }
+      
+      describe_clusters_message() :: %{
+        optional("ClusterIdentifier") => String.t(),
+        optional("Marker") => String.t(),
+        optional("MaxRecords") => integer(),
+        optional("TagKeys") => list(String.t()()),
+        optional("TagValues") => list(String.t()())
+      }
+      
   """
   @type describe_clusters_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  snapshot_schedule_not_found_fault() :: %{
-    "message" => String.t()
-  }
+      
+      snapshot_schedule_not_found_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type snapshot_schedule_not_found_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resize_progress_message() :: %{
-    "AvgResizeRateInMegaBytesPerSecond" => float(),
-    "DataTransferProgressPercent" => float(),
-    "ElapsedTimeInSeconds" => float(),
-    "EstimatedTimeToCompletionInSeconds" => float(),
-    "ImportTablesCompleted" => list(String.t()()),
-    "ImportTablesInProgress" => list(String.t()()),
-    "ImportTablesNotStarted" => list(String.t()()),
-    "Message" => String.t(),
-    "ProgressInMegaBytes" => float(),
-    "ResizeType" => String.t(),
-    "Status" => String.t(),
-    "TargetClusterType" => String.t(),
-    "TargetEncryptionType" => String.t(),
-    "TargetNodeType" => String.t(),
-    "TargetNumberOfNodes" => integer(),
-    "TotalResizeDataInMegaBytes" => float()
-  }
+      
+      resize_progress_message() :: %{
+        "AvgResizeRateInMegaBytesPerSecond" => float(),
+        "DataTransferProgressPercent" => float(),
+        "ElapsedTimeInSeconds" => float(),
+        "EstimatedTimeToCompletionInSeconds" => float(),
+        "ImportTablesCompleted" => list(String.t()()),
+        "ImportTablesInProgress" => list(String.t()()),
+        "ImportTablesNotStarted" => list(String.t()()),
+        "Message" => String.t(),
+        "ProgressInMegaBytes" => float(),
+        "ResizeType" => String.t(),
+        "Status" => String.t(),
+        "TargetClusterType" => String.t(),
+        "TargetEncryptionType" => String.t(),
+        "TargetNodeType" => String.t(),
+        "TargetNumberOfNodes" => integer(),
+        "TotalResizeDataInMegaBytes" => float()
+      }
+      
   """
   @type resize_progress_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_hsm_client_certificate_message() :: %{
-    optional("Tags") => list(tag()()),
-    required("HsmClientCertificateIdentifier") => String.t()
-  }
+      
+      create_hsm_client_certificate_message() :: %{
+        optional("Tags") => list(tag()()),
+        required("HsmClientCertificateIdentifier") => String.t()
+      }
+      
   """
   @type create_hsm_client_certificate_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_resource_policy_message() :: %{
-    required("ResourceArn") => String.t()
-  }
+      
+      delete_resource_policy_message() :: %{
+        required("ResourceArn") => String.t()
+      }
+      
   """
   @type delete_resource_policy_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  account_attribute() :: %{
-    "AttributeName" => String.t(),
-    "AttributeValues" => list(attribute_value_target()())
-  }
+      
+      account_attribute() :: %{
+        "AttributeName" => String.t(),
+        "AttributeValues" => list(attribute_value_target()())
+      }
+      
   """
   @type account_attribute() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  access_to_snapshot_denied_fault() :: %{
-    "message" => String.t()
-  }
+      
+      access_to_snapshot_denied_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type access_to_snapshot_denied_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_reserved_node_exchange_status_input_message() :: %{
-    optional("Marker") => String.t(),
-    optional("MaxRecords") => integer(),
-    optional("ReservedNodeExchangeRequestId") => String.t(),
-    optional("ReservedNodeId") => String.t()
-  }
+      
+      describe_reserved_node_exchange_status_input_message() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxRecords") => integer(),
+        optional("ReservedNodeExchangeRequestId") => String.t(),
+        optional("ReservedNodeId") => String.t()
+      }
+      
   """
   @type describe_reserved_node_exchange_status_input_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  supported_platform() :: %{
-    "Name" => String.t()
-  }
+      
+      supported_platform() :: %{
+        "Name" => String.t()
+      }
+      
   """
   @type supported_platform() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_cluster_state_fault() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_cluster_state_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_cluster_state_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  unknown_snapshot_copy_region_fault() :: %{
-    "message" => String.t()
-  }
+      
+      unknown_snapshot_copy_region_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type unknown_snapshot_copy_region_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  partner_integration_info() :: %{
-    "CreatedAt" => non_neg_integer(),
-    "DatabaseName" => String.t(),
-    "PartnerName" => String.t(),
-    "Status" => list(any()),
-    "StatusMessage" => String.t(),
-    "UpdatedAt" => non_neg_integer()
-  }
+      
+      partner_integration_info() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "DatabaseName" => String.t(),
+        "PartnerName" => String.t(),
+        "Status" => list(any()),
+        "StatusMessage" => String.t(),
+        "UpdatedAt" => non_neg_integer()
+      }
+      
   """
   @type partner_integration_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  copy_to_region_disabled_fault() :: %{
-    "message" => String.t()
-  }
+      
+      copy_to_region_disabled_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type copy_to_region_disabled_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cluster_security_group_not_found_fault() :: %{
-    "message" => String.t()
-  }
+      
+      cluster_security_group_not_found_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type cluster_security_group_not_found_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_hsm_configuration_message() :: %{
-    optional("Tags") => list(tag()()),
-    required("Description") => String.t(),
-    required("HsmConfigurationIdentifier") => String.t(),
-    required("HsmIpAddress") => String.t(),
-    required("HsmPartitionName") => String.t(),
-    required("HsmPartitionPassword") => String.t(),
-    required("HsmServerPublicCertificate") => String.t()
-  }
+      
+      create_hsm_configuration_message() :: %{
+        optional("Tags") => list(tag()()),
+        required("Description") => String.t(),
+        required("HsmConfigurationIdentifier") => String.t(),
+        required("HsmIpAddress") => String.t(),
+        required("HsmPartitionName") => String.t(),
+        required("HsmPartitionPassword") => String.t(),
+        required("HsmServerPublicCertificate") => String.t()
+      }
+      
   """
   @type create_hsm_configuration_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cluster_snapshot_not_found_fault() :: %{
-    "message" => String.t()
-  }
+      
+      cluster_snapshot_not_found_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type cluster_snapshot_not_found_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  rotate_encryption_key_message() :: %{
-    required("ClusterIdentifier") => String.t()
-  }
+      
+      rotate_encryption_key_message() :: %{
+        required("ClusterIdentifier") => String.t()
+      }
+      
   """
   @type rotate_encryption_key_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_cluster_credentials_message() :: %{
-    optional("AutoCreate") => boolean(),
-    optional("ClusterIdentifier") => String.t(),
-    optional("CustomDomainName") => String.t(),
-    optional("DbGroups") => list(String.t()()),
-    optional("DbName") => String.t(),
-    optional("DurationSeconds") => integer(),
-    required("DbUser") => String.t()
-  }
+      
+      get_cluster_credentials_message() :: %{
+        optional("AutoCreate") => boolean(),
+        optional("ClusterIdentifier") => String.t(),
+        optional("CustomDomainName") => String.t(),
+        optional("DbGroups") => list(String.t()()),
+        optional("DbName") => String.t(),
+        optional("DurationSeconds") => integer(),
+        required("DbUser") => String.t()
+      }
+      
   """
   @type get_cluster_credentials_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_hsm_client_certificates_message() :: %{
-    optional("HsmClientCertificateIdentifier") => String.t(),
-    optional("Marker") => String.t(),
-    optional("MaxRecords") => integer(),
-    optional("TagKeys") => list(String.t()()),
-    optional("TagValues") => list(String.t()())
-  }
+      
+      describe_hsm_client_certificates_message() :: %{
+        optional("HsmClientCertificateIdentifier") => String.t(),
+        optional("Marker") => String.t(),
+        optional("MaxRecords") => integer(),
+        optional("TagKeys") => list(String.t()()),
+        optional("TagValues") => list(String.t()())
+      }
+      
   """
   @type describe_hsm_client_certificates_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_cluster_security_group_message() :: %{
-    required("ClusterSecurityGroupName") => String.t()
-  }
+      
+      delete_cluster_security_group_message() :: %{
+        required("ClusterSecurityGroupName") => String.t()
+      }
+      
   """
   @type delete_cluster_security_group_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  unsupported_option_fault() :: %{
-    "message" => String.t()
-  }
+      
+      unsupported_option_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type unsupported_option_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  usage_limit_already_exists_fault() :: %{
-    "message" => String.t()
-  }
+      
+      usage_limit_already_exists_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type usage_limit_already_exists_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cluster_security_group_message() :: %{
-    "ClusterSecurityGroups" => list(cluster_security_group()()),
-    "Marker" => String.t()
-  }
+      
+      cluster_security_group_message() :: %{
+        "ClusterSecurityGroups" => list(cluster_security_group()()),
+        "Marker" => String.t()
+      }
+      
   """
   @type cluster_security_group_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  access_to_cluster_denied_fault() :: %{
-    "message" => String.t()
-  }
+      
+      access_to_cluster_denied_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type access_to_cluster_denied_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  partner_integration_output_message() :: %{
-    optional("DatabaseName") => String.t(),
-    optional("PartnerName") => String.t()
-  }
+      
+      partner_integration_output_message() :: %{
+        optional("DatabaseName") => String.t(),
+        optional("PartnerName") => String.t()
+      }
+      
   """
   @type partner_integration_output_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  number_of_nodes_per_cluster_limit_exceeded_fault() :: %{
-    "message" => String.t()
-  }
+      
+      number_of_nodes_per_cluster_limit_exceeded_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type number_of_nodes_per_cluster_limit_exceeded_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  endpoint_authorization_already_exists_fault() :: %{
-    "message" => String.t()
-  }
+      
+      endpoint_authorization_already_exists_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type endpoint_authorization_already_exists_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_scheduled_action_fault() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_scheduled_action_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_scheduled_action_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  reserved_node_quota_exceeded_fault() :: %{
-    "message" => String.t()
-  }
+      
+      reserved_node_quota_exceeded_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type reserved_node_quota_exceeded_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_data_shares_for_producer_result() :: %{
-    "DataShares" => list(data_share()()),
-    "Marker" => String.t()
-  }
+      
+      describe_data_shares_for_producer_result() :: %{
+        "DataShares" => list(data_share()()),
+        "Marker" => String.t()
+      }
+      
   """
   @type describe_data_shares_for_producer_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  endpoint_access() :: %{
-    "Address" => String.t(),
-    "ClusterIdentifier" => String.t(),
-    "EndpointCreateTime" => non_neg_integer(),
-    "EndpointName" => String.t(),
-    "EndpointStatus" => String.t(),
-    "Port" => integer(),
-    "ResourceOwner" => String.t(),
-    "SubnetGroupName" => String.t(),
-    "VpcEndpoint" => vpc_endpoint(),
-    "VpcSecurityGroups" => list(vpc_security_group_membership()())
-  }
+      
+      endpoint_access() :: %{
+        "Address" => String.t(),
+        "ClusterIdentifier" => String.t(),
+        "EndpointCreateTime" => non_neg_integer(),
+        "EndpointName" => String.t(),
+        "EndpointStatus" => String.t(),
+        "Port" => integer(),
+        "ResourceOwner" => String.t(),
+        "SubnetGroupName" => String.t(),
+        "VpcEndpoint" => vpc_endpoint(),
+        "VpcSecurityGroups" => list(vpc_security_group_membership()())
+      }
+      
   """
   @type endpoint_access() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  conflict_policy_update_fault() :: %{
-    "message" => String.t()
-  }
+      
+      conflict_policy_update_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type conflict_policy_update_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_cluster_message() :: %{
-    optional("FinalClusterSnapshotIdentifier") => String.t(),
-    optional("FinalClusterSnapshotRetentionPeriod") => integer(),
-    optional("SkipFinalClusterSnapshot") => boolean(),
-    required("ClusterIdentifier") => String.t()
-  }
+      
+      delete_cluster_message() :: %{
+        optional("FinalClusterSnapshotIdentifier") => String.t(),
+        optional("FinalClusterSnapshotRetentionPeriod") => integer(),
+        optional("SkipFinalClusterSnapshot") => boolean(),
+        required("ClusterIdentifier") => String.t()
+      }
+      
   """
   @type delete_cluster_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  restore_table_from_cluster_snapshot_result() :: %{
-    "TableRestoreStatus" => table_restore_status()
-  }
+      
+      restore_table_from_cluster_snapshot_result() :: %{
+        "TableRestoreStatus" => table_restore_status()
+      }
+      
   """
   @type restore_table_from_cluster_snapshot_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  custom_domain_associations_message() :: %{
-    "Associations" => list(association()()),
-    "Marker" => String.t()
-  }
+      
+      custom_domain_associations_message() :: %{
+        "Associations" => list(association()()),
+        "Marker" => String.t()
+      }
+      
   """
   @type custom_domain_associations_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  endpoint_already_exists_fault() :: %{
-    "message" => String.t()
-  }
+      
+      endpoint_already_exists_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type endpoint_already_exists_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  authentication_profile_quota_exceeded_fault() :: %{
-    "message" => String.t()
-  }
+      
+      authentication_profile_quota_exceeded_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type authentication_profile_quota_exceeded_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  modify_cluster_message() :: %{
-    optional("AllowVersionUpgrade") => boolean(),
-    optional("AutomatedSnapshotRetentionPeriod") => integer(),
-    optional("AvailabilityZone") => String.t(),
-    optional("AvailabilityZoneRelocation") => boolean(),
-    optional("ClusterParameterGroupName") => String.t(),
-    optional("ClusterSecurityGroups") => list(String.t()()),
-    optional("ClusterType") => String.t(),
-    optional("ClusterVersion") => String.t(),
-    optional("ElasticIp") => String.t(),
-    optional("Encrypted") => boolean(),
-    optional("EnhancedVpcRouting") => boolean(),
-    optional("HsmClientCertificateIdentifier") => String.t(),
-    optional("HsmConfigurationIdentifier") => String.t(),
-    optional("IpAddressType") => String.t(),
-    optional("KmsKeyId") => String.t(),
-    optional("MaintenanceTrackName") => String.t(),
-    optional("ManageMasterPassword") => boolean(),
-    optional("ManualSnapshotRetentionPeriod") => integer(),
-    optional("MasterPasswordSecretKmsKeyId") => String.t(),
-    optional("MasterUserPassword") => String.t(),
-    optional("MultiAZ") => boolean(),
-    optional("NewClusterIdentifier") => String.t(),
-    optional("NodeType") => String.t(),
-    optional("NumberOfNodes") => integer(),
-    optional("Port") => integer(),
-    optional("PreferredMaintenanceWindow") => String.t(),
-    optional("PubliclyAccessible") => boolean(),
-    optional("VpcSecurityGroupIds") => list(String.t()()),
-    required("ClusterIdentifier") => String.t()
-  }
+      
+      modify_cluster_message() :: %{
+        optional("AllowVersionUpgrade") => boolean(),
+        optional("AutomatedSnapshotRetentionPeriod") => integer(),
+        optional("AvailabilityZone") => String.t(),
+        optional("AvailabilityZoneRelocation") => boolean(),
+        optional("ClusterParameterGroupName") => String.t(),
+        optional("ClusterSecurityGroups") => list(String.t()()),
+        optional("ClusterType") => String.t(),
+        optional("ClusterVersion") => String.t(),
+        optional("ElasticIp") => String.t(),
+        optional("Encrypted") => boolean(),
+        optional("EnhancedVpcRouting") => boolean(),
+        optional("HsmClientCertificateIdentifier") => String.t(),
+        optional("HsmConfigurationIdentifier") => String.t(),
+        optional("IpAddressType") => String.t(),
+        optional("KmsKeyId") => String.t(),
+        optional("MaintenanceTrackName") => String.t(),
+        optional("ManageMasterPassword") => boolean(),
+        optional("ManualSnapshotRetentionPeriod") => integer(),
+        optional("MasterPasswordSecretKmsKeyId") => String.t(),
+        optional("MasterUserPassword") => String.t(),
+        optional("MultiAZ") => boolean(),
+        optional("NewClusterIdentifier") => String.t(),
+        optional("NodeType") => String.t(),
+        optional("NumberOfNodes") => integer(),
+        optional("Port") => integer(),
+        optional("PreferredMaintenanceWindow") => String.t(),
+        optional("PubliclyAccessible") => boolean(),
+        optional("VpcSecurityGroupIds") => list(String.t()()),
+        required("ClusterIdentifier") => String.t()
+      }
+      
   """
   @type modify_cluster_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  authorization_quota_exceeded_fault() :: %{
-    "message" => String.t()
-  }
+      
+      authorization_quota_exceeded_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type authorization_quota_exceeded_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  reserved_node_offering_not_found_fault() :: %{
-    "message" => String.t()
-  }
+      
+      reserved_node_offering_not_found_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type reserved_node_offering_not_found_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  event_subscription_quota_exceeded_fault() :: %{
-    "message" => String.t()
-  }
+      
+      event_subscription_quota_exceeded_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type event_subscription_quota_exceeded_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cluster_security_group() :: %{
-    "ClusterSecurityGroupName" => String.t(),
-    "Description" => String.t(),
-    "EC2SecurityGroups" => list(ec2_security_group()()),
-    "IPRanges" => list(ip_range()()),
-    "Tags" => list(tag()())
-  }
+      
+      cluster_security_group() :: %{
+        "ClusterSecurityGroupName" => String.t(),
+        "Description" => String.t(),
+        "EC2SecurityGroups" => list(ec2_security_group()()),
+        "IPRanges" => list(ip_range()()),
+        "Tags" => list(tag()())
+      }
+      
   """
   @type cluster_security_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  modify_cluster_snapshot_schedule_message() :: %{
-    optional("DisassociateSchedule") => boolean(),
-    optional("ScheduleIdentifier") => String.t(),
-    required("ClusterIdentifier") => String.t()
-  }
+      
+      modify_cluster_snapshot_schedule_message() :: %{
+        optional("DisassociateSchedule") => boolean(),
+        optional("ScheduleIdentifier") => String.t(),
+        required("ClusterIdentifier") => String.t()
+      }
+      
   """
   @type modify_cluster_snapshot_schedule_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_event_categories_message() :: %{
-    optional("SourceType") => String.t()
-  }
+      
+      describe_event_categories_message() :: %{
+        optional("SourceType") => String.t()
+      }
+      
   """
   @type describe_event_categories_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  modify_redshift_idc_application_result() :: %{
-    "RedshiftIdcApplication" => redshift_idc_application()
-  }
+      
+      modify_redshift_idc_application_result() :: %{
+        "RedshiftIdcApplication" => redshift_idc_application()
+      }
+      
   """
   @type modify_redshift_idc_application_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  insufficient_cluster_capacity_fault() :: %{
-    "message" => String.t()
-  }
+      
+      insufficient_cluster_capacity_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type insufficient_cluster_capacity_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_schedule_fault() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_schedule_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_schedule_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  lake_formation_query() :: %{
-    "Authorization" => list(any())
-  }
+      
+      lake_formation_query() :: %{
+        "Authorization" => list(any())
+      }
+      
   """
   @type lake_formation_query() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_cluster_snapshot_result() :: %{
-    "Snapshot" => snapshot()
-  }
+      
+      delete_cluster_snapshot_result() :: %{
+        "Snapshot" => snapshot()
+      }
+      
   """
   @type delete_cluster_snapshot_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_table_restore_argument_fault() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_table_restore_argument_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_table_restore_argument_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cluster_already_exists_fault() :: %{
-    "message" => String.t()
-  }
+      
+      cluster_already_exists_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type cluster_already_exists_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  table_restore_status_message() :: %{
-    "Marker" => String.t(),
-    "TableRestoreStatusDetails" => list(table_restore_status()())
-  }
+      
+      table_restore_status_message() :: %{
+        "Marker" => String.t(),
+        "TableRestoreStatusDetails" => list(table_restore_status()())
+      }
+      
   """
   @type table_restore_status_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  revision_target() :: %{
-    "DatabaseRevision" => String.t(),
-    "DatabaseRevisionReleaseDate" => non_neg_integer(),
-    "Description" => String.t()
-  }
+      
+      revision_target() :: %{
+        "DatabaseRevision" => String.t(),
+        "DatabaseRevisionReleaseDate" => non_neg_integer(),
+        "Description" => String.t()
+      }
+      
   """
   @type revision_target() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_partners_input_message() :: %{
-    optional("DatabaseName") => String.t(),
-    optional("PartnerName") => String.t(),
-    required("AccountId") => String.t(),
-    required("ClusterIdentifier") => String.t()
-  }
+      
+      describe_partners_input_message() :: %{
+        optional("DatabaseName") => String.t(),
+        optional("PartnerName") => String.t(),
+        required("AccountId") => String.t(),
+        required("ClusterIdentifier") => String.t()
+      }
+      
   """
   @type describe_partners_input_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_delete_cluster_snapshots_result() :: %{
-    "Errors" => list(snapshot_error_message()()),
-    "Resources" => list(String.t()())
-  }
+      
+      batch_delete_cluster_snapshots_result() :: %{
+        "Errors" => list(snapshot_error_message()()),
+        "Resources" => list(String.t()())
+      }
+      
   """
   @type batch_delete_cluster_snapshots_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_partners_output_message() :: %{
-    "PartnerIntegrationInfoList" => list(partner_integration_info()())
-  }
+      
+      describe_partners_output_message() :: %{
+        "PartnerIntegrationInfoList" => list(partner_integration_info()())
+      }
+      
   """
   @type describe_partners_output_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  restore_from_cluster_snapshot_message() :: %{
-    optional("OwnerAccount") => String.t(),
-    optional("IamRoles") => list(String.t()()),
-    optional("SnapshotArn") => String.t(),
-    optional("EnhancedVpcRouting") => boolean(),
-    optional("MasterPasswordSecretKmsKeyId") => String.t(),
-    optional("HsmClientCertificateIdentifier") => String.t(),
-    optional("Encrypted") => boolean(),
-    optional("MaintenanceTrackName") => String.t(),
-    optional("SnapshotScheduleIdentifier") => String.t(),
-    optional("HsmConfigurationIdentifier") => String.t(),
-    optional("IpAddressType") => String.t(),
-    optional("NumberOfNodes") => integer(),
-    optional("AvailabilityZoneRelocation") => boolean(),
-    optional("AvailabilityZone") => String.t(),
-    optional("ManageMasterPassword") => boolean(),
-    optional("ClusterSubnetGroupName") => String.t(),
-    optional("AdditionalInfo") => String.t(),
-    optional("AquaConfigurationStatus") => list(any()),
-    optional("AllowVersionUpgrade") => boolean(),
-    optional("ClusterSecurityGroups") => list(String.t()()),
-    optional("PubliclyAccessible") => boolean(),
-    optional("NodeType") => String.t(),
-    optional("ManualSnapshotRetentionPeriod") => integer(),
-    optional("DefaultIamRoleArn") => String.t(),
-    required("ClusterIdentifier") => String.t(),
-    optional("Port") => integer(),
-    optional("TargetReservedNodeOfferingId") => String.t(),
-    optional("SnapshotIdentifier") => String.t(),
-    optional("SnapshotClusterIdentifier") => String.t(),
-    optional("ElasticIp") => String.t(),
-    optional("MultiAZ") => boolean(),
-    optional("ReservedNodeId") => String.t(),
-    optional("VpcSecurityGroupIds") => list(String.t()()),
-    optional("AutomatedSnapshotRetentionPeriod") => integer(),
-    optional("KmsKeyId") => String.t(),
-    optional("PreferredMaintenanceWindow") => String.t(),
-    optional("ClusterParameterGroupName") => String.t()
-  }
+      
+      restore_from_cluster_snapshot_message() :: %{
+        optional("OwnerAccount") => String.t(),
+        optional("IamRoles") => list(String.t()()),
+        optional("SnapshotArn") => String.t(),
+        optional("EnhancedVpcRouting") => boolean(),
+        optional("MasterPasswordSecretKmsKeyId") => String.t(),
+        optional("HsmClientCertificateIdentifier") => String.t(),
+        optional("Encrypted") => boolean(),
+        optional("MaintenanceTrackName") => String.t(),
+        optional("SnapshotScheduleIdentifier") => String.t(),
+        optional("HsmConfigurationIdentifier") => String.t(),
+        optional("IpAddressType") => String.t(),
+        optional("NumberOfNodes") => integer(),
+        optional("AvailabilityZoneRelocation") => boolean(),
+        optional("AvailabilityZone") => String.t(),
+        optional("ManageMasterPassword") => boolean(),
+        optional("ClusterSubnetGroupName") => String.t(),
+        optional("AdditionalInfo") => String.t(),
+        optional("AquaConfigurationStatus") => list(any()),
+        optional("AllowVersionUpgrade") => boolean(),
+        optional("ClusterSecurityGroups") => list(String.t()()),
+        optional("PubliclyAccessible") => boolean(),
+        optional("NodeType") => String.t(),
+        optional("ManualSnapshotRetentionPeriod") => integer(),
+        optional("DefaultIamRoleArn") => String.t(),
+        required("ClusterIdentifier") => String.t(),
+        optional("Port") => integer(),
+        optional("TargetReservedNodeOfferingId") => String.t(),
+        optional("SnapshotIdentifier") => String.t(),
+        optional("SnapshotClusterIdentifier") => String.t(),
+        optional("ElasticIp") => String.t(),
+        optional("MultiAZ") => boolean(),
+        optional("ReservedNodeId") => String.t(),
+        optional("VpcSecurityGroupIds") => list(String.t()()),
+        optional("AutomatedSnapshotRetentionPeriod") => integer(),
+        optional("KmsKeyId") => String.t(),
+        optional("PreferredMaintenanceWindow") => String.t(),
+        optional("ClusterParameterGroupName") => String.t()
+      }
+      
   """
   @type restore_from_cluster_snapshot_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  s_n_s_no_authorization_fault() :: %{
-    "message" => String.t()
-  }
+      
+      s_n_s_no_authorization_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type s_n_s_no_authorization_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_authorization_state_fault() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_authorization_state_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_authorization_state_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  default_cluster_parameters() :: %{
-    "Marker" => String.t(),
-    "ParameterGroupFamily" => String.t(),
-    "Parameters" => list(parameter()())
-  }
+      
+      default_cluster_parameters() :: %{
+        "Marker" => String.t(),
+        "ParameterGroupFamily" => String.t(),
+        "Parameters" => list(parameter()())
+      }
+      
   """
   @type default_cluster_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  hsm_configuration_message() :: %{
-    "HsmConfigurations" => list(hsm_configuration()()),
-    "Marker" => String.t()
-  }
+      
+      hsm_configuration_message() :: %{
+        "HsmConfigurations" => list(hsm_configuration()()),
+        "Marker" => String.t()
+      }
+      
   """
   @type hsm_configuration_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  revoke_cluster_security_group_ingress_result() :: %{
-    "ClusterSecurityGroup" => cluster_security_group()
-  }
+      
+      revoke_cluster_security_group_ingress_result() :: %{
+        "ClusterSecurityGroup" => cluster_security_group()
+      }
+      
   """
   @type revoke_cluster_security_group_ingress_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cluster_parameter_group() :: %{
-    "Description" => String.t(),
-    "ParameterGroupFamily" => String.t(),
-    "ParameterGroupName" => String.t(),
-    "Tags" => list(tag()())
-  }
+      
+      cluster_parameter_group() :: %{
+        "Description" => String.t(),
+        "ParameterGroupFamily" => String.t(),
+        "ParameterGroupName" => String.t(),
+        "Tags" => list(tag()())
+      }
+      
   """
   @type cluster_parameter_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  table_restore_not_found_fault() :: %{
-    "message" => String.t()
-  }
+      
+      table_restore_not_found_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type table_restore_not_found_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_snapshot_schedule_message() :: %{
-    required("ScheduleIdentifier") => String.t()
-  }
+      
+      delete_snapshot_schedule_message() :: %{
+        required("ScheduleIdentifier") => String.t()
+      }
+      
   """
   @type delete_snapshot_schedule_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  modify_aqua_output_message() :: %{
-    "AquaConfiguration" => aqua_configuration()
-  }
+      
+      modify_aqua_output_message() :: %{
+        "AquaConfiguration" => aqua_configuration()
+      }
+      
   """
   @type modify_aqua_output_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  vpc_security_group_membership() :: %{
-    "Status" => String.t(),
-    "VpcSecurityGroupId" => String.t()
-  }
+      
+      vpc_security_group_membership() :: %{
+        "Status" => String.t(),
+        "VpcSecurityGroupId" => String.t()
+      }
+      
   """
   @type vpc_security_group_membership() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_cluster_versions_message() :: %{
-    optional("ClusterParameterGroupFamily") => String.t(),
-    optional("ClusterVersion") => String.t(),
-    optional("Marker") => String.t(),
-    optional("MaxRecords") => integer()
-  }
+      
+      describe_cluster_versions_message() :: %{
+        optional("ClusterParameterGroupFamily") => String.t(),
+        optional("ClusterVersion") => String.t(),
+        optional("Marker") => String.t(),
+        optional("MaxRecords") => integer()
+      }
+      
   """
   @type describe_cluster_versions_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  aqua_configuration() :: %{
-    "AquaConfigurationStatus" => list(any()),
-    "AquaStatus" => list(any())
-  }
+      
+      aqua_configuration() :: %{
+        "AquaConfigurationStatus" => list(any()),
+        "AquaStatus" => list(any())
+      }
+      
   """
   @type aqua_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_node_configuration_options_message() :: %{
-    optional("ClusterIdentifier") => String.t(),
-    optional("Filters") => list(node_configuration_options_filter()()),
-    optional("Marker") => String.t(),
-    optional("MaxRecords") => integer(),
-    optional("OwnerAccount") => String.t(),
-    optional("SnapshotArn") => String.t(),
-    optional("SnapshotIdentifier") => String.t(),
-    required("ActionType") => list(any())
-  }
+      
+      describe_node_configuration_options_message() :: %{
+        optional("ClusterIdentifier") => String.t(),
+        optional("Filters") => list(node_configuration_options_filter()()),
+        optional("Marker") => String.t(),
+        optional("MaxRecords") => integer(),
+        optional("OwnerAccount") => String.t(),
+        optional("SnapshotArn") => String.t(),
+        optional("SnapshotIdentifier") => String.t(),
+        required("ActionType") => list(any())
+      }
+      
   """
   @type describe_node_configuration_options_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_custom_domain_association_result() :: %{
-    "ClusterIdentifier" => String.t(),
-    "CustomDomainCertExpiryTime" => String.t(),
-    "CustomDomainCertificateArn" => String.t(),
-    "CustomDomainName" => String.t()
-  }
+      
+      create_custom_domain_association_result() :: %{
+        "ClusterIdentifier" => String.t(),
+        "CustomDomainCertExpiryTime" => String.t(),
+        "CustomDomainCertificateArn" => String.t(),
+        "CustomDomainName" => String.t()
+      }
+      
   """
   @type create_custom_domain_association_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  modify_aqua_input_message() :: %{
-    optional("AquaConfigurationStatus") => list(any()),
-    required("ClusterIdentifier") => String.t()
-  }
+      
+      modify_aqua_input_message() :: %{
+        optional("AquaConfigurationStatus") => list(any()),
+        required("ClusterIdentifier") => String.t()
+      }
+      
   """
   @type modify_aqua_input_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  authorize_snapshot_access_result() :: %{
-    "Snapshot" => snapshot()
-  }
+      
+      authorize_snapshot_access_result() :: %{
+        "Snapshot" => snapshot()
+      }
+      
   """
   @type authorize_snapshot_access_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_retention_period_fault() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_retention_period_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_retention_period_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  node_configuration_options_message() :: %{
-    "Marker" => String.t(),
-    "NodeConfigurationOptionList" => list(node_configuration_option()())
-  }
+      
+      node_configuration_options_message() :: %{
+        "Marker" => String.t(),
+        "NodeConfigurationOptionList" => list(node_configuration_option()())
+      }
+      
   """
   @type node_configuration_options_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disassociate_data_share_consumer_message() :: %{
-    optional("ConsumerArn") => String.t(),
-    optional("ConsumerRegion") => String.t(),
-    optional("DisassociateEntireAccount") => boolean(),
-    required("DataShareArn") => String.t()
-  }
+      
+      disassociate_data_share_consumer_message() :: %{
+        optional("ConsumerArn") => String.t(),
+        optional("ConsumerRegion") => String.t(),
+        optional("DisassociateEntireAccount") => boolean(),
+        required("DataShareArn") => String.t()
+      }
+      
   """
   @type disassociate_data_share_consumer_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  authorized_token_issuer() :: %{
-    "AuthorizedAudiencesList" => list(String.t()()),
-    "TrustedTokenIssuerArn" => String.t()
-  }
+      
+      authorized_token_issuer() :: %{
+        "AuthorizedAudiencesList" => list(String.t()()),
+        "TrustedTokenIssuerArn" => String.t()
+      }
+      
   """
   @type authorized_token_issuer() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  revoke_snapshot_access_message() :: %{
-    optional("SnapshotArn") => String.t(),
-    optional("SnapshotClusterIdentifier") => String.t(),
-    optional("SnapshotIdentifier") => String.t(),
-    required("AccountWithRestoreAccess") => String.t()
-  }
+      
+      revoke_snapshot_access_message() :: %{
+        optional("SnapshotArn") => String.t(),
+        optional("SnapshotClusterIdentifier") => String.t(),
+        optional("SnapshotIdentifier") => String.t(),
+        required("AccountWithRestoreAccess") => String.t()
+      }
+      
   """
   @type revoke_snapshot_access_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  copy_cluster_snapshot_result() :: %{
-    "Snapshot" => snapshot()
-  }
+      
+      copy_cluster_snapshot_result() :: %{
+        "Snapshot" => snapshot()
+      }
+      
   """
   @type copy_cluster_snapshot_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_limit_exceeded_fault() :: %{
-    "message" => String.t()
-  }
+      
+      tag_limit_exceeded_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type tag_limit_exceeded_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  secondary_cluster_info() :: %{
-    "AvailabilityZone" => String.t(),
-    "ClusterNodes" => list(cluster_node()())
-  }
+      
+      secondary_cluster_info() :: %{
+        "AvailabilityZone" => String.t(),
+        "ClusterNodes" => list(cluster_node()())
+      }
+      
   """
   @type secondary_cluster_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  partner_not_found_fault() :: %{
-    "message" => String.t()
-  }
+      
+      partner_not_found_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type partner_not_found_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_usage_limits_message() :: %{
-    optional("ClusterIdentifier") => String.t(),
-    optional("FeatureType") => list(any()),
-    optional("Marker") => String.t(),
-    optional("MaxRecords") => integer(),
-    optional("TagKeys") => list(String.t()()),
-    optional("TagValues") => list(String.t()()),
-    optional("UsageLimitId") => String.t()
-  }
+      
+      describe_usage_limits_message() :: %{
+        optional("ClusterIdentifier") => String.t(),
+        optional("FeatureType") => list(any()),
+        optional("Marker") => String.t(),
+        optional("MaxRecords") => integer(),
+        optional("TagKeys") => list(String.t()()),
+        optional("TagValues") => list(String.t()()),
+        optional("UsageLimitId") => String.t()
+      }
+      
   """
   @type describe_usage_limits_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_cluster_subnet_group_message() :: %{
-    optional("Tags") => list(tag()()),
-    required("ClusterSubnetGroupName") => String.t(),
-    required("Description") => String.t(),
-    required("SubnetIds") => list(String.t()())
-  }
+      
+      create_cluster_subnet_group_message() :: %{
+        optional("Tags") => list(tag()()),
+        required("ClusterSubnetGroupName") => String.t(),
+        required("Description") => String.t(),
+        required("SubnetIds") => list(String.t()())
+      }
+      
   """
   @type create_cluster_subnet_group_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_cluster_snapshot_result() :: %{
-    "Snapshot" => snapshot()
-  }
+      
+      create_cluster_snapshot_result() :: %{
+        "Snapshot" => snapshot()
+      }
+      
   """
   @type create_cluster_snapshot_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  modify_cluster_maintenance_message() :: %{
-    optional("DeferMaintenance") => boolean(),
-    optional("DeferMaintenanceDuration") => integer(),
-    optional("DeferMaintenanceEndTime") => non_neg_integer(),
-    optional("DeferMaintenanceIdentifier") => String.t(),
-    optional("DeferMaintenanceStartTime") => non_neg_integer(),
-    required("ClusterIdentifier") => String.t()
-  }
+      
+      modify_cluster_maintenance_message() :: %{
+        optional("DeferMaintenance") => boolean(),
+        optional("DeferMaintenanceDuration") => integer(),
+        optional("DeferMaintenanceEndTime") => non_neg_integer(),
+        optional("DeferMaintenanceIdentifier") => String.t(),
+        optional("DeferMaintenanceStartTime") => non_neg_integer(),
+        required("ClusterIdentifier") => String.t()
+      }
+      
   """
   @type modify_cluster_maintenance_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_custom_domain_association_message() :: %{
-    required("ClusterIdentifier") => String.t(),
-    required("CustomDomainCertificateArn") => String.t(),
-    required("CustomDomainName") => String.t()
-  }
+      
+      create_custom_domain_association_message() :: %{
+        required("ClusterIdentifier") => String.t(),
+        required("CustomDomainCertificateArn") => String.t(),
+        required("CustomDomainName") => String.t()
+      }
+      
   """
   @type create_custom_domain_association_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  hsm_client_certificate_already_exists_fault() :: %{
-    "message" => String.t()
-  }
+      
+      hsm_client_certificate_already_exists_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type hsm_client_certificate_already_exists_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  maintenance_track() :: %{
-    "DatabaseVersion" => String.t(),
-    "MaintenanceTrackName" => String.t(),
-    "UpdateTargets" => list(update_target()())
-  }
+      
+      maintenance_track() :: %{
+        "DatabaseVersion" => String.t(),
+        "MaintenanceTrackName" => String.t(),
+        "UpdateTargets" => list(update_target()())
+      }
+      
   """
   @type maintenance_track() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  dependent_service_unavailable_fault() :: %{
-    "message" => String.t()
-  }
+      
+      dependent_service_unavailable_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type dependent_service_unavailable_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_reserved_node_exchange_configuration_options_output_message() :: %{
-    "Marker" => String.t(),
-    "ReservedNodeConfigurationOptionList" => list(reserved_node_configuration_option()())
-  }
+      
+      get_reserved_node_exchange_configuration_options_output_message() :: %{
+        "Marker" => String.t(),
+        "ReservedNodeConfigurationOptionList" => list(reserved_node_configuration_option()())
+      }
+      
   """
   @type get_reserved_node_exchange_configuration_options_output_message() :: %{
           String.t() => any()
@@ -4816,110 +5686,854 @@ defmodule AWS.Redshift do
   @typedoc """
 
   ## Example:
-  create_scheduled_action_message() :: %{
-    optional("Enable") => boolean(),
-    optional("EndTime") => non_neg_integer(),
-    optional("ScheduledActionDescription") => String.t(),
-    optional("StartTime") => non_neg_integer(),
-    required("IamRole") => String.t(),
-    required("Schedule") => String.t(),
-    required("ScheduledActionName") => String.t(),
-    required("TargetAction") => scheduled_action_type()
-  }
+      
+      create_scheduled_action_message() :: %{
+        optional("Enable") => boolean(),
+        optional("EndTime") => non_neg_integer(),
+        optional("ScheduledActionDescription") => String.t(),
+        optional("StartTime") => non_neg_integer(),
+        required("IamRole") => String.t(),
+        required("Schedule") => String.t(),
+        required("ScheduledActionName") => String.t(),
+        required("TargetAction") => scheduled_action_type()
+      }
+      
   """
   @type create_scheduled_action_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_reserved_node_exchange_status_output_message() :: %{
-    "Marker" => String.t(),
-    "ReservedNodeExchangeStatusDetails" => list(reserved_node_exchange_status()())
-  }
+      
+      describe_reserved_node_exchange_status_output_message() :: %{
+        "Marker" => String.t(),
+        "ReservedNodeExchangeStatusDetails" => list(reserved_node_exchange_status()())
+      }
+      
   """
   @type describe_reserved_node_exchange_status_output_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  snapshot_schedule() :: %{
-    "AssociatedClusterCount" => integer(),
-    "AssociatedClusters" => list(cluster_associated_to_schedule()()),
-    "NextInvocations" => list(non_neg_integer()()),
-    "ScheduleDefinitions" => list(String.t()()),
-    "ScheduleDescription" => String.t(),
-    "ScheduleIdentifier" => String.t(),
-    "Tags" => list(tag()())
-  }
+      
+      snapshot_schedule() :: %{
+        "AssociatedClusterCount" => integer(),
+        "AssociatedClusters" => list(cluster_associated_to_schedule()()),
+        "NextInvocations" => list(non_neg_integer()()),
+        "ScheduleDefinitions" => list(String.t()()),
+        "ScheduleDescription" => String.t(),
+        "ScheduleIdentifier" => String.t(),
+        "Tags" => list(tag()())
+      }
+      
   """
   @type snapshot_schedule() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  track_list_message() :: %{
-    "MaintenanceTracks" => list(maintenance_track()()),
-    "Marker" => String.t()
-  }
+      
+      track_list_message() :: %{
+        "MaintenanceTracks" => list(maintenance_track()()),
+        "Marker" => String.t()
+      }
+      
   """
   @type track_list_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_authentication_profiles_message() :: %{
-    optional("AuthenticationProfileName") => String.t()
-  }
+      
+      describe_authentication_profiles_message() :: %{
+        optional("AuthenticationProfileName") => String.t()
+      }
+      
   """
   @type describe_authentication_profiles_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  modify_snapshot_copy_retention_period_result() :: %{
-    "Cluster" => cluster()
-  }
+      
+      modify_snapshot_copy_retention_period_result() :: %{
+        "Cluster" => cluster()
+      }
+      
   """
   @type modify_snapshot_copy_retention_period_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  authorize_cluster_security_group_ingress_result() :: %{
-    "ClusterSecurityGroup" => cluster_security_group()
-  }
+      
+      authorize_cluster_security_group_ingress_result() :: %{
+        "ClusterSecurityGroup" => cluster_security_group()
+      }
+      
   """
   @type authorize_cluster_security_group_ingress_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  hsm_status() :: %{
-    "HsmClientCertificateIdentifier" => String.t(),
-    "HsmConfigurationIdentifier" => String.t(),
-    "Status" => String.t()
-  }
+      
+      hsm_status() :: %{
+        "HsmClientCertificateIdentifier" => String.t(),
+        "HsmConfigurationIdentifier" => String.t(),
+        "Status" => String.t()
+      }
+      
   """
   @type hsm_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_cluster_snapshot_message() :: %{
-    "SnapshotClusterIdentifier" => String.t(),
-    "SnapshotIdentifier" => String.t()
-  }
+      
+      delete_cluster_snapshot_message() :: %{
+        "SnapshotClusterIdentifier" => String.t(),
+        "SnapshotIdentifier" => String.t()
+      }
+      
   """
   @type delete_cluster_snapshot_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_endpoint_access_message() :: %{
-    required("EndpointName") => String.t()
-  }
+      
+      delete_endpoint_access_message() :: %{
+        required("EndpointName") => String.t()
+      }
+      
   """
   @type delete_endpoint_access_message() :: %{String.t() => any()}
+
+  @type accept_reserved_node_exchange_errors() ::
+          dependent_service_unavailable_fault()
+          | reserved_node_offering_not_found_fault()
+          | reserved_node_not_found_fault()
+          | invalid_reserved_node_state_fault()
+          | reserved_node_already_migrated_fault()
+          | unsupported_operation_fault()
+          | reserved_node_already_exists_fault()
+
+  @type add_partner_errors() ::
+          partner_not_found_fault()
+          | unauthorized_partner_integration_fault()
+          | unsupported_operation_fault()
+          | cluster_not_found_fault()
+
+  @type associate_data_share_consumer_errors() ::
+          invalid_namespace_fault() | invalid_data_share_fault()
+
+  @type authorize_cluster_security_group_ingress_errors() ::
+          authorization_quota_exceeded_fault()
+          | cluster_security_group_not_found_fault()
+          | invalid_cluster_security_group_state_fault()
+          | authorization_already_exists_fault()
+
+  @type authorize_data_share_errors() :: invalid_data_share_fault()
+
+  @type authorize_endpoint_access_errors() ::
+          invalid_authorization_state_fault()
+          | endpoint_authorization_already_exists_fault()
+          | invalid_cluster_state_fault()
+          | endpoint_authorizations_per_cluster_limit_exceeded_fault()
+          | unsupported_operation_fault()
+          | cluster_not_found_fault()
+
+  @type authorize_snapshot_access_errors() ::
+          authorization_quota_exceeded_fault()
+          | cluster_snapshot_not_found_fault()
+          | authorization_already_exists_fault()
+          | invalid_cluster_snapshot_state_fault()
+          | unsupported_operation_fault()
+          | dependent_service_request_throttling_fault()
+          | limit_exceeded_fault()
+
+  @type batch_delete_cluster_snapshots_errors() :: batch_delete_request_size_exceeded_fault()
+
+  @type batch_modify_cluster_snapshots_errors() ::
+          invalid_retention_period_fault() | batch_modify_cluster_snapshots_limit_exceeded_fault()
+
+  @type cancel_resize_errors() ::
+          invalid_cluster_state_fault()
+          | unsupported_operation_fault()
+          | cluster_not_found_fault()
+          | resize_not_found_fault()
+
+  @type copy_cluster_snapshot_errors() ::
+          invalid_retention_period_fault()
+          | cluster_snapshot_not_found_fault()
+          | cluster_snapshot_already_exists_fault()
+          | invalid_cluster_snapshot_state_fault()
+          | cluster_snapshot_quota_exceeded_fault()
+          | cluster_not_found_fault()
+
+  @type create_authentication_profile_errors() ::
+          authentication_profile_quota_exceeded_fault()
+          | invalid_authentication_profile_request_fault()
+          | authentication_profile_already_exists_fault()
+
+  @type create_cluster_errors() ::
+          tag_limit_exceeded_fault()
+          | invalid_retention_period_fault()
+          | cluster_already_exists_fault()
+          | insufficient_cluster_capacity_fault()
+          | number_of_nodes_per_cluster_limit_exceeded_fault()
+          | cluster_security_group_not_found_fault()
+          | snapshot_schedule_not_found_fault()
+          | ipv6_cidr_block_not_found_fault()
+          | number_of_nodes_quota_exceeded_fault()
+          | hsm_client_certificate_not_found_fault()
+          | redshift_idc_application_not_exists_fault()
+          | cluster_parameter_group_not_found_fault()
+          | invalid_tag_fault()
+          | invalid_elastic_ip_fault()
+          | invalid_vpc_network_state_fault()
+          | unauthorized_operation()
+          | invalid_cluster_track_fault()
+          | hsm_configuration_not_found_fault()
+          | cluster_quota_exceeded_fault()
+          | unsupported_operation_fault()
+          | dependent_service_request_throttling_fault()
+          | invalid_subnet()
+          | limit_exceeded_fault()
+          | cluster_subnet_group_not_found_fault()
+          | invalid_cluster_subnet_group_state_fault()
+
+  @type create_cluster_parameter_group_errors() ::
+          tag_limit_exceeded_fault()
+          | cluster_parameter_group_already_exists_fault()
+          | cluster_parameter_group_quota_exceeded_fault()
+          | invalid_tag_fault()
+
+  @type create_cluster_security_group_errors() ::
+          tag_limit_exceeded_fault()
+          | invalid_tag_fault()
+          | cluster_security_group_already_exists_fault()
+          | cluster_security_group_quota_exceeded_fault()
+
+  @type create_cluster_snapshot_errors() ::
+          tag_limit_exceeded_fault()
+          | invalid_retention_period_fault()
+          | invalid_cluster_state_fault()
+          | cluster_snapshot_already_exists_fault()
+          | invalid_tag_fault()
+          | cluster_snapshot_quota_exceeded_fault()
+          | cluster_not_found_fault()
+
+  @type create_cluster_subnet_group_errors() ::
+          tag_limit_exceeded_fault()
+          | cluster_subnet_group_already_exists_fault()
+          | cluster_subnet_quota_exceeded_fault()
+          | invalid_tag_fault()
+          | unauthorized_operation()
+          | dependent_service_request_throttling_fault()
+          | invalid_subnet()
+          | cluster_subnet_group_quota_exceeded_fault()
+
+  @type create_custom_domain_association_errors() ::
+          custom_cname_association_fault()
+          | unsupported_operation_fault()
+          | cluster_not_found_fault()
+
+  @type create_endpoint_access_errors() ::
+          endpoint_already_exists_fault()
+          | access_to_cluster_denied_fault()
+          | invalid_cluster_state_fault()
+          | invalid_cluster_security_group_state_fault()
+          | endpoints_per_cluster_limit_exceeded_fault()
+          | unauthorized_operation()
+          | endpoints_per_authorization_limit_exceeded_fault()
+          | unsupported_operation_fault()
+          | cluster_not_found_fault()
+          | cluster_subnet_group_not_found_fault()
+
+  @type create_event_subscription_errors() ::
+          tag_limit_exceeded_fault()
+          | s_n_s_no_authorization_fault()
+          | event_subscription_quota_exceeded_fault()
+          | s_n_s_topic_arn_not_found_fault()
+          | s_n_s_invalid_topic_fault()
+          | subscription_category_not_found_fault()
+          | source_not_found_fault()
+          | invalid_tag_fault()
+          | subscription_event_id_not_found_fault()
+          | subscription_already_exist_fault()
+          | subscription_severity_not_found_fault()
+
+  @type create_hsm_client_certificate_errors() ::
+          hsm_client_certificate_already_exists_fault()
+          | tag_limit_exceeded_fault()
+          | invalid_tag_fault()
+          | hsm_client_certificate_quota_exceeded_fault()
+
+  @type create_hsm_configuration_errors() ::
+          tag_limit_exceeded_fault()
+          | hsm_configuration_already_exists_fault()
+          | hsm_configuration_quota_exceeded_fault()
+          | invalid_tag_fault()
+
+  @type create_redshift_idc_application_errors() ::
+          dependent_service_unavailable_fault()
+          | redshift_idc_application_quota_exceeded_fault()
+          | dependent_service_access_denied_fault()
+          | unsupported_operation_fault()
+          | redshift_idc_application_already_exists_fault()
+
+  @type create_scheduled_action_errors() ::
+          invalid_schedule_fault()
+          | invalid_scheduled_action_fault()
+          | scheduled_action_already_exists_fault()
+          | scheduled_action_quota_exceeded_fault()
+          | unauthorized_operation()
+          | scheduled_action_type_unsupported_fault()
+          | unsupported_operation_fault()
+          | cluster_not_found_fault()
+
+  @type create_snapshot_copy_grant_errors() ::
+          tag_limit_exceeded_fault()
+          | snapshot_copy_grant_quota_exceeded_fault()
+          | invalid_tag_fault()
+          | snapshot_copy_grant_already_exists_fault()
+          | dependent_service_request_throttling_fault()
+          | limit_exceeded_fault()
+
+  @type create_snapshot_schedule_errors() ::
+          tag_limit_exceeded_fault()
+          | invalid_schedule_fault()
+          | invalid_tag_fault()
+          | snapshot_schedule_quota_exceeded_fault()
+          | snapshot_schedule_already_exists_fault()
+          | schedule_definition_type_unsupported_fault()
+
+  @type create_tags_errors() ::
+          tag_limit_exceeded_fault()
+          | invalid_cluster_state_fault()
+          | invalid_tag_fault()
+          | resource_not_found_fault()
+
+  @type create_usage_limit_errors() ::
+          tag_limit_exceeded_fault()
+          | usage_limit_already_exists_fault()
+          | invalid_cluster_state_fault()
+          | invalid_usage_limit_fault()
+          | unsupported_operation_fault()
+          | cluster_not_found_fault()
+          | limit_exceeded_fault()
+
+  @type deauthorize_data_share_errors() :: invalid_data_share_fault()
+
+  @type delete_authentication_profile_errors() ::
+          authentication_profile_not_found_fault()
+          | invalid_authentication_profile_request_fault()
+
+  @type delete_cluster_errors() ::
+          invalid_retention_period_fault()
+          | invalid_cluster_state_fault()
+          | cluster_snapshot_already_exists_fault()
+          | cluster_snapshot_quota_exceeded_fault()
+          | cluster_not_found_fault()
+
+  @type delete_cluster_parameter_group_errors() ::
+          cluster_parameter_group_not_found_fault()
+          | invalid_cluster_parameter_group_state_fault()
+
+  @type delete_cluster_security_group_errors() ::
+          cluster_security_group_not_found_fault() | invalid_cluster_security_group_state_fault()
+
+  @type delete_cluster_snapshot_errors() ::
+          cluster_snapshot_not_found_fault() | invalid_cluster_snapshot_state_fault()
+
+  @type delete_cluster_subnet_group_errors() ::
+          invalid_cluster_subnet_state_fault()
+          | cluster_subnet_group_not_found_fault()
+          | invalid_cluster_subnet_group_state_fault()
+
+  @type delete_custom_domain_association_errors() ::
+          custom_domain_association_not_found_fault()
+          | custom_cname_association_fault()
+          | unsupported_operation_fault()
+          | cluster_not_found_fault()
+
+  @type delete_endpoint_access_errors() ::
+          invalid_cluster_state_fault()
+          | invalid_endpoint_state_fault()
+          | endpoint_not_found_fault()
+          | invalid_cluster_security_group_state_fault()
+          | cluster_not_found_fault()
+
+  @type delete_event_subscription_errors() ::
+          invalid_subscription_state_fault() | subscription_not_found_fault()
+
+  @type delete_hsm_client_certificate_errors() ::
+          hsm_client_certificate_not_found_fault() | invalid_hsm_client_certificate_state_fault()
+
+  @type delete_hsm_configuration_errors() ::
+          invalid_hsm_configuration_state_fault() | hsm_configuration_not_found_fault()
+
+  @type delete_partner_errors() ::
+          partner_not_found_fault()
+          | unauthorized_partner_integration_fault()
+          | unsupported_operation_fault()
+          | cluster_not_found_fault()
+
+  @type delete_redshift_idc_application_errors() ::
+          dependent_service_unavailable_fault()
+          | redshift_idc_application_not_exists_fault()
+          | dependent_service_access_denied_fault()
+          | unsupported_operation_fault()
+
+  @type delete_resource_policy_errors() ::
+          unsupported_operation_fault() | resource_not_found_fault()
+
+  @type delete_scheduled_action_errors() ::
+          scheduled_action_not_found_fault() | unauthorized_operation()
+
+  @type delete_snapshot_copy_grant_errors() ::
+          snapshot_copy_grant_not_found_fault() | invalid_snapshot_copy_grant_state_fault()
+
+  @type delete_snapshot_schedule_errors() ::
+          snapshot_schedule_not_found_fault() | invalid_cluster_snapshot_schedule_state_fault()
+
+  @type delete_tags_errors() :: invalid_tag_fault() | resource_not_found_fault()
+
+  @type delete_usage_limit_errors() ::
+          unsupported_operation_fault() | usage_limit_not_found_fault()
+
+  @type describe_authentication_profiles_errors() ::
+          authentication_profile_not_found_fault()
+          | invalid_authentication_profile_request_fault()
+
+  @type describe_cluster_db_revisions_errors() ::
+          invalid_cluster_state_fault() | cluster_not_found_fault()
+
+  @type describe_cluster_parameter_groups_errors() ::
+          cluster_parameter_group_not_found_fault() | invalid_tag_fault()
+
+  @type describe_cluster_parameters_errors() :: cluster_parameter_group_not_found_fault()
+
+  @type describe_cluster_security_groups_errors() ::
+          cluster_security_group_not_found_fault() | invalid_tag_fault()
+
+  @type describe_cluster_snapshots_errors() ::
+          cluster_snapshot_not_found_fault()
+          | invalid_tag_fault()
+          | unsupported_operation_fault()
+          | cluster_not_found_fault()
+
+  @type describe_cluster_subnet_groups_errors() ::
+          invalid_tag_fault() | cluster_subnet_group_not_found_fault()
+
+  @type describe_cluster_tracks_errors() ::
+          unauthorized_operation() | invalid_cluster_track_fault()
+
+  @type describe_clusters_errors() :: invalid_tag_fault() | cluster_not_found_fault()
+
+  @type describe_custom_domain_associations_errors() ::
+          custom_domain_association_not_found_fault() | unsupported_operation_fault()
+
+  @type describe_data_shares_errors() :: invalid_data_share_fault()
+
+  @type describe_data_shares_for_consumer_errors() :: invalid_namespace_fault()
+
+  @type describe_data_shares_for_producer_errors() :: invalid_namespace_fault()
+
+  @type describe_endpoint_access_errors() ::
+          invalid_cluster_state_fault() | endpoint_not_found_fault() | cluster_not_found_fault()
+
+  @type describe_endpoint_authorization_errors() ::
+          unsupported_operation_fault() | cluster_not_found_fault()
+
+  @type describe_event_subscriptions_errors() ::
+          subscription_not_found_fault() | invalid_tag_fault()
+
+  @type describe_hsm_client_certificates_errors() ::
+          hsm_client_certificate_not_found_fault() | invalid_tag_fault()
+
+  @type describe_hsm_configurations_errors() ::
+          invalid_tag_fault() | hsm_configuration_not_found_fault()
+
+  @type describe_inbound_integrations_errors() ::
+          integration_not_found_fault()
+          | invalid_namespace_fault()
+          | unsupported_operation_fault()
+
+  @type describe_logging_status_errors() ::
+          unsupported_operation_fault() | cluster_not_found_fault()
+
+  @type describe_node_configuration_options_errors() ::
+          cluster_snapshot_not_found_fault()
+          | access_to_snapshot_denied_fault()
+          | invalid_cluster_snapshot_state_fault()
+          | unsupported_operation_fault()
+          | cluster_not_found_fault()
+
+  @type describe_partners_errors() ::
+          unauthorized_partner_integration_fault()
+          | unsupported_operation_fault()
+          | cluster_not_found_fault()
+
+  @type describe_redshift_idc_applications_errors() ::
+          dependent_service_unavailable_fault()
+          | redshift_idc_application_not_exists_fault()
+          | dependent_service_access_denied_fault()
+          | unsupported_operation_fault()
+
+  @type describe_reserved_node_exchange_status_errors() ::
+          reserved_node_exchange_not_found_fault()
+          | reserved_node_not_found_fault()
+          | unsupported_operation_fault()
+
+  @type describe_reserved_node_offerings_errors() ::
+          dependent_service_unavailable_fault()
+          | reserved_node_offering_not_found_fault()
+          | unsupported_operation_fault()
+
+  @type describe_reserved_nodes_errors() ::
+          dependent_service_unavailable_fault() | reserved_node_not_found_fault()
+
+  @type describe_resize_errors() ::
+          unsupported_operation_fault() | cluster_not_found_fault() | resize_not_found_fault()
+
+  @type describe_scheduled_actions_errors() ::
+          scheduled_action_not_found_fault() | unauthorized_operation()
+
+  @type describe_snapshot_copy_grants_errors() ::
+          invalid_tag_fault() | snapshot_copy_grant_not_found_fault()
+
+  @type describe_table_restore_status_errors() ::
+          table_restore_not_found_fault() | cluster_not_found_fault()
+
+  @type describe_tags_errors() :: invalid_tag_fault() | resource_not_found_fault()
+
+  @type describe_usage_limits_errors() ::
+          unsupported_operation_fault() | cluster_not_found_fault()
+
+  @type disable_logging_errors() ::
+          invalid_cluster_state_fault()
+          | unsupported_operation_fault()
+          | cluster_not_found_fault()
+
+  @type disable_snapshot_copy_errors() ::
+          invalid_cluster_state_fault()
+          | unauthorized_operation()
+          | unsupported_operation_fault()
+          | snapshot_copy_already_disabled_fault()
+          | cluster_not_found_fault()
+
+  @type disassociate_data_share_consumer_errors() ::
+          invalid_namespace_fault() | invalid_data_share_fault()
+
+  @type enable_logging_errors() ::
+          invalid_cluster_state_fault()
+          | invalid_s3_key_prefix_fault()
+          | insufficient_s3_bucket_policy_fault()
+          | bucket_not_found_fault()
+          | unsupported_operation_fault()
+          | cluster_not_found_fault()
+          | invalid_s3_bucket_name_fault()
+
+  @type enable_snapshot_copy_errors() ::
+          invalid_retention_period_fault()
+          | copy_to_region_disabled_fault()
+          | unknown_snapshot_copy_region_fault()
+          | invalid_cluster_state_fault()
+          | incompatible_orderable_options()
+          | snapshot_copy_already_enabled_fault()
+          | unauthorized_operation()
+          | dependent_service_request_throttling_fault()
+          | cluster_not_found_fault()
+          | limit_exceeded_fault()
+          | snapshot_copy_grant_not_found_fault()
+
+  @type failover_primary_compute_errors() ::
+          invalid_cluster_state_fault()
+          | unauthorized_operation()
+          | unsupported_operation_fault()
+          | cluster_not_found_fault()
+
+  @type get_cluster_credentials_errors() ::
+          unsupported_operation_fault() | cluster_not_found_fault()
+
+  @type get_cluster_credentials_with_iam_errors() ::
+          unsupported_operation_fault() | cluster_not_found_fault()
+
+  @type get_reserved_node_exchange_configuration_options_errors() ::
+          dependent_service_unavailable_fault()
+          | reserved_node_offering_not_found_fault()
+          | cluster_snapshot_not_found_fault()
+          | reserved_node_not_found_fault()
+          | invalid_reserved_node_state_fault()
+          | reserved_node_already_migrated_fault()
+          | unsupported_operation_fault()
+          | cluster_not_found_fault()
+
+  @type get_reserved_node_exchange_offerings_errors() ::
+          dependent_service_unavailable_fault()
+          | reserved_node_offering_not_found_fault()
+          | reserved_node_not_found_fault()
+          | invalid_reserved_node_state_fault()
+          | reserved_node_already_migrated_fault()
+          | unsupported_operation_fault()
+
+  @type get_resource_policy_errors() ::
+          unsupported_operation_fault() | invalid_policy_fault() | resource_not_found_fault()
+
+  @type list_recommendations_errors() :: unsupported_operation_fault() | cluster_not_found_fault()
+
+  @type modify_aqua_configuration_errors() ::
+          invalid_cluster_state_fault()
+          | unsupported_operation_fault()
+          | cluster_not_found_fault()
+
+  @type modify_authentication_profile_errors() ::
+          authentication_profile_quota_exceeded_fault()
+          | authentication_profile_not_found_fault()
+          | invalid_authentication_profile_request_fault()
+
+  @type modify_cluster_errors() ::
+          invalid_retention_period_fault()
+          | cluster_already_exists_fault()
+          | insufficient_cluster_capacity_fault()
+          | number_of_nodes_per_cluster_limit_exceeded_fault()
+          | unsupported_option_fault()
+          | cluster_security_group_not_found_fault()
+          | invalid_cluster_state_fault()
+          | invalid_cluster_security_group_state_fault()
+          | ipv6_cidr_block_not_found_fault()
+          | custom_cname_association_fault()
+          | table_limit_exceeded_fault()
+          | number_of_nodes_quota_exceeded_fault()
+          | hsm_client_certificate_not_found_fault()
+          | cluster_parameter_group_not_found_fault()
+          | invalid_elastic_ip_fault()
+          | unauthorized_operation()
+          | invalid_cluster_track_fault()
+          | hsm_configuration_not_found_fault()
+          | unsupported_operation_fault()
+          | dependent_service_request_throttling_fault()
+          | cluster_not_found_fault()
+          | limit_exceeded_fault()
+
+  @type modify_cluster_db_revision_errors() ::
+          invalid_cluster_state_fault()
+          | unsupported_operation_fault()
+          | cluster_not_found_fault()
+          | cluster_on_latest_revision_fault()
+
+  @type modify_cluster_iam_roles_errors() ::
+          invalid_cluster_state_fault() | cluster_not_found_fault()
+
+  @type modify_cluster_maintenance_errors() ::
+          invalid_cluster_state_fault() | cluster_not_found_fault()
+
+  @type modify_cluster_parameter_group_errors() ::
+          cluster_parameter_group_not_found_fault()
+          | invalid_cluster_parameter_group_state_fault()
+
+  @type modify_cluster_snapshot_errors() ::
+          invalid_retention_period_fault()
+          | cluster_snapshot_not_found_fault()
+          | invalid_cluster_snapshot_state_fault()
+
+  @type modify_cluster_snapshot_schedule_errors() ::
+          snapshot_schedule_not_found_fault()
+          | invalid_cluster_snapshot_schedule_state_fault()
+          | cluster_not_found_fault()
+
+  @type modify_cluster_subnet_group_errors() ::
+          cluster_subnet_quota_exceeded_fault()
+          | unauthorized_operation()
+          | dependent_service_request_throttling_fault()
+          | invalid_subnet()
+          | cluster_subnet_group_not_found_fault()
+          | subnet_already_in_use()
+
+  @type modify_custom_domain_association_errors() ::
+          custom_domain_association_not_found_fault()
+          | custom_cname_association_fault()
+          | unsupported_operation_fault()
+          | cluster_not_found_fault()
+
+  @type modify_endpoint_access_errors() ::
+          invalid_cluster_state_fault()
+          | invalid_endpoint_state_fault()
+          | endpoint_not_found_fault()
+          | invalid_cluster_security_group_state_fault()
+          | unauthorized_operation()
+          | cluster_not_found_fault()
+
+  @type modify_event_subscription_errors() ::
+          s_n_s_no_authorization_fault()
+          | invalid_subscription_state_fault()
+          | s_n_s_topic_arn_not_found_fault()
+          | s_n_s_invalid_topic_fault()
+          | subscription_category_not_found_fault()
+          | subscription_not_found_fault()
+          | source_not_found_fault()
+          | subscription_event_id_not_found_fault()
+          | subscription_severity_not_found_fault()
+
+  @type modify_redshift_idc_application_errors() ::
+          dependent_service_unavailable_fault()
+          | redshift_idc_application_not_exists_fault()
+          | dependent_service_access_denied_fault()
+          | unsupported_operation_fault()
+
+  @type modify_scheduled_action_errors() ::
+          invalid_schedule_fault()
+          | invalid_scheduled_action_fault()
+          | scheduled_action_not_found_fault()
+          | unauthorized_operation()
+          | scheduled_action_type_unsupported_fault()
+          | unsupported_operation_fault()
+          | cluster_not_found_fault()
+
+  @type modify_snapshot_copy_retention_period_errors() ::
+          invalid_retention_period_fault()
+          | invalid_cluster_state_fault()
+          | snapshot_copy_disabled_fault()
+          | unauthorized_operation()
+          | cluster_not_found_fault()
+
+  @type modify_snapshot_schedule_errors() ::
+          invalid_schedule_fault()
+          | snapshot_schedule_not_found_fault()
+          | snapshot_schedule_update_in_progress_fault()
+
+  @type modify_usage_limit_errors() ::
+          invalid_usage_limit_fault()
+          | unsupported_operation_fault()
+          | usage_limit_not_found_fault()
+
+  @type pause_cluster_errors() ::
+          invalid_cluster_state_fault()
+          | unsupported_operation_fault()
+          | cluster_not_found_fault()
+
+  @type purchase_reserved_node_offering_errors() ::
+          reserved_node_offering_not_found_fault()
+          | reserved_node_quota_exceeded_fault()
+          | unsupported_operation_fault()
+          | reserved_node_already_exists_fault()
+
+  @type put_resource_policy_errors() ::
+          conflict_policy_update_fault()
+          | unsupported_operation_fault()
+          | invalid_policy_fault()
+          | resource_not_found_fault()
+
+  @type reboot_cluster_errors() :: invalid_cluster_state_fault() | cluster_not_found_fault()
+
+  @type reject_data_share_errors() :: invalid_data_share_fault()
+
+  @type reset_cluster_parameter_group_errors() ::
+          cluster_parameter_group_not_found_fault()
+          | invalid_cluster_parameter_group_state_fault()
+
+  @type resize_cluster_errors() ::
+          dependent_service_unavailable_fault()
+          | insufficient_cluster_capacity_fault()
+          | reserved_node_offering_not_found_fault()
+          | number_of_nodes_per_cluster_limit_exceeded_fault()
+          | unsupported_option_fault()
+          | invalid_cluster_state_fault()
+          | reserved_node_not_found_fault()
+          | number_of_nodes_quota_exceeded_fault()
+          | invalid_reserved_node_state_fault()
+          | unauthorized_operation()
+          | reserved_node_already_migrated_fault()
+          | unsupported_operation_fault()
+          | cluster_not_found_fault()
+          | limit_exceeded_fault()
+          | reserved_node_already_exists_fault()
+
+  @type restore_from_cluster_snapshot_errors() ::
+          dependent_service_unavailable_fault()
+          | tag_limit_exceeded_fault()
+          | cluster_already_exists_fault()
+          | insufficient_cluster_capacity_fault()
+          | reserved_node_offering_not_found_fault()
+          | number_of_nodes_per_cluster_limit_exceeded_fault()
+          | cluster_snapshot_not_found_fault()
+          | cluster_security_group_not_found_fault()
+          | access_to_snapshot_denied_fault()
+          | snapshot_schedule_not_found_fault()
+          | ipv6_cidr_block_not_found_fault()
+          | reserved_node_not_found_fault()
+          | number_of_nodes_quota_exceeded_fault()
+          | hsm_client_certificate_not_found_fault()
+          | invalid_reserved_node_state_fault()
+          | cluster_parameter_group_not_found_fault()
+          | invalid_tag_fault()
+          | invalid_elastic_ip_fault()
+          | invalid_vpc_network_state_fault()
+          | unauthorized_operation()
+          | reserved_node_already_migrated_fault()
+          | invalid_cluster_snapshot_state_fault()
+          | invalid_cluster_track_fault()
+          | hsm_configuration_not_found_fault()
+          | cluster_quota_exceeded_fault()
+          | unsupported_operation_fault()
+          | dependent_service_request_throttling_fault()
+          | invalid_subnet()
+          | invalid_restore_fault()
+          | limit_exceeded_fault()
+          | reserved_node_already_exists_fault()
+          | cluster_subnet_group_not_found_fault()
+          | invalid_cluster_subnet_group_state_fault()
+
+  @type restore_table_from_cluster_snapshot_errors() ::
+          invalid_table_restore_argument_fault()
+          | cluster_snapshot_not_found_fault()
+          | invalid_cluster_state_fault()
+          | in_progress_table_restore_quota_exceeded_fault()
+          | invalid_cluster_snapshot_state_fault()
+          | unsupported_operation_fault()
+          | cluster_not_found_fault()
+
+  @type resume_cluster_errors() ::
+          insufficient_cluster_capacity_fault()
+          | invalid_cluster_state_fault()
+          | unsupported_operation_fault()
+          | cluster_not_found_fault()
+
+  @type revoke_cluster_security_group_ingress_errors() ::
+          cluster_security_group_not_found_fault()
+          | invalid_cluster_security_group_state_fault()
+          | authorization_not_found_fault()
+
+  @type revoke_endpoint_access_errors() ::
+          invalid_authorization_state_fault()
+          | invalid_cluster_state_fault()
+          | invalid_endpoint_state_fault()
+          | endpoint_not_found_fault()
+          | invalid_cluster_security_group_state_fault()
+          | cluster_not_found_fault()
+          | endpoint_authorization_not_found_fault()
+
+  @type revoke_snapshot_access_errors() ::
+          cluster_snapshot_not_found_fault()
+          | access_to_snapshot_denied_fault()
+          | authorization_not_found_fault()
+          | unsupported_operation_fault()
+
+  @type rotate_encryption_key_errors() ::
+          invalid_cluster_state_fault()
+          | unsupported_operation_fault()
+          | dependent_service_request_throttling_fault()
+          | cluster_not_found_fault()
+
+  @type update_partner_status_errors() ::
+          partner_not_found_fault()
+          | unauthorized_partner_integration_fault()
+          | unsupported_operation_fault()
+          | cluster_not_found_fault()
 
   def metadata do
     %{
@@ -4947,13 +6561,7 @@ defmodule AWS.Redshift do
         ) ::
           {:ok, accept_reserved_node_exchange_output_message(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, dependent_service_unavailable_fault()}
-          | {:error, invalid_reserved_node_state_fault()}
-          | {:error, reserved_node_already_exists_fault()}
-          | {:error, reserved_node_already_migrated_fault()}
-          | {:error, reserved_node_not_found_fault()}
-          | {:error, reserved_node_offering_not_found_fault()}
-          | {:error, unsupported_operation_fault()}
+          | {:error, accept_reserved_node_exchange_errors()}
   def accept_reserved_node_exchange(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4971,10 +6579,7 @@ defmodule AWS.Redshift do
   @spec add_partner(map(), partner_integration_input_message(), list()) ::
           {:ok, partner_integration_output_message(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cluster_not_found_fault()}
-          | {:error, partner_not_found_fault()}
-          | {:error, unauthorized_partner_integration_fault()}
-          | {:error, unsupported_operation_fault()}
+          | {:error, add_partner_errors()}
   def add_partner(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4991,8 +6596,7 @@ defmodule AWS.Redshift do
   @spec associate_data_share_consumer(map(), associate_data_share_consumer_message(), list()) ::
           {:ok, data_share(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_data_share_fault()}
-          | {:error, invalid_namespace_fault()}
+          | {:error, associate_data_share_consumer_errors()}
   def associate_data_share_consumer(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5034,10 +6638,7 @@ defmodule AWS.Redshift do
         ) ::
           {:ok, authorize_cluster_security_group_ingress_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, authorization_already_exists_fault()}
-          | {:error, authorization_quota_exceeded_fault()}
-          | {:error, cluster_security_group_not_found_fault()}
-          | {:error, invalid_cluster_security_group_state_fault()}
+          | {:error, authorize_cluster_security_group_ingress_errors()}
   def authorize_cluster_security_group_ingress(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5055,7 +6656,7 @@ defmodule AWS.Redshift do
   @spec authorize_data_share(map(), authorize_data_share_message(), list()) ::
           {:ok, data_share(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_data_share_fault()}
+          | {:error, authorize_data_share_errors()}
   def authorize_data_share(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5068,12 +6669,7 @@ defmodule AWS.Redshift do
   @spec authorize_endpoint_access(map(), authorize_endpoint_access_message(), list()) ::
           {:ok, endpoint_authorization(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cluster_not_found_fault()}
-          | {:error, endpoint_authorization_already_exists_fault()}
-          | {:error, endpoint_authorizations_per_cluster_limit_exceeded_fault()}
-          | {:error, invalid_authorization_state_fault()}
-          | {:error, invalid_cluster_state_fault()}
-          | {:error, unsupported_operation_fault()}
+          | {:error, authorize_endpoint_access_errors()}
   def authorize_endpoint_access(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5091,13 +6687,7 @@ defmodule AWS.Redshift do
   @spec authorize_snapshot_access(map(), authorize_snapshot_access_message(), list()) ::
           {:ok, authorize_snapshot_access_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, authorization_already_exists_fault()}
-          | {:error, authorization_quota_exceeded_fault()}
-          | {:error, cluster_snapshot_not_found_fault()}
-          | {:error, dependent_service_request_throttling_fault()}
-          | {:error, invalid_cluster_snapshot_state_fault()}
-          | {:error, limit_exceeded_fault()}
-          | {:error, unsupported_operation_fault()}
+          | {:error, authorize_snapshot_access_errors()}
   def authorize_snapshot_access(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5110,7 +6700,7 @@ defmodule AWS.Redshift do
   @spec batch_delete_cluster_snapshots(map(), batch_delete_cluster_snapshots_request(), list()) ::
           {:ok, batch_delete_cluster_snapshots_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, batch_delete_request_size_exceeded_fault()}
+          | {:error, batch_delete_cluster_snapshots_errors()}
   def batch_delete_cluster_snapshots(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5123,8 +6713,7 @@ defmodule AWS.Redshift do
   @spec batch_modify_cluster_snapshots(map(), batch_modify_cluster_snapshots_message(), list()) ::
           {:ok, batch_modify_cluster_snapshots_output_message(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, batch_modify_cluster_snapshots_limit_exceeded_fault()}
-          | {:error, invalid_retention_period_fault()}
+          | {:error, batch_modify_cluster_snapshots_errors()}
   def batch_modify_cluster_snapshots(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5137,10 +6726,7 @@ defmodule AWS.Redshift do
   @spec cancel_resize(map(), cancel_resize_message(), list()) ::
           {:ok, resize_progress_message(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cluster_not_found_fault()}
-          | {:error, invalid_cluster_state_fault()}
-          | {:error, resize_not_found_fault()}
-          | {:error, unsupported_operation_fault()}
+          | {:error, cancel_resize_errors()}
   def cancel_resize(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5171,12 +6757,7 @@ defmodule AWS.Redshift do
   @spec copy_cluster_snapshot(map(), copy_cluster_snapshot_message(), list()) ::
           {:ok, copy_cluster_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cluster_not_found_fault()}
-          | {:error, cluster_snapshot_already_exists_fault()}
-          | {:error, cluster_snapshot_not_found_fault()}
-          | {:error, cluster_snapshot_quota_exceeded_fault()}
-          | {:error, invalid_cluster_snapshot_state_fault()}
-          | {:error, invalid_retention_period_fault()}
+          | {:error, copy_cluster_snapshot_errors()}
   def copy_cluster_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5189,9 +6770,7 @@ defmodule AWS.Redshift do
   @spec create_authentication_profile(map(), create_authentication_profile_message(), list()) ::
           {:ok, create_authentication_profile_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, authentication_profile_already_exists_fault()}
-          | {:error, authentication_profile_quota_exceeded_fault()}
-          | {:error, invalid_authentication_profile_request_fault()}
+          | {:error, create_authentication_profile_errors()}
   def create_authentication_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5212,31 +6791,7 @@ defmodule AWS.Redshift do
   @spec create_cluster(map(), create_cluster_message(), list()) ::
           {:ok, create_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cluster_already_exists_fault()}
-          | {:error, cluster_parameter_group_not_found_fault()}
-          | {:error, cluster_quota_exceeded_fault()}
-          | {:error, cluster_security_group_not_found_fault()}
-          | {:error, cluster_subnet_group_not_found_fault()}
-          | {:error, dependent_service_request_throttling_fault()}
-          | {:error, hsm_client_certificate_not_found_fault()}
-          | {:error, hsm_configuration_not_found_fault()}
-          | {:error, insufficient_cluster_capacity_fault()}
-          | {:error, invalid_cluster_subnet_group_state_fault()}
-          | {:error, invalid_cluster_track_fault()}
-          | {:error, invalid_elastic_ip_fault()}
-          | {:error, invalid_retention_period_fault()}
-          | {:error, invalid_subnet()}
-          | {:error, invalid_tag_fault()}
-          | {:error, invalid_vpc_network_state_fault()}
-          | {:error, ipv6_cidr_block_not_found_fault()}
-          | {:error, limit_exceeded_fault()}
-          | {:error, number_of_nodes_per_cluster_limit_exceeded_fault()}
-          | {:error, number_of_nodes_quota_exceeded_fault()}
-          | {:error, redshift_idc_application_not_exists_fault()}
-          | {:error, snapshot_schedule_not_found_fault()}
-          | {:error, tag_limit_exceeded_fault()}
-          | {:error, unauthorized_operation()}
-          | {:error, unsupported_operation_fault()}
+          | {:error, create_cluster_errors()}
   def create_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5262,10 +6817,7 @@ defmodule AWS.Redshift do
   @spec create_cluster_parameter_group(map(), create_cluster_parameter_group_message(), list()) ::
           {:ok, create_cluster_parameter_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cluster_parameter_group_already_exists_fault()}
-          | {:error, cluster_parameter_group_quota_exceeded_fault()}
-          | {:error, invalid_tag_fault()}
-          | {:error, tag_limit_exceeded_fault()}
+          | {:error, create_cluster_parameter_group_errors()}
   def create_cluster_parameter_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5286,10 +6838,7 @@ defmodule AWS.Redshift do
   @spec create_cluster_security_group(map(), create_cluster_security_group_message(), list()) ::
           {:ok, create_cluster_security_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cluster_security_group_already_exists_fault()}
-          | {:error, cluster_security_group_quota_exceeded_fault()}
-          | {:error, invalid_tag_fault()}
-          | {:error, tag_limit_exceeded_fault()}
+          | {:error, create_cluster_security_group_errors()}
   def create_cluster_security_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5309,13 +6858,7 @@ defmodule AWS.Redshift do
   @spec create_cluster_snapshot(map(), create_cluster_snapshot_message(), list()) ::
           {:ok, create_cluster_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cluster_not_found_fault()}
-          | {:error, cluster_snapshot_already_exists_fault()}
-          | {:error, cluster_snapshot_quota_exceeded_fault()}
-          | {:error, invalid_cluster_state_fault()}
-          | {:error, invalid_retention_period_fault()}
-          | {:error, invalid_tag_fault()}
-          | {:error, tag_limit_exceeded_fault()}
+          | {:error, create_cluster_snapshot_errors()}
   def create_cluster_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5337,14 +6880,7 @@ defmodule AWS.Redshift do
   @spec create_cluster_subnet_group(map(), create_cluster_subnet_group_message(), list()) ::
           {:ok, create_cluster_subnet_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cluster_subnet_group_already_exists_fault()}
-          | {:error, cluster_subnet_group_quota_exceeded_fault()}
-          | {:error, cluster_subnet_quota_exceeded_fault()}
-          | {:error, dependent_service_request_throttling_fault()}
-          | {:error, invalid_subnet()}
-          | {:error, invalid_tag_fault()}
-          | {:error, tag_limit_exceeded_fault()}
-          | {:error, unauthorized_operation()}
+          | {:error, create_cluster_subnet_group_errors()}
   def create_cluster_subnet_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5365,9 +6901,7 @@ defmodule AWS.Redshift do
         ) ::
           {:ok, create_custom_domain_association_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cluster_not_found_fault()}
-          | {:error, custom_cname_association_fault()}
-          | {:error, unsupported_operation_fault()}
+          | {:error, create_custom_domain_association_errors()}
   def create_custom_domain_association(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5380,16 +6914,7 @@ defmodule AWS.Redshift do
   @spec create_endpoint_access(map(), create_endpoint_access_message(), list()) ::
           {:ok, endpoint_access(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_to_cluster_denied_fault()}
-          | {:error, cluster_not_found_fault()}
-          | {:error, cluster_subnet_group_not_found_fault()}
-          | {:error, endpoint_already_exists_fault()}
-          | {:error, endpoints_per_authorization_limit_exceeded_fault()}
-          | {:error, endpoints_per_cluster_limit_exceeded_fault()}
-          | {:error, invalid_cluster_security_group_state_fault()}
-          | {:error, invalid_cluster_state_fault()}
-          | {:error, unauthorized_operation()}
-          | {:error, unsupported_operation_fault()}
+          | {:error, create_endpoint_access_errors()}
   def create_endpoint_access(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5436,17 +6961,7 @@ defmodule AWS.Redshift do
   @spec create_event_subscription(map(), create_event_subscription_message(), list()) ::
           {:ok, create_event_subscription_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, event_subscription_quota_exceeded_fault()}
-          | {:error, invalid_tag_fault()}
-          | {:error, s_n_s_invalid_topic_fault()}
-          | {:error, s_n_s_no_authorization_fault()}
-          | {:error, s_n_s_topic_arn_not_found_fault()}
-          | {:error, source_not_found_fault()}
-          | {:error, subscription_already_exist_fault()}
-          | {:error, subscription_category_not_found_fault()}
-          | {:error, subscription_event_id_not_found_fault()}
-          | {:error, subscription_severity_not_found_fault()}
-          | {:error, tag_limit_exceeded_fault()}
+          | {:error, create_event_subscription_errors()}
   def create_event_subscription(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5472,10 +6987,7 @@ defmodule AWS.Redshift do
   @spec create_hsm_client_certificate(map(), create_hsm_client_certificate_message(), list()) ::
           {:ok, create_hsm_client_certificate_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, hsm_client_certificate_already_exists_fault()}
-          | {:error, hsm_client_certificate_quota_exceeded_fault()}
-          | {:error, invalid_tag_fault()}
-          | {:error, tag_limit_exceeded_fault()}
+          | {:error, create_hsm_client_certificate_errors()}
   def create_hsm_client_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5499,10 +7011,7 @@ defmodule AWS.Redshift do
   @spec create_hsm_configuration(map(), create_hsm_configuration_message(), list()) ::
           {:ok, create_hsm_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, hsm_configuration_already_exists_fault()}
-          | {:error, hsm_configuration_quota_exceeded_fault()}
-          | {:error, invalid_tag_fault()}
-          | {:error, tag_limit_exceeded_fault()}
+          | {:error, create_hsm_configuration_errors()}
   def create_hsm_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5515,11 +7024,7 @@ defmodule AWS.Redshift do
   @spec create_redshift_idc_application(map(), create_redshift_idc_application_message(), list()) ::
           {:ok, create_redshift_idc_application_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, dependent_service_access_denied_fault()}
-          | {:error, dependent_service_unavailable_fault()}
-          | {:error, redshift_idc_application_already_exists_fault()}
-          | {:error, redshift_idc_application_quota_exceeded_fault()}
-          | {:error, unsupported_operation_fault()}
+          | {:error, create_redshift_idc_application_errors()}
   def create_redshift_idc_application(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5536,14 +7041,7 @@ defmodule AWS.Redshift do
   @spec create_scheduled_action(map(), create_scheduled_action_message(), list()) ::
           {:ok, scheduled_action(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cluster_not_found_fault()}
-          | {:error, invalid_scheduled_action_fault()}
-          | {:error, invalid_schedule_fault()}
-          | {:error, scheduled_action_already_exists_fault()}
-          | {:error, scheduled_action_quota_exceeded_fault()}
-          | {:error, scheduled_action_type_unsupported_fault()}
-          | {:error, unauthorized_operation()}
-          | {:error, unsupported_operation_fault()}
+          | {:error, create_scheduled_action_errors()}
   def create_scheduled_action(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5563,12 +7061,7 @@ defmodule AWS.Redshift do
   @spec create_snapshot_copy_grant(map(), create_snapshot_copy_grant_message(), list()) ::
           {:ok, create_snapshot_copy_grant_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, dependent_service_request_throttling_fault()}
-          | {:error, invalid_tag_fault()}
-          | {:error, limit_exceeded_fault()}
-          | {:error, snapshot_copy_grant_already_exists_fault()}
-          | {:error, snapshot_copy_grant_quota_exceeded_fault()}
-          | {:error, tag_limit_exceeded_fault()}
+          | {:error, create_snapshot_copy_grant_errors()}
   def create_snapshot_copy_grant(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5582,12 +7075,7 @@ defmodule AWS.Redshift do
   @spec create_snapshot_schedule(map(), create_snapshot_schedule_message(), list()) ::
           {:ok, snapshot_schedule(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_schedule_fault()}
-          | {:error, invalid_tag_fault()}
-          | {:error, schedule_definition_type_unsupported_fault()}
-          | {:error, snapshot_schedule_already_exists_fault()}
-          | {:error, snapshot_schedule_quota_exceeded_fault()}
-          | {:error, tag_limit_exceeded_fault()}
+          | {:error, create_snapshot_schedule_errors()}
   def create_snapshot_schedule(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5607,10 +7095,7 @@ defmodule AWS.Redshift do
   @spec create_tags(map(), create_tags_message(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_cluster_state_fault()}
-          | {:error, invalid_tag_fault()}
-          | {:error, resource_not_found_fault()}
-          | {:error, tag_limit_exceeded_fault()}
+          | {:error, create_tags_errors()}
   def create_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5625,13 +7110,7 @@ defmodule AWS.Redshift do
   @spec create_usage_limit(map(), create_usage_limit_message(), list()) ::
           {:ok, usage_limit(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cluster_not_found_fault()}
-          | {:error, invalid_cluster_state_fault()}
-          | {:error, invalid_usage_limit_fault()}
-          | {:error, limit_exceeded_fault()}
-          | {:error, tag_limit_exceeded_fault()}
-          | {:error, unsupported_operation_fault()}
-          | {:error, usage_limit_already_exists_fault()}
+          | {:error, create_usage_limit_errors()}
   def create_usage_limit(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5645,7 +7124,7 @@ defmodule AWS.Redshift do
   @spec deauthorize_data_share(map(), deauthorize_data_share_message(), list()) ::
           {:ok, data_share(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_data_share_fault()}
+          | {:error, deauthorize_data_share_errors()}
   def deauthorize_data_share(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5658,8 +7137,7 @@ defmodule AWS.Redshift do
   @spec delete_authentication_profile(map(), delete_authentication_profile_message(), list()) ::
           {:ok, delete_authentication_profile_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, authentication_profile_not_found_fault()}
-          | {:error, invalid_authentication_profile_request_fault()}
+          | {:error, delete_authentication_profile_errors()}
   def delete_authentication_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5694,11 +7172,7 @@ defmodule AWS.Redshift do
   @spec delete_cluster(map(), delete_cluster_message(), list()) ::
           {:ok, delete_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cluster_not_found_fault()}
-          | {:error, cluster_snapshot_already_exists_fault()}
-          | {:error, cluster_snapshot_quota_exceeded_fault()}
-          | {:error, invalid_cluster_state_fault()}
-          | {:error, invalid_retention_period_fault()}
+          | {:error, delete_cluster_errors()}
   def delete_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5714,8 +7188,7 @@ defmodule AWS.Redshift do
   @spec delete_cluster_parameter_group(map(), delete_cluster_parameter_group_message(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cluster_parameter_group_not_found_fault()}
-          | {:error, invalid_cluster_parameter_group_state_fault()}
+          | {:error, delete_cluster_parameter_group_errors()}
   def delete_cluster_parameter_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5736,8 +7209,7 @@ defmodule AWS.Redshift do
   @spec delete_cluster_security_group(map(), delete_cluster_security_group_message(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cluster_security_group_not_found_fault()}
-          | {:error, invalid_cluster_security_group_state_fault()}
+          | {:error, delete_cluster_security_group_errors()}
   def delete_cluster_security_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5762,8 +7234,7 @@ defmodule AWS.Redshift do
   @spec delete_cluster_snapshot(map(), delete_cluster_snapshot_message(), list()) ::
           {:ok, delete_cluster_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cluster_snapshot_not_found_fault()}
-          | {:error, invalid_cluster_snapshot_state_fault()}
+          | {:error, delete_cluster_snapshot_errors()}
   def delete_cluster_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5776,9 +7247,7 @@ defmodule AWS.Redshift do
   @spec delete_cluster_subnet_group(map(), delete_cluster_subnet_group_message(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cluster_subnet_group_not_found_fault()}
-          | {:error, invalid_cluster_subnet_group_state_fault()}
-          | {:error, invalid_cluster_subnet_state_fault()}
+          | {:error, delete_cluster_subnet_group_errors()}
   def delete_cluster_subnet_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5795,10 +7264,7 @@ defmodule AWS.Redshift do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cluster_not_found_fault()}
-          | {:error, custom_cname_association_fault()}
-          | {:error, custom_domain_association_not_found_fault()}
-          | {:error, unsupported_operation_fault()}
+          | {:error, delete_custom_domain_association_errors()}
   def delete_custom_domain_association(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5811,11 +7277,7 @@ defmodule AWS.Redshift do
   @spec delete_endpoint_access(map(), delete_endpoint_access_message(), list()) ::
           {:ok, endpoint_access(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cluster_not_found_fault()}
-          | {:error, endpoint_not_found_fault()}
-          | {:error, invalid_cluster_security_group_state_fault()}
-          | {:error, invalid_cluster_state_fault()}
-          | {:error, invalid_endpoint_state_fault()}
+          | {:error, delete_endpoint_access_errors()}
   def delete_endpoint_access(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5828,8 +7290,7 @@ defmodule AWS.Redshift do
   @spec delete_event_subscription(map(), delete_event_subscription_message(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_subscription_state_fault()}
-          | {:error, subscription_not_found_fault()}
+          | {:error, delete_event_subscription_errors()}
   def delete_event_subscription(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5842,8 +7303,7 @@ defmodule AWS.Redshift do
   @spec delete_hsm_client_certificate(map(), delete_hsm_client_certificate_message(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, hsm_client_certificate_not_found_fault()}
-          | {:error, invalid_hsm_client_certificate_state_fault()}
+          | {:error, delete_hsm_client_certificate_errors()}
   def delete_hsm_client_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5856,8 +7316,7 @@ defmodule AWS.Redshift do
   @spec delete_hsm_configuration(map(), delete_hsm_configuration_message(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, hsm_configuration_not_found_fault()}
-          | {:error, invalid_hsm_configuration_state_fault()}
+          | {:error, delete_hsm_configuration_errors()}
   def delete_hsm_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5873,10 +7332,7 @@ defmodule AWS.Redshift do
   @spec delete_partner(map(), partner_integration_input_message(), list()) ::
           {:ok, partner_integration_output_message(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cluster_not_found_fault()}
-          | {:error, partner_not_found_fault()}
-          | {:error, unauthorized_partner_integration_fault()}
-          | {:error, unsupported_operation_fault()}
+          | {:error, delete_partner_errors()}
   def delete_partner(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5889,10 +7345,7 @@ defmodule AWS.Redshift do
   @spec delete_redshift_idc_application(map(), delete_redshift_idc_application_message(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, dependent_service_access_denied_fault()}
-          | {:error, dependent_service_unavailable_fault()}
-          | {:error, redshift_idc_application_not_exists_fault()}
-          | {:error, unsupported_operation_fault()}
+          | {:error, delete_redshift_idc_application_errors()}
   def delete_redshift_idc_application(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5905,8 +7358,7 @@ defmodule AWS.Redshift do
   @spec delete_resource_policy(map(), delete_resource_policy_message(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found_fault()}
-          | {:error, unsupported_operation_fault()}
+          | {:error, delete_resource_policy_errors()}
   def delete_resource_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5919,8 +7371,7 @@ defmodule AWS.Redshift do
   @spec delete_scheduled_action(map(), delete_scheduled_action_message(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, scheduled_action_not_found_fault()}
-          | {:error, unauthorized_operation()}
+          | {:error, delete_scheduled_action_errors()}
   def delete_scheduled_action(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5933,8 +7384,7 @@ defmodule AWS.Redshift do
   @spec delete_snapshot_copy_grant(map(), delete_snapshot_copy_grant_message(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_snapshot_copy_grant_state_fault()}
-          | {:error, snapshot_copy_grant_not_found_fault()}
+          | {:error, delete_snapshot_copy_grant_errors()}
   def delete_snapshot_copy_grant(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5947,8 +7397,7 @@ defmodule AWS.Redshift do
   @spec delete_snapshot_schedule(map(), delete_snapshot_schedule_message(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_cluster_snapshot_schedule_state_fault()}
-          | {:error, snapshot_schedule_not_found_fault()}
+          | {:error, delete_snapshot_schedule_errors()}
   def delete_snapshot_schedule(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5964,8 +7413,7 @@ defmodule AWS.Redshift do
   @spec delete_tags(map(), delete_tags_message(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_tag_fault()}
-          | {:error, resource_not_found_fault()}
+          | {:error, delete_tags_errors()}
   def delete_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5978,8 +7426,7 @@ defmodule AWS.Redshift do
   @spec delete_usage_limit(map(), delete_usage_limit_message(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, unsupported_operation_fault()}
-          | {:error, usage_limit_not_found_fault()}
+          | {:error, delete_usage_limit_errors()}
   def delete_usage_limit(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6008,8 +7455,7 @@ defmodule AWS.Redshift do
         ) ::
           {:ok, describe_authentication_profiles_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, authentication_profile_not_found_fault()}
-          | {:error, invalid_authentication_profile_request_fault()}
+          | {:error, describe_authentication_profiles_errors()}
   def describe_authentication_profiles(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6022,8 +7468,7 @@ defmodule AWS.Redshift do
   @spec describe_cluster_db_revisions(map(), describe_cluster_db_revisions_message(), list()) ::
           {:ok, cluster_db_revisions_message(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cluster_not_found_fault()}
-          | {:error, invalid_cluster_state_fault()}
+          | {:error, describe_cluster_db_revisions_errors()}
   def describe_cluster_db_revisions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6063,8 +7508,7 @@ defmodule AWS.Redshift do
         ) ::
           {:ok, cluster_parameter_groups_message(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cluster_parameter_group_not_found_fault()}
-          | {:error, invalid_tag_fault()}
+          | {:error, describe_cluster_parameter_groups_errors()}
   def describe_cluster_parameter_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6094,7 +7538,7 @@ defmodule AWS.Redshift do
   @spec describe_cluster_parameters(map(), describe_cluster_parameters_message(), list()) ::
           {:ok, cluster_parameter_group_details(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cluster_parameter_group_not_found_fault()}
+          | {:error, describe_cluster_parameters_errors()}
   def describe_cluster_parameters(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6133,8 +7577,7 @@ defmodule AWS.Redshift do
         ) ::
           {:ok, cluster_security_group_message(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cluster_security_group_not_found_fault()}
-          | {:error, invalid_tag_fault()}
+          | {:error, describe_cluster_security_groups_errors()}
   def describe_cluster_security_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6168,10 +7611,7 @@ defmodule AWS.Redshift do
   @spec describe_cluster_snapshots(map(), describe_cluster_snapshots_message(), list()) ::
           {:ok, snapshot_message(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cluster_not_found_fault()}
-          | {:error, cluster_snapshot_not_found_fault()}
-          | {:error, invalid_tag_fault()}
-          | {:error, unsupported_operation_fault()}
+          | {:error, describe_cluster_snapshots_errors()}
   def describe_cluster_snapshots(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6201,8 +7641,7 @@ defmodule AWS.Redshift do
   @spec describe_cluster_subnet_groups(map(), describe_cluster_subnet_groups_message(), list()) ::
           {:ok, cluster_subnet_group_message(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cluster_subnet_group_not_found_fault()}
-          | {:error, invalid_tag_fault()}
+          | {:error, describe_cluster_subnet_groups_errors()}
   def describe_cluster_subnet_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6215,8 +7654,7 @@ defmodule AWS.Redshift do
   @spec describe_cluster_tracks(map(), describe_cluster_tracks_message(), list()) ::
           {:ok, track_list_message(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_cluster_track_fault()}
-          | {:error, unauthorized_operation()}
+          | {:error, describe_cluster_tracks_errors()}
   def describe_cluster_tracks(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6268,8 +7706,7 @@ defmodule AWS.Redshift do
   @spec describe_clusters(map(), describe_clusters_message(), list()) ::
           {:ok, clusters_message(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cluster_not_found_fault()}
-          | {:error, invalid_tag_fault()}
+          | {:error, describe_clusters_errors()}
   def describe_clusters(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6286,8 +7723,7 @@ defmodule AWS.Redshift do
         ) ::
           {:ok, custom_domain_associations_message(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, custom_domain_association_not_found_fault()}
-          | {:error, unsupported_operation_fault()}
+          | {:error, describe_custom_domain_associations_errors()}
   def describe_custom_domain_associations(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6302,7 +7738,7 @@ defmodule AWS.Redshift do
   @spec describe_data_shares(map(), describe_data_shares_message(), list()) ::
           {:ok, describe_data_shares_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_data_share_fault()}
+          | {:error, describe_data_shares_errors()}
   def describe_data_shares(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6320,7 +7756,7 @@ defmodule AWS.Redshift do
         ) ::
           {:ok, describe_data_shares_for_consumer_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_namespace_fault()}
+          | {:error, describe_data_shares_for_consumer_errors()}
   def describe_data_shares_for_consumer(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6338,7 +7774,7 @@ defmodule AWS.Redshift do
         ) ::
           {:ok, describe_data_shares_for_producer_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_namespace_fault()}
+          | {:error, describe_data_shares_for_producer_errors()}
   def describe_data_shares_for_producer(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6372,9 +7808,7 @@ defmodule AWS.Redshift do
   @spec describe_endpoint_access(map(), describe_endpoint_access_message(), list()) ::
           {:ok, endpoint_access_list(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cluster_not_found_fault()}
-          | {:error, endpoint_not_found_fault()}
-          | {:error, invalid_cluster_state_fault()}
+          | {:error, describe_endpoint_access_errors()}
   def describe_endpoint_access(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6387,8 +7821,7 @@ defmodule AWS.Redshift do
   @spec describe_endpoint_authorization(map(), describe_endpoint_authorization_message(), list()) ::
           {:ok, endpoint_authorization_list(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cluster_not_found_fault()}
-          | {:error, unsupported_operation_fault()}
+          | {:error, describe_endpoint_authorization_errors()}
   def describe_endpoint_authorization(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6435,8 +7868,7 @@ defmodule AWS.Redshift do
   @spec describe_event_subscriptions(map(), describe_event_subscriptions_message(), list()) ::
           {:ok, event_subscriptions_message(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_tag_fault()}
-          | {:error, subscription_not_found_fault()}
+          | {:error, describe_event_subscriptions_errors()}
   def describe_event_subscriptions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6488,8 +7920,7 @@ defmodule AWS.Redshift do
         ) ::
           {:ok, hsm_client_certificate_message(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, hsm_client_certificate_not_found_fault()}
-          | {:error, invalid_tag_fault()}
+          | {:error, describe_hsm_client_certificates_errors()}
   def describe_hsm_client_certificates(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6519,8 +7950,7 @@ defmodule AWS.Redshift do
   @spec describe_hsm_configurations(map(), describe_hsm_configurations_message(), list()) ::
           {:ok, hsm_configuration_message(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, hsm_configuration_not_found_fault()}
-          | {:error, invalid_tag_fault()}
+          | {:error, describe_hsm_configurations_errors()}
   def describe_hsm_configurations(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6533,9 +7963,7 @@ defmodule AWS.Redshift do
   @spec describe_inbound_integrations(map(), describe_inbound_integrations_message(), list()) ::
           {:ok, inbound_integrations_message(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, integration_not_found_fault()}
-          | {:error, invalid_namespace_fault()}
-          | {:error, unsupported_operation_fault()}
+          | {:error, describe_inbound_integrations_errors()}
   def describe_inbound_integrations(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6549,8 +7977,7 @@ defmodule AWS.Redshift do
   @spec describe_logging_status(map(), describe_logging_status_message(), list()) ::
           {:ok, logging_status(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cluster_not_found_fault()}
-          | {:error, unsupported_operation_fault()}
+          | {:error, describe_logging_status_errors()}
   def describe_logging_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6569,11 +7996,7 @@ defmodule AWS.Redshift do
         ) ::
           {:ok, node_configuration_options_message(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_to_snapshot_denied_fault()}
-          | {:error, cluster_not_found_fault()}
-          | {:error, cluster_snapshot_not_found_fault()}
-          | {:error, invalid_cluster_snapshot_state_fault()}
-          | {:error, unsupported_operation_fault()}
+          | {:error, describe_node_configuration_options_errors()}
   def describe_node_configuration_options(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6616,9 +8039,7 @@ defmodule AWS.Redshift do
   @spec describe_partners(map(), describe_partners_input_message(), list()) ::
           {:ok, describe_partners_output_message(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cluster_not_found_fault()}
-          | {:error, unauthorized_partner_integration_fault()}
-          | {:error, unsupported_operation_fault()}
+          | {:error, describe_partners_errors()}
   def describe_partners(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6635,10 +8056,7 @@ defmodule AWS.Redshift do
         ) ::
           {:ok, describe_redshift_idc_applications_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, dependent_service_access_denied_fault()}
-          | {:error, dependent_service_unavailable_fault()}
-          | {:error, redshift_idc_application_not_exists_fault()}
-          | {:error, unsupported_operation_fault()}
+          | {:error, describe_redshift_idc_applications_errors()}
   def describe_redshift_idc_applications(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6658,9 +8076,7 @@ defmodule AWS.Redshift do
         ) ::
           {:ok, describe_reserved_node_exchange_status_output_message(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, reserved_node_exchange_not_found_fault()}
-          | {:error, reserved_node_not_found_fault()}
-          | {:error, unsupported_operation_fault()}
+          | {:error, describe_reserved_node_exchange_status_errors()}
   def describe_reserved_node_exchange_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6691,9 +8107,7 @@ defmodule AWS.Redshift do
         ) ::
           {:ok, reserved_node_offerings_message(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, dependent_service_unavailable_fault()}
-          | {:error, reserved_node_offering_not_found_fault()}
-          | {:error, unsupported_operation_fault()}
+          | {:error, describe_reserved_node_offerings_errors()}
   def describe_reserved_node_offerings(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6706,8 +8120,7 @@ defmodule AWS.Redshift do
   @spec describe_reserved_nodes(map(), describe_reserved_nodes_message(), list()) ::
           {:ok, reserved_nodes_message(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, dependent_service_unavailable_fault()}
-          | {:error, reserved_node_not_found_fault()}
+          | {:error, describe_reserved_nodes_errors()}
   def describe_reserved_nodes(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6734,9 +8147,7 @@ defmodule AWS.Redshift do
   @spec describe_resize(map(), describe_resize_message(), list()) ::
           {:ok, resize_progress_message(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cluster_not_found_fault()}
-          | {:error, resize_not_found_fault()}
-          | {:error, unsupported_operation_fault()}
+          | {:error, describe_resize_errors()}
   def describe_resize(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6749,8 +8160,7 @@ defmodule AWS.Redshift do
   @spec describe_scheduled_actions(map(), describe_scheduled_actions_message(), list()) ::
           {:ok, scheduled_actions_message(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, scheduled_action_not_found_fault()}
-          | {:error, unauthorized_operation()}
+          | {:error, describe_scheduled_actions_errors()}
   def describe_scheduled_actions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6769,8 +8179,7 @@ defmodule AWS.Redshift do
   @spec describe_snapshot_copy_grants(map(), describe_snapshot_copy_grants_message(), list()) ::
           {:ok, snapshot_copy_grant_message(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_tag_fault()}
-          | {:error, snapshot_copy_grant_not_found_fault()}
+          | {:error, describe_snapshot_copy_grants_errors()}
   def describe_snapshot_copy_grants(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6816,8 +8225,7 @@ defmodule AWS.Redshift do
   @spec describe_table_restore_status(map(), describe_table_restore_status_message(), list()) ::
           {:ok, table_restore_status_message(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cluster_not_found_fault()}
-          | {:error, table_restore_not_found_fault()}
+          | {:error, describe_table_restore_status_errors()}
   def describe_table_restore_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6860,8 +8268,7 @@ defmodule AWS.Redshift do
   @spec describe_tags(map(), describe_tags_message(), list()) ::
           {:ok, tagged_resource_list_message(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_tag_fault()}
-          | {:error, resource_not_found_fault()}
+          | {:error, describe_tags_errors()}
   def describe_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6896,8 +8303,7 @@ defmodule AWS.Redshift do
   @spec describe_usage_limits(map(), describe_usage_limits_message(), list()) ::
           {:ok, usage_limit_list(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cluster_not_found_fault()}
-          | {:error, unsupported_operation_fault()}
+          | {:error, describe_usage_limits_errors()}
   def describe_usage_limits(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6911,9 +8317,7 @@ defmodule AWS.Redshift do
   @spec disable_logging(map(), disable_logging_message(), list()) ::
           {:ok, logging_status(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cluster_not_found_fault()}
-          | {:error, invalid_cluster_state_fault()}
-          | {:error, unsupported_operation_fault()}
+          | {:error, disable_logging_errors()}
   def disable_logging(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6933,11 +8337,7 @@ defmodule AWS.Redshift do
   @spec disable_snapshot_copy(map(), disable_snapshot_copy_message(), list()) ::
           {:ok, disable_snapshot_copy_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cluster_not_found_fault()}
-          | {:error, invalid_cluster_state_fault()}
-          | {:error, snapshot_copy_already_disabled_fault()}
-          | {:error, unauthorized_operation()}
-          | {:error, unsupported_operation_fault()}
+          | {:error, disable_snapshot_copy_errors()}
   def disable_snapshot_copy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6955,8 +8355,7 @@ defmodule AWS.Redshift do
         ) ::
           {:ok, data_share(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_data_share_fault()}
-          | {:error, invalid_namespace_fault()}
+          | {:error, disassociate_data_share_consumer_errors()}
   def disassociate_data_share_consumer(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6970,13 +8369,7 @@ defmodule AWS.Redshift do
   @spec enable_logging(map(), enable_logging_message(), list()) ::
           {:ok, logging_status(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bucket_not_found_fault()}
-          | {:error, cluster_not_found_fault()}
-          | {:error, insufficient_s3_bucket_policy_fault()}
-          | {:error, invalid_cluster_state_fault()}
-          | {:error, invalid_s3_bucket_name_fault()}
-          | {:error, invalid_s3_key_prefix_fault()}
-          | {:error, unsupported_operation_fault()}
+          | {:error, enable_logging_errors()}
   def enable_logging(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6990,17 +8383,7 @@ defmodule AWS.Redshift do
   @spec enable_snapshot_copy(map(), enable_snapshot_copy_message(), list()) ::
           {:ok, enable_snapshot_copy_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cluster_not_found_fault()}
-          | {:error, copy_to_region_disabled_fault()}
-          | {:error, dependent_service_request_throttling_fault()}
-          | {:error, incompatible_orderable_options()}
-          | {:error, invalid_cluster_state_fault()}
-          | {:error, invalid_retention_period_fault()}
-          | {:error, limit_exceeded_fault()}
-          | {:error, snapshot_copy_already_enabled_fault()}
-          | {:error, snapshot_copy_grant_not_found_fault()}
-          | {:error, unauthorized_operation()}
-          | {:error, unknown_snapshot_copy_region_fault()}
+          | {:error, enable_snapshot_copy_errors()}
   def enable_snapshot_copy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7014,10 +8397,7 @@ defmodule AWS.Redshift do
   @spec failover_primary_compute(map(), failover_primary_compute_input_message(), list()) ::
           {:ok, failover_primary_compute_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cluster_not_found_fault()}
-          | {:error, invalid_cluster_state_fault()}
-          | {:error, unauthorized_operation()}
-          | {:error, unsupported_operation_fault()}
+          | {:error, failover_primary_compute_errors()}
   def failover_primary_compute(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7063,8 +8443,7 @@ defmodule AWS.Redshift do
   @spec get_cluster_credentials(map(), get_cluster_credentials_message(), list()) ::
           {:ok, cluster_credentials(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cluster_not_found_fault()}
-          | {:error, unsupported_operation_fault()}
+          | {:error, get_cluster_credentials_errors()}
   def get_cluster_credentials(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7096,8 +8475,7 @@ defmodule AWS.Redshift do
         ) ::
           {:ok, cluster_extended_credentials(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cluster_not_found_fault()}
-          | {:error, unsupported_operation_fault()}
+          | {:error, get_cluster_credentials_with_iam_errors()}
   def get_cluster_credentials_with_iam(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7119,14 +8497,7 @@ defmodule AWS.Redshift do
         ) ::
           {:ok, get_reserved_node_exchange_configuration_options_output_message(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cluster_not_found_fault()}
-          | {:error, cluster_snapshot_not_found_fault()}
-          | {:error, dependent_service_unavailable_fault()}
-          | {:error, invalid_reserved_node_state_fault()}
-          | {:error, reserved_node_already_migrated_fault()}
-          | {:error, reserved_node_not_found_fault()}
-          | {:error, reserved_node_offering_not_found_fault()}
-          | {:error, unsupported_operation_fault()}
+          | {:error, get_reserved_node_exchange_configuration_options_errors()}
   def get_reserved_node_exchange_configuration_options(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7151,12 +8522,7 @@ defmodule AWS.Redshift do
         ) ::
           {:ok, get_reserved_node_exchange_offerings_output_message(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, dependent_service_unavailable_fault()}
-          | {:error, invalid_reserved_node_state_fault()}
-          | {:error, reserved_node_already_migrated_fault()}
-          | {:error, reserved_node_not_found_fault()}
-          | {:error, reserved_node_offering_not_found_fault()}
-          | {:error, unsupported_operation_fault()}
+          | {:error, get_reserved_node_exchange_offerings_errors()}
   def get_reserved_node_exchange_offerings(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7169,9 +8535,7 @@ defmodule AWS.Redshift do
   @spec get_resource_policy(map(), get_resource_policy_message(), list()) ::
           {:ok, get_resource_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_policy_fault()}
-          | {:error, resource_not_found_fault()}
-          | {:error, unsupported_operation_fault()}
+          | {:error, get_resource_policy_errors()}
   def get_resource_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7185,8 +8549,7 @@ defmodule AWS.Redshift do
   @spec list_recommendations(map(), list_recommendations_message(), list()) ::
           {:ok, list_recommendations_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cluster_not_found_fault()}
-          | {:error, unsupported_operation_fault()}
+          | {:error, list_recommendations_errors()}
   def list_recommendations(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7202,9 +8565,7 @@ defmodule AWS.Redshift do
   @spec modify_aqua_configuration(map(), modify_aqua_input_message(), list()) ::
           {:ok, modify_aqua_output_message(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cluster_not_found_fault()}
-          | {:error, invalid_cluster_state_fault()}
-          | {:error, unsupported_operation_fault()}
+          | {:error, modify_aqua_configuration_errors()}
   def modify_aqua_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7217,9 +8578,7 @@ defmodule AWS.Redshift do
   @spec modify_authentication_profile(map(), modify_authentication_profile_message(), list()) ::
           {:ok, modify_authentication_profile_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, authentication_profile_not_found_fault()}
-          | {:error, authentication_profile_quota_exceeded_fault()}
-          | {:error, invalid_authentication_profile_request_fault()}
+          | {:error, modify_authentication_profile_errors()}
   def modify_authentication_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7246,28 +8605,7 @@ defmodule AWS.Redshift do
   @spec modify_cluster(map(), modify_cluster_message(), list()) ::
           {:ok, modify_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cluster_already_exists_fault()}
-          | {:error, cluster_not_found_fault()}
-          | {:error, cluster_parameter_group_not_found_fault()}
-          | {:error, cluster_security_group_not_found_fault()}
-          | {:error, custom_cname_association_fault()}
-          | {:error, dependent_service_request_throttling_fault()}
-          | {:error, hsm_client_certificate_not_found_fault()}
-          | {:error, hsm_configuration_not_found_fault()}
-          | {:error, insufficient_cluster_capacity_fault()}
-          | {:error, invalid_cluster_security_group_state_fault()}
-          | {:error, invalid_cluster_state_fault()}
-          | {:error, invalid_cluster_track_fault()}
-          | {:error, invalid_elastic_ip_fault()}
-          | {:error, invalid_retention_period_fault()}
-          | {:error, ipv6_cidr_block_not_found_fault()}
-          | {:error, limit_exceeded_fault()}
-          | {:error, number_of_nodes_per_cluster_limit_exceeded_fault()}
-          | {:error, number_of_nodes_quota_exceeded_fault()}
-          | {:error, table_limit_exceeded_fault()}
-          | {:error, unauthorized_operation()}
-          | {:error, unsupported_operation_fault()}
-          | {:error, unsupported_option_fault()}
+          | {:error, modify_cluster_errors()}
   def modify_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7283,10 +8621,7 @@ defmodule AWS.Redshift do
   @spec modify_cluster_db_revision(map(), modify_cluster_db_revision_message(), list()) ::
           {:ok, modify_cluster_db_revision_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cluster_not_found_fault()}
-          | {:error, cluster_on_latest_revision_fault()}
-          | {:error, invalid_cluster_state_fault()}
-          | {:error, unsupported_operation_fault()}
+          | {:error, modify_cluster_db_revision_errors()}
   def modify_cluster_db_revision(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7304,8 +8639,7 @@ defmodule AWS.Redshift do
   @spec modify_cluster_iam_roles(map(), modify_cluster_iam_roles_message(), list()) ::
           {:ok, modify_cluster_iam_roles_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cluster_not_found_fault()}
-          | {:error, invalid_cluster_state_fault()}
+          | {:error, modify_cluster_iam_roles_errors()}
   def modify_cluster_iam_roles(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7318,8 +8652,7 @@ defmodule AWS.Redshift do
   @spec modify_cluster_maintenance(map(), modify_cluster_maintenance_message(), list()) ::
           {:ok, modify_cluster_maintenance_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cluster_not_found_fault()}
-          | {:error, invalid_cluster_state_fault()}
+          | {:error, modify_cluster_maintenance_errors()}
   def modify_cluster_maintenance(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7338,8 +8671,7 @@ defmodule AWS.Redshift do
   @spec modify_cluster_parameter_group(map(), modify_cluster_parameter_group_message(), list()) ::
           {:ok, cluster_parameter_group_name_message(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cluster_parameter_group_not_found_fault()}
-          | {:error, invalid_cluster_parameter_group_state_fault()}
+          | {:error, modify_cluster_parameter_group_errors()}
   def modify_cluster_parameter_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7355,9 +8687,7 @@ defmodule AWS.Redshift do
   @spec modify_cluster_snapshot(map(), modify_cluster_snapshot_message(), list()) ::
           {:ok, modify_cluster_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cluster_snapshot_not_found_fault()}
-          | {:error, invalid_cluster_snapshot_state_fault()}
-          | {:error, invalid_retention_period_fault()}
+          | {:error, modify_cluster_snapshot_errors()}
   def modify_cluster_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7374,9 +8704,7 @@ defmodule AWS.Redshift do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cluster_not_found_fault()}
-          | {:error, invalid_cluster_snapshot_schedule_state_fault()}
-          | {:error, snapshot_schedule_not_found_fault()}
+          | {:error, modify_cluster_snapshot_schedule_errors()}
   def modify_cluster_snapshot_schedule(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7392,12 +8720,7 @@ defmodule AWS.Redshift do
   @spec modify_cluster_subnet_group(map(), modify_cluster_subnet_group_message(), list()) ::
           {:ok, modify_cluster_subnet_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cluster_subnet_group_not_found_fault()}
-          | {:error, cluster_subnet_quota_exceeded_fault()}
-          | {:error, dependent_service_request_throttling_fault()}
-          | {:error, invalid_subnet()}
-          | {:error, subnet_already_in_use()}
-          | {:error, unauthorized_operation()}
+          | {:error, modify_cluster_subnet_group_errors()}
   def modify_cluster_subnet_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7414,10 +8737,7 @@ defmodule AWS.Redshift do
         ) ::
           {:ok, modify_custom_domain_association_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cluster_not_found_fault()}
-          | {:error, custom_cname_association_fault()}
-          | {:error, custom_domain_association_not_found_fault()}
-          | {:error, unsupported_operation_fault()}
+          | {:error, modify_custom_domain_association_errors()}
   def modify_custom_domain_association(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7430,12 +8750,7 @@ defmodule AWS.Redshift do
   @spec modify_endpoint_access(map(), modify_endpoint_access_message(), list()) ::
           {:ok, endpoint_access(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cluster_not_found_fault()}
-          | {:error, endpoint_not_found_fault()}
-          | {:error, invalid_cluster_security_group_state_fault()}
-          | {:error, invalid_cluster_state_fault()}
-          | {:error, invalid_endpoint_state_fault()}
-          | {:error, unauthorized_operation()}
+          | {:error, modify_endpoint_access_errors()}
   def modify_endpoint_access(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7448,15 +8763,7 @@ defmodule AWS.Redshift do
   @spec modify_event_subscription(map(), modify_event_subscription_message(), list()) ::
           {:ok, modify_event_subscription_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_subscription_state_fault()}
-          | {:error, s_n_s_invalid_topic_fault()}
-          | {:error, s_n_s_no_authorization_fault()}
-          | {:error, s_n_s_topic_arn_not_found_fault()}
-          | {:error, source_not_found_fault()}
-          | {:error, subscription_category_not_found_fault()}
-          | {:error, subscription_event_id_not_found_fault()}
-          | {:error, subscription_not_found_fault()}
-          | {:error, subscription_severity_not_found_fault()}
+          | {:error, modify_event_subscription_errors()}
   def modify_event_subscription(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7469,10 +8776,7 @@ defmodule AWS.Redshift do
   @spec modify_redshift_idc_application(map(), modify_redshift_idc_application_message(), list()) ::
           {:ok, modify_redshift_idc_application_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, dependent_service_access_denied_fault()}
-          | {:error, dependent_service_unavailable_fault()}
-          | {:error, redshift_idc_application_not_exists_fault()}
-          | {:error, unsupported_operation_fault()}
+          | {:error, modify_redshift_idc_application_errors()}
   def modify_redshift_idc_application(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7485,13 +8789,7 @@ defmodule AWS.Redshift do
   @spec modify_scheduled_action(map(), modify_scheduled_action_message(), list()) ::
           {:ok, scheduled_action(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cluster_not_found_fault()}
-          | {:error, invalid_scheduled_action_fault()}
-          | {:error, invalid_schedule_fault()}
-          | {:error, scheduled_action_not_found_fault()}
-          | {:error, scheduled_action_type_unsupported_fault()}
-          | {:error, unauthorized_operation()}
-          | {:error, unsupported_operation_fault()}
+          | {:error, modify_scheduled_action_errors()}
   def modify_scheduled_action(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7521,11 +8819,7 @@ defmodule AWS.Redshift do
         ) ::
           {:ok, modify_snapshot_copy_retention_period_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cluster_not_found_fault()}
-          | {:error, invalid_cluster_state_fault()}
-          | {:error, invalid_retention_period_fault()}
-          | {:error, snapshot_copy_disabled_fault()}
-          | {:error, unauthorized_operation()}
+          | {:error, modify_snapshot_copy_retention_period_errors()}
   def modify_snapshot_copy_retention_period(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7541,9 +8835,7 @@ defmodule AWS.Redshift do
   @spec modify_snapshot_schedule(map(), modify_snapshot_schedule_message(), list()) ::
           {:ok, snapshot_schedule(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_schedule_fault()}
-          | {:error, snapshot_schedule_not_found_fault()}
-          | {:error, snapshot_schedule_update_in_progress_fault()}
+          | {:error, modify_snapshot_schedule_errors()}
   def modify_snapshot_schedule(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7558,9 +8850,7 @@ defmodule AWS.Redshift do
   @spec modify_usage_limit(map(), modify_usage_limit_message(), list()) ::
           {:ok, usage_limit(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_usage_limit_fault()}
-          | {:error, unsupported_operation_fault()}
-          | {:error, usage_limit_not_found_fault()}
+          | {:error, modify_usage_limit_errors()}
   def modify_usage_limit(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7573,9 +8863,7 @@ defmodule AWS.Redshift do
   @spec pause_cluster(map(), pause_cluster_message(), list()) ::
           {:ok, pause_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cluster_not_found_fault()}
-          | {:error, invalid_cluster_state_fault()}
-          | {:error, unsupported_operation_fault()}
+          | {:error, pause_cluster_errors()}
   def pause_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7600,10 +8888,7 @@ defmodule AWS.Redshift do
   @spec purchase_reserved_node_offering(map(), purchase_reserved_node_offering_message(), list()) ::
           {:ok, purchase_reserved_node_offering_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, reserved_node_already_exists_fault()}
-          | {:error, reserved_node_offering_not_found_fault()}
-          | {:error, reserved_node_quota_exceeded_fault()}
-          | {:error, unsupported_operation_fault()}
+          | {:error, purchase_reserved_node_offering_errors()}
   def purchase_reserved_node_offering(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7616,10 +8901,7 @@ defmodule AWS.Redshift do
   @spec put_resource_policy(map(), put_resource_policy_message(), list()) ::
           {:ok, put_resource_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_policy_update_fault()}
-          | {:error, invalid_policy_fault()}
-          | {:error, resource_not_found_fault()}
-          | {:error, unsupported_operation_fault()}
+          | {:error, put_resource_policy_errors()}
   def put_resource_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7641,8 +8923,7 @@ defmodule AWS.Redshift do
   @spec reboot_cluster(map(), reboot_cluster_message(), list()) ::
           {:ok, reboot_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cluster_not_found_fault()}
-          | {:error, invalid_cluster_state_fault()}
+          | {:error, reboot_cluster_errors()}
   def reboot_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7655,7 +8936,7 @@ defmodule AWS.Redshift do
   @spec reject_data_share(map(), reject_data_share_message(), list()) ::
           {:ok, data_share(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_data_share_fault()}
+          | {:error, reject_data_share_errors()}
   def reject_data_share(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7673,8 +8954,7 @@ defmodule AWS.Redshift do
   @spec reset_cluster_parameter_group(map(), reset_cluster_parameter_group_message(), list()) ::
           {:ok, cluster_parameter_group_name_message(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cluster_parameter_group_not_found_fault()}
-          | {:error, invalid_cluster_parameter_group_state_fault()}
+          | {:error, reset_cluster_parameter_group_errors()}
   def reset_cluster_parameter_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7730,21 +9010,7 @@ defmodule AWS.Redshift do
   @spec resize_cluster(map(), resize_cluster_message(), list()) ::
           {:ok, resize_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cluster_not_found_fault()}
-          | {:error, dependent_service_unavailable_fault()}
-          | {:error, insufficient_cluster_capacity_fault()}
-          | {:error, invalid_cluster_state_fault()}
-          | {:error, invalid_reserved_node_state_fault()}
-          | {:error, limit_exceeded_fault()}
-          | {:error, number_of_nodes_per_cluster_limit_exceeded_fault()}
-          | {:error, number_of_nodes_quota_exceeded_fault()}
-          | {:error, reserved_node_already_exists_fault()}
-          | {:error, reserved_node_already_migrated_fault()}
-          | {:error, reserved_node_not_found_fault()}
-          | {:error, reserved_node_offering_not_found_fault()}
-          | {:error, unauthorized_operation()}
-          | {:error, unsupported_operation_fault()}
-          | {:error, unsupported_option_fault()}
+          | {:error, resize_cluster_errors()}
   def resize_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7776,39 +9042,7 @@ defmodule AWS.Redshift do
   @spec restore_from_cluster_snapshot(map(), restore_from_cluster_snapshot_message(), list()) ::
           {:ok, restore_from_cluster_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_to_snapshot_denied_fault()}
-          | {:error, cluster_already_exists_fault()}
-          | {:error, cluster_parameter_group_not_found_fault()}
-          | {:error, cluster_quota_exceeded_fault()}
-          | {:error, cluster_security_group_not_found_fault()}
-          | {:error, cluster_snapshot_not_found_fault()}
-          | {:error, cluster_subnet_group_not_found_fault()}
-          | {:error, dependent_service_request_throttling_fault()}
-          | {:error, dependent_service_unavailable_fault()}
-          | {:error, hsm_client_certificate_not_found_fault()}
-          | {:error, hsm_configuration_not_found_fault()}
-          | {:error, insufficient_cluster_capacity_fault()}
-          | {:error, invalid_cluster_snapshot_state_fault()}
-          | {:error, invalid_cluster_subnet_group_state_fault()}
-          | {:error, invalid_cluster_track_fault()}
-          | {:error, invalid_elastic_ip_fault()}
-          | {:error, invalid_reserved_node_state_fault()}
-          | {:error, invalid_restore_fault()}
-          | {:error, invalid_subnet()}
-          | {:error, invalid_tag_fault()}
-          | {:error, invalid_vpc_network_state_fault()}
-          | {:error, ipv6_cidr_block_not_found_fault()}
-          | {:error, limit_exceeded_fault()}
-          | {:error, number_of_nodes_per_cluster_limit_exceeded_fault()}
-          | {:error, number_of_nodes_quota_exceeded_fault()}
-          | {:error, reserved_node_already_exists_fault()}
-          | {:error, reserved_node_already_migrated_fault()}
-          | {:error, reserved_node_not_found_fault()}
-          | {:error, reserved_node_offering_not_found_fault()}
-          | {:error, snapshot_schedule_not_found_fault()}
-          | {:error, tag_limit_exceeded_fault()}
-          | {:error, unauthorized_operation()}
-          | {:error, unsupported_operation_fault()}
+          | {:error, restore_from_cluster_snapshot_errors()}
   def restore_from_cluster_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7846,13 +9080,7 @@ defmodule AWS.Redshift do
         ) ::
           {:ok, restore_table_from_cluster_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cluster_not_found_fault()}
-          | {:error, cluster_snapshot_not_found_fault()}
-          | {:error, in_progress_table_restore_quota_exceeded_fault()}
-          | {:error, invalid_cluster_snapshot_state_fault()}
-          | {:error, invalid_cluster_state_fault()}
-          | {:error, invalid_table_restore_argument_fault()}
-          | {:error, unsupported_operation_fault()}
+          | {:error, restore_table_from_cluster_snapshot_errors()}
   def restore_table_from_cluster_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7865,10 +9093,7 @@ defmodule AWS.Redshift do
   @spec resume_cluster(map(), resume_cluster_message(), list()) ::
           {:ok, resume_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cluster_not_found_fault()}
-          | {:error, insufficient_cluster_capacity_fault()}
-          | {:error, invalid_cluster_state_fault()}
-          | {:error, unsupported_operation_fault()}
+          | {:error, resume_cluster_errors()}
   def resume_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7893,9 +9118,7 @@ defmodule AWS.Redshift do
         ) ::
           {:ok, revoke_cluster_security_group_ingress_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, authorization_not_found_fault()}
-          | {:error, cluster_security_group_not_found_fault()}
-          | {:error, invalid_cluster_security_group_state_fault()}
+          | {:error, revoke_cluster_security_group_ingress_errors()}
   def revoke_cluster_security_group_ingress(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7908,13 +9131,7 @@ defmodule AWS.Redshift do
   @spec revoke_endpoint_access(map(), revoke_endpoint_access_message(), list()) ::
           {:ok, endpoint_authorization(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cluster_not_found_fault()}
-          | {:error, endpoint_authorization_not_found_fault()}
-          | {:error, endpoint_not_found_fault()}
-          | {:error, invalid_authorization_state_fault()}
-          | {:error, invalid_cluster_security_group_state_fault()}
-          | {:error, invalid_cluster_state_fault()}
-          | {:error, invalid_endpoint_state_fault()}
+          | {:error, revoke_endpoint_access_errors()}
   def revoke_endpoint_access(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7936,10 +9153,7 @@ defmodule AWS.Redshift do
   @spec revoke_snapshot_access(map(), revoke_snapshot_access_message(), list()) ::
           {:ok, revoke_snapshot_access_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_to_snapshot_denied_fault()}
-          | {:error, authorization_not_found_fault()}
-          | {:error, cluster_snapshot_not_found_fault()}
-          | {:error, unsupported_operation_fault()}
+          | {:error, revoke_snapshot_access_errors()}
   def revoke_snapshot_access(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7952,10 +9166,7 @@ defmodule AWS.Redshift do
   @spec rotate_encryption_key(map(), rotate_encryption_key_message(), list()) ::
           {:ok, rotate_encryption_key_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cluster_not_found_fault()}
-          | {:error, dependent_service_request_throttling_fault()}
-          | {:error, invalid_cluster_state_fault()}
-          | {:error, unsupported_operation_fault()}
+          | {:error, rotate_encryption_key_errors()}
   def rotate_encryption_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7968,10 +9179,7 @@ defmodule AWS.Redshift do
   @spec update_partner_status(map(), update_partner_status_input_message(), list()) ::
           {:ok, partner_integration_output_message(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cluster_not_found_fault()}
-          | {:error, partner_not_found_fault()}
-          | {:error, unauthorized_partner_integration_fault()}
-          | {:error, unsupported_operation_fault()}
+          | {:error, update_partner_status_errors()}
   def update_partner_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
 

@@ -13,954 +13,1259 @@ defmodule AWS.Route53Domains do
   @typedoc """
 
   ## Example:
-  check_domain_transferability_request() :: %{
-    optional("AuthCode") => String.t(),
-    required("DomainName") => String.t()
-  }
+      
+      check_domain_transferability_request() :: %{
+        optional("AuthCode") => String.t(),
+        required("DomainName") => String.t()
+      }
+      
   """
   @type check_domain_transferability_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_domain_detail_response() :: %{
-    "AbuseContactEmail" => String.t(),
-    "AbuseContactPhone" => String.t(),
-    "AdminContact" => contact_detail(),
-    "AdminPrivacy" => boolean(),
-    "AutoRenew" => boolean(),
-    "BillingContact" => contact_detail(),
-    "BillingPrivacy" => boolean(),
-    "CreationDate" => non_neg_integer(),
-    "DnsSec" => String.t(),
-    "DnssecKeys" => list(dnssec_key()()),
-    "DomainName" => String.t(),
-    "ExpirationDate" => non_neg_integer(),
-    "Nameservers" => list(nameserver()()),
-    "RegistrantContact" => contact_detail(),
-    "RegistrantPrivacy" => boolean(),
-    "RegistrarName" => String.t(),
-    "RegistrarUrl" => String.t(),
-    "RegistryDomainId" => String.t(),
-    "Reseller" => String.t(),
-    "StatusList" => list(String.t()()),
-    "TechContact" => contact_detail(),
-    "TechPrivacy" => boolean(),
-    "UpdatedDate" => non_neg_integer(),
-    "WhoIsServer" => String.t()
-  }
+      
+      get_domain_detail_response() :: %{
+        "AbuseContactEmail" => String.t(),
+        "AbuseContactPhone" => String.t(),
+        "AdminContact" => contact_detail(),
+        "AdminPrivacy" => boolean(),
+        "AutoRenew" => boolean(),
+        "BillingContact" => contact_detail(),
+        "BillingPrivacy" => boolean(),
+        "CreationDate" => non_neg_integer(),
+        "DnsSec" => String.t(),
+        "DnssecKeys" => list(dnssec_key()()),
+        "DomainName" => String.t(),
+        "ExpirationDate" => non_neg_integer(),
+        "Nameservers" => list(nameserver()()),
+        "RegistrantContact" => contact_detail(),
+        "RegistrantPrivacy" => boolean(),
+        "RegistrarName" => String.t(),
+        "RegistrarUrl" => String.t(),
+        "RegistryDomainId" => String.t(),
+        "Reseller" => String.t(),
+        "StatusList" => list(String.t()()),
+        "TechContact" => contact_detail(),
+        "TechPrivacy" => boolean(),
+        "UpdatedDate" => non_neg_integer(),
+        "WhoIsServer" => String.t()
+      }
+      
   """
   @type get_domain_detail_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disable_domain_auto_renew_request() :: %{
-    required("DomainName") => String.t()
-  }
+      
+      disable_domain_auto_renew_request() :: %{
+        required("DomainName") => String.t()
+      }
+      
   """
   @type disable_domain_auto_renew_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_domain_response() :: %{
-    "OperationId" => String.t()
-  }
+      
+      delete_domain_response() :: %{
+        "OperationId" => String.t()
+      }
+      
   """
   @type delete_domain_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_operation_detail_request() :: %{
-    required("OperationId") => String.t()
-  }
+      
+      get_operation_detail_request() :: %{
+        required("OperationId") => String.t()
+      }
+      
   """
   @type get_operation_detail_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  check_domain_transferability_response() :: %{
-    "Message" => String.t(),
-    "Transferability" => domain_transferability()
-  }
+      
+      check_domain_transferability_response() :: %{
+        "Message" => String.t(),
+        "Transferability" => domain_transferability()
+      }
+      
   """
   @type check_domain_transferability_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  reject_domain_transfer_from_another_aws_account_response() :: %{
-    "OperationId" => String.t()
-  }
+      
+      reject_domain_transfer_from_another_aws_account_response() :: %{
+        "OperationId" => String.t()
+      }
+      
   """
   @type reject_domain_transfer_from_another_aws_account_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  check_domain_availability_response() :: %{
-    "Availability" => list(any())
-  }
+      
+      check_domain_availability_response() :: %{
+        "Availability" => list(any())
+      }
+      
   """
   @type check_domain_availability_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_domain_nameservers_response() :: %{
-    "OperationId" => String.t()
-  }
+      
+      update_domain_nameservers_response() :: %{
+        "OperationId" => String.t()
+      }
+      
   """
   @type update_domain_nameservers_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_domain_contact_response() :: %{
-    "OperationId" => String.t()
-  }
+      
+      update_domain_contact_response() :: %{
+        "OperationId" => String.t()
+      }
+      
   """
   @type update_domain_contact_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  filter_condition() :: %{
-    "Name" => list(any()),
-    "Operator" => list(any()),
-    "Values" => list(String.t()())
-  }
+      
+      filter_condition() :: %{
+        "Name" => list(any()),
+        "Operator" => list(any()),
+        "Values" => list(String.t()())
+      }
+      
   """
   @type filter_condition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_input() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_input() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  domain_transferability() :: %{
-    "Transferable" => list(any())
-  }
+      
+      domain_transferability() :: %{
+        "Transferable" => list(any())
+      }
+      
   """
   @type domain_transferability() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  nameserver() :: %{
-    "GlueIps" => list(String.t()()),
-    "Name" => String.t()
-  }
+      
+      nameserver() :: %{
+        "GlueIps" => list(String.t()()),
+        "Name" => String.t()
+      }
+      
   """
   @type nameserver() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_prices_response() :: %{
-    "NextPageMarker" => String.t(),
-    "Prices" => list(domain_price()())
-  }
+      
+      list_prices_response() :: %{
+        "NextPageMarker" => String.t(),
+        "Prices" => list(domain_price()())
+      }
+      
   """
   @type list_prices_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  billing_record() :: %{
-    "BillDate" => non_neg_integer(),
-    "DomainName" => String.t(),
-    "InvoiceId" => String.t(),
-    "Operation" => list(any()),
-    "Price" => float()
-  }
+      
+      billing_record() :: %{
+        "BillDate" => non_neg_integer(),
+        "DomainName" => String.t(),
+        "InvoiceId" => String.t(),
+        "Operation" => list(any()),
+        "Price" => float()
+      }
+      
   """
   @type billing_record() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  dnssec_key() :: %{
-    "Algorithm" => integer(),
-    "Digest" => String.t(),
-    "DigestType" => integer(),
-    "Flags" => integer(),
-    "Id" => String.t(),
-    "KeyTag" => integer(),
-    "PublicKey" => String.t()
-  }
+      
+      dnssec_key() :: %{
+        "Algorithm" => integer(),
+        "Digest" => String.t(),
+        "DigestType" => integer(),
+        "Flags" => integer(),
+        "Id" => String.t(),
+        "KeyTag" => integer(),
+        "PublicKey" => String.t()
+      }
+      
   """
   @type dnssec_key() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_contact_reachability_status_response() :: %{
-    "domainName" => String.t(),
-    "status" => list(any())
-  }
+      
+      get_contact_reachability_status_response() :: %{
+        "domainName" => String.t(),
+        "status" => list(any())
+      }
+      
   """
   @type get_contact_reachability_status_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  domain_summary() :: %{
-    "AutoRenew" => boolean(),
-    "DomainName" => String.t(),
-    "Expiry" => non_neg_integer(),
-    "TransferLock" => boolean()
-  }
+      
+      domain_summary() :: %{
+        "AutoRenew" => boolean(),
+        "DomainName" => String.t(),
+        "Expiry" => non_neg_integer(),
+        "TransferLock" => boolean()
+      }
+      
   """
   @type domain_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_domain_detail_request() :: %{
-    required("DomainName") => String.t()
-  }
+      
+      get_domain_detail_request() :: %{
+        required("DomainName") => String.t()
+      }
+      
   """
   @type get_domain_detail_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  contact_detail() :: %{
-    "AddressLine1" => String.t(),
-    "AddressLine2" => String.t(),
-    "City" => String.t(),
-    "ContactType" => list(any()),
-    "CountryCode" => list(any()),
-    "Email" => String.t(),
-    "ExtraParams" => list(extra_param()()),
-    "Fax" => String.t(),
-    "FirstName" => String.t(),
-    "LastName" => String.t(),
-    "OrganizationName" => String.t(),
-    "PhoneNumber" => String.t(),
-    "State" => String.t(),
-    "ZipCode" => String.t()
-  }
+      
+      contact_detail() :: %{
+        "AddressLine1" => String.t(),
+        "AddressLine2" => String.t(),
+        "City" => String.t(),
+        "ContactType" => list(any()),
+        "CountryCode" => list(any()),
+        "Email" => String.t(),
+        "ExtraParams" => list(extra_param()()),
+        "Fax" => String.t(),
+        "FirstName" => String.t(),
+        "LastName" => String.t(),
+        "OrganizationName" => String.t(),
+        "PhoneNumber" => String.t(),
+        "State" => String.t(),
+        "ZipCode" => String.t()
+      }
+      
   """
   @type contact_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_domain_response() :: %{
-    "TagList" => list(tag()())
-  }
+      
+      list_tags_for_domain_response() :: %{
+        "TagList" => list(tag()())
+      }
+      
   """
   @type list_tags_for_domain_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  register_domain_request() :: %{
-    optional("AutoRenew") => boolean(),
-    optional("BillingContact") => contact_detail(),
-    optional("IdnLangCode") => String.t(),
-    optional("PrivacyProtectAdminContact") => boolean(),
-    optional("PrivacyProtectBillingContact") => boolean(),
-    optional("PrivacyProtectRegistrantContact") => boolean(),
-    optional("PrivacyProtectTechContact") => boolean(),
-    required("AdminContact") => contact_detail(),
-    required("DomainName") => String.t(),
-    required("DurationInYears") => integer(),
-    required("RegistrantContact") => contact_detail(),
-    required("TechContact") => contact_detail()
-  }
+      
+      register_domain_request() :: %{
+        optional("AutoRenew") => boolean(),
+        optional("BillingContact") => contact_detail(),
+        optional("IdnLangCode") => String.t(),
+        optional("PrivacyProtectAdminContact") => boolean(),
+        optional("PrivacyProtectBillingContact") => boolean(),
+        optional("PrivacyProtectRegistrantContact") => boolean(),
+        optional("PrivacyProtectTechContact") => boolean(),
+        required("AdminContact") => contact_detail(),
+        required("DomainName") => String.t(),
+        required("DurationInYears") => integer(),
+        required("RegistrantContact") => contact_detail(),
+        required("TechContact") => contact_detail()
+      }
+      
   """
   @type register_domain_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  extra_param() :: %{
-    "Name" => list(any()),
-    "Value" => String.t()
-  }
+      
+      extra_param() :: %{
+        "Name" => list(any()),
+        "Value" => String.t()
+      }
+      
   """
   @type extra_param() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_tags_for_domain_response() :: %{
-
-  }
+      
+      delete_tags_for_domain_response() :: %{}
+      
   """
-  @type delete_tags_for_domain_response() :: %{String.t() => any()}
+  @type delete_tags_for_domain_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  update_domain_nameservers_request() :: %{
-    optional("FIAuthKey") => String.t(),
-    required("DomainName") => String.t(),
-    required("Nameservers") => list(nameserver()())
-  }
+      
+      update_domain_nameservers_request() :: %{
+        optional("FIAuthKey") => String.t(),
+        required("DomainName") => String.t(),
+        required("Nameservers") => list(nameserver()())
+      }
+      
   """
   @type update_domain_nameservers_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  accept_domain_transfer_from_another_aws_account_request() :: %{
-    required("DomainName") => String.t(),
-    required("Password") => String.t()
-  }
+      
+      accept_domain_transfer_from_another_aws_account_request() :: %{
+        required("DomainName") => String.t(),
+        required("Password") => String.t()
+      }
+      
   """
   @type accept_domain_transfer_from_another_aws_account_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  register_domain_response() :: %{
-    "OperationId" => String.t()
-  }
+      
+      register_domain_response() :: %{
+        "OperationId" => String.t()
+      }
+      
   """
   @type register_domain_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  operation_summary() :: %{
-    "DomainName" => String.t(),
-    "LastUpdatedDate" => non_neg_integer(),
-    "Message" => String.t(),
-    "OperationId" => String.t(),
-    "Status" => list(any()),
-    "StatusFlag" => list(any()),
-    "SubmittedDate" => non_neg_integer(),
-    "Type" => list(any())
-  }
+      
+      operation_summary() :: %{
+        "DomainName" => String.t(),
+        "LastUpdatedDate" => non_neg_integer(),
+        "Message" => String.t(),
+        "OperationId" => String.t(),
+        "Status" => list(any()),
+        "StatusFlag" => list(any()),
+        "SubmittedDate" => non_neg_integer(),
+        "Type" => list(any())
+      }
+      
   """
   @type operation_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  transfer_domain_to_another_aws_account_response() :: %{
-    "OperationId" => String.t(),
-    "Password" => String.t()
-  }
+      
+      transfer_domain_to_another_aws_account_response() :: %{
+        "OperationId" => String.t(),
+        "Password" => String.t()
+      }
+      
   """
   @type transfer_domain_to_another_aws_account_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  operation_limit_exceeded() :: %{
-    "message" => String.t()
-  }
+      
+      operation_limit_exceeded() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type operation_limit_exceeded() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  enable_domain_auto_renew_request() :: %{
-    required("DomainName") => String.t()
-  }
+      
+      enable_domain_auto_renew_request() :: %{
+        required("DomainName") => String.t()
+      }
+      
   """
   @type enable_domain_auto_renew_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disable_domain_transfer_lock_response() :: %{
-    "OperationId" => String.t()
-  }
+      
+      disable_domain_transfer_lock_response() :: %{
+        "OperationId" => String.t()
+      }
+      
   """
   @type disable_domain_transfer_lock_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_domain_suggestions_response() :: %{
-    "SuggestionsList" => list(domain_suggestion()())
-  }
+      
+      get_domain_suggestions_response() :: %{
+        "SuggestionsList" => list(domain_suggestion()())
+      }
+      
   """
   @type get_domain_suggestions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_tags_for_domain_response() :: %{
-
-  }
+      
+      update_tags_for_domain_response() :: %{}
+      
   """
-  @type update_tags_for_domain_response() :: %{String.t() => any()}
+  @type update_tags_for_domain_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  transfer_domain_request() :: %{
-    optional("AuthCode") => String.t(),
-    optional("AutoRenew") => boolean(),
-    optional("BillingContact") => contact_detail(),
-    optional("IdnLangCode") => String.t(),
-    optional("Nameservers") => list(nameserver()()),
-    optional("PrivacyProtectAdminContact") => boolean(),
-    optional("PrivacyProtectBillingContact") => boolean(),
-    optional("PrivacyProtectRegistrantContact") => boolean(),
-    optional("PrivacyProtectTechContact") => boolean(),
-    required("AdminContact") => contact_detail(),
-    required("DomainName") => String.t(),
-    required("DurationInYears") => integer(),
-    required("RegistrantContact") => contact_detail(),
-    required("TechContact") => contact_detail()
-  }
+      
+      transfer_domain_request() :: %{
+        optional("AuthCode") => String.t(),
+        optional("AutoRenew") => boolean(),
+        optional("BillingContact") => contact_detail(),
+        optional("IdnLangCode") => String.t(),
+        optional("Nameservers") => list(nameserver()()),
+        optional("PrivacyProtectAdminContact") => boolean(),
+        optional("PrivacyProtectBillingContact") => boolean(),
+        optional("PrivacyProtectRegistrantContact") => boolean(),
+        optional("PrivacyProtectTechContact") => boolean(),
+        required("AdminContact") => contact_detail(),
+        required("DomainName") => String.t(),
+        required("DurationInYears") => integer(),
+        required("RegistrantContact") => contact_detail(),
+        required("TechContact") => contact_detail()
+      }
+      
   """
   @type transfer_domain_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  enable_domain_transfer_lock_request() :: %{
-    required("DomainName") => String.t()
-  }
+      
+      enable_domain_transfer_lock_request() :: %{
+        required("DomainName") => String.t()
+      }
+      
   """
   @type enable_domain_transfer_lock_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disable_domain_auto_renew_response() :: %{
-
-  }
+      
+      disable_domain_auto_renew_response() :: %{}
+      
   """
-  @type disable_domain_auto_renew_response() :: %{String.t() => any()}
+  @type disable_domain_auto_renew_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  domain_suggestion() :: %{
-    "Availability" => String.t(),
-    "DomainName" => String.t()
-  }
+      
+      domain_suggestion() :: %{
+        "Availability" => String.t(),
+        "DomainName" => String.t()
+      }
+      
   """
   @type domain_suggestion() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  view_billing_response() :: %{
-    "BillingRecords" => list(billing_record()()),
-    "NextPageMarker" => String.t()
-  }
+      
+      view_billing_response() :: %{
+        "BillingRecords" => list(billing_record()()),
+        "NextPageMarker" => String.t()
+      }
+      
   """
   @type view_billing_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_domain_contact_privacy_request() :: %{
-    optional("AdminPrivacy") => boolean(),
-    optional("BillingPrivacy") => boolean(),
-    optional("RegistrantPrivacy") => boolean(),
-    optional("TechPrivacy") => boolean(),
-    required("DomainName") => String.t()
-  }
+      
+      update_domain_contact_privacy_request() :: %{
+        optional("AdminPrivacy") => boolean(),
+        optional("BillingPrivacy") => boolean(),
+        optional("RegistrantPrivacy") => boolean(),
+        optional("TechPrivacy") => boolean(),
+        required("DomainName") => String.t()
+      }
+      
   """
   @type update_domain_contact_privacy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_domain_request() :: %{
-    required("DomainName") => String.t()
-  }
+      
+      delete_domain_request() :: %{
+        required("DomainName") => String.t()
+      }
+      
   """
   @type delete_domain_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resend_contact_reachability_email_request() :: %{
-    optional("domainName") => String.t()
-  }
+      
+      resend_contact_reachability_email_request() :: %{
+        optional("domainName") => String.t()
+      }
+      
   """
   @type resend_contact_reachability_email_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_tags_for_domain_request() :: %{
-    optional("TagsToUpdate") => list(tag()()),
-    required("DomainName") => String.t()
-  }
+      
+      update_tags_for_domain_request() :: %{
+        optional("TagsToUpdate") => list(tag()()),
+        required("DomainName") => String.t()
+      }
+      
   """
   @type update_tags_for_domain_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  accept_domain_transfer_from_another_aws_account_response() :: %{
-    "OperationId" => String.t()
-  }
+      
+      accept_domain_transfer_from_another_aws_account_response() :: %{
+        "OperationId" => String.t()
+      }
+      
   """
   @type accept_domain_transfer_from_another_aws_account_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_operations_request() :: %{
-    optional("Marker") => String.t(),
-    optional("MaxItems") => integer(),
-    optional("SortBy") => list(any()),
-    optional("SortOrder") => list(any()),
-    optional("Status") => list(list(any())()),
-    optional("SubmittedSince") => non_neg_integer(),
-    optional("Type") => list(list(any())())
-  }
+      
+      list_operations_request() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxItems") => integer(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any()),
+        optional("Status") => list(list(any())()),
+        optional("SubmittedSince") => non_neg_integer(),
+        optional("Type") => list(list(any())())
+      }
+      
   """
   @type list_operations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  dnssec_signing_attributes() :: %{
-    "Algorithm" => integer(),
-    "Flags" => integer(),
-    "PublicKey" => String.t()
-  }
+      
+      dnssec_signing_attributes() :: %{
+        "Algorithm" => integer(),
+        "Flags" => integer(),
+        "PublicKey" => String.t()
+      }
+      
   """
   @type dnssec_signing_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_operation_detail_response() :: %{
-    "DomainName" => String.t(),
-    "LastUpdatedDate" => non_neg_integer(),
-    "Message" => String.t(),
-    "OperationId" => String.t(),
-    "Status" => list(any()),
-    "StatusFlag" => list(any()),
-    "SubmittedDate" => non_neg_integer(),
-    "Type" => list(any())
-  }
+      
+      get_operation_detail_response() :: %{
+        "DomainName" => String.t(),
+        "LastUpdatedDate" => non_neg_integer(),
+        "Message" => String.t(),
+        "OperationId" => String.t(),
+        "Status" => list(any()),
+        "StatusFlag" => list(any()),
+        "SubmittedDate" => non_neg_integer(),
+        "Type" => list(any())
+      }
+      
   """
   @type get_operation_detail_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  retrieve_domain_auth_code_response() :: %{
-    "AuthCode" => String.t()
-  }
+      
+      retrieve_domain_auth_code_response() :: %{
+        "AuthCode" => String.t()
+      }
+      
   """
   @type retrieve_domain_auth_code_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag() :: %{
-    "Key" => String.t(),
-    "Value" => String.t()
-  }
+      
+      tag() :: %{
+        "Key" => String.t(),
+        "Value" => String.t()
+      }
+      
   """
   @type tag() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  view_billing_request() :: %{
-    optional("End") => non_neg_integer(),
-    optional("Marker") => String.t(),
-    optional("MaxItems") => integer(),
-    optional("Start") => non_neg_integer()
-  }
+      
+      view_billing_request() :: %{
+        optional("End") => non_neg_integer(),
+        optional("Marker") => String.t(),
+        optional("MaxItems") => integer(),
+        optional("Start") => non_neg_integer()
+      }
+      
   """
   @type view_billing_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_domains_response() :: %{
-    "Domains" => list(domain_summary()()),
-    "NextPageMarker" => String.t()
-  }
+      
+      list_domains_response() :: %{
+        "Domains" => list(domain_summary()()),
+        "NextPageMarker" => String.t()
+      }
+      
   """
   @type list_domains_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  associate_delegation_signer_to_domain_response() :: %{
-    "OperationId" => String.t()
-  }
+      
+      associate_delegation_signer_to_domain_response() :: %{
+        "OperationId" => String.t()
+      }
+      
   """
   @type associate_delegation_signer_to_domain_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  enable_domain_auto_renew_response() :: %{
-
-  }
+      
+      enable_domain_auto_renew_response() :: %{}
+      
   """
-  @type enable_domain_auto_renew_response() :: %{String.t() => any()}
+  @type enable_domain_auto_renew_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  renew_domain_response() :: %{
-    "OperationId" => String.t()
-  }
+      
+      renew_domain_response() :: %{
+        "OperationId" => String.t()
+      }
+      
   """
   @type renew_domain_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  unsupported_t_l_d() :: %{
-    "message" => String.t()
-  }
+      
+      unsupported_t_l_d() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type unsupported_t_l_d() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  duplicate_request() :: %{
-    "message" => String.t(),
-    "requestId" => String.t()
-  }
+      
+      duplicate_request() :: %{
+        "message" => String.t(),
+        "requestId" => String.t()
+      }
+      
   """
   @type duplicate_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  t_l_d_rules_violation() :: %{
-    "message" => String.t()
-  }
+      
+      t_l_d_rules_violation() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type t_l_d_rules_violation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  enable_domain_transfer_lock_response() :: %{
-    "OperationId" => String.t()
-  }
+      
+      enable_domain_transfer_lock_response() :: %{
+        "OperationId" => String.t()
+      }
+      
   """
   @type enable_domain_transfer_lock_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_domain_contact_privacy_response() :: %{
-    "OperationId" => String.t()
-  }
+      
+      update_domain_contact_privacy_response() :: %{
+        "OperationId" => String.t()
+      }
+      
   """
   @type update_domain_contact_privacy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  associate_delegation_signer_to_domain_request() :: %{
-    required("DomainName") => String.t(),
-    required("SigningAttributes") => dnssec_signing_attributes()
-  }
+      
+      associate_delegation_signer_to_domain_request() :: %{
+        required("DomainName") => String.t(),
+        required("SigningAttributes") => dnssec_signing_attributes()
+      }
+      
   """
   @type associate_delegation_signer_to_domain_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  retrieve_domain_auth_code_request() :: %{
-    required("DomainName") => String.t()
-  }
+      
+      retrieve_domain_auth_code_request() :: %{
+        required("DomainName") => String.t()
+      }
+      
   """
   @type retrieve_domain_auth_code_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resend_contact_reachability_email_response() :: %{
-    "domainName" => String.t(),
-    "emailAddress" => String.t(),
-    "isAlreadyVerified" => boolean()
-  }
+      
+      resend_contact_reachability_email_response() :: %{
+        "domainName" => String.t(),
+        "emailAddress" => String.t(),
+        "isAlreadyVerified" => boolean()
+      }
+      
   """
   @type resend_contact_reachability_email_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_domains_request() :: %{
-    optional("FilterConditions") => list(filter_condition()()),
-    optional("Marker") => String.t(),
-    optional("MaxItems") => integer(),
-    optional("SortCondition") => sort_condition()
-  }
+      
+      list_domains_request() :: %{
+        optional("FilterConditions") => list(filter_condition()()),
+        optional("Marker") => String.t(),
+        optional("MaxItems") => integer(),
+        optional("SortCondition") => sort_condition()
+      }
+      
   """
   @type list_domains_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  dnssec_limit_exceeded() :: %{
-    "message" => String.t()
-  }
+      
+      dnssec_limit_exceeded() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type dnssec_limit_exceeded() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resend_operation_authorization_request() :: %{
-    required("OperationId") => String.t()
-  }
+      
+      resend_operation_authorization_request() :: %{
+        required("OperationId") => String.t()
+      }
+      
   """
   @type resend_operation_authorization_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disassociate_delegation_signer_from_domain_response() :: %{
-    "OperationId" => String.t()
-  }
+      
+      disassociate_delegation_signer_from_domain_response() :: %{
+        "OperationId" => String.t()
+      }
+      
   """
   @type disassociate_delegation_signer_from_domain_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_operations_response() :: %{
-    "NextPageMarker" => String.t(),
-    "Operations" => list(operation_summary()())
-  }
+      
+      list_operations_response() :: %{
+        "NextPageMarker" => String.t(),
+        "Operations" => list(operation_summary()())
+      }
+      
   """
   @type list_operations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_domain_contact_request() :: %{
-    optional("AdminContact") => contact_detail(),
-    optional("BillingContact") => contact_detail(),
-    optional("Consent") => consent(),
-    optional("RegistrantContact") => contact_detail(),
-    optional("TechContact") => contact_detail(),
-    required("DomainName") => String.t()
-  }
+      
+      update_domain_contact_request() :: %{
+        optional("AdminContact") => contact_detail(),
+        optional("BillingContact") => contact_detail(),
+        optional("Consent") => consent(),
+        optional("RegistrantContact") => contact_detail(),
+        optional("TechContact") => contact_detail(),
+        required("DomainName") => String.t()
+      }
+      
   """
   @type update_domain_contact_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cancel_domain_transfer_to_another_aws_account_request() :: %{
-    required("DomainName") => String.t()
-  }
+      
+      cancel_domain_transfer_to_another_aws_account_request() :: %{
+        required("DomainName") => String.t()
+      }
+      
   """
   @type cancel_domain_transfer_to_another_aws_account_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  domain_price() :: %{
-    "ChangeOwnershipPrice" => price_with_currency(),
-    "Name" => String.t(),
-    "RegistrationPrice" => price_with_currency(),
-    "RenewalPrice" => price_with_currency(),
-    "RestorationPrice" => price_with_currency(),
-    "TransferPrice" => price_with_currency()
-  }
+      
+      domain_price() :: %{
+        "ChangeOwnershipPrice" => price_with_currency(),
+        "Name" => String.t(),
+        "RegistrationPrice" => price_with_currency(),
+        "RenewalPrice" => price_with_currency(),
+        "RestorationPrice" => price_with_currency(),
+        "TransferPrice" => price_with_currency()
+      }
+      
   """
   @type domain_price() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  renew_domain_request() :: %{
-    optional("DurationInYears") => integer(),
-    required("CurrentExpiryYear") => integer(),
-    required("DomainName") => String.t()
-  }
+      
+      renew_domain_request() :: %{
+        optional("DurationInYears") => integer(),
+        required("CurrentExpiryYear") => integer(),
+        required("DomainName") => String.t()
+      }
+      
   """
   @type renew_domain_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  check_domain_availability_request() :: %{
-    optional("IdnLangCode") => String.t(),
-    required("DomainName") => String.t()
-  }
+      
+      check_domain_availability_request() :: %{
+        optional("IdnLangCode") => String.t(),
+        required("DomainName") => String.t()
+      }
+      
   """
   @type check_domain_availability_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_tags_for_domain_request() :: %{
-    required("DomainName") => String.t(),
-    required("TagsToDelete") => list(String.t()())
-  }
+      
+      delete_tags_for_domain_request() :: %{
+        required("DomainName") => String.t(),
+        required("TagsToDelete") => list(String.t()())
+      }
+      
   """
   @type delete_tags_for_domain_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  push_domain_request() :: %{
-    required("DomainName") => String.t(),
-    required("Target") => String.t()
-  }
+      
+      push_domain_request() :: %{
+        required("DomainName") => String.t(),
+        required("Target") => String.t()
+      }
+      
   """
   @type push_domain_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_domain_request() :: %{
-    required("DomainName") => String.t()
-  }
+      
+      list_tags_for_domain_request() :: %{
+        required("DomainName") => String.t()
+      }
+      
   """
   @type list_tags_for_domain_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  domain_limit_exceeded() :: %{
-    "message" => String.t()
-  }
+      
+      domain_limit_exceeded() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type domain_limit_exceeded() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disable_domain_transfer_lock_request() :: %{
-    required("DomainName") => String.t()
-  }
+      
+      disable_domain_transfer_lock_request() :: %{
+        required("DomainName") => String.t()
+      }
+      
   """
   @type disable_domain_transfer_lock_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  transfer_domain_to_another_aws_account_request() :: %{
-    required("AccountId") => String.t(),
-    required("DomainName") => String.t()
-  }
+      
+      transfer_domain_to_another_aws_account_request() :: %{
+        required("AccountId") => String.t(),
+        required("DomainName") => String.t()
+      }
+      
   """
   @type transfer_domain_to_another_aws_account_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_contact_reachability_status_request() :: %{
-    optional("domainName") => String.t()
-  }
+      
+      get_contact_reachability_status_request() :: %{
+        optional("domainName") => String.t()
+      }
+      
   """
   @type get_contact_reachability_status_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  price_with_currency() :: %{
-    "Currency" => String.t(),
-    "Price" => float()
-  }
+      
+      price_with_currency() :: %{
+        "Currency" => String.t(),
+        "Price" => float()
+      }
+      
   """
   @type price_with_currency() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disassociate_delegation_signer_from_domain_request() :: %{
-    required("DomainName") => String.t(),
-    required("Id") => String.t()
-  }
+      
+      disassociate_delegation_signer_from_domain_request() :: %{
+        required("DomainName") => String.t(),
+        required("Id") => String.t()
+      }
+      
   """
   @type disassociate_delegation_signer_from_domain_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  reject_domain_transfer_from_another_aws_account_request() :: %{
-    required("DomainName") => String.t()
-  }
+      
+      reject_domain_transfer_from_another_aws_account_request() :: %{
+        required("DomainName") => String.t()
+      }
+      
   """
   @type reject_domain_transfer_from_another_aws_account_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  consent() :: %{
-    "Currency" => String.t(),
-    "MaxPrice" => float()
-  }
+      
+      consent() :: %{
+        "Currency" => String.t(),
+        "MaxPrice" => float()
+      }
+      
   """
   @type consent() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_prices_request() :: %{
-    optional("Marker") => String.t(),
-    optional("MaxItems") => integer(),
-    optional("Tld") => String.t()
-  }
+      
+      list_prices_request() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxItems") => integer(),
+        optional("Tld") => String.t()
+      }
+      
   """
   @type list_prices_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cancel_domain_transfer_to_another_aws_account_response() :: %{
-    "OperationId" => String.t()
-  }
+      
+      cancel_domain_transfer_to_another_aws_account_response() :: %{
+        "OperationId" => String.t()
+      }
+      
   """
   @type cancel_domain_transfer_to_another_aws_account_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  transfer_domain_response() :: %{
-    "OperationId" => String.t()
-  }
+      
+      transfer_domain_response() :: %{
+        "OperationId" => String.t()
+      }
+      
   """
   @type transfer_domain_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_domain_suggestions_request() :: %{
-    required("DomainName") => String.t(),
-    required("OnlyAvailable") => boolean(),
-    required("SuggestionCount") => integer()
-  }
+      
+      get_domain_suggestions_request() :: %{
+        required("DomainName") => String.t(),
+        required("OnlyAvailable") => boolean(),
+        required("SuggestionCount") => integer()
+      }
+      
   """
   @type get_domain_suggestions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  sort_condition() :: %{
-    "Name" => list(any()),
-    "SortOrder" => list(any())
-  }
+      
+      sort_condition() :: %{
+        "Name" => list(any()),
+        "SortOrder" => list(any())
+      }
+      
   """
   @type sort_condition() :: %{String.t() => any()}
+
+  @type accept_domain_transfer_from_another_aws_account_errors() ::
+          domain_limit_exceeded()
+          | unsupported_t_l_d()
+          | operation_limit_exceeded()
+          | invalid_input()
+
+  @type associate_delegation_signer_to_domain_errors() ::
+          dnssec_limit_exceeded()
+          | t_l_d_rules_violation()
+          | duplicate_request()
+          | unsupported_t_l_d()
+          | operation_limit_exceeded()
+          | invalid_input()
+
+  @type cancel_domain_transfer_to_another_aws_account_errors() ::
+          unsupported_t_l_d() | operation_limit_exceeded() | invalid_input()
+
+  @type check_domain_availability_errors() :: unsupported_t_l_d() | invalid_input()
+
+  @type check_domain_transferability_errors() :: unsupported_t_l_d() | invalid_input()
+
+  @type delete_domain_errors() ::
+          t_l_d_rules_violation() | duplicate_request() | unsupported_t_l_d() | invalid_input()
+
+  @type delete_tags_for_domain_errors() ::
+          unsupported_t_l_d() | operation_limit_exceeded() | invalid_input()
+
+  @type disable_domain_auto_renew_errors() :: unsupported_t_l_d() | invalid_input()
+
+  @type disable_domain_transfer_lock_errors() ::
+          t_l_d_rules_violation()
+          | duplicate_request()
+          | unsupported_t_l_d()
+          | operation_limit_exceeded()
+          | invalid_input()
+
+  @type disassociate_delegation_signer_from_domain_errors() ::
+          t_l_d_rules_violation()
+          | duplicate_request()
+          | unsupported_t_l_d()
+          | operation_limit_exceeded()
+          | invalid_input()
+
+  @type enable_domain_auto_renew_errors() ::
+          t_l_d_rules_violation() | unsupported_t_l_d() | invalid_input()
+
+  @type enable_domain_transfer_lock_errors() ::
+          t_l_d_rules_violation()
+          | duplicate_request()
+          | unsupported_t_l_d()
+          | operation_limit_exceeded()
+          | invalid_input()
+
+  @type get_contact_reachability_status_errors() ::
+          unsupported_t_l_d() | operation_limit_exceeded() | invalid_input()
+
+  @type get_domain_detail_errors() :: unsupported_t_l_d() | invalid_input()
+
+  @type get_domain_suggestions_errors() :: unsupported_t_l_d() | invalid_input()
+
+  @type get_operation_detail_errors() :: invalid_input()
+
+  @type list_domains_errors() :: invalid_input()
+
+  @type list_operations_errors() :: invalid_input()
+
+  @type list_prices_errors() :: unsupported_t_l_d() | invalid_input()
+
+  @type list_tags_for_domain_errors() ::
+          unsupported_t_l_d() | operation_limit_exceeded() | invalid_input()
+
+  @type push_domain_errors() :: unsupported_t_l_d() | operation_limit_exceeded() | invalid_input()
+
+  @type register_domain_errors() ::
+          domain_limit_exceeded()
+          | t_l_d_rules_violation()
+          | duplicate_request()
+          | unsupported_t_l_d()
+          | operation_limit_exceeded()
+          | invalid_input()
+
+  @type reject_domain_transfer_from_another_aws_account_errors() ::
+          unsupported_t_l_d() | operation_limit_exceeded() | invalid_input()
+
+  @type renew_domain_errors() ::
+          t_l_d_rules_violation()
+          | duplicate_request()
+          | unsupported_t_l_d()
+          | operation_limit_exceeded()
+          | invalid_input()
+
+  @type resend_contact_reachability_email_errors() ::
+          unsupported_t_l_d() | operation_limit_exceeded() | invalid_input()
+
+  @type resend_operation_authorization_errors() :: invalid_input()
+
+  @type retrieve_domain_auth_code_errors() :: unsupported_t_l_d() | invalid_input()
+
+  @type transfer_domain_errors() ::
+          domain_limit_exceeded()
+          | t_l_d_rules_violation()
+          | duplicate_request()
+          | unsupported_t_l_d()
+          | operation_limit_exceeded()
+          | invalid_input()
+
+  @type transfer_domain_to_another_aws_account_errors() ::
+          duplicate_request() | unsupported_t_l_d() | operation_limit_exceeded() | invalid_input()
+
+  @type update_domain_contact_errors() ::
+          t_l_d_rules_violation()
+          | duplicate_request()
+          | unsupported_t_l_d()
+          | operation_limit_exceeded()
+          | invalid_input()
+
+  @type update_domain_contact_privacy_errors() ::
+          t_l_d_rules_violation()
+          | duplicate_request()
+          | unsupported_t_l_d()
+          | operation_limit_exceeded()
+          | invalid_input()
+
+  @type update_domain_nameservers_errors() ::
+          t_l_d_rules_violation()
+          | duplicate_request()
+          | unsupported_t_l_d()
+          | operation_limit_exceeded()
+          | invalid_input()
+
+  @type update_tags_for_domain_errors() ::
+          unsupported_t_l_d() | operation_limit_exceeded() | invalid_input()
+
+  @type view_billing_errors() :: invalid_input()
 
   def metadata do
     %{
@@ -1003,10 +1308,7 @@ defmodule AWS.Route53Domains do
         ) ::
           {:ok, accept_domain_transfer_from_another_aws_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, domain_limit_exceeded()}
-          | {:error, invalid_input()}
-          | {:error, operation_limit_exceeded()}
-          | {:error, unsupported_t_l_d()}
+          | {:error, accept_domain_transfer_from_another_aws_account_errors()}
   def accept_domain_transfer_from_another_aws_account(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1040,12 +1342,7 @@ defmodule AWS.Route53Domains do
         ) ::
           {:ok, associate_delegation_signer_to_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, dnssec_limit_exceeded()}
-          | {:error, duplicate_request()}
-          | {:error, invalid_input()}
-          | {:error, operation_limit_exceeded()}
-          | {:error, t_l_d_rules_violation()}
-          | {:error, unsupported_t_l_d()}
+          | {:error, associate_delegation_signer_to_domain_errors()}
   def associate_delegation_signer_to_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1078,9 +1375,7 @@ defmodule AWS.Route53Domains do
         ) ::
           {:ok, cancel_domain_transfer_to_another_aws_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_input()}
-          | {:error, operation_limit_exceeded()}
-          | {:error, unsupported_t_l_d()}
+          | {:error, cancel_domain_transfer_to_another_aws_account_errors()}
   def cancel_domain_transfer_to_another_aws_account(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1098,8 +1393,7 @@ defmodule AWS.Route53Domains do
   @spec check_domain_availability(map(), check_domain_availability_request(), list()) ::
           {:ok, check_domain_availability_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_input()}
-          | {:error, unsupported_t_l_d()}
+          | {:error, check_domain_availability_errors()}
   def check_domain_availability(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1112,8 +1406,7 @@ defmodule AWS.Route53Domains do
   @spec check_domain_transferability(map(), check_domain_transferability_request(), list()) ::
           {:ok, check_domain_transferability_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_input()}
-          | {:error, unsupported_t_l_d()}
+          | {:error, check_domain_transferability_errors()}
   def check_domain_transferability(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1147,10 +1440,7 @@ defmodule AWS.Route53Domains do
   @spec delete_domain(map(), delete_domain_request(), list()) ::
           {:ok, delete_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, duplicate_request()}
-          | {:error, invalid_input()}
-          | {:error, t_l_d_rules_violation()}
-          | {:error, unsupported_t_l_d()}
+          | {:error, delete_domain_errors()}
   def delete_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1166,9 +1456,7 @@ defmodule AWS.Route53Domains do
   @spec delete_tags_for_domain(map(), delete_tags_for_domain_request(), list()) ::
           {:ok, delete_tags_for_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_input()}
-          | {:error, operation_limit_exceeded()}
-          | {:error, unsupported_t_l_d()}
+          | {:error, delete_tags_for_domain_errors()}
   def delete_tags_for_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1183,8 +1471,7 @@ defmodule AWS.Route53Domains do
   @spec disable_domain_auto_renew(map(), disable_domain_auto_renew_request(), list()) ::
           {:ok, disable_domain_auto_renew_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_input()}
-          | {:error, unsupported_t_l_d()}
+          | {:error, disable_domain_auto_renew_errors()}
   def disable_domain_auto_renew(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1207,11 +1494,7 @@ defmodule AWS.Route53Domains do
   @spec disable_domain_transfer_lock(map(), disable_domain_transfer_lock_request(), list()) ::
           {:ok, disable_domain_transfer_lock_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, duplicate_request()}
-          | {:error, invalid_input()}
-          | {:error, operation_limit_exceeded()}
-          | {:error, t_l_d_rules_violation()}
-          | {:error, unsupported_t_l_d()}
+          | {:error, disable_domain_transfer_lock_errors()}
   def disable_domain_transfer_lock(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1229,11 +1512,7 @@ defmodule AWS.Route53Domains do
         ) ::
           {:ok, disassociate_delegation_signer_from_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, duplicate_request()}
-          | {:error, invalid_input()}
-          | {:error, operation_limit_exceeded()}
-          | {:error, t_l_d_rules_violation()}
-          | {:error, unsupported_t_l_d()}
+          | {:error, disassociate_delegation_signer_from_domain_errors()}
   def disassociate_delegation_signer_from_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1259,9 +1538,7 @@ defmodule AWS.Route53Domains do
   @spec enable_domain_auto_renew(map(), enable_domain_auto_renew_request(), list()) ::
           {:ok, enable_domain_auto_renew_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_input()}
-          | {:error, t_l_d_rules_violation()}
-          | {:error, unsupported_t_l_d()}
+          | {:error, enable_domain_auto_renew_errors()}
   def enable_domain_auto_renew(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1281,11 +1558,7 @@ defmodule AWS.Route53Domains do
   @spec enable_domain_transfer_lock(map(), enable_domain_transfer_lock_request(), list()) ::
           {:ok, enable_domain_transfer_lock_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, duplicate_request()}
-          | {:error, invalid_input()}
-          | {:error, operation_limit_exceeded()}
-          | {:error, t_l_d_rules_violation()}
-          | {:error, unsupported_t_l_d()}
+          | {:error, enable_domain_transfer_lock_errors()}
   def enable_domain_transfer_lock(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1305,9 +1578,7 @@ defmodule AWS.Route53Domains do
   @spec get_contact_reachability_status(map(), get_contact_reachability_status_request(), list()) ::
           {:ok, get_contact_reachability_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_input()}
-          | {:error, operation_limit_exceeded()}
-          | {:error, unsupported_t_l_d()}
+          | {:error, get_contact_reachability_status_errors()}
   def get_contact_reachability_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1324,8 +1595,7 @@ defmodule AWS.Route53Domains do
   @spec get_domain_detail(map(), get_domain_detail_request(), list()) ::
           {:ok, get_domain_detail_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_input()}
-          | {:error, unsupported_t_l_d()}
+          | {:error, get_domain_detail_errors()}
   def get_domain_detail(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1338,8 +1608,7 @@ defmodule AWS.Route53Domains do
   @spec get_domain_suggestions(map(), get_domain_suggestions_request(), list()) ::
           {:ok, get_domain_suggestions_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_input()}
-          | {:error, unsupported_t_l_d()}
+          | {:error, get_domain_suggestions_errors()}
   def get_domain_suggestions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1353,7 +1622,7 @@ defmodule AWS.Route53Domains do
   @spec get_operation_detail(map(), get_operation_detail_request(), list()) ::
           {:ok, get_operation_detail_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_input()}
+          | {:error, get_operation_detail_errors()}
   def get_operation_detail(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1368,7 +1637,7 @@ defmodule AWS.Route53Domains do
   @spec list_domains(map(), list_domains_request(), list()) ::
           {:ok, list_domains_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_input()}
+          | {:error, list_domains_errors()}
   def list_domains(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1385,7 +1654,7 @@ defmodule AWS.Route53Domains do
   @spec list_operations(map(), list_operations_request(), list()) ::
           {:ok, list_operations_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_input()}
+          | {:error, list_operations_errors()}
   def list_operations(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1414,8 +1683,7 @@ defmodule AWS.Route53Domains do
   @spec list_prices(map(), list_prices_request(), list()) ::
           {:ok, list_prices_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_input()}
-          | {:error, unsupported_t_l_d()}
+          | {:error, list_prices_errors()}
   def list_prices(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1432,9 +1700,7 @@ defmodule AWS.Route53Domains do
   @spec list_tags_for_domain(map(), list_tags_for_domain_request(), list()) ::
           {:ok, list_tags_for_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_input()}
-          | {:error, operation_limit_exceeded()}
-          | {:error, unsupported_t_l_d()}
+          | {:error, list_tags_for_domain_errors()}
   def list_tags_for_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1453,9 +1719,7 @@ defmodule AWS.Route53Domains do
   @spec push_domain(map(), push_domain_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_input()}
-          | {:error, operation_limit_exceeded()}
-          | {:error, unsupported_t_l_d()}
+          | {:error, push_domain_errors()}
   def push_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1504,12 +1768,7 @@ defmodule AWS.Route53Domains do
   @spec register_domain(map(), register_domain_request(), list()) ::
           {:ok, register_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, domain_limit_exceeded()}
-          | {:error, duplicate_request()}
-          | {:error, invalid_input()}
-          | {:error, operation_limit_exceeded()}
-          | {:error, t_l_d_rules_violation()}
-          | {:error, unsupported_t_l_d()}
+          | {:error, register_domain_errors()}
   def register_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1536,9 +1795,7 @@ defmodule AWS.Route53Domains do
         ) ::
           {:ok, reject_domain_transfer_from_another_aws_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_input()}
-          | {:error, operation_limit_exceeded()}
-          | {:error, unsupported_t_l_d()}
+          | {:error, reject_domain_transfer_from_another_aws_account_errors()}
   def reject_domain_transfer_from_another_aws_account(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1570,11 +1827,7 @@ defmodule AWS.Route53Domains do
   @spec renew_domain(map(), renew_domain_request(), list()) ::
           {:ok, renew_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, duplicate_request()}
-          | {:error, invalid_input()}
-          | {:error, operation_limit_exceeded()}
-          | {:error, t_l_d_rules_violation()}
-          | {:error, unsupported_t_l_d()}
+          | {:error, renew_domain_errors()}
   def renew_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1594,9 +1847,7 @@ defmodule AWS.Route53Domains do
         ) ::
           {:ok, resend_contact_reachability_email_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_input()}
-          | {:error, operation_limit_exceeded()}
-          | {:error, unsupported_t_l_d()}
+          | {:error, resend_contact_reachability_email_errors()}
   def resend_contact_reachability_email(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1609,7 +1860,7 @@ defmodule AWS.Route53Domains do
   @spec resend_operation_authorization(map(), resend_operation_authorization_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_input()}
+          | {:error, resend_operation_authorization_errors()}
   def resend_operation_authorization(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1625,8 +1876,7 @@ defmodule AWS.Route53Domains do
   @spec retrieve_domain_auth_code(map(), retrieve_domain_auth_code_request(), list()) ::
           {:ok, retrieve_domain_auth_code_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_input()}
-          | {:error, unsupported_t_l_d()}
+          | {:error, retrieve_domain_auth_code_errors()}
   def retrieve_domain_auth_code(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1692,12 +1942,7 @@ defmodule AWS.Route53Domains do
   @spec transfer_domain(map(), transfer_domain_request(), list()) ::
           {:ok, transfer_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, domain_limit_exceeded()}
-          | {:error, duplicate_request()}
-          | {:error, invalid_input()}
-          | {:error, operation_limit_exceeded()}
-          | {:error, t_l_d_rules_violation()}
-          | {:error, unsupported_t_l_d()}
+          | {:error, transfer_domain_errors()}
   def transfer_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1752,10 +1997,7 @@ defmodule AWS.Route53Domains do
         ) ::
           {:ok, transfer_domain_to_another_aws_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, duplicate_request()}
-          | {:error, invalid_input()}
-          | {:error, operation_limit_exceeded()}
-          | {:error, unsupported_t_l_d()}
+          | {:error, transfer_domain_to_another_aws_account_errors()}
   def transfer_domain_to_another_aws_account(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1778,11 +2020,7 @@ defmodule AWS.Route53Domains do
   @spec update_domain_contact(map(), update_domain_contact_request(), list()) ::
           {:ok, update_domain_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, duplicate_request()}
-          | {:error, invalid_input()}
-          | {:error, operation_limit_exceeded()}
-          | {:error, t_l_d_rules_violation()}
-          | {:error, unsupported_t_l_d()}
+          | {:error, update_domain_contact_errors()}
   def update_domain_contact(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1828,11 +2066,7 @@ defmodule AWS.Route53Domains do
   @spec update_domain_contact_privacy(map(), update_domain_contact_privacy_request(), list()) ::
           {:ok, update_domain_contact_privacy_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, duplicate_request()}
-          | {:error, invalid_input()}
-          | {:error, operation_limit_exceeded()}
-          | {:error, t_l_d_rules_violation()}
-          | {:error, unsupported_t_l_d()}
+          | {:error, update_domain_contact_privacy_errors()}
   def update_domain_contact_privacy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1855,11 +2089,7 @@ defmodule AWS.Route53Domains do
   @spec update_domain_nameservers(map(), update_domain_nameservers_request(), list()) ::
           {:ok, update_domain_nameservers_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, duplicate_request()}
-          | {:error, invalid_input()}
-          | {:error, operation_limit_exceeded()}
-          | {:error, t_l_d_rules_violation()}
-          | {:error, unsupported_t_l_d()}
+          | {:error, update_domain_nameservers_errors()}
   def update_domain_nameservers(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1875,9 +2105,7 @@ defmodule AWS.Route53Domains do
   @spec update_tags_for_domain(map(), update_tags_for_domain_request(), list()) ::
           {:ok, update_tags_for_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_input()}
-          | {:error, operation_limit_exceeded()}
-          | {:error, unsupported_t_l_d()}
+          | {:error, update_tags_for_domain_errors()}
   def update_tags_for_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1891,7 +2119,7 @@ defmodule AWS.Route53Domains do
   @spec view_billing(map(), view_billing_request(), list()) ::
           {:ok, view_billing_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_input()}
+          | {:error, view_billing_errors()}
   def view_billing(%Client{} = client, input, options \\ []) do
     meta = metadata()
 

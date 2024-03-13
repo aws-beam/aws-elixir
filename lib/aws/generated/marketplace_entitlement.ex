@@ -30,76 +30,95 @@ defmodule AWS.MarketplaceEntitlement do
   @typedoc """
 
   ## Example:
-  entitlement() :: %{
-    "CustomerIdentifier" => String.t(),
-    "Dimension" => String.t(),
-    "ExpirationDate" => non_neg_integer(),
-    "ProductCode" => String.t(),
-    "Value" => entitlement_value()
-  }
+      
+      entitlement() :: %{
+        "CustomerIdentifier" => String.t(),
+        "Dimension" => String.t(),
+        "ExpirationDate" => non_neg_integer(),
+        "ProductCode" => String.t(),
+        "Value" => entitlement_value()
+      }
+      
   """
   @type entitlement() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  entitlement_value() :: %{
-    "BooleanValue" => boolean(),
-    "DoubleValue" => float(),
-    "IntegerValue" => integer(),
-    "StringValue" => String.t()
-  }
+      
+      entitlement_value() :: %{
+        "BooleanValue" => boolean(),
+        "DoubleValue" => float(),
+        "IntegerValue" => integer(),
+        "StringValue" => String.t()
+      }
+      
   """
   @type entitlement_value() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_entitlements_request() :: %{
-    optional("Filter") => map(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("ProductCode") => String.t()
-  }
+      
+      get_entitlements_request() :: %{
+        optional("Filter") => map(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("ProductCode") => String.t()
+      }
+      
   """
   @type get_entitlements_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_entitlements_result() :: %{
-    "Entitlements" => list(entitlement()()),
-    "NextToken" => String.t()
-  }
+      
+      get_entitlements_result() :: %{
+        "Entitlements" => list(entitlement()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type get_entitlements_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  internal_service_error_exception() :: %{
-    "message" => String.t()
-  }
+      
+      internal_service_error_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type internal_service_error_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_parameter_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_parameter_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_parameter_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  throttling_exception() :: %{
-    "message" => String.t()
-  }
+      
+      throttling_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type throttling_exception() :: %{String.t() => any()}
+
+  @type get_entitlements_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | internal_service_error_exception()
 
   def metadata do
     %{
@@ -125,9 +144,7 @@ defmodule AWS.MarketplaceEntitlement do
   @spec get_entitlements(map(), get_entitlements_request(), list()) ::
           {:ok, get_entitlements_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_error_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, throttling_exception()}
+          | {:error, get_entitlements_errors()}
   def get_entitlements(%Client{} = client, input, options \\ []) do
     meta = metadata()
 

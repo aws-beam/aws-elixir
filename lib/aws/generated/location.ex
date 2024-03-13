@@ -13,1906 +13,2608 @@ defmodule AWS.Location do
   @typedoc """
 
   ## Example:
-  get_device_position_request() :: %{
 
-  }
+      get_device_position_request() :: %{}
+
   """
-  @type get_device_position_request() :: %{String.t() => any()}
+  @type get_device_position_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_geofence_collections_response() :: %{
-    optional("NextToken") => String.t(),
-    required("Entries") => list(list_geofence_collections_response_entry()())
-  }
+
+      list_geofence_collections_response() :: %{
+        optional("NextToken") => String.t(),
+        required("Entries") => list(list_geofence_collections_response_entry()())
+      }
+
   """
   @type list_geofence_collections_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  truck_dimensions() :: %{
-    "Height" => [float()],
-    "Length" => [float()],
-    "Unit" => String.t(),
-    "Width" => [float()]
-  }
+
+      truck_dimensions() :: %{
+        "Height" => [float()],
+        "Length" => [float()],
+        "Unit" => String.t(),
+        "Width" => [float()]
+      }
+
   """
   @type truck_dimensions() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_geofence_response() :: %{
-    optional("GeofenceProperties") => map(),
-    required("CreateTime") => non_neg_integer(),
-    required("GeofenceId") => String.t(),
-    required("Geometry") => geofence_geometry(),
-    required("Status") => [String.t()],
-    required("UpdateTime") => non_neg_integer()
-  }
+
+      get_geofence_response() :: %{
+        optional("GeofenceProperties") => map(),
+        required("CreateTime") => non_neg_integer(),
+        required("GeofenceId") => String.t(),
+        required("Geometry") => geofence_geometry(),
+        required("Status") => [String.t()],
+        required("UpdateTime") => non_neg_integer()
+      }
+
   """
   @type get_geofence_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_geofence_collection_request() :: %{
 
-  }
+      describe_geofence_collection_request() :: %{}
+
   """
-  @type describe_geofence_collection_request() :: %{String.t() => any()}
+  @type describe_geofence_collection_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  batch_update_device_position_response() :: %{
-    required("Errors") => list(batch_update_device_position_error()())
-  }
+
+      batch_update_device_position_response() :: %{
+        required("Errors") => list(batch_update_device_position_error()())
+      }
+
   """
   @type batch_update_device_position_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_device_positions_response() :: %{
-    optional("NextToken") => String.t(),
-    required("Entries") => list(list_device_positions_response_entry()())
-  }
+
+      list_device_positions_response() :: %{
+        optional("NextToken") => String.t(),
+        required("Entries") => list(list_device_positions_response_entry()())
+      }
+
   """
   @type list_device_positions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_request() :: %{
-    required("Tags") => map()
-  }
+
+      tag_resource_request() :: %{
+        required("Tags") => map()
+      }
+
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  associate_tracker_consumer_request() :: %{
-    required("ConsumerArn") => String.t()
-  }
+
+      associate_tracker_consumer_request() :: %{
+        required("ConsumerArn") => String.t()
+      }
+
   """
   @type associate_tracker_consumer_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_put_geofence_request() :: %{
-    required("Entries") => list(batch_put_geofence_request_entry()())
-  }
+
+      batch_put_geofence_request() :: %{
+        required("Entries") => list(batch_put_geofence_request_entry()())
+      }
+
   """
   @type batch_put_geofence_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  calculate_route_car_mode_options() :: %{
-    "AvoidFerries" => [boolean()],
-    "AvoidTolls" => [boolean()]
-  }
+
+      calculate_route_car_mode_options() :: %{
+        "AvoidFerries" => [boolean()],
+        "AvoidTolls" => [boolean()]
+      }
+
   """
   @type calculate_route_car_mode_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_put_geofence_error() :: %{
-    "Error" => batch_item_error(),
-    "GeofenceId" => String.t()
-  }
+
+      batch_put_geofence_error() :: %{
+        "Error" => batch_item_error(),
+        "GeofenceId" => String.t()
+      }
+
   """
   @type batch_put_geofence_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_update_device_position_error() :: %{
-    "DeviceId" => String.t(),
-    "Error" => batch_item_error(),
-    "SampleTime" => non_neg_integer()
-  }
+
+      batch_update_device_position_error() :: %{
+        "DeviceId" => String.t(),
+        "Error" => batch_item_error(),
+        "SampleTime" => non_neg_integer()
+      }
+
   """
   @type batch_update_device_position_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_delete_geofence_response() :: %{
-    required("Errors") => list(batch_delete_geofence_error()())
-  }
+
+      batch_delete_geofence_response() :: %{
+        required("Errors") => list(batch_delete_geofence_error()())
+      }
+
   """
   @type batch_delete_geofence_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_key_request() :: %{
-    optional("Description") => String.t(),
-    optional("ExpireTime") => non_neg_integer(),
-    optional("NoExpiry") => [boolean()],
-    optional("Tags") => map(),
-    required("KeyName") => String.t(),
-    required("Restrictions") => api_key_restrictions()
-  }
+
+      create_key_request() :: %{
+        optional("Description") => String.t(),
+        optional("ExpireTime") => non_neg_integer(),
+        optional("NoExpiry") => [boolean()],
+        optional("Tags") => map(),
+        required("KeyName") => String.t(),
+        required("Restrictions") => api_key_restrictions()
+      }
+
   """
   @type create_key_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_place_index_request() :: %{
-    optional("DataSourceConfiguration") => data_source_configuration(),
-    optional("Description") => String.t(),
-    optional("PricingPlan") => String.t(),
-    optional("Tags") => map(),
-    required("DataSource") => [String.t()],
-    required("IndexName") => String.t()
-  }
+
+      create_place_index_request() :: %{
+        optional("DataSourceConfiguration") => data_source_configuration(),
+        optional("Description") => String.t(),
+        optional("PricingPlan") => String.t(),
+        optional("Tags") => map(),
+        required("DataSource") => [String.t()],
+        required("IndexName") => String.t()
+      }
+
   """
   @type create_place_index_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  data_source_configuration() :: %{
-    "IntendedUse" => String.t()
-  }
+
+      data_source_configuration() :: %{
+        "IntendedUse" => String.t()
+      }
+
   """
   @type data_source_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_route_calculator_response() :: %{
-    required("CalculatorArn") => String.t(),
-    required("CalculatorName") => String.t(),
-    required("CreateTime") => non_neg_integer()
-  }
+
+      create_route_calculator_response() :: %{
+        required("CalculatorArn") => String.t(),
+        required("CalculatorName") => String.t(),
+        required("CreateTime") => non_neg_integer()
+      }
+
   """
   @type create_route_calculator_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_response() :: %{
 
-  }
+      untag_resource_response() :: %{}
+
   """
-  @type untag_resource_response() :: %{String.t() => any()}
+  @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_tracker_response() :: %{
-    required("CreateTime") => non_neg_integer(),
-    required("TrackerArn") => String.t(),
-    required("TrackerName") => String.t()
-  }
+
+      create_tracker_response() :: %{
+        required("CreateTime") => non_neg_integer(),
+        required("TrackerArn") => String.t(),
+        required("TrackerName") => String.t()
+      }
+
   """
   @type create_tracker_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_map_tile_response() :: %{
-    optional("Blob") => [binary()],
-    optional("CacheControl") => [String.t()],
-    optional("ContentType") => [String.t()]
-  }
+
+      get_map_tile_response() :: %{
+        optional("Blob") => [binary()],
+        optional("CacheControl") => [String.t()],
+        optional("ContentType") => [String.t()]
+      }
+
   """
   @type get_map_tile_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_map_response() :: %{
-    required("MapArn") => String.t(),
-    required("MapName") => String.t(),
-    required("UpdateTime") => non_neg_integer()
-  }
+
+      update_map_response() :: %{
+        required("MapArn") => String.t(),
+        required("MapName") => String.t(),
+        required("UpdateTime") => non_neg_integer()
+      }
+
   """
   @type update_map_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_maps_request() :: %{
-    optional("MaxResults") => [integer()],
-    optional("NextToken") => String.t()
-  }
+
+      list_maps_request() :: %{
+        optional("MaxResults") => [integer()],
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_maps_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_route_calculator_response() :: %{
 
-  }
+      delete_route_calculator_response() :: %{}
+
   """
-  @type delete_route_calculator_response() :: %{String.t() => any()}
+  @type delete_route_calculator_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_map_glyphs_response() :: %{
-    "Blob" => [binary()],
-    "CacheControl" => [String.t()],
-    "ContentType" => [String.t()]
-  }
+
+      get_map_glyphs_response() :: %{
+        "Blob" => [binary()],
+        "CacheControl" => [String.t()],
+        "ContentType" => [String.t()]
+      }
+
   """
   @type get_map_glyphs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_place_index_request() :: %{
 
-  }
+      describe_place_index_request() :: %{}
+
   """
-  @type describe_place_index_request() :: %{String.t() => any()}
+  @type describe_place_index_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_keys_response() :: %{
-    optional("NextToken") => String.t(),
-    required("Entries") => list(list_keys_response_entry()())
-  }
+
+      list_keys_response() :: %{
+        optional("NextToken") => String.t(),
+        required("Entries") => list(list_keys_response_entry()())
+      }
+
   """
   @type list_keys_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  calculate_route_response() :: %{
-    "Legs" => list(leg()()),
-    "Summary" => calculate_route_summary()
-  }
+
+      calculate_route_response() :: %{
+        "Legs" => list(leg()()),
+        "Summary" => calculate_route_summary()
+      }
+
   """
   @type calculate_route_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_route_calculators_response_entry() :: %{
-    "CalculatorName" => String.t(),
-    "CreateTime" => non_neg_integer(),
-    "DataSource" => [String.t()],
-    "Description" => String.t(),
-    "PricingPlan" => String.t(),
-    "UpdateTime" => non_neg_integer()
-  }
+
+      list_route_calculators_response_entry() :: %{
+        "CalculatorName" => String.t(),
+        "CreateTime" => non_neg_integer(),
+        "DataSource" => [String.t()],
+        "Description" => String.t(),
+        "PricingPlan" => String.t(),
+        "UpdateTime" => non_neg_integer()
+      }
+
   """
   @type list_route_calculators_response_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_key_response() :: %{
-    required("KeyArn") => String.t(),
-    required("KeyName") => String.t(),
-    required("UpdateTime") => non_neg_integer()
-  }
+
+      update_key_response() :: %{
+        required("KeyArn") => String.t(),
+        required("KeyName") => String.t(),
+        required("UpdateTime") => non_neg_integer()
+      }
+
   """
   @type update_key_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  search_place_index_for_position_response() :: %{
-    required("Results") => list(search_for_position_result()()),
-    required("Summary") => search_place_index_for_position_summary()
-  }
+
+      search_place_index_for_position_response() :: %{
+        required("Results") => list(search_for_position_result()()),
+        required("Summary") => search_place_index_for_position_summary()
+      }
+
   """
   @type search_place_index_for_position_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_maps_response_entry() :: %{
-    "CreateTime" => non_neg_integer(),
-    "DataSource" => [String.t()],
-    "Description" => String.t(),
-    "MapName" => String.t(),
-    "PricingPlan" => String.t(),
-    "UpdateTime" => non_neg_integer()
-  }
+
+      list_maps_response_entry() :: %{
+        "CreateTime" => non_neg_integer(),
+        "DataSource" => [String.t()],
+        "Description" => String.t(),
+        "MapName" => String.t(),
+        "PricingPlan" => String.t(),
+        "UpdateTime" => non_neg_integer()
+      }
+
   """
   @type list_maps_response_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_trackers_response() :: %{
-    optional("NextToken") => String.t(),
-    required("Entries") => list(list_trackers_response_entry()())
-  }
+
+      list_trackers_response() :: %{
+        optional("NextToken") => String.t(),
+        required("Entries") => list(list_trackers_response_entry()())
+      }
+
   """
   @type list_trackers_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_route_calculator_request() :: %{
 
-  }
+      describe_route_calculator_request() :: %{}
+
   """
-  @type describe_route_calculator_request() :: %{String.t() => any()}
+  @type describe_route_calculator_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  delete_key_request() :: %{
-    optional("ForceDelete") => [boolean()]
-  }
+
+      delete_key_request() :: %{
+        optional("ForceDelete") => [boolean()]
+      }
+
   """
   @type delete_key_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_route_calculator_request() :: %{
-    optional("Description") => String.t(),
-    optional("PricingPlan") => String.t()
-  }
+
+      update_route_calculator_request() :: %{
+        optional("Description") => String.t(),
+        optional("PricingPlan") => String.t()
+      }
+
   """
   @type update_route_calculator_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  search_for_position_result() :: %{
-    "Distance" => [float()],
-    "Place" => place(),
-    "PlaceId" => String.t()
-  }
+
+      search_for_position_result() :: %{
+        "Distance" => [float()],
+        "Place" => place(),
+        "PlaceId" => String.t()
+      }
+
   """
   @type search_for_position_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_geofence_request() :: %{
-    optional("GeofenceProperties") => map(),
-    required("Geometry") => geofence_geometry()
-  }
+
+      put_geofence_request() :: %{
+        optional("GeofenceProperties") => map(),
+        required("Geometry") => geofence_geometry()
+      }
+
   """
   @type put_geofence_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_put_geofence_success() :: %{
-    "CreateTime" => non_neg_integer(),
-    "GeofenceId" => String.t(),
-    "UpdateTime" => non_neg_integer()
-  }
+
+      batch_put_geofence_success() :: %{
+        "CreateTime" => non_neg_integer(),
+        "GeofenceId" => String.t(),
+        "UpdateTime" => non_neg_integer()
+      }
+
   """
   @type batch_put_geofence_success() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  api_key_filter() :: %{
-    "KeyStatus" => String.t()
-  }
+
+      api_key_filter() :: %{
+        "KeyStatus" => String.t()
+      }
+
   """
   @type api_key_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_request() :: %{
-    required("TagKeys") => list([String.t()]())
-  }
+
+      untag_resource_request() :: %{
+        required("TagKeys") => list([String.t()]())
+      }
+
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  search_for_suggestions_result() :: %{
-    "Categories" => list(String.t()()),
-    "PlaceId" => String.t(),
-    "SupplementalCategories" => list(String.t()()),
-    "Text" => [String.t()]
-  }
+
+      search_for_suggestions_result() :: %{
+        "Categories" => list(String.t()()),
+        "PlaceId" => String.t(),
+        "SupplementalCategories" => list(String.t()()),
+        "Text" => [String.t()]
+      }
+
   """
   @type search_for_suggestions_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  associate_tracker_consumer_response() :: %{
 
-  }
+      associate_tracker_consumer_response() :: %{}
+
   """
-  @type associate_tracker_consumer_response() :: %{String.t() => any()}
+  @type associate_tracker_consumer_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  search_place_index_for_text_summary() :: %{
-    "BiasPosition" => list([float()]()),
-    "DataSource" => [String.t()],
-    "FilterBBox" => list([float()]()),
-    "FilterCategories" => list(String.t()()),
-    "FilterCountries" => list(String.t()()),
-    "Language" => String.t(),
-    "MaxResults" => integer(),
-    "ResultBBox" => list([float()]()),
-    "Text" => String.t()
-  }
+
+      search_place_index_for_text_summary() :: %{
+        "BiasPosition" => list([float()]()),
+        "DataSource" => [String.t()],
+        "FilterBBox" => list([float()]()),
+        "FilterCategories" => list(String.t()()),
+        "FilterCountries" => list(String.t()()),
+        "Language" => String.t(),
+        "MaxResults" => integer(),
+        "ResultBBox" => list([float()]()),
+        "Text" => String.t()
+      }
+
   """
   @type search_place_index_for_text_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_delete_geofence_error() :: %{
-    "Error" => batch_item_error(),
-    "GeofenceId" => String.t()
-  }
+
+      batch_delete_geofence_error() :: %{
+        "Error" => batch_item_error(),
+        "GeofenceId" => String.t()
+      }
+
   """
   @type batch_delete_geofence_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_evaluate_geofences_request() :: %{
-    required("DevicePositionUpdates") => list(device_position_update()())
-  }
+
+      batch_evaluate_geofences_request() :: %{
+        required("DevicePositionUpdates") => list(device_position_update()())
+      }
+
   """
   @type batch_evaluate_geofences_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_geofences_response() :: %{
-    optional("NextToken") => String.t(),
-    required("Entries") => list(list_geofence_response_entry()())
-  }
+
+      list_geofences_response() :: %{
+        optional("NextToken") => String.t(),
+        required("Entries") => list(list_geofence_response_entry()())
+      }
+
   """
   @type list_geofences_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  route_matrix_entry_error() :: %{
-    "Code" => String.t(),
-    "Message" => [String.t()]
-  }
+
+      route_matrix_entry_error() :: %{
+        "Code" => String.t(),
+        "Message" => [String.t()]
+      }
+
   """
   @type route_matrix_entry_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_place_index_response() :: %{
 
-  }
+      delete_place_index_response() :: %{}
+
   """
-  @type delete_place_index_response() :: %{String.t() => any()}
+  @type delete_place_index_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_map_sprites_request() :: %{
-    optional("Key") => String.t()
-  }
+
+      get_map_sprites_request() :: %{
+        optional("Key") => String.t()
+      }
+
   """
   @type get_map_sprites_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_map_request() :: %{
 
-  }
+      delete_map_request() :: %{}
+
   """
-  @type delete_map_request() :: %{String.t() => any()}
+  @type delete_map_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_geofence_collections_request() :: %{
-    optional("MaxResults") => [integer()],
-    optional("NextToken") => String.t()
-  }
+
+      list_geofence_collections_request() :: %{
+        optional("MaxResults") => [integer()],
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_geofence_collections_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_map_style_descriptor_response() :: %{
-    optional("Blob") => [binary()],
-    optional("CacheControl") => [String.t()],
-    optional("ContentType") => [String.t()]
-  }
+
+      get_map_style_descriptor_response() :: %{
+        optional("Blob") => [binary()],
+        optional("CacheControl") => [String.t()],
+        optional("ContentType") => [String.t()]
+      }
+
   """
   @type get_map_style_descriptor_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_key_response() :: %{
 
-  }
+      delete_key_response() :: %{}
+
   """
-  @type delete_key_response() :: %{String.t() => any()}
+  @type delete_key_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_tracker_consumers_request() :: %{
-    optional("MaxResults") => [integer()],
-    optional("NextToken") => String.t()
-  }
+
+      list_tracker_consumers_request() :: %{
+        optional("MaxResults") => [integer()],
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_tracker_consumers_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_device_positions_response_entry() :: %{
-    "Accuracy" => positional_accuracy(),
-    "DeviceId" => String.t(),
-    "Position" => list([float()]()),
-    "PositionProperties" => map(),
-    "SampleTime" => non_neg_integer()
-  }
+
+      list_device_positions_response_entry() :: %{
+        "Accuracy" => positional_accuracy(),
+        "DeviceId" => String.t(),
+        "Position" => list([float()]()),
+        "PositionProperties" => map(),
+        "SampleTime" => non_neg_integer()
+      }
+
   """
   @type list_device_positions_response_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_keys_request() :: %{
-    optional("Filter") => api_key_filter(),
-    optional("MaxResults") => [integer()],
-    optional("NextToken") => String.t()
-  }
+
+      list_keys_request() :: %{
+        optional("Filter") => api_key_filter(),
+        optional("MaxResults") => [integer()],
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_keys_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  search_place_index_for_position_summary() :: %{
-    "DataSource" => [String.t()],
-    "Language" => String.t(),
-    "MaxResults" => integer(),
-    "Position" => list([float()]())
-  }
+
+      search_place_index_for_position_summary() :: %{
+        "DataSource" => [String.t()],
+        "Language" => String.t(),
+        "MaxResults" => integer(),
+        "Position" => list([float()]())
+      }
+
   """
   @type search_place_index_for_position_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_place_index_response() :: %{
-    required("CreateTime") => non_neg_integer(),
-    required("IndexArn") => String.t(),
-    required("IndexName") => String.t()
-  }
+
+      create_place_index_response() :: %{
+        required("CreateTime") => non_neg_integer(),
+        required("IndexArn") => String.t(),
+        required("IndexName") => String.t()
+      }
+
   """
   @type create_place_index_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_route_calculator_request() :: %{
 
-  }
+      delete_route_calculator_request() :: %{}
+
   """
-  @type delete_route_calculator_request() :: %{String.t() => any()}
+  @type delete_route_calculator_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  update_geofence_collection_response() :: %{
-    required("CollectionArn") => String.t(),
-    required("CollectionName") => String.t(),
-    required("UpdateTime") => non_neg_integer()
-  }
+
+      update_geofence_collection_response() :: %{
+        required("CollectionArn") => String.t(),
+        required("CollectionName") => String.t(),
+        required("UpdateTime") => non_neg_integer()
+      }
+
   """
   @type update_geofence_collection_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_key_request() :: %{
 
-  }
+      describe_key_request() :: %{}
+
   """
-  @type describe_key_request() :: %{String.t() => any()}
+  @type describe_key_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  conflict_exception() :: %{
-    "Message" => [String.t()]
-  }
+
+      conflict_exception() :: %{
+        "Message" => [String.t()]
+      }
+
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_geofence_response() :: %{
-    required("CreateTime") => non_neg_integer(),
-    required("GeofenceId") => String.t(),
-    required("UpdateTime") => non_neg_integer()
-  }
+
+      put_geofence_response() :: %{
+        required("CreateTime") => non_neg_integer(),
+        required("GeofenceId") => String.t(),
+        required("UpdateTime") => non_neg_integer()
+      }
+
   """
   @type put_geofence_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_not_found_exception() :: %{
-    "Message" => [String.t()]
-  }
+
+      resource_not_found_exception() :: %{
+        "Message" => [String.t()]
+      }
+
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_geofence_response_entry() :: %{
-    "CreateTime" => non_neg_integer(),
-    "GeofenceId" => String.t(),
-    "GeofenceProperties" => map(),
-    "Geometry" => geofence_geometry(),
-    "Status" => [String.t()],
-    "UpdateTime" => non_neg_integer()
-  }
+
+      list_geofence_response_entry() :: %{
+        "CreateTime" => non_neg_integer(),
+        "GeofenceId" => String.t(),
+        "GeofenceProperties" => map(),
+        "Geometry" => geofence_geometry(),
+        "Status" => [String.t()],
+        "UpdateTime" => non_neg_integer()
+      }
+
   """
   @type list_geofence_response_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_map_response() :: %{
 
-  }
+      delete_map_response() :: %{}
+
   """
-  @type delete_map_response() :: %{String.t() => any()}
+  @type delete_map_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  search_place_index_for_text_response() :: %{
-    required("Results") => list(search_for_text_result()()),
-    required("Summary") => search_place_index_for_text_summary()
-  }
+
+      search_place_index_for_text_response() :: %{
+        required("Results") => list(search_for_text_result()()),
+        required("Summary") => search_place_index_for_text_summary()
+      }
+
   """
   @type search_place_index_for_text_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_map_tile_request() :: %{
-    optional("Key") => String.t()
-  }
+
+      get_map_tile_request() :: %{
+        optional("Key") => String.t()
+      }
+
   """
   @type get_map_tile_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_key_request() :: %{
-    optional("Description") => String.t(),
-    optional("ExpireTime") => non_neg_integer(),
-    optional("ForceUpdate") => [boolean()],
-    optional("NoExpiry") => [boolean()],
-    optional("Restrictions") => api_key_restrictions()
-  }
+
+      update_key_request() :: %{
+        optional("Description") => String.t(),
+        optional("ExpireTime") => non_neg_integer(),
+        optional("ForceUpdate") => [boolean()],
+        optional("NoExpiry") => [boolean()],
+        optional("Restrictions") => api_key_restrictions()
+      }
+
   """
   @type update_key_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  service_quota_exceeded_exception() :: %{
-    "Message" => [String.t()]
-  }
+
+      service_quota_exceeded_exception() :: %{
+        "Message" => [String.t()]
+      }
+
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_geofence_collection_response() :: %{
-    required("CollectionArn") => String.t(),
-    required("CollectionName") => String.t(),
-    required("CreateTime") => non_neg_integer()
-  }
+
+      create_geofence_collection_response() :: %{
+        required("CollectionArn") => String.t(),
+        required("CollectionName") => String.t(),
+        required("CreateTime") => non_neg_integer()
+      }
+
   """
   @type create_geofence_collection_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_tracker_request() :: %{
 
-  }
+      describe_tracker_request() :: %{}
+
   """
-  @type describe_tracker_request() :: %{String.t() => any()}
+  @type describe_tracker_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  describe_route_calculator_response() :: %{
-    optional("PricingPlan") => String.t(),
-    optional("Tags") => map(),
-    required("CalculatorArn") => String.t(),
-    required("CalculatorName") => String.t(),
-    required("CreateTime") => non_neg_integer(),
-    required("DataSource") => [String.t()],
-    required("Description") => String.t(),
-    required("UpdateTime") => non_neg_integer()
-  }
+
+      describe_route_calculator_response() :: %{
+        optional("PricingPlan") => String.t(),
+        optional("Tags") => map(),
+        required("CalculatorArn") => String.t(),
+        required("CalculatorName") => String.t(),
+        required("CreateTime") => non_neg_integer(),
+        required("DataSource") => [String.t()],
+        required("Description") => String.t(),
+        required("UpdateTime") => non_neg_integer()
+      }
+
   """
   @type describe_route_calculator_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_map_request() :: %{
 
-  }
+      describe_map_request() :: %{}
+
   """
-  @type describe_map_request() :: %{String.t() => any()}
+  @type describe_map_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  map_configuration_update() :: %{
-    "CustomLayers" => list(String.t()()),
-    "PoliticalView" => String.t()
-  }
+
+      map_configuration_update() :: %{
+        "CustomLayers" => list(String.t()()),
+        "PoliticalView" => String.t()
+      }
+
   """
   @type map_configuration_update() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_map_request() :: %{
-    optional("ConfigurationUpdate") => map_configuration_update(),
-    optional("Description") => String.t(),
-    optional("PricingPlan") => String.t()
-  }
+
+      update_map_request() :: %{
+        optional("ConfigurationUpdate") => map_configuration_update(),
+        optional("Description") => String.t(),
+        optional("PricingPlan") => String.t()
+      }
+
   """
   @type update_map_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_route_calculator_response() :: %{
-    required("CalculatorArn") => String.t(),
-    required("CalculatorName") => String.t(),
-    required("UpdateTime") => non_neg_integer()
-  }
+
+      update_route_calculator_response() :: %{
+        required("CalculatorArn") => String.t(),
+        required("CalculatorName") => String.t(),
+        required("UpdateTime") => non_neg_integer()
+      }
+
   """
   @type update_route_calculator_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  place_geometry() :: %{
-    "Point" => list([float()]())
-  }
+
+      place_geometry() :: %{
+        "Point" => list([float()]())
+      }
+
   """
   @type place_geometry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_get_device_position_request() :: %{
-    required("DeviceIds") => list(String.t()())
-  }
+
+      batch_get_device_position_request() :: %{
+        required("DeviceIds") => list(String.t()())
+      }
+
   """
   @type batch_get_device_position_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_place_indexes_request() :: %{
-    optional("MaxResults") => [integer()],
-    optional("NextToken") => String.t()
-  }
+
+      list_place_indexes_request() :: %{
+        optional("MaxResults") => [integer()],
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_place_indexes_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  circle() :: %{
-    "Center" => list([float()]()),
-    "Radius" => [float()]
-  }
+
+      circle() :: %{
+        "Center" => list([float()]()),
+        "Radius" => [float()]
+      }
+
   """
   @type circle() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_map_request() :: %{
-    optional("Description") => String.t(),
-    optional("PricingPlan") => String.t(),
-    optional("Tags") => map(),
-    required("Configuration") => map_configuration(),
-    required("MapName") => String.t()
-  }
+
+      create_map_request() :: %{
+        optional("Description") => String.t(),
+        optional("PricingPlan") => String.t(),
+        optional("Tags") => map(),
+        required("Configuration") => map_configuration(),
+        required("MapName") => String.t()
+      }
+
   """
   @type create_map_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_response() :: %{
-    optional("Tags") => map()
-  }
+
+      list_tags_for_resource_response() :: %{
+        optional("Tags") => map()
+      }
+
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  validation_exception_field() :: %{
-    "Message" => [String.t()],
-    "Name" => [String.t()]
-  }
+
+      validation_exception_field() :: %{
+        "Message" => [String.t()],
+        "Name" => [String.t()]
+      }
+
   """
   @type validation_exception_field() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disassociate_tracker_consumer_request() :: %{
 
-  }
+      disassociate_tracker_consumer_request() :: %{}
+
   """
-  @type disassociate_tracker_consumer_request() :: %{String.t() => any()}
+  @type disassociate_tracker_consumer_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  search_place_index_for_text_request() :: %{
-    optional("BiasPosition") => list([float()]()),
-    optional("FilterBBox") => list([float()]()),
-    optional("FilterCategories") => list(String.t()()),
-    optional("FilterCountries") => list(String.t()()),
-    optional("Key") => String.t(),
-    optional("Language") => String.t(),
-    optional("MaxResults") => integer(),
-    required("Text") => String.t()
-  }
+
+      search_place_index_for_text_request() :: %{
+        optional("BiasPosition") => list([float()]()),
+        optional("FilterBBox") => list([float()]()),
+        optional("FilterCategories") => list(String.t()()),
+        optional("FilterCountries") => list(String.t()()),
+        optional("Key") => String.t(),
+        optional("Language") => String.t(),
+        optional("MaxResults") => integer(),
+        required("Text") => String.t()
+      }
+
   """
   @type search_place_index_for_text_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_place_request() :: %{
-    optional("Key") => String.t(),
-    optional("Language") => String.t()
-  }
+
+      get_place_request() :: %{
+        optional("Key") => String.t(),
+        optional("Language") => String.t()
+      }
+
   """
   @type get_place_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  time_zone() :: %{
-    "Name" => [String.t()],
-    "Offset" => [integer()]
-  }
+
+      time_zone() :: %{
+        "Name" => [String.t()],
+        "Offset" => [integer()]
+      }
+
   """
   @type time_zone() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_geofence_collection_request() :: %{
-    optional("Description") => String.t(),
-    optional("PricingPlan") => String.t(),
-    optional("PricingPlanDataSource") => [String.t()]
-  }
+
+      update_geofence_collection_request() :: %{
+        optional("Description") => String.t(),
+        optional("PricingPlan") => String.t(),
+        optional("PricingPlanDataSource") => [String.t()]
+      }
+
   """
   @type update_geofence_collection_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_geofence_collection_request() :: %{
 
-  }
+      delete_geofence_collection_request() :: %{}
+
   """
-  @type delete_geofence_collection_request() :: %{String.t() => any()}
+  @type delete_geofence_collection_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  batch_item_error() :: %{
-    "Code" => String.t(),
-    "Message" => [String.t()]
-  }
+
+      batch_item_error() :: %{
+        "Code" => String.t(),
+        "Message" => [String.t()]
+      }
+
   """
   @type batch_item_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_map_response() :: %{
-    optional("PricingPlan") => String.t(),
-    optional("Tags") => map(),
-    required("Configuration") => map_configuration(),
-    required("CreateTime") => non_neg_integer(),
-    required("DataSource") => [String.t()],
-    required("Description") => String.t(),
-    required("MapArn") => String.t(),
-    required("MapName") => String.t(),
-    required("UpdateTime") => non_neg_integer()
-  }
+
+      describe_map_response() :: %{
+        optional("PricingPlan") => String.t(),
+        optional("Tags") => map(),
+        required("Configuration") => map_configuration(),
+        required("CreateTime") => non_neg_integer(),
+        required("DataSource") => [String.t()],
+        required("Description") => String.t(),
+        required("MapArn") => String.t(),
+        required("MapName") => String.t(),
+        required("UpdateTime") => non_neg_integer()
+      }
+
   """
   @type describe_map_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  search_place_index_for_suggestions_summary() :: %{
-    "BiasPosition" => list([float()]()),
-    "DataSource" => [String.t()],
-    "FilterBBox" => list([float()]()),
-    "FilterCategories" => list(String.t()()),
-    "FilterCountries" => list(String.t()()),
-    "Language" => String.t(),
-    "MaxResults" => [integer()],
-    "Text" => String.t()
-  }
+
+      search_place_index_for_suggestions_summary() :: %{
+        "BiasPosition" => list([float()]()),
+        "DataSource" => [String.t()],
+        "FilterBBox" => list([float()]()),
+        "FilterCategories" => list(String.t()()),
+        "FilterCountries" => list(String.t()()),
+        "Language" => String.t(),
+        "MaxResults" => [integer()],
+        "Text" => String.t()
+      }
+
   """
   @type search_place_index_for_suggestions_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_place_index_response() :: %{
-    required("IndexArn") => String.t(),
-    required("IndexName") => String.t(),
-    required("UpdateTime") => non_neg_integer()
-  }
+
+      update_place_index_response() :: %{
+        required("IndexArn") => String.t(),
+        required("IndexName") => String.t(),
+        required("UpdateTime") => non_neg_integer()
+      }
+
   """
   @type update_place_index_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_route_calculator_request() :: %{
-    optional("Description") => String.t(),
-    optional("PricingPlan") => String.t(),
-    optional("Tags") => map(),
-    required("CalculatorName") => String.t(),
-    required("DataSource") => [String.t()]
-  }
+
+      create_route_calculator_request() :: %{
+        optional("Description") => String.t(),
+        optional("PricingPlan") => String.t(),
+        optional("Tags") => map(),
+        required("CalculatorName") => String.t(),
+        required("DataSource") => [String.t()]
+      }
+
   """
   @type create_route_calculator_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_place_indexes_response_entry() :: %{
-    "CreateTime" => non_neg_integer(),
-    "DataSource" => [String.t()],
-    "Description" => String.t(),
-    "IndexName" => String.t(),
-    "PricingPlan" => String.t(),
-    "UpdateTime" => non_neg_integer()
-  }
+
+      list_place_indexes_response_entry() :: %{
+        "CreateTime" => non_neg_integer(),
+        "DataSource" => [String.t()],
+        "Description" => String.t(),
+        "IndexName" => String.t(),
+        "PricingPlan" => String.t(),
+        "UpdateTime" => non_neg_integer()
+      }
+
   """
   @type list_place_indexes_response_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_device_position_history_response() :: %{
-    optional("NextToken") => String.t(),
-    required("DevicePositions") => list(device_position()())
-  }
+
+      get_device_position_history_response() :: %{
+        optional("NextToken") => String.t(),
+        required("DevicePositions") => list(device_position()())
+      }
+
   """
   @type get_device_position_history_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_evaluate_geofences_response() :: %{
-    required("Errors") => list(batch_evaluate_geofences_error()())
-  }
+
+      batch_evaluate_geofences_response() :: %{
+        required("Errors") => list(batch_evaluate_geofences_error()())
+      }
+
   """
   @type batch_evaluate_geofences_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_map_response() :: %{
-    required("CreateTime") => non_neg_integer(),
-    required("MapArn") => String.t(),
-    required("MapName") => String.t()
-  }
+
+      create_map_response() :: %{
+        required("CreateTime") => non_neg_integer(),
+        required("MapArn") => String.t(),
+        required("MapName") => String.t()
+      }
+
   """
   @type create_map_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  api_key_restrictions() :: %{
-    "AllowActions" => list(String.t()()),
-    "AllowReferers" => list(String.t()()),
-    "AllowResources" => list(String.t()())
-  }
+
+      api_key_restrictions() :: %{
+        "AllowActions" => list(String.t()()),
+        "AllowReferers" => list(String.t()()),
+        "AllowResources" => list(String.t()())
+      }
+
   """
   @type api_key_restrictions() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_tracker_response() :: %{
-    required("TrackerArn") => String.t(),
-    required("TrackerName") => String.t(),
-    required("UpdateTime") => non_neg_integer()
-  }
+
+      update_tracker_response() :: %{
+        required("TrackerArn") => String.t(),
+        required("TrackerName") => String.t(),
+        required("UpdateTime") => non_neg_integer()
+      }
+
   """
   @type update_tracker_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  internal_server_exception() :: %{
-    "Message" => [String.t()]
-  }
+
+      internal_server_exception() :: %{
+        "Message" => [String.t()]
+      }
+
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_place_indexes_response() :: %{
-    optional("NextToken") => String.t(),
-    required("Entries") => list(list_place_indexes_response_entry()())
-  }
+
+      list_place_indexes_response() :: %{
+        optional("NextToken") => String.t(),
+        required("Entries") => list(list_place_indexes_response_entry()())
+      }
+
   """
   @type list_place_indexes_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_route_calculators_request() :: %{
-    optional("MaxResults") => [integer()],
-    optional("NextToken") => String.t()
-  }
+
+      list_route_calculators_request() :: %{
+        optional("MaxResults") => [integer()],
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_route_calculators_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_maps_response() :: %{
-    optional("NextToken") => String.t(),
-    required("Entries") => list(list_maps_response_entry()())
-  }
+
+      list_maps_response() :: %{
+        optional("NextToken") => String.t(),
+        required("Entries") => list(list_maps_response_entry()())
+      }
+
   """
   @type list_maps_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_put_geofence_request_entry() :: %{
-    "GeofenceId" => String.t(),
-    "GeofenceProperties" => map(),
-    "Geometry" => geofence_geometry()
-  }
+
+      batch_put_geofence_request_entry() :: %{
+        "GeofenceId" => String.t(),
+        "GeofenceProperties" => map(),
+        "Geometry" => geofence_geometry()
+      }
+
   """
   @type batch_put_geofence_request_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_tracker_request() :: %{
 
-  }
+      delete_tracker_request() :: %{}
+
   """
-  @type delete_tracker_request() :: %{String.t() => any()}
+  @type delete_tracker_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_map_sprites_response() :: %{
-    optional("Blob") => [binary()],
-    optional("CacheControl") => [String.t()],
-    optional("ContentType") => [String.t()]
-  }
+
+      get_map_sprites_response() :: %{
+        optional("Blob") => [binary()],
+        optional("CacheControl") => [String.t()],
+        optional("ContentType") => [String.t()]
+      }
+
   """
   @type get_map_sprites_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  access_denied_exception() :: %{
-    "Message" => [String.t()]
-  }
+
+      access_denied_exception() :: %{
+        "Message" => [String.t()]
+      }
+
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_place_index_response() :: %{
-    optional("PricingPlan") => String.t(),
-    optional("Tags") => map(),
-    required("CreateTime") => non_neg_integer(),
-    required("DataSource") => [String.t()],
-    required("DataSourceConfiguration") => data_source_configuration(),
-    required("Description") => String.t(),
-    required("IndexArn") => String.t(),
-    required("IndexName") => String.t(),
-    required("UpdateTime") => non_neg_integer()
-  }
+
+      describe_place_index_response() :: %{
+        optional("PricingPlan") => String.t(),
+        optional("Tags") => map(),
+        required("CreateTime") => non_neg_integer(),
+        required("DataSource") => [String.t()],
+        required("DataSourceConfiguration") => data_source_configuration(),
+        required("Description") => String.t(),
+        required("IndexArn") => String.t(),
+        required("IndexName") => String.t(),
+        required("UpdateTime") => non_neg_integer()
+      }
+
   """
   @type describe_place_index_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  calculate_route_truck_mode_options() :: %{
-    "AvoidFerries" => [boolean()],
-    "AvoidTolls" => [boolean()],
-    "Dimensions" => truck_dimensions(),
-    "Weight" => truck_weight()
-  }
+
+      calculate_route_truck_mode_options() :: %{
+        "AvoidFerries" => [boolean()],
+        "AvoidTolls" => [boolean()],
+        "Dimensions" => truck_dimensions(),
+        "Weight" => truck_weight()
+      }
+
   """
   @type calculate_route_truck_mode_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_tracker_response() :: %{
-    optional("EventBridgeEnabled") => [boolean()],
-    optional("KmsKeyEnableGeospatialQueries") => [boolean()],
-    optional("KmsKeyId") => String.t(),
-    optional("PositionFiltering") => String.t(),
-    optional("PricingPlan") => String.t(),
-    optional("PricingPlanDataSource") => [String.t()],
-    optional("Tags") => map(),
-    required("CreateTime") => non_neg_integer(),
-    required("Description") => String.t(),
-    required("TrackerArn") => String.t(),
-    required("TrackerName") => String.t(),
-    required("UpdateTime") => non_neg_integer()
-  }
+
+      describe_tracker_response() :: %{
+        optional("EventBridgeEnabled") => [boolean()],
+        optional("KmsKeyEnableGeospatialQueries") => [boolean()],
+        optional("KmsKeyId") => String.t(),
+        optional("PositionFiltering") => String.t(),
+        optional("PricingPlan") => String.t(),
+        optional("PricingPlanDataSource") => [String.t()],
+        optional("Tags") => map(),
+        required("CreateTime") => non_neg_integer(),
+        required("Description") => String.t(),
+        required("TrackerArn") => String.t(),
+        required("TrackerName") => String.t(),
+        required("UpdateTime") => non_neg_integer()
+      }
+
   """
   @type describe_tracker_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_response() :: %{
 
-  }
+      tag_resource_response() :: %{}
+
   """
-  @type tag_resource_response() :: %{String.t() => any()}
+  @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_tracker_request() :: %{
-    optional("Description") => String.t(),
-    optional("EventBridgeEnabled") => [boolean()],
-    optional("KmsKeyEnableGeospatialQueries") => [boolean()],
-    optional("KmsKeyId") => String.t(),
-    optional("PositionFiltering") => String.t(),
-    optional("PricingPlan") => String.t(),
-    optional("PricingPlanDataSource") => [String.t()],
-    optional("Tags") => map(),
-    required("TrackerName") => String.t()
-  }
+
+      create_tracker_request() :: %{
+        optional("Description") => String.t(),
+        optional("EventBridgeEnabled") => [boolean()],
+        optional("KmsKeyEnableGeospatialQueries") => [boolean()],
+        optional("KmsKeyId") => String.t(),
+        optional("PositionFiltering") => String.t(),
+        optional("PricingPlan") => String.t(),
+        optional("PricingPlanDataSource") => [String.t()],
+        optional("Tags") => map(),
+        required("TrackerName") => String.t()
+      }
+
   """
   @type create_tracker_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_geofence_collection_response() :: %{
-    optional("GeofenceCount") => [integer()],
-    optional("KmsKeyId") => String.t(),
-    optional("PricingPlan") => String.t(),
-    optional("PricingPlanDataSource") => [String.t()],
-    optional("Tags") => map(),
-    required("CollectionArn") => String.t(),
-    required("CollectionName") => String.t(),
-    required("CreateTime") => non_neg_integer(),
-    required("Description") => String.t(),
-    required("UpdateTime") => non_neg_integer()
-  }
+
+      describe_geofence_collection_response() :: %{
+        optional("GeofenceCount") => [integer()],
+        optional("KmsKeyId") => String.t(),
+        optional("PricingPlan") => String.t(),
+        optional("PricingPlanDataSource") => [String.t()],
+        optional("Tags") => map(),
+        required("CollectionArn") => String.t(),
+        required("CollectionName") => String.t(),
+        required("CreateTime") => non_neg_integer(),
+        required("Description") => String.t(),
+        required("UpdateTime") => non_neg_integer()
+      }
+
   """
   @type describe_geofence_collection_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  calculate_route_matrix_response() :: %{
-    "RouteMatrix" => list(list(route_matrix_entry()())()),
-    "SnappedDeparturePositions" => list(list([float()]())()),
-    "SnappedDestinationPositions" => list(list([float()]())()),
-    "Summary" => calculate_route_matrix_summary()
-  }
+
+      calculate_route_matrix_response() :: %{
+        "RouteMatrix" => list(list(route_matrix_entry()())()),
+        "SnappedDeparturePositions" => list(list([float()]())()),
+        "SnappedDestinationPositions" => list(list([float()]())()),
+        "Summary" => calculate_route_matrix_summary()
+      }
+
   """
   @type calculate_route_matrix_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_get_device_position_error() :: %{
-    "DeviceId" => String.t(),
-    "Error" => batch_item_error()
-  }
+
+      batch_get_device_position_error() :: %{
+        "DeviceId" => String.t(),
+        "Error" => batch_item_error()
+      }
+
   """
   @type batch_get_device_position_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  calculate_route_request() :: %{
-    optional("ArrivalTime") => non_neg_integer(),
-    optional("CarModeOptions") => calculate_route_car_mode_options(),
-    optional("DepartNow") => [boolean()],
-    optional("DepartureTime") => non_neg_integer(),
-    optional("DistanceUnit") => String.t(),
-    optional("IncludeLegGeometry") => [boolean()],
-    optional("Key") => String.t(),
-    optional("OptimizeFor") => String.t(),
-    optional("TravelMode") => String.t(),
-    optional("TruckModeOptions") => calculate_route_truck_mode_options(),
-    optional("WaypointPositions") => list(list([float()]())()),
-    required("DeparturePosition") => list([float()]()),
-    required("DestinationPosition") => list([float()]())
-  }
+
+      calculate_route_request() :: %{
+        optional("ArrivalTime") => non_neg_integer(),
+        optional("CarModeOptions") => calculate_route_car_mode_options(),
+        optional("DepartNow") => [boolean()],
+        optional("DepartureTime") => non_neg_integer(),
+        optional("DistanceUnit") => String.t(),
+        optional("IncludeLegGeometry") => [boolean()],
+        optional("Key") => String.t(),
+        optional("OptimizeFor") => String.t(),
+        optional("TravelMode") => String.t(),
+        optional("TruckModeOptions") => calculate_route_truck_mode_options(),
+        optional("WaypointPositions") => list(list([float()]())()),
+        required("DeparturePosition") => list([float()]()),
+        required("DestinationPosition") => list([float()]())
+      }
+
   """
   @type calculate_route_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  validation_exception() :: %{
-    "FieldList" => list(validation_exception_field()()),
-    "Message" => [String.t()],
-    "Reason" => String.t()
-  }
+
+      validation_exception() :: %{
+        "FieldList" => list(validation_exception_field()()),
+        "Message" => [String.t()],
+        "Reason" => String.t()
+      }
+
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_request() :: %{
 
-  }
+      list_tags_for_resource_request() :: %{}
+
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  batch_put_geofence_response() :: %{
-    required("Errors") => list(batch_put_geofence_error()()),
-    required("Successes") => list(batch_put_geofence_success()())
-  }
+
+      batch_put_geofence_response() :: %{
+        required("Errors") => list(batch_put_geofence_error()()),
+        required("Successes") => list(batch_put_geofence_success()())
+      }
+
   """
   @type batch_put_geofence_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_delete_device_position_history_error() :: %{
-    "DeviceId" => String.t(),
-    "Error" => batch_item_error()
-  }
+
+      batch_delete_device_position_history_error() :: %{
+        "DeviceId" => String.t(),
+        "Error" => batch_item_error()
+      }
+
   """
   @type batch_delete_device_position_history_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_place_response() :: %{
-    required("Place") => place()
-  }
+
+      get_place_response() :: %{
+        required("Place") => place()
+      }
+
   """
   @type get_place_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_get_device_position_response() :: %{
-    required("DevicePositions") => list(device_position()()),
-    required("Errors") => list(batch_get_device_position_error()())
-  }
+
+      batch_get_device_position_response() :: %{
+        required("DevicePositions") => list(device_position()()),
+        required("Errors") => list(batch_get_device_position_error()())
+      }
+
   """
   @type batch_get_device_position_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  throttling_exception() :: %{
-    "Message" => [String.t()]
-  }
+
+      throttling_exception() :: %{
+        "Message" => [String.t()]
+      }
+
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disassociate_tracker_consumer_response() :: %{
 
-  }
+      disassociate_tracker_consumer_response() :: %{}
+
   """
-  @type disassociate_tracker_consumer_response() :: %{String.t() => any()}
+  @type disassociate_tracker_consumer_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  truck_weight() :: %{
-    "Total" => [float()],
-    "Unit" => String.t()
-  }
+
+      truck_weight() :: %{
+        "Total" => [float()],
+        "Unit" => String.t()
+      }
+
   """
   @type truck_weight() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_key_response() :: %{
-    optional("Description") => String.t(),
-    optional("Tags") => map(),
-    required("CreateTime") => non_neg_integer(),
-    required("ExpireTime") => non_neg_integer(),
-    required("Key") => String.t(),
-    required("KeyArn") => String.t(),
-    required("KeyName") => String.t(),
-    required("Restrictions") => api_key_restrictions(),
-    required("UpdateTime") => non_neg_integer()
-  }
+
+      describe_key_response() :: %{
+        optional("Description") => String.t(),
+        optional("Tags") => map(),
+        required("CreateTime") => non_neg_integer(),
+        required("ExpireTime") => non_neg_integer(),
+        required("Key") => String.t(),
+        required("KeyArn") => String.t(),
+        required("KeyName") => String.t(),
+        required("Restrictions") => api_key_restrictions(),
+        required("UpdateTime") => non_neg_integer()
+      }
+
   """
   @type describe_key_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_update_device_position_request() :: %{
-    required("Updates") => list(device_position_update()())
-  }
+
+      batch_update_device_position_request() :: %{
+        required("Updates") => list(device_position_update()())
+      }
+
   """
   @type batch_update_device_position_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  device_position_update() :: %{
-    "Accuracy" => positional_accuracy(),
-    "DeviceId" => String.t(),
-    "Position" => list([float()]()),
-    "PositionProperties" => map(),
-    "SampleTime" => non_neg_integer()
-  }
+
+      device_position_update() :: %{
+        "Accuracy" => positional_accuracy(),
+        "DeviceId" => String.t(),
+        "Position" => list([float()]()),
+        "PositionProperties" => map(),
+        "SampleTime" => non_neg_integer()
+      }
+
   """
   @type device_position_update() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  calculate_route_matrix_summary() :: %{
-    "DataSource" => [String.t()],
-    "DistanceUnit" => String.t(),
-    "ErrorCount" => [integer()],
-    "RouteCount" => [integer()]
-  }
+
+      calculate_route_matrix_summary() :: %{
+        "DataSource" => [String.t()],
+        "DistanceUnit" => String.t(),
+        "ErrorCount" => [integer()],
+        "RouteCount" => [integer()]
+      }
+
   """
   @type calculate_route_matrix_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_delete_geofence_request() :: %{
-    required("GeofenceIds") => list(String.t()())
-  }
+
+      batch_delete_geofence_request() :: %{
+        required("GeofenceIds") => list(String.t()())
+      }
+
   """
   @type batch_delete_geofence_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_keys_response_entry() :: %{
-    "CreateTime" => non_neg_integer(),
-    "Description" => String.t(),
-    "ExpireTime" => non_neg_integer(),
-    "KeyName" => String.t(),
-    "Restrictions" => api_key_restrictions(),
-    "UpdateTime" => non_neg_integer()
-  }
+
+      list_keys_response_entry() :: %{
+        "CreateTime" => non_neg_integer(),
+        "Description" => String.t(),
+        "ExpireTime" => non_neg_integer(),
+        "KeyName" => String.t(),
+        "Restrictions" => api_key_restrictions(),
+        "UpdateTime" => non_neg_integer()
+      }
+
   """
   @type list_keys_response_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  calculate_route_summary() :: %{
-    "DataSource" => [String.t()],
-    "Distance" => [float()],
-    "DistanceUnit" => String.t(),
-    "DurationSeconds" => [float()],
-    "RouteBBox" => list([float()]())
-  }
+
+      calculate_route_summary() :: %{
+        "DataSource" => [String.t()],
+        "Distance" => [float()],
+        "DistanceUnit" => String.t(),
+        "DurationSeconds" => [float()],
+        "RouteBBox" => list([float()]())
+      }
+
   """
   @type calculate_route_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  map_configuration() :: %{
-    "CustomLayers" => list(String.t()()),
-    "PoliticalView" => String.t(),
-    "Style" => String.t()
-  }
+
+      map_configuration() :: %{
+        "CustomLayers" => list(String.t()()),
+        "PoliticalView" => String.t(),
+        "Style" => String.t()
+      }
+
   """
   @type map_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  positional_accuracy() :: %{
-    "Horizontal" => [float()]
-  }
+
+      positional_accuracy() :: %{
+        "Horizontal" => [float()]
+      }
+
   """
   @type positional_accuracy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  device_position() :: %{
-    "Accuracy" => positional_accuracy(),
-    "DeviceId" => String.t(),
-    "Position" => list([float()]()),
-    "PositionProperties" => map(),
-    "ReceivedTime" => non_neg_integer(),
-    "SampleTime" => non_neg_integer()
-  }
+
+      device_position() :: %{
+        "Accuracy" => positional_accuracy(),
+        "DeviceId" => String.t(),
+        "Position" => list([float()]()),
+        "PositionProperties" => map(),
+        "ReceivedTime" => non_neg_integer(),
+        "SampleTime" => non_neg_integer()
+      }
+
   """
   @type device_position() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_geofence_collection_request() :: %{
-    optional("Description") => String.t(),
-    optional("KmsKeyId") => String.t(),
-    optional("PricingPlan") => String.t(),
-    optional("PricingPlanDataSource") => [String.t()],
-    optional("Tags") => map(),
-    required("CollectionName") => String.t()
-  }
+
+      create_geofence_collection_request() :: %{
+        optional("Description") => String.t(),
+        optional("KmsKeyId") => String.t(),
+        optional("PricingPlan") => String.t(),
+        optional("PricingPlanDataSource") => [String.t()],
+        optional("Tags") => map(),
+        required("CollectionName") => String.t()
+      }
+
   """
   @type create_geofence_collection_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  step() :: %{
-    "Distance" => [float()],
-    "DurationSeconds" => [float()],
-    "EndPosition" => list([float()]()),
-    "GeometryOffset" => [integer()],
-    "StartPosition" => list([float()]())
-  }
+
+      step() :: %{
+        "Distance" => [float()],
+        "DurationSeconds" => [float()],
+        "EndPosition" => list([float()]()),
+        "GeometryOffset" => [integer()],
+        "StartPosition" => list([float()]())
+      }
+
   """
   @type step() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tracker_consumers_response() :: %{
-    optional("NextToken") => String.t(),
-    required("ConsumerArns") => list(String.t()())
-  }
+
+      list_tracker_consumers_response() :: %{
+        optional("NextToken") => String.t(),
+        required("ConsumerArns") => list(String.t()())
+      }
+
   """
   @type list_tracker_consumers_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_map_style_descriptor_request() :: %{
-    optional("Key") => String.t()
-  }
+
+      get_map_style_descriptor_request() :: %{
+        optional("Key") => String.t()
+      }
+
   """
   @type get_map_style_descriptor_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tracking_filter_geometry() :: %{
-    "Polygon" => list(list(list([float()]())())())
-  }
+
+      tracking_filter_geometry() :: %{
+        "Polygon" => list(list(list([float()]())())())
+      }
+
   """
   @type tracking_filter_geometry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  search_for_text_result() :: %{
-    "Distance" => [float()],
-    "Place" => place(),
-    "PlaceId" => String.t(),
-    "Relevance" => [float()]
-  }
+
+      search_for_text_result() :: %{
+        "Distance" => [float()],
+        "Place" => place(),
+        "PlaceId" => String.t(),
+        "Relevance" => [float()]
+      }
+
   """
   @type search_for_text_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_trackers_request() :: %{
-    optional("MaxResults") => [integer()],
-    optional("NextToken") => String.t()
-  }
+
+      list_trackers_request() :: %{
+        optional("MaxResults") => [integer()],
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_trackers_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_place_index_request() :: %{
 
-  }
+      delete_place_index_request() :: %{}
+
   """
-  @type delete_place_index_request() :: %{String.t() => any()}
+  @type delete_place_index_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  update_tracker_request() :: %{
-    optional("Description") => String.t(),
-    optional("EventBridgeEnabled") => [boolean()],
-    optional("KmsKeyEnableGeospatialQueries") => [boolean()],
-    optional("PositionFiltering") => String.t(),
-    optional("PricingPlan") => String.t(),
-    optional("PricingPlanDataSource") => [String.t()]
-  }
+
+      update_tracker_request() :: %{
+        optional("Description") => String.t(),
+        optional("EventBridgeEnabled") => [boolean()],
+        optional("KmsKeyEnableGeospatialQueries") => [boolean()],
+        optional("PositionFiltering") => String.t(),
+        optional("PricingPlan") => String.t(),
+        optional("PricingPlanDataSource") => [String.t()]
+      }
+
   """
   @type update_tracker_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_device_positions_request() :: %{
-    optional("FilterGeometry") => tracking_filter_geometry(),
-    optional("MaxResults") => [integer()],
-    optional("NextToken") => String.t()
-  }
+
+      list_device_positions_request() :: %{
+        optional("FilterGeometry") => tracking_filter_geometry(),
+        optional("MaxResults") => [integer()],
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_device_positions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  leg_geometry() :: %{
-    "LineString" => list(list([float()]())())
-  }
+
+      leg_geometry() :: %{
+        "LineString" => list(list([float()]())())
+      }
+
   """
   @type leg_geometry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  geofence_geometry() :: %{
-    "Circle" => circle(),
-    "Polygon" => list(list(list([float()]())())())
-  }
+
+      geofence_geometry() :: %{
+        "Circle" => circle(),
+        "Polygon" => list(list(list([float()]())())())
+      }
+
   """
   @type geofence_geometry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_geofence_request() :: %{
 
-  }
+      get_geofence_request() :: %{}
+
   """
-  @type get_geofence_request() :: %{String.t() => any()}
+  @type get_geofence_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_route_calculators_response() :: %{
-    optional("NextToken") => String.t(),
-    required("Entries") => list(list_route_calculators_response_entry()())
-  }
+
+      list_route_calculators_response() :: %{
+        optional("NextToken") => String.t(),
+        required("Entries") => list(list_route_calculators_response_entry()())
+      }
+
   """
   @type list_route_calculators_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_device_position_history_request() :: %{
-    optional("EndTimeExclusive") => non_neg_integer(),
-    optional("MaxResults") => [integer()],
-    optional("NextToken") => String.t(),
-    optional("StartTimeInclusive") => non_neg_integer()
-  }
+
+      get_device_position_history_request() :: %{
+        optional("EndTimeExclusive") => non_neg_integer(),
+        optional("MaxResults") => [integer()],
+        optional("NextToken") => String.t(),
+        optional("StartTimeInclusive") => non_neg_integer()
+      }
+
   """
   @type get_device_position_history_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  route_matrix_entry() :: %{
-    "Distance" => [float()],
-    "DurationSeconds" => [float()],
-    "Error" => route_matrix_entry_error()
-  }
+
+      route_matrix_entry() :: %{
+        "Distance" => [float()],
+        "DurationSeconds" => [float()],
+        "Error" => route_matrix_entry_error()
+      }
+
   """
   @type route_matrix_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_device_position_response() :: %{
-    optional("Accuracy") => positional_accuracy(),
-    optional("DeviceId") => String.t(),
-    optional("PositionProperties") => map(),
-    required("Position") => list([float()]()),
-    required("ReceivedTime") => non_neg_integer(),
-    required("SampleTime") => non_neg_integer()
-  }
+
+      get_device_position_response() :: %{
+        optional("Accuracy") => positional_accuracy(),
+        optional("DeviceId") => String.t(),
+        optional("PositionProperties") => map(),
+        required("Position") => list([float()]()),
+        required("ReceivedTime") => non_neg_integer(),
+        required("SampleTime") => non_neg_integer()
+      }
+
   """
   @type get_device_position_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  search_place_index_for_suggestions_request() :: %{
-    optional("BiasPosition") => list([float()]()),
-    optional("FilterBBox") => list([float()]()),
-    optional("FilterCategories") => list(String.t()()),
-    optional("FilterCountries") => list(String.t()()),
-    optional("Key") => String.t(),
-    optional("Language") => String.t(),
-    optional("MaxResults") => [integer()],
-    required("Text") => String.t()
-  }
+
+      search_place_index_for_suggestions_request() :: %{
+        optional("BiasPosition") => list([float()]()),
+        optional("FilterBBox") => list([float()]()),
+        optional("FilterCategories") => list(String.t()()),
+        optional("FilterCountries") => list(String.t()()),
+        optional("Key") => String.t(),
+        optional("Language") => String.t(),
+        optional("MaxResults") => [integer()],
+        required("Text") => String.t()
+      }
+
   """
   @type search_place_index_for_suggestions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_delete_device_position_history_response() :: %{
-    required("Errors") => list(batch_delete_device_position_history_error()())
-  }
+
+      batch_delete_device_position_history_response() :: %{
+        required("Errors") => list(batch_delete_device_position_history_error()())
+      }
+
   """
   @type batch_delete_device_position_history_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_tracker_response() :: %{
 
-  }
+      delete_tracker_response() :: %{}
+
   """
-  @type delete_tracker_response() :: %{String.t() => any()}
+  @type delete_tracker_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  search_place_index_for_suggestions_response() :: %{
-    required("Results") => list(search_for_suggestions_result()()),
-    required("Summary") => search_place_index_for_suggestions_summary()
-  }
+
+      search_place_index_for_suggestions_response() :: %{
+        required("Results") => list(search_for_suggestions_result()()),
+        required("Summary") => search_place_index_for_suggestions_summary()
+      }
+
   """
   @type search_place_index_for_suggestions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_map_glyphs_request() :: %{
-    optional("Key") => String.t()
-  }
+
+      get_map_glyphs_request() :: %{
+        optional("Key") => String.t()
+      }
+
   """
   @type get_map_glyphs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  leg() :: %{
-    "Distance" => [float()],
-    "DurationSeconds" => [float()],
-    "EndPosition" => list([float()]()),
-    "Geometry" => leg_geometry(),
-    "StartPosition" => list([float()]()),
-    "Steps" => list(step()())
-  }
+
+      leg() :: %{
+        "Distance" => [float()],
+        "DurationSeconds" => [float()],
+        "EndPosition" => list([float()]()),
+        "Geometry" => leg_geometry(),
+        "StartPosition" => list([float()]()),
+        "Steps" => list(step()())
+      }
+
   """
   @type leg() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  place() :: %{
-    "AddressNumber" => [String.t()],
-    "Categories" => list(String.t()()),
-    "Country" => [String.t()],
-    "Geometry" => place_geometry(),
-    "Interpolated" => [boolean()],
-    "Label" => [String.t()],
-    "Municipality" => [String.t()],
-    "Neighborhood" => [String.t()],
-    "PostalCode" => [String.t()],
-    "Region" => [String.t()],
-    "Street" => [String.t()],
-    "SubMunicipality" => [String.t()],
-    "SubRegion" => [String.t()],
-    "SupplementalCategories" => list(String.t()()),
-    "TimeZone" => time_zone(),
-    "UnitNumber" => [String.t()],
-    "UnitType" => [String.t()]
-  }
+
+      place() :: %{
+        "AddressNumber" => [String.t()],
+        "Categories" => list(String.t()()),
+        "Country" => [String.t()],
+        "Geometry" => place_geometry(),
+        "Interpolated" => [boolean()],
+        "Label" => [String.t()],
+        "Municipality" => [String.t()],
+        "Neighborhood" => [String.t()],
+        "PostalCode" => [String.t()],
+        "Region" => [String.t()],
+        "Street" => [String.t()],
+        "SubMunicipality" => [String.t()],
+        "SubRegion" => [String.t()],
+        "SupplementalCategories" => list(String.t()()),
+        "TimeZone" => time_zone(),
+        "UnitNumber" => [String.t()],
+        "UnitType" => [String.t()]
+      }
+
   """
   @type place() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_evaluate_geofences_error() :: %{
-    "DeviceId" => String.t(),
-    "Error" => batch_item_error(),
-    "SampleTime" => non_neg_integer()
-  }
+
+      batch_evaluate_geofences_error() :: %{
+        "DeviceId" => String.t(),
+        "Error" => batch_item_error(),
+        "SampleTime" => non_neg_integer()
+      }
+
   """
   @type batch_evaluate_geofences_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_geofence_collections_response_entry() :: %{
-    "CollectionName" => String.t(),
-    "CreateTime" => non_neg_integer(),
-    "Description" => String.t(),
-    "PricingPlan" => String.t(),
-    "PricingPlanDataSource" => [String.t()],
-    "UpdateTime" => non_neg_integer()
-  }
+
+      list_geofence_collections_response_entry() :: %{
+        "CollectionName" => String.t(),
+        "CreateTime" => non_neg_integer(),
+        "Description" => String.t(),
+        "PricingPlan" => String.t(),
+        "PricingPlanDataSource" => [String.t()],
+        "UpdateTime" => non_neg_integer()
+      }
+
   """
   @type list_geofence_collections_response_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_place_index_request() :: %{
-    optional("DataSourceConfiguration") => data_source_configuration(),
-    optional("Description") => String.t(),
-    optional("PricingPlan") => String.t()
-  }
+
+      update_place_index_request() :: %{
+        optional("DataSourceConfiguration") => data_source_configuration(),
+        optional("Description") => String.t(),
+        optional("PricingPlan") => String.t()
+      }
+
   """
   @type update_place_index_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_key_response() :: %{
-    required("CreateTime") => non_neg_integer(),
-    required("Key") => String.t(),
-    required("KeyArn") => String.t(),
-    required("KeyName") => String.t()
-  }
+
+      create_key_response() :: %{
+        required("CreateTime") => non_neg_integer(),
+        required("Key") => String.t(),
+        required("KeyArn") => String.t(),
+        required("KeyName") => String.t()
+      }
+
   """
   @type create_key_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  search_place_index_for_position_request() :: %{
-    optional("Key") => String.t(),
-    optional("Language") => String.t(),
-    optional("MaxResults") => integer(),
-    required("Position") => list([float()]())
-  }
+
+      search_place_index_for_position_request() :: %{
+        optional("Key") => String.t(),
+        optional("Language") => String.t(),
+        optional("MaxResults") => integer(),
+        required("Position") => list([float()]())
+      }
+
   """
   @type search_place_index_for_position_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  calculate_route_matrix_request() :: %{
-    optional("CarModeOptions") => calculate_route_car_mode_options(),
-    optional("DepartNow") => [boolean()],
-    optional("DepartureTime") => non_neg_integer(),
-    optional("DistanceUnit") => String.t(),
-    optional("Key") => String.t(),
-    optional("TravelMode") => String.t(),
-    optional("TruckModeOptions") => calculate_route_truck_mode_options(),
-    required("DeparturePositions") => list(list([float()]())()),
-    required("DestinationPositions") => list(list([float()]())())
-  }
+
+      calculate_route_matrix_request() :: %{
+        optional("CarModeOptions") => calculate_route_car_mode_options(),
+        optional("DepartNow") => [boolean()],
+        optional("DepartureTime") => non_neg_integer(),
+        optional("DistanceUnit") => String.t(),
+        optional("Key") => String.t(),
+        optional("TravelMode") => String.t(),
+        optional("TruckModeOptions") => calculate_route_truck_mode_options(),
+        required("DeparturePositions") => list(list([float()]())()),
+        required("DestinationPositions") => list(list([float()]())())
+      }
+
   """
   @type calculate_route_matrix_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_geofence_collection_response() :: %{
 
-  }
+      delete_geofence_collection_response() :: %{}
+
   """
-  @type delete_geofence_collection_response() :: %{String.t() => any()}
+  @type delete_geofence_collection_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_geofences_request() :: %{
-    optional("MaxResults") => [integer()],
-    optional("NextToken") => String.t()
-  }
+
+      list_geofences_request() :: %{
+        optional("MaxResults") => [integer()],
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_geofences_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_trackers_response_entry() :: %{
-    "CreateTime" => non_neg_integer(),
-    "Description" => String.t(),
-    "PricingPlan" => String.t(),
-    "PricingPlanDataSource" => [String.t()],
-    "TrackerName" => String.t(),
-    "UpdateTime" => non_neg_integer()
-  }
+
+      list_trackers_response_entry() :: %{
+        "CreateTime" => non_neg_integer(),
+        "Description" => String.t(),
+        "PricingPlan" => String.t(),
+        "PricingPlanDataSource" => [String.t()],
+        "TrackerName" => String.t(),
+        "UpdateTime" => non_neg_integer()
+      }
+
   """
   @type list_trackers_response_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_delete_device_position_history_request() :: %{
-    required("DeviceIds") => list(String.t()())
-  }
+
+      batch_delete_device_position_history_request() :: %{
+        required("DeviceIds") => list(String.t()())
+      }
+
   """
   @type batch_delete_device_position_history_request() :: %{String.t() => any()}
+
+  @type associate_tracker_consumer_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type batch_delete_device_position_history_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type batch_delete_geofence_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type batch_evaluate_geofences_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type batch_get_device_position_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type batch_put_geofence_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type batch_update_device_position_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type calculate_route_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type calculate_route_matrix_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type create_geofence_collection_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+
+  @type create_key_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+
+  @type create_map_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+
+  @type create_place_index_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+
+  @type create_route_calculator_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+
+  @type create_tracker_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+
+  @type delete_geofence_collection_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type delete_key_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type delete_map_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type delete_place_index_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type delete_route_calculator_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type delete_tracker_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type describe_geofence_collection_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type describe_key_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type describe_map_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type describe_place_index_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type describe_route_calculator_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type describe_tracker_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type disassociate_tracker_consumer_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_device_position_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_device_position_history_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_geofence_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_map_glyphs_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_map_sprites_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_map_style_descriptor_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_map_tile_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_place_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_device_positions_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_geofence_collections_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_geofences_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_keys_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_maps_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_place_indexes_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_route_calculators_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_tags_for_resource_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_tracker_consumers_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_trackers_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type put_geofence_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type search_place_index_for_position_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type search_place_index_for_suggestions_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type search_place_index_for_text_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type tag_resource_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type untag_resource_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type update_geofence_collection_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type update_key_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type update_map_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type update_place_index_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type update_route_calculator_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type update_tracker_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
 
   def metadata do
     %{
@@ -1950,13 +2652,7 @@ defmodule AWS.Location do
         ) ::
           {:ok, associate_tracker_consumer_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, associate_tracker_consumer_errors()}
   def associate_tracker_consumer(%Client{} = client, tracker_name, input, options \\ []) do
     url_path = "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}/consumers"
     headers = []
@@ -1988,11 +2684,7 @@ defmodule AWS.Location do
         ) ::
           {:ok, batch_delete_device_position_history_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, batch_delete_device_position_history_errors()}
   def batch_delete_device_position_history(%Client{} = client, tracker_name, input, options \\ []) do
     url_path = "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}/delete-positions"
     headers = []
@@ -2021,11 +2713,7 @@ defmodule AWS.Location do
   @spec batch_delete_geofence(map(), String.t(), batch_delete_geofence_request(), list()) ::
           {:ok, batch_delete_geofence_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, batch_delete_geofence_errors()}
   def batch_delete_geofence(%Client{} = client, collection_name, input, options \\ []) do
     url_path =
       "/geofencing/v0/collections/#{AWS.Util.encode_uri(collection_name)}/delete-geofences"
@@ -2080,11 +2768,7 @@ defmodule AWS.Location do
   @spec batch_evaluate_geofences(map(), String.t(), batch_evaluate_geofences_request(), list()) ::
           {:ok, batch_evaluate_geofences_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, batch_evaluate_geofences_errors()}
   def batch_evaluate_geofences(%Client{} = client, collection_name, input, options \\ []) do
     url_path = "/geofencing/v0/collections/#{AWS.Util.encode_uri(collection_name)}/positions"
     headers = []
@@ -2111,11 +2795,7 @@ defmodule AWS.Location do
   @spec batch_get_device_position(map(), String.t(), batch_get_device_position_request(), list()) ::
           {:ok, batch_get_device_position_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, batch_get_device_position_errors()}
   def batch_get_device_position(%Client{} = client, tracker_name, input, options \\ []) do
     url_path = "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}/get-positions"
     headers = []
@@ -2145,11 +2825,7 @@ defmodule AWS.Location do
   @spec batch_put_geofence(map(), String.t(), batch_put_geofence_request(), list()) ::
           {:ok, batch_put_geofence_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, batch_put_geofence_errors()}
   def batch_put_geofence(%Client{} = client, collection_name, input, options \\ []) do
     url_path = "/geofencing/v0/collections/#{AWS.Util.encode_uri(collection_name)}/put-geofences"
     headers = []
@@ -2209,11 +2885,7 @@ defmodule AWS.Location do
         ) ::
           {:ok, batch_update_device_position_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, batch_update_device_position_errors()}
   def batch_update_device_position(%Client{} = client, tracker_name, input, options \\ []) do
     url_path = "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}/positions"
     headers = []
@@ -2276,11 +2948,7 @@ defmodule AWS.Location do
   @spec calculate_route(map(), String.t(), calculate_route_request(), list()) ::
           {:ok, calculate_route_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, calculate_route_errors()}
   def calculate_route(%Client{} = client, calculator_name, input, options \\ []) do
     url_path = "/routes/v0/calculators/#{AWS.Util.encode_uri(calculator_name)}/calculate/route"
     headers = []
@@ -2357,11 +3025,7 @@ defmodule AWS.Location do
   @spec calculate_route_matrix(map(), String.t(), calculate_route_matrix_request(), list()) ::
           {:ok, calculate_route_matrix_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, calculate_route_matrix_errors()}
   def calculate_route_matrix(%Client{} = client, calculator_name, input, options \\ []) do
     url_path =
       "/routes/v0/calculators/#{AWS.Util.encode_uri(calculator_name)}/calculate/route-matrix"
@@ -2395,12 +3059,7 @@ defmodule AWS.Location do
   @spec create_geofence_collection(map(), create_geofence_collection_request(), list()) ::
           {:ok, create_geofence_collection_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_geofence_collection_errors()}
   def create_geofence_collection(%Client{} = client, input, options \\ []) do
     url_path = "/geofencing/v0/collections"
     headers = []
@@ -2431,12 +3090,7 @@ defmodule AWS.Location do
   @spec create_key(map(), create_key_request(), list()) ::
           {:ok, create_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_key_errors()}
   def create_key(%Client{} = client, input, options \\ []) do
     url_path = "/metadata/v0/keys"
     headers = []
@@ -2469,12 +3123,7 @@ defmodule AWS.Location do
   @spec create_map(map(), create_map_request(), list()) ::
           {:ok, create_map_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_map_errors()}
   def create_map(%Client{} = client, input, options \\ []) do
     url_path = "/maps/v0/maps"
     headers = []
@@ -2511,12 +3160,7 @@ defmodule AWS.Location do
   @spec create_place_index(map(), create_place_index_request(), list()) ::
           {:ok, create_place_index_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_place_index_errors()}
   def create_place_index(%Client{} = client, input, options \\ []) do
     url_path = "/places/v0/indexes"
     headers = []
@@ -2552,12 +3196,7 @@ defmodule AWS.Location do
   @spec create_route_calculator(map(), create_route_calculator_request(), list()) ::
           {:ok, create_route_calculator_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_route_calculator_errors()}
   def create_route_calculator(%Client{} = client, input, options \\ []) do
     url_path = "/routes/v0/calculators"
     headers = []
@@ -2586,12 +3225,7 @@ defmodule AWS.Location do
   @spec create_tracker(map(), create_tracker_request(), list()) ::
           {:ok, create_tracker_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_tracker_errors()}
   def create_tracker(%Client{} = client, input, options \\ []) do
     url_path = "/tracking/v0/trackers"
     headers = []
@@ -2627,11 +3261,7 @@ defmodule AWS.Location do
         ) ::
           {:ok, delete_geofence_collection_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_geofence_collection_errors()}
   def delete_geofence_collection(%Client{} = client, collection_name, input, options \\ []) do
     url_path = "/geofencing/v0/collections/#{AWS.Util.encode_uri(collection_name)}"
     headers = []
@@ -2661,11 +3291,7 @@ defmodule AWS.Location do
   @spec delete_key(map(), String.t(), delete_key_request(), list()) ::
           {:ok, delete_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_key_errors()}
   def delete_key(%Client{} = client, key_name, input, options \\ []) do
     url_path = "/metadata/v0/keys/#{AWS.Util.encode_uri(key_name)}"
     headers = []
@@ -2701,11 +3327,7 @@ defmodule AWS.Location do
   @spec delete_map(map(), String.t(), delete_map_request(), list()) ::
           {:ok, delete_map_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_map_errors()}
   def delete_map(%Client{} = client, map_name, input, options \\ []) do
     url_path = "/maps/v0/maps/#{AWS.Util.encode_uri(map_name)}"
     headers = []
@@ -2734,11 +3356,7 @@ defmodule AWS.Location do
   @spec delete_place_index(map(), String.t(), delete_place_index_request(), list()) ::
           {:ok, delete_place_index_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_place_index_errors()}
   def delete_place_index(%Client{} = client, index_name, input, options \\ []) do
     url_path = "/places/v0/indexes/#{AWS.Util.encode_uri(index_name)}"
     headers = []
@@ -2767,11 +3385,7 @@ defmodule AWS.Location do
   @spec delete_route_calculator(map(), String.t(), delete_route_calculator_request(), list()) ::
           {:ok, delete_route_calculator_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_route_calculator_errors()}
   def delete_route_calculator(%Client{} = client, calculator_name, input, options \\ []) do
     url_path = "/routes/v0/calculators/#{AWS.Util.encode_uri(calculator_name)}"
     headers = []
@@ -2804,11 +3418,7 @@ defmodule AWS.Location do
   @spec delete_tracker(map(), String.t(), delete_tracker_request(), list()) ::
           {:ok, delete_tracker_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_tracker_errors()}
   def delete_tracker(%Client{} = client, tracker_name, input, options \\ []) do
     url_path = "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}"
     headers = []
@@ -2835,11 +3445,7 @@ defmodule AWS.Location do
   @spec describe_geofence_collection(map(), String.t(), list()) ::
           {:ok, describe_geofence_collection_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, describe_geofence_collection_errors()}
   def describe_geofence_collection(%Client{} = client, collection_name, options \\ []) do
     url_path = "/geofencing/v0/collections/#{AWS.Util.encode_uri(collection_name)}"
     headers = []
@@ -2856,11 +3462,7 @@ defmodule AWS.Location do
   @spec describe_key(map(), String.t(), list()) ::
           {:ok, describe_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, describe_key_errors()}
   def describe_key(%Client{} = client, key_name, options \\ []) do
     url_path = "/metadata/v0/keys/#{AWS.Util.encode_uri(key_name)}"
     headers = []
@@ -2877,11 +3479,7 @@ defmodule AWS.Location do
   @spec describe_map(map(), String.t(), list()) ::
           {:ok, describe_map_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, describe_map_errors()}
   def describe_map(%Client{} = client, map_name, options \\ []) do
     url_path = "/maps/v0/maps/#{AWS.Util.encode_uri(map_name)}"
     headers = []
@@ -2898,11 +3496,7 @@ defmodule AWS.Location do
   @spec describe_place_index(map(), String.t(), list()) ::
           {:ok, describe_place_index_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, describe_place_index_errors()}
   def describe_place_index(%Client{} = client, index_name, options \\ []) do
     url_path = "/places/v0/indexes/#{AWS.Util.encode_uri(index_name)}"
     headers = []
@@ -2919,11 +3513,7 @@ defmodule AWS.Location do
   @spec describe_route_calculator(map(), String.t(), list()) ::
           {:ok, describe_route_calculator_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, describe_route_calculator_errors()}
   def describe_route_calculator(%Client{} = client, calculator_name, options \\ []) do
     url_path = "/routes/v0/calculators/#{AWS.Util.encode_uri(calculator_name)}"
     headers = []
@@ -2940,11 +3530,7 @@ defmodule AWS.Location do
   @spec describe_tracker(map(), String.t(), list()) ::
           {:ok, describe_tracker_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, describe_tracker_errors()}
   def describe_tracker(%Client{} = client, tracker_name, options \\ []) do
     url_path = "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}"
     headers = []
@@ -2970,11 +3556,7 @@ defmodule AWS.Location do
         ) ::
           {:ok, disassociate_tracker_consumer_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, disassociate_tracker_consumer_errors()}
   def disassociate_tracker_consumer(
         %Client{} = client,
         consumer_arn,
@@ -3011,11 +3593,7 @@ defmodule AWS.Location do
   @spec get_device_position(map(), String.t(), String.t(), list()) ::
           {:ok, get_device_position_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_device_position_errors()}
   def get_device_position(%Client{} = client, device_id, tracker_name, options \\ []) do
     url_path =
       "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}/devices/#{AWS.Util.encode_uri(device_id)}/positions/latest"
@@ -3044,11 +3622,7 @@ defmodule AWS.Location do
         ) ::
           {:ok, get_device_position_history_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_device_position_history_errors()}
   def get_device_position_history(
         %Client{} = client,
         device_id,
@@ -3083,11 +3657,7 @@ defmodule AWS.Location do
   @spec get_geofence(map(), String.t(), String.t(), list()) ::
           {:ok, get_geofence_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_geofence_errors()}
   def get_geofence(%Client{} = client, collection_name, geofence_id, options \\ []) do
     url_path =
       "/geofencing/v0/collections/#{AWS.Util.encode_uri(collection_name)}/geofences/#{AWS.Util.encode_uri(geofence_id)}"
@@ -3106,11 +3676,7 @@ defmodule AWS.Location do
   @spec get_map_glyphs(map(), String.t(), String.t(), String.t(), String.t() | nil, list()) ::
           {:ok, get_map_glyphs_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_map_glyphs_errors()}
   def get_map_glyphs(
         %Client{} = client,
         font_stack,
@@ -3155,11 +3721,7 @@ defmodule AWS.Location do
   @spec get_map_sprites(map(), String.t(), String.t(), String.t() | nil, list()) ::
           {:ok, get_map_sprites_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_map_sprites_errors()}
   def get_map_sprites(%Client{} = client, file_name, map_name, key \\ nil, options \\ []) do
     url_path =
       "/maps/v0/maps/#{AWS.Util.encode_uri(map_name)}/sprites/#{AWS.Util.encode_uri(file_name)}"
@@ -3197,11 +3759,7 @@ defmodule AWS.Location do
   @spec get_map_style_descriptor(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_map_style_descriptor_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_map_style_descriptor_errors()}
   def get_map_style_descriptor(%Client{} = client, map_name, key \\ nil, options \\ []) do
     url_path = "/maps/v0/maps/#{AWS.Util.encode_uri(map_name)}/style-descriptor"
     headers = []
@@ -3250,11 +3808,7 @@ defmodule AWS.Location do
         ) ::
           {:ok, get_map_tile_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_map_tile_errors()}
   def get_map_tile(%Client{} = client, map_name, x, y, z, key \\ nil, options \\ []) do
     url_path =
       "/maps/v0/maps/#{AWS.Util.encode_uri(map_name)}/tiles/#{AWS.Util.encode_uri(z)}/#{AWS.Util.encode_uri(x)}/#{AWS.Util.encode_uri(y)}"
@@ -3302,11 +3856,7 @@ defmodule AWS.Location do
   @spec get_place(map(), String.t(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, get_place_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_place_errors()}
   def get_place(
         %Client{} = client,
         index_name,
@@ -3346,10 +3896,7 @@ defmodule AWS.Location do
   @spec list_device_positions(map(), String.t(), list_device_positions_request(), list()) ::
           {:ok, list_device_positions_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_device_positions_errors()}
   def list_device_positions(%Client{} = client, tracker_name, input, options \\ []) do
     url_path = "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}/list-positions"
     headers = []
@@ -3376,10 +3923,7 @@ defmodule AWS.Location do
   @spec list_geofence_collections(map(), list_geofence_collections_request(), list()) ::
           {:ok, list_geofence_collections_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_geofence_collections_errors()}
   def list_geofence_collections(%Client{} = client, input, options \\ []) do
     url_path = "/geofencing/v0/list-collections"
     headers = []
@@ -3406,11 +3950,7 @@ defmodule AWS.Location do
   @spec list_geofences(map(), String.t(), list_geofences_request(), list()) ::
           {:ok, list_geofences_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_geofences_errors()}
   def list_geofences(%Client{} = client, collection_name, input, options \\ []) do
     url_path = "/geofencing/v0/collections/#{AWS.Util.encode_uri(collection_name)}/list-geofences"
     headers = []
@@ -3437,10 +3977,7 @@ defmodule AWS.Location do
   @spec list_keys(map(), list_keys_request(), list()) ::
           {:ok, list_keys_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_keys_errors()}
   def list_keys(%Client{} = client, input, options \\ []) do
     url_path = "/metadata/v0/list-keys"
     headers = []
@@ -3467,10 +4004,7 @@ defmodule AWS.Location do
   @spec list_maps(map(), list_maps_request(), list()) ::
           {:ok, list_maps_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_maps_errors()}
   def list_maps(%Client{} = client, input, options \\ []) do
     url_path = "/maps/v0/list-maps"
     headers = []
@@ -3497,10 +4031,7 @@ defmodule AWS.Location do
   @spec list_place_indexes(map(), list_place_indexes_request(), list()) ::
           {:ok, list_place_indexes_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_place_indexes_errors()}
   def list_place_indexes(%Client{} = client, input, options \\ []) do
     url_path = "/places/v0/list-indexes"
     headers = []
@@ -3527,10 +4058,7 @@ defmodule AWS.Location do
   @spec list_route_calculators(map(), list_route_calculators_request(), list()) ::
           {:ok, list_route_calculators_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_route_calculators_errors()}
   def list_route_calculators(%Client{} = client, input, options \\ []) do
     url_path = "/routes/v0/list-calculators"
     headers = []
@@ -3558,11 +4086,7 @@ defmodule AWS.Location do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -3579,11 +4103,7 @@ defmodule AWS.Location do
   @spec list_tracker_consumers(map(), String.t(), list_tracker_consumers_request(), list()) ::
           {:ok, list_tracker_consumers_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_tracker_consumers_errors()}
   def list_tracker_consumers(%Client{} = client, tracker_name, input, options \\ []) do
     url_path = "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}/list-consumers"
     headers = []
@@ -3610,10 +4130,7 @@ defmodule AWS.Location do
   @spec list_trackers(map(), list_trackers_request(), list()) ::
           {:ok, list_trackers_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_trackers_errors()}
   def list_trackers(%Client{} = client, input, options \\ []) do
     url_path = "/tracking/v0/list-trackers"
     headers = []
@@ -3642,12 +4159,7 @@ defmodule AWS.Location do
   @spec put_geofence(map(), String.t(), String.t(), put_geofence_request(), list()) ::
           {:ok, put_geofence_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, put_geofence_errors()}
   def put_geofence(%Client{} = client, collection_name, geofence_id, input, options \\ []) do
     url_path =
       "/geofencing/v0/collections/#{AWS.Util.encode_uri(collection_name)}/geofences/#{AWS.Util.encode_uri(geofence_id)}"
@@ -3674,11 +4186,7 @@ defmodule AWS.Location do
         ) ::
           {:ok, search_place_index_for_position_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, search_place_index_for_position_errors()}
   def search_place_index_for_position(%Client{} = client, index_name, input, options \\ []) do
     url_path = "/places/v0/indexes/#{AWS.Util.encode_uri(index_name)}/search/position"
     headers = []
@@ -3729,11 +4237,7 @@ defmodule AWS.Location do
         ) ::
           {:ok, search_place_index_for_suggestions_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, search_place_index_for_suggestions_errors()}
   def search_place_index_for_suggestions(%Client{} = client, index_name, input, options \\ []) do
     url_path = "/places/v0/indexes/#{AWS.Util.encode_uri(index_name)}/search/suggestions"
     headers = []
@@ -3782,11 +4286,7 @@ defmodule AWS.Location do
         ) ::
           {:ok, search_place_index_for_text_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, search_place_index_for_text_errors()}
   def search_place_index_for_text(%Client{} = client, index_name, input, options \\ []) do
     url_path = "/places/v0/indexes/#{AWS.Util.encode_uri(index_name)}/search/text"
     headers = []
@@ -3837,11 +4337,7 @@ defmodule AWS.Location do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -3868,11 +4364,7 @@ defmodule AWS.Location do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -3909,11 +4401,7 @@ defmodule AWS.Location do
         ) ::
           {:ok, update_geofence_collection_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_geofence_collection_errors()}
   def update_geofence_collection(%Client{} = client, collection_name, input, options \\ []) do
     url_path = "/geofencing/v0/collections/#{AWS.Util.encode_uri(collection_name)}"
     headers = []
@@ -3940,11 +4428,7 @@ defmodule AWS.Location do
   @spec update_key(map(), String.t(), update_key_request(), list()) ::
           {:ok, update_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_key_errors()}
   def update_key(%Client{} = client, key_name, input, options \\ []) do
     url_path = "/metadata/v0/keys/#{AWS.Util.encode_uri(key_name)}"
     headers = []
@@ -3971,11 +4455,7 @@ defmodule AWS.Location do
   @spec update_map(map(), String.t(), update_map_request(), list()) ::
           {:ok, update_map_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_map_errors()}
   def update_map(%Client{} = client, map_name, input, options \\ []) do
     url_path = "/maps/v0/maps/#{AWS.Util.encode_uri(map_name)}"
     headers = []
@@ -4002,11 +4482,7 @@ defmodule AWS.Location do
   @spec update_place_index(map(), String.t(), update_place_index_request(), list()) ::
           {:ok, update_place_index_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_place_index_errors()}
   def update_place_index(%Client{} = client, index_name, input, options \\ []) do
     url_path = "/places/v0/indexes/#{AWS.Util.encode_uri(index_name)}"
     headers = []
@@ -4033,11 +4509,7 @@ defmodule AWS.Location do
   @spec update_route_calculator(map(), String.t(), update_route_calculator_request(), list()) ::
           {:ok, update_route_calculator_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_route_calculator_errors()}
   def update_route_calculator(%Client{} = client, calculator_name, input, options \\ []) do
     url_path = "/routes/v0/calculators/#{AWS.Util.encode_uri(calculator_name)}"
     headers = []
@@ -4064,11 +4536,7 @@ defmodule AWS.Location do
   @spec update_tracker(map(), String.t(), update_tracker_request(), list()) ::
           {:ok, update_tracker_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_tracker_errors()}
   def update_tracker(%Client{} = client, tracker_name, input, options \\ []) do
     url_path = "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}"
     headers = []

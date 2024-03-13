@@ -31,407 +31,550 @@ defmodule AWS.NetworkMonitor do
   @typedoc """
 
   ## Example:
-  list_monitors_input() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t(),
-    optional("state") => [String.t()]
-  }
+
+      list_monitors_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("state") => [String.t()]
+      }
+
   """
   @type list_monitors_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_monitor_output() :: %{
-    "aggregationPeriod" => float(),
-    "createdAt" => non_neg_integer(),
-    "modifiedAt" => non_neg_integer(),
-    "monitorArn" => String.t(),
-    "monitorName" => String.t(),
-    "probes" => list(probe()()),
-    "state" => list(any()),
-    "tags" => map()
-  }
+
+      get_monitor_output() :: %{
+        "aggregationPeriod" => float(),
+        "createdAt" => non_neg_integer(),
+        "modifiedAt" => non_neg_integer(),
+        "monitorArn" => String.t(),
+        "monitorName" => String.t(),
+        "probes" => list(probe()()),
+        "state" => list(any()),
+        "tags" => map()
+      }
+
   """
   @type get_monitor_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_monitors_output() :: %{
-    "monitors" => list(monitor_summary()()),
-    "nextToken" => [String.t()]
-  }
+
+      list_monitors_output() :: %{
+        "monitors" => list(monitor_summary()()),
+        "nextToken" => [String.t()]
+      }
+
   """
   @type list_monitors_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_monitor_probe_input() :: %{
-    "destination" => String.t(),
-    "destinationPort" => integer(),
-    "packetSize" => integer(),
-    "probeTags" => map(),
-    "protocol" => list(any()),
-    "sourceArn" => String.t()
-  }
+
+      create_monitor_probe_input() :: %{
+        "destination" => String.t(),
+        "destinationPort" => integer(),
+        "packetSize" => integer(),
+        "probeTags" => map(),
+        "protocol" => list(any()),
+        "sourceArn" => String.t()
+      }
+
   """
   @type create_monitor_probe_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_probe_output() :: %{
-    "addressFamily" => list(any()),
-    "createdAt" => non_neg_integer(),
-    "destination" => String.t(),
-    "destinationPort" => integer(),
-    "modifiedAt" => non_neg_integer(),
-    "packetSize" => integer(),
-    "probeArn" => String.t(),
-    "probeId" => String.t(),
-    "protocol" => list(any()),
-    "sourceArn" => String.t(),
-    "state" => list(any()),
-    "tags" => map(),
-    "vpcId" => String.t()
-  }
+
+      update_probe_output() :: %{
+        "addressFamily" => list(any()),
+        "createdAt" => non_neg_integer(),
+        "destination" => String.t(),
+        "destinationPort" => integer(),
+        "modifiedAt" => non_neg_integer(),
+        "packetSize" => integer(),
+        "probeArn" => String.t(),
+        "probeId" => String.t(),
+        "protocol" => list(any()),
+        "sourceArn" => String.t(),
+        "state" => list(any()),
+        "tags" => map(),
+        "vpcId" => String.t()
+      }
+
   """
   @type update_probe_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_monitor_output() :: %{
 
-  }
+      delete_monitor_output() :: %{}
+
   """
-  @type delete_monitor_output() :: %{String.t() => any()}
+  @type delete_monitor_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_output() :: %{
-    "tags" => map()
-  }
+
+      list_tags_for_resource_output() :: %{
+        "tags" => map()
+      }
+
   """
   @type list_tags_for_resource_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_monitor_input() :: %{
 
-  }
+      delete_monitor_input() :: %{}
+
   """
-  @type delete_monitor_input() :: %{String.t() => any()}
+  @type delete_monitor_input() :: %{}
 
   @typedoc """
 
   ## Example:
-  conflict_exception() :: %{
-    "message" => [String.t()]
-  }
+
+      conflict_exception() :: %{
+        "message" => [String.t()]
+      }
+
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_not_found_exception() :: %{
-    "message" => [String.t()]
-  }
+
+      resource_not_found_exception() :: %{
+        "message" => [String.t()]
+      }
+
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_probe_input() :: %{
-    optional("clientToken") => [String.t()],
-    optional("tags") => map(),
-    required("probe") => probe_input()
-  }
+
+      create_probe_input() :: %{
+        optional("clientToken") => [String.t()],
+        optional("tags") => map(),
+        required("probe") => probe_input()
+      }
+
   """
   @type create_probe_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  service_quota_exceeded_exception() :: %{
-    "message" => [String.t()]
-  }
+
+      service_quota_exceeded_exception() :: %{
+        "message" => [String.t()]
+      }
+
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_probe_input() :: %{
 
-  }
+      delete_probe_input() :: %{}
+
   """
-  @type delete_probe_input() :: %{String.t() => any()}
+  @type delete_probe_input() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_probe_input() :: %{
 
-  }
+      get_probe_input() :: %{}
+
   """
-  @type get_probe_input() :: %{String.t() => any()}
+  @type get_probe_input() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_monitor_input() :: %{
 
-  }
+      get_monitor_input() :: %{}
+
   """
-  @type get_monitor_input() :: %{String.t() => any()}
+  @type get_monitor_input() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_probe_output() :: %{
-    "addressFamily" => list(any()),
-    "createdAt" => non_neg_integer(),
-    "destination" => String.t(),
-    "destinationPort" => integer(),
-    "modifiedAt" => non_neg_integer(),
-    "packetSize" => integer(),
-    "probeArn" => String.t(),
-    "probeId" => String.t(),
-    "protocol" => list(any()),
-    "sourceArn" => String.t(),
-    "state" => list(any()),
-    "tags" => map(),
-    "vpcId" => String.t()
-  }
+
+      create_probe_output() :: %{
+        "addressFamily" => list(any()),
+        "createdAt" => non_neg_integer(),
+        "destination" => String.t(),
+        "destinationPort" => integer(),
+        "modifiedAt" => non_neg_integer(),
+        "packetSize" => integer(),
+        "probeArn" => String.t(),
+        "probeId" => String.t(),
+        "protocol" => list(any()),
+        "sourceArn" => String.t(),
+        "state" => list(any()),
+        "tags" => map(),
+        "vpcId" => String.t()
+      }
+
   """
   @type create_probe_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_input() :: %{
-    required("tags") => map()
-  }
+
+      tag_resource_input() :: %{
+        required("tags") => map()
+      }
+
   """
   @type tag_resource_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_probe_output() :: %{
 
-  }
+      delete_probe_output() :: %{}
+
   """
-  @type delete_probe_output() :: %{String.t() => any()}
+  @type delete_probe_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  tag_resource_output() :: %{
 
-  }
+      tag_resource_output() :: %{}
+
   """
-  @type tag_resource_output() :: %{String.t() => any()}
+  @type tag_resource_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  internal_server_exception() :: %{
-    "message" => [String.t()]
-  }
+
+      internal_server_exception() :: %{
+        "message" => [String.t()]
+      }
+
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_probe_input() :: %{
-    optional("destination") => String.t(),
-    optional("destinationPort") => integer(),
-    optional("packetSize") => integer(),
-    optional("protocol") => list(any()),
-    optional("state") => list(any())
-  }
+
+      update_probe_input() :: %{
+        optional("destination") => String.t(),
+        optional("destinationPort") => integer(),
+        optional("packetSize") => integer(),
+        optional("protocol") => list(any()),
+        optional("state") => list(any())
+      }
+
   """
   @type update_probe_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  access_denied_exception() :: %{
-    "message" => [String.t()]
-  }
+
+      access_denied_exception() :: %{
+        "message" => [String.t()]
+      }
+
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_input() :: %{
-    required("tagKeys") => list(String.t()())
-  }
+
+      untag_resource_input() :: %{
+        required("tagKeys") => list(String.t()())
+      }
+
   """
   @type untag_resource_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  probe_input() :: %{
-    "destination" => String.t(),
-    "destinationPort" => integer(),
-    "packetSize" => integer(),
-    "protocol" => list(any()),
-    "sourceArn" => String.t(),
-    "tags" => map()
-  }
+
+      probe_input() :: %{
+        "destination" => String.t(),
+        "destinationPort" => integer(),
+        "packetSize" => integer(),
+        "protocol" => list(any()),
+        "sourceArn" => String.t(),
+        "tags" => map()
+      }
+
   """
   @type probe_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_monitor_input() :: %{
-    required("aggregationPeriod") => float()
-  }
+
+      update_monitor_input() :: %{
+        required("aggregationPeriod") => float()
+      }
+
   """
   @type update_monitor_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  validation_exception() :: %{
-    "message" => [String.t()]
-  }
+
+      validation_exception() :: %{
+        "message" => [String.t()]
+      }
+
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_input() :: %{
 
-  }
+      list_tags_for_resource_input() :: %{}
+
   """
-  @type list_tags_for_resource_input() :: %{String.t() => any()}
+  @type list_tags_for_resource_input() :: %{}
 
   @typedoc """
 
   ## Example:
-  probe() :: %{
-    "addressFamily" => list(any()),
-    "createdAt" => non_neg_integer(),
-    "destination" => String.t(),
-    "destinationPort" => integer(),
-    "modifiedAt" => non_neg_integer(),
-    "packetSize" => integer(),
-    "probeArn" => String.t(),
-    "probeId" => String.t(),
-    "protocol" => list(any()),
-    "sourceArn" => String.t(),
-    "state" => list(any()),
-    "tags" => map(),
-    "vpcId" => String.t()
-  }
+
+      probe() :: %{
+        "addressFamily" => list(any()),
+        "createdAt" => non_neg_integer(),
+        "destination" => String.t(),
+        "destinationPort" => integer(),
+        "modifiedAt" => non_neg_integer(),
+        "packetSize" => integer(),
+        "probeArn" => String.t(),
+        "probeId" => String.t(),
+        "protocol" => list(any()),
+        "sourceArn" => String.t(),
+        "state" => list(any()),
+        "tags" => map(),
+        "vpcId" => String.t()
+      }
+
   """
   @type probe() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_output() :: %{
 
-  }
+      untag_resource_output() :: %{}
+
   """
-  @type untag_resource_output() :: %{String.t() => any()}
+  @type untag_resource_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  throttling_exception() :: %{
-    "message" => [String.t()]
-  }
+
+      throttling_exception() :: %{
+        "message" => [String.t()]
+      }
+
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_probe_output() :: %{
-    "addressFamily" => list(any()),
-    "createdAt" => non_neg_integer(),
-    "destination" => String.t(),
-    "destinationPort" => integer(),
-    "modifiedAt" => non_neg_integer(),
-    "packetSize" => integer(),
-    "probeArn" => String.t(),
-    "probeId" => String.t(),
-    "protocol" => list(any()),
-    "sourceArn" => String.t(),
-    "state" => list(any()),
-    "tags" => map(),
-    "vpcId" => String.t()
-  }
+
+      get_probe_output() :: %{
+        "addressFamily" => list(any()),
+        "createdAt" => non_neg_integer(),
+        "destination" => String.t(),
+        "destinationPort" => integer(),
+        "modifiedAt" => non_neg_integer(),
+        "packetSize" => integer(),
+        "probeArn" => String.t(),
+        "probeId" => String.t(),
+        "protocol" => list(any()),
+        "sourceArn" => String.t(),
+        "state" => list(any()),
+        "tags" => map(),
+        "vpcId" => String.t()
+      }
+
   """
   @type get_probe_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_monitor_output() :: %{
-    "aggregationPeriod" => float(),
-    "monitorArn" => String.t(),
-    "monitorName" => String.t(),
-    "state" => list(any()),
-    "tags" => map()
-  }
+
+      create_monitor_output() :: %{
+        "aggregationPeriod" => float(),
+        "monitorArn" => String.t(),
+        "monitorName" => String.t(),
+        "state" => list(any()),
+        "tags" => map()
+      }
+
   """
   @type create_monitor_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  monitor_summary() :: %{
-    "aggregationPeriod" => float(),
-    "monitorArn" => String.t(),
-    "monitorName" => String.t(),
-    "state" => list(any()),
-    "tags" => map()
-  }
+
+      monitor_summary() :: %{
+        "aggregationPeriod" => float(),
+        "monitorArn" => String.t(),
+        "monitorName" => String.t(),
+        "state" => list(any()),
+        "tags" => map()
+      }
+
   """
   @type monitor_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_monitor_output() :: %{
-    "aggregationPeriod" => float(),
-    "monitorArn" => String.t(),
-    "monitorName" => String.t(),
-    "state" => list(any()),
-    "tags" => map()
-  }
+
+      update_monitor_output() :: %{
+        "aggregationPeriod" => float(),
+        "monitorArn" => String.t(),
+        "monitorName" => String.t(),
+        "state" => list(any()),
+        "tags" => map()
+      }
+
   """
   @type update_monitor_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_monitor_input() :: %{
-    optional("aggregationPeriod") => float(),
-    optional("clientToken") => [String.t()],
-    optional("probes") => list(create_monitor_probe_input()()),
-    optional("tags") => map(),
-    required("monitorName") => String.t()
-  }
+
+      create_monitor_input() :: %{
+        optional("aggregationPeriod") => float(),
+        optional("clientToken") => [String.t()],
+        optional("probes") => list(create_monitor_probe_input()()),
+        optional("tags") => map(),
+        required("monitorName") => String.t()
+      }
+
   """
   @type create_monitor_input() :: %{String.t() => any()}
+
+  @type create_monitor_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+
+  @type create_probe_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+
+  @type delete_monitor_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type delete_probe_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+
+  @type get_monitor_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_probe_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_monitors_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_tags_for_resource_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type tag_resource_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type untag_resource_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_monitor_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+
+  @type update_probe_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
 
   def metadata do
     %{
@@ -458,12 +601,7 @@ defmodule AWS.NetworkMonitor do
   @spec create_monitor(map(), create_monitor_input(), list()) ::
           {:ok, create_monitor_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_monitor_errors()}
   def create_monitor(%Client{} = client, input, options \\ []) do
     url_path = "/monitors"
     headers = []
@@ -493,12 +631,7 @@ defmodule AWS.NetworkMonitor do
   @spec create_probe(map(), String.t(), create_probe_input(), list()) ::
           {:ok, create_probe_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_probe_errors()}
   def create_probe(%Client{} = client, monitor_name, input, options \\ []) do
     url_path = "/monitors/#{AWS.Util.encode_uri(monitor_name)}/probes"
     headers = []
@@ -525,11 +658,7 @@ defmodule AWS.NetworkMonitor do
   @spec delete_monitor(map(), String.t(), delete_monitor_input(), list()) ::
           {:ok, delete_monitor_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_monitor_errors()}
   def delete_monitor(%Client{} = client, monitor_name, input, options \\ []) do
     url_path = "/monitors/#{AWS.Util.encode_uri(monitor_name)}"
     headers = []
@@ -558,12 +687,7 @@ defmodule AWS.NetworkMonitor do
   @spec delete_probe(map(), String.t(), String.t(), delete_probe_input(), list()) ::
           {:ok, delete_probe_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_probe_errors()}
   def delete_probe(%Client{} = client, monitor_name, probe_id, input, options \\ []) do
     url_path =
       "/monitors/#{AWS.Util.encode_uri(monitor_name)}/probes/#{AWS.Util.encode_uri(probe_id)}"
@@ -592,11 +716,7 @@ defmodule AWS.NetworkMonitor do
   @spec get_monitor(map(), String.t(), list()) ::
           {:ok, get_monitor_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_monitor_errors()}
   def get_monitor(%Client{} = client, monitor_name, options \\ []) do
     url_path = "/monitors/#{AWS.Util.encode_uri(monitor_name)}"
     headers = []
@@ -615,11 +735,7 @@ defmodule AWS.NetworkMonitor do
   @spec get_probe(map(), String.t(), String.t(), list()) ::
           {:ok, get_probe_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_probe_errors()}
   def get_probe(%Client{} = client, monitor_name, probe_id, options \\ []) do
     url_path =
       "/monitors/#{AWS.Util.encode_uri(monitor_name)}/probes/#{AWS.Util.encode_uri(probe_id)}"
@@ -638,10 +754,7 @@ defmodule AWS.NetworkMonitor do
   @spec list_monitors(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_monitors_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_monitors_errors()}
   def list_monitors(
         %Client{} = client,
         max_results \\ nil,
@@ -685,12 +798,7 @@ defmodule AWS.NetworkMonitor do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -707,12 +815,7 @@ defmodule AWS.NetworkMonitor do
   @spec tag_resource(map(), String.t(), tag_resource_input(), list()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -739,12 +842,7 @@ defmodule AWS.NetworkMonitor do
   @spec untag_resource(map(), String.t(), untag_resource_input(), list()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -778,12 +876,7 @@ defmodule AWS.NetworkMonitor do
   @spec update_monitor(map(), String.t(), update_monitor_input(), list()) ::
           {:ok, update_monitor_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_monitor_errors()}
   def update_monitor(%Client{} = client, monitor_name, input, options \\ []) do
     url_path = "/monitors/#{AWS.Util.encode_uri(monitor_name)}"
     headers = []
@@ -814,12 +907,7 @@ defmodule AWS.NetworkMonitor do
   @spec update_probe(map(), String.t(), String.t(), update_probe_input(), list()) ::
           {:ok, update_probe_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_probe_errors()}
   def update_probe(%Client{} = client, monitor_name, probe_id, input, options \\ []) do
     url_path =
       "/monitors/#{AWS.Util.encode_uri(monitor_name)}/probes/#{AWS.Util.encode_uri(probe_id)}"

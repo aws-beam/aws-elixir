@@ -12,305 +12,400 @@ defmodule AWS.PinpointSMSVoice do
   @typedoc """
 
   ## Example:
-  already_exists_exception() :: %{
-    "Message" => String.t()
-  }
+
+      already_exists_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type already_exists_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  bad_request_exception() :: %{
-    "Message" => String.t()
-  }
+
+      bad_request_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type bad_request_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  call_instructions_message_type() :: %{
-    "Text" => String.t()
-  }
+
+      call_instructions_message_type() :: %{
+        "Text" => String.t()
+      }
+
   """
   @type call_instructions_message_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cloud_watch_logs_destination() :: %{
-    "IamRoleArn" => String.t(),
-    "LogGroupArn" => String.t()
-  }
+
+      cloud_watch_logs_destination() :: %{
+        "IamRoleArn" => String.t(),
+        "LogGroupArn" => String.t()
+      }
+
   """
   @type cloud_watch_logs_destination() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_configuration_set_event_destination_request() :: %{
-    optional("EventDestination") => event_destination_definition(),
-    optional("EventDestinationName") => String.t()
-  }
+
+      create_configuration_set_event_destination_request() :: %{
+        optional("EventDestination") => event_destination_definition(),
+        optional("EventDestinationName") => String.t()
+      }
+
   """
   @type create_configuration_set_event_destination_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_configuration_set_event_destination_response() :: %{
 
-  }
+      create_configuration_set_event_destination_response() :: %{}
+
   """
-  @type create_configuration_set_event_destination_response() :: %{String.t() => any()}
+  @type create_configuration_set_event_destination_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_configuration_set_request() :: %{
-    optional("ConfigurationSetName") => String.t()
-  }
+
+      create_configuration_set_request() :: %{
+        optional("ConfigurationSetName") => String.t()
+      }
+
   """
   @type create_configuration_set_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_configuration_set_response() :: %{
 
-  }
+      create_configuration_set_response() :: %{}
+
   """
-  @type create_configuration_set_response() :: %{String.t() => any()}
+  @type create_configuration_set_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  delete_configuration_set_event_destination_request() :: %{
 
-  }
+      delete_configuration_set_event_destination_request() :: %{}
+
   """
-  @type delete_configuration_set_event_destination_request() :: %{String.t() => any()}
+  @type delete_configuration_set_event_destination_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  delete_configuration_set_event_destination_response() :: %{
 
-  }
+      delete_configuration_set_event_destination_response() :: %{}
+
   """
-  @type delete_configuration_set_event_destination_response() :: %{String.t() => any()}
+  @type delete_configuration_set_event_destination_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  delete_configuration_set_request() :: %{
 
-  }
+      delete_configuration_set_request() :: %{}
+
   """
-  @type delete_configuration_set_request() :: %{String.t() => any()}
+  @type delete_configuration_set_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  delete_configuration_set_response() :: %{
 
-  }
+      delete_configuration_set_response() :: %{}
+
   """
-  @type delete_configuration_set_response() :: %{String.t() => any()}
+  @type delete_configuration_set_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  event_destination() :: %{
-    "CloudWatchLogsDestination" => cloud_watch_logs_destination(),
-    "Enabled" => boolean(),
-    "KinesisFirehoseDestination" => kinesis_firehose_destination(),
-    "MatchingEventTypes" => list(list(any())()),
-    "Name" => String.t(),
-    "SnsDestination" => sns_destination()
-  }
+
+      event_destination() :: %{
+        "CloudWatchLogsDestination" => cloud_watch_logs_destination(),
+        "Enabled" => boolean(),
+        "KinesisFirehoseDestination" => kinesis_firehose_destination(),
+        "MatchingEventTypes" => list(list(any())()),
+        "Name" => String.t(),
+        "SnsDestination" => sns_destination()
+      }
+
   """
   @type event_destination() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  event_destination_definition() :: %{
-    "CloudWatchLogsDestination" => cloud_watch_logs_destination(),
-    "Enabled" => boolean(),
-    "KinesisFirehoseDestination" => kinesis_firehose_destination(),
-    "MatchingEventTypes" => list(list(any())()),
-    "SnsDestination" => sns_destination()
-  }
+
+      event_destination_definition() :: %{
+        "CloudWatchLogsDestination" => cloud_watch_logs_destination(),
+        "Enabled" => boolean(),
+        "KinesisFirehoseDestination" => kinesis_firehose_destination(),
+        "MatchingEventTypes" => list(list(any())()),
+        "SnsDestination" => sns_destination()
+      }
+
   """
   @type event_destination_definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_configuration_set_event_destinations_request() :: %{
 
-  }
+      get_configuration_set_event_destinations_request() :: %{}
+
   """
-  @type get_configuration_set_event_destinations_request() :: %{String.t() => any()}
+  @type get_configuration_set_event_destinations_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_configuration_set_event_destinations_response() :: %{
-    "EventDestinations" => list(event_destination()())
-  }
+
+      get_configuration_set_event_destinations_response() :: %{
+        "EventDestinations" => list(event_destination()())
+      }
+
   """
   @type get_configuration_set_event_destinations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  internal_service_error_exception() :: %{
-    "Message" => String.t()
-  }
+
+      internal_service_error_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type internal_service_error_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  kinesis_firehose_destination() :: %{
-    "DeliveryStreamArn" => String.t(),
-    "IamRoleArn" => String.t()
-  }
+
+      kinesis_firehose_destination() :: %{
+        "DeliveryStreamArn" => String.t(),
+        "IamRoleArn" => String.t()
+      }
+
   """
   @type kinesis_firehose_destination() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  limit_exceeded_exception() :: %{
-    "Message" => String.t()
-  }
+
+      limit_exceeded_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_configuration_sets_request() :: %{
-    optional("NextToken") => String.t(),
-    optional("PageSize") => String.t()
-  }
+
+      list_configuration_sets_request() :: %{
+        optional("NextToken") => String.t(),
+        optional("PageSize") => String.t()
+      }
+
   """
   @type list_configuration_sets_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_configuration_sets_response() :: %{
-    "ConfigurationSets" => list(String.t()()),
-    "NextToken" => String.t()
-  }
+
+      list_configuration_sets_response() :: %{
+        "ConfigurationSets" => list(String.t()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_configuration_sets_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  not_found_exception() :: %{
-    "Message" => String.t()
-  }
+
+      not_found_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  plain_text_message_type() :: %{
-    "LanguageCode" => String.t(),
-    "Text" => String.t(),
-    "VoiceId" => String.t()
-  }
+
+      plain_text_message_type() :: %{
+        "LanguageCode" => String.t(),
+        "Text" => String.t(),
+        "VoiceId" => String.t()
+      }
+
   """
   @type plain_text_message_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  s_s_ml_message_type() :: %{
-    "LanguageCode" => String.t(),
-    "Text" => String.t(),
-    "VoiceId" => String.t()
-  }
+
+      s_s_ml_message_type() :: %{
+        "LanguageCode" => String.t(),
+        "Text" => String.t(),
+        "VoiceId" => String.t()
+      }
+
   """
   @type s_s_ml_message_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  send_voice_message_request() :: %{
-    optional("CallerId") => String.t(),
-    optional("ConfigurationSetName") => String.t(),
-    optional("Content") => voice_message_content(),
-    optional("DestinationPhoneNumber") => String.t(),
-    optional("OriginationPhoneNumber") => String.t()
-  }
+
+      send_voice_message_request() :: %{
+        optional("CallerId") => String.t(),
+        optional("ConfigurationSetName") => String.t(),
+        optional("Content") => voice_message_content(),
+        optional("DestinationPhoneNumber") => String.t(),
+        optional("OriginationPhoneNumber") => String.t()
+      }
+
   """
   @type send_voice_message_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  send_voice_message_response() :: %{
-    "MessageId" => String.t()
-  }
+
+      send_voice_message_response() :: %{
+        "MessageId" => String.t()
+      }
+
   """
   @type send_voice_message_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  sns_destination() :: %{
-    "TopicArn" => String.t()
-  }
+
+      sns_destination() :: %{
+        "TopicArn" => String.t()
+      }
+
   """
   @type sns_destination() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_requests_exception() :: %{
-    "Message" => String.t()
-  }
+
+      too_many_requests_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type too_many_requests_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_configuration_set_event_destination_request() :: %{
-    optional("EventDestination") => event_destination_definition()
-  }
+
+      update_configuration_set_event_destination_request() :: %{
+        optional("EventDestination") => event_destination_definition()
+      }
+
   """
   @type update_configuration_set_event_destination_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_configuration_set_event_destination_response() :: %{
 
-  }
+      update_configuration_set_event_destination_response() :: %{}
+
   """
-  @type update_configuration_set_event_destination_response() :: %{String.t() => any()}
+  @type update_configuration_set_event_destination_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  voice_message_content() :: %{
-    "CallInstructionsMessage" => call_instructions_message_type(),
-    "PlainTextMessage" => plain_text_message_type(),
-    "SSMLMessage" => s_s_ml_message_type()
-  }
+
+      voice_message_content() :: %{
+        "CallInstructionsMessage" => call_instructions_message_type(),
+        "PlainTextMessage" => plain_text_message_type(),
+        "SSMLMessage" => s_s_ml_message_type()
+      }
+
   """
   @type voice_message_content() :: %{String.t() => any()}
+
+  @type create_configuration_set_errors() ::
+          too_many_requests_exception()
+          | limit_exceeded_exception()
+          | internal_service_error_exception()
+          | bad_request_exception()
+          | already_exists_exception()
+
+  @type create_configuration_set_event_destination_errors() ::
+          too_many_requests_exception()
+          | not_found_exception()
+          | limit_exceeded_exception()
+          | internal_service_error_exception()
+          | bad_request_exception()
+          | already_exists_exception()
+
+  @type delete_configuration_set_errors() ::
+          too_many_requests_exception()
+          | not_found_exception()
+          | internal_service_error_exception()
+          | bad_request_exception()
+
+  @type delete_configuration_set_event_destination_errors() ::
+          too_many_requests_exception()
+          | not_found_exception()
+          | internal_service_error_exception()
+          | bad_request_exception()
+
+  @type get_configuration_set_event_destinations_errors() ::
+          too_many_requests_exception()
+          | not_found_exception()
+          | internal_service_error_exception()
+          | bad_request_exception()
+
+  @type list_configuration_sets_errors() ::
+          too_many_requests_exception()
+          | internal_service_error_exception()
+          | bad_request_exception()
+
+  @type send_voice_message_errors() ::
+          too_many_requests_exception()
+          | internal_service_error_exception()
+          | bad_request_exception()
+
+  @type update_configuration_set_event_destination_errors() ::
+          too_many_requests_exception()
+          | not_found_exception()
+          | internal_service_error_exception()
+          | bad_request_exception()
 
   def metadata do
     %{
@@ -336,11 +431,7 @@ defmodule AWS.PinpointSMSVoice do
   @spec create_configuration_set(map(), create_configuration_set_request(), list()) ::
           {:ok, create_configuration_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, already_exists_exception()}
-          | {:error, bad_request_exception()}
-          | {:error, internal_service_error_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, create_configuration_set_errors()}
   def create_configuration_set(%Client{} = client, input, options \\ []) do
     url_path = "/v1/sms-voice/configuration-sets"
     headers = []
@@ -372,12 +463,7 @@ defmodule AWS.PinpointSMSVoice do
         ) ::
           {:ok, create_configuration_set_event_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, already_exists_exception()}
-          | {:error, bad_request_exception()}
-          | {:error, internal_service_error_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, create_configuration_set_event_destination_errors()}
   def create_configuration_set_event_destination(
         %Client{} = client,
         configuration_set_name,
@@ -411,10 +497,7 @@ defmodule AWS.PinpointSMSVoice do
   @spec delete_configuration_set(map(), String.t(), delete_configuration_set_request(), list()) ::
           {:ok, delete_configuration_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_service_error_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, delete_configuration_set_errors()}
   def delete_configuration_set(%Client{} = client, configuration_set_name, input, options \\ []) do
     url_path = "/v1/sms-voice/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}"
     headers = []
@@ -447,10 +530,7 @@ defmodule AWS.PinpointSMSVoice do
         ) ::
           {:ok, delete_configuration_set_event_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_service_error_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, delete_configuration_set_event_destination_errors()}
   def delete_configuration_set_event_destination(
         %Client{} = client,
         configuration_set_name,
@@ -487,10 +567,7 @@ defmodule AWS.PinpointSMSVoice do
   @spec get_configuration_set_event_destinations(map(), String.t(), list()) ::
           {:ok, get_configuration_set_event_destinations_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_service_error_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, get_configuration_set_event_destinations_errors()}
   def get_configuration_set_event_destinations(
         %Client{} = client,
         configuration_set_name,
@@ -514,9 +591,7 @@ defmodule AWS.PinpointSMSVoice do
   @spec list_configuration_sets(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_configuration_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_service_error_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, list_configuration_sets_errors()}
   def list_configuration_sets(
         %Client{} = client,
         next_token \\ nil,
@@ -552,9 +627,7 @@ defmodule AWS.PinpointSMSVoice do
   @spec send_voice_message(map(), send_voice_message_request(), list()) ::
           {:ok, send_voice_message_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_service_error_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, send_voice_message_errors()}
   def send_voice_message(%Client{} = client, input, options \\ []) do
     url_path = "/v1/sms-voice/voice/message"
     headers = []
@@ -591,10 +664,7 @@ defmodule AWS.PinpointSMSVoice do
         ) ::
           {:ok, update_configuration_set_event_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_service_error_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, update_configuration_set_event_destination_errors()}
   def update_configuration_set_event_destination(
         %Client{} = client,
         configuration_set_name,

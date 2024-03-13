@@ -92,960 +92,1185 @@ defmodule AWS.VerifiedPermissions do
   @typedoc """
 
   ## Example:
-  is_authorized_with_token_input() :: %{
-    optional("accessToken") => String.t(),
-    optional("action") => action_identifier(),
-    optional("context") => list(),
-    optional("entities") => list(),
-    optional("identityToken") => String.t(),
-    optional("resource") => entity_identifier(),
-    required("policyStoreId") => String.t()
-  }
+      
+      is_authorized_with_token_input() :: %{
+        optional("accessToken") => String.t(),
+        optional("action") => action_identifier(),
+        optional("context") => list(),
+        optional("entities") => list(),
+        optional("identityToken") => String.t(),
+        optional("resource") => entity_identifier(),
+        required("policyStoreId") => String.t()
+      }
+      
   """
   @type is_authorized_with_token_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  is_authorized_input() :: %{
-    optional("action") => action_identifier(),
-    optional("context") => list(),
-    optional("entities") => list(),
-    optional("principal") => entity_identifier(),
-    optional("resource") => entity_identifier(),
-    required("policyStoreId") => String.t()
-  }
+      
+      is_authorized_input() :: %{
+        optional("action") => action_identifier(),
+        optional("context") => list(),
+        optional("entities") => list(),
+        optional("principal") => entity_identifier(),
+        optional("resource") => entity_identifier(),
+        required("policyStoreId") => String.t()
+      }
+      
   """
   @type is_authorized_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_policy_template_output() :: %{
-    "createdDate" => non_neg_integer(),
-    "lastUpdatedDate" => non_neg_integer(),
-    "policyStoreId" => String.t(),
-    "policyTemplateId" => String.t()
-  }
+      
+      create_policy_template_output() :: %{
+        "createdDate" => non_neg_integer(),
+        "lastUpdatedDate" => non_neg_integer(),
+        "policyStoreId" => String.t(),
+        "policyTemplateId" => String.t()
+      }
+      
   """
   @type create_policy_template_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_identity_source_input() :: %{
-    optional("principalEntityType") => String.t(),
-    required("identitySourceId") => String.t(),
-    required("policyStoreId") => String.t(),
-    required("updateConfiguration") => list()
-  }
+      
+      update_identity_source_input() :: %{
+        optional("principalEntityType") => String.t(),
+        required("identitySourceId") => String.t(),
+        required("policyStoreId") => String.t(),
+        required("updateConfiguration") => list()
+      }
+      
   """
   @type update_identity_source_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  is_authorized_output() :: %{
-    "decision" => list(any()),
-    "determiningPolicies" => list(determining_policy_item()()),
-    "errors" => list(evaluation_error_item()())
-  }
+      
+      is_authorized_output() :: %{
+        "decision" => list(any()),
+        "determiningPolicies" => list(determining_policy_item()()),
+        "errors" => list(evaluation_error_item()())
+      }
+      
   """
   @type is_authorized_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_policy_template_input() :: %{
-    required("policyStoreId") => String.t(),
-    required("policyTemplateId") => String.t()
-  }
+      
+      delete_policy_template_input() :: %{
+        required("policyStoreId") => String.t(),
+        required("policyTemplateId") => String.t()
+      }
+      
   """
   @type delete_policy_template_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_policy_templates_output() :: %{
-    "nextToken" => String.t(),
-    "policyTemplates" => list(policy_template_item()())
-  }
+      
+      list_policy_templates_output() :: %{
+        "nextToken" => String.t(),
+        "policyTemplates" => list(policy_template_item()())
+      }
+      
   """
   @type list_policy_templates_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  determining_policy_item() :: %{
-    "policyId" => String.t()
-  }
+      
+      determining_policy_item() :: %{
+        "policyId" => String.t()
+      }
+      
   """
   @type determining_policy_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_policy_store_input() :: %{
-    required("policyStoreId") => String.t()
-  }
+      
+      delete_policy_store_input() :: %{
+        required("policyStoreId") => String.t()
+      }
+      
   """
   @type delete_policy_store_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_policy_templates_input() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t(),
-    required("policyStoreId") => String.t()
-  }
+      
+      list_policy_templates_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        required("policyStoreId") => String.t()
+      }
+      
   """
   @type list_policy_templates_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  template_linked_policy_definition() :: %{
-    "policyTemplateId" => String.t(),
-    "principal" => entity_identifier(),
-    "resource" => entity_identifier()
-  }
+      
+      template_linked_policy_definition() :: %{
+        "policyTemplateId" => String.t(),
+        "principal" => entity_identifier(),
+        "resource" => entity_identifier()
+      }
+      
   """
   @type template_linked_policy_definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_policy_store_input() :: %{
-    optional("clientToken") => String.t(),
-    optional("description") => String.t(),
-    required("validationSettings") => validation_settings()
-  }
+      
+      create_policy_store_input() :: %{
+        optional("clientToken") => String.t(),
+        optional("description") => String.t(),
+        required("validationSettings") => validation_settings()
+      }
+      
   """
   @type create_policy_store_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_policy_input() :: %{
-    required("policyId") => String.t(),
-    required("policyStoreId") => String.t()
-  }
+      
+      get_policy_input() :: %{
+        required("policyId") => String.t(),
+        required("policyStoreId") => String.t()
+      }
+      
   """
   @type get_policy_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_identity_source_output() :: %{
-    "createdDate" => non_neg_integer(),
-    "identitySourceId" => String.t(),
-    "lastUpdatedDate" => non_neg_integer(),
-    "policyStoreId" => String.t()
-  }
+      
+      update_identity_source_output() :: %{
+        "createdDate" => non_neg_integer(),
+        "identitySourceId" => String.t(),
+        "lastUpdatedDate" => non_neg_integer(),
+        "policyStoreId" => String.t()
+      }
+      
   """
   @type update_identity_source_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_identity_source_input() :: %{
-    required("identitySourceId") => String.t(),
-    required("policyStoreId") => String.t()
-  }
+      
+      get_identity_source_input() :: %{
+        required("identitySourceId") => String.t(),
+        required("policyStoreId") => String.t()
+      }
+      
   """
   @type get_identity_source_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  policy_template_item() :: %{
-    "createdDate" => non_neg_integer(),
-    "description" => String.t(),
-    "lastUpdatedDate" => non_neg_integer(),
-    "policyStoreId" => String.t(),
-    "policyTemplateId" => String.t()
-  }
+      
+      policy_template_item() :: %{
+        "createdDate" => non_neg_integer(),
+        "description" => String.t(),
+        "lastUpdatedDate" => non_neg_integer(),
+        "policyStoreId" => String.t(),
+        "policyTemplateId" => String.t()
+      }
+      
   """
   @type policy_template_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_policy_store_output() :: %{
-    "arn" => String.t(),
-    "createdDate" => non_neg_integer(),
-    "lastUpdatedDate" => non_neg_integer(),
-    "policyStoreId" => String.t()
-  }
+      
+      update_policy_store_output() :: %{
+        "arn" => String.t(),
+        "createdDate" => non_neg_integer(),
+        "lastUpdatedDate" => non_neg_integer(),
+        "policyStoreId" => String.t()
+      }
+      
   """
   @type update_policy_store_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  policy_item() :: %{
-    "createdDate" => non_neg_integer(),
-    "definition" => list(),
-    "lastUpdatedDate" => non_neg_integer(),
-    "policyId" => String.t(),
-    "policyStoreId" => String.t(),
-    "policyType" => list(any()),
-    "principal" => entity_identifier(),
-    "resource" => entity_identifier()
-  }
+      
+      policy_item() :: %{
+        "createdDate" => non_neg_integer(),
+        "definition" => list(),
+        "lastUpdatedDate" => non_neg_integer(),
+        "policyId" => String.t(),
+        "policyStoreId" => String.t(),
+        "policyType" => list(any()),
+        "principal" => entity_identifier(),
+        "resource" => entity_identifier()
+      }
+      
   """
   @type policy_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  static_policy_definition_item() :: %{
-    "description" => String.t()
-  }
+      
+      static_policy_definition_item() :: %{
+        "description" => String.t()
+      }
+      
   """
   @type static_policy_definition_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_policy_store_output() :: %{
-    "arn" => String.t(),
-    "createdDate" => non_neg_integer(),
-    "lastUpdatedDate" => non_neg_integer(),
-    "policyStoreId" => String.t()
-  }
+      
+      create_policy_store_output() :: %{
+        "arn" => String.t(),
+        "createdDate" => non_neg_integer(),
+        "lastUpdatedDate" => non_neg_integer(),
+        "policyStoreId" => String.t()
+      }
+      
   """
   @type create_policy_store_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_is_authorized_output() :: %{
-    "results" => list(batch_is_authorized_output_item()())
-  }
+      
+      batch_is_authorized_output() :: %{
+        "results" => list(batch_is_authorized_output_item()())
+      }
+      
   """
   @type batch_is_authorized_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_is_authorized_input_item() :: %{
-    "action" => action_identifier(),
-    "context" => list(),
-    "principal" => entity_identifier(),
-    "resource" => entity_identifier()
-  }
+      
+      batch_is_authorized_input_item() :: %{
+        "action" => action_identifier(),
+        "context" => list(),
+        "principal" => entity_identifier(),
+        "resource" => entity_identifier()
+      }
+      
   """
   @type batch_is_authorized_input_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_policy_input() :: %{
-    required("definition") => list(),
-    required("policyId") => String.t(),
-    required("policyStoreId") => String.t()
-  }
+      
+      update_policy_input() :: %{
+        required("definition") => list(),
+        required("policyId") => String.t(),
+        required("policyStoreId") => String.t()
+      }
+      
   """
   @type update_policy_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  action_identifier() :: %{
-    "actionId" => String.t(),
-    "actionType" => String.t()
-  }
+      
+      action_identifier() :: %{
+        "actionId" => String.t(),
+        "actionType" => String.t()
+      }
+      
   """
   @type action_identifier() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_policies_output() :: %{
-    "nextToken" => String.t(),
-    "policies" => list(policy_item()())
-  }
+      
+      list_policies_output() :: %{
+        "nextToken" => String.t(),
+        "policies" => list(policy_item()())
+      }
+      
   """
   @type list_policies_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_schema_output() :: %{
-    "createdDate" => non_neg_integer(),
-    "lastUpdatedDate" => non_neg_integer(),
-    "namespaces" => list(String.t()()),
-    "policyStoreId" => String.t()
-  }
+      
+      put_schema_output() :: %{
+        "createdDate" => non_neg_integer(),
+        "lastUpdatedDate" => non_neg_integer(),
+        "namespaces" => list(String.t()()),
+        "policyStoreId" => String.t()
+      }
+      
   """
   @type put_schema_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  evaluation_error_item() :: %{
-    "errorDescription" => [String.t()]
-  }
+      
+      evaluation_error_item() :: %{
+        "errorDescription" => [String.t()]
+      }
+      
   """
   @type evaluation_error_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_policy_store_input() :: %{
-    optional("description") => String.t(),
-    required("policyStoreId") => String.t(),
-    required("validationSettings") => validation_settings()
-  }
+      
+      update_policy_store_input() :: %{
+        optional("description") => String.t(),
+        required("policyStoreId") => String.t(),
+        required("validationSettings") => validation_settings()
+      }
+      
   """
   @type update_policy_store_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_policy_stores_input() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t()
-  }
+      
+      list_policy_stores_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+      
   """
   @type list_policy_stores_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  conflict_exception() :: %{
-    "message" => [String.t()],
-    "resources" => list(resource_conflict()())
-  }
+      
+      conflict_exception() :: %{
+        "message" => [String.t()],
+        "resources" => list(resource_conflict()())
+      }
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_not_found_exception() :: %{
-    "message" => [String.t()],
-    "resourceId" => [String.t()],
-    "resourceType" => list(any())
-  }
+      
+      resource_not_found_exception() :: %{
+        "message" => [String.t()],
+        "resourceId" => [String.t()],
+        "resourceType" => list(any())
+      }
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cognito_user_pool_configuration_item() :: %{
-    "clientIds" => list(String.t()()),
-    "issuer" => String.t(),
-    "userPoolArn" => String.t()
-  }
+      
+      cognito_user_pool_configuration_item() :: %{
+        "clientIds" => list(String.t()()),
+        "issuer" => String.t(),
+        "userPoolArn" => String.t()
+      }
+      
   """
   @type cognito_user_pool_configuration_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_policy_template_output() :: %{
-    "createdDate" => non_neg_integer(),
-    "lastUpdatedDate" => non_neg_integer(),
-    "policyStoreId" => String.t(),
-    "policyTemplateId" => String.t()
-  }
+      
+      update_policy_template_output() :: %{
+        "createdDate" => non_neg_integer(),
+        "lastUpdatedDate" => non_neg_integer(),
+        "policyStoreId" => String.t(),
+        "policyTemplateId" => String.t()
+      }
+      
   """
   @type update_policy_template_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_identity_sources_output() :: %{
-    "identitySources" => list(identity_source_item()()),
-    "nextToken" => String.t()
-  }
+      
+      list_identity_sources_output() :: %{
+        "identitySources" => list(identity_source_item()()),
+        "nextToken" => String.t()
+      }
+      
   """
   @type list_identity_sources_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  policy_store_item() :: %{
-    "arn" => String.t(),
-    "createdDate" => non_neg_integer(),
-    "description" => String.t(),
-    "lastUpdatedDate" => non_neg_integer(),
-    "policyStoreId" => String.t()
-  }
+      
+      policy_store_item() :: %{
+        "arn" => String.t(),
+        "createdDate" => non_neg_integer(),
+        "description" => String.t(),
+        "lastUpdatedDate" => non_neg_integer(),
+        "policyStoreId" => String.t()
+      }
+      
   """
   @type policy_store_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  identity_source_details() :: %{
-    "clientIds" => list(String.t()()),
-    "discoveryUrl" => String.t(),
-    "openIdIssuer" => list(any()),
-    "userPoolArn" => String.t()
-  }
+      
+      identity_source_details() :: %{
+        "clientIds" => list(String.t()()),
+        "discoveryUrl" => String.t(),
+        "openIdIssuer" => list(any()),
+        "userPoolArn" => String.t()
+      }
+      
   """
   @type identity_source_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  service_quota_exceeded_exception() :: %{
-    "message" => [String.t()],
-    "quotaCode" => [String.t()],
-    "resourceId" => [String.t()],
-    "resourceType" => list(any()),
-    "serviceCode" => [String.t()]
-  }
+      
+      service_quota_exceeded_exception() :: %{
+        "message" => [String.t()],
+        "quotaCode" => [String.t()],
+        "resourceId" => [String.t()],
+        "resourceType" => list(any()),
+        "serviceCode" => [String.t()]
+      }
+      
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_policy_input() :: %{
-    required("policyId") => String.t(),
-    required("policyStoreId") => String.t()
-  }
+      
+      delete_policy_input() :: %{
+        required("policyId") => String.t(),
+        required("policyStoreId") => String.t()
+      }
+      
   """
   @type delete_policy_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_schema_output() :: %{
-    "createdDate" => non_neg_integer(),
-    "lastUpdatedDate" => non_neg_integer(),
-    "namespaces" => list(String.t()()),
-    "policyStoreId" => String.t(),
-    "schema" => String.t()
-  }
+      
+      get_schema_output() :: %{
+        "createdDate" => non_neg_integer(),
+        "lastUpdatedDate" => non_neg_integer(),
+        "namespaces" => list(String.t()()),
+        "policyStoreId" => String.t(),
+        "schema" => String.t()
+      }
+      
   """
   @type get_schema_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_policy_store_output() :: %{
-
-  }
+      
+      delete_policy_store_output() :: %{}
+      
   """
-  @type delete_policy_store_output() :: %{String.t() => any()}
+  @type delete_policy_store_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  delete_identity_source_output() :: %{
-
-  }
+      
+      delete_identity_source_output() :: %{}
+      
   """
-  @type delete_identity_source_output() :: %{String.t() => any()}
+  @type delete_identity_source_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  cognito_user_pool_configuration_detail() :: %{
-    "clientIds" => list(String.t()()),
-    "issuer" => String.t(),
-    "userPoolArn" => String.t()
-  }
+      
+      cognito_user_pool_configuration_detail() :: %{
+        "clientIds" => list(String.t()()),
+        "issuer" => String.t(),
+        "userPoolArn" => String.t()
+      }
+      
   """
   @type cognito_user_pool_configuration_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  static_policy_definition() :: %{
-    "description" => String.t(),
-    "statement" => String.t()
-  }
+      
+      static_policy_definition() :: %{
+        "description" => String.t(),
+        "statement" => String.t()
+      }
+      
   """
   @type static_policy_definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_policy_store_input() :: %{
-    required("policyStoreId") => String.t()
-  }
+      
+      get_policy_store_input() :: %{
+        required("policyStoreId") => String.t()
+      }
+      
   """
   @type get_policy_store_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_schema_input() :: %{
-    required("definition") => list(),
-    required("policyStoreId") => String.t()
-  }
+      
+      put_schema_input() :: %{
+        required("definition") => list(),
+        required("policyStoreId") => String.t()
+      }
+      
   """
   @type put_schema_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  validation_exception_field() :: %{
-    "message" => [String.t()],
-    "path" => [String.t()]
-  }
+      
+      validation_exception_field() :: %{
+        "message" => [String.t()],
+        "path" => [String.t()]
+      }
+      
   """
   @type validation_exception_field() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  identity_source_item_details() :: %{
-    "clientIds" => list(String.t()()),
-    "discoveryUrl" => String.t(),
-    "openIdIssuer" => list(any()),
-    "userPoolArn" => String.t()
-  }
+      
+      identity_source_item_details() :: %{
+        "clientIds" => list(String.t()()),
+        "discoveryUrl" => String.t(),
+        "openIdIssuer" => list(any()),
+        "userPoolArn" => String.t()
+      }
+      
   """
   @type identity_source_item_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_policy_template_output() :: %{
-
-  }
+      
+      delete_policy_template_output() :: %{}
+      
   """
-  @type delete_policy_template_output() :: %{String.t() => any()}
+  @type delete_policy_template_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  validation_settings() :: %{
-    "mode" => list(any())
-  }
+      
+      validation_settings() :: %{
+        "mode" => list(any())
+      }
+      
   """
   @type validation_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_identity_source_input() :: %{
-    required("identitySourceId") => String.t(),
-    required("policyStoreId") => String.t()
-  }
+      
+      delete_identity_source_input() :: %{
+        required("identitySourceId") => String.t(),
+        required("policyStoreId") => String.t()
+      }
+      
   """
   @type delete_identity_source_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cognito_user_pool_configuration() :: %{
-    "clientIds" => list(String.t()()),
-    "userPoolArn" => String.t()
-  }
+      
+      cognito_user_pool_configuration() :: %{
+        "clientIds" => list(String.t()()),
+        "userPoolArn" => String.t()
+      }
+      
   """
   @type cognito_user_pool_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_policies_input() :: %{
-    optional("filter") => policy_filter(),
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t(),
-    required("policyStoreId") => String.t()
-  }
+      
+      list_policies_input() :: %{
+        optional("filter") => policy_filter(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        required("policyStoreId") => String.t()
+      }
+      
   """
   @type list_policies_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  policy_filter() :: %{
-    "policyTemplateId" => String.t(),
-    "policyType" => list(any()),
-    "principal" => list(),
-    "resource" => list()
-  }
+      
+      policy_filter() :: %{
+        "policyTemplateId" => String.t(),
+        "policyType" => list(any()),
+        "principal" => list(),
+        "resource" => list()
+      }
+      
   """
   @type policy_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_policy_input() :: %{
-    optional("clientToken") => String.t(),
-    required("definition") => list(),
-    required("policyStoreId") => String.t()
-  }
+      
+      create_policy_input() :: %{
+        optional("clientToken") => String.t(),
+        required("definition") => list(),
+        required("policyStoreId") => String.t()
+      }
+      
   """
   @type create_policy_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  internal_server_exception() :: %{
-    "message" => [String.t()]
-  }
+      
+      internal_server_exception() :: %{
+        "message" => [String.t()]
+      }
+      
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_is_authorized_input() :: %{
-    optional("entities") => list(),
-    required("policyStoreId") => String.t(),
-    required("requests") => list(batch_is_authorized_input_item()())
-  }
+      
+      batch_is_authorized_input() :: %{
+        optional("entities") => list(),
+        required("policyStoreId") => String.t(),
+        required("requests") => list(batch_is_authorized_input_item()())
+      }
+      
   """
   @type batch_is_authorized_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  template_linked_policy_definition_detail() :: %{
-    "policyTemplateId" => String.t(),
-    "principal" => entity_identifier(),
-    "resource" => entity_identifier()
-  }
+      
+      template_linked_policy_definition_detail() :: %{
+        "policyTemplateId" => String.t(),
+        "principal" => entity_identifier(),
+        "resource" => entity_identifier()
+      }
+      
   """
   @type template_linked_policy_definition_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_cognito_user_pool_configuration() :: %{
-    "clientIds" => list(String.t()()),
-    "userPoolArn" => String.t()
-  }
+      
+      update_cognito_user_pool_configuration() :: %{
+        "clientIds" => list(String.t()()),
+        "userPoolArn" => String.t()
+      }
+      
   """
   @type update_cognito_user_pool_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_policy_template_input() :: %{
-    optional("description") => String.t(),
-    required("policyStoreId") => String.t(),
-    required("policyTemplateId") => String.t(),
-    required("statement") => String.t()
-  }
+      
+      update_policy_template_input() :: %{
+        optional("description") => String.t(),
+        required("policyStoreId") => String.t(),
+        required("policyTemplateId") => String.t(),
+        required("statement") => String.t()
+      }
+      
   """
   @type update_policy_template_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  is_authorized_with_token_output() :: %{
-    "decision" => list(any()),
-    "determiningPolicies" => list(determining_policy_item()()),
-    "errors" => list(evaluation_error_item()())
-  }
+      
+      is_authorized_with_token_output() :: %{
+        "decision" => list(any()),
+        "determiningPolicies" => list(determining_policy_item()()),
+        "errors" => list(evaluation_error_item()())
+      }
+      
   """
   @type is_authorized_with_token_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_policy_template_input() :: %{
-    optional("clientToken") => String.t(),
-    optional("description") => String.t(),
-    required("policyStoreId") => String.t(),
-    required("statement") => String.t()
-  }
+      
+      create_policy_template_input() :: %{
+        optional("clientToken") => String.t(),
+        optional("description") => String.t(),
+        required("policyStoreId") => String.t(),
+        required("statement") => String.t()
+      }
+      
   """
   @type create_policy_template_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  access_denied_exception() :: %{
-    "message" => [String.t()]
-  }
+      
+      access_denied_exception() :: %{
+        "message" => [String.t()]
+      }
+      
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_policy_store_output() :: %{
-    "arn" => String.t(),
-    "createdDate" => non_neg_integer(),
-    "description" => String.t(),
-    "lastUpdatedDate" => non_neg_integer(),
-    "policyStoreId" => String.t(),
-    "validationSettings" => validation_settings()
-  }
+      
+      get_policy_store_output() :: %{
+        "arn" => String.t(),
+        "createdDate" => non_neg_integer(),
+        "description" => String.t(),
+        "lastUpdatedDate" => non_neg_integer(),
+        "policyStoreId" => String.t(),
+        "validationSettings" => validation_settings()
+      }
+      
   """
   @type get_policy_store_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  template_linked_policy_definition_item() :: %{
-    "policyTemplateId" => String.t(),
-    "principal" => entity_identifier(),
-    "resource" => entity_identifier()
-  }
+      
+      template_linked_policy_definition_item() :: %{
+        "policyTemplateId" => String.t(),
+        "principal" => entity_identifier(),
+        "resource" => entity_identifier()
+      }
+      
   """
   @type template_linked_policy_definition_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_identity_source_output() :: %{
-    "createdDate" => non_neg_integer(),
-    "identitySourceId" => String.t(),
-    "lastUpdatedDate" => non_neg_integer(),
-    "policyStoreId" => String.t()
-  }
+      
+      create_identity_source_output() :: %{
+        "createdDate" => non_neg_integer(),
+        "identitySourceId" => String.t(),
+        "lastUpdatedDate" => non_neg_integer(),
+        "policyStoreId" => String.t()
+      }
+      
   """
   @type create_identity_source_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_static_policy_definition() :: %{
-    "description" => String.t(),
-    "statement" => String.t()
-  }
+      
+      update_static_policy_definition() :: %{
+        "description" => String.t(),
+        "statement" => String.t()
+      }
+      
   """
   @type update_static_policy_definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_schema_input() :: %{
-    required("policyStoreId") => String.t()
-  }
+      
+      get_schema_input() :: %{
+        required("policyStoreId") => String.t()
+      }
+      
   """
   @type get_schema_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_conflict() :: %{
-    "resourceId" => [String.t()],
-    "resourceType" => list(any())
-  }
+      
+      resource_conflict() :: %{
+        "resourceId" => [String.t()],
+        "resourceType" => list(any())
+      }
+      
   """
   @type resource_conflict() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  validation_exception() :: %{
-    "fieldList" => list(validation_exception_field()()),
-    "message" => [String.t()]
-  }
+      
+      validation_exception() :: %{
+        "fieldList" => list(validation_exception_field()()),
+        "message" => [String.t()]
+      }
+      
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_policy_template_output() :: %{
-    "createdDate" => non_neg_integer(),
-    "description" => String.t(),
-    "lastUpdatedDate" => non_neg_integer(),
-    "policyStoreId" => String.t(),
-    "policyTemplateId" => String.t(),
-    "statement" => String.t()
-  }
+      
+      get_policy_template_output() :: %{
+        "createdDate" => non_neg_integer(),
+        "description" => String.t(),
+        "lastUpdatedDate" => non_neg_integer(),
+        "policyStoreId" => String.t(),
+        "policyTemplateId" => String.t(),
+        "statement" => String.t()
+      }
+      
   """
   @type get_policy_template_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_policy_output() :: %{
-    "createdDate" => non_neg_integer(),
-    "lastUpdatedDate" => non_neg_integer(),
-    "policyId" => String.t(),
-    "policyStoreId" => String.t(),
-    "policyType" => list(any()),
-    "principal" => entity_identifier(),
-    "resource" => entity_identifier()
-  }
+      
+      create_policy_output() :: %{
+        "createdDate" => non_neg_integer(),
+        "lastUpdatedDate" => non_neg_integer(),
+        "policyId" => String.t(),
+        "policyStoreId" => String.t(),
+        "policyType" => list(any()),
+        "principal" => entity_identifier(),
+        "resource" => entity_identifier()
+      }
+      
   """
   @type create_policy_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_identity_source_input() :: %{
-    optional("clientToken") => String.t(),
-    optional("principalEntityType") => String.t(),
-    required("configuration") => list(),
-    required("policyStoreId") => String.t()
-  }
+      
+      create_identity_source_input() :: %{
+        optional("clientToken") => String.t(),
+        optional("principalEntityType") => String.t(),
+        required("configuration") => list(),
+        required("policyStoreId") => String.t()
+      }
+      
   """
   @type create_identity_source_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  entity_identifier() :: %{
-    "entityId" => String.t(),
-    "entityType" => String.t()
-  }
+      
+      entity_identifier() :: %{
+        "entityId" => String.t(),
+        "entityType" => String.t()
+      }
+      
   """
   @type entity_identifier() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_policy_template_input() :: %{
-    required("policyStoreId") => String.t(),
-    required("policyTemplateId") => String.t()
-  }
+      
+      get_policy_template_input() :: %{
+        required("policyStoreId") => String.t(),
+        required("policyTemplateId") => String.t()
+      }
+      
   """
   @type get_policy_template_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  throttling_exception() :: %{
-    "message" => [String.t()],
-    "quotaCode" => [String.t()],
-    "serviceCode" => [String.t()]
-  }
+      
+      throttling_exception() :: %{
+        "message" => [String.t()],
+        "quotaCode" => [String.t()],
+        "serviceCode" => [String.t()]
+      }
+      
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  identity_source_item() :: %{
-    "configuration" => list(),
-    "createdDate" => non_neg_integer(),
-    "details" => identity_source_item_details(),
-    "identitySourceId" => String.t(),
-    "lastUpdatedDate" => non_neg_integer(),
-    "policyStoreId" => String.t(),
-    "principalEntityType" => String.t()
-  }
+      
+      identity_source_item() :: %{
+        "configuration" => list(),
+        "createdDate" => non_neg_integer(),
+        "details" => identity_source_item_details(),
+        "identitySourceId" => String.t(),
+        "lastUpdatedDate" => non_neg_integer(),
+        "policyStoreId" => String.t(),
+        "principalEntityType" => String.t()
+      }
+      
   """
   @type identity_source_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  identity_source_filter() :: %{
-    "principalEntityType" => String.t()
-  }
+      
+      identity_source_filter() :: %{
+        "principalEntityType" => String.t()
+      }
+      
   """
   @type identity_source_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_identity_sources_input() :: %{
-    optional("filters") => list(identity_source_filter()()),
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t(),
-    required("policyStoreId") => String.t()
-  }
+      
+      list_identity_sources_input() :: %{
+        optional("filters") => list(identity_source_filter()()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        required("policyStoreId") => String.t()
+      }
+      
   """
   @type list_identity_sources_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_is_authorized_output_item() :: %{
-    "decision" => list(any()),
-    "determiningPolicies" => list(determining_policy_item()()),
-    "errors" => list(evaluation_error_item()()),
-    "request" => batch_is_authorized_input_item()
-  }
+      
+      batch_is_authorized_output_item() :: %{
+        "decision" => list(any()),
+        "determiningPolicies" => list(determining_policy_item()()),
+        "errors" => list(evaluation_error_item()()),
+        "request" => batch_is_authorized_input_item()
+      }
+      
   """
   @type batch_is_authorized_output_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_policy_output() :: %{
-    "createdDate" => non_neg_integer(),
-    "lastUpdatedDate" => non_neg_integer(),
-    "policyId" => String.t(),
-    "policyStoreId" => String.t(),
-    "policyType" => list(any()),
-    "principal" => entity_identifier(),
-    "resource" => entity_identifier()
-  }
+      
+      update_policy_output() :: %{
+        "createdDate" => non_neg_integer(),
+        "lastUpdatedDate" => non_neg_integer(),
+        "policyId" => String.t(),
+        "policyStoreId" => String.t(),
+        "policyType" => list(any()),
+        "principal" => entity_identifier(),
+        "resource" => entity_identifier()
+      }
+      
   """
   @type update_policy_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  static_policy_definition_detail() :: %{
-    "description" => String.t(),
-    "statement" => String.t()
-  }
+      
+      static_policy_definition_detail() :: %{
+        "description" => String.t(),
+        "statement" => String.t()
+      }
+      
   """
   @type static_policy_definition_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_policy_output() :: %{
-
-  }
+      
+      delete_policy_output() :: %{}
+      
   """
-  @type delete_policy_output() :: %{String.t() => any()}
+  @type delete_policy_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  entity_item() :: %{
-    "attributes" => map(),
-    "identifier" => entity_identifier(),
-    "parents" => list(entity_identifier()())
-  }
+      
+      entity_item() :: %{
+        "attributes" => map(),
+        "identifier" => entity_identifier(),
+        "parents" => list(entity_identifier()())
+      }
+      
   """
   @type entity_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_policy_stores_output() :: %{
-    "nextToken" => String.t(),
-    "policyStores" => list(policy_store_item()())
-  }
+      
+      list_policy_stores_output() :: %{
+        "nextToken" => String.t(),
+        "policyStores" => list(policy_store_item()())
+      }
+      
   """
   @type list_policy_stores_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_identity_source_output() :: %{
-    "configuration" => list(),
-    "createdDate" => non_neg_integer(),
-    "details" => identity_source_details(),
-    "identitySourceId" => String.t(),
-    "lastUpdatedDate" => non_neg_integer(),
-    "policyStoreId" => String.t(),
-    "principalEntityType" => String.t()
-  }
+      
+      get_identity_source_output() :: %{
+        "configuration" => list(),
+        "createdDate" => non_neg_integer(),
+        "details" => identity_source_details(),
+        "identitySourceId" => String.t(),
+        "lastUpdatedDate" => non_neg_integer(),
+        "policyStoreId" => String.t(),
+        "principalEntityType" => String.t()
+      }
+      
   """
   @type get_identity_source_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_policy_output() :: %{
-    "createdDate" => non_neg_integer(),
-    "definition" => list(),
-    "lastUpdatedDate" => non_neg_integer(),
-    "policyId" => String.t(),
-    "policyStoreId" => String.t(),
-    "policyType" => list(any()),
-    "principal" => entity_identifier(),
-    "resource" => entity_identifier()
-  }
+      
+      get_policy_output() :: %{
+        "createdDate" => non_neg_integer(),
+        "definition" => list(),
+        "lastUpdatedDate" => non_neg_integer(),
+        "policyId" => String.t(),
+        "policyStoreId" => String.t(),
+        "policyType" => list(any()),
+        "principal" => entity_identifier(),
+        "resource" => entity_identifier()
+      }
+      
   """
   @type get_policy_output() :: %{String.t() => any()}
+
+  @type batch_is_authorized_errors() :: resource_not_found_exception()
+
+  @type create_identity_source_errors() ::
+          service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_policy_errors() ::
+          service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_policy_store_errors() :: service_quota_exceeded_exception() | conflict_exception()
+
+  @type create_policy_template_errors() ::
+          service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_identity_source_errors() :: resource_not_found_exception() | conflict_exception()
+
+  @type delete_policy_errors() :: resource_not_found_exception() | conflict_exception()
+
+  @type delete_policy_template_errors() :: resource_not_found_exception() | conflict_exception()
+
+  @type get_identity_source_errors() :: resource_not_found_exception()
+
+  @type get_policy_errors() :: resource_not_found_exception()
+
+  @type get_policy_store_errors() :: resource_not_found_exception()
+
+  @type get_policy_template_errors() :: resource_not_found_exception()
+
+  @type get_schema_errors() :: resource_not_found_exception()
+
+  @type is_authorized_errors() :: resource_not_found_exception()
+
+  @type is_authorized_with_token_errors() :: resource_not_found_exception()
+
+  @type list_identity_sources_errors() :: resource_not_found_exception()
+
+  @type list_policies_errors() :: resource_not_found_exception()
+
+  @type list_policy_templates_errors() :: resource_not_found_exception()
+
+  @type put_schema_errors() ::
+          service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_identity_source_errors() :: resource_not_found_exception() | conflict_exception()
+
+  @type update_policy_errors() ::
+          service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_policy_store_errors() :: resource_not_found_exception() | conflict_exception()
+
+  @type update_policy_template_errors() :: resource_not_found_exception() | conflict_exception()
 
   def metadata do
     %{
@@ -1094,7 +1319,7 @@ defmodule AWS.VerifiedPermissions do
   @spec batch_is_authorized(map(), batch_is_authorized_input(), list()) ::
           {:ok, batch_is_authorized_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found_exception()}
+          | {:error, batch_is_authorized_errors()}
   def batch_is_authorized(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1146,9 +1371,7 @@ defmodule AWS.VerifiedPermissions do
   @spec create_identity_source(map(), create_identity_source_input(), list()) ::
           {:ok, create_identity_source_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
+          | {:error, create_identity_source_errors()}
   def create_identity_source(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1189,9 +1412,7 @@ defmodule AWS.VerifiedPermissions do
   @spec create_policy(map(), create_policy_input(), list()) ::
           {:ok, create_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
+          | {:error, create_policy_errors()}
   def create_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1216,8 +1437,7 @@ defmodule AWS.VerifiedPermissions do
   @spec create_policy_store(map(), create_policy_store_input(), list()) ::
           {:ok, create_policy_store_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, service_quota_exceeded_exception()}
+          | {:error, create_policy_store_errors()}
   def create_policy_store(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1248,9 +1468,7 @@ defmodule AWS.VerifiedPermissions do
   @spec create_policy_template(map(), create_policy_template_input(), list()) ::
           {:ok, create_policy_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
+          | {:error, create_policy_template_errors()}
   def create_policy_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1271,8 +1489,7 @@ defmodule AWS.VerifiedPermissions do
   @spec delete_identity_source(map(), delete_identity_source_input(), list()) ::
           {:ok, delete_identity_source_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, delete_identity_source_errors()}
   def delete_identity_source(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1288,8 +1505,7 @@ defmodule AWS.VerifiedPermissions do
   @spec delete_policy(map(), delete_policy_input(), list()) ::
           {:ok, delete_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, delete_policy_errors()}
   def delete_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1323,8 +1539,7 @@ defmodule AWS.VerifiedPermissions do
   @spec delete_policy_template(map(), delete_policy_template_input(), list()) ::
           {:ok, delete_policy_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, delete_policy_template_errors()}
   def delete_policy_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1337,7 +1552,7 @@ defmodule AWS.VerifiedPermissions do
   @spec get_identity_source(map(), get_identity_source_input(), list()) ::
           {:ok, get_identity_source_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found_exception()}
+          | {:error, get_identity_source_errors()}
   def get_identity_source(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1350,7 +1565,7 @@ defmodule AWS.VerifiedPermissions do
   @spec get_policy(map(), get_policy_input(), list()) ::
           {:ok, get_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found_exception()}
+          | {:error, get_policy_errors()}
   def get_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1363,7 +1578,7 @@ defmodule AWS.VerifiedPermissions do
   @spec get_policy_store(map(), get_policy_store_input(), list()) ::
           {:ok, get_policy_store_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found_exception()}
+          | {:error, get_policy_store_errors()}
   def get_policy_store(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1377,7 +1592,7 @@ defmodule AWS.VerifiedPermissions do
   @spec get_policy_template(map(), get_policy_template_input(), list()) ::
           {:ok, get_policy_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found_exception()}
+          | {:error, get_policy_template_errors()}
   def get_policy_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1390,7 +1605,7 @@ defmodule AWS.VerifiedPermissions do
   @spec get_schema(map(), get_schema_input(), list()) ::
           {:ok, get_schema_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found_exception()}
+          | {:error, get_schema_errors()}
   def get_schema(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1412,7 +1627,7 @@ defmodule AWS.VerifiedPermissions do
   @spec is_authorized(map(), is_authorized_input(), list()) ::
           {:ok, is_authorized_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found_exception()}
+          | {:error, is_authorized_errors()}
   def is_authorized(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1456,7 +1671,7 @@ defmodule AWS.VerifiedPermissions do
   @spec is_authorized_with_token(map(), is_authorized_with_token_input(), list()) ::
           {:ok, is_authorized_with_token_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found_exception()}
+          | {:error, is_authorized_with_token_errors()}
   def is_authorized_with_token(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1470,7 +1685,7 @@ defmodule AWS.VerifiedPermissions do
   @spec list_identity_sources(map(), list_identity_sources_input(), list()) ::
           {:ok, list_identity_sources_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found_exception()}
+          | {:error, list_identity_sources_errors()}
   def list_identity_sources(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1483,7 +1698,7 @@ defmodule AWS.VerifiedPermissions do
   @spec list_policies(map(), list_policies_input(), list()) ::
           {:ok, list_policies_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found_exception()}
+          | {:error, list_policies_errors()}
   def list_policies(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1509,7 +1724,7 @@ defmodule AWS.VerifiedPermissions do
   @spec list_policy_templates(map(), list_policy_templates_input(), list()) ::
           {:ok, list_policy_templates_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found_exception()}
+          | {:error, list_policy_templates_errors()}
   def list_policy_templates(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1536,9 +1751,7 @@ defmodule AWS.VerifiedPermissions do
   @spec put_schema(map(), put_schema_input(), list()) ::
           {:ok, put_schema_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
+          | {:error, put_schema_errors()}
   def put_schema(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1559,8 +1772,7 @@ defmodule AWS.VerifiedPermissions do
   @spec update_identity_source(map(), update_identity_source_input(), list()) ::
           {:ok, update_identity_source_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, update_identity_source_errors()}
   def update_identity_source(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1621,9 +1833,7 @@ defmodule AWS.VerifiedPermissions do
   @spec update_policy(map(), update_policy_input(), list()) ::
           {:ok, update_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
+          | {:error, update_policy_errors()}
   def update_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1642,8 +1852,7 @@ defmodule AWS.VerifiedPermissions do
   @spec update_policy_store(map(), update_policy_store_input(), list()) ::
           {:ok, update_policy_store_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, update_policy_store_errors()}
   def update_policy_store(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1671,8 +1880,7 @@ defmodule AWS.VerifiedPermissions do
   @spec update_policy_template(map(), update_policy_template_input(), list()) ::
           {:ok, update_policy_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, update_policy_template_errors()}
   def update_policy_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
 

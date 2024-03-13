@@ -54,2409 +54,3326 @@ defmodule AWS.WorkMail do
   @typedoc """
 
   ## Example:
-  mobile_device_access_rule() :: %{
-    "DateCreated" => non_neg_integer(),
-    "DateModified" => non_neg_integer(),
-    "Description" => String.t(),
-    "DeviceModels" => list(String.t()()),
-    "DeviceOperatingSystems" => list(String.t()()),
-    "DeviceTypes" => list(String.t()()),
-    "DeviceUserAgents" => list(String.t()()),
-    "Effect" => list(any()),
-    "MobileDeviceAccessRuleId" => String.t(),
-    "Name" => String.t(),
-    "NotDeviceModels" => list(String.t()()),
-    "NotDeviceOperatingSystems" => list(String.t()()),
-    "NotDeviceTypes" => list(String.t()()),
-    "NotDeviceUserAgents" => list(String.t()())
-  }
+      
+      mobile_device_access_rule() :: %{
+        "DateCreated" => non_neg_integer(),
+        "DateModified" => non_neg_integer(),
+        "Description" => String.t(),
+        "DeviceModels" => list(String.t()()),
+        "DeviceOperatingSystems" => list(String.t()()),
+        "DeviceTypes" => list(String.t()()),
+        "DeviceUserAgents" => list(String.t()()),
+        "Effect" => list(any()),
+        "MobileDeviceAccessRuleId" => String.t(),
+        "Name" => String.t(),
+        "NotDeviceModels" => list(String.t()()),
+        "NotDeviceOperatingSystems" => list(String.t()()),
+        "NotDeviceTypes" => list(String.t()()),
+        "NotDeviceUserAgents" => list(String.t()())
+      }
+      
   """
   @type mobile_device_access_rule() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_aliases_response() :: %{
-    "Aliases" => list(String.t()()),
-    "NextToken" => String.t()
-  }
+      
+      list_aliases_response() :: %{
+        "Aliases" => list(String.t()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_aliases_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_mobile_device_access_rule_response() :: %{
-
-  }
+      
+      update_mobile_device_access_rule_response() :: %{}
+      
   """
-  @type update_mobile_device_access_rule_response() :: %{String.t() => any()}
+  @type update_mobile_device_access_rule_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  cancel_mailbox_export_job_request() :: %{
-    required("ClientToken") => String.t(),
-    required("JobId") => String.t(),
-    required("OrganizationId") => String.t()
-  }
+      
+      cancel_mailbox_export_job_request() :: %{
+        required("ClientToken") => String.t(),
+        required("JobId") => String.t(),
+        required("OrganizationId") => String.t()
+      }
+      
   """
   @type cancel_mailbox_export_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_access_control_effect_response() :: %{
-    "Effect" => list(any()),
-    "MatchedRules" => list(String.t()())
-  }
+      
+      get_access_control_effect_response() :: %{
+        "Effect" => list(any()),
+        "MatchedRules" => list(String.t()())
+      }
+      
   """
   @type get_access_control_effect_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_aliases_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("EntityId") => String.t(),
-    required("OrganizationId") => String.t()
-  }
+      
+      list_aliases_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("EntityId") => String.t(),
+        required("OrganizationId") => String.t()
+      }
+      
   """
   @type list_aliases_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_mobile_device_access_override_response() :: %{
-
-  }
+      
+      put_mobile_device_access_override_response() :: %{}
+      
   """
-  @type put_mobile_device_access_override_response() :: %{String.t() => any()}
+  @type put_mobile_device_access_override_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  put_email_monitoring_configuration_request() :: %{
-    required("LogGroupArn") => String.t(),
-    required("OrganizationId") => String.t(),
-    required("RoleArn") => String.t()
-  }
+      
+      put_email_monitoring_configuration_request() :: %{
+        required("LogGroupArn") => String.t(),
+        required("OrganizationId") => String.t(),
+        required("RoleArn") => String.t()
+      }
+      
   """
   @type put_email_monitoring_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_mobile_device_access_overrides_response() :: %{
-    "NextToken" => String.t(),
-    "Overrides" => list(mobile_device_access_override()())
-  }
+      
+      list_mobile_device_access_overrides_response() :: %{
+        "NextToken" => String.t(),
+        "Overrides" => list(mobile_device_access_override()())
+      }
+      
   """
   @type list_mobile_device_access_overrides_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_mailbox_details_response() :: %{
-    "MailboxQuota" => integer(),
-    "MailboxSize" => float()
-  }
+      
+      get_mailbox_details_response() :: %{
+        "MailboxQuota" => integer(),
+        "MailboxSize" => float()
+      }
+      
   """
   @type get_mailbox_details_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_request() :: %{
-    required("ResourceARN") => String.t(),
-    required("Tags") => list(tag()())
-  }
+      
+      tag_resource_request() :: %{
+        required("ResourceARN") => String.t(),
+        required("Tags") => list(tag()())
+      }
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_organizations_response() :: %{
-    "NextToken" => String.t(),
-    "OrganizationSummaries" => list(organization_summary()())
-  }
+      
+      list_organizations_response() :: %{
+        "NextToken" => String.t(),
+        "OrganizationSummaries" => list(organization_summary()())
+      }
+      
   """
   @type list_organizations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_mobile_device_access_effect_request() :: %{
-    optional("DeviceModel") => String.t(),
-    optional("DeviceOperatingSystem") => String.t(),
-    optional("DeviceType") => String.t(),
-    optional("DeviceUserAgent") => String.t(),
-    required("OrganizationId") => String.t()
-  }
+      
+      get_mobile_device_access_effect_request() :: %{
+        optional("DeviceModel") => String.t(),
+        optional("DeviceOperatingSystem") => String.t(),
+        optional("DeviceType") => String.t(),
+        optional("DeviceUserAgent") => String.t(),
+        required("OrganizationId") => String.t()
+      }
+      
   """
   @type get_mobile_device_access_effect_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disassociate_delegate_from_resource_request() :: %{
-    required("EntityId") => String.t(),
-    required("OrganizationId") => String.t(),
-    required("ResourceId") => String.t()
-  }
+      
+      disassociate_delegate_from_resource_request() :: %{
+        required("EntityId") => String.t(),
+        required("OrganizationId") => String.t(),
+        required("ResourceId") => String.t()
+      }
+      
   """
   @type disassociate_delegate_from_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  entity_not_found_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      entity_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type entity_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_group_members_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("GroupId") => String.t(),
-    required("OrganizationId") => String.t()
-  }
+      
+      list_group_members_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("GroupId") => String.t(),
+        required("OrganizationId") => String.t()
+      }
+      
   """
   @type list_group_members_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  associate_member_to_group_response() :: %{
-
-  }
+      
+      associate_member_to_group_response() :: %{}
+      
   """
-  @type associate_member_to_group_response() :: %{String.t() => any()}
+  @type associate_member_to_group_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_resources_response() :: %{
-    "NextToken" => String.t(),
-    "Resources" => list(resource()())
-  }
+      
+      list_resources_response() :: %{
+        "NextToken" => String.t(),
+        "Resources" => list(resource()())
+      }
+      
   """
   @type list_resources_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_resource_response() :: %{
-    "BookingOptions" => booking_options(),
-    "Description" => String.t(),
-    "DisabledDate" => non_neg_integer(),
-    "Email" => String.t(),
-    "EnabledDate" => non_neg_integer(),
-    "HiddenFromGlobalAddressList" => boolean(),
-    "Name" => String.t(),
-    "ResourceId" => String.t(),
-    "State" => list(any()),
-    "Type" => list(any())
-  }
+      
+      describe_resource_response() :: %{
+        "BookingOptions" => booking_options(),
+        "Description" => String.t(),
+        "DisabledDate" => non_neg_integer(),
+        "Email" => String.t(),
+        "EnabledDate" => non_neg_integer(),
+        "HiddenFromGlobalAddressList" => boolean(),
+        "Name" => String.t(),
+        "ResourceId" => String.t(),
+        "State" => list(any()),
+        "Type" => list(any())
+      }
+      
   """
   @type describe_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  unsupported_operation_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      unsupported_operation_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type unsupported_operation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_groups_for_entity_request() :: %{
-    optional("Filters") => list_groups_for_entity_filters(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("EntityId") => String.t(),
-    required("OrganizationId") => String.t()
-  }
+      
+      list_groups_for_entity_request() :: %{
+        optional("Filters") => list_groups_for_entity_filters(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("EntityId") => String.t(),
+        required("OrganizationId") => String.t()
+      }
+      
   """
   @type list_groups_for_entity_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  deregister_mail_domain_response() :: %{
-
-  }
+      
+      deregister_mail_domain_response() :: %{}
+      
   """
-  @type deregister_mail_domain_response() :: %{String.t() => any()}
+  @type deregister_mail_domain_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  entity_state_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      entity_state_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type entity_state_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  test_availability_configuration_request() :: %{
-    optional("DomainName") => String.t(),
-    optional("EwsProvider") => ews_availability_provider(),
-    optional("LambdaProvider") => lambda_availability_provider(),
-    required("OrganizationId") => String.t()
-  }
+      
+      test_availability_configuration_request() :: %{
+        optional("DomainName") => String.t(),
+        optional("EwsProvider") => ews_availability_provider(),
+        optional("LambdaProvider") => lambda_availability_provider(),
+        required("OrganizationId") => String.t()
+      }
+      
   """
   @type test_availability_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  associate_delegate_to_resource_request() :: %{
-    required("EntityId") => String.t(),
-    required("OrganizationId") => String.t(),
-    required("ResourceId") => String.t()
-  }
+      
+      associate_delegate_to_resource_request() :: %{
+        required("EntityId") => String.t(),
+        required("OrganizationId") => String.t(),
+        required("ResourceId") => String.t()
+      }
+      
   """
   @type associate_delegate_to_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_mobile_device_access_rule_request() :: %{
-    optional("ClientToken") => String.t(),
-    optional("Description") => String.t(),
-    optional("DeviceModels") => list(String.t()()),
-    optional("DeviceOperatingSystems") => list(String.t()()),
-    optional("DeviceTypes") => list(String.t()()),
-    optional("DeviceUserAgents") => list(String.t()()),
-    optional("NotDeviceModels") => list(String.t()()),
-    optional("NotDeviceOperatingSystems") => list(String.t()()),
-    optional("NotDeviceTypes") => list(String.t()()),
-    optional("NotDeviceUserAgents") => list(String.t()()),
-    required("Effect") => list(any()),
-    required("Name") => String.t(),
-    required("OrganizationId") => String.t()
-  }
+      
+      create_mobile_device_access_rule_request() :: %{
+        optional("ClientToken") => String.t(),
+        optional("Description") => String.t(),
+        optional("DeviceModels") => list(String.t()()),
+        optional("DeviceOperatingSystems") => list(String.t()()),
+        optional("DeviceTypes") => list(String.t()()),
+        optional("DeviceUserAgents") => list(String.t()()),
+        optional("NotDeviceModels") => list(String.t()()),
+        optional("NotDeviceOperatingSystems") => list(String.t()()),
+        optional("NotDeviceTypes") => list(String.t()()),
+        optional("NotDeviceUserAgents") => list(String.t()()),
+        required("Effect") => list(any()),
+        required("Name") => String.t(),
+        required("OrganizationId") => String.t()
+      }
+      
   """
   @type create_mobile_device_access_rule_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_resource_request() :: %{
-    required("OrganizationId") => String.t(),
-    required("ResourceId") => String.t()
-  }
+      
+      delete_resource_request() :: %{
+        required("OrganizationId") => String.t(),
+        required("ResourceId") => String.t()
+      }
+      
   """
   @type delete_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_availability_configurations_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("OrganizationId") => String.t()
-  }
+      
+      list_availability_configurations_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("OrganizationId") => String.t()
+      }
+      
   """
   @type list_availability_configurations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_user_response() :: %{
-
-  }
+      
+      update_user_response() :: %{}
+      
   """
-  @type update_user_response() :: %{String.t() => any()}
+  @type update_user_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  update_resource_request() :: %{
-    optional("BookingOptions") => booking_options(),
-    optional("Description") => String.t(),
-    optional("HiddenFromGlobalAddressList") => boolean(),
-    optional("Name") => String.t(),
-    optional("Type") => list(any()),
-    required("OrganizationId") => String.t(),
-    required("ResourceId") => String.t()
-  }
+      
+      update_resource_request() :: %{
+        optional("BookingOptions") => booking_options(),
+        optional("Description") => String.t(),
+        optional("HiddenFromGlobalAddressList") => boolean(),
+        optional("Name") => String.t(),
+        optional("Type") => list(any()),
+        required("OrganizationId") => String.t(),
+        required("ResourceId") => String.t()
+      }
+      
   """
   @type update_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_access_control_effect_request() :: %{
-    optional("ImpersonationRoleId") => String.t(),
-    optional("UserId") => String.t(),
-    required("Action") => String.t(),
-    required("IpAddress") => String.t(),
-    required("OrganizationId") => String.t()
-  }
+      
+      get_access_control_effect_request() :: %{
+        optional("ImpersonationRoleId") => String.t(),
+        optional("UserId") => String.t(),
+        required("Action") => String.t(),
+        required("IpAddress") => String.t(),
+        required("OrganizationId") => String.t()
+      }
+      
   """
   @type get_access_control_effect_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_response() :: %{
-
-  }
+      
+      untag_resource_response() :: %{}
+      
   """
-  @type untag_resource_response() :: %{String.t() => any()}
+  @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_impersonation_roles_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("OrganizationId") => String.t()
-  }
+      
+      list_impersonation_roles_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("OrganizationId") => String.t()
+      }
+      
   """
   @type list_impersonation_roles_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_alias_request() :: %{
-    required("Alias") => String.t(),
-    required("EntityId") => String.t(),
-    required("OrganizationId") => String.t()
-  }
+      
+      create_alias_request() :: %{
+        required("Alias") => String.t(),
+        required("EntityId") => String.t(),
+        required("OrganizationId") => String.t()
+      }
+      
   """
   @type create_alias_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  deregister_from_work_mail_response() :: %{
-
-  }
+      
+      deregister_from_work_mail_response() :: %{}
+      
   """
-  @type deregister_from_work_mail_response() :: %{String.t() => any()}
+  @type deregister_from_work_mail_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  update_primary_email_address_request() :: %{
-    required("Email") => String.t(),
-    required("EntityId") => String.t(),
-    required("OrganizationId") => String.t()
-  }
+      
+      update_primary_email_address_request() :: %{
+        required("Email") => String.t(),
+        required("EntityId") => String.t(),
+        required("OrganizationId") => String.t()
+      }
+      
   """
   @type update_primary_email_address_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_mobile_device_access_overrides_request() :: %{
-    optional("DeviceId") => String.t(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("UserId") => String.t(),
-    required("OrganizationId") => String.t()
-  }
+      
+      list_mobile_device_access_overrides_request() :: %{
+        optional("DeviceId") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("UserId") => String.t(),
+        required("OrganizationId") => String.t()
+      }
+      
   """
   @type list_mobile_device_access_overrides_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_retention_policy_response() :: %{
-
-  }
+      
+      put_retention_policy_response() :: %{}
+      
   """
-  @type put_retention_policy_response() :: %{String.t() => any()}
+  @type put_retention_policy_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  delete_mobile_device_access_override_request() :: %{
-    required("DeviceId") => String.t(),
-    required("OrganizationId") => String.t(),
-    required("UserId") => String.t()
-  }
+      
+      delete_mobile_device_access_override_request() :: %{
+        required("DeviceId") => String.t(),
+        required("OrganizationId") => String.t(),
+        required("UserId") => String.t()
+      }
+      
   """
   @type delete_mobile_device_access_override_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_mobile_device_access_override_request() :: %{
-    required("DeviceId") => String.t(),
-    required("OrganizationId") => String.t(),
-    required("UserId") => String.t()
-  }
+      
+      get_mobile_device_access_override_request() :: %{
+        required("DeviceId") => String.t(),
+        required("OrganizationId") => String.t(),
+        required("UserId") => String.t()
+      }
+      
   """
   @type get_mobile_device_access_override_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_mail_domain_response() :: %{
-    "DkimVerificationStatus" => list(any()),
-    "IsDefault" => boolean(),
-    "IsTestDomain" => boolean(),
-    "OwnershipVerificationStatus" => list(any()),
-    "Records" => list(dns_record()())
-  }
+      
+      get_mail_domain_response() :: %{
+        "DkimVerificationStatus" => list(any()),
+        "IsDefault" => boolean(),
+        "IsTestDomain" => boolean(),
+        "OwnershipVerificationStatus" => list(any()),
+        "Records" => list(dns_record()())
+      }
+      
   """
   @type get_mail_domain_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_mailbox_export_jobs_response() :: %{
-    "Jobs" => list(mailbox_export_job()()),
-    "NextToken" => String.t()
-  }
+      
+      list_mailbox_export_jobs_response() :: %{
+        "Jobs" => list(mailbox_export_job()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_mailbox_export_jobs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_access_control_rules_request() :: %{
-    required("OrganizationId") => String.t()
-  }
+      
+      list_access_control_rules_request() :: %{
+        required("OrganizationId") => String.t()
+      }
+      
   """
   @type list_access_control_rules_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  organization_state_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      organization_state_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type organization_state_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_users_filters() :: %{
-    "DisplayNamePrefix" => String.t(),
-    "PrimaryEmailPrefix" => String.t(),
-    "State" => list(any()),
-    "UsernamePrefix" => String.t()
-  }
+      
+      list_users_filters() :: %{
+        "DisplayNamePrefix" => String.t(),
+        "PrimaryEmailPrefix" => String.t(),
+        "State" => list(any()),
+        "UsernamePrefix" => String.t()
+      }
+      
   """
   @type list_users_filters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  access_control_rule() :: %{
-    "Actions" => list(String.t()()),
-    "DateCreated" => non_neg_integer(),
-    "DateModified" => non_neg_integer(),
-    "Description" => String.t(),
-    "Effect" => list(any()),
-    "ImpersonationRoleIds" => list(String.t()()),
-    "IpRanges" => list(String.t()()),
-    "Name" => String.t(),
-    "NotActions" => list(String.t()()),
-    "NotImpersonationRoleIds" => list(String.t()()),
-    "NotIpRanges" => list(String.t()()),
-    "NotUserIds" => list(String.t()()),
-    "UserIds" => list(String.t()())
-  }
+      
+      access_control_rule() :: %{
+        "Actions" => list(String.t()()),
+        "DateCreated" => non_neg_integer(),
+        "DateModified" => non_neg_integer(),
+        "Description" => String.t(),
+        "Effect" => list(any()),
+        "ImpersonationRoleIds" => list(String.t()()),
+        "IpRanges" => list(String.t()()),
+        "Name" => String.t(),
+        "NotActions" => list(String.t()()),
+        "NotImpersonationRoleIds" => list(String.t()()),
+        "NotIpRanges" => list(String.t()()),
+        "NotUserIds" => list(String.t()()),
+        "UserIds" => list(String.t()())
+      }
+      
   """
   @type access_control_rule() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  domain() :: %{
-    "DomainName" => String.t(),
-    "HostedZoneId" => String.t()
-  }
+      
+      domain() :: %{
+        "DomainName" => String.t(),
+        "HostedZoneId" => String.t()
+      }
+      
   """
   @type domain() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_primary_email_address_response() :: %{
-
-  }
+      
+      update_primary_email_address_response() :: %{}
+      
   """
-  @type update_primary_email_address_response() :: %{String.t() => any()}
+  @type update_primary_email_address_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_mobile_device_access_rule_response() :: %{
-    "MobileDeviceAccessRuleId" => String.t()
-  }
+      
+      create_mobile_device_access_rule_response() :: %{
+        "MobileDeviceAccessRuleId" => String.t()
+      }
+      
   """
   @type create_mobile_device_access_rule_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_email_monitoring_configuration_response() :: %{
-
-  }
+      
+      delete_email_monitoring_configuration_response() :: %{}
+      
   """
-  @type delete_email_monitoring_configuration_response() :: %{String.t() => any()}
+  @type delete_email_monitoring_configuration_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  update_default_mail_domain_response() :: %{
-
-  }
+      
+      update_default_mail_domain_response() :: %{}
+      
   """
-  @type update_default_mail_domain_response() :: %{String.t() => any()}
+  @type update_default_mail_domain_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  assume_impersonation_role_response() :: %{
-    "ExpiresIn" => float(),
-    "Token" => String.t()
-  }
+      
+      assume_impersonation_role_response() :: %{
+        "ExpiresIn" => float(),
+        "Token" => String.t()
+      }
+      
   """
   @type assume_impersonation_role_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_retention_policy_request() :: %{
-    optional("Description") => String.t(),
-    optional("Id") => String.t(),
-    required("FolderConfigurations") => list(folder_configuration()()),
-    required("Name") => String.t(),
-    required("OrganizationId") => String.t()
-  }
+      
+      put_retention_policy_request() :: %{
+        optional("Description") => String.t(),
+        optional("Id") => String.t(),
+        required("FolderConfigurations") => list(folder_configuration()()),
+        required("Name") => String.t(),
+        required("OrganizationId") => String.t()
+      }
+      
   """
   @type put_retention_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  mail_domain_not_found_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      mail_domain_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type mail_domain_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_mail_domains_response() :: %{
-    "MailDomains" => list(mail_domain_summary()()),
-    "NextToken" => String.t()
-  }
+      
+      list_mail_domains_response() :: %{
+        "MailDomains" => list(mail_domain_summary()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_mail_domains_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_mobile_device_access_rules_response() :: %{
-    "Rules" => list(mobile_device_access_rule()())
-  }
+      
+      list_mobile_device_access_rules_response() :: %{
+        "Rules" => list(mobile_device_access_rule()())
+      }
+      
   """
   @type list_mobile_device_access_rules_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_resource_delegates_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("OrganizationId") => String.t(),
-    required("ResourceId") => String.t()
-  }
+      
+      list_resource_delegates_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("OrganizationId") => String.t(),
+        required("ResourceId") => String.t()
+      }
+      
   """
   @type list_resource_delegates_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ews_availability_provider() :: %{
-    "EwsEndpoint" => String.t(),
-    "EwsPassword" => String.t(),
-    "EwsUsername" => String.t()
-  }
+      
+      ews_availability_provider() :: %{
+        "EwsEndpoint" => String.t(),
+        "EwsPassword" => String.t(),
+        "EwsUsername" => String.t()
+      }
+      
   """
   @type ews_availability_provider() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_alias_response() :: %{
-
-  }
+      
+      create_alias_response() :: %{}
+      
   """
-  @type create_alias_response() :: %{String.t() => any()}
+  @type create_alias_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  describe_entity_response() :: %{
-    "EntityId" => String.t(),
-    "Name" => String.t(),
-    "Type" => list(any())
-  }
+      
+      describe_entity_response() :: %{
+        "EntityId" => String.t(),
+        "Name" => String.t(),
+        "Type" => list(any())
+      }
+      
   """
   @type describe_entity_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_groups_filters() :: %{
-    "NamePrefix" => String.t(),
-    "PrimaryEmailPrefix" => String.t(),
-    "State" => list(any())
-  }
+      
+      list_groups_filters() :: %{
+        "NamePrefix" => String.t(),
+        "PrimaryEmailPrefix" => String.t(),
+        "State" => list(any())
+      }
+      
   """
   @type list_groups_filters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_request() :: %{
-    required("ResourceARN") => String.t(),
-    required("TagKeys") => list(String.t()())
-  }
+      
+      untag_resource_request() :: %{
+        required("ResourceARN") => String.t(),
+        required("TagKeys") => list(String.t()())
+      }
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_resource_delegates_response() :: %{
-    "Delegates" => list(delegate()()),
-    "NextToken" => String.t()
-  }
+      
+      list_resource_delegates_response() :: %{
+        "Delegates" => list(delegate()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_resource_delegates_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_default_retention_policy_request() :: %{
-    required("OrganizationId") => String.t()
-  }
+      
+      get_default_retention_policy_request() :: %{
+        required("OrganizationId") => String.t()
+      }
+      
   """
   @type get_default_retention_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  deregister_from_work_mail_request() :: %{
-    required("EntityId") => String.t(),
-    required("OrganizationId") => String.t()
-  }
+      
+      deregister_from_work_mail_request() :: %{
+        required("EntityId") => String.t(),
+        required("OrganizationId") => String.t()
+      }
+      
   """
   @type deregister_from_work_mail_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  group_identifier() :: %{
-    "GroupId" => String.t(),
-    "GroupName" => String.t()
-  }
+      
+      group_identifier() :: %{
+        "GroupId" => String.t(),
+        "GroupName" => String.t()
+      }
+      
   """
   @type group_identifier() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_availability_configuration_request() :: %{
-    optional("ClientToken") => String.t(),
-    optional("EwsProvider") => ews_availability_provider(),
-    optional("LambdaProvider") => lambda_availability_provider(),
-    required("DomainName") => String.t(),
-    required("OrganizationId") => String.t()
-  }
+      
+      create_availability_configuration_request() :: %{
+        optional("ClientToken") => String.t(),
+        optional("EwsProvider") => ews_availability_provider(),
+        optional("LambdaProvider") => lambda_availability_provider(),
+        required("DomainName") => String.t(),
+        required("OrganizationId") => String.t()
+      }
+      
   """
   @type create_availability_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disassociate_delegate_from_resource_response() :: %{
-
-  }
+      
+      disassociate_delegate_from_resource_response() :: %{}
+      
   """
-  @type disassociate_delegate_from_resource_response() :: %{String.t() => any()}
+  @type disassociate_delegate_from_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_impersonation_role_request() :: %{
-    optional("ClientToken") => String.t(),
-    optional("Description") => String.t(),
-    required("Name") => String.t(),
-    required("OrganizationId") => String.t(),
-    required("Rules") => list(impersonation_rule()()),
-    required("Type") => list(any())
-  }
+      
+      create_impersonation_role_request() :: %{
+        optional("ClientToken") => String.t(),
+        optional("Description") => String.t(),
+        required("Name") => String.t(),
+        required("OrganizationId") => String.t(),
+        required("Rules") => list(impersonation_rule()()),
+        required("Type") => list(any())
+      }
+      
   """
   @type create_impersonation_role_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_group_request() :: %{
-    optional("HiddenFromGlobalAddressList") => boolean(),
-    required("GroupId") => String.t(),
-    required("OrganizationId") => String.t()
-  }
+      
+      update_group_request() :: %{
+        optional("HiddenFromGlobalAddressList") => boolean(),
+        required("GroupId") => String.t(),
+        required("OrganizationId") => String.t()
+      }
+      
   """
   @type update_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_resource_response() :: %{
-
-  }
+      
+      delete_resource_response() :: %{}
+      
   """
-  @type delete_resource_response() :: %{String.t() => any()}
+  @type delete_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  register_to_work_mail_response() :: %{
-
-  }
+      
+      register_to_work_mail_response() :: %{}
+      
   """
-  @type register_to_work_mail_response() :: %{String.t() => any()}
+  @type register_to_work_mail_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  associate_delegate_to_resource_response() :: %{
-
-  }
+      
+      associate_delegate_to_resource_response() :: %{}
+      
   """
-  @type associate_delegate_to_resource_response() :: %{String.t() => any()}
+  @type associate_delegate_to_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  booking_options() :: %{
-    "AutoAcceptRequests" => boolean(),
-    "AutoDeclineConflictingRequests" => boolean(),
-    "AutoDeclineRecurringRequests" => boolean()
-  }
+      
+      booking_options() :: %{
+        "AutoAcceptRequests" => boolean(),
+        "AutoDeclineConflictingRequests" => boolean(),
+        "AutoDeclineRecurringRequests" => boolean()
+      }
+      
   """
   @type booking_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_impersonation_role_effect_request() :: %{
-    required("ImpersonationRoleId") => String.t(),
-    required("OrganizationId") => String.t(),
-    required("TargetUser") => String.t()
-  }
+      
+      get_impersonation_role_effect_request() :: %{
+        required("ImpersonationRoleId") => String.t(),
+        required("OrganizationId") => String.t(),
+        required("TargetUser") => String.t()
+      }
+      
   """
   @type get_impersonation_role_effect_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_impersonation_role_response() :: %{
-
-  }
+      
+      delete_impersonation_role_response() :: %{}
+      
   """
-  @type delete_impersonation_role_response() :: %{String.t() => any()}
+  @type delete_impersonation_role_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_mailbox_details_request() :: %{
-    required("OrganizationId") => String.t(),
-    required("UserId") => String.t()
-  }
+      
+      get_mailbox_details_request() :: %{
+        required("OrganizationId") => String.t(),
+        required("UserId") => String.t()
+      }
+      
   """
   @type get_mailbox_details_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_retention_policy_request() :: %{
-    required("Id") => String.t(),
-    required("OrganizationId") => String.t()
-  }
+      
+      delete_retention_policy_request() :: %{
+        required("Id") => String.t(),
+        required("OrganizationId") => String.t()
+      }
+      
   """
   @type delete_retention_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  name_availability_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      name_availability_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type name_availability_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_availability_configuration_response() :: %{
-
-  }
+      
+      create_availability_configuration_response() :: %{}
+      
   """
-  @type create_availability_configuration_response() :: %{String.t() => any()}
+  @type create_availability_configuration_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  put_inbound_dmarc_settings_request() :: %{
-    required("Enforced") => boolean(),
-    required("OrganizationId") => String.t()
-  }
+      
+      put_inbound_dmarc_settings_request() :: %{
+        required("Enforced") => boolean(),
+        required("OrganizationId") => String.t()
+      }
+      
   """
   @type put_inbound_dmarc_settings_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  lambda_availability_provider() :: %{
-    "LambdaArn" => String.t()
-  }
+      
+      lambda_availability_provider() :: %{
+        "LambdaArn" => String.t()
+      }
+      
   """
   @type lambda_availability_provider() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  test_availability_configuration_response() :: %{
-    "FailureReason" => String.t(),
-    "TestPassed" => boolean()
-  }
+      
+      test_availability_configuration_response() :: %{
+        "FailureReason" => String.t(),
+        "TestPassed" => boolean()
+      }
+      
   """
   @type test_availability_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_not_found_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      resource_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  mail_domain_state_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      mail_domain_state_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type mail_domain_state_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_inbound_dmarc_settings_response() :: %{
-    "Enforced" => boolean()
-  }
+      
+      describe_inbound_dmarc_settings_response() :: %{
+        "Enforced" => boolean()
+      }
+      
   """
   @type describe_inbound_dmarc_settings_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cancel_mailbox_export_job_response() :: %{
-
-  }
+      
+      cancel_mailbox_export_job_response() :: %{}
+      
   """
-  @type cancel_mailbox_export_job_response() :: %{String.t() => any()}
+  @type cancel_mailbox_export_job_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  delete_availability_configuration_response() :: %{
-
-  }
+      
+      delete_availability_configuration_response() :: %{}
+      
   """
-  @type delete_availability_configuration_response() :: %{String.t() => any()}
+  @type delete_availability_configuration_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_groups_for_entity_filters() :: %{
-    "GroupNamePrefix" => String.t()
-  }
+      
+      list_groups_for_entity_filters() :: %{
+        "GroupNamePrefix" => String.t()
+      }
+      
   """
   @type list_groups_for_entity_filters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_mail_domain_request() :: %{
-    required("DomainName") => String.t(),
-    required("OrganizationId") => String.t()
-  }
+      
+      get_mail_domain_request() :: %{
+        required("DomainName") => String.t(),
+        required("OrganizationId") => String.t()
+      }
+      
   """
   @type get_mail_domain_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag() :: %{
-    "Key" => String.t(),
-    "Value" => String.t()
-  }
+      
+      tag() :: %{
+        "Key" => String.t(),
+        "Value" => String.t()
+      }
+      
   """
   @type tag() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  reset_password_response() :: %{
-
-  }
+      
+      reset_password_response() :: %{}
+      
   """
-  @type reset_password_response() :: %{String.t() => any()}
+  @type reset_password_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  organization_not_found_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      organization_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type organization_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_resource_response() :: %{
-
-  }
+      
+      update_resource_response() :: %{}
+      
   """
-  @type update_resource_response() :: %{String.t() => any()}
+  @type update_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  delete_access_control_rule_response() :: %{
-
-  }
+      
+      delete_access_control_rule_response() :: %{}
+      
   """
-  @type delete_access_control_rule_response() :: %{String.t() => any()}
+  @type delete_access_control_rule_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_mailbox_permissions_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("EntityId") => String.t(),
-    required("OrganizationId") => String.t()
-  }
+      
+      list_mailbox_permissions_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("EntityId") => String.t(),
+        required("OrganizationId") => String.t()
+      }
+      
   """
   @type list_mailbox_permissions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_mailbox_permissions_request() :: %{
-    required("EntityId") => String.t(),
-    required("GranteeId") => String.t(),
-    required("OrganizationId") => String.t(),
-    required("PermissionValues") => list(list(any())())
-  }
+      
+      put_mailbox_permissions_request() :: %{
+        required("EntityId") => String.t(),
+        required("GranteeId") => String.t(),
+        required("OrganizationId") => String.t(),
+        required("PermissionValues") => list(list(any())())
+      }
+      
   """
   @type put_mailbox_permissions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_mobile_device_access_override_response() :: %{
-    "DateCreated" => non_neg_integer(),
-    "DateModified" => non_neg_integer(),
-    "Description" => String.t(),
-    "DeviceId" => String.t(),
-    "Effect" => list(any()),
-    "UserId" => String.t()
-  }
+      
+      get_mobile_device_access_override_response() :: %{
+        "DateCreated" => non_neg_integer(),
+        "DateModified" => non_neg_integer(),
+        "Description" => String.t(),
+        "DeviceId" => String.t(),
+        "Effect" => list(any()),
+        "UserId" => String.t()
+      }
+      
   """
   @type get_mobile_device_access_override_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_mobile_device_access_rule_response() :: %{
-
-  }
+      
+      delete_mobile_device_access_rule_response() :: %{}
+      
   """
-  @type delete_mobile_device_access_rule_response() :: %{String.t() => any()}
+  @type delete_mobile_device_access_rule_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  disassociate_member_from_group_response() :: %{
-
-  }
+      
+      disassociate_member_from_group_response() :: %{}
+      
   """
-  @type disassociate_member_from_group_response() :: %{String.t() => any()}
+  @type disassociate_member_from_group_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_impersonation_roles_response() :: %{
-    "NextToken" => String.t(),
-    "Roles" => list(impersonation_role()())
-  }
+      
+      list_impersonation_roles_response() :: %{
+        "NextToken" => String.t(),
+        "Roles" => list(impersonation_role()())
+      }
+      
   """
   @type list_impersonation_roles_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  mail_domain_summary() :: %{
-    "DefaultDomain" => boolean(),
-    "DomainName" => String.t()
-  }
+      
+      mail_domain_summary() :: %{
+        "DefaultDomain" => boolean(),
+        "DomainName" => String.t()
+      }
+      
   """
   @type mail_domain_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_users_response() :: %{
-    "NextToken" => String.t(),
-    "Users" => list(user()())
-  }
+      
+      list_users_response() :: %{
+        "NextToken" => String.t(),
+        "Users" => list(user()())
+      }
+      
   """
   @type list_users_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_impersonation_role_effect_response() :: %{
-    "Effect" => list(any()),
-    "MatchedRules" => list(impersonation_matched_rule()()),
-    "Type" => list(any())
-  }
+      
+      get_impersonation_role_effect_response() :: %{
+        "Effect" => list(any()),
+        "MatchedRules" => list(impersonation_matched_rule()()),
+        "Type" => list(any())
+      }
+      
   """
   @type get_impersonation_role_effect_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_organization_response() :: %{
-    "OrganizationId" => String.t(),
-    "State" => String.t()
-  }
+      
+      delete_organization_response() :: %{
+        "OrganizationId" => String.t(),
+        "State" => String.t()
+      }
+      
   """
   @type delete_organization_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_mailbox_export_job_request() :: %{
-    required("JobId") => String.t(),
-    required("OrganizationId") => String.t()
-  }
+      
+      describe_mailbox_export_job_request() :: %{
+        required("JobId") => String.t(),
+        required("OrganizationId") => String.t()
+      }
+      
   """
   @type describe_mailbox_export_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disassociate_member_from_group_request() :: %{
-    required("GroupId") => String.t(),
-    required("MemberId") => String.t(),
-    required("OrganizationId") => String.t()
-  }
+      
+      disassociate_member_from_group_request() :: %{
+        required("GroupId") => String.t(),
+        required("MemberId") => String.t(),
+        required("OrganizationId") => String.t()
+      }
+      
   """
   @type disassociate_member_from_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  availability_configuration() :: %{
-    "DateCreated" => non_neg_integer(),
-    "DateModified" => non_neg_integer(),
-    "DomainName" => String.t(),
-    "EwsProvider" => redacted_ews_availability_provider(),
-    "LambdaProvider" => lambda_availability_provider(),
-    "ProviderType" => list(any())
-  }
+      
+      availability_configuration() :: %{
+        "DateCreated" => non_neg_integer(),
+        "DateModified" => non_neg_integer(),
+        "DomainName" => String.t(),
+        "EwsProvider" => redacted_ews_availability_provider(),
+        "LambdaProvider" => lambda_availability_provider(),
+        "ProviderType" => list(any())
+      }
+      
   """
   @type availability_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_availability_configuration_request() :: %{
-    optional("EwsProvider") => ews_availability_provider(),
-    optional("LambdaProvider") => lambda_availability_provider(),
-    required("DomainName") => String.t(),
-    required("OrganizationId") => String.t()
-  }
+      
+      update_availability_configuration_request() :: %{
+        optional("EwsProvider") => ews_availability_provider(),
+        optional("LambdaProvider") => lambda_availability_provider(),
+        required("DomainName") => String.t(),
+        required("OrganizationId") => String.t()
+      }
+      
   """
   @type update_availability_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_availability_configuration_response() :: %{
-
-  }
+      
+      update_availability_configuration_response() :: %{}
+      
   """
-  @type update_availability_configuration_response() :: %{String.t() => any()}
+  @type update_availability_configuration_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_response() :: %{
-    "Tags" => list(tag()())
-  }
+      
+      list_tags_for_resource_response() :: %{
+        "Tags" => list(tag()())
+      }
+      
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  mail_domain_in_use_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      mail_domain_in_use_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type mail_domain_in_use_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_default_mail_domain_request() :: %{
-    required("DomainName") => String.t(),
-    required("OrganizationId") => String.t()
-  }
+      
+      update_default_mail_domain_request() :: %{
+        required("DomainName") => String.t(),
+        required("OrganizationId") => String.t()
+      }
+      
   """
   @type update_default_mail_domain_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_group_request() :: %{
-    optional("HiddenFromGlobalAddressList") => boolean(),
-    required("Name") => String.t(),
-    required("OrganizationId") => String.t()
-  }
+      
+      create_group_request() :: %{
+        optional("HiddenFromGlobalAddressList") => boolean(),
+        required("Name") => String.t(),
+        required("OrganizationId") => String.t()
+      }
+      
   """
   @type create_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_impersonation_role_response() :: %{
-
-  }
+      
+      update_impersonation_role_response() :: %{}
+      
   """
-  @type update_impersonation_role_response() :: %{String.t() => any()}
+  @type update_impersonation_role_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  delete_impersonation_role_request() :: %{
-    required("ImpersonationRoleId") => String.t(),
-    required("OrganizationId") => String.t()
-  }
+      
+      delete_impersonation_role_request() :: %{
+        required("ImpersonationRoleId") => String.t(),
+        required("OrganizationId") => String.t()
+      }
+      
   """
   @type delete_impersonation_role_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  register_mail_domain_response() :: %{
-
-  }
+      
+      register_mail_domain_response() :: %{}
+      
   """
-  @type register_mail_domain_response() :: %{String.t() => any()}
+  @type register_mail_domain_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  mobile_device_access_override() :: %{
-    "DateCreated" => non_neg_integer(),
-    "DateModified" => non_neg_integer(),
-    "Description" => String.t(),
-    "DeviceId" => String.t(),
-    "Effect" => list(any()),
-    "UserId" => String.t()
-  }
+      
+      mobile_device_access_override() :: %{
+        "DateCreated" => non_neg_integer(),
+        "DateModified" => non_neg_integer(),
+        "Description" => String.t(),
+        "DeviceId" => String.t(),
+        "Effect" => list(any()),
+        "UserId" => String.t()
+      }
+      
   """
   @type mobile_device_access_override() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_resource_request() :: %{
-    optional("Description") => String.t(),
-    optional("HiddenFromGlobalAddressList") => boolean(),
-    required("Name") => String.t(),
-    required("OrganizationId") => String.t(),
-    required("Type") => list(any())
-  }
+      
+      create_resource_request() :: %{
+        optional("Description") => String.t(),
+        optional("HiddenFromGlobalAddressList") => boolean(),
+        required("Name") => String.t(),
+        required("OrganizationId") => String.t(),
+        required("Type") => list(any())
+      }
+      
   """
   @type create_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_groups_for_entity_response() :: %{
-    "Groups" => list(group_identifier()()),
-    "NextToken" => String.t()
-  }
+      
+      list_groups_for_entity_response() :: %{
+        "Groups" => list(group_identifier()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_groups_for_entity_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  organization_summary() :: %{
-    "Alias" => String.t(),
-    "DefaultMailDomain" => String.t(),
-    "ErrorMessage" => String.t(),
-    "OrganizationId" => String.t(),
-    "State" => String.t()
-  }
+      
+      organization_summary() :: %{
+        "Alias" => String.t(),
+        "DefaultMailDomain" => String.t(),
+        "ErrorMessage" => String.t(),
+        "OrganizationId" => String.t(),
+        "State" => String.t()
+      }
+      
   """
   @type organization_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_user_request() :: %{
-    required("OrganizationId") => String.t(),
-    required("UserId") => String.t()
-  }
+      
+      delete_user_request() :: %{
+        required("OrganizationId") => String.t(),
+        required("UserId") => String.t()
+      }
+      
   """
   @type delete_user_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_mailbox_export_jobs_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("OrganizationId") => String.t()
-  }
+      
+      list_mailbox_export_jobs_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("OrganizationId") => String.t()
+      }
+      
   """
   @type list_mailbox_export_jobs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_organization_response() :: %{
-    "ARN" => String.t(),
-    "Alias" => String.t(),
-    "CompletedDate" => non_neg_integer(),
-    "DefaultMailDomain" => String.t(),
-    "DirectoryId" => String.t(),
-    "DirectoryType" => String.t(),
-    "ErrorMessage" => String.t(),
-    "InteroperabilityEnabled" => boolean(),
-    "MigrationAdmin" => String.t(),
-    "OrganizationId" => String.t(),
-    "State" => String.t()
-  }
+      
+      describe_organization_response() :: %{
+        "ARN" => String.t(),
+        "Alias" => String.t(),
+        "CompletedDate" => non_neg_integer(),
+        "DefaultMailDomain" => String.t(),
+        "DirectoryId" => String.t(),
+        "DirectoryType" => String.t(),
+        "ErrorMessage" => String.t(),
+        "InteroperabilityEnabled" => boolean(),
+        "MigrationAdmin" => String.t(),
+        "OrganizationId" => String.t(),
+        "State" => String.t()
+      }
+      
   """
   @type describe_organization_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  register_to_work_mail_request() :: %{
-    required("Email") => String.t(),
-    required("EntityId") => String.t(),
-    required("OrganizationId") => String.t()
-  }
+      
+      register_to_work_mail_request() :: %{
+        required("Email") => String.t(),
+        required("EntityId") => String.t(),
+        required("OrganizationId") => String.t()
+      }
+      
   """
   @type register_to_work_mail_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_user_response() :: %{
-
-  }
+      
+      delete_user_response() :: %{}
+      
   """
-  @type delete_user_response() :: %{String.t() => any()}
+  @type delete_user_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  delete_mailbox_permissions_response() :: %{
-
-  }
+      
+      delete_mailbox_permissions_response() :: %{}
+      
   """
-  @type delete_mailbox_permissions_response() :: %{String.t() => any()}
+  @type delete_mailbox_permissions_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_impersonation_role_request() :: %{
-    required("ImpersonationRoleId") => String.t(),
-    required("OrganizationId") => String.t()
-  }
+      
+      get_impersonation_role_request() :: %{
+        required("ImpersonationRoleId") => String.t(),
+        required("OrganizationId") => String.t()
+      }
+      
   """
   @type get_impersonation_role_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_mobile_device_access_override_request() :: %{
-    optional("Description") => String.t(),
-    required("DeviceId") => String.t(),
-    required("Effect") => list(any()),
-    required("OrganizationId") => String.t(),
-    required("UserId") => String.t()
-  }
+      
+      put_mobile_device_access_override_request() :: %{
+        optional("Description") => String.t(),
+        required("DeviceId") => String.t(),
+        required("Effect") => list(any()),
+        required("OrganizationId") => String.t(),
+        required("UserId") => String.t()
+      }
+      
   """
   @type put_mobile_device_access_override_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_mailbox_export_job_response() :: %{
-    "Description" => String.t(),
-    "EndTime" => non_neg_integer(),
-    "EntityId" => String.t(),
-    "ErrorInfo" => String.t(),
-    "EstimatedProgress" => integer(),
-    "KmsKeyArn" => String.t(),
-    "RoleArn" => String.t(),
-    "S3BucketName" => String.t(),
-    "S3Path" => String.t(),
-    "S3Prefix" => String.t(),
-    "StartTime" => non_neg_integer(),
-    "State" => list(any())
-  }
+      
+      describe_mailbox_export_job_response() :: %{
+        "Description" => String.t(),
+        "EndTime" => non_neg_integer(),
+        "EntityId" => String.t(),
+        "ErrorInfo" => String.t(),
+        "EstimatedProgress" => integer(),
+        "KmsKeyArn" => String.t(),
+        "RoleArn" => String.t(),
+        "S3BucketName" => String.t(),
+        "S3Path" => String.t(),
+        "S3Prefix" => String.t(),
+        "StartTime" => non_neg_integer(),
+        "State" => list(any())
+      }
+      
   """
   @type describe_mailbox_export_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_user_response() :: %{
-    "City" => String.t(),
-    "Company" => String.t(),
-    "Country" => String.t(),
-    "Department" => String.t(),
-    "DisabledDate" => non_neg_integer(),
-    "DisplayName" => String.t(),
-    "Email" => String.t(),
-    "EnabledDate" => non_neg_integer(),
-    "FirstName" => String.t(),
-    "HiddenFromGlobalAddressList" => boolean(),
-    "Initials" => String.t(),
-    "JobTitle" => String.t(),
-    "LastName" => String.t(),
-    "MailboxDeprovisionedDate" => non_neg_integer(),
-    "MailboxProvisionedDate" => non_neg_integer(),
-    "Name" => String.t(),
-    "Office" => String.t(),
-    "State" => list(any()),
-    "Street" => String.t(),
-    "Telephone" => String.t(),
-    "UserId" => String.t(),
-    "UserRole" => list(any()),
-    "ZipCode" => String.t()
-  }
+      
+      describe_user_response() :: %{
+        "City" => String.t(),
+        "Company" => String.t(),
+        "Country" => String.t(),
+        "Department" => String.t(),
+        "DisabledDate" => non_neg_integer(),
+        "DisplayName" => String.t(),
+        "Email" => String.t(),
+        "EnabledDate" => non_neg_integer(),
+        "FirstName" => String.t(),
+        "HiddenFromGlobalAddressList" => boolean(),
+        "Initials" => String.t(),
+        "JobTitle" => String.t(),
+        "LastName" => String.t(),
+        "MailboxDeprovisionedDate" => non_neg_integer(),
+        "MailboxProvisionedDate" => non_neg_integer(),
+        "Name" => String.t(),
+        "Office" => String.t(),
+        "State" => list(any()),
+        "Street" => String.t(),
+        "Telephone" => String.t(),
+        "UserId" => String.t(),
+        "UserRole" => list(any()),
+        "ZipCode" => String.t()
+      }
+      
   """
   @type describe_user_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_access_control_rule_response() :: %{
-
-  }
+      
+      put_access_control_rule_response() :: %{}
+      
   """
-  @type put_access_control_rule_response() :: %{String.t() => any()}
+  @type put_access_control_rule_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  impersonation_role() :: %{
-    "DateCreated" => non_neg_integer(),
-    "DateModified" => non_neg_integer(),
-    "ImpersonationRoleId" => String.t(),
-    "Name" => String.t(),
-    "Type" => list(any())
-  }
+      
+      impersonation_role() :: %{
+        "DateCreated" => non_neg_integer(),
+        "DateModified" => non_neg_integer(),
+        "ImpersonationRoleId" => String.t(),
+        "Name" => String.t(),
+        "Type" => list(any())
+      }
+      
   """
   @type impersonation_role() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_entity_request() :: %{
-    required("Email") => String.t(),
-    required("OrganizationId") => String.t()
-  }
+      
+      describe_entity_request() :: %{
+        required("Email") => String.t(),
+        required("OrganizationId") => String.t()
+      }
+      
   """
   @type describe_entity_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  reset_password_request() :: %{
-    required("OrganizationId") => String.t(),
-    required("Password") => String.t(),
-    required("UserId") => String.t()
-  }
+      
+      reset_password_request() :: %{
+        required("OrganizationId") => String.t(),
+        required("Password") => String.t(),
+        required("UserId") => String.t()
+      }
+      
   """
   @type reset_password_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_access_control_rule_request() :: %{
-    optional("Actions") => list(String.t()()),
-    optional("ImpersonationRoleIds") => list(String.t()()),
-    optional("IpRanges") => list(String.t()()),
-    optional("NotActions") => list(String.t()()),
-    optional("NotImpersonationRoleIds") => list(String.t()()),
-    optional("NotIpRanges") => list(String.t()()),
-    optional("NotUserIds") => list(String.t()()),
-    optional("UserIds") => list(String.t()()),
-    required("Description") => String.t(),
-    required("Effect") => list(any()),
-    required("Name") => String.t(),
-    required("OrganizationId") => String.t()
-  }
+      
+      put_access_control_rule_request() :: %{
+        optional("Actions") => list(String.t()()),
+        optional("ImpersonationRoleIds") => list(String.t()()),
+        optional("IpRanges") => list(String.t()()),
+        optional("NotActions") => list(String.t()()),
+        optional("NotImpersonationRoleIds") => list(String.t()()),
+        optional("NotIpRanges") => list(String.t()()),
+        optional("NotUserIds") => list(String.t()()),
+        optional("UserIds") => list(String.t()()),
+        required("Description") => String.t(),
+        required("Effect") => list(any()),
+        required("Name") => String.t(),
+        required("OrganizationId") => String.t()
+      }
+      
   """
   @type put_access_control_rule_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  impersonation_matched_rule() :: %{
-    "ImpersonationRuleId" => String.t(),
-    "Name" => String.t()
-  }
+      
+      impersonation_matched_rule() :: %{
+        "ImpersonationRuleId" => String.t(),
+        "Name" => String.t()
+      }
+      
   """
   @type impersonation_matched_rule() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  mobile_device_access_matched_rule() :: %{
-    "MobileDeviceAccessRuleId" => String.t(),
-    "Name" => String.t()
-  }
+      
+      mobile_device_access_matched_rule() :: %{
+        "MobileDeviceAccessRuleId" => String.t(),
+        "Name" => String.t()
+      }
+      
   """
   @type mobile_device_access_matched_rule() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  impersonation_rule() :: %{
-    "Description" => String.t(),
-    "Effect" => list(any()),
-    "ImpersonationRuleId" => String.t(),
-    "Name" => String.t(),
-    "NotTargetUsers" => list(String.t()()),
-    "TargetUsers" => list(String.t()())
-  }
+      
+      impersonation_rule() :: %{
+        "Description" => String.t(),
+        "Effect" => list(any()),
+        "ImpersonationRuleId" => String.t(),
+        "Name" => String.t(),
+        "NotTargetUsers" => list(String.t()()),
+        "TargetUsers" => list(String.t()())
+      }
+      
   """
   @type impersonation_rule() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  dns_record() :: %{
-    "Hostname" => String.t(),
-    "Type" => String.t(),
-    "Value" => String.t()
-  }
+      
+      dns_record() :: %{
+        "Hostname" => String.t(),
+        "Type" => String.t(),
+        "Value" => String.t()
+      }
+      
   """
   @type dns_record() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_organization_request() :: %{
-    required("OrganizationId") => String.t()
-  }
+      
+      describe_organization_request() :: %{
+        required("OrganizationId") => String.t()
+      }
+      
   """
   @type describe_organization_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_mailbox_quota_request() :: %{
-    required("MailboxQuota") => integer(),
-    required("OrganizationId") => String.t(),
-    required("UserId") => String.t()
-  }
+      
+      update_mailbox_quota_request() :: %{
+        required("MailboxQuota") => integer(),
+        required("OrganizationId") => String.t(),
+        required("UserId") => String.t()
+      }
+      
   """
   @type update_mailbox_quota_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_mobile_device_access_rules_request() :: %{
-    required("OrganizationId") => String.t()
-  }
+      
+      list_mobile_device_access_rules_request() :: %{
+        required("OrganizationId") => String.t()
+      }
+      
   """
   @type list_mobile_device_access_rules_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_email_monitoring_configuration_request() :: %{
-    required("OrganizationId") => String.t()
-  }
+      
+      delete_email_monitoring_configuration_request() :: %{
+        required("OrganizationId") => String.t()
+      }
+      
   """
   @type delete_email_monitoring_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_configuration_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      invalid_configuration_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type invalid_configuration_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  register_mail_domain_request() :: %{
-    optional("ClientToken") => String.t(),
-    required("DomainName") => String.t(),
-    required("OrganizationId") => String.t()
-  }
+      
+      register_mail_domain_request() :: %{
+        optional("ClientToken") => String.t(),
+        required("DomainName") => String.t(),
+        required("OrganizationId") => String.t()
+      }
+      
   """
   @type register_mail_domain_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_retention_policy_response() :: %{
-
-  }
+      
+      delete_retention_policy_response() :: %{}
+      
   """
-  @type delete_retention_policy_response() :: %{String.t() => any()}
+  @type delete_retention_policy_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_availability_configurations_response() :: %{
-    "AvailabilityConfigurations" => list(availability_configuration()()),
-    "NextToken" => String.t()
-  }
+      
+      list_availability_configurations_response() :: %{
+        "AvailabilityConfigurations" => list(availability_configuration()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_availability_configurations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_group_response() :: %{
-
-  }
+      
+      delete_group_response() :: %{}
+      
   """
-  @type delete_group_response() :: %{String.t() => any()}
+  @type delete_group_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  invalid_parameter_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      invalid_parameter_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type invalid_parameter_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_resource_response() :: %{
-    "ResourceId" => String.t()
-  }
+      
+      create_resource_response() :: %{
+        "ResourceId" => String.t()
+      }
+      
   """
   @type create_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_email_monitoring_configuration_request() :: %{
-    required("OrganizationId") => String.t()
-  }
+      
+      describe_email_monitoring_configuration_request() :: %{
+        required("OrganizationId") => String.t()
+      }
+      
   """
   @type describe_email_monitoring_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_response() :: %{
-
-  }
+      
+      tag_resource_response() :: %{}
+      
   """
-  @type tag_resource_response() :: %{String.t() => any()}
+  @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  update_impersonation_role_request() :: %{
-    optional("Description") => String.t(),
-    required("ImpersonationRoleId") => String.t(),
-    required("Name") => String.t(),
-    required("OrganizationId") => String.t(),
-    required("Rules") => list(impersonation_rule()()),
-    required("Type") => list(any())
-  }
+      
+      update_impersonation_role_request() :: %{
+        optional("Description") => String.t(),
+        required("ImpersonationRoleId") => String.t(),
+        required("Name") => String.t(),
+        required("OrganizationId") => String.t(),
+        required("Rules") => list(impersonation_rule()()),
+        required("Type") => list(any())
+      }
+      
   """
   @type update_impersonation_role_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_user_request() :: %{
-    required("OrganizationId") => String.t(),
-    required("UserId") => String.t()
-  }
+      
+      describe_user_request() :: %{
+        required("OrganizationId") => String.t(),
+        required("UserId") => String.t()
+      }
+      
   """
   @type describe_user_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_access_control_rules_response() :: %{
-    "Rules" => list(access_control_rule()())
-  }
+      
+      list_access_control_rules_response() :: %{
+        "Rules" => list(access_control_rule()())
+      }
+      
   """
   @type list_access_control_rules_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_inbound_dmarc_settings_response() :: %{
-
-  }
+      
+      put_inbound_dmarc_settings_response() :: %{}
+      
   """
-  @type put_inbound_dmarc_settings_response() :: %{String.t() => any()}
+  @type put_inbound_dmarc_settings_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  update_user_request() :: %{
-    optional("City") => String.t(),
-    optional("Company") => String.t(),
-    optional("Country") => String.t(),
-    optional("Department") => String.t(),
-    optional("DisplayName") => String.t(),
-    optional("FirstName") => String.t(),
-    optional("HiddenFromGlobalAddressList") => boolean(),
-    optional("Initials") => String.t(),
-    optional("JobTitle") => String.t(),
-    optional("LastName") => String.t(),
-    optional("Office") => String.t(),
-    optional("Role") => list(any()),
-    optional("Street") => String.t(),
-    optional("Telephone") => String.t(),
-    optional("ZipCode") => String.t(),
-    required("OrganizationId") => String.t(),
-    required("UserId") => String.t()
-  }
+      
+      update_user_request() :: %{
+        optional("City") => String.t(),
+        optional("Company") => String.t(),
+        optional("Country") => String.t(),
+        optional("Department") => String.t(),
+        optional("DisplayName") => String.t(),
+        optional("FirstName") => String.t(),
+        optional("HiddenFromGlobalAddressList") => boolean(),
+        optional("Initials") => String.t(),
+        optional("JobTitle") => String.t(),
+        optional("LastName") => String.t(),
+        optional("Office") => String.t(),
+        optional("Role") => list(any()),
+        optional("Street") => String.t(),
+        optional("Telephone") => String.t(),
+        optional("ZipCode") => String.t(),
+        required("OrganizationId") => String.t(),
+        required("UserId") => String.t()
+      }
+      
   """
   @type update_user_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  redacted_ews_availability_provider() :: %{
-    "EwsEndpoint" => String.t(),
-    "EwsUsername" => String.t()
-  }
+      
+      redacted_ews_availability_provider() :: %{
+        "EwsEndpoint" => String.t(),
+        "EwsUsername" => String.t()
+      }
+      
   """
   @type redacted_ews_availability_provider() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  directory_unavailable_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      directory_unavailable_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type directory_unavailable_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_availability_configuration_request() :: %{
-    required("DomainName") => String.t(),
-    required("OrganizationId") => String.t()
-  }
+      
+      delete_availability_configuration_request() :: %{
+        required("DomainName") => String.t(),
+        required("OrganizationId") => String.t()
+      }
+      
   """
   @type delete_availability_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_email_monitoring_configuration_response() :: %{
-    "LogGroupArn" => String.t(),
-    "RoleArn" => String.t()
-  }
+      
+      describe_email_monitoring_configuration_response() :: %{
+        "LogGroupArn" => String.t(),
+        "RoleArn" => String.t()
+      }
+      
   """
   @type describe_email_monitoring_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_request() :: %{
-    required("ResourceARN") => String.t()
-  }
+      
+      list_tags_for_resource_request() :: %{
+        required("ResourceARN") => String.t()
+      }
+      
   """
   @type list_tags_for_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_mailbox_permissions_response() :: %{
-
-  }
+      
+      put_mailbox_permissions_response() :: %{}
+      
   """
-  @type put_mailbox_permissions_response() :: %{String.t() => any()}
+  @type put_mailbox_permissions_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  entity_already_registered_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      entity_already_registered_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type entity_already_registered_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  email_address_in_use_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      email_address_in_use_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type email_address_in_use_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_organization_response() :: %{
-    "OrganizationId" => String.t()
-  }
+      
+      create_organization_response() :: %{
+        "OrganizationId" => String.t()
+      }
+      
   """
   @type create_organization_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_mailbox_permissions_request() :: %{
-    required("EntityId") => String.t(),
-    required("GranteeId") => String.t(),
-    required("OrganizationId") => String.t()
-  }
+      
+      delete_mailbox_permissions_request() :: %{
+        required("EntityId") => String.t(),
+        required("GranteeId") => String.t(),
+        required("OrganizationId") => String.t()
+      }
+      
   """
   @type delete_mailbox_permissions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  directory_in_use_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      directory_in_use_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type directory_in_use_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_mailbox_permissions_response() :: %{
-    "NextToken" => String.t(),
-    "Permissions" => list(permission()())
-  }
+      
+      list_mailbox_permissions_response() :: %{
+        "NextToken" => String.t(),
+        "Permissions" => list(permission()())
+      }
+      
   """
   @type list_mailbox_permissions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_mailbox_quota_response() :: %{
-
-  }
+      
+      update_mailbox_quota_response() :: %{}
+      
   """
-  @type update_mailbox_quota_response() :: %{String.t() => any()}
+  @type update_mailbox_quota_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  group() :: %{
-    "DisabledDate" => non_neg_integer(),
-    "Email" => String.t(),
-    "EnabledDate" => non_neg_integer(),
-    "Id" => String.t(),
-    "Name" => String.t(),
-    "State" => list(any())
-  }
+      
+      group() :: %{
+        "DisabledDate" => non_neg_integer(),
+        "Email" => String.t(),
+        "EnabledDate" => non_neg_integer(),
+        "Id" => String.t(),
+        "Name" => String.t(),
+        "State" => list(any())
+      }
+      
   """
   @type group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_custom_ses_configuration_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      invalid_custom_ses_configuration_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type invalid_custom_ses_configuration_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  user() :: %{
-    "DisabledDate" => non_neg_integer(),
-    "DisplayName" => String.t(),
-    "Email" => String.t(),
-    "EnabledDate" => non_neg_integer(),
-    "Id" => String.t(),
-    "Name" => String.t(),
-    "State" => list(any()),
-    "UserRole" => list(any())
-  }
+      
+      user() :: %{
+        "DisabledDate" => non_neg_integer(),
+        "DisplayName" => String.t(),
+        "Email" => String.t(),
+        "EnabledDate" => non_neg_integer(),
+        "Id" => String.t(),
+        "Name" => String.t(),
+        "State" => list(any()),
+        "UserRole" => list(any())
+      }
+      
   """
   @type user() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_group_request() :: %{
-    required("GroupId") => String.t(),
-    required("OrganizationId") => String.t()
-  }
+      
+      describe_group_request() :: %{
+        required("GroupId") => String.t(),
+        required("OrganizationId") => String.t()
+      }
+      
   """
   @type describe_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_group_request() :: %{
-    required("GroupId") => String.t(),
-    required("OrganizationId") => String.t()
-  }
+      
+      delete_group_request() :: %{
+        required("GroupId") => String.t(),
+        required("OrganizationId") => String.t()
+      }
+      
   """
   @type delete_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_organizations_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+      
+      list_organizations_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type list_organizations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_resource_request() :: %{
-    required("OrganizationId") => String.t(),
-    required("ResourceId") => String.t()
-  }
+      
+      describe_resource_request() :: %{
+        required("OrganizationId") => String.t(),
+        required("ResourceId") => String.t()
+      }
+      
   """
   @type describe_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_mobile_device_access_override_response() :: %{
-
-  }
+      
+      delete_mobile_device_access_override_response() :: %{}
+      
   """
-  @type delete_mobile_device_access_override_response() :: %{String.t() => any()}
+  @type delete_mobile_device_access_override_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  member() :: %{
-    "DisabledDate" => non_neg_integer(),
-    "EnabledDate" => non_neg_integer(),
-    "Id" => String.t(),
-    "Name" => String.t(),
-    "State" => list(any()),
-    "Type" => list(any())
-  }
+      
+      member() :: %{
+        "DisabledDate" => non_neg_integer(),
+        "EnabledDate" => non_neg_integer(),
+        "Id" => String.t(),
+        "Name" => String.t(),
+        "State" => list(any()),
+        "Type" => list(any())
+      }
+      
   """
   @type member() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_users_request() :: %{
-    optional("Filters") => list_users_filters(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("OrganizationId") => String.t()
-  }
+      
+      list_users_request() :: %{
+        optional("Filters") => list_users_filters(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("OrganizationId") => String.t()
+      }
+      
   """
   @type list_users_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delegate() :: %{
-    "Id" => String.t(),
-    "Type" => list(any())
-  }
+      
+      delegate() :: %{
+        "Id" => String.t(),
+        "Type" => list(any())
+      }
+      
   """
   @type delegate() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  limit_exceeded_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      limit_exceeded_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_resources_request() :: %{
-    optional("Filters") => list_resources_filters(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("OrganizationId") => String.t()
-  }
+      
+      list_resources_request() :: %{
+        optional("Filters") => list_resources_filters(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("OrganizationId") => String.t()
+      }
+      
   """
   @type list_resources_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_mailbox_export_job_request() :: %{
-    optional("Description") => String.t(),
-    required("ClientToken") => String.t(),
-    required("EntityId") => String.t(),
-    required("KmsKeyArn") => String.t(),
-    required("OrganizationId") => String.t(),
-    required("RoleArn") => String.t(),
-    required("S3BucketName") => String.t(),
-    required("S3Prefix") => String.t()
-  }
+      
+      start_mailbox_export_job_request() :: %{
+        optional("Description") => String.t(),
+        required("ClientToken") => String.t(),
+        required("EntityId") => String.t(),
+        required("KmsKeyArn") => String.t(),
+        required("OrganizationId") => String.t(),
+        required("RoleArn") => String.t(),
+        required("S3BucketName") => String.t(),
+        required("S3Prefix") => String.t()
+      }
+      
   """
   @type start_mailbox_export_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_mobile_device_access_rule_request() :: %{
-    optional("Description") => String.t(),
-    optional("DeviceModels") => list(String.t()()),
-    optional("DeviceOperatingSystems") => list(String.t()()),
-    optional("DeviceTypes") => list(String.t()()),
-    optional("DeviceUserAgents") => list(String.t()()),
-    optional("NotDeviceModels") => list(String.t()()),
-    optional("NotDeviceOperatingSystems") => list(String.t()()),
-    optional("NotDeviceTypes") => list(String.t()()),
-    optional("NotDeviceUserAgents") => list(String.t()()),
-    required("Effect") => list(any()),
-    required("MobileDeviceAccessRuleId") => String.t(),
-    required("Name") => String.t(),
-    required("OrganizationId") => String.t()
-  }
+      
+      update_mobile_device_access_rule_request() :: %{
+        optional("Description") => String.t(),
+        optional("DeviceModels") => list(String.t()()),
+        optional("DeviceOperatingSystems") => list(String.t()()),
+        optional("DeviceTypes") => list(String.t()()),
+        optional("DeviceUserAgents") => list(String.t()()),
+        optional("NotDeviceModels") => list(String.t()()),
+        optional("NotDeviceOperatingSystems") => list(String.t()()),
+        optional("NotDeviceTypes") => list(String.t()()),
+        optional("NotDeviceUserAgents") => list(String.t()()),
+        required("Effect") => list(any()),
+        required("MobileDeviceAccessRuleId") => String.t(),
+        required("Name") => String.t(),
+        required("OrganizationId") => String.t()
+      }
+      
   """
   @type update_mobile_device_access_rule_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_organization_request() :: %{
-    optional("ClientToken") => String.t(),
-    optional("ForceDelete") => boolean(),
-    required("DeleteDirectory") => boolean(),
-    required("OrganizationId") => String.t()
-  }
+      
+      delete_organization_request() :: %{
+        optional("ClientToken") => String.t(),
+        optional("ForceDelete") => boolean(),
+        required("DeleteDirectory") => boolean(),
+        required("OrganizationId") => String.t()
+      }
+      
   """
   @type delete_organization_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_mobile_device_access_effect_response() :: %{
-    "Effect" => list(any()),
-    "MatchedRules" => list(mobile_device_access_matched_rule()())
-  }
+      
+      get_mobile_device_access_effect_response() :: %{
+        "Effect" => list(any()),
+        "MatchedRules" => list(mobile_device_access_matched_rule()())
+      }
+      
   """
   @type get_mobile_device_access_effect_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_group_response() :: %{
-    "DisabledDate" => non_neg_integer(),
-    "Email" => String.t(),
-    "EnabledDate" => non_neg_integer(),
-    "GroupId" => String.t(),
-    "HiddenFromGlobalAddressList" => boolean(),
-    "Name" => String.t(),
-    "State" => list(any())
-  }
+      
+      describe_group_response() :: %{
+        "DisabledDate" => non_neg_integer(),
+        "Email" => String.t(),
+        "EnabledDate" => non_neg_integer(),
+        "GroupId" => String.t(),
+        "HiddenFromGlobalAddressList" => boolean(),
+        "Name" => String.t(),
+        "State" => list(any())
+      }
+      
   """
   @type describe_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  assume_impersonation_role_request() :: %{
-    required("ImpersonationRoleId") => String.t(),
-    required("OrganizationId") => String.t()
-  }
+      
+      assume_impersonation_role_request() :: %{
+        required("ImpersonationRoleId") => String.t(),
+        required("OrganizationId") => String.t()
+      }
+      
   """
   @type assume_impersonation_role_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_access_control_rule_request() :: %{
-    required("Name") => String.t(),
-    required("OrganizationId") => String.t()
-  }
+      
+      delete_access_control_rule_request() :: %{
+        required("Name") => String.t(),
+        required("OrganizationId") => String.t()
+      }
+      
   """
   @type delete_access_control_rule_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  associate_member_to_group_request() :: %{
-    required("GroupId") => String.t(),
-    required("MemberId") => String.t(),
-    required("OrganizationId") => String.t()
-  }
+      
+      associate_member_to_group_request() :: %{
+        required("GroupId") => String.t(),
+        required("MemberId") => String.t(),
+        required("OrganizationId") => String.t()
+      }
+      
   """
   @type associate_member_to_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_default_retention_policy_response() :: %{
-    "Description" => String.t(),
-    "FolderConfigurations" => list(folder_configuration()()),
-    "Id" => String.t(),
-    "Name" => String.t()
-  }
+      
+      get_default_retention_policy_response() :: %{
+        "Description" => String.t(),
+        "FolderConfigurations" => list(folder_configuration()()),
+        "Id" => String.t(),
+        "Name" => String.t()
+      }
+      
   """
   @type get_default_retention_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  mailbox_export_job() :: %{
-    "Description" => String.t(),
-    "EndTime" => non_neg_integer(),
-    "EntityId" => String.t(),
-    "EstimatedProgress" => integer(),
-    "JobId" => String.t(),
-    "S3BucketName" => String.t(),
-    "S3Path" => String.t(),
-    "StartTime" => non_neg_integer(),
-    "State" => list(any())
-  }
+      
+      mailbox_export_job() :: %{
+        "Description" => String.t(),
+        "EndTime" => non_neg_integer(),
+        "EntityId" => String.t(),
+        "EstimatedProgress" => integer(),
+        "JobId" => String.t(),
+        "S3BucketName" => String.t(),
+        "S3Path" => String.t(),
+        "StartTime" => non_neg_integer(),
+        "State" => list(any())
+      }
+      
   """
   @type mailbox_export_job() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_groups_response() :: %{
-    "Groups" => list(group()()),
-    "NextToken" => String.t()
-  }
+      
+      list_groups_response() :: %{
+        "Groups" => list(group()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_groups_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_mail_domains_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("OrganizationId") => String.t()
-  }
+      
+      list_mail_domains_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("OrganizationId") => String.t()
+      }
+      
   """
   @type list_mail_domains_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_inbound_dmarc_settings_request() :: %{
-    required("OrganizationId") => String.t()
-  }
+      
+      describe_inbound_dmarc_settings_request() :: %{
+        required("OrganizationId") => String.t()
+      }
+      
   """
   @type describe_inbound_dmarc_settings_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_alias_response() :: %{
-
-  }
+      
+      delete_alias_response() :: %{}
+      
   """
-  @type delete_alias_response() :: %{String.t() => any()}
+  @type delete_alias_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  deregister_mail_domain_request() :: %{
-    required("DomainName") => String.t(),
-    required("OrganizationId") => String.t()
-  }
+      
+      deregister_mail_domain_request() :: %{
+        required("DomainName") => String.t(),
+        required("OrganizationId") => String.t()
+      }
+      
   """
   @type deregister_mail_domain_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  reserved_name_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      reserved_name_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type reserved_name_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_groups_request() :: %{
-    optional("Filters") => list_groups_filters(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("OrganizationId") => String.t()
-  }
+      
+      list_groups_request() :: %{
+        optional("Filters") => list_groups_filters(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("OrganizationId") => String.t()
+      }
+      
   """
   @type list_groups_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  directory_service_authentication_failed_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      directory_service_authentication_failed_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type directory_service_authentication_failed_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_mailbox_export_job_response() :: %{
-    "JobId" => String.t()
-  }
+      
+      start_mailbox_export_job_response() :: %{
+        "JobId" => String.t()
+      }
+      
   """
   @type start_mailbox_export_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_resources_filters() :: %{
-    "NamePrefix" => String.t(),
-    "PrimaryEmailPrefix" => String.t(),
-    "State" => list(any())
-  }
+      
+      list_resources_filters() :: %{
+        "NamePrefix" => String.t(),
+        "PrimaryEmailPrefix" => String.t(),
+        "State" => list(any())
+      }
+      
   """
   @type list_resources_filters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_user_response() :: %{
-    "UserId" => String.t()
-  }
+      
+      create_user_response() :: %{
+        "UserId" => String.t()
+      }
+      
   """
   @type create_user_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_password_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      invalid_password_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type invalid_password_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  folder_configuration() :: %{
-    "Action" => list(any()),
-    "Name" => list(any()),
-    "Period" => integer()
-  }
+      
+      folder_configuration() :: %{
+        "Action" => list(any()),
+        "Name" => list(any()),
+        "Period" => integer()
+      }
+      
   """
   @type folder_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_group_response() :: %{
-
-  }
+      
+      update_group_response() :: %{}
+      
   """
-  @type update_group_response() :: %{String.t() => any()}
+  @type update_group_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  delete_mobile_device_access_rule_request() :: %{
-    required("MobileDeviceAccessRuleId") => String.t(),
-    required("OrganizationId") => String.t()
-  }
+      
+      delete_mobile_device_access_rule_request() :: %{
+        required("MobileDeviceAccessRuleId") => String.t(),
+        required("OrganizationId") => String.t()
+      }
+      
   """
   @type delete_mobile_device_access_rule_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_impersonation_role_response() :: %{
-    "ImpersonationRoleId" => String.t()
-  }
+      
+      create_impersonation_role_response() :: %{
+        "ImpersonationRoleId" => String.t()
+      }
+      
   """
   @type create_impersonation_role_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  permission() :: %{
-    "GranteeId" => String.t(),
-    "GranteeType" => list(any()),
-    "PermissionValues" => list(list(any())())
-  }
+      
+      permission() :: %{
+        "GranteeId" => String.t(),
+        "GranteeType" => list(any()),
+        "PermissionValues" => list(list(any())())
+      }
+      
   """
   @type permission() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_impersonation_role_response() :: %{
-    "DateCreated" => non_neg_integer(),
-    "DateModified" => non_neg_integer(),
-    "Description" => String.t(),
-    "ImpersonationRoleId" => String.t(),
-    "Name" => String.t(),
-    "Rules" => list(impersonation_rule()()),
-    "Type" => list(any())
-  }
+      
+      get_impersonation_role_response() :: %{
+        "DateCreated" => non_neg_integer(),
+        "DateModified" => non_neg_integer(),
+        "Description" => String.t(),
+        "ImpersonationRoleId" => String.t(),
+        "Name" => String.t(),
+        "Rules" => list(impersonation_rule()()),
+        "Type" => list(any())
+      }
+      
   """
   @type get_impersonation_role_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_group_response() :: %{
-    "GroupId" => String.t()
-  }
+      
+      create_group_response() :: %{
+        "GroupId" => String.t()
+      }
+      
   """
   @type create_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_tags_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      too_many_tags_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type too_many_tags_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_alias_request() :: %{
-    required("Alias") => String.t(),
-    required("EntityId") => String.t(),
-    required("OrganizationId") => String.t()
-  }
+      
+      delete_alias_request() :: %{
+        required("Alias") => String.t(),
+        required("EntityId") => String.t(),
+        required("OrganizationId") => String.t()
+      }
+      
   """
   @type delete_alias_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_group_members_response() :: %{
-    "Members" => list(member()()),
-    "NextToken" => String.t()
-  }
+      
+      list_group_members_response() :: %{
+        "Members" => list(member()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_group_members_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_email_monitoring_configuration_response() :: %{
-
-  }
+      
+      put_email_monitoring_configuration_response() :: %{}
+      
   """
-  @type put_email_monitoring_configuration_response() :: %{String.t() => any()}
+  @type put_email_monitoring_configuration_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_user_request() :: %{
-    optional("FirstName") => String.t(),
-    optional("HiddenFromGlobalAddressList") => boolean(),
-    optional("LastName") => String.t(),
-    optional("Password") => String.t(),
-    optional("Role") => list(any()),
-    required("DisplayName") => String.t(),
-    required("Name") => String.t(),
-    required("OrganizationId") => String.t()
-  }
+      
+      create_user_request() :: %{
+        optional("FirstName") => String.t(),
+        optional("HiddenFromGlobalAddressList") => boolean(),
+        optional("LastName") => String.t(),
+        optional("Password") => String.t(),
+        optional("Role") => list(any()),
+        required("DisplayName") => String.t(),
+        required("Name") => String.t(),
+        required("OrganizationId") => String.t()
+      }
+      
   """
   @type create_user_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_organization_request() :: %{
-    optional("ClientToken") => String.t(),
-    optional("DirectoryId") => String.t(),
-    optional("Domains") => list(domain()()),
-    optional("EnableInteroperability") => boolean(),
-    optional("KmsKeyArn") => String.t(),
-    required("Alias") => String.t()
-  }
+      
+      create_organization_request() :: %{
+        optional("ClientToken") => String.t(),
+        optional("DirectoryId") => String.t(),
+        optional("Domains") => list(domain()()),
+        optional("EnableInteroperability") => boolean(),
+        optional("KmsKeyArn") => String.t(),
+        required("Alias") => String.t()
+      }
+      
   """
   @type create_organization_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource() :: %{
-    "Description" => String.t(),
-    "DisabledDate" => non_neg_integer(),
-    "Email" => String.t(),
-    "EnabledDate" => non_neg_integer(),
-    "Id" => String.t(),
-    "Name" => String.t(),
-    "State" => list(any()),
-    "Type" => list(any())
-  }
+      
+      resource() :: %{
+        "Description" => String.t(),
+        "DisabledDate" => non_neg_integer(),
+        "Email" => String.t(),
+        "EnabledDate" => non_neg_integer(),
+        "Id" => String.t(),
+        "Name" => String.t(),
+        "State" => list(any()),
+        "Type" => list(any())
+      }
+      
   """
   @type resource() :: %{String.t() => any()}
+
+  @type associate_delegate_to_resource_errors() ::
+          invalid_parameter_exception()
+          | organization_not_found_exception()
+          | organization_state_exception()
+          | entity_state_exception()
+          | unsupported_operation_exception()
+          | entity_not_found_exception()
+
+  @type associate_member_to_group_errors() ::
+          directory_service_authentication_failed_exception()
+          | directory_unavailable_exception()
+          | invalid_parameter_exception()
+          | organization_not_found_exception()
+          | organization_state_exception()
+          | entity_state_exception()
+          | unsupported_operation_exception()
+          | entity_not_found_exception()
+
+  @type assume_impersonation_role_errors() ::
+          invalid_parameter_exception()
+          | organization_not_found_exception()
+          | resource_not_found_exception()
+          | organization_state_exception()
+
+  @type cancel_mailbox_export_job_errors() ::
+          invalid_parameter_exception()
+          | organization_not_found_exception()
+          | organization_state_exception()
+          | entity_not_found_exception()
+
+  @type create_alias_errors() ::
+          limit_exceeded_exception()
+          | email_address_in_use_exception()
+          | invalid_parameter_exception()
+          | organization_not_found_exception()
+          | mail_domain_state_exception()
+          | mail_domain_not_found_exception()
+          | organization_state_exception()
+          | entity_state_exception()
+          | entity_not_found_exception()
+
+  @type create_availability_configuration_errors() ::
+          limit_exceeded_exception()
+          | invalid_parameter_exception()
+          | organization_not_found_exception()
+          | name_availability_exception()
+          | organization_state_exception()
+
+  @type create_group_errors() ::
+          directory_service_authentication_failed_exception()
+          | reserved_name_exception()
+          | directory_unavailable_exception()
+          | invalid_parameter_exception()
+          | organization_not_found_exception()
+          | name_availability_exception()
+          | organization_state_exception()
+          | unsupported_operation_exception()
+
+  @type create_impersonation_role_errors() ::
+          limit_exceeded_exception()
+          | invalid_parameter_exception()
+          | organization_not_found_exception()
+          | organization_state_exception()
+          | entity_state_exception()
+          | entity_not_found_exception()
+
+  @type create_mobile_device_access_rule_errors() ::
+          limit_exceeded_exception()
+          | invalid_parameter_exception()
+          | organization_not_found_exception()
+          | organization_state_exception()
+
+  @type create_organization_errors() ::
+          limit_exceeded_exception()
+          | directory_in_use_exception()
+          | directory_unavailable_exception()
+          | invalid_parameter_exception()
+          | name_availability_exception()
+
+  @type create_resource_errors() ::
+          directory_service_authentication_failed_exception()
+          | reserved_name_exception()
+          | directory_unavailable_exception()
+          | invalid_parameter_exception()
+          | organization_not_found_exception()
+          | name_availability_exception()
+          | organization_state_exception()
+          | unsupported_operation_exception()
+
+  @type create_user_errors() ::
+          invalid_password_exception()
+          | directory_service_authentication_failed_exception()
+          | reserved_name_exception()
+          | directory_unavailable_exception()
+          | invalid_parameter_exception()
+          | organization_not_found_exception()
+          | name_availability_exception()
+          | organization_state_exception()
+          | unsupported_operation_exception()
+
+  @type delete_access_control_rule_errors() ::
+          organization_not_found_exception() | organization_state_exception()
+
+  @type delete_alias_errors() ::
+          invalid_parameter_exception()
+          | organization_not_found_exception()
+          | organization_state_exception()
+          | entity_state_exception()
+          | entity_not_found_exception()
+
+  @type delete_availability_configuration_errors() ::
+          organization_not_found_exception() | organization_state_exception()
+
+  @type delete_email_monitoring_configuration_errors() ::
+          invalid_parameter_exception()
+          | organization_not_found_exception()
+          | organization_state_exception()
+
+  @type delete_group_errors() ::
+          directory_service_authentication_failed_exception()
+          | directory_unavailable_exception()
+          | invalid_parameter_exception()
+          | organization_not_found_exception()
+          | organization_state_exception()
+          | entity_state_exception()
+          | unsupported_operation_exception()
+
+  @type delete_impersonation_role_errors() ::
+          invalid_parameter_exception()
+          | organization_not_found_exception()
+          | organization_state_exception()
+
+  @type delete_mailbox_permissions_errors() ::
+          invalid_parameter_exception()
+          | organization_not_found_exception()
+          | organization_state_exception()
+          | entity_state_exception()
+          | entity_not_found_exception()
+
+  @type delete_mobile_device_access_override_errors() ::
+          invalid_parameter_exception()
+          | organization_not_found_exception()
+          | organization_state_exception()
+          | entity_not_found_exception()
+
+  @type delete_mobile_device_access_rule_errors() ::
+          invalid_parameter_exception()
+          | organization_not_found_exception()
+          | organization_state_exception()
+
+  @type delete_organization_errors() ::
+          invalid_parameter_exception()
+          | organization_not_found_exception()
+          | organization_state_exception()
+
+  @type delete_resource_errors() ::
+          invalid_parameter_exception()
+          | organization_not_found_exception()
+          | organization_state_exception()
+          | entity_state_exception()
+          | unsupported_operation_exception()
+
+  @type delete_retention_policy_errors() ::
+          invalid_parameter_exception()
+          | organization_not_found_exception()
+          | organization_state_exception()
+
+  @type delete_user_errors() ::
+          directory_service_authentication_failed_exception()
+          | directory_unavailable_exception()
+          | invalid_parameter_exception()
+          | organization_not_found_exception()
+          | organization_state_exception()
+          | entity_state_exception()
+          | unsupported_operation_exception()
+
+  @type deregister_from_work_mail_errors() ::
+          invalid_parameter_exception()
+          | organization_not_found_exception()
+          | organization_state_exception()
+          | entity_state_exception()
+          | entity_not_found_exception()
+
+  @type deregister_mail_domain_errors() ::
+          invalid_custom_ses_configuration_exception()
+          | invalid_parameter_exception()
+          | mail_domain_in_use_exception()
+          | organization_not_found_exception()
+          | organization_state_exception()
+
+  @type describe_email_monitoring_configuration_errors() ::
+          invalid_parameter_exception()
+          | organization_not_found_exception()
+          | resource_not_found_exception()
+          | organization_state_exception()
+
+  @type describe_entity_errors() ::
+          invalid_parameter_exception()
+          | organization_not_found_exception()
+          | organization_state_exception()
+          | entity_not_found_exception()
+
+  @type describe_group_errors() ::
+          invalid_parameter_exception()
+          | organization_not_found_exception()
+          | organization_state_exception()
+          | entity_not_found_exception()
+
+  @type describe_inbound_dmarc_settings_errors() ::
+          organization_not_found_exception() | organization_state_exception()
+
+  @type describe_mailbox_export_job_errors() ::
+          invalid_parameter_exception()
+          | organization_not_found_exception()
+          | organization_state_exception()
+          | entity_not_found_exception()
+
+  @type describe_organization_errors() ::
+          invalid_parameter_exception() | organization_not_found_exception()
+
+  @type describe_resource_errors() ::
+          invalid_parameter_exception()
+          | organization_not_found_exception()
+          | organization_state_exception()
+          | unsupported_operation_exception()
+          | entity_not_found_exception()
+
+  @type describe_user_errors() ::
+          invalid_parameter_exception()
+          | organization_not_found_exception()
+          | organization_state_exception()
+          | entity_not_found_exception()
+
+  @type disassociate_delegate_from_resource_errors() ::
+          invalid_parameter_exception()
+          | organization_not_found_exception()
+          | organization_state_exception()
+          | entity_state_exception()
+          | unsupported_operation_exception()
+          | entity_not_found_exception()
+
+  @type disassociate_member_from_group_errors() ::
+          directory_service_authentication_failed_exception()
+          | directory_unavailable_exception()
+          | invalid_parameter_exception()
+          | organization_not_found_exception()
+          | organization_state_exception()
+          | entity_state_exception()
+          | unsupported_operation_exception()
+          | entity_not_found_exception()
+
+  @type get_access_control_effect_errors() ::
+          invalid_parameter_exception()
+          | organization_not_found_exception()
+          | resource_not_found_exception()
+          | organization_state_exception()
+          | entity_not_found_exception()
+
+  @type get_default_retention_policy_errors() ::
+          invalid_parameter_exception()
+          | organization_not_found_exception()
+          | organization_state_exception()
+          | entity_not_found_exception()
+
+  @type get_impersonation_role_errors() ::
+          invalid_parameter_exception()
+          | organization_not_found_exception()
+          | resource_not_found_exception()
+          | organization_state_exception()
+
+  @type get_impersonation_role_effect_errors() ::
+          invalid_parameter_exception()
+          | organization_not_found_exception()
+          | resource_not_found_exception()
+          | organization_state_exception()
+          | entity_state_exception()
+          | entity_not_found_exception()
+
+  @type get_mail_domain_errors() ::
+          invalid_parameter_exception()
+          | organization_not_found_exception()
+          | mail_domain_not_found_exception()
+          | organization_state_exception()
+
+  @type get_mailbox_details_errors() ::
+          invalid_parameter_exception()
+          | organization_not_found_exception()
+          | organization_state_exception()
+          | entity_not_found_exception()
+
+  @type get_mobile_device_access_effect_errors() ::
+          invalid_parameter_exception()
+          | organization_not_found_exception()
+          | organization_state_exception()
+
+  @type get_mobile_device_access_override_errors() ::
+          invalid_parameter_exception()
+          | organization_not_found_exception()
+          | resource_not_found_exception()
+          | organization_state_exception()
+          | entity_not_found_exception()
+
+  @type list_access_control_rules_errors() ::
+          organization_not_found_exception() | organization_state_exception()
+
+  @type list_aliases_errors() ::
+          invalid_parameter_exception()
+          | organization_not_found_exception()
+          | organization_state_exception()
+          | entity_state_exception()
+          | entity_not_found_exception()
+
+  @type list_availability_configurations_errors() ::
+          organization_not_found_exception() | organization_state_exception()
+
+  @type list_group_members_errors() ::
+          invalid_parameter_exception()
+          | organization_not_found_exception()
+          | organization_state_exception()
+          | entity_state_exception()
+          | entity_not_found_exception()
+
+  @type list_groups_errors() ::
+          invalid_parameter_exception()
+          | organization_not_found_exception()
+          | organization_state_exception()
+          | entity_not_found_exception()
+
+  @type list_groups_for_entity_errors() ::
+          invalid_parameter_exception()
+          | organization_not_found_exception()
+          | organization_state_exception()
+          | entity_state_exception()
+          | entity_not_found_exception()
+
+  @type list_impersonation_roles_errors() ::
+          invalid_parameter_exception()
+          | organization_not_found_exception()
+          | organization_state_exception()
+
+  @type list_mail_domains_errors() ::
+          invalid_parameter_exception()
+          | organization_not_found_exception()
+          | organization_state_exception()
+
+  @type list_mailbox_export_jobs_errors() ::
+          invalid_parameter_exception()
+          | organization_not_found_exception()
+          | organization_state_exception()
+
+  @type list_mailbox_permissions_errors() ::
+          invalid_parameter_exception()
+          | organization_not_found_exception()
+          | organization_state_exception()
+          | entity_not_found_exception()
+
+  @type list_mobile_device_access_overrides_errors() ::
+          invalid_parameter_exception()
+          | organization_not_found_exception()
+          | organization_state_exception()
+          | entity_not_found_exception()
+
+  @type list_mobile_device_access_rules_errors() ::
+          invalid_parameter_exception()
+          | organization_not_found_exception()
+          | organization_state_exception()
+
+  @type list_organizations_errors() :: invalid_parameter_exception()
+
+  @type list_resource_delegates_errors() ::
+          invalid_parameter_exception()
+          | organization_not_found_exception()
+          | organization_state_exception()
+          | entity_state_exception()
+          | unsupported_operation_exception()
+          | entity_not_found_exception()
+
+  @type list_resources_errors() ::
+          invalid_parameter_exception()
+          | organization_not_found_exception()
+          | organization_state_exception()
+          | unsupported_operation_exception()
+
+  @type list_tags_for_resource_errors() :: resource_not_found_exception()
+
+  @type list_users_errors() ::
+          invalid_parameter_exception()
+          | organization_not_found_exception()
+          | organization_state_exception()
+
+  @type put_access_control_rule_errors() ::
+          limit_exceeded_exception()
+          | invalid_parameter_exception()
+          | organization_not_found_exception()
+          | resource_not_found_exception()
+          | organization_state_exception()
+          | entity_not_found_exception()
+
+  @type put_email_monitoring_configuration_errors() ::
+          invalid_parameter_exception()
+          | organization_not_found_exception()
+          | resource_not_found_exception()
+          | organization_state_exception()
+
+  @type put_inbound_dmarc_settings_errors() ::
+          organization_not_found_exception() | organization_state_exception()
+
+  @type put_mailbox_permissions_errors() ::
+          invalid_parameter_exception()
+          | organization_not_found_exception()
+          | organization_state_exception()
+          | entity_state_exception()
+          | entity_not_found_exception()
+
+  @type put_mobile_device_access_override_errors() ::
+          invalid_parameter_exception()
+          | organization_not_found_exception()
+          | organization_state_exception()
+          | entity_state_exception()
+          | entity_not_found_exception()
+
+  @type put_retention_policy_errors() ::
+          limit_exceeded_exception()
+          | invalid_parameter_exception()
+          | organization_not_found_exception()
+          | organization_state_exception()
+
+  @type register_mail_domain_errors() ::
+          limit_exceeded_exception()
+          | invalid_parameter_exception()
+          | mail_domain_in_use_exception()
+          | organization_not_found_exception()
+          | organization_state_exception()
+
+  @type register_to_work_mail_errors() ::
+          directory_service_authentication_failed_exception()
+          | email_address_in_use_exception()
+          | entity_already_registered_exception()
+          | directory_unavailable_exception()
+          | invalid_parameter_exception()
+          | organization_not_found_exception()
+          | mail_domain_state_exception()
+          | mail_domain_not_found_exception()
+          | organization_state_exception()
+          | entity_state_exception()
+          | entity_not_found_exception()
+
+  @type reset_password_errors() ::
+          invalid_password_exception()
+          | directory_service_authentication_failed_exception()
+          | directory_unavailable_exception()
+          | invalid_parameter_exception()
+          | organization_not_found_exception()
+          | organization_state_exception()
+          | entity_state_exception()
+          | unsupported_operation_exception()
+          | entity_not_found_exception()
+
+  @type start_mailbox_export_job_errors() ::
+          limit_exceeded_exception()
+          | invalid_parameter_exception()
+          | organization_not_found_exception()
+          | organization_state_exception()
+          | entity_not_found_exception()
+
+  @type tag_resource_errors() ::
+          too_many_tags_exception()
+          | invalid_parameter_exception()
+          | resource_not_found_exception()
+          | organization_state_exception()
+
+  @type test_availability_configuration_errors() ::
+          invalid_parameter_exception()
+          | organization_not_found_exception()
+          | resource_not_found_exception()
+          | organization_state_exception()
+
+  @type untag_resource_errors() :: resource_not_found_exception()
+
+  @type update_availability_configuration_errors() ::
+          invalid_parameter_exception()
+          | organization_not_found_exception()
+          | resource_not_found_exception()
+          | organization_state_exception()
+
+  @type update_default_mail_domain_errors() ::
+          invalid_parameter_exception()
+          | organization_not_found_exception()
+          | mail_domain_state_exception()
+          | mail_domain_not_found_exception()
+          | organization_state_exception()
+
+  @type update_group_errors() ::
+          invalid_parameter_exception()
+          | organization_not_found_exception()
+          | organization_state_exception()
+          | entity_state_exception()
+          | unsupported_operation_exception()
+          | entity_not_found_exception()
+
+  @type update_impersonation_role_errors() ::
+          limit_exceeded_exception()
+          | invalid_parameter_exception()
+          | organization_not_found_exception()
+          | resource_not_found_exception()
+          | organization_state_exception()
+          | entity_state_exception()
+          | entity_not_found_exception()
+
+  @type update_mailbox_quota_errors() ::
+          invalid_parameter_exception()
+          | organization_not_found_exception()
+          | organization_state_exception()
+          | entity_state_exception()
+          | entity_not_found_exception()
+
+  @type update_mobile_device_access_rule_errors() ::
+          invalid_parameter_exception()
+          | organization_not_found_exception()
+          | organization_state_exception()
+          | entity_not_found_exception()
+
+  @type update_primary_email_address_errors() ::
+          directory_service_authentication_failed_exception()
+          | email_address_in_use_exception()
+          | directory_unavailable_exception()
+          | invalid_parameter_exception()
+          | organization_not_found_exception()
+          | mail_domain_state_exception()
+          | mail_domain_not_found_exception()
+          | organization_state_exception()
+          | entity_state_exception()
+          | unsupported_operation_exception()
+          | entity_not_found_exception()
+
+  @type update_resource_errors() ::
+          email_address_in_use_exception()
+          | directory_unavailable_exception()
+          | invalid_parameter_exception()
+          | invalid_configuration_exception()
+          | organization_not_found_exception()
+          | mail_domain_state_exception()
+          | name_availability_exception()
+          | mail_domain_not_found_exception()
+          | organization_state_exception()
+          | entity_state_exception()
+          | unsupported_operation_exception()
+          | entity_not_found_exception()
+
+  @type update_user_errors() ::
+          directory_service_authentication_failed_exception()
+          | directory_unavailable_exception()
+          | invalid_parameter_exception()
+          | organization_not_found_exception()
+          | organization_state_exception()
+          | entity_state_exception()
+          | unsupported_operation_exception()
+          | entity_not_found_exception()
 
   def metadata do
     %{
@@ -2479,12 +3396,7 @@ defmodule AWS.WorkMail do
   @spec associate_delegate_to_resource(map(), associate_delegate_to_resource_request(), list()) ::
           {:ok, associate_delegate_to_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, entity_not_found_exception()}
-          | {:error, entity_state_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
-          | {:error, unsupported_operation_exception()}
+          | {:error, associate_delegate_to_resource_errors()}
   def associate_delegate_to_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2497,14 +3409,7 @@ defmodule AWS.WorkMail do
   @spec associate_member_to_group(map(), associate_member_to_group_request(), list()) ::
           {:ok, associate_member_to_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, directory_service_authentication_failed_exception()}
-          | {:error, directory_unavailable_exception()}
-          | {:error, entity_not_found_exception()}
-          | {:error, entity_state_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
-          | {:error, unsupported_operation_exception()}
+          | {:error, associate_member_to_group_errors()}
   def associate_member_to_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2520,10 +3425,7 @@ defmodule AWS.WorkMail do
   @spec assume_impersonation_role(map(), assume_impersonation_role_request(), list()) ::
           {:ok, assume_impersonation_role_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, assume_impersonation_role_errors()}
   def assume_impersonation_role(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2539,10 +3441,7 @@ defmodule AWS.WorkMail do
   @spec cancel_mailbox_export_job(map(), cancel_mailbox_export_job_request(), list()) ::
           {:ok, cancel_mailbox_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, entity_not_found_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
+          | {:error, cancel_mailbox_export_job_errors()}
   def cancel_mailbox_export_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2555,15 +3454,7 @@ defmodule AWS.WorkMail do
   @spec create_alias(map(), create_alias_request(), list()) ::
           {:ok, create_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, email_address_in_use_exception()}
-          | {:error, entity_not_found_exception()}
-          | {:error, entity_state_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, mail_domain_not_found_exception()}
-          | {:error, mail_domain_state_exception()}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
+          | {:error, create_alias_errors()}
   def create_alias(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2581,11 +3472,7 @@ defmodule AWS.WorkMail do
         ) ::
           {:ok, create_availability_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, name_availability_exception()}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
+          | {:error, create_availability_configuration_errors()}
   def create_availability_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2599,14 +3486,7 @@ defmodule AWS.WorkMail do
   @spec create_group(map(), create_group_request(), list()) ::
           {:ok, create_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, directory_service_authentication_failed_exception()}
-          | {:error, directory_unavailable_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, name_availability_exception()}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
-          | {:error, reserved_name_exception()}
-          | {:error, unsupported_operation_exception()}
+          | {:error, create_group_errors()}
   def create_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2625,12 +3505,7 @@ defmodule AWS.WorkMail do
   @spec create_impersonation_role(map(), create_impersonation_role_request(), list()) ::
           {:ok, create_impersonation_role_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, entity_not_found_exception()}
-          | {:error, entity_state_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
+          | {:error, create_impersonation_role_errors()}
   def create_impersonation_role(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2647,10 +3522,7 @@ defmodule AWS.WorkMail do
         ) ::
           {:ok, create_mobile_device_access_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
+          | {:error, create_mobile_device_access_rule_errors()}
   def create_mobile_device_access_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2683,11 +3555,7 @@ defmodule AWS.WorkMail do
   @spec create_organization(map(), create_organization_request(), list()) ::
           {:ok, create_organization_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, directory_in_use_exception()}
-          | {:error, directory_unavailable_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, name_availability_exception()}
+          | {:error, create_organization_errors()}
   def create_organization(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2700,14 +3568,7 @@ defmodule AWS.WorkMail do
   @spec create_resource(map(), create_resource_request(), list()) ::
           {:ok, create_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, directory_service_authentication_failed_exception()}
-          | {:error, directory_unavailable_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, name_availability_exception()}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
-          | {:error, reserved_name_exception()}
-          | {:error, unsupported_operation_exception()}
+          | {:error, create_resource_errors()}
   def create_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2721,15 +3582,7 @@ defmodule AWS.WorkMail do
   @spec create_user(map(), create_user_request(), list()) ::
           {:ok, create_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, directory_service_authentication_failed_exception()}
-          | {:error, directory_unavailable_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, invalid_password_exception()}
-          | {:error, name_availability_exception()}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
-          | {:error, reserved_name_exception()}
-          | {:error, unsupported_operation_exception()}
+          | {:error, create_user_errors()}
   def create_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2746,8 +3599,7 @@ defmodule AWS.WorkMail do
   @spec delete_access_control_rule(map(), delete_access_control_rule_request(), list()) ::
           {:ok, delete_access_control_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
+          | {:error, delete_access_control_rule_errors()}
   def delete_access_control_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2761,11 +3613,7 @@ defmodule AWS.WorkMail do
   @spec delete_alias(map(), delete_alias_request(), list()) ::
           {:ok, delete_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, entity_not_found_exception()}
-          | {:error, entity_state_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
+          | {:error, delete_alias_errors()}
   def delete_alias(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2783,8 +3631,7 @@ defmodule AWS.WorkMail do
         ) ::
           {:ok, delete_availability_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
+          | {:error, delete_availability_configuration_errors()}
   def delete_availability_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2801,9 +3648,7 @@ defmodule AWS.WorkMail do
         ) ::
           {:ok, delete_email_monitoring_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
+          | {:error, delete_email_monitoring_configuration_errors()}
   def delete_email_monitoring_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2816,13 +3661,7 @@ defmodule AWS.WorkMail do
   @spec delete_group(map(), delete_group_request(), list()) ::
           {:ok, delete_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, directory_service_authentication_failed_exception()}
-          | {:error, directory_unavailable_exception()}
-          | {:error, entity_state_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
-          | {:error, unsupported_operation_exception()}
+          | {:error, delete_group_errors()}
   def delete_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2835,9 +3674,7 @@ defmodule AWS.WorkMail do
   @spec delete_impersonation_role(map(), delete_impersonation_role_request(), list()) ::
           {:ok, delete_impersonation_role_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
+          | {:error, delete_impersonation_role_errors()}
   def delete_impersonation_role(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2850,11 +3687,7 @@ defmodule AWS.WorkMail do
   @spec delete_mailbox_permissions(map(), delete_mailbox_permissions_request(), list()) ::
           {:ok, delete_mailbox_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, entity_not_found_exception()}
-          | {:error, entity_state_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
+          | {:error, delete_mailbox_permissions_errors()}
   def delete_mailbox_permissions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2876,10 +3709,7 @@ defmodule AWS.WorkMail do
         ) ::
           {:ok, delete_mobile_device_access_override_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, entity_not_found_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
+          | {:error, delete_mobile_device_access_override_errors()}
   def delete_mobile_device_access_override(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2900,9 +3730,7 @@ defmodule AWS.WorkMail do
         ) ::
           {:ok, delete_mobile_device_access_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
+          | {:error, delete_mobile_device_access_rule_errors()}
   def delete_mobile_device_access_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2920,9 +3748,7 @@ defmodule AWS.WorkMail do
   @spec delete_organization(map(), delete_organization_request(), list()) ::
           {:ok, delete_organization_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
+          | {:error, delete_organization_errors()}
   def delete_organization(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2935,11 +3761,7 @@ defmodule AWS.WorkMail do
   @spec delete_resource(map(), delete_resource_request(), list()) ::
           {:ok, delete_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, entity_state_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
-          | {:error, unsupported_operation_exception()}
+          | {:error, delete_resource_errors()}
   def delete_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2952,9 +3774,7 @@ defmodule AWS.WorkMail do
   @spec delete_retention_policy(map(), delete_retention_policy_request(), list()) ::
           {:ok, delete_retention_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
+          | {:error, delete_retention_policy_errors()}
   def delete_retention_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2975,13 +3795,7 @@ defmodule AWS.WorkMail do
   @spec delete_user(map(), delete_user_request(), list()) ::
           {:ok, delete_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, directory_service_authentication_failed_exception()}
-          | {:error, directory_unavailable_exception()}
-          | {:error, entity_state_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
-          | {:error, unsupported_operation_exception()}
+          | {:error, delete_user_errors()}
   def delete_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3000,11 +3814,7 @@ defmodule AWS.WorkMail do
   @spec deregister_from_work_mail(map(), deregister_from_work_mail_request(), list()) ::
           {:ok, deregister_from_work_mail_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, entity_not_found_exception()}
-          | {:error, entity_state_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
+          | {:error, deregister_from_work_mail_errors()}
   def deregister_from_work_mail(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3021,11 +3831,7 @@ defmodule AWS.WorkMail do
   @spec deregister_mail_domain(map(), deregister_mail_domain_request(), list()) ::
           {:ok, deregister_mail_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_custom_ses_configuration_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, mail_domain_in_use_exception()}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
+          | {:error, deregister_mail_domain_errors()}
   def deregister_mail_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3043,10 +3849,7 @@ defmodule AWS.WorkMail do
         ) ::
           {:ok, describe_email_monitoring_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, describe_email_monitoring_configuration_errors()}
   def describe_email_monitoring_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3059,10 +3862,7 @@ defmodule AWS.WorkMail do
   @spec describe_entity(map(), describe_entity_request(), list()) ::
           {:ok, describe_entity_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, entity_not_found_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
+          | {:error, describe_entity_errors()}
   def describe_entity(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3075,10 +3875,7 @@ defmodule AWS.WorkMail do
   @spec describe_group(map(), describe_group_request(), list()) ::
           {:ok, describe_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, entity_not_found_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
+          | {:error, describe_group_errors()}
   def describe_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3091,8 +3888,7 @@ defmodule AWS.WorkMail do
   @spec describe_inbound_dmarc_settings(map(), describe_inbound_dmarc_settings_request(), list()) ::
           {:ok, describe_inbound_dmarc_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
+          | {:error, describe_inbound_dmarc_settings_errors()}
   def describe_inbound_dmarc_settings(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3105,10 +3901,7 @@ defmodule AWS.WorkMail do
   @spec describe_mailbox_export_job(map(), describe_mailbox_export_job_request(), list()) ::
           {:ok, describe_mailbox_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, entity_not_found_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
+          | {:error, describe_mailbox_export_job_errors()}
   def describe_mailbox_export_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3122,8 +3915,7 @@ defmodule AWS.WorkMail do
   @spec describe_organization(map(), describe_organization_request(), list()) ::
           {:ok, describe_organization_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, organization_not_found_exception()}
+          | {:error, describe_organization_errors()}
   def describe_organization(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3136,11 +3928,7 @@ defmodule AWS.WorkMail do
   @spec describe_resource(map(), describe_resource_request(), list()) ::
           {:ok, describe_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, entity_not_found_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
-          | {:error, unsupported_operation_exception()}
+          | {:error, describe_resource_errors()}
   def describe_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3153,10 +3941,7 @@ defmodule AWS.WorkMail do
   @spec describe_user(map(), describe_user_request(), list()) ::
           {:ok, describe_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, entity_not_found_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
+          | {:error, describe_user_errors()}
   def describe_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3173,12 +3958,7 @@ defmodule AWS.WorkMail do
         ) ::
           {:ok, disassociate_delegate_from_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, entity_not_found_exception()}
-          | {:error, entity_state_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
-          | {:error, unsupported_operation_exception()}
+          | {:error, disassociate_delegate_from_resource_errors()}
   def disassociate_delegate_from_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3191,14 +3971,7 @@ defmodule AWS.WorkMail do
   @spec disassociate_member_from_group(map(), disassociate_member_from_group_request(), list()) ::
           {:ok, disassociate_member_from_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, directory_service_authentication_failed_exception()}
-          | {:error, directory_unavailable_exception()}
-          | {:error, entity_not_found_exception()}
-          | {:error, entity_state_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
-          | {:error, unsupported_operation_exception()}
+          | {:error, disassociate_member_from_group_errors()}
   def disassociate_member_from_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3216,11 +3989,7 @@ defmodule AWS.WorkMail do
   @spec get_access_control_effect(map(), get_access_control_effect_request(), list()) ::
           {:ok, get_access_control_effect_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, entity_not_found_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, get_access_control_effect_errors()}
   def get_access_control_effect(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3233,10 +4002,7 @@ defmodule AWS.WorkMail do
   @spec get_default_retention_policy(map(), get_default_retention_policy_request(), list()) ::
           {:ok, get_default_retention_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, entity_not_found_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
+          | {:error, get_default_retention_policy_errors()}
   def get_default_retention_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3249,10 +4015,7 @@ defmodule AWS.WorkMail do
   @spec get_impersonation_role(map(), get_impersonation_role_request(), list()) ::
           {:ok, get_impersonation_role_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, get_impersonation_role_errors()}
   def get_impersonation_role(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3265,12 +4028,7 @@ defmodule AWS.WorkMail do
   @spec get_impersonation_role_effect(map(), get_impersonation_role_effect_request(), list()) ::
           {:ok, get_impersonation_role_effect_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, entity_not_found_exception()}
-          | {:error, entity_state_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, get_impersonation_role_effect_errors()}
   def get_impersonation_role_effect(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3284,10 +4042,7 @@ defmodule AWS.WorkMail do
   @spec get_mail_domain(map(), get_mail_domain_request(), list()) ::
           {:ok, get_mail_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, mail_domain_not_found_exception()}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
+          | {:error, get_mail_domain_errors()}
   def get_mail_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3300,10 +4055,7 @@ defmodule AWS.WorkMail do
   @spec get_mailbox_details(map(), get_mailbox_details_request(), list()) ::
           {:ok, get_mailbox_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, entity_not_found_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
+          | {:error, get_mailbox_details_errors()}
   def get_mailbox_details(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3320,9 +4072,7 @@ defmodule AWS.WorkMail do
   @spec get_mobile_device_access_effect(map(), get_mobile_device_access_effect_request(), list()) ::
           {:ok, get_mobile_device_access_effect_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
+          | {:error, get_mobile_device_access_effect_errors()}
   def get_mobile_device_access_effect(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3340,11 +4090,7 @@ defmodule AWS.WorkMail do
         ) ::
           {:ok, get_mobile_device_access_override_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, entity_not_found_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, get_mobile_device_access_override_errors()}
   def get_mobile_device_access_override(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3357,8 +4103,7 @@ defmodule AWS.WorkMail do
   @spec list_access_control_rules(map(), list_access_control_rules_request(), list()) ::
           {:ok, list_access_control_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
+          | {:error, list_access_control_rules_errors()}
   def list_access_control_rules(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3372,11 +4117,7 @@ defmodule AWS.WorkMail do
   @spec list_aliases(map(), list_aliases_request(), list()) ::
           {:ok, list_aliases_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, entity_not_found_exception()}
-          | {:error, entity_state_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
+          | {:error, list_aliases_errors()}
   def list_aliases(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3393,8 +4134,7 @@ defmodule AWS.WorkMail do
         ) ::
           {:ok, list_availability_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
+          | {:error, list_availability_configurations_errors()}
   def list_availability_configurations(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3410,11 +4150,7 @@ defmodule AWS.WorkMail do
   @spec list_group_members(map(), list_group_members_request(), list()) ::
           {:ok, list_group_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, entity_not_found_exception()}
-          | {:error, entity_state_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
+          | {:error, list_group_members_errors()}
   def list_group_members(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3427,10 +4163,7 @@ defmodule AWS.WorkMail do
   @spec list_groups(map(), list_groups_request(), list()) ::
           {:ok, list_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, entity_not_found_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
+          | {:error, list_groups_errors()}
   def list_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3443,11 +4176,7 @@ defmodule AWS.WorkMail do
   @spec list_groups_for_entity(map(), list_groups_for_entity_request(), list()) ::
           {:ok, list_groups_for_entity_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, entity_not_found_exception()}
-          | {:error, entity_state_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
+          | {:error, list_groups_for_entity_errors()}
   def list_groups_for_entity(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3460,9 +4189,7 @@ defmodule AWS.WorkMail do
   @spec list_impersonation_roles(map(), list_impersonation_roles_request(), list()) ::
           {:ok, list_impersonation_roles_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
+          | {:error, list_impersonation_roles_errors()}
   def list_impersonation_roles(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3475,9 +4202,7 @@ defmodule AWS.WorkMail do
   @spec list_mail_domains(map(), list_mail_domains_request(), list()) ::
           {:ok, list_mail_domains_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
+          | {:error, list_mail_domains_errors()}
   def list_mail_domains(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3492,9 +4217,7 @@ defmodule AWS.WorkMail do
   @spec list_mailbox_export_jobs(map(), list_mailbox_export_jobs_request(), list()) ::
           {:ok, list_mailbox_export_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
+          | {:error, list_mailbox_export_jobs_errors()}
   def list_mailbox_export_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3508,10 +4231,7 @@ defmodule AWS.WorkMail do
   @spec list_mailbox_permissions(map(), list_mailbox_permissions_request(), list()) ::
           {:ok, list_mailbox_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, entity_not_found_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
+          | {:error, list_mailbox_permissions_errors()}
   def list_mailbox_permissions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3529,10 +4249,7 @@ defmodule AWS.WorkMail do
         ) ::
           {:ok, list_mobile_device_access_overrides_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, entity_not_found_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
+          | {:error, list_mobile_device_access_overrides_errors()}
   def list_mobile_device_access_overrides(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3545,9 +4262,7 @@ defmodule AWS.WorkMail do
   @spec list_mobile_device_access_rules(map(), list_mobile_device_access_rules_request(), list()) ::
           {:ok, list_mobile_device_access_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
+          | {:error, list_mobile_device_access_rules_errors()}
   def list_mobile_device_access_rules(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3560,7 +4275,7 @@ defmodule AWS.WorkMail do
   @spec list_organizations(map(), list_organizations_request(), list()) ::
           {:ok, list_organizations_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
+          | {:error, list_organizations_errors()}
   def list_organizations(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3576,12 +4291,7 @@ defmodule AWS.WorkMail do
   @spec list_resource_delegates(map(), list_resource_delegates_request(), list()) ::
           {:ok, list_resource_delegates_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, entity_not_found_exception()}
-          | {:error, entity_state_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
-          | {:error, unsupported_operation_exception()}
+          | {:error, list_resource_delegates_errors()}
   def list_resource_delegates(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3594,10 +4304,7 @@ defmodule AWS.WorkMail do
   @spec list_resources(map(), list_resources_request(), list()) ::
           {:ok, list_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
-          | {:error, unsupported_operation_exception()}
+          | {:error, list_resources_errors()}
   def list_resources(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3610,7 +4317,7 @@ defmodule AWS.WorkMail do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found_exception()}
+          | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3623,9 +4330,7 @@ defmodule AWS.WorkMail do
   @spec list_users(map(), list_users_request(), list()) ::
           {:ok, list_users_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
+          | {:error, list_users_errors()}
   def list_users(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3645,12 +4350,7 @@ defmodule AWS.WorkMail do
   @spec put_access_control_rule(map(), put_access_control_rule_request(), list()) ::
           {:ok, put_access_control_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, entity_not_found_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, put_access_control_rule_errors()}
   def put_access_control_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3668,10 +4368,7 @@ defmodule AWS.WorkMail do
         ) ::
           {:ok, put_email_monitoring_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, put_email_monitoring_configuration_errors()}
   def put_email_monitoring_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3684,8 +4381,7 @@ defmodule AWS.WorkMail do
   @spec put_inbound_dmarc_settings(map(), put_inbound_dmarc_settings_request(), list()) ::
           {:ok, put_inbound_dmarc_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
+          | {:error, put_inbound_dmarc_settings_errors()}
   def put_inbound_dmarc_settings(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3701,11 +4397,7 @@ defmodule AWS.WorkMail do
   @spec put_mailbox_permissions(map(), put_mailbox_permissions_request(), list()) ::
           {:ok, put_mailbox_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, entity_not_found_exception()}
-          | {:error, entity_state_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
+          | {:error, put_mailbox_permissions_errors()}
   def put_mailbox_permissions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3723,11 +4415,7 @@ defmodule AWS.WorkMail do
         ) ::
           {:ok, put_mobile_device_access_override_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, entity_not_found_exception()}
-          | {:error, entity_state_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
+          | {:error, put_mobile_device_access_override_errors()}
   def put_mobile_device_access_override(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3740,10 +4428,7 @@ defmodule AWS.WorkMail do
   @spec put_retention_policy(map(), put_retention_policy_request(), list()) ::
           {:ok, put_retention_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
+          | {:error, put_retention_policy_errors()}
   def put_retention_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3761,11 +4446,7 @@ defmodule AWS.WorkMail do
   @spec register_mail_domain(map(), register_mail_domain_request(), list()) ::
           {:ok, register_mail_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, mail_domain_in_use_exception()}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
+          | {:error, register_mail_domain_errors()}
   def register_mail_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3790,17 +4471,7 @@ defmodule AWS.WorkMail do
   @spec register_to_work_mail(map(), register_to_work_mail_request(), list()) ::
           {:ok, register_to_work_mail_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, directory_service_authentication_failed_exception()}
-          | {:error, directory_unavailable_exception()}
-          | {:error, email_address_in_use_exception()}
-          | {:error, entity_already_registered_exception()}
-          | {:error, entity_not_found_exception()}
-          | {:error, entity_state_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, mail_domain_not_found_exception()}
-          | {:error, mail_domain_state_exception()}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
+          | {:error, register_to_work_mail_errors()}
   def register_to_work_mail(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3813,15 +4484,7 @@ defmodule AWS.WorkMail do
   @spec reset_password(map(), reset_password_request(), list()) ::
           {:ok, reset_password_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, directory_service_authentication_failed_exception()}
-          | {:error, directory_unavailable_exception()}
-          | {:error, entity_not_found_exception()}
-          | {:error, entity_state_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, invalid_password_exception()}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
-          | {:error, unsupported_operation_exception()}
+          | {:error, reset_password_errors()}
   def reset_password(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3842,11 +4505,7 @@ defmodule AWS.WorkMail do
   @spec start_mailbox_export_job(map(), start_mailbox_export_job_request(), list()) ::
           {:ok, start_mailbox_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, entity_not_found_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
+          | {:error, start_mailbox_export_job_errors()}
   def start_mailbox_export_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3860,10 +4519,7 @@ defmodule AWS.WorkMail do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, organization_state_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_tags_exception()}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3887,10 +4543,7 @@ defmodule AWS.WorkMail do
   @spec test_availability_configuration(map(), test_availability_configuration_request(), list()) ::
           {:ok, test_availability_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, test_availability_configuration_errors()}
   def test_availability_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3904,7 +4557,7 @@ defmodule AWS.WorkMail do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found_exception()}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3922,10 +4575,7 @@ defmodule AWS.WorkMail do
         ) ::
           {:ok, update_availability_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, update_availability_configuration_errors()}
   def update_availability_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3941,11 +4591,7 @@ defmodule AWS.WorkMail do
   @spec update_default_mail_domain(map(), update_default_mail_domain_request(), list()) ::
           {:ok, update_default_mail_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, mail_domain_not_found_exception()}
-          | {:error, mail_domain_state_exception()}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
+          | {:error, update_default_mail_domain_errors()}
   def update_default_mail_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3958,12 +4604,7 @@ defmodule AWS.WorkMail do
   @spec update_group(map(), update_group_request(), list()) ::
           {:ok, update_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, entity_not_found_exception()}
-          | {:error, entity_state_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
-          | {:error, unsupported_operation_exception()}
+          | {:error, update_group_errors()}
   def update_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3976,13 +4617,7 @@ defmodule AWS.WorkMail do
   @spec update_impersonation_role(map(), update_impersonation_role_request(), list()) ::
           {:ok, update_impersonation_role_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, entity_not_found_exception()}
-          | {:error, entity_state_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, update_impersonation_role_errors()}
   def update_impersonation_role(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3996,11 +4631,7 @@ defmodule AWS.WorkMail do
   @spec update_mailbox_quota(map(), update_mailbox_quota_request(), list()) ::
           {:ok, update_mailbox_quota_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, entity_not_found_exception()}
-          | {:error, entity_state_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
+          | {:error, update_mailbox_quota_errors()}
   def update_mailbox_quota(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4017,10 +4648,7 @@ defmodule AWS.WorkMail do
         ) ::
           {:ok, update_mobile_device_access_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, entity_not_found_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
+          | {:error, update_mobile_device_access_rule_errors()}
   def update_mobile_device_access_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4038,17 +4666,7 @@ defmodule AWS.WorkMail do
   @spec update_primary_email_address(map(), update_primary_email_address_request(), list()) ::
           {:ok, update_primary_email_address_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, directory_service_authentication_failed_exception()}
-          | {:error, directory_unavailable_exception()}
-          | {:error, email_address_in_use_exception()}
-          | {:error, entity_not_found_exception()}
-          | {:error, entity_state_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, mail_domain_not_found_exception()}
-          | {:error, mail_domain_state_exception()}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
-          | {:error, unsupported_operation_exception()}
+          | {:error, update_primary_email_address_errors()}
   def update_primary_email_address(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4065,18 +4683,7 @@ defmodule AWS.WorkMail do
   @spec update_resource(map(), update_resource_request(), list()) ::
           {:ok, update_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, directory_unavailable_exception()}
-          | {:error, email_address_in_use_exception()}
-          | {:error, entity_not_found_exception()}
-          | {:error, entity_state_exception()}
-          | {:error, invalid_configuration_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, mail_domain_not_found_exception()}
-          | {:error, mail_domain_state_exception()}
-          | {:error, name_availability_exception()}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
-          | {:error, unsupported_operation_exception()}
+          | {:error, update_resource_errors()}
   def update_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4093,14 +4700,7 @@ defmodule AWS.WorkMail do
   @spec update_user(map(), update_user_request(), list()) ::
           {:ok, update_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, directory_service_authentication_failed_exception()}
-          | {:error, directory_unavailable_exception()}
-          | {:error, entity_not_found_exception()}
-          | {:error, entity_state_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, organization_not_found_exception()}
-          | {:error, organization_state_exception()}
-          | {:error, unsupported_operation_exception()}
+          | {:error, update_user_errors()}
   def update_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
 

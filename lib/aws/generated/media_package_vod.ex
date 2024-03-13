@@ -12,664 +12,872 @@ defmodule AWS.MediaPackageVod do
   @typedoc """
 
   ## Example:
-  tag_resource_request() :: %{
-    required("Tags") => map()
-  }
+
+      tag_resource_request() :: %{
+        required("Tags") => map()
+      }
+
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_packaging_configuration_response() :: %{
-    "Arn" => String.t(),
-    "CmafPackage" => cmaf_package(),
-    "CreatedAt" => String.t(),
-    "DashPackage" => dash_package(),
-    "HlsPackage" => hls_package(),
-    "Id" => String.t(),
-    "MssPackage" => mss_package(),
-    "PackagingGroupId" => String.t(),
-    "Tags" => map()
-  }
+
+      describe_packaging_configuration_response() :: %{
+        "Arn" => String.t(),
+        "CmafPackage" => cmaf_package(),
+        "CreatedAt" => String.t(),
+        "DashPackage" => dash_package(),
+        "HlsPackage" => hls_package(),
+        "Id" => String.t(),
+        "MssPackage" => mss_package(),
+        "PackagingGroupId" => String.t(),
+        "Tags" => map()
+      }
+
   """
   @type describe_packaging_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_packaging_configuration_request() :: %{
-    optional("CmafPackage") => cmaf_package(),
-    optional("DashPackage") => dash_package(),
-    optional("HlsPackage") => hls_package(),
-    optional("MssPackage") => mss_package(),
-    optional("Tags") => map(),
-    required("Id") => String.t(),
-    required("PackagingGroupId") => String.t()
-  }
+
+      create_packaging_configuration_request() :: %{
+        optional("CmafPackage") => cmaf_package(),
+        optional("DashPackage") => dash_package(),
+        optional("HlsPackage") => hls_package(),
+        optional("MssPackage") => mss_package(),
+        optional("Tags") => map(),
+        required("Id") => String.t(),
+        required("PackagingGroupId") => String.t()
+      }
+
   """
   @type create_packaging_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_packaging_configurations_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("PackagingGroupId") => String.t()
-  }
+
+      list_packaging_configurations_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("PackagingGroupId") => String.t()
+      }
+
   """
   @type list_packaging_configurations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_packaging_groups_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      list_packaging_groups_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_packaging_groups_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  forbidden_exception() :: %{
-    "Message" => String.t()
-  }
+
+      forbidden_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type forbidden_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_asset_response() :: %{
-    "Arn" => String.t(),
-    "CreatedAt" => String.t(),
-    "EgressEndpoints" => list(egress_endpoint()()),
-    "Id" => String.t(),
-    "PackagingGroupId" => String.t(),
-    "ResourceId" => String.t(),
-    "SourceArn" => String.t(),
-    "SourceRoleArn" => String.t(),
-    "Tags" => map()
-  }
+
+      describe_asset_response() :: %{
+        "Arn" => String.t(),
+        "CreatedAt" => String.t(),
+        "EgressEndpoints" => list(egress_endpoint()()),
+        "Id" => String.t(),
+        "PackagingGroupId" => String.t(),
+        "ResourceId" => String.t(),
+        "SourceArn" => String.t(),
+        "SourceRoleArn" => String.t(),
+        "Tags" => map()
+      }
+
   """
   @type describe_asset_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_packaging_group_request() :: %{
 
-  }
+      delete_packaging_group_request() :: %{}
+
   """
-  @type delete_packaging_group_request() :: %{String.t() => any()}
+  @type delete_packaging_group_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  packaging_group() :: %{
-    "ApproximateAssetCount" => integer(),
-    "Arn" => String.t(),
-    "Authorization" => authorization(),
-    "CreatedAt" => String.t(),
-    "DomainName" => String.t(),
-    "EgressAccessLogs" => egress_access_logs(),
-    "Id" => String.t(),
-    "Tags" => map()
-  }
+
+      packaging_group() :: %{
+        "ApproximateAssetCount" => integer(),
+        "Arn" => String.t(),
+        "Authorization" => authorization(),
+        "CreatedAt" => String.t(),
+        "DomainName" => String.t(),
+        "EgressAccessLogs" => egress_access_logs(),
+        "Id" => String.t(),
+        "Tags" => map()
+      }
+
   """
   @type packaging_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_asset_request() :: %{
-    optional("ResourceId") => String.t(),
-    optional("Tags") => map(),
-    required("Id") => String.t(),
-    required("PackagingGroupId") => String.t(),
-    required("SourceArn") => String.t(),
-    required("SourceRoleArn") => String.t()
-  }
+
+      create_asset_request() :: %{
+        optional("ResourceId") => String.t(),
+        optional("Tags") => map(),
+        required("Id") => String.t(),
+        required("PackagingGroupId") => String.t(),
+        required("SourceArn") => String.t(),
+        required("SourceRoleArn") => String.t()
+      }
+
   """
   @type create_asset_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_request() :: %{
-    required("TagKeys") => list(String.t()())
-  }
+
+      untag_resource_request() :: %{
+        required("TagKeys") => list(String.t()())
+      }
+
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_requests_exception() :: %{
-    "Message" => String.t()
-  }
+
+      too_many_requests_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type too_many_requests_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  hls_manifest() :: %{
-    "AdMarkers" => list(any()),
-    "IncludeIframeOnlyStream" => boolean(),
-    "ManifestName" => String.t(),
-    "ProgramDateTimeIntervalSeconds" => integer(),
-    "RepeatExtXKey" => boolean(),
-    "StreamSelection" => stream_selection()
-  }
+
+      hls_manifest() :: %{
+        "AdMarkers" => list(any()),
+        "IncludeIframeOnlyStream" => boolean(),
+        "ManifestName" => String.t(),
+        "ProgramDateTimeIntervalSeconds" => integer(),
+        "RepeatExtXKey" => boolean(),
+        "StreamSelection" => stream_selection()
+      }
+
   """
   @type hls_manifest() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_packaging_group_response() :: %{
 
-  }
+      delete_packaging_group_response() :: %{}
+
   """
-  @type delete_packaging_group_response() :: %{String.t() => any()}
+  @type delete_packaging_group_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  authorization() :: %{
-    "CdnIdentifierSecret" => String.t(),
-    "SecretsRoleArn" => String.t()
-  }
+
+      authorization() :: %{
+        "CdnIdentifierSecret" => String.t(),
+        "SecretsRoleArn" => String.t()
+      }
+
   """
   @type authorization() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  hls_encryption() :: %{
-    "ConstantInitializationVector" => String.t(),
-    "EncryptionMethod" => list(any()),
-    "SpekeKeyProvider" => speke_key_provider()
-  }
+
+      hls_encryption() :: %{
+        "ConstantInitializationVector" => String.t(),
+        "EncryptionMethod" => list(any()),
+        "SpekeKeyProvider" => speke_key_provider()
+      }
+
   """
   @type hls_encryption() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cmaf_package() :: %{
-    "Encryption" => cmaf_encryption(),
-    "HlsManifests" => list(hls_manifest()()),
-    "IncludeEncoderConfigurationInSegments" => boolean(),
-    "SegmentDurationSeconds" => integer()
-  }
+
+      cmaf_package() :: %{
+        "Encryption" => cmaf_encryption(),
+        "HlsManifests" => list(hls_manifest()()),
+        "IncludeEncoderConfigurationInSegments" => boolean(),
+        "SegmentDurationSeconds" => integer()
+      }
+
   """
   @type cmaf_package() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_packaging_configuration_response() :: %{
 
-  }
+      delete_packaging_configuration_response() :: %{}
+
   """
-  @type delete_packaging_configuration_response() :: %{String.t() => any()}
+  @type delete_packaging_configuration_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  update_packaging_group_request() :: %{
-    optional("Authorization") => authorization()
-  }
+
+      update_packaging_group_request() :: %{
+        optional("Authorization") => authorization()
+      }
+
   """
   @type update_packaging_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_packaging_group_response() :: %{
-    "ApproximateAssetCount" => integer(),
-    "Arn" => String.t(),
-    "Authorization" => authorization(),
-    "CreatedAt" => String.t(),
-    "DomainName" => String.t(),
-    "EgressAccessLogs" => egress_access_logs(),
-    "Id" => String.t(),
-    "Tags" => map()
-  }
+
+      update_packaging_group_response() :: %{
+        "ApproximateAssetCount" => integer(),
+        "Arn" => String.t(),
+        "Authorization" => authorization(),
+        "CreatedAt" => String.t(),
+        "DomainName" => String.t(),
+        "EgressAccessLogs" => egress_access_logs(),
+        "Id" => String.t(),
+        "Tags" => map()
+      }
+
   """
   @type update_packaging_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_packaging_group_request() :: %{
-    optional("Authorization") => authorization(),
-    optional("EgressAccessLogs") => egress_access_logs(),
-    optional("Tags") => map(),
-    required("Id") => String.t()
-  }
+
+      create_packaging_group_request() :: %{
+        optional("Authorization") => authorization(),
+        optional("EgressAccessLogs") => egress_access_logs(),
+        optional("Tags") => map(),
+        required("Id") => String.t()
+      }
+
   """
   @type create_packaging_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  not_found_exception() :: %{
-    "Message" => String.t()
-  }
+
+      not_found_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  speke_key_provider() :: %{
-    "EncryptionContractConfiguration" => encryption_contract_configuration(),
-    "RoleArn" => String.t(),
-    "SystemIds" => list(String.t()()),
-    "Url" => String.t()
-  }
+
+      speke_key_provider() :: %{
+        "EncryptionContractConfiguration" => encryption_contract_configuration(),
+        "RoleArn" => String.t(),
+        "SystemIds" => list(String.t()()),
+        "Url" => String.t()
+      }
+
   """
   @type speke_key_provider() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_asset_response() :: %{
 
-  }
+      delete_asset_response() :: %{}
+
   """
-  @type delete_asset_response() :: %{String.t() => any()}
+  @type delete_asset_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_response() :: %{
-    "Tags" => map()
-  }
+
+      list_tags_for_resource_response() :: %{
+        "Tags" => map()
+      }
+
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  hls_package() :: %{
-    "Encryption" => hls_encryption(),
-    "HlsManifests" => list(hls_manifest()()),
-    "IncludeDvbSubtitles" => boolean(),
-    "SegmentDurationSeconds" => integer(),
-    "UseAudioRenditionGroup" => boolean()
-  }
+
+      hls_package() :: %{
+        "Encryption" => hls_encryption(),
+        "HlsManifests" => list(hls_manifest()()),
+        "IncludeDvbSubtitles" => boolean(),
+        "SegmentDurationSeconds" => integer(),
+        "UseAudioRenditionGroup" => boolean()
+      }
+
   """
   @type hls_package() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  service_unavailable_exception() :: %{
-    "Message" => String.t()
-  }
+
+      service_unavailable_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type service_unavailable_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  dash_package() :: %{
-    "DashManifests" => list(dash_manifest()()),
-    "Encryption" => dash_encryption(),
-    "IncludeEncoderConfigurationInSegments" => boolean(),
-    "IncludeIframeOnlyStream" => boolean(),
-    "PeriodTriggers" => list(list(any())()),
-    "SegmentDurationSeconds" => integer(),
-    "SegmentTemplateFormat" => list(any())
-  }
+
+      dash_package() :: %{
+        "DashManifests" => list(dash_manifest()()),
+        "Encryption" => dash_encryption(),
+        "IncludeEncoderConfigurationInSegments" => boolean(),
+        "IncludeIframeOnlyStream" => boolean(),
+        "PeriodTriggers" => list(list(any())()),
+        "SegmentDurationSeconds" => integer(),
+        "SegmentTemplateFormat" => list(any())
+      }
+
   """
   @type dash_package() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  packaging_configuration() :: %{
-    "Arn" => String.t(),
-    "CmafPackage" => cmaf_package(),
-    "CreatedAt" => String.t(),
-    "DashPackage" => dash_package(),
-    "HlsPackage" => hls_package(),
-    "Id" => String.t(),
-    "MssPackage" => mss_package(),
-    "PackagingGroupId" => String.t(),
-    "Tags" => map()
-  }
+
+      packaging_configuration() :: %{
+        "Arn" => String.t(),
+        "CmafPackage" => cmaf_package(),
+        "CreatedAt" => String.t(),
+        "DashPackage" => dash_package(),
+        "HlsPackage" => hls_package(),
+        "Id" => String.t(),
+        "MssPackage" => mss_package(),
+        "PackagingGroupId" => String.t(),
+        "Tags" => map()
+      }
+
   """
   @type packaging_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_packaging_configurations_response() :: %{
-    "NextToken" => String.t(),
-    "PackagingConfigurations" => list(packaging_configuration()())
-  }
+
+      list_packaging_configurations_response() :: %{
+        "NextToken" => String.t(),
+        "PackagingConfigurations" => list(packaging_configuration()())
+      }
+
   """
   @type list_packaging_configurations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_packaging_group_response() :: %{
-    "Arn" => String.t(),
-    "Authorization" => authorization(),
-    "CreatedAt" => String.t(),
-    "DomainName" => String.t(),
-    "EgressAccessLogs" => egress_access_logs(),
-    "Id" => String.t(),
-    "Tags" => map()
-  }
+
+      create_packaging_group_response() :: %{
+        "Arn" => String.t(),
+        "Authorization" => authorization(),
+        "CreatedAt" => String.t(),
+        "DomainName" => String.t(),
+        "EgressAccessLogs" => egress_access_logs(),
+        "Id" => String.t(),
+        "Tags" => map()
+      }
+
   """
   @type create_packaging_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stream_selection() :: %{
-    "MaxVideoBitsPerSecond" => integer(),
-    "MinVideoBitsPerSecond" => integer(),
-    "StreamOrder" => list(any())
-  }
+
+      stream_selection() :: %{
+        "MaxVideoBitsPerSecond" => integer(),
+        "MinVideoBitsPerSecond" => integer(),
+        "StreamOrder" => list(any())
+      }
+
   """
   @type stream_selection() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  dash_manifest() :: %{
-    "ManifestLayout" => list(any()),
-    "ManifestName" => String.t(),
-    "MinBufferTimeSeconds" => integer(),
-    "Profile" => list(any()),
-    "ScteMarkersSource" => list(any()),
-    "StreamSelection" => stream_selection()
-  }
+
+      dash_manifest() :: %{
+        "ManifestLayout" => list(any()),
+        "ManifestName" => String.t(),
+        "MinBufferTimeSeconds" => integer(),
+        "Profile" => list(any()),
+        "ScteMarkersSource" => list(any()),
+        "StreamSelection" => stream_selection()
+      }
+
   """
   @type dash_manifest() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  egress_endpoint() :: %{
-    "PackagingConfigurationId" => String.t(),
-    "Status" => String.t(),
-    "Url" => String.t()
-  }
+
+      egress_endpoint() :: %{
+        "PackagingConfigurationId" => String.t(),
+        "Status" => String.t(),
+        "Url" => String.t()
+      }
+
   """
   @type egress_endpoint() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  encryption_contract_configuration() :: %{
-    "PresetSpeke20Audio" => list(any()),
-    "PresetSpeke20Video" => list(any())
-  }
+
+      encryption_contract_configuration() :: %{
+        "PresetSpeke20Audio" => list(any()),
+        "PresetSpeke20Video" => list(any())
+      }
+
   """
   @type encryption_contract_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  egress_access_logs() :: %{
-    "LogGroupName" => String.t()
-  }
+
+      egress_access_logs() :: %{
+        "LogGroupName" => String.t()
+      }
+
   """
   @type egress_access_logs() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  dash_encryption() :: %{
-    "SpekeKeyProvider" => speke_key_provider()
-  }
+
+      dash_encryption() :: %{
+        "SpekeKeyProvider" => speke_key_provider()
+      }
+
   """
   @type dash_encryption() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_asset_request() :: %{
 
-  }
+      delete_asset_request() :: %{}
+
   """
-  @type delete_asset_request() :: %{String.t() => any()}
+  @type delete_asset_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_packaging_configuration_response() :: %{
-    "Arn" => String.t(),
-    "CmafPackage" => cmaf_package(),
-    "CreatedAt" => String.t(),
-    "DashPackage" => dash_package(),
-    "HlsPackage" => hls_package(),
-    "Id" => String.t(),
-    "MssPackage" => mss_package(),
-    "PackagingGroupId" => String.t(),
-    "Tags" => map()
-  }
+
+      create_packaging_configuration_response() :: %{
+        "Arn" => String.t(),
+        "CmafPackage" => cmaf_package(),
+        "CreatedAt" => String.t(),
+        "DashPackage" => dash_package(),
+        "HlsPackage" => hls_package(),
+        "Id" => String.t(),
+        "MssPackage" => mss_package(),
+        "PackagingGroupId" => String.t(),
+        "Tags" => map()
+      }
+
   """
   @type create_packaging_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  asset_shallow() :: %{
-    "Arn" => String.t(),
-    "CreatedAt" => String.t(),
-    "Id" => String.t(),
-    "PackagingGroupId" => String.t(),
-    "ResourceId" => String.t(),
-    "SourceArn" => String.t(),
-    "SourceRoleArn" => String.t(),
-    "Tags" => map()
-  }
+
+      asset_shallow() :: %{
+        "Arn" => String.t(),
+        "CreatedAt" => String.t(),
+        "Id" => String.t(),
+        "PackagingGroupId" => String.t(),
+        "ResourceId" => String.t(),
+        "SourceArn" => String.t(),
+        "SourceRoleArn" => String.t(),
+        "Tags" => map()
+      }
+
   """
   @type asset_shallow() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  unprocessable_entity_exception() :: %{
-    "Message" => String.t()
-  }
+
+      unprocessable_entity_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type unprocessable_entity_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_asset_response() :: %{
-    "Arn" => String.t(),
-    "CreatedAt" => String.t(),
-    "EgressEndpoints" => list(egress_endpoint()()),
-    "Id" => String.t(),
-    "PackagingGroupId" => String.t(),
-    "ResourceId" => String.t(),
-    "SourceArn" => String.t(),
-    "SourceRoleArn" => String.t(),
-    "Tags" => map()
-  }
+
+      create_asset_response() :: %{
+        "Arn" => String.t(),
+        "CreatedAt" => String.t(),
+        "EgressEndpoints" => list(egress_endpoint()()),
+        "Id" => String.t(),
+        "PackagingGroupId" => String.t(),
+        "ResourceId" => String.t(),
+        "SourceArn" => String.t(),
+        "SourceRoleArn" => String.t(),
+        "Tags" => map()
+      }
+
   """
   @type create_asset_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cmaf_encryption() :: %{
-    "ConstantInitializationVector" => String.t(),
-    "SpekeKeyProvider" => speke_key_provider()
-  }
+
+      cmaf_encryption() :: %{
+        "ConstantInitializationVector" => String.t(),
+        "SpekeKeyProvider" => speke_key_provider()
+      }
+
   """
   @type cmaf_encryption() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_request() :: %{
 
-  }
+      list_tags_for_resource_request() :: %{}
+
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  internal_server_error_exception() :: %{
-    "Message" => String.t()
-  }
+
+      internal_server_error_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type internal_server_error_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_packaging_configuration_request() :: %{
 
-  }
+      describe_packaging_configuration_request() :: %{}
+
   """
-  @type describe_packaging_configuration_request() :: %{String.t() => any()}
+  @type describe_packaging_configuration_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_assets_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("PackagingGroupId") => String.t()
-  }
+
+      list_assets_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("PackagingGroupId") => String.t()
+      }
+
   """
   @type list_assets_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  mss_manifest() :: %{
-    "ManifestName" => String.t(),
-    "StreamSelection" => stream_selection()
-  }
+
+      mss_manifest() :: %{
+        "ManifestName" => String.t(),
+        "StreamSelection" => stream_selection()
+      }
+
   """
   @type mss_manifest() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  configure_logs_response() :: %{
-    "Arn" => String.t(),
-    "Authorization" => authorization(),
-    "CreatedAt" => String.t(),
-    "DomainName" => String.t(),
-    "EgressAccessLogs" => egress_access_logs(),
-    "Id" => String.t(),
-    "Tags" => map()
-  }
+
+      configure_logs_response() :: %{
+        "Arn" => String.t(),
+        "Authorization" => authorization(),
+        "CreatedAt" => String.t(),
+        "DomainName" => String.t(),
+        "EgressAccessLogs" => egress_access_logs(),
+        "Id" => String.t(),
+        "Tags" => map()
+      }
+
   """
   @type configure_logs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  configure_logs_request() :: %{
-    optional("EgressAccessLogs") => egress_access_logs()
-  }
+
+      configure_logs_request() :: %{
+        optional("EgressAccessLogs") => egress_access_logs()
+      }
+
   """
   @type configure_logs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  mss_encryption() :: %{
-    "SpekeKeyProvider" => speke_key_provider()
-  }
+
+      mss_encryption() :: %{
+        "SpekeKeyProvider" => speke_key_provider()
+      }
+
   """
   @type mss_encryption() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_assets_response() :: %{
-    "Assets" => list(asset_shallow()()),
-    "NextToken" => String.t()
-  }
+
+      list_assets_response() :: %{
+        "Assets" => list(asset_shallow()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_assets_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_asset_request() :: %{
 
-  }
+      describe_asset_request() :: %{}
+
   """
-  @type describe_asset_request() :: %{String.t() => any()}
+  @type describe_asset_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_packaging_groups_response() :: %{
-    "NextToken" => String.t(),
-    "PackagingGroups" => list(packaging_group()())
-  }
+
+      list_packaging_groups_response() :: %{
+        "NextToken" => String.t(),
+        "PackagingGroups" => list(packaging_group()())
+      }
+
   """
   @type list_packaging_groups_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_packaging_group_request() :: %{
 
-  }
+      describe_packaging_group_request() :: %{}
+
   """
-  @type describe_packaging_group_request() :: %{String.t() => any()}
+  @type describe_packaging_group_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  delete_packaging_configuration_request() :: %{
 
-  }
+      delete_packaging_configuration_request() :: %{}
+
   """
-  @type delete_packaging_configuration_request() :: %{String.t() => any()}
+  @type delete_packaging_configuration_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  describe_packaging_group_response() :: %{
-    "ApproximateAssetCount" => integer(),
-    "Arn" => String.t(),
-    "Authorization" => authorization(),
-    "CreatedAt" => String.t(),
-    "DomainName" => String.t(),
-    "EgressAccessLogs" => egress_access_logs(),
-    "Id" => String.t(),
-    "Tags" => map()
-  }
+
+      describe_packaging_group_response() :: %{
+        "ApproximateAssetCount" => integer(),
+        "Arn" => String.t(),
+        "Authorization" => authorization(),
+        "CreatedAt" => String.t(),
+        "DomainName" => String.t(),
+        "EgressAccessLogs" => egress_access_logs(),
+        "Id" => String.t(),
+        "Tags" => map()
+      }
+
   """
   @type describe_packaging_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  mss_package() :: %{
-    "Encryption" => mss_encryption(),
-    "MssManifests" => list(mss_manifest()()),
-    "SegmentDurationSeconds" => integer()
-  }
+
+      mss_package() :: %{
+        "Encryption" => mss_encryption(),
+        "MssManifests" => list(mss_manifest()()),
+        "SegmentDurationSeconds" => integer()
+      }
+
   """
   @type mss_package() :: %{String.t() => any()}
+
+  @type configure_logs_errors() ::
+          internal_server_error_exception()
+          | unprocessable_entity_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type create_asset_errors() ::
+          internal_server_error_exception()
+          | unprocessable_entity_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type create_packaging_configuration_errors() ::
+          internal_server_error_exception()
+          | unprocessable_entity_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type create_packaging_group_errors() ::
+          internal_server_error_exception()
+          | unprocessable_entity_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type delete_asset_errors() ::
+          internal_server_error_exception()
+          | unprocessable_entity_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type delete_packaging_configuration_errors() ::
+          internal_server_error_exception()
+          | unprocessable_entity_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type delete_packaging_group_errors() ::
+          internal_server_error_exception()
+          | unprocessable_entity_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type describe_asset_errors() ::
+          internal_server_error_exception()
+          | unprocessable_entity_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type describe_packaging_configuration_errors() ::
+          internal_server_error_exception()
+          | unprocessable_entity_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type describe_packaging_group_errors() ::
+          internal_server_error_exception()
+          | unprocessable_entity_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type list_assets_errors() ::
+          internal_server_error_exception()
+          | unprocessable_entity_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type list_packaging_configurations_errors() ::
+          internal_server_error_exception()
+          | unprocessable_entity_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type list_packaging_groups_errors() ::
+          internal_server_error_exception()
+          | unprocessable_entity_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type update_packaging_group_errors() ::
+          internal_server_error_exception()
+          | unprocessable_entity_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
 
   def metadata do
     %{
@@ -692,12 +900,7 @@ defmodule AWS.MediaPackageVod do
   @spec configure_logs(map(), String.t(), configure_logs_request(), list()) ::
           {:ok, configure_logs_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, forbidden_exception()}
-          | {:error, internal_server_error_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unprocessable_entity_exception()}
+          | {:error, configure_logs_errors()}
   def configure_logs(%Client{} = client, id, input, options \\ []) do
     url_path = "/packaging_groups/#{AWS.Util.encode_uri(id)}/configure_logs"
     headers = []
@@ -714,12 +917,7 @@ defmodule AWS.MediaPackageVod do
   @spec create_asset(map(), create_asset_request(), list()) ::
           {:ok, create_asset_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, forbidden_exception()}
-          | {:error, internal_server_error_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unprocessable_entity_exception()}
+          | {:error, create_asset_errors()}
   def create_asset(%Client{} = client, input, options \\ []) do
     url_path = "/assets"
     headers = []
@@ -746,12 +944,7 @@ defmodule AWS.MediaPackageVod do
   @spec create_packaging_configuration(map(), create_packaging_configuration_request(), list()) ::
           {:ok, create_packaging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, forbidden_exception()}
-          | {:error, internal_server_error_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unprocessable_entity_exception()}
+          | {:error, create_packaging_configuration_errors()}
   def create_packaging_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/packaging_configurations"
     headers = []
@@ -778,12 +971,7 @@ defmodule AWS.MediaPackageVod do
   @spec create_packaging_group(map(), create_packaging_group_request(), list()) ::
           {:ok, create_packaging_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, forbidden_exception()}
-          | {:error, internal_server_error_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unprocessable_entity_exception()}
+          | {:error, create_packaging_group_errors()}
   def create_packaging_group(%Client{} = client, input, options \\ []) do
     url_path = "/packaging_groups"
     headers = []
@@ -810,12 +998,7 @@ defmodule AWS.MediaPackageVod do
   @spec delete_asset(map(), String.t(), delete_asset_request(), list()) ::
           {:ok, delete_asset_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, forbidden_exception()}
-          | {:error, internal_server_error_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unprocessable_entity_exception()}
+          | {:error, delete_asset_errors()}
   def delete_asset(%Client{} = client, id, input, options \\ []) do
     url_path = "/assets/#{AWS.Util.encode_uri(id)}"
     headers = []
@@ -847,12 +1030,7 @@ defmodule AWS.MediaPackageVod do
         ) ::
           {:ok, delete_packaging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, forbidden_exception()}
-          | {:error, internal_server_error_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unprocessable_entity_exception()}
+          | {:error, delete_packaging_configuration_errors()}
   def delete_packaging_configuration(%Client{} = client, id, input, options \\ []) do
     url_path = "/packaging_configurations/#{AWS.Util.encode_uri(id)}"
     headers = []
@@ -879,12 +1057,7 @@ defmodule AWS.MediaPackageVod do
   @spec delete_packaging_group(map(), String.t(), delete_packaging_group_request(), list()) ::
           {:ok, delete_packaging_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, forbidden_exception()}
-          | {:error, internal_server_error_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unprocessable_entity_exception()}
+          | {:error, delete_packaging_group_errors()}
   def delete_packaging_group(%Client{} = client, id, input, options \\ []) do
     url_path = "/packaging_groups/#{AWS.Util.encode_uri(id)}"
     headers = []
@@ -911,12 +1084,7 @@ defmodule AWS.MediaPackageVod do
   @spec describe_asset(map(), String.t(), list()) ::
           {:ok, describe_asset_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, forbidden_exception()}
-          | {:error, internal_server_error_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unprocessable_entity_exception()}
+          | {:error, describe_asset_errors()}
   def describe_asset(%Client{} = client, id, options \\ []) do
     url_path = "/assets/#{AWS.Util.encode_uri(id)}"
     headers = []
@@ -933,12 +1101,7 @@ defmodule AWS.MediaPackageVod do
   @spec describe_packaging_configuration(map(), String.t(), list()) ::
           {:ok, describe_packaging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, forbidden_exception()}
-          | {:error, internal_server_error_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unprocessable_entity_exception()}
+          | {:error, describe_packaging_configuration_errors()}
   def describe_packaging_configuration(%Client{} = client, id, options \\ []) do
     url_path = "/packaging_configurations/#{AWS.Util.encode_uri(id)}"
     headers = []
@@ -955,12 +1118,7 @@ defmodule AWS.MediaPackageVod do
   @spec describe_packaging_group(map(), String.t(), list()) ::
           {:ok, describe_packaging_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, forbidden_exception()}
-          | {:error, internal_server_error_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unprocessable_entity_exception()}
+          | {:error, describe_packaging_group_errors()}
   def describe_packaging_group(%Client{} = client, id, options \\ []) do
     url_path = "/packaging_groups/#{AWS.Util.encode_uri(id)}"
     headers = []
@@ -977,12 +1135,7 @@ defmodule AWS.MediaPackageVod do
   @spec list_assets(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_assets_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, forbidden_exception()}
-          | {:error, internal_server_error_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unprocessable_entity_exception()}
+          | {:error, list_assets_errors()}
   def list_assets(
         %Client{} = client,
         max_results \\ nil,
@@ -1032,12 +1185,7 @@ defmodule AWS.MediaPackageVod do
         ) ::
           {:ok, list_packaging_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, forbidden_exception()}
-          | {:error, internal_server_error_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unprocessable_entity_exception()}
+          | {:error, list_packaging_configurations_errors()}
   def list_packaging_configurations(
         %Client{} = client,
         max_results \\ nil,
@@ -1081,12 +1229,7 @@ defmodule AWS.MediaPackageVod do
   @spec list_packaging_groups(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_packaging_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, forbidden_exception()}
-          | {:error, internal_server_error_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unprocessable_entity_exception()}
+          | {:error, list_packaging_groups_errors()}
   def list_packaging_groups(
         %Client{} = client,
         max_results \\ nil,
@@ -1201,12 +1344,7 @@ defmodule AWS.MediaPackageVod do
   @spec update_packaging_group(map(), String.t(), update_packaging_group_request(), list()) ::
           {:ok, update_packaging_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, forbidden_exception()}
-          | {:error, internal_server_error_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, unprocessable_entity_exception()}
+          | {:error, update_packaging_group_errors()}
   def update_packaging_group(%Client{} = client, id, input, options \\ []) do
     url_path = "/packaging_groups/#{AWS.Util.encode_uri(id)}"
     headers = []

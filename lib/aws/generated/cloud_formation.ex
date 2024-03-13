@@ -37,3023 +37,3700 @@ defmodule AWS.CloudFormation do
   @typedoc """
 
   ## Example:
-  describe_stack_resource_drifts_output() :: %{
-    "NextToken" => String.t(),
-    "StackResourceDrifts" => list(stack_resource_drift()())
-  }
+      
+      describe_stack_resource_drifts_output() :: %{
+        "NextToken" => String.t(),
+        "StackResourceDrifts" => list(stack_resource_drift()())
+      }
+      
   """
   @type describe_stack_resource_drifts_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stale_request_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      stale_request_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type stale_request_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  generated_template_not_found_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      generated_template_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type generated_template_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  register_publisher_input() :: %{
-    optional("AcceptTermsAndConditions") => boolean(),
-    optional("ConnectionArn") => String.t()
-  }
+      
+      register_publisher_input() :: %{
+        optional("AcceptTermsAndConditions") => boolean(),
+        optional("ConnectionArn") => String.t()
+      }
+      
   """
   @type register_publisher_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_stack_resources_output() :: %{
-    "NextToken" => String.t(),
-    "StackResourceSummaries" => list(stack_resource_summary()())
-  }
+      
+      list_stack_resources_output() :: %{
+        "NextToken" => String.t(),
+        "StackResourceSummaries" => list(stack_resource_summary()())
+      }
+      
   """
   @type list_stack_resources_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  set_stack_policy_input() :: %{
-    optional("StackPolicyBody") => String.t(),
-    optional("StackPolicyURL") => String.t(),
-    required("StackName") => String.t()
-  }
+      
+      set_stack_policy_input() :: %{
+        optional("StackPolicyBody") => String.t(),
+        optional("StackPolicyURL") => String.t(),
+        required("StackName") => String.t()
+      }
+      
   """
   @type set_stack_policy_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_stack_policy_input() :: %{
-    required("StackName") => String.t()
-  }
+      
+      get_stack_policy_input() :: %{
+        required("StackName") => String.t()
+      }
+      
   """
   @type get_stack_policy_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  activate_type_input() :: %{
-    optional("AutoUpdate") => boolean(),
-    optional("ExecutionRoleArn") => String.t(),
-    optional("LoggingConfig") => logging_config(),
-    optional("MajorVersion") => float(),
-    optional("PublicTypeArn") => String.t(),
-    optional("PublisherId") => String.t(),
-    optional("Type") => list(any()),
-    optional("TypeName") => String.t(),
-    optional("TypeNameAlias") => String.t(),
-    optional("VersionBump") => list(any())
-  }
+      
+      activate_type_input() :: %{
+        optional("AutoUpdate") => boolean(),
+        optional("ExecutionRoleArn") => String.t(),
+        optional("LoggingConfig") => logging_config(),
+        optional("MajorVersion") => float(),
+        optional("PublicTypeArn") => String.t(),
+        optional("PublisherId") => String.t(),
+        optional("Type") => list(any()),
+        optional("TypeName") => String.t(),
+        optional("TypeNameAlias") => String.t(),
+        optional("VersionBump") => list(any())
+      }
+      
   """
   @type activate_type_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stack_resource_summary() :: %{
-    "DriftInformation" => stack_resource_drift_information_summary(),
-    "LastUpdatedTimestamp" => non_neg_integer(),
-    "LogicalResourceId" => String.t(),
-    "ModuleInfo" => module_info(),
-    "PhysicalResourceId" => String.t(),
-    "ResourceStatus" => list(any()),
-    "ResourceStatusReason" => String.t(),
-    "ResourceType" => String.t()
-  }
+      
+      stack_resource_summary() :: %{
+        "DriftInformation" => stack_resource_drift_information_summary(),
+        "LastUpdatedTimestamp" => non_neg_integer(),
+        "LogicalResourceId" => String.t(),
+        "ModuleInfo" => module_info(),
+        "PhysicalResourceId" => String.t(),
+        "ResourceStatus" => list(any()),
+        "ResourceStatusReason" => String.t(),
+        "ResourceType" => String.t()
+      }
+      
   """
   @type stack_resource_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_resource_scan_resources_input() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("ResourceIdentifier") => String.t(),
-    optional("ResourceTypePrefix") => String.t(),
-    optional("TagKey") => String.t(),
-    optional("TagValue") => String.t(),
-    required("ResourceScanId") => String.t()
-  }
+      
+      list_resource_scan_resources_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("ResourceIdentifier") => String.t(),
+        optional("ResourceTypePrefix") => String.t(),
+        optional("TagKey") => String.t(),
+        optional("TagValue") => String.t(),
+        required("ResourceScanId") => String.t()
+      }
+      
   """
   @type list_resource_scan_resources_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cancel_update_stack_input() :: %{
-    optional("ClientRequestToken") => String.t(),
-    required("StackName") => String.t()
-  }
+      
+      cancel_update_stack_input() :: %{
+        optional("ClientRequestToken") => String.t(),
+        required("StackName") => String.t()
+      }
+      
   """
   @type cancel_update_stack_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_generated_template_input() :: %{
-    optional("AddResources") => list(resource_definition()()),
-    optional("NewGeneratedTemplateName") => String.t(),
-    optional("RefreshAllResources") => boolean(),
-    optional("RemoveResources") => list(String.t()()),
-    optional("TemplateConfiguration") => template_configuration(),
-    required("GeneratedTemplateName") => String.t()
-  }
+      
+      update_generated_template_input() :: %{
+        optional("AddResources") => list(resource_definition()()),
+        optional("NewGeneratedTemplateName") => String.t(),
+        optional("RefreshAllResources") => boolean(),
+        optional("RemoveResources") => list(String.t()()),
+        optional("TemplateConfiguration") => template_configuration(),
+        required("GeneratedTemplateName") => String.t()
+      }
+      
   """
   @type update_generated_template_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  rollback_stack_input() :: %{
-    optional("ClientRequestToken") => String.t(),
-    optional("RetainExceptOnCreate") => boolean(),
-    optional("RoleARN") => String.t(),
-    required("StackName") => String.t()
-  }
+      
+      rollback_stack_input() :: %{
+        optional("ClientRequestToken") => String.t(),
+        optional("RetainExceptOnCreate") => boolean(),
+        optional("RoleARN") => String.t(),
+        required("StackName") => String.t()
+      }
+      
   """
   @type rollback_stack_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  test_type_input() :: %{
-    optional("Arn") => String.t(),
-    optional("LogDeliveryBucket") => String.t(),
-    optional("Type") => list(any()),
-    optional("TypeName") => String.t(),
-    optional("VersionId") => String.t()
-  }
+      
+      test_type_input() :: %{
+        optional("Arn") => String.t(),
+        optional("LogDeliveryBucket") => String.t(),
+        optional("Type") => list(any()),
+        optional("TypeName") => String.t(),
+        optional("VersionId") => String.t()
+      }
+      
   """
   @type test_type_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_stack_set_operation_input() :: %{
-    optional("CallAs") => list(any()),
-    required("OperationId") => String.t(),
-    required("StackSetName") => String.t()
-  }
+      
+      describe_stack_set_operation_input() :: %{
+        optional("CallAs") => list(any()),
+        required("OperationId") => String.t(),
+        required("StackSetName") => String.t()
+      }
+      
   """
   @type describe_stack_set_operation_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  property_difference() :: %{
-    "ActualValue" => String.t(),
-    "DifferenceType" => list(any()),
-    "ExpectedValue" => String.t(),
-    "PropertyPath" => String.t()
-  }
+      
+      property_difference() :: %{
+        "ActualValue" => String.t(),
+        "DifferenceType" => list(any()),
+        "ExpectedValue" => String.t(),
+        "PropertyPath" => String.t()
+      }
+      
   """
   @type property_difference() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  change() :: %{
-    "HookInvocationCount" => integer(),
-    "ResourceChange" => resource_change(),
-    "Type" => list(any())
-  }
+      
+      change() :: %{
+        "HookInvocationCount" => integer(),
+        "ResourceChange" => resource_change(),
+        "Type" => list(any())
+      }
+      
   """
   @type change() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stack_set_operation_summary() :: %{
-    "Action" => list(any()),
-    "CreationTimestamp" => non_neg_integer(),
-    "EndTimestamp" => non_neg_integer(),
-    "OperationId" => String.t(),
-    "OperationPreferences" => stack_set_operation_preferences(),
-    "Status" => list(any()),
-    "StatusDetails" => stack_set_operation_status_details(),
-    "StatusReason" => String.t()
-  }
+      
+      stack_set_operation_summary() :: %{
+        "Action" => list(any()),
+        "CreationTimestamp" => non_neg_integer(),
+        "EndTimestamp" => non_neg_integer(),
+        "OperationId" => String.t(),
+        "OperationPreferences" => stack_set_operation_preferences(),
+        "Status" => list(any()),
+        "StatusDetails" => stack_set_operation_status_details(),
+        "StatusReason" => String.t()
+      }
+      
   """
   @type stack_set_operation_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_stack_resources_input() :: %{
-    optional("LogicalResourceId") => String.t(),
-    optional("PhysicalResourceId") => String.t(),
-    optional("StackName") => String.t()
-  }
+      
+      describe_stack_resources_input() :: %{
+        optional("LogicalResourceId") => String.t(),
+        optional("PhysicalResourceId") => String.t(),
+        optional("StackName") => String.t()
+      }
+      
   """
   @type describe_stack_resources_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_stack_instances_input() :: %{
-    optional("Accounts") => list(String.t()()),
-    optional("CallAs") => list(any()),
-    optional("DeploymentTargets") => deployment_targets(),
-    optional("OperationId") => String.t(),
-    optional("OperationPreferences") => stack_set_operation_preferences(),
-    required("Regions") => list(String.t()()),
-    required("RetainStacks") => boolean(),
-    required("StackSetName") => String.t()
-  }
+      
+      delete_stack_instances_input() :: %{
+        optional("Accounts") => list(String.t()()),
+        optional("CallAs") => list(any()),
+        optional("DeploymentTargets") => deployment_targets(),
+        optional("OperationId") => String.t(),
+        optional("OperationPreferences") => stack_set_operation_preferences(),
+        required("Regions") => list(String.t()()),
+        required("RetainStacks") => boolean(),
+        required("StackSetName") => String.t()
+      }
+      
   """
   @type delete_stack_instances_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_stacks_output() :: %{
-    "NextToken" => String.t(),
-    "StackSummaries" => list(stack_summary()())
-  }
+      
+      list_stacks_output() :: %{
+        "NextToken" => String.t(),
+        "StackSummaries" => list(stack_summary()())
+      }
+      
   """
   @type list_stacks_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_generated_template_input() :: %{
-    required("GeneratedTemplateName") => String.t()
-  }
+      
+      delete_generated_template_input() :: %{
+        required("GeneratedTemplateName") => String.t()
+      }
+      
   """
   @type delete_generated_template_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_imports_input() :: %{
-    optional("NextToken") => String.t(),
-    required("ExportName") => String.t()
-  }
+      
+      list_imports_input() :: %{
+        optional("NextToken") => String.t(),
+        required("ExportName") => String.t()
+      }
+      
   """
   @type list_imports_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_stack_set_input() :: %{
-    optional("Accounts") => list(String.t()()),
-    optional("AdministrationRoleARN") => String.t(),
-    optional("AutoDeployment") => auto_deployment(),
-    optional("CallAs") => list(any()),
-    optional("Capabilities") => list(list(any())()),
-    optional("DeploymentTargets") => deployment_targets(),
-    optional("Description") => String.t(),
-    optional("ExecutionRoleName") => String.t(),
-    optional("ManagedExecution") => managed_execution(),
-    optional("OperationId") => String.t(),
-    optional("OperationPreferences") => stack_set_operation_preferences(),
-    optional("Parameters") => list(parameter()()),
-    optional("PermissionModel") => list(any()),
-    optional("Regions") => list(String.t()()),
-    optional("Tags") => list(tag()()),
-    optional("TemplateBody") => String.t(),
-    optional("TemplateURL") => String.t(),
-    optional("UsePreviousTemplate") => boolean(),
-    required("StackSetName") => String.t()
-  }
+      
+      update_stack_set_input() :: %{
+        optional("Accounts") => list(String.t()()),
+        optional("AdministrationRoleARN") => String.t(),
+        optional("AutoDeployment") => auto_deployment(),
+        optional("CallAs") => list(any()),
+        optional("Capabilities") => list(list(any())()),
+        optional("DeploymentTargets") => deployment_targets(),
+        optional("Description") => String.t(),
+        optional("ExecutionRoleName") => String.t(),
+        optional("ManagedExecution") => managed_execution(),
+        optional("OperationId") => String.t(),
+        optional("OperationPreferences") => stack_set_operation_preferences(),
+        optional("Parameters") => list(parameter()()),
+        optional("PermissionModel") => list(any()),
+        optional("Regions") => list(String.t()()),
+        optional("Tags") => list(tag()()),
+        optional("TemplateBody") => String.t(),
+        optional("TemplateURL") => String.t(),
+        optional("UsePreviousTemplate") => boolean(),
+        required("StackSetName") => String.t()
+      }
+      
   """
   @type update_stack_set_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_stack_instance_resource_drifts_input() :: %{
-    optional("CallAs") => list(any()),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("StackInstanceResourceDriftStatuses") => list(list(any())()),
-    required("OperationId") => String.t(),
-    required("StackInstanceAccount") => String.t(),
-    required("StackInstanceRegion") => String.t(),
-    required("StackSetName") => String.t()
-  }
+      
+      list_stack_instance_resource_drifts_input() :: %{
+        optional("CallAs") => list(any()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("StackInstanceResourceDriftStatuses") => list(list(any())()),
+        required("OperationId") => String.t(),
+        required("StackInstanceAccount") => String.t(),
+        required("StackInstanceRegion") => String.t(),
+        required("StackSetName") => String.t()
+      }
+      
   """
   @type list_stack_instance_resource_drifts_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  parameter_constraints() :: %{
-    "AllowedValues" => list(String.t()())
-  }
+      
+      parameter_constraints() :: %{
+        "AllowedValues" => list(String.t()())
+      }
+      
   """
   @type parameter_constraints() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stack_set_operation_status_details() :: %{
-    "FailedStackInstancesCount" => integer()
-  }
+      
+      stack_set_operation_status_details() :: %{
+        "FailedStackInstancesCount" => integer()
+      }
+      
   """
   @type stack_set_operation_status_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  account_gate_result() :: %{
-    "Status" => list(any()),
-    "StatusReason" => String.t()
-  }
+      
+      account_gate_result() :: %{
+        "Status" => list(any()),
+        "StatusReason" => String.t()
+      }
+      
   """
   @type account_gate_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_change_set_output() :: %{
-
-  }
+      
+      delete_change_set_output() :: %{}
+      
   """
-  @type delete_change_set_output() :: %{String.t() => any()}
+  @type delete_change_set_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  stack_event() :: %{
-    "ClientRequestToken" => String.t(),
-    "DetailedStatus" => list(any()),
-    "EventId" => String.t(),
-    "HookFailureMode" => list(any()),
-    "HookInvocationPoint" => list(any()),
-    "HookStatus" => list(any()),
-    "HookStatusReason" => String.t(),
-    "HookType" => String.t(),
-    "LogicalResourceId" => String.t(),
-    "PhysicalResourceId" => String.t(),
-    "ResourceProperties" => String.t(),
-    "ResourceStatus" => list(any()),
-    "ResourceStatusReason" => String.t(),
-    "ResourceType" => String.t(),
-    "StackId" => String.t(),
-    "StackName" => String.t(),
-    "Timestamp" => non_neg_integer()
-  }
+      
+      stack_event() :: %{
+        "ClientRequestToken" => String.t(),
+        "DetailedStatus" => list(any()),
+        "EventId" => String.t(),
+        "HookFailureMode" => list(any()),
+        "HookInvocationPoint" => list(any()),
+        "HookStatus" => list(any()),
+        "HookStatusReason" => String.t(),
+        "HookType" => String.t(),
+        "LogicalResourceId" => String.t(),
+        "PhysicalResourceId" => String.t(),
+        "ResourceProperties" => String.t(),
+        "ResourceStatus" => list(any()),
+        "ResourceStatusReason" => String.t(),
+        "ResourceType" => String.t(),
+        "StackId" => String.t(),
+        "StackName" => String.t(),
+        "Timestamp" => non_neg_integer()
+      }
+      
   """
   @type stack_event() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  physical_resource_id_context_key_value_pair() :: %{
-    "Key" => String.t(),
-    "Value" => String.t()
-  }
+      
+      physical_resource_id_context_key_value_pair() :: %{
+        "Key" => String.t(),
+        "Value" => String.t()
+      }
+      
   """
   @type physical_resource_id_context_key_value_pair() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_template_output() :: %{
-    "StagesAvailable" => list(list(any())()),
-    "TemplateBody" => String.t()
-  }
+      
+      get_template_output() :: %{
+        "StagesAvailable" => list(list(any())()),
+        "TemplateBody" => String.t()
+      }
+      
   """
   @type get_template_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_definition() :: %{
-    "LogicalResourceId" => String.t(),
-    "ResourceIdentifier" => map(),
-    "ResourceType" => String.t()
-  }
+      
+      resource_definition() :: %{
+        "LogicalResourceId" => String.t(),
+        "ResourceIdentifier" => map(),
+        "ResourceType" => String.t()
+      }
+      
   """
   @type resource_definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_to_import() :: %{
-    "LogicalResourceId" => String.t(),
-    "ResourceIdentifier" => map(),
-    "ResourceType" => String.t()
-  }
+      
+      resource_to_import() :: %{
+        "LogicalResourceId" => String.t(),
+        "ResourceIdentifier" => map(),
+        "ResourceType" => String.t()
+      }
+      
   """
   @type resource_to_import() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_stack_drift_detection_status_input() :: %{
-    required("StackDriftDetectionId") => String.t()
-  }
+      
+      describe_stack_drift_detection_status_input() :: %{
+        required("StackDriftDetectionId") => String.t()
+      }
+      
   """
   @type describe_stack_drift_detection_status_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  already_exists_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      already_exists_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type already_exists_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_stack_output() :: %{
-    "StackId" => String.t()
-  }
+      
+      update_stack_output() :: %{
+        "StackId" => String.t()
+      }
+      
   """
   @type update_stack_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  template_parameter() :: %{
-    "DefaultValue" => String.t(),
-    "Description" => String.t(),
-    "NoEcho" => boolean(),
-    "ParameterKey" => String.t()
-  }
+      
+      template_parameter() :: %{
+        "DefaultValue" => String.t(),
+        "Description" => String.t(),
+        "NoEcho" => boolean(),
+        "ParameterKey" => String.t()
+      }
+      
   """
   @type template_parameter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_generated_templates_input() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+      
+      list_generated_templates_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type list_generated_templates_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  scanned_resource_identifier() :: %{
-    "ResourceIdentifier" => map(),
-    "ResourceType" => String.t()
-  }
+      
+      scanned_resource_identifier() :: %{
+        "ResourceIdentifier" => map(),
+        "ResourceType" => String.t()
+      }
+      
   """
   @type scanned_resource_identifier() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  type_version_summary() :: %{
-    "Arn" => String.t(),
-    "Description" => String.t(),
-    "IsDefaultVersion" => boolean(),
-    "PublicVersionNumber" => String.t(),
-    "TimeCreated" => non_neg_integer(),
-    "Type" => list(any()),
-    "TypeName" => String.t(),
-    "VersionId" => String.t()
-  }
+      
+      type_version_summary() :: %{
+        "Arn" => String.t(),
+        "Description" => String.t(),
+        "IsDefaultVersion" => boolean(),
+        "PublicVersionNumber" => String.t(),
+        "TimeCreated" => non_neg_integer(),
+        "Type" => list(any()),
+        "TypeName" => String.t(),
+        "VersionId" => String.t()
+      }
+      
   """
   @type type_version_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  warnings() :: %{
-    "UnrecognizedResourceTypes" => list(String.t()())
-  }
+      
+      warnings() :: %{
+        "UnrecognizedResourceTypes" => list(String.t()())
+      }
+      
   """
   @type warnings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  concurrent_resources_limit_exceeded_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      concurrent_resources_limit_exceeded_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type concurrent_resources_limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  managed_execution() :: %{
-    "Active" => boolean()
-  }
+      
+      managed_execution() :: %{
+        "Active" => boolean()
+      }
+      
   """
   @type managed_execution() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_change_set_hooks_output() :: %{
-    "ChangeSetId" => String.t(),
-    "ChangeSetName" => String.t(),
-    "Hooks" => list(change_set_hook()()),
-    "NextToken" => String.t(),
-    "StackId" => String.t(),
-    "StackName" => String.t(),
-    "Status" => list(any())
-  }
+      
+      describe_change_set_hooks_output() :: %{
+        "ChangeSetId" => String.t(),
+        "ChangeSetName" => String.t(),
+        "Hooks" => list(change_set_hook()()),
+        "NextToken" => String.t(),
+        "StackId" => String.t(),
+        "StackName" => String.t(),
+        "Status" => list(any())
+      }
+      
   """
   @type describe_change_set_hooks_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_stack_instance_input() :: %{
-    optional("CallAs") => list(any()),
-    required("StackInstanceAccount") => String.t(),
-    required("StackInstanceRegion") => String.t(),
-    required("StackSetName") => String.t()
-  }
+      
+      describe_stack_instance_input() :: %{
+        optional("CallAs") => list(any()),
+        required("StackInstanceAccount") => String.t(),
+        required("StackInstanceRegion") => String.t(),
+        required("StackSetName") => String.t()
+      }
+      
   """
   @type describe_stack_instance_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_operation_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      invalid_operation_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type invalid_operation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_template_summary_input() :: %{
-    optional("CallAs") => list(any()),
-    optional("StackName") => String.t(),
-    optional("StackSetName") => String.t(),
-    optional("TemplateBody") => String.t(),
-    optional("TemplateSummaryConfig") => template_summary_config(),
-    optional("TemplateURL") => String.t()
-  }
+      
+      get_template_summary_input() :: %{
+        optional("CallAs") => list(any()),
+        optional("StackName") => String.t(),
+        optional("StackSetName") => String.t(),
+        optional("TemplateBody") => String.t(),
+        optional("TemplateSummaryConfig") => template_summary_config(),
+        optional("TemplateURL") => String.t()
+      }
+      
   """
   @type get_template_summary_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_target_definition() :: %{
-    "Attribute" => list(any()),
-    "Name" => String.t(),
-    "RequiresRecreation" => list(any())
-  }
+      
+      resource_target_definition() :: %{
+        "Attribute" => list(any()),
+        "Name" => String.t(),
+        "RequiresRecreation" => list(any())
+      }
+      
   """
   @type resource_target_definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  register_publisher_output() :: %{
-    "PublisherId" => String.t()
-  }
+      
+      register_publisher_output() :: %{
+        "PublisherId" => String.t()
+      }
+      
   """
   @type register_publisher_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_stack_set_operation_results_input() :: %{
-    optional("CallAs") => list(any()),
-    optional("Filters") => list(operation_result_filter()()),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("OperationId") => String.t(),
-    required("StackSetName") => String.t()
-  }
+      
+      list_stack_set_operation_results_input() :: %{
+        optional("CallAs") => list(any()),
+        optional("Filters") => list(operation_result_filter()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("OperationId") => String.t(),
+        required("StackSetName") => String.t()
+      }
+      
   """
   @type list_stack_set_operation_results_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  detect_stack_resource_drift_input() :: %{
-    required("LogicalResourceId") => String.t(),
-    required("StackName") => String.t()
-  }
+      
+      detect_stack_resource_drift_input() :: %{
+        required("LogicalResourceId") => String.t(),
+        required("StackName") => String.t()
+      }
+      
   """
   @type detect_stack_resource_drift_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stack_resource_detail() :: %{
-    "Description" => String.t(),
-    "DriftInformation" => stack_resource_drift_information(),
-    "LastUpdatedTimestamp" => non_neg_integer(),
-    "LogicalResourceId" => String.t(),
-    "Metadata" => String.t(),
-    "ModuleInfo" => module_info(),
-    "PhysicalResourceId" => String.t(),
-    "ResourceStatus" => list(any()),
-    "ResourceStatusReason" => String.t(),
-    "ResourceType" => String.t(),
-    "StackId" => String.t(),
-    "StackName" => String.t()
-  }
+      
+      stack_resource_detail() :: %{
+        "Description" => String.t(),
+        "DriftInformation" => stack_resource_drift_information(),
+        "LastUpdatedTimestamp" => non_neg_integer(),
+        "LogicalResourceId" => String.t(),
+        "Metadata" => String.t(),
+        "ModuleInfo" => module_info(),
+        "PhysicalResourceId" => String.t(),
+        "ResourceStatus" => list(any()),
+        "ResourceStatusReason" => String.t(),
+        "ResourceType" => String.t(),
+        "StackId" => String.t(),
+        "StackName" => String.t()
+      }
+      
   """
   @type stack_resource_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stack_instance_summary() :: %{
-    "Account" => String.t(),
-    "DriftStatus" => list(any()),
-    "LastDriftCheckTimestamp" => non_neg_integer(),
-    "LastOperationId" => String.t(),
-    "OrganizationalUnitId" => String.t(),
-    "Region" => String.t(),
-    "StackId" => String.t(),
-    "StackInstanceStatus" => stack_instance_comprehensive_status(),
-    "StackSetId" => String.t(),
-    "Status" => list(any()),
-    "StatusReason" => String.t()
-  }
+      
+      stack_instance_summary() :: %{
+        "Account" => String.t(),
+        "DriftStatus" => list(any()),
+        "LastDriftCheckTimestamp" => non_neg_integer(),
+        "LastOperationId" => String.t(),
+        "OrganizationalUnitId" => String.t(),
+        "Region" => String.t(),
+        "StackId" => String.t(),
+        "StackInstanceStatus" => stack_instance_comprehensive_status(),
+        "StackSetId" => String.t(),
+        "Status" => list(any()),
+        "StatusReason" => String.t()
+      }
+      
   """
   @type stack_instance_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_termination_protection_input() :: %{
-    required("EnableTerminationProtection") => boolean(),
-    required("StackName") => String.t()
-  }
+      
+      update_termination_protection_input() :: %{
+        required("EnableTerminationProtection") => boolean(),
+        required("StackName") => String.t()
+      }
+      
   """
   @type update_termination_protection_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_stack_instances_output() :: %{
-    "OperationId" => String.t()
-  }
+      
+      delete_stack_instances_output() :: %{
+        "OperationId" => String.t()
+      }
+      
   """
   @type delete_stack_instances_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stack_instance_comprehensive_status() :: %{
-    "DetailedStatus" => list(any())
-  }
+      
+      stack_instance_comprehensive_status() :: %{
+        "DetailedStatus" => list(any())
+      }
+      
   """
   @type stack_instance_comprehensive_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_stack_set_output() :: %{
-    "StackSet" => stack_set()
-  }
+      
+      describe_stack_set_output() :: %{
+        "StackSet" => stack_set()
+      }
+      
   """
   @type describe_stack_set_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_publisher_input() :: %{
-    optional("PublisherId") => String.t()
-  }
+      
+      describe_publisher_input() :: %{
+        optional("PublisherId") => String.t()
+      }
+      
   """
   @type describe_publisher_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  logging_config() :: %{
-    "LogGroupName" => String.t(),
-    "LogRoleArn" => String.t()
-  }
+      
+      logging_config() :: %{
+        "LogGroupName" => String.t(),
+        "LogRoleArn" => String.t()
+      }
+      
   """
   @type logging_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  name_already_exists_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      name_already_exists_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type name_already_exists_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_stack_resource_drifts_input() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("StackResourceDriftStatusFilters") => list(list(any())()),
-    required("StackName") => String.t()
-  }
+      
+      describe_stack_resource_drifts_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("StackResourceDriftStatusFilters") => list(list(any())()),
+        required("StackName") => String.t()
+      }
+      
   """
   @type describe_stack_resource_drifts_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  scanned_resource() :: %{
-    "ManagedByStack" => boolean(),
-    "ResourceIdentifier" => map(),
-    "ResourceType" => String.t()
-  }
+      
+      scanned_resource() :: %{
+        "ManagedByStack" => boolean(),
+        "ResourceIdentifier" => map(),
+        "ResourceType" => String.t()
+      }
+      
   """
   @type scanned_resource() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  warning_property() :: %{
-    "Description" => String.t(),
-    "PropertyPath" => String.t(),
-    "Required" => boolean()
-  }
+      
+      warning_property() :: %{
+        "Description" => String.t(),
+        "PropertyPath" => String.t(),
+        "Required" => boolean()
+      }
+      
   """
   @type warning_property() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_resource_scans_input() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+      
+      list_resource_scans_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type list_resource_scans_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_resource_scan_output() :: %{
-    "EndTime" => non_neg_integer(),
-    "PercentageCompleted" => float(),
-    "ResourceScanId" => String.t(),
-    "ResourceTypes" => list(String.t()()),
-    "ResourcesRead" => integer(),
-    "ResourcesScanned" => integer(),
-    "StartTime" => non_neg_integer(),
-    "Status" => list(any()),
-    "StatusReason" => String.t()
-  }
+      
+      describe_resource_scan_output() :: %{
+        "EndTime" => non_neg_integer(),
+        "PercentageCompleted" => float(),
+        "ResourceScanId" => String.t(),
+        "ResourceTypes" => list(String.t()()),
+        "ResourcesRead" => integer(),
+        "ResourcesScanned" => integer(),
+        "StartTime" => non_neg_integer(),
+        "Status" => list(any()),
+        "StatusReason" => String.t()
+      }
+      
   """
   @type describe_resource_scan_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_stack_set_input() :: %{
-    optional("CallAs") => list(any()),
-    required("StackSetName") => String.t()
-  }
+      
+      delete_stack_set_input() :: %{
+        optional("CallAs") => list(any()),
+        required("StackSetName") => String.t()
+      }
+      
   """
   @type delete_stack_set_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  operation_not_found_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      operation_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type operation_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stack_set_operation_result_summary() :: %{
-    "Account" => String.t(),
-    "AccountGateResult" => account_gate_result(),
-    "OrganizationalUnitId" => String.t(),
-    "Region" => String.t(),
-    "Status" => list(any()),
-    "StatusReason" => String.t()
-  }
+      
+      stack_set_operation_result_summary() :: %{
+        "Account" => String.t(),
+        "AccountGateResult" => account_gate_result(),
+        "OrganizationalUnitId" => String.t(),
+        "Region" => String.t(),
+        "Status" => list(any()),
+        "StatusReason" => String.t()
+      }
+      
   """
   @type stack_set_operation_result_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stack_instance() :: %{
-    "Account" => String.t(),
-    "DriftStatus" => list(any()),
-    "LastDriftCheckTimestamp" => non_neg_integer(),
-    "LastOperationId" => String.t(),
-    "OrganizationalUnitId" => String.t(),
-    "ParameterOverrides" => list(parameter()()),
-    "Region" => String.t(),
-    "StackId" => String.t(),
-    "StackInstanceStatus" => stack_instance_comprehensive_status(),
-    "StackSetId" => String.t(),
-    "Status" => list(any()),
-    "StatusReason" => String.t()
-  }
+      
+      stack_instance() :: %{
+        "Account" => String.t(),
+        "DriftStatus" => list(any()),
+        "LastDriftCheckTimestamp" => non_neg_integer(),
+        "LastOperationId" => String.t(),
+        "OrganizationalUnitId" => String.t(),
+        "ParameterOverrides" => list(parameter()()),
+        "Region" => String.t(),
+        "StackId" => String.t(),
+        "StackInstanceStatus" => stack_instance_comprehensive_status(),
+        "StackSetId" => String.t(),
+        "Status" => list(any()),
+        "StatusReason" => String.t()
+      }
+      
   """
   @type stack_instance() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_type_versions_output() :: %{
-    "NextToken" => String.t(),
-    "TypeVersionSummaries" => list(type_version_summary()())
-  }
+      
+      list_type_versions_output() :: %{
+        "NextToken" => String.t(),
+        "TypeVersionSummaries" => list(type_version_summary()())
+      }
+      
   """
   @type list_type_versions_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_stack_events_output() :: %{
-    "NextToken" => String.t(),
-    "StackEvents" => list(stack_event()())
-  }
+      
+      describe_stack_events_output() :: %{
+        "NextToken" => String.t(),
+        "StackEvents" => list(stack_event()())
+      }
+      
   """
   @type describe_stack_events_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  type_summary() :: %{
-    "DefaultVersionId" => String.t(),
-    "Description" => String.t(),
-    "IsActivated" => boolean(),
-    "LastUpdated" => non_neg_integer(),
-    "LatestPublicVersion" => String.t(),
-    "OriginalTypeName" => String.t(),
-    "PublicVersionNumber" => String.t(),
-    "PublisherId" => String.t(),
-    "PublisherIdentity" => list(any()),
-    "PublisherName" => String.t(),
-    "Type" => list(any()),
-    "TypeArn" => String.t(),
-    "TypeName" => String.t()
-  }
+      
+      type_summary() :: %{
+        "DefaultVersionId" => String.t(),
+        "Description" => String.t(),
+        "IsActivated" => boolean(),
+        "LastUpdated" => non_neg_integer(),
+        "LatestPublicVersion" => String.t(),
+        "OriginalTypeName" => String.t(),
+        "PublicVersionNumber" => String.t(),
+        "PublisherId" => String.t(),
+        "PublisherIdentity" => list(any()),
+        "PublisherName" => String.t(),
+        "Type" => list(any()),
+        "TypeArn" => String.t(),
+        "TypeName" => String.t()
+      }
+      
   """
   @type type_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  import_stacks_to_stack_set_input() :: %{
-    optional("CallAs") => list(any()),
-    optional("OperationId") => String.t(),
-    optional("OperationPreferences") => stack_set_operation_preferences(),
-    optional("OrganizationalUnitIds") => list(String.t()()),
-    optional("StackIds") => list(String.t()()),
-    optional("StackIdsUrl") => String.t(),
-    required("StackSetName") => String.t()
-  }
+      
+      import_stacks_to_stack_set_input() :: %{
+        optional("CallAs") => list(any()),
+        optional("OperationId") => String.t(),
+        optional("OperationPreferences") => stack_set_operation_preferences(),
+        optional("OrganizationalUnitIds") => list(String.t()()),
+        optional("StackIds") => list(String.t()()),
+        optional("StackIdsUrl") => String.t(),
+        required("StackSetName") => String.t()
+      }
+      
   """
   @type import_stacks_to_stack_set_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  detect_stack_drift_output() :: %{
-    "StackDriftDetectionId" => String.t()
-  }
+      
+      detect_stack_drift_output() :: %{
+        "StackDriftDetectionId" => String.t()
+      }
+      
   """
   @type detect_stack_drift_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_type_registration_input() :: %{
-    required("RegistrationToken") => String.t()
-  }
+      
+      describe_type_registration_input() :: %{
+        required("RegistrationToken") => String.t()
+      }
+      
   """
   @type describe_type_registration_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  test_type_output() :: %{
-    "TypeVersionArn" => String.t()
-  }
+      
+      test_type_output() :: %{
+        "TypeVersionArn" => String.t()
+      }
+      
   """
   @type test_type_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_type_registrations_input() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("RegistrationStatusFilter") => list(any()),
-    optional("Type") => list(any()),
-    optional("TypeArn") => String.t(),
-    optional("TypeName") => String.t()
-  }
+      
+      list_type_registrations_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("RegistrationStatusFilter") => list(any()),
+        optional("Type") => list(any()),
+        optional("TypeArn") => String.t(),
+        optional("TypeName") => String.t()
+      }
+      
   """
   @type list_type_registrations_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  created_but_modified_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      created_but_modified_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type created_but_modified_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  deactivate_type_output() :: %{
-
-  }
+      
+      deactivate_type_output() :: %{}
+      
   """
-  @type deactivate_type_output() :: %{String.t() => any()}
+  @type deactivate_type_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  operation_status_check_failed_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      operation_status_check_failed_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type operation_status_check_failed_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  detect_stack_set_drift_output() :: %{
-    "OperationId" => String.t()
-  }
+      
+      detect_stack_set_drift_output() :: %{
+        "OperationId" => String.t()
+      }
+      
   """
   @type detect_stack_set_drift_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  deactivate_organizations_access_input() :: %{
-
-  }
+      
+      deactivate_organizations_access_input() :: %{}
+      
   """
-  @type deactivate_organizations_access_input() :: %{String.t() => any()}
+  @type deactivate_organizations_access_input() :: %{}
 
   @typedoc """
 
   ## Example:
-  execute_change_set_output() :: %{
-
-  }
+      
+      execute_change_set_output() :: %{}
+      
   """
-  @type execute_change_set_output() :: %{String.t() => any()}
+  @type execute_change_set_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_stack_output() :: %{
-    "StackId" => String.t()
-  }
+      
+      create_stack_output() :: %{
+        "StackId" => String.t()
+      }
+      
   """
   @type create_stack_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stack() :: %{
-    "Capabilities" => list(list(any())()),
-    "ChangeSetId" => String.t(),
-    "CreationTime" => non_neg_integer(),
-    "DeletionTime" => non_neg_integer(),
-    "Description" => String.t(),
-    "DetailedStatus" => list(any()),
-    "DisableRollback" => boolean(),
-    "DriftInformation" => stack_drift_information(),
-    "EnableTerminationProtection" => boolean(),
-    "LastUpdatedTime" => non_neg_integer(),
-    "NotificationARNs" => list(String.t()()),
-    "Outputs" => list(output()()),
-    "Parameters" => list(parameter()()),
-    "ParentId" => String.t(),
-    "RetainExceptOnCreate" => boolean(),
-    "RoleARN" => String.t(),
-    "RollbackConfiguration" => rollback_configuration(),
-    "RootId" => String.t(),
-    "StackId" => String.t(),
-    "StackName" => String.t(),
-    "StackStatus" => list(any()),
-    "StackStatusReason" => String.t(),
-    "Tags" => list(tag()()),
-    "TimeoutInMinutes" => integer()
-  }
+      
+      stack() :: %{
+        "Capabilities" => list(list(any())()),
+        "ChangeSetId" => String.t(),
+        "CreationTime" => non_neg_integer(),
+        "DeletionTime" => non_neg_integer(),
+        "Description" => String.t(),
+        "DetailedStatus" => list(any()),
+        "DisableRollback" => boolean(),
+        "DriftInformation" => stack_drift_information(),
+        "EnableTerminationProtection" => boolean(),
+        "LastUpdatedTime" => non_neg_integer(),
+        "NotificationARNs" => list(String.t()()),
+        "Outputs" => list(output()()),
+        "Parameters" => list(parameter()()),
+        "ParentId" => String.t(),
+        "RetainExceptOnCreate" => boolean(),
+        "RoleARN" => String.t(),
+        "RollbackConfiguration" => rollback_configuration(),
+        "RootId" => String.t(),
+        "StackId" => String.t(),
+        "StackName" => String.t(),
+        "StackStatus" => list(any()),
+        "StackStatusReason" => String.t(),
+        "Tags" => list(tag()()),
+        "TimeoutInMinutes" => integer()
+      }
+      
   """
   @type stack() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  set_type_default_version_input() :: %{
-    optional("Arn") => String.t(),
-    optional("Type") => list(any()),
-    optional("TypeName") => String.t(),
-    optional("VersionId") => String.t()
-  }
+      
+      set_type_default_version_input() :: %{
+        optional("Arn") => String.t(),
+        optional("Type") => list(any()),
+        optional("TypeName") => String.t(),
+        optional("VersionId") => String.t()
+      }
+      
   """
   @type set_type_default_version_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_generated_template_output() :: %{
-    "CreationTime" => non_neg_integer(),
-    "GeneratedTemplateId" => String.t(),
-    "GeneratedTemplateName" => String.t(),
-    "LastUpdatedTime" => non_neg_integer(),
-    "Progress" => template_progress(),
-    "Resources" => list(resource_detail()()),
-    "StackId" => String.t(),
-    "Status" => list(any()),
-    "StatusReason" => String.t(),
-    "TemplateConfiguration" => template_configuration(),
-    "TotalWarnings" => integer()
-  }
+      
+      describe_generated_template_output() :: %{
+        "CreationTime" => non_neg_integer(),
+        "GeneratedTemplateId" => String.t(),
+        "GeneratedTemplateName" => String.t(),
+        "LastUpdatedTime" => non_neg_integer(),
+        "Progress" => template_progress(),
+        "Resources" => list(resource_detail()()),
+        "StackId" => String.t(),
+        "Status" => list(any()),
+        "StatusReason" => String.t(),
+        "TemplateConfiguration" => template_configuration(),
+        "TotalWarnings" => integer()
+      }
+      
   """
   @type describe_generated_template_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_resource_scan_related_resources_output() :: %{
-    "NextToken" => String.t(),
-    "RelatedResources" => list(scanned_resource()())
-  }
+      
+      list_resource_scan_related_resources_output() :: %{
+        "NextToken" => String.t(),
+        "RelatedResources" => list(scanned_resource()())
+      }
+      
   """
   @type list_resource_scan_related_resources_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_describe_type_configurations_output() :: %{
-    "Errors" => list(batch_describe_type_configurations_error()()),
-    "TypeConfigurations" => list(type_configuration_details()()),
-    "UnprocessedTypeConfigurations" => list(type_configuration_identifier()())
-  }
+      
+      batch_describe_type_configurations_output() :: %{
+        "Errors" => list(batch_describe_type_configurations_error()()),
+        "TypeConfigurations" => list(type_configuration_details()()),
+        "UnprocessedTypeConfigurations" => list(type_configuration_identifier()())
+      }
+      
   """
   @type batch_describe_type_configurations_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_stack_sets_input() :: %{
-    optional("CallAs") => list(any()),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("Status") => list(any())
-  }
+      
+      list_stack_sets_input() :: %{
+        optional("CallAs") => list(any()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("Status") => list(any())
+      }
+      
   """
   @type list_stack_sets_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  signal_resource_input() :: %{
-    required("LogicalResourceId") => String.t(),
-    required("StackName") => String.t(),
-    required("Status") => list(any()),
-    required("UniqueId") => String.t()
-  }
+      
+      signal_resource_input() :: %{
+        required("LogicalResourceId") => String.t(),
+        required("StackName") => String.t(),
+        required("Status") => list(any()),
+        required("UniqueId") => String.t()
+      }
+      
   """
   @type signal_resource_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_stacks_input() :: %{
-    optional("NextToken") => String.t(),
-    optional("StackStatusFilter") => list(list(any())())
-  }
+      
+      list_stacks_input() :: %{
+        optional("NextToken") => String.t(),
+        optional("StackStatusFilter") => list(list(any())())
+      }
+      
   """
   @type list_stacks_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stack_drift_information() :: %{
-    "LastCheckTimestamp" => non_neg_integer(),
-    "StackDriftStatus" => list(any())
-  }
+      
+      stack_drift_information() :: %{
+        "LastCheckTimestamp" => non_neg_integer(),
+        "StackDriftStatus" => list(any())
+      }
+      
   """
   @type stack_drift_information() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  change_set_hook_target_details() :: %{
-    "ResourceTargetDetails" => change_set_hook_resource_target_details(),
-    "TargetType" => list(any())
-  }
+      
+      change_set_hook_target_details() :: %{
+        "ResourceTargetDetails" => change_set_hook_resource_target_details(),
+        "TargetType" => list(any())
+      }
+      
   """
   @type change_set_hook_target_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_stack_set_operations_input() :: %{
-    optional("CallAs") => list(any()),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("StackSetName") => String.t()
-  }
+      
+      list_stack_set_operations_input() :: %{
+        optional("CallAs") => list(any()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("StackSetName") => String.t()
+      }
+      
   """
   @type list_stack_set_operations_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  template_summary_config() :: %{
-    "TreatUnrecognizedResourceTypesAsWarnings" => boolean()
-  }
+      
+      template_summary_config() :: %{
+        "TreatUnrecognizedResourceTypesAsWarnings" => boolean()
+      }
+      
   """
   @type template_summary_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_type_registrations_output() :: %{
-    "NextToken" => String.t(),
-    "RegistrationTokenList" => list(String.t()())
-  }
+      
+      list_type_registrations_output() :: %{
+        "NextToken" => String.t(),
+        "RegistrationTokenList" => list(String.t()())
+      }
+      
   """
   @type list_type_registrations_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stack_summary() :: %{
-    "CreationTime" => non_neg_integer(),
-    "DeletionTime" => non_neg_integer(),
-    "DriftInformation" => stack_drift_information_summary(),
-    "LastUpdatedTime" => non_neg_integer(),
-    "ParentId" => String.t(),
-    "RootId" => String.t(),
-    "StackId" => String.t(),
-    "StackName" => String.t(),
-    "StackStatus" => list(any()),
-    "StackStatusReason" => String.t(),
-    "TemplateDescription" => String.t()
-  }
+      
+      stack_summary() :: %{
+        "CreationTime" => non_neg_integer(),
+        "DeletionTime" => non_neg_integer(),
+        "DriftInformation" => stack_drift_information_summary(),
+        "LastUpdatedTime" => non_neg_integer(),
+        "ParentId" => String.t(),
+        "RootId" => String.t(),
+        "StackId" => String.t(),
+        "StackName" => String.t(),
+        "StackStatus" => list(any()),
+        "StackStatusReason" => String.t(),
+        "TemplateDescription" => String.t()
+      }
+      
   """
   @type stack_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag() :: %{
-    "Key" => String.t(),
-    "Value" => String.t()
-  }
+      
+      tag() :: %{
+        "Key" => String.t(),
+        "Value" => String.t()
+      }
+      
   """
   @type tag() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  operation_in_progress_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      operation_in_progress_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type operation_in_progress_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_stack_resources_input() :: %{
-    optional("NextToken") => String.t(),
-    required("StackName") => String.t()
-  }
+      
+      list_stack_resources_input() :: %{
+        optional("NextToken") => String.t(),
+        required("StackName") => String.t()
+      }
+      
   """
   @type list_stack_resources_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  execute_change_set_input() :: %{
-    optional("ClientRequestToken") => String.t(),
-    optional("DisableRollback") => boolean(),
-    optional("RetainExceptOnCreate") => boolean(),
-    optional("StackName") => String.t(),
-    required("ChangeSetName") => String.t()
-  }
+      
+      execute_change_set_input() :: %{
+        optional("ClientRequestToken") => String.t(),
+        optional("DisableRollback") => boolean(),
+        optional("RetainExceptOnCreate") => boolean(),
+        optional("StackName") => String.t(),
+        required("ChangeSetName") => String.t()
+      }
+      
   """
   @type execute_change_set_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_change_set_input() :: %{
-    optional("StackName") => String.t(),
-    required("ChangeSetName") => String.t()
-  }
+      
+      delete_change_set_input() :: %{
+        optional("StackName") => String.t(),
+        required("ChangeSetName") => String.t()
+      }
+      
   """
   @type delete_change_set_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  type_not_found_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      type_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type type_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  set_type_configuration_input() :: %{
-    optional("ConfigurationAlias") => String.t(),
-    optional("Type") => list(any()),
-    optional("TypeArn") => String.t(),
-    optional("TypeName") => String.t(),
-    required("Configuration") => String.t()
-  }
+      
+      set_type_configuration_input() :: %{
+        optional("ConfigurationAlias") => String.t(),
+        optional("Type") => list(any()),
+        optional("TypeArn") => String.t(),
+        optional("TypeName") => String.t(),
+        required("Configuration") => String.t()
+      }
+      
   """
   @type set_type_configuration_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_generated_template_input() :: %{
-    optional("Resources") => list(resource_definition()()),
-    optional("StackName") => String.t(),
-    optional("TemplateConfiguration") => template_configuration(),
-    required("GeneratedTemplateName") => String.t()
-  }
+      
+      create_generated_template_input() :: %{
+        optional("Resources") => list(resource_definition()()),
+        optional("StackName") => String.t(),
+        optional("TemplateConfiguration") => template_configuration(),
+        required("GeneratedTemplateName") => String.t()
+      }
+      
   """
   @type create_generated_template_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_publisher_output() :: %{
-    "IdentityProvider" => list(any()),
-    "PublisherId" => String.t(),
-    "PublisherProfile" => String.t(),
-    "PublisherStatus" => list(any())
-  }
+      
+      describe_publisher_output() :: %{
+        "IdentityProvider" => list(any()),
+        "PublisherId" => String.t(),
+        "PublisherProfile" => String.t(),
+        "PublisherStatus" => list(any())
+      }
+      
   """
   @type describe_publisher_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_stack_set_input() :: %{
-    optional("CallAs") => list(any()),
-    required("StackSetName") => String.t()
-  }
+      
+      describe_stack_set_input() :: %{
+        optional("CallAs") => list(any()),
+        required("StackSetName") => String.t()
+      }
+      
   """
   @type describe_stack_set_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  activate_type_output() :: %{
-    "Arn" => String.t()
-  }
+      
+      activate_type_output() :: %{
+        "Arn" => String.t()
+      }
+      
   """
   @type activate_type_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  publish_type_input() :: %{
-    optional("Arn") => String.t(),
-    optional("PublicVersionNumber") => String.t(),
-    optional("Type") => list(any()),
-    optional("TypeName") => String.t()
-  }
+      
+      publish_type_input() :: %{
+        optional("Arn") => String.t(),
+        optional("PublicVersionNumber") => String.t(),
+        optional("Type") => list(any()),
+        optional("TypeName") => String.t()
+      }
+      
   """
   @type publish_type_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  insufficient_capabilities_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      insufficient_capabilities_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type insufficient_capabilities_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  template_summary() :: %{
-    "CreationTime" => non_neg_integer(),
-    "GeneratedTemplateId" => String.t(),
-    "GeneratedTemplateName" => String.t(),
-    "LastUpdatedTime" => non_neg_integer(),
-    "NumberOfResources" => integer(),
-    "Status" => list(any()),
-    "StatusReason" => String.t()
-  }
+      
+      template_summary() :: %{
+        "CreationTime" => non_neg_integer(),
+        "GeneratedTemplateId" => String.t(),
+        "GeneratedTemplateName" => String.t(),
+        "LastUpdatedTime" => non_neg_integer(),
+        "NumberOfResources" => integer(),
+        "Status" => list(any()),
+        "StatusReason" => String.t()
+      }
+      
   """
   @type template_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  change_set_hook_resource_target_details() :: %{
-    "LogicalResourceId" => String.t(),
-    "ResourceAction" => list(any()),
-    "ResourceType" => String.t()
-  }
+      
+      change_set_hook_resource_target_details() :: %{
+        "LogicalResourceId" => String.t(),
+        "ResourceAction" => list(any()),
+        "ResourceType" => String.t()
+      }
+      
   """
   @type change_set_hook_resource_target_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_change_set_input() :: %{
-    optional("Capabilities") => list(list(any())()),
-    optional("ChangeSetType") => list(any()),
-    optional("ClientToken") => String.t(),
-    optional("Description") => String.t(),
-    optional("ImportExistingResources") => boolean(),
-    optional("IncludeNestedStacks") => boolean(),
-    optional("NotificationARNs") => list(String.t()()),
-    optional("OnStackFailure") => list(any()),
-    optional("Parameters") => list(parameter()()),
-    optional("ResourceTypes") => list(String.t()()),
-    optional("ResourcesToImport") => list(resource_to_import()()),
-    optional("RoleARN") => String.t(),
-    optional("RollbackConfiguration") => rollback_configuration(),
-    optional("Tags") => list(tag()()),
-    optional("TemplateBody") => String.t(),
-    optional("TemplateURL") => String.t(),
-    optional("UsePreviousTemplate") => boolean(),
-    required("ChangeSetName") => String.t(),
-    required("StackName") => String.t()
-  }
+      
+      create_change_set_input() :: %{
+        optional("Capabilities") => list(list(any())()),
+        optional("ChangeSetType") => list(any()),
+        optional("ClientToken") => String.t(),
+        optional("Description") => String.t(),
+        optional("ImportExistingResources") => boolean(),
+        optional("IncludeNestedStacks") => boolean(),
+        optional("NotificationARNs") => list(String.t()()),
+        optional("OnStackFailure") => list(any()),
+        optional("Parameters") => list(parameter()()),
+        optional("ResourceTypes") => list(String.t()()),
+        optional("ResourcesToImport") => list(resource_to_import()()),
+        optional("RoleARN") => String.t(),
+        optional("RollbackConfiguration") => rollback_configuration(),
+        optional("Tags") => list(tag()()),
+        optional("TemplateBody") => String.t(),
+        optional("TemplateURL") => String.t(),
+        optional("UsePreviousTemplate") => boolean(),
+        required("ChangeSetName") => String.t(),
+        required("StackName") => String.t()
+      }
+      
   """
   @type create_change_set_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_stack_instances_input() :: %{
-    optional("Accounts") => list(String.t()()),
-    optional("CallAs") => list(any()),
-    optional("DeploymentTargets") => deployment_targets(),
-    optional("OperationId") => String.t(),
-    optional("OperationPreferences") => stack_set_operation_preferences(),
-    optional("ParameterOverrides") => list(parameter()()),
-    required("Regions") => list(String.t()()),
-    required("StackSetName") => String.t()
-  }
+      
+      create_stack_instances_input() :: %{
+        optional("Accounts") => list(String.t()()),
+        optional("CallAs") => list(any()),
+        optional("DeploymentTargets") => deployment_targets(),
+        optional("OperationId") => String.t(),
+        optional("OperationPreferences") => stack_set_operation_preferences(),
+        optional("ParameterOverrides") => list(parameter()()),
+        required("Regions") => list(String.t()()),
+        required("StackSetName") => String.t()
+      }
+      
   """
   @type create_stack_instances_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  estimate_template_cost_output() :: %{
-    "Url" => String.t()
-  }
+      
+      estimate_template_cost_output() :: %{
+        "Url" => String.t()
+      }
+      
   """
   @type estimate_template_cost_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_change_set_status_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      invalid_change_set_status_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type invalid_change_set_status_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_identifier_summary() :: %{
-    "LogicalResourceIds" => list(String.t()()),
-    "ResourceIdentifiers" => list(String.t()()),
-    "ResourceType" => String.t()
-  }
+      
+      resource_identifier_summary() :: %{
+        "LogicalResourceIds" => list(String.t()()),
+        "ResourceIdentifiers" => list(String.t()()),
+        "ResourceType" => String.t()
+      }
+      
   """
   @type resource_identifier_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  import_stacks_to_stack_set_output() :: %{
-    "OperationId" => String.t()
-  }
+      
+      import_stacks_to_stack_set_output() :: %{
+        "OperationId" => String.t()
+      }
+      
   """
   @type import_stacks_to_stack_set_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stack_not_found_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      stack_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type stack_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  parameter() :: %{
-    "ParameterKey" => String.t(),
-    "ParameterValue" => String.t(),
-    "ResolvedValue" => String.t(),
-    "UsePreviousValue" => boolean()
-  }
+      
+      parameter() :: %{
+        "ParameterKey" => String.t(),
+        "ParameterValue" => String.t(),
+        "ResolvedValue" => String.t(),
+        "UsePreviousValue" => boolean()
+      }
+      
   """
   @type parameter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stack_set_not_empty_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      stack_set_not_empty_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type stack_set_not_empty_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  validate_template_input() :: %{
-    optional("TemplateBody") => String.t(),
-    optional("TemplateURL") => String.t()
-  }
+      
+      validate_template_input() :: %{
+        optional("TemplateBody") => String.t(),
+        optional("TemplateURL") => String.t()
+      }
+      
   """
   @type validate_template_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stack_set_operation_preferences() :: %{
-    "ConcurrencyMode" => list(any()),
-    "FailureToleranceCount" => integer(),
-    "FailureTolerancePercentage" => integer(),
-    "MaxConcurrentCount" => integer(),
-    "MaxConcurrentPercentage" => integer(),
-    "RegionConcurrencyType" => list(any()),
-    "RegionOrder" => list(String.t()())
-  }
+      
+      stack_set_operation_preferences() :: %{
+        "ConcurrencyMode" => list(any()),
+        "FailureToleranceCount" => integer(),
+        "FailureTolerancePercentage" => integer(),
+        "MaxConcurrentCount" => integer(),
+        "MaxConcurrentPercentage" => integer(),
+        "RegionConcurrencyType" => list(any()),
+        "RegionOrder" => list(String.t()())
+      }
+      
   """
   @type stack_set_operation_preferences() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_state_transition_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      invalid_state_transition_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type invalid_state_transition_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stack_instance_resource_drifts_summary() :: %{
-    "LogicalResourceId" => String.t(),
-    "PhysicalResourceId" => String.t(),
-    "PhysicalResourceIdContext" => list(physical_resource_id_context_key_value_pair()()),
-    "PropertyDifferences" => list(property_difference()()),
-    "ResourceType" => String.t(),
-    "StackId" => String.t(),
-    "StackResourceDriftStatus" => list(any()),
-    "Timestamp" => non_neg_integer()
-  }
+      
+      stack_instance_resource_drifts_summary() :: %{
+        "LogicalResourceId" => String.t(),
+        "PhysicalResourceId" => String.t(),
+        "PhysicalResourceIdContext" => list(physical_resource_id_context_key_value_pair()()),
+        "PropertyDifferences" => list(property_difference()()),
+        "ResourceType" => String.t(),
+        "StackId" => String.t(),
+        "StackResourceDriftStatus" => list(any()),
+        "Timestamp" => non_neg_integer()
+      }
+      
   """
   @type stack_instance_resource_drifts_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  type_configuration_not_found_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      type_configuration_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type type_configuration_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_stack_set_output() :: %{
-    "OperationId" => String.t()
-  }
+      
+      update_stack_set_output() :: %{
+        "OperationId" => String.t()
+      }
+      
   """
   @type update_stack_set_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  account_limit() :: %{
-    "Name" => String.t(),
-    "Value" => integer()
-  }
+      
+      account_limit() :: %{
+        "Name" => String.t(),
+        "Value" => integer()
+      }
+      
   """
   @type account_limit() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_scan_not_found_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      resource_scan_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type resource_scan_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  activate_organizations_access_input() :: %{
-
-  }
+      
+      activate_organizations_access_input() :: %{}
+      
   """
-  @type activate_organizations_access_input() :: %{String.t() => any()}
+  @type activate_organizations_access_input() :: %{}
 
   @typedoc """
 
   ## Example:
-  stop_stack_set_operation_input() :: %{
-    optional("CallAs") => list(any()),
-    required("OperationId") => String.t(),
-    required("StackSetName") => String.t()
-  }
+      
+      stop_stack_set_operation_input() :: %{
+        optional("CallAs") => list(any()),
+        required("OperationId") => String.t(),
+        required("StackSetName") => String.t()
+      }
+      
   """
   @type stop_stack_set_operation_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  validate_template_output() :: %{
-    "Capabilities" => list(list(any())()),
-    "CapabilitiesReason" => String.t(),
-    "DeclaredTransforms" => list(String.t()()),
-    "Description" => String.t(),
-    "Parameters" => list(template_parameter()())
-  }
+      
+      validate_template_output() :: %{
+        "Capabilities" => list(list(any())()),
+        "CapabilitiesReason" => String.t(),
+        "DeclaredTransforms" => list(String.t()()),
+        "Description" => String.t(),
+        "Parameters" => list(template_parameter()())
+      }
+      
   """
   @type validate_template_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_stack_instance_output() :: %{
-    "StackInstance" => stack_instance()
-  }
+      
+      describe_stack_instance_output() :: %{
+        "StackInstance" => stack_instance()
+      }
+      
   """
   @type describe_stack_instance_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_stack_input() :: %{
-    optional("Capabilities") => list(list(any())()),
-    optional("ClientRequestToken") => String.t(),
-    optional("DisableRollback") => boolean(),
-    optional("NotificationARNs") => list(String.t()()),
-    optional("Parameters") => list(parameter()()),
-    optional("ResourceTypes") => list(String.t()()),
-    optional("RetainExceptOnCreate") => boolean(),
-    optional("RoleARN") => String.t(),
-    optional("RollbackConfiguration") => rollback_configuration(),
-    optional("StackPolicyBody") => String.t(),
-    optional("StackPolicyDuringUpdateBody") => String.t(),
-    optional("StackPolicyDuringUpdateURL") => String.t(),
-    optional("StackPolicyURL") => String.t(),
-    optional("Tags") => list(tag()()),
-    optional("TemplateBody") => String.t(),
-    optional("TemplateURL") => String.t(),
-    optional("UsePreviousTemplate") => boolean(),
-    required("StackName") => String.t()
-  }
+      
+      update_stack_input() :: %{
+        optional("Capabilities") => list(list(any())()),
+        optional("ClientRequestToken") => String.t(),
+        optional("DisableRollback") => boolean(),
+        optional("NotificationARNs") => list(String.t()()),
+        optional("Parameters") => list(parameter()()),
+        optional("ResourceTypes") => list(String.t()()),
+        optional("RetainExceptOnCreate") => boolean(),
+        optional("RoleARN") => String.t(),
+        optional("RollbackConfiguration") => rollback_configuration(),
+        optional("StackPolicyBody") => String.t(),
+        optional("StackPolicyDuringUpdateBody") => String.t(),
+        optional("StackPolicyDuringUpdateURL") => String.t(),
+        optional("StackPolicyURL") => String.t(),
+        optional("Tags") => list(tag()()),
+        optional("TemplateBody") => String.t(),
+        optional("TemplateURL") => String.t(),
+        optional("UsePreviousTemplate") => boolean(),
+        required("StackName") => String.t()
+      }
+      
   """
   @type update_stack_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_scan_in_progress_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      resource_scan_in_progress_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type resource_scan_in_progress_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_stack_set_operations_output() :: %{
-    "NextToken" => String.t(),
-    "Summaries" => list(stack_set_operation_summary()())
-  }
+      
+      list_stack_set_operations_output() :: %{
+        "NextToken" => String.t(),
+        "Summaries" => list(stack_set_operation_summary()())
+      }
+      
   """
   @type list_stack_set_operations_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  estimate_template_cost_input() :: %{
-    optional("Parameters") => list(parameter()()),
-    optional("TemplateBody") => String.t(),
-    optional("TemplateURL") => String.t()
-  }
+      
+      estimate_template_cost_input() :: %{
+        optional("Parameters") => list(parameter()()),
+        optional("TemplateBody") => String.t(),
+        optional("TemplateURL") => String.t()
+      }
+      
   """
   @type estimate_template_cost_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  deactivate_type_input() :: %{
-    optional("Arn") => String.t(),
-    optional("Type") => list(any()),
-    optional("TypeName") => String.t()
-  }
+      
+      deactivate_type_input() :: %{
+        optional("Arn") => String.t(),
+        optional("Type") => list(any()),
+        optional("TypeName") => String.t()
+      }
+      
   """
   @type deactivate_type_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  rollback_stack_output() :: %{
-    "StackId" => String.t()
-  }
+      
+      rollback_stack_output() :: %{
+        "StackId" => String.t()
+      }
+      
   """
   @type rollback_stack_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  type_configuration_details() :: %{
-    "Alias" => String.t(),
-    "Arn" => String.t(),
-    "Configuration" => String.t(),
-    "IsDefaultConfiguration" => boolean(),
-    "LastUpdated" => non_neg_integer(),
-    "TypeArn" => String.t(),
-    "TypeName" => String.t()
-  }
+      
+      type_configuration_details() :: %{
+        "Alias" => String.t(),
+        "Arn" => String.t(),
+        "Configuration" => String.t(),
+        "IsDefaultConfiguration" => boolean(),
+        "LastUpdated" => non_neg_integer(),
+        "TypeArn" => String.t(),
+        "TypeName" => String.t()
+      }
+      
   """
   @type type_configuration_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_change_set_output() :: %{
-    "Capabilities" => list(list(any())()),
-    "ChangeSetId" => String.t(),
-    "ChangeSetName" => String.t(),
-    "Changes" => list(change()()),
-    "CreationTime" => non_neg_integer(),
-    "Description" => String.t(),
-    "ExecutionStatus" => list(any()),
-    "ImportExistingResources" => boolean(),
-    "IncludeNestedStacks" => boolean(),
-    "NextToken" => String.t(),
-    "NotificationARNs" => list(String.t()()),
-    "OnStackFailure" => list(any()),
-    "Parameters" => list(parameter()()),
-    "ParentChangeSetId" => String.t(),
-    "RollbackConfiguration" => rollback_configuration(),
-    "RootChangeSetId" => String.t(),
-    "StackId" => String.t(),
-    "StackName" => String.t(),
-    "Status" => list(any()),
-    "StatusReason" => String.t(),
-    "Tags" => list(tag()())
-  }
+      
+      describe_change_set_output() :: %{
+        "Capabilities" => list(list(any())()),
+        "ChangeSetId" => String.t(),
+        "ChangeSetName" => String.t(),
+        "Changes" => list(change()()),
+        "CreationTime" => non_neg_integer(),
+        "Description" => String.t(),
+        "ExecutionStatus" => list(any()),
+        "ImportExistingResources" => boolean(),
+        "IncludeNestedStacks" => boolean(),
+        "NextToken" => String.t(),
+        "NotificationARNs" => list(String.t()()),
+        "OnStackFailure" => list(any()),
+        "Parameters" => list(parameter()()),
+        "ParentChangeSetId" => String.t(),
+        "RollbackConfiguration" => rollback_configuration(),
+        "RootChangeSetId" => String.t(),
+        "StackId" => String.t(),
+        "StackName" => String.t(),
+        "Status" => list(any()),
+        "StatusReason" => String.t(),
+        "Tags" => list(tag()())
+      }
+      
   """
   @type describe_change_set_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_stack_resource_input() :: %{
-    required("LogicalResourceId") => String.t(),
-    required("StackName") => String.t()
-  }
+      
+      describe_stack_resource_input() :: %{
+        required("LogicalResourceId") => String.t(),
+        required("StackName") => String.t()
+      }
+      
   """
   @type describe_stack_resource_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  required_activated_type() :: %{
-    "OriginalTypeName" => String.t(),
-    "PublisherId" => String.t(),
-    "SupportedMajorVersions" => list(integer()()),
-    "TypeNameAlias" => String.t()
-  }
+      
+      required_activated_type() :: %{
+        "OriginalTypeName" => String.t(),
+        "PublisherId" => String.t(),
+        "SupportedMajorVersions" => list(integer()()),
+        "TypeNameAlias" => String.t()
+      }
+      
   """
   @type required_activated_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_generated_template_output() :: %{
-    "GeneratedTemplateId" => String.t()
-  }
+      
+      update_generated_template_output() :: %{
+        "GeneratedTemplateId" => String.t()
+      }
+      
   """
   @type update_generated_template_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_type_output() :: %{
-    "Arn" => String.t(),
-    "AutoUpdate" => boolean(),
-    "ConfigurationSchema" => String.t(),
-    "DefaultVersionId" => String.t(),
-    "DeprecatedStatus" => list(any()),
-    "Description" => String.t(),
-    "DocumentationUrl" => String.t(),
-    "ExecutionRoleArn" => String.t(),
-    "IsActivated" => boolean(),
-    "IsDefaultVersion" => boolean(),
-    "LastUpdated" => non_neg_integer(),
-    "LatestPublicVersion" => String.t(),
-    "LoggingConfig" => logging_config(),
-    "OriginalTypeArn" => String.t(),
-    "OriginalTypeName" => String.t(),
-    "ProvisioningType" => list(any()),
-    "PublicVersionNumber" => String.t(),
-    "PublisherId" => String.t(),
-    "RequiredActivatedTypes" => list(required_activated_type()()),
-    "Schema" => String.t(),
-    "SourceUrl" => String.t(),
-    "TimeCreated" => non_neg_integer(),
-    "Type" => list(any()),
-    "TypeName" => String.t(),
-    "TypeTestsStatus" => list(any()),
-    "TypeTestsStatusDescription" => String.t(),
-    "Visibility" => list(any())
-  }
+      
+      describe_type_output() :: %{
+        "Arn" => String.t(),
+        "AutoUpdate" => boolean(),
+        "ConfigurationSchema" => String.t(),
+        "DefaultVersionId" => String.t(),
+        "DeprecatedStatus" => list(any()),
+        "Description" => String.t(),
+        "DocumentationUrl" => String.t(),
+        "ExecutionRoleArn" => String.t(),
+        "IsActivated" => boolean(),
+        "IsDefaultVersion" => boolean(),
+        "LastUpdated" => non_neg_integer(),
+        "LatestPublicVersion" => String.t(),
+        "LoggingConfig" => logging_config(),
+        "OriginalTypeArn" => String.t(),
+        "OriginalTypeName" => String.t(),
+        "ProvisioningType" => list(any()),
+        "PublicVersionNumber" => String.t(),
+        "PublisherId" => String.t(),
+        "RequiredActivatedTypes" => list(required_activated_type()()),
+        "Schema" => String.t(),
+        "SourceUrl" => String.t(),
+        "TimeCreated" => non_neg_integer(),
+        "Type" => list(any()),
+        "TypeName" => String.t(),
+        "TypeTestsStatus" => list(any()),
+        "TypeTestsStatusDescription" => String.t(),
+        "Visibility" => list(any())
+      }
+      
   """
   @type describe_type_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_template_input() :: %{
-    optional("ChangeSetName") => String.t(),
-    optional("StackName") => String.t(),
-    optional("TemplateStage") => list(any())
-  }
+      
+      get_template_input() :: %{
+        optional("ChangeSetName") => String.t(),
+        optional("StackName") => String.t(),
+        optional("TemplateStage") => list(any())
+      }
+      
   """
   @type get_template_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  module_info() :: %{
-    "LogicalIdHierarchy" => String.t(),
-    "TypeHierarchy" => String.t()
-  }
+      
+      module_info() :: %{
+        "LogicalIdHierarchy" => String.t(),
+        "TypeHierarchy" => String.t()
+      }
+      
   """
   @type module_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stack_set_drift_detection_details() :: %{
-    "DriftDetectionStatus" => list(any()),
-    "DriftStatus" => list(any()),
-    "DriftedStackInstancesCount" => integer(),
-    "FailedStackInstancesCount" => integer(),
-    "InProgressStackInstancesCount" => integer(),
-    "InSyncStackInstancesCount" => integer(),
-    "LastDriftCheckTimestamp" => non_neg_integer(),
-    "TotalStackInstancesCount" => integer()
-  }
+      
+      stack_set_drift_detection_details() :: %{
+        "DriftDetectionStatus" => list(any()),
+        "DriftStatus" => list(any()),
+        "DriftedStackInstancesCount" => integer(),
+        "FailedStackInstancesCount" => integer(),
+        "InProgressStackInstancesCount" => integer(),
+        "InSyncStackInstancesCount" => integer(),
+        "LastDriftCheckTimestamp" => non_neg_integer(),
+        "TotalStackInstancesCount" => integer()
+      }
+      
   """
   @type stack_set_drift_detection_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_account_limits_output() :: %{
-    "AccountLimits" => list(account_limit()()),
-    "NextToken" => String.t()
-  }
+      
+      describe_account_limits_output() :: %{
+        "AccountLimits" => list(account_limit()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type describe_account_limits_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_resource_scan_related_resources_input() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("ResourceScanId") => String.t(),
-    required("Resources") => list(scanned_resource_identifier()())
-  }
+      
+      list_resource_scan_related_resources_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("ResourceScanId") => String.t(),
+        required("Resources") => list(scanned_resource_identifier()())
+      }
+      
   """
   @type list_resource_scan_related_resources_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  type_configuration_identifier() :: %{
-    "Type" => list(any()),
-    "TypeArn" => String.t(),
-    "TypeConfigurationAlias" => String.t(),
-    "TypeConfigurationArn" => String.t(),
-    "TypeName" => String.t()
-  }
+      
+      type_configuration_identifier() :: %{
+        "Type" => list(any()),
+        "TypeArn" => String.t(),
+        "TypeConfigurationAlias" => String.t(),
+        "TypeConfigurationArn" => String.t(),
+        "TypeName" => String.t()
+      }
+      
   """
   @type type_configuration_identifier() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_types_input() :: %{
-    optional("DeprecatedStatus") => list(any()),
-    optional("Filters") => type_filters(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("ProvisioningType") => list(any()),
-    optional("Type") => list(any()),
-    optional("Visibility") => list(any())
-  }
+      
+      list_types_input() :: %{
+        optional("DeprecatedStatus") => list(any()),
+        optional("Filters") => type_filters(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("ProvisioningType") => list(any()),
+        optional("Type") => list(any()),
+        optional("Visibility") => list(any())
+      }
+      
   """
   @type list_types_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_stack_resource_output() :: %{
-    "StackResourceDetail" => stack_resource_detail()
-  }
+      
+      describe_stack_resource_output() :: %{
+        "StackResourceDetail" => stack_resource_detail()
+      }
+      
   """
   @type describe_stack_resource_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stack_set_not_found_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      stack_set_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type stack_set_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stack_drift_information_summary() :: %{
-    "LastCheckTimestamp" => non_neg_integer(),
-    "StackDriftStatus" => list(any())
-  }
+      
+      stack_drift_information_summary() :: %{
+        "LastCheckTimestamp" => non_neg_integer(),
+        "StackDriftStatus" => list(any())
+      }
+      
   """
   @type stack_drift_information_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_organizations_access_output() :: %{
-    "Status" => list(any())
-  }
+      
+      describe_organizations_access_output() :: %{
+        "Status" => list(any())
+      }
+      
   """
   @type describe_organizations_access_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_generated_templates_output() :: %{
-    "NextToken" => String.t(),
-    "Summaries" => list(template_summary()())
-  }
+      
+      list_generated_templates_output() :: %{
+        "NextToken" => String.t(),
+        "Summaries" => list(template_summary()())
+      }
+      
   """
   @type list_generated_templates_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_stack_policy_output() :: %{
-    "StackPolicyBody" => String.t()
-  }
+      
+      get_stack_policy_output() :: %{
+        "StackPolicyBody" => String.t()
+      }
+      
   """
   @type get_stack_policy_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_stack_events_input() :: %{
-    optional("NextToken") => String.t(),
-    optional("StackName") => String.t()
-  }
+      
+      describe_stack_events_input() :: %{
+        optional("NextToken") => String.t(),
+        optional("StackName") => String.t()
+      }
+      
   """
   @type describe_stack_events_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  parameter_declaration() :: %{
-    "DefaultValue" => String.t(),
-    "Description" => String.t(),
-    "NoEcho" => boolean(),
-    "ParameterConstraints" => parameter_constraints(),
-    "ParameterKey" => String.t(),
-    "ParameterType" => String.t()
-  }
+      
+      parameter_declaration() :: %{
+        "DefaultValue" => String.t(),
+        "Description" => String.t(),
+        "NoEcho" => boolean(),
+        "ParameterConstraints" => parameter_constraints(),
+        "ParameterKey" => String.t(),
+        "ParameterType" => String.t()
+      }
+      
   """
   @type parameter_declaration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_stack_sets_output() :: %{
-    "NextToken" => String.t(),
-    "Summaries" => list(stack_set_summary()())
-  }
+      
+      list_stack_sets_output() :: %{
+        "NextToken" => String.t(),
+        "Summaries" => list(stack_set_summary()())
+      }
+      
   """
   @type list_stack_sets_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_organizations_access_input() :: %{
-    optional("CallAs") => list(any())
-  }
+      
+      describe_organizations_access_input() :: %{
+        optional("CallAs") => list(any())
+      }
+      
   """
   @type describe_organizations_access_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_exports_input() :: %{
-    optional("NextToken") => String.t()
-  }
+      
+      list_exports_input() :: %{
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type list_exports_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stack_instance_not_found_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      stack_instance_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type stack_instance_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_type_versions_input() :: %{
-    optional("Arn") => String.t(),
-    optional("DeprecatedStatus") => list(any()),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("PublisherId") => String.t(),
-    optional("Type") => list(any()),
-    optional("TypeName") => String.t()
-  }
+      
+      list_type_versions_input() :: %{
+        optional("Arn") => String.t(),
+        optional("DeprecatedStatus") => list(any()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("PublisherId") => String.t(),
+        optional("Type") => list(any()),
+        optional("TypeName") => String.t()
+      }
+      
   """
   @type list_type_versions_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_resource_scan_resources_output() :: %{
-    "NextToken" => String.t(),
-    "Resources" => list(scanned_resource()())
-  }
+      
+      list_resource_scan_resources_output() :: %{
+        "NextToken" => String.t(),
+        "Resources" => list(scanned_resource()())
+      }
+      
   """
   @type list_resource_scan_resources_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_exports_output() :: %{
-    "Exports" => list(export()()),
-    "NextToken" => String.t()
-  }
+      
+      list_exports_output() :: %{
+        "Exports" => list(export()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_exports_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  type_filters() :: %{
-    "Category" => list(any()),
-    "PublisherId" => String.t(),
-    "TypeNamePrefix" => String.t()
-  }
+      
+      type_filters() :: %{
+        "Category" => list(any()),
+        "PublisherId" => String.t(),
+        "TypeNamePrefix" => String.t()
+      }
+      
   """
   @type type_filters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_generated_template_input() :: %{
-    required("GeneratedTemplateName") => String.t()
-  }
+      
+      describe_generated_template_input() :: %{
+        required("GeneratedTemplateName") => String.t()
+      }
+      
   """
   @type describe_generated_template_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_change_sets_output() :: %{
-    "NextToken" => String.t(),
-    "Summaries" => list(change_set_summary()())
-  }
+      
+      list_change_sets_output() :: %{
+        "NextToken" => String.t(),
+        "Summaries" => list(change_set_summary()())
+      }
+      
   """
   @type list_change_sets_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_stack_instances_output() :: %{
-    "OperationId" => String.t()
-  }
+      
+      create_stack_instances_output() :: %{
+        "OperationId" => String.t()
+      }
+      
   """
   @type create_stack_instances_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  set_type_default_version_output() :: %{
-
-  }
+      
+      set_type_default_version_output() :: %{}
+      
   """
-  @type set_type_default_version_output() :: %{String.t() => any()}
+  @type set_type_default_version_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  deregister_type_output() :: %{
-
-  }
+      
+      deregister_type_output() :: %{}
+      
   """
-  @type deregister_type_output() :: %{String.t() => any()}
+  @type deregister_type_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_resource_scans_output() :: %{
-    "NextToken" => String.t(),
-    "ResourceScanSummaries" => list(resource_scan_summary()())
-  }
+      
+      list_resource_scans_output() :: %{
+        "NextToken" => String.t(),
+        "ResourceScanSummaries" => list(resource_scan_summary()())
+      }
+      
   """
   @type list_resource_scans_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  publish_type_output() :: %{
-    "PublicTypeArn" => String.t()
-  }
+      
+      publish_type_output() :: %{
+        "PublicTypeArn" => String.t()
+      }
+      
   """
   @type publish_type_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_stack_set_output() :: %{
-    "StackSetId" => String.t()
-  }
+      
+      create_stack_set_output() :: %{
+        "StackSetId" => String.t()
+      }
+      
   """
   @type create_stack_set_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_type_input() :: %{
-    optional("Arn") => String.t(),
-    optional("PublicVersionNumber") => String.t(),
-    optional("PublisherId") => String.t(),
-    optional("Type") => list(any()),
-    optional("TypeName") => String.t(),
-    optional("VersionId") => String.t()
-  }
+      
+      describe_type_input() :: %{
+        optional("Arn") => String.t(),
+        optional("PublicVersionNumber") => String.t(),
+        optional("PublisherId") => String.t(),
+        optional("Type") => list(any()),
+        optional("TypeName") => String.t(),
+        optional("VersionId") => String.t()
+      }
+      
   """
   @type describe_type_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_resource_scan_output() :: %{
-    "ResourceScanId" => String.t()
-  }
+      
+      start_resource_scan_output() :: %{
+        "ResourceScanId" => String.t()
+      }
+      
   """
   @type start_resource_scan_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stack_resource_drift_information() :: %{
-    "LastCheckTimestamp" => non_neg_integer(),
-    "StackResourceDriftStatus" => list(any())
-  }
+      
+      stack_resource_drift_information() :: %{
+        "LastCheckTimestamp" => non_neg_integer(),
+        "StackResourceDriftStatus" => list(any())
+      }
+      
   """
   @type stack_resource_drift_information() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_change_set_input() :: %{
-    optional("NextToken") => String.t(),
-    optional("StackName") => String.t(),
-    required("ChangeSetName") => String.t()
-  }
+      
+      describe_change_set_input() :: %{
+        optional("NextToken") => String.t(),
+        optional("StackName") => String.t(),
+        required("ChangeSetName") => String.t()
+      }
+      
   """
   @type describe_change_set_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_describe_type_configurations_error() :: %{
-    "ErrorCode" => String.t(),
-    "ErrorMessage" => String.t(),
-    "TypeConfigurationIdentifier" => type_configuration_identifier()
-  }
+      
+      batch_describe_type_configurations_error() :: %{
+        "ErrorCode" => String.t(),
+        "ErrorMessage" => String.t(),
+        "TypeConfigurationIdentifier" => type_configuration_identifier()
+      }
+      
   """
   @type batch_describe_type_configurations_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stop_stack_set_operation_output() :: %{
-
-  }
+      
+      stop_stack_set_operation_output() :: %{}
+      
   """
-  @type stop_stack_set_operation_output() :: %{String.t() => any()}
+  @type stop_stack_set_operation_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  warning_detail() :: %{
-    "Properties" => list(warning_property()()),
-    "Type" => list(any())
-  }
+      
+      warning_detail() :: %{
+        "Properties" => list(warning_property()()),
+        "Type" => list(any())
+      }
+      
   """
   @type warning_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_stack_resources_output() :: %{
-    "StackResources" => list(stack_resource()())
-  }
+      
+      describe_stack_resources_output() :: %{
+        "StackResources" => list(stack_resource()())
+      }
+      
   """
   @type describe_stack_resources_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stack_resource_drift() :: %{
-    "ActualProperties" => String.t(),
-    "ExpectedProperties" => String.t(),
-    "LogicalResourceId" => String.t(),
-    "ModuleInfo" => module_info(),
-    "PhysicalResourceId" => String.t(),
-    "PhysicalResourceIdContext" => list(physical_resource_id_context_key_value_pair()()),
-    "PropertyDifferences" => list(property_difference()()),
-    "ResourceType" => String.t(),
-    "StackId" => String.t(),
-    "StackResourceDriftStatus" => list(any()),
-    "Timestamp" => non_neg_integer()
-  }
+      
+      stack_resource_drift() :: %{
+        "ActualProperties" => String.t(),
+        "ExpectedProperties" => String.t(),
+        "LogicalResourceId" => String.t(),
+        "ModuleInfo" => module_info(),
+        "PhysicalResourceId" => String.t(),
+        "PhysicalResourceIdContext" => list(physical_resource_id_context_key_value_pair()()),
+        "PropertyDifferences" => list(property_difference()()),
+        "ResourceType" => String.t(),
+        "StackId" => String.t(),
+        "StackResourceDriftStatus" => list(any()),
+        "Timestamp" => non_neg_integer()
+      }
+      
   """
   @type stack_resource_drift() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  detect_stack_resource_drift_output() :: %{
-    "StackResourceDrift" => stack_resource_drift()
-  }
+      
+      detect_stack_resource_drift_output() :: %{
+        "StackResourceDrift" => stack_resource_drift()
+      }
+      
   """
   @type detect_stack_resource_drift_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_stack_input() :: %{
-    optional("Capabilities") => list(list(any())()),
-    optional("ClientRequestToken") => String.t(),
-    optional("DisableRollback") => boolean(),
-    optional("EnableTerminationProtection") => boolean(),
-    optional("NotificationARNs") => list(String.t()()),
-    optional("OnFailure") => list(any()),
-    optional("Parameters") => list(parameter()()),
-    optional("ResourceTypes") => list(String.t()()),
-    optional("RetainExceptOnCreate") => boolean(),
-    optional("RoleARN") => String.t(),
-    optional("RollbackConfiguration") => rollback_configuration(),
-    optional("StackPolicyBody") => String.t(),
-    optional("StackPolicyURL") => String.t(),
-    optional("Tags") => list(tag()()),
-    optional("TemplateBody") => String.t(),
-    optional("TemplateURL") => String.t(),
-    optional("TimeoutInMinutes") => integer(),
-    required("StackName") => String.t()
-  }
+      
+      create_stack_input() :: %{
+        optional("Capabilities") => list(list(any())()),
+        optional("ClientRequestToken") => String.t(),
+        optional("DisableRollback") => boolean(),
+        optional("EnableTerminationProtection") => boolean(),
+        optional("NotificationARNs") => list(String.t()()),
+        optional("OnFailure") => list(any()),
+        optional("Parameters") => list(parameter()()),
+        optional("ResourceTypes") => list(String.t()()),
+        optional("RetainExceptOnCreate") => boolean(),
+        optional("RoleARN") => String.t(),
+        optional("RollbackConfiguration") => rollback_configuration(),
+        optional("StackPolicyBody") => String.t(),
+        optional("StackPolicyURL") => String.t(),
+        optional("Tags") => list(tag()()),
+        optional("TemplateBody") => String.t(),
+        optional("TemplateURL") => String.t(),
+        optional("TimeoutInMinutes") => integer(),
+        required("StackName") => String.t()
+      }
+      
   """
   @type create_stack_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_change_set_hooks_input() :: %{
-    optional("LogicalResourceId") => String.t(),
-    optional("NextToken") => String.t(),
-    optional("StackName") => String.t(),
-    required("ChangeSetName") => String.t()
-  }
+      
+      describe_change_set_hooks_input() :: %{
+        optional("LogicalResourceId") => String.t(),
+        optional("NextToken") => String.t(),
+        optional("StackName") => String.t(),
+        required("ChangeSetName") => String.t()
+      }
+      
   """
   @type describe_change_set_hooks_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  continue_update_rollback_output() :: %{
-
-  }
+      
+      continue_update_rollback_output() :: %{}
+      
   """
-  @type continue_update_rollback_output() :: %{String.t() => any()}
+  @type continue_update_rollback_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  resource_scan_summary() :: %{
-    "EndTime" => non_neg_integer(),
-    "PercentageCompleted" => float(),
-    "ResourceScanId" => String.t(),
-    "StartTime" => non_neg_integer(),
-    "Status" => list(any()),
-    "StatusReason" => String.t()
-  }
+      
+      resource_scan_summary() :: %{
+        "EndTime" => non_neg_integer(),
+        "PercentageCompleted" => float(),
+        "ResourceScanId" => String.t(),
+        "StartTime" => non_neg_integer(),
+        "Status" => list(any()),
+        "StatusReason" => String.t()
+      }
+      
   """
   @type resource_scan_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  change_set_hook() :: %{
-    "FailureMode" => list(any()),
-    "InvocationPoint" => list(any()),
-    "TargetDetails" => change_set_hook_target_details(),
-    "TypeConfigurationVersionId" => String.t(),
-    "TypeName" => String.t(),
-    "TypeVersionId" => String.t()
-  }
+      
+      change_set_hook() :: %{
+        "FailureMode" => list(any()),
+        "InvocationPoint" => list(any()),
+        "TargetDetails" => change_set_hook_target_details(),
+        "TypeConfigurationVersionId" => String.t(),
+        "TypeName" => String.t(),
+        "TypeVersionId" => String.t()
+      }
+      
   """
   @type change_set_hook() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_resource_scan_input() :: %{
-    required("ResourceScanId") => String.t()
-  }
+      
+      describe_resource_scan_input() :: %{
+        required("ResourceScanId") => String.t()
+      }
+      
   """
   @type describe_resource_scan_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_change_detail() :: %{
-    "CausingEntity" => String.t(),
-    "ChangeSource" => list(any()),
-    "Evaluation" => list(any()),
-    "Target" => resource_target_definition()
-  }
+      
+      resource_change_detail() :: %{
+        "CausingEntity" => String.t(),
+        "ChangeSource" => list(any()),
+        "Evaluation" => list(any()),
+        "Target" => resource_target_definition()
+      }
+      
   """
   @type resource_change_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_resource_scan_input() :: %{
-    optional("ClientRequestToken") => String.t()
-  }
+      
+      start_resource_scan_input() :: %{
+        optional("ClientRequestToken") => String.t()
+      }
+      
   """
   @type start_resource_scan_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_stack_drift_detection_status_output() :: %{
-    "DetectionStatus" => list(any()),
-    "DetectionStatusReason" => String.t(),
-    "DriftedStackResourceCount" => integer(),
-    "StackDriftDetectionId" => String.t(),
-    "StackDriftStatus" => list(any()),
-    "StackId" => String.t(),
-    "Timestamp" => non_neg_integer()
-  }
+      
+      describe_stack_drift_detection_status_output() :: %{
+        "DetectionStatus" => list(any()),
+        "DetectionStatusReason" => String.t(),
+        "DriftedStackResourceCount" => integer(),
+        "StackDriftDetectionId" => String.t(),
+        "StackDriftStatus" => list(any()),
+        "StackId" => String.t(),
+        "Timestamp" => non_neg_integer()
+      }
+      
   """
   @type describe_stack_drift_detection_status_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_stacks_input() :: %{
-    optional("NextToken") => String.t(),
-    optional("StackName") => String.t()
-  }
+      
+      describe_stacks_input() :: %{
+        optional("NextToken") => String.t(),
+        optional("StackName") => String.t()
+      }
+      
   """
   @type describe_stacks_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  template_configuration() :: %{
-    "DeletionPolicy" => list(any()),
-    "UpdateReplacePolicy" => list(any())
-  }
+      
+      template_configuration() :: %{
+        "DeletionPolicy" => list(any()),
+        "UpdateReplacePolicy" => list(any())
+      }
+      
   """
   @type template_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  record_handler_progress_input() :: %{
-    optional("ClientRequestToken") => String.t(),
-    optional("CurrentOperationStatus") => list(any()),
-    optional("ErrorCode") => list(any()),
-    optional("ResourceModel") => String.t(),
-    optional("StatusMessage") => String.t(),
-    required("BearerToken") => String.t(),
-    required("OperationStatus") => list(any())
-  }
+      
+      record_handler_progress_input() :: %{
+        optional("ClientRequestToken") => String.t(),
+        optional("CurrentOperationStatus") => list(any()),
+        optional("ErrorCode") => list(any()),
+        optional("ResourceModel") => String.t(),
+        optional("StatusMessage") => String.t(),
+        required("BearerToken") => String.t(),
+        required("OperationStatus") => list(any())
+      }
+      
   """
   @type record_handler_progress_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_termination_protection_output() :: %{
-    "StackId" => String.t()
-  }
+      
+      update_termination_protection_output() :: %{
+        "StackId" => String.t()
+      }
+      
   """
   @type update_termination_protection_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  change_set_summary() :: %{
-    "ChangeSetId" => String.t(),
-    "ChangeSetName" => String.t(),
-    "CreationTime" => non_neg_integer(),
-    "Description" => String.t(),
-    "ExecutionStatus" => list(any()),
-    "ImportExistingResources" => boolean(),
-    "IncludeNestedStacks" => boolean(),
-    "ParentChangeSetId" => String.t(),
-    "RootChangeSetId" => String.t(),
-    "StackId" => String.t(),
-    "StackName" => String.t(),
-    "Status" => list(any()),
-    "StatusReason" => String.t()
-  }
+      
+      change_set_summary() :: %{
+        "ChangeSetId" => String.t(),
+        "ChangeSetName" => String.t(),
+        "CreationTime" => non_neg_integer(),
+        "Description" => String.t(),
+        "ExecutionStatus" => list(any()),
+        "ImportExistingResources" => boolean(),
+        "IncludeNestedStacks" => boolean(),
+        "ParentChangeSetId" => String.t(),
+        "RootChangeSetId" => String.t(),
+        "StackId" => String.t(),
+        "StackName" => String.t(),
+        "Status" => list(any()),
+        "StatusReason" => String.t()
+      }
+      
   """
   @type change_set_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stack_set() :: %{
-    "AdministrationRoleARN" => String.t(),
-    "AutoDeployment" => auto_deployment(),
-    "Capabilities" => list(list(any())()),
-    "Description" => String.t(),
-    "ExecutionRoleName" => String.t(),
-    "ManagedExecution" => managed_execution(),
-    "OrganizationalUnitIds" => list(String.t()()),
-    "Parameters" => list(parameter()()),
-    "PermissionModel" => list(any()),
-    "Regions" => list(String.t()()),
-    "StackSetARN" => String.t(),
-    "StackSetDriftDetectionDetails" => stack_set_drift_detection_details(),
-    "StackSetId" => String.t(),
-    "StackSetName" => String.t(),
-    "Status" => list(any()),
-    "Tags" => list(tag()()),
-    "TemplateBody" => String.t()
-  }
+      
+      stack_set() :: %{
+        "AdministrationRoleARN" => String.t(),
+        "AutoDeployment" => auto_deployment(),
+        "Capabilities" => list(list(any())()),
+        "Description" => String.t(),
+        "ExecutionRoleName" => String.t(),
+        "ManagedExecution" => managed_execution(),
+        "OrganizationalUnitIds" => list(String.t()()),
+        "Parameters" => list(parameter()()),
+        "PermissionModel" => list(any()),
+        "Regions" => list(String.t()()),
+        "StackSetARN" => String.t(),
+        "StackSetDriftDetectionDetails" => stack_set_drift_detection_details(),
+        "StackSetId" => String.t(),
+        "StackSetName" => String.t(),
+        "Status" => list(any()),
+        "Tags" => list(tag()()),
+        "TemplateBody" => String.t()
+      }
+      
   """
   @type stack_set() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  record_handler_progress_output() :: %{
-
-  }
+      
+      record_handler_progress_output() :: %{}
+      
   """
-  @type record_handler_progress_output() :: %{String.t() => any()}
+  @type record_handler_progress_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  update_stack_instances_input() :: %{
-    optional("Accounts") => list(String.t()()),
-    optional("CallAs") => list(any()),
-    optional("DeploymentTargets") => deployment_targets(),
-    optional("OperationId") => String.t(),
-    optional("OperationPreferences") => stack_set_operation_preferences(),
-    optional("ParameterOverrides") => list(parameter()()),
-    required("Regions") => list(String.t()()),
-    required("StackSetName") => String.t()
-  }
+      
+      update_stack_instances_input() :: %{
+        optional("Accounts") => list(String.t()()),
+        optional("CallAs") => list(any()),
+        optional("DeploymentTargets") => deployment_targets(),
+        optional("OperationId") => String.t(),
+        optional("OperationPreferences") => stack_set_operation_preferences(),
+        optional("ParameterOverrides") => list(parameter()()),
+        required("Regions") => list(String.t()()),
+        required("StackSetName") => String.t()
+      }
+      
   """
   @type update_stack_instances_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_generated_template_output() :: %{
-    "GeneratedTemplateId" => String.t()
-  }
+      
+      create_generated_template_output() :: %{
+        "GeneratedTemplateId" => String.t()
+      }
+      
   """
   @type create_generated_template_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_scan_limit_exceeded_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      resource_scan_limit_exceeded_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type resource_scan_limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stack_resource_drift_information_summary() :: %{
-    "LastCheckTimestamp" => non_neg_integer(),
-    "StackResourceDriftStatus" => list(any())
-  }
+      
+      stack_resource_drift_information_summary() :: %{
+        "LastCheckTimestamp" => non_neg_integer(),
+        "StackResourceDriftStatus" => list(any())
+      }
+      
   """
   @type stack_resource_drift_information_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_change_set_output() :: %{
-    "Id" => String.t(),
-    "StackId" => String.t()
-  }
+      
+      create_change_set_output() :: %{
+        "Id" => String.t(),
+        "StackId" => String.t()
+      }
+      
   """
   @type create_change_set_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_stack_instances_input() :: %{
-    optional("CallAs") => list(any()),
-    optional("Filters") => list(stack_instance_filter()()),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("StackInstanceAccount") => String.t(),
-    optional("StackInstanceRegion") => String.t(),
-    required("StackSetName") => String.t()
-  }
+      
+      list_stack_instances_input() :: %{
+        optional("CallAs") => list(any()),
+        optional("Filters") => list(stack_instance_filter()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("StackInstanceAccount") => String.t(),
+        optional("StackInstanceRegion") => String.t(),
+        required("StackSetName") => String.t()
+      }
+      
   """
   @type list_stack_instances_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_account_limits_input() :: %{
-    optional("NextToken") => String.t()
-  }
+      
+      describe_account_limits_input() :: %{
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type describe_account_limits_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  limit_exceeded_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      limit_exceeded_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  deregister_type_input() :: %{
-    optional("Arn") => String.t(),
-    optional("Type") => list(any()),
-    optional("TypeName") => String.t(),
-    optional("VersionId") => String.t()
-  }
+      
+      deregister_type_input() :: %{
+        optional("Arn") => String.t(),
+        optional("Type") => list(any()),
+        optional("TypeName") => String.t(),
+        optional("VersionId") => String.t()
+      }
+      
   """
   @type deregister_type_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  deactivate_organizations_access_output() :: %{
-
-  }
+      
+      deactivate_organizations_access_output() :: %{}
+      
   """
-  @type deactivate_organizations_access_output() :: %{String.t() => any()}
+  @type deactivate_organizations_access_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  token_already_exists_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      token_already_exists_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type token_already_exists_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_describe_type_configurations_input() :: %{
-    required("TypeConfigurationIdentifiers") => list(type_configuration_identifier()())
-  }
+      
+      batch_describe_type_configurations_input() :: %{
+        required("TypeConfigurationIdentifiers") => list(type_configuration_identifier()())
+      }
+      
   """
   @type batch_describe_type_configurations_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_types_output() :: %{
-    "NextToken" => String.t(),
-    "TypeSummaries" => list(type_summary()())
-  }
+      
+      list_types_output() :: %{
+        "NextToken" => String.t(),
+        "TypeSummaries" => list(type_summary()())
+      }
+      
   """
   @type list_types_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  set_type_configuration_output() :: %{
-    "ConfigurationArn" => String.t()
-  }
+      
+      set_type_configuration_output() :: %{
+        "ConfigurationArn" => String.t()
+      }
+      
   """
   @type set_type_configuration_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  template_progress() :: %{
-    "ResourcesFailed" => integer(),
-    "ResourcesPending" => integer(),
-    "ResourcesProcessing" => integer(),
-    "ResourcesSucceeded" => integer()
-  }
+      
+      template_progress() :: %{
+        "ResourcesFailed" => integer(),
+        "ResourcesPending" => integer(),
+        "ResourcesProcessing" => integer(),
+        "ResourcesSucceeded" => integer()
+      }
+      
   """
   @type template_progress() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_template_summary_output() :: %{
-    "Capabilities" => list(list(any())()),
-    "CapabilitiesReason" => String.t(),
-    "DeclaredTransforms" => list(String.t()()),
-    "Description" => String.t(),
-    "Metadata" => String.t(),
-    "Parameters" => list(parameter_declaration()()),
-    "ResourceIdentifierSummaries" => list(resource_identifier_summary()()),
-    "ResourceTypes" => list(String.t()()),
-    "Version" => String.t(),
-    "Warnings" => warnings()
-  }
+      
+      get_template_summary_output() :: %{
+        "Capabilities" => list(list(any())()),
+        "CapabilitiesReason" => String.t(),
+        "DeclaredTransforms" => list(String.t()()),
+        "Description" => String.t(),
+        "Metadata" => String.t(),
+        "Parameters" => list(parameter_declaration()()),
+        "ResourceIdentifierSummaries" => list(resource_identifier_summary()()),
+        "ResourceTypes" => list(String.t()()),
+        "Version" => String.t(),
+        "Warnings" => warnings()
+      }
+      
   """
   @type get_template_summary_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stack_set_summary() :: %{
-    "AutoDeployment" => auto_deployment(),
-    "Description" => String.t(),
-    "DriftStatus" => list(any()),
-    "LastDriftCheckTimestamp" => non_neg_integer(),
-    "ManagedExecution" => managed_execution(),
-    "PermissionModel" => list(any()),
-    "StackSetId" => String.t(),
-    "StackSetName" => String.t(),
-    "Status" => list(any())
-  }
+      
+      stack_set_summary() :: %{
+        "AutoDeployment" => auto_deployment(),
+        "Description" => String.t(),
+        "DriftStatus" => list(any()),
+        "LastDriftCheckTimestamp" => non_neg_integer(),
+        "ManagedExecution" => managed_execution(),
+        "PermissionModel" => list(any()),
+        "StackSetId" => String.t(),
+        "StackSetName" => String.t(),
+        "Status" => list(any())
+      }
+      
   """
   @type stack_set_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stack_instance_filter() :: %{
-    "Name" => list(any()),
-    "Values" => String.t()
-  }
+      
+      stack_instance_filter() :: %{
+        "Name" => list(any()),
+        "Values" => String.t()
+      }
+      
   """
   @type stack_instance_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  continue_update_rollback_input() :: %{
-    optional("ClientRequestToken") => String.t(),
-    optional("ResourcesToSkip") => list(String.t()()),
-    optional("RoleARN") => String.t(),
-    required("StackName") => String.t()
-  }
+      
+      continue_update_rollback_input() :: %{
+        optional("ClientRequestToken") => String.t(),
+        optional("ResourcesToSkip") => list(String.t()()),
+        optional("RoleARN") => String.t(),
+        required("StackName") => String.t()
+      }
+      
   """
   @type continue_update_rollback_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  operation_id_already_exists_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      operation_id_already_exists_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type operation_id_already_exists_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_type_registration_output() :: %{
-    "Description" => String.t(),
-    "ProgressStatus" => list(any()),
-    "TypeArn" => String.t(),
-    "TypeVersionArn" => String.t()
-  }
+      
+      describe_type_registration_output() :: %{
+        "Description" => String.t(),
+        "ProgressStatus" => list(any()),
+        "TypeArn" => String.t(),
+        "TypeVersionArn" => String.t()
+      }
+      
   """
   @type describe_type_registration_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  activate_organizations_access_output() :: %{
-
-  }
+      
+      activate_organizations_access_output() :: %{}
+      
   """
-  @type activate_organizations_access_output() :: %{String.t() => any()}
+  @type activate_organizations_access_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_stack_instance_resource_drifts_output() :: %{
-    "NextToken" => String.t(),
-    "Summaries" => list(stack_instance_resource_drifts_summary()())
-  }
+      
+      list_stack_instance_resource_drifts_output() :: %{
+        "NextToken" => String.t(),
+        "Summaries" => list(stack_instance_resource_drifts_summary()())
+      }
+      
   """
   @type list_stack_instance_resource_drifts_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  rollback_configuration() :: %{
-    "MonitoringTimeInMinutes" => integer(),
-    "RollbackTriggers" => list(rollback_trigger()())
-  }
+      
+      rollback_configuration() :: %{
+        "MonitoringTimeInMinutes" => integer(),
+        "RollbackTriggers" => list(rollback_trigger()())
+      }
+      
   """
   @type rollback_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_change_sets_input() :: %{
-    optional("NextToken") => String.t(),
-    required("StackName") => String.t()
-  }
+      
+      list_change_sets_input() :: %{
+        optional("NextToken") => String.t(),
+        required("StackName") => String.t()
+      }
+      
   """
   @type list_change_sets_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  rollback_trigger() :: %{
-    "Arn" => String.t(),
-    "Type" => String.t()
-  }
+      
+      rollback_trigger() :: %{
+        "Arn" => String.t(),
+        "Type" => String.t()
+      }
+      
   """
   @type rollback_trigger() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_stack_instances_output() :: %{
-    "NextToken" => String.t(),
-    "Summaries" => list(stack_instance_summary()())
-  }
+      
+      list_stack_instances_output() :: %{
+        "NextToken" => String.t(),
+        "Summaries" => list(stack_instance_summary()())
+      }
+      
   """
   @type list_stack_instances_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  detect_stack_set_drift_input() :: %{
-    optional("CallAs") => list(any()),
-    optional("OperationId") => String.t(),
-    optional("OperationPreferences") => stack_set_operation_preferences(),
-    required("StackSetName") => String.t()
-  }
+      
+      detect_stack_set_drift_input() :: %{
+        optional("CallAs") => list(any()),
+        optional("OperationId") => String.t(),
+        optional("OperationPreferences") => stack_set_operation_preferences(),
+        required("StackSetName") => String.t()
+      }
+      
   """
   @type detect_stack_set_drift_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_stack_set_operation_results_output() :: %{
-    "NextToken" => String.t(),
-    "Summaries" => list(stack_set_operation_result_summary()())
-  }
+      
+      list_stack_set_operation_results_output() :: %{
+        "NextToken" => String.t(),
+        "Summaries" => list(stack_set_operation_result_summary()())
+      }
+      
   """
   @type list_stack_set_operation_results_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_generated_template_output() :: %{
-    "Status" => list(any()),
-    "TemplateBody" => String.t()
-  }
+      
+      get_generated_template_output() :: %{
+        "Status" => list(any()),
+        "TemplateBody" => String.t()
+      }
+      
   """
   @type get_generated_template_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_stack_set_input() :: %{
-    optional("AdministrationRoleARN") => String.t(),
-    optional("AutoDeployment") => auto_deployment(),
-    optional("CallAs") => list(any()),
-    optional("Capabilities") => list(list(any())()),
-    optional("ClientRequestToken") => String.t(),
-    optional("Description") => String.t(),
-    optional("ExecutionRoleName") => String.t(),
-    optional("ManagedExecution") => managed_execution(),
-    optional("Parameters") => list(parameter()()),
-    optional("PermissionModel") => list(any()),
-    optional("StackId") => String.t(),
-    optional("Tags") => list(tag()()),
-    optional("TemplateBody") => String.t(),
-    optional("TemplateURL") => String.t(),
-    required("StackSetName") => String.t()
-  }
+      
+      create_stack_set_input() :: %{
+        optional("AdministrationRoleARN") => String.t(),
+        optional("AutoDeployment") => auto_deployment(),
+        optional("CallAs") => list(any()),
+        optional("Capabilities") => list(list(any())()),
+        optional("ClientRequestToken") => String.t(),
+        optional("Description") => String.t(),
+        optional("ExecutionRoleName") => String.t(),
+        optional("ManagedExecution") => managed_execution(),
+        optional("Parameters") => list(parameter()()),
+        optional("PermissionModel") => list(any()),
+        optional("StackId") => String.t(),
+        optional("Tags") => list(tag()()),
+        optional("TemplateBody") => String.t(),
+        optional("TemplateURL") => String.t(),
+        required("StackSetName") => String.t()
+      }
+      
   """
   @type create_stack_set_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  operation_result_filter() :: %{
-    "Name" => list(any()),
-    "Values" => String.t()
-  }
+      
+      operation_result_filter() :: %{
+        "Name" => list(any()),
+        "Values" => String.t()
+      }
+      
   """
   @type operation_result_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  change_set_not_found_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      change_set_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type change_set_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_stack_set_output() :: %{
-
-  }
+      
+      delete_stack_set_output() :: %{}
+      
   """
-  @type delete_stack_set_output() :: %{String.t() => any()}
+  @type delete_stack_set_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  resource_change() :: %{
-    "Action" => list(any()),
-    "ChangeSetId" => String.t(),
-    "Details" => list(resource_change_detail()()),
-    "LogicalResourceId" => String.t(),
-    "ModuleInfo" => module_info(),
-    "PhysicalResourceId" => String.t(),
-    "Replacement" => list(any()),
-    "ResourceType" => String.t(),
-    "Scope" => list(list(any())())
-  }
+      
+      resource_change() :: %{
+        "Action" => list(any()),
+        "ChangeSetId" => String.t(),
+        "Details" => list(resource_change_detail()()),
+        "LogicalResourceId" => String.t(),
+        "ModuleInfo" => module_info(),
+        "PhysicalResourceId" => String.t(),
+        "Replacement" => list(any()),
+        "ResourceType" => String.t(),
+        "Scope" => list(list(any())())
+      }
+      
   """
   @type resource_change() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  deployment_targets() :: %{
-    "AccountFilterType" => list(any()),
-    "Accounts" => list(String.t()()),
-    "AccountsUrl" => String.t(),
-    "OrganizationalUnitIds" => list(String.t()())
-  }
+      
+      deployment_targets() :: %{
+        "AccountFilterType" => list(any()),
+        "Accounts" => list(String.t()()),
+        "AccountsUrl" => String.t(),
+        "OrganizationalUnitIds" => list(String.t()())
+      }
+      
   """
   @type deployment_targets() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  detect_stack_drift_input() :: %{
-    optional("LogicalResourceIds") => list(String.t()()),
-    required("StackName") => String.t()
-  }
+      
+      detect_stack_drift_input() :: %{
+        optional("LogicalResourceIds") => list(String.t()()),
+        required("StackName") => String.t()
+      }
+      
   """
   @type detect_stack_drift_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stack_resource() :: %{
-    "Description" => String.t(),
-    "DriftInformation" => stack_resource_drift_information(),
-    "LogicalResourceId" => String.t(),
-    "ModuleInfo" => module_info(),
-    "PhysicalResourceId" => String.t(),
-    "ResourceStatus" => list(any()),
-    "ResourceStatusReason" => String.t(),
-    "ResourceType" => String.t(),
-    "StackId" => String.t(),
-    "StackName" => String.t(),
-    "Timestamp" => non_neg_integer()
-  }
+      
+      stack_resource() :: %{
+        "Description" => String.t(),
+        "DriftInformation" => stack_resource_drift_information(),
+        "LogicalResourceId" => String.t(),
+        "ModuleInfo" => module_info(),
+        "PhysicalResourceId" => String.t(),
+        "ResourceStatus" => list(any()),
+        "ResourceStatusReason" => String.t(),
+        "ResourceType" => String.t(),
+        "StackId" => String.t(),
+        "StackName" => String.t(),
+        "Timestamp" => non_neg_integer()
+      }
+      
   """
   @type stack_resource() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stack_set_operation() :: %{
-    "Action" => list(any()),
-    "AdministrationRoleARN" => String.t(),
-    "CreationTimestamp" => non_neg_integer(),
-    "DeploymentTargets" => deployment_targets(),
-    "EndTimestamp" => non_neg_integer(),
-    "ExecutionRoleName" => String.t(),
-    "OperationId" => String.t(),
-    "OperationPreferences" => stack_set_operation_preferences(),
-    "RetainStacks" => boolean(),
-    "StackSetDriftDetectionDetails" => stack_set_drift_detection_details(),
-    "StackSetId" => String.t(),
-    "Status" => list(any()),
-    "StatusDetails" => stack_set_operation_status_details(),
-    "StatusReason" => String.t()
-  }
+      
+      stack_set_operation() :: %{
+        "Action" => list(any()),
+        "AdministrationRoleARN" => String.t(),
+        "CreationTimestamp" => non_neg_integer(),
+        "DeploymentTargets" => deployment_targets(),
+        "EndTimestamp" => non_neg_integer(),
+        "ExecutionRoleName" => String.t(),
+        "OperationId" => String.t(),
+        "OperationPreferences" => stack_set_operation_preferences(),
+        "RetainStacks" => boolean(),
+        "StackSetDriftDetectionDetails" => stack_set_drift_detection_details(),
+        "StackSetId" => String.t(),
+        "Status" => list(any()),
+        "StatusDetails" => stack_set_operation_status_details(),
+        "StatusReason" => String.t()
+      }
+      
   """
   @type stack_set_operation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  register_type_output() :: %{
-    "RegistrationToken" => String.t()
-  }
+      
+      register_type_output() :: %{
+        "RegistrationToken" => String.t()
+      }
+      
   """
   @type register_type_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  export() :: %{
-    "ExportingStackId" => String.t(),
-    "Name" => String.t(),
-    "Value" => String.t()
-  }
+      
+      export() :: %{
+        "ExportingStackId" => String.t(),
+        "Name" => String.t(),
+        "Value" => String.t()
+      }
+      
   """
   @type export() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_generated_template_input() :: %{
-    optional("Format") => list(any()),
-    required("GeneratedTemplateName") => String.t()
-  }
+      
+      get_generated_template_input() :: %{
+        optional("Format") => list(any()),
+        required("GeneratedTemplateName") => String.t()
+      }
+      
   """
   @type get_generated_template_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_stack_instances_output() :: %{
-    "OperationId" => String.t()
-  }
+      
+      update_stack_instances_output() :: %{
+        "OperationId" => String.t()
+      }
+      
   """
   @type update_stack_instances_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  output() :: %{
-    "Description" => String.t(),
-    "ExportName" => String.t(),
-    "OutputKey" => String.t(),
-    "OutputValue" => String.t()
-  }
+      
+      output() :: %{
+        "Description" => String.t(),
+        "ExportName" => String.t(),
+        "OutputKey" => String.t(),
+        "OutputValue" => String.t()
+      }
+      
   """
   @type output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  c_f_n_registry_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      c_f_n_registry_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type c_f_n_registry_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_stacks_output() :: %{
-    "NextToken" => String.t(),
-    "Stacks" => list(stack()())
-  }
+      
+      describe_stacks_output() :: %{
+        "NextToken" => String.t(),
+        "Stacks" => list(stack()())
+      }
+      
   """
   @type describe_stacks_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_stack_input() :: %{
-    optional("ClientRequestToken") => String.t(),
-    optional("RetainResources") => list(String.t()()),
-    optional("RoleARN") => String.t(),
-    required("StackName") => String.t()
-  }
+      
+      delete_stack_input() :: %{
+        optional("ClientRequestToken") => String.t(),
+        optional("RetainResources") => list(String.t()()),
+        optional("RoleARN") => String.t(),
+        required("StackName") => String.t()
+      }
+      
   """
   @type delete_stack_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_detail() :: %{
-    "LogicalResourceId" => String.t(),
-    "ResourceIdentifier" => map(),
-    "ResourceStatus" => list(any()),
-    "ResourceStatusReason" => String.t(),
-    "ResourceType" => String.t(),
-    "Warnings" => list(warning_detail()())
-  }
+      
+      resource_detail() :: %{
+        "LogicalResourceId" => String.t(),
+        "ResourceIdentifier" => map(),
+        "ResourceStatus" => list(any()),
+        "ResourceStatusReason" => String.t(),
+        "ResourceType" => String.t(),
+        "Warnings" => list(warning_detail()())
+      }
+      
   """
   @type resource_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_stack_set_operation_output() :: %{
-    "StackSetOperation" => stack_set_operation()
-  }
+      
+      describe_stack_set_operation_output() :: %{
+        "StackSetOperation" => stack_set_operation()
+      }
+      
   """
   @type describe_stack_set_operation_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_imports_output() :: %{
-    "Imports" => list(String.t()()),
-    "NextToken" => String.t()
-  }
+      
+      list_imports_output() :: %{
+        "Imports" => list(String.t()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_imports_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  register_type_input() :: %{
-    optional("ClientRequestToken") => String.t(),
-    optional("ExecutionRoleArn") => String.t(),
-    optional("LoggingConfig") => logging_config(),
-    optional("Type") => list(any()),
-    required("SchemaHandlerPackage") => String.t(),
-    required("TypeName") => String.t()
-  }
+      
+      register_type_input() :: %{
+        optional("ClientRequestToken") => String.t(),
+        optional("ExecutionRoleArn") => String.t(),
+        optional("LoggingConfig") => logging_config(),
+        optional("Type") => list(any()),
+        required("SchemaHandlerPackage") => String.t(),
+        required("TypeName") => String.t()
+      }
+      
   """
   @type register_type_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  auto_deployment() :: %{
-    "Enabled" => boolean(),
-    "RetainStacksOnAccountRemoval" => boolean()
-  }
+      
+      auto_deployment() :: %{
+        "Enabled" => boolean(),
+        "RetainStacksOnAccountRemoval" => boolean()
+      }
+      
   """
   @type auto_deployment() :: %{String.t() => any()}
+
+  @type activate_organizations_access_errors() ::
+          operation_not_found_exception() | invalid_operation_exception()
+
+  @type activate_type_errors() :: c_f_n_registry_exception() | type_not_found_exception()
+
+  @type batch_describe_type_configurations_errors() ::
+          c_f_n_registry_exception() | type_configuration_not_found_exception()
+
+  @type cancel_update_stack_errors() :: token_already_exists_exception()
+
+  @type continue_update_rollback_errors() :: token_already_exists_exception()
+
+  @type create_change_set_errors() ::
+          limit_exceeded_exception()
+          | insufficient_capabilities_exception()
+          | already_exists_exception()
+
+  @type create_generated_template_errors() ::
+          limit_exceeded_exception()
+          | concurrent_resources_limit_exceeded_exception()
+          | already_exists_exception()
+
+  @type create_stack_errors() ::
+          token_already_exists_exception()
+          | limit_exceeded_exception()
+          | insufficient_capabilities_exception()
+          | already_exists_exception()
+
+  @type create_stack_instances_errors() ::
+          operation_id_already_exists_exception()
+          | limit_exceeded_exception()
+          | stack_set_not_found_exception()
+          | operation_in_progress_exception()
+          | invalid_operation_exception()
+          | stale_request_exception()
+
+  @type create_stack_set_errors() ::
+          limit_exceeded_exception()
+          | created_but_modified_exception()
+          | name_already_exists_exception()
+
+  @type deactivate_organizations_access_errors() ::
+          operation_not_found_exception() | invalid_operation_exception()
+
+  @type deactivate_type_errors() :: c_f_n_registry_exception() | type_not_found_exception()
+
+  @type delete_change_set_errors() :: invalid_change_set_status_exception()
+
+  @type delete_generated_template_errors() ::
+          concurrent_resources_limit_exceeded_exception()
+          | generated_template_not_found_exception()
+
+  @type delete_stack_errors() :: token_already_exists_exception()
+
+  @type delete_stack_instances_errors() ::
+          operation_id_already_exists_exception()
+          | stack_set_not_found_exception()
+          | operation_in_progress_exception()
+          | invalid_operation_exception()
+          | stale_request_exception()
+
+  @type delete_stack_set_errors() ::
+          stack_set_not_empty_exception() | operation_in_progress_exception()
+
+  @type deregister_type_errors() :: c_f_n_registry_exception() | type_not_found_exception()
+
+  @type describe_change_set_errors() :: change_set_not_found_exception()
+
+  @type describe_change_set_hooks_errors() :: change_set_not_found_exception()
+
+  @type describe_generated_template_errors() :: generated_template_not_found_exception()
+
+  @type describe_organizations_access_errors() ::
+          operation_not_found_exception() | invalid_operation_exception()
+
+  @type describe_publisher_errors() :: c_f_n_registry_exception()
+
+  @type describe_resource_scan_errors() :: resource_scan_not_found_exception()
+
+  @type describe_stack_instance_errors() ::
+          stack_instance_not_found_exception() | stack_set_not_found_exception()
+
+  @type describe_stack_set_errors() :: stack_set_not_found_exception()
+
+  @type describe_stack_set_operation_errors() ::
+          stack_set_not_found_exception() | operation_not_found_exception()
+
+  @type describe_type_errors() :: c_f_n_registry_exception() | type_not_found_exception()
+
+  @type describe_type_registration_errors() :: c_f_n_registry_exception()
+
+  @type detect_stack_set_drift_errors() ::
+          stack_set_not_found_exception()
+          | operation_in_progress_exception()
+          | invalid_operation_exception()
+
+  @type execute_change_set_errors() ::
+          change_set_not_found_exception()
+          | token_already_exists_exception()
+          | invalid_change_set_status_exception()
+          | insufficient_capabilities_exception()
+
+  @type get_generated_template_errors() :: generated_template_not_found_exception()
+
+  @type get_template_errors() :: change_set_not_found_exception()
+
+  @type get_template_summary_errors() :: stack_set_not_found_exception()
+
+  @type import_stacks_to_stack_set_errors() ::
+          operation_id_already_exists_exception()
+          | limit_exceeded_exception()
+          | stack_set_not_found_exception()
+          | stack_not_found_exception()
+          | operation_in_progress_exception()
+          | invalid_operation_exception()
+          | stale_request_exception()
+
+  @type list_resource_scan_related_resources_errors() ::
+          resource_scan_in_progress_exception() | resource_scan_not_found_exception()
+
+  @type list_resource_scan_resources_errors() ::
+          resource_scan_in_progress_exception() | resource_scan_not_found_exception()
+
+  @type list_stack_instance_resource_drifts_errors() ::
+          stack_instance_not_found_exception()
+          | stack_set_not_found_exception()
+          | operation_not_found_exception()
+
+  @type list_stack_instances_errors() :: stack_set_not_found_exception()
+
+  @type list_stack_set_operation_results_errors() ::
+          stack_set_not_found_exception() | operation_not_found_exception()
+
+  @type list_stack_set_operations_errors() :: stack_set_not_found_exception()
+
+  @type list_type_registrations_errors() :: c_f_n_registry_exception()
+
+  @type list_type_versions_errors() :: c_f_n_registry_exception()
+
+  @type list_types_errors() :: c_f_n_registry_exception()
+
+  @type publish_type_errors() :: c_f_n_registry_exception() | type_not_found_exception()
+
+  @type record_handler_progress_errors() ::
+          invalid_state_transition_exception() | operation_status_check_failed_exception()
+
+  @type register_publisher_errors() :: c_f_n_registry_exception()
+
+  @type register_type_errors() :: c_f_n_registry_exception()
+
+  @type rollback_stack_errors() :: token_already_exists_exception()
+
+  @type set_type_configuration_errors() :: c_f_n_registry_exception() | type_not_found_exception()
+
+  @type set_type_default_version_errors() ::
+          c_f_n_registry_exception() | type_not_found_exception()
+
+  @type start_resource_scan_errors() ::
+          resource_scan_limit_exceeded_exception() | resource_scan_in_progress_exception()
+
+  @type stop_stack_set_operation_errors() ::
+          stack_set_not_found_exception()
+          | operation_not_found_exception()
+          | invalid_operation_exception()
+
+  @type test_type_errors() :: c_f_n_registry_exception() | type_not_found_exception()
+
+  @type update_generated_template_errors() ::
+          limit_exceeded_exception()
+          | already_exists_exception()
+          | generated_template_not_found_exception()
+
+  @type update_stack_errors() ::
+          token_already_exists_exception() | insufficient_capabilities_exception()
+
+  @type update_stack_instances_errors() ::
+          operation_id_already_exists_exception()
+          | stack_instance_not_found_exception()
+          | stack_set_not_found_exception()
+          | operation_in_progress_exception()
+          | invalid_operation_exception()
+          | stale_request_exception()
+
+  @type update_stack_set_errors() ::
+          operation_id_already_exists_exception()
+          | stack_instance_not_found_exception()
+          | stack_set_not_found_exception()
+          | operation_in_progress_exception()
+          | invalid_operation_exception()
+          | stale_request_exception()
 
   def metadata do
     %{
@@ -3081,8 +3758,7 @@ defmodule AWS.CloudFormation do
   @spec activate_organizations_access(map(), activate_organizations_access_input(), list()) ::
           {:ok, activate_organizations_access_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_operation_exception()}
-          | {:error, operation_not_found_exception()}
+          | {:error, activate_organizations_access_errors()}
   def activate_organizations_access(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3108,8 +3784,7 @@ defmodule AWS.CloudFormation do
   @spec activate_type(map(), activate_type_input(), list()) ::
           {:ok, activate_type_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, c_f_n_registry_exception()}
-          | {:error, type_not_found_exception()}
+          | {:error, activate_type_errors()}
   def activate_type(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3132,8 +3807,7 @@ defmodule AWS.CloudFormation do
         ) ::
           {:ok, batch_describe_type_configurations_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, c_f_n_registry_exception()}
-          | {:error, type_configuration_not_found_exception()}
+          | {:error, batch_describe_type_configurations_errors()}
   def batch_describe_type_configurations(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3151,7 +3825,7 @@ defmodule AWS.CloudFormation do
   @spec cancel_update_stack(map(), cancel_update_stack_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, token_already_exists_exception()}
+          | {:error, cancel_update_stack_errors()}
   def cancel_update_stack(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3180,7 +3854,7 @@ defmodule AWS.CloudFormation do
   @spec continue_update_rollback(map(), continue_update_rollback_input(), list()) ::
           {:ok, continue_update_rollback_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, token_already_exists_exception()}
+          | {:error, continue_update_rollback_errors()}
   def continue_update_rollback(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3223,9 +3897,7 @@ defmodule AWS.CloudFormation do
   @spec create_change_set(map(), create_change_set_input(), list()) ::
           {:ok, create_change_set_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, already_exists_exception()}
-          | {:error, insufficient_capabilities_exception()}
-          | {:error, limit_exceeded_exception()}
+          | {:error, create_change_set_errors()}
   def create_change_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3242,9 +3914,7 @@ defmodule AWS.CloudFormation do
   @spec create_generated_template(map(), create_generated_template_input(), list()) ::
           {:ok, create_generated_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, already_exists_exception()}
-          | {:error, concurrent_resources_limit_exceeded_exception()}
-          | {:error, limit_exceeded_exception()}
+          | {:error, create_generated_template_errors()}
   def create_generated_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3260,10 +3930,7 @@ defmodule AWS.CloudFormation do
   @spec create_stack(map(), create_stack_input(), list()) ::
           {:ok, create_stack_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, already_exists_exception()}
-          | {:error, insufficient_capabilities_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, token_already_exists_exception()}
+          | {:error, create_stack_errors()}
   def create_stack(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3283,12 +3950,7 @@ defmodule AWS.CloudFormation do
   @spec create_stack_instances(map(), create_stack_instances_input(), list()) ::
           {:ok, create_stack_instances_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_operation_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, operation_id_already_exists_exception()}
-          | {:error, operation_in_progress_exception()}
-          | {:error, stack_set_not_found_exception()}
-          | {:error, stale_request_exception()}
+          | {:error, create_stack_instances_errors()}
   def create_stack_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3301,9 +3963,7 @@ defmodule AWS.CloudFormation do
   @spec create_stack_set(map(), create_stack_set_input(), list()) ::
           {:ok, create_stack_set_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, created_but_modified_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, name_already_exists_exception()}
+          | {:error, create_stack_set_errors()}
   def create_stack_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3320,8 +3980,7 @@ defmodule AWS.CloudFormation do
   @spec deactivate_organizations_access(map(), deactivate_organizations_access_input(), list()) ::
           {:ok, deactivate_organizations_access_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_operation_exception()}
-          | {:error, operation_not_found_exception()}
+          | {:error, deactivate_organizations_access_errors()}
   def deactivate_organizations_access(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3342,8 +4001,7 @@ defmodule AWS.CloudFormation do
   @spec deactivate_type(map(), deactivate_type_input(), list()) ::
           {:ok, deactivate_type_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, c_f_n_registry_exception()}
-          | {:error, type_not_found_exception()}
+          | {:error, deactivate_type_errors()}
   def deactivate_type(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3368,7 +4026,7 @@ defmodule AWS.CloudFormation do
   @spec delete_change_set(map(), delete_change_set_input(), list()) ::
           {:ok, delete_change_set_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_change_set_status_exception()}
+          | {:error, delete_change_set_errors()}
   def delete_change_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3381,8 +4039,7 @@ defmodule AWS.CloudFormation do
   @spec delete_generated_template(map(), delete_generated_template_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_resources_limit_exceeded_exception()}
-          | {:error, generated_template_not_found_exception()}
+          | {:error, delete_generated_template_errors()}
   def delete_generated_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3400,7 +4057,7 @@ defmodule AWS.CloudFormation do
   @spec delete_stack(map(), delete_stack_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, token_already_exists_exception()}
+          | {:error, delete_stack_errors()}
   def delete_stack(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3414,11 +4071,7 @@ defmodule AWS.CloudFormation do
   @spec delete_stack_instances(map(), delete_stack_instances_input(), list()) ::
           {:ok, delete_stack_instances_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_operation_exception()}
-          | {:error, operation_id_already_exists_exception()}
-          | {:error, operation_in_progress_exception()}
-          | {:error, stack_set_not_found_exception()}
-          | {:error, stale_request_exception()}
+          | {:error, delete_stack_instances_errors()}
   def delete_stack_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3435,8 +4088,7 @@ defmodule AWS.CloudFormation do
   @spec delete_stack_set(map(), delete_stack_set_input(), list()) ::
           {:ok, delete_stack_set_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, operation_in_progress_exception()}
-          | {:error, stack_set_not_empty_exception()}
+          | {:error, delete_stack_set_errors()}
   def delete_stack_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3470,8 +4122,7 @@ defmodule AWS.CloudFormation do
   @spec deregister_type(map(), deregister_type_input(), list()) ::
           {:ok, deregister_type_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, c_f_n_registry_exception()}
-          | {:error, type_not_found_exception()}
+          | {:error, deregister_type_errors()}
   def deregister_type(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3505,7 +4156,7 @@ defmodule AWS.CloudFormation do
   @spec describe_change_set(map(), describe_change_set_input(), list()) ::
           {:ok, describe_change_set_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, change_set_not_found_exception()}
+          | {:error, describe_change_set_errors()}
   def describe_change_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3520,7 +4171,7 @@ defmodule AWS.CloudFormation do
   @spec describe_change_set_hooks(map(), describe_change_set_hooks_input(), list()) ::
           {:ok, describe_change_set_hooks_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, change_set_not_found_exception()}
+          | {:error, describe_change_set_hooks_errors()}
   def describe_change_set_hooks(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3538,7 +4189,7 @@ defmodule AWS.CloudFormation do
   @spec describe_generated_template(map(), describe_generated_template_input(), list()) ::
           {:ok, describe_generated_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, generated_template_not_found_exception()}
+          | {:error, describe_generated_template_errors()}
   def describe_generated_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3556,8 +4207,7 @@ defmodule AWS.CloudFormation do
   @spec describe_organizations_access(map(), describe_organizations_access_input(), list()) ::
           {:ok, describe_organizations_access_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_operation_exception()}
-          | {:error, operation_not_found_exception()}
+          | {:error, describe_organizations_access_errors()}
   def describe_organizations_access(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3589,7 +4239,7 @@ defmodule AWS.CloudFormation do
   @spec describe_publisher(map(), describe_publisher_input(), list()) ::
           {:ok, describe_publisher_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, c_f_n_registry_exception()}
+          | {:error, describe_publisher_errors()}
   def describe_publisher(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3602,7 +4252,7 @@ defmodule AWS.CloudFormation do
   @spec describe_resource_scan(map(), describe_resource_scan_input(), list()) ::
           {:ok, describe_resource_scan_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_scan_not_found_exception()}
+          | {:error, describe_resource_scan_errors()}
   def describe_resource_scan(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3676,8 +4326,7 @@ defmodule AWS.CloudFormation do
   @spec describe_stack_instance(map(), describe_stack_instance_input(), list()) ::
           {:ok, describe_stack_instance_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, stack_instance_not_found_exception()}
-          | {:error, stack_set_not_found_exception()}
+          | {:error, describe_stack_instance_errors()}
   def describe_stack_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3770,7 +4419,7 @@ defmodule AWS.CloudFormation do
   @spec describe_stack_set(map(), describe_stack_set_input(), list()) ::
           {:ok, describe_stack_set_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, stack_set_not_found_exception()}
+          | {:error, describe_stack_set_errors()}
   def describe_stack_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3783,8 +4432,7 @@ defmodule AWS.CloudFormation do
   @spec describe_stack_set_operation(map(), describe_stack_set_operation_input(), list()) ::
           {:ok, describe_stack_set_operation_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, operation_not_found_exception()}
-          | {:error, stack_set_not_found_exception()}
+          | {:error, describe_stack_set_operation_errors()}
   def describe_stack_set_operation(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3818,8 +4466,7 @@ defmodule AWS.CloudFormation do
   @spec describe_type(map(), describe_type_input(), list()) ::
           {:ok, describe_type_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, c_f_n_registry_exception()}
-          | {:error, type_not_found_exception()}
+          | {:error, describe_type_errors()}
   def describe_type(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3841,7 +4488,7 @@ defmodule AWS.CloudFormation do
   @spec describe_type_registration(map(), describe_type_registration_input(), list()) ::
           {:ok, describe_type_registration_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, c_f_n_registry_exception()}
+          | {:error, describe_type_registration_errors()}
   def describe_type_registration(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3971,9 +4618,7 @@ defmodule AWS.CloudFormation do
   @spec detect_stack_set_drift(map(), detect_stack_set_drift_input(), list()) ::
           {:ok, detect_stack_set_drift_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_operation_exception()}
-          | {:error, operation_in_progress_exception()}
-          | {:error, stack_set_not_found_exception()}
+          | {:error, detect_stack_set_drift_errors()}
   def detect_stack_set_drift(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4020,10 +4665,7 @@ defmodule AWS.CloudFormation do
   @spec execute_change_set(map(), execute_change_set_input(), list()) ::
           {:ok, execute_change_set_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, change_set_not_found_exception()}
-          | {:error, insufficient_capabilities_exception()}
-          | {:error, invalid_change_set_status_exception()}
-          | {:error, token_already_exists_exception()}
+          | {:error, execute_change_set_errors()}
   def execute_change_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4042,7 +4684,7 @@ defmodule AWS.CloudFormation do
   @spec get_generated_template(map(), get_generated_template_input(), list()) ::
           {:ok, get_generated_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, generated_template_not_found_exception()}
+          | {:error, get_generated_template_errors()}
   def get_generated_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4078,7 +4720,7 @@ defmodule AWS.CloudFormation do
   @spec get_template(map(), get_template_input(), list()) ::
           {:ok, get_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, change_set_not_found_exception()}
+          | {:error, get_template_errors()}
   def get_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4105,7 +4747,7 @@ defmodule AWS.CloudFormation do
   @spec get_template_summary(map(), get_template_summary_input(), list()) ::
           {:ok, get_template_summary_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, stack_set_not_found_exception()}
+          | {:error, get_template_summary_errors()}
   def get_template_summary(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4123,13 +4765,7 @@ defmodule AWS.CloudFormation do
   @spec import_stacks_to_stack_set(map(), import_stacks_to_stack_set_input(), list()) ::
           {:ok, import_stacks_to_stack_set_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_operation_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, operation_id_already_exists_exception()}
-          | {:error, operation_in_progress_exception()}
-          | {:error, stack_not_found_exception()}
-          | {:error, stack_set_not_found_exception()}
-          | {:error, stale_request_exception()}
+          | {:error, import_stacks_to_stack_set_errors()}
   def import_stacks_to_stack_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4217,8 +4853,7 @@ defmodule AWS.CloudFormation do
         ) ::
           {:ok, list_resource_scan_related_resources_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_scan_in_progress_exception()}
-          | {:error, resource_scan_not_found_exception()}
+          | {:error, list_resource_scan_related_resources_errors()}
   def list_resource_scan_related_resources(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4236,8 +4871,7 @@ defmodule AWS.CloudFormation do
   @spec list_resource_scan_resources(map(), list_resource_scan_resources_input(), list()) ::
           {:ok, list_resource_scan_resources_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_scan_in_progress_exception()}
-          | {:error, resource_scan_not_found_exception()}
+          | {:error, list_resource_scan_resources_errors()}
   def list_resource_scan_resources(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4272,9 +4906,7 @@ defmodule AWS.CloudFormation do
         ) ::
           {:ok, list_stack_instance_resource_drifts_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, operation_not_found_exception()}
-          | {:error, stack_instance_not_found_exception()}
-          | {:error, stack_set_not_found_exception()}
+          | {:error, list_stack_instance_resource_drifts_errors()}
   def list_stack_instance_resource_drifts(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4293,7 +4925,7 @@ defmodule AWS.CloudFormation do
   @spec list_stack_instances(map(), list_stack_instances_input(), list()) ::
           {:ok, list_stack_instances_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, stack_set_not_found_exception()}
+          | {:error, list_stack_instances_errors()}
   def list_stack_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4322,8 +4954,7 @@ defmodule AWS.CloudFormation do
   @spec list_stack_set_operation_results(map(), list_stack_set_operation_results_input(), list()) ::
           {:ok, list_stack_set_operation_results_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, operation_not_found_exception()}
-          | {:error, stack_set_not_found_exception()}
+          | {:error, list_stack_set_operation_results_errors()}
   def list_stack_set_operation_results(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4336,7 +4967,7 @@ defmodule AWS.CloudFormation do
   @spec list_stack_set_operations(map(), list_stack_set_operations_input(), list()) ::
           {:ok, list_stack_set_operations_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, stack_set_not_found_exception()}
+          | {:error, list_stack_set_operations_errors()}
   def list_stack_set_operations(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4400,7 +5031,7 @@ defmodule AWS.CloudFormation do
   @spec list_type_registrations(map(), list_type_registrations_input(), list()) ::
           {:ok, list_type_registrations_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, c_f_n_registry_exception()}
+          | {:error, list_type_registrations_errors()}
   def list_type_registrations(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4413,7 +5044,7 @@ defmodule AWS.CloudFormation do
   @spec list_type_versions(map(), list_type_versions_input(), list()) ::
           {:ok, list_type_versions_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, c_f_n_registry_exception()}
+          | {:error, list_type_versions_errors()}
   def list_type_versions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4427,7 +5058,7 @@ defmodule AWS.CloudFormation do
   @spec list_types(map(), list_types_input(), list()) ::
           {:ok, list_types_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, c_f_n_registry_exception()}
+          | {:error, list_types_errors()}
   def list_types(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4453,8 +5084,7 @@ defmodule AWS.CloudFormation do
   @spec publish_type(map(), publish_type_input(), list()) ::
           {:ok, publish_type_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, c_f_n_registry_exception()}
-          | {:error, type_not_found_exception()}
+          | {:error, publish_type_errors()}
   def publish_type(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4471,8 +5101,7 @@ defmodule AWS.CloudFormation do
   @spec record_handler_progress(map(), record_handler_progress_input(), list()) ::
           {:ok, record_handler_progress_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_state_transition_exception()}
-          | {:error, operation_status_check_failed_exception()}
+          | {:error, record_handler_progress_errors()}
   def record_handler_progress(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4495,7 +5124,7 @@ defmodule AWS.CloudFormation do
   @spec register_publisher(map(), register_publisher_input(), list()) ::
           {:ok, register_publisher_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, c_f_n_registry_exception()}
+          | {:error, register_publisher_errors()}
   def register_publisher(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4543,7 +5172,7 @@ defmodule AWS.CloudFormation do
   @spec register_type(map(), register_type_input(), list()) ::
           {:ok, register_type_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, c_f_n_registry_exception()}
+          | {:error, register_type_errors()}
   def register_type(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4589,7 +5218,7 @@ defmodule AWS.CloudFormation do
   @spec rollback_stack(map(), rollback_stack_input(), list()) ::
           {:ok, rollback_stack_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, token_already_exists_exception()}
+          | {:error, rollback_stack_errors()}
   def rollback_stack(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4629,8 +5258,7 @@ defmodule AWS.CloudFormation do
   @spec set_type_configuration(map(), set_type_configuration_input(), list()) ::
           {:ok, set_type_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, c_f_n_registry_exception()}
-          | {:error, type_not_found_exception()}
+          | {:error, set_type_configuration_errors()}
   def set_type_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4645,8 +5273,7 @@ defmodule AWS.CloudFormation do
   @spec set_type_default_version(map(), set_type_default_version_input(), list()) ::
           {:ok, set_type_default_version_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, c_f_n_registry_exception()}
-          | {:error, type_not_found_exception()}
+          | {:error, set_type_default_version_errors()}
   def set_type_default_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4683,8 +5310,7 @@ defmodule AWS.CloudFormation do
   @spec start_resource_scan(map(), start_resource_scan_input(), list()) ::
           {:ok, start_resource_scan_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_scan_in_progress_exception()}
-          | {:error, resource_scan_limit_exceeded_exception()}
+          | {:error, start_resource_scan_errors()}
   def start_resource_scan(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4702,9 +5328,7 @@ defmodule AWS.CloudFormation do
   @spec stop_stack_set_operation(map(), stop_stack_set_operation_input(), list()) ::
           {:ok, stop_stack_set_operation_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_operation_exception()}
-          | {:error, operation_not_found_exception()}
-          | {:error, stack_set_not_found_exception()}
+          | {:error, stop_stack_set_operation_errors()}
   def stop_stack_set_operation(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4755,8 +5379,7 @@ defmodule AWS.CloudFormation do
   @spec test_type(map(), test_type_input(), list()) ::
           {:ok, test_type_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, c_f_n_registry_exception()}
-          | {:error, type_not_found_exception()}
+          | {:error, test_type_errors()}
   def test_type(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4776,9 +5399,7 @@ defmodule AWS.CloudFormation do
   @spec update_generated_template(map(), update_generated_template_input(), list()) ::
           {:ok, update_generated_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, already_exists_exception()}
-          | {:error, generated_template_not_found_exception()}
-          | {:error, limit_exceeded_exception()}
+          | {:error, update_generated_template_errors()}
   def update_generated_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4802,8 +5423,7 @@ defmodule AWS.CloudFormation do
   @spec update_stack(map(), update_stack_input(), list()) ::
           {:ok, update_stack_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, insufficient_capabilities_exception()}
-          | {:error, token_already_exists_exception()}
+          | {:error, update_stack_errors()}
   def update_stack(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4846,12 +5466,7 @@ defmodule AWS.CloudFormation do
   @spec update_stack_instances(map(), update_stack_instances_input(), list()) ::
           {:ok, update_stack_instances_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_operation_exception()}
-          | {:error, operation_id_already_exists_exception()}
-          | {:error, operation_in_progress_exception()}
-          | {:error, stack_instance_not_found_exception()}
-          | {:error, stack_set_not_found_exception()}
-          | {:error, stale_request_exception()}
+          | {:error, update_stack_instances_errors()}
   def update_stack_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4871,12 +5486,7 @@ defmodule AWS.CloudFormation do
   @spec update_stack_set(map(), update_stack_set_input(), list()) ::
           {:ok, update_stack_set_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_operation_exception()}
-          | {:error, operation_id_already_exists_exception()}
-          | {:error, operation_in_progress_exception()}
-          | {:error, stack_instance_not_found_exception()}
-          | {:error, stack_set_not_found_exception()}
-          | {:error, stale_request_exception()}
+          | {:error, update_stack_set_errors()}
   def update_stack_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
 

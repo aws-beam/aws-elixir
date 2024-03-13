@@ -18,328 +18,418 @@ defmodule AWS.STS do
   @typedoc """
 
   ## Example:
-  assume_role_request() :: %{
-    optional("DurationSeconds") => integer(),
-    optional("ExternalId") => String.t(),
-    optional("Policy") => String.t(),
-    optional("PolicyArns") => list(policy_descriptor_type()()),
-    optional("ProvidedContexts") => list(provided_context()()),
-    optional("SerialNumber") => String.t(),
-    optional("SourceIdentity") => String.t(),
-    optional("Tags") => list(tag()()),
-    optional("TokenCode") => String.t(),
-    optional("TransitiveTagKeys") => list(String.t()()),
-    required("RoleArn") => String.t(),
-    required("RoleSessionName") => String.t()
-  }
+      
+      assume_role_request() :: %{
+        optional("DurationSeconds") => integer(),
+        optional("ExternalId") => String.t(),
+        optional("Policy") => String.t(),
+        optional("PolicyArns") => list(policy_descriptor_type()()),
+        optional("ProvidedContexts") => list(provided_context()()),
+        optional("SerialNumber") => String.t(),
+        optional("SourceIdentity") => String.t(),
+        optional("Tags") => list(tag()()),
+        optional("TokenCode") => String.t(),
+        optional("TransitiveTagKeys") => list(String.t()()),
+        required("RoleArn") => String.t(),
+        required("RoleSessionName") => String.t()
+      }
+      
   """
   @type assume_role_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  assume_role_response() :: %{
-    "AssumedRoleUser" => assumed_role_user(),
-    "Credentials" => credentials(),
-    "PackedPolicySize" => integer(),
-    "SourceIdentity" => String.t()
-  }
+      
+      assume_role_response() :: %{
+        "AssumedRoleUser" => assumed_role_user(),
+        "Credentials" => credentials(),
+        "PackedPolicySize" => integer(),
+        "SourceIdentity" => String.t()
+      }
+      
   """
   @type assume_role_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  assume_role_with_saml_request() :: %{
-    optional("DurationSeconds") => integer(),
-    optional("Policy") => String.t(),
-    optional("PolicyArns") => list(policy_descriptor_type()()),
-    required("PrincipalArn") => String.t(),
-    required("RoleArn") => String.t(),
-    required("SAMLAssertion") => String.t()
-  }
+      
+      assume_role_with_saml_request() :: %{
+        optional("DurationSeconds") => integer(),
+        optional("Policy") => String.t(),
+        optional("PolicyArns") => list(policy_descriptor_type()()),
+        required("PrincipalArn") => String.t(),
+        required("RoleArn") => String.t(),
+        required("SAMLAssertion") => String.t()
+      }
+      
   """
   @type assume_role_with_saml_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  assume_role_with_saml_response() :: %{
-    "AssumedRoleUser" => assumed_role_user(),
-    "Audience" => String.t(),
-    "Credentials" => credentials(),
-    "Issuer" => String.t(),
-    "NameQualifier" => String.t(),
-    "PackedPolicySize" => integer(),
-    "SourceIdentity" => String.t(),
-    "Subject" => String.t(),
-    "SubjectType" => String.t()
-  }
+      
+      assume_role_with_saml_response() :: %{
+        "AssumedRoleUser" => assumed_role_user(),
+        "Audience" => String.t(),
+        "Credentials" => credentials(),
+        "Issuer" => String.t(),
+        "NameQualifier" => String.t(),
+        "PackedPolicySize" => integer(),
+        "SourceIdentity" => String.t(),
+        "Subject" => String.t(),
+        "SubjectType" => String.t()
+      }
+      
   """
   @type assume_role_with_saml_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  assume_role_with_web_identity_request() :: %{
-    optional("DurationSeconds") => integer(),
-    optional("Policy") => String.t(),
-    optional("PolicyArns") => list(policy_descriptor_type()()),
-    optional("ProviderId") => String.t(),
-    required("RoleArn") => String.t(),
-    required("RoleSessionName") => String.t(),
-    required("WebIdentityToken") => String.t()
-  }
+      
+      assume_role_with_web_identity_request() :: %{
+        optional("DurationSeconds") => integer(),
+        optional("Policy") => String.t(),
+        optional("PolicyArns") => list(policy_descriptor_type()()),
+        optional("ProviderId") => String.t(),
+        required("RoleArn") => String.t(),
+        required("RoleSessionName") => String.t(),
+        required("WebIdentityToken") => String.t()
+      }
+      
   """
   @type assume_role_with_web_identity_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  assume_role_with_web_identity_response() :: %{
-    "AssumedRoleUser" => assumed_role_user(),
-    "Audience" => String.t(),
-    "Credentials" => credentials(),
-    "PackedPolicySize" => integer(),
-    "Provider" => String.t(),
-    "SourceIdentity" => String.t(),
-    "SubjectFromWebIdentityToken" => String.t()
-  }
+      
+      assume_role_with_web_identity_response() :: %{
+        "AssumedRoleUser" => assumed_role_user(),
+        "Audience" => String.t(),
+        "Credentials" => credentials(),
+        "PackedPolicySize" => integer(),
+        "Provider" => String.t(),
+        "SourceIdentity" => String.t(),
+        "SubjectFromWebIdentityToken" => String.t()
+      }
+      
   """
   @type assume_role_with_web_identity_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  assumed_role_user() :: %{
-    "Arn" => String.t(),
-    "AssumedRoleId" => String.t()
-  }
+      
+      assumed_role_user() :: %{
+        "Arn" => String.t(),
+        "AssumedRoleId" => String.t()
+      }
+      
   """
   @type assumed_role_user() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  credentials() :: %{
-    "AccessKeyId" => String.t(),
-    "Expiration" => non_neg_integer(),
-    "SecretAccessKey" => String.t(),
-    "SessionToken" => String.t()
-  }
+      
+      credentials() :: %{
+        "AccessKeyId" => String.t(),
+        "Expiration" => non_neg_integer(),
+        "SecretAccessKey" => String.t(),
+        "SessionToken" => String.t()
+      }
+      
   """
   @type credentials() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  decode_authorization_message_request() :: %{
-    required("EncodedMessage") => String.t()
-  }
+      
+      decode_authorization_message_request() :: %{
+        required("EncodedMessage") => String.t()
+      }
+      
   """
   @type decode_authorization_message_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  decode_authorization_message_response() :: %{
-    "DecodedMessage" => String.t()
-  }
+      
+      decode_authorization_message_response() :: %{
+        "DecodedMessage" => String.t()
+      }
+      
   """
   @type decode_authorization_message_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  expired_token_exception() :: %{
-    "message" => String.t()
-  }
+      
+      expired_token_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type expired_token_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  federated_user() :: %{
-    "Arn" => String.t(),
-    "FederatedUserId" => String.t()
-  }
+      
+      federated_user() :: %{
+        "Arn" => String.t(),
+        "FederatedUserId" => String.t()
+      }
+      
   """
   @type federated_user() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_access_key_info_request() :: %{
-    required("AccessKeyId") => String.t()
-  }
+      
+      get_access_key_info_request() :: %{
+        required("AccessKeyId") => String.t()
+      }
+      
   """
   @type get_access_key_info_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_access_key_info_response() :: %{
-    "Account" => String.t()
-  }
+      
+      get_access_key_info_response() :: %{
+        "Account" => String.t()
+      }
+      
   """
   @type get_access_key_info_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_caller_identity_request() :: %{
-
-  }
+      
+      get_caller_identity_request() :: %{}
+      
   """
-  @type get_caller_identity_request() :: %{String.t() => any()}
+  @type get_caller_identity_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_caller_identity_response() :: %{
-    "Account" => String.t(),
-    "Arn" => String.t(),
-    "UserId" => String.t()
-  }
+      
+      get_caller_identity_response() :: %{
+        "Account" => String.t(),
+        "Arn" => String.t(),
+        "UserId" => String.t()
+      }
+      
   """
   @type get_caller_identity_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_federation_token_request() :: %{
-    optional("DurationSeconds") => integer(),
-    optional("Policy") => String.t(),
-    optional("PolicyArns") => list(policy_descriptor_type()()),
-    optional("Tags") => list(tag()()),
-    required("Name") => String.t()
-  }
+      
+      get_federation_token_request() :: %{
+        optional("DurationSeconds") => integer(),
+        optional("Policy") => String.t(),
+        optional("PolicyArns") => list(policy_descriptor_type()()),
+        optional("Tags") => list(tag()()),
+        required("Name") => String.t()
+      }
+      
   """
   @type get_federation_token_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_federation_token_response() :: %{
-    "Credentials" => credentials(),
-    "FederatedUser" => federated_user(),
-    "PackedPolicySize" => integer()
-  }
+      
+      get_federation_token_response() :: %{
+        "Credentials" => credentials(),
+        "FederatedUser" => federated_user(),
+        "PackedPolicySize" => integer()
+      }
+      
   """
   @type get_federation_token_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_session_token_request() :: %{
-    optional("DurationSeconds") => integer(),
-    optional("SerialNumber") => String.t(),
-    optional("TokenCode") => String.t()
-  }
+      
+      get_session_token_request() :: %{
+        optional("DurationSeconds") => integer(),
+        optional("SerialNumber") => String.t(),
+        optional("TokenCode") => String.t()
+      }
+      
   """
   @type get_session_token_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_session_token_response() :: %{
-    "Credentials" => credentials()
-  }
+      
+      get_session_token_response() :: %{
+        "Credentials" => credentials()
+      }
+      
   """
   @type get_session_token_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  id_p_communication_error_exception() :: %{
-    "message" => String.t()
-  }
+      
+      id_p_communication_error_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type id_p_communication_error_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  id_p_rejected_claim_exception() :: %{
-    "message" => String.t()
-  }
+      
+      id_p_rejected_claim_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type id_p_rejected_claim_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_authorization_message_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_authorization_message_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_authorization_message_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_identity_token_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_identity_token_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_identity_token_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  malformed_policy_document_exception() :: %{
-    "message" => String.t()
-  }
+      
+      malformed_policy_document_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type malformed_policy_document_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  packed_policy_too_large_exception() :: %{
-    "message" => String.t()
-  }
+      
+      packed_policy_too_large_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type packed_policy_too_large_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  policy_descriptor_type() :: %{
-    "arn" => String.t()
-  }
+      
+      policy_descriptor_type() :: %{
+        "arn" => String.t()
+      }
+      
   """
   @type policy_descriptor_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  provided_context() :: %{
-    "ContextAssertion" => String.t(),
-    "ProviderArn" => String.t()
-  }
+      
+      provided_context() :: %{
+        "ContextAssertion" => String.t(),
+        "ProviderArn" => String.t()
+      }
+      
   """
   @type provided_context() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  region_disabled_exception() :: %{
-    "message" => String.t()
-  }
+      
+      region_disabled_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type region_disabled_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag() :: %{
-    "Key" => String.t(),
-    "Value" => String.t()
-  }
+      
+      tag() :: %{
+        "Key" => String.t(),
+        "Value" => String.t()
+      }
+      
   """
   @type tag() :: %{String.t() => any()}
+
+  @type assume_role_errors() ::
+          region_disabled_exception()
+          | packed_policy_too_large_exception()
+          | malformed_policy_document_exception()
+          | expired_token_exception()
+
+  @type assume_role_with_saml_errors() ::
+          region_disabled_exception()
+          | packed_policy_too_large_exception()
+          | malformed_policy_document_exception()
+          | invalid_identity_token_exception()
+          | id_p_rejected_claim_exception()
+          | expired_token_exception()
+
+  @type assume_role_with_web_identity_errors() ::
+          region_disabled_exception()
+          | packed_policy_too_large_exception()
+          | malformed_policy_document_exception()
+          | invalid_identity_token_exception()
+          | id_p_rejected_claim_exception()
+          | id_p_communication_error_exception()
+          | expired_token_exception()
+
+  @type decode_authorization_message_errors() :: invalid_authorization_message_exception()
+
+  @type get_federation_token_errors() ::
+          region_disabled_exception()
+          | packed_policy_too_large_exception()
+          | malformed_policy_document_exception()
+
+  @type get_session_token_errors() :: region_disabled_exception()
 
   def metadata do
     %{
@@ -490,10 +580,7 @@ defmodule AWS.STS do
   @spec assume_role(map(), assume_role_request(), list()) ::
           {:ok, assume_role_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, expired_token_exception()}
-          | {:error, malformed_policy_document_exception()}
-          | {:error, packed_policy_too_large_exception()}
-          | {:error, region_disabled_exception()}
+          | {:error, assume_role_errors()}
   def assume_role(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -684,12 +771,7 @@ defmodule AWS.STS do
   @spec assume_role_with_saml(map(), assume_role_with_saml_request(), list()) ::
           {:ok, assume_role_with_saml_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, expired_token_exception()}
-          | {:error, id_p_rejected_claim_exception()}
-          | {:error, invalid_identity_token_exception()}
-          | {:error, malformed_policy_document_exception()}
-          | {:error, packed_policy_too_large_exception()}
-          | {:error, region_disabled_exception()}
+          | {:error, assume_role_with_saml_errors()}
   def assume_role_with_saml(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -891,13 +973,7 @@ defmodule AWS.STS do
   @spec assume_role_with_web_identity(map(), assume_role_with_web_identity_request(), list()) ::
           {:ok, assume_role_with_web_identity_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, expired_token_exception()}
-          | {:error, id_p_communication_error_exception()}
-          | {:error, id_p_rejected_claim_exception()}
-          | {:error, invalid_identity_token_exception()}
-          | {:error, malformed_policy_document_exception()}
-          | {:error, packed_policy_too_large_exception()}
-          | {:error, region_disabled_exception()}
+          | {:error, assume_role_with_web_identity_errors()}
   def assume_role_with_web_identity(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -958,7 +1034,7 @@ defmodule AWS.STS do
   @spec decode_authorization_message(map(), decode_authorization_message_request(), list()) ::
           {:ok, decode_authorization_message_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_authorization_message_exception()}
+          | {:error, decode_authorization_message_errors()}
   def decode_authorization_message(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1162,9 +1238,7 @@ defmodule AWS.STS do
   @spec get_federation_token(map(), get_federation_token_request(), list()) ::
           {:ok, get_federation_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, malformed_policy_document_exception()}
-          | {:error, packed_policy_too_large_exception()}
-          | {:error, region_disabled_exception()}
+          | {:error, get_federation_token_errors()}
   def get_federation_token(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1253,7 +1327,7 @@ defmodule AWS.STS do
   @spec get_session_token(map(), get_session_token_request(), list()) ::
           {:ok, get_session_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, region_disabled_exception()}
+          | {:error, get_session_token_errors()}
   def get_session_token(%Client{} = client, input, options \\ []) do
     meta = metadata()
 

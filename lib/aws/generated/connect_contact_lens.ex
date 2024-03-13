@@ -25,143 +25,178 @@ defmodule AWS.ConnectContactLens do
   @typedoc """
 
   ## Example:
-  access_denied_exception() :: %{
-    "Message" => String.t()
-  }
+
+      access_denied_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  categories() :: %{
-    "MatchedCategories" => list(String.t()()),
-    "MatchedDetails" => map()
-  }
+
+      categories() :: %{
+        "MatchedCategories" => list(String.t()()),
+        "MatchedDetails" => map()
+      }
+
   """
   @type categories() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  category_details() :: %{
-    "PointsOfInterest" => list(point_of_interest()())
-  }
+
+      category_details() :: %{
+        "PointsOfInterest" => list(point_of_interest()())
+      }
+
   """
   @type category_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  character_offsets() :: %{
-    "BeginOffsetChar" => integer(),
-    "EndOffsetChar" => integer()
-  }
+
+      character_offsets() :: %{
+        "BeginOffsetChar" => integer(),
+        "EndOffsetChar" => integer()
+      }
+
   """
   @type character_offsets() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  internal_service_exception() :: %{
-    "Message" => String.t()
-  }
+
+      internal_service_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type internal_service_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_request_exception() :: %{
-    "Message" => String.t()
-  }
+
+      invalid_request_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type invalid_request_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  issue_detected() :: %{
-    "CharacterOffsets" => character_offsets()
-  }
+
+      issue_detected() :: %{
+        "CharacterOffsets" => character_offsets()
+      }
+
   """
   @type issue_detected() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_realtime_contact_analysis_segments_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("ContactId") => String.t(),
-    required("InstanceId") => String.t()
-  }
+
+      list_realtime_contact_analysis_segments_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("ContactId") => String.t(),
+        required("InstanceId") => String.t()
+      }
+
   """
   @type list_realtime_contact_analysis_segments_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_realtime_contact_analysis_segments_response() :: %{
-    "NextToken" => String.t(),
-    "Segments" => list(realtime_contact_analysis_segment()())
-  }
+
+      list_realtime_contact_analysis_segments_response() :: %{
+        "NextToken" => String.t(),
+        "Segments" => list(realtime_contact_analysis_segment()())
+      }
+
   """
   @type list_realtime_contact_analysis_segments_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  point_of_interest() :: %{
-    "BeginOffsetMillis" => integer(),
-    "EndOffsetMillis" => integer()
-  }
+
+      point_of_interest() :: %{
+        "BeginOffsetMillis" => integer(),
+        "EndOffsetMillis" => integer()
+      }
+
   """
   @type point_of_interest() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  realtime_contact_analysis_segment() :: %{
-    "Categories" => categories(),
-    "Transcript" => transcript()
-  }
+
+      realtime_contact_analysis_segment() :: %{
+        "Categories" => categories(),
+        "Transcript" => transcript()
+      }
+
   """
   @type realtime_contact_analysis_segment() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_not_found_exception() :: %{
-    "Message" => String.t()
-  }
+
+      resource_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  throttling_exception() :: %{
-    "Message" => String.t()
-  }
+
+      throttling_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  transcript() :: %{
-    "BeginOffsetMillis" => integer(),
-    "Content" => String.t(),
-    "EndOffsetMillis" => integer(),
-    "Id" => String.t(),
-    "IssuesDetected" => list(issue_detected()()),
-    "ParticipantId" => String.t(),
-    "ParticipantRole" => String.t(),
-    "Sentiment" => list(any())
-  }
+
+      transcript() :: %{
+        "BeginOffsetMillis" => integer(),
+        "Content" => String.t(),
+        "EndOffsetMillis" => integer(),
+        "Id" => String.t(),
+        "IssuesDetected" => list(issue_detected()()),
+        "ParticipantId" => String.t(),
+        "ParticipantRole" => String.t(),
+        "Sentiment" => list(any())
+      }
+
   """
   @type transcript() :: %{String.t() => any()}
+
+  @type list_realtime_contact_analysis_segments_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | access_denied_exception()
 
   def metadata do
     %{
@@ -188,11 +223,7 @@ defmodule AWS.ConnectContactLens do
         ) ::
           {:ok, list_realtime_contact_analysis_segments_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
+          | {:error, list_realtime_contact_analysis_segments_errors()}
   def list_realtime_contact_analysis_segments(%Client{} = client, input, options \\ []) do
     url_path = "/realtime-contact-analysis/analysis-segments"
     headers = []

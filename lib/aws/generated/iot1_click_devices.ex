@@ -17,352 +17,476 @@ defmodule AWS.IoT1ClickDevices do
   @typedoc """
 
   ## Example:
-  list_devices_request() :: %{
-    optional("DeviceType") => String.t(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      list_devices_request() :: %{
+        optional("DeviceType") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_devices_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_request() :: %{
-    required("Tags") => map()
-  }
+
+      tag_resource_request() :: %{
+        required("Tags") => map()
+      }
+
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  internal_failure_exception() :: %{
-    "Code" => String.t(),
-    "Message" => String.t()
-  }
+
+      internal_failure_exception() :: %{
+        "Code" => String.t(),
+        "Message" => String.t()
+      }
+
   """
   @type internal_failure_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  device_description() :: %{
-    optional("Arn") => String.t(),
-    optional("Attributes") => map(),
-    optional("DeviceId") => String.t(),
-    optional("Enabled") => boolean(),
-    optional("RemainingLife") => float(),
-    optional("Tags") => map(),
-    optional("Type") => String.t()
-  }
+
+      device_description() :: %{
+        optional("Arn") => String.t(),
+        optional("Attributes") => map(),
+        optional("DeviceId") => String.t(),
+        optional("Enabled") => boolean(),
+        optional("RemainingLife") => float(),
+        optional("Tags") => map(),
+        optional("Type") => String.t()
+      }
+
   """
   @type device_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_device_state_request() :: %{
-    optional("Enabled") => boolean()
-  }
+
+      update_device_state_request() :: %{
+        optional("Enabled") => boolean()
+      }
+
   """
   @type update_device_state_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  forbidden_exception() :: %{
-    "Code" => String.t(),
-    "Message" => String.t()
-  }
+
+      forbidden_exception() :: %{
+        "Code" => String.t(),
+        "Message" => String.t()
+      }
+
   """
   @type forbidden_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  unclaim_device_request() :: %{
 
-  }
+      unclaim_device_request() :: %{}
+
   """
-  @type unclaim_device_request() :: %{String.t() => any()}
+  @type unclaim_device_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  finalize_device_claim_request() :: %{
-    optional("Tags") => map()
-  }
+
+      finalize_device_claim_request() :: %{
+        optional("Tags") => map()
+      }
+
   """
   @type finalize_device_claim_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_device_state_response() :: %{
 
-  }
+      update_device_state_response() :: %{}
+
   """
-  @type update_device_state_response() :: %{String.t() => any()}
+  @type update_device_state_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  untag_resource_request() :: %{
-    required("TagKeys") => list(String.t()())
-  }
+
+      untag_resource_request() :: %{
+        required("TagKeys") => list(String.t()())
+      }
+
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  claim_devices_by_claim_code_request() :: %{
 
-  }
+      claim_devices_by_claim_code_request() :: %{}
+
   """
-  @type claim_devices_by_claim_code_request() :: %{String.t() => any()}
+  @type claim_devices_by_claim_code_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_device_events_response() :: %{
-    "Events" => list(device_event()()),
-    "NextToken" => String.t()
-  }
+
+      list_device_events_response() :: %{
+        "Events" => list(device_event()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_device_events_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_not_found_exception() :: %{
-    "Code" => String.t(),
-    "Message" => String.t()
-  }
+
+      resource_not_found_exception() :: %{
+        "Code" => String.t(),
+        "Message" => String.t()
+      }
+
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  initiate_device_claim_response() :: %{
-    "State" => String.t()
-  }
+
+      initiate_device_claim_response() :: %{
+        "State" => String.t()
+      }
+
   """
   @type initiate_device_claim_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_device_events_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("FromTimeStamp") => non_neg_integer(),
-    required("ToTimeStamp") => non_neg_integer()
-  }
+
+      list_device_events_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("FromTimeStamp") => non_neg_integer(),
+        required("ToTimeStamp") => non_neg_integer()
+      }
+
   """
   @type list_device_events_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_request_exception() :: %{
-    "Code" => String.t(),
-    "Message" => String.t()
-  }
+
+      invalid_request_exception() :: %{
+        "Code" => String.t(),
+        "Message" => String.t()
+      }
+
   """
   @type invalid_request_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_device_methods_request() :: %{
 
-  }
+      get_device_methods_request() :: %{}
+
   """
-  @type get_device_methods_request() :: %{String.t() => any()}
+  @type get_device_methods_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  initiate_device_claim_request() :: %{
 
-  }
+      initiate_device_claim_request() :: %{}
+
   """
-  @type initiate_device_claim_request() :: %{String.t() => any()}
+  @type initiate_device_claim_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  describe_device_request() :: %{
 
-  }
+      describe_device_request() :: %{}
+
   """
-  @type describe_device_request() :: %{String.t() => any()}
+  @type describe_device_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  finalize_device_claim_response() :: %{
-    "State" => String.t()
-  }
+
+      finalize_device_claim_response() :: %{
+        "State" => String.t()
+      }
+
   """
   @type finalize_device_claim_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  attributes() :: %{
 
-  }
+      attributes() :: %{}
+
   """
-  @type attributes() :: %{String.t() => any()}
+  @type attributes() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_device_methods_response() :: %{
-    "DeviceMethods" => list(device_method()())
-  }
+
+      get_device_methods_response() :: %{
+        "DeviceMethods" => list(device_method()())
+      }
+
   """
   @type get_device_methods_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_response() :: %{
-    "Tags" => map()
-  }
+
+      list_tags_for_resource_response() :: %{
+        "Tags" => map()
+      }
+
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_devices_response() :: %{
-    "Devices" => list(device_description()()),
-    "NextToken" => String.t()
-  }
+
+      list_devices_response() :: %{
+        "Devices" => list(device_description()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_devices_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invoke_device_method_request() :: %{
-    optional("DeviceMethod") => device_method(),
-    optional("DeviceMethodParameters") => String.t()
-  }
+
+      invoke_device_method_request() :: %{
+        optional("DeviceMethod") => device_method(),
+        optional("DeviceMethodParameters") => String.t()
+      }
+
   """
   @type invoke_device_method_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  claim_devices_by_claim_code_response() :: %{
-    "ClaimCode" => String.t(),
-    "Total" => integer()
-  }
+
+      claim_devices_by_claim_code_response() :: %{
+        "ClaimCode" => String.t(),
+        "Total" => integer()
+      }
+
   """
   @type claim_devices_by_claim_code_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  device_event() :: %{
-    optional("Device") => device(),
-    optional("StdEvent") => String.t()
-  }
+
+      device_event() :: %{
+        optional("Device") => device(),
+        optional("StdEvent") => String.t()
+      }
+
   """
   @type device_event() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_request() :: %{
 
-  }
+      list_tags_for_resource_request() :: %{}
+
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  unclaim_device_response() :: %{
-    "State" => String.t()
-  }
+
+      unclaim_device_response() :: %{
+        "State" => String.t()
+      }
+
   """
   @type unclaim_device_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  device() :: %{
-    optional("Attributes") => attributes(),
-    optional("DeviceId") => String.t(),
-    optional("Type") => String.t()
-  }
+
+      device() :: %{
+        optional("Attributes") => attributes(),
+        optional("DeviceId") => String.t(),
+        optional("Type") => String.t()
+      }
+
   """
   @type device() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invoke_device_method_response() :: %{
-    "DeviceMethodResponse" => String.t()
-  }
+
+      invoke_device_method_response() :: %{
+        "DeviceMethodResponse" => String.t()
+      }
+
   """
   @type invoke_device_method_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  precondition_failed_exception() :: %{
-    "Code" => String.t(),
-    "Message" => String.t()
-  }
+
+      precondition_failed_exception() :: %{
+        "Code" => String.t(),
+        "Message" => String.t()
+      }
+
   """
   @type precondition_failed_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  range_not_satisfiable_exception() :: %{
-    "Code" => String.t(),
-    "Message" => String.t()
-  }
+
+      range_not_satisfiable_exception() :: %{
+        "Code" => String.t(),
+        "Message" => String.t()
+      }
+
   """
   @type range_not_satisfiable_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_conflict_exception() :: %{
-    "Code" => String.t(),
-    "Message" => String.t()
-  }
+
+      resource_conflict_exception() :: %{
+        "Code" => String.t(),
+        "Message" => String.t()
+      }
+
   """
   @type resource_conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  device_method() :: %{
-    optional("DeviceType") => String.t(),
-    optional("MethodName") => String.t()
-  }
+
+      device_method() :: %{
+        optional("DeviceType") => String.t(),
+        optional("MethodName") => String.t()
+      }
+
   """
   @type device_method() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_device_response() :: %{
-    "DeviceDescription" => device_description()
-  }
+
+      describe_device_response() :: %{
+        "DeviceDescription" => device_description()
+      }
+
   """
   @type describe_device_response() :: %{String.t() => any()}
+
+  @type claim_devices_by_claim_code_errors() ::
+          invalid_request_exception() | forbidden_exception() | internal_failure_exception()
+
+  @type describe_device_errors() ::
+          invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_failure_exception()
+
+  @type finalize_device_claim_errors() ::
+          resource_conflict_exception()
+          | precondition_failed_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_failure_exception()
+
+  @type get_device_methods_errors() ::
+          invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_failure_exception()
+
+  @type initiate_device_claim_errors() ::
+          resource_conflict_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_failure_exception()
+
+  @type invoke_device_method_errors() ::
+          resource_conflict_exception()
+          | range_not_satisfiable_exception()
+          | precondition_failed_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_failure_exception()
+
+  @type list_device_events_errors() ::
+          range_not_satisfiable_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_failure_exception()
+
+  @type list_devices_errors() ::
+          range_not_satisfiable_exception()
+          | invalid_request_exception()
+          | internal_failure_exception()
+
+  @type list_tags_for_resource_errors() ::
+          resource_not_found_exception() | internal_failure_exception()
+
+  @type tag_resource_errors() ::
+          invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_failure_exception()
+
+  @type unclaim_device_errors() ::
+          invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_failure_exception()
+
+  @type untag_resource_errors() ::
+          invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_failure_exception()
+
+  @type update_device_state_errors() ::
+          invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_failure_exception()
 
   def metadata do
     %{
@@ -392,9 +516,7 @@ defmodule AWS.IoT1ClickDevices do
         ) ::
           {:ok, claim_devices_by_claim_code_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, forbidden_exception()}
-          | {:error, internal_failure_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, claim_devices_by_claim_code_errors()}
   def claim_devices_by_claim_code(%Client{} = client, claim_code, input, options \\ []) do
     url_path = "/claims/#{AWS.Util.encode_uri(claim_code)}"
     headers = []
@@ -412,9 +534,7 @@ defmodule AWS.IoT1ClickDevices do
   @spec describe_device(map(), String.t(), list()) ::
           {:ok, describe_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_failure_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, describe_device_errors()}
   def describe_device(%Client{} = client, device_id, options \\ []) do
     url_path = "/devices/#{AWS.Util.encode_uri(device_id)}"
     headers = []
@@ -436,11 +556,7 @@ defmodule AWS.IoT1ClickDevices do
   @spec finalize_device_claim(map(), String.t(), finalize_device_claim_request(), list()) ::
           {:ok, finalize_device_claim_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_failure_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, precondition_failed_exception()}
-          | {:error, resource_conflict_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, finalize_device_claim_errors()}
   def finalize_device_claim(%Client{} = client, device_id, input, options \\ []) do
     url_path = "/devices/#{AWS.Util.encode_uri(device_id)}/finalize-claim"
     headers = []
@@ -457,9 +573,7 @@ defmodule AWS.IoT1ClickDevices do
   @spec get_device_methods(map(), String.t(), list()) ::
           {:ok, get_device_methods_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_failure_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, get_device_methods_errors()}
   def get_device_methods(%Client{} = client, device_id, options \\ []) do
     url_path = "/devices/#{AWS.Util.encode_uri(device_id)}/methods"
     headers = []
@@ -481,10 +595,7 @@ defmodule AWS.IoT1ClickDevices do
   @spec initiate_device_claim(map(), String.t(), initiate_device_claim_request(), list()) ::
           {:ok, initiate_device_claim_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_failure_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, resource_conflict_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, initiate_device_claim_errors()}
   def initiate_device_claim(%Client{} = client, device_id, input, options \\ []) do
     url_path = "/devices/#{AWS.Util.encode_uri(device_id)}/initiate-claim"
     headers = []
@@ -505,12 +616,7 @@ defmodule AWS.IoT1ClickDevices do
   @spec invoke_device_method(map(), String.t(), invoke_device_method_request(), list()) ::
           {:ok, invoke_device_method_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_failure_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, precondition_failed_exception()}
-          | {:error, range_not_satisfiable_exception()}
-          | {:error, resource_conflict_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, invoke_device_method_errors()}
   def invoke_device_method(%Client{} = client, device_id, input, options \\ []) do
     url_path = "/devices/#{AWS.Util.encode_uri(device_id)}/methods"
     headers = []
@@ -546,10 +652,7 @@ defmodule AWS.IoT1ClickDevices do
         ) ::
           {:ok, list_device_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_failure_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, range_not_satisfiable_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, list_device_events_errors()}
   def list_device_events(
         %Client{} = client,
         device_id,
@@ -602,9 +705,7 @@ defmodule AWS.IoT1ClickDevices do
   @spec list_devices(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_devices_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_failure_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, range_not_satisfiable_exception()}
+          | {:error, list_devices_errors()}
   def list_devices(
         %Client{} = client,
         device_type \\ nil,
@@ -648,8 +749,7 @@ defmodule AWS.IoT1ClickDevices do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_failure_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -670,9 +770,7 @@ defmodule AWS.IoT1ClickDevices do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_failure_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -699,9 +797,7 @@ defmodule AWS.IoT1ClickDevices do
   @spec unclaim_device(map(), String.t(), unclaim_device_request(), list()) ::
           {:ok, unclaim_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_failure_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, unclaim_device_errors()}
   def unclaim_device(%Client{} = client, device_id, input, options \\ []) do
     url_path = "/devices/#{AWS.Util.encode_uri(device_id)}/unclaim"
     headers = []
@@ -719,9 +815,7 @@ defmodule AWS.IoT1ClickDevices do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_failure_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -754,9 +848,7 @@ defmodule AWS.IoT1ClickDevices do
   @spec update_device_state(map(), String.t(), update_device_state_request(), list()) ::
           {:ok, update_device_state_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_failure_exception()}
-          | {:error, invalid_request_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, update_device_state_errors()}
   def update_device_state(%Client{} = client, device_id, input, options \\ []) do
     url_path = "/devices/#{AWS.Util.encode_uri(device_id)}/state"
     headers = []

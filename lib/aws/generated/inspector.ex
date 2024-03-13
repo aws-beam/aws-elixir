@@ -18,1186 +18,1617 @@ defmodule AWS.Inspector do
   @typedoc """
 
   ## Example:
-  get_telemetry_metadata_request() :: %{
-    required("assessmentRunArn") => String.t()
-  }
+      
+      get_telemetry_metadata_request() :: %{
+        required("assessmentRunArn") => String.t()
+      }
+      
   """
   @type get_telemetry_metadata_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  remove_attributes_from_findings_response() :: %{
-    "failedItems" => map()
-  }
+      
+      remove_attributes_from_findings_response() :: %{
+        "failedItems" => map()
+      }
+      
   """
   @type remove_attributes_from_findings_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_assessment_templates_request() :: %{
-    required("assessmentTemplateArns") => list(String.t()())
-  }
+      
+      describe_assessment_templates_request() :: %{
+        required("assessmentTemplateArns") => list(String.t()())
+      }
+      
   """
   @type describe_assessment_templates_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  add_attributes_to_findings_request() :: %{
-    required("attributes") => list(attribute()()),
-    required("findingArns") => list(String.t()())
-  }
+      
+      add_attributes_to_findings_request() :: %{
+        required("attributes") => list(attribute()()),
+        required("findingArns") => list(String.t()())
+      }
+      
   """
   @type add_attributes_to_findings_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_assessment_template_request() :: %{
-    required("assessmentTemplateArn") => String.t()
-  }
+      
+      delete_assessment_template_request() :: %{
+        required("assessmentTemplateArn") => String.t()
+      }
+      
   """
   @type delete_assessment_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_event_subscriptions_response() :: %{
-    "nextToken" => String.t(),
-    "subscriptions" => list(subscription()())
-  }
+      
+      list_event_subscriptions_response() :: %{
+        "nextToken" => String.t(),
+        "subscriptions" => list(subscription()())
+      }
+      
   """
   @type list_event_subscriptions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_assessment_template_request() :: %{
-    optional("userAttributesForFindings") => list(attribute()()),
-    required("assessmentTargetArn") => String.t(),
-    required("assessmentTemplateName") => String.t(),
-    required("durationInSeconds") => integer(),
-    required("rulesPackageArns") => list(String.t()())
-  }
+      
+      create_assessment_template_request() :: %{
+        optional("userAttributesForFindings") => list(attribute()()),
+        required("assessmentTargetArn") => String.t(),
+        required("assessmentTemplateName") => String.t(),
+        required("durationInSeconds") => integer(),
+        required("rulesPackageArns") => list(String.t()())
+      }
+      
   """
   @type create_assessment_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_event_subscriptions_request() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t(),
-    optional("resourceArn") => String.t()
-  }
+      
+      list_event_subscriptions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("resourceArn") => String.t()
+      }
+      
   """
   @type list_event_subscriptions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_exclusions_response() :: %{
-    "exclusionArns" => list(String.t()()),
-    "nextToken" => String.t()
-  }
+      
+      list_exclusions_response() :: %{
+        "exclusionArns" => list(String.t()()),
+        "nextToken" => String.t()
+      }
+      
   """
   @type list_exclusions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  asset_attributes() :: %{
-    "agentId" => String.t(),
-    "amiId" => String.t(),
-    "autoScalingGroup" => String.t(),
-    "hostname" => String.t(),
-    "ipv4Addresses" => list(String.t()()),
-    "networkInterfaces" => list(network_interface()()),
-    "schemaVersion" => integer(),
-    "tags" => list(tag()())
-  }
+      
+      asset_attributes() :: %{
+        "agentId" => String.t(),
+        "amiId" => String.t(),
+        "autoScalingGroup" => String.t(),
+        "hostname" => String.t(),
+        "ipv4Addresses" => list(String.t()()),
+        "networkInterfaces" => list(network_interface()()),
+        "schemaVersion" => integer(),
+        "tags" => list(tag()())
+      }
+      
   """
   @type asset_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stop_assessment_run_request() :: %{
-    optional("stopAction") => list(any()),
-    required("assessmentRunArn") => String.t()
-  }
+      
+      stop_assessment_run_request() :: %{
+        optional("stopAction") => list(any()),
+        required("assessmentRunArn") => String.t()
+      }
+      
   """
   @type stop_assessment_run_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_assessment_targets_response() :: %{
-    "assessmentTargets" => list(assessment_target()()),
-    "failedItems" => map()
-  }
+      
+      describe_assessment_targets_response() :: %{
+        "assessmentTargets" => list(assessment_target()()),
+        "failedItems" => map()
+      }
+      
   """
   @type describe_assessment_targets_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_resource_group_response() :: %{
-    "resourceGroupArn" => String.t()
-  }
+      
+      create_resource_group_response() :: %{
+        "resourceGroupArn" => String.t()
+      }
+      
   """
   @type create_resource_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  no_such_entity_exception() :: %{
-    "canRetry" => boolean(),
-    "errorCode" => list(any()),
-    "message" => String.t()
-  }
+      
+      no_such_entity_exception() :: %{
+        "canRetry" => boolean(),
+        "errorCode" => list(any()),
+        "message" => String.t()
+      }
+      
   """
   @type no_such_entity_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_assessment_target_request() :: %{
-    required("assessmentTargetArn") => String.t()
-  }
+      
+      delete_assessment_target_request() :: %{
+        required("assessmentTargetArn") => String.t()
+      }
+      
   """
   @type delete_assessment_target_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  assessment_run_filter() :: %{
-    "completionTimeRange" => timestamp_range(),
-    "durationRange" => duration_range(),
-    "namePattern" => String.t(),
-    "rulesPackageArns" => list(String.t()()),
-    "startTimeRange" => timestamp_range(),
-    "stateChangeTimeRange" => timestamp_range(),
-    "states" => list(list(any())())
-  }
+      
+      assessment_run_filter() :: %{
+        "completionTimeRange" => timestamp_range(),
+        "durationRange" => duration_range(),
+        "namePattern" => String.t(),
+        "rulesPackageArns" => list(String.t()()),
+        "startTimeRange" => timestamp_range(),
+        "stateChangeTimeRange" => timestamp_range(),
+        "states" => list(list(any())())
+      }
+      
   """
   @type assessment_run_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  event_subscription() :: %{
-    "event" => list(any()),
-    "subscribedAt" => non_neg_integer()
-  }
+      
+      event_subscription() :: %{
+        "event" => list(any()),
+        "subscribedAt" => non_neg_integer()
+      }
+      
   """
   @type event_subscription() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  remove_attributes_from_findings_request() :: %{
-    required("attributeKeys") => list(String.t()()),
-    required("findingArns") => list(String.t()())
-  }
+      
+      remove_attributes_from_findings_request() :: %{
+        required("attributeKeys") => list(String.t()()),
+        required("findingArns") => list(String.t()())
+      }
+      
   """
   @type remove_attributes_from_findings_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_exclusions_preview_response() :: %{
-    "previewToken" => String.t()
-  }
+      
+      create_exclusions_preview_response() :: %{
+        "previewToken" => String.t()
+      }
+      
   """
   @type create_exclusions_preview_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  network_interface() :: %{
-    "ipv6Addresses" => list(String.t()()),
-    "networkInterfaceId" => String.t(),
-    "privateDnsName" => String.t(),
-    "privateIpAddress" => String.t(),
-    "privateIpAddresses" => list(private_ip()()),
-    "publicDnsName" => String.t(),
-    "publicIp" => String.t(),
-    "securityGroups" => list(security_group()()),
-    "subnetId" => String.t(),
-    "vpcId" => String.t()
-  }
+      
+      network_interface() :: %{
+        "ipv6Addresses" => list(String.t()()),
+        "networkInterfaceId" => String.t(),
+        "privateDnsName" => String.t(),
+        "privateIpAddress" => String.t(),
+        "privateIpAddresses" => list(private_ip()()),
+        "publicDnsName" => String.t(),
+        "publicIp" => String.t(),
+        "securityGroups" => list(security_group()()),
+        "subnetId" => String.t(),
+        "vpcId" => String.t()
+      }
+      
   """
   @type network_interface() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_assessment_templates_response() :: %{
-    "assessmentTemplates" => list(assessment_template()()),
-    "failedItems" => map()
-  }
+      
+      describe_assessment_templates_response() :: %{
+        "assessmentTemplates" => list(assessment_template()()),
+        "failedItems" => map()
+      }
+      
   """
   @type describe_assessment_templates_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  assessment_run_notification() :: %{
-    "date" => non_neg_integer(),
-    "error" => boolean(),
-    "event" => list(any()),
-    "message" => String.t(),
-    "snsPublishStatusCode" => list(any()),
-    "snsTopicArn" => String.t()
-  }
+      
+      assessment_run_notification() :: %{
+        "date" => non_neg_integer(),
+        "error" => boolean(),
+        "event" => list(any()),
+        "message" => String.t(),
+        "snsPublishStatusCode" => list(any()),
+        "snsTopicArn" => String.t()
+      }
+      
   """
   @type assessment_run_notification() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_findings_response() :: %{
-    "findingArns" => list(String.t()()),
-    "nextToken" => String.t()
-  }
+      
+      list_findings_response() :: %{
+        "findingArns" => list(String.t()()),
+        "nextToken" => String.t()
+      }
+      
   """
   @type list_findings_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  register_cross_account_access_role_request() :: %{
-    required("roleArn") => String.t()
-  }
+      
+      register_cross_account_access_role_request() :: %{
+        required("roleArn") => String.t()
+      }
+      
   """
   @type register_cross_account_access_role_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  assessment_run_agent() :: %{
-    "agentHealth" => list(any()),
-    "agentHealthCode" => list(any()),
-    "agentHealthDetails" => String.t(),
-    "agentId" => String.t(),
-    "assessmentRunArn" => String.t(),
-    "autoScalingGroup" => String.t(),
-    "telemetryMetadata" => list(telemetry_metadata()())
-  }
+      
+      assessment_run_agent() :: %{
+        "agentHealth" => list(any()),
+        "agentHealthCode" => list(any()),
+        "agentHealthDetails" => String.t(),
+        "agentId" => String.t(),
+        "assessmentRunArn" => String.t(),
+        "autoScalingGroup" => String.t(),
+        "telemetryMetadata" => list(telemetry_metadata()())
+      }
+      
   """
   @type assessment_run_agent() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_assessment_template_response() :: %{
-    "assessmentTemplateArn" => String.t()
-  }
+      
+      create_assessment_template_response() :: %{
+        "assessmentTemplateArn" => String.t()
+      }
+      
   """
   @type create_assessment_template_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  preview_generation_in_progress_exception() :: %{
-    "message" => String.t()
-  }
+      
+      preview_generation_in_progress_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type preview_generation_in_progress_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_rules_packages_request() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t()
-  }
+      
+      list_rules_packages_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+      
   """
   @type list_rules_packages_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_exclusions_preview_response() :: %{
-    "exclusionPreviews" => list(exclusion_preview()()),
-    "nextToken" => String.t(),
-    "previewStatus" => list(any())
-  }
+      
+      get_exclusions_preview_response() :: %{
+        "exclusionPreviews" => list(exclusion_preview()()),
+        "nextToken" => String.t(),
+        "previewStatus" => list(any())
+      }
+      
   """
   @type get_exclusions_preview_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  exclusion() :: %{
-    "arn" => String.t(),
-    "attributes" => list(attribute()()),
-    "description" => String.t(),
-    "recommendation" => String.t(),
-    "scopes" => list(scope()()),
-    "title" => String.t()
-  }
+      
+      exclusion() :: %{
+        "arn" => String.t(),
+        "attributes" => list(attribute()()),
+        "description" => String.t(),
+        "recommendation" => String.t(),
+        "scopes" => list(scope()()),
+        "title" => String.t()
+      }
+      
   """
   @type exclusion() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  add_attributes_to_findings_response() :: %{
-    "failedItems" => map()
-  }
+      
+      add_attributes_to_findings_response() :: %{
+        "failedItems" => map()
+      }
+      
   """
   @type add_attributes_to_findings_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_rules_packages_response() :: %{
-    "nextToken" => String.t(),
-    "rulesPackageArns" => list(String.t()())
-  }
+      
+      list_rules_packages_response() :: %{
+        "nextToken" => String.t(),
+        "rulesPackageArns" => list(String.t()())
+      }
+      
   """
   @type list_rules_packages_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_cross_account_role_exception() :: %{
-    "canRetry" => boolean(),
-    "errorCode" => list(any()),
-    "message" => String.t()
-  }
+      
+      invalid_cross_account_role_exception() :: %{
+        "canRetry" => boolean(),
+        "errorCode" => list(any()),
+        "message" => String.t()
+      }
+      
   """
   @type invalid_cross_account_role_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_exclusions_preview_request() :: %{
-    required("assessmentTemplateArn") => String.t()
-  }
+      
+      create_exclusions_preview_request() :: %{
+        required("assessmentTemplateArn") => String.t()
+      }
+      
   """
   @type create_exclusions_preview_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_group_tag() :: %{
-    "key" => String.t(),
-    "value" => String.t()
-  }
+      
+      resource_group_tag() :: %{
+        "key" => String.t(),
+        "value" => String.t()
+      }
+      
   """
   @type resource_group_tag() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  unsupported_feature_exception() :: %{
-    "canRetry" => boolean(),
-    "message" => String.t()
-  }
+      
+      unsupported_feature_exception() :: %{
+        "canRetry" => boolean(),
+        "message" => String.t()
+      }
+      
   """
   @type unsupported_feature_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  agent_filter() :: %{
-    "agentHealthCodes" => list(list(any())()),
-    "agentHealths" => list(list(any())())
-  }
+      
+      agent_filter() :: %{
+        "agentHealthCodes" => list(list(any())()),
+        "agentHealths" => list(list(any())())
+      }
+      
   """
   @type agent_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_assessment_run_agents_request() :: %{
-    optional("filter") => agent_filter(),
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t(),
-    required("assessmentRunArn") => String.t()
-  }
+      
+      list_assessment_run_agents_request() :: %{
+        optional("filter") => agent_filter(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        required("assessmentRunArn") => String.t()
+      }
+      
   """
   @type list_assessment_run_agents_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_assessment_targets_response() :: %{
-    "assessmentTargetArns" => list(String.t()()),
-    "nextToken" => String.t()
-  }
+      
+      list_assessment_targets_response() :: %{
+        "assessmentTargetArns" => list(String.t()()),
+        "nextToken" => String.t()
+      }
+      
   """
   @type list_assessment_targets_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_assessment_templates_request() :: %{
-    optional("assessmentTargetArns") => list(String.t()()),
-    optional("filter") => assessment_template_filter(),
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t()
-  }
+      
+      list_assessment_templates_request() :: %{
+        optional("assessmentTargetArns") => list(String.t()()),
+        optional("filter") => assessment_template_filter(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+      
   """
   @type list_assessment_templates_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_exclusions_request() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t(),
-    required("assessmentRunArn") => String.t()
-  }
+      
+      list_exclusions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        required("assessmentRunArn") => String.t()
+      }
+      
   """
   @type list_exclusions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  exclusion_preview() :: %{
-    "attributes" => list(attribute()()),
-    "description" => String.t(),
-    "recommendation" => String.t(),
-    "scopes" => list(scope()()),
-    "title" => String.t()
-  }
+      
+      exclusion_preview() :: %{
+        "attributes" => list(attribute()()),
+        "description" => String.t(),
+        "recommendation" => String.t(),
+        "scopes" => list(scope()()),
+        "title" => String.t()
+      }
+      
   """
   @type exclusion_preview() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag() :: %{
-    "key" => String.t(),
-    "value" => String.t()
-  }
+      
+      tag() :: %{
+        "key" => String.t(),
+        "value" => String.t()
+      }
+      
   """
   @type tag() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  agents_already_running_assessment_exception() :: %{
-    "agents" => list(agent_already_running_assessment()()),
-    "agentsTruncated" => boolean(),
-    "canRetry" => boolean(),
-    "message" => String.t()
-  }
+      
+      agents_already_running_assessment_exception() :: %{
+        "agents" => list(agent_already_running_assessment()()),
+        "agentsTruncated" => boolean(),
+        "canRetry" => boolean(),
+        "message" => String.t()
+      }
+      
   """
   @type agents_already_running_assessment_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_assessment_targets_request() :: %{
-    required("assessmentTargetArns") => list(String.t()())
-  }
+      
+      describe_assessment_targets_request() :: %{
+        required("assessmentTargetArns") => list(String.t()())
+      }
+      
   """
   @type describe_assessment_targets_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  rules_package() :: %{
-    "arn" => String.t(),
-    "description" => String.t(),
-    "name" => String.t(),
-    "provider" => String.t(),
-    "version" => String.t()
-  }
+      
+      rules_package() :: %{
+        "arn" => String.t(),
+        "description" => String.t(),
+        "name" => String.t(),
+        "provider" => String.t(),
+        "version" => String.t()
+      }
+      
   """
   @type rules_package() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  assessment_run_in_progress_exception() :: %{
-    "assessmentRunArns" => list(String.t()()),
-    "assessmentRunArnsTruncated" => boolean(),
-    "canRetry" => boolean(),
-    "message" => String.t()
-  }
+      
+      assessment_run_in_progress_exception() :: %{
+        "assessmentRunArns" => list(String.t()()),
+        "assessmentRunArnsTruncated" => boolean(),
+        "canRetry" => boolean(),
+        "message" => String.t()
+      }
+      
   """
   @type assessment_run_in_progress_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_assessment_targets_request() :: %{
-    optional("filter") => assessment_target_filter(),
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t()
-  }
+      
+      list_assessment_targets_request() :: %{
+        optional("filter") => assessment_target_filter(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+      
   """
   @type list_assessment_targets_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  finding() :: %{
-    "arn" => String.t(),
-    "assetAttributes" => asset_attributes(),
-    "assetType" => list(any()),
-    "attributes" => list(attribute()()),
-    "confidence" => integer(),
-    "createdAt" => non_neg_integer(),
-    "description" => String.t(),
-    "id" => String.t(),
-    "indicatorOfCompromise" => boolean(),
-    "numericSeverity" => float(),
-    "recommendation" => String.t(),
-    "schemaVersion" => integer(),
-    "service" => String.t(),
-    "serviceAttributes" => inspector_service_attributes(),
-    "severity" => list(any()),
-    "title" => String.t(),
-    "updatedAt" => non_neg_integer(),
-    "userAttributes" => list(attribute()())
-  }
+      
+      finding() :: %{
+        "arn" => String.t(),
+        "assetAttributes" => asset_attributes(),
+        "assetType" => list(any()),
+        "attributes" => list(attribute()()),
+        "confidence" => integer(),
+        "createdAt" => non_neg_integer(),
+        "description" => String.t(),
+        "id" => String.t(),
+        "indicatorOfCompromise" => boolean(),
+        "numericSeverity" => float(),
+        "recommendation" => String.t(),
+        "schemaVersion" => integer(),
+        "service" => String.t(),
+        "serviceAttributes" => inspector_service_attributes(),
+        "severity" => list(any()),
+        "title" => String.t(),
+        "updatedAt" => non_neg_integer(),
+        "userAttributes" => list(attribute()())
+      }
+      
   """
   @type finding() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_input_exception() :: %{
-    "canRetry" => boolean(),
-    "errorCode" => list(any()),
-    "message" => String.t()
-  }
+      
+      invalid_input_exception() :: %{
+        "canRetry" => boolean(),
+        "errorCode" => list(any()),
+        "message" => String.t()
+      }
+      
   """
   @type invalid_input_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_exclusions_response() :: %{
-    "exclusions" => map(),
-    "failedItems" => map()
-  }
+      
+      describe_exclusions_response() :: %{
+        "exclusions" => map(),
+        "failedItems" => map()
+      }
+      
   """
   @type describe_exclusions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  agent_preview() :: %{
-    "agentHealth" => list(any()),
-    "agentId" => String.t(),
-    "agentVersion" => String.t(),
-    "autoScalingGroup" => String.t(),
-    "hostname" => String.t(),
-    "ipv4Address" => String.t(),
-    "kernelVersion" => String.t(),
-    "operatingSystem" => String.t()
-  }
+      
+      agent_preview() :: %{
+        "agentHealth" => list(any()),
+        "agentId" => String.t(),
+        "agentVersion" => String.t(),
+        "autoScalingGroup" => String.t(),
+        "hostname" => String.t(),
+        "ipv4Address" => String.t(),
+        "kernelVersion" => String.t(),
+        "operatingSystem" => String.t()
+      }
+      
   """
   @type agent_preview() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_response() :: %{
-    "tags" => list(tag()())
-  }
+      
+      list_tags_for_resource_response() :: %{
+        "tags" => list(tag()())
+      }
+      
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_assessment_runs_response() :: %{
-    "assessmentRuns" => list(assessment_run()()),
-    "failedItems" => map()
-  }
+      
+      describe_assessment_runs_response() :: %{
+        "assessmentRuns" => list(assessment_run()()),
+        "failedItems" => map()
+      }
+      
   """
   @type describe_assessment_runs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_findings_request() :: %{
-    optional("assessmentRunArns") => list(String.t()()),
-    optional("filter") => finding_filter(),
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t()
-  }
+      
+      list_findings_request() :: %{
+        optional("assessmentRunArns") => list(String.t()()),
+        optional("filter") => finding_filter(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+      
   """
   @type list_findings_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_assessment_run_agents_response() :: %{
-    "assessmentRunAgents" => list(assessment_run_agent()()),
-    "nextToken" => String.t()
-  }
+      
+      list_assessment_run_agents_response() :: %{
+        "assessmentRunAgents" => list(assessment_run_agent()()),
+        "nextToken" => String.t()
+      }
+      
   """
   @type list_assessment_run_agents_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  set_tags_for_resource_request() :: %{
-    optional("tags") => list(tag()()),
-    required("resourceArn") => String.t()
-  }
+      
+      set_tags_for_resource_request() :: %{
+        optional("tags") => list(tag()()),
+        required("resourceArn") => String.t()
+      }
+      
   """
   @type set_tags_for_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_assessment_report_response() :: %{
-    "status" => list(any()),
-    "url" => String.t()
-  }
+      
+      get_assessment_report_response() :: %{
+        "status" => list(any()),
+        "url" => String.t()
+      }
+      
   """
   @type get_assessment_report_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  security_group() :: %{
-    "groupId" => String.t(),
-    "groupName" => String.t()
-  }
+      
+      security_group() :: %{
+        "groupId" => String.t(),
+        "groupName" => String.t()
+      }
+      
   """
   @type security_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_assessment_runs_request() :: %{
-    optional("assessmentTemplateArns") => list(String.t()()),
-    optional("filter") => assessment_run_filter(),
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t()
-  }
+      
+      list_assessment_runs_request() :: %{
+        optional("assessmentTemplateArns") => list(String.t()()),
+        optional("filter") => assessment_run_filter(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+      
   """
   @type list_assessment_runs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_group() :: %{
-    "arn" => String.t(),
-    "createdAt" => non_neg_integer(),
-    "tags" => list(resource_group_tag()())
-  }
+      
+      resource_group() :: %{
+        "arn" => String.t(),
+        "createdAt" => non_neg_integer(),
+        "tags" => list(resource_group_tag()())
+      }
+      
   """
   @type resource_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  unsubscribe_from_event_request() :: %{
-    required("event") => list(any()),
-    required("resourceArn") => String.t(),
-    required("topicArn") => String.t()
-  }
+      
+      unsubscribe_from_event_request() :: %{
+        required("event") => list(any()),
+        required("resourceArn") => String.t(),
+        required("topicArn") => String.t()
+      }
+      
   """
   @type unsubscribe_from_event_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_assessment_run_request() :: %{
-    optional("assessmentRunName") => String.t(),
-    required("assessmentTemplateArn") => String.t()
-  }
+      
+      start_assessment_run_request() :: %{
+        optional("assessmentRunName") => String.t(),
+        required("assessmentTemplateArn") => String.t()
+      }
+      
   """
   @type start_assessment_run_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  assessment_template_filter() :: %{
-    "durationRange" => duration_range(),
-    "namePattern" => String.t(),
-    "rulesPackageArns" => list(String.t()())
-  }
+      
+      assessment_template_filter() :: %{
+        "durationRange" => duration_range(),
+        "namePattern" => String.t(),
+        "rulesPackageArns" => list(String.t()())
+      }
+      
   """
   @type assessment_template_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  scope() :: %{
-    "key" => list(any()),
-    "value" => String.t()
-  }
+      
+      scope() :: %{
+        "key" => list(any()),
+        "value" => String.t()
+      }
+      
   """
   @type scope() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  preview_agents_response() :: %{
-    "agentPreviews" => list(agent_preview()()),
-    "nextToken" => String.t()
-  }
+      
+      preview_agents_response() :: %{
+        "agentPreviews" => list(agent_preview()()),
+        "nextToken" => String.t()
+      }
+      
   """
   @type preview_agents_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_assessment_target_response() :: %{
-    "assessmentTargetArn" => String.t()
-  }
+      
+      create_assessment_target_response() :: %{
+        "assessmentTargetArn" => String.t()
+      }
+      
   """
   @type create_assessment_target_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  service_temporarily_unavailable_exception() :: %{
-    "canRetry" => boolean(),
-    "message" => String.t()
-  }
+      
+      service_temporarily_unavailable_exception() :: %{
+        "canRetry" => boolean(),
+        "message" => String.t()
+      }
+      
   """
   @type service_temporarily_unavailable_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_assessment_run_request() :: %{
-    required("assessmentRunArn") => String.t()
-  }
+      
+      delete_assessment_run_request() :: %{
+        required("assessmentRunArn") => String.t()
+      }
+      
   """
   @type delete_assessment_run_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_rules_packages_request() :: %{
-    optional("locale") => list(any()),
-    required("rulesPackageArns") => list(String.t()())
-  }
+      
+      describe_rules_packages_request() :: %{
+        optional("locale") => list(any()),
+        required("rulesPackageArns") => list(String.t()())
+      }
+      
   """
   @type describe_rules_packages_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  duration_range() :: %{
-    "maxSeconds" => integer(),
-    "minSeconds" => integer()
-  }
+      
+      duration_range() :: %{
+        "maxSeconds" => integer(),
+        "minSeconds" => integer()
+      }
+      
   """
   @type duration_range() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_assessment_runs_response() :: %{
-    "assessmentRunArns" => list(String.t()()),
-    "nextToken" => String.t()
-  }
+      
+      list_assessment_runs_response() :: %{
+        "assessmentRunArns" => list(String.t()()),
+        "nextToken" => String.t()
+      }
+      
   """
   @type list_assessment_runs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  inspector_service_attributes() :: %{
-    "assessmentRunArn" => String.t(),
-    "rulesPackageArn" => String.t(),
-    "schemaVersion" => integer()
-  }
+      
+      inspector_service_attributes() :: %{
+        "assessmentRunArn" => String.t(),
+        "rulesPackageArn" => String.t(),
+        "schemaVersion" => integer()
+      }
+      
   """
   @type inspector_service_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  timestamp_range() :: %{
-    "beginDate" => non_neg_integer(),
-    "endDate" => non_neg_integer()
-  }
+      
+      timestamp_range() :: %{
+        "beginDate" => non_neg_integer(),
+        "endDate" => non_neg_integer()
+      }
+      
   """
   @type timestamp_range() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  internal_exception() :: %{
-    "canRetry" => boolean(),
-    "message" => String.t()
-  }
+      
+      internal_exception() :: %{
+        "canRetry" => boolean(),
+        "message" => String.t()
+      }
+      
   """
   @type internal_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  access_denied_exception() :: %{
-    "canRetry" => boolean(),
-    "errorCode" => list(any()),
-    "message" => String.t()
-  }
+      
+      access_denied_exception() :: %{
+        "canRetry" => boolean(),
+        "errorCode" => list(any()),
+        "message" => String.t()
+      }
+      
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  telemetry_metadata() :: %{
-    "count" => float(),
-    "dataSize" => float(),
-    "messageType" => String.t()
-  }
+      
+      telemetry_metadata() :: %{
+        "count" => float(),
+        "dataSize" => float(),
+        "messageType" => String.t()
+      }
+      
   """
   @type telemetry_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_resource_group_request() :: %{
-    required("resourceGroupTags") => list(resource_group_tag()())
-  }
+      
+      create_resource_group_request() :: %{
+        required("resourceGroupTags") => list(resource_group_tag()())
+      }
+      
   """
   @type create_resource_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_exclusions_request() :: %{
-    optional("locale") => list(any()),
-    required("exclusionArns") => list(String.t()())
-  }
+      
+      describe_exclusions_request() :: %{
+        optional("locale") => list(any()),
+        required("exclusionArns") => list(String.t()())
+      }
+      
   """
   @type describe_exclusions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_findings_response() :: %{
-    "failedItems" => map(),
-    "findings" => list(finding()())
-  }
+      
+      describe_findings_response() :: %{
+        "failedItems" => map(),
+        "findings" => list(finding()())
+      }
+      
   """
   @type describe_findings_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  finding_filter() :: %{
-    "agentIds" => list(String.t()()),
-    "attributes" => list(attribute()()),
-    "autoScalingGroups" => list(String.t()()),
-    "creationTimeRange" => timestamp_range(),
-    "ruleNames" => list(String.t()()),
-    "rulesPackageArns" => list(String.t()()),
-    "severities" => list(list(any())()),
-    "userAttributes" => list(attribute()())
-  }
+      
+      finding_filter() :: %{
+        "agentIds" => list(String.t()()),
+        "attributes" => list(attribute()()),
+        "autoScalingGroups" => list(String.t()()),
+        "creationTimeRange" => timestamp_range(),
+        "ruleNames" => list(String.t()()),
+        "rulesPackageArns" => list(String.t()()),
+        "severities" => list(list(any())()),
+        "userAttributes" => list(attribute()())
+      }
+      
   """
   @type finding_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_cross_account_access_role_response() :: %{
-    "registeredAt" => non_neg_integer(),
-    "roleArn" => String.t(),
-    "valid" => boolean()
-  }
+      
+      describe_cross_account_access_role_response() :: %{
+        "registeredAt" => non_neg_integer(),
+        "roleArn" => String.t(),
+        "valid" => boolean()
+      }
+      
   """
   @type describe_cross_account_access_role_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  assessment_template() :: %{
-    "arn" => String.t(),
-    "assessmentRunCount" => integer(),
-    "assessmentTargetArn" => String.t(),
-    "createdAt" => non_neg_integer(),
-    "durationInSeconds" => integer(),
-    "lastAssessmentRunArn" => String.t(),
-    "name" => String.t(),
-    "rulesPackageArns" => list(String.t()()),
-    "userAttributesForFindings" => list(attribute()())
-  }
+      
+      assessment_template() :: %{
+        "arn" => String.t(),
+        "assessmentRunCount" => integer(),
+        "assessmentTargetArn" => String.t(),
+        "createdAt" => non_neg_integer(),
+        "durationInSeconds" => integer(),
+        "lastAssessmentRunArn" => String.t(),
+        "name" => String.t(),
+        "rulesPackageArns" => list(String.t()()),
+        "userAttributesForFindings" => list(attribute()())
+      }
+      
   """
   @type assessment_template() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_request() :: %{
-    required("resourceArn") => String.t()
-  }
+      
+      list_tags_for_resource_request() :: %{
+        required("resourceArn") => String.t()
+      }
+      
   """
   @type list_tags_for_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  preview_agents_request() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t(),
-    required("previewAgentsArn") => String.t()
-  }
+      
+      preview_agents_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        required("previewAgentsArn") => String.t()
+      }
+      
   """
   @type preview_agents_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  private_ip() :: %{
-    "privateDnsName" => String.t(),
-    "privateIpAddress" => String.t()
-  }
+      
+      private_ip() :: %{
+        "privateDnsName" => String.t(),
+        "privateIpAddress" => String.t()
+      }
+      
   """
   @type private_ip() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  subscription() :: %{
-    "eventSubscriptions" => list(event_subscription()()),
-    "resourceArn" => String.t(),
-    "topicArn" => String.t()
-  }
+      
+      subscription() :: %{
+        "eventSubscriptions" => list(event_subscription()()),
+        "resourceArn" => String.t(),
+        "topicArn" => String.t()
+      }
+      
   """
   @type subscription() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_rules_packages_response() :: %{
-    "failedItems" => map(),
-    "rulesPackages" => list(rules_package()())
-  }
+      
+      describe_rules_packages_response() :: %{
+        "failedItems" => map(),
+        "rulesPackages" => list(rules_package()())
+      }
+      
   """
   @type describe_rules_packages_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  assessment_target_filter() :: %{
-    "assessmentTargetNamePattern" => String.t()
-  }
+      
+      assessment_target_filter() :: %{
+        "assessmentTargetNamePattern" => String.t()
+      }
+      
   """
   @type assessment_target_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_resource_groups_response() :: %{
-    "failedItems" => map(),
-    "resourceGroups" => list(resource_group()())
-  }
+      
+      describe_resource_groups_response() :: %{
+        "failedItems" => map(),
+        "resourceGroups" => list(resource_group()())
+      }
+      
   """
   @type describe_resource_groups_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_assessment_target_request() :: %{
-    optional("resourceGroupArn") => String.t(),
-    required("assessmentTargetName") => String.t()
-  }
+      
+      create_assessment_target_request() :: %{
+        optional("resourceGroupArn") => String.t(),
+        required("assessmentTargetName") => String.t()
+      }
+      
   """
   @type create_assessment_target_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  attribute() :: %{
-    "key" => String.t(),
-    "value" => String.t()
-  }
+      
+      attribute() :: %{
+        "key" => String.t(),
+        "value" => String.t()
+      }
+      
   """
   @type attribute() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  assessment_run() :: %{
-    "arn" => String.t(),
-    "assessmentTemplateArn" => String.t(),
-    "completedAt" => non_neg_integer(),
-    "createdAt" => non_neg_integer(),
-    "dataCollected" => boolean(),
-    "durationInSeconds" => integer(),
-    "findingCounts" => map(),
-    "name" => String.t(),
-    "notifications" => list(assessment_run_notification()()),
-    "rulesPackageArns" => list(String.t()()),
-    "startedAt" => non_neg_integer(),
-    "state" => list(any()),
-    "stateChangedAt" => non_neg_integer(),
-    "stateChanges" => list(assessment_run_state_change()()),
-    "userAttributesForFindings" => list(attribute()())
-  }
+      
+      assessment_run() :: %{
+        "arn" => String.t(),
+        "assessmentTemplateArn" => String.t(),
+        "completedAt" => non_neg_integer(),
+        "createdAt" => non_neg_integer(),
+        "dataCollected" => boolean(),
+        "durationInSeconds" => integer(),
+        "findingCounts" => map(),
+        "name" => String.t(),
+        "notifications" => list(assessment_run_notification()()),
+        "rulesPackageArns" => list(String.t()()),
+        "startedAt" => non_neg_integer(),
+        "state" => list(any()),
+        "stateChangedAt" => non_neg_integer(),
+        "stateChanges" => list(assessment_run_state_change()()),
+        "userAttributesForFindings" => list(attribute()())
+      }
+      
   """
   @type assessment_run() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  limit_exceeded_exception() :: %{
-    "canRetry" => boolean(),
-    "errorCode" => list(any()),
-    "message" => String.t()
-  }
+      
+      limit_exceeded_exception() :: %{
+        "canRetry" => boolean(),
+        "errorCode" => list(any()),
+        "message" => String.t()
+      }
+      
   """
   @type limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  subscribe_to_event_request() :: %{
-    required("event") => list(any()),
-    required("resourceArn") => String.t(),
-    required("topicArn") => String.t()
-  }
+      
+      subscribe_to_event_request() :: %{
+        required("event") => list(any()),
+        required("resourceArn") => String.t(),
+        required("topicArn") => String.t()
+      }
+      
   """
   @type subscribe_to_event_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_assessment_templates_response() :: %{
-    "assessmentTemplateArns" => list(String.t()()),
-    "nextToken" => String.t()
-  }
+      
+      list_assessment_templates_response() :: %{
+        "assessmentTemplateArns" => list(String.t()()),
+        "nextToken" => String.t()
+      }
+      
   """
   @type list_assessment_templates_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_assessment_report_request() :: %{
-    required("assessmentRunArn") => String.t(),
-    required("reportFileFormat") => list(any()),
-    required("reportType") => list(any())
-  }
+      
+      get_assessment_report_request() :: %{
+        required("assessmentRunArn") => String.t(),
+        required("reportFileFormat") => list(any()),
+        required("reportType") => list(any())
+      }
+      
   """
   @type get_assessment_report_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_assessment_run_response() :: %{
-    "assessmentRunArn" => String.t()
-  }
+      
+      start_assessment_run_response() :: %{
+        "assessmentRunArn" => String.t()
+      }
+      
   """
   @type start_assessment_run_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_findings_request() :: %{
-    optional("locale") => list(any()),
-    required("findingArns") => list(String.t()())
-  }
+      
+      describe_findings_request() :: %{
+        optional("locale") => list(any()),
+        required("findingArns") => list(String.t()())
+      }
+      
   """
   @type describe_findings_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  agent_already_running_assessment() :: %{
-    "agentId" => String.t(),
-    "assessmentRunArn" => String.t()
-  }
+      
+      agent_already_running_assessment() :: %{
+        "agentId" => String.t(),
+        "assessmentRunArn" => String.t()
+      }
+      
   """
   @type agent_already_running_assessment() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_telemetry_metadata_response() :: %{
-    "telemetryMetadata" => list(telemetry_metadata()())
-  }
+      
+      get_telemetry_metadata_response() :: %{
+        "telemetryMetadata" => list(telemetry_metadata()())
+      }
+      
   """
   @type get_telemetry_metadata_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_resource_groups_request() :: %{
-    required("resourceGroupArns") => list(String.t()())
-  }
+      
+      describe_resource_groups_request() :: %{
+        required("resourceGroupArns") => list(String.t()())
+      }
+      
   """
   @type describe_resource_groups_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  failed_item_details() :: %{
-    "failureCode" => list(any()),
-    "retryable" => boolean()
-  }
+      
+      failed_item_details() :: %{
+        "failureCode" => list(any()),
+        "retryable" => boolean()
+      }
+      
   """
   @type failed_item_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  assessment_run_state_change() :: %{
-    "state" => list(any()),
-    "stateChangedAt" => non_neg_integer()
-  }
+      
+      assessment_run_state_change() :: %{
+        "state" => list(any()),
+        "stateChangedAt" => non_neg_integer()
+      }
+      
   """
   @type assessment_run_state_change() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  assessment_target() :: %{
-    "arn" => String.t(),
-    "createdAt" => non_neg_integer(),
-    "name" => String.t(),
-    "resourceGroupArn" => String.t(),
-    "updatedAt" => non_neg_integer()
-  }
+      
+      assessment_target() :: %{
+        "arn" => String.t(),
+        "createdAt" => non_neg_integer(),
+        "name" => String.t(),
+        "resourceGroupArn" => String.t(),
+        "updatedAt" => non_neg_integer()
+      }
+      
   """
   @type assessment_target() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_exclusions_preview_request() :: %{
-    optional("locale") => list(any()),
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t(),
-    required("assessmentTemplateArn") => String.t(),
-    required("previewToken") => String.t()
-  }
+      
+      get_exclusions_preview_request() :: %{
+        optional("locale") => list(any()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        required("assessmentTemplateArn") => String.t(),
+        required("previewToken") => String.t()
+      }
+      
   """
   @type get_exclusions_preview_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_assessment_runs_request() :: %{
-    required("assessmentRunArns") => list(String.t()())
-  }
+      
+      describe_assessment_runs_request() :: %{
+        required("assessmentRunArns") => list(String.t()())
+      }
+      
   """
   @type describe_assessment_runs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_assessment_target_request() :: %{
-    optional("resourceGroupArn") => String.t(),
-    required("assessmentTargetArn") => String.t(),
-    required("assessmentTargetName") => String.t()
-  }
+      
+      update_assessment_target_request() :: %{
+        optional("resourceGroupArn") => String.t(),
+        required("assessmentTargetArn") => String.t(),
+        required("assessmentTargetName") => String.t()
+      }
+      
   """
   @type update_assessment_target_request() :: %{String.t() => any()}
+
+  @type add_attributes_to_findings_errors() ::
+          access_denied_exception()
+          | internal_exception()
+          | service_temporarily_unavailable_exception()
+          | invalid_input_exception()
+          | no_such_entity_exception()
+
+  @type create_assessment_target_errors() ::
+          limit_exceeded_exception()
+          | access_denied_exception()
+          | internal_exception()
+          | service_temporarily_unavailable_exception()
+          | invalid_input_exception()
+          | invalid_cross_account_role_exception()
+          | no_such_entity_exception()
+
+  @type create_assessment_template_errors() ::
+          limit_exceeded_exception()
+          | access_denied_exception()
+          | internal_exception()
+          | service_temporarily_unavailable_exception()
+          | invalid_input_exception()
+          | no_such_entity_exception()
+
+  @type create_exclusions_preview_errors() ::
+          access_denied_exception()
+          | internal_exception()
+          | service_temporarily_unavailable_exception()
+          | invalid_input_exception()
+          | preview_generation_in_progress_exception()
+          | no_such_entity_exception()
+
+  @type create_resource_group_errors() ::
+          limit_exceeded_exception()
+          | access_denied_exception()
+          | internal_exception()
+          | service_temporarily_unavailable_exception()
+          | invalid_input_exception()
+
+  @type delete_assessment_run_errors() ::
+          access_denied_exception()
+          | internal_exception()
+          | service_temporarily_unavailable_exception()
+          | invalid_input_exception()
+          | assessment_run_in_progress_exception()
+          | no_such_entity_exception()
+
+  @type delete_assessment_target_errors() ::
+          access_denied_exception()
+          | internal_exception()
+          | service_temporarily_unavailable_exception()
+          | invalid_input_exception()
+          | assessment_run_in_progress_exception()
+          | no_such_entity_exception()
+
+  @type delete_assessment_template_errors() ::
+          access_denied_exception()
+          | internal_exception()
+          | service_temporarily_unavailable_exception()
+          | invalid_input_exception()
+          | assessment_run_in_progress_exception()
+          | no_such_entity_exception()
+
+  @type describe_assessment_runs_errors() :: internal_exception() | invalid_input_exception()
+
+  @type describe_assessment_targets_errors() :: internal_exception() | invalid_input_exception()
+
+  @type describe_assessment_templates_errors() :: internal_exception() | invalid_input_exception()
+
+  @type describe_cross_account_access_role_errors() :: internal_exception()
+
+  @type describe_exclusions_errors() :: internal_exception() | invalid_input_exception()
+
+  @type describe_findings_errors() :: internal_exception() | invalid_input_exception()
+
+  @type describe_resource_groups_errors() :: internal_exception() | invalid_input_exception()
+
+  @type describe_rules_packages_errors() :: internal_exception() | invalid_input_exception()
+
+  @type get_assessment_report_errors() ::
+          access_denied_exception()
+          | internal_exception()
+          | service_temporarily_unavailable_exception()
+          | invalid_input_exception()
+          | assessment_run_in_progress_exception()
+          | unsupported_feature_exception()
+          | no_such_entity_exception()
+
+  @type get_exclusions_preview_errors() ::
+          access_denied_exception()
+          | internal_exception()
+          | invalid_input_exception()
+          | no_such_entity_exception()
+
+  @type get_telemetry_metadata_errors() ::
+          access_denied_exception()
+          | internal_exception()
+          | invalid_input_exception()
+          | no_such_entity_exception()
+
+  @type list_assessment_run_agents_errors() ::
+          access_denied_exception()
+          | internal_exception()
+          | invalid_input_exception()
+          | no_such_entity_exception()
+
+  @type list_assessment_runs_errors() ::
+          access_denied_exception()
+          | internal_exception()
+          | invalid_input_exception()
+          | no_such_entity_exception()
+
+  @type list_assessment_targets_errors() ::
+          access_denied_exception() | internal_exception() | invalid_input_exception()
+
+  @type list_assessment_templates_errors() ::
+          access_denied_exception()
+          | internal_exception()
+          | invalid_input_exception()
+          | no_such_entity_exception()
+
+  @type list_event_subscriptions_errors() ::
+          access_denied_exception()
+          | internal_exception()
+          | invalid_input_exception()
+          | no_such_entity_exception()
+
+  @type list_exclusions_errors() ::
+          access_denied_exception()
+          | internal_exception()
+          | invalid_input_exception()
+          | no_such_entity_exception()
+
+  @type list_findings_errors() ::
+          access_denied_exception()
+          | internal_exception()
+          | invalid_input_exception()
+          | no_such_entity_exception()
+
+  @type list_rules_packages_errors() ::
+          access_denied_exception() | internal_exception() | invalid_input_exception()
+
+  @type list_tags_for_resource_errors() ::
+          access_denied_exception()
+          | internal_exception()
+          | invalid_input_exception()
+          | no_such_entity_exception()
+
+  @type preview_agents_errors() ::
+          access_denied_exception()
+          | internal_exception()
+          | invalid_input_exception()
+          | invalid_cross_account_role_exception()
+          | no_such_entity_exception()
+
+  @type register_cross_account_access_role_errors() ::
+          access_denied_exception()
+          | internal_exception()
+          | service_temporarily_unavailable_exception()
+          | invalid_input_exception()
+          | invalid_cross_account_role_exception()
+
+  @type remove_attributes_from_findings_errors() ::
+          access_denied_exception()
+          | internal_exception()
+          | service_temporarily_unavailable_exception()
+          | invalid_input_exception()
+          | no_such_entity_exception()
+
+  @type set_tags_for_resource_errors() ::
+          access_denied_exception()
+          | internal_exception()
+          | service_temporarily_unavailable_exception()
+          | invalid_input_exception()
+          | no_such_entity_exception()
+
+  @type start_assessment_run_errors() ::
+          limit_exceeded_exception()
+          | access_denied_exception()
+          | internal_exception()
+          | service_temporarily_unavailable_exception()
+          | invalid_input_exception()
+          | agents_already_running_assessment_exception()
+          | invalid_cross_account_role_exception()
+          | no_such_entity_exception()
+
+  @type stop_assessment_run_errors() ::
+          access_denied_exception()
+          | internal_exception()
+          | service_temporarily_unavailable_exception()
+          | invalid_input_exception()
+          | no_such_entity_exception()
+
+  @type subscribe_to_event_errors() ::
+          limit_exceeded_exception()
+          | access_denied_exception()
+          | internal_exception()
+          | service_temporarily_unavailable_exception()
+          | invalid_input_exception()
+          | no_such_entity_exception()
+
+  @type unsubscribe_from_event_errors() ::
+          access_denied_exception()
+          | internal_exception()
+          | service_temporarily_unavailable_exception()
+          | invalid_input_exception()
+          | no_such_entity_exception()
+
+  @type update_assessment_target_errors() ::
+          access_denied_exception()
+          | internal_exception()
+          | service_temporarily_unavailable_exception()
+          | invalid_input_exception()
+          | no_such_entity_exception()
 
   def metadata do
     %{
@@ -1222,11 +1653,7 @@ defmodule AWS.Inspector do
   @spec add_attributes_to_findings(map(), add_attributes_to_findings_request(), list()) ::
           {:ok, add_attributes_to_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, no_such_entity_exception()}
-          | {:error, service_temporarily_unavailable_exception()}
+          | {:error, add_attributes_to_findings_errors()}
   def add_attributes_to_findings(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1255,13 +1682,7 @@ defmodule AWS.Inspector do
   @spec create_assessment_target(map(), create_assessment_target_request(), list()) ::
           {:ok, create_assessment_target_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_exception()}
-          | {:error, invalid_cross_account_role_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, no_such_entity_exception()}
-          | {:error, service_temporarily_unavailable_exception()}
+          | {:error, create_assessment_target_errors()}
   def create_assessment_target(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1282,12 +1703,7 @@ defmodule AWS.Inspector do
   @spec create_assessment_template(map(), create_assessment_template_request(), list()) ::
           {:ok, create_assessment_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, no_such_entity_exception()}
-          | {:error, service_temporarily_unavailable_exception()}
+          | {:error, create_assessment_template_errors()}
   def create_assessment_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1305,12 +1721,7 @@ defmodule AWS.Inspector do
   @spec create_exclusions_preview(map(), create_exclusions_preview_request(), list()) ::
           {:ok, create_exclusions_preview_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, no_such_entity_exception()}
-          | {:error, preview_generation_in_progress_exception()}
-          | {:error, service_temporarily_unavailable_exception()}
+          | {:error, create_exclusions_preview_errors()}
   def create_exclusions_preview(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1330,11 +1741,7 @@ defmodule AWS.Inspector do
   @spec create_resource_group(map(), create_resource_group_request(), list()) ::
           {:ok, create_resource_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, service_temporarily_unavailable_exception()}
+          | {:error, create_resource_group_errors()}
   def create_resource_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1348,12 +1755,7 @@ defmodule AWS.Inspector do
   @spec delete_assessment_run(map(), delete_assessment_run_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, assessment_run_in_progress_exception()}
-          | {:error, internal_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, no_such_entity_exception()}
-          | {:error, service_temporarily_unavailable_exception()}
+          | {:error, delete_assessment_run_errors()}
   def delete_assessment_run(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1367,12 +1769,7 @@ defmodule AWS.Inspector do
   @spec delete_assessment_target(map(), delete_assessment_target_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, assessment_run_in_progress_exception()}
-          | {:error, internal_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, no_such_entity_exception()}
-          | {:error, service_temporarily_unavailable_exception()}
+          | {:error, delete_assessment_target_errors()}
   def delete_assessment_target(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1386,12 +1783,7 @@ defmodule AWS.Inspector do
   @spec delete_assessment_template(map(), delete_assessment_template_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, assessment_run_in_progress_exception()}
-          | {:error, internal_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, no_such_entity_exception()}
-          | {:error, service_temporarily_unavailable_exception()}
+          | {:error, delete_assessment_template_errors()}
   def delete_assessment_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1405,8 +1797,7 @@ defmodule AWS.Inspector do
   @spec describe_assessment_runs(map(), describe_assessment_runs_request(), list()) ::
           {:ok, describe_assessment_runs_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, invalid_input_exception()}
+          | {:error, describe_assessment_runs_errors()}
   def describe_assessment_runs(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1421,8 +1812,7 @@ defmodule AWS.Inspector do
   @spec describe_assessment_targets(map(), describe_assessment_targets_request(), list()) ::
           {:ok, describe_assessment_targets_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, invalid_input_exception()}
+          | {:error, describe_assessment_targets_errors()}
   def describe_assessment_targets(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1437,8 +1827,7 @@ defmodule AWS.Inspector do
   @spec describe_assessment_templates(map(), describe_assessment_templates_request(), list()) ::
           {:ok, describe_assessment_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, invalid_input_exception()}
+          | {:error, describe_assessment_templates_errors()}
   def describe_assessment_templates(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1452,7 +1841,7 @@ defmodule AWS.Inspector do
   @spec describe_cross_account_access_role(map(), %{}, list()) ::
           {:ok, describe_cross_account_access_role_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
+          | {:error, describe_cross_account_access_role_errors()}
   def describe_cross_account_access_role(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1465,8 +1854,7 @@ defmodule AWS.Inspector do
   @spec describe_exclusions(map(), describe_exclusions_request(), list()) ::
           {:ok, describe_exclusions_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, invalid_input_exception()}
+          | {:error, describe_exclusions_errors()}
   def describe_exclusions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1479,8 +1867,7 @@ defmodule AWS.Inspector do
   @spec describe_findings(map(), describe_findings_request(), list()) ::
           {:ok, describe_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, invalid_input_exception()}
+          | {:error, describe_findings_errors()}
   def describe_findings(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1494,8 +1881,7 @@ defmodule AWS.Inspector do
   @spec describe_resource_groups(map(), describe_resource_groups_request(), list()) ::
           {:ok, describe_resource_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, invalid_input_exception()}
+          | {:error, describe_resource_groups_errors()}
   def describe_resource_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1509,8 +1895,7 @@ defmodule AWS.Inspector do
   @spec describe_rules_packages(map(), describe_rules_packages_request(), list()) ::
           {:ok, describe_rules_packages_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, invalid_input_exception()}
+          | {:error, describe_rules_packages_errors()}
   def describe_rules_packages(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1525,13 +1910,7 @@ defmodule AWS.Inspector do
   @spec get_assessment_report(map(), get_assessment_report_request(), list()) ::
           {:ok, get_assessment_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, assessment_run_in_progress_exception()}
-          | {:error, internal_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, no_such_entity_exception()}
-          | {:error, service_temporarily_unavailable_exception()}
-          | {:error, unsupported_feature_exception()}
+          | {:error, get_assessment_report_errors()}
   def get_assessment_report(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1549,10 +1928,7 @@ defmodule AWS.Inspector do
   @spec get_exclusions_preview(map(), get_exclusions_preview_request(), list()) ::
           {:ok, get_exclusions_preview_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, no_such_entity_exception()}
+          | {:error, get_exclusions_preview_errors()}
   def get_exclusions_preview(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1566,10 +1942,7 @@ defmodule AWS.Inspector do
   @spec get_telemetry_metadata(map(), get_telemetry_metadata_request(), list()) ::
           {:ok, get_telemetry_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, no_such_entity_exception()}
+          | {:error, get_telemetry_metadata_errors()}
   def get_telemetry_metadata(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1583,10 +1956,7 @@ defmodule AWS.Inspector do
   @spec list_assessment_run_agents(map(), list_assessment_run_agents_request(), list()) ::
           {:ok, list_assessment_run_agents_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, no_such_entity_exception()}
+          | {:error, list_assessment_run_agents_errors()}
   def list_assessment_run_agents(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1600,10 +1970,7 @@ defmodule AWS.Inspector do
   @spec list_assessment_runs(map(), list_assessment_runs_request(), list()) ::
           {:ok, list_assessment_runs_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, no_such_entity_exception()}
+          | {:error, list_assessment_runs_errors()}
   def list_assessment_runs(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1619,9 +1986,7 @@ defmodule AWS.Inspector do
   @spec list_assessment_targets(map(), list_assessment_targets_request(), list()) ::
           {:ok, list_assessment_targets_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_exception()}
-          | {:error, invalid_input_exception()}
+          | {:error, list_assessment_targets_errors()}
   def list_assessment_targets(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1636,10 +2001,7 @@ defmodule AWS.Inspector do
   @spec list_assessment_templates(map(), list_assessment_templates_request(), list()) ::
           {:ok, list_assessment_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, no_such_entity_exception()}
+          | {:error, list_assessment_templates_errors()}
   def list_assessment_templates(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1656,10 +2018,7 @@ defmodule AWS.Inspector do
   @spec list_event_subscriptions(map(), list_event_subscriptions_request(), list()) ::
           {:ok, list_event_subscriptions_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, no_such_entity_exception()}
+          | {:error, list_event_subscriptions_errors()}
   def list_event_subscriptions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1672,10 +2031,7 @@ defmodule AWS.Inspector do
   @spec list_exclusions(map(), list_exclusions_request(), list()) ::
           {:ok, list_exclusions_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, no_such_entity_exception()}
+          | {:error, list_exclusions_errors()}
   def list_exclusions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1690,10 +2046,7 @@ defmodule AWS.Inspector do
   @spec list_findings(map(), list_findings_request(), list()) ::
           {:ok, list_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, no_such_entity_exception()}
+          | {:error, list_findings_errors()}
   def list_findings(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1706,9 +2059,7 @@ defmodule AWS.Inspector do
   @spec list_rules_packages(map(), list_rules_packages_request(), list()) ::
           {:ok, list_rules_packages_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_exception()}
-          | {:error, invalid_input_exception()}
+          | {:error, list_rules_packages_errors()}
   def list_rules_packages(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1721,10 +2072,7 @@ defmodule AWS.Inspector do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, no_such_entity_exception()}
+          | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1739,11 +2087,7 @@ defmodule AWS.Inspector do
   @spec preview_agents(map(), preview_agents_request(), list()) ::
           {:ok, preview_agents_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_exception()}
-          | {:error, invalid_cross_account_role_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, no_such_entity_exception()}
+          | {:error, preview_agents_errors()}
   def preview_agents(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1762,11 +2106,7 @@ defmodule AWS.Inspector do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_exception()}
-          | {:error, invalid_cross_account_role_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, service_temporarily_unavailable_exception()}
+          | {:error, register_cross_account_access_role_errors()}
   def register_cross_account_access_role(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1781,11 +2121,7 @@ defmodule AWS.Inspector do
   @spec remove_attributes_from_findings(map(), remove_attributes_from_findings_request(), list()) ::
           {:ok, remove_attributes_from_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, no_such_entity_exception()}
-          | {:error, service_temporarily_unavailable_exception()}
+          | {:error, remove_attributes_from_findings_errors()}
   def remove_attributes_from_findings(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1800,11 +2136,7 @@ defmodule AWS.Inspector do
   @spec set_tags_for_resource(map(), set_tags_for_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, no_such_entity_exception()}
-          | {:error, service_temporarily_unavailable_exception()}
+          | {:error, set_tags_for_resource_errors()}
   def set_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1822,14 +2154,7 @@ defmodule AWS.Inspector do
   @spec start_assessment_run(map(), start_assessment_run_request(), list()) ::
           {:ok, start_assessment_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, agents_already_running_assessment_exception()}
-          | {:error, internal_exception()}
-          | {:error, invalid_cross_account_role_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, no_such_entity_exception()}
-          | {:error, service_temporarily_unavailable_exception()}
+          | {:error, start_assessment_run_errors()}
   def start_assessment_run(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1843,11 +2168,7 @@ defmodule AWS.Inspector do
   @spec stop_assessment_run(map(), stop_assessment_run_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, no_such_entity_exception()}
-          | {:error, service_temporarily_unavailable_exception()}
+          | {:error, stop_assessment_run_errors()}
   def stop_assessment_run(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1862,12 +2183,7 @@ defmodule AWS.Inspector do
   @spec subscribe_to_event(map(), subscribe_to_event_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, no_such_entity_exception()}
-          | {:error, service_temporarily_unavailable_exception()}
+          | {:error, subscribe_to_event_errors()}
   def subscribe_to_event(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1881,11 +2197,7 @@ defmodule AWS.Inspector do
   @spec unsubscribe_from_event(map(), unsubscribe_from_event_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, no_such_entity_exception()}
-          | {:error, service_temporarily_unavailable_exception()}
+          | {:error, unsubscribe_from_event_errors()}
   def unsubscribe_from_event(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1903,11 +2215,7 @@ defmodule AWS.Inspector do
   @spec update_assessment_target(map(), update_assessment_target_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_exception()}
-          | {:error, invalid_input_exception()}
-          | {:error, no_such_entity_exception()}
-          | {:error, service_temporarily_unavailable_exception()}
+          | {:error, update_assessment_target_errors()}
   def update_assessment_target(%Client{} = client, input, options \\ []) do
     meta = metadata()
 

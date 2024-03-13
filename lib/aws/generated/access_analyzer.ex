@@ -54,1391 +54,1858 @@ defmodule AWS.AccessAnalyzer do
   @typedoc """
 
   ## Example:
-  trail_properties() :: %{
-    "allRegions" => [boolean()],
-    "cloudTrailArn" => String.t(),
-    "regions" => list([String.t()]())
-  }
+
+      trail_properties() :: %{
+        "allRegions" => [boolean()],
+        "cloudTrailArn" => String.t(),
+        "regions" => list([String.t()]())
+      }
+
   """
   @type trail_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cloud_trail_details() :: %{
-    "accessRole" => String.t(),
-    "endTime" => non_neg_integer(),
-    "startTime" => non_neg_integer(),
-    "trails" => list(trail()())
-  }
+
+      cloud_trail_details() :: %{
+        "accessRole" => String.t(),
+        "endTime" => non_neg_integer(),
+        "startTime" => non_neg_integer(),
+        "trails" => list(trail()())
+      }
+
   """
   @type cloud_trail_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_request() :: %{
-    "tags" => map()
-  }
+
+      tag_resource_request() :: %{
+        "tags" => map()
+      }
+
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  reason_summary() :: %{
-    "description" => [String.t()],
-    "statementId" => [String.t()],
-    "statementIndex" => [integer()]
-  }
+
+      reason_summary() :: %{
+        "description" => [String.t()],
+        "statementId" => [String.t()],
+        "statementIndex" => [integer()]
+      }
+
   """
   @type reason_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  status_reason() :: %{
-    "code" => String.t()
-  }
+
+      status_reason() :: %{
+        "code" => String.t()
+      }
+
   """
   @type status_reason() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  vpc_configuration() :: %{
-    "vpcId" => String.t()
-  }
+
+      vpc_configuration() :: %{
+        "vpcId" => String.t()
+      }
+
   """
   @type vpc_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_archive_rule_request() :: %{
-    "clientToken" => [String.t()]
-  }
+
+      delete_archive_rule_request() :: %{
+        "clientToken" => [String.t()]
+      }
+
   """
   @type delete_archive_rule_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_response() :: %{
 
-  }
+      untag_resource_response() :: %{}
+
   """
-  @type untag_resource_response() :: %{String.t() => any()}
+  @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_access_previews_response() :: %{
-    optional("nextToken") => String.t(),
-    required("accessPreviews") => list(access_preview_summary()())
-  }
+
+      list_access_previews_response() :: %{
+        optional("nextToken") => String.t(),
+        required("accessPreviews") => list(access_preview_summary()())
+      }
+
   """
   @type list_access_previews_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  unused_iam_user_access_key_details() :: %{
-    "accessKeyId" => [String.t()],
-    "lastAccessed" => non_neg_integer()
-  }
+
+      unused_iam_user_access_key_details() :: %{
+        "accessKeyId" => [String.t()],
+        "lastAccessed" => non_neg_integer()
+      }
+
   """
   @type unused_iam_user_access_key_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  kms_grant_constraints() :: %{
-    "encryptionContextEquals" => map(),
-    "encryptionContextSubset" => map()
-  }
+
+      kms_grant_constraints() :: %{
+        "encryptionContextEquals" => map(),
+        "encryptionContextSubset" => map()
+      }
+
   """
   @type kms_grant_constraints() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  generated_policy_properties() :: %{
-    "cloudTrailProperties" => cloud_trail_properties(),
-    "isComplete" => [boolean()],
-    "principalArn" => String.t()
-  }
+
+      generated_policy_properties() :: %{
+        "cloudTrailProperties" => cloud_trail_properties(),
+        "isComplete" => [boolean()],
+        "principalArn" => String.t()
+      }
+
   """
   @type generated_policy_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  finding_summary() :: %{
-    "action" => list([String.t()]()),
-    "analyzedAt" => non_neg_integer(),
-    "condition" => map(),
-    "createdAt" => non_neg_integer(),
-    "error" => [String.t()],
-    "id" => String.t(),
-    "isPublic" => [boolean()],
-    "principal" => map(),
-    "resource" => [String.t()],
-    "resourceOwnerAccount" => [String.t()],
-    "resourceType" => String.t(),
-    "sources" => list(finding_source()()),
-    "status" => String.t(),
-    "updatedAt" => non_neg_integer()
-  }
+
+      finding_summary() :: %{
+        "action" => list([String.t()]()),
+        "analyzedAt" => non_neg_integer(),
+        "condition" => map(),
+        "createdAt" => non_neg_integer(),
+        "error" => [String.t()],
+        "id" => String.t(),
+        "isPublic" => [boolean()],
+        "principal" => map(),
+        "resource" => [String.t()],
+        "resourceOwnerAccount" => [String.t()],
+        "resourceType" => String.t(),
+        "sources" => list(finding_source()()),
+        "status" => String.t(),
+        "updatedAt" => non_neg_integer()
+      }
+
   """
   @type finding_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_access_previews_request() :: %{
-    optional("maxResults") => [integer()],
-    optional("nextToken") => String.t(),
-    required("analyzerArn") => String.t()
-  }
+
+      list_access_previews_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t(),
+        required("analyzerArn") => String.t()
+      }
+
   """
   @type list_access_previews_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  sns_topic_configuration() :: %{
-    "topicPolicy" => String.t()
-  }
+
+      sns_topic_configuration() :: %{
+        "topicPolicy" => String.t()
+      }
+
   """
   @type sns_topic_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  unused_access_configuration() :: %{
-    "unusedAccessAge" => [integer()]
-  }
+
+      unused_access_configuration() :: %{
+        "unusedAccessAge" => [integer()]
+      }
+
   """
   @type unused_access_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  s3_bucket_acl_grant_configuration() :: %{
-    "grantee" => list(),
-    "permission" => String.t()
-  }
+
+      s3_bucket_acl_grant_configuration() :: %{
+        "grantee" => list(),
+        "permission" => String.t()
+      }
+
   """
   @type s3_bucket_acl_grant_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  analyzed_resource() :: %{
-    "actions" => list([String.t()]()),
-    "analyzedAt" => non_neg_integer(),
-    "createdAt" => non_neg_integer(),
-    "error" => [String.t()],
-    "isPublic" => [boolean()],
-    "resourceArn" => String.t(),
-    "resourceOwnerAccount" => [String.t()],
-    "resourceType" => String.t(),
-    "sharedVia" => list([String.t()]()),
-    "status" => String.t(),
-    "updatedAt" => non_neg_integer()
-  }
+
+      analyzed_resource() :: %{
+        "actions" => list([String.t()]()),
+        "analyzedAt" => non_neg_integer(),
+        "createdAt" => non_neg_integer(),
+        "error" => [String.t()],
+        "isPublic" => [boolean()],
+        "resourceArn" => String.t(),
+        "resourceOwnerAccount" => [String.t()],
+        "resourceType" => String.t(),
+        "sharedVia" => list([String.t()]()),
+        "status" => String.t(),
+        "updatedAt" => non_neg_integer()
+      }
+
   """
   @type analyzed_resource() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_analyzer_response() :: %{
-    "analyzer" => analyzer_summary()
-  }
+
+      get_analyzer_response() :: %{
+        "analyzer" => analyzer_summary()
+      }
+
   """
   @type get_analyzer_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_findings_response() :: %{
-    "findings" => list(finding_summary()()),
-    "nextToken" => String.t()
-  }
+
+      list_findings_response() :: %{
+        "findings" => list(finding_summary()()),
+        "nextToken" => String.t()
+      }
+
   """
   @type list_findings_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_analyzer_request() :: %{
-    "analyzerName" => String.t(),
-    "archiveRules" => list(inline_archive_rule()()),
-    "clientToken" => [String.t()],
-    "configuration" => list(),
-    "tags" => map(),
-    "type" => String.t()
-  }
+
+      create_analyzer_request() :: %{
+        "analyzerName" => String.t(),
+        "archiveRules" => list(inline_archive_rule()()),
+        "clientToken" => [String.t()],
+        "configuration" => list(),
+        "tags" => map(),
+        "type" => String.t()
+      }
+
   """
   @type create_analyzer_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  unused_iam_user_password_details() :: %{
-    "lastAccessed" => non_neg_integer()
-  }
+
+      unused_iam_user_password_details() :: %{
+        "lastAccessed" => non_neg_integer()
+      }
+
   """
   @type unused_iam_user_password_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  unused_iam_role_details() :: %{
-    "lastAccessed" => non_neg_integer()
-  }
+
+      unused_iam_role_details() :: %{
+        "lastAccessed" => non_neg_integer()
+      }
+
   """
   @type unused_iam_role_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  unused_permission_details() :: %{
-    "actions" => list(unused_action()()),
-    "lastAccessed" => non_neg_integer(),
-    "serviceNamespace" => [String.t()]
-  }
+
+      unused_permission_details() :: %{
+        "actions" => list(unused_action()()),
+        "lastAccessed" => non_neg_integer(),
+        "serviceNamespace" => [String.t()]
+      }
+
   """
   @type unused_permission_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_request() :: %{
-    "tagKeys" => list([String.t()]())
-  }
+
+      untag_resource_request() :: %{
+        "tagKeys" => list([String.t()]())
+      }
+
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_analyzed_resource_response() :: %{
-    "resource" => analyzed_resource()
-  }
+
+      get_analyzed_resource_response() :: %{
+        "resource" => analyzed_resource()
+      }
+
   """
   @type get_analyzed_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_finding_v2_request() :: %{
-    optional("maxResults") => [integer()],
-    optional("nextToken") => String.t(),
-    required("analyzerArn") => String.t()
-  }
+
+      get_finding_v2_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t(),
+        required("analyzerArn") => String.t()
+      }
+
   """
   @type get_finding_v2_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  check_no_new_access_request() :: %{
-    required("existingPolicyDocument") => String.t(),
-    required("newPolicyDocument") => String.t(),
-    required("policyType") => String.t()
-  }
+
+      check_no_new_access_request() :: %{
+        required("existingPolicyDocument") => String.t(),
+        required("newPolicyDocument") => String.t(),
+        required("policyType") => String.t()
+      }
+
   """
   @type check_no_new_access_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  position() :: %{
-    "column" => [integer()],
-    "line" => [integer()],
-    "offset" => [integer()]
-  }
+
+      position() :: %{
+        "column" => [integer()],
+        "line" => [integer()],
+        "offset" => [integer()]
+      }
+
   """
   @type position() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_analyzer_request() :: %{
-    "clientToken" => [String.t()]
-  }
+
+      delete_analyzer_request() :: %{
+        "clientToken" => [String.t()]
+      }
+
   """
   @type delete_analyzer_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_analyzers_response() :: %{
-    "analyzers" => list(analyzer_summary()()),
-    "nextToken" => String.t()
-  }
+
+      list_analyzers_response() :: %{
+        "analyzers" => list(analyzer_summary()()),
+        "nextToken" => String.t()
+      }
+
   """
   @type list_analyzers_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  check_access_not_granted_response() :: %{
-    "message" => [String.t()],
-    "reasons" => list(reason_summary()()),
-    "result" => String.t()
-  }
+
+      check_access_not_granted_response() :: %{
+        "message" => [String.t()],
+        "reasons" => list(reason_summary()()),
+        "result" => String.t()
+      }
+
   """
   @type check_access_not_granted_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cancel_policy_generation_response() :: %{
 
-  }
+      cancel_policy_generation_response() :: %{}
+
   """
-  @type cancel_policy_generation_response() :: %{String.t() => any()}
+  @type cancel_policy_generation_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_findings_v2_request() :: %{
-    optional("filter") => map(),
-    optional("maxResults") => [integer()],
-    optional("nextToken") => String.t(),
-    optional("sort") => sort_criteria(),
-    required("analyzerArn") => String.t()
-  }
+
+      list_findings_v2_request() :: %{
+        optional("filter") => map(),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t(),
+        optional("sort") => sort_criteria(),
+        required("analyzerArn") => String.t()
+      }
+
   """
   @type list_findings_v2_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_analyzed_resources_request() :: %{
-    "analyzerArn" => String.t(),
-    "maxResults" => [integer()],
-    "nextToken" => String.t(),
-    "resourceType" => String.t()
-  }
+
+      list_analyzed_resources_request() :: %{
+        "analyzerArn" => String.t(),
+        "maxResults" => [integer()],
+        "nextToken" => String.t(),
+        "resourceType" => String.t()
+      }
+
   """
   @type list_analyzed_resources_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  access_preview_status_reason() :: %{
-    "code" => String.t()
-  }
+
+      access_preview_status_reason() :: %{
+        "code" => String.t()
+      }
+
   """
   @type access_preview_status_reason() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_archive_rules_request() :: %{
-    "maxResults" => [integer()],
-    "nextToken" => String.t()
-  }
+
+      list_archive_rules_request() :: %{
+        "maxResults" => [integer()],
+        "nextToken" => String.t()
+      }
+
   """
   @type list_archive_rules_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  span() :: %{
-    "end" => position(),
-    "start" => position()
-  }
+
+      span() :: %{
+        "end" => position(),
+        "start" => position()
+      }
+
   """
   @type span() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  finding_source() :: %{
-    "detail" => finding_source_detail(),
-    "type" => String.t()
-  }
+
+      finding_source() :: %{
+        "detail" => finding_source_detail(),
+        "type" => String.t()
+      }
+
   """
   @type finding_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_analyzed_resources_response() :: %{
-    "analyzedResources" => list(analyzed_resource_summary()()),
-    "nextToken" => String.t()
-  }
+
+      list_analyzed_resources_response() :: %{
+        "analyzedResources" => list(analyzed_resource_summary()()),
+        "nextToken" => String.t()
+      }
+
   """
   @type list_analyzed_resources_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  access_preview_finding() :: %{
-    "action" => list([String.t()]()),
-    "changeType" => String.t(),
-    "condition" => map(),
-    "createdAt" => non_neg_integer(),
-    "error" => [String.t()],
-    "existingFindingId" => String.t(),
-    "existingFindingStatus" => String.t(),
-    "id" => String.t(),
-    "isPublic" => [boolean()],
-    "principal" => map(),
-    "resource" => [String.t()],
-    "resourceOwnerAccount" => [String.t()],
-    "resourceType" => String.t(),
-    "sources" => list(finding_source()()),
-    "status" => String.t()
-  }
+
+      access_preview_finding() :: %{
+        "action" => list([String.t()]()),
+        "changeType" => String.t(),
+        "condition" => map(),
+        "createdAt" => non_neg_integer(),
+        "error" => [String.t()],
+        "existingFindingId" => String.t(),
+        "existingFindingStatus" => String.t(),
+        "id" => String.t(),
+        "isPublic" => [boolean()],
+        "principal" => map(),
+        "resource" => [String.t()],
+        "resourceOwnerAccount" => [String.t()],
+        "resourceType" => String.t(),
+        "sources" => list(finding_source()()),
+        "status" => String.t()
+      }
+
   """
   @type access_preview_finding() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  archive_rule_summary() :: %{
-    "createdAt" => non_neg_integer(),
-    "filter" => map(),
-    "ruleName" => String.t(),
-    "updatedAt" => non_neg_integer()
-  }
+
+      archive_rule_summary() :: %{
+        "createdAt" => non_neg_integer(),
+        "filter" => map(),
+        "ruleName" => String.t(),
+        "updatedAt" => non_neg_integer()
+      }
+
   """
   @type archive_rule_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  conflict_exception() :: %{
-    "message" => [String.t()],
-    "resourceId" => [String.t()],
-    "resourceType" => [String.t()]
-  }
+
+      conflict_exception() :: %{
+        "message" => [String.t()],
+        "resourceId" => [String.t()],
+        "resourceType" => [String.t()]
+      }
+
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_not_found_exception() :: %{
-    "message" => [String.t()],
-    "resourceId" => [String.t()],
-    "resourceType" => [String.t()]
-  }
+
+      resource_not_found_exception() :: %{
+        "message" => [String.t()],
+        "resourceId" => [String.t()],
+        "resourceType" => [String.t()]
+      }
+
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_access_preview_request() :: %{
-    optional("clientToken") => [String.t()],
-    required("analyzerArn") => String.t(),
-    required("configurations") => map()
-  }
+
+      create_access_preview_request() :: %{
+        optional("clientToken") => [String.t()],
+        required("analyzerArn") => String.t(),
+        required("configurations") => map()
+      }
+
   """
   @type create_access_preview_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  policy_generation_details() :: %{
-    "principalArn" => String.t()
-  }
+
+      policy_generation_details() :: %{
+        "principalArn" => String.t()
+      }
+
   """
   @type policy_generation_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ecr_repository_configuration() :: %{
-    "repositoryPolicy" => String.t()
-  }
+
+      ecr_repository_configuration() :: %{
+        "repositoryPolicy" => String.t()
+      }
+
   """
   @type ecr_repository_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_generated_policy_response() :: %{
-    required("generatedPolicyResult") => generated_policy_result(),
-    required("jobDetails") => job_details()
-  }
+
+      get_generated_policy_response() :: %{
+        required("generatedPolicyResult") => generated_policy_result(),
+        required("jobDetails") => job_details()
+      }
+
   """
   @type get_generated_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  service_quota_exceeded_exception() :: %{
-    "message" => [String.t()],
-    "resourceId" => [String.t()],
-    "resourceType" => [String.t()]
-  }
+
+      service_quota_exceeded_exception() :: %{
+        "message" => [String.t()],
+        "resourceId" => [String.t()],
+        "resourceType" => [String.t()]
+      }
+
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  validate_policy_finding() :: %{
-    "findingDetails" => [String.t()],
-    "findingType" => String.t(),
-    "issueCode" => String.t(),
-    "learnMoreLink" => String.t(),
-    "locations" => list(location()())
-  }
+
+      validate_policy_finding() :: %{
+        "findingDetails" => [String.t()],
+        "findingType" => String.t(),
+        "issueCode" => String.t(),
+        "learnMoreLink" => String.t(),
+        "locations" => list(location()())
+      }
+
   """
   @type validate_policy_finding() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_archive_rules_response() :: %{
-    "archiveRules" => list(archive_rule_summary()()),
-    "nextToken" => String.t()
-  }
+
+      list_archive_rules_response() :: %{
+        "archiveRules" => list(archive_rule_summary()()),
+        "nextToken" => String.t()
+      }
+
   """
   @type list_archive_rules_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_generated_policy_request() :: %{
-    optional("includeResourcePlaceholders") => [boolean()],
-    optional("includeServiceLevelTemplate") => [boolean()]
-  }
+
+      get_generated_policy_request() :: %{
+        optional("includeResourcePlaceholders") => [boolean()],
+        optional("includeServiceLevelTemplate") => [boolean()]
+      }
+
   """
   @type get_generated_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  analyzed_resource_summary() :: %{
-    "resourceArn" => String.t(),
-    "resourceOwnerAccount" => [String.t()],
-    "resourceType" => String.t()
-  }
+
+      analyzed_resource_summary() :: %{
+        "resourceArn" => String.t(),
+        "resourceOwnerAccount" => [String.t()],
+        "resourceType" => String.t()
+      }
+
   """
   @type analyzed_resource_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  finding() :: %{
-    "action" => list([String.t()]()),
-    "analyzedAt" => non_neg_integer(),
-    "condition" => map(),
-    "createdAt" => non_neg_integer(),
-    "error" => [String.t()],
-    "id" => String.t(),
-    "isPublic" => [boolean()],
-    "principal" => map(),
-    "resource" => [String.t()],
-    "resourceOwnerAccount" => [String.t()],
-    "resourceType" => String.t(),
-    "sources" => list(finding_source()()),
-    "status" => String.t(),
-    "updatedAt" => non_neg_integer()
-  }
+
+      finding() :: %{
+        "action" => list([String.t()]()),
+        "analyzedAt" => non_neg_integer(),
+        "condition" => map(),
+        "createdAt" => non_neg_integer(),
+        "error" => [String.t()],
+        "id" => String.t(),
+        "isPublic" => [boolean()],
+        "principal" => map(),
+        "resource" => [String.t()],
+        "resourceOwnerAccount" => [String.t()],
+        "resourceType" => String.t(),
+        "sources" => list(finding_source()()),
+        "status" => String.t(),
+        "updatedAt" => non_neg_integer()
+      }
+
   """
   @type finding() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  kms_grant_configuration() :: %{
-    "constraints" => kms_grant_constraints(),
-    "granteePrincipal" => String.t(),
-    "issuingAccount" => String.t(),
-    "operations" => list(String.t()()),
-    "retiringPrincipal" => String.t()
-  }
+
+      kms_grant_configuration() :: %{
+        "constraints" => kms_grant_constraints(),
+        "granteePrincipal" => String.t(),
+        "issuingAccount" => String.t(),
+        "operations" => list(String.t()()),
+        "retiringPrincipal" => String.t()
+      }
+
   """
   @type kms_grant_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  check_no_new_access_response() :: %{
-    "message" => [String.t()],
-    "reasons" => list(reason_summary()()),
-    "result" => String.t()
-  }
+
+      check_no_new_access_response() :: %{
+        "message" => [String.t()],
+        "reasons" => list(reason_summary()()),
+        "result" => String.t()
+      }
+
   """
   @type check_no_new_access_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_response() :: %{
-    "tags" => map()
-  }
+
+      list_tags_for_resource_response() :: %{
+        "tags" => map()
+      }
+
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_findings_request() :: %{
-    "analyzerArn" => String.t(),
-    "filter" => map(),
-    "maxResults" => [integer()],
-    "nextToken" => String.t(),
-    "sort" => sort_criteria()
-  }
+
+      list_findings_request() :: %{
+        "analyzerArn" => String.t(),
+        "filter" => map(),
+        "maxResults" => [integer()],
+        "nextToken" => String.t(),
+        "sort" => sort_criteria()
+      }
+
   """
   @type list_findings_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_policy_generations_request() :: %{
-    optional("maxResults") => [integer()],
-    optional("nextToken") => String.t(),
-    optional("principalArn") => String.t()
-  }
+
+      list_policy_generations_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t(),
+        optional("principalArn") => String.t()
+      }
+
   """
   @type list_policy_generations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  generated_policy_result() :: %{
-    "generatedPolicies" => list(generated_policy()()),
-    "properties" => generated_policy_properties()
-  }
+
+      generated_policy_result() :: %{
+        "generatedPolicies" => list(generated_policy()()),
+        "properties" => generated_policy_properties()
+      }
+
   """
   @type generated_policy_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  iam_role_configuration() :: %{
-    "trustPolicy" => String.t()
-  }
+
+      iam_role_configuration() :: %{
+        "trustPolicy" => String.t()
+      }
+
   """
   @type iam_role_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  validation_exception_field() :: %{
-    "message" => [String.t()],
-    "name" => [String.t()]
-  }
+
+      validation_exception_field() :: %{
+        "message" => [String.t()],
+        "name" => [String.t()]
+      }
+
   """
   @type validation_exception_field() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  location() :: %{
-    "path" => list(list()()),
-    "span" => span()
-  }
+
+      location() :: %{
+        "path" => list(list()()),
+        "span" => span()
+      }
+
   """
   @type location() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  policy_generation() :: %{
-    "completedOn" => non_neg_integer(),
-    "jobId" => String.t(),
-    "principalArn" => String.t(),
-    "startedOn" => non_neg_integer(),
-    "status" => String.t()
-  }
+
+      policy_generation() :: %{
+        "completedOn" => non_neg_integer(),
+        "jobId" => String.t(),
+        "principalArn" => String.t(),
+        "startedOn" => non_neg_integer(),
+        "status" => String.t()
+      }
+
   """
   @type policy_generation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  apply_archive_rule_request() :: %{
-    "analyzerArn" => String.t(),
-    "clientToken" => [String.t()],
-    "ruleName" => String.t()
-  }
+
+      apply_archive_rule_request() :: %{
+        "analyzerArn" => String.t(),
+        "clientToken" => [String.t()],
+        "ruleName" => String.t()
+      }
+
   """
   @type apply_archive_rule_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_policy_generations_response() :: %{
-    optional("nextToken") => String.t(),
-    required("policyGenerations") => list(policy_generation()())
-  }
+
+      list_policy_generations_response() :: %{
+        optional("nextToken") => String.t(),
+        required("policyGenerations") => list(policy_generation()())
+      }
+
   """
   @type list_policy_generations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  kms_key_configuration() :: %{
-    "grants" => list(kms_grant_configuration()()),
-    "keyPolicies" => map()
-  }
+
+      kms_key_configuration() :: %{
+        "grants" => list(kms_grant_configuration()()),
+        "keyPolicies" => map()
+      }
+
   """
   @type kms_key_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  job_details() :: %{
-    "completedOn" => non_neg_integer(),
-    "jobError" => job_error(),
-    "jobId" => String.t(),
-    "startedOn" => non_neg_integer(),
-    "status" => String.t()
-  }
+
+      job_details() :: %{
+        "completedOn" => non_neg_integer(),
+        "jobError" => job_error(),
+        "jobId" => String.t(),
+        "startedOn" => non_neg_integer(),
+        "status" => String.t()
+      }
+
   """
   @type job_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  inline_archive_rule() :: %{
-    "filter" => map(),
-    "ruleName" => String.t()
-  }
+
+      inline_archive_rule() :: %{
+        "filter" => map(),
+        "ruleName" => String.t()
+      }
+
   """
   @type inline_archive_rule() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ebs_snapshot_configuration() :: %{
-    "groups" => list(String.t()()),
-    "kmsKeyId" => String.t(),
-    "userIds" => list(String.t()())
-  }
+
+      ebs_snapshot_configuration() :: %{
+        "groups" => list(String.t()()),
+        "kmsKeyId" => String.t(),
+        "userIds" => list(String.t()())
+      }
+
   """
   @type ebs_snapshot_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  internal_server_exception() :: %{
-    "message" => [String.t()],
-    "retryAfterSeconds" => [integer()]
-  }
+
+      internal_server_exception() :: %{
+        "message" => [String.t()],
+        "retryAfterSeconds" => [integer()]
+      }
+
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  efs_file_system_configuration() :: %{
-    "fileSystemPolicy" => String.t()
-  }
+
+      efs_file_system_configuration() :: %{
+        "fileSystemPolicy" => String.t()
+      }
+
   """
   @type efs_file_system_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_finding_request() :: %{
-    "analyzerArn" => String.t()
-  }
+
+      get_finding_request() :: %{
+        "analyzerArn" => String.t()
+      }
+
   """
   @type get_finding_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  validate_policy_response() :: %{
-    optional("nextToken") => String.t(),
-    required("findings") => list(validate_policy_finding()())
-  }
+
+      validate_policy_response() :: %{
+        optional("nextToken") => String.t(),
+        required("findings") => list(validate_policy_finding()())
+      }
+
   """
   @type validate_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  s3_express_directory_bucket_configuration() :: %{
-    "bucketPolicy" => String.t()
-  }
+
+      s3_express_directory_bucket_configuration() :: %{
+        "bucketPolicy" => String.t()
+      }
+
   """
   @type s3_express_directory_bucket_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_access_preview_response() :: %{
-    required("id") => String.t()
-  }
+
+      create_access_preview_response() :: %{
+        required("id") => String.t()
+      }
+
   """
   @type create_access_preview_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_policy_generation_request() :: %{
-    optional("clientToken") => [String.t()],
-    optional("cloudTrailDetails") => cloud_trail_details(),
-    required("policyGenerationDetails") => policy_generation_details()
-  }
+
+      start_policy_generation_request() :: %{
+        optional("clientToken") => [String.t()],
+        optional("cloudTrailDetails") => cloud_trail_details(),
+        required("policyGenerationDetails") => policy_generation_details()
+      }
+
   """
   @type start_policy_generation_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  external_access_details() :: %{
-    "action" => list([String.t()]()),
-    "condition" => map(),
-    "isPublic" => [boolean()],
-    "principal" => map(),
-    "sources" => list(finding_source()())
-  }
+
+      external_access_details() :: %{
+        "action" => list([String.t()]()),
+        "condition" => map(),
+        "isPublic" => [boolean()],
+        "principal" => map(),
+        "sources" => list(finding_source()())
+      }
+
   """
   @type external_access_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_finding_response() :: %{
-    "finding" => finding()
-  }
+
+      get_finding_response() :: %{
+        "finding" => finding()
+      }
+
   """
   @type get_finding_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  sort_criteria() :: %{
-    "attributeName" => [String.t()],
-    "orderBy" => String.t()
-  }
+
+      sort_criteria() :: %{
+        "attributeName" => [String.t()],
+        "orderBy" => String.t()
+      }
+
   """
   @type sort_criteria() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cloud_trail_properties() :: %{
-    "endTime" => non_neg_integer(),
-    "startTime" => non_neg_integer(),
-    "trailProperties" => list(trail_properties()())
-  }
+
+      cloud_trail_properties() :: %{
+        "endTime" => non_neg_integer(),
+        "startTime" => non_neg_integer(),
+        "trailProperties" => list(trail_properties()())
+      }
+
   """
   @type cloud_trail_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_access_preview_findings_request() :: %{
-    optional("filter") => map(),
-    optional("maxResults") => [integer()],
-    optional("nextToken") => String.t(),
-    required("analyzerArn") => String.t()
-  }
+
+      list_access_preview_findings_request() :: %{
+        optional("filter") => map(),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t(),
+        required("analyzerArn") => String.t()
+      }
+
   """
   @type list_access_preview_findings_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  unprocessable_entity_exception() :: %{
-    "message" => [String.t()]
-  }
+
+      unprocessable_entity_exception() :: %{
+        "message" => [String.t()]
+      }
+
   """
   @type unprocessable_entity_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  substring() :: %{
-    "length" => [integer()],
-    "start" => [integer()]
-  }
+
+      substring() :: %{
+        "length" => [integer()],
+        "start" => [integer()]
+      }
+
   """
   @type substring() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  access_denied_exception() :: %{
-    "message" => [String.t()]
-  }
+
+      access_denied_exception() :: %{
+        "message" => [String.t()]
+      }
+
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_analyzer_response() :: %{
-    "arn" => String.t()
-  }
+
+      create_analyzer_response() :: %{
+        "arn" => String.t()
+      }
+
   """
   @type create_analyzer_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_parameter_exception() :: %{
-    "message" => [String.t()]
-  }
+
+      invalid_parameter_exception() :: %{
+        "message" => [String.t()]
+      }
+
   """
   @type invalid_parameter_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_response() :: %{
 
-  }
+      tag_resource_response() :: %{}
+
   """
-  @type tag_resource_response() :: %{String.t() => any()}
+  @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  validate_policy_request() :: %{
-    optional("locale") => String.t(),
-    optional("maxResults") => [integer()],
-    optional("nextToken") => String.t(),
-    optional("validatePolicyResourceType") => String.t(),
-    required("policyDocument") => String.t(),
-    required("policyType") => String.t()
-  }
+
+      validate_policy_request() :: %{
+        optional("locale") => String.t(),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t(),
+        optional("validatePolicyResourceType") => String.t(),
+        required("policyDocument") => String.t(),
+        required("policyType") => String.t()
+      }
+
   """
   @type validate_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_analyzer_request() :: %{
 
-  }
+      get_analyzer_request() :: %{}
+
   """
-  @type get_analyzer_request() :: %{String.t() => any()}
+  @type get_analyzer_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_analyzed_resource_request() :: %{
-    "analyzerArn" => String.t(),
-    "resourceArn" => String.t()
-  }
+
+      get_analyzed_resource_request() :: %{
+        "analyzerArn" => String.t(),
+        "resourceArn" => String.t()
+      }
+
   """
   @type get_analyzed_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  s3_bucket_configuration() :: %{
-    "accessPoints" => map(),
-    "bucketAclGrants" => list(s3_bucket_acl_grant_configuration()()),
-    "bucketPolicy" => String.t(),
-    "bucketPublicAccessBlock" => s3_public_access_block_configuration()
-  }
+
+      s3_bucket_configuration() :: %{
+        "accessPoints" => map(),
+        "bucketAclGrants" => list(s3_bucket_acl_grant_configuration()()),
+        "bucketPolicy" => String.t(),
+        "bucketPublicAccessBlock" => s3_public_access_block_configuration()
+      }
+
   """
   @type s3_bucket_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  validation_exception() :: %{
-    "fieldList" => list(validation_exception_field()()),
-    "message" => [String.t()],
-    "reason" => String.t()
-  }
+
+      validation_exception() :: %{
+        "fieldList" => list(validation_exception_field()()),
+        "message" => [String.t()],
+        "reason" => String.t()
+      }
+
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_request() :: %{
 
-  }
+      list_tags_for_resource_request() :: %{}
+
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  update_findings_request() :: %{
-    "analyzerArn" => String.t(),
-    "clientToken" => [String.t()],
-    "ids" => list(String.t()()),
-    "resourceArn" => String.t(),
-    "status" => String.t()
-  }
+
+      update_findings_request() :: %{
+        "analyzerArn" => String.t(),
+        "clientToken" => [String.t()],
+        "ids" => list(String.t()()),
+        "resourceArn" => String.t(),
+        "status" => String.t()
+      }
+
   """
   @type update_findings_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_access_preview_request() :: %{
-    required("analyzerArn") => String.t()
-  }
+
+      get_access_preview_request() :: %{
+        required("analyzerArn") => String.t()
+      }
+
   """
   @type get_access_preview_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  throttling_exception() :: %{
-    "message" => [String.t()],
-    "retryAfterSeconds" => [integer()]
-  }
+
+      throttling_exception() :: %{
+        "message" => [String.t()],
+        "retryAfterSeconds" => [integer()]
+      }
+
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  finding_source_detail() :: %{
-    "accessPointAccount" => [String.t()],
-    "accessPointArn" => [String.t()]
-  }
+
+      finding_source_detail() :: %{
+        "accessPointAccount" => [String.t()],
+        "accessPointArn" => [String.t()]
+      }
+
   """
   @type finding_source_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  access() :: %{
-    "actions" => list(String.t()())
-  }
+
+      access() :: %{
+        "actions" => list(String.t()())
+      }
+
   """
   @type access() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  rds_db_snapshot_configuration() :: %{
-    "attributes" => map(),
-    "kmsKeyId" => String.t()
-  }
+
+      rds_db_snapshot_configuration() :: %{
+        "attributes" => map(),
+        "kmsKeyId" => String.t()
+      }
+
   """
   @type rds_db_snapshot_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_finding_v2_response() :: %{
-    "analyzedAt" => non_neg_integer(),
-    "createdAt" => non_neg_integer(),
-    "error" => [String.t()],
-    "findingDetails" => list(list()()),
-    "findingType" => String.t(),
-    "id" => String.t(),
-    "nextToken" => String.t(),
-    "resource" => [String.t()],
-    "resourceOwnerAccount" => [String.t()],
-    "resourceType" => String.t(),
-    "status" => String.t(),
-    "updatedAt" => non_neg_integer()
-  }
+
+      get_finding_v2_response() :: %{
+        "analyzedAt" => non_neg_integer(),
+        "createdAt" => non_neg_integer(),
+        "error" => [String.t()],
+        "findingDetails" => list(list()()),
+        "findingType" => String.t(),
+        "id" => String.t(),
+        "nextToken" => String.t(),
+        "resource" => [String.t()],
+        "resourceOwnerAccount" => [String.t()],
+        "resourceType" => String.t(),
+        "status" => String.t(),
+        "updatedAt" => non_neg_integer()
+      }
+
   """
   @type get_finding_v2_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  finding_summary_v2() :: %{
-    "analyzedAt" => non_neg_integer(),
-    "createdAt" => non_neg_integer(),
-    "error" => [String.t()],
-    "findingType" => String.t(),
-    "id" => String.t(),
-    "resource" => [String.t()],
-    "resourceOwnerAccount" => [String.t()],
-    "resourceType" => String.t(),
-    "status" => String.t(),
-    "updatedAt" => non_neg_integer()
-  }
+
+      finding_summary_v2() :: %{
+        "analyzedAt" => non_neg_integer(),
+        "createdAt" => non_neg_integer(),
+        "error" => [String.t()],
+        "findingType" => String.t(),
+        "id" => String.t(),
+        "resource" => [String.t()],
+        "resourceOwnerAccount" => [String.t()],
+        "resourceType" => String.t(),
+        "status" => String.t(),
+        "updatedAt" => non_neg_integer()
+      }
+
   """
   @type finding_summary_v2() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cancel_policy_generation_request() :: %{
 
-  }
+      cancel_policy_generation_request() :: %{}
+
   """
-  @type cancel_policy_generation_request() :: %{String.t() => any()}
+  @type cancel_policy_generation_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_archive_rule_request() :: %{
 
-  }
+      get_archive_rule_request() :: %{}
+
   """
-  @type get_archive_rule_request() :: %{String.t() => any()}
+  @type get_archive_rule_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  analyzer_summary() :: %{
-    "arn" => String.t(),
-    "configuration" => list(),
-    "createdAt" => non_neg_integer(),
-    "lastResourceAnalyzed" => [String.t()],
-    "lastResourceAnalyzedAt" => non_neg_integer(),
-    "name" => String.t(),
-    "status" => String.t(),
-    "statusReason" => status_reason(),
-    "tags" => map(),
-    "type" => String.t()
-  }
+
+      analyzer_summary() :: %{
+        "arn" => String.t(),
+        "configuration" => list(),
+        "createdAt" => non_neg_integer(),
+        "lastResourceAnalyzed" => [String.t()],
+        "lastResourceAnalyzedAt" => non_neg_integer(),
+        "name" => String.t(),
+        "status" => String.t(),
+        "statusReason" => status_reason(),
+        "tags" => map(),
+        "type" => String.t()
+      }
+
   """
   @type analyzer_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  trail() :: %{
-    "allRegions" => [boolean()],
-    "cloudTrailArn" => String.t(),
-    "regions" => list([String.t()]())
-  }
+
+      trail() :: %{
+        "allRegions" => [boolean()],
+        "cloudTrailArn" => String.t(),
+        "regions" => list([String.t()]())
+      }
+
   """
   @type trail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  generated_policy() :: %{
-    "policy" => [String.t()]
-  }
+
+      generated_policy() :: %{
+        "policy" => [String.t()]
+      }
+
   """
   @type generated_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  check_access_not_granted_request() :: %{
-    required("access") => list(access()()),
-    required("policyDocument") => String.t(),
-    required("policyType") => String.t()
-  }
+
+      check_access_not_granted_request() :: %{
+        required("access") => list(access()()),
+        required("policyDocument") => String.t(),
+        required("policyType") => String.t()
+      }
+
   """
   @type check_access_not_granted_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  rds_db_cluster_snapshot_configuration() :: %{
-    "attributes" => map(),
-    "kmsKeyId" => String.t()
-  }
+
+      rds_db_cluster_snapshot_configuration() :: %{
+        "attributes" => map(),
+        "kmsKeyId" => String.t()
+      }
+
   """
   @type rds_db_cluster_snapshot_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  access_preview_summary() :: %{
-    "analyzerArn" => String.t(),
-    "createdAt" => non_neg_integer(),
-    "id" => String.t(),
-    "status" => String.t(),
-    "statusReason" => access_preview_status_reason()
-  }
+
+      access_preview_summary() :: %{
+        "analyzerArn" => String.t(),
+        "createdAt" => non_neg_integer(),
+        "id" => String.t(),
+        "status" => String.t(),
+        "statusReason" => access_preview_status_reason()
+      }
+
   """
   @type access_preview_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_analyzers_request() :: %{
-    "maxResults" => [integer()],
-    "nextToken" => String.t(),
-    "type" => String.t()
-  }
+
+      list_analyzers_request() :: %{
+        "maxResults" => [integer()],
+        "nextToken" => String.t(),
+        "type" => String.t()
+      }
+
   """
   @type list_analyzers_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_findings_v2_response() :: %{
-    "findings" => list(finding_summary_v2()()),
-    "nextToken" => String.t()
-  }
+
+      list_findings_v2_response() :: %{
+        "findings" => list(finding_summary_v2()()),
+        "nextToken" => String.t()
+      }
+
   """
   @type list_findings_v2_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_policy_generation_response() :: %{
-    required("jobId") => String.t()
-  }
+
+      start_policy_generation_response() :: %{
+        required("jobId") => String.t()
+      }
+
   """
   @type start_policy_generation_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_access_preview_response() :: %{
-    required("accessPreview") => access_preview()
-  }
+
+      get_access_preview_response() :: %{
+        required("accessPreview") => access_preview()
+      }
+
   """
   @type get_access_preview_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  internet_configuration() :: %{
 
-  }
+      internet_configuration() :: %{}
+
   """
-  @type internet_configuration() :: %{String.t() => any()}
+  @type internet_configuration() :: %{}
 
   @typedoc """
 
   ## Example:
-  criterion() :: %{
-    "contains" => list([String.t()]()),
-    "eq" => list([String.t()]()),
-    "exists" => [boolean()],
-    "neq" => list([String.t()]())
-  }
+
+      criterion() :: %{
+        "contains" => list([String.t()]()),
+        "eq" => list([String.t()]()),
+        "exists" => [boolean()],
+        "neq" => list([String.t()]())
+      }
+
   """
   @type criterion() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_archive_rule_request() :: %{
-    "clientToken" => [String.t()],
-    "filter" => map(),
-    "ruleName" => String.t()
-  }
+
+      create_archive_rule_request() :: %{
+        "clientToken" => [String.t()],
+        "filter" => map(),
+        "ruleName" => String.t()
+      }
+
   """
   @type create_archive_rule_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_resource_scan_request() :: %{
-    "analyzerArn" => String.t(),
-    "resourceArn" => String.t(),
-    "resourceOwnerAccount" => [String.t()]
-  }
+
+      start_resource_scan_request() :: %{
+        "analyzerArn" => String.t(),
+        "resourceArn" => String.t(),
+        "resourceOwnerAccount" => [String.t()]
+      }
+
   """
   @type start_resource_scan_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  secrets_manager_secret_configuration() :: %{
-    "kmsKeyId" => String.t(),
-    "secretPolicy" => String.t()
-  }
+
+      secrets_manager_secret_configuration() :: %{
+        "kmsKeyId" => String.t(),
+        "secretPolicy" => String.t()
+      }
+
   """
   @type secrets_manager_secret_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  job_error() :: %{
-    "code" => String.t(),
-    "message" => [String.t()]
-  }
+
+      job_error() :: %{
+        "code" => String.t(),
+        "message" => [String.t()]
+      }
+
   """
   @type job_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  s3_public_access_block_configuration() :: %{
-    "ignorePublicAcls" => [boolean()],
-    "restrictPublicBuckets" => [boolean()]
-  }
+
+      s3_public_access_block_configuration() :: %{
+        "ignorePublicAcls" => [boolean()],
+        "restrictPublicBuckets" => [boolean()]
+      }
+
   """
   @type s3_public_access_block_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  access_preview() :: %{
-    "analyzerArn" => String.t(),
-    "configurations" => map(),
-    "createdAt" => non_neg_integer(),
-    "id" => String.t(),
-    "status" => String.t(),
-    "statusReason" => access_preview_status_reason()
-  }
+
+      access_preview() :: %{
+        "analyzerArn" => String.t(),
+        "configurations" => map(),
+        "createdAt" => non_neg_integer(),
+        "id" => String.t(),
+        "status" => String.t(),
+        "statusReason" => access_preview_status_reason()
+      }
+
   """
   @type access_preview() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_archive_rule_response() :: %{
-    "archiveRule" => archive_rule_summary()
-  }
+
+      get_archive_rule_response() :: %{
+        "archiveRule" => archive_rule_summary()
+      }
+
   """
   @type get_archive_rule_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  sqs_queue_configuration() :: %{
-    "queuePolicy" => String.t()
-  }
+
+      sqs_queue_configuration() :: %{
+        "queuePolicy" => String.t()
+      }
+
   """
   @type sqs_queue_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  s3_access_point_configuration() :: %{
-    "accessPointPolicy" => String.t(),
-    "networkOrigin" => list(),
-    "publicAccessBlock" => s3_public_access_block_configuration()
-  }
+
+      s3_access_point_configuration() :: %{
+        "accessPointPolicy" => String.t(),
+        "networkOrigin" => list(),
+        "publicAccessBlock" => s3_public_access_block_configuration()
+      }
+
   """
   @type s3_access_point_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_archive_rule_request() :: %{
-    "clientToken" => [String.t()],
-    "filter" => map()
-  }
+
+      update_archive_rule_request() :: %{
+        "clientToken" => [String.t()],
+        "filter" => map()
+      }
+
   """
   @type update_archive_rule_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_access_preview_findings_response() :: %{
-    optional("nextToken") => String.t(),
-    required("findings") => list(access_preview_finding()())
-  }
+
+      list_access_preview_findings_response() :: %{
+        optional("nextToken") => String.t(),
+        required("findings") => list(access_preview_finding()())
+      }
+
   """
   @type list_access_preview_findings_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  unused_action() :: %{
-    "action" => [String.t()],
-    "lastAccessed" => non_neg_integer()
-  }
+
+      unused_action() :: %{
+        "action" => [String.t()],
+        "lastAccessed" => non_neg_integer()
+      }
+
   """
   @type unused_action() :: %{String.t() => any()}
+
+  @type apply_archive_rule_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type cancel_policy_generation_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type check_access_not_granted_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | unprocessable_entity_exception()
+          | internal_server_exception()
+
+  @type check_no_new_access_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | unprocessable_entity_exception()
+          | internal_server_exception()
+
+  @type create_access_preview_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_analyzer_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+
+  @type create_archive_rule_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_analyzer_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type delete_archive_rule_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_access_preview_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_analyzed_resource_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_analyzer_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_archive_rule_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_finding_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_finding_v2_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_generated_policy_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_access_preview_findings_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type list_access_previews_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_analyzed_resources_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_analyzers_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_archive_rules_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_findings_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_findings_v2_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_policy_generations_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_tags_for_resource_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type start_policy_generation_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+
+  @type start_resource_scan_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type tag_resource_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type untag_resource_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type update_archive_rule_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type update_findings_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type validate_policy_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
 
   def metadata do
     %{
@@ -1463,11 +1930,7 @@ defmodule AWS.AccessAnalyzer do
   @spec apply_archive_rule(map(), apply_archive_rule_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, apply_archive_rule_errors()}
   def apply_archive_rule(%Client{} = client, input, options \\ []) do
     url_path = "/archive-rule"
     headers = []
@@ -1484,10 +1947,7 @@ defmodule AWS.AccessAnalyzer do
   @spec cancel_policy_generation(map(), String.t(), cancel_policy_generation_request(), list()) ::
           {:ok, cancel_policy_generation_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, cancel_policy_generation_errors()}
   def cancel_policy_generation(%Client{} = client, job_id, input, options \\ []) do
     url_path = "/policy/generation/#{AWS.Util.encode_uri(job_id)}"
     headers = []
@@ -1504,12 +1964,7 @@ defmodule AWS.AccessAnalyzer do
   @spec check_access_not_granted(map(), check_access_not_granted_request(), list()) ::
           {:ok, check_access_not_granted_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, throttling_exception()}
-          | {:error, unprocessable_entity_exception()}
-          | {:error, validation_exception()}
+          | {:error, check_access_not_granted_errors()}
   def check_access_not_granted(%Client{} = client, input, options \\ []) do
     url_path = "/policy/check-access-not-granted"
     headers = []
@@ -1545,12 +2000,7 @@ defmodule AWS.AccessAnalyzer do
   @spec check_no_new_access(map(), check_no_new_access_request(), list()) ::
           {:ok, check_no_new_access_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, throttling_exception()}
-          | {:error, unprocessable_entity_exception()}
-          | {:error, validation_exception()}
+          | {:error, check_no_new_access_errors()}
   def check_no_new_access(%Client{} = client, input, options \\ []) do
     url_path = "/policy/check-no-new-access"
     headers = []
@@ -1579,13 +2029,7 @@ defmodule AWS.AccessAnalyzer do
   @spec create_access_preview(map(), create_access_preview_request(), list()) ::
           {:ok, create_access_preview_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_access_preview_errors()}
   def create_access_preview(%Client{} = client, input, options \\ []) do
     url_path = "/access-preview"
     headers = []
@@ -1602,12 +2046,7 @@ defmodule AWS.AccessAnalyzer do
   @spec create_analyzer(map(), create_analyzer_request(), list()) ::
           {:ok, create_analyzer_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_analyzer_errors()}
   def create_analyzer(%Client{} = client, input, options \\ []) do
     url_path = "/analyzer"
     headers = []
@@ -1631,13 +2070,7 @@ defmodule AWS.AccessAnalyzer do
   @spec create_archive_rule(map(), String.t(), create_archive_rule_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_archive_rule_errors()}
   def create_archive_rule(%Client{} = client, analyzer_name, input, options \\ []) do
     url_path = "/analyzer/#{AWS.Util.encode_uri(analyzer_name)}/archive-rule"
     headers = []
@@ -1659,11 +2092,7 @@ defmodule AWS.AccessAnalyzer do
   @spec delete_analyzer(map(), String.t(), delete_analyzer_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_analyzer_errors()}
   def delete_analyzer(%Client{} = client, analyzer_name, input, options \\ []) do
     url_path = "/analyzer/#{AWS.Util.encode_uri(analyzer_name)}"
     headers = []
@@ -1695,11 +2124,7 @@ defmodule AWS.AccessAnalyzer do
   @spec delete_archive_rule(map(), String.t(), String.t(), delete_archive_rule_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_archive_rule_errors()}
   def delete_archive_rule(%Client{} = client, analyzer_name, rule_name, input, options \\ []) do
     url_path =
       "/analyzer/#{AWS.Util.encode_uri(analyzer_name)}/archive-rule/#{AWS.Util.encode_uri(rule_name)}"
@@ -1733,11 +2158,7 @@ defmodule AWS.AccessAnalyzer do
   @spec get_access_preview(map(), String.t(), String.t(), list()) ::
           {:ok, get_access_preview_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_access_preview_errors()}
   def get_access_preview(%Client{} = client, access_preview_id, analyzer_arn, options \\ []) do
     url_path = "/access-preview/#{AWS.Util.encode_uri(access_preview_id)}"
     headers = []
@@ -1761,11 +2182,7 @@ defmodule AWS.AccessAnalyzer do
   @spec get_analyzed_resource(map(), String.t(), String.t(), list()) ::
           {:ok, get_analyzed_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_analyzed_resource_errors()}
   def get_analyzed_resource(%Client{} = client, analyzer_arn, resource_arn, options \\ []) do
     url_path = "/analyzed-resource"
     headers = []
@@ -1796,11 +2213,7 @@ defmodule AWS.AccessAnalyzer do
   @spec get_analyzer(map(), String.t(), list()) ::
           {:ok, get_analyzer_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_analyzer_errors()}
   def get_analyzer(%Client{} = client, analyzer_name, options \\ []) do
     url_path = "/analyzer/#{AWS.Util.encode_uri(analyzer_name)}"
     headers = []
@@ -1821,11 +2234,7 @@ defmodule AWS.AccessAnalyzer do
   @spec get_archive_rule(map(), String.t(), String.t(), list()) ::
           {:ok, get_archive_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_archive_rule_errors()}
   def get_archive_rule(%Client{} = client, analyzer_name, rule_name, options \\ []) do
     url_path =
       "/analyzer/#{AWS.Util.encode_uri(analyzer_name)}/archive-rule/#{AWS.Util.encode_uri(rule_name)}"
@@ -1849,11 +2258,7 @@ defmodule AWS.AccessAnalyzer do
   @spec get_finding(map(), String.t(), String.t(), list()) ::
           {:ok, get_finding_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_finding_errors()}
   def get_finding(%Client{} = client, id, analyzer_arn, options \\ []) do
     url_path = "/finding/#{AWS.Util.encode_uri(id)}"
     headers = []
@@ -1882,11 +2287,7 @@ defmodule AWS.AccessAnalyzer do
   @spec get_finding_v2(map(), String.t(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, get_finding_v2_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_finding_v2_errors()}
   def get_finding_v2(
         %Client{} = client,
         id,
@@ -1931,10 +2332,7 @@ defmodule AWS.AccessAnalyzer do
   @spec get_generated_policy(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, get_generated_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_generated_policy_errors()}
   def get_generated_policy(
         %Client{} = client,
         job_id,
@@ -1977,12 +2375,7 @@ defmodule AWS.AccessAnalyzer do
         ) ::
           {:ok, list_access_preview_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_access_preview_findings_errors()}
   def list_access_preview_findings(%Client{} = client, access_preview_id, input, options \\ []) do
     url_path = "/access-preview/#{AWS.Util.encode_uri(access_preview_id)}"
     headers = []
@@ -2009,11 +2402,7 @@ defmodule AWS.AccessAnalyzer do
   @spec list_access_previews(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_access_previews_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_access_previews_errors()}
   def list_access_previews(
         %Client{} = client,
         analyzer_arn,
@@ -2062,11 +2451,7 @@ defmodule AWS.AccessAnalyzer do
   @spec list_analyzed_resources(map(), list_analyzed_resources_request(), list()) ::
           {:ok, list_analyzed_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_analyzed_resources_errors()}
   def list_analyzed_resources(%Client{} = client, input, options \\ []) do
     url_path = "/analyzed-resource"
     headers = []
@@ -2093,10 +2478,7 @@ defmodule AWS.AccessAnalyzer do
   @spec list_analyzers(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_analyzers_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_analyzers_errors()}
   def list_analyzers(
         %Client{} = client,
         max_results \\ nil,
@@ -2140,10 +2522,7 @@ defmodule AWS.AccessAnalyzer do
   @spec list_archive_rules(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_archive_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_archive_rules_errors()}
   def list_archive_rules(
         %Client{} = client,
         analyzer_name,
@@ -2189,11 +2568,7 @@ defmodule AWS.AccessAnalyzer do
   @spec list_findings(map(), list_findings_request(), list()) ::
           {:ok, list_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_findings_errors()}
   def list_findings(%Client{} = client, input, options \\ []) do
     url_path = "/finding"
     headers = []
@@ -2229,11 +2604,7 @@ defmodule AWS.AccessAnalyzer do
   @spec list_findings_v2(map(), list_findings_v2_request(), list()) ::
           {:ok, list_findings_v2_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_findings_v2_errors()}
   def list_findings_v2(%Client{} = client, input, options \\ []) do
     url_path = "/findingv2"
     headers = []
@@ -2266,10 +2637,7 @@ defmodule AWS.AccessAnalyzer do
         ) ::
           {:ok, list_policy_generations_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_policy_generations_errors()}
   def list_policy_generations(
         %Client{} = client,
         max_results \\ nil,
@@ -2313,11 +2681,7 @@ defmodule AWS.AccessAnalyzer do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -2334,12 +2698,7 @@ defmodule AWS.AccessAnalyzer do
   @spec start_policy_generation(map(), start_policy_generation_request(), list()) ::
           {:ok, start_policy_generation_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, start_policy_generation_errors()}
   def start_policy_generation(%Client{} = client, input, options \\ []) do
     url_path = "/policy/generation"
     headers = []
@@ -2356,11 +2715,7 @@ defmodule AWS.AccessAnalyzer do
   @spec start_resource_scan(map(), start_resource_scan_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, start_resource_scan_errors()}
   def start_resource_scan(%Client{} = client, input, options \\ []) do
     url_path = "/resource/scan"
     headers = []
@@ -2387,11 +2742,7 @@ defmodule AWS.AccessAnalyzer do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -2418,11 +2769,7 @@ defmodule AWS.AccessAnalyzer do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -2454,11 +2801,7 @@ defmodule AWS.AccessAnalyzer do
   @spec update_archive_rule(map(), String.t(), String.t(), update_archive_rule_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_archive_rule_errors()}
   def update_archive_rule(%Client{} = client, analyzer_name, rule_name, input, options \\ []) do
     url_path =
       "/analyzer/#{AWS.Util.encode_uri(analyzer_name)}/archive-rule/#{AWS.Util.encode_uri(rule_name)}"
@@ -2477,11 +2820,7 @@ defmodule AWS.AccessAnalyzer do
   @spec update_findings(map(), update_findings_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_findings_errors()}
   def update_findings(%Client{} = client, input, options \\ []) do
     url_path = "/finding"
     headers = []
@@ -2503,10 +2842,7 @@ defmodule AWS.AccessAnalyzer do
   @spec validate_policy(map(), validate_policy_request(), list()) ::
           {:ok, validate_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, validate_policy_errors()}
   def validate_policy(%Client{} = client, input, options \\ []) do
     url_path = "/policy/validation"
     headers = []

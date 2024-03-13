@@ -439,1379 +439,1657 @@ defmodule AWS.CodeCommit do
   @typedoc """
 
   ## Example:
-  branch_name_required_exception() :: %{
-    "message" => String.t()
-  }
+      
+      branch_name_required_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type branch_name_required_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  source_and_destination_are_same_exception() :: %{
-    "message" => String.t()
-  }
+      
+      source_and_destination_are_same_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type source_and_destination_are_same_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_get_repositories_error() :: %{
-    "errorCode" => list(any()),
-    "errorMessage" => String.t(),
-    "repositoryId" => String.t(),
-    "repositoryName" => String.t()
-  }
+      
+      batch_get_repositories_error() :: %{
+        "errorCode" => list(any()),
+        "errorMessage" => String.t(),
+        "repositoryId" => String.t(),
+        "repositoryName" => String.t()
+      }
+      
   """
   @type batch_get_repositories_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  evaluate_pull_request_approval_rules_output() :: %{
-    "evaluation" => evaluation()
-  }
+      
+      evaluate_pull_request_approval_rules_output() :: %{
+        "evaluation" => evaluation()
+      }
+      
   """
   @type evaluate_pull_request_approval_rules_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  approval_rule_template_name_required_exception() :: %{
-    "message" => String.t()
-  }
+      
+      approval_rule_template_name_required_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type approval_rule_template_name_required_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  default_branch_cannot_be_deleted_exception() :: %{
-    "message" => String.t()
-  }
+      
+      default_branch_cannot_be_deleted_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type default_branch_cannot_be_deleted_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  client_request_token_required_exception() :: %{
-    "message" => String.t()
-  }
+      
+      client_request_token_required_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type client_request_token_required_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  maximum_rule_templates_associated_with_repository_exception() :: %{
-    "message" => String.t()
-  }
+      
+      maximum_rule_templates_associated_with_repository_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type maximum_rule_templates_associated_with_repository_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_approval_rule_template_output() :: %{
-    "approvalRuleTemplate" => approval_rule_template()
-  }
+      
+      get_approval_rule_template_output() :: %{
+        "approvalRuleTemplate" => approval_rule_template()
+      }
+      
   """
   @type get_approval_rule_template_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_pull_request_output() :: %{
-    "pullRequest" => pull_request()
-  }
+      
+      get_pull_request_output() :: %{
+        "pullRequest" => pull_request()
+      }
+      
   """
   @type get_pull_request_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  commit() :: %{
-    "additionalData" => String.t(),
-    "author" => user_info(),
-    "commitId" => String.t(),
-    "committer" => user_info(),
-    "message" => String.t(),
-    "parents" => list(String.t()()),
-    "treeId" => String.t()
-  }
+      
+      commit() :: %{
+        "additionalData" => String.t(),
+        "author" => user_info(),
+        "commitId" => String.t(),
+        "committer" => user_info(),
+        "message" => String.t(),
+        "parents" => list(String.t()()),
+        "treeId" => String.t()
+      }
+      
   """
   @type commit() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_order_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_order_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_order_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_file_output() :: %{
-    "blobId" => String.t(),
-    "commitId" => String.t(),
-    "treeId" => String.t()
-  }
+      
+      put_file_output() :: %{
+        "blobId" => String.t(),
+        "commitId" => String.t(),
+        "treeId" => String.t()
+      }
+      
   """
   @type put_file_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tips_divergence_exceeded_exception() :: %{
-    "message" => String.t()
-  }
+      
+      tips_divergence_exceeded_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type tips_divergence_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_approval_rule_template_description_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_approval_rule_template_description_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_approval_rule_template_description_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  repository_name_exists_exception() :: %{
-    "message" => String.t()
-  }
+      
+      repository_name_exists_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type repository_name_exists_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_max_results_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_max_results_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_max_results_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_blob_input() :: %{
-    required("blobId") => String.t(),
-    required("repositoryName") => String.t()
-  }
+      
+      get_blob_input() :: %{
+        required("blobId") => String.t(),
+        required("repositoryName") => String.t()
+      }
+      
   """
   @type get_blob_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_file_position_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_file_position_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_file_position_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_continuation_token_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_continuation_token_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_continuation_token_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  symbolic_link() :: %{
-    "absolutePath" => String.t(),
-    "blobId" => String.t(),
-    "fileMode" => list(any()),
-    "relativePath" => String.t()
-  }
+      
+      symbolic_link() :: %{
+        "absolutePath" => String.t(),
+        "blobId" => String.t(),
+        "fileMode" => list(any()),
+        "relativePath" => String.t()
+      }
+      
   """
   @type symbolic_link() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  approval_rule_name_required_exception() :: %{
-    "message" => String.t()
-  }
+      
+      approval_rule_name_required_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type approval_rule_name_required_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  file_content_required_exception() :: %{
-    "message" => String.t()
-  }
+      
+      file_content_required_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type file_content_required_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_target_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_target_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_target_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_merge_options_input() :: %{
-    optional("conflictDetailLevel") => list(any()),
-    optional("conflictResolutionStrategy") => list(any()),
-    required("destinationCommitSpecifier") => String.t(),
-    required("repositoryName") => String.t(),
-    required("sourceCommitSpecifier") => String.t()
-  }
+      
+      get_merge_options_input() :: %{
+        optional("conflictDetailLevel") => list(any()),
+        optional("conflictResolutionStrategy") => list(any()),
+        required("destinationCommitSpecifier") => String.t(),
+        required("repositoryName") => String.t(),
+        required("sourceCommitSpecifier") => String.t()
+      }
+      
   """
   @type get_merge_options_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_repository_encryption_key_output() :: %{
-    "kmsKeyId" => String.t(),
-    "originalKmsKeyId" => String.t(),
-    "repositoryId" => String.t()
-  }
+      
+      update_repository_encryption_key_output() :: %{
+        "kmsKeyId" => String.t(),
+        "originalKmsKeyId" => String.t(),
+        "repositoryId" => String.t()
+      }
+      
   """
   @type update_repository_encryption_key_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_commit_input() :: %{
-    required("commitId") => String.t(),
-    required("repositoryName") => String.t()
-  }
+      
+      get_commit_input() :: %{
+        required("commitId") => String.t(),
+        required("repositoryName") => String.t()
+      }
+      
   """
   @type get_commit_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_destination_commit_specifier_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_destination_commit_specifier_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_destination_commit_specifier_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  comment_deleted_exception() :: %{
-    "message" => String.t()
-  }
+      
+      comment_deleted_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type comment_deleted_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_associated_approval_rule_templates_for_repository_input() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t(),
-    required("repositoryName") => String.t()
-  }
+      
+      list_associated_approval_rule_templates_for_repository_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        required("repositoryName") => String.t()
+      }
+      
   """
   @type list_associated_approval_rule_templates_for_repository_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_pull_request_id_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_pull_request_id_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_pull_request_id_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  repository_names_required_exception() :: %{
-    "message" => String.t()
-  }
+      
+      repository_names_required_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type repository_names_required_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_branch_input() :: %{
-    required("branchName") => String.t(),
-    required("repositoryName") => String.t()
-  }
+      
+      delete_branch_input() :: %{
+        required("branchName") => String.t(),
+        required("repositoryName") => String.t()
+      }
+      
   """
   @type delete_branch_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_pull_requests_output() :: %{
-    "nextToken" => String.t(),
-    "pullRequestIds" => list(String.t()())
-  }
+      
+      list_pull_requests_output() :: %{
+        "nextToken" => String.t(),
+        "pullRequestIds" => list(String.t()())
+      }
+      
   """
   @type list_pull_requests_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  blob_id_does_not_exist_exception() :: %{
-    "message" => String.t()
-  }
+      
+      blob_id_does_not_exist_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type blob_id_does_not_exist_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_repository_input() :: %{
-    required("repositoryName") => String.t()
-  }
+      
+      get_repository_input() :: %{
+        required("repositoryName") => String.t()
+      }
+      
   """
   @type get_repository_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  merge_branches_by_squash_input() :: %{
-    optional("authorName") => String.t(),
-    optional("commitMessage") => String.t(),
-    optional("conflictDetailLevel") => list(any()),
-    optional("conflictResolution") => conflict_resolution(),
-    optional("conflictResolutionStrategy") => list(any()),
-    optional("email") => String.t(),
-    optional("keepEmptyFolders") => boolean(),
-    optional("targetBranch") => String.t(),
-    required("destinationCommitSpecifier") => String.t(),
-    required("repositoryName") => String.t(),
-    required("sourceCommitSpecifier") => String.t()
-  }
+      
+      merge_branches_by_squash_input() :: %{
+        optional("authorName") => String.t(),
+        optional("commitMessage") => String.t(),
+        optional("conflictDetailLevel") => list(any()),
+        optional("conflictResolution") => conflict_resolution(),
+        optional("conflictResolutionStrategy") => list(any()),
+        optional("email") => String.t(),
+        optional("keepEmptyFolders") => boolean(),
+        optional("targetBranch") => String.t(),
+        required("destinationCommitSpecifier") => String.t(),
+        required("repositoryName") => String.t(),
+        required("sourceCommitSpecifier") => String.t()
+      }
+      
   """
   @type merge_branches_by_squash_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  comment_id_required_exception() :: %{
-    "message" => String.t()
-  }
+      
+      comment_id_required_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type comment_id_required_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  commit_ids_limit_exceeded_exception() :: %{
-    "message" => String.t()
-  }
+      
+      commit_ids_limit_exceeded_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type commit_ids_limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  encryption_integrity_checks_failed_exception() :: %{
-    "message" => String.t()
-  }
+      
+      encryption_integrity_checks_failed_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type encryption_integrity_checks_failed_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  approval_rule_name_already_exists_exception() :: %{
-    "message" => String.t()
-  }
+      
+      approval_rule_name_already_exists_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type approval_rule_name_already_exists_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_merge_conflicts_output() :: %{
-    "baseCommitId" => String.t(),
-    "conflictMetadata" => conflict_metadata(),
-    "destinationCommitId" => String.t(),
-    "mergeHunks" => list(merge_hunk()()),
-    "nextToken" => String.t(),
-    "sourceCommitId" => String.t()
-  }
+      
+      describe_merge_conflicts_output() :: %{
+        "baseCommitId" => String.t(),
+        "conflictMetadata" => conflict_metadata(),
+        "destinationCommitId" => String.t(),
+        "mergeHunks" => list(merge_hunk()()),
+        "nextToken" => String.t(),
+        "sourceCommitId" => String.t()
+      }
+      
   """
   @type describe_merge_conflicts_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_max_merge_hunks_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_max_merge_hunks_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_max_merge_hunks_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  conflict_resolution() :: %{
-    "deleteFiles" => list(delete_file_entry()()),
-    "replaceContents" => list(replace_content_entry()()),
-    "setFileModes" => list(set_file_mode_entry()())
-  }
+      
+      conflict_resolution() :: %{
+        "deleteFiles" => list(delete_file_entry()()),
+        "replaceContents" => list(replace_content_entry()()),
+        "setFileModes" => list(set_file_mode_entry()())
+      }
+      
   """
   @type conflict_resolution() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  encryption_key_not_found_exception() :: %{
-    "message" => String.t()
-  }
+      
+      encryption_key_not_found_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type encryption_key_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  encryption_key_unavailable_exception() :: %{
-    "message" => String.t()
-  }
+      
+      encryption_key_unavailable_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type encryption_key_unavailable_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_client_request_token_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_client_request_token_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_client_request_token_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_repository_output() :: %{
-    "repositoryMetadata" => repository_metadata()
-  }
+      
+      create_repository_output() :: %{
+        "repositoryMetadata" => repository_metadata()
+      }
+      
   """
   @type create_repository_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  source_file_specifier() :: %{
-    "filePath" => String.t(),
-    "isMove" => boolean()
-  }
+      
+      source_file_specifier() :: %{
+        "filePath" => String.t(),
+        "isMove" => boolean()
+      }
+      
   """
   @type source_file_specifier() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_approval_rule_template_content_output() :: %{
-    "approvalRuleTemplate" => approval_rule_template()
-  }
+      
+      update_approval_rule_template_content_output() :: %{
+        "approvalRuleTemplate" => approval_rule_template()
+      }
+      
   """
   @type update_approval_rule_template_content_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  pull_request_target() :: %{
-    "destinationCommit" => String.t(),
-    "destinationReference" => String.t(),
-    "mergeBase" => String.t(),
-    "mergeMetadata" => merge_metadata(),
-    "repositoryName" => String.t(),
-    "sourceCommit" => String.t(),
-    "sourceReference" => String.t()
-  }
+      
+      pull_request_target() :: %{
+        "destinationCommit" => String.t(),
+        "destinationReference" => String.t(),
+        "mergeBase" => String.t(),
+        "mergeMetadata" => merge_metadata(),
+        "repositoryName" => String.t(),
+        "sourceCommit" => String.t(),
+        "sourceReference" => String.t()
+      }
+      
   """
   @type pull_request_target() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_pull_request_approval_rule_input() :: %{
-    required("approvalRuleName") => String.t(),
-    required("pullRequestId") => String.t()
-  }
+      
+      delete_pull_request_approval_rule_input() :: %{
+        required("approvalRuleName") => String.t(),
+        required("pullRequestId") => String.t()
+      }
+      
   """
   @type delete_pull_request_approval_rule_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  difference() :: %{
-    "afterBlob" => blob_metadata(),
-    "beforeBlob" => blob_metadata(),
-    "changeType" => list(any())
-  }
+      
+      difference() :: %{
+        "afterBlob" => blob_metadata(),
+        "beforeBlob" => blob_metadata(),
+        "changeType" => list(any())
+      }
+      
   """
   @type difference() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_repositories_for_approval_rule_template_output() :: %{
-    "nextToken" => String.t(),
-    "repositoryNames" => list(String.t()())
-  }
+      
+      list_repositories_for_approval_rule_template_output() :: %{
+        "nextToken" => String.t(),
+        "repositoryNames" => list(String.t()())
+      }
+      
   """
   @type list_repositories_for_approval_rule_template_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  pull_request_approval_rules_not_satisfied_exception() :: %{
-    "message" => String.t()
-  }
+      
+      pull_request_approval_rules_not_satisfied_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type pull_request_approval_rules_not_satisfied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_pull_requests_input() :: %{
-    optional("authorArn") => String.t(),
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t(),
-    optional("pullRequestStatus") => list(any()),
-    required("repositoryName") => String.t()
-  }
+      
+      list_pull_requests_input() :: %{
+        optional("authorArn") => String.t(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("pullRequestStatus") => list(any()),
+        required("repositoryName") => String.t()
+      }
+      
   """
   @type list_pull_requests_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  blob_metadata() :: %{
-    "blobId" => String.t(),
-    "mode" => String.t(),
-    "path" => String.t()
-  }
+      
+      blob_metadata() :: %{
+        "blobId" => String.t(),
+        "mode" => String.t(),
+        "path" => String.t()
+      }
+      
   """
   @type blob_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  reaction_value_formats() :: %{
-    "emoji" => String.t(),
-    "shortCode" => String.t(),
-    "unicode" => String.t()
-  }
+      
+      reaction_value_formats() :: %{
+        "emoji" => String.t(),
+        "shortCode" => String.t(),
+        "unicode" => String.t()
+      }
+      
   """
   @type reaction_value_formats() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_author_arn_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_author_arn_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_author_arn_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  maximum_repository_triggers_exceeded_exception() :: %{
-    "message" => String.t()
-  }
+      
+      maximum_repository_triggers_exceeded_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type maximum_repository_triggers_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_reaction_value_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_reaction_value_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_reaction_value_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  approval_rule_event_metadata() :: %{
-    "approvalRuleContent" => String.t(),
-    "approvalRuleId" => String.t(),
-    "approvalRuleName" => String.t()
-  }
+      
+      approval_rule_event_metadata() :: %{
+        "approvalRuleContent" => String.t(),
+        "approvalRuleId" => String.t(),
+        "approvalRuleName" => String.t()
+      }
+      
   """
   @type approval_rule_event_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  folder_content_size_limit_exceeded_exception() :: %{
-    "message" => String.t()
-  }
+      
+      folder_content_size_limit_exceeded_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type folder_content_size_limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  source_file_or_content_required_exception() :: %{
-    "message" => String.t()
-  }
+      
+      source_file_or_content_required_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type source_file_or_content_required_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_repository_trigger_custom_data_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_repository_trigger_custom_data_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_repository_trigger_custom_data_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  test_repository_triggers_input() :: %{
-    required("repositoryName") => String.t(),
-    required("triggers") => list(repository_trigger()())
-  }
+      
+      test_repository_triggers_input() :: %{
+        required("repositoryName") => String.t(),
+        required("triggers") => list(repository_trigger()())
+      }
+      
   """
   @type test_repository_triggers_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tags_map_required_exception() :: %{
-    "message" => String.t()
-  }
+      
+      tags_map_required_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type tags_map_required_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_differences_output() :: %{
-    "NextToken" => String.t(),
-    "differences" => list(difference()())
-  }
+      
+      get_differences_output() :: %{
+        "NextToken" => String.t(),
+        "differences" => list(difference()())
+      }
+      
   """
   @type get_differences_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_conflict_resolution_strategy_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_conflict_resolution_strategy_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_conflict_resolution_strategy_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_merge_conflicts_output() :: %{
-    "baseCommitId" => String.t(),
-    "conflictMetadataList" => list(conflict_metadata()()),
-    "destinationCommitId" => String.t(),
-    "mergeable" => boolean(),
-    "nextToken" => String.t(),
-    "sourceCommitId" => String.t()
-  }
+      
+      get_merge_conflicts_output() :: %{
+        "baseCommitId" => String.t(),
+        "conflictMetadataList" => list(conflict_metadata()()),
+        "destinationCommitId" => String.t(),
+        "mergeable" => boolean(),
+        "nextToken" => String.t(),
+        "sourceCommitId" => String.t()
+      }
+      
   """
   @type get_merge_conflicts_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_override_status_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_override_status_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_override_status_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_merge_options_output() :: %{
-    "baseCommitId" => String.t(),
-    "destinationCommitId" => String.t(),
-    "mergeOptions" => list(list(any())()),
-    "sourceCommitId" => String.t()
-  }
+      
+      get_merge_options_output() :: %{
+        "baseCommitId" => String.t(),
+        "destinationCommitId" => String.t(),
+        "mergeOptions" => list(list(any())()),
+        "sourceCommitId" => String.t()
+      }
+      
   """
   @type get_merge_options_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_file_entry() :: %{
-    "filePath" => String.t()
-  }
+      
+      delete_file_entry() :: %{
+        "filePath" => String.t()
+      }
+      
   """
   @type delete_file_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_targets_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_targets_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_targets_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  repository_triggers_list_required_exception() :: %{
-    "message" => String.t()
-  }
+      
+      repository_triggers_list_required_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type repository_triggers_list_required_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  merge_hunk_detail() :: %{
-    "endLine" => integer(),
-    "hunkContent" => String.t(),
-    "startLine" => integer()
-  }
+      
+      merge_hunk_detail() :: %{
+        "endLine" => integer(),
+        "hunkContent" => String.t(),
+        "startLine" => integer()
+      }
+      
   """
   @type merge_hunk_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  path_does_not_exist_exception() :: %{
-    "message" => String.t()
-  }
+      
+      path_does_not_exist_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type path_does_not_exist_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_pull_request_approval_states_output() :: %{
-    "approvals" => list(approval()())
-  }
+      
+      get_pull_request_approval_states_output() :: %{
+        "approvals" => list(approval()())
+      }
+      
   """
   @type get_pull_request_approval_states_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_pull_request_input() :: %{
-    optional("clientRequestToken") => String.t(),
-    optional("description") => String.t(),
-    required("targets") => list(target()()),
-    required("title") => String.t()
-  }
+      
+      create_pull_request_input() :: %{
+        optional("clientRequestToken") => String.t(),
+        optional("description") => String.t(),
+        required("targets") => list(target()()),
+        required("title") => String.t()
+      }
+      
   """
   @type create_pull_request_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  pull_request_status_changed_event_metadata() :: %{
-    "pullRequestStatus" => list(any())
-  }
+      
+      pull_request_status_changed_event_metadata() :: %{
+        "pullRequestStatus" => list(any())
+      }
+      
   """
   @type pull_request_status_changed_event_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  file_name_conflicts_with_directory_name_exception() :: %{
-    "message" => String.t()
-  }
+      
+      file_name_conflicts_with_directory_name_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type file_name_conflicts_with_directory_name_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_approval_rule_template_output() :: %{
-    "approvalRuleTemplateId" => String.t()
-  }
+      
+      delete_approval_rule_template_output() :: %{
+        "approvalRuleTemplateId" => String.t()
+      }
+      
   """
   @type delete_approval_rule_template_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_branches_output() :: %{
-    "branches" => list(String.t()()),
-    "nextToken" => String.t()
-  }
+      
+      list_branches_output() :: %{
+        "branches" => list(String.t()()),
+        "nextToken" => String.t()
+      }
+      
   """
   @type list_branches_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  same_file_content_exception() :: %{
-    "message" => String.t()
-  }
+      
+      same_file_content_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type same_file_content_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_repositories_input() :: %{
-    optional("nextToken") => String.t(),
-    optional("order") => list(any()),
-    optional("sortBy") => list(any())
-  }
+      
+      list_repositories_input() :: %{
+        optional("nextToken") => String.t(),
+        optional("order") => list(any()),
+        optional("sortBy") => list(any())
+      }
+      
   """
   @type list_repositories_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  repository_name_id_pair() :: %{
-    "repositoryId" => String.t(),
-    "repositoryName" => String.t()
-  }
+      
+      repository_name_id_pair() :: %{
+        "repositoryId" => String.t(),
+        "repositoryName" => String.t()
+      }
+      
   """
   @type repository_name_id_pair() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_approval_rule_template_input() :: %{
-    optional("approvalRuleTemplateDescription") => String.t(),
-    required("approvalRuleTemplateContent") => String.t(),
-    required("approvalRuleTemplateName") => String.t()
-  }
+      
+      create_approval_rule_template_input() :: %{
+        optional("approvalRuleTemplateDescription") => String.t(),
+        required("approvalRuleTemplateContent") => String.t(),
+        required("approvalRuleTemplateName") => String.t()
+      }
+      
   """
   @type create_approval_rule_template_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  commit_id_required_exception() :: %{
-    "message" => String.t()
-  }
+      
+      commit_id_required_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type commit_id_required_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_repository_triggers_output() :: %{
-    "configurationId" => String.t(),
-    "triggers" => list(repository_trigger()())
-  }
+      
+      get_repository_triggers_output() :: %{
+        "configurationId" => String.t(),
+        "triggers" => list(repository_trigger()())
+      }
+      
   """
   @type get_repository_triggers_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  post_comment_reply_output() :: %{
-    "comment" => comment()
-  }
+      
+      post_comment_reply_output() :: %{
+        "comment" => comment()
+      }
+      
   """
   @type post_comment_reply_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  same_path_request_exception() :: %{
-    "message" => String.t()
-  }
+      
+      same_path_request_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type same_path_request_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_repository_output() :: %{
-    "repositoryMetadata" => repository_metadata()
-  }
+      
+      get_repository_output() :: %{
+        "repositoryMetadata" => repository_metadata()
+      }
+      
   """
   @type get_repository_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  maximum_number_of_approvals_exceeded_exception() :: %{
-    "message" => String.t()
-  }
+      
+      maximum_number_of_approvals_exceeded_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type maximum_number_of_approvals_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_rule_content_sha256_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_rule_content_sha256_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_rule_content_sha256_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  author_does_not_exist_exception() :: %{
-    "message" => String.t()
-  }
+      
+      author_does_not_exist_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type author_does_not_exist_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  post_comment_for_pull_request_output() :: %{
-    "afterBlobId" => String.t(),
-    "afterCommitId" => String.t(),
-    "beforeBlobId" => String.t(),
-    "beforeCommitId" => String.t(),
-    "comment" => comment(),
-    "location" => location(),
-    "pullRequestId" => String.t(),
-    "repositoryName" => String.t()
-  }
+      
+      post_comment_for_pull_request_output() :: %{
+        "afterBlobId" => String.t(),
+        "afterCommitId" => String.t(),
+        "beforeBlobId" => String.t(),
+        "beforeCommitId" => String.t(),
+        "comment" => comment(),
+        "location" => location(),
+        "pullRequestId" => String.t(),
+        "repositoryName" => String.t()
+      }
+      
   """
   @type post_comment_for_pull_request_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  file() :: %{
-    "absolutePath" => String.t(),
-    "blobId" => String.t(),
-    "fileMode" => list(any()),
-    "relativePath" => String.t()
-  }
+      
+      file() :: %{
+        "absolutePath" => String.t(),
+        "blobId" => String.t(),
+        "fileMode" => list(any()),
+        "relativePath" => String.t()
+      }
+      
   """
   @type file() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  approval_rule_template_in_use_exception() :: %{
-    "message" => String.t()
-  }
+      
+      approval_rule_template_in_use_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type approval_rule_template_in_use_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_policy_exception() :: %{
-    "message" => String.t()
-  }
+      
+      tag_policy_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type tag_policy_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tip_of_source_reference_is_different_exception() :: %{
-    "message" => String.t()
-  }
+      
+      tip_of_source_reference_is_different_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type tip_of_source_reference_is_different_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_replacement_type_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_replacement_type_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_replacement_type_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_repository_description_input() :: %{
-    optional("repositoryDescription") => String.t(),
-    required("repositoryName") => String.t()
-  }
+      
+      update_repository_description_input() :: %{
+        optional("repositoryDescription") => String.t(),
+        required("repositoryName") => String.t()
+      }
+      
   """
   @type update_repository_description_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  approval_rule_template_content_required_exception() :: %{
-    "message" => String.t()
-  }
+      
+      approval_rule_template_content_required_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type approval_rule_template_content_required_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_approval_rule_template_description_output() :: %{
-    "approvalRuleTemplate" => approval_rule_template()
-  }
+      
+      update_approval_rule_template_description_output() :: %{
+        "approvalRuleTemplate" => approval_rule_template()
+      }
+      
   """
   @type update_approval_rule_template_description_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_repository_name_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_repository_name_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_repository_name_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  approval_state_required_exception() :: %{
-    "message" => String.t()
-  }
+      
+      approval_state_required_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type approval_state_required_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  file_entry_required_exception() :: %{
-    "message" => String.t()
-  }
+      
+      file_entry_required_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type file_entry_required_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_describe_merge_conflicts_error() :: %{
-    "exceptionName" => String.t(),
-    "filePath" => String.t(),
-    "message" => String.t()
-  }
+      
+      batch_describe_merge_conflicts_error() :: %{
+        "exceptionName" => String.t(),
+        "filePath" => String.t(),
+        "message" => String.t()
+      }
+      
   """
   @type batch_describe_merge_conflicts_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_output() :: %{
-    "nextToken" => String.t(),
-    "tags" => map()
-  }
+      
+      list_tags_for_resource_output() :: %{
+        "nextToken" => String.t(),
+        "tags" => map()
+      }
+      
   """
   @type list_tags_for_resource_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  merge_branches_by_fast_forward_output() :: %{
-    "commitId" => String.t(),
-    "treeId" => String.t()
-  }
+      
+      merge_branches_by_fast_forward_output() :: %{
+        "commitId" => String.t(),
+        "treeId" => String.t()
+      }
+      
   """
   @type merge_branches_by_fast_forward_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  target_required_exception() :: %{
-    "message" => String.t()
-  }
+      
+      target_required_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type target_required_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  file_modes() :: %{
-    "base" => list(any()),
-    "destination" => list(any()),
-    "source" => list(any())
-  }
+      
+      file_modes() :: %{
+        "base" => list(any()),
+        "destination" => list(any()),
+        "source" => list(any())
+      }
+      
   """
   @type file_modes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  repository_trigger_branch_name_list_required_exception() :: %{
-    "message" => String.t()
-  }
+      
+      repository_trigger_branch_name_list_required_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type repository_trigger_branch_name_list_required_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_pull_request_approval_rule_content_input() :: %{
-    optional("existingRuleContentSha256") => String.t(),
-    required("approvalRuleName") => String.t(),
-    required("newRuleContent") => String.t(),
-    required("pullRequestId") => String.t()
-  }
+      
+      update_pull_request_approval_rule_content_input() :: %{
+        optional("existingRuleContentSha256") => String.t(),
+        required("approvalRuleName") => String.t(),
+        required("newRuleContent") => String.t(),
+        required("pullRequestId") => String.t()
+      }
+      
   """
   @type update_pull_request_approval_rule_content_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_parent_commit_id_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_parent_commit_id_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_parent_commit_id_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  approval_rule_template_does_not_exist_exception() :: %{
-    "message" => String.t()
-  }
+      
+      approval_rule_template_does_not_exist_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type approval_rule_template_does_not_exist_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  merge_branches_by_three_way_output() :: %{
-    "commitId" => String.t(),
-    "treeId" => String.t()
-  }
+      
+      merge_branches_by_three_way_output() :: %{
+        "commitId" => String.t(),
+        "treeId" => String.t()
+      }
+      
   """
   @type merge_branches_by_three_way_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_branch_output() :: %{
-    "deletedBranch" => branch_info()
-  }
+      
+      delete_branch_output() :: %{
+        "deletedBranch" => branch_info()
+      }
+      
   """
   @type delete_branch_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cannot_modify_approval_rule_from_template_exception() :: %{
-    "message" => String.t()
-  }
+      
+      cannot_modify_approval_rule_from_template_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type cannot_modify_approval_rule_from_template_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  approval_rule_content_required_exception() :: %{
-    "message" => String.t()
-  }
+      
+      approval_rule_content_required_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type approval_rule_content_required_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  blob_id_required_exception() :: %{
-    "message" => String.t()
-  }
+      
+      blob_id_required_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type blob_id_required_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disassociate_approval_rule_template_from_repository_input() :: %{
-    required("approvalRuleTemplateName") => String.t(),
-    required("repositoryName") => String.t()
-  }
+      
+      disassociate_approval_rule_template_from_repository_input() :: %{
+        required("approvalRuleTemplateName") => String.t(),
+        required("repositoryName") => String.t()
+      }
+      
   """
   @type disassociate_approval_rule_template_from_repository_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  pull_request_cannot_be_approved_by_author_exception() :: %{
-    "message" => String.t()
-  }
+      
+      pull_request_cannot_be_approved_by_author_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type pull_request_cannot_be_approved_by_author_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  branch_name_is_tag_name_exception() :: %{
-    "message" => String.t()
-  }
+      
+      branch_name_is_tag_name_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type branch_name_is_tag_name_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_file_commit_history_response() :: %{
-    "nextToken" => String.t(),
-    "revisionDag" => list(file_version()())
-  }
+      
+      list_file_commit_history_response() :: %{
+        "nextToken" => String.t(),
+        "revisionDag" => list(file_version()())
+      }
+      
   """
   @type list_file_commit_history_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  file_metadata() :: %{
-    "absolutePath" => String.t(),
-    "blobId" => String.t(),
-    "fileMode" => list(any())
-  }
+      
+      file_metadata() :: %{
+        "absolutePath" => String.t(),
+        "blobId" => String.t(),
+        "fileMode" => list(any())
+      }
+      
   """
   @type file_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_approval_rule_template_description_input() :: %{
-    required("approvalRuleTemplateDescription") => String.t(),
-    required("approvalRuleTemplateName") => String.t()
-  }
+      
+      update_approval_rule_template_description_input() :: %{
+        required("approvalRuleTemplateDescription") => String.t(),
+        required("approvalRuleTemplateName") => String.t()
+      }
+      
   """
   @type update_approval_rule_template_description_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  reference_name_required_exception() :: %{
-    "message" => String.t()
-  }
+      
+      reference_name_required_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type reference_name_required_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  comment_content_size_limit_exceeded_exception() :: %{
-    "message" => String.t()
-  }
+      
+      comment_content_size_limit_exceeded_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type comment_content_size_limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  replacement_content_required_exception() :: %{
-    "message" => String.t()
-  }
+      
+      replacement_content_required_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type replacement_content_required_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  merge_branches_by_three_way_input() :: %{
-    optional("authorName") => String.t(),
-    optional("commitMessage") => String.t(),
-    optional("conflictDetailLevel") => list(any()),
-    optional("conflictResolution") => conflict_resolution(),
-    optional("conflictResolutionStrategy") => list(any()),
-    optional("email") => String.t(),
-    optional("keepEmptyFolders") => boolean(),
-    optional("targetBranch") => String.t(),
-    required("destinationCommitSpecifier") => String.t(),
-    required("repositoryName") => String.t(),
-    required("sourceCommitSpecifier") => String.t()
-  }
+      
+      merge_branches_by_three_way_input() :: %{
+        optional("authorName") => String.t(),
+        optional("commitMessage") => String.t(),
+        optional("conflictDetailLevel") => list(any()),
+        optional("conflictResolution") => conflict_resolution(),
+        optional("conflictResolutionStrategy") => list(any()),
+        optional("email") => String.t(),
+        optional("keepEmptyFolders") => boolean(),
+        optional("targetBranch") => String.t(),
+        required("destinationCommitSpecifier") => String.t(),
+        required("repositoryName") => String.t(),
+        required("sourceCommitSpecifier") => String.t()
+      }
+      
   """
   @type merge_branches_by_three_way_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_approval_rule_template_output() :: %{
-    "approvalRuleTemplate" => approval_rule_template()
-  }
+      
+      create_approval_rule_template_output() :: %{
+        "approvalRuleTemplate" => approval_rule_template()
+      }
+      
   """
   @type create_approval_rule_template_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  replace_content_entry() :: %{
-    "content" => binary(),
-    "fileMode" => list(any()),
-    "filePath" => String.t(),
-    "replacementType" => list(any())
-  }
+      
+      replace_content_entry() :: %{
+        "content" => binary(),
+        "fileMode" => list(any()),
+        "filePath" => String.t(),
+        "replacementType" => list(any())
+      }
+      
   """
   @type replace_content_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_repository_trigger_events_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_repository_trigger_events_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_repository_trigger_events_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  target() :: %{
-    "destinationReference" => String.t(),
-    "repositoryName" => String.t(),
-    "sourceReference" => String.t()
-  }
+      
+      target() :: %{
+        "destinationReference" => String.t(),
+        "repositoryName" => String.t(),
+        "sourceReference" => String.t()
+      }
+      
   """
   @type target() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  pull_request_id_required_exception() :: %{
-    "message" => String.t()
-  }
+      
+      pull_request_id_required_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type pull_request_id_required_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  merge_option_required_exception() :: %{
-    "message" => String.t()
-  }
+      
+      merge_option_required_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type merge_option_required_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  encryption_key_required_exception() :: %{
-    "message" => String.t()
-  }
+      
+      encryption_key_required_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type encryption_key_required_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_associate_approval_rule_template_with_repositories_output() :: %{
-    "associatedRepositoryNames" => list(String.t()()),
-    "errors" => list(batch_associate_approval_rule_template_with_repositories_error()())
-  }
+      
+      batch_associate_approval_rule_template_with_repositories_output() :: %{
+        "associatedRepositoryNames" => list(String.t()()),
+        "errors" => list(batch_associate_approval_rule_template_with_repositories_error()())
+      }
+      
   """
   @type batch_associate_approval_rule_template_with_repositories_output() :: %{
           String.t() => any()
@@ -1820,1326 +2098,1580 @@ defmodule AWS.CodeCommit do
   @typedoc """
 
   ## Example:
-  delete_comment_content_input() :: %{
-    required("commentId") => String.t()
-  }
+      
+      delete_comment_content_input() :: %{
+        required("commentId") => String.t()
+      }
+      
   """
   @type delete_comment_content_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  maximum_items_to_compare_exceeded_exception() :: %{
-    "message" => String.t()
-  }
+      
+      maximum_items_to_compare_exceeded_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type maximum_items_to_compare_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_merge_commit_input() :: %{
-    optional("conflictDetailLevel") => list(any()),
-    optional("conflictResolutionStrategy") => list(any()),
-    required("destinationCommitSpecifier") => String.t(),
-    required("repositoryName") => String.t(),
-    required("sourceCommitSpecifier") => String.t()
-  }
+      
+      get_merge_commit_input() :: %{
+        optional("conflictDetailLevel") => list(any()),
+        optional("conflictResolutionStrategy") => list(any()),
+        required("destinationCommitSpecifier") => String.t(),
+        required("repositoryName") => String.t(),
+        required("sourceCommitSpecifier") => String.t()
+      }
+      
   """
   @type get_merge_commit_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_repository_output() :: %{
-    "repositoryId" => String.t()
-  }
+      
+      delete_repository_output() :: %{
+        "repositoryId" => String.t()
+      }
+      
   """
   @type delete_repository_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  multiple_conflict_resolution_entries_exception() :: %{
-    "message" => String.t()
-  }
+      
+      multiple_conflict_resolution_entries_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type multiple_conflict_resolution_entries_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  merge_pull_request_by_fast_forward_output() :: %{
-    "pullRequest" => pull_request()
-  }
+      
+      merge_pull_request_by_fast_forward_output() :: %{
+        "pullRequest" => pull_request()
+      }
+      
   """
   @type merge_pull_request_by_fast_forward_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  encryption_key_access_denied_exception() :: %{
-    "message" => String.t()
-  }
+      
+      encryption_key_access_denied_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type encryption_key_access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_approval_rule_template_content_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_approval_rule_template_content_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_approval_rule_template_content_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  merge_metadata() :: %{
-    "isMerged" => boolean(),
-    "mergeCommitId" => String.t(),
-    "mergeOption" => list(any()),
-    "mergedBy" => String.t()
-  }
+      
+      merge_metadata() :: %{
+        "isMerged" => boolean(),
+        "mergeCommitId" => String.t(),
+        "mergeOption" => list(any()),
+        "mergedBy" => String.t()
+      }
+      
   """
   @type merge_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_replacement_content_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_replacement_content_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_replacement_content_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_merge_conflicts_input() :: %{
-    optional("conflictDetailLevel") => list(any()),
-    optional("conflictResolutionStrategy") => list(any()),
-    optional("maxConflictFiles") => integer(),
-    optional("nextToken") => String.t(),
-    required("destinationCommitSpecifier") => String.t(),
-    required("mergeOption") => list(any()),
-    required("repositoryName") => String.t(),
-    required("sourceCommitSpecifier") => String.t()
-  }
+      
+      get_merge_conflicts_input() :: %{
+        optional("conflictDetailLevel") => list(any()),
+        optional("conflictResolutionStrategy") => list(any()),
+        optional("maxConflictFiles") => integer(),
+        optional("nextToken") => String.t(),
+        required("destinationCommitSpecifier") => String.t(),
+        required("mergeOption") => list(any()),
+        required("repositoryName") => String.t(),
+        required("sourceCommitSpecifier") => String.t()
+      }
+      
   """
   @type get_merge_conflicts_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_comment_reactions_output() :: %{
-    "nextToken" => String.t(),
-    "reactionsForComment" => list(reaction_for_comment()())
-  }
+      
+      get_comment_reactions_output() :: %{
+        "nextToken" => String.t(),
+        "reactionsForComment" => list(reaction_for_comment()())
+      }
+      
   """
   @type get_comment_reactions_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  merge_pull_request_by_squash_output() :: %{
-    "pullRequest" => pull_request()
-  }
+      
+      merge_pull_request_by_squash_output() :: %{
+        "pullRequest" => pull_request()
+      }
+      
   """
   @type merge_pull_request_by_squash_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  merge_branches_by_squash_output() :: %{
-    "commitId" => String.t(),
-    "treeId" => String.t()
-  }
+      
+      merge_branches_by_squash_output() :: %{
+        "commitId" => String.t(),
+        "treeId" => String.t()
+      }
+      
   """
   @type merge_branches_by_squash_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  revision_id_required_exception() :: %{
-    "message" => String.t()
-  }
+      
+      revision_id_required_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type revision_id_required_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  merge_branches_by_fast_forward_input() :: %{
-    optional("targetBranch") => String.t(),
-    required("destinationCommitSpecifier") => String.t(),
-    required("repositoryName") => String.t(),
-    required("sourceCommitSpecifier") => String.t()
-  }
+      
+      merge_branches_by_fast_forward_input() :: %{
+        optional("targetBranch") => String.t(),
+        required("destinationCommitSpecifier") => String.t(),
+        required("repositoryName") => String.t(),
+        required("sourceCommitSpecifier") => String.t()
+      }
+      
   """
   @type merge_branches_by_fast_forward_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  pull_request_status_required_exception() :: %{
-    "message" => String.t()
-  }
+      
+      pull_request_status_required_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type pull_request_status_required_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_branch_name_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_branch_name_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_branch_name_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  merge_hunk() :: %{
-    "base" => merge_hunk_detail(),
-    "destination" => merge_hunk_detail(),
-    "isConflict" => boolean(),
-    "source" => merge_hunk_detail()
-  }
+      
+      merge_hunk() :: %{
+        "base" => merge_hunk_detail(),
+        "destination" => merge_hunk_detail(),
+        "isConflict" => boolean(),
+        "source" => merge_hunk_detail()
+      }
+      
   """
   @type merge_hunk() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_approval_rule_content_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_approval_rule_content_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_approval_rule_content_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  comment() :: %{
-    "authorArn" => String.t(),
-    "callerReactions" => list(String.t()()),
-    "clientRequestToken" => String.t(),
-    "commentId" => String.t(),
-    "content" => String.t(),
-    "creationDate" => non_neg_integer(),
-    "deleted" => boolean(),
-    "inReplyTo" => String.t(),
-    "lastModifiedDate" => non_neg_integer(),
-    "reactionCounts" => map()
-  }
+      
+      comment() :: %{
+        "authorArn" => String.t(),
+        "callerReactions" => list(String.t()()),
+        "clientRequestToken" => String.t(),
+        "commentId" => String.t(),
+        "content" => String.t(),
+        "creationDate" => non_neg_integer(),
+        "deleted" => boolean(),
+        "inReplyTo" => String.t(),
+        "lastModifiedDate" => non_neg_integer(),
+        "reactionCounts" => map()
+      }
+      
   """
   @type comment() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  post_comment_for_pull_request_input() :: %{
-    optional("clientRequestToken") => String.t(),
-    optional("location") => location(),
-    required("afterCommitId") => String.t(),
-    required("beforeCommitId") => String.t(),
-    required("content") => String.t(),
-    required("pullRequestId") => String.t(),
-    required("repositoryName") => String.t()
-  }
+      
+      post_comment_for_pull_request_input() :: %{
+        optional("clientRequestToken") => String.t(),
+        optional("location") => location(),
+        required("afterCommitId") => String.t(),
+        required("beforeCommitId") => String.t(),
+        required("content") => String.t(),
+        required("pullRequestId") => String.t(),
+        required("repositoryName") => String.t()
+      }
+      
   """
   @type post_comment_for_pull_request_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_repository_encryption_key_input() :: %{
-    required("kmsKeyId") => String.t(),
-    required("repositoryName") => String.t()
-  }
+      
+      update_repository_encryption_key_input() :: %{
+        required("kmsKeyId") => String.t(),
+        required("repositoryName") => String.t()
+      }
+      
   """
   @type update_repository_encryption_key_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_pull_request_event_type_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_pull_request_event_type_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_pull_request_event_type_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  set_file_mode_entry() :: %{
-    "fileMode" => list(any()),
-    "filePath" => String.t()
-  }
+      
+      set_file_mode_entry() :: %{
+        "fileMode" => list(any()),
+        "filePath" => String.t()
+      }
+      
   """
   @type set_file_mode_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  reaction_value_required_exception() :: %{
-    "message" => String.t()
-  }
+      
+      reaction_value_required_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type reaction_value_required_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_comment_reactions_input() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t(),
-    optional("reactionUserArn") => String.t(),
-    required("commentId") => String.t()
-  }
+      
+      get_comment_reactions_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("reactionUserArn") => String.t(),
+        required("commentId") => String.t()
+      }
+      
   """
   @type get_comment_reactions_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_folder_output() :: %{
-    "commitId" => String.t(),
-    "files" => list(file()()),
-    "folderPath" => String.t(),
-    "subFolders" => list(folder()()),
-    "subModules" => list(sub_module()()),
-    "symbolicLinks" => list(symbolic_link()()),
-    "treeId" => String.t()
-  }
+      
+      get_folder_output() :: %{
+        "commitId" => String.t(),
+        "files" => list(file()()),
+        "folderPath" => String.t(),
+        "subFolders" => list(folder()()),
+        "subModules" => list(sub_module()()),
+        "symbolicLinks" => list(symbolic_link()()),
+        "treeId" => String.t()
+      }
+      
   """
   @type get_folder_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  maximum_repository_names_exceeded_exception() :: %{
-    "message" => String.t()
-  }
+      
+      maximum_repository_names_exceeded_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type maximum_repository_names_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  merge_pull_request_by_fast_forward_input() :: %{
-    optional("sourceCommitId") => String.t(),
-    required("pullRequestId") => String.t(),
-    required("repositoryName") => String.t()
-  }
+      
+      merge_pull_request_by_fast_forward_input() :: %{
+        optional("sourceCommitId") => String.t(),
+        required("pullRequestId") => String.t(),
+        required("repositoryName") => String.t()
+      }
+      
   """
   @type merge_pull_request_by_fast_forward_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_revision_id_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_revision_id_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_revision_id_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_branch_input() :: %{
-    required("branchName") => String.t(),
-    required("commitId") => String.t(),
-    required("repositoryName") => String.t()
-  }
+      
+      create_branch_input() :: %{
+        required("branchName") => String.t(),
+        required("commitId") => String.t(),
+        required("repositoryName") => String.t()
+      }
+      
   """
   @type create_branch_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_get_commits_error() :: %{
-    "commitId" => String.t(),
-    "errorCode" => String.t(),
-    "errorMessage" => String.t()
-  }
+      
+      batch_get_commits_error() :: %{
+        "commitId" => String.t(),
+        "errorCode" => String.t(),
+        "errorMessage" => String.t()
+      }
+      
   """
   @type batch_get_commits_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_blob_id_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_blob_id_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_blob_id_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_describe_merge_conflicts_output() :: %{
-    "baseCommitId" => String.t(),
-    "conflicts" => list(conflict()()),
-    "destinationCommitId" => String.t(),
-    "errors" => list(batch_describe_merge_conflicts_error()()),
-    "nextToken" => String.t(),
-    "sourceCommitId" => String.t()
-  }
+      
+      batch_describe_merge_conflicts_output() :: %{
+        "baseCommitId" => String.t(),
+        "conflicts" => list(conflict()()),
+        "destinationCommitId" => String.t(),
+        "errors" => list(batch_describe_merge_conflicts_error()()),
+        "nextToken" => String.t(),
+        "sourceCommitId" => String.t()
+      }
+      
   """
   @type batch_describe_merge_conflicts_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  pull_request_does_not_exist_exception() :: %{
-    "message" => String.t()
-  }
+      
+      pull_request_does_not_exist_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type pull_request_does_not_exist_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  repository_trigger_name_required_exception() :: %{
-    "message" => String.t()
-  }
+      
+      repository_trigger_name_required_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type repository_trigger_name_required_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  merge_pull_request_by_three_way_output() :: %{
-    "pullRequest" => pull_request()
-  }
+      
+      merge_pull_request_by_three_way_output() :: %{
+        "pullRequest" => pull_request()
+      }
+      
   """
   @type merge_pull_request_by_three_way_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  commit_ids_list_required_exception() :: %{
-    "message" => String.t()
-  }
+      
+      commit_ids_list_required_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type commit_ids_list_required_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  repository_name_required_exception() :: %{
-    "message" => String.t()
-  }
+      
+      repository_name_required_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type repository_name_required_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_email_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_email_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_email_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  encryption_key_invalid_usage_exception() :: %{
-    "message" => String.t()
-  }
+      
+      encryption_key_invalid_usage_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type encryption_key_invalid_usage_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_commit_output() :: %{
-    "commit" => commit()
-  }
+      
+      get_commit_output() :: %{
+        "commit" => commit()
+      }
+      
   """
   @type get_commit_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  comment_not_created_by_caller_exception() :: %{
-    "message" => String.t()
-  }
+      
+      comment_not_created_by_caller_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type comment_not_created_by_caller_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_relative_file_version_enum_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_relative_file_version_enum_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_relative_file_version_enum_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  parent_commit_id_outdated_exception() :: %{
-    "message" => String.t()
-  }
+      
+      parent_commit_id_outdated_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type parent_commit_id_outdated_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  file_sizes() :: %{
-    "base" => float(),
-    "destination" => float(),
-    "source" => float()
-  }
+      
+      file_sizes() :: %{
+        "base" => float(),
+        "destination" => float(),
+        "source" => float()
+      }
+      
   """
   @type file_sizes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_unreferenced_merge_commit_input() :: %{
-    optional("authorName") => String.t(),
-    optional("commitMessage") => String.t(),
-    optional("conflictDetailLevel") => list(any()),
-    optional("conflictResolution") => conflict_resolution(),
-    optional("conflictResolutionStrategy") => list(any()),
-    optional("email") => String.t(),
-    optional("keepEmptyFolders") => boolean(),
-    required("destinationCommitSpecifier") => String.t(),
-    required("mergeOption") => list(any()),
-    required("repositoryName") => String.t(),
-    required("sourceCommitSpecifier") => String.t()
-  }
+      
+      create_unreferenced_merge_commit_input() :: %{
+        optional("authorName") => String.t(),
+        optional("commitMessage") => String.t(),
+        optional("conflictDetailLevel") => list(any()),
+        optional("conflictResolution") => conflict_resolution(),
+        optional("conflictResolutionStrategy") => list(any()),
+        optional("email") => String.t(),
+        optional("keepEmptyFolders") => boolean(),
+        required("destinationCommitSpecifier") => String.t(),
+        required("mergeOption") => list(any()),
+        required("repositoryName") => String.t(),
+        required("sourceCommitSpecifier") => String.t()
+      }
+      
   """
   @type create_unreferenced_merge_commit_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_pull_request_title_output() :: %{
-    "pullRequest" => pull_request()
-  }
+      
+      update_pull_request_title_output() :: %{
+        "pullRequest" => pull_request()
+      }
+      
   """
   @type update_pull_request_title_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  pull_request_source_reference_updated_event_metadata() :: %{
-    "afterCommitId" => String.t(),
-    "beforeCommitId" => String.t(),
-    "mergeBase" => String.t(),
-    "repositoryName" => String.t()
-  }
+      
+      pull_request_source_reference_updated_event_metadata() :: %{
+        "afterCommitId" => String.t(),
+        "beforeCommitId" => String.t(),
+        "mergeBase" => String.t(),
+        "repositoryName" => String.t()
+      }
+      
   """
   @type pull_request_source_reference_updated_event_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_pull_request_input() :: %{
-    required("pullRequestId") => String.t()
-  }
+      
+      get_pull_request_input() :: %{
+        required("pullRequestId") => String.t()
+      }
+      
   """
   @type get_pull_request_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_comment_output() :: %{
-    "comment" => comment()
-  }
+      
+      get_comment_output() :: %{
+        "comment" => comment()
+      }
+      
   """
   @type get_comment_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  approval_rule_template() :: %{
-    "approvalRuleTemplateContent" => String.t(),
-    "approvalRuleTemplateDescription" => String.t(),
-    "approvalRuleTemplateId" => String.t(),
-    "approvalRuleTemplateName" => String.t(),
-    "creationDate" => non_neg_integer(),
-    "lastModifiedDate" => non_neg_integer(),
-    "lastModifiedUser" => String.t(),
-    "ruleContentSha256" => String.t()
-  }
+      
+      approval_rule_template() :: %{
+        "approvalRuleTemplateContent" => String.t(),
+        "approvalRuleTemplateDescription" => String.t(),
+        "approvalRuleTemplateId" => String.t(),
+        "approvalRuleTemplateName" => String.t(),
+        "creationDate" => non_neg_integer(),
+        "lastModifiedDate" => non_neg_integer(),
+        "lastModifiedUser" => String.t(),
+        "ruleContentSha256" => String.t()
+      }
+      
   """
   @type approval_rule_template() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  post_comment_reply_input() :: %{
-    optional("clientRequestToken") => String.t(),
-    required("content") => String.t(),
-    required("inReplyTo") => String.t()
-  }
+      
+      post_comment_reply_input() :: %{
+        optional("clientRequestToken") => String.t(),
+        required("content") => String.t(),
+        required("inReplyTo") => String.t()
+      }
+      
   """
   @type post_comment_reply_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_associate_approval_rule_template_with_repositories_error() :: %{
-    "errorCode" => String.t(),
-    "errorMessage" => String.t(),
-    "repositoryName" => String.t()
-  }
+      
+      batch_associate_approval_rule_template_with_repositories_error() :: %{
+        "errorCode" => String.t(),
+        "errorMessage" => String.t(),
+        "repositoryName" => String.t()
+      }
+      
   """
   @type batch_associate_approval_rule_template_with_repositories_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  conflict() :: %{
-    "conflictMetadata" => conflict_metadata(),
-    "mergeHunks" => list(merge_hunk()())
-  }
+      
+      conflict() :: %{
+        "conflictMetadata" => conflict_metadata(),
+        "mergeHunks" => list(merge_hunk()())
+      }
+      
   """
   @type conflict() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_reaction_user_arn_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_reaction_user_arn_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_reaction_user_arn_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  file_mode_required_exception() :: %{
-    "message" => String.t()
-  }
+      
+      file_mode_required_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type file_mode_required_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  reaction_limit_exceeded_exception() :: %{
-    "message" => String.t()
-  }
+      
+      reaction_limit_exceeded_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type reaction_limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_merge_conflicts_input() :: %{
-    optional("conflictDetailLevel") => list(any()),
-    optional("conflictResolutionStrategy") => list(any()),
-    optional("maxMergeHunks") => integer(),
-    optional("nextToken") => String.t(),
-    required("destinationCommitSpecifier") => String.t(),
-    required("filePath") => String.t(),
-    required("mergeOption") => list(any()),
-    required("repositoryName") => String.t(),
-    required("sourceCommitSpecifier") => String.t()
-  }
+      
+      describe_merge_conflicts_input() :: %{
+        optional("conflictDetailLevel") => list(any()),
+        optional("conflictResolutionStrategy") => list(any()),
+        optional("maxMergeHunks") => integer(),
+        optional("nextToken") => String.t(),
+        required("destinationCommitSpecifier") => String.t(),
+        required("filePath") => String.t(),
+        required("mergeOption") => list(any()),
+        required("repositoryName") => String.t(),
+        required("sourceCommitSpecifier") => String.t()
+      }
+      
   """
   @type describe_merge_conflicts_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_approval_rule_template_input() :: %{
-    required("approvalRuleTemplateName") => String.t()
-  }
+      
+      delete_approval_rule_template_input() :: %{
+        required("approvalRuleTemplateName") => String.t()
+      }
+      
   """
   @type delete_approval_rule_template_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  override_already_set_exception() :: %{
-    "message" => String.t()
-  }
+      
+      override_already_set_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type override_already_set_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_file_entry() :: %{
-    "fileContent" => binary(),
-    "fileMode" => list(any()),
-    "filePath" => String.t(),
-    "sourceFile" => source_file_specifier()
-  }
+      
+      put_file_entry() :: %{
+        "fileContent" => binary(),
+        "fileMode" => list(any()),
+        "filePath" => String.t(),
+        "sourceFile" => source_file_specifier()
+      }
+      
   """
   @type put_file_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_associate_approval_rule_template_with_repositories_input() :: %{
-    required("approvalRuleTemplateName") => String.t(),
-    required("repositoryNames") => list(String.t()())
-  }
+      
+      batch_associate_approval_rule_template_with_repositories_input() :: %{
+        required("approvalRuleTemplateName") => String.t(),
+        required("repositoryNames") => list(String.t()())
+      }
+      
   """
   @type batch_associate_approval_rule_template_with_repositories_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_commit_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_commit_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_commit_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  comment_does_not_exist_exception() :: %{
-    "message" => String.t()
-  }
+      
+      comment_does_not_exist_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type comment_does_not_exist_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  location() :: %{
-    "filePath" => String.t(),
-    "filePosition" => float(),
-    "relativeFileVersion" => list(any())
-  }
+      
+      location() :: %{
+        "filePath" => String.t(),
+        "filePosition" => float(),
+        "relativeFileVersion" => list(any())
+      }
+      
   """
   @type location() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  repository_trigger_destination_arn_required_exception() :: %{
-    "message" => String.t()
-  }
+      
+      repository_trigger_destination_arn_required_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type repository_trigger_destination_arn_required_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_pull_request_override_state_input() :: %{
-    required("pullRequestId") => String.t(),
-    required("revisionId") => String.t()
-  }
+      
+      get_pull_request_override_state_input() :: %{
+        required("pullRequestId") => String.t(),
+        required("revisionId") => String.t()
+      }
+      
   """
   @type get_pull_request_override_state_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_target_branch_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_target_branch_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_target_branch_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_description_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_description_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_description_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_commit_output() :: %{
-    "commitId" => String.t(),
-    "filesAdded" => list(file_metadata()()),
-    "filesDeleted" => list(file_metadata()()),
-    "filesUpdated" => list(file_metadata()()),
-    "treeId" => String.t()
-  }
+      
+      create_commit_output() :: %{
+        "commitId" => String.t(),
+        "filesAdded" => list(file_metadata()()),
+        "filesDeleted" => list(file_metadata()()),
+        "filesUpdated" => list(file_metadata()()),
+        "treeId" => String.t()
+      }
+      
   """
   @type create_commit_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_max_conflict_files_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_max_conflict_files_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_max_conflict_files_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  targets_required_exception() :: %{
-    "message" => String.t()
-  }
+      
+      targets_required_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type targets_required_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_commit_id_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_commit_id_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_commit_id_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_file_commit_history_request() :: %{
-    optional("commitSpecifier") => String.t(),
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t(),
-    required("filePath") => String.t(),
-    required("repositoryName") => String.t()
-  }
+      
+      list_file_commit_history_request() :: %{
+        optional("commitSpecifier") => String.t(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        required("filePath") => String.t(),
+        required("repositoryName") => String.t()
+      }
+      
   """
   @type list_file_commit_history_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  pull_request() :: %{
-    "approvalRules" => list(approval_rule()()),
-    "authorArn" => String.t(),
-    "clientRequestToken" => String.t(),
-    "creationDate" => non_neg_integer(),
-    "description" => String.t(),
-    "lastActivityDate" => non_neg_integer(),
-    "pullRequestId" => String.t(),
-    "pullRequestStatus" => list(any()),
-    "pullRequestTargets" => list(pull_request_target()()),
-    "revisionId" => String.t(),
-    "title" => String.t()
-  }
+      
+      pull_request() :: %{
+        "approvalRules" => list(approval_rule()()),
+        "authorArn" => String.t(),
+        "clientRequestToken" => String.t(),
+        "creationDate" => non_neg_integer(),
+        "description" => String.t(),
+        "lastActivityDate" => non_neg_integer(),
+        "pullRequestId" => String.t(),
+        "pullRequestStatus" => list(any()),
+        "pullRequestTargets" => list(pull_request_target()()),
+        "revisionId" => String.t(),
+        "title" => String.t()
+      }
+      
   """
   @type pull_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_input() :: %{
-    required("resourceArn") => String.t(),
-    required("tags") => map()
-  }
+      
+      tag_resource_input() :: %{
+        required("resourceArn") => String.t(),
+        required("tags") => map()
+      }
+      
   """
   @type tag_resource_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  manual_merge_required_exception() :: %{
-    "message" => String.t()
-  }
+      
+      manual_merge_required_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type manual_merge_required_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  merge_pull_request_by_squash_input() :: %{
-    optional("authorName") => String.t(),
-    optional("commitMessage") => String.t(),
-    optional("conflictDetailLevel") => list(any()),
-    optional("conflictResolution") => conflict_resolution(),
-    optional("conflictResolutionStrategy") => list(any()),
-    optional("email") => String.t(),
-    optional("keepEmptyFolders") => boolean(),
-    optional("sourceCommitId") => String.t(),
-    required("pullRequestId") => String.t(),
-    required("repositoryName") => String.t()
-  }
+      
+      merge_pull_request_by_squash_input() :: %{
+        optional("authorName") => String.t(),
+        optional("commitMessage") => String.t(),
+        optional("conflictDetailLevel") => list(any()),
+        optional("conflictResolution") => conflict_resolution(),
+        optional("conflictResolutionStrategy") => list(any()),
+        optional("email") => String.t(),
+        optional("keepEmptyFolders") => boolean(),
+        optional("sourceCommitId") => String.t(),
+        required("pullRequestId") => String.t(),
+        required("repositoryName") => String.t()
+      }
+      
   """
   @type merge_pull_request_by_squash_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_get_commits_output() :: %{
-    "commits" => list(commit()()),
-    "errors" => list(batch_get_commits_error()())
-  }
+      
+      batch_get_commits_output() :: %{
+        "commits" => list(commit()()),
+        "errors" => list(batch_get_commits_error()())
+      }
+      
   """
   @type batch_get_commits_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_file_input() :: %{
-    optional("commitSpecifier") => String.t(),
-    required("filePath") => String.t(),
-    required("repositoryName") => String.t()
-  }
+      
+      get_file_input() :: %{
+        optional("commitSpecifier") => String.t(),
+        required("filePath") => String.t(),
+        required("repositoryName") => String.t()
+      }
+      
   """
   @type get_file_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_repository_triggers_input() :: %{
-    required("repositoryName") => String.t()
-  }
+      
+      get_repository_triggers_input() :: %{
+        required("repositoryName") => String.t()
+      }
+      
   """
   @type get_repository_triggers_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_commit_input() :: %{
-    optional("authorName") => String.t(),
-    optional("commitMessage") => String.t(),
-    optional("deleteFiles") => list(delete_file_entry()()),
-    optional("email") => String.t(),
-    optional("keepEmptyFolders") => boolean(),
-    optional("parentCommitId") => String.t(),
-    optional("putFiles") => list(put_file_entry()()),
-    optional("setFileModes") => list(set_file_mode_entry()()),
-    required("branchName") => String.t(),
-    required("repositoryName") => String.t()
-  }
+      
+      create_commit_input() :: %{
+        optional("authorName") => String.t(),
+        optional("commitMessage") => String.t(),
+        optional("deleteFiles") => list(delete_file_entry()()),
+        optional("email") => String.t(),
+        optional("keepEmptyFolders") => boolean(),
+        optional("parentCommitId") => String.t(),
+        optional("putFiles") => list(put_file_entry()()),
+        optional("setFileModes") => list(set_file_mode_entry()()),
+        required("branchName") => String.t(),
+        required("repositoryName") => String.t()
+      }
+      
   """
   @type create_commit_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  file_does_not_exist_exception() :: %{
-    "message" => String.t()
-  }
+      
+      file_does_not_exist_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type file_does_not_exist_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  multiple_repositories_in_pull_request_exception() :: %{
-    "message" => String.t()
-  }
+      
+      multiple_repositories_in_pull_request_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type multiple_repositories_in_pull_request_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_pull_request_status_output() :: %{
-    "pullRequest" => pull_request()
-  }
+      
+      update_pull_request_status_output() :: %{
+        "pullRequest" => pull_request()
+      }
+      
   """
   @type update_pull_request_status_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_deletion_parameter_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_deletion_parameter_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_deletion_parameter_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  number_of_rule_templates_exceeded_exception() :: %{
-    "message" => String.t()
-  }
+      
+      number_of_rule_templates_exceeded_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type number_of_rule_templates_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  approval_rule_does_not_exist_exception() :: %{
-    "message" => String.t()
-  }
+      
+      approval_rule_does_not_exist_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type approval_rule_does_not_exist_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_approval_rule_templates_output() :: %{
-    "approvalRuleTemplateNames" => list(String.t()()),
-    "nextToken" => String.t()
-  }
+      
+      list_approval_rule_templates_output() :: %{
+        "approvalRuleTemplateNames" => list(String.t()()),
+        "nextToken" => String.t()
+      }
+      
   """
   @type list_approval_rule_templates_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_actor_arn_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_actor_arn_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_actor_arn_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  maximum_conflict_resolution_entries_exceeded_exception() :: %{
-    "message" => String.t()
-  }
+      
+      maximum_conflict_resolution_entries_exceeded_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type maximum_conflict_resolution_entries_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  before_commit_id_and_after_commit_id_are_same_exception() :: %{
-    "message" => String.t()
-  }
+      
+      before_commit_id_and_after_commit_id_are_same_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type before_commit_id_and_after_commit_id_are_same_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  override_pull_request_approval_rules_input() :: %{
-    required("overrideStatus") => list(any()),
-    required("pullRequestId") => String.t(),
-    required("revisionId") => String.t()
-  }
+      
+      override_pull_request_approval_rules_input() :: %{
+        required("overrideStatus") => list(any()),
+        required("pullRequestId") => String.t(),
+        required("revisionId") => String.t()
+      }
+      
   """
   @type override_pull_request_approval_rules_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  merge_pull_request_by_three_way_input() :: %{
-    optional("authorName") => String.t(),
-    optional("commitMessage") => String.t(),
-    optional("conflictDetailLevel") => list(any()),
-    optional("conflictResolution") => conflict_resolution(),
-    optional("conflictResolutionStrategy") => list(any()),
-    optional("email") => String.t(),
-    optional("keepEmptyFolders") => boolean(),
-    optional("sourceCommitId") => String.t(),
-    required("pullRequestId") => String.t(),
-    required("repositoryName") => String.t()
-  }
+      
+      merge_pull_request_by_three_way_input() :: %{
+        optional("authorName") => String.t(),
+        optional("commitMessage") => String.t(),
+        optional("conflictDetailLevel") => list(any()),
+        optional("conflictResolution") => conflict_resolution(),
+        optional("conflictResolutionStrategy") => list(any()),
+        optional("email") => String.t(),
+        optional("keepEmptyFolders") => boolean(),
+        optional("sourceCommitId") => String.t(),
+        required("pullRequestId") => String.t(),
+        required("repositoryName") => String.t()
+      }
+      
   """
   @type merge_pull_request_by_three_way_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  folder_does_not_exist_exception() :: %{
-    "message" => String.t()
-  }
+      
+      folder_does_not_exist_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type folder_does_not_exist_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_pull_request_approval_rule_output() :: %{
-    "approvalRuleId" => String.t()
-  }
+      
+      delete_pull_request_approval_rule_output() :: %{
+        "approvalRuleId" => String.t()
+      }
+      
   """
   @type delete_pull_request_approval_rule_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_repository_triggers_output() :: %{
-    "configurationId" => String.t()
-  }
+      
+      put_repository_triggers_output() :: %{
+        "configurationId" => String.t()
+      }
+      
   """
   @type put_repository_triggers_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  encryption_key_invalid_id_exception() :: %{
-    "message" => String.t()
-  }
+      
+      encryption_key_invalid_id_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type encryption_key_invalid_id_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_arn_required_exception() :: %{
-    "message" => String.t()
-  }
+      
+      resource_arn_required_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type resource_arn_required_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_repository_trigger_region_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_repository_trigger_region_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_repository_trigger_region_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_pull_request_override_state_output() :: %{
-    "overridden" => boolean(),
-    "overrider" => String.t()
-  }
+      
+      get_pull_request_override_state_output() :: %{
+        "overridden" => boolean(),
+        "overrider" => String.t()
+      }
+      
   """
   @type get_pull_request_override_state_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_pull_request_approval_rule_content_output() :: %{
-    "approvalRule" => approval_rule()
-  }
+      
+      update_pull_request_approval_rule_content_output() :: %{
+        "approvalRule" => approval_rule()
+      }
+      
   """
   @type update_pull_request_approval_rule_content_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  sub_module() :: %{
-    "absolutePath" => String.t(),
-    "commitId" => String.t(),
-    "relativePath" => String.t()
-  }
+      
+      sub_module() :: %{
+        "absolutePath" => String.t(),
+        "commitId" => String.t(),
+        "relativePath" => String.t()
+      }
+      
   """
   @type sub_module() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_pull_request_description_input() :: %{
-    required("description") => String.t(),
-    required("pullRequestId") => String.t()
-  }
+      
+      update_pull_request_description_input() :: %{
+        required("description") => String.t(),
+        required("pullRequestId") => String.t()
+      }
+      
   """
   @type update_pull_request_description_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  title_required_exception() :: %{
-    "message" => String.t()
-  }
+      
+      title_required_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type title_required_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_merge_commit_output() :: %{
-    "baseCommitId" => String.t(),
-    "destinationCommitId" => String.t(),
-    "mergedCommitId" => String.t(),
-    "sourceCommitId" => String.t()
-  }
+      
+      get_merge_commit_output() :: %{
+        "baseCommitId" => String.t(),
+        "destinationCommitId" => String.t(),
+        "mergedCommitId" => String.t(),
+        "sourceCommitId" => String.t()
+      }
+      
   """
   @type get_merge_commit_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_approval_state_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_approval_state_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_approval_state_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  commit_message_length_exceeded_exception() :: %{
-    "message" => String.t()
-  }
+      
+      commit_message_length_exceeded_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type commit_message_length_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  maximum_open_pull_requests_exceeded_exception() :: %{
-    "message" => String.t()
-  }
+      
+      maximum_open_pull_requests_exceeded_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type maximum_open_pull_requests_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_file_entry_conflict_exception() :: %{
-    "message" => String.t()
-  }
+      
+      put_file_entry_conflict_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type put_file_entry_conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_associated_approval_rule_templates_for_repository_output() :: %{
-    "approvalRuleTemplateNames" => list(String.t()()),
-    "nextToken" => String.t()
-  }
+      
+      list_associated_approval_rule_templates_for_repository_output() :: %{
+        "approvalRuleTemplateNames" => list(String.t()()),
+        "nextToken" => String.t()
+      }
+      
   """
   @type list_associated_approval_rule_templates_for_repository_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  actor_does_not_exist_exception() :: %{
-    "message" => String.t()
-  }
+      
+      actor_does_not_exist_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type actor_does_not_exist_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_comment_content_output() :: %{
-    "comment" => comment()
-  }
+      
+      delete_comment_content_output() :: %{
+        "comment" => comment()
+      }
+      
   """
   @type delete_comment_content_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  repository_not_associated_with_pull_request_exception() :: %{
-    "message" => String.t()
-  }
+      
+      repository_not_associated_with_pull_request_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type repository_not_associated_with_pull_request_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_repository_input() :: %{
-    required("repositoryName") => String.t()
-  }
+      
+      delete_repository_input() :: %{
+        required("repositoryName") => String.t()
+      }
+      
   """
   @type delete_repository_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  pull_request_already_closed_exception() :: %{
-    "message" => String.t()
-  }
+      
+      pull_request_already_closed_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type pull_request_already_closed_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_file_input() :: %{
-    optional("commitMessage") => String.t(),
-    optional("email") => String.t(),
-    optional("fileMode") => list(any()),
-    optional("name") => String.t(),
-    optional("parentCommitId") => String.t(),
-    required("branchName") => String.t(),
-    required("fileContent") => binary(),
-    required("filePath") => String.t(),
-    required("repositoryName") => String.t()
-  }
+      
+      put_file_input() :: %{
+        optional("commitMessage") => String.t(),
+        optional("email") => String.t(),
+        optional("fileMode") => list(any()),
+        optional("name") => String.t(),
+        optional("parentCommitId") => String.t(),
+        required("branchName") => String.t(),
+        required("fileContent") => binary(),
+        required("filePath") => String.t(),
+        required("repositoryName") => String.t()
+      }
+      
   """
   @type put_file_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_title_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_title_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_title_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  encryption_key_disabled_exception() :: %{
-    "message" => String.t()
-  }
+      
+      encryption_key_disabled_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type encryption_key_disabled_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  is_binary_file() :: %{
-    "base" => boolean(),
-    "destination" => boolean(),
-    "source" => boolean()
-  }
+      
+      is_binary_file() :: %{
+        "base" => boolean(),
+        "destination" => boolean(),
+        "source" => boolean()
+      }
+      
   """
   @type is_binary_file() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_branch_input() :: %{
-    optional("branchName") => String.t(),
-    optional("repositoryName") => String.t()
-  }
+      
+      get_branch_input() :: %{
+        optional("branchName") => String.t(),
+        optional("repositoryName") => String.t()
+      }
+      
   """
   @type get_branch_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_describe_merge_conflicts_input() :: %{
-    optional("conflictDetailLevel") => list(any()),
-    optional("conflictResolutionStrategy") => list(any()),
-    optional("filePaths") => list(String.t()()),
-    optional("maxConflictFiles") => integer(),
-    optional("maxMergeHunks") => integer(),
-    optional("nextToken") => String.t(),
-    required("destinationCommitSpecifier") => String.t(),
-    required("mergeOption") => list(any()),
-    required("repositoryName") => String.t(),
-    required("sourceCommitSpecifier") => String.t()
-  }
+      
+      batch_describe_merge_conflicts_input() :: %{
+        optional("conflictDetailLevel") => list(any()),
+        optional("conflictResolutionStrategy") => list(any()),
+        optional("filePaths") => list(String.t()()),
+        optional("maxConflictFiles") => integer(),
+        optional("maxMergeHunks") => integer(),
+        optional("nextToken") => String.t(),
+        required("destinationCommitSpecifier") => String.t(),
+        required("mergeOption") => list(any()),
+        required("repositoryName") => String.t(),
+        required("sourceCommitSpecifier") => String.t()
+      }
+      
   """
   @type batch_describe_merge_conflicts_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  file_content_and_source_file_specified_exception() :: %{
-    "message" => String.t()
-  }
+      
+      file_content_and_source_file_specified_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type file_content_and_source_file_specified_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_input() :: %{
-    required("resourceArn") => String.t(),
-    required("tagKeys") => list(String.t()())
-  }
+      
+      untag_resource_input() :: %{
+        required("resourceArn") => String.t(),
+        required("tagKeys") => list(String.t()())
+      }
+      
   """
   @type untag_resource_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_disassociate_approval_rule_template_from_repositories_input() :: %{
-    required("approvalRuleTemplateName") => String.t(),
-    required("repositoryNames") => list(String.t()())
-  }
+      
+      batch_disassociate_approval_rule_template_from_repositories_input() :: %{
+        required("approvalRuleTemplateName") => String.t(),
+        required("repositoryNames") => list(String.t()())
+      }
+      
   """
   @type batch_disassociate_approval_rule_template_from_repositories_input() :: %{
           String.t() => any()
@@ -3148,552 +3680,662 @@ defmodule AWS.CodeCommit do
   @typedoc """
 
   ## Example:
-  replacement_type_required_exception() :: %{
-    "message" => String.t()
-  }
+      
+      replacement_type_required_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type replacement_type_required_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_tag_keys_list_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_tag_keys_list_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_tag_keys_list_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_sort_by_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_sort_by_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_sort_by_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_differences_input() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("afterPath") => String.t(),
-    optional("beforeCommitSpecifier") => String.t(),
-    optional("beforePath") => String.t(),
-    required("afterCommitSpecifier") => String.t(),
-    required("repositoryName") => String.t()
-  }
+      
+      get_differences_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("afterPath") => String.t(),
+        optional("beforeCommitSpecifier") => String.t(),
+        optional("beforePath") => String.t(),
+        required("afterCommitSpecifier") => String.t(),
+        required("repositoryName") => String.t()
+      }
+      
   """
   @type get_differences_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  parent_commit_does_not_exist_exception() :: %{
-    "message" => String.t()
-  }
+      
+      parent_commit_does_not_exist_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type parent_commit_does_not_exist_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  repository_trigger() :: %{
-    "branches" => list(String.t()()),
-    "customData" => String.t(),
-    "destinationArn" => String.t(),
-    "events" => list(list(any())()),
-    "name" => String.t()
-  }
+      
+      repository_trigger() :: %{
+        "branches" => list(String.t()()),
+        "customData" => String.t(),
+        "destinationArn" => String.t(),
+        "events" => list(list(any())()),
+        "name" => String.t()
+      }
+      
   """
   @type repository_trigger() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  branch_does_not_exist_exception() :: %{
-    "message" => String.t()
-  }
+      
+      branch_does_not_exist_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type branch_does_not_exist_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_repository_triggers_input() :: %{
-    required("repositoryName") => String.t(),
-    required("triggers") => list(repository_trigger()())
-  }
+      
+      put_repository_triggers_input() :: %{
+        required("repositoryName") => String.t(),
+        required("triggers") => list(repository_trigger()())
+      }
+      
   """
   @type put_repository_triggers_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_pull_request_events_output() :: %{
-    "nextToken" => String.t(),
-    "pullRequestEvents" => list(pull_request_event()())
-  }
+      
+      describe_pull_request_events_output() :: %{
+        "nextToken" => String.t(),
+        "pullRequestEvents" => list(pull_request_event()())
+      }
+      
   """
   @type describe_pull_request_events_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  file_content_size_limit_exceeded_exception() :: %{
-    "message" => String.t()
-  }
+      
+      file_content_size_limit_exceeded_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type file_content_size_limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  comments_for_compared_commit() :: %{
-    "afterBlobId" => String.t(),
-    "afterCommitId" => String.t(),
-    "beforeBlobId" => String.t(),
-    "beforeCommitId" => String.t(),
-    "comments" => list(comment()()),
-    "location" => location(),
-    "repositoryName" => String.t()
-  }
+      
+      comments_for_compared_commit() :: %{
+        "afterBlobId" => String.t(),
+        "afterCommitId" => String.t(),
+        "beforeBlobId" => String.t(),
+        "beforeCommitId" => String.t(),
+        "comments" => list(comment()()),
+        "location" => location(),
+        "repositoryName" => String.t()
+      }
+      
   """
   @type comments_for_compared_commit() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  origin_approval_rule_template() :: %{
-    "approvalRuleTemplateId" => String.t(),
-    "approvalRuleTemplateName" => String.t()
-  }
+      
+      origin_approval_rule_template() :: %{
+        "approvalRuleTemplateId" => String.t(),
+        "approvalRuleTemplateName" => String.t()
+      }
+      
   """
   @type origin_approval_rule_template() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  parent_commit_id_required_exception() :: %{
-    "message" => String.t()
-  }
+      
+      parent_commit_id_required_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type parent_commit_id_required_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_system_tag_usage_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_system_tag_usage_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_system_tag_usage_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_pull_request_events_input() :: %{
-    optional("actorArn") => String.t(),
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t(),
-    optional("pullRequestEventType") => list(any()),
-    required("pullRequestId") => String.t()
-  }
+      
+      describe_pull_request_events_input() :: %{
+        optional("actorArn") => String.t(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("pullRequestEventType") => list(any()),
+        required("pullRequestId") => String.t()
+      }
+      
   """
   @type describe_pull_request_events_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  idempotency_parameter_mismatch_exception() :: %{
-    "message" => String.t()
-  }
+      
+      idempotency_parameter_mismatch_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type idempotency_parameter_mismatch_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_input() :: %{
-    optional("nextToken") => String.t(),
-    required("resourceArn") => String.t()
-  }
+      
+      list_tags_for_resource_input() :: %{
+        optional("nextToken") => String.t(),
+        required("resourceArn") => String.t()
+      }
+      
   """
   @type list_tags_for_resource_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  file_path_conflicts_with_submodule_path_exception() :: %{
-    "message" => String.t()
-  }
+      
+      file_path_conflicts_with_submodule_path_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type file_path_conflicts_with_submodule_path_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_get_commits_input() :: %{
-    required("commitIds") => list(String.t()()),
-    required("repositoryName") => String.t()
-  }
+      
+      batch_get_commits_input() :: %{
+        required("commitIds") => list(String.t()()),
+        required("repositoryName") => String.t()
+      }
+      
   """
   @type batch_get_commits_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  reaction_for_comment() :: %{
-    "reaction" => reaction_value_formats(),
-    "reactionUsers" => list(String.t()()),
-    "reactionsFromDeletedUsersCount" => integer()
-  }
+      
+      reaction_for_comment() :: %{
+        "reaction" => reaction_value_formats(),
+        "reactionUsers" => list(String.t()()),
+        "reactionsFromDeletedUsersCount" => integer()
+      }
+      
   """
   @type reaction_for_comment() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  repository_trigger_execution_failure() :: %{
-    "failureMessage" => String.t(),
-    "trigger" => String.t()
-  }
+      
+      repository_trigger_execution_failure() :: %{
+        "failureMessage" => String.t(),
+        "trigger" => String.t()
+      }
+      
   """
   @type repository_trigger_execution_failure() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_repositories_output() :: %{
-    "nextToken" => String.t(),
-    "repositories" => list(repository_name_id_pair()())
-  }
+      
+      list_repositories_output() :: %{
+        "nextToken" => String.t(),
+        "repositories" => list(repository_name_id_pair()())
+      }
+      
   """
   @type list_repositories_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_pull_request_description_output() :: %{
-    "pullRequest" => pull_request()
-  }
+      
+      update_pull_request_description_output() :: %{
+        "pullRequest" => pull_request()
+      }
+      
   """
   @type update_pull_request_description_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_file_input() :: %{
-    optional("commitMessage") => String.t(),
-    optional("email") => String.t(),
-    optional("keepEmptyFolders") => boolean(),
-    optional("name") => String.t(),
-    required("branchName") => String.t(),
-    required("filePath") => String.t(),
-    required("parentCommitId") => String.t(),
-    required("repositoryName") => String.t()
-  }
+      
+      delete_file_input() :: %{
+        optional("commitMessage") => String.t(),
+        optional("email") => String.t(),
+        optional("keepEmptyFolders") => boolean(),
+        optional("name") => String.t(),
+        required("branchName") => String.t(),
+        required("filePath") => String.t(),
+        required("parentCommitId") => String.t(),
+        required("repositoryName") => String.t()
+      }
+      
   """
   @type delete_file_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_pull_request_approval_state_input() :: %{
-    required("approvalState") => list(any()),
-    required("pullRequestId") => String.t(),
-    required("revisionId") => String.t()
-  }
+      
+      update_pull_request_approval_state_input() :: %{
+        required("approvalState") => list(any()),
+        required("pullRequestId") => String.t(),
+        required("revisionId") => String.t()
+      }
+      
   """
   @type update_pull_request_approval_state_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_repository_trigger_branch_name_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_repository_trigger_branch_name_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_repository_trigger_branch_name_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  file_too_large_exception() :: %{
-    "message" => String.t()
-  }
+      
+      file_too_large_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type file_too_large_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  file_version() :: %{
-    "blobId" => String.t(),
-    "commit" => commit(),
-    "path" => String.t(),
-    "revisionChildren" => list(String.t()())
-  }
+      
+      file_version() :: %{
+        "blobId" => String.t(),
+        "commit" => commit(),
+        "path" => String.t(),
+        "revisionChildren" => list(String.t()())
+      }
+      
   """
   @type file_version() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_blob_output() :: %{
-    "content" => binary()
-  }
+      
+      get_blob_output() :: %{
+        "content" => binary()
+      }
+      
   """
   @type get_blob_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_path_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_path_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_path_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_comments_for_pull_request_input() :: %{
-    optional("afterCommitId") => String.t(),
-    optional("beforeCommitId") => String.t(),
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t(),
-    optional("repositoryName") => String.t(),
-    required("pullRequestId") => String.t()
-  }
+      
+      get_comments_for_pull_request_input() :: %{
+        optional("afterCommitId") => String.t(),
+        optional("beforeCommitId") => String.t(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("repositoryName") => String.t(),
+        required("pullRequestId") => String.t()
+      }
+      
   """
   @type get_comments_for_pull_request_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_pull_request_status_update_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_pull_request_status_update_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_pull_request_status_update_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  folder() :: %{
-    "absolutePath" => String.t(),
-    "relativePath" => String.t(),
-    "treeId" => String.t()
-  }
+      
+      folder() :: %{
+        "absolutePath" => String.t(),
+        "relativePath" => String.t(),
+        "treeId" => String.t()
+      }
+      
   """
   @type folder() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_repository_trigger_destination_arn_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_repository_trigger_destination_arn_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_repository_trigger_destination_arn_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_comments_for_compared_commit_output() :: %{
-    "commentsForComparedCommitData" => list(comments_for_compared_commit()()),
-    "nextToken" => String.t()
-  }
+      
+      get_comments_for_compared_commit_output() :: %{
+        "commentsForComparedCommitData" => list(comments_for_compared_commit()()),
+        "nextToken" => String.t()
+      }
+      
   """
   @type get_comments_for_compared_commit_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_resource_arn_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_resource_arn_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_resource_arn_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_approval_rule_template_input() :: %{
-    required("approvalRuleTemplateName") => String.t()
-  }
+      
+      get_approval_rule_template_input() :: %{
+        required("approvalRuleTemplateName") => String.t()
+      }
+      
   """
   @type get_approval_rule_template_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_source_commit_specifier_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_source_commit_specifier_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_source_commit_specifier_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_comment_reaction_input() :: %{
-    required("commentId") => String.t(),
-    required("reactionValue") => String.t()
-  }
+      
+      put_comment_reaction_input() :: %{
+        required("commentId") => String.t(),
+        required("reactionValue") => String.t()
+      }
+      
   """
   @type put_comment_reaction_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_comment_output() :: %{
-    "comment" => comment()
-  }
+      
+      update_comment_output() :: %{
+        "comment" => comment()
+      }
+      
   """
   @type update_comment_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  maximum_branches_exceeded_exception() :: %{
-    "message" => String.t()
-  }
+      
+      maximum_branches_exceeded_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type maximum_branches_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_merge_option_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_merge_option_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_merge_option_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_unreferenced_merge_commit_output() :: %{
-    "commitId" => String.t(),
-    "treeId" => String.t()
-  }
+      
+      create_unreferenced_merge_commit_output() :: %{
+        "commitId" => String.t(),
+        "treeId" => String.t()
+      }
+      
   """
   @type create_unreferenced_merge_commit_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cannot_delete_approval_rule_from_template_exception() :: %{
-    "message" => String.t()
-  }
+      
+      cannot_delete_approval_rule_from_template_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type cannot_delete_approval_rule_from_template_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  override_status_required_exception() :: %{
-    "message" => String.t()
-  }
+      
+      override_status_required_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type override_status_required_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  reference_type_not_supported_exception() :: %{
-    "message" => String.t()
-  }
+      
+      reference_type_not_supported_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type reference_type_not_supported_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_folder_input() :: %{
-    optional("commitSpecifier") => String.t(),
-    required("folderPath") => String.t(),
-    required("repositoryName") => String.t()
-  }
+      
+      get_folder_input() :: %{
+        optional("commitSpecifier") => String.t(),
+        required("folderPath") => String.t(),
+        required("repositoryName") => String.t()
+      }
+      
   """
   @type get_folder_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_comment_input() :: %{
-    required("commentId") => String.t()
-  }
+      
+      get_comment_input() :: %{
+        required("commentId") => String.t()
+      }
+      
   """
   @type get_comment_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_approval_rule_template_name_output() :: %{
-    "approvalRuleTemplate" => approval_rule_template()
-  }
+      
+      update_approval_rule_template_name_output() :: %{
+        "approvalRuleTemplate" => approval_rule_template()
+      }
+      
   """
   @type update_approval_rule_template_name_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_conflict_resolution_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_conflict_resolution_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_conflict_resolution_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_approval_rule_templates_input() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t()
-  }
+      
+      list_approval_rule_templates_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+      
   """
   @type list_approval_rule_templates_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_pull_request_status_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_pull_request_status_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_pull_request_status_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_comments_for_pull_request_output() :: %{
-    "commentsForPullRequestData" => list(comments_for_pull_request()()),
-    "nextToken" => String.t()
-  }
+      
+      get_comments_for_pull_request_output() :: %{
+        "commentsForPullRequestData" => list(comments_for_pull_request()()),
+        "nextToken" => String.t()
+      }
+      
   """
   @type get_comments_for_pull_request_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_reference_name_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_reference_name_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_reference_name_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_disassociate_approval_rule_template_from_repositories_error() :: %{
-    "errorCode" => String.t(),
-    "errorMessage" => String.t(),
-    "repositoryName" => String.t()
-  }
+      
+      batch_disassociate_approval_rule_template_from_repositories_error() :: %{
+        "errorCode" => String.t(),
+        "errorMessage" => String.t(),
+        "repositoryName" => String.t()
+      }
+      
   """
   @type batch_disassociate_approval_rule_template_from_repositories_error() :: %{
           String.t() => any()
@@ -3702,191 +4344,229 @@ defmodule AWS.CodeCommit do
   @typedoc """
 
   ## Example:
-  evaluation() :: %{
-    "approvalRulesNotSatisfied" => list(String.t()()),
-    "approvalRulesSatisfied" => list(String.t()()),
-    "approved" => boolean(),
-    "overridden" => boolean()
-  }
+      
+      evaluation() :: %{
+        "approvalRulesNotSatisfied" => list(String.t()()),
+        "approvalRulesSatisfied" => list(String.t()()),
+        "approved" => boolean(),
+        "overridden" => boolean()
+      }
+      
   """
   @type evaluation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_pull_request_output() :: %{
-    "pullRequest" => pull_request()
-  }
+      
+      create_pull_request_output() :: %{
+        "pullRequest" => pull_request()
+      }
+      
   """
   @type create_pull_request_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  comment_content_required_exception() :: %{
-    "message" => String.t()
-  }
+      
+      comment_content_required_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type comment_content_required_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_file_output() :: %{
-    "blobId" => String.t(),
-    "commitId" => String.t(),
-    "filePath" => String.t(),
-    "treeId" => String.t()
-  }
+      
+      delete_file_output() :: %{
+        "blobId" => String.t(),
+        "commitId" => String.t(),
+        "filePath" => String.t(),
+        "treeId" => String.t()
+      }
+      
   """
   @type delete_file_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_comment_id_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_comment_id_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_comment_id_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_branch_output() :: %{
-    "branch" => branch_info()
-  }
+      
+      get_branch_output() :: %{
+        "branch" => branch_info()
+      }
+      
   """
   @type get_branch_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_keys_list_required_exception() :: %{
-    "message" => String.t()
-  }
+      
+      tag_keys_list_required_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type tag_keys_list_required_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  reference_does_not_exist_exception() :: %{
-    "message" => String.t()
-  }
+      
+      reference_does_not_exist_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type reference_does_not_exist_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  object_types() :: %{
-    "base" => list(any()),
-    "destination" => list(any()),
-    "source" => list(any())
-  }
+      
+      object_types() :: %{
+        "base" => list(any()),
+        "destination" => list(any()),
+        "source" => list(any())
+      }
+      
   """
   @type object_types() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  revision_not_current_exception() :: %{
-    "message" => String.t()
-  }
+      
+      revision_not_current_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type revision_not_current_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_comment_input() :: %{
-    required("commentId") => String.t(),
-    required("content") => String.t()
-  }
+      
+      update_comment_input() :: %{
+        required("commentId") => String.t(),
+        required("content") => String.t()
+      }
+      
   """
   @type update_comment_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  commit_does_not_exist_exception() :: %{
-    "message" => String.t()
-  }
+      
+      commit_does_not_exist_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type commit_does_not_exist_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  approval() :: %{
-    "approvalState" => list(any()),
-    "userArn" => String.t()
-  }
+      
+      approval() :: %{
+        "approvalState" => list(any()),
+        "userArn" => String.t()
+      }
+      
   """
   @type approval() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  name_length_exceeded_exception() :: %{
-    "message" => String.t()
-  }
+      
+      name_length_exceeded_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type name_length_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_file_location_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_file_location_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_file_location_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_repository_input() :: %{
-    optional("kmsKeyId") => String.t(),
-    optional("repositoryDescription") => String.t(),
-    optional("tags") => map(),
-    required("repositoryName") => String.t()
-  }
+      
+      create_repository_input() :: %{
+        optional("kmsKeyId") => String.t(),
+        optional("repositoryDescription") => String.t(),
+        optional("tags") => map(),
+        required("repositoryName") => String.t()
+      }
+      
   """
   @type create_repository_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  repository_trigger_events_list_required_exception() :: %{
-    "message" => String.t()
-  }
+      
+      repository_trigger_events_list_required_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type repository_trigger_events_list_required_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  post_comment_for_compared_commit_output() :: %{
-    "afterBlobId" => String.t(),
-    "afterCommitId" => String.t(),
-    "beforeBlobId" => String.t(),
-    "beforeCommitId" => String.t(),
-    "comment" => comment(),
-    "location" => location(),
-    "repositoryName" => String.t()
-  }
+      
+      post_comment_for_compared_commit_output() :: %{
+        "afterBlobId" => String.t(),
+        "afterCommitId" => String.t(),
+        "beforeBlobId" => String.t(),
+        "beforeCommitId" => String.t(),
+        "comment" => comment(),
+        "location" => location(),
+        "repositoryName" => String.t()
+      }
+      
   """
   @type post_comment_for_compared_commit_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_disassociate_approval_rule_template_from_repositories_output() :: %{
-    "disassociatedRepositoryNames" => list(String.t()()),
-    "errors" => list(batch_disassociate_approval_rule_template_from_repositories_error()())
-  }
+      
+      batch_disassociate_approval_rule_template_from_repositories_output() :: %{
+        "disassociatedRepositoryNames" => list(String.t()()),
+        "errors" => list(batch_disassociate_approval_rule_template_from_repositories_error()())
+      }
+      
   """
   @type batch_disassociate_approval_rule_template_from_repositories_output() :: %{
           String.t() => any()
@@ -3895,565 +4575,1925 @@ defmodule AWS.CodeCommit do
   @typedoc """
 
   ## Example:
-  pull_request_created_event_metadata() :: %{
-    "destinationCommitId" => String.t(),
-    "mergeBase" => String.t(),
-    "repositoryName" => String.t(),
-    "sourceCommitId" => String.t()
-  }
+      
+      pull_request_created_event_metadata() :: %{
+        "destinationCommitId" => String.t(),
+        "mergeBase" => String.t(),
+        "repositoryName" => String.t(),
+        "sourceCommitId" => String.t()
+      }
+      
   """
   @type pull_request_created_event_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_get_repositories_input() :: %{
-    required("repositoryNames") => list(String.t()())
-  }
+      
+      batch_get_repositories_input() :: %{
+        required("repositoryNames") => list(String.t()())
+      }
+      
   """
   @type batch_get_repositories_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  branch_info() :: %{
-    "branchName" => String.t(),
-    "commitId" => String.t()
-  }
+      
+      branch_info() :: %{
+        "branchName" => String.t(),
+        "commitId" => String.t()
+      }
+      
   """
   @type branch_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_branches_input() :: %{
-    optional("nextToken") => String.t(),
-    required("repositoryName") => String.t()
-  }
+      
+      list_branches_input() :: %{
+        optional("nextToken") => String.t(),
+        required("repositoryName") => String.t()
+      }
+      
   """
   @type list_branches_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_approval_rule_template_name_input() :: %{
-    required("newApprovalRuleTemplateName") => String.t(),
-    required("oldApprovalRuleTemplateName") => String.t()
-  }
+      
+      update_approval_rule_template_name_input() :: %{
+        required("newApprovalRuleTemplateName") => String.t(),
+        required("oldApprovalRuleTemplateName") => String.t()
+      }
+      
   """
   @type update_approval_rule_template_name_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_conflict_detail_level_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_conflict_detail_level_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_conflict_detail_level_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  restricted_source_file_exception() :: %{
-    "message" => String.t()
-  }
+      
+      restricted_source_file_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type restricted_source_file_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  commit_id_does_not_exist_exception() :: %{
-    "message" => String.t()
-  }
+      
+      commit_id_does_not_exist_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type commit_id_does_not_exist_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  number_of_rules_exceeded_exception() :: %{
-    "message" => String.t()
-  }
+      
+      number_of_rules_exceeded_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type number_of_rules_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  approval_rule_overridden_event_metadata() :: %{
-    "overrideStatus" => list(any()),
-    "revisionId" => String.t()
-  }
+      
+      approval_rule_overridden_event_metadata() :: %{
+        "overrideStatus" => list(any()),
+        "revisionId" => String.t()
+      }
+      
   """
   @type approval_rule_overridden_event_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_approval_rule_template_name_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_approval_rule_template_name_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_approval_rule_template_name_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_repositories_for_approval_rule_template_input() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t(),
-    required("approvalRuleTemplateName") => String.t()
-  }
+      
+      list_repositories_for_approval_rule_template_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        required("approvalRuleTemplateName") => String.t()
+      }
+      
   """
   @type list_repositories_for_approval_rule_template_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_get_repositories_output() :: %{
-    "errors" => list(batch_get_repositories_error()()),
-    "repositories" => list(repository_metadata()()),
-    "repositoriesNotFound" => list(String.t()())
-  }
+      
+      batch_get_repositories_output() :: %{
+        "errors" => list(batch_get_repositories_error()()),
+        "repositories" => list(repository_metadata()()),
+        "repositoriesNotFound" => list(String.t()())
+      }
+      
   """
   @type batch_get_repositories_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_pull_request_approval_states_input() :: %{
-    required("pullRequestId") => String.t(),
-    required("revisionId") => String.t()
-  }
+      
+      get_pull_request_approval_states_input() :: %{
+        required("pullRequestId") => String.t(),
+        required("revisionId") => String.t()
+      }
+      
   """
   @type get_pull_request_approval_states_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_repository_name_input() :: %{
-    required("newName") => String.t(),
-    required("oldName") => String.t()
-  }
+      
+      update_repository_name_input() :: %{
+        required("newName") => String.t(),
+        required("oldName") => String.t()
+      }
+      
   """
   @type update_repository_name_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  merge_operations() :: %{
-    "destination" => list(any()),
-    "source" => list(any())
-  }
+      
+      merge_operations() :: %{
+        "destination" => list(any()),
+        "source" => list(any())
+      }
+      
   """
   @type merge_operations() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_pull_request_status_input() :: %{
-    required("pullRequestId") => String.t(),
-    required("pullRequestStatus") => list(any())
-  }
+      
+      update_pull_request_status_input() :: %{
+        required("pullRequestId") => String.t(),
+        required("pullRequestStatus") => list(any())
+      }
+      
   """
   @type update_pull_request_status_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  comments_for_pull_request() :: %{
-    "afterBlobId" => String.t(),
-    "afterCommitId" => String.t(),
-    "beforeBlobId" => String.t(),
-    "beforeCommitId" => String.t(),
-    "comments" => list(comment()()),
-    "location" => location(),
-    "pullRequestId" => String.t(),
-    "repositoryName" => String.t()
-  }
+      
+      comments_for_pull_request() :: %{
+        "afterBlobId" => String.t(),
+        "afterCommitId" => String.t(),
+        "beforeBlobId" => String.t(),
+        "beforeCommitId" => String.t(),
+        "comments" => list(comment()()),
+        "location" => location(),
+        "pullRequestId" => String.t(),
+        "repositoryName" => String.t()
+      }
+      
   """
   @type comments_for_pull_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_approval_rule_name_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_approval_rule_name_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_approval_rule_name_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  repository_limit_exceeded_exception() :: %{
-    "message" => String.t()
-  }
+      
+      repository_limit_exceeded_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type repository_limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  commit_required_exception() :: %{
-    "message" => String.t()
-  }
+      
+      commit_required_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type commit_required_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  post_comment_for_compared_commit_input() :: %{
-    optional("beforeCommitId") => String.t(),
-    optional("clientRequestToken") => String.t(),
-    optional("location") => location(),
-    required("afterCommitId") => String.t(),
-    required("content") => String.t(),
-    required("repositoryName") => String.t()
-  }
+      
+      post_comment_for_compared_commit_input() :: %{
+        optional("beforeCommitId") => String.t(),
+        optional("clientRequestToken") => String.t(),
+        optional("location") => location(),
+        required("afterCommitId") => String.t(),
+        required("content") => String.t(),
+        required("repositoryName") => String.t()
+      }
+      
   """
   @type post_comment_for_compared_commit_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  branch_name_exists_exception() :: %{
-    "message" => String.t()
-  }
+      
+      branch_name_exists_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type branch_name_exists_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  approval_rule_template_name_already_exists_exception() :: %{
-    "message" => String.t()
-  }
+      
+      approval_rule_template_name_already_exists_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type approval_rule_template_name_already_exists_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_pull_request_title_input() :: %{
-    required("pullRequestId") => String.t(),
-    required("title") => String.t()
-  }
+      
+      update_pull_request_title_input() :: %{
+        required("pullRequestId") => String.t(),
+        required("title") => String.t()
+      }
+      
   """
   @type update_pull_request_title_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_file_output() :: %{
-    "blobId" => String.t(),
-    "commitId" => String.t(),
-    "fileContent" => binary(),
-    "fileMode" => list(any()),
-    "filePath" => String.t(),
-    "fileSize" => float()
-  }
+      
+      get_file_output() :: %{
+        "blobId" => String.t(),
+        "commitId" => String.t(),
+        "fileContent" => binary(),
+        "fileMode" => list(any()),
+        "filePath" => String.t(),
+        "fileSize" => float()
+      }
+      
   """
   @type get_file_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  test_repository_triggers_output() :: %{
-    "failedExecutions" => list(repository_trigger_execution_failure()()),
-    "successfulExecutions" => list(String.t()())
-  }
+      
+      test_repository_triggers_output() :: %{
+        "failedExecutions" => list(repository_trigger_execution_failure()()),
+        "successfulExecutions" => list(String.t()())
+      }
+      
   """
   @type test_repository_triggers_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  maximum_file_entries_exceeded_exception() :: %{
-    "message" => String.t()
-  }
+      
+      maximum_file_entries_exceeded_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type maximum_file_entries_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_approval_rule_template_content_input() :: %{
-    optional("existingRuleContentSha256") => String.t(),
-    required("approvalRuleTemplateName") => String.t(),
-    required("newRuleContent") => String.t()
-  }
+      
+      update_approval_rule_template_content_input() :: %{
+        optional("existingRuleContentSha256") => String.t(),
+        required("approvalRuleTemplateName") => String.t(),
+        required("newRuleContent") => String.t()
+      }
+      
   """
   @type update_approval_rule_template_content_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_comments_for_compared_commit_input() :: %{
-    optional("beforeCommitId") => String.t(),
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t(),
-    required("afterCommitId") => String.t(),
-    required("repositoryName") => String.t()
-  }
+      
+      get_comments_for_compared_commit_input() :: %{
+        optional("beforeCommitId") => String.t(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        required("afterCommitId") => String.t(),
+        required("repositoryName") => String.t()
+      }
+      
   """
   @type get_comments_for_compared_commit_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  path_required_exception() :: %{
-    "message" => String.t()
-  }
+      
+      path_required_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type path_required_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_default_branch_input() :: %{
-    required("defaultBranchName") => String.t(),
-    required("repositoryName") => String.t()
-  }
+      
+      update_default_branch_input() :: %{
+        required("defaultBranchName") => String.t(),
+        required("repositoryName") => String.t()
+      }
+      
   """
   @type update_default_branch_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  evaluate_pull_request_approval_rules_input() :: %{
-    required("pullRequestId") => String.t(),
-    required("revisionId") => String.t()
-  }
+      
+      evaluate_pull_request_approval_rules_input() :: %{
+        required("pullRequestId") => String.t(),
+        required("revisionId") => String.t()
+      }
+      
   """
   @type evaluate_pull_request_approval_rules_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  approval_state_changed_event_metadata() :: %{
-    "approvalStatus" => list(any()),
-    "revisionId" => String.t()
-  }
+      
+      approval_state_changed_event_metadata() :: %{
+        "approvalStatus" => list(any()),
+        "revisionId" => String.t()
+      }
+      
   """
   @type approval_state_changed_event_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  pull_request_event() :: %{
-    "actorArn" => String.t(),
-    "approvalRuleEventMetadata" => approval_rule_event_metadata(),
-    "approvalRuleOverriddenEventMetadata" => approval_rule_overridden_event_metadata(),
-    "approvalStateChangedEventMetadata" => approval_state_changed_event_metadata(),
-    "eventDate" => non_neg_integer(),
-    "pullRequestCreatedEventMetadata" => pull_request_created_event_metadata(),
-    "pullRequestEventType" => list(any()),
-    "pullRequestId" => String.t(),
-    "pullRequestMergedStateChangedEventMetadata" => pull_request_merged_state_changed_event_metadata(),
-    "pullRequestSourceReferenceUpdatedEventMetadata" => pull_request_source_reference_updated_event_metadata(),
-    "pullRequestStatusChangedEventMetadata" => pull_request_status_changed_event_metadata()
-  }
+      
+      pull_request_event() :: %{
+        "actorArn" => String.t(),
+        "approvalRuleEventMetadata" => approval_rule_event_metadata(),
+        "approvalRuleOverriddenEventMetadata" => approval_rule_overridden_event_metadata(),
+        "approvalStateChangedEventMetadata" => approval_state_changed_event_metadata(),
+        "eventDate" => non_neg_integer(),
+        "pullRequestCreatedEventMetadata" => pull_request_created_event_metadata(),
+        "pullRequestEventType" => list(any()),
+        "pullRequestId" => String.t(),
+        "pullRequestMergedStateChangedEventMetadata" => pull_request_merged_state_changed_event_metadata(),
+        "pullRequestSourceReferenceUpdatedEventMetadata" => pull_request_source_reference_updated_event_metadata(),
+        "pullRequestStatusChangedEventMetadata" => pull_request_status_changed_event_metadata()
+      }
+      
   """
   @type pull_request_event() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  pull_request_merged_state_changed_event_metadata() :: %{
-    "destinationReference" => String.t(),
-    "mergeMetadata" => merge_metadata(),
-    "repositoryName" => String.t()
-  }
+      
+      pull_request_merged_state_changed_event_metadata() :: %{
+        "destinationReference" => String.t(),
+        "mergeMetadata" => merge_metadata(),
+        "repositoryName" => String.t()
+      }
+      
   """
   @type pull_request_merged_state_changed_event_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  approval_rule() :: %{
-    "approvalRuleContent" => String.t(),
-    "approvalRuleId" => String.t(),
-    "approvalRuleName" => String.t(),
-    "creationDate" => non_neg_integer(),
-    "lastModifiedDate" => non_neg_integer(),
-    "lastModifiedUser" => String.t(),
-    "originApprovalRuleTemplate" => origin_approval_rule_template(),
-    "ruleContentSha256" => String.t()
-  }
+      
+      approval_rule() :: %{
+        "approvalRuleContent" => String.t(),
+        "approvalRuleId" => String.t(),
+        "approvalRuleName" => String.t(),
+        "creationDate" => non_neg_integer(),
+        "lastModifiedDate" => non_neg_integer(),
+        "lastModifiedUser" => String.t(),
+        "originApprovalRuleTemplate" => origin_approval_rule_template(),
+        "ruleContentSha256" => String.t()
+      }
+      
   """
   @type approval_rule() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_tags_map_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_tags_map_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_tags_map_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_tags_exception() :: %{
-    "message" => String.t()
-  }
+      
+      too_many_tags_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type too_many_tags_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  concurrent_reference_update_exception() :: %{
-    "message" => String.t()
-  }
+      
+      concurrent_reference_update_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type concurrent_reference_update_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  associate_approval_rule_template_with_repository_input() :: %{
-    required("approvalRuleTemplateName") => String.t(),
-    required("repositoryName") => String.t()
-  }
+      
+      associate_approval_rule_template_with_repository_input() :: %{
+        required("approvalRuleTemplateName") => String.t(),
+        required("repositoryName") => String.t()
+      }
+      
   """
   @type associate_approval_rule_template_with_repository_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  directory_name_conflicts_with_file_name_exception() :: %{
-    "message" => String.t()
-  }
+      
+      directory_name_conflicts_with_file_name_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type directory_name_conflicts_with_file_name_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_pull_request_approval_rule_output() :: %{
-    "approvalRule" => approval_rule()
-  }
+      
+      create_pull_request_approval_rule_output() :: %{
+        "approvalRule" => approval_rule()
+      }
+      
   """
   @type create_pull_request_approval_rule_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_file_mode_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_file_mode_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_file_mode_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_repository_description_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_repository_description_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_repository_description_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  user_info() :: %{
-    "date" => String.t(),
-    "email" => String.t(),
-    "name" => String.t()
-  }
+      
+      user_info() :: %{
+        "date" => String.t(),
+        "email" => String.t(),
+        "name" => String.t()
+      }
+      
   """
   @type user_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_pull_request_approval_rule_input() :: %{
-    required("approvalRuleContent") => String.t(),
-    required("approvalRuleName") => String.t(),
-    required("pullRequestId") => String.t()
-  }
+      
+      create_pull_request_approval_rule_input() :: %{
+        required("approvalRuleContent") => String.t(),
+        required("approvalRuleName") => String.t(),
+        required("pullRequestId") => String.t()
+      }
+      
   """
   @type create_pull_request_approval_rule_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  maximum_file_content_to_load_exceeded_exception() :: %{
-    "message" => String.t()
-  }
+      
+      maximum_file_content_to_load_exceeded_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type maximum_file_content_to_load_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  repository_metadata() :: %{
-    "Arn" => String.t(),
-    "accountId" => String.t(),
-    "cloneUrlHttp" => String.t(),
-    "cloneUrlSsh" => String.t(),
-    "creationDate" => non_neg_integer(),
-    "defaultBranch" => String.t(),
-    "kmsKeyId" => String.t(),
-    "lastModifiedDate" => non_neg_integer(),
-    "repositoryDescription" => String.t(),
-    "repositoryId" => String.t(),
-    "repositoryName" => String.t()
-  }
+      
+      repository_metadata() :: %{
+        "Arn" => String.t(),
+        "accountId" => String.t(),
+        "cloneUrlHttp" => String.t(),
+        "cloneUrlSsh" => String.t(),
+        "creationDate" => non_neg_integer(),
+        "defaultBranch" => String.t(),
+        "kmsKeyId" => String.t(),
+        "lastModifiedDate" => non_neg_integer(),
+        "repositoryDescription" => String.t(),
+        "repositoryId" => String.t(),
+        "repositoryName" => String.t()
+      }
+      
   """
   @type repository_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_repository_trigger_name_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_repository_trigger_name_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_repository_trigger_name_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  conflict_metadata() :: %{
-    "contentConflict" => boolean(),
-    "fileModeConflict" => boolean(),
-    "fileModes" => file_modes(),
-    "filePath" => String.t(),
-    "fileSizes" => file_sizes(),
-    "isBinaryFile" => is_binary_file(),
-    "mergeOperations" => merge_operations(),
-    "numberOfConflicts" => integer(),
-    "objectTypeConflict" => boolean(),
-    "objectTypes" => object_types()
-  }
+      
+      conflict_metadata() :: %{
+        "contentConflict" => boolean(),
+        "fileModeConflict" => boolean(),
+        "fileModes" => file_modes(),
+        "filePath" => String.t(),
+        "fileSizes" => file_sizes(),
+        "isBinaryFile" => is_binary_file(),
+        "mergeOperations" => merge_operations(),
+        "numberOfConflicts" => integer(),
+        "objectTypeConflict" => boolean(),
+        "objectTypes" => object_types()
+      }
+      
   """
   @type conflict_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  no_change_exception() :: %{
-    "message" => String.t()
-  }
+      
+      no_change_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type no_change_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  repository_does_not_exist_exception() :: %{
-    "message" => String.t()
-  }
+      
+      repository_does_not_exist_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type repository_does_not_exist_exception() :: %{String.t() => any()}
+
+  @type associate_approval_rule_template_with_repository_errors() ::
+          repository_does_not_exist_exception()
+          | invalid_approval_rule_template_name_exception()
+          | encryption_key_disabled_exception()
+          | repository_name_required_exception()
+          | encryption_key_access_denied_exception()
+          | approval_rule_template_does_not_exist_exception()
+          | invalid_repository_name_exception()
+          | encryption_key_unavailable_exception()
+          | encryption_key_not_found_exception()
+          | encryption_integrity_checks_failed_exception()
+          | maximum_rule_templates_associated_with_repository_exception()
+          | approval_rule_template_name_required_exception()
+
+  @type batch_associate_approval_rule_template_with_repositories_errors() ::
+          invalid_approval_rule_template_name_exception()
+          | encryption_key_disabled_exception()
+          | maximum_repository_names_exceeded_exception()
+          | encryption_key_access_denied_exception()
+          | approval_rule_template_does_not_exist_exception()
+          | encryption_key_unavailable_exception()
+          | encryption_key_not_found_exception()
+          | encryption_integrity_checks_failed_exception()
+          | repository_names_required_exception()
+          | approval_rule_template_name_required_exception()
+
+  @type batch_describe_merge_conflicts_errors() ::
+          repository_does_not_exist_exception()
+          | maximum_file_content_to_load_exceeded_exception()
+          | commit_required_exception()
+          | invalid_conflict_detail_level_exception()
+          | commit_does_not_exist_exception()
+          | invalid_merge_option_exception()
+          | encryption_key_disabled_exception()
+          | invalid_max_conflict_files_exception()
+          | invalid_commit_exception()
+          | repository_name_required_exception()
+          | encryption_key_access_denied_exception()
+          | maximum_items_to_compare_exceeded_exception()
+          | merge_option_required_exception()
+          | invalid_repository_name_exception()
+          | invalid_conflict_resolution_strategy_exception()
+          | encryption_key_unavailable_exception()
+          | encryption_key_not_found_exception()
+          | invalid_max_merge_hunks_exception()
+          | encryption_integrity_checks_failed_exception()
+          | invalid_continuation_token_exception()
+          | tips_divergence_exceeded_exception()
+
+  @type batch_disassociate_approval_rule_template_from_repositories_errors() ::
+          invalid_approval_rule_template_name_exception()
+          | encryption_key_disabled_exception()
+          | maximum_repository_names_exceeded_exception()
+          | encryption_key_access_denied_exception()
+          | approval_rule_template_does_not_exist_exception()
+          | encryption_key_unavailable_exception()
+          | encryption_key_not_found_exception()
+          | encryption_integrity_checks_failed_exception()
+          | repository_names_required_exception()
+          | approval_rule_template_name_required_exception()
+
+  @type batch_get_commits_errors() ::
+          repository_does_not_exist_exception()
+          | encryption_key_disabled_exception()
+          | repository_name_required_exception()
+          | commit_ids_list_required_exception()
+          | encryption_key_access_denied_exception()
+          | invalid_repository_name_exception()
+          | encryption_key_unavailable_exception()
+          | encryption_key_not_found_exception()
+          | encryption_integrity_checks_failed_exception()
+          | commit_ids_limit_exceeded_exception()
+
+  @type batch_get_repositories_errors() ::
+          encryption_key_disabled_exception()
+          | maximum_repository_names_exceeded_exception()
+          | encryption_key_access_denied_exception()
+          | invalid_repository_name_exception()
+          | encryption_key_unavailable_exception()
+          | encryption_key_not_found_exception()
+          | encryption_integrity_checks_failed_exception()
+          | repository_names_required_exception()
+
+  @type create_approval_rule_template_errors() ::
+          approval_rule_template_name_already_exists_exception()
+          | invalid_approval_rule_template_name_exception()
+          | number_of_rule_templates_exceeded_exception()
+          | invalid_approval_rule_template_content_exception()
+          | approval_rule_template_content_required_exception()
+          | invalid_approval_rule_template_description_exception()
+          | approval_rule_template_name_required_exception()
+
+  @type create_branch_errors() ::
+          repository_does_not_exist_exception()
+          | branch_name_exists_exception()
+          | commit_does_not_exist_exception()
+          | encryption_key_disabled_exception()
+          | invalid_commit_id_exception()
+          | repository_name_required_exception()
+          | invalid_branch_name_exception()
+          | encryption_key_access_denied_exception()
+          | invalid_repository_name_exception()
+          | commit_id_required_exception()
+          | encryption_key_unavailable_exception()
+          | encryption_key_not_found_exception()
+          | encryption_integrity_checks_failed_exception()
+          | branch_name_required_exception()
+
+  @type create_commit_errors() ::
+          repository_does_not_exist_exception()
+          | no_change_exception()
+          | invalid_file_mode_exception()
+          | directory_name_conflicts_with_file_name_exception()
+          | path_required_exception()
+          | maximum_file_entries_exceeded_exception()
+          | restricted_source_file_exception()
+          | name_length_exceeded_exception()
+          | invalid_path_exception()
+          | file_path_conflicts_with_submodule_path_exception()
+          | parent_commit_id_required_exception()
+          | file_content_size_limit_exceeded_exception()
+          | branch_does_not_exist_exception()
+          | parent_commit_does_not_exist_exception()
+          | file_content_and_source_file_specified_exception()
+          | encryption_key_disabled_exception()
+          | put_file_entry_conflict_exception()
+          | commit_message_length_exceeded_exception()
+          | invalid_deletion_parameter_exception()
+          | file_does_not_exist_exception()
+          | file_mode_required_exception()
+          | parent_commit_id_outdated_exception()
+          | invalid_email_exception()
+          | repository_name_required_exception()
+          | invalid_branch_name_exception()
+          | encryption_key_access_denied_exception()
+          | branch_name_is_tag_name_exception()
+          | invalid_parent_commit_id_exception()
+          | file_entry_required_exception()
+          | invalid_repository_name_exception()
+          | same_path_request_exception()
+          | file_name_conflicts_with_directory_name_exception()
+          | source_file_or_content_required_exception()
+          | folder_content_size_limit_exceeded_exception()
+          | encryption_key_unavailable_exception()
+          | encryption_key_not_found_exception()
+          | encryption_integrity_checks_failed_exception()
+          | branch_name_required_exception()
+
+  @type create_pull_request_errors() ::
+          repository_does_not_exist_exception()
+          | reference_does_not_exist_exception()
+          | invalid_reference_name_exception()
+          | reference_type_not_supported_exception()
+          | idempotency_parameter_mismatch_exception()
+          | encryption_key_disabled_exception()
+          | invalid_title_exception()
+          | maximum_open_pull_requests_exceeded_exception()
+          | title_required_exception()
+          | multiple_repositories_in_pull_request_exception()
+          | targets_required_exception()
+          | invalid_description_exception()
+          | repository_name_required_exception()
+          | encryption_key_access_denied_exception()
+          | reference_name_required_exception()
+          | target_required_exception()
+          | invalid_repository_name_exception()
+          | invalid_targets_exception()
+          | invalid_client_request_token_exception()
+          | encryption_key_unavailable_exception()
+          | encryption_key_not_found_exception()
+          | encryption_integrity_checks_failed_exception()
+          | invalid_target_exception()
+          | client_request_token_required_exception()
+          | source_and_destination_are_same_exception()
+
+  @type create_pull_request_approval_rule_errors() ::
+          invalid_approval_rule_name_exception()
+          | number_of_rules_exceeded_exception()
+          | encryption_key_disabled_exception()
+          | pull_request_already_closed_exception()
+          | pull_request_does_not_exist_exception()
+          | invalid_approval_rule_content_exception()
+          | encryption_key_access_denied_exception()
+          | pull_request_id_required_exception()
+          | approval_rule_content_required_exception()
+          | encryption_key_unavailable_exception()
+          | encryption_key_not_found_exception()
+          | approval_rule_name_already_exists_exception()
+          | encryption_integrity_checks_failed_exception()
+          | invalid_pull_request_id_exception()
+          | approval_rule_name_required_exception()
+
+  @type create_repository_errors() ::
+          invalid_repository_description_exception()
+          | too_many_tags_exception()
+          | invalid_tags_map_exception()
+          | repository_limit_exceeded_exception()
+          | invalid_system_tag_usage_exception()
+          | encryption_key_disabled_exception()
+          | encryption_key_invalid_id_exception()
+          | encryption_key_invalid_usage_exception()
+          | repository_name_required_exception()
+          | encryption_key_access_denied_exception()
+          | invalid_repository_name_exception()
+          | tag_policy_exception()
+          | encryption_key_unavailable_exception()
+          | encryption_key_not_found_exception()
+          | encryption_integrity_checks_failed_exception()
+          | repository_name_exists_exception()
+
+  @type create_unreferenced_merge_commit_errors() ::
+          repository_does_not_exist_exception()
+          | maximum_file_content_to_load_exceeded_exception()
+          | invalid_file_mode_exception()
+          | concurrent_reference_update_exception()
+          | path_required_exception()
+          | commit_required_exception()
+          | invalid_conflict_detail_level_exception()
+          | name_length_exceeded_exception()
+          | commit_does_not_exist_exception()
+          | invalid_conflict_resolution_exception()
+          | invalid_merge_option_exception()
+          | invalid_path_exception()
+          | file_content_size_limit_exceeded_exception()
+          | replacement_type_required_exception()
+          | encryption_key_disabled_exception()
+          | commit_message_length_exceeded_exception()
+          | maximum_conflict_resolution_entries_exceeded_exception()
+          | manual_merge_required_exception()
+          | invalid_commit_exception()
+          | file_mode_required_exception()
+          | invalid_email_exception()
+          | repository_name_required_exception()
+          | invalid_replacement_content_exception()
+          | encryption_key_access_denied_exception()
+          | multiple_conflict_resolution_entries_exception()
+          | maximum_items_to_compare_exceeded_exception()
+          | merge_option_required_exception()
+          | replacement_content_required_exception()
+          | invalid_repository_name_exception()
+          | invalid_replacement_type_exception()
+          | invalid_conflict_resolution_strategy_exception()
+          | folder_content_size_limit_exceeded_exception()
+          | encryption_key_unavailable_exception()
+          | encryption_key_not_found_exception()
+          | encryption_integrity_checks_failed_exception()
+          | tips_divergence_exceeded_exception()
+
+  @type delete_approval_rule_template_errors() ::
+          invalid_approval_rule_template_name_exception()
+          | approval_rule_template_in_use_exception()
+          | approval_rule_template_name_required_exception()
+
+  @type delete_branch_errors() ::
+          repository_does_not_exist_exception()
+          | encryption_key_disabled_exception()
+          | repository_name_required_exception()
+          | invalid_branch_name_exception()
+          | encryption_key_access_denied_exception()
+          | invalid_repository_name_exception()
+          | encryption_key_unavailable_exception()
+          | encryption_key_not_found_exception()
+          | encryption_integrity_checks_failed_exception()
+          | default_branch_cannot_be_deleted_exception()
+          | branch_name_required_exception()
+
+  @type delete_comment_content_errors() ::
+          invalid_comment_id_exception()
+          | comment_does_not_exist_exception()
+          | comment_id_required_exception()
+          | comment_deleted_exception()
+
+  @type delete_file_errors() ::
+          repository_does_not_exist_exception()
+          | path_required_exception()
+          | name_length_exceeded_exception()
+          | invalid_path_exception()
+          | parent_commit_id_required_exception()
+          | branch_does_not_exist_exception()
+          | parent_commit_does_not_exist_exception()
+          | encryption_key_disabled_exception()
+          | commit_message_length_exceeded_exception()
+          | file_does_not_exist_exception()
+          | parent_commit_id_outdated_exception()
+          | invalid_email_exception()
+          | repository_name_required_exception()
+          | invalid_branch_name_exception()
+          | encryption_key_access_denied_exception()
+          | branch_name_is_tag_name_exception()
+          | invalid_parent_commit_id_exception()
+          | invalid_repository_name_exception()
+          | encryption_key_unavailable_exception()
+          | encryption_key_not_found_exception()
+          | encryption_integrity_checks_failed_exception()
+          | branch_name_required_exception()
+
+  @type delete_pull_request_approval_rule_errors() ::
+          invalid_approval_rule_name_exception()
+          | cannot_delete_approval_rule_from_template_exception()
+          | encryption_key_disabled_exception()
+          | pull_request_already_closed_exception()
+          | pull_request_does_not_exist_exception()
+          | encryption_key_access_denied_exception()
+          | pull_request_id_required_exception()
+          | encryption_key_unavailable_exception()
+          | encryption_key_not_found_exception()
+          | encryption_integrity_checks_failed_exception()
+          | invalid_pull_request_id_exception()
+          | approval_rule_name_required_exception()
+
+  @type delete_repository_errors() ::
+          encryption_key_disabled_exception()
+          | repository_name_required_exception()
+          | encryption_key_access_denied_exception()
+          | invalid_repository_name_exception()
+          | encryption_key_unavailable_exception()
+          | encryption_key_not_found_exception()
+          | encryption_integrity_checks_failed_exception()
+
+  @type describe_merge_conflicts_errors() ::
+          repository_does_not_exist_exception()
+          | maximum_file_content_to_load_exceeded_exception()
+          | path_required_exception()
+          | commit_required_exception()
+          | invalid_conflict_detail_level_exception()
+          | commit_does_not_exist_exception()
+          | invalid_merge_option_exception()
+          | invalid_path_exception()
+          | encryption_key_disabled_exception()
+          | file_does_not_exist_exception()
+          | invalid_commit_exception()
+          | repository_name_required_exception()
+          | encryption_key_access_denied_exception()
+          | maximum_items_to_compare_exceeded_exception()
+          | merge_option_required_exception()
+          | invalid_repository_name_exception()
+          | invalid_conflict_resolution_strategy_exception()
+          | encryption_key_unavailable_exception()
+          | encryption_key_not_found_exception()
+          | invalid_max_merge_hunks_exception()
+          | encryption_integrity_checks_failed_exception()
+          | invalid_continuation_token_exception()
+          | tips_divergence_exceeded_exception()
+
+  @type describe_pull_request_events_errors() ::
+          encryption_key_disabled_exception()
+          | actor_does_not_exist_exception()
+          | invalid_actor_arn_exception()
+          | pull_request_does_not_exist_exception()
+          | invalid_pull_request_event_type_exception()
+          | encryption_key_access_denied_exception()
+          | pull_request_id_required_exception()
+          | encryption_key_unavailable_exception()
+          | encryption_key_not_found_exception()
+          | encryption_integrity_checks_failed_exception()
+          | invalid_pull_request_id_exception()
+          | invalid_continuation_token_exception()
+          | invalid_max_results_exception()
+
+  @type disassociate_approval_rule_template_from_repository_errors() ::
+          repository_does_not_exist_exception()
+          | invalid_approval_rule_template_name_exception()
+          | encryption_key_disabled_exception()
+          | repository_name_required_exception()
+          | encryption_key_access_denied_exception()
+          | approval_rule_template_does_not_exist_exception()
+          | invalid_repository_name_exception()
+          | encryption_key_unavailable_exception()
+          | encryption_key_not_found_exception()
+          | encryption_integrity_checks_failed_exception()
+          | approval_rule_template_name_required_exception()
+
+  @type evaluate_pull_request_approval_rules_errors() ::
+          revision_not_current_exception()
+          | encryption_key_disabled_exception()
+          | pull_request_does_not_exist_exception()
+          | invalid_revision_id_exception()
+          | revision_id_required_exception()
+          | encryption_key_access_denied_exception()
+          | pull_request_id_required_exception()
+          | encryption_key_unavailable_exception()
+          | encryption_key_not_found_exception()
+          | encryption_integrity_checks_failed_exception()
+          | invalid_pull_request_id_exception()
+
+  @type get_approval_rule_template_errors() ::
+          invalid_approval_rule_template_name_exception()
+          | approval_rule_template_does_not_exist_exception()
+          | approval_rule_template_name_required_exception()
+
+  @type get_blob_errors() ::
+          repository_does_not_exist_exception()
+          | file_too_large_exception()
+          | encryption_key_disabled_exception()
+          | repository_name_required_exception()
+          | invalid_blob_id_exception()
+          | encryption_key_access_denied_exception()
+          | blob_id_required_exception()
+          | invalid_repository_name_exception()
+          | encryption_key_unavailable_exception()
+          | encryption_key_not_found_exception()
+          | encryption_integrity_checks_failed_exception()
+          | blob_id_does_not_exist_exception()
+
+  @type get_branch_errors() ::
+          repository_does_not_exist_exception()
+          | branch_does_not_exist_exception()
+          | encryption_key_disabled_exception()
+          | repository_name_required_exception()
+          | invalid_branch_name_exception()
+          | encryption_key_access_denied_exception()
+          | invalid_repository_name_exception()
+          | encryption_key_unavailable_exception()
+          | encryption_key_not_found_exception()
+          | encryption_integrity_checks_failed_exception()
+          | branch_name_required_exception()
+
+  @type get_comment_errors() ::
+          invalid_comment_id_exception()
+          | encryption_key_disabled_exception()
+          | comment_does_not_exist_exception()
+          | encryption_key_access_denied_exception()
+          | encryption_key_unavailable_exception()
+          | encryption_key_not_found_exception()
+          | encryption_integrity_checks_failed_exception()
+          | comment_id_required_exception()
+          | comment_deleted_exception()
+
+  @type get_comment_reactions_errors() ::
+          invalid_comment_id_exception()
+          | comment_does_not_exist_exception()
+          | invalid_reaction_user_arn_exception()
+          | comment_id_required_exception()
+          | comment_deleted_exception()
+          | invalid_continuation_token_exception()
+          | invalid_max_results_exception()
+
+  @type get_comments_for_compared_commit_errors() ::
+          repository_does_not_exist_exception()
+          | commit_does_not_exist_exception()
+          | encryption_key_disabled_exception()
+          | invalid_commit_id_exception()
+          | repository_name_required_exception()
+          | encryption_key_access_denied_exception()
+          | invalid_repository_name_exception()
+          | commit_id_required_exception()
+          | encryption_key_unavailable_exception()
+          | encryption_key_not_found_exception()
+          | encryption_integrity_checks_failed_exception()
+          | invalid_continuation_token_exception()
+          | invalid_max_results_exception()
+
+  @type get_comments_for_pull_request_errors() ::
+          repository_does_not_exist_exception()
+          | commit_does_not_exist_exception()
+          | encryption_key_disabled_exception()
+          | repository_not_associated_with_pull_request_exception()
+          | invalid_commit_id_exception()
+          | repository_name_required_exception()
+          | pull_request_does_not_exist_exception()
+          | encryption_key_access_denied_exception()
+          | pull_request_id_required_exception()
+          | invalid_repository_name_exception()
+          | commit_id_required_exception()
+          | encryption_key_unavailable_exception()
+          | encryption_key_not_found_exception()
+          | encryption_integrity_checks_failed_exception()
+          | invalid_pull_request_id_exception()
+          | invalid_continuation_token_exception()
+          | invalid_max_results_exception()
+
+  @type get_commit_errors() ::
+          repository_does_not_exist_exception()
+          | commit_id_does_not_exist_exception()
+          | encryption_key_disabled_exception()
+          | invalid_commit_id_exception()
+          | repository_name_required_exception()
+          | encryption_key_access_denied_exception()
+          | invalid_repository_name_exception()
+          | commit_id_required_exception()
+          | encryption_key_unavailable_exception()
+          | encryption_key_not_found_exception()
+          | encryption_integrity_checks_failed_exception()
+
+  @type get_differences_errors() ::
+          repository_does_not_exist_exception()
+          | commit_required_exception()
+          | commit_does_not_exist_exception()
+          | invalid_path_exception()
+          | encryption_key_disabled_exception()
+          | invalid_commit_id_exception()
+          | invalid_commit_exception()
+          | repository_name_required_exception()
+          | encryption_key_access_denied_exception()
+          | invalid_repository_name_exception()
+          | path_does_not_exist_exception()
+          | encryption_key_unavailable_exception()
+          | encryption_key_not_found_exception()
+          | encryption_integrity_checks_failed_exception()
+          | invalid_continuation_token_exception()
+          | invalid_max_results_exception()
+
+  @type get_file_errors() ::
+          repository_does_not_exist_exception()
+          | path_required_exception()
+          | commit_does_not_exist_exception()
+          | invalid_path_exception()
+          | file_too_large_exception()
+          | encryption_key_disabled_exception()
+          | file_does_not_exist_exception()
+          | invalid_commit_exception()
+          | repository_name_required_exception()
+          | encryption_key_access_denied_exception()
+          | invalid_repository_name_exception()
+          | encryption_key_unavailable_exception()
+          | encryption_key_not_found_exception()
+          | encryption_integrity_checks_failed_exception()
+
+  @type get_folder_errors() ::
+          repository_does_not_exist_exception()
+          | path_required_exception()
+          | commit_does_not_exist_exception()
+          | invalid_path_exception()
+          | encryption_key_disabled_exception()
+          | folder_does_not_exist_exception()
+          | invalid_commit_exception()
+          | repository_name_required_exception()
+          | encryption_key_access_denied_exception()
+          | invalid_repository_name_exception()
+          | encryption_key_unavailable_exception()
+          | encryption_key_not_found_exception()
+          | encryption_integrity_checks_failed_exception()
+
+  @type get_merge_commit_errors() ::
+          repository_does_not_exist_exception()
+          | commit_required_exception()
+          | invalid_conflict_detail_level_exception()
+          | commit_does_not_exist_exception()
+          | encryption_key_disabled_exception()
+          | invalid_commit_exception()
+          | repository_name_required_exception()
+          | encryption_key_access_denied_exception()
+          | invalid_repository_name_exception()
+          | invalid_conflict_resolution_strategy_exception()
+          | encryption_key_unavailable_exception()
+          | encryption_key_not_found_exception()
+          | encryption_integrity_checks_failed_exception()
+
+  @type get_merge_conflicts_errors() ::
+          repository_does_not_exist_exception()
+          | maximum_file_content_to_load_exceeded_exception()
+          | commit_required_exception()
+          | invalid_conflict_detail_level_exception()
+          | commit_does_not_exist_exception()
+          | invalid_merge_option_exception()
+          | invalid_source_commit_specifier_exception()
+          | encryption_key_disabled_exception()
+          | invalid_max_conflict_files_exception()
+          | invalid_commit_exception()
+          | repository_name_required_exception()
+          | encryption_key_access_denied_exception()
+          | maximum_items_to_compare_exceeded_exception()
+          | merge_option_required_exception()
+          | invalid_repository_name_exception()
+          | invalid_conflict_resolution_strategy_exception()
+          | encryption_key_unavailable_exception()
+          | encryption_key_not_found_exception()
+          | encryption_integrity_checks_failed_exception()
+          | invalid_destination_commit_specifier_exception()
+          | invalid_continuation_token_exception()
+          | tips_divergence_exceeded_exception()
+
+  @type get_merge_options_errors() ::
+          repository_does_not_exist_exception()
+          | maximum_file_content_to_load_exceeded_exception()
+          | commit_required_exception()
+          | invalid_conflict_detail_level_exception()
+          | commit_does_not_exist_exception()
+          | encryption_key_disabled_exception()
+          | invalid_commit_exception()
+          | repository_name_required_exception()
+          | encryption_key_access_denied_exception()
+          | maximum_items_to_compare_exceeded_exception()
+          | invalid_repository_name_exception()
+          | invalid_conflict_resolution_strategy_exception()
+          | encryption_key_unavailable_exception()
+          | encryption_key_not_found_exception()
+          | encryption_integrity_checks_failed_exception()
+          | tips_divergence_exceeded_exception()
+
+  @type get_pull_request_errors() ::
+          encryption_key_disabled_exception()
+          | pull_request_does_not_exist_exception()
+          | encryption_key_access_denied_exception()
+          | pull_request_id_required_exception()
+          | encryption_key_unavailable_exception()
+          | encryption_key_not_found_exception()
+          | encryption_integrity_checks_failed_exception()
+          | invalid_pull_request_id_exception()
+
+  @type get_pull_request_approval_states_errors() ::
+          encryption_key_disabled_exception()
+          | pull_request_does_not_exist_exception()
+          | invalid_revision_id_exception()
+          | revision_id_required_exception()
+          | encryption_key_access_denied_exception()
+          | pull_request_id_required_exception()
+          | encryption_key_unavailable_exception()
+          | encryption_key_not_found_exception()
+          | encryption_integrity_checks_failed_exception()
+          | invalid_pull_request_id_exception()
+
+  @type get_pull_request_override_state_errors() ::
+          encryption_key_disabled_exception()
+          | pull_request_does_not_exist_exception()
+          | invalid_revision_id_exception()
+          | revision_id_required_exception()
+          | encryption_key_access_denied_exception()
+          | pull_request_id_required_exception()
+          | encryption_key_unavailable_exception()
+          | encryption_key_not_found_exception()
+          | encryption_integrity_checks_failed_exception()
+          | invalid_pull_request_id_exception()
+
+  @type get_repository_errors() ::
+          repository_does_not_exist_exception()
+          | encryption_key_disabled_exception()
+          | repository_name_required_exception()
+          | encryption_key_access_denied_exception()
+          | invalid_repository_name_exception()
+          | encryption_key_unavailable_exception()
+          | encryption_key_not_found_exception()
+          | encryption_integrity_checks_failed_exception()
+
+  @type get_repository_triggers_errors() ::
+          repository_does_not_exist_exception()
+          | encryption_key_disabled_exception()
+          | repository_name_required_exception()
+          | encryption_key_access_denied_exception()
+          | invalid_repository_name_exception()
+          | encryption_key_unavailable_exception()
+          | encryption_key_not_found_exception()
+          | encryption_integrity_checks_failed_exception()
+
+  @type list_approval_rule_templates_errors() ::
+          invalid_continuation_token_exception() | invalid_max_results_exception()
+
+  @type list_associated_approval_rule_templates_for_repository_errors() ::
+          repository_does_not_exist_exception()
+          | encryption_key_disabled_exception()
+          | repository_name_required_exception()
+          | encryption_key_access_denied_exception()
+          | invalid_repository_name_exception()
+          | encryption_key_unavailable_exception()
+          | encryption_key_not_found_exception()
+          | encryption_integrity_checks_failed_exception()
+          | invalid_continuation_token_exception()
+          | invalid_max_results_exception()
+
+  @type list_branches_errors() ::
+          repository_does_not_exist_exception()
+          | encryption_key_disabled_exception()
+          | repository_name_required_exception()
+          | encryption_key_access_denied_exception()
+          | invalid_repository_name_exception()
+          | encryption_key_unavailable_exception()
+          | encryption_key_not_found_exception()
+          | encryption_integrity_checks_failed_exception()
+          | invalid_continuation_token_exception()
+
+  @type list_file_commit_history_errors() ::
+          repository_does_not_exist_exception()
+          | commit_required_exception()
+          | commit_does_not_exist_exception()
+          | encryption_key_disabled_exception()
+          | invalid_commit_exception()
+          | repository_name_required_exception()
+          | encryption_key_access_denied_exception()
+          | invalid_repository_name_exception()
+          | encryption_key_unavailable_exception()
+          | encryption_key_not_found_exception()
+          | encryption_integrity_checks_failed_exception()
+          | invalid_continuation_token_exception()
+          | invalid_max_results_exception()
+          | tips_divergence_exceeded_exception()
+
+  @type list_pull_requests_errors() ::
+          repository_does_not_exist_exception()
+          | invalid_pull_request_status_exception()
+          | encryption_key_disabled_exception()
+          | repository_name_required_exception()
+          | encryption_key_access_denied_exception()
+          | invalid_repository_name_exception()
+          | author_does_not_exist_exception()
+          | invalid_author_arn_exception()
+          | encryption_key_unavailable_exception()
+          | encryption_key_not_found_exception()
+          | encryption_integrity_checks_failed_exception()
+          | invalid_continuation_token_exception()
+          | invalid_max_results_exception()
+
+  @type list_repositories_errors() ::
+          invalid_sort_by_exception()
+          | invalid_continuation_token_exception()
+          | invalid_order_exception()
+
+  @type list_repositories_for_approval_rule_template_errors() ::
+          invalid_approval_rule_template_name_exception()
+          | encryption_key_disabled_exception()
+          | encryption_key_access_denied_exception()
+          | approval_rule_template_does_not_exist_exception()
+          | encryption_key_unavailable_exception()
+          | encryption_key_not_found_exception()
+          | encryption_integrity_checks_failed_exception()
+          | invalid_continuation_token_exception()
+          | invalid_max_results_exception()
+          | approval_rule_template_name_required_exception()
+
+  @type list_tags_for_resource_errors() ::
+          repository_does_not_exist_exception()
+          | invalid_resource_arn_exception()
+          | resource_arn_required_exception()
+          | invalid_repository_name_exception()
+
+  @type merge_branches_by_fast_forward_errors() ::
+          repository_does_not_exist_exception()
+          | concurrent_reference_update_exception()
+          | commit_required_exception()
+          | commit_does_not_exist_exception()
+          | branch_does_not_exist_exception()
+          | encryption_key_disabled_exception()
+          | manual_merge_required_exception()
+          | invalid_target_branch_exception()
+          | invalid_commit_exception()
+          | repository_name_required_exception()
+          | invalid_branch_name_exception()
+          | encryption_key_access_denied_exception()
+          | branch_name_is_tag_name_exception()
+          | invalid_repository_name_exception()
+          | encryption_key_unavailable_exception()
+          | encryption_key_not_found_exception()
+          | encryption_integrity_checks_failed_exception()
+          | tips_divergence_exceeded_exception()
+          | branch_name_required_exception()
+
+  @type merge_branches_by_squash_errors() ::
+          repository_does_not_exist_exception()
+          | maximum_file_content_to_load_exceeded_exception()
+          | invalid_file_mode_exception()
+          | concurrent_reference_update_exception()
+          | path_required_exception()
+          | commit_required_exception()
+          | invalid_conflict_detail_level_exception()
+          | name_length_exceeded_exception()
+          | commit_does_not_exist_exception()
+          | invalid_conflict_resolution_exception()
+          | invalid_path_exception()
+          | file_content_size_limit_exceeded_exception()
+          | branch_does_not_exist_exception()
+          | replacement_type_required_exception()
+          | encryption_key_disabled_exception()
+          | commit_message_length_exceeded_exception()
+          | maximum_conflict_resolution_entries_exceeded_exception()
+          | manual_merge_required_exception()
+          | invalid_target_branch_exception()
+          | invalid_commit_exception()
+          | file_mode_required_exception()
+          | invalid_email_exception()
+          | repository_name_required_exception()
+          | invalid_branch_name_exception()
+          | invalid_replacement_content_exception()
+          | encryption_key_access_denied_exception()
+          | multiple_conflict_resolution_entries_exception()
+          | maximum_items_to_compare_exceeded_exception()
+          | replacement_content_required_exception()
+          | branch_name_is_tag_name_exception()
+          | invalid_repository_name_exception()
+          | invalid_replacement_type_exception()
+          | invalid_conflict_resolution_strategy_exception()
+          | folder_content_size_limit_exceeded_exception()
+          | encryption_key_unavailable_exception()
+          | encryption_key_not_found_exception()
+          | encryption_integrity_checks_failed_exception()
+          | tips_divergence_exceeded_exception()
+          | branch_name_required_exception()
+
+  @type merge_branches_by_three_way_errors() ::
+          repository_does_not_exist_exception()
+          | maximum_file_content_to_load_exceeded_exception()
+          | invalid_file_mode_exception()
+          | concurrent_reference_update_exception()
+          | path_required_exception()
+          | commit_required_exception()
+          | invalid_conflict_detail_level_exception()
+          | name_length_exceeded_exception()
+          | commit_does_not_exist_exception()
+          | invalid_conflict_resolution_exception()
+          | invalid_path_exception()
+          | file_content_size_limit_exceeded_exception()
+          | branch_does_not_exist_exception()
+          | replacement_type_required_exception()
+          | encryption_key_disabled_exception()
+          | commit_message_length_exceeded_exception()
+          | maximum_conflict_resolution_entries_exceeded_exception()
+          | manual_merge_required_exception()
+          | invalid_target_branch_exception()
+          | invalid_commit_exception()
+          | file_mode_required_exception()
+          | invalid_email_exception()
+          | repository_name_required_exception()
+          | invalid_branch_name_exception()
+          | invalid_replacement_content_exception()
+          | encryption_key_access_denied_exception()
+          | multiple_conflict_resolution_entries_exception()
+          | maximum_items_to_compare_exceeded_exception()
+          | replacement_content_required_exception()
+          | branch_name_is_tag_name_exception()
+          | invalid_repository_name_exception()
+          | invalid_replacement_type_exception()
+          | invalid_conflict_resolution_strategy_exception()
+          | folder_content_size_limit_exceeded_exception()
+          | encryption_key_unavailable_exception()
+          | encryption_key_not_found_exception()
+          | encryption_integrity_checks_failed_exception()
+          | tips_divergence_exceeded_exception()
+          | branch_name_required_exception()
+
+  @type merge_pull_request_by_fast_forward_errors() ::
+          repository_does_not_exist_exception()
+          | concurrent_reference_update_exception()
+          | reference_does_not_exist_exception()
+          | encryption_key_disabled_exception()
+          | pull_request_already_closed_exception()
+          | repository_not_associated_with_pull_request_exception()
+          | manual_merge_required_exception()
+          | invalid_commit_id_exception()
+          | repository_name_required_exception()
+          | pull_request_does_not_exist_exception()
+          | encryption_key_access_denied_exception()
+          | pull_request_id_required_exception()
+          | invalid_repository_name_exception()
+          | tip_of_source_reference_is_different_exception()
+          | pull_request_approval_rules_not_satisfied_exception()
+          | encryption_key_unavailable_exception()
+          | encryption_key_not_found_exception()
+          | encryption_integrity_checks_failed_exception()
+          | invalid_pull_request_id_exception()
+
+  @type merge_pull_request_by_squash_errors() ::
+          repository_does_not_exist_exception()
+          | maximum_file_content_to_load_exceeded_exception()
+          | invalid_file_mode_exception()
+          | concurrent_reference_update_exception()
+          | path_required_exception()
+          | invalid_conflict_detail_level_exception()
+          | name_length_exceeded_exception()
+          | invalid_conflict_resolution_exception()
+          | invalid_path_exception()
+          | file_content_size_limit_exceeded_exception()
+          | replacement_type_required_exception()
+          | encryption_key_disabled_exception()
+          | pull_request_already_closed_exception()
+          | repository_not_associated_with_pull_request_exception()
+          | commit_message_length_exceeded_exception()
+          | maximum_conflict_resolution_entries_exceeded_exception()
+          | manual_merge_required_exception()
+          | invalid_commit_id_exception()
+          | invalid_email_exception()
+          | repository_name_required_exception()
+          | pull_request_does_not_exist_exception()
+          | invalid_replacement_content_exception()
+          | encryption_key_access_denied_exception()
+          | multiple_conflict_resolution_entries_exception()
+          | maximum_items_to_compare_exceeded_exception()
+          | pull_request_id_required_exception()
+          | replacement_content_required_exception()
+          | invalid_repository_name_exception()
+          | invalid_replacement_type_exception()
+          | tip_of_source_reference_is_different_exception()
+          | invalid_conflict_resolution_strategy_exception()
+          | folder_content_size_limit_exceeded_exception()
+          | pull_request_approval_rules_not_satisfied_exception()
+          | encryption_key_unavailable_exception()
+          | encryption_key_not_found_exception()
+          | encryption_integrity_checks_failed_exception()
+          | invalid_pull_request_id_exception()
+          | tips_divergence_exceeded_exception()
+
+  @type merge_pull_request_by_three_way_errors() ::
+          repository_does_not_exist_exception()
+          | maximum_file_content_to_load_exceeded_exception()
+          | invalid_file_mode_exception()
+          | concurrent_reference_update_exception()
+          | path_required_exception()
+          | invalid_conflict_detail_level_exception()
+          | name_length_exceeded_exception()
+          | invalid_conflict_resolution_exception()
+          | invalid_path_exception()
+          | file_content_size_limit_exceeded_exception()
+          | replacement_type_required_exception()
+          | encryption_key_disabled_exception()
+          | pull_request_already_closed_exception()
+          | repository_not_associated_with_pull_request_exception()
+          | commit_message_length_exceeded_exception()
+          | maximum_conflict_resolution_entries_exceeded_exception()
+          | manual_merge_required_exception()
+          | invalid_commit_id_exception()
+          | invalid_email_exception()
+          | repository_name_required_exception()
+          | pull_request_does_not_exist_exception()
+          | invalid_replacement_content_exception()
+          | encryption_key_access_denied_exception()
+          | multiple_conflict_resolution_entries_exception()
+          | maximum_items_to_compare_exceeded_exception()
+          | pull_request_id_required_exception()
+          | replacement_content_required_exception()
+          | invalid_repository_name_exception()
+          | invalid_replacement_type_exception()
+          | tip_of_source_reference_is_different_exception()
+          | invalid_conflict_resolution_strategy_exception()
+          | folder_content_size_limit_exceeded_exception()
+          | pull_request_approval_rules_not_satisfied_exception()
+          | encryption_key_unavailable_exception()
+          | encryption_key_not_found_exception()
+          | encryption_integrity_checks_failed_exception()
+          | invalid_pull_request_id_exception()
+          | tips_divergence_exceeded_exception()
+
+  @type override_pull_request_approval_rules_errors() ::
+          revision_not_current_exception()
+          | override_status_required_exception()
+          | encryption_key_disabled_exception()
+          | pull_request_already_closed_exception()
+          | override_already_set_exception()
+          | pull_request_does_not_exist_exception()
+          | invalid_revision_id_exception()
+          | revision_id_required_exception()
+          | encryption_key_access_denied_exception()
+          | pull_request_id_required_exception()
+          | invalid_override_status_exception()
+          | encryption_key_unavailable_exception()
+          | encryption_key_not_found_exception()
+          | encryption_integrity_checks_failed_exception()
+          | invalid_pull_request_id_exception()
+
+  @type post_comment_for_compared_commit_errors() ::
+          repository_does_not_exist_exception()
+          | path_required_exception()
+          | invalid_file_location_exception()
+          | commit_does_not_exist_exception()
+          | comment_content_required_exception()
+          | invalid_path_exception()
+          | idempotency_parameter_mismatch_exception()
+          | encryption_key_disabled_exception()
+          | before_commit_id_and_after_commit_id_are_same_exception()
+          | invalid_commit_id_exception()
+          | invalid_relative_file_version_enum_exception()
+          | repository_name_required_exception()
+          | encryption_key_access_denied_exception()
+          | comment_content_size_limit_exceeded_exception()
+          | invalid_repository_name_exception()
+          | commit_id_required_exception()
+          | path_does_not_exist_exception()
+          | invalid_client_request_token_exception()
+          | encryption_key_unavailable_exception()
+          | encryption_key_not_found_exception()
+          | encryption_integrity_checks_failed_exception()
+          | invalid_file_position_exception()
+          | client_request_token_required_exception()
+
+  @type post_comment_for_pull_request_errors() ::
+          repository_does_not_exist_exception()
+          | path_required_exception()
+          | invalid_file_location_exception()
+          | commit_does_not_exist_exception()
+          | comment_content_required_exception()
+          | invalid_path_exception()
+          | idempotency_parameter_mismatch_exception()
+          | encryption_key_disabled_exception()
+          | repository_not_associated_with_pull_request_exception()
+          | before_commit_id_and_after_commit_id_are_same_exception()
+          | invalid_commit_id_exception()
+          | invalid_relative_file_version_enum_exception()
+          | repository_name_required_exception()
+          | pull_request_does_not_exist_exception()
+          | encryption_key_access_denied_exception()
+          | pull_request_id_required_exception()
+          | comment_content_size_limit_exceeded_exception()
+          | invalid_repository_name_exception()
+          | commit_id_required_exception()
+          | path_does_not_exist_exception()
+          | invalid_client_request_token_exception()
+          | encryption_key_unavailable_exception()
+          | encryption_key_not_found_exception()
+          | encryption_integrity_checks_failed_exception()
+          | invalid_pull_request_id_exception()
+          | invalid_file_position_exception()
+          | client_request_token_required_exception()
+
+  @type post_comment_reply_errors() ::
+          invalid_comment_id_exception()
+          | comment_content_required_exception()
+          | idempotency_parameter_mismatch_exception()
+          | comment_does_not_exist_exception()
+          | comment_content_size_limit_exceeded_exception()
+          | invalid_client_request_token_exception()
+          | comment_id_required_exception()
+          | client_request_token_required_exception()
+
+  @type put_comment_reaction_errors() ::
+          invalid_comment_id_exception()
+          | comment_does_not_exist_exception()
+          | reaction_limit_exceeded_exception()
+          | reaction_value_required_exception()
+          | invalid_reaction_value_exception()
+          | comment_id_required_exception()
+          | comment_deleted_exception()
+
+  @type put_file_errors() ::
+          repository_does_not_exist_exception()
+          | invalid_file_mode_exception()
+          | directory_name_conflicts_with_file_name_exception()
+          | path_required_exception()
+          | name_length_exceeded_exception()
+          | invalid_path_exception()
+          | file_path_conflicts_with_submodule_path_exception()
+          | parent_commit_id_required_exception()
+          | file_content_size_limit_exceeded_exception()
+          | branch_does_not_exist_exception()
+          | parent_commit_does_not_exist_exception()
+          | encryption_key_disabled_exception()
+          | commit_message_length_exceeded_exception()
+          | invalid_deletion_parameter_exception()
+          | parent_commit_id_outdated_exception()
+          | invalid_email_exception()
+          | repository_name_required_exception()
+          | invalid_branch_name_exception()
+          | encryption_key_access_denied_exception()
+          | branch_name_is_tag_name_exception()
+          | invalid_parent_commit_id_exception()
+          | invalid_repository_name_exception()
+          | same_file_content_exception()
+          | file_name_conflicts_with_directory_name_exception()
+          | folder_content_size_limit_exceeded_exception()
+          | encryption_key_unavailable_exception()
+          | encryption_key_not_found_exception()
+          | encryption_integrity_checks_failed_exception()
+          | file_content_required_exception()
+          | branch_name_required_exception()
+
+  @type put_repository_triggers_errors() ::
+          repository_does_not_exist_exception()
+          | invalid_repository_trigger_name_exception()
+          | repository_trigger_events_list_required_exception()
+          | maximum_branches_exceeded_exception()
+          | invalid_repository_trigger_destination_arn_exception()
+          | invalid_repository_trigger_branch_name_exception()
+          | encryption_key_disabled_exception()
+          | invalid_repository_trigger_region_exception()
+          | repository_trigger_destination_arn_required_exception()
+          | repository_name_required_exception()
+          | repository_trigger_name_required_exception()
+          | encryption_key_access_denied_exception()
+          | invalid_repository_trigger_events_exception()
+          | repository_trigger_branch_name_list_required_exception()
+          | invalid_repository_name_exception()
+          | repository_triggers_list_required_exception()
+          | invalid_repository_trigger_custom_data_exception()
+          | maximum_repository_triggers_exceeded_exception()
+          | encryption_key_unavailable_exception()
+          | encryption_key_not_found_exception()
+          | encryption_integrity_checks_failed_exception()
+
+  @type tag_resource_errors() ::
+          repository_does_not_exist_exception()
+          | too_many_tags_exception()
+          | invalid_tags_map_exception()
+          | invalid_resource_arn_exception()
+          | invalid_system_tag_usage_exception()
+          | resource_arn_required_exception()
+          | invalid_repository_name_exception()
+          | tag_policy_exception()
+          | tags_map_required_exception()
+
+  @type test_repository_triggers_errors() ::
+          repository_does_not_exist_exception()
+          | invalid_repository_trigger_name_exception()
+          | repository_trigger_events_list_required_exception()
+          | maximum_branches_exceeded_exception()
+          | invalid_repository_trigger_destination_arn_exception()
+          | invalid_repository_trigger_branch_name_exception()
+          | encryption_key_disabled_exception()
+          | invalid_repository_trigger_region_exception()
+          | repository_trigger_destination_arn_required_exception()
+          | repository_name_required_exception()
+          | repository_trigger_name_required_exception()
+          | encryption_key_access_denied_exception()
+          | invalid_repository_trigger_events_exception()
+          | repository_trigger_branch_name_list_required_exception()
+          | invalid_repository_name_exception()
+          | repository_triggers_list_required_exception()
+          | invalid_repository_trigger_custom_data_exception()
+          | maximum_repository_triggers_exceeded_exception()
+          | encryption_key_unavailable_exception()
+          | encryption_key_not_found_exception()
+          | encryption_integrity_checks_failed_exception()
+
+  @type untag_resource_errors() ::
+          repository_does_not_exist_exception()
+          | too_many_tags_exception()
+          | tag_keys_list_required_exception()
+          | invalid_resource_arn_exception()
+          | invalid_system_tag_usage_exception()
+          | invalid_tag_keys_list_exception()
+          | resource_arn_required_exception()
+          | invalid_repository_name_exception()
+          | tag_policy_exception()
+
+  @type update_approval_rule_template_content_errors() ::
+          invalid_approval_rule_template_name_exception()
+          | invalid_approval_rule_template_content_exception()
+          | approval_rule_template_does_not_exist_exception()
+          | approval_rule_template_content_required_exception()
+          | invalid_rule_content_sha256_exception()
+          | approval_rule_template_name_required_exception()
+
+  @type update_approval_rule_template_description_errors() ::
+          invalid_approval_rule_template_name_exception()
+          | approval_rule_template_does_not_exist_exception()
+          | invalid_approval_rule_template_description_exception()
+          | approval_rule_template_name_required_exception()
+
+  @type update_approval_rule_template_name_errors() ::
+          approval_rule_template_name_already_exists_exception()
+          | invalid_approval_rule_template_name_exception()
+          | approval_rule_template_does_not_exist_exception()
+          | approval_rule_template_name_required_exception()
+
+  @type update_comment_errors() ::
+          invalid_comment_id_exception()
+          | comment_content_required_exception()
+          | comment_does_not_exist_exception()
+          | comment_not_created_by_caller_exception()
+          | comment_content_size_limit_exceeded_exception()
+          | comment_id_required_exception()
+          | comment_deleted_exception()
+
+  @type update_default_branch_errors() ::
+          repository_does_not_exist_exception()
+          | branch_does_not_exist_exception()
+          | encryption_key_disabled_exception()
+          | repository_name_required_exception()
+          | invalid_branch_name_exception()
+          | encryption_key_access_denied_exception()
+          | invalid_repository_name_exception()
+          | encryption_key_unavailable_exception()
+          | encryption_key_not_found_exception()
+          | encryption_integrity_checks_failed_exception()
+          | branch_name_required_exception()
+
+  @type update_pull_request_approval_rule_content_errors() ::
+          invalid_approval_rule_name_exception()
+          | encryption_key_disabled_exception()
+          | pull_request_already_closed_exception()
+          | approval_rule_does_not_exist_exception()
+          | pull_request_does_not_exist_exception()
+          | invalid_approval_rule_content_exception()
+          | encryption_key_access_denied_exception()
+          | pull_request_id_required_exception()
+          | approval_rule_content_required_exception()
+          | cannot_modify_approval_rule_from_template_exception()
+          | invalid_rule_content_sha256_exception()
+          | encryption_key_unavailable_exception()
+          | encryption_key_not_found_exception()
+          | encryption_integrity_checks_failed_exception()
+          | invalid_pull_request_id_exception()
+          | approval_rule_name_required_exception()
+
+  @type update_pull_request_approval_state_errors() ::
+          revision_not_current_exception()
+          | encryption_key_disabled_exception()
+          | pull_request_already_closed_exception()
+          | invalid_approval_state_exception()
+          | pull_request_does_not_exist_exception()
+          | invalid_revision_id_exception()
+          | revision_id_required_exception()
+          | encryption_key_access_denied_exception()
+          | pull_request_id_required_exception()
+          | pull_request_cannot_be_approved_by_author_exception()
+          | approval_state_required_exception()
+          | maximum_number_of_approvals_exceeded_exception()
+          | encryption_key_unavailable_exception()
+          | encryption_key_not_found_exception()
+          | encryption_integrity_checks_failed_exception()
+          | invalid_pull_request_id_exception()
+
+  @type update_pull_request_description_errors() ::
+          pull_request_already_closed_exception()
+          | invalid_description_exception()
+          | pull_request_does_not_exist_exception()
+          | pull_request_id_required_exception()
+          | invalid_pull_request_id_exception()
+
+  @type update_pull_request_status_errors() ::
+          invalid_pull_request_status_exception()
+          | invalid_pull_request_status_update_exception()
+          | encryption_key_disabled_exception()
+          | pull_request_does_not_exist_exception()
+          | pull_request_status_required_exception()
+          | encryption_key_access_denied_exception()
+          | pull_request_id_required_exception()
+          | encryption_key_unavailable_exception()
+          | encryption_key_not_found_exception()
+          | encryption_integrity_checks_failed_exception()
+          | invalid_pull_request_id_exception()
+
+  @type update_pull_request_title_errors() ::
+          invalid_title_exception()
+          | pull_request_already_closed_exception()
+          | title_required_exception()
+          | pull_request_does_not_exist_exception()
+          | pull_request_id_required_exception()
+          | invalid_pull_request_id_exception()
+
+  @type update_repository_description_errors() ::
+          repository_does_not_exist_exception()
+          | invalid_repository_description_exception()
+          | encryption_key_disabled_exception()
+          | repository_name_required_exception()
+          | encryption_key_access_denied_exception()
+          | invalid_repository_name_exception()
+          | encryption_key_unavailable_exception()
+          | encryption_key_not_found_exception()
+          | encryption_integrity_checks_failed_exception()
+
+  @type update_repository_encryption_key_errors() ::
+          repository_does_not_exist_exception()
+          | encryption_key_disabled_exception()
+          | encryption_key_invalid_id_exception()
+          | encryption_key_invalid_usage_exception()
+          | repository_name_required_exception()
+          | encryption_key_access_denied_exception()
+          | encryption_key_required_exception()
+          | invalid_repository_name_exception()
+          | encryption_key_unavailable_exception()
+          | encryption_key_not_found_exception()
+          | encryption_integrity_checks_failed_exception()
+
+  @type update_repository_name_errors() ::
+          repository_does_not_exist_exception()
+          | repository_name_required_exception()
+          | invalid_repository_name_exception()
+          | repository_name_exists_exception()
 
   def metadata do
     %{
@@ -4492,18 +6532,7 @@ defmodule AWS.CodeCommit do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, approval_rule_template_does_not_exist_exception()}
-          | {:error, approval_rule_template_name_required_exception()}
-          | {:error, encryption_integrity_checks_failed_exception()}
-          | {:error, encryption_key_access_denied_exception()}
-          | {:error, encryption_key_disabled_exception()}
-          | {:error, encryption_key_not_found_exception()}
-          | {:error, encryption_key_unavailable_exception()}
-          | {:error, invalid_approval_rule_template_name_exception()}
-          | {:error, invalid_repository_name_exception()}
-          | {:error, maximum_rule_templates_associated_with_repository_exception()}
-          | {:error, repository_does_not_exist_exception()}
-          | {:error, repository_name_required_exception()}
+          | {:error, associate_approval_rule_template_with_repository_errors()}
   def associate_approval_rule_template_with_repository(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4527,16 +6556,7 @@ defmodule AWS.CodeCommit do
         ) ::
           {:ok, batch_associate_approval_rule_template_with_repositories_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, approval_rule_template_does_not_exist_exception()}
-          | {:error, approval_rule_template_name_required_exception()}
-          | {:error, encryption_integrity_checks_failed_exception()}
-          | {:error, encryption_key_access_denied_exception()}
-          | {:error, encryption_key_disabled_exception()}
-          | {:error, encryption_key_not_found_exception()}
-          | {:error, encryption_key_unavailable_exception()}
-          | {:error, invalid_approval_rule_template_name_exception()}
-          | {:error, maximum_repository_names_exceeded_exception()}
-          | {:error, repository_names_required_exception()}
+          | {:error, batch_associate_approval_rule_template_with_repositories_errors()}
   def batch_associate_approval_rule_template_with_repositories(
         %Client{} = client,
         input,
@@ -4560,27 +6580,7 @@ defmodule AWS.CodeCommit do
   @spec batch_describe_merge_conflicts(map(), batch_describe_merge_conflicts_input(), list()) ::
           {:ok, batch_describe_merge_conflicts_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, commit_does_not_exist_exception()}
-          | {:error, commit_required_exception()}
-          | {:error, encryption_integrity_checks_failed_exception()}
-          | {:error, encryption_key_access_denied_exception()}
-          | {:error, encryption_key_disabled_exception()}
-          | {:error, encryption_key_not_found_exception()}
-          | {:error, encryption_key_unavailable_exception()}
-          | {:error, invalid_commit_exception()}
-          | {:error, invalid_conflict_detail_level_exception()}
-          | {:error, invalid_conflict_resolution_strategy_exception()}
-          | {:error, invalid_continuation_token_exception()}
-          | {:error, invalid_max_conflict_files_exception()}
-          | {:error, invalid_max_merge_hunks_exception()}
-          | {:error, invalid_merge_option_exception()}
-          | {:error, invalid_repository_name_exception()}
-          | {:error, maximum_file_content_to_load_exceeded_exception()}
-          | {:error, maximum_items_to_compare_exceeded_exception()}
-          | {:error, merge_option_required_exception()}
-          | {:error, repository_does_not_exist_exception()}
-          | {:error, repository_name_required_exception()}
-          | {:error, tips_divergence_exceeded_exception()}
+          | {:error, batch_describe_merge_conflicts_errors()}
   def batch_describe_merge_conflicts(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4598,16 +6598,7 @@ defmodule AWS.CodeCommit do
         ) ::
           {:ok, batch_disassociate_approval_rule_template_from_repositories_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, approval_rule_template_does_not_exist_exception()}
-          | {:error, approval_rule_template_name_required_exception()}
-          | {:error, encryption_integrity_checks_failed_exception()}
-          | {:error, encryption_key_access_denied_exception()}
-          | {:error, encryption_key_disabled_exception()}
-          | {:error, encryption_key_not_found_exception()}
-          | {:error, encryption_key_unavailable_exception()}
-          | {:error, invalid_approval_rule_template_name_exception()}
-          | {:error, maximum_repository_names_exceeded_exception()}
-          | {:error, repository_names_required_exception()}
+          | {:error, batch_disassociate_approval_rule_template_from_repositories_errors()}
   def batch_disassociate_approval_rule_template_from_repositories(
         %Client{} = client,
         input,
@@ -4630,16 +6621,7 @@ defmodule AWS.CodeCommit do
   @spec batch_get_commits(map(), batch_get_commits_input(), list()) ::
           {:ok, batch_get_commits_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, commit_ids_limit_exceeded_exception()}
-          | {:error, commit_ids_list_required_exception()}
-          | {:error, encryption_integrity_checks_failed_exception()}
-          | {:error, encryption_key_access_denied_exception()}
-          | {:error, encryption_key_disabled_exception()}
-          | {:error, encryption_key_not_found_exception()}
-          | {:error, encryption_key_unavailable_exception()}
-          | {:error, invalid_repository_name_exception()}
-          | {:error, repository_does_not_exist_exception()}
-          | {:error, repository_name_required_exception()}
+          | {:error, batch_get_commits_errors()}
   def batch_get_commits(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4661,14 +6643,7 @@ defmodule AWS.CodeCommit do
   @spec batch_get_repositories(map(), batch_get_repositories_input(), list()) ::
           {:ok, batch_get_repositories_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, encryption_integrity_checks_failed_exception()}
-          | {:error, encryption_key_access_denied_exception()}
-          | {:error, encryption_key_disabled_exception()}
-          | {:error, encryption_key_not_found_exception()}
-          | {:error, encryption_key_unavailable_exception()}
-          | {:error, invalid_repository_name_exception()}
-          | {:error, maximum_repository_names_exceeded_exception()}
-          | {:error, repository_names_required_exception()}
+          | {:error, batch_get_repositories_errors()}
   def batch_get_repositories(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4690,13 +6665,7 @@ defmodule AWS.CodeCommit do
   @spec create_approval_rule_template(map(), create_approval_rule_template_input(), list()) ::
           {:ok, create_approval_rule_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, approval_rule_template_content_required_exception()}
-          | {:error, approval_rule_template_name_already_exists_exception()}
-          | {:error, approval_rule_template_name_required_exception()}
-          | {:error, invalid_approval_rule_template_content_exception()}
-          | {:error, invalid_approval_rule_template_description_exception()}
-          | {:error, invalid_approval_rule_template_name_exception()}
-          | {:error, number_of_rule_templates_exceeded_exception()}
+          | {:error, create_approval_rule_template_errors()}
   def create_approval_rule_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4712,20 +6681,7 @@ defmodule AWS.CodeCommit do
   @spec create_branch(map(), create_branch_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, branch_name_exists_exception()}
-          | {:error, branch_name_required_exception()}
-          | {:error, commit_does_not_exist_exception()}
-          | {:error, commit_id_required_exception()}
-          | {:error, encryption_integrity_checks_failed_exception()}
-          | {:error, encryption_key_access_denied_exception()}
-          | {:error, encryption_key_disabled_exception()}
-          | {:error, encryption_key_not_found_exception()}
-          | {:error, encryption_key_unavailable_exception()}
-          | {:error, invalid_branch_name_exception()}
-          | {:error, invalid_commit_id_exception()}
-          | {:error, invalid_repository_name_exception()}
-          | {:error, repository_does_not_exist_exception()}
-          | {:error, repository_name_required_exception()}
+          | {:error, create_branch_errors()}
   def create_branch(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4738,44 +6694,7 @@ defmodule AWS.CodeCommit do
   @spec create_commit(map(), create_commit_input(), list()) ::
           {:ok, create_commit_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, branch_does_not_exist_exception()}
-          | {:error, branch_name_is_tag_name_exception()}
-          | {:error, branch_name_required_exception()}
-          | {:error, commit_message_length_exceeded_exception()}
-          | {:error, directory_name_conflicts_with_file_name_exception()}
-          | {:error, encryption_integrity_checks_failed_exception()}
-          | {:error, encryption_key_access_denied_exception()}
-          | {:error, encryption_key_disabled_exception()}
-          | {:error, encryption_key_not_found_exception()}
-          | {:error, encryption_key_unavailable_exception()}
-          | {:error, file_content_and_source_file_specified_exception()}
-          | {:error, file_content_size_limit_exceeded_exception()}
-          | {:error, file_does_not_exist_exception()}
-          | {:error, file_entry_required_exception()}
-          | {:error, file_mode_required_exception()}
-          | {:error, file_name_conflicts_with_directory_name_exception()}
-          | {:error, file_path_conflicts_with_submodule_path_exception()}
-          | {:error, folder_content_size_limit_exceeded_exception()}
-          | {:error, invalid_branch_name_exception()}
-          | {:error, invalid_deletion_parameter_exception()}
-          | {:error, invalid_email_exception()}
-          | {:error, invalid_file_mode_exception()}
-          | {:error, invalid_parent_commit_id_exception()}
-          | {:error, invalid_path_exception()}
-          | {:error, invalid_repository_name_exception()}
-          | {:error, maximum_file_entries_exceeded_exception()}
-          | {:error, name_length_exceeded_exception()}
-          | {:error, no_change_exception()}
-          | {:error, parent_commit_does_not_exist_exception()}
-          | {:error, parent_commit_id_outdated_exception()}
-          | {:error, parent_commit_id_required_exception()}
-          | {:error, path_required_exception()}
-          | {:error, put_file_entry_conflict_exception()}
-          | {:error, repository_does_not_exist_exception()}
-          | {:error, repository_name_required_exception()}
-          | {:error, restricted_source_file_exception()}
-          | {:error, same_path_request_exception()}
-          | {:error, source_file_or_content_required_exception()}
+          | {:error, create_commit_errors()}
   def create_commit(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4788,31 +6707,7 @@ defmodule AWS.CodeCommit do
   @spec create_pull_request(map(), create_pull_request_input(), list()) ::
           {:ok, create_pull_request_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, client_request_token_required_exception()}
-          | {:error, encryption_integrity_checks_failed_exception()}
-          | {:error, encryption_key_access_denied_exception()}
-          | {:error, encryption_key_disabled_exception()}
-          | {:error, encryption_key_not_found_exception()}
-          | {:error, encryption_key_unavailable_exception()}
-          | {:error, idempotency_parameter_mismatch_exception()}
-          | {:error, invalid_client_request_token_exception()}
-          | {:error, invalid_description_exception()}
-          | {:error, invalid_reference_name_exception()}
-          | {:error, invalid_repository_name_exception()}
-          | {:error, invalid_target_exception()}
-          | {:error, invalid_targets_exception()}
-          | {:error, invalid_title_exception()}
-          | {:error, maximum_open_pull_requests_exceeded_exception()}
-          | {:error, multiple_repositories_in_pull_request_exception()}
-          | {:error, reference_does_not_exist_exception()}
-          | {:error, reference_name_required_exception()}
-          | {:error, reference_type_not_supported_exception()}
-          | {:error, repository_does_not_exist_exception()}
-          | {:error, repository_name_required_exception()}
-          | {:error, source_and_destination_are_same_exception()}
-          | {:error, target_required_exception()}
-          | {:error, targets_required_exception()}
-          | {:error, title_required_exception()}
+          | {:error, create_pull_request_errors()}
   def create_pull_request(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4829,21 +6724,7 @@ defmodule AWS.CodeCommit do
         ) ::
           {:ok, create_pull_request_approval_rule_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, approval_rule_content_required_exception()}
-          | {:error, approval_rule_name_already_exists_exception()}
-          | {:error, approval_rule_name_required_exception()}
-          | {:error, encryption_integrity_checks_failed_exception()}
-          | {:error, encryption_key_access_denied_exception()}
-          | {:error, encryption_key_disabled_exception()}
-          | {:error, encryption_key_not_found_exception()}
-          | {:error, encryption_key_unavailable_exception()}
-          | {:error, invalid_approval_rule_content_exception()}
-          | {:error, invalid_approval_rule_name_exception()}
-          | {:error, invalid_pull_request_id_exception()}
-          | {:error, number_of_rules_exceeded_exception()}
-          | {:error, pull_request_already_closed_exception()}
-          | {:error, pull_request_does_not_exist_exception()}
-          | {:error, pull_request_id_required_exception()}
+          | {:error, create_pull_request_approval_rule_errors()}
   def create_pull_request_approval_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4856,22 +6737,7 @@ defmodule AWS.CodeCommit do
   @spec create_repository(map(), create_repository_input(), list()) ::
           {:ok, create_repository_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, encryption_integrity_checks_failed_exception()}
-          | {:error, encryption_key_access_denied_exception()}
-          | {:error, encryption_key_disabled_exception()}
-          | {:error, encryption_key_invalid_id_exception()}
-          | {:error, encryption_key_invalid_usage_exception()}
-          | {:error, encryption_key_not_found_exception()}
-          | {:error, encryption_key_unavailable_exception()}
-          | {:error, invalid_repository_description_exception()}
-          | {:error, invalid_repository_name_exception()}
-          | {:error, invalid_system_tag_usage_exception()}
-          | {:error, invalid_tags_map_exception()}
-          | {:error, repository_limit_exceeded_exception()}
-          | {:error, repository_name_exists_exception()}
-          | {:error, repository_name_required_exception()}
-          | {:error, tag_policy_exception()}
-          | {:error, too_many_tags_exception()}
+          | {:error, create_repository_errors()}
   def create_repository(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4895,42 +6761,7 @@ defmodule AWS.CodeCommit do
   @spec create_unreferenced_merge_commit(map(), create_unreferenced_merge_commit_input(), list()) ::
           {:ok, create_unreferenced_merge_commit_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, commit_does_not_exist_exception()}
-          | {:error, commit_message_length_exceeded_exception()}
-          | {:error, commit_required_exception()}
-          | {:error, concurrent_reference_update_exception()}
-          | {:error, encryption_integrity_checks_failed_exception()}
-          | {:error, encryption_key_access_denied_exception()}
-          | {:error, encryption_key_disabled_exception()}
-          | {:error, encryption_key_not_found_exception()}
-          | {:error, encryption_key_unavailable_exception()}
-          | {:error, file_content_size_limit_exceeded_exception()}
-          | {:error, file_mode_required_exception()}
-          | {:error, folder_content_size_limit_exceeded_exception()}
-          | {:error, invalid_commit_exception()}
-          | {:error, invalid_conflict_detail_level_exception()}
-          | {:error, invalid_conflict_resolution_exception()}
-          | {:error, invalid_conflict_resolution_strategy_exception()}
-          | {:error, invalid_email_exception()}
-          | {:error, invalid_file_mode_exception()}
-          | {:error, invalid_merge_option_exception()}
-          | {:error, invalid_path_exception()}
-          | {:error, invalid_replacement_content_exception()}
-          | {:error, invalid_replacement_type_exception()}
-          | {:error, invalid_repository_name_exception()}
-          | {:error, manual_merge_required_exception()}
-          | {:error, maximum_conflict_resolution_entries_exceeded_exception()}
-          | {:error, maximum_file_content_to_load_exceeded_exception()}
-          | {:error, maximum_items_to_compare_exceeded_exception()}
-          | {:error, merge_option_required_exception()}
-          | {:error, multiple_conflict_resolution_entries_exception()}
-          | {:error, name_length_exceeded_exception()}
-          | {:error, path_required_exception()}
-          | {:error, replacement_content_required_exception()}
-          | {:error, replacement_type_required_exception()}
-          | {:error, repository_does_not_exist_exception()}
-          | {:error, repository_name_required_exception()}
-          | {:error, tips_divergence_exceeded_exception()}
+          | {:error, create_unreferenced_merge_commit_errors()}
   def create_unreferenced_merge_commit(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4946,9 +6777,7 @@ defmodule AWS.CodeCommit do
   @spec delete_approval_rule_template(map(), delete_approval_rule_template_input(), list()) ::
           {:ok, delete_approval_rule_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, approval_rule_template_in_use_exception()}
-          | {:error, approval_rule_template_name_required_exception()}
-          | {:error, invalid_approval_rule_template_name_exception()}
+          | {:error, delete_approval_rule_template_errors()}
   def delete_approval_rule_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4962,17 +6791,7 @@ defmodule AWS.CodeCommit do
   @spec delete_branch(map(), delete_branch_input(), list()) ::
           {:ok, delete_branch_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, branch_name_required_exception()}
-          | {:error, default_branch_cannot_be_deleted_exception()}
-          | {:error, encryption_integrity_checks_failed_exception()}
-          | {:error, encryption_key_access_denied_exception()}
-          | {:error, encryption_key_disabled_exception()}
-          | {:error, encryption_key_not_found_exception()}
-          | {:error, encryption_key_unavailable_exception()}
-          | {:error, invalid_branch_name_exception()}
-          | {:error, invalid_repository_name_exception()}
-          | {:error, repository_does_not_exist_exception()}
-          | {:error, repository_name_required_exception()}
+          | {:error, delete_branch_errors()}
   def delete_branch(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4986,10 +6805,7 @@ defmodule AWS.CodeCommit do
   @spec delete_comment_content(map(), delete_comment_content_input(), list()) ::
           {:ok, delete_comment_content_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, comment_deleted_exception()}
-          | {:error, comment_does_not_exist_exception()}
-          | {:error, comment_id_required_exception()}
-          | {:error, invalid_comment_id_exception()}
+          | {:error, delete_comment_content_errors()}
   def delete_comment_content(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5007,28 +6823,7 @@ defmodule AWS.CodeCommit do
   @spec delete_file(map(), delete_file_input(), list()) ::
           {:ok, delete_file_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, branch_does_not_exist_exception()}
-          | {:error, branch_name_is_tag_name_exception()}
-          | {:error, branch_name_required_exception()}
-          | {:error, commit_message_length_exceeded_exception()}
-          | {:error, encryption_integrity_checks_failed_exception()}
-          | {:error, encryption_key_access_denied_exception()}
-          | {:error, encryption_key_disabled_exception()}
-          | {:error, encryption_key_not_found_exception()}
-          | {:error, encryption_key_unavailable_exception()}
-          | {:error, file_does_not_exist_exception()}
-          | {:error, invalid_branch_name_exception()}
-          | {:error, invalid_email_exception()}
-          | {:error, invalid_parent_commit_id_exception()}
-          | {:error, invalid_path_exception()}
-          | {:error, invalid_repository_name_exception()}
-          | {:error, name_length_exceeded_exception()}
-          | {:error, parent_commit_does_not_exist_exception()}
-          | {:error, parent_commit_id_outdated_exception()}
-          | {:error, parent_commit_id_required_exception()}
-          | {:error, path_required_exception()}
-          | {:error, repository_does_not_exist_exception()}
-          | {:error, repository_name_required_exception()}
+          | {:error, delete_file_errors()}
   def delete_file(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5052,18 +6847,7 @@ defmodule AWS.CodeCommit do
         ) ::
           {:ok, delete_pull_request_approval_rule_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, approval_rule_name_required_exception()}
-          | {:error, cannot_delete_approval_rule_from_template_exception()}
-          | {:error, encryption_integrity_checks_failed_exception()}
-          | {:error, encryption_key_access_denied_exception()}
-          | {:error, encryption_key_disabled_exception()}
-          | {:error, encryption_key_not_found_exception()}
-          | {:error, encryption_key_unavailable_exception()}
-          | {:error, invalid_approval_rule_name_exception()}
-          | {:error, invalid_pull_request_id_exception()}
-          | {:error, pull_request_already_closed_exception()}
-          | {:error, pull_request_does_not_exist_exception()}
-          | {:error, pull_request_id_required_exception()}
+          | {:error, delete_pull_request_approval_rule_errors()}
   def delete_pull_request_approval_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5083,13 +6867,7 @@ defmodule AWS.CodeCommit do
   @spec delete_repository(map(), delete_repository_input(), list()) ::
           {:ok, delete_repository_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, encryption_integrity_checks_failed_exception()}
-          | {:error, encryption_key_access_denied_exception()}
-          | {:error, encryption_key_disabled_exception()}
-          | {:error, encryption_key_not_found_exception()}
-          | {:error, encryption_key_unavailable_exception()}
-          | {:error, invalid_repository_name_exception()}
-          | {:error, repository_name_required_exception()}
+          | {:error, delete_repository_errors()}
   def delete_repository(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5107,29 +6885,7 @@ defmodule AWS.CodeCommit do
   @spec describe_merge_conflicts(map(), describe_merge_conflicts_input(), list()) ::
           {:ok, describe_merge_conflicts_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, commit_does_not_exist_exception()}
-          | {:error, commit_required_exception()}
-          | {:error, encryption_integrity_checks_failed_exception()}
-          | {:error, encryption_key_access_denied_exception()}
-          | {:error, encryption_key_disabled_exception()}
-          | {:error, encryption_key_not_found_exception()}
-          | {:error, encryption_key_unavailable_exception()}
-          | {:error, file_does_not_exist_exception()}
-          | {:error, invalid_commit_exception()}
-          | {:error, invalid_conflict_detail_level_exception()}
-          | {:error, invalid_conflict_resolution_strategy_exception()}
-          | {:error, invalid_continuation_token_exception()}
-          | {:error, invalid_max_merge_hunks_exception()}
-          | {:error, invalid_merge_option_exception()}
-          | {:error, invalid_path_exception()}
-          | {:error, invalid_repository_name_exception()}
-          | {:error, maximum_file_content_to_load_exceeded_exception()}
-          | {:error, maximum_items_to_compare_exceeded_exception()}
-          | {:error, merge_option_required_exception()}
-          | {:error, path_required_exception()}
-          | {:error, repository_does_not_exist_exception()}
-          | {:error, repository_name_required_exception()}
-          | {:error, tips_divergence_exceeded_exception()}
+          | {:error, describe_merge_conflicts_errors()}
   def describe_merge_conflicts(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5142,19 +6898,7 @@ defmodule AWS.CodeCommit do
   @spec describe_pull_request_events(map(), describe_pull_request_events_input(), list()) ::
           {:ok, describe_pull_request_events_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, actor_does_not_exist_exception()}
-          | {:error, encryption_integrity_checks_failed_exception()}
-          | {:error, encryption_key_access_denied_exception()}
-          | {:error, encryption_key_disabled_exception()}
-          | {:error, encryption_key_not_found_exception()}
-          | {:error, encryption_key_unavailable_exception()}
-          | {:error, invalid_actor_arn_exception()}
-          | {:error, invalid_continuation_token_exception()}
-          | {:error, invalid_max_results_exception()}
-          | {:error, invalid_pull_request_event_type_exception()}
-          | {:error, invalid_pull_request_id_exception()}
-          | {:error, pull_request_does_not_exist_exception()}
-          | {:error, pull_request_id_required_exception()}
+          | {:error, describe_pull_request_events_errors()}
   def describe_pull_request_events(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5178,17 +6922,7 @@ defmodule AWS.CodeCommit do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, approval_rule_template_does_not_exist_exception()}
-          | {:error, approval_rule_template_name_required_exception()}
-          | {:error, encryption_integrity_checks_failed_exception()}
-          | {:error, encryption_key_access_denied_exception()}
-          | {:error, encryption_key_disabled_exception()}
-          | {:error, encryption_key_not_found_exception()}
-          | {:error, encryption_key_unavailable_exception()}
-          | {:error, invalid_approval_rule_template_name_exception()}
-          | {:error, invalid_repository_name_exception()}
-          | {:error, repository_does_not_exist_exception()}
-          | {:error, repository_name_required_exception()}
+          | {:error, disassociate_approval_rule_template_from_repository_errors()}
   def disassociate_approval_rule_template_from_repository(
         %Client{} = client,
         input,
@@ -5216,17 +6950,7 @@ defmodule AWS.CodeCommit do
         ) ::
           {:ok, evaluate_pull_request_approval_rules_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, encryption_integrity_checks_failed_exception()}
-          | {:error, encryption_key_access_denied_exception()}
-          | {:error, encryption_key_disabled_exception()}
-          | {:error, encryption_key_not_found_exception()}
-          | {:error, encryption_key_unavailable_exception()}
-          | {:error, invalid_pull_request_id_exception()}
-          | {:error, invalid_revision_id_exception()}
-          | {:error, pull_request_does_not_exist_exception()}
-          | {:error, pull_request_id_required_exception()}
-          | {:error, revision_id_required_exception()}
-          | {:error, revision_not_current_exception()}
+          | {:error, evaluate_pull_request_approval_rules_errors()}
   def evaluate_pull_request_approval_rules(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5239,9 +6963,7 @@ defmodule AWS.CodeCommit do
   @spec get_approval_rule_template(map(), get_approval_rule_template_input(), list()) ::
           {:ok, get_approval_rule_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, approval_rule_template_does_not_exist_exception()}
-          | {:error, approval_rule_template_name_required_exception()}
-          | {:error, invalid_approval_rule_template_name_exception()}
+          | {:error, get_approval_rule_template_errors()}
   def get_approval_rule_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5254,18 +6976,7 @@ defmodule AWS.CodeCommit do
   @spec get_blob(map(), get_blob_input(), list()) ::
           {:ok, get_blob_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, blob_id_does_not_exist_exception()}
-          | {:error, blob_id_required_exception()}
-          | {:error, encryption_integrity_checks_failed_exception()}
-          | {:error, encryption_key_access_denied_exception()}
-          | {:error, encryption_key_disabled_exception()}
-          | {:error, encryption_key_not_found_exception()}
-          | {:error, encryption_key_unavailable_exception()}
-          | {:error, file_too_large_exception()}
-          | {:error, invalid_blob_id_exception()}
-          | {:error, invalid_repository_name_exception()}
-          | {:error, repository_does_not_exist_exception()}
-          | {:error, repository_name_required_exception()}
+          | {:error, get_blob_errors()}
   def get_blob(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5279,17 +6990,7 @@ defmodule AWS.CodeCommit do
   @spec get_branch(map(), get_branch_input(), list()) ::
           {:ok, get_branch_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, branch_does_not_exist_exception()}
-          | {:error, branch_name_required_exception()}
-          | {:error, encryption_integrity_checks_failed_exception()}
-          | {:error, encryption_key_access_denied_exception()}
-          | {:error, encryption_key_disabled_exception()}
-          | {:error, encryption_key_not_found_exception()}
-          | {:error, encryption_key_unavailable_exception()}
-          | {:error, invalid_branch_name_exception()}
-          | {:error, invalid_repository_name_exception()}
-          | {:error, repository_does_not_exist_exception()}
-          | {:error, repository_name_required_exception()}
+          | {:error, get_branch_errors()}
   def get_branch(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5307,15 +7008,7 @@ defmodule AWS.CodeCommit do
   @spec get_comment(map(), get_comment_input(), list()) ::
           {:ok, get_comment_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, comment_deleted_exception()}
-          | {:error, comment_does_not_exist_exception()}
-          | {:error, comment_id_required_exception()}
-          | {:error, encryption_integrity_checks_failed_exception()}
-          | {:error, encryption_key_access_denied_exception()}
-          | {:error, encryption_key_disabled_exception()}
-          | {:error, encryption_key_not_found_exception()}
-          | {:error, encryption_key_unavailable_exception()}
-          | {:error, invalid_comment_id_exception()}
+          | {:error, get_comment_errors()}
   def get_comment(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5330,13 +7023,7 @@ defmodule AWS.CodeCommit do
   @spec get_comment_reactions(map(), get_comment_reactions_input(), list()) ::
           {:ok, get_comment_reactions_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, comment_deleted_exception()}
-          | {:error, comment_does_not_exist_exception()}
-          | {:error, comment_id_required_exception()}
-          | {:error, invalid_comment_id_exception()}
-          | {:error, invalid_continuation_token_exception()}
-          | {:error, invalid_max_results_exception()}
-          | {:error, invalid_reaction_user_arn_exception()}
+          | {:error, get_comment_reactions_errors()}
   def get_comment_reactions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5353,19 +7040,7 @@ defmodule AWS.CodeCommit do
   @spec get_comments_for_compared_commit(map(), get_comments_for_compared_commit_input(), list()) ::
           {:ok, get_comments_for_compared_commit_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, commit_does_not_exist_exception()}
-          | {:error, commit_id_required_exception()}
-          | {:error, encryption_integrity_checks_failed_exception()}
-          | {:error, encryption_key_access_denied_exception()}
-          | {:error, encryption_key_disabled_exception()}
-          | {:error, encryption_key_not_found_exception()}
-          | {:error, encryption_key_unavailable_exception()}
-          | {:error, invalid_commit_id_exception()}
-          | {:error, invalid_continuation_token_exception()}
-          | {:error, invalid_max_results_exception()}
-          | {:error, invalid_repository_name_exception()}
-          | {:error, repository_does_not_exist_exception()}
-          | {:error, repository_name_required_exception()}
+          | {:error, get_comments_for_compared_commit_errors()}
   def get_comments_for_compared_commit(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5382,23 +7057,7 @@ defmodule AWS.CodeCommit do
   @spec get_comments_for_pull_request(map(), get_comments_for_pull_request_input(), list()) ::
           {:ok, get_comments_for_pull_request_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, commit_does_not_exist_exception()}
-          | {:error, commit_id_required_exception()}
-          | {:error, encryption_integrity_checks_failed_exception()}
-          | {:error, encryption_key_access_denied_exception()}
-          | {:error, encryption_key_disabled_exception()}
-          | {:error, encryption_key_not_found_exception()}
-          | {:error, encryption_key_unavailable_exception()}
-          | {:error, invalid_commit_id_exception()}
-          | {:error, invalid_continuation_token_exception()}
-          | {:error, invalid_max_results_exception()}
-          | {:error, invalid_pull_request_id_exception()}
-          | {:error, invalid_repository_name_exception()}
-          | {:error, pull_request_does_not_exist_exception()}
-          | {:error, pull_request_id_required_exception()}
-          | {:error, repository_does_not_exist_exception()}
-          | {:error, repository_name_required_exception()}
-          | {:error, repository_not_associated_with_pull_request_exception()}
+          | {:error, get_comments_for_pull_request_errors()}
   def get_comments_for_pull_request(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5412,17 +7071,7 @@ defmodule AWS.CodeCommit do
   @spec get_commit(map(), get_commit_input(), list()) ::
           {:ok, get_commit_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, commit_id_does_not_exist_exception()}
-          | {:error, commit_id_required_exception()}
-          | {:error, encryption_integrity_checks_failed_exception()}
-          | {:error, encryption_key_access_denied_exception()}
-          | {:error, encryption_key_disabled_exception()}
-          | {:error, encryption_key_not_found_exception()}
-          | {:error, encryption_key_unavailable_exception()}
-          | {:error, invalid_commit_id_exception()}
-          | {:error, invalid_repository_name_exception()}
-          | {:error, repository_does_not_exist_exception()}
-          | {:error, repository_name_required_exception()}
+          | {:error, get_commit_errors()}
   def get_commit(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5439,22 +7088,7 @@ defmodule AWS.CodeCommit do
   @spec get_differences(map(), get_differences_input(), list()) ::
           {:ok, get_differences_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, commit_does_not_exist_exception()}
-          | {:error, commit_required_exception()}
-          | {:error, encryption_integrity_checks_failed_exception()}
-          | {:error, encryption_key_access_denied_exception()}
-          | {:error, encryption_key_disabled_exception()}
-          | {:error, encryption_key_not_found_exception()}
-          | {:error, encryption_key_unavailable_exception()}
-          | {:error, invalid_commit_exception()}
-          | {:error, invalid_commit_id_exception()}
-          | {:error, invalid_continuation_token_exception()}
-          | {:error, invalid_max_results_exception()}
-          | {:error, invalid_path_exception()}
-          | {:error, invalid_repository_name_exception()}
-          | {:error, path_does_not_exist_exception()}
-          | {:error, repository_does_not_exist_exception()}
-          | {:error, repository_name_required_exception()}
+          | {:error, get_differences_errors()}
   def get_differences(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5467,20 +7101,7 @@ defmodule AWS.CodeCommit do
   @spec get_file(map(), get_file_input(), list()) ::
           {:ok, get_file_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, commit_does_not_exist_exception()}
-          | {:error, encryption_integrity_checks_failed_exception()}
-          | {:error, encryption_key_access_denied_exception()}
-          | {:error, encryption_key_disabled_exception()}
-          | {:error, encryption_key_not_found_exception()}
-          | {:error, encryption_key_unavailable_exception()}
-          | {:error, file_does_not_exist_exception()}
-          | {:error, file_too_large_exception()}
-          | {:error, invalid_commit_exception()}
-          | {:error, invalid_path_exception()}
-          | {:error, invalid_repository_name_exception()}
-          | {:error, path_required_exception()}
-          | {:error, repository_does_not_exist_exception()}
-          | {:error, repository_name_required_exception()}
+          | {:error, get_file_errors()}
   def get_file(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5493,19 +7114,7 @@ defmodule AWS.CodeCommit do
   @spec get_folder(map(), get_folder_input(), list()) ::
           {:ok, get_folder_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, commit_does_not_exist_exception()}
-          | {:error, encryption_integrity_checks_failed_exception()}
-          | {:error, encryption_key_access_denied_exception()}
-          | {:error, encryption_key_disabled_exception()}
-          | {:error, encryption_key_not_found_exception()}
-          | {:error, encryption_key_unavailable_exception()}
-          | {:error, folder_does_not_exist_exception()}
-          | {:error, invalid_commit_exception()}
-          | {:error, invalid_path_exception()}
-          | {:error, invalid_repository_name_exception()}
-          | {:error, path_required_exception()}
-          | {:error, repository_does_not_exist_exception()}
-          | {:error, repository_name_required_exception()}
+          | {:error, get_folder_errors()}
   def get_folder(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5518,19 +7127,7 @@ defmodule AWS.CodeCommit do
   @spec get_merge_commit(map(), get_merge_commit_input(), list()) ::
           {:ok, get_merge_commit_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, commit_does_not_exist_exception()}
-          | {:error, commit_required_exception()}
-          | {:error, encryption_integrity_checks_failed_exception()}
-          | {:error, encryption_key_access_denied_exception()}
-          | {:error, encryption_key_disabled_exception()}
-          | {:error, encryption_key_not_found_exception()}
-          | {:error, encryption_key_unavailable_exception()}
-          | {:error, invalid_commit_exception()}
-          | {:error, invalid_conflict_detail_level_exception()}
-          | {:error, invalid_conflict_resolution_strategy_exception()}
-          | {:error, invalid_repository_name_exception()}
-          | {:error, repository_does_not_exist_exception()}
-          | {:error, repository_name_required_exception()}
+          | {:error, get_merge_commit_errors()}
   def get_merge_commit(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5544,28 +7141,7 @@ defmodule AWS.CodeCommit do
   @spec get_merge_conflicts(map(), get_merge_conflicts_input(), list()) ::
           {:ok, get_merge_conflicts_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, commit_does_not_exist_exception()}
-          | {:error, commit_required_exception()}
-          | {:error, encryption_integrity_checks_failed_exception()}
-          | {:error, encryption_key_access_denied_exception()}
-          | {:error, encryption_key_disabled_exception()}
-          | {:error, encryption_key_not_found_exception()}
-          | {:error, encryption_key_unavailable_exception()}
-          | {:error, invalid_commit_exception()}
-          | {:error, invalid_conflict_detail_level_exception()}
-          | {:error, invalid_conflict_resolution_strategy_exception()}
-          | {:error, invalid_continuation_token_exception()}
-          | {:error, invalid_destination_commit_specifier_exception()}
-          | {:error, invalid_max_conflict_files_exception()}
-          | {:error, invalid_merge_option_exception()}
-          | {:error, invalid_repository_name_exception()}
-          | {:error, invalid_source_commit_specifier_exception()}
-          | {:error, maximum_file_content_to_load_exceeded_exception()}
-          | {:error, maximum_items_to_compare_exceeded_exception()}
-          | {:error, merge_option_required_exception()}
-          | {:error, repository_does_not_exist_exception()}
-          | {:error, repository_name_required_exception()}
-          | {:error, tips_divergence_exceeded_exception()}
+          | {:error, get_merge_conflicts_errors()}
   def get_merge_conflicts(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5582,22 +7158,7 @@ defmodule AWS.CodeCommit do
   @spec get_merge_options(map(), get_merge_options_input(), list()) ::
           {:ok, get_merge_options_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, commit_does_not_exist_exception()}
-          | {:error, commit_required_exception()}
-          | {:error, encryption_integrity_checks_failed_exception()}
-          | {:error, encryption_key_access_denied_exception()}
-          | {:error, encryption_key_disabled_exception()}
-          | {:error, encryption_key_not_found_exception()}
-          | {:error, encryption_key_unavailable_exception()}
-          | {:error, invalid_commit_exception()}
-          | {:error, invalid_conflict_detail_level_exception()}
-          | {:error, invalid_conflict_resolution_strategy_exception()}
-          | {:error, invalid_repository_name_exception()}
-          | {:error, maximum_file_content_to_load_exceeded_exception()}
-          | {:error, maximum_items_to_compare_exceeded_exception()}
-          | {:error, repository_does_not_exist_exception()}
-          | {:error, repository_name_required_exception()}
-          | {:error, tips_divergence_exceeded_exception()}
+          | {:error, get_merge_options_errors()}
   def get_merge_options(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5610,14 +7171,7 @@ defmodule AWS.CodeCommit do
   @spec get_pull_request(map(), get_pull_request_input(), list()) ::
           {:ok, get_pull_request_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, encryption_integrity_checks_failed_exception()}
-          | {:error, encryption_key_access_denied_exception()}
-          | {:error, encryption_key_disabled_exception()}
-          | {:error, encryption_key_not_found_exception()}
-          | {:error, encryption_key_unavailable_exception()}
-          | {:error, invalid_pull_request_id_exception()}
-          | {:error, pull_request_does_not_exist_exception()}
-          | {:error, pull_request_id_required_exception()}
+          | {:error, get_pull_request_errors()}
   def get_pull_request(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5633,16 +7187,7 @@ defmodule AWS.CodeCommit do
   @spec get_pull_request_approval_states(map(), get_pull_request_approval_states_input(), list()) ::
           {:ok, get_pull_request_approval_states_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, encryption_integrity_checks_failed_exception()}
-          | {:error, encryption_key_access_denied_exception()}
-          | {:error, encryption_key_disabled_exception()}
-          | {:error, encryption_key_not_found_exception()}
-          | {:error, encryption_key_unavailable_exception()}
-          | {:error, invalid_pull_request_id_exception()}
-          | {:error, invalid_revision_id_exception()}
-          | {:error, pull_request_does_not_exist_exception()}
-          | {:error, pull_request_id_required_exception()}
-          | {:error, revision_id_required_exception()}
+          | {:error, get_pull_request_approval_states_errors()}
   def get_pull_request_approval_states(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5658,16 +7203,7 @@ defmodule AWS.CodeCommit do
   @spec get_pull_request_override_state(map(), get_pull_request_override_state_input(), list()) ::
           {:ok, get_pull_request_override_state_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, encryption_integrity_checks_failed_exception()}
-          | {:error, encryption_key_access_denied_exception()}
-          | {:error, encryption_key_disabled_exception()}
-          | {:error, encryption_key_not_found_exception()}
-          | {:error, encryption_key_unavailable_exception()}
-          | {:error, invalid_pull_request_id_exception()}
-          | {:error, invalid_revision_id_exception()}
-          | {:error, pull_request_does_not_exist_exception()}
-          | {:error, pull_request_id_required_exception()}
-          | {:error, revision_id_required_exception()}
+          | {:error, get_pull_request_override_state_errors()}
   def get_pull_request_override_state(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5689,14 +7225,7 @@ defmodule AWS.CodeCommit do
   @spec get_repository(map(), get_repository_input(), list()) ::
           {:ok, get_repository_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, encryption_integrity_checks_failed_exception()}
-          | {:error, encryption_key_access_denied_exception()}
-          | {:error, encryption_key_disabled_exception()}
-          | {:error, encryption_key_not_found_exception()}
-          | {:error, encryption_key_unavailable_exception()}
-          | {:error, invalid_repository_name_exception()}
-          | {:error, repository_does_not_exist_exception()}
-          | {:error, repository_name_required_exception()}
+          | {:error, get_repository_errors()}
   def get_repository(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5709,14 +7238,7 @@ defmodule AWS.CodeCommit do
   @spec get_repository_triggers(map(), get_repository_triggers_input(), list()) ::
           {:ok, get_repository_triggers_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, encryption_integrity_checks_failed_exception()}
-          | {:error, encryption_key_access_denied_exception()}
-          | {:error, encryption_key_disabled_exception()}
-          | {:error, encryption_key_not_found_exception()}
-          | {:error, encryption_key_unavailable_exception()}
-          | {:error, invalid_repository_name_exception()}
-          | {:error, repository_does_not_exist_exception()}
-          | {:error, repository_name_required_exception()}
+          | {:error, get_repository_triggers_errors()}
   def get_repository_triggers(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5734,8 +7256,7 @@ defmodule AWS.CodeCommit do
   @spec list_approval_rule_templates(map(), list_approval_rule_templates_input(), list()) ::
           {:ok, list_approval_rule_templates_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_continuation_token_exception()}
-          | {:error, invalid_max_results_exception()}
+          | {:error, list_approval_rule_templates_errors()}
   def list_approval_rule_templates(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5753,16 +7274,7 @@ defmodule AWS.CodeCommit do
         ) ::
           {:ok, list_associated_approval_rule_templates_for_repository_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, encryption_integrity_checks_failed_exception()}
-          | {:error, encryption_key_access_denied_exception()}
-          | {:error, encryption_key_disabled_exception()}
-          | {:error, encryption_key_not_found_exception()}
-          | {:error, encryption_key_unavailable_exception()}
-          | {:error, invalid_continuation_token_exception()}
-          | {:error, invalid_max_results_exception()}
-          | {:error, invalid_repository_name_exception()}
-          | {:error, repository_does_not_exist_exception()}
-          | {:error, repository_name_required_exception()}
+          | {:error, list_associated_approval_rule_templates_for_repository_errors()}
   def list_associated_approval_rule_templates_for_repository(
         %Client{} = client,
         input,
@@ -5785,15 +7297,7 @@ defmodule AWS.CodeCommit do
   @spec list_branches(map(), list_branches_input(), list()) ::
           {:ok, list_branches_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, encryption_integrity_checks_failed_exception()}
-          | {:error, encryption_key_access_denied_exception()}
-          | {:error, encryption_key_disabled_exception()}
-          | {:error, encryption_key_not_found_exception()}
-          | {:error, encryption_key_unavailable_exception()}
-          | {:error, invalid_continuation_token_exception()}
-          | {:error, invalid_repository_name_exception()}
-          | {:error, repository_does_not_exist_exception()}
-          | {:error, repository_name_required_exception()}
+          | {:error, list_branches_errors()}
   def list_branches(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5806,20 +7310,7 @@ defmodule AWS.CodeCommit do
   @spec list_file_commit_history(map(), list_file_commit_history_request(), list()) ::
           {:ok, list_file_commit_history_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, commit_does_not_exist_exception()}
-          | {:error, commit_required_exception()}
-          | {:error, encryption_integrity_checks_failed_exception()}
-          | {:error, encryption_key_access_denied_exception()}
-          | {:error, encryption_key_disabled_exception()}
-          | {:error, encryption_key_not_found_exception()}
-          | {:error, encryption_key_unavailable_exception()}
-          | {:error, invalid_commit_exception()}
-          | {:error, invalid_continuation_token_exception()}
-          | {:error, invalid_max_results_exception()}
-          | {:error, invalid_repository_name_exception()}
-          | {:error, repository_does_not_exist_exception()}
-          | {:error, repository_name_required_exception()}
-          | {:error, tips_divergence_exceeded_exception()}
+          | {:error, list_file_commit_history_errors()}
   def list_file_commit_history(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5835,19 +7326,7 @@ defmodule AWS.CodeCommit do
   @spec list_pull_requests(map(), list_pull_requests_input(), list()) ::
           {:ok, list_pull_requests_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, author_does_not_exist_exception()}
-          | {:error, encryption_integrity_checks_failed_exception()}
-          | {:error, encryption_key_access_denied_exception()}
-          | {:error, encryption_key_disabled_exception()}
-          | {:error, encryption_key_not_found_exception()}
-          | {:error, encryption_key_unavailable_exception()}
-          | {:error, invalid_author_arn_exception()}
-          | {:error, invalid_continuation_token_exception()}
-          | {:error, invalid_max_results_exception()}
-          | {:error, invalid_pull_request_status_exception()}
-          | {:error, invalid_repository_name_exception()}
-          | {:error, repository_does_not_exist_exception()}
-          | {:error, repository_name_required_exception()}
+          | {:error, list_pull_requests_errors()}
   def list_pull_requests(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5860,9 +7339,7 @@ defmodule AWS.CodeCommit do
   @spec list_repositories(map(), list_repositories_input(), list()) ::
           {:ok, list_repositories_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_continuation_token_exception()}
-          | {:error, invalid_order_exception()}
-          | {:error, invalid_sort_by_exception()}
+          | {:error, list_repositories_errors()}
   def list_repositories(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5879,16 +7356,7 @@ defmodule AWS.CodeCommit do
         ) ::
           {:ok, list_repositories_for_approval_rule_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, approval_rule_template_does_not_exist_exception()}
-          | {:error, approval_rule_template_name_required_exception()}
-          | {:error, encryption_integrity_checks_failed_exception()}
-          | {:error, encryption_key_access_denied_exception()}
-          | {:error, encryption_key_disabled_exception()}
-          | {:error, encryption_key_not_found_exception()}
-          | {:error, encryption_key_unavailable_exception()}
-          | {:error, invalid_approval_rule_template_name_exception()}
-          | {:error, invalid_continuation_token_exception()}
-          | {:error, invalid_max_results_exception()}
+          | {:error, list_repositories_for_approval_rule_template_errors()}
   def list_repositories_for_approval_rule_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5906,10 +7374,7 @@ defmodule AWS.CodeCommit do
   @spec list_tags_for_resource(map(), list_tags_for_resource_input(), list()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_repository_name_exception()}
-          | {:error, invalid_resource_arn_exception()}
-          | {:error, repository_does_not_exist_exception()}
-          | {:error, resource_arn_required_exception()}
+          | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5922,25 +7387,7 @@ defmodule AWS.CodeCommit do
   @spec merge_branches_by_fast_forward(map(), merge_branches_by_fast_forward_input(), list()) ::
           {:ok, merge_branches_by_fast_forward_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, branch_does_not_exist_exception()}
-          | {:error, branch_name_is_tag_name_exception()}
-          | {:error, branch_name_required_exception()}
-          | {:error, commit_does_not_exist_exception()}
-          | {:error, commit_required_exception()}
-          | {:error, concurrent_reference_update_exception()}
-          | {:error, encryption_integrity_checks_failed_exception()}
-          | {:error, encryption_key_access_denied_exception()}
-          | {:error, encryption_key_disabled_exception()}
-          | {:error, encryption_key_not_found_exception()}
-          | {:error, encryption_key_unavailable_exception()}
-          | {:error, invalid_branch_name_exception()}
-          | {:error, invalid_commit_exception()}
-          | {:error, invalid_repository_name_exception()}
-          | {:error, invalid_target_branch_exception()}
-          | {:error, manual_merge_required_exception()}
-          | {:error, repository_does_not_exist_exception()}
-          | {:error, repository_name_required_exception()}
-          | {:error, tips_divergence_exceeded_exception()}
+          | {:error, merge_branches_by_fast_forward_errors()}
   def merge_branches_by_fast_forward(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5953,45 +7400,7 @@ defmodule AWS.CodeCommit do
   @spec merge_branches_by_squash(map(), merge_branches_by_squash_input(), list()) ::
           {:ok, merge_branches_by_squash_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, branch_does_not_exist_exception()}
-          | {:error, branch_name_is_tag_name_exception()}
-          | {:error, branch_name_required_exception()}
-          | {:error, commit_does_not_exist_exception()}
-          | {:error, commit_message_length_exceeded_exception()}
-          | {:error, commit_required_exception()}
-          | {:error, concurrent_reference_update_exception()}
-          | {:error, encryption_integrity_checks_failed_exception()}
-          | {:error, encryption_key_access_denied_exception()}
-          | {:error, encryption_key_disabled_exception()}
-          | {:error, encryption_key_not_found_exception()}
-          | {:error, encryption_key_unavailable_exception()}
-          | {:error, file_content_size_limit_exceeded_exception()}
-          | {:error, file_mode_required_exception()}
-          | {:error, folder_content_size_limit_exceeded_exception()}
-          | {:error, invalid_branch_name_exception()}
-          | {:error, invalid_commit_exception()}
-          | {:error, invalid_conflict_detail_level_exception()}
-          | {:error, invalid_conflict_resolution_exception()}
-          | {:error, invalid_conflict_resolution_strategy_exception()}
-          | {:error, invalid_email_exception()}
-          | {:error, invalid_file_mode_exception()}
-          | {:error, invalid_path_exception()}
-          | {:error, invalid_replacement_content_exception()}
-          | {:error, invalid_replacement_type_exception()}
-          | {:error, invalid_repository_name_exception()}
-          | {:error, invalid_target_branch_exception()}
-          | {:error, manual_merge_required_exception()}
-          | {:error, maximum_conflict_resolution_entries_exceeded_exception()}
-          | {:error, maximum_file_content_to_load_exceeded_exception()}
-          | {:error, maximum_items_to_compare_exceeded_exception()}
-          | {:error, multiple_conflict_resolution_entries_exception()}
-          | {:error, name_length_exceeded_exception()}
-          | {:error, path_required_exception()}
-          | {:error, replacement_content_required_exception()}
-          | {:error, replacement_type_required_exception()}
-          | {:error, repository_does_not_exist_exception()}
-          | {:error, repository_name_required_exception()}
-          | {:error, tips_divergence_exceeded_exception()}
+          | {:error, merge_branches_by_squash_errors()}
   def merge_branches_by_squash(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6004,45 +7413,7 @@ defmodule AWS.CodeCommit do
   @spec merge_branches_by_three_way(map(), merge_branches_by_three_way_input(), list()) ::
           {:ok, merge_branches_by_three_way_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, branch_does_not_exist_exception()}
-          | {:error, branch_name_is_tag_name_exception()}
-          | {:error, branch_name_required_exception()}
-          | {:error, commit_does_not_exist_exception()}
-          | {:error, commit_message_length_exceeded_exception()}
-          | {:error, commit_required_exception()}
-          | {:error, concurrent_reference_update_exception()}
-          | {:error, encryption_integrity_checks_failed_exception()}
-          | {:error, encryption_key_access_denied_exception()}
-          | {:error, encryption_key_disabled_exception()}
-          | {:error, encryption_key_not_found_exception()}
-          | {:error, encryption_key_unavailable_exception()}
-          | {:error, file_content_size_limit_exceeded_exception()}
-          | {:error, file_mode_required_exception()}
-          | {:error, folder_content_size_limit_exceeded_exception()}
-          | {:error, invalid_branch_name_exception()}
-          | {:error, invalid_commit_exception()}
-          | {:error, invalid_conflict_detail_level_exception()}
-          | {:error, invalid_conflict_resolution_exception()}
-          | {:error, invalid_conflict_resolution_strategy_exception()}
-          | {:error, invalid_email_exception()}
-          | {:error, invalid_file_mode_exception()}
-          | {:error, invalid_path_exception()}
-          | {:error, invalid_replacement_content_exception()}
-          | {:error, invalid_replacement_type_exception()}
-          | {:error, invalid_repository_name_exception()}
-          | {:error, invalid_target_branch_exception()}
-          | {:error, manual_merge_required_exception()}
-          | {:error, maximum_conflict_resolution_entries_exceeded_exception()}
-          | {:error, maximum_file_content_to_load_exceeded_exception()}
-          | {:error, maximum_items_to_compare_exceeded_exception()}
-          | {:error, multiple_conflict_resolution_entries_exception()}
-          | {:error, name_length_exceeded_exception()}
-          | {:error, path_required_exception()}
-          | {:error, replacement_content_required_exception()}
-          | {:error, replacement_type_required_exception()}
-          | {:error, repository_does_not_exist_exception()}
-          | {:error, repository_name_required_exception()}
-          | {:error, tips_divergence_exceeded_exception()}
+          | {:error, merge_branches_by_three_way_errors()}
   def merge_branches_by_three_way(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6064,25 +7435,7 @@ defmodule AWS.CodeCommit do
         ) ::
           {:ok, merge_pull_request_by_fast_forward_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_reference_update_exception()}
-          | {:error, encryption_integrity_checks_failed_exception()}
-          | {:error, encryption_key_access_denied_exception()}
-          | {:error, encryption_key_disabled_exception()}
-          | {:error, encryption_key_not_found_exception()}
-          | {:error, encryption_key_unavailable_exception()}
-          | {:error, invalid_commit_id_exception()}
-          | {:error, invalid_pull_request_id_exception()}
-          | {:error, invalid_repository_name_exception()}
-          | {:error, manual_merge_required_exception()}
-          | {:error, pull_request_already_closed_exception()}
-          | {:error, pull_request_approval_rules_not_satisfied_exception()}
-          | {:error, pull_request_does_not_exist_exception()}
-          | {:error, pull_request_id_required_exception()}
-          | {:error, reference_does_not_exist_exception()}
-          | {:error, repository_does_not_exist_exception()}
-          | {:error, repository_name_required_exception()}
-          | {:error, repository_not_associated_with_pull_request_exception()}
-          | {:error, tip_of_source_reference_is_different_exception()}
+          | {:error, merge_pull_request_by_fast_forward_errors()}
   def merge_pull_request_by_fast_forward(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6100,44 +7453,7 @@ defmodule AWS.CodeCommit do
   @spec merge_pull_request_by_squash(map(), merge_pull_request_by_squash_input(), list()) ::
           {:ok, merge_pull_request_by_squash_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, commit_message_length_exceeded_exception()}
-          | {:error, concurrent_reference_update_exception()}
-          | {:error, encryption_integrity_checks_failed_exception()}
-          | {:error, encryption_key_access_denied_exception()}
-          | {:error, encryption_key_disabled_exception()}
-          | {:error, encryption_key_not_found_exception()}
-          | {:error, encryption_key_unavailable_exception()}
-          | {:error, file_content_size_limit_exceeded_exception()}
-          | {:error, folder_content_size_limit_exceeded_exception()}
-          | {:error, invalid_commit_id_exception()}
-          | {:error, invalid_conflict_detail_level_exception()}
-          | {:error, invalid_conflict_resolution_exception()}
-          | {:error, invalid_conflict_resolution_strategy_exception()}
-          | {:error, invalid_email_exception()}
-          | {:error, invalid_file_mode_exception()}
-          | {:error, invalid_path_exception()}
-          | {:error, invalid_pull_request_id_exception()}
-          | {:error, invalid_replacement_content_exception()}
-          | {:error, invalid_replacement_type_exception()}
-          | {:error, invalid_repository_name_exception()}
-          | {:error, manual_merge_required_exception()}
-          | {:error, maximum_conflict_resolution_entries_exceeded_exception()}
-          | {:error, maximum_file_content_to_load_exceeded_exception()}
-          | {:error, maximum_items_to_compare_exceeded_exception()}
-          | {:error, multiple_conflict_resolution_entries_exception()}
-          | {:error, name_length_exceeded_exception()}
-          | {:error, path_required_exception()}
-          | {:error, pull_request_already_closed_exception()}
-          | {:error, pull_request_approval_rules_not_satisfied_exception()}
-          | {:error, pull_request_does_not_exist_exception()}
-          | {:error, pull_request_id_required_exception()}
-          | {:error, replacement_content_required_exception()}
-          | {:error, replacement_type_required_exception()}
-          | {:error, repository_does_not_exist_exception()}
-          | {:error, repository_name_required_exception()}
-          | {:error, repository_not_associated_with_pull_request_exception()}
-          | {:error, tip_of_source_reference_is_different_exception()}
-          | {:error, tips_divergence_exceeded_exception()}
+          | {:error, merge_pull_request_by_squash_errors()}
   def merge_pull_request_by_squash(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6155,44 +7471,7 @@ defmodule AWS.CodeCommit do
   @spec merge_pull_request_by_three_way(map(), merge_pull_request_by_three_way_input(), list()) ::
           {:ok, merge_pull_request_by_three_way_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, commit_message_length_exceeded_exception()}
-          | {:error, concurrent_reference_update_exception()}
-          | {:error, encryption_integrity_checks_failed_exception()}
-          | {:error, encryption_key_access_denied_exception()}
-          | {:error, encryption_key_disabled_exception()}
-          | {:error, encryption_key_not_found_exception()}
-          | {:error, encryption_key_unavailable_exception()}
-          | {:error, file_content_size_limit_exceeded_exception()}
-          | {:error, folder_content_size_limit_exceeded_exception()}
-          | {:error, invalid_commit_id_exception()}
-          | {:error, invalid_conflict_detail_level_exception()}
-          | {:error, invalid_conflict_resolution_exception()}
-          | {:error, invalid_conflict_resolution_strategy_exception()}
-          | {:error, invalid_email_exception()}
-          | {:error, invalid_file_mode_exception()}
-          | {:error, invalid_path_exception()}
-          | {:error, invalid_pull_request_id_exception()}
-          | {:error, invalid_replacement_content_exception()}
-          | {:error, invalid_replacement_type_exception()}
-          | {:error, invalid_repository_name_exception()}
-          | {:error, manual_merge_required_exception()}
-          | {:error, maximum_conflict_resolution_entries_exceeded_exception()}
-          | {:error, maximum_file_content_to_load_exceeded_exception()}
-          | {:error, maximum_items_to_compare_exceeded_exception()}
-          | {:error, multiple_conflict_resolution_entries_exception()}
-          | {:error, name_length_exceeded_exception()}
-          | {:error, path_required_exception()}
-          | {:error, pull_request_already_closed_exception()}
-          | {:error, pull_request_approval_rules_not_satisfied_exception()}
-          | {:error, pull_request_does_not_exist_exception()}
-          | {:error, pull_request_id_required_exception()}
-          | {:error, replacement_content_required_exception()}
-          | {:error, replacement_type_required_exception()}
-          | {:error, repository_does_not_exist_exception()}
-          | {:error, repository_name_required_exception()}
-          | {:error, repository_not_associated_with_pull_request_exception()}
-          | {:error, tip_of_source_reference_is_different_exception()}
-          | {:error, tips_divergence_exceeded_exception()}
+          | {:error, merge_pull_request_by_three_way_errors()}
   def merge_pull_request_by_three_way(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6210,21 +7489,7 @@ defmodule AWS.CodeCommit do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, encryption_integrity_checks_failed_exception()}
-          | {:error, encryption_key_access_denied_exception()}
-          | {:error, encryption_key_disabled_exception()}
-          | {:error, encryption_key_not_found_exception()}
-          | {:error, encryption_key_unavailable_exception()}
-          | {:error, invalid_override_status_exception()}
-          | {:error, invalid_pull_request_id_exception()}
-          | {:error, invalid_revision_id_exception()}
-          | {:error, override_already_set_exception()}
-          | {:error, override_status_required_exception()}
-          | {:error, pull_request_already_closed_exception()}
-          | {:error, pull_request_does_not_exist_exception()}
-          | {:error, pull_request_id_required_exception()}
-          | {:error, revision_id_required_exception()}
-          | {:error, revision_not_current_exception()}
+          | {:error, override_pull_request_approval_rules_errors()}
   def override_pull_request_approval_rules(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6237,29 +7502,7 @@ defmodule AWS.CodeCommit do
   @spec post_comment_for_compared_commit(map(), post_comment_for_compared_commit_input(), list()) ::
           {:ok, post_comment_for_compared_commit_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, before_commit_id_and_after_commit_id_are_same_exception()}
-          | {:error, client_request_token_required_exception()}
-          | {:error, comment_content_required_exception()}
-          | {:error, comment_content_size_limit_exceeded_exception()}
-          | {:error, commit_does_not_exist_exception()}
-          | {:error, commit_id_required_exception()}
-          | {:error, encryption_integrity_checks_failed_exception()}
-          | {:error, encryption_key_access_denied_exception()}
-          | {:error, encryption_key_disabled_exception()}
-          | {:error, encryption_key_not_found_exception()}
-          | {:error, encryption_key_unavailable_exception()}
-          | {:error, idempotency_parameter_mismatch_exception()}
-          | {:error, invalid_client_request_token_exception()}
-          | {:error, invalid_commit_id_exception()}
-          | {:error, invalid_file_location_exception()}
-          | {:error, invalid_file_position_exception()}
-          | {:error, invalid_path_exception()}
-          | {:error, invalid_relative_file_version_enum_exception()}
-          | {:error, invalid_repository_name_exception()}
-          | {:error, path_does_not_exist_exception()}
-          | {:error, path_required_exception()}
-          | {:error, repository_does_not_exist_exception()}
-          | {:error, repository_name_required_exception()}
+          | {:error, post_comment_for_compared_commit_errors()}
   def post_comment_for_compared_commit(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6272,33 +7515,7 @@ defmodule AWS.CodeCommit do
   @spec post_comment_for_pull_request(map(), post_comment_for_pull_request_input(), list()) ::
           {:ok, post_comment_for_pull_request_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, before_commit_id_and_after_commit_id_are_same_exception()}
-          | {:error, client_request_token_required_exception()}
-          | {:error, comment_content_required_exception()}
-          | {:error, comment_content_size_limit_exceeded_exception()}
-          | {:error, commit_does_not_exist_exception()}
-          | {:error, commit_id_required_exception()}
-          | {:error, encryption_integrity_checks_failed_exception()}
-          | {:error, encryption_key_access_denied_exception()}
-          | {:error, encryption_key_disabled_exception()}
-          | {:error, encryption_key_not_found_exception()}
-          | {:error, encryption_key_unavailable_exception()}
-          | {:error, idempotency_parameter_mismatch_exception()}
-          | {:error, invalid_client_request_token_exception()}
-          | {:error, invalid_commit_id_exception()}
-          | {:error, invalid_file_location_exception()}
-          | {:error, invalid_file_position_exception()}
-          | {:error, invalid_path_exception()}
-          | {:error, invalid_pull_request_id_exception()}
-          | {:error, invalid_relative_file_version_enum_exception()}
-          | {:error, invalid_repository_name_exception()}
-          | {:error, path_does_not_exist_exception()}
-          | {:error, path_required_exception()}
-          | {:error, pull_request_does_not_exist_exception()}
-          | {:error, pull_request_id_required_exception()}
-          | {:error, repository_does_not_exist_exception()}
-          | {:error, repository_name_required_exception()}
-          | {:error, repository_not_associated_with_pull_request_exception()}
+          | {:error, post_comment_for_pull_request_errors()}
   def post_comment_for_pull_request(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6312,14 +7529,7 @@ defmodule AWS.CodeCommit do
   @spec post_comment_reply(map(), post_comment_reply_input(), list()) ::
           {:ok, post_comment_reply_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, client_request_token_required_exception()}
-          | {:error, comment_content_required_exception()}
-          | {:error, comment_content_size_limit_exceeded_exception()}
-          | {:error, comment_does_not_exist_exception()}
-          | {:error, comment_id_required_exception()}
-          | {:error, idempotency_parameter_mismatch_exception()}
-          | {:error, invalid_client_request_token_exception()}
-          | {:error, invalid_comment_id_exception()}
+          | {:error, post_comment_reply_errors()}
   def post_comment_reply(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6337,13 +7547,7 @@ defmodule AWS.CodeCommit do
   @spec put_comment_reaction(map(), put_comment_reaction_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, comment_deleted_exception()}
-          | {:error, comment_does_not_exist_exception()}
-          | {:error, comment_id_required_exception()}
-          | {:error, invalid_comment_id_exception()}
-          | {:error, invalid_reaction_value_exception()}
-          | {:error, reaction_limit_exceeded_exception()}
-          | {:error, reaction_value_required_exception()}
+          | {:error, put_comment_reaction_errors()}
   def put_comment_reaction(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6357,36 +7561,7 @@ defmodule AWS.CodeCommit do
   @spec put_file(map(), put_file_input(), list()) ::
           {:ok, put_file_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, branch_does_not_exist_exception()}
-          | {:error, branch_name_is_tag_name_exception()}
-          | {:error, branch_name_required_exception()}
-          | {:error, commit_message_length_exceeded_exception()}
-          | {:error, directory_name_conflicts_with_file_name_exception()}
-          | {:error, encryption_integrity_checks_failed_exception()}
-          | {:error, encryption_key_access_denied_exception()}
-          | {:error, encryption_key_disabled_exception()}
-          | {:error, encryption_key_not_found_exception()}
-          | {:error, encryption_key_unavailable_exception()}
-          | {:error, file_content_required_exception()}
-          | {:error, file_content_size_limit_exceeded_exception()}
-          | {:error, file_name_conflicts_with_directory_name_exception()}
-          | {:error, file_path_conflicts_with_submodule_path_exception()}
-          | {:error, folder_content_size_limit_exceeded_exception()}
-          | {:error, invalid_branch_name_exception()}
-          | {:error, invalid_deletion_parameter_exception()}
-          | {:error, invalid_email_exception()}
-          | {:error, invalid_file_mode_exception()}
-          | {:error, invalid_parent_commit_id_exception()}
-          | {:error, invalid_path_exception()}
-          | {:error, invalid_repository_name_exception()}
-          | {:error, name_length_exceeded_exception()}
-          | {:error, parent_commit_does_not_exist_exception()}
-          | {:error, parent_commit_id_outdated_exception()}
-          | {:error, parent_commit_id_required_exception()}
-          | {:error, path_required_exception()}
-          | {:error, repository_does_not_exist_exception()}
-          | {:error, repository_name_required_exception()}
-          | {:error, same_file_content_exception()}
+          | {:error, put_file_errors()}
   def put_file(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6401,27 +7576,7 @@ defmodule AWS.CodeCommit do
   @spec put_repository_triggers(map(), put_repository_triggers_input(), list()) ::
           {:ok, put_repository_triggers_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, encryption_integrity_checks_failed_exception()}
-          | {:error, encryption_key_access_denied_exception()}
-          | {:error, encryption_key_disabled_exception()}
-          | {:error, encryption_key_not_found_exception()}
-          | {:error, encryption_key_unavailable_exception()}
-          | {:error, invalid_repository_name_exception()}
-          | {:error, invalid_repository_trigger_branch_name_exception()}
-          | {:error, invalid_repository_trigger_custom_data_exception()}
-          | {:error, invalid_repository_trigger_destination_arn_exception()}
-          | {:error, invalid_repository_trigger_events_exception()}
-          | {:error, invalid_repository_trigger_name_exception()}
-          | {:error, invalid_repository_trigger_region_exception()}
-          | {:error, maximum_branches_exceeded_exception()}
-          | {:error, maximum_repository_triggers_exceeded_exception()}
-          | {:error, repository_does_not_exist_exception()}
-          | {:error, repository_name_required_exception()}
-          | {:error, repository_trigger_branch_name_list_required_exception()}
-          | {:error, repository_trigger_destination_arn_required_exception()}
-          | {:error, repository_trigger_events_list_required_exception()}
-          | {:error, repository_trigger_name_required_exception()}
-          | {:error, repository_triggers_list_required_exception()}
+          | {:error, put_repository_triggers_errors()}
   def put_repository_triggers(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6439,15 +7594,7 @@ defmodule AWS.CodeCommit do
   @spec tag_resource(map(), tag_resource_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_repository_name_exception()}
-          | {:error, invalid_resource_arn_exception()}
-          | {:error, invalid_system_tag_usage_exception()}
-          | {:error, invalid_tags_map_exception()}
-          | {:error, repository_does_not_exist_exception()}
-          | {:error, resource_arn_required_exception()}
-          | {:error, tag_policy_exception()}
-          | {:error, tags_map_required_exception()}
-          | {:error, too_many_tags_exception()}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6465,27 +7612,7 @@ defmodule AWS.CodeCommit do
   @spec test_repository_triggers(map(), test_repository_triggers_input(), list()) ::
           {:ok, test_repository_triggers_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, encryption_integrity_checks_failed_exception()}
-          | {:error, encryption_key_access_denied_exception()}
-          | {:error, encryption_key_disabled_exception()}
-          | {:error, encryption_key_not_found_exception()}
-          | {:error, encryption_key_unavailable_exception()}
-          | {:error, invalid_repository_name_exception()}
-          | {:error, invalid_repository_trigger_branch_name_exception()}
-          | {:error, invalid_repository_trigger_custom_data_exception()}
-          | {:error, invalid_repository_trigger_destination_arn_exception()}
-          | {:error, invalid_repository_trigger_events_exception()}
-          | {:error, invalid_repository_trigger_name_exception()}
-          | {:error, invalid_repository_trigger_region_exception()}
-          | {:error, maximum_branches_exceeded_exception()}
-          | {:error, maximum_repository_triggers_exceeded_exception()}
-          | {:error, repository_does_not_exist_exception()}
-          | {:error, repository_name_required_exception()}
-          | {:error, repository_trigger_branch_name_list_required_exception()}
-          | {:error, repository_trigger_destination_arn_required_exception()}
-          | {:error, repository_trigger_events_list_required_exception()}
-          | {:error, repository_trigger_name_required_exception()}
-          | {:error, repository_triggers_list_required_exception()}
+          | {:error, test_repository_triggers_errors()}
   def test_repository_triggers(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6502,15 +7629,7 @@ defmodule AWS.CodeCommit do
   @spec untag_resource(map(), untag_resource_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_repository_name_exception()}
-          | {:error, invalid_resource_arn_exception()}
-          | {:error, invalid_system_tag_usage_exception()}
-          | {:error, invalid_tag_keys_list_exception()}
-          | {:error, repository_does_not_exist_exception()}
-          | {:error, resource_arn_required_exception()}
-          | {:error, tag_keys_list_required_exception()}
-          | {:error, tag_policy_exception()}
-          | {:error, too_many_tags_exception()}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6532,12 +7651,7 @@ defmodule AWS.CodeCommit do
         ) ::
           {:ok, update_approval_rule_template_content_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, approval_rule_template_content_required_exception()}
-          | {:error, approval_rule_template_does_not_exist_exception()}
-          | {:error, approval_rule_template_name_required_exception()}
-          | {:error, invalid_approval_rule_template_content_exception()}
-          | {:error, invalid_approval_rule_template_name_exception()}
-          | {:error, invalid_rule_content_sha256_exception()}
+          | {:error, update_approval_rule_template_content_errors()}
   def update_approval_rule_template_content(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6554,10 +7668,7 @@ defmodule AWS.CodeCommit do
         ) ::
           {:ok, update_approval_rule_template_description_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, approval_rule_template_does_not_exist_exception()}
-          | {:error, approval_rule_template_name_required_exception()}
-          | {:error, invalid_approval_rule_template_description_exception()}
-          | {:error, invalid_approval_rule_template_name_exception()}
+          | {:error, update_approval_rule_template_description_errors()}
   def update_approval_rule_template_description(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6574,10 +7685,7 @@ defmodule AWS.CodeCommit do
         ) ::
           {:ok, update_approval_rule_template_name_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, approval_rule_template_does_not_exist_exception()}
-          | {:error, approval_rule_template_name_already_exists_exception()}
-          | {:error, approval_rule_template_name_required_exception()}
-          | {:error, invalid_approval_rule_template_name_exception()}
+          | {:error, update_approval_rule_template_name_errors()}
   def update_approval_rule_template_name(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6590,13 +7698,7 @@ defmodule AWS.CodeCommit do
   @spec update_comment(map(), update_comment_input(), list()) ::
           {:ok, update_comment_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, comment_content_required_exception()}
-          | {:error, comment_content_size_limit_exceeded_exception()}
-          | {:error, comment_deleted_exception()}
-          | {:error, comment_does_not_exist_exception()}
-          | {:error, comment_id_required_exception()}
-          | {:error, comment_not_created_by_caller_exception()}
-          | {:error, invalid_comment_id_exception()}
+          | {:error, update_comment_errors()}
   def update_comment(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6613,17 +7715,7 @@ defmodule AWS.CodeCommit do
   @spec update_default_branch(map(), update_default_branch_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, branch_does_not_exist_exception()}
-          | {:error, branch_name_required_exception()}
-          | {:error, encryption_integrity_checks_failed_exception()}
-          | {:error, encryption_key_access_denied_exception()}
-          | {:error, encryption_key_disabled_exception()}
-          | {:error, encryption_key_not_found_exception()}
-          | {:error, encryption_key_unavailable_exception()}
-          | {:error, invalid_branch_name_exception()}
-          | {:error, invalid_repository_name_exception()}
-          | {:error, repository_does_not_exist_exception()}
-          | {:error, repository_name_required_exception()}
+          | {:error, update_default_branch_errors()}
   def update_default_branch(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6644,22 +7736,7 @@ defmodule AWS.CodeCommit do
         ) ::
           {:ok, update_pull_request_approval_rule_content_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, approval_rule_content_required_exception()}
-          | {:error, approval_rule_does_not_exist_exception()}
-          | {:error, approval_rule_name_required_exception()}
-          | {:error, cannot_modify_approval_rule_from_template_exception()}
-          | {:error, encryption_integrity_checks_failed_exception()}
-          | {:error, encryption_key_access_denied_exception()}
-          | {:error, encryption_key_disabled_exception()}
-          | {:error, encryption_key_not_found_exception()}
-          | {:error, encryption_key_unavailable_exception()}
-          | {:error, invalid_approval_rule_content_exception()}
-          | {:error, invalid_approval_rule_name_exception()}
-          | {:error, invalid_pull_request_id_exception()}
-          | {:error, invalid_rule_content_sha256_exception()}
-          | {:error, pull_request_already_closed_exception()}
-          | {:error, pull_request_does_not_exist_exception()}
-          | {:error, pull_request_id_required_exception()}
+          | {:error, update_pull_request_approval_rule_content_errors()}
   def update_pull_request_approval_rule_content(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6678,22 +7755,7 @@ defmodule AWS.CodeCommit do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, approval_state_required_exception()}
-          | {:error, encryption_integrity_checks_failed_exception()}
-          | {:error, encryption_key_access_denied_exception()}
-          | {:error, encryption_key_disabled_exception()}
-          | {:error, encryption_key_not_found_exception()}
-          | {:error, encryption_key_unavailable_exception()}
-          | {:error, invalid_approval_state_exception()}
-          | {:error, invalid_pull_request_id_exception()}
-          | {:error, invalid_revision_id_exception()}
-          | {:error, maximum_number_of_approvals_exceeded_exception()}
-          | {:error, pull_request_already_closed_exception()}
-          | {:error, pull_request_cannot_be_approved_by_author_exception()}
-          | {:error, pull_request_does_not_exist_exception()}
-          | {:error, pull_request_id_required_exception()}
-          | {:error, revision_id_required_exception()}
-          | {:error, revision_not_current_exception()}
+          | {:error, update_pull_request_approval_state_errors()}
   def update_pull_request_approval_state(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6706,11 +7768,7 @@ defmodule AWS.CodeCommit do
   @spec update_pull_request_description(map(), update_pull_request_description_input(), list()) ::
           {:ok, update_pull_request_description_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_description_exception()}
-          | {:error, invalid_pull_request_id_exception()}
-          | {:error, pull_request_already_closed_exception()}
-          | {:error, pull_request_does_not_exist_exception()}
-          | {:error, pull_request_id_required_exception()}
+          | {:error, update_pull_request_description_errors()}
   def update_pull_request_description(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6723,17 +7781,7 @@ defmodule AWS.CodeCommit do
   @spec update_pull_request_status(map(), update_pull_request_status_input(), list()) ::
           {:ok, update_pull_request_status_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, encryption_integrity_checks_failed_exception()}
-          | {:error, encryption_key_access_denied_exception()}
-          | {:error, encryption_key_disabled_exception()}
-          | {:error, encryption_key_not_found_exception()}
-          | {:error, encryption_key_unavailable_exception()}
-          | {:error, invalid_pull_request_id_exception()}
-          | {:error, invalid_pull_request_status_exception()}
-          | {:error, invalid_pull_request_status_update_exception()}
-          | {:error, pull_request_does_not_exist_exception()}
-          | {:error, pull_request_id_required_exception()}
-          | {:error, pull_request_status_required_exception()}
+          | {:error, update_pull_request_status_errors()}
   def update_pull_request_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6746,12 +7794,7 @@ defmodule AWS.CodeCommit do
   @spec update_pull_request_title(map(), update_pull_request_title_input(), list()) ::
           {:ok, update_pull_request_title_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_pull_request_id_exception()}
-          | {:error, invalid_title_exception()}
-          | {:error, pull_request_already_closed_exception()}
-          | {:error, pull_request_does_not_exist_exception()}
-          | {:error, pull_request_id_required_exception()}
-          | {:error, title_required_exception()}
+          | {:error, update_pull_request_title_errors()}
   def update_pull_request_title(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6773,15 +7816,7 @@ defmodule AWS.CodeCommit do
   @spec update_repository_description(map(), update_repository_description_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, encryption_integrity_checks_failed_exception()}
-          | {:error, encryption_key_access_denied_exception()}
-          | {:error, encryption_key_disabled_exception()}
-          | {:error, encryption_key_not_found_exception()}
-          | {:error, encryption_key_unavailable_exception()}
-          | {:error, invalid_repository_description_exception()}
-          | {:error, invalid_repository_name_exception()}
-          | {:error, repository_does_not_exist_exception()}
-          | {:error, repository_name_required_exception()}
+          | {:error, update_repository_description_errors()}
   def update_repository_description(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6795,17 +7830,7 @@ defmodule AWS.CodeCommit do
   @spec update_repository_encryption_key(map(), update_repository_encryption_key_input(), list()) ::
           {:ok, update_repository_encryption_key_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, encryption_integrity_checks_failed_exception()}
-          | {:error, encryption_key_access_denied_exception()}
-          | {:error, encryption_key_disabled_exception()}
-          | {:error, encryption_key_invalid_id_exception()}
-          | {:error, encryption_key_invalid_usage_exception()}
-          | {:error, encryption_key_not_found_exception()}
-          | {:error, encryption_key_required_exception()}
-          | {:error, encryption_key_unavailable_exception()}
-          | {:error, invalid_repository_name_exception()}
-          | {:error, repository_does_not_exist_exception()}
-          | {:error, repository_name_required_exception()}
+          | {:error, update_repository_encryption_key_errors()}
   def update_repository_encryption_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6828,10 +7853,7 @@ defmodule AWS.CodeCommit do
   @spec update_repository_name(map(), update_repository_name_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_repository_name_exception()}
-          | {:error, repository_does_not_exist_exception()}
-          | {:error, repository_name_exists_exception()}
-          | {:error, repository_name_required_exception()}
+          | {:error, update_repository_name_errors()}
   def update_repository_name(%Client{} = client, input, options \\ []) do
     meta = metadata()
 

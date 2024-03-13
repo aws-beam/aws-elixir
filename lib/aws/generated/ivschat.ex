@@ -250,534 +250,709 @@ defmodule AWS.Ivschat do
   @typedoc """
 
   ## Example:
-  tag_resource_request() :: %{
-    required("tags") => map()
-  }
+
+      tag_resource_request() :: %{
+        required("tags") => map()
+      }
+
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_room_request() :: %{
-    required("identifier") => String.t()
-  }
+
+      delete_room_request() :: %{
+        required("identifier") => String.t()
+      }
+
   """
   @type delete_room_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_message_response() :: %{
-    optional("id") => String.t()
-  }
+
+      delete_message_response() :: %{
+        optional("id") => String.t()
+      }
+
   """
   @type delete_message_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_rooms_response() :: %{
-    optional("nextToken") => String.t(),
-    required("rooms") => list(room_summary()())
-  }
+
+      list_rooms_response() :: %{
+        optional("nextToken") => String.t(),
+        required("rooms") => list(room_summary()())
+      }
+
   """
   @type list_rooms_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_response() :: %{
 
-  }
+      untag_resource_response() :: %{}
+
   """
-  @type untag_resource_response() :: %{String.t() => any()}
+  @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  disconnect_user_response() :: %{
 
-  }
+      disconnect_user_response() :: %{}
+
   """
-  @type disconnect_user_response() :: %{String.t() => any()}
+  @type disconnect_user_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_chat_token_request() :: %{
-    optional("attributes") => map(),
-    optional("capabilities") => list(String.t()()),
-    optional("sessionDurationInMinutes") => integer(),
-    required("roomIdentifier") => String.t(),
-    required("userId") => String.t()
-  }
+
+      create_chat_token_request() :: %{
+        optional("attributes") => map(),
+        optional("capabilities") => list(String.t()()),
+        optional("sessionDurationInMinutes") => integer(),
+        required("roomIdentifier") => String.t(),
+        required("userId") => String.t()
+      }
+
   """
   @type create_chat_token_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_message_request() :: %{
-    optional("reason") => String.t(),
-    required("id") => String.t(),
-    required("roomIdentifier") => String.t()
-  }
+
+      delete_message_request() :: %{
+        optional("reason") => String.t(),
+        required("id") => String.t(),
+        required("roomIdentifier") => String.t()
+      }
+
   """
   @type delete_message_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disconnect_user_request() :: %{
-    optional("reason") => String.t(),
-    required("roomIdentifier") => String.t(),
-    required("userId") => String.t()
-  }
+
+      disconnect_user_request() :: %{
+        optional("reason") => String.t(),
+        required("roomIdentifier") => String.t(),
+        required("userId") => String.t()
+      }
+
   """
   @type disconnect_user_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_logging_configuration_request() :: %{
-    optional("destinationConfiguration") => list(),
-    optional("name") => String.t(),
-    required("identifier") => String.t()
-  }
+
+      update_logging_configuration_request() :: %{
+        optional("destinationConfiguration") => list(),
+        optional("name") => String.t(),
+        required("identifier") => String.t()
+      }
+
   """
   @type update_logging_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_room_response() :: %{
-    optional("arn") => String.t(),
-    optional("createTime") => non_neg_integer(),
-    optional("id") => String.t(),
-    optional("loggingConfigurationIdentifiers") => list(String.t()()),
-    optional("maximumMessageLength") => integer(),
-    optional("maximumMessageRatePerSecond") => integer(),
-    optional("messageReviewHandler") => message_review_handler(),
-    optional("name") => String.t(),
-    optional("tags") => map(),
-    optional("updateTime") => non_neg_integer()
-  }
+
+      update_room_response() :: %{
+        optional("arn") => String.t(),
+        optional("createTime") => non_neg_integer(),
+        optional("id") => String.t(),
+        optional("loggingConfigurationIdentifiers") => list(String.t()()),
+        optional("maximumMessageLength") => integer(),
+        optional("maximumMessageRatePerSecond") => integer(),
+        optional("messageReviewHandler") => message_review_handler(),
+        optional("name") => String.t(),
+        optional("tags") => map(),
+        optional("updateTime") => non_neg_integer()
+      }
+
   """
   @type update_room_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_logging_configuration_request() :: %{
-    optional("name") => String.t(),
-    optional("tags") => map(),
-    required("destinationConfiguration") => list()
-  }
+
+      create_logging_configuration_request() :: %{
+        optional("name") => String.t(),
+        optional("tags") => map(),
+        required("destinationConfiguration") => list()
+      }
+
   """
   @type create_logging_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_request() :: %{
-    required("tagKeys") => list(String.t()())
-  }
+
+      untag_resource_request() :: %{
+        required("tagKeys") => list(String.t()())
+      }
+
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  send_event_request() :: %{
-    optional("attributes") => map(),
-    required("eventName") => String.t(),
-    required("roomIdentifier") => String.t()
-  }
+
+      send_event_request() :: %{
+        optional("attributes") => map(),
+        required("eventName") => String.t(),
+        required("roomIdentifier") => String.t()
+      }
+
   """
   @type send_event_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  conflict_exception() :: %{
-    "message" => String.t(),
-    "resourceId" => String.t(),
-    "resourceType" => String.t()
-  }
+
+      conflict_exception() :: %{
+        "message" => String.t(),
+        "resourceId" => String.t(),
+        "resourceType" => String.t()
+      }
+
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_logging_configuration_response() :: %{
-    optional("arn") => String.t(),
-    optional("createTime") => non_neg_integer(),
-    optional("destinationConfiguration") => list(),
-    optional("id") => String.t(),
-    optional("name") => String.t(),
-    optional("state") => String.t(),
-    optional("tags") => map(),
-    optional("updateTime") => non_neg_integer()
-  }
+
+      create_logging_configuration_response() :: %{
+        optional("arn") => String.t(),
+        optional("createTime") => non_neg_integer(),
+        optional("destinationConfiguration") => list(),
+        optional("id") => String.t(),
+        optional("name") => String.t(),
+        optional("state") => String.t(),
+        optional("tags") => map(),
+        optional("updateTime") => non_neg_integer()
+      }
+
   """
   @type create_logging_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_not_found_exception() :: %{
-    "message" => String.t(),
-    "resourceId" => String.t(),
-    "resourceType" => String.t()
-  }
+
+      resource_not_found_exception() :: %{
+        "message" => String.t(),
+        "resourceId" => String.t(),
+        "resourceType" => String.t()
+      }
+
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  send_event_response() :: %{
-    optional("id") => String.t()
-  }
+
+      send_event_response() :: %{
+        optional("id") => String.t()
+      }
+
   """
   @type send_event_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  service_quota_exceeded_exception() :: %{
-    "limit" => integer(),
-    "message" => String.t(),
-    "resourceId" => String.t(),
-    "resourceType" => String.t()
-  }
+
+      service_quota_exceeded_exception() :: %{
+        "limit" => integer(),
+        "message" => String.t(),
+        "resourceId" => String.t(),
+        "resourceType" => String.t()
+      }
+
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_logging_configuration_response() :: %{
-    optional("arn") => String.t(),
-    optional("createTime") => non_neg_integer(),
-    optional("destinationConfiguration") => list(),
-    optional("id") => String.t(),
-    optional("name") => String.t(),
-    optional("state") => String.t(),
-    optional("tags") => map(),
-    optional("updateTime") => non_neg_integer()
-  }
+
+      get_logging_configuration_response() :: %{
+        optional("arn") => String.t(),
+        optional("createTime") => non_neg_integer(),
+        optional("destinationConfiguration") => list(),
+        optional("id") => String.t(),
+        optional("name") => String.t(),
+        optional("state") => String.t(),
+        optional("tags") => map(),
+        optional("updateTime") => non_neg_integer()
+      }
+
   """
   @type get_logging_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  s3_destination_configuration() :: %{
-    "bucketName" => String.t()
-  }
+
+      s3_destination_configuration() :: %{
+        "bucketName" => String.t()
+      }
+
   """
   @type s3_destination_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_response() :: %{
-    required("tags") => map()
-  }
+
+      list_tags_for_resource_response() :: %{
+        required("tags") => map()
+      }
+
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_chat_token_response() :: %{
-    optional("sessionExpirationTime") => non_neg_integer(),
-    optional("token") => String.t(),
-    optional("tokenExpirationTime") => non_neg_integer()
-  }
+
+      create_chat_token_response() :: %{
+        optional("sessionExpirationTime") => non_neg_integer(),
+        optional("token") => String.t(),
+        optional("tokenExpirationTime") => non_neg_integer()
+      }
+
   """
   @type create_chat_token_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  validation_exception_field() :: %{
-    "message" => String.t(),
-    "name" => String.t()
-  }
+
+      validation_exception_field() :: %{
+        "message" => String.t(),
+        "name" => String.t()
+      }
+
   """
   @type validation_exception_field() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_logging_configuration_request() :: %{
-    required("identifier") => String.t()
-  }
+
+      get_logging_configuration_request() :: %{
+        required("identifier") => String.t()
+      }
+
   """
   @type get_logging_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  internal_server_exception() :: %{
-    "message" => String.t()
-  }
+
+      internal_server_exception() :: %{
+        "message" => String.t()
+      }
+
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_room_request() :: %{
-    required("identifier") => String.t()
-  }
+
+      get_room_request() :: %{
+        required("identifier") => String.t()
+      }
+
   """
   @type get_room_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_logging_configurations_response() :: %{
-    optional("nextToken") => String.t(),
-    required("loggingConfigurations") => list(logging_configuration_summary()())
-  }
+
+      list_logging_configurations_response() :: %{
+        optional("nextToken") => String.t(),
+        required("loggingConfigurations") => list(logging_configuration_summary()())
+      }
+
   """
   @type list_logging_configurations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  access_denied_exception() :: %{
-    "message" => String.t()
-  }
+
+      access_denied_exception() :: %{
+        "message" => String.t()
+      }
+
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_room_response() :: %{
-    optional("arn") => String.t(),
-    optional("createTime") => non_neg_integer(),
-    optional("id") => String.t(),
-    optional("loggingConfigurationIdentifiers") => list(String.t()()),
-    optional("maximumMessageLength") => integer(),
-    optional("maximumMessageRatePerSecond") => integer(),
-    optional("messageReviewHandler") => message_review_handler(),
-    optional("name") => String.t(),
-    optional("tags") => map(),
-    optional("updateTime") => non_neg_integer()
-  }
+
+      get_room_response() :: %{
+        optional("arn") => String.t(),
+        optional("createTime") => non_neg_integer(),
+        optional("id") => String.t(),
+        optional("loggingConfigurationIdentifiers") => list(String.t()()),
+        optional("maximumMessageLength") => integer(),
+        optional("maximumMessageRatePerSecond") => integer(),
+        optional("messageReviewHandler") => message_review_handler(),
+        optional("name") => String.t(),
+        optional("tags") => map(),
+        optional("updateTime") => non_neg_integer()
+      }
+
   """
   @type get_room_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_response() :: %{
 
-  }
+      tag_resource_response() :: %{}
+
   """
-  @type tag_resource_response() :: %{String.t() => any()}
+  @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  validation_exception() :: %{
-    "fieldList" => list(validation_exception_field()()),
-    "message" => String.t(),
-    "reason" => String.t()
-  }
+
+      validation_exception() :: %{
+        "fieldList" => list(validation_exception_field()()),
+        "message" => String.t(),
+        "reason" => String.t()
+      }
+
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_request() :: %{
 
-  }
+      list_tags_for_resource_request() :: %{}
+
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_room_request() :: %{
-    optional("loggingConfigurationIdentifiers") => list(String.t()()),
-    optional("maximumMessageLength") => integer(),
-    optional("maximumMessageRatePerSecond") => integer(),
-    optional("messageReviewHandler") => message_review_handler(),
-    optional("name") => String.t(),
-    optional("tags") => map()
-  }
+
+      create_room_request() :: %{
+        optional("loggingConfigurationIdentifiers") => list(String.t()()),
+        optional("maximumMessageLength") => integer(),
+        optional("maximumMessageRatePerSecond") => integer(),
+        optional("messageReviewHandler") => message_review_handler(),
+        optional("name") => String.t(),
+        optional("tags") => map()
+      }
+
   """
   @type create_room_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  throttling_exception() :: %{
-    "limit" => integer(),
-    "message" => String.t(),
-    "resourceId" => String.t(),
-    "resourceType" => String.t()
-  }
+
+      throttling_exception() :: %{
+        "limit" => integer(),
+        "message" => String.t(),
+        "resourceId" => String.t(),
+        "resourceType" => String.t()
+      }
+
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_rooms_request() :: %{
-    optional("loggingConfigurationIdentifier") => String.t(),
-    optional("maxResults") => integer(),
-    optional("messageReviewHandlerUri") => String.t(),
-    optional("name") => String.t(),
-    optional("nextToken") => String.t()
-  }
+
+      list_rooms_request() :: %{
+        optional("loggingConfigurationIdentifier") => String.t(),
+        optional("maxResults") => integer(),
+        optional("messageReviewHandlerUri") => String.t(),
+        optional("name") => String.t(),
+        optional("nextToken") => String.t()
+      }
+
   """
   @type list_rooms_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_logging_configurations_request() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t()
-  }
+
+      list_logging_configurations_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
   """
   @type list_logging_configurations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cloud_watch_logs_destination_configuration() :: %{
-    "logGroupName" => String.t()
-  }
+
+      cloud_watch_logs_destination_configuration() :: %{
+        "logGroupName" => String.t()
+      }
+
   """
   @type cloud_watch_logs_destination_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  firehose_destination_configuration() :: %{
-    "deliveryStreamName" => String.t()
-  }
+
+      firehose_destination_configuration() :: %{
+        "deliveryStreamName" => String.t()
+      }
+
   """
   @type firehose_destination_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_logging_configuration_request() :: %{
-    required("identifier") => String.t()
-  }
+
+      delete_logging_configuration_request() :: %{
+        required("identifier") => String.t()
+      }
+
   """
   @type delete_logging_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  room_summary() :: %{
-    "arn" => String.t(),
-    "createTime" => non_neg_integer(),
-    "id" => String.t(),
-    "loggingConfigurationIdentifiers" => list(String.t()()),
-    "messageReviewHandler" => message_review_handler(),
-    "name" => String.t(),
-    "tags" => map(),
-    "updateTime" => non_neg_integer()
-  }
+
+      room_summary() :: %{
+        "arn" => String.t(),
+        "createTime" => non_neg_integer(),
+        "id" => String.t(),
+        "loggingConfigurationIdentifiers" => list(String.t()()),
+        "messageReviewHandler" => message_review_handler(),
+        "name" => String.t(),
+        "tags" => map(),
+        "updateTime" => non_neg_integer()
+      }
+
   """
   @type room_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_logging_configuration_response() :: %{
-    optional("arn") => String.t(),
-    optional("createTime") => non_neg_integer(),
-    optional("destinationConfiguration") => list(),
-    optional("id") => String.t(),
-    optional("name") => String.t(),
-    optional("state") => String.t(),
-    optional("tags") => map(),
-    optional("updateTime") => non_neg_integer()
-  }
+
+      update_logging_configuration_response() :: %{
+        optional("arn") => String.t(),
+        optional("createTime") => non_neg_integer(),
+        optional("destinationConfiguration") => list(),
+        optional("id") => String.t(),
+        optional("name") => String.t(),
+        optional("state") => String.t(),
+        optional("tags") => map(),
+        optional("updateTime") => non_neg_integer()
+      }
+
   """
   @type update_logging_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  logging_configuration_summary() :: %{
-    "arn" => String.t(),
-    "createTime" => non_neg_integer(),
-    "destinationConfiguration" => list(),
-    "id" => String.t(),
-    "name" => String.t(),
-    "state" => String.t(),
-    "tags" => map(),
-    "updateTime" => non_neg_integer()
-  }
+
+      logging_configuration_summary() :: %{
+        "arn" => String.t(),
+        "createTime" => non_neg_integer(),
+        "destinationConfiguration" => list(),
+        "id" => String.t(),
+        "name" => String.t(),
+        "state" => String.t(),
+        "tags" => map(),
+        "updateTime" => non_neg_integer()
+      }
+
   """
   @type logging_configuration_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_room_request() :: %{
-    optional("loggingConfigurationIdentifiers") => list(String.t()()),
-    optional("maximumMessageLength") => integer(),
-    optional("maximumMessageRatePerSecond") => integer(),
-    optional("messageReviewHandler") => message_review_handler(),
-    optional("name") => String.t(),
-    required("identifier") => String.t()
-  }
+
+      update_room_request() :: %{
+        optional("loggingConfigurationIdentifiers") => list(String.t()()),
+        optional("maximumMessageLength") => integer(),
+        optional("maximumMessageRatePerSecond") => integer(),
+        optional("messageReviewHandler") => message_review_handler(),
+        optional("name") => String.t(),
+        required("identifier") => String.t()
+      }
+
   """
   @type update_room_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_room_response() :: %{
-    optional("arn") => String.t(),
-    optional("createTime") => non_neg_integer(),
-    optional("id") => String.t(),
-    optional("loggingConfigurationIdentifiers") => list(String.t()()),
-    optional("maximumMessageLength") => integer(),
-    optional("maximumMessageRatePerSecond") => integer(),
-    optional("messageReviewHandler") => message_review_handler(),
-    optional("name") => String.t(),
-    optional("tags") => map(),
-    optional("updateTime") => non_neg_integer()
-  }
+
+      create_room_response() :: %{
+        optional("arn") => String.t(),
+        optional("createTime") => non_neg_integer(),
+        optional("id") => String.t(),
+        optional("loggingConfigurationIdentifiers") => list(String.t()()),
+        optional("maximumMessageLength") => integer(),
+        optional("maximumMessageRatePerSecond") => integer(),
+        optional("messageReviewHandler") => message_review_handler(),
+        optional("name") => String.t(),
+        optional("tags") => map(),
+        optional("updateTime") => non_neg_integer()
+      }
+
   """
   @type create_room_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  pending_verification() :: %{
-    "message" => String.t()
-  }
+
+      pending_verification() :: %{
+        "message" => String.t()
+      }
+
   """
   @type pending_verification() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  message_review_handler() :: %{
-    "fallbackResult" => String.t(),
-    "uri" => String.t()
-  }
+
+      message_review_handler() :: %{
+        "fallbackResult" => String.t(),
+        "uri" => String.t()
+      }
+
   """
   @type message_review_handler() :: %{String.t() => any()}
+
+  @type create_chat_token_errors() ::
+          pending_verification()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
+  @type create_logging_configuration_errors() ::
+          pending_verification()
+          | validation_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_room_errors() ::
+          pending_verification()
+          | validation_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_logging_configuration_errors() ::
+          pending_verification()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_message_errors() ::
+          pending_verification()
+          | throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
+  @type delete_room_errors() ::
+          pending_verification()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
+  @type disconnect_user_errors() ::
+          pending_verification()
+          | throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
+  @type get_logging_configuration_errors() ::
+          validation_exception() | access_denied_exception() | resource_not_found_exception()
+
+  @type get_room_errors() ::
+          validation_exception() | access_denied_exception() | resource_not_found_exception()
+
+  @type list_logging_configurations_errors() :: validation_exception() | access_denied_exception()
+
+  @type list_rooms_errors() ::
+          validation_exception() | access_denied_exception() | resource_not_found_exception()
+
+  @type list_tags_for_resource_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
+
+  @type send_event_errors() ::
+          pending_verification()
+          | throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
+  @type tag_resource_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
+
+  @type untag_resource_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
+
+  @type update_logging_configuration_errors() ::
+          pending_verification()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_room_errors() ::
+          pending_verification()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
 
   def metadata do
     %{
@@ -821,10 +996,7 @@ defmodule AWS.Ivschat do
   @spec create_chat_token(map(), create_chat_token_request(), list()) ::
           {:ok, create_chat_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, pending_verification()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_chat_token_errors()}
   def create_chat_token(%Client{} = client, input, options \\ []) do
     url_path = "/CreateChatToken"
     headers = []
@@ -852,12 +1024,7 @@ defmodule AWS.Ivschat do
   @spec create_logging_configuration(map(), create_logging_configuration_request(), list()) ::
           {:ok, create_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, pending_verification()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_logging_configuration_errors()}
   def create_logging_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/CreateLoggingConfiguration"
     headers = []
@@ -884,12 +1051,7 @@ defmodule AWS.Ivschat do
   @spec create_room(map(), create_room_request(), list()) ::
           {:ok, create_room_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, pending_verification()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_room_errors()}
   def create_room(%Client{} = client, input, options \\ []) do
     url_path = "/CreateRoom"
     headers = []
@@ -916,11 +1078,7 @@ defmodule AWS.Ivschat do
   @spec delete_logging_configuration(map(), delete_logging_configuration_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, pending_verification()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_logging_configuration_errors()}
   def delete_logging_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteLoggingConfiguration"
     headers = []
@@ -954,11 +1112,7 @@ defmodule AWS.Ivschat do
   @spec delete_message(map(), delete_message_request(), list()) ::
           {:ok, delete_message_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, pending_verification()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_message_errors()}
   def delete_message(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteMessage"
     headers = []
@@ -985,10 +1139,7 @@ defmodule AWS.Ivschat do
   @spec delete_room(map(), delete_room_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, pending_verification()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_room_errors()}
   def delete_room(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteRoom"
     headers = []
@@ -1020,11 +1171,7 @@ defmodule AWS.Ivschat do
   @spec disconnect_user(map(), disconnect_user_request(), list()) ::
           {:ok, disconnect_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, pending_verification()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, disconnect_user_errors()}
   def disconnect_user(%Client{} = client, input, options \\ []) do
     url_path = "/DisconnectUser"
     headers = []
@@ -1051,9 +1198,7 @@ defmodule AWS.Ivschat do
   @spec get_logging_configuration(map(), get_logging_configuration_request(), list()) ::
           {:ok, get_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_logging_configuration_errors()}
   def get_logging_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/GetLoggingConfiguration"
     headers = []
@@ -1080,9 +1225,7 @@ defmodule AWS.Ivschat do
   @spec get_room(map(), get_room_request(), list()) ::
           {:ok, get_room_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_room_errors()}
   def get_room(%Client{} = client, input, options \\ []) do
     url_path = "/GetRoom"
     headers = []
@@ -1111,8 +1254,7 @@ defmodule AWS.Ivschat do
   @spec list_logging_configurations(map(), list_logging_configurations_request(), list()) ::
           {:ok, list_logging_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_logging_configurations_errors()}
   def list_logging_configurations(%Client{} = client, input, options \\ []) do
     url_path = "/ListLoggingConfigurations"
     headers = []
@@ -1143,9 +1285,7 @@ defmodule AWS.Ivschat do
   @spec list_rooms(map(), list_rooms_request(), list()) ::
           {:ok, list_rooms_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_rooms_errors()}
   def list_rooms(%Client{} = client, input, options \\ []) do
     url_path = "/ListRooms"
     headers = []
@@ -1172,9 +1312,7 @@ defmodule AWS.Ivschat do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -1196,11 +1334,7 @@ defmodule AWS.Ivschat do
   @spec send_event(map(), send_event_request(), list()) ::
           {:ok, send_event_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, pending_verification()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, send_event_errors()}
   def send_event(%Client{} = client, input, options \\ []) do
     url_path = "/SendEvent"
     headers = []
@@ -1227,9 +1361,7 @@ defmodule AWS.Ivschat do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -1256,9 +1388,7 @@ defmodule AWS.Ivschat do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -1290,11 +1420,7 @@ defmodule AWS.Ivschat do
   @spec update_logging_configuration(map(), update_logging_configuration_request(), list()) ::
           {:ok, update_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, pending_verification()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_logging_configuration_errors()}
   def update_logging_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateLoggingConfiguration"
     headers = []
@@ -1321,10 +1447,7 @@ defmodule AWS.Ivschat do
   @spec update_room(map(), update_room_request(), list()) ::
           {:ok, update_room_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, pending_verification()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_room_errors()}
   def update_room(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateRoom"
     headers = []

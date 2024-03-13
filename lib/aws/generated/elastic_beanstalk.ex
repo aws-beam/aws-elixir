@@ -32,1661 +32,2058 @@ defmodule AWS.ElasticBeanstalk do
   @typedoc """
 
   ## Example:
-  environment_descriptions_message() :: %{
-    "Environments" => list(environment_description()()),
-    "NextToken" => String.t()
-  }
+      
+      environment_descriptions_message() :: %{
+        "Environments" => list(environment_description()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type environment_descriptions_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_platform_version_request() :: %{
-    optional("EnvironmentName") => String.t(),
-    optional("OptionSettings") => list(configuration_option_setting()()),
-    optional("Tags") => list(tag()()),
-    required("PlatformDefinitionBundle") => s3_location(),
-    required("PlatformName") => String.t(),
-    required("PlatformVersion") => String.t()
-  }
+      
+      create_platform_version_request() :: %{
+        optional("EnvironmentName") => String.t(),
+        optional("OptionSettings") => list(configuration_option_setting()()),
+        optional("Tags") => list(tag()()),
+        required("PlatformDefinitionBundle") => s3_location(),
+        required("PlatformName") => String.t(),
+        required("PlatformVersion") => String.t()
+      }
+      
   """
   @type create_platform_version_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disassociate_environment_operations_role_message() :: %{
-    required("EnvironmentName") => String.t()
-  }
+      
+      disassociate_environment_operations_role_message() :: %{
+        required("EnvironmentName") => String.t()
+      }
+      
   """
   @type disassociate_environment_operations_role_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  c_p_u_utilization() :: %{
-    "IOWait" => float(),
-    "IRQ" => float(),
-    "Idle" => float(),
-    "Nice" => float(),
-    "Privileged" => float(),
-    "SoftIRQ" => float(),
-    "System" => float(),
-    "User" => float()
-  }
+      
+      c_p_u_utilization() :: %{
+        "IOWait" => float(),
+        "IRQ" => float(),
+        "Idle" => float(),
+        "Nice" => float(),
+        "Privileged" => float(),
+        "SoftIRQ" => float(),
+        "System" => float(),
+        "User" => float()
+      }
+      
   """
   @type c_p_u_utilization() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  apply_environment_managed_action_request() :: %{
-    optional("EnvironmentId") => String.t(),
-    optional("EnvironmentName") => String.t(),
-    required("ActionId") => String.t()
-  }
+      
+      apply_environment_managed_action_request() :: %{
+        optional("EnvironmentId") => String.t(),
+        optional("EnvironmentName") => String.t(),
+        required("ActionId") => String.t()
+      }
+      
   """
   @type apply_environment_managed_action_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_configuration_template_message() :: %{
-    optional("Description") => String.t(),
-    optional("OptionSettings") => list(configuration_option_setting()()),
-    optional("OptionsToRemove") => list(option_specification()()),
-    required("ApplicationName") => String.t(),
-    required("TemplateName") => String.t()
-  }
+      
+      update_configuration_template_message() :: %{
+        optional("Description") => String.t(),
+        optional("OptionSettings") => list(configuration_option_setting()()),
+        optional("OptionsToRemove") => list(option_specification()()),
+        required("ApplicationName") => String.t(),
+        required("TemplateName") => String.t()
+      }
+      
   """
   @type update_configuration_template_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  compose_environments_message() :: %{
-    optional("ApplicationName") => String.t(),
-    optional("GroupName") => String.t(),
-    optional("VersionLabels") => list(String.t()())
-  }
+      
+      compose_environments_message() :: %{
+        optional("ApplicationName") => String.t(),
+        optional("GroupName") => String.t(),
+        optional("VersionLabels") => list(String.t()())
+      }
+      
   """
   @type compose_environments_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  rebuild_environment_message() :: %{
-    optional("EnvironmentId") => String.t(),
-    optional("EnvironmentName") => String.t()
-  }
+      
+      rebuild_environment_message() :: %{
+        optional("EnvironmentId") => String.t(),
+        optional("EnvironmentName") => String.t()
+      }
+      
   """
   @type rebuild_environment_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  environment_link() :: %{
-    "EnvironmentName" => String.t(),
-    "LinkName" => String.t()
-  }
+      
+      environment_link() :: %{
+        "EnvironmentName" => String.t(),
+        "LinkName" => String.t()
+      }
+      
   """
   @type environment_link() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  status_codes() :: %{
-    "Status2xx" => integer(),
-    "Status3xx" => integer(),
-    "Status4xx" => integer(),
-    "Status5xx" => integer()
-  }
+      
+      status_codes() :: %{
+        "Status2xx" => integer(),
+        "Status3xx" => integer(),
+        "Status4xx" => integer(),
+        "Status5xx" => integer()
+      }
+      
   """
   @type status_codes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  max_age_rule() :: %{
-    "DeleteSourceFromS3" => boolean(),
-    "Enabled" => boolean(),
-    "MaxAgeInDays" => integer()
-  }
+      
+      max_age_rule() :: %{
+        "DeleteSourceFromS3" => boolean(),
+        "Enabled" => boolean(),
+        "MaxAgeInDays" => integer()
+      }
+      
   """
   @type max_age_rule() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_type_not_supported_exception() :: %{
-    "message" => String.t()
-  }
+      
+      resource_type_not_supported_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type resource_type_not_supported_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  solution_stack_description() :: %{
-    "PermittedFileTypes" => list(String.t()()),
-    "SolutionStackName" => String.t()
-  }
+      
+      solution_stack_description() :: %{
+        "PermittedFileTypes" => list(String.t()()),
+        "SolutionStackName" => String.t()
+      }
+      
   """
   @type solution_stack_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_platform_version_request() :: %{
-    optional("PlatformArn") => String.t()
-  }
+      
+      delete_platform_version_request() :: %{
+        optional("PlatformArn") => String.t()
+      }
+      
   """
   @type delete_platform_version_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  associate_environment_operations_role_message() :: %{
-    required("EnvironmentName") => String.t(),
-    required("OperationsRole") => String.t()
-  }
+      
+      associate_environment_operations_role_message() :: %{
+        required("EnvironmentName") => String.t(),
+        required("OperationsRole") => String.t()
+      }
+      
   """
   @type associate_environment_operations_role_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  single_instance_health() :: %{
-    "ApplicationMetrics" => application_metrics(),
-    "AvailabilityZone" => String.t(),
-    "Causes" => list(String.t()()),
-    "Color" => String.t(),
-    "Deployment" => deployment(),
-    "HealthStatus" => String.t(),
-    "InstanceId" => String.t(),
-    "InstanceType" => String.t(),
-    "LaunchedAt" => non_neg_integer(),
-    "System" => system_status()
-  }
+      
+      single_instance_health() :: %{
+        "ApplicationMetrics" => application_metrics(),
+        "AvailabilityZone" => String.t(),
+        "Causes" => list(String.t()()),
+        "Color" => String.t(),
+        "Deployment" => deployment(),
+        "HealthStatus" => String.t(),
+        "InstanceId" => String.t(),
+        "InstanceType" => String.t(),
+        "LaunchedAt" => non_neg_integer(),
+        "System" => system_status()
+      }
+      
   """
   @type single_instance_health() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_environments_message() :: %{
-    optional("ApplicationName") => String.t(),
-    optional("EnvironmentIds") => list(String.t()()),
-    optional("EnvironmentNames") => list(String.t()()),
-    optional("IncludeDeleted") => boolean(),
-    optional("IncludedDeletedBackTo") => non_neg_integer(),
-    optional("MaxRecords") => integer(),
-    optional("NextToken") => String.t(),
-    optional("VersionLabel") => String.t()
-  }
+      
+      describe_environments_message() :: %{
+        optional("ApplicationName") => String.t(),
+        optional("EnvironmentIds") => list(String.t()()),
+        optional("EnvironmentNames") => list(String.t()()),
+        optional("IncludeDeleted") => boolean(),
+        optional("IncludedDeletedBackTo") => non_neg_integer(),
+        optional("MaxRecords") => integer(),
+        optional("NextToken") => String.t(),
+        optional("VersionLabel") => String.t()
+      }
+      
   """
   @type describe_environments_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_buckets_exception() :: %{
-    "message" => String.t()
-  }
+      
+      too_many_buckets_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type too_many_buckets_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_environments_exception() :: %{
-    "message" => String.t()
-  }
+      
+      too_many_environments_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type too_many_environments_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  trigger() :: %{
-    "Name" => String.t()
-  }
+      
+      trigger() :: %{
+        "Name" => String.t()
+      }
+      
   """
   @type trigger() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  option_restriction_regex() :: %{
-    "Label" => String.t(),
-    "Pattern" => String.t()
-  }
+      
+      option_restriction_regex() :: %{
+        "Label" => String.t(),
+        "Pattern" => String.t()
+      }
+      
   """
   @type option_restriction_regex() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_platform_versions_request() :: %{
-    optional("Filters") => list(platform_filter()()),
-    optional("MaxRecords") => integer(),
-    optional("NextToken") => String.t()
-  }
+      
+      list_platform_versions_request() :: %{
+        optional("Filters") => list(platform_filter()()),
+        optional("MaxRecords") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type list_platform_versions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  check_dns_availability_result_message() :: %{
-    "Available" => boolean(),
-    "FullyQualifiedCNAME" => String.t()
-  }
+      
+      check_dns_availability_result_message() :: %{
+        "Available" => boolean(),
+        "FullyQualifiedCNAME" => String.t()
+      }
+      
   """
   @type check_dns_availability_result_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  deployment() :: %{
-    "DeploymentId" => float(),
-    "DeploymentTime" => non_neg_integer(),
-    "Status" => String.t(),
-    "VersionLabel" => String.t()
-  }
+      
+      deployment() :: %{
+        "DeploymentId" => float(),
+        "DeploymentTime" => non_neg_integer(),
+        "Status" => String.t(),
+        "VersionLabel" => String.t()
+      }
+      
   """
   @type deployment() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_platforms_exception() :: %{
-    "message" => String.t()
-  }
+      
+      too_many_platforms_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type too_many_platforms_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_application_message() :: %{
-    optional("TerminateEnvByForce") => boolean(),
-    required("ApplicationName") => String.t()
-  }
+      
+      delete_application_message() :: %{
+        optional("TerminateEnvByForce") => boolean(),
+        required("ApplicationName") => String.t()
+      }
+      
   """
   @type delete_application_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_environment_managed_action_history_result() :: %{
-    "ManagedActionHistoryItems" => list(managed_action_history_item()()),
-    "NextToken" => String.t()
-  }
+      
+      describe_environment_managed_action_history_result() :: %{
+        "ManagedActionHistoryItems" => list(managed_action_history_item()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type describe_environment_managed_action_history_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  listener() :: %{
-    "Port" => integer(),
-    "Protocol" => String.t()
-  }
+      
+      listener() :: %{
+        "Port" => integer(),
+        "Protocol" => String.t()
+      }
+      
   """
   @type listener() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_instances_health_result() :: %{
-    "InstanceHealthList" => list(single_instance_health()()),
-    "NextToken" => String.t(),
-    "RefreshedAt" => non_neg_integer()
-  }
+      
+      describe_instances_health_result() :: %{
+        "InstanceHealthList" => list(single_instance_health()()),
+        "NextToken" => String.t(),
+        "RefreshedAt" => non_neg_integer()
+      }
+      
   """
   @type describe_instances_health_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  managed_action() :: %{
-    "ActionDescription" => String.t(),
-    "ActionId" => String.t(),
-    "ActionType" => list(any()),
-    "Status" => list(any()),
-    "WindowStartTime" => non_neg_integer()
-  }
+      
+      managed_action() :: %{
+        "ActionDescription" => String.t(),
+        "ActionId" => String.t(),
+        "ActionType" => list(any()),
+        "Status" => list(any()),
+        "WindowStartTime" => non_neg_integer()
+      }
+      
   """
   @type managed_action() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  build_configuration() :: %{
-    "ArtifactName" => String.t(),
-    "CodeBuildServiceRole" => String.t(),
-    "ComputeType" => list(any()),
-    "Image" => String.t(),
-    "TimeoutInMinutes" => integer()
-  }
+      
+      build_configuration() :: %{
+        "ArtifactName" => String.t(),
+        "CodeBuildServiceRole" => String.t(),
+        "ComputeType" => list(any()),
+        "Image" => String.t(),
+        "TimeoutInMinutes" => integer()
+      }
+      
   """
   @type build_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_instances_health_request() :: %{
-    optional("AttributeNames") => list(list(any())()),
-    optional("EnvironmentId") => String.t(),
-    optional("EnvironmentName") => String.t(),
-    optional("NextToken") => String.t()
-  }
+      
+      describe_instances_health_request() :: %{
+        optional("AttributeNames") => list(list(any())()),
+        optional("EnvironmentId") => String.t(),
+        optional("EnvironmentName") => String.t(),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type describe_instances_health_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  apply_environment_managed_action_result() :: %{
-    "ActionDescription" => String.t(),
-    "ActionId" => String.t(),
-    "ActionType" => list(any()),
-    "Status" => String.t()
-  }
+      
+      apply_environment_managed_action_result() :: %{
+        "ActionDescription" => String.t(),
+        "ActionId" => String.t(),
+        "ActionType" => list(any()),
+        "Status" => String.t()
+      }
+      
   """
   @type apply_environment_managed_action_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  custom_ami() :: %{
-    "ImageId" => String.t(),
-    "VirtualizationType" => String.t()
-  }
+      
+      custom_ami() :: %{
+        "ImageId" => String.t(),
+        "VirtualizationType" => String.t()
+      }
+      
   """
   @type custom_ami() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  event_descriptions_message() :: %{
-    "Events" => list(event_description()()),
-    "NextToken" => String.t()
-  }
+      
+      event_descriptions_message() :: %{
+        "Events" => list(event_description()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type event_descriptions_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  event_description() :: %{
-    "ApplicationName" => String.t(),
-    "EnvironmentName" => String.t(),
-    "EventDate" => non_neg_integer(),
-    "Message" => String.t(),
-    "PlatformArn" => String.t(),
-    "RequestId" => String.t(),
-    "Severity" => list(any()),
-    "TemplateName" => String.t(),
-    "VersionLabel" => String.t()
-  }
+      
+      event_description() :: %{
+        "ApplicationName" => String.t(),
+        "EnvironmentName" => String.t(),
+        "EventDate" => non_neg_integer(),
+        "Message" => String.t(),
+        "PlatformArn" => String.t(),
+        "RequestId" => String.t(),
+        "Severity" => list(any()),
+        "TemplateName" => String.t(),
+        "VersionLabel" => String.t()
+      }
+      
   """
   @type event_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  request_environment_info_message() :: %{
-    optional("EnvironmentId") => String.t(),
-    optional("EnvironmentName") => String.t(),
-    required("InfoType") => list(any())
-  }
+      
+      request_environment_info_message() :: %{
+        optional("EnvironmentId") => String.t(),
+        optional("EnvironmentName") => String.t(),
+        required("InfoType") => list(any())
+      }
+      
   """
   @type request_environment_info_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_message() :: %{
-    required("ResourceArn") => String.t()
-  }
+      
+      list_tags_for_resource_message() :: %{
+        required("ResourceArn") => String.t()
+      }
+      
   """
   @type list_tags_for_resource_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  configuration_option_description() :: %{
-    "ChangeSeverity" => String.t(),
-    "DefaultValue" => String.t(),
-    "MaxLength" => integer(),
-    "MaxValue" => integer(),
-    "MinValue" => integer(),
-    "Name" => String.t(),
-    "Namespace" => String.t(),
-    "Regex" => option_restriction_regex(),
-    "UserDefined" => boolean(),
-    "ValueOptions" => list(String.t()()),
-    "ValueType" => list(any())
-  }
+      
+      configuration_option_description() :: %{
+        "ChangeSeverity" => String.t(),
+        "DefaultValue" => String.t(),
+        "MaxLength" => integer(),
+        "MaxValue" => integer(),
+        "MinValue" => integer(),
+        "Name" => String.t(),
+        "Namespace" => String.t(),
+        "Regex" => option_restriction_regex(),
+        "UserDefined" => boolean(),
+        "ValueOptions" => list(String.t()()),
+        "ValueType" => list(any())
+      }
+      
   """
   @type configuration_option_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  load_balancer_description() :: %{
-    "Domain" => String.t(),
-    "Listeners" => list(listener()()),
-    "LoadBalancerName" => String.t()
-  }
+      
+      load_balancer_description() :: %{
+        "Domain" => String.t(),
+        "Listeners" => list(listener()()),
+        "LoadBalancerName" => String.t()
+      }
+      
   """
   @type load_balancer_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  queue() :: %{
-    "Name" => String.t(),
-    "URL" => String.t()
-  }
+      
+      queue() :: %{
+        "Name" => String.t(),
+        "URL" => String.t()
+      }
+      
   """
   @type queue() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  managed_action_invalid_state_exception() :: %{
-    "message" => String.t()
-  }
+      
+      managed_action_invalid_state_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type managed_action_invalid_state_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  environment_tier() :: %{
-    "Name" => String.t(),
-    "Type" => String.t(),
-    "Version" => String.t()
-  }
+      
+      environment_tier() :: %{
+        "Name" => String.t(),
+        "Type" => String.t(),
+        "Version" => String.t()
+      }
+      
   """
   @type environment_tier() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_platform_branches_result() :: %{
-    "NextToken" => String.t(),
-    "PlatformBranchSummaryList" => list(platform_branch_summary()())
-  }
+      
+      list_platform_branches_result() :: %{
+        "NextToken" => String.t(),
+        "PlatformBranchSummaryList" => list(platform_branch_summary()())
+      }
+      
   """
   @type list_platform_branches_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_environment_managed_actions_request() :: %{
-    optional("EnvironmentId") => String.t(),
-    optional("EnvironmentName") => String.t(),
-    optional("Status") => list(any())
-  }
+      
+      describe_environment_managed_actions_request() :: %{
+        optional("EnvironmentId") => String.t(),
+        optional("EnvironmentName") => String.t(),
+        optional("Status") => list(any())
+      }
+      
   """
   @type describe_environment_managed_actions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  platform_version_still_referenced_exception() :: %{
-    "message" => String.t()
-  }
+      
+      platform_version_still_referenced_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type platform_version_still_referenced_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  environment_info_description() :: %{
-    "Ec2InstanceId" => String.t(),
-    "InfoType" => list(any()),
-    "Message" => String.t(),
-    "SampleTimestamp" => non_neg_integer()
-  }
+      
+      environment_info_description() :: %{
+        "Ec2InstanceId" => String.t(),
+        "InfoType" => list(any()),
+        "Message" => String.t(),
+        "SampleTimestamp" => non_neg_integer()
+      }
+      
   """
   @type environment_info_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  platform_framework() :: %{
-    "Name" => String.t(),
-    "Version" => String.t()
-  }
+      
+      platform_framework() :: %{
+        "Name" => String.t(),
+        "Version" => String.t()
+      }
+      
   """
   @type platform_framework() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  elastic_beanstalk_service_exception() :: %{
-    "message" => String.t()
-  }
+      
+      elastic_beanstalk_service_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type elastic_beanstalk_service_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_environment_configuration_message() :: %{
-    required("ApplicationName") => String.t(),
-    required("EnvironmentName") => String.t()
-  }
+      
+      delete_environment_configuration_message() :: %{
+        required("ApplicationName") => String.t(),
+        required("EnvironmentName") => String.t()
+      }
+      
   """
   @type delete_environment_configuration_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  platform_description() :: %{
-    "CustomAmiList" => list(custom_ami()()),
-    "DateCreated" => non_neg_integer(),
-    "DateUpdated" => non_neg_integer(),
-    "Description" => String.t(),
-    "Frameworks" => list(platform_framework()()),
-    "Maintainer" => String.t(),
-    "OperatingSystemName" => String.t(),
-    "OperatingSystemVersion" => String.t(),
-    "PlatformArn" => String.t(),
-    "PlatformBranchLifecycleState" => String.t(),
-    "PlatformBranchName" => String.t(),
-    "PlatformCategory" => String.t(),
-    "PlatformLifecycleState" => String.t(),
-    "PlatformName" => String.t(),
-    "PlatformOwner" => String.t(),
-    "PlatformStatus" => list(any()),
-    "PlatformVersion" => String.t(),
-    "ProgrammingLanguages" => list(platform_programming_language()()),
-    "SolutionStackName" => String.t(),
-    "SupportedAddonList" => list(String.t()()),
-    "SupportedTierList" => list(String.t()())
-  }
+      
+      platform_description() :: %{
+        "CustomAmiList" => list(custom_ami()()),
+        "DateCreated" => non_neg_integer(),
+        "DateUpdated" => non_neg_integer(),
+        "Description" => String.t(),
+        "Frameworks" => list(platform_framework()()),
+        "Maintainer" => String.t(),
+        "OperatingSystemName" => String.t(),
+        "OperatingSystemVersion" => String.t(),
+        "PlatformArn" => String.t(),
+        "PlatformBranchLifecycleState" => String.t(),
+        "PlatformBranchName" => String.t(),
+        "PlatformCategory" => String.t(),
+        "PlatformLifecycleState" => String.t(),
+        "PlatformName" => String.t(),
+        "PlatformOwner" => String.t(),
+        "PlatformStatus" => list(any()),
+        "PlatformVersion" => String.t(),
+        "ProgrammingLanguages" => list(platform_programming_language()()),
+        "SolutionStackName" => String.t(),
+        "SupportedAddonList" => list(String.t()()),
+        "SupportedTierList" => list(String.t()())
+      }
+      
   """
   @type platform_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  retrieve_environment_info_message() :: %{
-    optional("EnvironmentId") => String.t(),
-    optional("EnvironmentName") => String.t(),
-    required("InfoType") => list(any())
-  }
+      
+      retrieve_environment_info_message() :: %{
+        optional("EnvironmentId") => String.t(),
+        optional("EnvironmentName") => String.t(),
+        required("InfoType") => list(any())
+      }
+      
   """
   @type retrieve_environment_info_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  builder() :: %{
-    "ARN" => String.t()
-  }
+      
+      builder() :: %{
+        "ARN" => String.t()
+      }
+      
   """
   @type builder() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_quota() :: %{
-    "Maximum" => integer()
-  }
+      
+      resource_quota() :: %{
+        "Maximum" => integer()
+      }
+      
   """
   @type resource_quota() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  environment_resource_description() :: %{
-    "AutoScalingGroups" => list(auto_scaling_group()()),
-    "EnvironmentName" => String.t(),
-    "Instances" => list(instance()()),
-    "LaunchConfigurations" => list(launch_configuration()()),
-    "LaunchTemplates" => list(launch_template()()),
-    "LoadBalancers" => list(load_balancer()()),
-    "Queues" => list(queue()()),
-    "Triggers" => list(trigger()())
-  }
+      
+      environment_resource_description() :: %{
+        "AutoScalingGroups" => list(auto_scaling_group()()),
+        "EnvironmentName" => String.t(),
+        "Instances" => list(instance()()),
+        "LaunchConfigurations" => list(launch_configuration()()),
+        "LaunchTemplates" => list(launch_template()()),
+        "LoadBalancers" => list(load_balancer()()),
+        "Queues" => list(queue()()),
+        "Triggers" => list(trigger()())
+      }
+      
   """
   @type environment_resource_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  managed_action_history_item() :: %{
-    "ActionDescription" => String.t(),
-    "ActionId" => String.t(),
-    "ActionType" => list(any()),
-    "ExecutedTime" => non_neg_integer(),
-    "FailureDescription" => String.t(),
-    "FailureType" => list(any()),
-    "FinishedTime" => non_neg_integer(),
-    "Status" => list(any())
-  }
+      
+      managed_action_history_item() :: %{
+        "ActionDescription" => String.t(),
+        "ActionId" => String.t(),
+        "ActionType" => list(any()),
+        "ExecutedTime" => non_neg_integer(),
+        "FailureDescription" => String.t(),
+        "FailureType" => list(any()),
+        "FinishedTime" => non_neg_integer(),
+        "Status" => list(any())
+      }
+      
   """
   @type managed_action_history_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  abort_environment_update_message() :: %{
-    optional("EnvironmentId") => String.t(),
-    optional("EnvironmentName") => String.t()
-  }
+      
+      abort_environment_update_message() :: %{
+        optional("EnvironmentId") => String.t(),
+        optional("EnvironmentName") => String.t()
+      }
+      
   """
   @type abort_environment_update_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  instance_health_summary() :: %{
-    "Degraded" => integer(),
-    "Info" => integer(),
-    "NoData" => integer(),
-    "Ok" => integer(),
-    "Pending" => integer(),
-    "Severe" => integer(),
-    "Unknown" => integer(),
-    "Warning" => integer()
-  }
+      
+      instance_health_summary() :: %{
+        "Degraded" => integer(),
+        "Info" => integer(),
+        "NoData" => integer(),
+        "Ok" => integer(),
+        "Pending" => integer(),
+        "Severe" => integer(),
+        "Unknown" => integer(),
+        "Warning" => integer()
+      }
+      
   """
   @type instance_health_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  configuration_settings_description() :: %{
-    "ApplicationName" => String.t(),
-    "DateCreated" => non_neg_integer(),
-    "DateUpdated" => non_neg_integer(),
-    "DeploymentStatus" => list(any()),
-    "Description" => String.t(),
-    "EnvironmentName" => String.t(),
-    "OptionSettings" => list(configuration_option_setting()()),
-    "PlatformArn" => String.t(),
-    "SolutionStackName" => String.t(),
-    "TemplateName" => String.t()
-  }
+      
+      configuration_settings_description() :: %{
+        "ApplicationName" => String.t(),
+        "DateCreated" => non_neg_integer(),
+        "DateUpdated" => non_neg_integer(),
+        "DeploymentStatus" => list(any()),
+        "Description" => String.t(),
+        "EnvironmentName" => String.t(),
+        "OptionSettings" => list(configuration_option_setting()()),
+        "PlatformArn" => String.t(),
+        "SolutionStackName" => String.t(),
+        "TemplateName" => String.t()
+      }
+      
   """
   @type configuration_settings_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  check_dns_availability_message() :: %{
-    required("CNAMEPrefix") => String.t()
-  }
+      
+      check_dns_availability_message() :: %{
+        required("CNAMEPrefix") => String.t()
+      }
+      
   """
   @type check_dns_availability_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  configuration_settings_validation_messages() :: %{
-    "Messages" => list(validation_message()())
-  }
+      
+      configuration_settings_validation_messages() :: %{
+        "Messages" => list(validation_message()())
+      }
+      
   """
   @type configuration_settings_validation_messages() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  search_filter() :: %{
-    "Attribute" => String.t(),
-    "Operator" => String.t(),
-    "Values" => list(String.t()())
-  }
+      
+      search_filter() :: %{
+        "Attribute" => String.t(),
+        "Operator" => String.t(),
+        "Values" => list(String.t()())
+      }
+      
   """
   @type search_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  platform_filter() :: %{
-    "Operator" => String.t(),
-    "Type" => String.t(),
-    "Values" => list(String.t()())
-  }
+      
+      platform_filter() :: %{
+        "Operator" => String.t(),
+        "Type" => String.t(),
+        "Values" => list(String.t()())
+      }
+      
   """
   @type platform_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  configuration_option_setting() :: %{
-    "Namespace" => String.t(),
-    "OptionName" => String.t(),
-    "ResourceName" => String.t(),
-    "Value" => String.t()
-  }
+      
+      configuration_option_setting() :: %{
+        "Namespace" => String.t(),
+        "OptionName" => String.t(),
+        "ResourceName" => String.t(),
+        "Value" => String.t()
+      }
+      
   """
   @type configuration_option_setting() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_configuration_options_message() :: %{
-    optional("ApplicationName") => String.t(),
-    optional("EnvironmentName") => String.t(),
-    optional("Options") => list(option_specification()()),
-    optional("PlatformArn") => String.t(),
-    optional("SolutionStackName") => String.t(),
-    optional("TemplateName") => String.t()
-  }
+      
+      describe_configuration_options_message() :: %{
+        optional("ApplicationName") => String.t(),
+        optional("EnvironmentName") => String.t(),
+        optional("Options") => list(option_specification()()),
+        optional("PlatformArn") => String.t(),
+        optional("SolutionStackName") => String.t(),
+        optional("TemplateName") => String.t()
+      }
+      
   """
   @type describe_configuration_options_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  option_specification() :: %{
-    "Namespace" => String.t(),
-    "OptionName" => String.t(),
-    "ResourceName" => String.t()
-  }
+      
+      option_specification() :: %{
+        "Namespace" => String.t(),
+        "OptionName" => String.t(),
+        "ResourceName" => String.t()
+      }
+      
   """
   @type option_specification() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_not_found_exception() :: %{
-    "message" => String.t()
-  }
+      
+      resource_not_found_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  platform_programming_language() :: %{
-    "Name" => String.t(),
-    "Version" => String.t()
-  }
+      
+      platform_programming_language() :: %{
+        "Name" => String.t(),
+        "Version" => String.t()
+      }
+      
   """
   @type platform_programming_language() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_environment_message() :: %{
-    optional("ApplicationName") => String.t(),
-    optional("Description") => String.t(),
-    optional("EnvironmentId") => String.t(),
-    optional("EnvironmentName") => String.t(),
-    optional("GroupName") => String.t(),
-    optional("OptionSettings") => list(configuration_option_setting()()),
-    optional("OptionsToRemove") => list(option_specification()()),
-    optional("PlatformArn") => String.t(),
-    optional("SolutionStackName") => String.t(),
-    optional("TemplateName") => String.t(),
-    optional("Tier") => environment_tier(),
-    optional("VersionLabel") => String.t()
-  }
+      
+      update_environment_message() :: %{
+        optional("ApplicationName") => String.t(),
+        optional("Description") => String.t(),
+        optional("EnvironmentId") => String.t(),
+        optional("EnvironmentName") => String.t(),
+        optional("GroupName") => String.t(),
+        optional("OptionSettings") => list(configuration_option_setting()()),
+        optional("OptionsToRemove") => list(option_specification()()),
+        optional("PlatformArn") => String.t(),
+        optional("SolutionStackName") => String.t(),
+        optional("TemplateName") => String.t(),
+        optional("Tier") => environment_tier(),
+        optional("VersionLabel") => String.t()
+      }
+      
   """
   @type update_environment_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  application_resource_lifecycle_description_message() :: %{
-    "ApplicationName" => String.t(),
-    "ResourceLifecycleConfig" => application_resource_lifecycle_config()
-  }
+      
+      application_resource_lifecycle_description_message() :: %{
+        "ApplicationName" => String.t(),
+        "ResourceLifecycleConfig" => application_resource_lifecycle_config()
+      }
+      
   """
   @type application_resource_lifecycle_description_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag() :: %{
-    "Key" => String.t(),
-    "Value" => String.t()
-  }
+      
+      tag() :: %{
+        "Key" => String.t(),
+        "Value" => String.t()
+      }
+      
   """
   @type tag() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_applications_exception() :: %{
-    "message" => String.t()
-  }
+      
+      too_many_applications_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type too_many_applications_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  operation_in_progress_exception() :: %{
-    "message" => String.t()
-  }
+      
+      operation_in_progress_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type operation_in_progress_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_request_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_request_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_request_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_environment_health_result() :: %{
-    "ApplicationMetrics" => application_metrics(),
-    "Causes" => list(String.t()()),
-    "Color" => String.t(),
-    "EnvironmentName" => String.t(),
-    "HealthStatus" => String.t(),
-    "InstancesHealth" => instance_health_summary(),
-    "RefreshedAt" => non_neg_integer(),
-    "Status" => list(any())
-  }
+      
+      describe_environment_health_result() :: %{
+        "ApplicationMetrics" => application_metrics(),
+        "Causes" => list(String.t()()),
+        "Color" => String.t(),
+        "EnvironmentName" => String.t(),
+        "HealthStatus" => String.t(),
+        "InstancesHealth" => instance_health_summary(),
+        "RefreshedAt" => non_neg_integer(),
+        "Status" => list(any())
+      }
+      
   """
   @type describe_environment_health_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  application_version_lifecycle_config() :: %{
-    "MaxAgeRule" => max_age_rule(),
-    "MaxCountRule" => max_count_rule()
-  }
+      
+      application_version_lifecycle_config() :: %{
+        "MaxAgeRule" => max_age_rule(),
+        "MaxCountRule" => max_count_rule()
+      }
+      
   """
   @type application_version_lifecycle_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_application_version_message() :: %{
-    optional("AutoCreateApplication") => boolean(),
-    optional("BuildConfiguration") => build_configuration(),
-    optional("Description") => String.t(),
-    optional("Process") => boolean(),
-    optional("SourceBuildInformation") => source_build_information(),
-    optional("SourceBundle") => s3_location(),
-    optional("Tags") => list(tag()()),
-    required("ApplicationName") => String.t(),
-    required("VersionLabel") => String.t()
-  }
+      
+      create_application_version_message() :: %{
+        optional("AutoCreateApplication") => boolean(),
+        optional("BuildConfiguration") => build_configuration(),
+        optional("Description") => String.t(),
+        optional("Process") => boolean(),
+        optional("SourceBuildInformation") => source_build_information(),
+        optional("SourceBundle") => s3_location(),
+        optional("Tags") => list(tag()()),
+        required("ApplicationName") => String.t(),
+        required("VersionLabel") => String.t()
+      }
+      
   """
   @type create_application_version_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  application_metrics() :: %{
-    "Duration" => integer(),
-    "Latency" => latency(),
-    "RequestCount" => integer(),
-    "StatusCodes" => status_codes()
-  }
+      
+      application_metrics() :: %{
+        "Duration" => integer(),
+        "Latency" => latency(),
+        "RequestCount" => integer(),
+        "StatusCodes" => status_codes()
+      }
+      
   """
   @type application_metrics() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  s3_subscription_required_exception() :: %{
-    "message" => String.t()
-  }
+      
+      s3_subscription_required_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type s3_subscription_required_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  platform_branch_summary() :: %{
-    "BranchName" => String.t(),
-    "BranchOrder" => integer(),
-    "LifecycleState" => String.t(),
-    "PlatformName" => String.t(),
-    "SupportedTierList" => list(String.t()())
-  }
+      
+      platform_branch_summary() :: %{
+        "BranchName" => String.t(),
+        "BranchOrder" => integer(),
+        "LifecycleState" => String.t(),
+        "PlatformName" => String.t(),
+        "SupportedTierList" => list(String.t()())
+      }
+      
   """
   @type platform_branch_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_available_solution_stacks_result_message() :: %{
-    "SolutionStackDetails" => list(solution_stack_description()()),
-    "SolutionStacks" => list(String.t()())
-  }
+      
+      list_available_solution_stacks_result_message() :: %{
+        "SolutionStackDetails" => list(solution_stack_description()()),
+        "SolutionStacks" => list(String.t()())
+      }
+      
   """
   @type list_available_solution_stacks_result_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  source_configuration() :: %{
-    "ApplicationName" => String.t(),
-    "TemplateName" => String.t()
-  }
+      
+      source_configuration() :: %{
+        "ApplicationName" => String.t(),
+        "TemplateName" => String.t()
+      }
+      
   """
   @type source_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_application_version_message() :: %{
-    optional("DeleteSourceBundle") => boolean(),
-    required("ApplicationName") => String.t(),
-    required("VersionLabel") => String.t()
-  }
+      
+      delete_application_version_message() :: %{
+        optional("DeleteSourceBundle") => boolean(),
+        required("ApplicationName") => String.t(),
+        required("VersionLabel") => String.t()
+      }
+      
   """
   @type delete_application_version_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  s3_location() :: %{
-    "S3Bucket" => String.t(),
-    "S3Key" => String.t()
-  }
+      
+      s3_location() :: %{
+        "S3Bucket" => String.t(),
+        "S3Key" => String.t()
+      }
+      
   """
   @type s3_location() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  system_status() :: %{
-    "CPUUtilization" => c_p_u_utilization(),
-    "LoadAverage" => list(float()())
-  }
+      
+      system_status() :: %{
+        "CPUUtilization" => c_p_u_utilization(),
+        "LoadAverage" => list(float()())
+      }
+      
   """
   @type system_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  latency() :: %{
-    "P10" => float(),
-    "P50" => float(),
-    "P75" => float(),
-    "P85" => float(),
-    "P90" => float(),
-    "P95" => float(),
-    "P99" => float(),
-    "P999" => float()
-  }
+      
+      latency() :: %{
+        "P10" => float(),
+        "P50" => float(),
+        "P75" => float(),
+        "P85" => float(),
+        "P90" => float(),
+        "P95" => float(),
+        "P99" => float(),
+        "P999" => float()
+      }
+      
   """
   @type latency() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_application_versions_message() :: %{
-    optional("ApplicationName") => String.t(),
-    optional("MaxRecords") => integer(),
-    optional("NextToken") => String.t(),
-    optional("VersionLabels") => list(String.t()())
-  }
+      
+      describe_application_versions_message() :: %{
+        optional("ApplicationName") => String.t(),
+        optional("MaxRecords") => integer(),
+        optional("NextToken") => String.t(),
+        optional("VersionLabels") => list(String.t()())
+      }
+      
   """
   @type describe_application_versions_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  platform_summary() :: %{
-    "OperatingSystemName" => String.t(),
-    "OperatingSystemVersion" => String.t(),
-    "PlatformArn" => String.t(),
-    "PlatformBranchLifecycleState" => String.t(),
-    "PlatformBranchName" => String.t(),
-    "PlatformCategory" => String.t(),
-    "PlatformLifecycleState" => String.t(),
-    "PlatformOwner" => String.t(),
-    "PlatformStatus" => list(any()),
-    "PlatformVersion" => String.t(),
-    "SupportedAddonList" => list(String.t()()),
-    "SupportedTierList" => list(String.t()())
-  }
+      
+      platform_summary() :: %{
+        "OperatingSystemName" => String.t(),
+        "OperatingSystemVersion" => String.t(),
+        "PlatformArn" => String.t(),
+        "PlatformBranchLifecycleState" => String.t(),
+        "PlatformBranchName" => String.t(),
+        "PlatformCategory" => String.t(),
+        "PlatformLifecycleState" => String.t(),
+        "PlatformOwner" => String.t(),
+        "PlatformStatus" => list(any()),
+        "PlatformVersion" => String.t(),
+        "SupportedAddonList" => list(String.t()()),
+        "SupportedTierList" => list(String.t()())
+      }
+      
   """
   @type platform_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_environment_health_request() :: %{
-    optional("AttributeNames") => list(list(any())()),
-    optional("EnvironmentId") => String.t(),
-    optional("EnvironmentName") => String.t()
-  }
+      
+      describe_environment_health_request() :: %{
+        optional("AttributeNames") => list(list(any())()),
+        optional("EnvironmentId") => String.t(),
+        optional("EnvironmentName") => String.t()
+      }
+      
   """
   @type describe_environment_health_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  retrieve_environment_info_result_message() :: %{
-    "EnvironmentInfo" => list(environment_info_description()())
-  }
+      
+      retrieve_environment_info_result_message() :: %{
+        "EnvironmentInfo" => list(environment_info_description()())
+      }
+      
   """
   @type retrieve_environment_info_result_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  s3_location_not_in_service_region_exception() :: %{
-    "message" => String.t()
-  }
+      
+      s3_location_not_in_service_region_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type s3_location_not_in_service_region_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  environment_description() :: %{
-    "AbortableOperationInProgress" => boolean(),
-    "ApplicationName" => String.t(),
-    "CNAME" => String.t(),
-    "DateCreated" => non_neg_integer(),
-    "DateUpdated" => non_neg_integer(),
-    "Description" => String.t(),
-    "EndpointURL" => String.t(),
-    "EnvironmentArn" => String.t(),
-    "EnvironmentId" => String.t(),
-    "EnvironmentLinks" => list(environment_link()()),
-    "EnvironmentName" => String.t(),
-    "Health" => list(any()),
-    "HealthStatus" => list(any()),
-    "OperationsRole" => String.t(),
-    "PlatformArn" => String.t(),
-    "Resources" => environment_resources_description(),
-    "SolutionStackName" => String.t(),
-    "Status" => list(any()),
-    "TemplateName" => String.t(),
-    "Tier" => environment_tier(),
-    "VersionLabel" => String.t()
-  }
+      
+      environment_description() :: %{
+        "AbortableOperationInProgress" => boolean(),
+        "ApplicationName" => String.t(),
+        "CNAME" => String.t(),
+        "DateCreated" => non_neg_integer(),
+        "DateUpdated" => non_neg_integer(),
+        "Description" => String.t(),
+        "EndpointURL" => String.t(),
+        "EnvironmentArn" => String.t(),
+        "EnvironmentId" => String.t(),
+        "EnvironmentLinks" => list(environment_link()()),
+        "EnvironmentName" => String.t(),
+        "Health" => list(any()),
+        "HealthStatus" => list(any()),
+        "OperationsRole" => String.t(),
+        "PlatformArn" => String.t(),
+        "Resources" => environment_resources_description(),
+        "SolutionStackName" => String.t(),
+        "Status" => list(any()),
+        "TemplateName" => String.t(),
+        "Tier" => environment_tier(),
+        "VersionLabel" => String.t()
+      }
+      
   """
   @type environment_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  application_version_description_message() :: %{
-    "ApplicationVersion" => application_version_description()
-  }
+      
+      application_version_description_message() :: %{
+        "ApplicationVersion" => application_version_description()
+      }
+      
   """
   @type application_version_description_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  swap_environment_cnames_message() :: %{
-    optional("DestinationEnvironmentId") => String.t(),
-    optional("DestinationEnvironmentName") => String.t(),
-    optional("SourceEnvironmentId") => String.t(),
-    optional("SourceEnvironmentName") => String.t()
-  }
+      
+      swap_environment_cnames_message() :: %{
+        optional("DestinationEnvironmentId") => String.t(),
+        optional("DestinationEnvironmentName") => String.t(),
+        optional("SourceEnvironmentId") => String.t(),
+        optional("SourceEnvironmentName") => String.t()
+      }
+      
   """
   @type swap_environment_cnames_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  max_count_rule() :: %{
-    "DeleteSourceFromS3" => boolean(),
-    "Enabled" => boolean(),
-    "MaxCount" => integer()
-  }
+      
+      max_count_rule() :: %{
+        "DeleteSourceFromS3" => boolean(),
+        "Enabled" => boolean(),
+        "MaxCount" => integer()
+      }
+      
   """
   @type max_count_rule() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_application_versions_exception() :: %{
-    "message" => String.t()
-  }
+      
+      too_many_application_versions_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type too_many_application_versions_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  application_description_message() :: %{
-    "Application" => application_description()
-  }
+      
+      application_description_message() :: %{
+        "Application" => application_description()
+      }
+      
   """
   @type application_description_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  validation_message() :: %{
-    "Message" => String.t(),
-    "Namespace" => String.t(),
-    "OptionName" => String.t(),
-    "Severity" => list(any())
-  }
+      
+      validation_message() :: %{
+        "Message" => String.t(),
+        "Namespace" => String.t(),
+        "OptionName" => String.t(),
+        "Severity" => list(any())
+      }
+      
   """
   @type validation_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  validate_configuration_settings_message() :: %{
-    optional("EnvironmentName") => String.t(),
-    optional("TemplateName") => String.t(),
-    required("ApplicationName") => String.t(),
-    required("OptionSettings") => list(configuration_option_setting()())
-  }
+      
+      validate_configuration_settings_message() :: %{
+        optional("EnvironmentName") => String.t(),
+        optional("TemplateName") => String.t(),
+        required("ApplicationName") => String.t(),
+        required("OptionSettings") => list(configuration_option_setting()())
+      }
+      
   """
   @type validate_configuration_settings_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  instance() :: %{
-    "Id" => String.t()
-  }
+      
+      instance() :: %{
+        "Id" => String.t()
+      }
+      
   """
   @type instance() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_application_resource_lifecycle_message() :: %{
-    required("ApplicationName") => String.t(),
-    required("ResourceLifecycleConfig") => application_resource_lifecycle_config()
-  }
+      
+      update_application_resource_lifecycle_message() :: %{
+        required("ApplicationName") => String.t(),
+        required("ResourceLifecycleConfig") => application_resource_lifecycle_config()
+      }
+      
   """
   @type update_application_resource_lifecycle_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  environment_resource_descriptions_message() :: %{
-    "EnvironmentResources" => environment_resource_description()
-  }
+      
+      environment_resource_descriptions_message() :: %{
+        "EnvironmentResources" => environment_resource_description()
+      }
+      
   """
   @type environment_resource_descriptions_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  configuration_options_description() :: %{
-    "Options" => list(configuration_option_description()()),
-    "PlatformArn" => String.t(),
-    "SolutionStackName" => String.t()
-  }
+      
+      configuration_options_description() :: %{
+        "Options" => list(configuration_option_description()()),
+        "PlatformArn" => String.t(),
+        "SolutionStackName" => String.t()
+      }
+      
   """
   @type configuration_options_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  application_descriptions_message() :: %{
-    "Applications" => list(application_description()())
-  }
+      
+      application_descriptions_message() :: %{
+        "Applications" => list(application_description()())
+      }
+      
   """
   @type application_descriptions_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_account_attributes_result() :: %{
-    "ResourceQuotas" => resource_quotas()
-  }
+      
+      describe_account_attributes_result() :: %{
+        "ResourceQuotas" => resource_quotas()
+      }
+      
   """
   @type describe_account_attributes_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_configuration_settings_message() :: %{
-    optional("EnvironmentName") => String.t(),
-    optional("TemplateName") => String.t(),
-    required("ApplicationName") => String.t()
-  }
+      
+      describe_configuration_settings_message() :: %{
+        optional("EnvironmentName") => String.t(),
+        optional("TemplateName") => String.t(),
+        required("ApplicationName") => String.t()
+      }
+      
   """
   @type describe_configuration_settings_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  terminate_environment_message() :: %{
-    optional("EnvironmentId") => String.t(),
-    optional("EnvironmentName") => String.t(),
-    optional("ForceTerminate") => boolean(),
-    optional("TerminateResources") => boolean()
-  }
+      
+      terminate_environment_message() :: %{
+        optional("EnvironmentId") => String.t(),
+        optional("EnvironmentName") => String.t(),
+        optional("ForceTerminate") => boolean(),
+        optional("TerminateResources") => boolean()
+      }
+      
   """
   @type terminate_environment_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_environment_resources_message() :: %{
-    optional("EnvironmentId") => String.t(),
-    optional("EnvironmentName") => String.t()
-  }
+      
+      describe_environment_resources_message() :: %{
+        optional("EnvironmentId") => String.t(),
+        optional("EnvironmentName") => String.t()
+      }
+      
   """
   @type describe_environment_resources_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_events_message() :: %{
-    optional("ApplicationName") => String.t(),
-    optional("EndTime") => non_neg_integer(),
-    optional("EnvironmentId") => String.t(),
-    optional("EnvironmentName") => String.t(),
-    optional("MaxRecords") => integer(),
-    optional("NextToken") => String.t(),
-    optional("PlatformArn") => String.t(),
-    optional("RequestId") => String.t(),
-    optional("Severity") => list(any()),
-    optional("StartTime") => non_neg_integer(),
-    optional("TemplateName") => String.t(),
-    optional("VersionLabel") => String.t()
-  }
+      
+      describe_events_message() :: %{
+        optional("ApplicationName") => String.t(),
+        optional("EndTime") => non_neg_integer(),
+        optional("EnvironmentId") => String.t(),
+        optional("EnvironmentName") => String.t(),
+        optional("MaxRecords") => integer(),
+        optional("NextToken") => String.t(),
+        optional("PlatformArn") => String.t(),
+        optional("RequestId") => String.t(),
+        optional("Severity") => list(any()),
+        optional("StartTime") => non_neg_integer(),
+        optional("TemplateName") => String.t(),
+        optional("VersionLabel") => String.t()
+      }
+      
   """
   @type describe_events_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  load_balancer() :: %{
-    "Name" => String.t()
-  }
+      
+      load_balancer() :: %{
+        "Name" => String.t()
+      }
+      
   """
   @type load_balancer() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  auto_scaling_group() :: %{
-    "Name" => String.t()
-  }
+      
+      auto_scaling_group() :: %{
+        "Name" => String.t()
+      }
+      
   """
   @type auto_scaling_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_environment_managed_actions_result() :: %{
-    "ManagedActions" => list(managed_action()())
-  }
+      
+      describe_environment_managed_actions_result() :: %{
+        "ManagedActions" => list(managed_action()())
+      }
+      
   """
   @type describe_environment_managed_actions_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_tags_description_message() :: %{
-    "ResourceArn" => String.t(),
-    "ResourceTags" => list(tag()())
-  }
+      
+      resource_tags_description_message() :: %{
+        "ResourceArn" => String.t(),
+        "ResourceTags" => list(tag()())
+      }
+      
   """
   @type resource_tags_description_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  insufficient_privileges_exception() :: %{
-    "message" => String.t()
-  }
+      
+      insufficient_privileges_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type insufficient_privileges_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  configuration_settings_descriptions() :: %{
-    "ConfigurationSettings" => list(configuration_settings_description()())
-  }
+      
+      configuration_settings_descriptions() :: %{
+        "ConfigurationSettings" => list(configuration_settings_description()())
+      }
+      
   """
   @type configuration_settings_descriptions() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_platform_version_result() :: %{
-    "Builder" => builder(),
-    "PlatformSummary" => platform_summary()
-  }
+      
+      create_platform_version_result() :: %{
+        "Builder" => builder(),
+        "PlatformSummary" => platform_summary()
+      }
+      
   """
   @type create_platform_version_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  environment_resources_description() :: %{
-    "LoadBalancer" => load_balancer_description()
-  }
+      
+      environment_resources_description() :: %{
+        "LoadBalancer" => load_balancer_description()
+      }
+      
   """
   @type environment_resources_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  application_description() :: %{
-    "ApplicationArn" => String.t(),
-    "ApplicationName" => String.t(),
-    "ConfigurationTemplates" => list(String.t()()),
-    "DateCreated" => non_neg_integer(),
-    "DateUpdated" => non_neg_integer(),
-    "Description" => String.t(),
-    "ResourceLifecycleConfig" => application_resource_lifecycle_config(),
-    "Versions" => list(String.t()())
-  }
+      
+      application_description() :: %{
+        "ApplicationArn" => String.t(),
+        "ApplicationName" => String.t(),
+        "ConfigurationTemplates" => list(String.t()()),
+        "DateCreated" => non_neg_integer(),
+        "DateUpdated" => non_neg_integer(),
+        "Description" => String.t(),
+        "ResourceLifecycleConfig" => application_resource_lifecycle_config(),
+        "Versions" => list(String.t()())
+      }
+      
   """
   @type application_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_platform_branches_request() :: %{
-    optional("Filters") => list(search_filter()()),
-    optional("MaxRecords") => integer(),
-    optional("NextToken") => String.t()
-  }
+      
+      list_platform_branches_request() :: %{
+        optional("Filters") => list(search_filter()()),
+        optional("MaxRecords") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type list_platform_branches_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  launch_template() :: %{
-    "Id" => String.t()
-  }
+      
+      launch_template() :: %{
+        "Id" => String.t()
+      }
+      
   """
   @type launch_template() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_applications_message() :: %{
-    optional("ApplicationNames") => list(String.t()())
-  }
+      
+      describe_applications_message() :: %{
+        optional("ApplicationNames") => list(String.t()())
+      }
+      
   """
   @type describe_applications_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_platform_version_result() :: %{
-    "PlatformDescription" => platform_description()
-  }
+      
+      describe_platform_version_result() :: %{
+        "PlatformDescription" => platform_description()
+      }
+      
   """
   @type describe_platform_version_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  application_version_descriptions_message() :: %{
-    "ApplicationVersions" => list(application_version_description()()),
-    "NextToken" => String.t()
-  }
+      
+      application_version_descriptions_message() :: %{
+        "ApplicationVersions" => list(application_version_description()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type application_version_descriptions_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  source_build_information() :: %{
-    "SourceLocation" => String.t(),
-    "SourceRepository" => list(any()),
-    "SourceType" => list(any())
-  }
+      
+      source_build_information() :: %{
+        "SourceLocation" => String.t(),
+        "SourceRepository" => list(any()),
+        "SourceType" => list(any())
+      }
+      
   """
   @type source_build_information() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_storage_location_result_message() :: %{
-    "S3Bucket" => String.t()
-  }
+      
+      create_storage_location_result_message() :: %{
+        "S3Bucket" => String.t()
+      }
+      
   """
   @type create_storage_location_result_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_configuration_templates_exception() :: %{
-    "message" => String.t()
-  }
+      
+      too_many_configuration_templates_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type too_many_configuration_templates_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  launch_configuration() :: %{
-    "Name" => String.t()
-  }
+      
+      launch_configuration() :: %{
+        "Name" => String.t()
+      }
+      
   """
   @type launch_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_configuration_template_message() :: %{
-    optional("Description") => String.t(),
-    optional("EnvironmentId") => String.t(),
-    optional("OptionSettings") => list(configuration_option_setting()()),
-    optional("PlatformArn") => String.t(),
-    optional("SolutionStackName") => String.t(),
-    optional("SourceConfiguration") => source_configuration(),
-    optional("Tags") => list(tag()()),
-    required("ApplicationName") => String.t(),
-    required("TemplateName") => String.t()
-  }
+      
+      create_configuration_template_message() :: %{
+        optional("Description") => String.t(),
+        optional("EnvironmentId") => String.t(),
+        optional("OptionSettings") => list(configuration_option_setting()()),
+        optional("PlatformArn") => String.t(),
+        optional("SolutionStackName") => String.t(),
+        optional("SourceConfiguration") => source_configuration(),
+        optional("Tags") => list(tag()()),
+        required("ApplicationName") => String.t(),
+        required("TemplateName") => String.t()
+      }
+      
   """
   @type create_configuration_template_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_platform_version_result() :: %{
-    "PlatformSummary" => platform_summary()
-  }
+      
+      delete_platform_version_result() :: %{
+        "PlatformSummary" => platform_summary()
+      }
+      
   """
   @type delete_platform_version_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_platform_version_request() :: %{
-    optional("PlatformArn") => String.t()
-  }
+      
+      describe_platform_version_request() :: %{
+        optional("PlatformArn") => String.t()
+      }
+      
   """
   @type describe_platform_version_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  application_version_description() :: %{
-    "ApplicationName" => String.t(),
-    "ApplicationVersionArn" => String.t(),
-    "BuildArn" => String.t(),
-    "DateCreated" => non_neg_integer(),
-    "DateUpdated" => non_neg_integer(),
-    "Description" => String.t(),
-    "SourceBuildInformation" => source_build_information(),
-    "SourceBundle" => s3_location(),
-    "Status" => list(any()),
-    "VersionLabel" => String.t()
-  }
+      
+      application_version_description() :: %{
+        "ApplicationName" => String.t(),
+        "ApplicationVersionArn" => String.t(),
+        "BuildArn" => String.t(),
+        "DateCreated" => non_neg_integer(),
+        "DateUpdated" => non_neg_integer(),
+        "Description" => String.t(),
+        "SourceBuildInformation" => source_build_information(),
+        "SourceBundle" => s3_location(),
+        "Status" => list(any()),
+        "VersionLabel" => String.t()
+      }
+      
   """
   @type application_version_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_environment_managed_action_history_request() :: %{
-    optional("EnvironmentId") => String.t(),
-    optional("EnvironmentName") => String.t(),
-    optional("MaxItems") => integer(),
-    optional("NextToken") => String.t()
-  }
+      
+      describe_environment_managed_action_history_request() :: %{
+        optional("EnvironmentId") => String.t(),
+        optional("EnvironmentName") => String.t(),
+        optional("MaxItems") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type describe_environment_managed_action_history_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_quotas() :: %{
-    "ApplicationQuota" => resource_quota(),
-    "ApplicationVersionQuota" => resource_quota(),
-    "ConfigurationTemplateQuota" => resource_quota(),
-    "CustomPlatformQuota" => resource_quota(),
-    "EnvironmentQuota" => resource_quota()
-  }
+      
+      resource_quotas() :: %{
+        "ApplicationQuota" => resource_quota(),
+        "ApplicationVersionQuota" => resource_quota(),
+        "ConfigurationTemplateQuota" => resource_quota(),
+        "CustomPlatformQuota" => resource_quota(),
+        "EnvironmentQuota" => resource_quota()
+      }
+      
   """
   @type resource_quotas() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_application_message() :: %{
-    optional("Description") => String.t(),
-    required("ApplicationName") => String.t()
-  }
+      
+      update_application_message() :: %{
+        optional("Description") => String.t(),
+        required("ApplicationName") => String.t()
+      }
+      
   """
   @type update_application_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_application_version_message() :: %{
-    optional("Description") => String.t(),
-    required("ApplicationName") => String.t(),
-    required("VersionLabel") => String.t()
-  }
+      
+      update_application_version_message() :: %{
+        optional("Description") => String.t(),
+        required("ApplicationName") => String.t(),
+        required("VersionLabel") => String.t()
+      }
+      
   """
   @type update_application_version_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_platform_versions_result() :: %{
-    "NextToken" => String.t(),
-    "PlatformSummaryList" => list(platform_summary()())
-  }
+      
+      list_platform_versions_result() :: %{
+        "NextToken" => String.t(),
+        "PlatformSummaryList" => list(platform_summary()())
+      }
+      
   """
   @type list_platform_versions_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_configuration_template_message() :: %{
-    required("ApplicationName") => String.t(),
-    required("TemplateName") => String.t()
-  }
+      
+      delete_configuration_template_message() :: %{
+        required("ApplicationName") => String.t(),
+        required("TemplateName") => String.t()
+      }
+      
   """
   @type delete_configuration_template_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  source_bundle_deletion_exception() :: %{
-    "message" => String.t()
-  }
+      
+      source_bundle_deletion_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type source_bundle_deletion_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  code_build_not_in_service_region_exception() :: %{
-    "message" => String.t()
-  }
+      
+      code_build_not_in_service_region_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type code_build_not_in_service_region_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_tags_for_resource_message() :: %{
-    optional("TagsToAdd") => list(tag()()),
-    optional("TagsToRemove") => list(String.t()()),
-    required("ResourceArn") => String.t()
-  }
+      
+      update_tags_for_resource_message() :: %{
+        optional("TagsToAdd") => list(tag()()),
+        optional("TagsToRemove") => list(String.t()()),
+        required("ResourceArn") => String.t()
+      }
+      
   """
   @type update_tags_for_resource_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  restart_app_server_message() :: %{
-    optional("EnvironmentId") => String.t(),
-    optional("EnvironmentName") => String.t()
-  }
+      
+      restart_app_server_message() :: %{
+        optional("EnvironmentId") => String.t(),
+        optional("EnvironmentName") => String.t()
+      }
+      
   """
   @type restart_app_server_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_tags_exception() :: %{
-    "message" => String.t()
-  }
+      
+      too_many_tags_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type too_many_tags_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_application_message() :: %{
-    optional("Description") => String.t(),
-    optional("ResourceLifecycleConfig") => application_resource_lifecycle_config(),
-    optional("Tags") => list(tag()()),
-    required("ApplicationName") => String.t()
-  }
+      
+      create_application_message() :: %{
+        optional("Description") => String.t(),
+        optional("ResourceLifecycleConfig") => application_resource_lifecycle_config(),
+        optional("Tags") => list(tag()()),
+        required("ApplicationName") => String.t()
+      }
+      
   """
   @type create_application_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  application_resource_lifecycle_config() :: %{
-    "ServiceRole" => String.t(),
-    "VersionLifecycleConfig" => application_version_lifecycle_config()
-  }
+      
+      application_resource_lifecycle_config() :: %{
+        "ServiceRole" => String.t(),
+        "VersionLifecycleConfig" => application_version_lifecycle_config()
+      }
+      
   """
   @type application_resource_lifecycle_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_environment_message() :: %{
-    optional("CNAMEPrefix") => String.t(),
-    optional("Description") => String.t(),
-    optional("EnvironmentName") => String.t(),
-    optional("GroupName") => String.t(),
-    optional("OperationsRole") => String.t(),
-    optional("OptionSettings") => list(configuration_option_setting()()),
-    optional("OptionsToRemove") => list(option_specification()()),
-    optional("PlatformArn") => String.t(),
-    optional("SolutionStackName") => String.t(),
-    optional("Tags") => list(tag()()),
-    optional("TemplateName") => String.t(),
-    optional("Tier") => environment_tier(),
-    optional("VersionLabel") => String.t(),
-    required("ApplicationName") => String.t()
-  }
+      
+      create_environment_message() :: %{
+        optional("CNAMEPrefix") => String.t(),
+        optional("Description") => String.t(),
+        optional("EnvironmentName") => String.t(),
+        optional("GroupName") => String.t(),
+        optional("OperationsRole") => String.t(),
+        optional("OptionSettings") => list(configuration_option_setting()()),
+        optional("OptionsToRemove") => list(option_specification()()),
+        optional("PlatformArn") => String.t(),
+        optional("SolutionStackName") => String.t(),
+        optional("Tags") => list(tag()()),
+        optional("TemplateName") => String.t(),
+        optional("Tier") => environment_tier(),
+        optional("VersionLabel") => String.t(),
+        required("ApplicationName") => String.t()
+      }
+      
   """
   @type create_environment_message() :: %{String.t() => any()}
+
+  @type abort_environment_update_errors() :: insufficient_privileges_exception()
+
+  @type apply_environment_managed_action_errors() ::
+          elastic_beanstalk_service_exception() | managed_action_invalid_state_exception()
+
+  @type associate_environment_operations_role_errors() :: insufficient_privileges_exception()
+
+  @type compose_environments_errors() ::
+          insufficient_privileges_exception() | too_many_environments_exception()
+
+  @type create_application_errors() :: too_many_applications_exception()
+
+  @type create_application_version_errors() ::
+          code_build_not_in_service_region_exception()
+          | insufficient_privileges_exception()
+          | too_many_application_versions_exception()
+          | s3_location_not_in_service_region_exception()
+          | too_many_applications_exception()
+
+  @type create_configuration_template_errors() ::
+          too_many_configuration_templates_exception()
+          | insufficient_privileges_exception()
+          | too_many_buckets_exception()
+
+  @type create_environment_errors() ::
+          insufficient_privileges_exception() | too_many_environments_exception()
+
+  @type create_platform_version_errors() ::
+          insufficient_privileges_exception()
+          | elastic_beanstalk_service_exception()
+          | too_many_platforms_exception()
+
+  @type create_storage_location_errors() ::
+          insufficient_privileges_exception()
+          | s3_subscription_required_exception()
+          | too_many_buckets_exception()
+
+  @type delete_application_errors() :: operation_in_progress_exception()
+
+  @type delete_application_version_errors() ::
+          source_bundle_deletion_exception()
+          | insufficient_privileges_exception()
+          | s3_location_not_in_service_region_exception()
+          | operation_in_progress_exception()
+
+  @type delete_configuration_template_errors() :: operation_in_progress_exception()
+
+  @type delete_platform_version_errors() ::
+          insufficient_privileges_exception()
+          | operation_in_progress_exception()
+          | elastic_beanstalk_service_exception()
+          | platform_version_still_referenced_exception()
+
+  @type describe_account_attributes_errors() :: insufficient_privileges_exception()
+
+  @type describe_configuration_options_errors() :: too_many_buckets_exception()
+
+  @type describe_configuration_settings_errors() :: too_many_buckets_exception()
+
+  @type describe_environment_health_errors() ::
+          invalid_request_exception() | elastic_beanstalk_service_exception()
+
+  @type describe_environment_managed_action_history_errors() ::
+          elastic_beanstalk_service_exception()
+
+  @type describe_environment_managed_actions_errors() :: elastic_beanstalk_service_exception()
+
+  @type describe_environment_resources_errors() :: insufficient_privileges_exception()
+
+  @type describe_instances_health_errors() ::
+          invalid_request_exception() | elastic_beanstalk_service_exception()
+
+  @type describe_platform_version_errors() ::
+          insufficient_privileges_exception() | elastic_beanstalk_service_exception()
+
+  @type disassociate_environment_operations_role_errors() :: insufficient_privileges_exception()
+
+  @type list_platform_versions_errors() ::
+          insufficient_privileges_exception() | elastic_beanstalk_service_exception()
+
+  @type list_tags_for_resource_errors() ::
+          insufficient_privileges_exception()
+          | resource_not_found_exception()
+          | resource_type_not_supported_exception()
+
+  @type rebuild_environment_errors() :: insufficient_privileges_exception()
+
+  @type terminate_environment_errors() :: insufficient_privileges_exception()
+
+  @type update_application_resource_lifecycle_errors() :: insufficient_privileges_exception()
+
+  @type update_configuration_template_errors() ::
+          insufficient_privileges_exception() | too_many_buckets_exception()
+
+  @type update_environment_errors() ::
+          insufficient_privileges_exception() | too_many_buckets_exception()
+
+  @type update_tags_for_resource_errors() ::
+          too_many_tags_exception()
+          | insufficient_privileges_exception()
+          | operation_in_progress_exception()
+          | resource_not_found_exception()
+          | resource_type_not_supported_exception()
+
+  @type validate_configuration_settings_errors() ::
+          insufficient_privileges_exception() | too_many_buckets_exception()
 
   def metadata do
     %{
@@ -1710,7 +2107,7 @@ defmodule AWS.ElasticBeanstalk do
   @spec abort_environment_update(map(), abort_environment_update_message(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, insufficient_privileges_exception()}
+          | {:error, abort_environment_update_errors()}
   def abort_environment_update(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1731,8 +2128,7 @@ defmodule AWS.ElasticBeanstalk do
         ) ::
           {:ok, apply_environment_managed_action_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, elastic_beanstalk_service_exception()}
-          | {:error, managed_action_invalid_state_exception()}
+          | {:error, apply_environment_managed_action_errors()}
   def apply_environment_managed_action(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1756,7 +2152,7 @@ defmodule AWS.ElasticBeanstalk do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, insufficient_privileges_exception()}
+          | {:error, associate_environment_operations_role_errors()}
   def associate_environment_operations_role(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1791,8 +2187,7 @@ defmodule AWS.ElasticBeanstalk do
   @spec compose_environments(map(), compose_environments_message(), list()) ::
           {:ok, environment_descriptions_message(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, insufficient_privileges_exception()}
-          | {:error, too_many_environments_exception()}
+          | {:error, compose_environments_errors()}
   def compose_environments(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1806,7 +2201,7 @@ defmodule AWS.ElasticBeanstalk do
   @spec create_application(map(), create_application_message(), list()) ::
           {:ok, application_description_message(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, too_many_applications_exception()}
+          | {:error, create_application_errors()}
   def create_application(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1843,11 +2238,7 @@ defmodule AWS.ElasticBeanstalk do
   @spec create_application_version(map(), create_application_version_message(), list()) ::
           {:ok, application_version_description_message(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, code_build_not_in_service_region_exception()}
-          | {:error, insufficient_privileges_exception()}
-          | {:error, s3_location_not_in_service_region_exception()}
-          | {:error, too_many_applications_exception()}
-          | {:error, too_many_application_versions_exception()}
+          | {:error, create_application_version_errors()}
   def create_application_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1884,9 +2275,7 @@ defmodule AWS.ElasticBeanstalk do
   @spec create_configuration_template(map(), create_configuration_template_message(), list()) ::
           {:ok, configuration_settings_description(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, insufficient_privileges_exception()}
-          | {:error, too_many_buckets_exception()}
-          | {:error, too_many_configuration_templates_exception()}
+          | {:error, create_configuration_template_errors()}
   def create_configuration_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1901,8 +2290,7 @@ defmodule AWS.ElasticBeanstalk do
   @spec create_environment(map(), create_environment_message(), list()) ::
           {:ok, environment_description(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, insufficient_privileges_exception()}
-          | {:error, too_many_environments_exception()}
+          | {:error, create_environment_errors()}
   def create_environment(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1915,9 +2303,7 @@ defmodule AWS.ElasticBeanstalk do
   @spec create_platform_version(map(), create_platform_version_request(), list()) ::
           {:ok, create_platform_version_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, elastic_beanstalk_service_exception()}
-          | {:error, insufficient_privileges_exception()}
-          | {:error, too_many_platforms_exception()}
+          | {:error, create_platform_version_errors()}
   def create_platform_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1938,9 +2324,7 @@ defmodule AWS.ElasticBeanstalk do
   @spec create_storage_location(map(), %{}, list()) ::
           {:ok, create_storage_location_result_message(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, insufficient_privileges_exception()}
-          | {:error, s3_subscription_required_exception()}
-          | {:error, too_many_buckets_exception()}
+          | {:error, create_storage_location_errors()}
   def create_storage_location(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1959,7 +2343,7 @@ defmodule AWS.ElasticBeanstalk do
   @spec delete_application(map(), delete_application_message(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, operation_in_progress_exception()}
+          | {:error, delete_application_errors()}
   def delete_application(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1975,10 +2359,7 @@ defmodule AWS.ElasticBeanstalk do
   @spec delete_application_version(map(), delete_application_version_message(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, insufficient_privileges_exception()}
-          | {:error, operation_in_progress_exception()}
-          | {:error, s3_location_not_in_service_region_exception()}
-          | {:error, source_bundle_deletion_exception()}
+          | {:error, delete_application_version_errors()}
   def delete_application_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1997,7 +2378,7 @@ defmodule AWS.ElasticBeanstalk do
   @spec delete_configuration_template(map(), delete_configuration_template_message(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, operation_in_progress_exception()}
+          | {:error, delete_configuration_template_errors()}
   def delete_configuration_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2034,10 +2415,7 @@ defmodule AWS.ElasticBeanstalk do
   @spec delete_platform_version(map(), delete_platform_version_request(), list()) ::
           {:ok, delete_platform_version_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, elastic_beanstalk_service_exception()}
-          | {:error, insufficient_privileges_exception()}
-          | {:error, operation_in_progress_exception()}
-          | {:error, platform_version_still_referenced_exception()}
+          | {:error, delete_platform_version_errors()}
   def delete_platform_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2054,7 +2432,7 @@ defmodule AWS.ElasticBeanstalk do
   @spec describe_account_attributes(map(), %{}, list()) ::
           {:ok, describe_account_attributes_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, insufficient_privileges_exception()}
+          | {:error, describe_account_attributes_errors()}
   def describe_account_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2097,7 +2475,7 @@ defmodule AWS.ElasticBeanstalk do
   @spec describe_configuration_options(map(), describe_configuration_options_message(), list()) ::
           {:ok, configuration_options_description(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, too_many_buckets_exception()}
+          | {:error, describe_configuration_options_errors()}
   def describe_configuration_options(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2127,7 +2505,7 @@ defmodule AWS.ElasticBeanstalk do
   @spec describe_configuration_settings(map(), describe_configuration_settings_message(), list()) ::
           {:ok, configuration_settings_descriptions(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, too_many_buckets_exception()}
+          | {:error, describe_configuration_settings_errors()}
   def describe_configuration_settings(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2144,8 +2522,7 @@ defmodule AWS.ElasticBeanstalk do
   @spec describe_environment_health(map(), describe_environment_health_request(), list()) ::
           {:ok, describe_environment_health_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, elastic_beanstalk_service_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, describe_environment_health_errors()}
   def describe_environment_health(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2162,7 +2539,7 @@ defmodule AWS.ElasticBeanstalk do
         ) ::
           {:ok, describe_environment_managed_action_history_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, elastic_beanstalk_service_exception()}
+          | {:error, describe_environment_managed_action_history_errors()}
   def describe_environment_managed_action_history(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2179,7 +2556,7 @@ defmodule AWS.ElasticBeanstalk do
         ) ::
           {:ok, describe_environment_managed_actions_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, elastic_beanstalk_service_exception()}
+          | {:error, describe_environment_managed_actions_errors()}
   def describe_environment_managed_actions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2192,7 +2569,7 @@ defmodule AWS.ElasticBeanstalk do
   @spec describe_environment_resources(map(), describe_environment_resources_message(), list()) ::
           {:ok, environment_resource_descriptions_message(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, insufficient_privileges_exception()}
+          | {:error, describe_environment_resources_errors()}
   def describe_environment_resources(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2235,8 +2612,7 @@ defmodule AWS.ElasticBeanstalk do
   @spec describe_instances_health(map(), describe_instances_health_request(), list()) ::
           {:ok, describe_instances_health_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, elastic_beanstalk_service_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, describe_instances_health_errors()}
   def describe_instances_health(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2257,8 +2633,7 @@ defmodule AWS.ElasticBeanstalk do
   @spec describe_platform_version(map(), describe_platform_version_request(), list()) ::
           {:ok, describe_platform_version_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, elastic_beanstalk_service_exception()}
-          | {:error, insufficient_privileges_exception()}
+          | {:error, describe_platform_version_errors()}
   def describe_platform_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2282,7 +2657,7 @@ defmodule AWS.ElasticBeanstalk do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, insufficient_privileges_exception()}
+          | {:error, disassociate_environment_operations_role_errors()}
   def disassociate_environment_operations_role(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2337,8 +2712,7 @@ defmodule AWS.ElasticBeanstalk do
   @spec list_platform_versions(map(), list_platform_versions_request(), list()) ::
           {:ok, list_platform_versions_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, elastic_beanstalk_service_exception()}
-          | {:error, insufficient_privileges_exception()}
+          | {:error, list_platform_versions_errors()}
   def list_platform_versions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2357,9 +2731,7 @@ defmodule AWS.ElasticBeanstalk do
   @spec list_tags_for_resource(map(), list_tags_for_resource_message(), list()) ::
           {:ok, resource_tags_description_message(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, insufficient_privileges_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, resource_type_not_supported_exception()}
+          | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2374,7 +2746,7 @@ defmodule AWS.ElasticBeanstalk do
   @spec rebuild_environment(map(), rebuild_environment_message(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, insufficient_privileges_exception()}
+          | {:error, rebuild_environment_errors()}
   def rebuild_environment(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2462,7 +2834,7 @@ defmodule AWS.ElasticBeanstalk do
   @spec terminate_environment(map(), terminate_environment_message(), list()) ::
           {:ok, environment_description(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, insufficient_privileges_exception()}
+          | {:error, terminate_environment_errors()}
   def terminate_environment(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2494,7 +2866,7 @@ defmodule AWS.ElasticBeanstalk do
         ) ::
           {:ok, application_resource_lifecycle_description_message(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, insufficient_privileges_exception()}
+          | {:error, update_application_resource_lifecycle_errors()}
   def update_application_resource_lifecycle(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2532,8 +2904,7 @@ defmodule AWS.ElasticBeanstalk do
   @spec update_configuration_template(map(), update_configuration_template_message(), list()) ::
           {:ok, configuration_settings_description(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, insufficient_privileges_exception()}
-          | {:error, too_many_buckets_exception()}
+          | {:error, update_configuration_template_errors()}
   def update_configuration_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2560,8 +2931,7 @@ defmodule AWS.ElasticBeanstalk do
   @spec update_environment(map(), update_environment_message(), list()) ::
           {:ok, environment_description(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, insufficient_privileges_exception()}
-          | {:error, too_many_buckets_exception()}
+          | {:error, update_environment_errors()}
   def update_environment(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2602,11 +2972,7 @@ defmodule AWS.ElasticBeanstalk do
   @spec update_tags_for_resource(map(), update_tags_for_resource_message(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, insufficient_privileges_exception()}
-          | {:error, operation_in_progress_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, resource_type_not_supported_exception()}
-          | {:error, too_many_tags_exception()}
+          | {:error, update_tags_for_resource_errors()}
   def update_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2624,8 +2990,7 @@ defmodule AWS.ElasticBeanstalk do
   @spec validate_configuration_settings(map(), validate_configuration_settings_message(), list()) ::
           {:ok, configuration_settings_validation_messages(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, insufficient_privileges_exception()}
-          | {:error, too_many_buckets_exception()}
+          | {:error, validate_configuration_settings_errors()}
   def validate_configuration_settings(%Client{} = client, input, options \\ []) do
     meta = metadata()
 

@@ -35,426 +35,578 @@ defmodule AWS.OAM do
   @typedoc """
 
   ## Example:
-  create_sink_input() :: %{
-    optional("Tags") => map(),
-    required("Name") => String.t()
-  }
+
+      create_sink_input() :: %{
+        optional("Tags") => map(),
+        required("Name") => String.t()
+      }
+
   """
   @type create_sink_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_link_output() :: %{
-    "Arn" => [String.t()],
-    "Id" => [String.t()],
-    "Label" => [String.t()],
-    "LabelTemplate" => [String.t()],
-    "ResourceTypes" => list([String.t()]()),
-    "SinkArn" => [String.t()],
-    "Tags" => map()
-  }
+
+      get_link_output() :: %{
+        "Arn" => [String.t()],
+        "Id" => [String.t()],
+        "Label" => [String.t()],
+        "LabelTemplate" => [String.t()],
+        "ResourceTypes" => list([String.t()]()),
+        "SinkArn" => [String.t()],
+        "Tags" => map()
+      }
+
   """
   @type get_link_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_link_input() :: %{
-    required("Identifier") => String.t()
-  }
+
+      delete_link_input() :: %{
+        required("Identifier") => String.t()
+      }
+
   """
   @type delete_link_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  missing_required_parameter_exception() :: %{
-    "amznErrorType" => [String.t()],
-    "message" => [String.t()]
-  }
+
+      missing_required_parameter_exception() :: %{
+        "amznErrorType" => [String.t()],
+        "message" => [String.t()]
+      }
+
   """
   @type missing_required_parameter_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_sink_output() :: %{
 
-  }
+      delete_sink_output() :: %{}
+
   """
-  @type delete_sink_output() :: %{String.t() => any()}
+  @type delete_sink_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_links_output() :: %{
-    "Items" => list(list_links_item()()),
-    "NextToken" => [String.t()]
-  }
+
+      list_links_output() :: %{
+        "Items" => list(list_links_item()()),
+        "NextToken" => [String.t()]
+      }
+
   """
   @type list_links_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_sink_policy_output() :: %{
-    "Policy" => [String.t()],
-    "SinkArn" => [String.t()],
-    "SinkId" => [String.t()]
-  }
+
+      put_sink_policy_output() :: %{
+        "Policy" => [String.t()],
+        "SinkArn" => [String.t()],
+        "SinkId" => [String.t()]
+      }
+
   """
   @type put_sink_policy_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_attached_links_output() :: %{
-    "Items" => list(list_attached_links_item()()),
-    "NextToken" => [String.t()]
-  }
+
+      list_attached_links_output() :: %{
+        "Items" => list(list_attached_links_item()()),
+        "NextToken" => [String.t()]
+      }
+
   """
   @type list_attached_links_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_output() :: %{
-    "Tags" => map()
-  }
+
+      list_tags_for_resource_output() :: %{
+        "Tags" => map()
+      }
+
   """
   @type list_tags_for_resource_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_sink_input() :: %{
-    required("Identifier") => String.t()
-  }
+
+      delete_sink_input() :: %{
+        required("Identifier") => String.t()
+      }
+
   """
   @type delete_sink_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_sink_policy_input() :: %{
-    required("SinkIdentifier") => String.t()
-  }
+
+      get_sink_policy_input() :: %{
+        required("SinkIdentifier") => String.t()
+      }
+
   """
   @type get_sink_policy_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_sink_policy_output() :: %{
-    "Policy" => [String.t()],
-    "SinkArn" => [String.t()],
-    "SinkId" => [String.t()]
-  }
+
+      get_sink_policy_output() :: %{
+        "Policy" => [String.t()],
+        "SinkArn" => [String.t()],
+        "SinkId" => [String.t()]
+      }
+
   """
   @type get_sink_policy_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_attached_links_input() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("SinkIdentifier") => String.t()
-  }
+
+      list_attached_links_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("SinkIdentifier") => String.t()
+      }
+
   """
   @type list_attached_links_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_link_input() :: %{
-    optional("Tags") => map(),
-    required("LabelTemplate") => String.t(),
-    required("ResourceTypes") => list(list(any())()),
-    required("SinkIdentifier") => String.t()
-  }
+
+      create_link_input() :: %{
+        optional("Tags") => map(),
+        required("LabelTemplate") => String.t(),
+        required("ResourceTypes") => list(list(any())()),
+        required("SinkIdentifier") => String.t()
+      }
+
   """
   @type create_link_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  conflict_exception() :: %{
-    "Message" => [String.t()],
-    "amznErrorType" => [String.t()]
-  }
+
+      conflict_exception() :: %{
+        "Message" => [String.t()],
+        "amznErrorType" => [String.t()]
+      }
+
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_not_found_exception() :: %{
-    "Message" => [String.t()],
-    "amznErrorType" => [String.t()]
-  }
+
+      resource_not_found_exception() :: %{
+        "Message" => [String.t()],
+        "amznErrorType" => [String.t()]
+      }
+
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_attached_links_item() :: %{
-    "Label" => [String.t()],
-    "LinkArn" => [String.t()],
-    "ResourceTypes" => list([String.t()]())
-  }
+
+      list_attached_links_item() :: %{
+        "Label" => [String.t()],
+        "LinkArn" => [String.t()],
+        "ResourceTypes" => list([String.t()]())
+      }
+
   """
   @type list_attached_links_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_links_input() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      list_links_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_links_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  service_quota_exceeded_exception() :: %{
-    "Message" => [String.t()],
-    "amznErrorType" => [String.t()]
-  }
+
+      service_quota_exceeded_exception() :: %{
+        "Message" => [String.t()],
+        "amznErrorType" => [String.t()]
+      }
+
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_link_input() :: %{
-    required("Identifier") => String.t(),
-    required("ResourceTypes") => list(list(any())())
-  }
+
+      update_link_input() :: %{
+        required("Identifier") => String.t(),
+        required("ResourceTypes") => list(list(any())())
+      }
+
   """
   @type update_link_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_sink_output() :: %{
-    "Arn" => [String.t()],
-    "Id" => [String.t()],
-    "Name" => [String.t()],
-    "Tags" => map()
-  }
+
+      create_sink_output() :: %{
+        "Arn" => [String.t()],
+        "Id" => [String.t()],
+        "Name" => [String.t()],
+        "Tags" => map()
+      }
+
   """
   @type create_sink_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_sink_input() :: %{
-    required("Identifier") => String.t()
-  }
+
+      get_sink_input() :: %{
+        required("Identifier") => String.t()
+      }
+
   """
   @type get_sink_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_input() :: %{
-    required("Tags") => map()
-  }
+
+      tag_resource_input() :: %{
+        required("Tags") => map()
+      }
+
   """
   @type tag_resource_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_link_output() :: %{
-    "Arn" => [String.t()],
-    "Id" => [String.t()],
-    "Label" => [String.t()],
-    "LabelTemplate" => [String.t()],
-    "ResourceTypes" => list([String.t()]()),
-    "SinkArn" => [String.t()],
-    "Tags" => map()
-  }
+
+      create_link_output() :: %{
+        "Arn" => [String.t()],
+        "Id" => [String.t()],
+        "Label" => [String.t()],
+        "LabelTemplate" => [String.t()],
+        "ResourceTypes" => list([String.t()]()),
+        "SinkArn" => [String.t()],
+        "Tags" => map()
+      }
+
   """
   @type create_link_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_output() :: %{
 
-  }
+      tag_resource_output() :: %{}
+
   """
-  @type tag_resource_output() :: %{String.t() => any()}
+  @type tag_resource_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_links_item() :: %{
-    "Arn" => [String.t()],
-    "Id" => [String.t()],
-    "Label" => [String.t()],
-    "ResourceTypes" => list([String.t()]()),
-    "SinkArn" => [String.t()]
-  }
+
+      list_links_item() :: %{
+        "Arn" => [String.t()],
+        "Id" => [String.t()],
+        "Label" => [String.t()],
+        "ResourceTypes" => list([String.t()]()),
+        "SinkArn" => [String.t()]
+      }
+
   """
   @type list_links_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_sinks_input() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      list_sinks_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_sinks_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_parameter_exception() :: %{
-    "amznErrorType" => [String.t()],
-    "message" => [String.t()]
-  }
+
+      invalid_parameter_exception() :: %{
+        "amznErrorType" => [String.t()],
+        "message" => [String.t()]
+      }
+
   """
   @type invalid_parameter_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_sinks_output() :: %{
-    "Items" => list(list_sinks_item()()),
-    "NextToken" => [String.t()]
-  }
+
+      list_sinks_output() :: %{
+        "Items" => list(list_sinks_item()()),
+        "NextToken" => [String.t()]
+      }
+
   """
   @type list_sinks_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_input() :: %{
-    required("TagKeys") => list(String.t()())
-  }
+
+      untag_resource_input() :: %{
+        required("TagKeys") => list(String.t()())
+      }
+
   """
   @type untag_resource_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  validation_exception() :: %{
-    "Message" => [String.t()]
-  }
+
+      validation_exception() :: %{
+        "Message" => [String.t()]
+      }
+
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_input() :: %{
 
-  }
+      list_tags_for_resource_input() :: %{}
+
   """
-  @type list_tags_for_resource_input() :: %{String.t() => any()}
+  @type list_tags_for_resource_input() :: %{}
 
   @typedoc """
 
   ## Example:
-  untag_resource_output() :: %{
 
-  }
+      untag_resource_output() :: %{}
+
   """
-  @type untag_resource_output() :: %{String.t() => any()}
+  @type untag_resource_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_link_input() :: %{
-    required("Identifier") => String.t()
-  }
+
+      get_link_input() :: %{
+        required("Identifier") => String.t()
+      }
+
   """
   @type get_link_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_link_output() :: %{
 
-  }
+      delete_link_output() :: %{}
+
   """
-  @type delete_link_output() :: %{String.t() => any()}
+  @type delete_link_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  internal_service_fault() :: %{
-    "Message" => [String.t()],
-    "amznErrorType" => [String.t()]
-  }
+
+      internal_service_fault() :: %{
+        "Message" => [String.t()],
+        "amznErrorType" => [String.t()]
+      }
+
   """
   @type internal_service_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_sinks_item() :: %{
-    "Arn" => [String.t()],
-    "Id" => [String.t()],
-    "Name" => [String.t()]
-  }
+
+      list_sinks_item() :: %{
+        "Arn" => [String.t()],
+        "Id" => [String.t()],
+        "Name" => [String.t()]
+      }
+
   """
   @type list_sinks_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_sink_output() :: %{
-    "Arn" => [String.t()],
-    "Id" => [String.t()],
-    "Name" => [String.t()],
-    "Tags" => map()
-  }
+
+      get_sink_output() :: %{
+        "Arn" => [String.t()],
+        "Id" => [String.t()],
+        "Name" => [String.t()],
+        "Tags" => map()
+      }
+
   """
   @type get_sink_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_link_output() :: %{
-    "Arn" => [String.t()],
-    "Id" => [String.t()],
-    "Label" => [String.t()],
-    "LabelTemplate" => String.t(),
-    "ResourceTypes" => list([String.t()]()),
-    "SinkArn" => [String.t()],
-    "Tags" => map()
-  }
+
+      update_link_output() :: %{
+        "Arn" => [String.t()],
+        "Id" => [String.t()],
+        "Label" => [String.t()],
+        "LabelTemplate" => String.t(),
+        "ResourceTypes" => list([String.t()]()),
+        "SinkArn" => [String.t()],
+        "Tags" => map()
+      }
+
   """
   @type update_link_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_tags_exception() :: %{
-    "Message" => [String.t()]
-  }
+
+      too_many_tags_exception() :: %{
+        "Message" => [String.t()]
+      }
+
   """
   @type too_many_tags_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_sink_policy_input() :: %{
-    required("Policy") => String.t(),
-    required("SinkIdentifier") => String.t()
-  }
+
+      put_sink_policy_input() :: %{
+        required("Policy") => String.t(),
+        required("SinkIdentifier") => String.t()
+      }
+
   """
   @type put_sink_policy_input() :: %{String.t() => any()}
+
+  @type create_link_errors() ::
+          internal_service_fault()
+          | invalid_parameter_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+          | missing_required_parameter_exception()
+
+  @type create_sink_errors() ::
+          internal_service_fault()
+          | invalid_parameter_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+          | missing_required_parameter_exception()
+
+  @type delete_link_errors() ::
+          internal_service_fault()
+          | invalid_parameter_exception()
+          | resource_not_found_exception()
+          | missing_required_parameter_exception()
+
+  @type delete_sink_errors() ::
+          internal_service_fault()
+          | invalid_parameter_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | missing_required_parameter_exception()
+
+  @type get_link_errors() ::
+          internal_service_fault()
+          | invalid_parameter_exception()
+          | resource_not_found_exception()
+          | missing_required_parameter_exception()
+
+  @type get_sink_errors() ::
+          internal_service_fault()
+          | invalid_parameter_exception()
+          | resource_not_found_exception()
+          | missing_required_parameter_exception()
+
+  @type get_sink_policy_errors() ::
+          internal_service_fault()
+          | invalid_parameter_exception()
+          | resource_not_found_exception()
+          | missing_required_parameter_exception()
+
+  @type list_attached_links_errors() ::
+          internal_service_fault()
+          | invalid_parameter_exception()
+          | resource_not_found_exception()
+          | missing_required_parameter_exception()
+
+  @type list_links_errors() ::
+          internal_service_fault()
+          | invalid_parameter_exception()
+          | resource_not_found_exception()
+
+  @type list_sinks_errors() ::
+          internal_service_fault()
+          | invalid_parameter_exception()
+          | resource_not_found_exception()
+
+  @type list_tags_for_resource_errors() :: validation_exception() | resource_not_found_exception()
+
+  @type put_sink_policy_errors() ::
+          internal_service_fault()
+          | invalid_parameter_exception()
+          | resource_not_found_exception()
+          | missing_required_parameter_exception()
+
+  @type tag_resource_errors() ::
+          too_many_tags_exception() | validation_exception() | resource_not_found_exception()
+
+  @type untag_resource_errors() :: validation_exception() | resource_not_found_exception()
+
+  @type update_link_errors() ::
+          internal_service_fault()
+          | invalid_parameter_exception()
+          | resource_not_found_exception()
+          | missing_required_parameter_exception()
 
   def metadata do
     %{
@@ -494,11 +646,7 @@ defmodule AWS.OAM do
   @spec create_link(map(), create_link_input(), list()) ::
           {:ok, create_link_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, internal_service_fault()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, missing_required_parameter_exception()}
-          | {:error, service_quota_exceeded_exception()}
+          | {:error, create_link_errors()}
   def create_link(%Client{} = client, input, options \\ []) do
     url_path = "/CreateLink"
     headers = []
@@ -539,11 +687,7 @@ defmodule AWS.OAM do
   @spec create_sink(map(), create_sink_input(), list()) ::
           {:ok, create_sink_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, internal_service_fault()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, missing_required_parameter_exception()}
-          | {:error, service_quota_exceeded_exception()}
+          | {:error, create_sink_errors()}
   def create_sink(%Client{} = client, input, options \\ []) do
     url_path = "/CreateSink"
     headers = []
@@ -573,10 +717,7 @@ defmodule AWS.OAM do
   @spec delete_link(map(), delete_link_input(), list()) ::
           {:ok, delete_link_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_fault()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, missing_required_parameter_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, delete_link_errors()}
   def delete_link(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteLink"
     headers = []
@@ -605,11 +746,7 @@ defmodule AWS.OAM do
   @spec delete_sink(map(), delete_sink_input(), list()) ::
           {:ok, delete_sink_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, internal_service_fault()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, missing_required_parameter_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, delete_sink_errors()}
   def delete_sink(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteSink"
     headers = []
@@ -640,10 +777,7 @@ defmodule AWS.OAM do
   @spec get_link(map(), get_link_input(), list()) ::
           {:ok, get_link_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_fault()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, missing_required_parameter_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, get_link_errors()}
   def get_link(%Client{} = client, input, options \\ []) do
     url_path = "/GetLink"
     headers = []
@@ -674,10 +808,7 @@ defmodule AWS.OAM do
   @spec get_sink(map(), get_sink_input(), list()) ::
           {:ok, get_sink_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_fault()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, missing_required_parameter_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, get_sink_errors()}
   def get_sink(%Client{} = client, input, options \\ []) do
     url_path = "/GetSink"
     headers = []
@@ -708,10 +839,7 @@ defmodule AWS.OAM do
   @spec get_sink_policy(map(), get_sink_policy_input(), list()) ::
           {:ok, get_sink_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_fault()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, missing_required_parameter_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, get_sink_policy_errors()}
   def get_sink_policy(%Client{} = client, input, options \\ []) do
     url_path = "/GetSinkPolicy"
     headers = []
@@ -744,10 +872,7 @@ defmodule AWS.OAM do
   @spec list_attached_links(map(), list_attached_links_input(), list()) ::
           {:ok, list_attached_links_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_fault()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, missing_required_parameter_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, list_attached_links_errors()}
   def list_attached_links(%Client{} = client, input, options \\ []) do
     url_path = "/ListAttachedLinks"
     headers = []
@@ -780,9 +905,7 @@ defmodule AWS.OAM do
   @spec list_links(map(), list_links_input(), list()) ::
           {:ok, list_links_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_fault()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, list_links_errors()}
   def list_links(%Client{} = client, input, options \\ []) do
     url_path = "/ListLinks"
     headers = []
@@ -810,9 +933,7 @@ defmodule AWS.OAM do
   @spec list_sinks(map(), list_sinks_input(), list()) ::
           {:ok, list_sinks_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_fault()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, list_sinks_errors()}
   def list_sinks(%Client{} = client, input, options \\ []) do
     url_path = "/ListSinks"
     headers = []
@@ -841,8 +962,7 @@ defmodule AWS.OAM do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -888,10 +1008,7 @@ defmodule AWS.OAM do
   @spec put_sink_policy(map(), put_sink_policy_input(), list()) ::
           {:ok, put_sink_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_fault()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, missing_required_parameter_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, put_sink_policy_errors()}
   def put_sink_policy(%Client{} = client, input, options \\ []) do
     url_path = "/PutSinkPolicy"
     headers = []
@@ -943,9 +1060,7 @@ defmodule AWS.OAM do
   @spec tag_resource(map(), String.t(), tag_resource_input(), list()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_tags_exception()}
-          | {:error, validation_exception()}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -968,8 +1083,7 @@ defmodule AWS.OAM do
   @spec untag_resource(map(), String.t(), untag_resource_input(), list()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -1008,10 +1122,7 @@ defmodule AWS.OAM do
   @spec update_link(map(), update_link_input(), list()) ::
           {:ok, update_link_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_fault()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, missing_required_parameter_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, update_link_errors()}
   def update_link(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateLink"
     headers = []

@@ -74,445 +74,535 @@ defmodule AWS.MWAA do
   @typedoc """
 
   ## Example:
-  get_environment_output() :: %{
-    optional("Environment") => environment()
-  }
+
+      get_environment_output() :: %{
+        optional("Environment") => environment()
+      }
+
   """
   @type get_environment_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_environment_input() :: %{
-    "AirflowConfigurationOptions" => map(),
-    "AirflowVersion" => String.t(),
-    "DagS3Path" => String.t(),
-    "EndpointManagement" => String.t(),
-    "EnvironmentClass" => String.t(),
-    "ExecutionRoleArn" => String.t(),
-    "KmsKey" => String.t(),
-    "LoggingConfiguration" => logging_configuration_input(),
-    "MaxWorkers" => integer(),
-    "MinWorkers" => integer(),
-    "NetworkConfiguration" => network_configuration(),
-    "PluginsS3ObjectVersion" => String.t(),
-    "PluginsS3Path" => String.t(),
-    "RequirementsS3ObjectVersion" => String.t(),
-    "RequirementsS3Path" => String.t(),
-    "Schedulers" => integer(),
-    "SourceBucketArn" => String.t(),
-    "StartupScriptS3ObjectVersion" => String.t(),
-    "StartupScriptS3Path" => String.t(),
-    "Tags" => map(),
-    "WebserverAccessMode" => String.t(),
-    "WeeklyMaintenanceWindowStart" => String.t()
-  }
+
+      create_environment_input() :: %{
+        "AirflowConfigurationOptions" => map(),
+        "AirflowVersion" => String.t(),
+        "DagS3Path" => String.t(),
+        "EndpointManagement" => String.t(),
+        "EnvironmentClass" => String.t(),
+        "ExecutionRoleArn" => String.t(),
+        "KmsKey" => String.t(),
+        "LoggingConfiguration" => logging_configuration_input(),
+        "MaxWorkers" => integer(),
+        "MinWorkers" => integer(),
+        "NetworkConfiguration" => network_configuration(),
+        "PluginsS3ObjectVersion" => String.t(),
+        "PluginsS3Path" => String.t(),
+        "RequirementsS3ObjectVersion" => String.t(),
+        "RequirementsS3Path" => String.t(),
+        "Schedulers" => integer(),
+        "SourceBucketArn" => String.t(),
+        "StartupScriptS3ObjectVersion" => String.t(),
+        "StartupScriptS3Path" => String.t(),
+        "Tags" => map(),
+        "WebserverAccessMode" => String.t(),
+        "WeeklyMaintenanceWindowStart" => String.t()
+      }
+
   """
   @type create_environment_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_environment_input() :: %{
 
-  }
+      delete_environment_input() :: %{}
+
   """
-  @type delete_environment_input() :: %{String.t() => any()}
+  @type delete_environment_input() :: %{}
 
   @typedoc """
 
   ## Example:
-  module_logging_configuration() :: %{
-    "CloudWatchLogGroupArn" => String.t(),
-    "Enabled" => boolean(),
-    "LogLevel" => String.t()
-  }
+
+      module_logging_configuration() :: %{
+        "CloudWatchLogGroupArn" => String.t(),
+        "Enabled" => boolean(),
+        "LogLevel" => String.t()
+      }
+
   """
   @type module_logging_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  logging_configuration_input() :: %{
-    "DagProcessingLogs" => module_logging_configuration_input(),
-    "SchedulerLogs" => module_logging_configuration_input(),
-    "TaskLogs" => module_logging_configuration_input(),
-    "WebserverLogs" => module_logging_configuration_input(),
-    "WorkerLogs" => module_logging_configuration_input()
-  }
+
+      logging_configuration_input() :: %{
+        "DagProcessingLogs" => module_logging_configuration_input(),
+        "SchedulerLogs" => module_logging_configuration_input(),
+        "TaskLogs" => module_logging_configuration_input(),
+        "WebserverLogs" => module_logging_configuration_input(),
+        "WorkerLogs" => module_logging_configuration_input()
+      }
+
   """
   @type logging_configuration_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_environments_input() :: %{
-    optional("MaxResults") => [integer()],
-    optional("NextToken") => String.t()
-  }
+
+      list_environments_input() :: %{
+        optional("MaxResults") => [integer()],
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_environments_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_output() :: %{
-    optional("Tags") => map()
-  }
+
+      list_tags_for_resource_output() :: %{
+        optional("Tags") => map()
+      }
+
   """
   @type list_tags_for_resource_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_network_configuration_input() :: %{
-    "SecurityGroupIds" => list(String.t()())
-  }
+
+      update_network_configuration_input() :: %{
+        "SecurityGroupIds" => list(String.t()())
+      }
+
   """
   @type update_network_configuration_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  logging_configuration() :: %{
-    "DagProcessingLogs" => module_logging_configuration(),
-    "SchedulerLogs" => module_logging_configuration(),
-    "TaskLogs" => module_logging_configuration(),
-    "WebserverLogs" => module_logging_configuration(),
-    "WorkerLogs" => module_logging_configuration()
-  }
+
+      logging_configuration() :: %{
+        "DagProcessingLogs" => module_logging_configuration(),
+        "SchedulerLogs" => module_logging_configuration(),
+        "TaskLogs" => module_logging_configuration(),
+        "WebserverLogs" => module_logging_configuration(),
+        "WorkerLogs" => module_logging_configuration()
+      }
+
   """
   @type logging_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_environment_output() :: %{
-    optional("Arn") => String.t()
-  }
+
+      create_environment_output() :: %{
+        optional("Arn") => String.t()
+      }
+
   """
   @type create_environment_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_error() :: %{
-    "ErrorCode" => String.t(),
-    "ErrorMessage" => String.t()
-  }
+
+      update_error() :: %{
+        "ErrorCode" => String.t(),
+        "ErrorMessage" => String.t()
+      }
+
   """
   @type update_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  metric_datum() :: %{
-    "Dimensions" => list(dimension()()),
-    "MetricName" => [String.t()],
-    "StatisticValues" => statistic_set(),
-    "Timestamp" => [non_neg_integer()],
-    "Unit" => String.t(),
-    "Value" => [float()]
-  }
+
+      metric_datum() :: %{
+        "Dimensions" => list(dimension()()),
+        "MetricName" => [String.t()],
+        "StatisticValues" => statistic_set(),
+        "Timestamp" => [non_neg_integer()],
+        "Unit" => String.t(),
+        "Value" => [float()]
+      }
+
   """
   @type metric_datum() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_not_found_exception() :: %{
-    "message" => [String.t()]
-  }
+
+      resource_not_found_exception() :: %{
+        "message" => [String.t()]
+      }
+
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_environment_output() :: %{
-    optional("Arn") => String.t()
-  }
+
+      update_environment_output() :: %{
+        optional("Arn") => String.t()
+      }
+
   """
   @type update_environment_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  last_update() :: %{
-    "CreatedAt" => non_neg_integer(),
-    "Error" => update_error(),
-    "Source" => String.t(),
-    "Status" => String.t()
-  }
+
+      last_update() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "Error" => update_error(),
+        "Source" => String.t(),
+        "Status" => String.t()
+      }
+
   """
   @type last_update() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  environment() :: %{
-    "AirflowConfigurationOptions" => map(),
-    "AirflowVersion" => String.t(),
-    "Arn" => String.t(),
-    "CeleryExecutorQueue" => String.t(),
-    "CreatedAt" => non_neg_integer(),
-    "DagS3Path" => String.t(),
-    "DatabaseVpcEndpointService" => String.t(),
-    "EndpointManagement" => String.t(),
-    "EnvironmentClass" => String.t(),
-    "ExecutionRoleArn" => String.t(),
-    "KmsKey" => String.t(),
-    "LastUpdate" => last_update(),
-    "LoggingConfiguration" => logging_configuration(),
-    "MaxWorkers" => integer(),
-    "MinWorkers" => integer(),
-    "Name" => String.t(),
-    "NetworkConfiguration" => network_configuration(),
-    "PluginsS3ObjectVersion" => String.t(),
-    "PluginsS3Path" => String.t(),
-    "RequirementsS3ObjectVersion" => String.t(),
-    "RequirementsS3Path" => String.t(),
-    "Schedulers" => integer(),
-    "ServiceRoleArn" => String.t(),
-    "SourceBucketArn" => String.t(),
-    "StartupScriptS3ObjectVersion" => [String.t()],
-    "StartupScriptS3Path" => [String.t()],
-    "Status" => String.t(),
-    "Tags" => map(),
-    "WebserverAccessMode" => String.t(),
-    "WebserverUrl" => String.t(),
-    "WebserverVpcEndpointService" => String.t(),
-    "WeeklyMaintenanceWindowStart" => String.t()
-  }
+
+      environment() :: %{
+        "AirflowConfigurationOptions" => map(),
+        "AirflowVersion" => String.t(),
+        "Arn" => String.t(),
+        "CeleryExecutorQueue" => String.t(),
+        "CreatedAt" => non_neg_integer(),
+        "DagS3Path" => String.t(),
+        "DatabaseVpcEndpointService" => String.t(),
+        "EndpointManagement" => String.t(),
+        "EnvironmentClass" => String.t(),
+        "ExecutionRoleArn" => String.t(),
+        "KmsKey" => String.t(),
+        "LastUpdate" => last_update(),
+        "LoggingConfiguration" => logging_configuration(),
+        "MaxWorkers" => integer(),
+        "MinWorkers" => integer(),
+        "Name" => String.t(),
+        "NetworkConfiguration" => network_configuration(),
+        "PluginsS3ObjectVersion" => String.t(),
+        "PluginsS3Path" => String.t(),
+        "RequirementsS3ObjectVersion" => String.t(),
+        "RequirementsS3Path" => String.t(),
+        "Schedulers" => integer(),
+        "ServiceRoleArn" => String.t(),
+        "SourceBucketArn" => String.t(),
+        "StartupScriptS3ObjectVersion" => [String.t()],
+        "StartupScriptS3Path" => [String.t()],
+        "Status" => String.t(),
+        "Tags" => map(),
+        "WebserverAccessMode" => String.t(),
+        "WebserverUrl" => String.t(),
+        "WebserverVpcEndpointService" => String.t(),
+        "WeeklyMaintenanceWindowStart" => String.t()
+      }
+
   """
   @type environment() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_environment_input() :: %{
 
-  }
+      get_environment_input() :: %{}
+
   """
-  @type get_environment_input() :: %{String.t() => any()}
+  @type get_environment_input() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_environments_output() :: %{
-    optional("NextToken") => String.t(),
-    required("Environments") => list(String.t()())
-  }
+
+      list_environments_output() :: %{
+        optional("NextToken") => String.t(),
+        required("Environments") => list(String.t()())
+      }
+
   """
   @type list_environments_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_environment_input() :: %{
-    optional("AirflowConfigurationOptions") => map(),
-    optional("AirflowVersion") => String.t(),
-    optional("DagS3Path") => String.t(),
-    optional("EnvironmentClass") => String.t(),
-    optional("ExecutionRoleArn") => String.t(),
-    optional("LoggingConfiguration") => logging_configuration_input(),
-    optional("MaxWorkers") => integer(),
-    optional("MinWorkers") => integer(),
-    optional("NetworkConfiguration") => update_network_configuration_input(),
-    optional("PluginsS3ObjectVersion") => String.t(),
-    optional("PluginsS3Path") => String.t(),
-    optional("RequirementsS3ObjectVersion") => String.t(),
-    optional("RequirementsS3Path") => String.t(),
-    optional("Schedulers") => integer(),
-    optional("SourceBucketArn") => String.t(),
-    optional("StartupScriptS3ObjectVersion") => String.t(),
-    optional("StartupScriptS3Path") => String.t(),
-    optional("WebserverAccessMode") => String.t(),
-    optional("WeeklyMaintenanceWindowStart") => String.t()
-  }
+
+      update_environment_input() :: %{
+        optional("AirflowConfigurationOptions") => map(),
+        optional("AirflowVersion") => String.t(),
+        optional("DagS3Path") => String.t(),
+        optional("EnvironmentClass") => String.t(),
+        optional("ExecutionRoleArn") => String.t(),
+        optional("LoggingConfiguration") => logging_configuration_input(),
+        optional("MaxWorkers") => integer(),
+        optional("MinWorkers") => integer(),
+        optional("NetworkConfiguration") => update_network_configuration_input(),
+        optional("PluginsS3ObjectVersion") => String.t(),
+        optional("PluginsS3Path") => String.t(),
+        optional("RequirementsS3ObjectVersion") => String.t(),
+        optional("RequirementsS3Path") => String.t(),
+        optional("Schedulers") => integer(),
+        optional("SourceBucketArn") => String.t(),
+        optional("StartupScriptS3ObjectVersion") => String.t(),
+        optional("StartupScriptS3Path") => String.t(),
+        optional("WebserverAccessMode") => String.t(),
+        optional("WeeklyMaintenanceWindowStart") => String.t()
+      }
+
   """
   @type update_environment_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_web_login_token_request() :: %{
 
-  }
+      create_web_login_token_request() :: %{}
+
   """
-  @type create_web_login_token_request() :: %{String.t() => any()}
+  @type create_web_login_token_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  tag_resource_input() :: %{
-    required("Tags") => map()
-  }
+
+      tag_resource_input() :: %{
+        required("Tags") => map()
+      }
+
   """
   @type tag_resource_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_output() :: %{
 
-  }
+      tag_resource_output() :: %{}
+
   """
-  @type tag_resource_output() :: %{String.t() => any()}
+  @type tag_resource_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  internal_server_exception() :: %{
-    "message" => [String.t()]
-  }
+
+      internal_server_exception() :: %{
+        "message" => [String.t()]
+      }
+
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_environment_output() :: %{
 
-  }
+      delete_environment_output() :: %{}
+
   """
-  @type delete_environment_output() :: %{String.t() => any()}
+  @type delete_environment_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_cli_token_response() :: %{
-    optional("CliToken") => String.t(),
-    optional("WebServerHostname") => String.t()
-  }
+
+      create_cli_token_response() :: %{
+        optional("CliToken") => String.t(),
+        optional("WebServerHostname") => String.t()
+      }
+
   """
   @type create_cli_token_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  network_configuration() :: %{
-    "SecurityGroupIds" => list(String.t()()),
-    "SubnetIds" => list(String.t()())
-  }
+
+      network_configuration() :: %{
+        "SecurityGroupIds" => list(String.t()()),
+        "SubnetIds" => list(String.t()())
+      }
+
   """
   @type network_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  access_denied_exception() :: %{
-    "Message" => [String.t()]
-  }
+
+      access_denied_exception() :: %{
+        "Message" => [String.t()]
+      }
+
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_input() :: %{
-    required("tagKeys") => list(String.t()())
-  }
+
+      untag_resource_input() :: %{
+        required("tagKeys") => list(String.t()())
+      }
+
   """
   @type untag_resource_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_cli_token_request() :: %{
 
-  }
+      create_cli_token_request() :: %{}
+
   """
-  @type create_cli_token_request() :: %{String.t() => any()}
+  @type create_cli_token_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  validation_exception() :: %{
-    "message" => [String.t()]
-  }
+
+      validation_exception() :: %{
+        "message" => [String.t()]
+      }
+
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_input() :: %{
 
-  }
+      list_tags_for_resource_input() :: %{}
+
   """
-  @type list_tags_for_resource_input() :: %{String.t() => any()}
+  @type list_tags_for_resource_input() :: %{}
 
   @typedoc """
 
   ## Example:
-  untag_resource_output() :: %{
 
-  }
+      untag_resource_output() :: %{}
+
   """
-  @type untag_resource_output() :: %{String.t() => any()}
+  @type untag_resource_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_web_login_token_response() :: %{
-    optional("AirflowIdentity") => String.t(),
-    optional("IamIdentity") => String.t(),
-    optional("WebServerHostname") => String.t(),
-    optional("WebToken") => String.t()
-  }
+
+      create_web_login_token_response() :: %{
+        optional("AirflowIdentity") => String.t(),
+        optional("IamIdentity") => String.t(),
+        optional("WebServerHostname") => String.t(),
+        optional("WebToken") => String.t()
+      }
+
   """
   @type create_web_login_token_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  dimension() :: %{
-    "Name" => [String.t()],
-    "Value" => [String.t()]
-  }
+
+      dimension() :: %{
+        "Name" => [String.t()],
+        "Value" => [String.t()]
+      }
+
   """
   @type dimension() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  publish_metrics_input() :: %{
-    "MetricData" => list(metric_datum()())
-  }
+
+      publish_metrics_input() :: %{
+        "MetricData" => list(metric_datum()())
+      }
+
   """
   @type publish_metrics_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  publish_metrics_output() :: %{
 
-  }
+      publish_metrics_output() :: %{}
+
   """
-  @type publish_metrics_output() :: %{String.t() => any()}
+  @type publish_metrics_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  module_logging_configuration_input() :: %{
-    "Enabled" => boolean(),
-    "LogLevel" => String.t()
-  }
+
+      module_logging_configuration_input() :: %{
+        "Enabled" => boolean(),
+        "LogLevel" => String.t()
+      }
+
   """
   @type module_logging_configuration_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  statistic_set() :: %{
-    "Maximum" => [float()],
-    "Minimum" => [float()],
-    "SampleCount" => [integer()],
-    "Sum" => [float()]
-  }
+
+      statistic_set() :: %{
+        "Maximum" => [float()],
+        "Minimum" => [float()],
+        "SampleCount" => [integer()],
+        "Sum" => [float()]
+      }
+
   """
   @type statistic_set() :: %{String.t() => any()}
+
+  @type create_cli_token_errors() :: resource_not_found_exception()
+
+  @type create_environment_errors() :: validation_exception() | internal_server_exception()
+
+  @type create_web_login_token_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type delete_environment_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
+
+  @type get_environment_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
+
+  @type list_environments_errors() :: validation_exception() | internal_server_exception()
+
+  @type list_tags_for_resource_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
+
+  @type publish_metrics_errors() :: validation_exception() | internal_server_exception()
+
+  @type tag_resource_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
+
+  @type untag_resource_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
+
+  @type update_environment_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
 
   def metadata do
     %{
@@ -537,7 +627,7 @@ defmodule AWS.MWAA do
   @spec create_cli_token(map(), String.t(), create_cli_token_request(), list()) ::
           {:ok, create_cli_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found_exception()}
+          | {:error, create_cli_token_errors()}
   def create_cli_token(%Client{} = client, name, input, options \\ []) do
     url_path = "/clitoken/#{AWS.Util.encode_uri(name)}"
     headers = []
@@ -564,8 +654,7 @@ defmodule AWS.MWAA do
   @spec create_environment(map(), String.t(), create_environment_input(), list()) ::
           {:ok, create_environment_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_environment_errors()}
   def create_environment(%Client{} = client, name, input, options \\ []) do
     url_path = "/environments/#{AWS.Util.encode_uri(name)}"
     headers = []
@@ -584,10 +673,7 @@ defmodule AWS.MWAA do
   @spec create_web_login_token(map(), String.t(), create_web_login_token_request(), list()) ::
           {:ok, create_web_login_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_web_login_token_errors()}
   def create_web_login_token(%Client{} = client, name, input, options \\ []) do
     url_path = "/webtoken/#{AWS.Util.encode_uri(name)}"
     headers = []
@@ -614,9 +700,7 @@ defmodule AWS.MWAA do
   @spec delete_environment(map(), String.t(), delete_environment_input(), list()) ::
           {:ok, delete_environment_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_environment_errors()}
   def delete_environment(%Client{} = client, name, input, options \\ []) do
     url_path = "/environments/#{AWS.Util.encode_uri(name)}"
     headers = []
@@ -643,9 +727,7 @@ defmodule AWS.MWAA do
   @spec get_environment(map(), String.t(), list()) ::
           {:ok, get_environment_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_environment_errors()}
   def get_environment(%Client{} = client, name, options \\ []) do
     url_path = "/environments/#{AWS.Util.encode_uri(name)}"
     headers = []
@@ -662,8 +744,7 @@ defmodule AWS.MWAA do
   @spec list_environments(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_environments_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_environments_errors()}
   def list_environments(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/environments"
     headers = []
@@ -697,9 +778,7 @@ defmodule AWS.MWAA do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -719,8 +798,7 @@ defmodule AWS.MWAA do
   @spec publish_metrics(map(), String.t(), publish_metrics_input(), list()) ::
           {:ok, publish_metrics_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, validation_exception()}
+          | {:error, publish_metrics_errors()}
   def publish_metrics(%Client{} = client, environment_name, input, options \\ []) do
     url_path = "/metrics/environments/#{AWS.Util.encode_uri(environment_name)}"
     headers = []
@@ -748,9 +826,7 @@ defmodule AWS.MWAA do
   @spec tag_resource(map(), String.t(), tag_resource_input(), list()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -780,9 +856,7 @@ defmodule AWS.MWAA do
   @spec untag_resource(map(), String.t(), untag_resource_input(), list()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -814,9 +888,7 @@ defmodule AWS.MWAA do
   @spec update_environment(map(), String.t(), update_environment_input(), list()) ::
           {:ok, update_environment_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_environment_errors()}
   def update_environment(%Client{} = client, name, input, options \\ []) do
     url_path = "/environments/#{AWS.Util.encode_uri(name)}"
     headers = []

@@ -27,671 +27,909 @@ defmodule AWS.Grafana do
   @typedoc """
 
   ## Example:
-  list_permissions_response() :: %{
-    optional("nextToken") => String.t(),
-    required("permissions") => list(permission_entry()())
-  }
+
+      list_permissions_response() :: %{
+        optional("nextToken") => String.t(),
+        required("permissions") => list(permission_entry()())
+      }
+
   """
   @type list_permissions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_request() :: %{
-    required("tags") => map()
-  }
+
+      tag_resource_request() :: %{
+        required("tags") => map()
+      }
+
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  vpc_configuration() :: %{
-    "securityGroupIds" => list(String.t()()),
-    "subnetIds" => list(String.t()())
-  }
+
+      vpc_configuration() :: %{
+        "securityGroupIds" => list(String.t()()),
+        "subnetIds" => list(String.t()())
+      }
+
   """
   @type vpc_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_workspace_configuration_request() :: %{
-    optional("grafanaVersion") => String.t(),
-    required("configuration") => String.t()
-  }
+
+      update_workspace_configuration_request() :: %{
+        optional("grafanaVersion") => String.t(),
+        required("configuration") => String.t()
+      }
+
   """
   @type update_workspace_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_workspace_api_key_response() :: %{
-    required("key") => String.t(),
-    required("keyName") => String.t(),
-    required("workspaceId") => String.t()
-  }
+
+      create_workspace_api_key_response() :: %{
+        required("key") => String.t(),
+        required("keyName") => String.t(),
+        required("workspaceId") => String.t()
+      }
+
   """
   @type create_workspace_api_key_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_response() :: %{
 
-  }
+      untag_resource_response() :: %{}
+
   """
-  @type untag_resource_response() :: %{String.t() => any()}
+  @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  describe_workspace_authentication_response() :: %{
-    required("authentication") => authentication_description()
-  }
+
+      describe_workspace_authentication_response() :: %{
+        required("authentication") => authentication_description()
+      }
+
   """
   @type describe_workspace_authentication_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  network_access_configuration() :: %{
-    "prefixListIds" => list(String.t()()),
-    "vpceIds" => list(String.t()())
-  }
+
+      network_access_configuration() :: %{
+        "prefixListIds" => list(String.t()()),
+        "vpceIds" => list(String.t()())
+      }
+
   """
   @type network_access_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  saml_authentication() :: %{
-    "configuration" => saml_configuration(),
-    "status" => String.t()
-  }
+
+      saml_authentication() :: %{
+        "configuration" => saml_configuration(),
+        "status" => String.t()
+      }
+
   """
   @type saml_authentication() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  workspace_summary() :: %{
-    "authentication" => authentication_summary(),
-    "created" => [non_neg_integer()],
-    "description" => String.t(),
-    "endpoint" => String.t(),
-    "grafanaToken" => String.t(),
-    "grafanaVersion" => String.t(),
-    "id" => String.t(),
-    "licenseType" => String.t(),
-    "modified" => [non_neg_integer()],
-    "name" => String.t(),
-    "notificationDestinations" => list(String.t()()),
-    "status" => String.t(),
-    "tags" => map()
-  }
+
+      workspace_summary() :: %{
+        "authentication" => authentication_summary(),
+        "created" => [non_neg_integer()],
+        "description" => String.t(),
+        "endpoint" => String.t(),
+        "grafanaToken" => String.t(),
+        "grafanaVersion" => String.t(),
+        "id" => String.t(),
+        "licenseType" => String.t(),
+        "modified" => [non_neg_integer()],
+        "name" => String.t(),
+        "notificationDestinations" => list(String.t()()),
+        "status" => String.t(),
+        "tags" => map()
+      }
+
   """
   @type workspace_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_workspace_configuration_request() :: %{
 
-  }
+      describe_workspace_configuration_request() :: %{}
+
   """
-  @type describe_workspace_configuration_request() :: %{String.t() => any()}
+  @type describe_workspace_configuration_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  untag_resource_request() :: %{
-    required("tagKeys") => list(String.t()())
-  }
+
+      untag_resource_request() :: %{
+        required("tagKeys") => list(String.t()())
+      }
+
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_workspace_api_key_request() :: %{
-    required("keyName") => String.t(),
-    required("keyRole") => [String.t()],
-    required("secondsToLive") => [integer()]
-  }
+
+      create_workspace_api_key_request() :: %{
+        required("keyName") => String.t(),
+        required("keyRole") => [String.t()],
+        required("secondsToLive") => [integer()]
+      }
+
   """
   @type create_workspace_api_key_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_workspace_response() :: %{
-    required("workspace") => workspace_description()
-  }
+
+      delete_workspace_response() :: %{
+        required("workspace") => workspace_description()
+      }
+
   """
   @type delete_workspace_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_workspace_configuration_response() :: %{
 
-  }
+      update_workspace_configuration_response() :: %{}
+
   """
-  @type update_workspace_configuration_response() :: %{String.t() => any()}
+  @type update_workspace_configuration_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  authentication_description() :: %{
-    "awsSso" => aws_sso_authentication(),
-    "providers" => list(String.t()()),
-    "saml" => saml_authentication()
-  }
+
+      authentication_description() :: %{
+        "awsSso" => aws_sso_authentication(),
+        "providers" => list(String.t()()),
+        "saml" => saml_authentication()
+      }
+
   """
   @type authentication_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_workspace_authentication_response() :: %{
-    required("authentication") => authentication_description()
-  }
+
+      update_workspace_authentication_response() :: %{
+        required("authentication") => authentication_description()
+      }
+
   """
   @type update_workspace_authentication_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_error() :: %{
-    "causedBy" => update_instruction(),
-    "code" => [integer()],
-    "message" => [String.t()]
-  }
+
+      update_error() :: %{
+        "causedBy" => update_instruction(),
+        "code" => [integer()],
+        "message" => [String.t()]
+      }
+
   """
   @type update_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_workspace_response() :: %{
-    required("workspace") => workspace_description()
-  }
+
+      describe_workspace_response() :: %{
+        required("workspace") => workspace_description()
+      }
+
   """
   @type describe_workspace_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_workspace_configuration_response() :: %{
-    optional("grafanaVersion") => String.t(),
-    required("configuration") => String.t()
-  }
+
+      describe_workspace_configuration_response() :: %{
+        optional("grafanaVersion") => String.t(),
+        required("configuration") => String.t()
+      }
+
   """
   @type describe_workspace_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  conflict_exception() :: %{
-    "message" => [String.t()],
-    "resourceId" => [String.t()],
-    "resourceType" => [String.t()]
-  }
+
+      conflict_exception() :: %{
+        "message" => [String.t()],
+        "resourceId" => [String.t()],
+        "resourceType" => [String.t()]
+      }
+
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_not_found_exception() :: %{
-    "message" => [String.t()],
-    "resourceId" => [String.t()],
-    "resourceType" => [String.t()]
-  }
+
+      resource_not_found_exception() :: %{
+        "message" => [String.t()],
+        "resourceId" => [String.t()],
+        "resourceType" => [String.t()]
+      }
+
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_workspace_authentication_request() :: %{
-    optional("samlConfiguration") => saml_configuration(),
-    required("authenticationProviders") => list(String.t()())
-  }
+
+      update_workspace_authentication_request() :: %{
+        optional("samlConfiguration") => saml_configuration(),
+        required("authenticationProviders") => list(String.t()())
+      }
+
   """
   @type update_workspace_authentication_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  service_quota_exceeded_exception() :: %{
-    "message" => [String.t()],
-    "quotaCode" => [String.t()],
-    "resourceId" => [String.t()],
-    "resourceType" => [String.t()],
-    "serviceCode" => [String.t()]
-  }
+
+      service_quota_exceeded_exception() :: %{
+        "message" => [String.t()],
+        "quotaCode" => [String.t()],
+        "resourceId" => [String.t()],
+        "resourceType" => [String.t()],
+        "serviceCode" => [String.t()]
+      }
+
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  authentication_summary() :: %{
-    "providers" => list(String.t()()),
-    "samlConfigurationStatus" => String.t()
-  }
+
+      authentication_summary() :: %{
+        "providers" => list(String.t()()),
+        "samlConfigurationStatus" => String.t()
+      }
+
   """
   @type authentication_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  associate_license_response() :: %{
-    required("workspace") => workspace_description()
-  }
+
+      associate_license_response() :: %{
+        required("workspace") => workspace_description()
+      }
+
   """
   @type associate_license_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_workspace_request() :: %{
 
-  }
+      describe_workspace_request() :: %{}
+
   """
-  @type describe_workspace_request() :: %{String.t() => any()}
+  @type describe_workspace_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_response() :: %{
-    optional("tags") => map()
-  }
+
+      list_tags_for_resource_response() :: %{
+        optional("tags") => map()
+      }
+
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_workspace_authentication_request() :: %{
 
-  }
+      describe_workspace_authentication_request() :: %{}
+
   """
-  @type describe_workspace_authentication_request() :: %{String.t() => any()}
+  @type describe_workspace_authentication_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  validation_exception_field() :: %{
-    "message" => [String.t()],
-    "name" => [String.t()]
-  }
+
+      validation_exception_field() :: %{
+        "message" => [String.t()],
+        "name" => [String.t()]
+      }
+
   """
   @type validation_exception_field() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_workspace_response() :: %{
-    required("workspace") => workspace_description()
-  }
+
+      update_workspace_response() :: %{
+        required("workspace") => workspace_description()
+      }
+
   """
   @type update_workspace_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_versions_response() :: %{
-    "grafanaVersions" => list(String.t()()),
-    "nextToken" => String.t()
-  }
+
+      list_versions_response() :: %{
+        "grafanaVersions" => list(String.t()()),
+        "nextToken" => String.t()
+      }
+
   """
   @type list_versions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_workspace_request() :: %{
 
-  }
+      delete_workspace_request() :: %{}
+
   """
-  @type delete_workspace_request() :: %{String.t() => any()}
+  @type delete_workspace_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  update_workspace_request() :: %{
-    optional("accountAccessType") => String.t(),
-    optional("networkAccessControl") => network_access_configuration(),
-    optional("organizationRoleName") => String.t(),
-    optional("permissionType") => String.t(),
-    optional("removeNetworkAccessConfiguration") => [boolean()],
-    optional("removeVpcConfiguration") => [boolean()],
-    optional("stackSetName") => String.t(),
-    optional("vpcConfiguration") => vpc_configuration(),
-    optional("workspaceDataSources") => list(String.t()()),
-    optional("workspaceDescription") => String.t(),
-    optional("workspaceName") => String.t(),
-    optional("workspaceNotificationDestinations") => list(String.t()()),
-    optional("workspaceOrganizationalUnits") => list(String.t()()),
-    optional("workspaceRoleArn") => String.t()
-  }
+
+      update_workspace_request() :: %{
+        optional("accountAccessType") => String.t(),
+        optional("networkAccessControl") => network_access_configuration(),
+        optional("organizationRoleName") => String.t(),
+        optional("permissionType") => String.t(),
+        optional("removeNetworkAccessConfiguration") => [boolean()],
+        optional("removeVpcConfiguration") => [boolean()],
+        optional("stackSetName") => String.t(),
+        optional("vpcConfiguration") => vpc_configuration(),
+        optional("workspaceDataSources") => list(String.t()()),
+        optional("workspaceDescription") => String.t(),
+        optional("workspaceName") => String.t(),
+        optional("workspaceNotificationDestinations") => list(String.t()()),
+        optional("workspaceOrganizationalUnits") => list(String.t()()),
+        optional("workspaceRoleArn") => String.t()
+      }
+
   """
   @type update_workspace_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_permissions_request() :: %{
-    optional("groupId") => String.t(),
-    optional("maxResults") => [integer()],
-    optional("nextToken") => String.t(),
-    optional("userId") => String.t(),
-    optional("userType") => String.t()
-  }
+
+      list_permissions_request() :: %{
+        optional("groupId") => String.t(),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t(),
+        optional("userId") => String.t(),
+        optional("userType") => String.t()
+      }
+
   """
   @type list_permissions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  workspace_description() :: %{
-    "accountAccessType" => String.t(),
-    "authentication" => authentication_summary(),
-    "created" => [non_neg_integer()],
-    "dataSources" => list(String.t()()),
-    "description" => String.t(),
-    "endpoint" => String.t(),
-    "freeTrialConsumed" => [boolean()],
-    "freeTrialExpiration" => [non_neg_integer()],
-    "grafanaToken" => String.t(),
-    "grafanaVersion" => String.t(),
-    "id" => String.t(),
-    "licenseExpiration" => [non_neg_integer()],
-    "licenseType" => String.t(),
-    "modified" => [non_neg_integer()],
-    "name" => String.t(),
-    "networkAccessControl" => network_access_configuration(),
-    "notificationDestinations" => list(String.t()()),
-    "organizationRoleName" => String.t(),
-    "organizationalUnits" => list(String.t()()),
-    "permissionType" => String.t(),
-    "stackSetName" => String.t(),
-    "status" => String.t(),
-    "tags" => map(),
-    "vpcConfiguration" => vpc_configuration(),
-    "workspaceRoleArn" => String.t()
-  }
+
+      workspace_description() :: %{
+        "accountAccessType" => String.t(),
+        "authentication" => authentication_summary(),
+        "created" => [non_neg_integer()],
+        "dataSources" => list(String.t()()),
+        "description" => String.t(),
+        "endpoint" => String.t(),
+        "freeTrialConsumed" => [boolean()],
+        "freeTrialExpiration" => [non_neg_integer()],
+        "grafanaToken" => String.t(),
+        "grafanaVersion" => String.t(),
+        "id" => String.t(),
+        "licenseExpiration" => [non_neg_integer()],
+        "licenseType" => String.t(),
+        "modified" => [non_neg_integer()],
+        "name" => String.t(),
+        "networkAccessControl" => network_access_configuration(),
+        "notificationDestinations" => list(String.t()()),
+        "organizationRoleName" => String.t(),
+        "organizationalUnits" => list(String.t()()),
+        "permissionType" => String.t(),
+        "stackSetName" => String.t(),
+        "status" => String.t(),
+        "tags" => map(),
+        "vpcConfiguration" => vpc_configuration(),
+        "workspaceRoleArn" => String.t()
+      }
+
   """
   @type workspace_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  internal_server_exception() :: %{
-    "message" => [String.t()],
-    "retryAfterSeconds" => [integer()]
-  }
+
+      internal_server_exception() :: %{
+        "message" => [String.t()],
+        "retryAfterSeconds" => [integer()]
+      }
+
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_workspace_response() :: %{
-    required("workspace") => workspace_description()
-  }
+
+      create_workspace_response() :: %{
+        required("workspace") => workspace_description()
+      }
+
   """
   @type create_workspace_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_workspaces_response() :: %{
-    optional("nextToken") => String.t(),
-    required("workspaces") => list(workspace_summary()())
-  }
+
+      list_workspaces_response() :: %{
+        optional("nextToken") => String.t(),
+        required("workspaces") => list(workspace_summary()())
+      }
+
   """
   @type list_workspaces_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  associate_license_request() :: %{
-    optional("grafanaToken") => String.t()
-  }
+
+      associate_license_request() :: %{
+        optional("grafanaToken") => String.t()
+      }
+
   """
   @type associate_license_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  access_denied_exception() :: %{
-    "message" => [String.t()]
-  }
+
+      access_denied_exception() :: %{
+        "message" => [String.t()]
+      }
+
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_response() :: %{
 
-  }
+      tag_resource_response() :: %{}
+
   """
-  @type tag_resource_response() :: %{String.t() => any()}
+  @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  update_permissions_response() :: %{
-    required("errors") => list(update_error()())
-  }
+
+      update_permissions_response() :: %{
+        required("errors") => list(update_error()())
+      }
+
   """
   @type update_permissions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  permission_entry() :: %{
-    "role" => String.t(),
-    "user" => user()
-  }
+
+      permission_entry() :: %{
+        "role" => String.t(),
+        "user" => user()
+      }
+
   """
   @type permission_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  aws_sso_authentication() :: %{
-    "ssoClientId" => String.t()
-  }
+
+      aws_sso_authentication() :: %{
+        "ssoClientId" => String.t()
+      }
+
   """
   @type aws_sso_authentication() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  validation_exception() :: %{
-    "fieldList" => list(validation_exception_field()()),
-    "message" => [String.t()],
-    "reason" => String.t()
-  }
+
+      validation_exception() :: %{
+        "fieldList" => list(validation_exception_field()()),
+        "message" => [String.t()],
+        "reason" => String.t()
+      }
+
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_request() :: %{
 
-  }
+      list_tags_for_resource_request() :: %{}
+
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_workspaces_request() :: %{
-    optional("maxResults") => [integer()],
-    optional("nextToken") => String.t()
-  }
+
+      list_workspaces_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t()
+      }
+
   """
   @type list_workspaces_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  throttling_exception() :: %{
-    "message" => [String.t()],
-    "quotaCode" => [String.t()],
-    "retryAfterSeconds" => [integer()],
-    "serviceCode" => [String.t()]
-  }
+
+      throttling_exception() :: %{
+        "message" => [String.t()],
+        "quotaCode" => [String.t()],
+        "retryAfterSeconds" => [integer()],
+        "serviceCode" => [String.t()]
+      }
+
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_instruction() :: %{
-    "action" => String.t(),
-    "role" => String.t(),
-    "users" => list(user()())
-  }
+
+      update_instruction() :: %{
+        "action" => String.t(),
+        "role" => String.t(),
+        "users" => list(user()())
+      }
+
   """
   @type update_instruction() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  user() :: %{
-    "id" => String.t(),
-    "type" => String.t()
-  }
+
+      user() :: %{
+        "id" => String.t(),
+        "type" => String.t()
+      }
+
   """
   @type user() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_workspace_api_key_request() :: %{
 
-  }
+      delete_workspace_api_key_request() :: %{}
+
   """
-  @type delete_workspace_api_key_request() :: %{String.t() => any()}
+  @type delete_workspace_api_key_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_versions_request() :: %{
-    optional("maxResults") => [integer()],
-    optional("nextToken") => String.t(),
-    optional("workspaceId") => String.t()
-  }
+
+      list_versions_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t(),
+        optional("workspaceId") => String.t()
+      }
+
   """
   @type list_versions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  assertion_attributes() :: %{
-    "email" => String.t(),
-    "groups" => String.t(),
-    "login" => String.t(),
-    "name" => String.t(),
-    "org" => String.t(),
-    "role" => String.t()
-  }
+
+      assertion_attributes() :: %{
+        "email" => String.t(),
+        "groups" => String.t(),
+        "login" => String.t(),
+        "name" => String.t(),
+        "org" => String.t(),
+        "role" => String.t()
+      }
+
   """
   @type assertion_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  role_values() :: %{
-    "admin" => list(String.t()()),
-    "editor" => list(String.t()())
-  }
+
+      role_values() :: %{
+        "admin" => list(String.t()()),
+        "editor" => list(String.t()())
+      }
+
   """
   @type role_values() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disassociate_license_response() :: %{
-    required("workspace") => workspace_description()
-  }
+
+      disassociate_license_response() :: %{
+        required("workspace") => workspace_description()
+      }
+
   """
   @type disassociate_license_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_permissions_request() :: %{
-    required("updateInstructionBatch") => list(update_instruction()())
-  }
+
+      update_permissions_request() :: %{
+        required("updateInstructionBatch") => list(update_instruction()())
+      }
+
   """
   @type update_permissions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_workspace_api_key_response() :: %{
-    required("keyName") => String.t(),
-    required("workspaceId") => String.t()
-  }
+
+      delete_workspace_api_key_response() :: %{
+        required("keyName") => String.t(),
+        required("workspaceId") => String.t()
+      }
+
   """
   @type delete_workspace_api_key_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disassociate_license_request() :: %{
 
-  }
+      disassociate_license_request() :: %{}
+
   """
-  @type disassociate_license_request() :: %{String.t() => any()}
+  @type disassociate_license_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  saml_configuration() :: %{
-    "allowedOrganizations" => list(String.t()()),
-    "assertionAttributes" => assertion_attributes(),
-    "idpMetadata" => list(),
-    "loginValidityDuration" => integer(),
-    "roleValues" => role_values()
-  }
+
+      saml_configuration() :: %{
+        "allowedOrganizations" => list(String.t()()),
+        "assertionAttributes" => assertion_attributes(),
+        "idpMetadata" => list(),
+        "loginValidityDuration" => integer(),
+        "roleValues" => role_values()
+      }
+
   """
   @type saml_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_workspace_request() :: %{
-    optional("clientToken") => String.t(),
-    optional("configuration") => String.t(),
-    optional("grafanaVersion") => String.t(),
-    optional("networkAccessControl") => network_access_configuration(),
-    optional("organizationRoleName") => String.t(),
-    optional("stackSetName") => String.t(),
-    optional("tags") => map(),
-    optional("vpcConfiguration") => vpc_configuration(),
-    optional("workspaceDataSources") => list(String.t()()),
-    optional("workspaceDescription") => String.t(),
-    optional("workspaceName") => String.t(),
-    optional("workspaceNotificationDestinations") => list(String.t()()),
-    optional("workspaceOrganizationalUnits") => list(String.t()()),
-    optional("workspaceRoleArn") => String.t(),
-    required("accountAccessType") => String.t(),
-    required("authenticationProviders") => list(String.t()()),
-    required("permissionType") => String.t()
-  }
+
+      create_workspace_request() :: %{
+        optional("clientToken") => String.t(),
+        optional("configuration") => String.t(),
+        optional("grafanaVersion") => String.t(),
+        optional("networkAccessControl") => network_access_configuration(),
+        optional("organizationRoleName") => String.t(),
+        optional("stackSetName") => String.t(),
+        optional("tags") => map(),
+        optional("vpcConfiguration") => vpc_configuration(),
+        optional("workspaceDataSources") => list(String.t()()),
+        optional("workspaceDescription") => String.t(),
+        optional("workspaceName") => String.t(),
+        optional("workspaceNotificationDestinations") => list(String.t()()),
+        optional("workspaceOrganizationalUnits") => list(String.t()()),
+        optional("workspaceRoleArn") => String.t(),
+        required("accountAccessType") => String.t(),
+        required("authenticationProviders") => list(String.t()()),
+        required("permissionType") => String.t()
+      }
+
   """
   @type create_workspace_request() :: %{String.t() => any()}
+
+  @type associate_license_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type create_workspace_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+
+  @type create_workspace_api_key_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_workspace_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_workspace_api_key_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type describe_workspace_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type describe_workspace_authentication_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type describe_workspace_configuration_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type disassociate_license_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_permissions_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_tags_for_resource_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_versions_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_workspaces_errors() ::
+          throttling_exception() | access_denied_exception() | internal_server_exception()
+
+  @type tag_resource_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type untag_resource_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type update_permissions_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type update_workspace_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_workspace_authentication_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_workspace_configuration_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   def metadata do
     %{
@@ -718,11 +956,7 @@ defmodule AWS.Grafana do
   @spec associate_license(map(), String.t(), String.t(), associate_license_request(), list()) ::
           {:ok, associate_license_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, associate_license_errors()}
   def associate_license(%Client{} = client, license_type, workspace_id, input, options \\ []) do
     url_path =
       "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/licenses/#{AWS.Util.encode_uri(license_type)}"
@@ -764,12 +998,7 @@ defmodule AWS.Grafana do
   @spec create_workspace(map(), create_workspace_request(), list()) ::
           {:ok, create_workspace_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_workspace_errors()}
   def create_workspace(%Client{} = client, input, options \\ []) do
     url_path = "/workspaces"
     headers = []
@@ -801,13 +1030,7 @@ defmodule AWS.Grafana do
   @spec create_workspace_api_key(map(), String.t(), create_workspace_api_key_request(), list()) ::
           {:ok, create_workspace_api_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_workspace_api_key_errors()}
   def create_workspace_api_key(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/apikeys"
     headers = []
@@ -834,12 +1057,7 @@ defmodule AWS.Grafana do
   @spec delete_workspace(map(), String.t(), delete_workspace_request(), list()) ::
           {:ok, delete_workspace_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_workspace_errors()}
   def delete_workspace(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}"
     headers = []
@@ -872,12 +1090,7 @@ defmodule AWS.Grafana do
         ) ::
           {:ok, delete_workspace_api_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_workspace_api_key_errors()}
   def delete_workspace_api_key(%Client{} = client, key_name, workspace_id, input, options \\ []) do
     url_path =
       "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/apikeys/#{AWS.Util.encode_uri(key_name)}"
@@ -906,11 +1119,7 @@ defmodule AWS.Grafana do
   @spec describe_workspace(map(), String.t(), list()) ::
           {:ok, describe_workspace_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, describe_workspace_errors()}
   def describe_workspace(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}"
     headers = []
@@ -929,11 +1138,7 @@ defmodule AWS.Grafana do
   @spec describe_workspace_authentication(map(), String.t(), list()) ::
           {:ok, describe_workspace_authentication_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, describe_workspace_authentication_errors()}
   def describe_workspace_authentication(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/authentication"
     headers = []
@@ -950,10 +1155,7 @@ defmodule AWS.Grafana do
   @spec describe_workspace_configuration(map(), String.t(), list()) ::
           {:ok, describe_workspace_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
+          | {:error, describe_workspace_configuration_errors()}
   def describe_workspace_configuration(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/configuration"
     headers = []
@@ -976,11 +1178,7 @@ defmodule AWS.Grafana do
         ) ::
           {:ok, disassociate_license_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, disassociate_license_errors()}
   def disassociate_license(%Client{} = client, license_type, workspace_id, input, options \\ []) do
     url_path =
       "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/licenses/#{AWS.Util.encode_uri(license_type)}"
@@ -1026,11 +1224,7 @@ defmodule AWS.Grafana do
         ) ::
           {:ok, list_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_permissions_errors()}
   def list_permissions(
         %Client{} = client,
         workspace_id,
@@ -1096,11 +1290,7 @@ defmodule AWS.Grafana do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -1121,11 +1311,7 @@ defmodule AWS.Grafana do
   @spec list_versions(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_versions_errors()}
   def list_versions(
         %Client{} = client,
         max_results \\ nil,
@@ -1174,9 +1360,7 @@ defmodule AWS.Grafana do
   @spec list_workspaces(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_workspaces_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
+          | {:error, list_workspaces_errors()}
   def list_workspaces(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/workspaces"
     headers = []
@@ -1218,11 +1402,7 @@ defmodule AWS.Grafana do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -1250,11 +1430,7 @@ defmodule AWS.Grafana do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -1287,11 +1463,7 @@ defmodule AWS.Grafana do
   @spec update_permissions(map(), String.t(), update_permissions_request(), list()) ::
           {:ok, update_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_permissions_errors()}
   def update_permissions(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/permissions"
     headers = []
@@ -1329,12 +1501,7 @@ defmodule AWS.Grafana do
   @spec update_workspace(map(), String.t(), update_workspace_request(), list()) ::
           {:ok, update_workspace_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_workspace_errors()}
   def update_workspace(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}"
     headers = []
@@ -1365,12 +1532,7 @@ defmodule AWS.Grafana do
         ) ::
           {:ok, update_workspace_authentication_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_workspace_authentication_errors()}
   def update_workspace_authentication(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/authentication"
     headers = []
@@ -1402,12 +1564,7 @@ defmodule AWS.Grafana do
         ) ::
           {:ok, update_workspace_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_workspace_configuration_errors()}
   def update_workspace_configuration(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/configuration"
     headers = []

@@ -48,3456 +48,4198 @@ defmodule AWS.GuardDuty do
   @typedoc """
 
   ## Example:
-  organization_kubernetes_configuration() :: %{
-    "AuditLogs" => organization_kubernetes_audit_logs_configuration()
-  }
+
+      organization_kubernetes_configuration() :: %{
+        "AuditLogs" => organization_kubernetes_audit_logs_configuration()
+      }
+
   """
   @type organization_kubernetes_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disassociate_from_master_account_request() :: %{
 
-  }
+      disassociate_from_master_account_request() :: %{}
+
   """
-  @type disassociate_from_master_account_request() :: %{String.t() => any()}
+  @type disassociate_from_master_account_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  cloud_trail_configuration_result() :: %{
-    "Status" => list(any())
-  }
+
+      cloud_trail_configuration_result() :: %{
+        "Status" => list(any())
+      }
+
   """
   @type cloud_trail_configuration_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  organization() :: %{
-    "Asn" => String.t(),
-    "AsnOrg" => String.t(),
-    "Isp" => String.t(),
-    "Org" => String.t()
-  }
+
+      organization() :: %{
+        "Asn" => String.t(),
+        "AsnOrg" => String.t(),
+        "Isp" => String.t(),
+        "Org" => String.t()
+      }
+
   """
   @type organization() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  instance_details() :: %{
-    "AvailabilityZone" => String.t(),
-    "IamInstanceProfile" => iam_instance_profile(),
-    "ImageDescription" => String.t(),
-    "ImageId" => String.t(),
-    "InstanceId" => String.t(),
-    "InstanceState" => String.t(),
-    "InstanceType" => String.t(),
-    "LaunchTime" => String.t(),
-    "NetworkInterfaces" => list(network_interface()()),
-    "OutpostArn" => String.t(),
-    "Platform" => String.t(),
-    "ProductCodes" => list(product_code()()),
-    "Tags" => list(tag()())
-  }
+
+      instance_details() :: %{
+        "AvailabilityZone" => String.t(),
+        "IamInstanceProfile" => iam_instance_profile(),
+        "ImageDescription" => String.t(),
+        "ImageId" => String.t(),
+        "InstanceId" => String.t(),
+        "InstanceState" => String.t(),
+        "InstanceType" => String.t(),
+        "LaunchTime" => String.t(),
+        "NetworkInterfaces" => list(network_interface()()),
+        "OutpostArn" => String.t(),
+        "Platform" => String.t(),
+        "ProductCodes" => list(product_code()()),
+        "Tags" => list(tag()())
+      }
+
   """
   @type instance_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  member_data_source_configuration() :: %{
-    "AccountId" => String.t(),
-    "DataSources" => data_source_configurations_result(),
-    "Features" => list(member_features_configuration_result()())
-  }
+
+      member_data_source_configuration() :: %{
+        "AccountId" => String.t(),
+        "DataSources" => data_source_configurations_result(),
+        "Features" => list(member_features_configuration_result()())
+      }
+
   """
   @type member_data_source_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  data_sources_free_trial() :: %{
-    "CloudTrail" => data_source_free_trial(),
-    "DnsLogs" => data_source_free_trial(),
-    "FlowLogs" => data_source_free_trial(),
-    "Kubernetes" => kubernetes_data_source_free_trial(),
-    "MalwareProtection" => malware_protection_data_source_free_trial(),
-    "S3Logs" => data_source_free_trial()
-  }
+
+      data_sources_free_trial() :: %{
+        "CloudTrail" => data_source_free_trial(),
+        "DnsLogs" => data_source_free_trial(),
+        "FlowLogs" => data_source_free_trial(),
+        "Kubernetes" => kubernetes_data_source_free_trial(),
+        "MalwareProtection" => malware_protection_data_source_free_trial(),
+        "S3Logs" => data_source_free_trial()
+      }
+
   """
   @type data_sources_free_trial() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_usage_statistics_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("Unit") => String.t(),
-    required("UsageCriteria") => usage_criteria(),
-    required("UsageStatisticType") => list(any())
-  }
+
+      get_usage_statistics_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("Unit") => String.t(),
+        required("UsageCriteria") => usage_criteria(),
+        required("UsageStatisticType") => list(any())
+      }
+
   """
   @type get_usage_statistics_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  usage_data_source_result() :: %{
-    "DataSource" => list(any()),
-    "Total" => total()
-  }
+
+      usage_data_source_result() :: %{
+        "DataSource" => list(any()),
+        "Total" => total()
+      }
+
   """
   @type usage_data_source_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_request() :: %{
-    required("Tags") => map()
-  }
+
+      tag_resource_request() :: %{
+        required("Tags") => map()
+      }
+
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  scan_resource_criteria() :: %{
-    "Exclude" => map(),
-    "Include" => map()
-  }
+
+      scan_resource_criteria() :: %{
+        "Exclude" => map(),
+        "Include" => map()
+      }
+
   """
   @type scan_resource_criteria() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  decline_invitations_response() :: %{
-    "UnprocessedAccounts" => list(unprocessed_account()())
-  }
+
+      decline_invitations_response() :: %{
+        "UnprocessedAccounts" => list(unprocessed_account()())
+      }
+
   """
   @type decline_invitations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  container() :: %{
-    "ContainerRuntime" => String.t(),
-    "Id" => String.t(),
-    "Image" => String.t(),
-    "ImagePrefix" => String.t(),
-    "Name" => String.t(),
-    "SecurityContext" => security_context(),
-    "VolumeMounts" => list(volume_mount()())
-  }
+
+      container() :: %{
+        "ContainerRuntime" => String.t(),
+        "Id" => String.t(),
+        "Image" => String.t(),
+        "ImagePrefix" => String.t(),
+        "Name" => String.t(),
+        "SecurityContext" => security_context(),
+        "VolumeMounts" => list(volume_mount()())
+      }
+
   """
   @type container() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  remote_ip_details() :: %{
-    "City" => city(),
-    "Country" => country(),
-    "GeoLocation" => geo_location(),
-    "IpAddressV4" => String.t(),
-    "Organization" => organization()
-  }
+
+      remote_ip_details() :: %{
+        "City" => city(),
+        "Country" => country(),
+        "GeoLocation" => geo_location(),
+        "IpAddressV4" => String.t(),
+        "Organization" => organization()
+      }
+
   """
   @type remote_ip_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disable_organization_admin_account_response() :: %{
 
-  }
+      disable_organization_admin_account_response() :: %{}
+
   """
-  @type disable_organization_admin_account_response() :: %{String.t() => any()}
+  @type disable_organization_admin_account_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  kubernetes_data_source_free_trial() :: %{
-    "AuditLogs" => data_source_free_trial()
-  }
+
+      kubernetes_data_source_free_trial() :: %{
+        "AuditLogs" => data_source_free_trial()
+      }
+
   """
   @type kubernetes_data_source_free_trial() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  organization_ebs_volumes_result() :: %{
-    "AutoEnable" => boolean()
-  }
+
+      organization_ebs_volumes_result() :: %{
+        "AutoEnable" => boolean()
+      }
+
   """
   @type organization_ebs_volumes_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  administrator() :: %{
-    "AccountId" => String.t(),
-    "InvitationId" => String.t(),
-    "InvitedAt" => String.t(),
-    "RelationshipStatus" => String.t()
-  }
+
+      administrator() :: %{
+        "AccountId" => String.t(),
+        "InvitationId" => String.t(),
+        "InvitedAt" => String.t(),
+        "RelationshipStatus" => String.t()
+      }
+
   """
   @type administrator() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  usage_statistics() :: %{
-    "SumByAccount" => list(usage_account_result()()),
-    "SumByDataSource" => list(usage_data_source_result()()),
-    "SumByFeature" => list(usage_feature_result()()),
-    "SumByResource" => list(usage_resource_result()()),
-    "TopAccountsByFeature" => list(usage_top_accounts_result()()),
-    "TopResources" => list(usage_resource_result()())
-  }
+
+      usage_statistics() :: %{
+        "SumByAccount" => list(usage_account_result()()),
+        "SumByDataSource" => list(usage_data_source_result()()),
+        "SumByFeature" => list(usage_feature_result()()),
+        "SumByResource" => list(usage_resource_result()()),
+        "TopAccountsByFeature" => list(usage_top_accounts_result()()),
+        "TopResources" => list(usage_resource_result()())
+      }
+
   """
   @type usage_statistics() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  filter_condition() :: %{
-    "EqualsValue" => String.t(),
-    "GreaterThan" => float(),
-    "LessThan" => float()
-  }
+
+      filter_condition() :: %{
+        "EqualsValue" => String.t(),
+        "GreaterThan" => float(),
+        "LessThan" => float()
+      }
+
   """
   @type filter_condition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_organization_configuration_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      describe_organization_configuration_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type describe_organization_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  s3_bucket_detail() :: %{
-    "Arn" => String.t(),
-    "CreatedAt" => non_neg_integer(),
-    "DefaultServerSideEncryption" => default_server_side_encryption(),
-    "Name" => String.t(),
-    "Owner" => owner(),
-    "PublicAccess" => public_access(),
-    "Tags" => list(tag()()),
-    "Type" => String.t()
-  }
+
+      s3_bucket_detail() :: %{
+        "Arn" => String.t(),
+        "CreatedAt" => non_neg_integer(),
+        "DefaultServerSideEncryption" => default_server_side_encryption(),
+        "Name" => String.t(),
+        "Owner" => owner(),
+        "PublicAccess" => public_access(),
+        "Tags" => list(tag()()),
+        "Type" => String.t()
+      }
+
   """
   @type s3_bucket_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  data_source_configurations_result() :: %{
-    "CloudTrail" => cloud_trail_configuration_result(),
-    "DNSLogs" => dns_logs_configuration_result(),
-    "FlowLogs" => flow_logs_configuration_result(),
-    "Kubernetes" => kubernetes_configuration_result(),
-    "MalwareProtection" => malware_protection_configuration_result(),
-    "S3Logs" => s3_logs_configuration_result()
-  }
+
+      data_source_configurations_result() :: %{
+        "CloudTrail" => cloud_trail_configuration_result(),
+        "DNSLogs" => dns_logs_configuration_result(),
+        "FlowLogs" => flow_logs_configuration_result(),
+        "Kubernetes" => kubernetes_configuration_result(),
+        "MalwareProtection" => malware_protection_configuration_result(),
+        "S3Logs" => s3_logs_configuration_result()
+      }
+
   """
   @type data_source_configurations_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_ip_sets_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      list_ip_sets_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_ip_sets_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_findings_statistics_request() :: %{
-    optional("FindingCriteria") => finding_criteria(),
-    required("FindingStatisticTypes") => list(list(any())())
-  }
+
+      get_findings_statistics_request() :: %{
+        optional("FindingCriteria") => finding_criteria(),
+        required("FindingStatisticTypes") => list(list(any())())
+      }
+
   """
   @type get_findings_statistics_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_members_response() :: %{
-    "Members" => list(member()()),
-    "UnprocessedAccounts" => list(unprocessed_account()())
-  }
+
+      get_members_response() :: %{
+        "Members" => list(member()()),
+        "UnprocessedAccounts" => list(unprocessed_account()())
+      }
+
   """
   @type get_members_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_member_detectors_request() :: %{
-    required("AccountIds") => list(String.t()())
-  }
+
+      get_member_detectors_request() :: %{
+        required("AccountIds") => list(String.t()())
+      }
+
   """
   @type get_member_detectors_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  admin_account() :: %{
-    "AdminAccountId" => String.t(),
-    "AdminStatus" => list(any())
-  }
+
+      admin_account() :: %{
+        "AdminAccountId" => String.t(),
+        "AdminStatus" => list(any())
+      }
+
   """
   @type admin_account() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  archive_findings_response() :: %{
 
-  }
+      archive_findings_response() :: %{}
+
   """
-  @type archive_findings_response() :: %{String.t() => any()}
+  @type archive_findings_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  accept_administrator_invitation_request() :: %{
-    required("AdministratorId") => String.t(),
-    required("InvitationId") => String.t()
-  }
+
+      accept_administrator_invitation_request() :: %{
+        required("AdministratorId") => String.t(),
+        required("InvitationId") => String.t()
+      }
+
   """
   @type accept_administrator_invitation_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  scan_condition_pair() :: %{
-    "Key" => String.t(),
-    "Value" => String.t()
-  }
+
+      scan_condition_pair() :: %{
+        "Key" => String.t(),
+        "Value" => String.t()
+      }
+
   """
   @type scan_condition_pair() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  destination_properties() :: %{
-    "DestinationArn" => String.t(),
-    "KmsKeyArn" => String.t()
-  }
+
+      destination_properties() :: %{
+        "DestinationArn" => String.t(),
+        "KmsKeyArn" => String.t()
+      }
+
   """
   @type destination_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ebs_volume_details() :: %{
-    "ScannedVolumeDetails" => list(volume_detail()()),
-    "SkippedVolumeDetails" => list(volume_detail()())
-  }
+
+      ebs_volume_details() :: %{
+        "ScannedVolumeDetails" => list(volume_detail()()),
+        "SkippedVolumeDetails" => list(volume_detail()())
+      }
+
   """
   @type ebs_volume_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_threat_intel_set_response() :: %{
 
-  }
+      delete_threat_intel_set_response() :: %{}
+
   """
-  @type delete_threat_intel_set_response() :: %{String.t() => any()}
+  @type delete_threat_intel_set_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  kubernetes_audit_logs_configuration() :: %{
-    "Enable" => boolean()
-  }
+
+      kubernetes_audit_logs_configuration() :: %{
+        "Enable" => boolean()
+      }
+
   """
   @type kubernetes_audit_logs_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  kubernetes_workload_details() :: %{
-    "Containers" => list(container()()),
-    "HostIPC" => boolean(),
-    "HostNetwork" => boolean(),
-    "HostPID" => boolean(),
-    "Name" => String.t(),
-    "Namespace" => String.t(),
-    "ServiceAccountName" => String.t(),
-    "Type" => String.t(),
-    "Uid" => String.t(),
-    "Volumes" => list(volume()())
-  }
+
+      kubernetes_workload_details() :: %{
+        "Containers" => list(container()()),
+        "HostIPC" => boolean(),
+        "HostNetwork" => boolean(),
+        "HostPID" => boolean(),
+        "Name" => String.t(),
+        "Namespace" => String.t(),
+        "ServiceAccountName" => String.t(),
+        "Type" => String.t(),
+        "Uid" => String.t(),
+        "Volumes" => list(volume()())
+      }
+
   """
   @type kubernetes_workload_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_administrator_account_request() :: %{
 
-  }
+      get_administrator_account_request() :: %{}
+
   """
-  @type get_administrator_account_request() :: %{String.t() => any()}
+  @type get_administrator_account_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  process_details() :: %{
-    "Euid" => integer(),
-    "ExecutablePath" => String.t(),
-    "ExecutableSha256" => String.t(),
-    "Lineage" => list(lineage_object()()),
-    "Name" => String.t(),
-    "NamespacePid" => integer(),
-    "ParentUuid" => String.t(),
-    "Pid" => integer(),
-    "Pwd" => String.t(),
-    "StartTime" => non_neg_integer(),
-    "User" => String.t(),
-    "UserId" => integer(),
-    "Uuid" => String.t()
-  }
+
+      process_details() :: %{
+        "Euid" => integer(),
+        "ExecutablePath" => String.t(),
+        "ExecutableSha256" => String.t(),
+        "Lineage" => list(lineage_object()()),
+        "Name" => String.t(),
+        "NamespacePid" => integer(),
+        "ParentUuid" => String.t(),
+        "Pid" => integer(),
+        "Pwd" => String.t(),
+        "StartTime" => non_neg_integer(),
+        "User" => String.t(),
+        "UserId" => integer(),
+        "Uuid" => String.t()
+      }
+
   """
   @type process_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_response() :: %{
 
-  }
+      untag_resource_response() :: %{}
+
   """
-  @type untag_resource_response() :: %{String.t() => any()}
+  @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_publishing_destinations_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      list_publishing_destinations_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_publishing_destinations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  filter_criteria() :: %{
-    "FilterCriterion" => list(filter_criterion()())
-  }
+
+      filter_criteria() :: %{
+        "FilterCriterion" => list(filter_criterion()())
+      }
+
   """
   @type filter_criteria() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  filter_criterion() :: %{
-    "CriterionKey" => list(any()),
-    "FilterCondition" => filter_condition()
-  }
+
+      filter_criterion() :: %{
+        "CriterionKey" => list(any()),
+        "FilterCondition" => filter_condition()
+      }
+
   """
   @type filter_criterion() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  network_connection_action() :: %{
-    "Blocked" => boolean(),
-    "ConnectionDirection" => String.t(),
-    "LocalIpDetails" => local_ip_details(),
-    "LocalPortDetails" => local_port_details(),
-    "Protocol" => String.t(),
-    "RemoteIpDetails" => remote_ip_details(),
-    "RemotePortDetails" => remote_port_details()
-  }
+
+      network_connection_action() :: %{
+        "Blocked" => boolean(),
+        "ConnectionDirection" => String.t(),
+        "LocalIpDetails" => local_ip_details(),
+        "LocalPortDetails" => local_port_details(),
+        "Protocol" => String.t(),
+        "RemoteIpDetails" => remote_ip_details(),
+        "RemotePortDetails" => remote_port_details()
+      }
+
   """
   @type network_connection_action() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  account_level_permissions() :: %{
-    "BlockPublicAccess" => block_public_access()
-  }
+
+      account_level_permissions() :: %{
+        "BlockPublicAccess" => block_public_access()
+      }
+
   """
   @type account_level_permissions() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  coverage_filter_condition() :: %{
-    "Equals" => list(String.t()()),
-    "NotEquals" => list(String.t()())
-  }
+
+      coverage_filter_condition() :: %{
+        "Equals" => list(String.t()()),
+        "NotEquals" => list(String.t()())
+      }
+
   """
   @type coverage_filter_condition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  malware_protection_configuration() :: %{
-    "ScanEc2InstanceWithFindings" => scan_ec2_instance_with_findings()
-  }
+
+      malware_protection_configuration() :: %{
+        "ScanEc2InstanceWithFindings" => scan_ec2_instance_with_findings()
+      }
+
   """
   @type malware_protection_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  local_port_details() :: %{
-    "Port" => integer(),
-    "PortName" => String.t()
-  }
+
+      local_port_details() :: %{
+        "Port" => integer(),
+        "PortName" => String.t()
+      }
+
   """
   @type local_port_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_monitoring_members_response() :: %{
-    "UnprocessedAccounts" => list(unprocessed_account()())
-  }
+
+      start_monitoring_members_response() :: %{
+        "UnprocessedAccounts" => list(unprocessed_account()())
+      }
+
   """
   @type start_monitoring_members_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  malware_protection_configuration_result() :: %{
-    "ScanEc2InstanceWithFindings" => scan_ec2_instance_with_findings_result(),
-    "ServiceRole" => String.t()
-  }
+
+      malware_protection_configuration_result() :: %{
+        "ScanEc2InstanceWithFindings" => scan_ec2_instance_with_findings_result(),
+        "ServiceRole" => String.t()
+      }
+
   """
   @type malware_protection_configuration_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  kubernetes_api_call_action() :: %{
-    "Namespace" => String.t(),
-    "Parameters" => String.t(),
-    "RemoteIpDetails" => remote_ip_details(),
-    "RequestUri" => String.t(),
-    "Resource" => String.t(),
-    "ResourceName" => String.t(),
-    "SourceIps" => list(String.t()()),
-    "StatusCode" => integer(),
-    "Subresource" => String.t(),
-    "UserAgent" => String.t(),
-    "Verb" => String.t()
-  }
+
+      kubernetes_api_call_action() :: %{
+        "Namespace" => String.t(),
+        "Parameters" => String.t(),
+        "RemoteIpDetails" => remote_ip_details(),
+        "RequestUri" => String.t(),
+        "Resource" => String.t(),
+        "ResourceName" => String.t(),
+        "SourceIps" => list(String.t()()),
+        "StatusCode" => integer(),
+        "Subresource" => String.t(),
+        "UserAgent" => String.t(),
+        "Verb" => String.t()
+      }
+
   """
   @type kubernetes_api_call_action() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  detector_feature_configuration_result() :: %{
-    "AdditionalConfiguration" => list(detector_additional_configuration_result()()),
-    "Name" => list(any()),
-    "Status" => list(any()),
-    "UpdatedAt" => non_neg_integer()
-  }
+
+      detector_feature_configuration_result() :: %{
+        "AdditionalConfiguration" => list(detector_additional_configuration_result()()),
+        "Name" => list(any()),
+        "Status" => list(any()),
+        "UpdatedAt" => non_neg_integer()
+      }
+
   """
   @type detector_feature_configuration_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  highest_severity_threat_details() :: %{
-    "Count" => integer(),
-    "Severity" => String.t(),
-    "ThreatName" => String.t()
-  }
+
+      highest_severity_threat_details() :: %{
+        "Count" => integer(),
+        "Severity" => String.t(),
+        "ThreatName" => String.t()
+      }
+
   """
   @type highest_severity_threat_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  coverage_filter_criterion() :: %{
-    "CriterionKey" => list(any()),
-    "FilterCondition" => coverage_filter_condition()
-  }
+
+      coverage_filter_criterion() :: %{
+        "CriterionKey" => list(any()),
+        "FilterCondition" => coverage_filter_condition()
+      }
+
   """
   @type coverage_filter_criterion() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  organization_malware_protection_configuration() :: %{
-    "ScanEc2InstanceWithFindings" => organization_scan_ec2_instance_with_findings()
-  }
+
+      organization_malware_protection_configuration() :: %{
+        "ScanEc2InstanceWithFindings" => organization_scan_ec2_instance_with_findings()
+      }
+
   """
   @type organization_malware_protection_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  rds_db_user_details() :: %{
-    "Application" => String.t(),
-    "AuthMethod" => String.t(),
-    "Database" => String.t(),
-    "Ssl" => String.t(),
-    "User" => String.t()
-  }
+
+      rds_db_user_details() :: %{
+        "Application" => String.t(),
+        "AuthMethod" => String.t(),
+        "Database" => String.t(),
+        "Ssl" => String.t(),
+        "User" => String.t()
+      }
+
   """
   @type rds_db_user_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  scan_ec2_instance_with_findings() :: %{
-    "EbsVolumes" => boolean()
-  }
+
+      scan_ec2_instance_with_findings() :: %{
+        "EbsVolumes" => boolean()
+      }
+
   """
   @type scan_ec2_instance_with_findings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invitation() :: %{
-    "AccountId" => String.t(),
-    "InvitationId" => String.t(),
-    "InvitedAt" => String.t(),
-    "RelationshipStatus" => String.t()
-  }
+
+      invitation() :: %{
+        "AccountId" => String.t(),
+        "InvitationId" => String.t(),
+        "InvitedAt" => String.t(),
+        "RelationshipStatus" => String.t()
+      }
+
   """
   @type invitation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disassociate_from_master_account_response() :: %{
 
-  }
+      disassociate_from_master_account_response() :: %{}
+
   """
-  @type disassociate_from_master_account_response() :: %{String.t() => any()}
+  @type disassociate_from_master_account_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  lambda_details() :: %{
-    "Description" => String.t(),
-    "FunctionArn" => String.t(),
-    "FunctionName" => String.t(),
-    "FunctionVersion" => String.t(),
-    "LastModifiedAt" => non_neg_integer(),
-    "RevisionId" => String.t(),
-    "Role" => String.t(),
-    "Tags" => list(tag()()),
-    "VpcConfig" => vpc_config()
-  }
+
+      lambda_details() :: %{
+        "Description" => String.t(),
+        "FunctionArn" => String.t(),
+        "FunctionName" => String.t(),
+        "FunctionVersion" => String.t(),
+        "LastModifiedAt" => non_neg_integer(),
+        "RevisionId" => String.t(),
+        "Role" => String.t(),
+        "Tags" => list(tag()()),
+        "VpcConfig" => vpc_config()
+      }
+
   """
   @type lambda_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_publishing_destination_response() :: %{
-    "DestinationId" => String.t(),
-    "DestinationProperties" => destination_properties(),
-    "DestinationType" => list(any()),
-    "PublishingFailureStartTimestamp" => float(),
-    "Status" => list(any())
-  }
+
+      describe_publishing_destination_response() :: %{
+        "DestinationId" => String.t(),
+        "DestinationProperties" => destination_properties(),
+        "DestinationType" => list(any()),
+        "PublishingFailureStartTimestamp" => float(),
+        "Status" => list(any())
+      }
+
   """
   @type describe_publishing_destination_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_malware_scans_request() :: %{
-    optional("FilterCriteria") => filter_criteria(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("SortCriteria") => sort_criteria()
-  }
+
+      describe_malware_scans_request() :: %{
+        optional("FilterCriteria") => filter_criteria(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("SortCriteria") => sort_criteria()
+      }
+
   """
   @type describe_malware_scans_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_publishing_destination_response() :: %{
 
-  }
+      update_publishing_destination_response() :: %{}
+
   """
-  @type update_publishing_destination_response() :: %{String.t() => any()}
+  @type update_publishing_destination_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_coverage_statistics_response() :: %{
-    "CoverageStatistics" => coverage_statistics()
-  }
+
+      get_coverage_statistics_response() :: %{
+        "CoverageStatistics" => coverage_statistics()
+      }
+
   """
   @type get_coverage_statistics_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  network_interface() :: %{
-    "Ipv6Addresses" => list(String.t()()),
-    "NetworkInterfaceId" => String.t(),
-    "PrivateDnsName" => String.t(),
-    "PrivateIpAddress" => String.t(),
-    "PrivateIpAddresses" => list(private_ip_address_details()()),
-    "PublicDnsName" => String.t(),
-    "PublicIp" => String.t(),
-    "SecurityGroups" => list(security_group()()),
-    "SubnetId" => String.t(),
-    "VpcId" => String.t()
-  }
+
+      network_interface() :: %{
+        "Ipv6Addresses" => list(String.t()()),
+        "NetworkInterfaceId" => String.t(),
+        "PrivateDnsName" => String.t(),
+        "PrivateIpAddress" => String.t(),
+        "PrivateIpAddresses" => list(private_ip_address_details()()),
+        "PublicDnsName" => String.t(),
+        "PublicIp" => String.t(),
+        "SecurityGroups" => list(security_group()()),
+        "SubnetId" => String.t(),
+        "VpcId" => String.t()
+      }
+
   """
   @type network_interface() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  organization_additional_configuration() :: %{
-    "AutoEnable" => list(any()),
-    "Name" => list(any())
-  }
+
+      organization_additional_configuration() :: %{
+        "AutoEnable" => list(any()),
+        "Name" => list(any())
+      }
+
   """
   @type organization_additional_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_filter_response() :: %{
-    "Action" => list(any()),
-    "Description" => String.t(),
-    "FindingCriteria" => finding_criteria(),
-    "Name" => String.t(),
-    "Rank" => integer(),
-    "Tags" => map()
-  }
+
+      get_filter_response() :: %{
+        "Action" => list(any()),
+        "Description" => String.t(),
+        "FindingCriteria" => finding_criteria(),
+        "Name" => String.t(),
+        "Rank" => integer(),
+        "Tags" => map()
+      }
+
   """
   @type get_filter_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  organization_s3_logs_configuration() :: %{
-    "AutoEnable" => boolean()
-  }
+
+      organization_s3_logs_configuration() :: %{
+        "AutoEnable" => boolean()
+      }
+
   """
   @type organization_s3_logs_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_findings_statistics_response() :: %{
-    "FindingStatistics" => finding_statistics()
-  }
+
+      get_findings_statistics_response() :: %{
+        "FindingStatistics" => finding_statistics()
+      }
+
   """
   @type get_findings_statistics_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  remote_port_details() :: %{
-    "Port" => integer(),
-    "PortName" => String.t()
-  }
+
+      remote_port_details() :: %{
+        "Port" => integer(),
+        "PortName" => String.t()
+      }
+
   """
   @type remote_port_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_ip_set_response() :: %{
 
-  }
+      update_ip_set_response() :: %{}
+
   """
-  @type update_ip_set_response() :: %{String.t() => any()}
+  @type update_ip_set_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_findings_response() :: %{
-    "FindingIds" => list(String.t()()),
-    "NextToken" => String.t()
-  }
+
+      list_findings_response() :: %{
+        "FindingIds" => list(String.t()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_findings_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  coverage_sort_criteria() :: %{
-    "AttributeName" => list(any()),
-    "OrderBy" => list(any())
-  }
+
+      coverage_sort_criteria() :: %{
+        "AttributeName" => list(any()),
+        "OrderBy" => list(any())
+      }
+
   """
   @type coverage_sort_criteria() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_filter_response() :: %{
-    "Name" => String.t()
-  }
+
+      create_filter_response() :: %{
+        "Name" => String.t()
+      }
+
   """
   @type create_filter_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_threat_intel_set_request() :: %{
 
-  }
+      delete_threat_intel_set_request() :: %{}
+
   """
-  @type delete_threat_intel_set_request() :: %{String.t() => any()}
+  @type delete_threat_intel_set_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  update_malware_scan_settings_request() :: %{
-    optional("EbsSnapshotPreservation") => list(any()),
-    optional("ScanResourceCriteria") => scan_resource_criteria()
-  }
+
+      update_malware_scan_settings_request() :: %{
+        optional("EbsSnapshotPreservation") => list(any()),
+        optional("ScanResourceCriteria") => scan_resource_criteria()
+      }
+
   """
   @type update_malware_scan_settings_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_ip_set_request() :: %{
 
-  }
+      delete_ip_set_request() :: %{}
+
   """
-  @type delete_ip_set_request() :: %{String.t() => any()}
+  @type delete_ip_set_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_detectors_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      list_detectors_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_detectors_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  s3_logs_configuration_result() :: %{
-    "Status" => list(any())
-  }
+
+      s3_logs_configuration_result() :: %{
+        "Status" => list(any())
+      }
+
   """
   @type s3_logs_configuration_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  service() :: %{
-    "Action" => action(),
-    "AdditionalInfo" => service_additional_info(),
-    "Archived" => boolean(),
-    "Count" => integer(),
-    "Detection" => detection(),
-    "DetectorId" => String.t(),
-    "EbsVolumeScanDetails" => ebs_volume_scan_details(),
-    "EventFirstSeen" => String.t(),
-    "EventLastSeen" => String.t(),
-    "Evidence" => evidence(),
-    "FeatureName" => String.t(),
-    "ResourceRole" => String.t(),
-    "RuntimeDetails" => runtime_details(),
-    "ServiceName" => String.t(),
-    "UserFeedback" => String.t()
-  }
+
+      service() :: %{
+        "Action" => action(),
+        "AdditionalInfo" => service_additional_info(),
+        "Archived" => boolean(),
+        "Count" => integer(),
+        "Detection" => detection(),
+        "DetectorId" => String.t(),
+        "EbsVolumeScanDetails" => ebs_volume_scan_details(),
+        "EventFirstSeen" => String.t(),
+        "EventLastSeen" => String.t(),
+        "Evidence" => evidence(),
+        "FeatureName" => String.t(),
+        "ResourceRole" => String.t(),
+        "RuntimeDetails" => runtime_details(),
+        "ServiceName" => String.t(),
+        "UserFeedback" => String.t()
+      }
+
   """
   @type service() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_findings_request() :: %{
-    optional("SortCriteria") => sort_criteria(),
-    required("FindingIds") => list(String.t()())
-  }
+
+      get_findings_request() :: %{
+        optional("SortCriteria") => sort_criteria(),
+        required("FindingIds") => list(String.t()())
+      }
+
   """
   @type get_findings_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  agent_details() :: %{
-    "Version" => String.t()
-  }
+
+      agent_details() :: %{
+        "Version" => String.t()
+      }
+
   """
   @type agent_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_publishing_destination_request() :: %{
-    optional("ClientToken") => String.t(),
-    required("DestinationProperties") => destination_properties(),
-    required("DestinationType") => list(any())
-  }
+
+      create_publishing_destination_request() :: %{
+        optional("ClientToken") => String.t(),
+        required("DestinationProperties") => destination_properties(),
+        required("DestinationType") => list(any())
+      }
+
   """
   @type create_publishing_destination_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  account_detail() :: %{
-    "AccountId" => String.t(),
-    "Email" => String.t()
-  }
+
+      account_detail() :: %{
+        "AccountId" => String.t(),
+        "Email" => String.t()
+      }
+
   """
   @type account_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  host_path() :: %{
-    "Path" => String.t()
-  }
+
+      host_path() :: %{
+        "Path" => String.t()
+      }
+
   """
   @type host_path() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  volume_detail() :: %{
-    "DeviceName" => String.t(),
-    "EncryptionType" => String.t(),
-    "KmsKeyArn" => String.t(),
-    "SnapshotArn" => String.t(),
-    "VolumeArn" => String.t(),
-    "VolumeSizeInGB" => integer(),
-    "VolumeType" => String.t()
-  }
+
+      volume_detail() :: %{
+        "DeviceName" => String.t(),
+        "EncryptionType" => String.t(),
+        "KmsKeyArn" => String.t(),
+        "SnapshotArn" => String.t(),
+        "VolumeArn" => String.t(),
+        "VolumeSizeInGB" => integer(),
+        "VolumeType" => String.t()
+      }
+
   """
   @type volume_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  public_access() :: %{
-    "EffectivePermission" => String.t(),
-    "PermissionConfiguration" => permission_configuration()
-  }
+
+      public_access() :: %{
+        "EffectivePermission" => String.t(),
+        "PermissionConfiguration" => permission_configuration()
+      }
+
   """
   @type public_access() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  country() :: %{
-    "CountryCode" => String.t(),
-    "CountryName" => String.t()
-  }
+
+      country() :: %{
+        "CountryCode" => String.t(),
+        "CountryName" => String.t()
+      }
+
   """
   @type country() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  total() :: %{
-    "Amount" => String.t(),
-    "Unit" => String.t()
-  }
+
+      total() :: %{
+        "Amount" => String.t(),
+        "Unit" => String.t()
+      }
+
   """
   @type total() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_request() :: %{
-    required("TagKeys") => list(String.t()())
-  }
+
+      untag_resource_request() :: %{
+        required("TagKeys") => list(String.t()())
+      }
+
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  detector_feature_configuration() :: %{
-    "AdditionalConfiguration" => list(detector_additional_configuration()()),
-    "Name" => list(any()),
-    "Status" => list(any())
-  }
+
+      detector_feature_configuration() :: %{
+        "AdditionalConfiguration" => list(detector_additional_configuration()()),
+        "Name" => list(any()),
+        "Status" => list(any())
+      }
+
   """
   @type detector_feature_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disable_organization_admin_account_request() :: %{
-    required("AdminAccountId") => String.t()
-  }
+
+      disable_organization_admin_account_request() :: %{
+        required("AdminAccountId") => String.t()
+      }
+
   """
   @type disable_organization_admin_account_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_ip_set_request() :: %{
-    optional("Activate") => boolean(),
-    optional("Location") => String.t(),
-    optional("Name") => String.t()
-  }
+
+      update_ip_set_request() :: %{
+        optional("Activate") => boolean(),
+        optional("Location") => String.t(),
+        optional("Name") => String.t()
+      }
+
   """
   @type update_ip_set_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  impersonated_user() :: %{
-    "Groups" => list(String.t()()),
-    "Username" => String.t()
-  }
+
+      impersonated_user() :: %{
+        "Groups" => list(String.t()()),
+        "Username" => String.t()
+      }
+
   """
   @type impersonated_user() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_publishing_destination_request() :: %{
 
-  }
+      delete_publishing_destination_request() :: %{}
+
   """
-  @type delete_publishing_destination_request() :: %{String.t() => any()}
+  @type delete_publishing_destination_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  delete_members_response() :: %{
-    "UnprocessedAccounts" => list(unprocessed_account()())
-  }
+
+      delete_members_response() :: %{
+        "UnprocessedAccounts" => list(unprocessed_account()())
+      }
+
   """
   @type delete_members_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invite_members_request() :: %{
-    optional("DisableEmailNotification") => boolean(),
-    optional("Message") => String.t(),
-    required("AccountIds") => list(String.t()())
-  }
+
+      invite_members_request() :: %{
+        optional("DisableEmailNotification") => boolean(),
+        optional("Message") => String.t(),
+        required("AccountIds") => list(String.t()())
+      }
+
   """
   @type invite_members_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  permission_configuration() :: %{
-    "AccountLevelPermissions" => account_level_permissions(),
-    "BucketLevelPermissions" => bucket_level_permissions()
-  }
+
+      permission_configuration() :: %{
+        "AccountLevelPermissions" => account_level_permissions(),
+        "BucketLevelPermissions" => bucket_level_permissions()
+      }
+
   """
   @type permission_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_threat_intel_set_response() :: %{
 
-  }
+      update_threat_intel_set_response() :: %{}
+
   """
-  @type update_threat_intel_set_response() :: %{String.t() => any()}
+  @type update_threat_intel_set_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  organization_kubernetes_audit_logs_configuration_result() :: %{
-    "AutoEnable" => boolean()
-  }
+
+      organization_kubernetes_audit_logs_configuration_result() :: %{
+        "AutoEnable" => boolean()
+      }
+
   """
   @type organization_kubernetes_audit_logs_configuration_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  member_features_configuration_result() :: %{
-    "AdditionalConfiguration" => list(member_additional_configuration_result()()),
-    "Name" => list(any()),
-    "Status" => list(any()),
-    "UpdatedAt" => non_neg_integer()
-  }
+
+      member_features_configuration_result() :: %{
+        "AdditionalConfiguration" => list(member_additional_configuration_result()()),
+        "Name" => list(any()),
+        "Status" => list(any()),
+        "UpdatedAt" => non_neg_integer()
+      }
+
   """
   @type member_features_configuration_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  kubernetes_audit_logs_configuration_result() :: %{
-    "Status" => list(any())
-  }
+
+      kubernetes_audit_logs_configuration_result() :: %{
+        "Status" => list(any())
+      }
+
   """
   @type kubernetes_audit_logs_configuration_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_threat_intel_sets_response() :: %{
-    "NextToken" => String.t(),
-    "ThreatIntelSetIds" => list(String.t()())
-  }
+
+      list_threat_intel_sets_response() :: %{
+        "NextToken" => String.t(),
+        "ThreatIntelSetIds" => list(String.t()())
+      }
+
   """
   @type list_threat_intel_sets_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  observations() :: %{
-    "Text" => list(String.t()())
-  }
+
+      observations() :: %{
+        "Text" => list(String.t()())
+      }
+
   """
   @type observations() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  organization_data_source_configurations_result() :: %{
-    "Kubernetes" => organization_kubernetes_configuration_result(),
-    "MalwareProtection" => organization_malware_protection_configuration_result(),
-    "S3Logs" => organization_s3_logs_configuration_result()
-  }
+
+      organization_data_source_configurations_result() :: %{
+        "Kubernetes" => organization_kubernetes_configuration_result(),
+        "MalwareProtection" => organization_malware_protection_configuration_result(),
+        "S3Logs" => organization_s3_logs_configuration_result()
+      }
+
   """
   @type organization_data_source_configurations_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  archive_findings_request() :: %{
-    required("FindingIds") => list(String.t()())
-  }
+
+      archive_findings_request() :: %{
+        required("FindingIds") => list(String.t()())
+      }
+
   """
   @type archive_findings_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  scan_ec2_instance_with_findings_result() :: %{
-    "EbsVolumes" => ebs_volumes_result()
-  }
+
+      scan_ec2_instance_with_findings_result() :: %{
+        "EbsVolumes" => ebs_volumes_result()
+      }
+
   """
   @type scan_ec2_instance_with_findings_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disassociate_from_administrator_account_response() :: %{
 
-  }
+      disassociate_from_administrator_account_response() :: %{}
+
   """
-  @type disassociate_from_administrator_account_response() :: %{String.t() => any()}
+  @type disassociate_from_administrator_account_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  coverage_resource() :: %{
-    "AccountId" => String.t(),
-    "CoverageStatus" => list(any()),
-    "DetectorId" => String.t(),
-    "Issue" => String.t(),
-    "ResourceDetails" => coverage_resource_details(),
-    "ResourceId" => String.t(),
-    "UpdatedAt" => non_neg_integer()
-  }
+
+      coverage_resource() :: %{
+        "AccountId" => String.t(),
+        "CoverageStatus" => list(any()),
+        "DetectorId" => String.t(),
+        "Issue" => String.t(),
+        "ResourceDetails" => coverage_resource_details(),
+        "ResourceId" => String.t(),
+        "UpdatedAt" => non_neg_integer()
+      }
+
   """
   @type coverage_resource() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_filter_response() :: %{
-    "Name" => String.t()
-  }
+
+      update_filter_response() :: %{
+        "Name" => String.t()
+      }
+
   """
   @type update_filter_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  kubernetes_user_details() :: %{
-    "Groups" => list(String.t()()),
-    "ImpersonatedUser" => impersonated_user(),
-    "SessionName" => list(String.t()()),
-    "Uid" => String.t(),
-    "Username" => String.t()
-  }
+
+      kubernetes_user_details() :: %{
+        "Groups" => list(String.t()()),
+        "ImpersonatedUser" => impersonated_user(),
+        "SessionName" => list(String.t()()),
+        "Uid" => String.t(),
+        "Username" => String.t()
+      }
+
   """
   @type kubernetes_user_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  threats_detected_item_count() :: %{
-    "Files" => integer()
-  }
+
+      threats_detected_item_count() :: %{
+        "Files" => integer()
+      }
+
   """
   @type threats_detected_item_count() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  scan_result_details() :: %{
-    "ScanResult" => list(any())
-  }
+
+      scan_result_details() :: %{
+        "ScanResult" => list(any())
+      }
+
   """
   @type scan_result_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_organization_configuration_response() :: %{
-    "AutoEnable" => boolean(),
-    "AutoEnableOrganizationMembers" => list(any()),
-    "DataSources" => organization_data_source_configurations_result(),
-    "Features" => list(organization_feature_configuration_result()()),
-    "MemberAccountLimitReached" => boolean(),
-    "NextToken" => String.t()
-  }
+
+      describe_organization_configuration_response() :: %{
+        "AutoEnable" => boolean(),
+        "AutoEnableOrganizationMembers" => list(any()),
+        "DataSources" => organization_data_source_configurations_result(),
+        "Features" => list(organization_feature_configuration_result()()),
+        "MemberAccountLimitReached" => boolean(),
+        "NextToken" => String.t()
+      }
+
   """
   @type describe_organization_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_malware_scan_request() :: %{
-    required("ResourceArn") => String.t()
-  }
+
+      start_malware_scan_request() :: %{
+        required("ResourceArn") => String.t()
+      }
+
   """
   @type start_malware_scan_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  organization_feature_configuration() :: %{
-    "AdditionalConfiguration" => list(organization_additional_configuration()()),
-    "AutoEnable" => list(any()),
-    "Name" => list(any())
-  }
+
+      organization_feature_configuration() :: %{
+        "AdditionalConfiguration" => list(organization_additional_configuration()()),
+        "AutoEnable" => list(any()),
+        "Name" => list(any())
+      }
+
   """
   @type organization_feature_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_detector_response() :: %{
-    "DetectorId" => String.t(),
-    "UnprocessedDataSources" => unprocessed_data_sources_result()
-  }
+
+      create_detector_response() :: %{
+        "DetectorId" => String.t(),
+        "UnprocessedDataSources" => unprocessed_data_sources_result()
+      }
+
   """
   @type create_detector_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  detector_additional_configuration_result() :: %{
-    "Name" => list(any()),
-    "Status" => list(any()),
-    "UpdatedAt" => non_neg_integer()
-  }
+
+      detector_additional_configuration_result() :: %{
+        "Name" => list(any()),
+        "Status" => list(any()),
+        "UpdatedAt" => non_neg_integer()
+      }
+
   """
   @type detector_additional_configuration_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  unarchive_findings_request() :: %{
-    required("FindingIds") => list(String.t()())
-  }
+
+      unarchive_findings_request() :: %{
+        required("FindingIds") => list(String.t()())
+      }
+
   """
   @type unarchive_findings_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  conflict_exception() :: %{
-    "Message" => String.t(),
-    "Type" => String.t()
-  }
+
+      conflict_exception() :: %{
+        "Message" => String.t(),
+        "Type" => String.t()
+      }
+
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  dns_request_action() :: %{
-    "Blocked" => boolean(),
-    "Domain" => String.t(),
-    "DomainWithSuffix" => String.t(),
-    "Protocol" => String.t()
-  }
+
+      dns_request_action() :: %{
+        "Blocked" => boolean(),
+        "Domain" => String.t(),
+        "DomainWithSuffix" => String.t(),
+        "Protocol" => String.t()
+      }
+
   """
   @type dns_request_action() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_filter_request() :: %{
-    optional("Action") => list(any()),
-    optional("ClientToken") => String.t(),
-    optional("Description") => String.t(),
-    optional("Rank") => integer(),
-    optional("Tags") => map(),
-    required("FindingCriteria") => finding_criteria(),
-    required("Name") => String.t()
-  }
+
+      create_filter_request() :: %{
+        optional("Action") => list(any()),
+        optional("ClientToken") => String.t(),
+        optional("Description") => String.t(),
+        optional("Rank") => integer(),
+        optional("Tags") => map(),
+        required("FindingCriteria") => finding_criteria(),
+        required("Name") => String.t()
+      }
+
   """
   @type create_filter_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_members_request() :: %{
-    required("AccountIds") => list(String.t()())
-  }
+
+      get_members_request() :: %{
+        required("AccountIds") => list(String.t()())
+      }
+
   """
   @type get_members_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  service_additional_info() :: %{
-    "Type" => String.t(),
-    "Value" => String.t()
-  }
+
+      service_additional_info() :: %{
+        "Type" => String.t(),
+        "Value" => String.t()
+      }
+
   """
   @type service_additional_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_publishing_destination_response() :: %{
 
-  }
+      delete_publishing_destination_response() :: %{}
+
   """
-  @type delete_publishing_destination_response() :: %{String.t() => any()}
+  @type delete_publishing_destination_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_members_request() :: %{
-    required("AccountDetails") => list(account_detail()())
-  }
+
+      create_members_request() :: %{
+        required("AccountDetails") => list(account_detail()())
+      }
+
   """
   @type create_members_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_detector_response() :: %{
 
-  }
+      update_detector_response() :: %{}
+
   """
-  @type update_detector_response() :: %{String.t() => any()}
+  @type update_detector_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_ip_sets_response() :: %{
-    "IpSetIds" => list(String.t()()),
-    "NextToken" => String.t()
-  }
+
+      list_ip_sets_response() :: %{
+        "IpSetIds" => list(String.t()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_ip_sets_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  usage_account_result() :: %{
-    "AccountId" => String.t(),
-    "Total" => total()
-  }
+
+      usage_account_result() :: %{
+        "AccountId" => String.t(),
+        "Total" => total()
+      }
+
   """
   @type usage_account_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_organization_statistics_response() :: %{
-    "OrganizationDetails" => organization_details()
-  }
+
+      get_organization_statistics_response() :: %{
+        "OrganizationDetails" => organization_details()
+      }
+
   """
   @type get_organization_statistics_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  container_instance_details() :: %{
-    "CompatibleContainerInstances" => float(),
-    "CoveredContainerInstances" => float()
-  }
+
+      container_instance_details() :: %{
+        "CompatibleContainerInstances" => float(),
+        "CoveredContainerInstances" => float()
+      }
+
   """
   @type container_instance_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag() :: %{
-    "Key" => String.t(),
-    "Value" => String.t()
-  }
+
+      tag() :: %{
+        "Key" => String.t(),
+        "Value" => String.t()
+      }
+
   """
   @type tag() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  organization_scan_ec2_instance_with_findings() :: %{
-    "EbsVolumes" => organization_ebs_volumes()
-  }
+
+      organization_scan_ec2_instance_with_findings() :: %{
+        "EbsVolumes" => organization_ebs_volumes()
+      }
+
   """
   @type organization_scan_ec2_instance_with_findings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  master() :: %{
-    "AccountId" => String.t(),
-    "InvitationId" => String.t(),
-    "InvitedAt" => String.t(),
-    "RelationshipStatus" => String.t()
-  }
+
+      master() :: %{
+        "AccountId" => String.t(),
+        "InvitationId" => String.t(),
+        "InvitedAt" => String.t(),
+        "RelationshipStatus" => String.t()
+      }
+
   """
   @type master() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_detector_request() :: %{
-    optional("ClientToken") => String.t(),
-    optional("DataSources") => data_source_configurations(),
-    optional("Features") => list(detector_feature_configuration()()),
-    optional("FindingPublishingFrequency") => list(any()),
-    optional("Tags") => map(),
-    required("Enable") => boolean()
-  }
+
+      create_detector_request() :: %{
+        optional("ClientToken") => String.t(),
+        optional("DataSources") => data_source_configurations(),
+        optional("Features") => list(detector_feature_configuration()()),
+        optional("FindingPublishingFrequency") => list(any()),
+        optional("Tags") => map(),
+        required("Enable") => boolean()
+      }
+
   """
   @type create_detector_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  remote_account_details() :: %{
-    "AccountId" => String.t(),
-    "Affiliated" => boolean()
-  }
+
+      remote_account_details() :: %{
+        "AccountId" => String.t(),
+        "Affiliated" => boolean()
+      }
+
   """
   @type remote_account_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disassociate_members_request() :: %{
-    required("AccountIds") => list(String.t()())
-  }
+
+      disassociate_members_request() :: %{
+        required("AccountIds") => list(String.t()())
+      }
+
   """
   @type disassociate_members_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_findings_response() :: %{
-    "Findings" => list(finding()())
-  }
+
+      get_findings_response() :: %{
+        "Findings" => list(finding()())
+      }
+
   """
   @type get_findings_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_threat_intel_set_response() :: %{
-    "Format" => list(any()),
-    "Location" => String.t(),
-    "Name" => String.t(),
-    "Status" => list(any()),
-    "Tags" => map()
-  }
+
+      get_threat_intel_set_response() :: %{
+        "Format" => list(any()),
+        "Location" => String.t(),
+        "Name" => String.t(),
+        "Status" => list(any()),
+        "Tags" => map()
+      }
+
   """
   @type get_threat_intel_set_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  organization_kubernetes_audit_logs_configuration() :: %{
-    "AutoEnable" => boolean()
-  }
+
+      organization_kubernetes_audit_logs_configuration() :: %{
+        "AutoEnable" => boolean()
+      }
+
   """
   @type organization_kubernetes_audit_logs_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  coverage_ec2_instance_details() :: %{
-    "AgentDetails" => agent_details(),
-    "ClusterArn" => String.t(),
-    "InstanceId" => String.t(),
-    "InstanceType" => String.t(),
-    "ManagementType" => list(any())
-  }
+
+      coverage_ec2_instance_details() :: %{
+        "AgentDetails" => agent_details(),
+        "ClusterArn" => String.t(),
+        "InstanceId" => String.t(),
+        "InstanceType" => String.t(),
+        "ManagementType" => list(any())
+      }
+
   """
   @type coverage_ec2_instance_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_threat_intel_set_request() :: %{
-    optional("Activate") => boolean(),
-    optional("Location") => String.t(),
-    optional("Name") => String.t()
-  }
+
+      update_threat_intel_set_request() :: %{
+        optional("Activate") => boolean(),
+        optional("Location") => String.t(),
+        optional("Name") => String.t()
+      }
+
   """
   @type update_threat_intel_set_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  bucket_policy() :: %{
-    "AllowsPublicReadAccess" => boolean(),
-    "AllowsPublicWriteAccess" => boolean()
-  }
+
+      bucket_policy() :: %{
+        "AllowsPublicReadAccess" => boolean(),
+        "AllowsPublicWriteAccess" => boolean()
+      }
+
   """
   @type bucket_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  flow_logs_configuration_result() :: %{
-    "Status" => list(any())
-  }
+
+      flow_logs_configuration_result() :: %{
+        "Status" => list(any())
+      }
+
   """
   @type flow_logs_configuration_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_members_request() :: %{
-    required("AccountIds") => list(String.t()())
-  }
+
+      delete_members_request() :: %{
+        required("AccountIds") => list(String.t()())
+      }
+
   """
   @type delete_members_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invite_members_response() :: %{
-    "UnprocessedAccounts" => list(unprocessed_account()())
-  }
+
+      invite_members_response() :: %{
+        "UnprocessedAccounts" => list(unprocessed_account()())
+      }
+
   """
   @type invite_members_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_malware_scan_settings_response() :: %{
-    "EbsSnapshotPreservation" => list(any()),
-    "ScanResourceCriteria" => scan_resource_criteria()
-  }
+
+      get_malware_scan_settings_response() :: %{
+        "EbsSnapshotPreservation" => list(any()),
+        "ScanResourceCriteria" => scan_resource_criteria()
+      }
+
   """
   @type get_malware_scan_settings_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  member_features_configuration() :: %{
-    "AdditionalConfiguration" => list(member_additional_configuration()()),
-    "Name" => list(any()),
-    "Status" => list(any())
-  }
+
+      member_features_configuration() :: %{
+        "AdditionalConfiguration" => list(member_additional_configuration()()),
+        "Name" => list(any()),
+        "Status" => list(any())
+      }
+
   """
   @type member_features_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_malware_scans_response() :: %{
-    "NextToken" => String.t(),
-    "Scans" => list(scan()())
-  }
+
+      describe_malware_scans_response() :: %{
+        "NextToken" => String.t(),
+        "Scans" => list(scan()())
+      }
+
   """
   @type describe_malware_scans_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ecs_task_details() :: %{
-    "Arn" => String.t(),
-    "Containers" => list(container()()),
-    "DefinitionArn" => String.t(),
-    "Group" => String.t(),
-    "StartedAt" => non_neg_integer(),
-    "StartedBy" => String.t(),
-    "Tags" => list(tag()()),
-    "TaskCreatedAt" => non_neg_integer(),
-    "Version" => String.t(),
-    "Volumes" => list(volume()())
-  }
+
+      ecs_task_details() :: %{
+        "Arn" => String.t(),
+        "Containers" => list(container()()),
+        "DefinitionArn" => String.t(),
+        "Group" => String.t(),
+        "StartedAt" => non_neg_integer(),
+        "StartedBy" => String.t(),
+        "Tags" => list(tag()()),
+        "TaskCreatedAt" => non_neg_integer(),
+        "Version" => String.t(),
+        "Volumes" => list(volume()())
+      }
+
   """
   @type ecs_task_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  s3_logs_configuration() :: %{
-    "Enable" => boolean()
-  }
+
+      s3_logs_configuration() :: %{
+        "Enable" => boolean()
+      }
+
   """
   @type s3_logs_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_publishing_destination_response() :: %{
-    "DestinationId" => String.t()
-  }
+
+      create_publishing_destination_response() :: %{
+        "DestinationId" => String.t()
+      }
+
   """
   @type create_publishing_destination_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_detector_response() :: %{
 
-  }
+      delete_detector_response() :: %{}
+
   """
-  @type delete_detector_response() :: %{String.t() => any()}
+  @type delete_detector_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  describe_publishing_destination_request() :: %{
 
-  }
+      describe_publishing_destination_request() :: %{}
+
   """
-  @type describe_publishing_destination_request() :: %{String.t() => any()}
+  @type describe_publishing_destination_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  vpc_config() :: %{
-    "SecurityGroups" => list(security_group()()),
-    "SubnetIds" => list(String.t()()),
-    "VpcId" => String.t()
-  }
+
+      vpc_config() :: %{
+        "SecurityGroups" => list(security_group()()),
+        "SubnetIds" => list(String.t()()),
+        "VpcId" => String.t()
+      }
+
   """
   @type vpc_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  coverage_statistics() :: %{
-    "CountByCoverageStatus" => map(),
-    "CountByResourceType" => map()
-  }
+
+      coverage_statistics() :: %{
+        "CountByCoverageStatus" => map(),
+        "CountByResourceType" => map()
+      }
+
   """
   @type coverage_statistics() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  finding() :: %{
-    "AccountId" => String.t(),
-    "Arn" => String.t(),
-    "Confidence" => float(),
-    "CreatedAt" => String.t(),
-    "Description" => String.t(),
-    "Id" => String.t(),
-    "Partition" => String.t(),
-    "Region" => String.t(),
-    "Resource" => resource(),
-    "SchemaVersion" => String.t(),
-    "Service" => service(),
-    "Severity" => float(),
-    "Title" => String.t(),
-    "Type" => String.t(),
-    "UpdatedAt" => String.t()
-  }
+
+      finding() :: %{
+        "AccountId" => String.t(),
+        "Arn" => String.t(),
+        "Confidence" => float(),
+        "CreatedAt" => String.t(),
+        "Description" => String.t(),
+        "Id" => String.t(),
+        "Partition" => String.t(),
+        "Region" => String.t(),
+        "Resource" => resource(),
+        "SchemaVersion" => String.t(),
+        "Service" => service(),
+        "Severity" => float(),
+        "Title" => String.t(),
+        "Type" => String.t(),
+        "UpdatedAt" => String.t()
+      }
+
   """
   @type finding() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  coverage_eks_cluster_details() :: %{
-    "AddonDetails" => addon_details(),
-    "ClusterName" => String.t(),
-    "CompatibleNodes" => float(),
-    "CoveredNodes" => float(),
-    "ManagementType" => list(any())
-  }
+
+      coverage_eks_cluster_details() :: %{
+        "AddonDetails" => addon_details(),
+        "ClusterName" => String.t(),
+        "CompatibleNodes" => float(),
+        "CoveredNodes" => float(),
+        "ManagementType" => list(any())
+      }
+
   """
   @type coverage_eks_cluster_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  coverage_resource_details() :: %{
-    "Ec2InstanceDetails" => coverage_ec2_instance_details(),
-    "EcsClusterDetails" => coverage_ecs_cluster_details(),
-    "EksClusterDetails" => coverage_eks_cluster_details(),
-    "ResourceType" => list(any())
-  }
+
+      coverage_resource_details() :: %{
+        "Ec2InstanceDetails" => coverage_ec2_instance_details(),
+        "EcsClusterDetails" => coverage_ecs_cluster_details(),
+        "EksClusterDetails" => coverage_eks_cluster_details(),
+        "ResourceType" => list(any())
+      }
+
   """
   @type coverage_resource_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  volume_mount() :: %{
-    "MountPath" => String.t(),
-    "Name" => String.t()
-  }
+
+      volume_mount() :: %{
+        "MountPath" => String.t(),
+        "Name" => String.t()
+      }
+
   """
   @type volume_mount() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_response() :: %{
-    "Tags" => map()
-  }
+
+      list_tags_for_resource_response() :: %{
+        "Tags" => map()
+      }
+
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_findings_request() :: %{
-    optional("FindingCriteria") => finding_criteria(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("SortCriteria") => sort_criteria()
-  }
+
+      list_findings_request() :: %{
+        optional("FindingCriteria") => finding_criteria(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("SortCriteria") => sort_criteria()
+      }
+
   """
   @type list_findings_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  kubernetes_configuration() :: %{
-    "AuditLogs" => kubernetes_audit_logs_configuration()
-  }
+
+      kubernetes_configuration() :: %{
+        "AuditLogs" => kubernetes_audit_logs_configuration()
+      }
+
   """
   @type kubernetes_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_publishing_destinations_response() :: %{
-    "Destinations" => list(destination()()),
-    "NextToken" => String.t()
-  }
+
+      list_publishing_destinations_response() :: %{
+        "Destinations" => list(destination()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_publishing_destinations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  member_additional_configuration() :: %{
-    "Name" => list(any()),
-    "Status" => list(any())
-  }
+
+      member_additional_configuration() :: %{
+        "Name" => list(any()),
+        "Status" => list(any())
+      }
+
   """
   @type member_additional_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_filter_request() :: %{
 
-  }
+      get_filter_request() :: %{}
+
   """
-  @type get_filter_request() :: %{String.t() => any()}
+  @type get_filter_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_threat_intel_set_request() :: %{
 
-  }
+      get_threat_intel_set_request() :: %{}
+
   """
-  @type get_threat_intel_set_request() :: %{String.t() => any()}
+  @type get_threat_intel_set_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  trigger_details() :: %{
-    "Description" => String.t(),
-    "GuardDutyFindingId" => String.t()
-  }
+
+      trigger_details() :: %{
+        "Description" => String.t(),
+        "GuardDutyFindingId" => String.t()
+      }
+
   """
   @type trigger_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_filter_response() :: %{
 
-  }
+      delete_filter_response() :: %{}
+
   """
-  @type delete_filter_response() :: %{String.t() => any()}
+  @type delete_filter_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  disassociate_members_response() :: %{
-    "UnprocessedAccounts" => list(unprocessed_account()())
-  }
+
+      disassociate_members_response() :: %{
+        "UnprocessedAccounts" => list(unprocessed_account()())
+      }
+
   """
   @type disassociate_members_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  security_group() :: %{
-    "GroupId" => String.t(),
-    "GroupName" => String.t()
-  }
+
+      security_group() :: %{
+        "GroupId" => String.t(),
+        "GroupName" => String.t()
+      }
+
   """
   @type security_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_coverage_response() :: %{
-    "NextToken" => String.t(),
-    "Resources" => list(coverage_resource()())
-  }
+
+      list_coverage_response() :: %{
+        "NextToken" => String.t(),
+        "Resources" => list(coverage_resource()())
+      }
+
   """
   @type list_coverage_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  condition() :: %{
-    "Eq" => list(String.t()()),
-    "Equals" => list(String.t()()),
-    "GreaterThan" => float(),
-    "GreaterThanOrEqual" => float(),
-    "Gt" => integer(),
-    "Gte" => integer(),
-    "LessThan" => float(),
-    "LessThanOrEqual" => float(),
-    "Lt" => integer(),
-    "Lte" => integer(),
-    "Neq" => list(String.t()()),
-    "NotEquals" => list(String.t()())
-  }
+
+      condition() :: %{
+        "Eq" => list(String.t()()),
+        "Equals" => list(String.t()()),
+        "GreaterThan" => float(),
+        "GreaterThanOrEqual" => float(),
+        "Gt" => integer(),
+        "Gte" => integer(),
+        "LessThan" => float(),
+        "LessThanOrEqual" => float(),
+        "Lt" => integer(),
+        "Lte" => integer(),
+        "Neq" => list(String.t()()),
+        "NotEquals" => list(String.t()())
+      }
+
   """
   @type condition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_threat_intel_sets_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      list_threat_intel_sets_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_threat_intel_sets_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_malware_scan_settings_response() :: %{
 
-  }
+      update_malware_scan_settings_response() :: %{}
+
   """
-  @type update_malware_scan_settings_response() :: %{String.t() => any()}
+  @type update_malware_scan_settings_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  update_organization_configuration_response() :: %{
 
-  }
+      update_organization_configuration_response() :: %{}
+
   """
-  @type update_organization_configuration_response() :: %{String.t() => any()}
+  @type update_organization_configuration_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  lineage_object() :: %{
-    "Euid" => integer(),
-    "ExecutablePath" => String.t(),
-    "Name" => String.t(),
-    "NamespacePid" => integer(),
-    "ParentUuid" => String.t(),
-    "Pid" => integer(),
-    "StartTime" => non_neg_integer(),
-    "UserId" => integer(),
-    "Uuid" => String.t()
-  }
+
+      lineage_object() :: %{
+        "Euid" => integer(),
+        "ExecutablePath" => String.t(),
+        "Name" => String.t(),
+        "NamespacePid" => integer(),
+        "ParentUuid" => String.t(),
+        "Pid" => integer(),
+        "StartTime" => non_neg_integer(),
+        "UserId" => integer(),
+        "Uuid" => String.t()
+      }
+
   """
   @type lineage_object() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  detection() :: %{
-    "Anomaly" => anomaly()
-  }
+
+      detection() :: %{
+        "Anomaly" => anomaly()
+      }
+
   """
   @type detection() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_findings_feedback_response() :: %{
 
-  }
+      update_findings_feedback_response() :: %{}
+
   """
-  @type update_findings_feedback_response() :: %{String.t() => any()}
+  @type update_findings_feedback_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  ebs_volumes_result() :: %{
-    "Reason" => String.t(),
-    "Status" => list(any())
-  }
+
+      ebs_volumes_result() :: %{
+        "Reason" => String.t(),
+        "Status" => list(any())
+      }
+
   """
   @type ebs_volumes_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  product_code() :: %{
-    "Code" => String.t(),
-    "ProductType" => String.t()
-  }
+
+      product_code() :: %{
+        "Code" => String.t(),
+        "ProductType" => String.t()
+      }
+
   """
   @type product_code() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  accept_invitation_response() :: %{
 
-  }
+      accept_invitation_response() :: %{}
+
   """
-  @type accept_invitation_response() :: %{String.t() => any()}
+  @type accept_invitation_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_sample_findings_request() :: %{
-    optional("FindingTypes") => list(String.t()())
-  }
+
+      create_sample_findings_request() :: %{
+        optional("FindingTypes") => list(String.t()())
+      }
+
   """
   @type create_sample_findings_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  decline_invitations_request() :: %{
-    required("AccountIds") => list(String.t()())
-  }
+
+      decline_invitations_request() :: %{
+        required("AccountIds") => list(String.t()())
+      }
+
   """
   @type decline_invitations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  organization_s3_logs_configuration_result() :: %{
-    "AutoEnable" => boolean()
-  }
+
+      organization_s3_logs_configuration_result() :: %{
+        "AutoEnable" => boolean()
+      }
+
   """
   @type organization_s3_logs_configuration_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  account_free_trial_info() :: %{
-    "AccountId" => String.t(),
-    "DataSources" => data_sources_free_trial(),
-    "Features" => list(free_trial_feature_configuration_result()())
-  }
+
+      account_free_trial_info() :: %{
+        "AccountId" => String.t(),
+        "DataSources" => data_sources_free_trial(),
+        "Features" => list(free_trial_feature_configuration_result()())
+      }
+
   """
   @type account_free_trial_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_master_account_response() :: %{
-    "Master" => master()
-  }
+
+      get_master_account_response() :: %{
+        "Master" => master()
+      }
+
   """
   @type get_master_account_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  unprocessed_data_sources_result() :: %{
-    "MalwareProtection" => malware_protection_configuration_result()
-  }
+
+      unprocessed_data_sources_result() :: %{
+        "MalwareProtection" => malware_protection_configuration_result()
+      }
+
   """
   @type unprocessed_data_sources_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_member_detectors_response() :: %{
-    "MemberDataSourceConfigurations" => list(member_data_source_configuration()()),
-    "UnprocessedAccounts" => list(unprocessed_account()())
-  }
+
+      get_member_detectors_response() :: %{
+        "MemberDataSourceConfigurations" => list(member_data_source_configuration()()),
+        "UnprocessedAccounts" => list(unprocessed_account()())
+      }
+
   """
   @type get_member_detectors_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  aws_api_call_action() :: %{
-    "AffectedResources" => map(),
-    "Api" => String.t(),
-    "CallerType" => String.t(),
-    "DomainDetails" => domain_details(),
-    "ErrorCode" => String.t(),
-    "RemoteAccountDetails" => remote_account_details(),
-    "RemoteIpDetails" => remote_ip_details(),
-    "ServiceName" => String.t(),
-    "UserAgent" => String.t()
-  }
+
+      aws_api_call_action() :: %{
+        "AffectedResources" => map(),
+        "Api" => String.t(),
+        "CallerType" => String.t(),
+        "DomainDetails" => domain_details(),
+        "ErrorCode" => String.t(),
+        "RemoteAccountDetails" => remote_account_details(),
+        "RemoteIpDetails" => remote_ip_details(),
+        "ServiceName" => String.t(),
+        "UserAgent" => String.t()
+      }
+
   """
   @type aws_api_call_action() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  kubernetes_role_details() :: %{
-    "Kind" => String.t(),
-    "Name" => String.t(),
-    "Uid" => String.t()
-  }
+
+      kubernetes_role_details() :: %{
+        "Kind" => String.t(),
+        "Name" => String.t(),
+        "Uid" => String.t()
+      }
+
   """
   @type kubernetes_role_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  eks_cluster_details() :: %{
-    "Arn" => String.t(),
-    "CreatedAt" => non_neg_integer(),
-    "Name" => String.t(),
-    "Status" => String.t(),
-    "Tags" => list(tag()()),
-    "VpcId" => String.t()
-  }
+
+      eks_cluster_details() :: %{
+        "Arn" => String.t(),
+        "CreatedAt" => non_neg_integer(),
+        "Name" => String.t(),
+        "Status" => String.t(),
+        "Tags" => list(tag()()),
+        "VpcId" => String.t()
+      }
+
   """
   @type eks_cluster_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  organization_malware_protection_configuration_result() :: %{
-    "ScanEc2InstanceWithFindings" => organization_scan_ec2_instance_with_findings_result()
-  }
+
+      organization_malware_protection_configuration_result() :: %{
+        "ScanEc2InstanceWithFindings" => organization_scan_ec2_instance_with_findings_result()
+      }
+
   """
   @type organization_malware_protection_configuration_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_invitations_request() :: %{
-    required("AccountIds") => list(String.t()())
-  }
+
+      delete_invitations_request() :: %{
+        required("AccountIds") => list(String.t()())
+      }
+
   """
   @type delete_invitations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  organization_ebs_volumes() :: %{
-    "AutoEnable" => boolean()
-  }
+
+      organization_ebs_volumes() :: %{
+        "AutoEnable" => boolean()
+      }
+
   """
   @type organization_ebs_volumes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_detector_response() :: %{
-    "CreatedAt" => String.t(),
-    "DataSources" => data_source_configurations_result(),
-    "Features" => list(detector_feature_configuration_result()()),
-    "FindingPublishingFrequency" => list(any()),
-    "ServiceRole" => String.t(),
-    "Status" => list(any()),
-    "Tags" => map(),
-    "UpdatedAt" => String.t()
-  }
+
+      get_detector_response() :: %{
+        "CreatedAt" => String.t(),
+        "DataSources" => data_source_configurations_result(),
+        "Features" => list(detector_feature_configuration_result()()),
+        "FindingPublishingFrequency" => list(any()),
+        "ServiceRole" => String.t(),
+        "Status" => list(any()),
+        "Tags" => map(),
+        "UpdatedAt" => String.t()
+      }
+
   """
   @type get_detector_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_filter_request() :: %{
-    optional("Action") => list(any()),
-    optional("Description") => String.t(),
-    optional("FindingCriteria") => finding_criteria(),
-    optional("Rank") => integer()
-  }
+
+      update_filter_request() :: %{
+        optional("Action") => list(any()),
+        optional("Description") => String.t(),
+        optional("FindingCriteria") => finding_criteria(),
+        optional("Rank") => integer()
+      }
+
   """
   @type update_filter_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  kubernetes_details() :: %{
-    "KubernetesUserDetails" => kubernetes_user_details(),
-    "KubernetesWorkloadDetails" => kubernetes_workload_details()
-  }
+
+      kubernetes_details() :: %{
+        "KubernetesUserDetails" => kubernetes_user_details(),
+        "KubernetesWorkloadDetails" => kubernetes_workload_details()
+      }
+
   """
   @type kubernetes_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  anomaly_object() :: %{
-    "Observations" => observations(),
-    "ProfileSubtype" => list(any()),
-    "ProfileType" => list(any())
-  }
+
+      anomaly_object() :: %{
+        "Observations" => observations(),
+        "ProfileSubtype" => list(any()),
+        "ProfileType" => list(any())
+      }
+
   """
   @type anomaly_object() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  scan_file_path() :: %{
-    "FileName" => String.t(),
-    "FilePath" => String.t(),
-    "Hash" => String.t(),
-    "VolumeArn" => String.t()
-  }
+
+      scan_file_path() :: %{
+        "FileName" => String.t(),
+        "FilePath" => String.t(),
+        "Hash" => String.t(),
+        "VolumeArn" => String.t()
+      }
+
   """
   @type scan_file_path() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  organization_kubernetes_configuration_result() :: %{
-    "AuditLogs" => organization_kubernetes_audit_logs_configuration_result()
-  }
+
+      organization_kubernetes_configuration_result() :: %{
+        "AuditLogs" => organization_kubernetes_audit_logs_configuration_result()
+      }
+
   """
   @type organization_kubernetes_configuration_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_detector_request() :: %{
 
-  }
+      get_detector_request() :: %{}
+
   """
-  @type get_detector_request() :: %{String.t() => any()}
+  @type get_detector_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  anomaly() :: %{
-    "Profiles" => map(),
-    "Unusual" => anomaly_unusual()
-  }
+
+      anomaly() :: %{
+        "Profiles" => map(),
+        "Unusual" => anomaly_unusual()
+      }
+
   """
   @type anomaly() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  organization_additional_configuration_result() :: %{
-    "AutoEnable" => list(any()),
-    "Name" => list(any())
-  }
+
+      organization_additional_configuration_result() :: %{
+        "AutoEnable" => list(any()),
+        "Name" => list(any())
+      }
+
   """
   @type organization_additional_configuration_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_organization_configuration_request() :: %{
-    optional("AutoEnable") => boolean(),
-    optional("AutoEnableOrganizationMembers") => list(any()),
-    optional("DataSources") => organization_data_source_configurations(),
-    optional("Features") => list(organization_feature_configuration()())
-  }
+
+      update_organization_configuration_request() :: %{
+        optional("AutoEnable") => boolean(),
+        optional("AutoEnableOrganizationMembers") => list(any()),
+        optional("DataSources") => organization_data_source_configurations(),
+        optional("Features") => list(organization_feature_configuration()())
+      }
+
   """
   @type update_organization_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  enable_organization_admin_account_request() :: %{
-    required("AdminAccountId") => String.t()
-  }
+
+      enable_organization_admin_account_request() :: %{
+        required("AdminAccountId") => String.t()
+      }
+
   """
   @type enable_organization_admin_account_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  addon_details() :: %{
-    "AddonStatus" => String.t(),
-    "AddonVersion" => String.t()
-  }
+
+      addon_details() :: %{
+        "AddonStatus" => String.t(),
+        "AddonVersion" => String.t()
+      }
+
   """
   @type addon_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  kubernetes_configuration_result() :: %{
-    "AuditLogs" => kubernetes_audit_logs_configuration_result()
-  }
+
+      kubernetes_configuration_result() :: %{
+        "AuditLogs" => kubernetes_audit_logs_configuration_result()
+      }
+
   """
   @type kubernetes_configuration_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  geo_location() :: %{
-    "Lat" => float(),
-    "Lon" => float()
-  }
+
+      geo_location() :: %{
+        "Lat" => float(),
+        "Lon" => float()
+      }
+
   """
   @type geo_location() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  action() :: %{
-    "ActionType" => String.t(),
-    "AwsApiCallAction" => aws_api_call_action(),
-    "DnsRequestAction" => dns_request_action(),
-    "KubernetesApiCallAction" => kubernetes_api_call_action(),
-    "KubernetesPermissionCheckedDetails" => kubernetes_permission_checked_details(),
-    "KubernetesRoleBindingDetails" => kubernetes_role_binding_details(),
-    "KubernetesRoleDetails" => kubernetes_role_details(),
-    "NetworkConnectionAction" => network_connection_action(),
-    "PortProbeAction" => port_probe_action(),
-    "RdsLoginAttemptAction" => rds_login_attempt_action()
-  }
+
+      action() :: %{
+        "ActionType" => String.t(),
+        "AwsApiCallAction" => aws_api_call_action(),
+        "DnsRequestAction" => dns_request_action(),
+        "KubernetesApiCallAction" => kubernetes_api_call_action(),
+        "KubernetesPermissionCheckedDetails" => kubernetes_permission_checked_details(),
+        "KubernetesRoleBindingDetails" => kubernetes_role_binding_details(),
+        "KubernetesRoleDetails" => kubernetes_role_details(),
+        "NetworkConnectionAction" => network_connection_action(),
+        "PortProbeAction" => port_probe_action(),
+        "RdsLoginAttemptAction" => rds_login_attempt_action()
+      }
+
   """
   @type action() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  threat_intelligence_detail() :: %{
-    "ThreatListName" => String.t(),
-    "ThreatNames" => list(String.t()())
-  }
+
+      threat_intelligence_detail() :: %{
+        "ThreatListName" => String.t(),
+        "ThreatNames" => list(String.t()())
+      }
+
   """
   @type threat_intelligence_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_threat_intel_set_request() :: %{
-    optional("ClientToken") => String.t(),
-    optional("Tags") => map(),
-    required("Activate") => boolean(),
-    required("Format") => list(any()),
-    required("Location") => String.t(),
-    required("Name") => String.t()
-  }
+
+      create_threat_intel_set_request() :: %{
+        optional("ClientToken") => String.t(),
+        optional("Tags") => map(),
+        required("Activate") => boolean(),
+        required("Format") => list(any()),
+        required("Location") => String.t(),
+        required("Name") => String.t()
+      }
+
   """
   @type create_threat_intel_set_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  login_attribute() :: %{
-    "Application" => String.t(),
-    "FailedLoginAttempts" => integer(),
-    "SuccessfulLoginAttempts" => integer(),
-    "User" => String.t()
-  }
+
+      login_attribute() :: %{
+        "Application" => String.t(),
+        "FailedLoginAttempts" => integer(),
+        "SuccessfulLoginAttempts" => integer(),
+        "User" => String.t()
+      }
+
   """
   @type login_attribute() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_member_detectors_request() :: %{
-    optional("DataSources") => data_source_configurations(),
-    optional("Features") => list(member_features_configuration()()),
-    required("AccountIds") => list(String.t()())
-  }
+
+      update_member_detectors_request() :: %{
+        optional("DataSources") => data_source_configurations(),
+        optional("Features") => list(member_features_configuration()()),
+        required("AccountIds") => list(String.t()())
+      }
+
   """
   @type update_member_detectors_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  member_additional_configuration_result() :: %{
-    "Name" => list(any()),
-    "Status" => list(any()),
-    "UpdatedAt" => non_neg_integer()
-  }
+
+      member_additional_configuration_result() :: %{
+        "Name" => list(any()),
+        "Status" => list(any()),
+        "UpdatedAt" => non_neg_integer()
+      }
+
   """
   @type member_additional_configuration_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_invitations_response() :: %{
-    "UnprocessedAccounts" => list(unprocessed_account()())
-  }
+
+      delete_invitations_response() :: %{
+        "UnprocessedAccounts" => list(unprocessed_account()())
+      }
+
   """
   @type delete_invitations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  port_probe_action() :: %{
-    "Blocked" => boolean(),
-    "PortProbeDetails" => list(port_probe_detail()())
-  }
+
+      port_probe_action() :: %{
+        "Blocked" => boolean(),
+        "PortProbeDetails" => list(port_probe_detail()())
+      }
+
   """
   @type port_probe_action() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_organization_admin_accounts_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      list_organization_admin_accounts_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_organization_admin_accounts_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  sort_criteria() :: %{
-    "AttributeName" => String.t(),
-    "OrderBy" => list(any())
-  }
+
+      sort_criteria() :: %{
+        "AttributeName" => String.t(),
+        "OrderBy" => list(any())
+      }
+
   """
   @type sort_criteria() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_ip_set_request() :: %{
-    optional("ClientToken") => String.t(),
-    optional("Tags") => map(),
-    required("Activate") => boolean(),
-    required("Format") => list(any()),
-    required("Location") => String.t(),
-    required("Name") => String.t()
-  }
+
+      create_ip_set_request() :: %{
+        optional("ClientToken") => String.t(),
+        optional("Tags") => map(),
+        required("Activate") => boolean(),
+        required("Format") => list(any()),
+        required("Location") => String.t(),
+        required("Name") => String.t()
+      }
+
   """
   @type create_ip_set_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  volume() :: %{
-    "HostPath" => host_path(),
-    "Name" => String.t()
-  }
+
+      volume() :: %{
+        "HostPath" => host_path(),
+        "Name" => String.t()
+      }
+
   """
   @type volume() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  access_denied_exception() :: %{
-    "Message" => String.t(),
-    "Type" => String.t()
-  }
+
+      access_denied_exception() :: %{
+        "Message" => String.t(),
+        "Type" => String.t()
+      }
+
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  usage_top_account_result() :: %{
-    "AccountId" => String.t(),
-    "Total" => total()
-  }
+
+      usage_top_account_result() :: %{
+        "AccountId" => String.t(),
+        "Total" => total()
+      }
+
   """
   @type usage_top_account_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_invitations_count_request() :: %{
 
-  }
+      get_invitations_count_request() :: %{}
+
   """
-  @type get_invitations_count_request() :: %{String.t() => any()}
+  @type get_invitations_count_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_ip_set_response() :: %{
-    "Format" => list(any()),
-    "Location" => String.t(),
-    "Name" => String.t(),
-    "Status" => list(any()),
-    "Tags" => map()
-  }
+
+      get_ip_set_response() :: %{
+        "Format" => list(any()),
+        "Location" => String.t(),
+        "Name" => String.t(),
+        "Status" => list(any()),
+        "Tags" => map()
+      }
+
   """
   @type get_ip_set_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  city() :: %{
-    "CityName" => String.t()
-  }
+
+      city() :: %{
+        "CityName" => String.t()
+      }
+
   """
   @type city() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  accept_invitation_request() :: %{
-    required("InvitationId") => String.t(),
-    required("MasterId") => String.t()
-  }
+
+      accept_invitation_request() :: %{
+        required("InvitationId") => String.t(),
+        required("MasterId") => String.t()
+      }
+
   """
   @type accept_invitation_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_response() :: %{
 
-  }
+      tag_resource_response() :: %{}
+
   """
-  @type tag_resource_response() :: %{String.t() => any()}
+  @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  anomaly_unusual() :: %{
-    "Behavior" => map()
-  }
+
+      anomaly_unusual() :: %{
+        "Behavior" => map()
+      }
+
   """
   @type anomaly_unusual() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_members_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("OnlyAssociated") => String.t()
-  }
+
+      list_members_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("OnlyAssociated") => String.t()
+      }
+
   """
   @type list_members_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  fargate_details() :: %{
-    "Issues" => list(String.t()()),
-    "ManagementType" => list(any())
-  }
+
+      fargate_details() :: %{
+        "Issues" => list(String.t()()),
+        "ManagementType" => list(any())
+      }
+
   """
   @type fargate_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_members_response() :: %{
-    "Members" => list(member()()),
-    "NextToken" => String.t()
-  }
+
+      list_members_response() :: %{
+        "Members" => list(member()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_members_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  block_public_access() :: %{
-    "BlockPublicAcls" => boolean(),
-    "BlockPublicPolicy" => boolean(),
-    "IgnorePublicAcls" => boolean(),
-    "RestrictPublicBuckets" => boolean()
-  }
+
+      block_public_access() :: %{
+        "BlockPublicAcls" => boolean(),
+        "BlockPublicPolicy" => boolean(),
+        "IgnorePublicAcls" => boolean(),
+        "RestrictPublicBuckets" => boolean()
+      }
+
   """
   @type block_public_access() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_detectors_response() :: %{
-    "DetectorIds" => list(String.t()()),
-    "NextToken" => String.t()
-  }
+
+      list_detectors_response() :: %{
+        "DetectorIds" => list(String.t()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_detectors_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  free_trial_feature_configuration_result() :: %{
-    "FreeTrialDaysRemaining" => integer(),
-    "Name" => list(any())
-  }
+
+      free_trial_feature_configuration_result() :: %{
+        "FreeTrialDaysRemaining" => integer(),
+        "Name" => list(any())
+      }
+
   """
   @type free_trial_feature_configuration_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  organization_feature_statistics() :: %{
-    "AdditionalConfiguration" => list(organization_feature_statistics_additional_configuration()()),
-    "EnabledAccountsCount" => integer(),
-    "Name" => list(any())
-  }
+
+      organization_feature_statistics() :: %{
+        "AdditionalConfiguration" => list(organization_feature_statistics_additional_configuration()()),
+        "EnabledAccountsCount" => integer(),
+        "Name" => list(any())
+      }
+
   """
   @type organization_feature_statistics() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  local_ip_details() :: %{
-    "IpAddressV4" => String.t()
-  }
+
+      local_ip_details() :: %{
+        "IpAddressV4" => String.t()
+      }
+
   """
   @type local_ip_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_remaining_free_trial_days_request() :: %{
-    optional("AccountIds") => list(String.t()())
-  }
+
+      get_remaining_free_trial_days_request() :: %{
+        optional("AccountIds") => list(String.t()())
+      }
+
   """
   @type get_remaining_free_trial_days_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  scanned_item_count() :: %{
-    "Files" => integer(),
-    "TotalGb" => integer(),
-    "Volumes" => integer()
-  }
+
+      scanned_item_count() :: %{
+        "Files" => integer(),
+        "TotalGb" => integer(),
+        "Volumes" => integer()
+      }
+
   """
   @type scanned_item_count() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_request() :: %{
 
-  }
+      list_tags_for_resource_request() :: %{}
+
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_master_account_request() :: %{
 
-  }
+      get_master_account_request() :: %{}
+
   """
-  @type get_master_account_request() :: %{String.t() => any()}
+  @type get_master_account_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  organization_feature_configuration_result() :: %{
-    "AdditionalConfiguration" => list(organization_additional_configuration_result()()),
-    "AutoEnable" => list(any()),
-    "Name" => list(any())
-  }
+
+      organization_feature_configuration_result() :: %{
+        "AdditionalConfiguration" => list(organization_additional_configuration_result()()),
+        "AutoEnable" => list(any()),
+        "Name" => list(any())
+      }
+
   """
   @type organization_feature_configuration_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_coverage_request() :: %{
-    optional("FilterCriteria") => coverage_filter_criteria(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("SortCriteria") => coverage_sort_criteria()
-  }
+
+      list_coverage_request() :: %{
+        optional("FilterCriteria") => coverage_filter_criteria(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("SortCriteria") => coverage_sort_criteria()
+      }
+
   """
   @type list_coverage_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_remaining_free_trial_days_response() :: %{
-    "Accounts" => list(account_free_trial_info()()),
-    "UnprocessedAccounts" => list(unprocessed_account()())
-  }
+
+      get_remaining_free_trial_days_response() :: %{
+        "Accounts" => list(account_free_trial_info()()),
+        "UnprocessedAccounts" => list(unprocessed_account()())
+      }
+
   """
   @type get_remaining_free_trial_days_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  destination() :: %{
-    "DestinationId" => String.t(),
-    "DestinationType" => list(any()),
-    "Status" => list(any())
-  }
+
+      destination() :: %{
+        "DestinationId" => String.t(),
+        "DestinationType" => list(any()),
+        "Status" => list(any())
+      }
+
   """
   @type destination() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  internal_server_error_exception() :: %{
-    "Message" => String.t(),
-    "Type" => String.t()
-  }
+
+      internal_server_error_exception() :: %{
+        "Message" => String.t(),
+        "Type" => String.t()
+      }
+
   """
   @type internal_server_error_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  private_ip_address_details() :: %{
-    "PrivateDnsName" => String.t(),
-    "PrivateIpAddress" => String.t()
-  }
+
+      private_ip_address_details() :: %{
+        "PrivateDnsName" => String.t(),
+        "PrivateIpAddress" => String.t()
+      }
+
   """
   @type private_ip_address_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_invitations_count_response() :: %{
-    "InvitationsCount" => integer()
-  }
+
+      get_invitations_count_response() :: %{
+        "InvitationsCount" => integer()
+      }
+
   """
   @type get_invitations_count_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  runtime_context() :: %{
-    "AddressFamily" => String.t(),
-    "FileSystemType" => String.t(),
-    "Flags" => list(String.t()()),
-    "IanaProtocolNumber" => integer(),
-    "LdPreloadValue" => String.t(),
-    "LibraryPath" => String.t(),
-    "MemoryRegions" => list(String.t()()),
-    "ModifiedAt" => non_neg_integer(),
-    "ModifyingProcess" => process_details(),
-    "ModuleFilePath" => String.t(),
-    "ModuleName" => String.t(),
-    "ModuleSha256" => String.t(),
-    "MountSource" => String.t(),
-    "MountTarget" => String.t(),
-    "ReleaseAgentPath" => String.t(),
-    "RuncBinaryPath" => String.t(),
-    "ScriptPath" => String.t(),
-    "ShellHistoryFilePath" => String.t(),
-    "SocketPath" => String.t(),
-    "TargetProcess" => process_details()
-  }
+
+      runtime_context() :: %{
+        "AddressFamily" => String.t(),
+        "FileSystemType" => String.t(),
+        "Flags" => list(String.t()()),
+        "IanaProtocolNumber" => integer(),
+        "LdPreloadValue" => String.t(),
+        "LibraryPath" => String.t(),
+        "MemoryRegions" => list(String.t()()),
+        "ModifiedAt" => non_neg_integer(),
+        "ModifyingProcess" => process_details(),
+        "ModuleFilePath" => String.t(),
+        "ModuleName" => String.t(),
+        "ModuleSha256" => String.t(),
+        "MountSource" => String.t(),
+        "MountTarget" => String.t(),
+        "ReleaseAgentPath" => String.t(),
+        "RuncBinaryPath" => String.t(),
+        "ScriptPath" => String.t(),
+        "ShellHistoryFilePath" => String.t(),
+        "SocketPath" => String.t(),
+        "TargetProcess" => process_details()
+      }
+
   """
   @type runtime_context() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  evidence() :: %{
-    "ThreatIntelligenceDetails" => list(threat_intelligence_detail()())
-  }
+
+      evidence() :: %{
+        "ThreatIntelligenceDetails" => list(threat_intelligence_detail()())
+      }
+
   """
   @type evidence() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  scan_threat_name() :: %{
-    "FilePaths" => list(scan_file_path()()),
-    "ItemCount" => integer(),
-    "Name" => String.t(),
-    "Severity" => String.t()
-  }
+
+      scan_threat_name() :: %{
+        "FilePaths" => list(scan_file_path()()),
+        "ItemCount" => integer(),
+        "Name" => String.t(),
+        "Severity" => String.t()
+      }
+
   """
   @type scan_threat_name() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  usage_resource_result() :: %{
-    "Resource" => String.t(),
-    "Total" => total()
-  }
+
+      usage_resource_result() :: %{
+        "Resource" => String.t(),
+        "Total" => total()
+      }
+
   """
   @type usage_resource_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  coverage_filter_criteria() :: %{
-    "FilterCriterion" => list(coverage_filter_criterion()())
-  }
+
+      coverage_filter_criteria() :: %{
+        "FilterCriterion" => list(coverage_filter_criterion()())
+      }
+
   """
   @type coverage_filter_criteria() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_threat_intel_set_response() :: %{
-    "ThreatIntelSetId" => String.t()
-  }
+
+      create_threat_intel_set_response() :: %{
+        "ThreatIntelSetId" => String.t()
+      }
+
   """
   @type create_threat_intel_set_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  coverage_ecs_cluster_details() :: %{
-    "ClusterName" => String.t(),
-    "ContainerInstanceDetails" => container_instance_details(),
-    "FargateDetails" => fargate_details()
-  }
+
+      coverage_ecs_cluster_details() :: %{
+        "ClusterName" => String.t(),
+        "ContainerInstanceDetails" => container_instance_details(),
+        "FargateDetails" => fargate_details()
+      }
+
   """
   @type coverage_ecs_cluster_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_invitations_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      list_invitations_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_invitations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  finding_criteria() :: %{
-    "Criterion" => map()
-  }
+
+      finding_criteria() :: %{
+        "Criterion" => map()
+      }
+
   """
   @type finding_criteria() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  scan_detections() :: %{
-    "HighestSeverityThreatDetails" => highest_severity_threat_details(),
-    "ScannedItemCount" => scanned_item_count(),
-    "ThreatDetectedByName" => threat_detected_by_name(),
-    "ThreatsDetectedItemCount" => threats_detected_item_count()
-  }
+
+      scan_detections() :: %{
+        "HighestSeverityThreatDetails" => highest_severity_threat_details(),
+        "ScannedItemCount" => scanned_item_count(),
+        "ThreatDetectedByName" => threat_detected_by_name(),
+        "ThreatsDetectedItemCount" => threats_detected_item_count()
+      }
+
   """
   @type scan_detections() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  kubernetes_permission_checked_details() :: %{
-    "Allowed" => boolean(),
-    "Namespace" => String.t(),
-    "Resource" => String.t(),
-    "Verb" => String.t()
-  }
+
+      kubernetes_permission_checked_details() :: %{
+        "Allowed" => boolean(),
+        "Namespace" => String.t(),
+        "Resource" => String.t(),
+        "Verb" => String.t()
+      }
+
   """
   @type kubernetes_permission_checked_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_monitoring_members_request() :: %{
-    required("AccountIds") => list(String.t()())
-  }
+
+      start_monitoring_members_request() :: %{
+        required("AccountIds") => list(String.t()())
+      }
+
   """
   @type start_monitoring_members_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_sample_findings_response() :: %{
 
-  }
+      create_sample_findings_response() :: %{}
+
   """
-  @type create_sample_findings_response() :: %{String.t() => any()}
+  @type create_sample_findings_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  update_findings_feedback_request() :: %{
-    optional("Comments") => String.t(),
-    required("Feedback") => list(any()),
-    required("FindingIds") => list(String.t()())
-  }
+
+      update_findings_feedback_request() :: %{
+        optional("Comments") => String.t(),
+        required("Feedback") => list(any()),
+        required("FindingIds") => list(String.t()())
+      }
+
   """
   @type update_findings_feedback_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  rds_login_attempt_action() :: %{
-    "LoginAttributes" => list(login_attribute()()),
-    "RemoteIpDetails" => remote_ip_details()
-  }
+
+      rds_login_attempt_action() :: %{
+        "LoginAttributes" => list(login_attribute()()),
+        "RemoteIpDetails" => remote_ip_details()
+      }
+
   """
   @type rds_login_attempt_action() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  member() :: %{
-    "AccountId" => String.t(),
-    "AdministratorId" => String.t(),
-    "DetectorId" => String.t(),
-    "Email" => String.t(),
-    "InvitedAt" => String.t(),
-    "MasterId" => String.t(),
-    "RelationshipStatus" => String.t(),
-    "UpdatedAt" => String.t()
-  }
+
+      member() :: %{
+        "AccountId" => String.t(),
+        "AdministratorId" => String.t(),
+        "DetectorId" => String.t(),
+        "Email" => String.t(),
+        "InvitedAt" => String.t(),
+        "MasterId" => String.t(),
+        "RelationshipStatus" => String.t(),
+        "UpdatedAt" => String.t()
+      }
+
   """
   @type member() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_ip_set_request() :: %{
 
-  }
+      get_ip_set_request() :: %{}
+
   """
-  @type get_ip_set_request() :: %{String.t() => any()}
+  @type get_ip_set_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  usage_feature_result() :: %{
-    "Feature" => list(any()),
-    "Total" => total()
-  }
+
+      usage_feature_result() :: %{
+        "Feature" => list(any()),
+        "Total" => total()
+      }
+
   """
   @type usage_feature_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  enable_organization_admin_account_response() :: %{
 
-  }
+      enable_organization_admin_account_response() :: %{}
+
   """
-  @type enable_organization_admin_account_response() :: %{String.t() => any()}
+  @type enable_organization_admin_account_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  finding_statistics() :: %{
-    "CountBySeverity" => map()
-  }
+
+      finding_statistics() :: %{
+        "CountBySeverity" => map()
+      }
+
   """
   @type finding_statistics() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  organization_scan_ec2_instance_with_findings_result() :: %{
-    "EbsVolumes" => organization_ebs_volumes_result()
-  }
+
+      organization_scan_ec2_instance_with_findings_result() :: %{
+        "EbsVolumes" => organization_ebs_volumes_result()
+      }
+
   """
   @type organization_scan_ec2_instance_with_findings_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ecs_cluster_details() :: %{
-    "ActiveServicesCount" => integer(),
-    "Arn" => String.t(),
-    "Name" => String.t(),
-    "RegisteredContainerInstancesCount" => integer(),
-    "RunningTasksCount" => integer(),
-    "Status" => String.t(),
-    "Tags" => list(tag()()),
-    "TaskDetails" => ecs_task_details()
-  }
+
+      ecs_cluster_details() :: %{
+        "ActiveServicesCount" => integer(),
+        "Arn" => String.t(),
+        "Name" => String.t(),
+        "RegisteredContainerInstancesCount" => integer(),
+        "RunningTasksCount" => integer(),
+        "Status" => String.t(),
+        "Tags" => list(tag()()),
+        "TaskDetails" => ecs_task_details()
+      }
+
   """
   @type ecs_cluster_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  scan() :: %{
-    "AccountId" => String.t(),
-    "AdminDetectorId" => String.t(),
-    "AttachedVolumes" => list(volume_detail()()),
-    "DetectorId" => String.t(),
-    "FailureReason" => String.t(),
-    "FileCount" => float(),
-    "ResourceDetails" => resource_details(),
-    "ScanEndTime" => non_neg_integer(),
-    "ScanId" => String.t(),
-    "ScanResultDetails" => scan_result_details(),
-    "ScanStartTime" => non_neg_integer(),
-    "ScanStatus" => list(any()),
-    "ScanType" => list(any()),
-    "TotalBytes" => float(),
-    "TriggerDetails" => trigger_details()
-  }
+
+      scan() :: %{
+        "AccountId" => String.t(),
+        "AdminDetectorId" => String.t(),
+        "AttachedVolumes" => list(volume_detail()()),
+        "DetectorId" => String.t(),
+        "FailureReason" => String.t(),
+        "FileCount" => float(),
+        "ResourceDetails" => resource_details(),
+        "ScanEndTime" => non_neg_integer(),
+        "ScanId" => String.t(),
+        "ScanResultDetails" => scan_result_details(),
+        "ScanStartTime" => non_neg_integer(),
+        "ScanStatus" => list(any()),
+        "ScanType" => list(any()),
+        "TotalBytes" => float(),
+        "TriggerDetails" => trigger_details()
+      }
+
   """
   @type scan() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  bad_request_exception() :: %{
-    "Message" => String.t(),
-    "Type" => String.t()
-  }
+
+      bad_request_exception() :: %{
+        "Message" => String.t(),
+        "Type" => String.t()
+      }
+
   """
   @type bad_request_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_malware_scan_settings_request() :: %{
 
-  }
+      get_malware_scan_settings_request() :: %{}
+
   """
-  @type get_malware_scan_settings_request() :: %{String.t() => any()}
+  @type get_malware_scan_settings_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  organization_statistics() :: %{
-    "ActiveAccountsCount" => integer(),
-    "CountByFeature" => list(organization_feature_statistics()()),
-    "EnabledAccountsCount" => integer(),
-    "MemberAccountsCount" => integer(),
-    "TotalAccountsCount" => integer()
-  }
+
+      organization_statistics() :: %{
+        "ActiveAccountsCount" => integer(),
+        "CountByFeature" => list(organization_feature_statistics()()),
+        "EnabledAccountsCount" => integer(),
+        "MemberAccountsCount" => integer(),
+        "TotalAccountsCount" => integer()
+      }
+
   """
   @type organization_statistics() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  domain_details() :: %{
-    "Domain" => String.t()
-  }
+
+      domain_details() :: %{
+        "Domain" => String.t()
+      }
+
   """
   @type domain_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  kubernetes_role_binding_details() :: %{
-    "Kind" => String.t(),
-    "Name" => String.t(),
-    "RoleRefKind" => String.t(),
-    "RoleRefName" => String.t(),
-    "Uid" => String.t()
-  }
+
+      kubernetes_role_binding_details() :: %{
+        "Kind" => String.t(),
+        "Name" => String.t(),
+        "RoleRefKind" => String.t(),
+        "RoleRefName" => String.t(),
+        "Uid" => String.t()
+      }
+
   """
   @type kubernetes_role_binding_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  malware_protection_data_source_free_trial() :: %{
-    "ScanEc2InstanceWithFindings" => data_source_free_trial()
-  }
+
+      malware_protection_data_source_free_trial() :: %{
+        "ScanEc2InstanceWithFindings" => data_source_free_trial()
+      }
+
   """
   @type malware_protection_data_source_free_trial() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ebs_volume_scan_details() :: %{
-    "ScanCompletedAt" => non_neg_integer(),
-    "ScanDetections" => scan_detections(),
-    "ScanId" => String.t(),
-    "ScanStartedAt" => non_neg_integer(),
-    "ScanType" => list(any()),
-    "Sources" => list(String.t()()),
-    "TriggerFindingId" => String.t()
-  }
+
+      ebs_volume_scan_details() :: %{
+        "ScanCompletedAt" => non_neg_integer(),
+        "ScanDetections" => scan_detections(),
+        "ScanId" => String.t(),
+        "ScanStartedAt" => non_neg_integer(),
+        "ScanType" => list(any()),
+        "Sources" => list(String.t()()),
+        "TriggerFindingId" => String.t()
+      }
+
   """
   @type ebs_volume_scan_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  organization_data_source_configurations() :: %{
-    "Kubernetes" => organization_kubernetes_configuration(),
-    "MalwareProtection" => organization_malware_protection_configuration(),
-    "S3Logs" => organization_s3_logs_configuration()
-  }
+
+      organization_data_source_configurations() :: %{
+        "Kubernetes" => organization_kubernetes_configuration(),
+        "MalwareProtection" => organization_malware_protection_configuration(),
+        "S3Logs" => organization_s3_logs_configuration()
+      }
+
   """
   @type organization_data_source_configurations() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  unprocessed_account() :: %{
-    "AccountId" => String.t(),
-    "Result" => String.t()
-  }
+
+      unprocessed_account() :: %{
+        "AccountId" => String.t(),
+        "Result" => String.t()
+      }
+
   """
   @type unprocessed_account() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_member_detectors_response() :: %{
-    "UnprocessedAccounts" => list(unprocessed_account()())
-  }
+
+      update_member_detectors_response() :: %{
+        "UnprocessedAccounts" => list(unprocessed_account()())
+      }
+
   """
   @type update_member_detectors_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_details() :: %{
-    "InstanceArn" => String.t()
-  }
+
+      resource_details() :: %{
+        "InstanceArn" => String.t()
+      }
+
   """
   @type resource_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  dns_logs_configuration_result() :: %{
-    "Status" => list(any())
-  }
+
+      dns_logs_configuration_result() :: %{
+        "Status" => list(any())
+      }
+
   """
   @type dns_logs_configuration_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_publishing_destination_request() :: %{
-    optional("DestinationProperties") => destination_properties()
-  }
+
+      update_publishing_destination_request() :: %{
+        optional("DestinationProperties") => destination_properties()
+      }
+
   """
   @type update_publishing_destination_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  accept_administrator_invitation_response() :: %{
 
-  }
+      accept_administrator_invitation_response() :: %{}
+
   """
-  @type accept_administrator_invitation_response() :: %{String.t() => any()}
+  @type accept_administrator_invitation_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_ip_set_response() :: %{
-    "IpSetId" => String.t()
-  }
+
+      create_ip_set_response() :: %{
+        "IpSetId" => String.t()
+      }
+
   """
   @type create_ip_set_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stop_monitoring_members_request() :: %{
-    required("AccountIds") => list(String.t()())
-  }
+
+      stop_monitoring_members_request() :: %{
+        required("AccountIds") => list(String.t()())
+      }
+
   """
   @type stop_monitoring_members_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  organization_feature_statistics_additional_configuration() :: %{
-    "EnabledAccountsCount" => integer(),
-    "Name" => list(any())
-  }
+
+      organization_feature_statistics_additional_configuration() :: %{
+        "EnabledAccountsCount" => integer(),
+        "Name" => list(any())
+      }
+
   """
   @type organization_feature_statistics_additional_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  rds_db_instance_details() :: %{
-    "DbClusterIdentifier" => String.t(),
-    "DbInstanceArn" => String.t(),
-    "DbInstanceIdentifier" => String.t(),
-    "Engine" => String.t(),
-    "EngineVersion" => String.t(),
-    "Tags" => list(tag()())
-  }
+
+      rds_db_instance_details() :: %{
+        "DbClusterIdentifier" => String.t(),
+        "DbInstanceArn" => String.t(),
+        "DbInstanceIdentifier" => String.t(),
+        "Engine" => String.t(),
+        "EngineVersion" => String.t(),
+        "Tags" => list(tag()())
+      }
+
   """
   @type rds_db_instance_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  scan_condition() :: %{
-    "MapEquals" => list(scan_condition_pair()())
-  }
+
+      scan_condition() :: %{
+        "MapEquals" => list(scan_condition_pair()())
+      }
+
   """
   @type scan_condition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  threat_detected_by_name() :: %{
-    "ItemCount" => integer(),
-    "Shortened" => boolean(),
-    "ThreatNames" => list(scan_threat_name()()),
-    "UniqueThreatNameCount" => integer()
-  }
+
+      threat_detected_by_name() :: %{
+        "ItemCount" => integer(),
+        "Shortened" => boolean(),
+        "ThreatNames" => list(scan_threat_name()()),
+        "UniqueThreatNameCount" => integer()
+      }
+
   """
   @type threat_detected_by_name() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  bucket_level_permissions() :: %{
-    "AccessControlList" => access_control_list(),
-    "BlockPublicAccess" => block_public_access(),
-    "BucketPolicy" => bucket_policy()
-  }
+
+      bucket_level_permissions() :: %{
+        "AccessControlList" => access_control_list(),
+        "BlockPublicAccess" => block_public_access(),
+        "BucketPolicy" => bucket_policy()
+      }
+
   """
   @type bucket_level_permissions() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_organization_admin_accounts_response() :: %{
-    "AdminAccounts" => list(admin_account()()),
-    "NextToken" => String.t()
-  }
+
+      list_organization_admin_accounts_response() :: %{
+        "AdminAccounts" => list(admin_account()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_organization_admin_accounts_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  usage_top_accounts_result() :: %{
-    "Accounts" => list(usage_top_account_result()()),
-    "Feature" => list(any())
-  }
+
+      usage_top_accounts_result() :: %{
+        "Accounts" => list(usage_top_account_result()()),
+        "Feature" => list(any())
+      }
+
   """
   @type usage_top_accounts_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  port_probe_detail() :: %{
-    "LocalIpDetails" => local_ip_details(),
-    "LocalPortDetails" => local_port_details(),
-    "RemoteIpDetails" => remote_ip_details()
-  }
+
+      port_probe_detail() :: %{
+        "LocalIpDetails" => local_ip_details(),
+        "LocalPortDetails" => local_port_details(),
+        "RemoteIpDetails" => remote_ip_details()
+      }
+
   """
   @type port_probe_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  iam_instance_profile() :: %{
-    "Arn" => String.t(),
-    "Id" => String.t()
-  }
+
+      iam_instance_profile() :: %{
+        "Arn" => String.t(),
+        "Id" => String.t()
+      }
+
   """
   @type iam_instance_profile() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stop_monitoring_members_response() :: %{
-    "UnprocessedAccounts" => list(unprocessed_account()())
-  }
+
+      stop_monitoring_members_response() :: %{
+        "UnprocessedAccounts" => list(unprocessed_account()())
+      }
+
   """
   @type stop_monitoring_members_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disassociate_from_administrator_account_request() :: %{
 
-  }
+      disassociate_from_administrator_account_request() :: %{}
+
   """
-  @type disassociate_from_administrator_account_request() :: %{String.t() => any()}
+  @type disassociate_from_administrator_account_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  update_detector_request() :: %{
-    optional("DataSources") => data_source_configurations(),
-    optional("Enable") => boolean(),
-    optional("Features") => list(detector_feature_configuration()()),
-    optional("FindingPublishingFrequency") => list(any())
-  }
+
+      update_detector_request() :: %{
+        optional("DataSources") => data_source_configurations(),
+        optional("Enable") => boolean(),
+        optional("Features") => list(detector_feature_configuration()()),
+        optional("FindingPublishingFrequency") => list(any())
+      }
+
   """
   @type update_detector_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  security_context() :: %{
-    "AllowPrivilegeEscalation" => boolean(),
-    "Privileged" => boolean()
-  }
+
+      security_context() :: %{
+        "AllowPrivilegeEscalation" => boolean(),
+        "Privileged" => boolean()
+      }
+
   """
   @type security_context() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  default_server_side_encryption() :: %{
-    "EncryptionType" => String.t(),
-    "KmsMasterKeyArn" => String.t()
-  }
+
+      default_server_side_encryption() :: %{
+        "EncryptionType" => String.t(),
+        "KmsMasterKeyArn" => String.t()
+      }
+
   """
   @type default_server_side_encryption() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  access_control_list() :: %{
-    "AllowsPublicReadAccess" => boolean(),
-    "AllowsPublicWriteAccess" => boolean()
-  }
+
+      access_control_list() :: %{
+        "AllowsPublicReadAccess" => boolean(),
+        "AllowsPublicWriteAccess" => boolean()
+      }
+
   """
   @type access_control_list() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  data_source_configurations() :: %{
-    "Kubernetes" => kubernetes_configuration(),
-    "MalwareProtection" => malware_protection_configuration(),
-    "S3Logs" => s3_logs_configuration()
-  }
+
+      data_source_configurations() :: %{
+        "Kubernetes" => kubernetes_configuration(),
+        "MalwareProtection" => malware_protection_configuration(),
+        "S3Logs" => s3_logs_configuration()
+      }
+
   """
   @type data_source_configurations() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_administrator_account_response() :: %{
-    "Administrator" => administrator()
-  }
+
+      get_administrator_account_response() :: %{
+        "Administrator" => administrator()
+      }
+
   """
   @type get_administrator_account_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  data_source_free_trial() :: %{
-    "FreeTrialDaysRemaining" => integer()
-  }
+
+      data_source_free_trial() :: %{
+        "FreeTrialDaysRemaining" => integer()
+      }
+
   """
   @type data_source_free_trial() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  detector_additional_configuration() :: %{
-    "Name" => list(any()),
-    "Status" => list(any())
-  }
+
+      detector_additional_configuration() :: %{
+        "Name" => list(any()),
+        "Status" => list(any())
+      }
+
   """
   @type detector_additional_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_filters_response() :: %{
-    "FilterNames" => list(String.t()()),
-    "NextToken" => String.t()
-  }
+
+      list_filters_response() :: %{
+        "FilterNames" => list(String.t()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_filters_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_malware_scan_response() :: %{
-    "ScanId" => String.t()
-  }
+
+      start_malware_scan_response() :: %{
+        "ScanId" => String.t()
+      }
+
   """
   @type start_malware_scan_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  unarchive_findings_response() :: %{
 
-  }
+      unarchive_findings_response() :: %{}
+
   """
-  @type unarchive_findings_response() :: %{String.t() => any()}
+  @type unarchive_findings_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_members_response() :: %{
-    "UnprocessedAccounts" => list(unprocessed_account()())
-  }
+
+      create_members_response() :: %{
+        "UnprocessedAccounts" => list(unprocessed_account()())
+      }
+
   """
   @type create_members_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  access_key_details() :: %{
-    "AccessKeyId" => String.t(),
-    "PrincipalId" => String.t(),
-    "UserName" => String.t(),
-    "UserType" => String.t()
-  }
+
+      access_key_details() :: %{
+        "AccessKeyId" => String.t(),
+        "PrincipalId" => String.t(),
+        "UserName" => String.t(),
+        "UserType" => String.t()
+      }
+
   """
   @type access_key_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_filter_request() :: %{
 
-  }
+      delete_filter_request() :: %{}
+
   """
-  @type delete_filter_request() :: %{String.t() => any()}
+  @type delete_filter_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  owner() :: %{
-    "Id" => String.t()
-  }
+
+      owner() :: %{
+        "Id" => String.t()
+      }
+
   """
   @type owner() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_coverage_statistics_request() :: %{
-    optional("FilterCriteria") => coverage_filter_criteria(),
-    required("StatisticsType") => list(list(any())())
-  }
+
+      get_coverage_statistics_request() :: %{
+        optional("FilterCriteria") => coverage_filter_criteria(),
+        required("StatisticsType") => list(list(any())())
+      }
+
   """
   @type get_coverage_statistics_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_ip_set_response() :: %{
 
-  }
+      delete_ip_set_response() :: %{}
+
   """
-  @type delete_ip_set_response() :: %{String.t() => any()}
+  @type delete_ip_set_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  runtime_details() :: %{
-    "Context" => runtime_context(),
-    "Process" => process_details()
-  }
+
+      runtime_details() :: %{
+        "Context" => runtime_context(),
+        "Process" => process_details()
+      }
+
   """
   @type runtime_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  usage_criteria() :: %{
-    "AccountIds" => list(String.t()()),
-    "DataSources" => list(list(any())()),
-    "Features" => list(list(any())()),
-    "Resources" => list(String.t()())
-  }
+
+      usage_criteria() :: %{
+        "AccountIds" => list(String.t()()),
+        "DataSources" => list(list(any())()),
+        "Features" => list(list(any())()),
+        "Resources" => list(String.t()())
+      }
+
   """
   @type usage_criteria() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_usage_statistics_response() :: %{
-    "NextToken" => String.t(),
-    "UsageStatistics" => usage_statistics()
-  }
+
+      get_usage_statistics_response() :: %{
+        "NextToken" => String.t(),
+        "UsageStatistics" => usage_statistics()
+      }
+
   """
   @type get_usage_statistics_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_filters_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      list_filters_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_filters_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_detector_request() :: %{
 
-  }
+      delete_detector_request() :: %{}
+
   """
-  @type delete_detector_request() :: %{String.t() => any()}
+  @type delete_detector_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_invitations_response() :: %{
-    "Invitations" => list(invitation()()),
-    "NextToken" => String.t()
-  }
+
+      list_invitations_response() :: %{
+        "Invitations" => list(invitation()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_invitations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource() :: %{
-    "AccessKeyDetails" => access_key_details(),
-    "ContainerDetails" => container(),
-    "EbsVolumeDetails" => ebs_volume_details(),
-    "EcsClusterDetails" => ecs_cluster_details(),
-    "EksClusterDetails" => eks_cluster_details(),
-    "InstanceDetails" => instance_details(),
-    "KubernetesDetails" => kubernetes_details(),
-    "LambdaDetails" => lambda_details(),
-    "RdsDbInstanceDetails" => rds_db_instance_details(),
-    "RdsDbUserDetails" => rds_db_user_details(),
-    "ResourceType" => String.t(),
-    "S3BucketDetails" => list(s3_bucket_detail()())
-  }
+
+      resource() :: %{
+        "AccessKeyDetails" => access_key_details(),
+        "ContainerDetails" => container(),
+        "EbsVolumeDetails" => ebs_volume_details(),
+        "EcsClusterDetails" => ecs_cluster_details(),
+        "EksClusterDetails" => eks_cluster_details(),
+        "InstanceDetails" => instance_details(),
+        "KubernetesDetails" => kubernetes_details(),
+        "LambdaDetails" => lambda_details(),
+        "RdsDbInstanceDetails" => rds_db_instance_details(),
+        "RdsDbUserDetails" => rds_db_user_details(),
+        "ResourceType" => String.t(),
+        "S3BucketDetails" => list(s3_bucket_detail()())
+      }
+
   """
   @type resource() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  organization_details() :: %{
-    "OrganizationStatistics" => organization_statistics(),
-    "UpdatedAt" => non_neg_integer()
-  }
+
+      organization_details() :: %{
+        "OrganizationStatistics" => organization_statistics(),
+        "UpdatedAt" => non_neg_integer()
+      }
+
   """
   @type organization_details() :: %{String.t() => any()}
+
+  @type accept_administrator_invitation_errors() ::
+          bad_request_exception() | internal_server_error_exception()
+
+  @type accept_invitation_errors() :: bad_request_exception() | internal_server_error_exception()
+
+  @type archive_findings_errors() :: bad_request_exception() | internal_server_error_exception()
+
+  @type create_detector_errors() :: bad_request_exception() | internal_server_error_exception()
+
+  @type create_filter_errors() :: bad_request_exception() | internal_server_error_exception()
+
+  @type create_ip_set_errors() :: bad_request_exception() | internal_server_error_exception()
+
+  @type create_members_errors() :: bad_request_exception() | internal_server_error_exception()
+
+  @type create_publishing_destination_errors() ::
+          bad_request_exception() | internal_server_error_exception()
+
+  @type create_sample_findings_errors() ::
+          bad_request_exception() | internal_server_error_exception()
+
+  @type create_threat_intel_set_errors() ::
+          bad_request_exception() | internal_server_error_exception()
+
+  @type decline_invitations_errors() ::
+          bad_request_exception() | internal_server_error_exception()
+
+  @type delete_detector_errors() :: bad_request_exception() | internal_server_error_exception()
+
+  @type delete_filter_errors() :: bad_request_exception() | internal_server_error_exception()
+
+  @type delete_invitations_errors() :: bad_request_exception() | internal_server_error_exception()
+
+  @type delete_ip_set_errors() :: bad_request_exception() | internal_server_error_exception()
+
+  @type delete_members_errors() :: bad_request_exception() | internal_server_error_exception()
+
+  @type delete_publishing_destination_errors() ::
+          bad_request_exception() | internal_server_error_exception()
+
+  @type delete_threat_intel_set_errors() ::
+          bad_request_exception() | internal_server_error_exception()
+
+  @type describe_malware_scans_errors() ::
+          bad_request_exception() | internal_server_error_exception()
+
+  @type describe_organization_configuration_errors() ::
+          bad_request_exception() | internal_server_error_exception()
+
+  @type describe_publishing_destination_errors() ::
+          bad_request_exception() | internal_server_error_exception()
+
+  @type disable_organization_admin_account_errors() ::
+          bad_request_exception() | internal_server_error_exception()
+
+  @type disassociate_from_administrator_account_errors() ::
+          bad_request_exception() | internal_server_error_exception()
+
+  @type disassociate_from_master_account_errors() ::
+          bad_request_exception() | internal_server_error_exception()
+
+  @type disassociate_members_errors() ::
+          bad_request_exception() | internal_server_error_exception()
+
+  @type enable_organization_admin_account_errors() ::
+          bad_request_exception() | internal_server_error_exception()
+
+  @type get_administrator_account_errors() ::
+          bad_request_exception() | internal_server_error_exception()
+
+  @type get_coverage_statistics_errors() ::
+          bad_request_exception() | internal_server_error_exception()
+
+  @type get_detector_errors() :: bad_request_exception() | internal_server_error_exception()
+
+  @type get_filter_errors() :: bad_request_exception() | internal_server_error_exception()
+
+  @type get_findings_errors() :: bad_request_exception() | internal_server_error_exception()
+
+  @type get_findings_statistics_errors() ::
+          bad_request_exception() | internal_server_error_exception()
+
+  @type get_invitations_count_errors() ::
+          bad_request_exception() | internal_server_error_exception()
+
+  @type get_ip_set_errors() :: bad_request_exception() | internal_server_error_exception()
+
+  @type get_malware_scan_settings_errors() ::
+          bad_request_exception() | internal_server_error_exception()
+
+  @type get_master_account_errors() :: bad_request_exception() | internal_server_error_exception()
+
+  @type get_member_detectors_errors() ::
+          bad_request_exception() | internal_server_error_exception()
+
+  @type get_members_errors() :: bad_request_exception() | internal_server_error_exception()
+
+  @type get_organization_statistics_errors() ::
+          bad_request_exception() | internal_server_error_exception()
+
+  @type get_remaining_free_trial_days_errors() ::
+          bad_request_exception() | internal_server_error_exception()
+
+  @type get_threat_intel_set_errors() ::
+          bad_request_exception() | internal_server_error_exception()
+
+  @type get_usage_statistics_errors() ::
+          bad_request_exception() | internal_server_error_exception()
+
+  @type invite_members_errors() :: bad_request_exception() | internal_server_error_exception()
+
+  @type list_coverage_errors() :: bad_request_exception() | internal_server_error_exception()
+
+  @type list_detectors_errors() :: bad_request_exception() | internal_server_error_exception()
+
+  @type list_filters_errors() :: bad_request_exception() | internal_server_error_exception()
+
+  @type list_findings_errors() :: bad_request_exception() | internal_server_error_exception()
+
+  @type list_invitations_errors() :: bad_request_exception() | internal_server_error_exception()
+
+  @type list_ip_sets_errors() :: bad_request_exception() | internal_server_error_exception()
+
+  @type list_members_errors() :: bad_request_exception() | internal_server_error_exception()
+
+  @type list_organization_admin_accounts_errors() ::
+          bad_request_exception() | internal_server_error_exception()
+
+  @type list_publishing_destinations_errors() ::
+          bad_request_exception() | internal_server_error_exception()
+
+  @type list_tags_for_resource_errors() ::
+          bad_request_exception() | internal_server_error_exception() | access_denied_exception()
+
+  @type list_threat_intel_sets_errors() ::
+          bad_request_exception() | internal_server_error_exception()
+
+  @type start_malware_scan_errors() ::
+          bad_request_exception() | internal_server_error_exception() | conflict_exception()
+
+  @type start_monitoring_members_errors() ::
+          bad_request_exception() | internal_server_error_exception()
+
+  @type stop_monitoring_members_errors() ::
+          bad_request_exception() | internal_server_error_exception()
+
+  @type tag_resource_errors() ::
+          bad_request_exception() | internal_server_error_exception() | access_denied_exception()
+
+  @type unarchive_findings_errors() :: bad_request_exception() | internal_server_error_exception()
+
+  @type untag_resource_errors() ::
+          bad_request_exception() | internal_server_error_exception() | access_denied_exception()
+
+  @type update_detector_errors() :: bad_request_exception() | internal_server_error_exception()
+
+  @type update_filter_errors() :: bad_request_exception() | internal_server_error_exception()
+
+  @type update_findings_feedback_errors() ::
+          bad_request_exception() | internal_server_error_exception()
+
+  @type update_ip_set_errors() :: bad_request_exception() | internal_server_error_exception()
+
+  @type update_malware_scan_settings_errors() ::
+          bad_request_exception() | internal_server_error_exception()
+
+  @type update_member_detectors_errors() ::
+          bad_request_exception() | internal_server_error_exception()
+
+  @type update_organization_configuration_errors() ::
+          bad_request_exception() | internal_server_error_exception()
+
+  @type update_publishing_destination_errors() ::
+          bad_request_exception() | internal_server_error_exception()
+
+  @type update_threat_intel_set_errors() ::
+          bad_request_exception() | internal_server_error_exception()
 
   def metadata do
     %{
@@ -3526,8 +4268,7 @@ defmodule AWS.GuardDuty do
         ) ::
           {:ok, accept_administrator_invitation_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
+          | {:error, accept_administrator_invitation_errors()}
   def accept_administrator_invitation(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/administrator"
     headers = []
@@ -3554,8 +4295,7 @@ defmodule AWS.GuardDuty do
   @spec accept_invitation(map(), String.t(), accept_invitation_request(), list()) ::
           {:ok, accept_invitation_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
+          | {:error, accept_invitation_errors()}
   def accept_invitation(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/master"
     headers = []
@@ -3585,8 +4325,7 @@ defmodule AWS.GuardDuty do
   @spec archive_findings(map(), String.t(), archive_findings_request(), list()) ::
           {:ok, archive_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
+          | {:error, archive_findings_errors()}
   def archive_findings(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/findings/archive"
     headers = []
@@ -3642,8 +4381,7 @@ defmodule AWS.GuardDuty do
   @spec create_detector(map(), create_detector_request(), list()) ::
           {:ok, create_detector_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
+          | {:error, create_detector_errors()}
   def create_detector(%Client{} = client, input, options \\ []) do
     url_path = "/detector"
     headers = []
@@ -3674,8 +4412,7 @@ defmodule AWS.GuardDuty do
   @spec create_filter(map(), String.t(), create_filter_request(), list()) ::
           {:ok, create_filter_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
+          | {:error, create_filter_errors()}
   def create_filter(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/filter"
     headers = []
@@ -3711,8 +4448,7 @@ defmodule AWS.GuardDuty do
   @spec create_ip_set(map(), String.t(), create_ip_set_request(), list()) ::
           {:ok, create_ip_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
+          | {:error, create_ip_set_errors()}
   def create_ip_set(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/ipset"
     headers = []
@@ -3775,8 +4511,7 @@ defmodule AWS.GuardDuty do
   @spec create_members(map(), String.t(), create_members_request(), list()) ::
           {:ok, create_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
+          | {:error, create_members_errors()}
   def create_members(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/member"
     headers = []
@@ -3811,8 +4546,7 @@ defmodule AWS.GuardDuty do
         ) ::
           {:ok, create_publishing_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
+          | {:error, create_publishing_destination_errors()}
   def create_publishing_destination(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/publishingDestination"
     headers = []
@@ -3843,8 +4577,7 @@ defmodule AWS.GuardDuty do
   @spec create_sample_findings(map(), String.t(), create_sample_findings_request(), list()) ::
           {:ok, create_sample_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
+          | {:error, create_sample_findings_errors()}
   def create_sample_findings(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/findings/create"
     headers = []
@@ -3876,8 +4609,7 @@ defmodule AWS.GuardDuty do
   @spec create_threat_intel_set(map(), String.t(), create_threat_intel_set_request(), list()) ::
           {:ok, create_threat_intel_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
+          | {:error, create_threat_intel_set_errors()}
   def create_threat_intel_set(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/threatintelset"
     headers = []
@@ -3906,8 +4638,7 @@ defmodule AWS.GuardDuty do
   @spec decline_invitations(map(), decline_invitations_request(), list()) ::
           {:ok, decline_invitations_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
+          | {:error, decline_invitations_errors()}
   def decline_invitations(%Client{} = client, input, options \\ []) do
     url_path = "/invitation/decline"
     headers = []
@@ -3934,8 +4665,7 @@ defmodule AWS.GuardDuty do
   @spec delete_detector(map(), String.t(), delete_detector_request(), list()) ::
           {:ok, delete_detector_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
+          | {:error, delete_detector_errors()}
   def delete_detector(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}"
     headers = []
@@ -3962,8 +4692,7 @@ defmodule AWS.GuardDuty do
   @spec delete_filter(map(), String.t(), String.t(), delete_filter_request(), list()) ::
           {:ok, delete_filter_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
+          | {:error, delete_filter_errors()}
   def delete_filter(%Client{} = client, detector_id, filter_name, input, options \\ []) do
     url_path =
       "/detector/#{AWS.Util.encode_uri(detector_id)}/filter/#{AWS.Util.encode_uri(filter_name)}"
@@ -3994,8 +4723,7 @@ defmodule AWS.GuardDuty do
   @spec delete_invitations(map(), delete_invitations_request(), list()) ::
           {:ok, delete_invitations_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
+          | {:error, delete_invitations_errors()}
   def delete_invitations(%Client{} = client, input, options \\ []) do
     url_path = "/invitation/delete"
     headers = []
@@ -4025,8 +4753,7 @@ defmodule AWS.GuardDuty do
   @spec delete_ip_set(map(), String.t(), String.t(), delete_ip_set_request(), list()) ::
           {:ok, delete_ip_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
+          | {:error, delete_ip_set_errors()}
   def delete_ip_set(%Client{} = client, detector_id, ip_set_id, input, options \\ []) do
     url_path =
       "/detector/#{AWS.Util.encode_uri(detector_id)}/ipset/#{AWS.Util.encode_uri(ip_set_id)}"
@@ -4061,8 +4788,7 @@ defmodule AWS.GuardDuty do
   @spec delete_members(map(), String.t(), delete_members_request(), list()) ::
           {:ok, delete_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
+          | {:error, delete_members_errors()}
   def delete_members(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/member/delete"
     headers = []
@@ -4095,8 +4821,7 @@ defmodule AWS.GuardDuty do
         ) ::
           {:ok, delete_publishing_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
+          | {:error, delete_publishing_destination_errors()}
   def delete_publishing_destination(
         %Client{} = client,
         destination_id,
@@ -4137,8 +4862,7 @@ defmodule AWS.GuardDuty do
         ) ::
           {:ok, delete_threat_intel_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
+          | {:error, delete_threat_intel_set_errors()}
   def delete_threat_intel_set(
         %Client{} = client,
         detector_id,
@@ -4182,8 +4906,7 @@ defmodule AWS.GuardDuty do
   @spec describe_malware_scans(map(), String.t(), describe_malware_scans_request(), list()) ::
           {:ok, describe_malware_scans_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
+          | {:error, describe_malware_scans_errors()}
   def describe_malware_scans(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/malware-scans"
     headers = []
@@ -4223,8 +4946,7 @@ defmodule AWS.GuardDuty do
         ) ::
           {:ok, describe_organization_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
+          | {:error, describe_organization_configuration_errors()}
   def describe_organization_configuration(
         %Client{} = client,
         detector_id,
@@ -4262,8 +4984,7 @@ defmodule AWS.GuardDuty do
   @spec describe_publishing_destination(map(), String.t(), String.t(), list()) ::
           {:ok, describe_publishing_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
+          | {:error, describe_publishing_destination_errors()}
   def describe_publishing_destination(
         %Client{} = client,
         destination_id,
@@ -4295,8 +5016,7 @@ defmodule AWS.GuardDuty do
         ) ::
           {:ok, disable_organization_admin_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
+          | {:error, disable_organization_admin_account_errors()}
   def disable_organization_admin_account(%Client{} = client, input, options \\ []) do
     url_path = "/admin/disable"
     headers = []
@@ -4346,8 +5066,7 @@ defmodule AWS.GuardDuty do
         ) ::
           {:ok, disassociate_from_administrator_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
+          | {:error, disassociate_from_administrator_account_errors()}
   def disassociate_from_administrator_account(
         %Client{} = client,
         detector_id,
@@ -4398,8 +5117,7 @@ defmodule AWS.GuardDuty do
         ) ::
           {:ok, disassociate_from_master_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
+          | {:error, disassociate_from_master_account_errors()}
   def disassociate_from_master_account(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/master/disassociate"
     headers = []
@@ -4445,8 +5163,7 @@ defmodule AWS.GuardDuty do
   @spec disassociate_members(map(), String.t(), disassociate_members_request(), list()) ::
           {:ok, disassociate_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
+          | {:error, disassociate_members_errors()}
   def disassociate_members(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/member/disassociate"
     headers = []
@@ -4482,8 +5199,7 @@ defmodule AWS.GuardDuty do
         ) ::
           {:ok, enable_organization_admin_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
+          | {:error, enable_organization_admin_account_errors()}
   def enable_organization_admin_account(%Client{} = client, input, options \\ []) do
     url_path = "/admin/enable"
     headers = []
@@ -4516,8 +5232,7 @@ defmodule AWS.GuardDuty do
   @spec get_administrator_account(map(), String.t(), list()) ::
           {:ok, get_administrator_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
+          | {:error, get_administrator_account_errors()}
   def get_administrator_account(%Client{} = client, detector_id, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/administrator"
     headers = []
@@ -4541,8 +5256,7 @@ defmodule AWS.GuardDuty do
   @spec get_coverage_statistics(map(), String.t(), get_coverage_statistics_request(), list()) ::
           {:ok, get_coverage_statistics_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
+          | {:error, get_coverage_statistics_errors()}
   def get_coverage_statistics(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/coverage/statistics"
     headers = []
@@ -4574,8 +5288,7 @@ defmodule AWS.GuardDuty do
   @spec get_detector(map(), String.t(), list()) ::
           {:ok, get_detector_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
+          | {:error, get_detector_errors()}
   def get_detector(%Client{} = client, detector_id, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}"
     headers = []
@@ -4592,8 +5305,7 @@ defmodule AWS.GuardDuty do
   @spec get_filter(map(), String.t(), String.t(), list()) ::
           {:ok, get_filter_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
+          | {:error, get_filter_errors()}
   def get_filter(%Client{} = client, detector_id, filter_name, options \\ []) do
     url_path =
       "/detector/#{AWS.Util.encode_uri(detector_id)}/filter/#{AWS.Util.encode_uri(filter_name)}"
@@ -4612,8 +5324,7 @@ defmodule AWS.GuardDuty do
   @spec get_findings(map(), String.t(), get_findings_request(), list()) ::
           {:ok, get_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
+          | {:error, get_findings_errors()}
   def get_findings(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/findings/get"
     headers = []
@@ -4644,8 +5355,7 @@ defmodule AWS.GuardDuty do
   @spec get_findings_statistics(map(), String.t(), get_findings_statistics_request(), list()) ::
           {:ok, get_findings_statistics_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
+          | {:error, get_findings_statistics_errors()}
   def get_findings_statistics(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/findings/statistics"
     headers = []
@@ -4674,8 +5384,7 @@ defmodule AWS.GuardDuty do
   @spec get_invitations_count(map(), list()) ::
           {:ok, get_invitations_count_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
+          | {:error, get_invitations_count_errors()}
   def get_invitations_count(%Client{} = client, options \\ []) do
     url_path = "/invitation/count"
     headers = []
@@ -4692,8 +5401,7 @@ defmodule AWS.GuardDuty do
   @spec get_ip_set(map(), String.t(), String.t(), list()) ::
           {:ok, get_ip_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
+          | {:error, get_ip_set_errors()}
   def get_ip_set(%Client{} = client, detector_id, ip_set_id, options \\ []) do
     url_path =
       "/detector/#{AWS.Util.encode_uri(detector_id)}/ipset/#{AWS.Util.encode_uri(ip_set_id)}"
@@ -4717,8 +5425,7 @@ defmodule AWS.GuardDuty do
   @spec get_malware_scan_settings(map(), String.t(), list()) ::
           {:ok, get_malware_scan_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
+          | {:error, get_malware_scan_settings_errors()}
   def get_malware_scan_settings(%Client{} = client, detector_id, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/malware-scan-settings"
     headers = []
@@ -4737,8 +5444,7 @@ defmodule AWS.GuardDuty do
   @spec get_master_account(map(), String.t(), list()) ::
           {:ok, get_master_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
+          | {:error, get_master_account_errors()}
   def get_master_account(%Client{} = client, detector_id, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/master"
     headers = []
@@ -4760,8 +5466,7 @@ defmodule AWS.GuardDuty do
   @spec get_member_detectors(map(), String.t(), get_member_detectors_request(), list()) ::
           {:ok, get_member_detectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
+          | {:error, get_member_detectors_errors()}
   def get_member_detectors(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/member/detector/get"
     headers = []
@@ -4790,8 +5495,7 @@ defmodule AWS.GuardDuty do
   @spec get_members(map(), String.t(), get_members_request(), list()) ::
           {:ok, get_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
+          | {:error, get_members_errors()}
   def get_members(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/member/get"
     headers = []
@@ -4824,8 +5528,7 @@ defmodule AWS.GuardDuty do
   @spec get_organization_statistics(map(), list()) ::
           {:ok, get_organization_statistics_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
+          | {:error, get_organization_statistics_errors()}
   def get_organization_statistics(%Client{} = client, options \\ []) do
     url_path = "/organization/statistics"
     headers = []
@@ -4848,8 +5551,7 @@ defmodule AWS.GuardDuty do
         ) ::
           {:ok, get_remaining_free_trial_days_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
+          | {:error, get_remaining_free_trial_days_errors()}
   def get_remaining_free_trial_days(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/freeTrial/daysRemaining"
     headers = []
@@ -4876,8 +5578,7 @@ defmodule AWS.GuardDuty do
   @spec get_threat_intel_set(map(), String.t(), String.t(), list()) ::
           {:ok, get_threat_intel_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
+          | {:error, get_threat_intel_set_errors()}
   def get_threat_intel_set(%Client{} = client, detector_id, threat_intel_set_id, options \\ []) do
     url_path =
       "/detector/#{AWS.Util.encode_uri(detector_id)}/threatintelset/#{AWS.Util.encode_uri(threat_intel_set_id)}"
@@ -4905,8 +5606,7 @@ defmodule AWS.GuardDuty do
   @spec get_usage_statistics(map(), String.t(), get_usage_statistics_request(), list()) ::
           {:ok, get_usage_statistics_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
+          | {:error, get_usage_statistics_errors()}
   def get_usage_statistics(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/usage/statistics"
     headers = []
@@ -4963,8 +5663,7 @@ defmodule AWS.GuardDuty do
   @spec invite_members(map(), String.t(), invite_members_request(), list()) ::
           {:ok, invite_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
+          | {:error, invite_members_errors()}
   def invite_members(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/member/invite"
     headers = []
@@ -4999,8 +5698,7 @@ defmodule AWS.GuardDuty do
   @spec list_coverage(map(), String.t(), list_coverage_request(), list()) ::
           {:ok, list_coverage_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
+          | {:error, list_coverage_errors()}
   def list_coverage(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/coverage"
     headers = []
@@ -5027,8 +5725,7 @@ defmodule AWS.GuardDuty do
   @spec list_detectors(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_detectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
+          | {:error, list_detectors_errors()}
   def list_detectors(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/detector"
     headers = []
@@ -5059,8 +5756,7 @@ defmodule AWS.GuardDuty do
   @spec list_filters(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_filters_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
+          | {:error, list_filters_errors()}
   def list_filters(
         %Client{} = client,
         detector_id,
@@ -5101,8 +5797,7 @@ defmodule AWS.GuardDuty do
   @spec list_findings(map(), String.t(), list_findings_request(), list()) ::
           {:ok, list_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
+          | {:error, list_findings_errors()}
   def list_findings(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/findings"
     headers = []
@@ -5131,8 +5826,7 @@ defmodule AWS.GuardDuty do
   @spec list_invitations(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_invitations_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
+          | {:error, list_invitations_errors()}
   def list_invitations(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/invitation"
     headers = []
@@ -5168,8 +5862,7 @@ defmodule AWS.GuardDuty do
   @spec list_ip_sets(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_ip_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
+          | {:error, list_ip_sets_errors()}
   def list_ip_sets(
         %Client{} = client,
         detector_id,
@@ -5214,8 +5907,7 @@ defmodule AWS.GuardDuty do
         ) ::
           {:ok, list_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
+          | {:error, list_members_errors()}
   def list_members(
         %Client{} = client,
         detector_id,
@@ -5263,8 +5955,7 @@ defmodule AWS.GuardDuty do
   @spec list_organization_admin_accounts(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_organization_admin_accounts_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
+          | {:error, list_organization_admin_accounts_errors()}
   def list_organization_admin_accounts(
         %Client{} = client,
         max_results \\ nil,
@@ -5307,8 +5998,7 @@ defmodule AWS.GuardDuty do
         ) ::
           {:ok, list_publishing_destinations_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
+          | {:error, list_publishing_destinations_errors()}
   def list_publishing_destinations(
         %Client{} = client,
         detector_id,
@@ -5351,9 +6041,7 @@ defmodule AWS.GuardDuty do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
+          | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -5375,8 +6063,7 @@ defmodule AWS.GuardDuty do
   @spec list_threat_intel_sets(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_threat_intel_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
+          | {:error, list_threat_intel_sets_errors()}
   def list_threat_intel_sets(
         %Client{} = client,
         detector_id,
@@ -5422,9 +6109,7 @@ defmodule AWS.GuardDuty do
   @spec start_malware_scan(map(), start_malware_scan_request(), list()) ::
           {:ok, start_malware_scan_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_error_exception()}
+          | {:error, start_malware_scan_errors()}
   def start_malware_scan(%Client{} = client, input, options \\ []) do
     url_path = "/malware-scan/start"
     headers = []
@@ -5456,8 +6141,7 @@ defmodule AWS.GuardDuty do
   @spec start_monitoring_members(map(), String.t(), start_monitoring_members_request(), list()) ::
           {:ok, start_monitoring_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
+          | {:error, start_monitoring_members_errors()}
   def start_monitoring_members(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/member/start"
     headers = []
@@ -5492,8 +6176,7 @@ defmodule AWS.GuardDuty do
   @spec stop_monitoring_members(map(), String.t(), stop_monitoring_members_request(), list()) ::
           {:ok, stop_monitoring_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
+          | {:error, stop_monitoring_members_errors()}
   def stop_monitoring_members(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/member/stop"
     headers = []
@@ -5520,9 +6203,7 @@ defmodule AWS.GuardDuty do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -5549,8 +6230,7 @@ defmodule AWS.GuardDuty do
   @spec unarchive_findings(map(), String.t(), unarchive_findings_request(), list()) ::
           {:ok, unarchive_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
+          | {:error, unarchive_findings_errors()}
   def unarchive_findings(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/findings/unarchive"
     headers = []
@@ -5577,9 +6257,7 @@ defmodule AWS.GuardDuty do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -5623,8 +6301,7 @@ defmodule AWS.GuardDuty do
   @spec update_detector(map(), String.t(), update_detector_request(), list()) ::
           {:ok, update_detector_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
+          | {:error, update_detector_errors()}
   def update_detector(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}"
     headers = []
@@ -5651,8 +6328,7 @@ defmodule AWS.GuardDuty do
   @spec update_filter(map(), String.t(), String.t(), update_filter_request(), list()) ::
           {:ok, update_filter_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
+          | {:error, update_filter_errors()}
   def update_filter(%Client{} = client, detector_id, filter_name, input, options \\ []) do
     url_path =
       "/detector/#{AWS.Util.encode_uri(detector_id)}/filter/#{AWS.Util.encode_uri(filter_name)}"
@@ -5681,8 +6357,7 @@ defmodule AWS.GuardDuty do
   @spec update_findings_feedback(map(), String.t(), update_findings_feedback_request(), list()) ::
           {:ok, update_findings_feedback_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
+          | {:error, update_findings_feedback_errors()}
   def update_findings_feedback(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/findings/feedback"
     headers = []
@@ -5709,8 +6384,7 @@ defmodule AWS.GuardDuty do
   @spec update_ip_set(map(), String.t(), String.t(), update_ip_set_request(), list()) ::
           {:ok, update_ip_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
+          | {:error, update_ip_set_errors()}
   def update_ip_set(%Client{} = client, detector_id, ip_set_id, input, options \\ []) do
     url_path =
       "/detector/#{AWS.Util.encode_uri(detector_id)}/ipset/#{AWS.Util.encode_uri(ip_set_id)}"
@@ -5749,8 +6423,7 @@ defmodule AWS.GuardDuty do
         ) ::
           {:ok, update_malware_scan_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
+          | {:error, update_malware_scan_settings_errors()}
   def update_malware_scan_settings(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/malware-scan-settings"
     headers = []
@@ -5789,8 +6462,7 @@ defmodule AWS.GuardDuty do
   @spec update_member_detectors(map(), String.t(), update_member_detectors_request(), list()) ::
           {:ok, update_member_detectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
+          | {:error, update_member_detectors_errors()}
   def update_member_detectors(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/member/detector/update"
     headers = []
@@ -5838,8 +6510,7 @@ defmodule AWS.GuardDuty do
         ) ::
           {:ok, update_organization_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
+          | {:error, update_organization_configuration_errors()}
   def update_organization_configuration(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/admin"
     headers = []
@@ -5873,8 +6544,7 @@ defmodule AWS.GuardDuty do
         ) ::
           {:ok, update_publishing_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
+          | {:error, update_publishing_destination_errors()}
   def update_publishing_destination(
         %Client{} = client,
         destination_id,
@@ -5915,8 +6585,7 @@ defmodule AWS.GuardDuty do
         ) ::
           {:ok, update_threat_intel_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
+          | {:error, update_threat_intel_set_errors()}
   def update_threat_intel_set(
         %Client{} = client,
         detector_id,

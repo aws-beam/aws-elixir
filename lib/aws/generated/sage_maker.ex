@@ -23,13958 +23,16697 @@ defmodule AWS.SageMaker do
   @typedoc """
 
   ## Example:
-  docker_settings() :: %{
-    "EnableDockerAccess" => list(any()),
-    "VpcOnlyTrustedAccounts" => list(String.t()())
-  }
+      
+      docker_settings() :: %{
+        "EnableDockerAccess" => list(any()),
+        "VpcOnlyTrustedAccounts" => list(String.t()())
+      }
+      
   """
   @type docker_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  visibility_conditions() :: %{
-    "Key" => String.t(),
-    "Value" => String.t()
-  }
+      
+      visibility_conditions() :: %{
+        "Key" => String.t(),
+        "Value" => String.t()
+      }
+      
   """
   @type visibility_conditions() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_hub_request() :: %{
-    required("HubName") => String.t()
-  }
+      
+      describe_hub_request() :: %{
+        required("HubName") => String.t()
+      }
+      
   """
   @type describe_hub_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  auto_ml_output_data_config() :: %{
-    "KmsKeyId" => String.t(),
-    "S3OutputPath" => String.t()
-  }
+      
+      auto_ml_output_data_config() :: %{
+        "KmsKeyId" => String.t(),
+        "S3OutputPath" => String.t()
+      }
+      
   """
   @type auto_ml_output_data_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_context_request() :: %{
-    optional("Description") => String.t(),
-    optional("Properties") => map(),
-    optional("PropertiesToRemove") => list(String.t()()),
-    required("ContextName") => String.t()
-  }
+      
+      update_context_request() :: %{
+        optional("Description") => String.t(),
+        optional("Properties") => map(),
+        optional("PropertiesToRemove") => list(String.t()()),
+        required("ContextName") => String.t()
+      }
+      
   """
   @type update_context_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  action_summary() :: %{
-    "ActionArn" => String.t(),
-    "ActionName" => String.t(),
-    "ActionType" => String.t(),
-    "CreationTime" => non_neg_integer(),
-    "LastModifiedTime" => non_neg_integer(),
-    "Source" => action_source(),
-    "Status" => list(any())
-  }
+      
+      action_summary() :: %{
+        "ActionArn" => String.t(),
+        "ActionName" => String.t(),
+        "ActionType" => String.t(),
+        "CreationTime" => non_neg_integer(),
+        "LastModifiedTime" => non_neg_integer(),
+        "Source" => action_source(),
+        "Status" => list(any())
+      }
+      
   """
   @type action_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_aliases_response() :: %{
-    "NextToken" => String.t(),
-    "SageMakerImageVersionAliases" => list(String.t()())
-  }
+      
+      list_aliases_response() :: %{
+        "NextToken" => String.t(),
+        "SageMakerImageVersionAliases" => list(String.t()())
+      }
+      
   """
   @type list_aliases_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  transform_data_source() :: %{
-    "S3DataSource" => transform_s3_data_source()
-  }
+      
+      transform_data_source() :: %{
+        "S3DataSource" => transform_s3_data_source()
+      }
+      
   """
   @type transform_data_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_edge_deployment_stage_request() :: %{
-    required("EdgeDeploymentPlanName") => String.t(),
-    required("Stages") => list(deployment_stage()())
-  }
+      
+      create_edge_deployment_stage_request() :: %{
+        required("EdgeDeploymentPlanName") => String.t(),
+        required("Stages") => list(deployment_stage()())
+      }
+      
   """
   @type create_edge_deployment_stage_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_experiments_response() :: %{
-    "ExperimentSummaries" => list(experiment_summary()()),
-    "NextToken" => String.t()
-  }
+      
+      list_experiments_response() :: %{
+        "ExperimentSummaries" => list(experiment_summary()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_experiments_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  production_variant_serverless_update_config() :: %{
-    "MaxConcurrency" => integer(),
-    "ProvisionedConcurrency" => integer()
-  }
+      
+      production_variant_serverless_update_config() :: %{
+        "MaxConcurrency" => integer(),
+        "ProvisionedConcurrency" => integer()
+      }
+      
   """
   @type production_variant_serverless_update_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_artifact_request() :: %{
-    optional("ArtifactName") => String.t(),
-    optional("Properties") => map(),
-    optional("PropertiesToRemove") => list(String.t()()),
-    required("ArtifactArn") => String.t()
-  }
+      
+      update_artifact_request() :: %{
+        optional("ArtifactName") => String.t(),
+        optional("Properties") => map(),
+        optional("PropertiesToRemove") => list(String.t()()),
+        required("ArtifactArn") => String.t()
+      }
+      
   """
   @type update_artifact_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stop_inference_experiment_response() :: %{
-    "InferenceExperimentArn" => String.t()
-  }
+      
+      stop_inference_experiment_response() :: %{
+        "InferenceExperimentArn" => String.t()
+      }
+      
   """
   @type stop_inference_experiment_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  best_objective_not_improving() :: %{
-    "MaxNumberOfTrainingJobsNotImproving" => integer()
-  }
+      
+      best_objective_not_improving() :: %{
+        "MaxNumberOfTrainingJobsNotImproving" => integer()
+      }
+      
   """
   @type best_objective_not_improving() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_cluster_request() :: %{
-    required("ClusterName") => String.t()
-  }
+      
+      describe_cluster_request() :: %{
+        required("ClusterName") => String.t()
+      }
+      
   """
   @type describe_cluster_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_trial_request() :: %{
-    required("TrialName") => String.t()
-  }
+      
+      describe_trial_request() :: %{
+        required("TrialName") => String.t()
+      }
+      
   """
   @type describe_trial_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_aliases_request() :: %{
-    optional("Alias") => String.t(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("Version") => integer(),
-    required("ImageName") => String.t()
-  }
+      
+      list_aliases_request() :: %{
+        optional("Alias") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("Version") => integer(),
+        required("ImageName") => String.t()
+      }
+      
   """
   @type list_aliases_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_resource_catalogs_request() :: %{
-    optional("CreationTimeAfter") => non_neg_integer(),
-    optional("CreationTimeBefore") => non_neg_integer(),
-    optional("MaxResults") => integer(),
-    optional("NameContains") => String.t(),
-    optional("NextToken") => String.t(),
-    optional("SortBy") => list(any()),
-    optional("SortOrder") => list(any())
-  }
+      
+      list_resource_catalogs_request() :: %{
+        optional("CreationTimeAfter") => non_neg_integer(),
+        optional("CreationTimeBefore") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("NameContains") => String.t(),
+        optional("NextToken") => String.t(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any())
+      }
+      
   """
   @type list_resource_catalogs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_model_quality_job_definition_response() :: %{
-    "CreationTime" => non_neg_integer(),
-    "JobDefinitionArn" => String.t(),
-    "JobDefinitionName" => String.t(),
-    "JobResources" => monitoring_resources(),
-    "ModelQualityAppSpecification" => model_quality_app_specification(),
-    "ModelQualityBaselineConfig" => model_quality_baseline_config(),
-    "ModelQualityJobInput" => model_quality_job_input(),
-    "ModelQualityJobOutputConfig" => monitoring_output_config(),
-    "NetworkConfig" => monitoring_network_config(),
-    "RoleArn" => String.t(),
-    "StoppingCondition" => monitoring_stopping_condition()
-  }
+      
+      describe_model_quality_job_definition_response() :: %{
+        "CreationTime" => non_neg_integer(),
+        "JobDefinitionArn" => String.t(),
+        "JobDefinitionName" => String.t(),
+        "JobResources" => monitoring_resources(),
+        "ModelQualityAppSpecification" => model_quality_app_specification(),
+        "ModelQualityBaselineConfig" => model_quality_baseline_config(),
+        "ModelQualityJobInput" => model_quality_job_input(),
+        "ModelQualityJobOutputConfig" => monitoring_output_config(),
+        "NetworkConfig" => monitoring_network_config(),
+        "RoleArn" => String.t(),
+        "StoppingCondition" => monitoring_stopping_condition()
+      }
+      
   """
   @type describe_model_quality_job_definition_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_scaling_configuration_recommendation_request() :: %{
-    optional("EndpointName") => String.t(),
-    optional("RecommendationId") => String.t(),
-    optional("ScalingPolicyObjective") => scaling_policy_objective(),
-    optional("TargetCpuUtilizationPerCore") => integer(),
-    required("InferenceRecommendationsJobName") => String.t()
-  }
+      
+      get_scaling_configuration_recommendation_request() :: %{
+        optional("EndpointName") => String.t(),
+        optional("RecommendationId") => String.t(),
+        optional("ScalingPolicyObjective") => scaling_policy_objective(),
+        optional("TargetCpuUtilizationPerCore") => integer(),
+        required("InferenceRecommendationsJobName") => String.t()
+      }
+      
   """
   @type get_scaling_configuration_recommendation_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  model_latency_threshold() :: %{
-    "Percentile" => String.t(),
-    "ValueInMilliseconds" => integer()
-  }
+      
+      model_latency_threshold() :: %{
+        "Percentile" => String.t(),
+        "ValueInMilliseconds" => integer()
+      }
+      
   """
   @type model_latency_threshold() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_experiment_response() :: %{
-    "ExperimentArn" => String.t()
-  }
+      
+      delete_experiment_response() :: %{
+        "ExperimentArn" => String.t()
+      }
+      
   """
   @type delete_experiment_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  text_generation_job_config() :: %{
-    "BaseModelName" => String.t(),
-    "CompletionCriteria" => auto_ml_job_completion_criteria(),
-    "ModelAccessConfig" => model_access_config(),
-    "TextGenerationHyperParameters" => map()
-  }
+      
+      text_generation_job_config() :: %{
+        "BaseModelName" => String.t(),
+        "CompletionCriteria" => auto_ml_job_completion_criteria(),
+        "ModelAccessConfig" => model_access_config(),
+        "TextGenerationHyperParameters" => map()
+      }
+      
   """
   @type text_generation_job_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_hub_request() :: %{
-    optional("HubDescription") => String.t(),
-    optional("HubDisplayName") => String.t(),
-    optional("HubSearchKeywords") => list(String.t()()),
-    required("HubName") => String.t()
-  }
+      
+      update_hub_request() :: %{
+        optional("HubDescription") => String.t(),
+        optional("HubDisplayName") => String.t(),
+        optional("HubSearchKeywords") => list(String.t()()),
+        required("HubName") => String.t()
+      }
+      
   """
   @type update_hub_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_apps_response() :: %{
-    "Apps" => list(app_details()()),
-    "NextToken" => String.t()
-  }
+      
+      list_apps_response() :: %{
+        "Apps" => list(app_details()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_apps_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  inference_specification() :: %{
-    "Containers" => list(model_package_container_definition()()),
-    "SupportedContentTypes" => list(String.t()()),
-    "SupportedRealtimeInferenceInstanceTypes" => list(list(any())()),
-    "SupportedResponseMIMETypes" => list(String.t()()),
-    "SupportedTransformInstanceTypes" => list(list(any())())
-  }
+      
+      inference_specification() :: %{
+        "Containers" => list(model_package_container_definition()()),
+        "SupportedContentTypes" => list(String.t()()),
+        "SupportedRealtimeInferenceInstanceTypes" => list(list(any())()),
+        "SupportedResponseMIMETypes" => list(String.t()()),
+        "SupportedTransformInstanceTypes" => list(list(any())())
+      }
+      
   """
   @type inference_specification() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  time_series_forecasting_job_config() :: %{
-    "CompletionCriteria" => auto_ml_job_completion_criteria(),
-    "FeatureSpecificationS3Uri" => String.t(),
-    "ForecastFrequency" => String.t(),
-    "ForecastHorizon" => integer(),
-    "ForecastQuantiles" => list(String.t()()),
-    "HolidayConfig" => list(holiday_config_attributes()()),
-    "TimeSeriesConfig" => time_series_config(),
-    "Transformations" => time_series_transformations()
-  }
+      
+      time_series_forecasting_job_config() :: %{
+        "CompletionCriteria" => auto_ml_job_completion_criteria(),
+        "FeatureSpecificationS3Uri" => String.t(),
+        "ForecastFrequency" => String.t(),
+        "ForecastHorizon" => integer(),
+        "ForecastQuantiles" => list(String.t()()),
+        "HolidayConfig" => list(holiday_config_attributes()()),
+        "TimeSeriesConfig" => time_series_config(),
+        "Transformations" => time_series_transformations()
+      }
+      
   """
   @type time_series_forecasting_job_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_search_suggestions_request() :: %{
-    optional("SuggestionQuery") => suggestion_query(),
-    required("Resource") => list(any())
-  }
+      
+      get_search_suggestions_request() :: %{
+        optional("SuggestionQuery") => suggestion_query(),
+        required("Resource") => list(any())
+      }
+      
   """
   @type get_search_suggestions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_inference_component_input() :: %{
-    optional("Tags") => list(tag()()),
-    required("EndpointName") => String.t(),
-    required("InferenceComponentName") => String.t(),
-    required("RuntimeConfig") => inference_component_runtime_config(),
-    required("Specification") => inference_component_specification(),
-    required("VariantName") => String.t()
-  }
+      
+      create_inference_component_input() :: %{
+        optional("Tags") => list(tag()()),
+        required("EndpointName") => String.t(),
+        required("InferenceComponentName") => String.t(),
+        required("RuntimeConfig") => inference_component_runtime_config(),
+        required("Specification") => inference_component_specification(),
+        required("VariantName") => String.t()
+      }
+      
   """
   @type create_inference_component_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  hyperband_strategy_config() :: %{
-    "MaxResource" => integer(),
-    "MinResource" => integer()
-  }
+      
+      hyperband_strategy_config() :: %{
+        "MaxResource" => integer(),
+        "MinResource" => integer()
+      }
+      
   """
   @type hyperband_strategy_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_model_card_response() :: %{
-    "ModelCardArn" => String.t()
-  }
+      
+      update_model_card_response() :: %{
+        "ModelCardArn" => String.t()
+      }
+      
   """
   @type update_model_card_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_inference_experiment_request() :: %{
-    optional("DataStorageConfig") => inference_experiment_data_storage_config(),
-    optional("Description") => String.t(),
-    optional("ModelVariants") => list(model_variant_config()()),
-    optional("Schedule") => inference_experiment_schedule(),
-    optional("ShadowModeConfig") => shadow_mode_config(),
-    required("Name") => String.t()
-  }
+      
+      update_inference_experiment_request() :: %{
+        optional("DataStorageConfig") => inference_experiment_data_storage_config(),
+        optional("Description") => String.t(),
+        optional("ModelVariants") => list(model_variant_config()()),
+        optional("Schedule") => inference_experiment_schedule(),
+        optional("ShadowModeConfig") => shadow_mode_config(),
+        required("Name") => String.t()
+      }
+      
   """
   @type update_inference_experiment_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  hub_content_dependency() :: %{
-    "DependencyCopyPath" => String.t(),
-    "DependencyOriginPath" => String.t()
-  }
+      
+      hub_content_dependency() :: %{
+        "DependencyCopyPath" => String.t(),
+        "DependencyOriginPath" => String.t()
+      }
+      
   """
   @type hub_content_dependency() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  inference_component_runtime_config_summary() :: %{
-    "CurrentCopyCount" => integer(),
-    "DesiredCopyCount" => integer()
-  }
+      
+      inference_component_runtime_config_summary() :: %{
+        "CurrentCopyCount" => integer(),
+        "DesiredCopyCount" => integer()
+      }
+      
   """
   @type inference_component_runtime_config_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_space_request() :: %{
-    required("DomainId") => String.t(),
-    required("SpaceName") => String.t()
-  }
+      
+      delete_space_request() :: %{
+        required("DomainId") => String.t(),
+        required("SpaceName") => String.t()
+      }
+      
   """
   @type delete_space_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  hyper_parameter_tuning_job_consumed_resources() :: %{
-    "RuntimeInSeconds" => integer()
-  }
+      
+      hyper_parameter_tuning_job_consumed_resources() :: %{
+        "RuntimeInSeconds" => integer()
+      }
+      
   """
   @type hyper_parameter_tuning_job_consumed_resources() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stop_transform_job_request() :: %{
-    required("TransformJobName") => String.t()
-  }
+      
+      stop_transform_job_request() :: %{
+        required("TransformJobName") => String.t()
+      }
+      
   """
   @type stop_transform_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_human_task_ui_request() :: %{
-    required("HumanTaskUiName") => String.t()
-  }
+      
+      delete_human_task_ui_request() :: %{
+        required("HumanTaskUiName") => String.t()
+      }
+      
   """
   @type delete_human_task_ui_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  notebook_instance_summary() :: %{
-    "AdditionalCodeRepositories" => list(String.t()()),
-    "CreationTime" => non_neg_integer(),
-    "DefaultCodeRepository" => String.t(),
-    "InstanceType" => list(any()),
-    "LastModifiedTime" => non_neg_integer(),
-    "NotebookInstanceArn" => String.t(),
-    "NotebookInstanceLifecycleConfigName" => String.t(),
-    "NotebookInstanceName" => String.t(),
-    "NotebookInstanceStatus" => list(any()),
-    "Url" => String.t()
-  }
+      
+      notebook_instance_summary() :: %{
+        "AdditionalCodeRepositories" => list(String.t()()),
+        "CreationTime" => non_neg_integer(),
+        "DefaultCodeRepository" => String.t(),
+        "InstanceType" => list(any()),
+        "LastModifiedTime" => non_neg_integer(),
+        "NotebookInstanceArn" => String.t(),
+        "NotebookInstanceLifecycleConfigName" => String.t(),
+        "NotebookInstanceName" => String.t(),
+        "NotebookInstanceStatus" => list(any()),
+        "Url" => String.t()
+      }
+      
   """
   @type notebook_instance_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_endpoints_input() :: %{
-    optional("CreationTimeAfter") => non_neg_integer(),
-    optional("CreationTimeBefore") => non_neg_integer(),
-    optional("LastModifiedTimeAfter") => non_neg_integer(),
-    optional("LastModifiedTimeBefore") => non_neg_integer(),
-    optional("MaxResults") => integer(),
-    optional("NameContains") => String.t(),
-    optional("NextToken") => String.t(),
-    optional("SortBy") => list(any()),
-    optional("SortOrder") => list(any()),
-    optional("StatusEquals") => list(any())
-  }
+      
+      list_endpoints_input() :: %{
+        optional("CreationTimeAfter") => non_neg_integer(),
+        optional("CreationTimeBefore") => non_neg_integer(),
+        optional("LastModifiedTimeAfter") => non_neg_integer(),
+        optional("LastModifiedTimeBefore") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("NameContains") => String.t(),
+        optional("NextToken") => String.t(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any()),
+        optional("StatusEquals") => list(any())
+      }
+      
   """
   @type list_endpoints_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_inference_component_output() :: %{
-    "CreationTime" => non_neg_integer(),
-    "EndpointArn" => String.t(),
-    "EndpointName" => String.t(),
-    "FailureReason" => String.t(),
-    "InferenceComponentArn" => String.t(),
-    "InferenceComponentName" => String.t(),
-    "InferenceComponentStatus" => list(any()),
-    "LastModifiedTime" => non_neg_integer(),
-    "RuntimeConfig" => inference_component_runtime_config_summary(),
-    "Specification" => inference_component_specification_summary(),
-    "VariantName" => String.t()
-  }
+      
+      describe_inference_component_output() :: %{
+        "CreationTime" => non_neg_integer(),
+        "EndpointArn" => String.t(),
+        "EndpointName" => String.t(),
+        "FailureReason" => String.t(),
+        "InferenceComponentArn" => String.t(),
+        "InferenceComponentName" => String.t(),
+        "InferenceComponentStatus" => list(any()),
+        "LastModifiedTime" => non_neg_integer(),
+        "RuntimeConfig" => inference_component_runtime_config_summary(),
+        "Specification" => inference_component_specification_summary(),
+        "VariantName" => String.t()
+      }
+      
   """
   @type describe_inference_component_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_inference_experiment_response() :: %{
-    "Arn" => String.t(),
-    "CompletionTime" => non_neg_integer(),
-    "CreationTime" => non_neg_integer(),
-    "DataStorageConfig" => inference_experiment_data_storage_config(),
-    "Description" => String.t(),
-    "EndpointMetadata" => endpoint_metadata(),
-    "KmsKey" => String.t(),
-    "LastModifiedTime" => non_neg_integer(),
-    "ModelVariants" => list(model_variant_config_summary()()),
-    "Name" => String.t(),
-    "RoleArn" => String.t(),
-    "Schedule" => inference_experiment_schedule(),
-    "ShadowModeConfig" => shadow_mode_config(),
-    "Status" => list(any()),
-    "StatusReason" => String.t(),
-    "Type" => list(any())
-  }
+      
+      describe_inference_experiment_response() :: %{
+        "Arn" => String.t(),
+        "CompletionTime" => non_neg_integer(),
+        "CreationTime" => non_neg_integer(),
+        "DataStorageConfig" => inference_experiment_data_storage_config(),
+        "Description" => String.t(),
+        "EndpointMetadata" => endpoint_metadata(),
+        "KmsKey" => String.t(),
+        "LastModifiedTime" => non_neg_integer(),
+        "ModelVariants" => list(model_variant_config_summary()()),
+        "Name" => String.t(),
+        "RoleArn" => String.t(),
+        "Schedule" => inference_experiment_schedule(),
+        "ShadowModeConfig" => shadow_mode_config(),
+        "Status" => list(any()),
+        "StatusReason" => String.t(),
+        "Type" => list(any())
+      }
+      
   """
   @type describe_inference_experiment_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_user_profile_request() :: %{
-    optional("UserSettings") => user_settings(),
-    required("DomainId") => String.t(),
-    required("UserProfileName") => String.t()
-  }
+      
+      update_user_profile_request() :: %{
+        optional("UserSettings") => user_settings(),
+        required("DomainId") => String.t(),
+        required("UserProfileName") => String.t()
+      }
+      
   """
   @type update_user_profile_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  metric_data() :: %{
-    "MetricName" => String.t(),
-    "Timestamp" => non_neg_integer(),
-    "Value" => float()
-  }
+      
+      metric_data() :: %{
+        "MetricName" => String.t(),
+        "Timestamp" => non_neg_integer(),
+        "Value" => float()
+      }
+      
   """
   @type metric_data() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_devices_request() :: %{
-    optional("DeviceFleetName") => String.t(),
-    optional("LatestHeartbeatAfter") => non_neg_integer(),
-    optional("MaxResults") => integer(),
-    optional("ModelName") => String.t(),
-    optional("NextToken") => String.t()
-  }
+      
+      list_devices_request() :: %{
+        optional("DeviceFleetName") => String.t(),
+        optional("LatestHeartbeatAfter") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("ModelName") => String.t(),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type list_devices_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_endpoint_config_output() :: %{
-    "AsyncInferenceConfig" => async_inference_config(),
-    "CreationTime" => non_neg_integer(),
-    "DataCaptureConfig" => data_capture_config(),
-    "EnableNetworkIsolation" => boolean(),
-    "EndpointConfigArn" => String.t(),
-    "EndpointConfigName" => String.t(),
-    "ExecutionRoleArn" => String.t(),
-    "ExplainerConfig" => explainer_config(),
-    "KmsKeyId" => String.t(),
-    "ProductionVariants" => list(production_variant()()),
-    "ShadowProductionVariants" => list(production_variant()()),
-    "VpcConfig" => vpc_config()
-  }
+      
+      describe_endpoint_config_output() :: %{
+        "AsyncInferenceConfig" => async_inference_config(),
+        "CreationTime" => non_neg_integer(),
+        "DataCaptureConfig" => data_capture_config(),
+        "EnableNetworkIsolation" => boolean(),
+        "EndpointConfigArn" => String.t(),
+        "EndpointConfigName" => String.t(),
+        "ExecutionRoleArn" => String.t(),
+        "ExplainerConfig" => explainer_config(),
+        "KmsKeyId" => String.t(),
+        "ProductionVariants" => list(production_variant()()),
+        "ShadowProductionVariants" => list(production_variant()()),
+        "VpcConfig" => vpc_config()
+      }
+      
   """
   @type describe_endpoint_config_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_domain_request() :: %{
-    optional("AppNetworkAccessType") => list(any()),
-    optional("AppSecurityGroupManagement") => list(any()),
-    optional("DefaultSpaceSettings") => default_space_settings(),
-    optional("DefaultUserSettings") => user_settings(),
-    optional("DomainSettingsForUpdate") => domain_settings_for_update(),
-    optional("SubnetIds") => list(String.t()()),
-    required("DomainId") => String.t()
-  }
+      
+      update_domain_request() :: %{
+        optional("AppNetworkAccessType") => list(any()),
+        optional("AppSecurityGroupManagement") => list(any()),
+        optional("DefaultSpaceSettings") => default_space_settings(),
+        optional("DefaultUserSettings") => user_settings(),
+        optional("DomainSettingsForUpdate") => domain_settings_for_update(),
+        optional("SubnetIds") => list(String.t()()),
+        required("DomainId") => String.t()
+      }
+      
   """
   @type update_domain_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resolved_attributes() :: %{
-    "AutoMLJobObjective" => auto_ml_job_objective(),
-    "CompletionCriteria" => auto_ml_job_completion_criteria(),
-    "ProblemType" => list(any())
-  }
+      
+      resolved_attributes() :: %{
+        "AutoMLJobObjective" => auto_ml_job_objective(),
+        "CompletionCriteria" => auto_ml_job_completion_criteria(),
+        "ProblemType" => list(any())
+      }
+      
   """
   @type resolved_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_user_profiles_response() :: %{
-    "NextToken" => String.t(),
-    "UserProfiles" => list(user_profile_details()())
-  }
+      
+      list_user_profiles_response() :: %{
+        "NextToken" => String.t(),
+        "UserProfiles" => list(user_profile_details()())
+      }
+      
   """
   @type list_user_profiles_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_limits() :: %{
-    "MaxNumberOfTrainingJobs" => integer(),
-    "MaxParallelTrainingJobs" => integer(),
-    "MaxRuntimeInSeconds" => integer()
-  }
+      
+      resource_limits() :: %{
+        "MaxNumberOfTrainingJobs" => integer(),
+        "MaxParallelTrainingJobs" => integer(),
+        "MaxRuntimeInSeconds" => integer()
+      }
+      
   """
   @type resource_limits() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_not_found() :: %{
-    "Message" => String.t()
-  }
+      
+      resource_not_found() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type resource_not_found() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ui_config() :: %{
-    "HumanTaskUiArn" => String.t(),
-    "UiTemplateS3Uri" => String.t()
-  }
+      
+      ui_config() :: %{
+        "HumanTaskUiArn" => String.t(),
+        "UiTemplateS3Uri" => String.t()
+      }
+      
   """
   @type ui_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_processing_job_response() :: %{
-    "AppSpecification" => app_specification(),
-    "AutoMLJobArn" => String.t(),
-    "CreationTime" => non_neg_integer(),
-    "Environment" => map(),
-    "ExitMessage" => String.t(),
-    "ExperimentConfig" => experiment_config(),
-    "FailureReason" => String.t(),
-    "LastModifiedTime" => non_neg_integer(),
-    "MonitoringScheduleArn" => String.t(),
-    "NetworkConfig" => network_config(),
-    "ProcessingEndTime" => non_neg_integer(),
-    "ProcessingInputs" => list(processing_input()()),
-    "ProcessingJobArn" => String.t(),
-    "ProcessingJobName" => String.t(),
-    "ProcessingJobStatus" => list(any()),
-    "ProcessingOutputConfig" => processing_output_config(),
-    "ProcessingResources" => processing_resources(),
-    "ProcessingStartTime" => non_neg_integer(),
-    "RoleArn" => String.t(),
-    "StoppingCondition" => processing_stopping_condition(),
-    "TrainingJobArn" => String.t()
-  }
+      
+      describe_processing_job_response() :: %{
+        "AppSpecification" => app_specification(),
+        "AutoMLJobArn" => String.t(),
+        "CreationTime" => non_neg_integer(),
+        "Environment" => map(),
+        "ExitMessage" => String.t(),
+        "ExperimentConfig" => experiment_config(),
+        "FailureReason" => String.t(),
+        "LastModifiedTime" => non_neg_integer(),
+        "MonitoringScheduleArn" => String.t(),
+        "NetworkConfig" => network_config(),
+        "ProcessingEndTime" => non_neg_integer(),
+        "ProcessingInputs" => list(processing_input()()),
+        "ProcessingJobArn" => String.t(),
+        "ProcessingJobName" => String.t(),
+        "ProcessingJobStatus" => list(any()),
+        "ProcessingOutputConfig" => processing_output_config(),
+        "ProcessingResources" => processing_resources(),
+        "ProcessingStartTime" => non_neg_integer(),
+        "RoleArn" => String.t(),
+        "StoppingCondition" => processing_stopping_condition(),
+        "TrainingJobArn" => String.t()
+      }
+      
   """
   @type describe_processing_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  hub_info() :: %{
-    "CreationTime" => non_neg_integer(),
-    "HubArn" => String.t(),
-    "HubDescription" => String.t(),
-    "HubDisplayName" => String.t(),
-    "HubName" => String.t(),
-    "HubSearchKeywords" => list(String.t()()),
-    "HubStatus" => list(any()),
-    "LastModifiedTime" => non_neg_integer()
-  }
+      
+      hub_info() :: %{
+        "CreationTime" => non_neg_integer(),
+        "HubArn" => String.t(),
+        "HubDescription" => String.t(),
+        "HubDisplayName" => String.t(),
+        "HubName" => String.t(),
+        "HubSearchKeywords" => list(String.t()()),
+        "HubStatus" => list(any()),
+        "LastModifiedTime" => non_neg_integer()
+      }
+      
   """
   @type hub_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  monitoring_stopping_condition() :: %{
-    "MaxRuntimeInSeconds" => integer()
-  }
+      
+      monitoring_stopping_condition() :: %{
+        "MaxRuntimeInSeconds" => integer()
+      }
+      
   """
   @type monitoring_stopping_condition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_inference_recommendations_job_response() :: %{
-    "CompletionTime" => non_neg_integer(),
-    "CreationTime" => non_neg_integer(),
-    "EndpointPerformances" => list(endpoint_performance()()),
-    "FailureReason" => String.t(),
-    "InferenceRecommendations" => list(inference_recommendation()()),
-    "InputConfig" => recommendation_job_input_config(),
-    "JobArn" => String.t(),
-    "JobDescription" => String.t(),
-    "JobName" => String.t(),
-    "JobType" => list(any()),
-    "LastModifiedTime" => non_neg_integer(),
-    "RoleArn" => String.t(),
-    "Status" => list(any()),
-    "StoppingConditions" => recommendation_job_stopping_conditions()
-  }
+      
+      describe_inference_recommendations_job_response() :: %{
+        "CompletionTime" => non_neg_integer(),
+        "CreationTime" => non_neg_integer(),
+        "EndpointPerformances" => list(endpoint_performance()()),
+        "FailureReason" => String.t(),
+        "InferenceRecommendations" => list(inference_recommendation()()),
+        "InputConfig" => recommendation_job_input_config(),
+        "JobArn" => String.t(),
+        "JobDescription" => String.t(),
+        "JobName" => String.t(),
+        "JobType" => list(any()),
+        "LastModifiedTime" => non_neg_integer(),
+        "RoleArn" => String.t(),
+        "Status" => list(any()),
+        "StoppingConditions" => recommendation_job_stopping_conditions()
+      }
+      
   """
   @type describe_inference_recommendations_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  monitoring_cluster_config() :: %{
-    "InstanceCount" => integer(),
-    "InstanceType" => list(any()),
-    "VolumeKmsKeyId" => String.t(),
-    "VolumeSizeInGB" => integer()
-  }
+      
+      monitoring_cluster_config() :: %{
+        "InstanceCount" => integer(),
+        "InstanceType" => list(any()),
+        "VolumeKmsKeyId" => String.t(),
+        "VolumeSizeInGB" => integer()
+      }
+      
   """
   @type monitoring_cluster_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  integer_parameter_range() :: %{
-    "MaxValue" => String.t(),
-    "MinValue" => String.t(),
-    "Name" => String.t(),
-    "ScalingType" => list(any())
-  }
+      
+      integer_parameter_range() :: %{
+        "MaxValue" => String.t(),
+        "MinValue" => String.t(),
+        "Name" => String.t(),
+        "ScalingType" => list(any())
+      }
+      
   """
   @type integer_parameter_range() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_pipeline_execution_request() :: %{
-    optional("ParallelismConfiguration") => parallelism_configuration(),
-    optional("PipelineExecutionDescription") => String.t(),
-    optional("PipelineExecutionDisplayName") => String.t(),
-    required("PipelineExecutionArn") => String.t()
-  }
+      
+      update_pipeline_execution_request() :: %{
+        optional("ParallelismConfiguration") => parallelism_configuration(),
+        optional("PipelineExecutionDescription") => String.t(),
+        optional("PipelineExecutionDisplayName") => String.t(),
+        required("PipelineExecutionArn") => String.t()
+      }
+      
   """
   @type update_pipeline_execution_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  throughput_config_update() :: %{
-    "ProvisionedReadCapacityUnits" => integer(),
-    "ProvisionedWriteCapacityUnits" => integer(),
-    "ThroughputMode" => list(any())
-  }
+      
+      throughput_config_update() :: %{
+        "ProvisionedReadCapacityUnits" => integer(),
+        "ProvisionedWriteCapacityUnits" => integer(),
+        "ThroughputMode" => list(any())
+      }
+      
   """
   @type throughput_config_update() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_app_image_config_response() :: %{
-    "AppImageConfigArn" => String.t()
-  }
+      
+      update_app_image_config_response() :: %{
+        "AppImageConfigArn" => String.t()
+      }
+      
   """
   @type update_app_image_config_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  model_data_quality() :: %{
-    "Constraints" => metrics_source(),
-    "Statistics" => metrics_source()
-  }
+      
+      model_data_quality() :: %{
+        "Constraints" => metrics_source(),
+        "Statistics" => metrics_source()
+      }
+      
   """
   @type model_data_quality() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  experiment_summary() :: %{
-    "CreationTime" => non_neg_integer(),
-    "DisplayName" => String.t(),
-    "ExperimentArn" => String.t(),
-    "ExperimentName" => String.t(),
-    "ExperimentSource" => experiment_source(),
-    "LastModifiedTime" => non_neg_integer()
-  }
+      
+      experiment_summary() :: %{
+        "CreationTime" => non_neg_integer(),
+        "DisplayName" => String.t(),
+        "ExperimentArn" => String.t(),
+        "ExperimentName" => String.t(),
+        "ExperimentSource" => experiment_source(),
+        "LastModifiedTime" => non_neg_integer()
+      }
+      
   """
   @type experiment_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_pipeline_definition_for_execution_response() :: %{
-    "CreationTime" => non_neg_integer(),
-    "PipelineDefinition" => String.t()
-  }
+      
+      describe_pipeline_definition_for_execution_response() :: %{
+        "CreationTime" => non_neg_integer(),
+        "PipelineDefinition" => String.t()
+      }
+      
   """
   @type describe_pipeline_definition_for_execution_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  labeling_job_output() :: %{
-    "FinalActiveLearningModelArn" => String.t(),
-    "OutputDatasetS3Uri" => String.t()
-  }
+      
+      labeling_job_output() :: %{
+        "FinalActiveLearningModelArn" => String.t(),
+        "OutputDatasetS3Uri" => String.t()
+      }
+      
   """
   @type labeling_job_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  model_card_export_artifacts() :: %{
-    "S3ExportArtifacts" => String.t()
-  }
+      
+      model_card_export_artifacts() :: %{
+        "S3ExportArtifacts" => String.t()
+      }
+      
   """
   @type model_card_export_artifacts() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_model_explainability_job_definitions_request() :: %{
-    optional("CreationTimeAfter") => non_neg_integer(),
-    optional("CreationTimeBefore") => non_neg_integer(),
-    optional("EndpointName") => String.t(),
-    optional("MaxResults") => integer(),
-    optional("NameContains") => String.t(),
-    optional("NextToken") => String.t(),
-    optional("SortBy") => list(any()),
-    optional("SortOrder") => list(any())
-  }
+      
+      list_model_explainability_job_definitions_request() :: %{
+        optional("CreationTimeAfter") => non_neg_integer(),
+        optional("CreationTimeBefore") => non_neg_integer(),
+        optional("EndpointName") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NameContains") => String.t(),
+        optional("NextToken") => String.t(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any())
+      }
+      
   """
   @type list_model_explainability_job_definitions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_app_image_config_response() :: %{
-    "AppImageConfigArn" => String.t()
-  }
+      
+      create_app_image_config_response() :: %{
+        "AppImageConfigArn" => String.t()
+      }
+      
   """
   @type create_app_image_config_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  edge_deployment_plan_summary() :: %{
-    "CreationTime" => non_neg_integer(),
-    "DeviceFleetName" => String.t(),
-    "EdgeDeploymentFailed" => integer(),
-    "EdgeDeploymentPending" => integer(),
-    "EdgeDeploymentPlanArn" => String.t(),
-    "EdgeDeploymentPlanName" => String.t(),
-    "EdgeDeploymentSuccess" => integer(),
-    "LastModifiedTime" => non_neg_integer()
-  }
+      
+      edge_deployment_plan_summary() :: %{
+        "CreationTime" => non_neg_integer(),
+        "DeviceFleetName" => String.t(),
+        "EdgeDeploymentFailed" => integer(),
+        "EdgeDeploymentPending" => integer(),
+        "EdgeDeploymentPlanArn" => String.t(),
+        "EdgeDeploymentPlanName" => String.t(),
+        "EdgeDeploymentSuccess" => integer(),
+        "LastModifiedTime" => non_neg_integer()
+      }
+      
   """
   @type edge_deployment_plan_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  auto_ml_resolved_attributes() :: %{
-    "AutoMLJobObjective" => auto_ml_job_objective(),
-    "AutoMLProblemTypeResolvedAttributes" => list(),
-    "CompletionCriteria" => auto_ml_job_completion_criteria()
-  }
+      
+      auto_ml_resolved_attributes() :: %{
+        "AutoMLJobObjective" => auto_ml_job_objective(),
+        "AutoMLProblemTypeResolvedAttributes" => list(),
+        "CompletionCriteria" => auto_ml_job_completion_criteria()
+      }
+      
   """
   @type auto_ml_resolved_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  model_variant_config() :: %{
-    "InfrastructureConfig" => model_infrastructure_config(),
-    "ModelName" => String.t(),
-    "VariantName" => String.t()
-  }
+      
+      model_variant_config() :: %{
+        "InfrastructureConfig" => model_infrastructure_config(),
+        "ModelName" => String.t(),
+        "VariantName" => String.t()
+      }
+      
   """
   @type model_variant_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_model_output() :: %{
-    "ModelArn" => String.t()
-  }
+      
+      create_model_output() :: %{
+        "ModelArn" => String.t()
+      }
+      
   """
   @type create_model_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  trial_component_source() :: %{
-    "SourceArn" => String.t(),
-    "SourceType" => String.t()
-  }
+      
+      trial_component_source() :: %{
+        "SourceArn" => String.t(),
+        "SourceType" => String.t()
+      }
+      
   """
   @type trial_component_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  environment_parameter_ranges() :: %{
-    "CategoricalParameterRanges" => list(categorical_parameter()())
-  }
+      
+      environment_parameter_ranges() :: %{
+        "CategoricalParameterRanges" => list(categorical_parameter()())
+      }
+      
   """
   @type environment_parameter_ranges() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_pipelines_response() :: %{
-    "NextToken" => String.t(),
-    "PipelineSummaries" => list(pipeline_summary()())
-  }
+      
+      list_pipelines_response() :: %{
+        "NextToken" => String.t(),
+        "PipelineSummaries" => list(pipeline_summary()())
+      }
+      
   """
   @type list_pipelines_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  model_card_security_config() :: %{
-    "KmsKeyId" => String.t()
-  }
+      
+      model_card_security_config() :: %{
+        "KmsKeyId" => String.t()
+      }
+      
   """
   @type model_card_security_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_workforces_response() :: %{
-    "NextToken" => String.t(),
-    "Workforces" => list(workforce()())
-  }
+      
+      list_workforces_response() :: %{
+        "NextToken" => String.t(),
+        "Workforces" => list(workforce()())
+      }
+      
   """
   @type list_workforces_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  capture_option() :: %{
-    "CaptureMode" => list(any())
-  }
+      
+      capture_option() :: %{
+        "CaptureMode" => list(any())
+      }
+      
   """
   @type capture_option() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_inference_component_output() :: %{
-    "InferenceComponentArn" => String.t()
-  }
+      
+      update_inference_component_output() :: %{
+        "InferenceComponentArn" => String.t()
+      }
+      
   """
   @type update_inference_component_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_app_image_config_response() :: %{
-    "AppImageConfigArn" => String.t(),
-    "AppImageConfigName" => String.t(),
-    "CreationTime" => non_neg_integer(),
-    "JupyterLabAppImageConfig" => jupyter_lab_app_image_config(),
-    "KernelGatewayImageConfig" => kernel_gateway_image_config(),
-    "LastModifiedTime" => non_neg_integer()
-  }
+      
+      describe_app_image_config_response() :: %{
+        "AppImageConfigArn" => String.t(),
+        "AppImageConfigName" => String.t(),
+        "CreationTime" => non_neg_integer(),
+        "JupyterLabAppImageConfig" => jupyter_lab_app_image_config(),
+        "KernelGatewayImageConfig" => kernel_gateway_image_config(),
+        "LastModifiedTime" => non_neg_integer()
+      }
+      
   """
   @type describe_app_image_config_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_app_request() :: %{
-    optional("ResourceSpec") => resource_spec(),
-    optional("SpaceName") => String.t(),
-    optional("Tags") => list(tag()()),
-    optional("UserProfileName") => String.t(),
-    required("AppName") => String.t(),
-    required("AppType") => list(any()),
-    required("DomainId") => String.t()
-  }
+      
+      create_app_request() :: %{
+        optional("ResourceSpec") => resource_spec(),
+        optional("SpaceName") => String.t(),
+        optional("Tags") => list(tag()()),
+        optional("UserProfileName") => String.t(),
+        required("AppName") => String.t(),
+        required("AppType") => list(any()),
+        required("DomainId") => String.t()
+      }
+      
   """
   @type create_app_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  monitoring_alert_actions() :: %{
-    "ModelDashboardIndicator" => model_dashboard_indicator_action()
-  }
+      
+      monitoring_alert_actions() :: %{
+        "ModelDashboardIndicator" => model_dashboard_indicator_action()
+      }
+      
   """
   @type monitoring_alert_actions() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_pipeline_response() :: %{
-    "PipelineArn" => String.t()
-  }
+      
+      update_pipeline_response() :: %{
+        "PipelineArn" => String.t()
+      }
+      
   """
   @type update_pipeline_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  import_hub_content_response() :: %{
-    "HubArn" => String.t(),
-    "HubContentArn" => String.t()
-  }
+      
+      import_hub_content_response() :: %{
+        "HubArn" => String.t(),
+        "HubContentArn" => String.t()
+      }
+      
   """
   @type import_hub_content_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ui_template() :: %{
-    "Content" => String.t()
-  }
+      
+      ui_template() :: %{
+        "Content" => String.t()
+      }
+      
   """
   @type ui_template() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_cluster_nodes_request() :: %{
-    optional("CreationTimeAfter") => non_neg_integer(),
-    optional("CreationTimeBefore") => non_neg_integer(),
-    optional("InstanceGroupNameContains") => String.t(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("SortBy") => list(any()),
-    optional("SortOrder") => list(any()),
-    required("ClusterName") => String.t()
-  }
+      
+      list_cluster_nodes_request() :: %{
+        optional("CreationTimeAfter") => non_neg_integer(),
+        optional("CreationTimeBefore") => non_neg_integer(),
+        optional("InstanceGroupNameContains") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any()),
+        required("ClusterName") => String.t()
+      }
+      
   """
   @type list_cluster_nodes_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  git_config_for_update() :: %{
-    "SecretArn" => String.t()
-  }
+      
+      git_config_for_update() :: %{
+        "SecretArn" => String.t()
+      }
+      
   """
   @type git_config_for_update() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_image_response() :: %{
-    "ImageArn" => String.t()
-  }
+      
+      create_image_response() :: %{
+        "ImageArn" => String.t()
+      }
+      
   """
   @type create_image_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  add_association_request() :: %{
-    optional("AssociationType") => list(any()),
-    required("DestinationArn") => String.t(),
-    required("SourceArn") => String.t()
-  }
+      
+      add_association_request() :: %{
+        optional("AssociationType") => list(any()),
+        required("DestinationArn") => String.t(),
+        required("SourceArn") => String.t()
+      }
+      
   """
   @type add_association_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  pipeline_execution_step_metadata() :: %{
-    "AutoMLJob" => auto_ml_job_step_metadata(),
-    "Callback" => callback_step_metadata(),
-    "ClarifyCheck" => clarify_check_step_metadata(),
-    "Condition" => condition_step_metadata(),
-    "EMR" => emr_step_metadata(),
-    "Fail" => fail_step_metadata(),
-    "Lambda" => lambda_step_metadata(),
-    "Model" => model_step_metadata(),
-    "ProcessingJob" => processing_job_step_metadata(),
-    "QualityCheck" => quality_check_step_metadata(),
-    "RegisterModel" => register_model_step_metadata(),
-    "TrainingJob" => training_job_step_metadata(),
-    "TransformJob" => transform_job_step_metadata(),
-    "TuningJob" => tuning_job_step_meta_data()
-  }
+      
+      pipeline_execution_step_metadata() :: %{
+        "AutoMLJob" => auto_ml_job_step_metadata(),
+        "Callback" => callback_step_metadata(),
+        "ClarifyCheck" => clarify_check_step_metadata(),
+        "Condition" => condition_step_metadata(),
+        "EMR" => emr_step_metadata(),
+        "Fail" => fail_step_metadata(),
+        "Lambda" => lambda_step_metadata(),
+        "Model" => model_step_metadata(),
+        "ProcessingJob" => processing_job_step_metadata(),
+        "QualityCheck" => quality_check_step_metadata(),
+        "RegisterModel" => register_model_step_metadata(),
+        "TrainingJob" => training_job_step_metadata(),
+        "TransformJob" => transform_job_step_metadata(),
+        "TuningJob" => tuning_job_step_meta_data()
+      }
+      
   """
   @type pipeline_execution_step_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  bias() :: %{
-    "PostTrainingReport" => metrics_source(),
-    "PreTrainingReport" => metrics_source(),
-    "Report" => metrics_source()
-  }
+      
+      bias() :: %{
+        "PostTrainingReport" => metrics_source(),
+        "PreTrainingReport" => metrics_source(),
+        "Report" => metrics_source()
+      }
+      
   """
   @type bias() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  drift_check_model_data_quality() :: %{
-    "Constraints" => metrics_source(),
-    "Statistics" => metrics_source()
-  }
+      
+      drift_check_model_data_quality() :: %{
+        "Constraints" => metrics_source(),
+        "Statistics" => metrics_source()
+      }
+      
   """
   @type drift_check_model_data_quality() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_pipelines_request() :: %{
-    optional("CreatedAfter") => non_neg_integer(),
-    optional("CreatedBefore") => non_neg_integer(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("PipelineNamePrefix") => String.t(),
-    optional("SortBy") => list(any()),
-    optional("SortOrder") => list(any())
-  }
+      
+      list_pipelines_request() :: %{
+        optional("CreatedAfter") => non_neg_integer(),
+        optional("CreatedBefore") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("PipelineNamePrefix") => String.t(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any())
+      }
+      
   """
   @type list_pipelines_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_model_package_input() :: %{
-    required("ModelPackageName") => String.t()
-  }
+      
+      describe_model_package_input() :: %{
+        required("ModelPackageName") => String.t()
+      }
+      
   """
   @type describe_model_package_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  categorical_parameter_range_specification() :: %{
-    "Values" => list(String.t()())
-  }
+      
+      categorical_parameter_range_specification() :: %{
+        "Values" => list(String.t()())
+      }
+      
   """
   @type categorical_parameter_range_specification() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_hub_content_response() :: %{
-    "CreationTime" => non_neg_integer(),
-    "DocumentSchemaVersion" => String.t(),
-    "FailureReason" => String.t(),
-    "HubArn" => String.t(),
-    "HubContentArn" => String.t(),
-    "HubContentDependencies" => list(hub_content_dependency()()),
-    "HubContentDescription" => String.t(),
-    "HubContentDisplayName" => String.t(),
-    "HubContentDocument" => String.t(),
-    "HubContentMarkdown" => String.t(),
-    "HubContentName" => String.t(),
-    "HubContentSearchKeywords" => list(String.t()()),
-    "HubContentStatus" => list(any()),
-    "HubContentType" => list(any()),
-    "HubContentVersion" => String.t(),
-    "HubName" => String.t()
-  }
+      
+      describe_hub_content_response() :: %{
+        "CreationTime" => non_neg_integer(),
+        "DocumentSchemaVersion" => String.t(),
+        "FailureReason" => String.t(),
+        "HubArn" => String.t(),
+        "HubContentArn" => String.t(),
+        "HubContentDependencies" => list(hub_content_dependency()()),
+        "HubContentDescription" => String.t(),
+        "HubContentDisplayName" => String.t(),
+        "HubContentDocument" => String.t(),
+        "HubContentMarkdown" => String.t(),
+        "HubContentName" => String.t(),
+        "HubContentSearchKeywords" => list(String.t()()),
+        "HubContentStatus" => list(any()),
+        "HubContentType" => list(any()),
+        "HubContentVersion" => String.t(),
+        "HubName" => String.t()
+      }
+      
   """
   @type describe_hub_content_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  processing_resources() :: %{
-    "ClusterConfig" => processing_cluster_config()
-  }
+      
+      processing_resources() :: %{
+        "ClusterConfig" => processing_cluster_config()
+      }
+      
   """
   @type processing_resources() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_inference_recommendations_job_request() :: %{
-    required("JobName") => String.t()
-  }
+      
+      describe_inference_recommendations_job_request() :: %{
+        required("JobName") => String.t()
+      }
+      
   """
   @type describe_inference_recommendations_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  metadata_properties() :: %{
-    "CommitId" => String.t(),
-    "GeneratedBy" => String.t(),
-    "ProjectId" => String.t(),
-    "Repository" => String.t()
-  }
+      
+      metadata_properties() :: %{
+        "CommitId" => String.t(),
+        "GeneratedBy" => String.t(),
+        "ProjectId" => String.t(),
+        "Repository" => String.t()
+      }
+      
   """
   @type metadata_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  s3_storage_config() :: %{
-    "KmsKeyId" => String.t(),
-    "ResolvedOutputS3Uri" => String.t(),
-    "S3Uri" => String.t()
-  }
+      
+      s3_storage_config() :: %{
+        "KmsKeyId" => String.t(),
+        "ResolvedOutputS3Uri" => String.t(),
+        "S3Uri" => String.t()
+      }
+      
   """
   @type s3_storage_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_human_task_ui_request() :: %{
-    optional("Tags") => list(tag()()),
-    required("HumanTaskUiName") => String.t(),
-    required("UiTemplate") => ui_template()
-  }
+      
+      create_human_task_ui_request() :: %{
+        optional("Tags") => list(tag()()),
+        required("HumanTaskUiName") => String.t(),
+        required("UiTemplate") => ui_template()
+      }
+      
   """
   @type create_human_task_ui_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  studio_lifecycle_config_details() :: %{
-    "CreationTime" => non_neg_integer(),
-    "LastModifiedTime" => non_neg_integer(),
-    "StudioLifecycleConfigAppType" => list(any()),
-    "StudioLifecycleConfigArn" => String.t(),
-    "StudioLifecycleConfigName" => String.t()
-  }
+      
+      studio_lifecycle_config_details() :: %{
+        "CreationTime" => non_neg_integer(),
+        "LastModifiedTime" => non_neg_integer(),
+        "StudioLifecycleConfigAppType" => list(any()),
+        "StudioLifecycleConfigArn" => String.t(),
+        "StudioLifecycleConfigName" => String.t()
+      }
+      
   """
   @type studio_lifecycle_config_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  search_request() :: %{
-    optional("CrossAccountFilterOption") => list(any()),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("SearchExpression") => search_expression(),
-    optional("SortBy") => String.t(),
-    optional("SortOrder") => list(any()),
-    optional("VisibilityConditions") => list(visibility_conditions()()),
-    required("Resource") => list(any())
-  }
+      
+      search_request() :: %{
+        optional("CrossAccountFilterOption") => list(any()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("SearchExpression") => search_expression(),
+        optional("SortBy") => String.t(),
+        optional("SortOrder") => list(any()),
+        optional("VisibilityConditions") => list(visibility_conditions()()),
+        required("Resource") => list(any())
+      }
+      
   """
   @type search_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_cluster_response() :: %{
-    "ClusterArn" => String.t(),
-    "ClusterName" => String.t(),
-    "ClusterStatus" => list(any()),
-    "CreationTime" => non_neg_integer(),
-    "FailureMessage" => String.t(),
-    "InstanceGroups" => list(cluster_instance_group_details()()),
-    "VpcConfig" => vpc_config()
-  }
+      
+      describe_cluster_response() :: %{
+        "ClusterArn" => String.t(),
+        "ClusterName" => String.t(),
+        "ClusterStatus" => list(any()),
+        "CreationTime" => non_neg_integer(),
+        "FailureMessage" => String.t(),
+        "InstanceGroups" => list(cluster_instance_group_details()()),
+        "VpcConfig" => vpc_config()
+      }
+      
   """
   @type describe_cluster_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_action_request() :: %{
-    required("ActionName") => String.t()
-  }
+      
+      delete_action_request() :: %{
+        required("ActionName") => String.t()
+      }
+      
   """
   @type delete_action_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_model_package_group_output() :: %{
-    "CreatedBy" => user_context(),
-    "CreationTime" => non_neg_integer(),
-    "ModelPackageGroupArn" => String.t(),
-    "ModelPackageGroupDescription" => String.t(),
-    "ModelPackageGroupName" => String.t(),
-    "ModelPackageGroupStatus" => list(any())
-  }
+      
+      describe_model_package_group_output() :: %{
+        "CreatedBy" => user_context(),
+        "CreationTime" => non_neg_integer(),
+        "ModelPackageGroupArn" => String.t(),
+        "ModelPackageGroupDescription" => String.t(),
+        "ModelPackageGroupName" => String.t(),
+        "ModelPackageGroupStatus" => list(any())
+      }
+      
   """
   @type describe_model_package_group_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_processing_job_request() :: %{
-    required("ProcessingJobName") => String.t()
-  }
+      
+      describe_processing_job_request() :: %{
+        required("ProcessingJobName") => String.t()
+      }
+      
   """
   @type describe_processing_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  blue_green_update_policy() :: %{
-    "MaximumExecutionTimeoutInSeconds" => integer(),
-    "TerminationWaitInSeconds" => integer(),
-    "TrafficRoutingConfiguration" => traffic_routing_config()
-  }
+      
+      blue_green_update_policy() :: %{
+        "MaximumExecutionTimeoutInSeconds" => integer(),
+        "TerminationWaitInSeconds" => integer(),
+        "TrafficRoutingConfiguration" => traffic_routing_config()
+      }
+      
   """
   @type blue_green_update_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_studio_lifecycle_config_request() :: %{
-    optional("Tags") => list(tag()()),
-    required("StudioLifecycleConfigAppType") => list(any()),
-    required("StudioLifecycleConfigContent") => String.t(),
-    required("StudioLifecycleConfigName") => String.t()
-  }
+      
+      create_studio_lifecycle_config_request() :: %{
+        optional("Tags") => list(tag()()),
+        required("StudioLifecycleConfigAppType") => list(any()),
+        required("StudioLifecycleConfigContent") => String.t(),
+        required("StudioLifecycleConfigName") => String.t()
+      }
+      
   """
   @type create_studio_lifecycle_config_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  source_algorithm_specification() :: %{
-    "SourceAlgorithms" => list(source_algorithm()())
-  }
+      
+      source_algorithm_specification() :: %{
+        "SourceAlgorithms" => list(source_algorithm()())
+      }
+      
   """
   @type source_algorithm_specification() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  network_config() :: %{
-    "EnableInterContainerTrafficEncryption" => boolean(),
-    "EnableNetworkIsolation" => boolean(),
-    "VpcConfig" => vpc_config()
-  }
+      
+      network_config() :: %{
+        "EnableInterContainerTrafficEncryption" => boolean(),
+        "EnableNetworkIsolation" => boolean(),
+        "VpcConfig" => vpc_config()
+      }
+      
   """
   @type network_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_flow_definition_response() :: %{
-    "CreationTime" => non_neg_integer(),
-    "FailureReason" => String.t(),
-    "FlowDefinitionArn" => String.t(),
-    "FlowDefinitionName" => String.t(),
-    "FlowDefinitionStatus" => list(any()),
-    "HumanLoopActivationConfig" => human_loop_activation_config(),
-    "HumanLoopConfig" => human_loop_config(),
-    "HumanLoopRequestSource" => human_loop_request_source(),
-    "OutputConfig" => flow_definition_output_config(),
-    "RoleArn" => String.t()
-  }
+      
+      describe_flow_definition_response() :: %{
+        "CreationTime" => non_neg_integer(),
+        "FailureReason" => String.t(),
+        "FlowDefinitionArn" => String.t(),
+        "FlowDefinitionName" => String.t(),
+        "FlowDefinitionStatus" => list(any()),
+        "HumanLoopActivationConfig" => human_loop_activation_config(),
+        "HumanLoopConfig" => human_loop_config(),
+        "HumanLoopRequestSource" => human_loop_request_source(),
+        "OutputConfig" => flow_definition_output_config(),
+        "RoleArn" => String.t()
+      }
+      
   """
   @type describe_flow_definition_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_studio_lifecycle_config_request() :: %{
-    required("StudioLifecycleConfigName") => String.t()
-  }
+      
+      delete_studio_lifecycle_config_request() :: %{
+        required("StudioLifecycleConfigName") => String.t()
+      }
+      
   """
   @type delete_studio_lifecycle_config_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_feature_group_request() :: %{
-    required("FeatureGroupName") => String.t()
-  }
+      
+      delete_feature_group_request() :: %{
+        required("FeatureGroupName") => String.t()
+      }
+      
   """
   @type delete_feature_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_cluster_software_request() :: %{
-    required("ClusterName") => String.t()
-  }
+      
+      update_cluster_software_request() :: %{
+        required("ClusterName") => String.t()
+      }
+      
   """
   @type update_cluster_software_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  online_store_config_update() :: %{
-    "TtlDuration" => ttl_duration()
-  }
+      
+      online_store_config_update() :: %{
+        "TtlDuration" => ttl_duration()
+      }
+      
   """
   @type online_store_config_update() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  pipeline_definition_s3_location() :: %{
-    "Bucket" => String.t(),
-    "ObjectKey" => String.t(),
-    "VersionId" => String.t()
-  }
+      
+      pipeline_definition_s3_location() :: %{
+        "Bucket" => String.t(),
+        "ObjectKey" => String.t(),
+        "VersionId" => String.t()
+      }
+      
   """
   @type pipeline_definition_s3_location() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  phase() :: %{
-    "DurationInSeconds" => integer(),
-    "InitialNumberOfUsers" => integer(),
-    "SpawnRate" => integer()
-  }
+      
+      phase() :: %{
+        "DurationInSeconds" => integer(),
+        "InitialNumberOfUsers" => integer(),
+        "SpawnRate" => integer()
+      }
+      
   """
   @type phase() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_inference_experiment_response() :: %{
-    "InferenceExperimentArn" => String.t()
-  }
+      
+      create_inference_experiment_response() :: %{
+        "InferenceExperimentArn" => String.t()
+      }
+      
   """
   @type create_inference_experiment_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_project_input() :: %{
-    optional("ProjectDescription") => String.t(),
-    optional("ServiceCatalogProvisioningUpdateDetails") => service_catalog_provisioning_update_details(),
-    optional("Tags") => list(tag()()),
-    required("ProjectName") => String.t()
-  }
+      
+      update_project_input() :: %{
+        optional("ProjectDescription") => String.t(),
+        optional("ServiceCatalogProvisioningUpdateDetails") => service_catalog_provisioning_update_details(),
+        optional("Tags") => list(tag()()),
+        required("ProjectName") => String.t()
+      }
+      
   """
   @type update_project_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  additional_s3_data_source() :: %{
-    "CompressionType" => list(any()),
-    "S3DataType" => list(any()),
-    "S3Uri" => String.t()
-  }
+      
+      additional_s3_data_source() :: %{
+        "CompressionType" => list(any()),
+        "S3DataType" => list(any()),
+        "S3Uri" => String.t()
+      }
+      
   """
   @type additional_s3_data_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  model_digests() :: %{
-    "ArtifactDigest" => String.t()
-  }
+      
+      model_digests() :: %{
+        "ArtifactDigest" => String.t()
+      }
+      
   """
   @type model_digests() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_search_suggestions_response() :: %{
-    "PropertyNameSuggestions" => list(property_name_suggestion()())
-  }
+      
+      get_search_suggestions_response() :: %{
+        "PropertyNameSuggestions" => list(property_name_suggestion()())
+      }
+      
   """
   @type get_search_suggestions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  oidc_member_definition() :: %{
-    "Groups" => list(String.t()())
-  }
+      
+      oidc_member_definition() :: %{
+        "Groups" => list(String.t()())
+      }
+      
   """
   @type oidc_member_definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  time_series_config() :: %{
-    "GroupingAttributeNames" => list(String.t()()),
-    "ItemIdentifierAttributeName" => String.t(),
-    "TargetAttributeName" => String.t(),
-    "TimestampAttributeName" => String.t()
-  }
+      
+      time_series_config() :: %{
+        "GroupingAttributeNames" => list(String.t()()),
+        "ItemIdentifierAttributeName" => String.t(),
+        "TargetAttributeName" => String.t(),
+        "TimestampAttributeName" => String.t()
+      }
+      
   """
   @type time_series_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  redshift_dataset_definition() :: %{
-    "ClusterId" => String.t(),
-    "ClusterRoleArn" => String.t(),
-    "Database" => String.t(),
-    "DbUser" => String.t(),
-    "KmsKeyId" => String.t(),
-    "OutputCompression" => list(any()),
-    "OutputFormat" => list(any()),
-    "OutputS3Uri" => String.t(),
-    "QueryString" => String.t()
-  }
+      
+      redshift_dataset_definition() :: %{
+        "ClusterId" => String.t(),
+        "ClusterRoleArn" => String.t(),
+        "Database" => String.t(),
+        "DbUser" => String.t(),
+        "KmsKeyId" => String.t(),
+        "OutputCompression" => list(any()),
+        "OutputFormat" => list(any()),
+        "OutputS3Uri" => String.t(),
+        "QueryString" => String.t()
+      }
+      
   """
   @type redshift_dataset_definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  project_summary() :: %{
-    "CreationTime" => non_neg_integer(),
-    "ProjectArn" => String.t(),
-    "ProjectDescription" => String.t(),
-    "ProjectId" => String.t(),
-    "ProjectName" => String.t(),
-    "ProjectStatus" => list(any())
-  }
+      
+      project_summary() :: %{
+        "CreationTime" => non_neg_integer(),
+        "ProjectArn" => String.t(),
+        "ProjectDescription" => String.t(),
+        "ProjectId" => String.t(),
+        "ProjectName" => String.t(),
+        "ProjectStatus" => list(any())
+      }
+      
   """
   @type project_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  shadow_model_variant_config() :: %{
-    "SamplingPercentage" => integer(),
-    "ShadowModelVariantName" => String.t()
-  }
+      
+      shadow_model_variant_config() :: %{
+        "SamplingPercentage" => integer(),
+        "ShadowModelVariantName" => String.t()
+      }
+      
   """
   @type shadow_model_variant_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_trial_component_request() :: %{
-    optional("DisplayName") => String.t(),
-    optional("EndTime") => non_neg_integer(),
-    optional("InputArtifacts") => map(),
-    optional("MetadataProperties") => metadata_properties(),
-    optional("OutputArtifacts") => map(),
-    optional("Parameters") => map(),
-    optional("StartTime") => non_neg_integer(),
-    optional("Status") => trial_component_status(),
-    optional("Tags") => list(tag()()),
-    required("TrialComponentName") => String.t()
-  }
+      
+      create_trial_component_request() :: %{
+        optional("DisplayName") => String.t(),
+        optional("EndTime") => non_neg_integer(),
+        optional("InputArtifacts") => map(),
+        optional("MetadataProperties") => metadata_properties(),
+        optional("OutputArtifacts") => map(),
+        optional("Parameters") => map(),
+        optional("StartTime") => non_neg_integer(),
+        optional("Status") => trial_component_status(),
+        optional("Tags") => list(tag()()),
+        required("TrialComponentName") => String.t()
+      }
+      
   """
   @type create_trial_component_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stop_inference_experiment_request() :: %{
-    optional("DesiredModelVariants") => list(model_variant_config()()),
-    optional("DesiredState") => list(any()),
-    optional("Reason") => String.t(),
-    required("ModelVariantActions") => map(),
-    required("Name") => String.t()
-  }
+      
+      stop_inference_experiment_request() :: %{
+        optional("DesiredModelVariants") => list(model_variant_config()()),
+        optional("DesiredState") => list(any()),
+        optional("Reason") => String.t(),
+        required("ModelVariantActions") => map(),
+        required("Name") => String.t()
+      }
+      
   """
   @type stop_inference_experiment_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_inference_experiments_request() :: %{
-    optional("CreationTimeAfter") => non_neg_integer(),
-    optional("CreationTimeBefore") => non_neg_integer(),
-    optional("LastModifiedTimeAfter") => non_neg_integer(),
-    optional("LastModifiedTimeBefore") => non_neg_integer(),
-    optional("MaxResults") => integer(),
-    optional("NameContains") => String.t(),
-    optional("NextToken") => String.t(),
-    optional("SortBy") => list(any()),
-    optional("SortOrder") => list(any()),
-    optional("StatusEquals") => list(any()),
-    optional("Type") => list(any())
-  }
+      
+      list_inference_experiments_request() :: %{
+        optional("CreationTimeAfter") => non_neg_integer(),
+        optional("CreationTimeBefore") => non_neg_integer(),
+        optional("LastModifiedTimeAfter") => non_neg_integer(),
+        optional("LastModifiedTimeBefore") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("NameContains") => String.t(),
+        optional("NextToken") => String.t(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any()),
+        optional("StatusEquals") => list(any()),
+        optional("Type") => list(any())
+      }
+      
   """
   @type list_inference_experiments_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_cluster_node_request() :: %{
-    required("ClusterName") => String.t(),
-    required("NodeId") => String.t()
-  }
+      
+      describe_cluster_node_request() :: %{
+        required("ClusterName") => String.t(),
+        required("NodeId") => String.t()
+      }
+      
   """
   @type describe_cluster_node_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  clarify_shap_baseline_config() :: %{
-    "MimeType" => String.t(),
-    "ShapBaseline" => String.t(),
-    "ShapBaselineUri" => String.t()
-  }
+      
+      clarify_shap_baseline_config() :: %{
+        "MimeType" => String.t(),
+        "ShapBaseline" => String.t(),
+        "ShapBaselineUri" => String.t()
+      }
+      
   """
   @type clarify_shap_baseline_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  processing_feature_store_output() :: %{
-    "FeatureGroupName" => String.t()
-  }
+      
+      processing_feature_store_output() :: %{
+        "FeatureGroupName" => String.t()
+      }
+      
   """
   @type processing_feature_store_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_lineage_group_policy_response() :: %{
-    "LineageGroupArn" => String.t(),
-    "ResourcePolicy" => String.t()
-  }
+      
+      get_lineage_group_policy_response() :: %{
+        "LineageGroupArn" => String.t(),
+        "ResourcePolicy" => String.t()
+      }
+      
   """
   @type get_lineage_group_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  hyper_parameter_tuning_resource_config() :: %{
-    "AllocationStrategy" => list(any()),
-    "InstanceConfigs" => list(hyper_parameter_tuning_instance_config()()),
-    "InstanceCount" => integer(),
-    "InstanceType" => list(any()),
-    "VolumeKmsKeyId" => String.t(),
-    "VolumeSizeInGB" => integer()
-  }
+      
+      hyper_parameter_tuning_resource_config() :: %{
+        "AllocationStrategy" => list(any()),
+        "InstanceConfigs" => list(hyper_parameter_tuning_instance_config()()),
+        "InstanceCount" => integer(),
+        "InstanceType" => list(any()),
+        "VolumeKmsKeyId" => String.t(),
+        "VolumeSizeInGB" => integer()
+      }
+      
   """
   @type hyper_parameter_tuning_resource_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  annotation_consolidation_config() :: %{
-    "AnnotationConsolidationLambdaArn" => String.t()
-  }
+      
+      annotation_consolidation_config() :: %{
+        "AnnotationConsolidationLambdaArn" => String.t()
+      }
+      
   """
   @type annotation_consolidation_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_studio_lifecycle_configs_request() :: %{
-    optional("AppTypeEquals") => list(any()),
-    optional("CreationTimeAfter") => non_neg_integer(),
-    optional("CreationTimeBefore") => non_neg_integer(),
-    optional("MaxResults") => integer(),
-    optional("ModifiedTimeAfter") => non_neg_integer(),
-    optional("ModifiedTimeBefore") => non_neg_integer(),
-    optional("NameContains") => String.t(),
-    optional("NextToken") => String.t(),
-    optional("SortBy") => list(any()),
-    optional("SortOrder") => list(any())
-  }
+      
+      list_studio_lifecycle_configs_request() :: %{
+        optional("AppTypeEquals") => list(any()),
+        optional("CreationTimeAfter") => non_neg_integer(),
+        optional("CreationTimeBefore") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("ModifiedTimeAfter") => non_neg_integer(),
+        optional("ModifiedTimeBefore") => non_neg_integer(),
+        optional("NameContains") => String.t(),
+        optional("NextToken") => String.t(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any())
+      }
+      
   """
   @type list_studio_lifecycle_configs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  kernel_gateway_app_settings() :: %{
-    "CustomImages" => list(custom_image()()),
-    "DefaultResourceSpec" => resource_spec(),
-    "LifecycleConfigArns" => list(String.t()())
-  }
+      
+      kernel_gateway_app_settings() :: %{
+        "CustomImages" => list(custom_image()()),
+        "DefaultResourceSpec" => resource_spec(),
+        "LifecycleConfigArns" => list(String.t()())
+      }
+      
   """
   @type kernel_gateway_app_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_context_request() :: %{
-    required("ContextName") => String.t()
-  }
+      
+      delete_context_request() :: %{
+        required("ContextName") => String.t()
+      }
+      
   """
   @type delete_context_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  kernel_spec() :: %{
-    "DisplayName" => String.t(),
-    "Name" => String.t()
-  }
+      
+      kernel_spec() :: %{
+        "DisplayName" => String.t(),
+        "Name" => String.t()
+      }
+      
   """
   @type kernel_spec() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_auto_ml_job_response() :: %{
-    "AutoMLJobArn" => String.t()
-  }
+      
+      create_auto_ml_job_response() :: %{
+        "AutoMLJobArn" => String.t()
+      }
+      
   """
   @type create_auto_ml_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  derived_information() :: %{
-    "DerivedDataInputConfig" => String.t()
-  }
+      
+      derived_information() :: %{
+        "DerivedDataInputConfig" => String.t()
+      }
+      
   """
   @type derived_information() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  data_quality_baseline_config() :: %{
-    "BaseliningJobName" => String.t(),
-    "ConstraintsResource" => monitoring_constraints_resource(),
-    "StatisticsResource" => monitoring_statistics_resource()
-  }
+      
+      data_quality_baseline_config() :: %{
+        "BaseliningJobName" => String.t(),
+        "ConstraintsResource" => monitoring_constraints_resource(),
+        "StatisticsResource" => monitoring_statistics_resource()
+      }
+      
   """
   @type data_quality_baseline_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  shuffle_config() :: %{
-    "Seed" => float()
-  }
+      
+      shuffle_config() :: %{
+        "Seed" => float()
+      }
+      
   """
   @type shuffle_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_cluster_response() :: %{
-    "ClusterArn" => String.t()
-  }
+      
+      create_cluster_response() :: %{
+        "ClusterArn" => String.t()
+      }
+      
   """
   @type create_cluster_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_notebook_instances_output() :: %{
-    "NextToken" => String.t(),
-    "NotebookInstances" => list(notebook_instance_summary()())
-  }
+      
+      list_notebook_instances_output() :: %{
+        "NextToken" => String.t(),
+        "NotebookInstances" => list(notebook_instance_summary()())
+      }
+      
   """
   @type list_notebook_instances_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_model_card_export_jobs_request() :: %{
-    optional("CreationTimeAfter") => non_neg_integer(),
-    optional("CreationTimeBefore") => non_neg_integer(),
-    optional("MaxResults") => integer(),
-    optional("ModelCardExportJobNameContains") => String.t(),
-    optional("ModelCardVersion") => integer(),
-    optional("NextToken") => String.t(),
-    optional("SortBy") => list(any()),
-    optional("SortOrder") => list(any()),
-    optional("StatusEquals") => list(any()),
-    required("ModelCardName") => String.t()
-  }
+      
+      list_model_card_export_jobs_request() :: %{
+        optional("CreationTimeAfter") => non_neg_integer(),
+        optional("CreationTimeBefore") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("ModelCardExportJobNameContains") => String.t(),
+        optional("ModelCardVersion") => integer(),
+        optional("NextToken") => String.t(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any()),
+        optional("StatusEquals") => list(any()),
+        required("ModelCardName") => String.t()
+      }
+      
   """
   @type list_model_card_export_jobs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  model_card_summary() :: %{
-    "CreationTime" => non_neg_integer(),
-    "LastModifiedTime" => non_neg_integer(),
-    "ModelCardArn" => String.t(),
-    "ModelCardName" => String.t(),
-    "ModelCardStatus" => list(any())
-  }
+      
+      model_card_summary() :: %{
+        "CreationTime" => non_neg_integer(),
+        "LastModifiedTime" => non_neg_integer(),
+        "ModelCardArn" => String.t(),
+        "ModelCardName" => String.t(),
+        "ModelCardStatus" => list(any())
+      }
+      
   """
   @type model_card_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_model_card_export_job_response() :: %{
-    "ModelCardExportJobArn" => String.t()
-  }
+      
+      create_model_card_export_job_response() :: %{
+        "ModelCardExportJobArn" => String.t()
+      }
+      
   """
   @type create_model_card_export_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  inference_recommendation() :: %{
-    "EndpointConfiguration" => endpoint_output_configuration(),
-    "InvocationEndTime" => non_neg_integer(),
-    "InvocationStartTime" => non_neg_integer(),
-    "Metrics" => recommendation_metrics(),
-    "ModelConfiguration" => model_configuration(),
-    "RecommendationId" => String.t()
-  }
+      
+      inference_recommendation() :: %{
+        "EndpointConfiguration" => endpoint_output_configuration(),
+        "InvocationEndTime" => non_neg_integer(),
+        "InvocationStartTime" => non_neg_integer(),
+        "Metrics" => recommendation_metrics(),
+        "ModelConfiguration" => model_configuration(),
+        "RecommendationId" => String.t()
+      }
+      
   """
   @type inference_recommendation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_pipeline_response() :: %{
-    "PipelineArn" => String.t()
-  }
+      
+      create_pipeline_response() :: %{
+        "PipelineArn" => String.t()
+      }
+      
   """
   @type create_pipeline_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_monitoring_schedule_request() :: %{
-    required("MonitoringScheduleName") => String.t()
-  }
+      
+      start_monitoring_schedule_request() :: %{
+        required("MonitoringScheduleName") => String.t()
+      }
+      
   """
   @type start_monitoring_schedule_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  feature_definition() :: %{
-    "CollectionConfig" => list(),
-    "CollectionType" => list(any()),
-    "FeatureName" => String.t(),
-    "FeatureType" => list(any())
-  }
+      
+      feature_definition() :: %{
+        "CollectionConfig" => list(),
+        "CollectionType" => list(any()),
+        "FeatureName" => String.t(),
+        "FeatureType" => list(any())
+      }
+      
   """
   @type feature_definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  property_name_query() :: %{
-    "PropertyNameHint" => String.t()
-  }
+      
+      property_name_query() :: %{
+        "PropertyNameHint" => String.t()
+      }
+      
   """
   @type property_name_query() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_inference_component_input() :: %{
-    required("InferenceComponentName") => String.t()
-  }
+      
+      describe_inference_component_input() :: %{
+        required("InferenceComponentName") => String.t()
+      }
+      
   """
   @type describe_inference_component_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  trial_component_status() :: %{
-    "Message" => String.t(),
-    "PrimaryStatus" => list(any())
-  }
+      
+      trial_component_status() :: %{
+        "Message" => String.t(),
+        "PrimaryStatus" => list(any())
+      }
+      
   """
   @type trial_component_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_app_image_config_request() :: %{
-    optional("JupyterLabAppImageConfig") => jupyter_lab_app_image_config(),
-    optional("KernelGatewayImageConfig") => kernel_gateway_image_config(),
-    required("AppImageConfigName") => String.t()
-  }
+      
+      update_app_image_config_request() :: %{
+        optional("JupyterLabAppImageConfig") => jupyter_lab_app_image_config(),
+        optional("KernelGatewayImageConfig") => kernel_gateway_image_config(),
+        required("AppImageConfigName") => String.t()
+      }
+      
   """
   @type update_app_image_config_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  training_image_config() :: %{
-    "TrainingRepositoryAccessMode" => list(any()),
-    "TrainingRepositoryAuthConfig" => training_repository_auth_config()
-  }
+      
+      training_image_config() :: %{
+        "TrainingRepositoryAccessMode" => list(any()),
+        "TrainingRepositoryAuthConfig" => training_repository_auth_config()
+      }
+      
   """
   @type training_image_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_stage_devices_request() :: %{
-    optional("ExcludeDevicesDeployedInOtherStage") => boolean(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("EdgeDeploymentPlanName") => String.t(),
-    required("StageName") => String.t()
-  }
+      
+      list_stage_devices_request() :: %{
+        optional("ExcludeDevicesDeployedInOtherStage") => boolean(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("EdgeDeploymentPlanName") => String.t(),
+        required("StageName") => String.t()
+      }
+      
   """
   @type list_stage_devices_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  lineage_group_summary() :: %{
-    "CreationTime" => non_neg_integer(),
-    "DisplayName" => String.t(),
-    "LastModifiedTime" => non_neg_integer(),
-    "LineageGroupArn" => String.t(),
-    "LineageGroupName" => String.t()
-  }
+      
+      lineage_group_summary() :: %{
+        "CreationTime" => non_neg_integer(),
+        "DisplayName" => String.t(),
+        "LastModifiedTime" => non_neg_integer(),
+        "LineageGroupArn" => String.t(),
+        "LineageGroupName" => String.t()
+      }
+      
   """
   @type lineage_group_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_inference_experiment_request() :: %{
-    required("Name") => String.t()
-  }
+      
+      describe_inference_experiment_request() :: %{
+        required("Name") => String.t()
+      }
+      
   """
   @type describe_inference_experiment_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  experiment_source() :: %{
-    "SourceArn" => String.t(),
-    "SourceType" => String.t()
-  }
+      
+      experiment_source() :: %{
+        "SourceArn" => String.t(),
+        "SourceType" => String.t()
+      }
+      
   """
   @type experiment_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_image_version_response() :: %{
-    "ImageVersionArn" => String.t()
-  }
+      
+      update_image_version_response() :: %{
+        "ImageVersionArn" => String.t()
+      }
+      
   """
   @type update_image_version_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_hub_contents_request() :: %{
-    optional("CreationTimeAfter") => non_neg_integer(),
-    optional("CreationTimeBefore") => non_neg_integer(),
-    optional("MaxResults") => integer(),
-    optional("MaxSchemaVersion") => String.t(),
-    optional("NameContains") => String.t(),
-    optional("NextToken") => String.t(),
-    optional("SortBy") => list(any()),
-    optional("SortOrder") => list(any()),
-    required("HubContentType") => list(any()),
-    required("HubName") => String.t()
-  }
+      
+      list_hub_contents_request() :: %{
+        optional("CreationTimeAfter") => non_neg_integer(),
+        optional("CreationTimeBefore") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("MaxSchemaVersion") => String.t(),
+        optional("NameContains") => String.t(),
+        optional("NextToken") => String.t(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any()),
+        required("HubContentType") => list(any()),
+        required("HubName") => String.t()
+      }
+      
   """
   @type list_hub_contents_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_data_capture_config() :: %{
-    "DestinationS3Uri" => String.t(),
-    "GenerateInferenceId" => boolean(),
-    "KmsKeyId" => String.t()
-  }
+      
+      batch_data_capture_config() :: %{
+        "DestinationS3Uri" => String.t(),
+        "GenerateInferenceId" => boolean(),
+        "KmsKeyId" => String.t()
+      }
+      
   """
   @type batch_data_capture_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_monitoring_schedules_response() :: %{
-    "MonitoringScheduleSummaries" => list(monitoring_schedule_summary()()),
-    "NextToken" => String.t()
-  }
+      
+      list_monitoring_schedules_response() :: %{
+        "MonitoringScheduleSummaries" => list(monitoring_schedule_summary()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_monitoring_schedules_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_algorithm_input() :: %{
-    required("AlgorithmName") => String.t()
-  }
+      
+      delete_algorithm_input() :: %{
+        required("AlgorithmName") => String.t()
+      }
+      
   """
   @type delete_algorithm_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  hub_content_info() :: %{
-    "CreationTime" => non_neg_integer(),
-    "DocumentSchemaVersion" => String.t(),
-    "HubContentArn" => String.t(),
-    "HubContentDescription" => String.t(),
-    "HubContentDisplayName" => String.t(),
-    "HubContentName" => String.t(),
-    "HubContentSearchKeywords" => list(String.t()()),
-    "HubContentStatus" => list(any()),
-    "HubContentType" => list(any()),
-    "HubContentVersion" => String.t()
-  }
+      
+      hub_content_info() :: %{
+        "CreationTime" => non_neg_integer(),
+        "DocumentSchemaVersion" => String.t(),
+        "HubContentArn" => String.t(),
+        "HubContentDescription" => String.t(),
+        "HubContentDisplayName" => String.t(),
+        "HubContentName" => String.t(),
+        "HubContentSearchKeywords" => list(String.t()()),
+        "HubContentStatus" => list(any()),
+        "HubContentType" => list(any()),
+        "HubContentVersion" => String.t()
+      }
+      
   """
   @type hub_content_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_model_metadata_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("SearchExpression") => model_metadata_search_expression()
-  }
+      
+      list_model_metadata_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("SearchExpression") => model_metadata_search_expression()
+      }
+      
   """
   @type list_model_metadata_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  auto_ml_security_config() :: %{
-    "EnableInterContainerTrafficEncryption" => boolean(),
-    "VolumeKmsKeyId" => String.t(),
-    "VpcConfig" => vpc_config()
-  }
+      
+      auto_ml_security_config() :: %{
+        "EnableInterContainerTrafficEncryption" => boolean(),
+        "VolumeKmsKeyId" => String.t(),
+        "VpcConfig" => vpc_config()
+      }
+      
   """
   @type auto_ml_security_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  model_metadata_summary() :: %{
-    "Domain" => String.t(),
-    "Framework" => String.t(),
-    "FrameworkVersion" => String.t(),
-    "Model" => String.t(),
-    "Task" => String.t()
-  }
+      
+      model_metadata_summary() :: %{
+        "Domain" => String.t(),
+        "Framework" => String.t(),
+        "FrameworkVersion" => String.t(),
+        "Model" => String.t(),
+        "Task" => String.t()
+      }
+      
   """
   @type model_metadata_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  throughput_config() :: %{
-    "ProvisionedReadCapacityUnits" => integer(),
-    "ProvisionedWriteCapacityUnits" => integer(),
-    "ThroughputMode" => list(any())
-  }
+      
+      throughput_config() :: %{
+        "ProvisionedReadCapacityUnits" => integer(),
+        "ProvisionedWriteCapacityUnits" => integer(),
+        "ThroughputMode" => list(any())
+      }
+      
   """
   @type throughput_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  source_ip_config() :: %{
-    "Cidrs" => list(String.t()())
-  }
+      
+      source_ip_config() :: %{
+        "Cidrs" => list(String.t()())
+      }
+      
   """
   @type source_ip_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  pipeline_execution_summary() :: %{
-    "PipelineExecutionArn" => String.t(),
-    "PipelineExecutionDescription" => String.t(),
-    "PipelineExecutionDisplayName" => String.t(),
-    "PipelineExecutionFailureReason" => String.t(),
-    "PipelineExecutionStatus" => list(any()),
-    "StartTime" => non_neg_integer()
-  }
+      
+      pipeline_execution_summary() :: %{
+        "PipelineExecutionArn" => String.t(),
+        "PipelineExecutionDescription" => String.t(),
+        "PipelineExecutionDisplayName" => String.t(),
+        "PipelineExecutionFailureReason" => String.t(),
+        "PipelineExecutionStatus" => list(any()),
+        "StartTime" => non_neg_integer()
+      }
+      
   """
   @type pipeline_execution_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_transform_jobs_request() :: %{
-    optional("CreationTimeAfter") => non_neg_integer(),
-    optional("CreationTimeBefore") => non_neg_integer(),
-    optional("LastModifiedTimeAfter") => non_neg_integer(),
-    optional("LastModifiedTimeBefore") => non_neg_integer(),
-    optional("MaxResults") => integer(),
-    optional("NameContains") => String.t(),
-    optional("NextToken") => String.t(),
-    optional("SortBy") => list(any()),
-    optional("SortOrder") => list(any()),
-    optional("StatusEquals") => list(any())
-  }
+      
+      list_transform_jobs_request() :: %{
+        optional("CreationTimeAfter") => non_neg_integer(),
+        optional("CreationTimeBefore") => non_neg_integer(),
+        optional("LastModifiedTimeAfter") => non_neg_integer(),
+        optional("LastModifiedTimeBefore") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("NameContains") => String.t(),
+        optional("NextToken") => String.t(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any()),
+        optional("StatusEquals") => list(any())
+      }
+      
   """
   @type list_transform_jobs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  candidate_generation_config() :: %{
-    "AlgorithmsConfig" => list(auto_ml_algorithm_config()())
-  }
+      
+      candidate_generation_config() :: %{
+        "AlgorithmsConfig" => list(auto_ml_algorithm_config()())
+      }
+      
   """
   @type candidate_generation_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  alarm() :: %{
-    "AlarmName" => String.t()
-  }
+      
+      alarm() :: %{
+        "AlarmName" => String.t()
+      }
+      
   """
   @type alarm() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  algorithm_validation_specification() :: %{
-    "ValidationProfiles" => list(algorithm_validation_profile()()),
-    "ValidationRole" => String.t()
-  }
+      
+      algorithm_validation_specification() :: %{
+        "ValidationProfiles" => list(algorithm_validation_profile()()),
+        "ValidationRole" => String.t()
+      }
+      
   """
   @type algorithm_validation_specification() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  auto_ml_container_definition() :: %{
-    "Environment" => map(),
-    "Image" => String.t(),
-    "ModelDataUrl" => String.t()
-  }
+      
+      auto_ml_container_definition() :: %{
+        "Environment" => map(),
+        "Image" => String.t(),
+        "ModelDataUrl" => String.t()
+      }
+      
   """
   @type auto_ml_container_definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  target_tracking_scaling_policy_configuration() :: %{
-    "MetricSpecification" => list(),
-    "TargetValue" => float()
-  }
+      
+      target_tracking_scaling_policy_configuration() :: %{
+        "MetricSpecification" => list(),
+        "TargetValue" => float()
+      }
+      
   """
   @type target_tracking_scaling_policy_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_domain_response() :: %{
-    "DomainArn" => String.t()
-  }
+      
+      update_domain_response() :: %{
+        "DomainArn" => String.t()
+      }
+      
   """
   @type update_domain_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_in_use() :: %{
-    "Message" => String.t()
-  }
+      
+      resource_in_use() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type resource_in_use() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stop_inference_recommendations_job_request() :: %{
-    required("JobName") => String.t()
-  }
+      
+      stop_inference_recommendations_job_request() :: %{
+        required("JobName") => String.t()
+      }
+      
   """
   @type stop_inference_recommendations_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_action_response() :: %{
-    "ActionArn" => String.t(),
-    "ActionName" => String.t(),
-    "ActionType" => String.t(),
-    "CreatedBy" => user_context(),
-    "CreationTime" => non_neg_integer(),
-    "Description" => String.t(),
-    "LastModifiedBy" => user_context(),
-    "LastModifiedTime" => non_neg_integer(),
-    "LineageGroupArn" => String.t(),
-    "MetadataProperties" => metadata_properties(),
-    "Properties" => map(),
-    "Source" => action_source(),
-    "Status" => list(any())
-  }
+      
+      describe_action_response() :: %{
+        "ActionArn" => String.t(),
+        "ActionName" => String.t(),
+        "ActionType" => String.t(),
+        "CreatedBy" => user_context(),
+        "CreationTime" => non_neg_integer(),
+        "Description" => String.t(),
+        "LastModifiedBy" => user_context(),
+        "LastModifiedTime" => non_neg_integer(),
+        "LineageGroupArn" => String.t(),
+        "MetadataProperties" => metadata_properties(),
+        "Properties" => map(),
+        "Source" => action_source(),
+        "Status" => list(any())
+      }
+      
   """
   @type describe_action_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_models_output() :: %{
-    "Models" => list(model_summary()()),
-    "NextToken" => String.t()
-  }
+      
+      list_models_output() :: %{
+        "Models" => list(model_summary()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_models_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  scaling_policy_objective() :: %{
-    "MaxInvocationsPerMinute" => integer(),
-    "MinInvocationsPerMinute" => integer()
-  }
+      
+      scaling_policy_objective() :: %{
+        "MaxInvocationsPerMinute" => integer(),
+        "MinInvocationsPerMinute" => integer()
+      }
+      
   """
   @type scaling_policy_objective() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  model_summary() :: %{
-    "CreationTime" => non_neg_integer(),
-    "ModelArn" => String.t(),
-    "ModelName" => String.t()
-  }
+      
+      model_summary() :: %{
+        "CreationTime" => non_neg_integer(),
+        "ModelArn" => String.t(),
+        "ModelName" => String.t()
+      }
+      
   """
   @type model_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  training_repository_auth_config() :: %{
-    "TrainingRepositoryCredentialsProviderArn" => String.t()
-  }
+      
+      training_repository_auth_config() :: %{
+        "TrainingRepositoryCredentialsProviderArn" => String.t()
+      }
+      
   """
   @type training_repository_auth_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_model_card_versions_response() :: %{
-    "ModelCardVersionSummaryList" => list(model_card_version_summary()()),
-    "NextToken" => String.t()
-  }
+      
+      list_model_card_versions_response() :: %{
+        "ModelCardVersionSummaryList" => list(model_card_version_summary()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_model_card_versions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  trial_component() :: %{
-    "CreatedBy" => user_context(),
-    "CreationTime" => non_neg_integer(),
-    "DisplayName" => String.t(),
-    "EndTime" => non_neg_integer(),
-    "InputArtifacts" => map(),
-    "LastModifiedBy" => user_context(),
-    "LastModifiedTime" => non_neg_integer(),
-    "LineageGroupArn" => String.t(),
-    "MetadataProperties" => metadata_properties(),
-    "Metrics" => list(trial_component_metric_summary()()),
-    "OutputArtifacts" => map(),
-    "Parameters" => map(),
-    "Parents" => list(parent()()),
-    "RunName" => String.t(),
-    "Source" => trial_component_source(),
-    "SourceDetail" => trial_component_source_detail(),
-    "StartTime" => non_neg_integer(),
-    "Status" => trial_component_status(),
-    "Tags" => list(tag()()),
-    "TrialComponentArn" => String.t(),
-    "TrialComponentName" => String.t()
-  }
+      
+      trial_component() :: %{
+        "CreatedBy" => user_context(),
+        "CreationTime" => non_neg_integer(),
+        "DisplayName" => String.t(),
+        "EndTime" => non_neg_integer(),
+        "InputArtifacts" => map(),
+        "LastModifiedBy" => user_context(),
+        "LastModifiedTime" => non_neg_integer(),
+        "LineageGroupArn" => String.t(),
+        "MetadataProperties" => metadata_properties(),
+        "Metrics" => list(trial_component_metric_summary()()),
+        "OutputArtifacts" => map(),
+        "Parameters" => map(),
+        "Parents" => list(parent()()),
+        "RunName" => String.t(),
+        "Source" => trial_component_source(),
+        "SourceDetail" => trial_component_source_detail(),
+        "StartTime" => non_neg_integer(),
+        "Status" => trial_component_status(),
+        "Tags" => list(tag()()),
+        "TrialComponentArn" => String.t(),
+        "TrialComponentName" => String.t()
+      }
+      
   """
   @type trial_component() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  deployment_config() :: %{
-    "AutoRollbackConfiguration" => auto_rollback_config(),
-    "BlueGreenUpdatePolicy" => blue_green_update_policy(),
-    "RollingUpdatePolicy" => rolling_update_policy()
-  }
+      
+      deployment_config() :: %{
+        "AutoRollbackConfiguration" => auto_rollback_config(),
+        "BlueGreenUpdatePolicy" => blue_green_update_policy(),
+        "RollingUpdatePolicy" => rolling_update_policy()
+      }
+      
   """
   @type deployment_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  processing_job_summary() :: %{
-    "CreationTime" => non_neg_integer(),
-    "ExitMessage" => String.t(),
-    "FailureReason" => String.t(),
-    "LastModifiedTime" => non_neg_integer(),
-    "ProcessingEndTime" => non_neg_integer(),
-    "ProcessingJobArn" => String.t(),
-    "ProcessingJobName" => String.t(),
-    "ProcessingJobStatus" => list(any())
-  }
+      
+      processing_job_summary() :: %{
+        "CreationTime" => non_neg_integer(),
+        "ExitMessage" => String.t(),
+        "FailureReason" => String.t(),
+        "LastModifiedTime" => non_neg_integer(),
+        "ProcessingEndTime" => non_neg_integer(),
+        "ProcessingJobArn" => String.t(),
+        "ProcessingJobName" => String.t(),
+        "ProcessingJobStatus" => list(any())
+      }
+      
   """
   @type processing_job_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  kendra_settings() :: %{
-    "Status" => list(any())
-  }
+      
+      kendra_settings() :: %{
+        "Status" => list(any())
+      }
+      
   """
   @type kendra_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_data_quality_job_definition_response() :: %{
-    "JobDefinitionArn" => String.t()
-  }
+      
+      create_data_quality_job_definition_response() :: %{
+        "JobDefinitionArn" => String.t()
+      }
+      
   """
   @type create_data_quality_job_definition_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  labeling_job_data_attributes() :: %{
-    "ContentClassifiers" => list(list(any())())
-  }
+      
+      labeling_job_data_attributes() :: %{
+        "ContentClassifiers" => list(list(any())())
+      }
+      
   """
   @type labeling_job_data_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_trial_request() :: %{
-    optional("DisplayName") => String.t(),
-    required("TrialName") => String.t()
-  }
+      
+      update_trial_request() :: %{
+        optional("DisplayName") => String.t(),
+        required("TrialName") => String.t()
+      }
+      
   """
   @type update_trial_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_model_metadata_response() :: %{
-    "ModelMetadataSummaries" => list(model_metadata_summary()()),
-    "NextToken" => String.t()
-  }
+      
+      list_model_metadata_response() :: %{
+        "ModelMetadataSummaries" => list(model_metadata_summary()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_model_metadata_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  inference_recommendations_job() :: %{
-    "CompletionTime" => non_neg_integer(),
-    "CreationTime" => non_neg_integer(),
-    "FailureReason" => String.t(),
-    "JobArn" => String.t(),
-    "JobDescription" => String.t(),
-    "JobName" => String.t(),
-    "JobType" => list(any()),
-    "LastModifiedTime" => non_neg_integer(),
-    "ModelName" => String.t(),
-    "ModelPackageVersionArn" => String.t(),
-    "RoleArn" => String.t(),
-    "SamplePayloadUrl" => String.t(),
-    "Status" => list(any())
-  }
+      
+      inference_recommendations_job() :: %{
+        "CompletionTime" => non_neg_integer(),
+        "CreationTime" => non_neg_integer(),
+        "FailureReason" => String.t(),
+        "JobArn" => String.t(),
+        "JobDescription" => String.t(),
+        "JobName" => String.t(),
+        "JobType" => list(any()),
+        "LastModifiedTime" => non_neg_integer(),
+        "ModelName" => String.t(),
+        "ModelPackageVersionArn" => String.t(),
+        "RoleArn" => String.t(),
+        "SamplePayloadUrl" => String.t(),
+        "Status" => list(any())
+      }
+      
   """
   @type inference_recommendations_job() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  scaling_policy_metric() :: %{
-    "InvocationsPerInstance" => integer(),
-    "ModelLatency" => integer()
-  }
+      
+      scaling_policy_metric() :: %{
+        "InvocationsPerInstance" => integer(),
+        "ModelLatency" => integer()
+      }
+      
   """
   @type scaling_policy_metric() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_app_image_config_request() :: %{
-    required("AppImageConfigName") => String.t()
-  }
+      
+      describe_app_image_config_request() :: %{
+        required("AppImageConfigName") => String.t()
+      }
+      
   """
   @type describe_app_image_config_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_edge_deployment_stage_request() :: %{
-    required("EdgeDeploymentPlanName") => String.t(),
-    required("StageName") => String.t()
-  }
+      
+      delete_edge_deployment_stage_request() :: %{
+        required("EdgeDeploymentPlanName") => String.t(),
+        required("StageName") => String.t()
+      }
+      
   """
   @type delete_edge_deployment_stage_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  pipeline_execution() :: %{
-    "CreatedBy" => user_context(),
-    "CreationTime" => non_neg_integer(),
-    "FailureReason" => String.t(),
-    "LastModifiedBy" => user_context(),
-    "LastModifiedTime" => non_neg_integer(),
-    "ParallelismConfiguration" => parallelism_configuration(),
-    "PipelineArn" => String.t(),
-    "PipelineExecutionArn" => String.t(),
-    "PipelineExecutionDescription" => String.t(),
-    "PipelineExecutionDisplayName" => String.t(),
-    "PipelineExecutionStatus" => list(any()),
-    "PipelineExperimentConfig" => pipeline_experiment_config(),
-    "PipelineParameters" => list(parameter()()),
-    "SelectiveExecutionConfig" => selective_execution_config()
-  }
+      
+      pipeline_execution() :: %{
+        "CreatedBy" => user_context(),
+        "CreationTime" => non_neg_integer(),
+        "FailureReason" => String.t(),
+        "LastModifiedBy" => user_context(),
+        "LastModifiedTime" => non_neg_integer(),
+        "ParallelismConfiguration" => parallelism_configuration(),
+        "PipelineArn" => String.t(),
+        "PipelineExecutionArn" => String.t(),
+        "PipelineExecutionDescription" => String.t(),
+        "PipelineExecutionDisplayName" => String.t(),
+        "PipelineExecutionStatus" => list(any()),
+        "PipelineExperimentConfig" => pipeline_experiment_config(),
+        "PipelineParameters" => list(parameter()()),
+        "SelectiveExecutionConfig" => selective_execution_config()
+      }
+      
   """
   @type pipeline_execution() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  monitoring_alert_summary() :: %{
-    "Actions" => monitoring_alert_actions(),
-    "AlertStatus" => list(any()),
-    "CreationTime" => non_neg_integer(),
-    "DatapointsToAlert" => integer(),
-    "EvaluationPeriod" => integer(),
-    "LastModifiedTime" => non_neg_integer(),
-    "MonitoringAlertName" => String.t()
-  }
+      
+      monitoring_alert_summary() :: %{
+        "Actions" => monitoring_alert_actions(),
+        "AlertStatus" => list(any()),
+        "CreationTime" => non_neg_integer(),
+        "DatapointsToAlert" => integer(),
+        "EvaluationPeriod" => integer(),
+        "LastModifiedTime" => non_neg_integer(),
+        "MonitoringAlertName" => String.t()
+      }
+      
   """
   @type monitoring_alert_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  pipeline() :: %{
-    "CreatedBy" => user_context(),
-    "CreationTime" => non_neg_integer(),
-    "LastModifiedBy" => user_context(),
-    "LastModifiedTime" => non_neg_integer(),
-    "LastRunTime" => non_neg_integer(),
-    "ParallelismConfiguration" => parallelism_configuration(),
-    "PipelineArn" => String.t(),
-    "PipelineDescription" => String.t(),
-    "PipelineDisplayName" => String.t(),
-    "PipelineName" => String.t(),
-    "PipelineStatus" => list(any()),
-    "RoleArn" => String.t(),
-    "Tags" => list(tag()())
-  }
+      
+      pipeline() :: %{
+        "CreatedBy" => user_context(),
+        "CreationTime" => non_neg_integer(),
+        "LastModifiedBy" => user_context(),
+        "LastModifiedTime" => non_neg_integer(),
+        "LastRunTime" => non_neg_integer(),
+        "ParallelismConfiguration" => parallelism_configuration(),
+        "PipelineArn" => String.t(),
+        "PipelineDescription" => String.t(),
+        "PipelineDisplayName" => String.t(),
+        "PipelineName" => String.t(),
+        "PipelineStatus" => list(any()),
+        "RoleArn" => String.t(),
+        "Tags" => list(tag()())
+      }
+      
   """
   @type pipeline() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_inference_recommendations_job_steps_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("Status") => list(any()),
-    optional("StepType") => list(any()),
-    required("JobName") => String.t()
-  }
+      
+      list_inference_recommendations_job_steps_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("Status") => list(any()),
+        optional("StepType") => list(any()),
+        required("JobName") => String.t()
+      }
+      
   """
   @type list_inference_recommendations_job_steps_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_tags_input() :: %{
-    required("ResourceArn") => String.t(),
-    required("TagKeys") => list(String.t()())
-  }
+      
+      delete_tags_input() :: %{
+        required("ResourceArn") => String.t(),
+        required("TagKeys") => list(String.t()())
+      }
+      
   """
   @type delete_tags_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  parameter_ranges() :: %{
-    "AutoParameters" => list(auto_parameter()()),
-    "CategoricalParameterRanges" => list(categorical_parameter_range()()),
-    "ContinuousParameterRanges" => list(continuous_parameter_range()()),
-    "IntegerParameterRanges" => list(integer_parameter_range()())
-  }
+      
+      parameter_ranges() :: %{
+        "AutoParameters" => list(auto_parameter()()),
+        "CategoricalParameterRanges" => list(categorical_parameter_range()()),
+        "ContinuousParameterRanges" => list(continuous_parameter_range()()),
+        "IntegerParameterRanges" => list(integer_parameter_range()())
+      }
+      
   """
   @type parameter_ranges() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_model_quality_job_definitions_request() :: %{
-    optional("CreationTimeAfter") => non_neg_integer(),
-    optional("CreationTimeBefore") => non_neg_integer(),
-    optional("EndpointName") => String.t(),
-    optional("MaxResults") => integer(),
-    optional("NameContains") => String.t(),
-    optional("NextToken") => String.t(),
-    optional("SortBy") => list(any()),
-    optional("SortOrder") => list(any())
-  }
+      
+      list_model_quality_job_definitions_request() :: %{
+        optional("CreationTimeAfter") => non_neg_integer(),
+        optional("CreationTimeBefore") => non_neg_integer(),
+        optional("EndpointName") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NameContains") => String.t(),
+        optional("NextToken") => String.t(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any())
+      }
+      
   """
   @type list_model_quality_job_definitions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_inference_recommendations_jobs_response() :: %{
-    "InferenceRecommendationsJobs" => list(inference_recommendations_job()()),
-    "NextToken" => String.t()
-  }
+      
+      list_inference_recommendations_jobs_response() :: %{
+        "InferenceRecommendationsJobs" => list(inference_recommendations_job()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_inference_recommendations_jobs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  traffic_pattern() :: %{
-    "Phases" => list(phase()()),
-    "Stairs" => stairs(),
-    "TrafficType" => list(any())
-  }
+      
+      traffic_pattern() :: %{
+        "Phases" => list(phase()()),
+        "Stairs" => stairs(),
+        "TrafficType" => list(any())
+      }
+      
   """
   @type traffic_pattern() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_model_package_output() :: %{
-    "ModelPackageArn" => String.t()
-  }
+      
+      update_model_package_output() :: %{
+        "ModelPackageArn" => String.t()
+      }
+      
   """
   @type update_model_package_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  human_task_config() :: %{
-    "AnnotationConsolidationConfig" => annotation_consolidation_config(),
-    "MaxConcurrentTaskCount" => integer(),
-    "NumberOfHumanWorkersPerDataObject" => integer(),
-    "PreHumanTaskLambdaArn" => String.t(),
-    "PublicWorkforceTaskPrice" => public_workforce_task_price(),
-    "TaskAvailabilityLifetimeInSeconds" => integer(),
-    "TaskDescription" => String.t(),
-    "TaskKeywords" => list(String.t()()),
-    "TaskTimeLimitInSeconds" => integer(),
-    "TaskTitle" => String.t(),
-    "UiConfig" => ui_config(),
-    "WorkteamArn" => String.t()
-  }
+      
+      human_task_config() :: %{
+        "AnnotationConsolidationConfig" => annotation_consolidation_config(),
+        "MaxConcurrentTaskCount" => integer(),
+        "NumberOfHumanWorkersPerDataObject" => integer(),
+        "PreHumanTaskLambdaArn" => String.t(),
+        "PublicWorkforceTaskPrice" => public_workforce_task_price(),
+        "TaskAvailabilityLifetimeInSeconds" => integer(),
+        "TaskDescription" => String.t(),
+        "TaskKeywords" => list(String.t()()),
+        "TaskTimeLimitInSeconds" => integer(),
+        "TaskTitle" => String.t(),
+        "UiConfig" => ui_config(),
+        "WorkteamArn" => String.t()
+      }
+      
   """
   @type human_task_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_data_quality_job_definition_request() :: %{
-    required("JobDefinitionName") => String.t()
-  }
+      
+      delete_data_quality_job_definition_request() :: %{
+        required("JobDefinitionName") => String.t()
+      }
+      
   """
   @type delete_data_quality_job_definition_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_candidates_for_auto_ml_job_request() :: %{
-    optional("CandidateNameEquals") => String.t(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("SortBy") => list(any()),
-    optional("SortOrder") => list(any()),
-    optional("StatusEquals") => list(any()),
-    required("AutoMLJobName") => String.t()
-  }
+      
+      list_candidates_for_auto_ml_job_request() :: %{
+        optional("CandidateNameEquals") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any()),
+        optional("StatusEquals") => list(any()),
+        required("AutoMLJobName") => String.t()
+      }
+      
   """
   @type list_candidates_for_auto_ml_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_notebook_instance_output() :: %{
-
-  }
+      
+      update_notebook_instance_output() :: %{}
+      
   """
-  @type update_notebook_instance_output() :: %{String.t() => any()}
+  @type update_notebook_instance_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_pipeline_execution_steps_response() :: %{
-    "NextToken" => String.t(),
-    "PipelineExecutionSteps" => list(pipeline_execution_step()())
-  }
+      
+      list_pipeline_execution_steps_response() :: %{
+        "NextToken" => String.t(),
+        "PipelineExecutionSteps" => list(pipeline_execution_step()())
+      }
+      
   """
   @type list_pipeline_execution_steps_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_endpoint_input() :: %{
-    required("EndpointName") => String.t()
-  }
+      
+      describe_endpoint_input() :: %{
+        required("EndpointName") => String.t()
+      }
+      
   """
   @type describe_endpoint_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_trial_response() :: %{
-    "TrialArn" => String.t()
-  }
+      
+      delete_trial_response() :: %{
+        "TrialArn" => String.t()
+      }
+      
   """
   @type delete_trial_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  model_variant_config_summary() :: %{
-    "InfrastructureConfig" => model_infrastructure_config(),
-    "ModelName" => String.t(),
-    "Status" => list(any()),
-    "VariantName" => String.t()
-  }
+      
+      model_variant_config_summary() :: %{
+        "InfrastructureConfig" => model_infrastructure_config(),
+        "ModelName" => String.t(),
+        "Status" => list(any()),
+        "VariantName" => String.t()
+      }
+      
   """
   @type model_variant_config_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_endpoint_input() :: %{
-    optional("DeploymentConfig") => deployment_config(),
-    optional("ExcludeRetainedVariantProperties") => list(variant_property()()),
-    optional("RetainAllVariantProperties") => boolean(),
-    optional("RetainDeploymentConfig") => boolean(),
-    required("EndpointConfigName") => String.t(),
-    required("EndpointName") => String.t()
-  }
+      
+      update_endpoint_input() :: %{
+        optional("DeploymentConfig") => deployment_config(),
+        optional("ExcludeRetainedVariantProperties") => list(variant_property()()),
+        optional("RetainAllVariantProperties") => boolean(),
+        optional("RetainDeploymentConfig") => boolean(),
+        required("EndpointConfigName") => String.t(),
+        required("EndpointName") => String.t()
+      }
+      
   """
   @type update_endpoint_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_space_request() :: %{
-    required("DomainId") => String.t(),
-    required("SpaceName") => String.t()
-  }
+      
+      describe_space_request() :: %{
+        required("DomainId") => String.t(),
+        required("SpaceName") => String.t()
+      }
+      
   """
   @type describe_space_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_experiment_response() :: %{
-    "ExperimentArn" => String.t()
-  }
+      
+      create_experiment_response() :: %{
+        "ExperimentArn" => String.t()
+      }
+      
   """
   @type create_experiment_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_endpoint_config_input() :: %{
-    required("EndpointConfigName") => String.t()
-  }
+      
+      describe_endpoint_config_input() :: %{
+        required("EndpointConfigName") => String.t()
+      }
+      
   """
   @type describe_endpoint_config_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  flow_definition_summary() :: %{
-    "CreationTime" => non_neg_integer(),
-    "FailureReason" => String.t(),
-    "FlowDefinitionArn" => String.t(),
-    "FlowDefinitionName" => String.t(),
-    "FlowDefinitionStatus" => list(any())
-  }
+      
+      flow_definition_summary() :: %{
+        "CreationTime" => non_neg_integer(),
+        "FailureReason" => String.t(),
+        "FlowDefinitionArn" => String.t(),
+        "FlowDefinitionName" => String.t(),
+        "FlowDefinitionStatus" => list(any())
+      }
+      
   """
   @type flow_definition_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_code_repository_input() :: %{
-    optional("GitConfig") => git_config_for_update(),
-    required("CodeRepositoryName") => String.t()
-  }
+      
+      update_code_repository_input() :: %{
+        optional("GitConfig") => git_config_for_update(),
+        required("CodeRepositoryName") => String.t()
+      }
+      
   """
   @type update_code_repository_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  parameter_range() :: %{
-    "CategoricalParameterRangeSpecification" => categorical_parameter_range_specification(),
-    "ContinuousParameterRangeSpecification" => continuous_parameter_range_specification(),
-    "IntegerParameterRangeSpecification" => integer_parameter_range_specification()
-  }
+      
+      parameter_range() :: %{
+        "CategoricalParameterRangeSpecification" => categorical_parameter_range_specification(),
+        "ContinuousParameterRangeSpecification" => continuous_parameter_range_specification(),
+        "IntegerParameterRangeSpecification" => integer_parameter_range_specification()
+      }
+      
   """
   @type parameter_range() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  custom_image() :: %{
-    "AppImageConfigName" => String.t(),
-    "ImageName" => String.t(),
-    "ImageVersionNumber" => integer()
-  }
+      
+      custom_image() :: %{
+        "AppImageConfigName" => String.t(),
+        "ImageName" => String.t(),
+        "ImageVersionNumber" => integer()
+      }
+      
   """
   @type custom_image() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_notebook_instance_lifecycle_config_output() :: %{
-
-  }
+      
+      update_notebook_instance_lifecycle_config_output() :: %{}
+      
   """
-  @type update_notebook_instance_lifecycle_config_output() :: %{String.t() => any()}
+  @type update_notebook_instance_lifecycle_config_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_data_quality_job_definitions_response() :: %{
-    "JobDefinitionSummaries" => list(monitoring_job_definition_summary()()),
-    "NextToken" => String.t()
-  }
+      
+      list_data_quality_job_definitions_response() :: %{
+        "JobDefinitionSummaries" => list(monitoring_job_definition_summary()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_data_quality_job_definitions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  explainer_config() :: %{
-    "ClarifyExplainerConfig" => clarify_explainer_config()
-  }
+      
+      explainer_config() :: %{
+        "ClarifyExplainerConfig" => clarify_explainer_config()
+      }
+      
   """
   @type explainer_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  custom_posix_user_config() :: %{
-    "Gid" => float(),
-    "Uid" => float()
-  }
+      
+      custom_posix_user_config() :: %{
+        "Gid" => float(),
+        "Uid" => float()
+      }
+      
   """
   @type custom_posix_user_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  training_specification() :: %{
-    "AdditionalS3DataSource" => additional_s3_data_source(),
-    "MetricDefinitions" => list(metric_definition()()),
-    "SupportedHyperParameters" => list(hyper_parameter_specification()()),
-    "SupportedTrainingInstanceTypes" => list(list(any())()),
-    "SupportedTuningJobObjectiveMetrics" => list(hyper_parameter_tuning_job_objective()()),
-    "SupportsDistributedTraining" => boolean(),
-    "TrainingChannels" => list(channel_specification()()),
-    "TrainingImage" => String.t(),
-    "TrainingImageDigest" => String.t()
-  }
+      
+      training_specification() :: %{
+        "AdditionalS3DataSource" => additional_s3_data_source(),
+        "MetricDefinitions" => list(metric_definition()()),
+        "SupportedHyperParameters" => list(hyper_parameter_specification()()),
+        "SupportedTrainingInstanceTypes" => list(list(any())()),
+        "SupportedTuningJobObjectiveMetrics" => list(hyper_parameter_tuning_job_objective()()),
+        "SupportsDistributedTraining" => boolean(),
+        "TrainingChannels" => list(channel_specification()()),
+        "TrainingImage" => String.t(),
+        "TrainingImageDigest" => String.t()
+      }
+      
   """
   @type training_specification() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_user_profile_response() :: %{
-    "UserProfileArn" => String.t()
-  }
+      
+      update_user_profile_response() :: %{
+        "UserProfileArn" => String.t()
+      }
+      
   """
   @type update_user_profile_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_lineage_group_request() :: %{
-    required("LineageGroupName") => String.t()
-  }
+      
+      describe_lineage_group_request() :: %{
+        required("LineageGroupName") => String.t()
+      }
+      
   """
   @type describe_lineage_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  hyper_parameter_tuning_job_warm_start_config() :: %{
-    "ParentHyperParameterTuningJobs" => list(parent_hyper_parameter_tuning_job()()),
-    "WarmStartType" => list(any())
-  }
+      
+      hyper_parameter_tuning_job_warm_start_config() :: %{
+        "ParentHyperParameterTuningJobs" => list(parent_hyper_parameter_tuning_job()()),
+        "WarmStartType" => list(any())
+      }
+      
   """
   @type hyper_parameter_tuning_job_warm_start_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_studio_lifecycle_config_request() :: %{
-    required("StudioLifecycleConfigName") => String.t()
-  }
+      
+      describe_studio_lifecycle_config_request() :: %{
+        required("StudioLifecycleConfigName") => String.t()
+      }
+      
   """
   @type describe_studio_lifecycle_config_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  processing_s3_input() :: %{
-    "LocalPath" => String.t(),
-    "S3CompressionType" => list(any()),
-    "S3DataDistributionType" => list(any()),
-    "S3DataType" => list(any()),
-    "S3InputMode" => list(any()),
-    "S3Uri" => String.t()
-  }
+      
+      processing_s3_input() :: %{
+        "LocalPath" => String.t(),
+        "S3CompressionType" => list(any()),
+        "S3DataDistributionType" => list(any()),
+        "S3DataType" => list(any()),
+        "S3InputMode" => list(any()),
+        "S3Uri" => String.t()
+      }
+      
   """
   @type processing_s3_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_trial_component_response() :: %{
-    "TrialComponentArn" => String.t()
-  }
+      
+      create_trial_component_response() :: %{
+        "TrialComponentArn" => String.t()
+      }
+      
   """
   @type create_trial_component_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_endpoint_input() :: %{
-    optional("DeploymentConfig") => deployment_config(),
-    optional("Tags") => list(tag()()),
-    required("EndpointConfigName") => String.t(),
-    required("EndpointName") => String.t()
-  }
+      
+      create_endpoint_input() :: %{
+        optional("DeploymentConfig") => deployment_config(),
+        optional("Tags") => list(tag()()),
+        required("EndpointConfigName") => String.t(),
+        required("EndpointName") => String.t()
+      }
+      
   """
   @type create_endpoint_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  pipeline_execution_step() :: %{
-    "AttemptCount" => integer(),
-    "CacheHitResult" => cache_hit_result(),
-    "EndTime" => non_neg_integer(),
-    "FailureReason" => String.t(),
-    "Metadata" => pipeline_execution_step_metadata(),
-    "SelectiveExecutionResult" => selective_execution_result(),
-    "StartTime" => non_neg_integer(),
-    "StepDescription" => String.t(),
-    "StepDisplayName" => String.t(),
-    "StepName" => String.t(),
-    "StepStatus" => list(any())
-  }
+      
+      pipeline_execution_step() :: %{
+        "AttemptCount" => integer(),
+        "CacheHitResult" => cache_hit_result(),
+        "EndTime" => non_neg_integer(),
+        "FailureReason" => String.t(),
+        "Metadata" => pipeline_execution_step_metadata(),
+        "SelectiveExecutionResult" => selective_execution_result(),
+        "StartTime" => non_neg_integer(),
+        "StepDescription" => String.t(),
+        "StepDisplayName" => String.t(),
+        "StepName" => String.t(),
+        "StepStatus" => list(any())
+      }
+      
   """
   @type pipeline_execution_step() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  feature_metadata() :: %{
-    "CreationTime" => non_neg_integer(),
-    "Description" => String.t(),
-    "FeatureGroupArn" => String.t(),
-    "FeatureGroupName" => String.t(),
-    "FeatureName" => String.t(),
-    "FeatureType" => list(any()),
-    "LastModifiedTime" => non_neg_integer(),
-    "Parameters" => list(feature_parameter()())
-  }
+      
+      feature_metadata() :: %{
+        "CreationTime" => non_neg_integer(),
+        "Description" => String.t(),
+        "FeatureGroupArn" => String.t(),
+        "FeatureGroupName" => String.t(),
+        "FeatureName" => String.t(),
+        "FeatureType" => list(any()),
+        "LastModifiedTime" => non_neg_integer(),
+        "Parameters" => list(feature_parameter()())
+      }
+      
   """
   @type feature_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_cluster_node_response() :: %{
-    "NodeDetails" => cluster_node_details()
-  }
+      
+      describe_cluster_node_response() :: %{
+        "NodeDetails" => cluster_node_details()
+      }
+      
   """
   @type describe_cluster_node_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_workforce_request() :: %{
-    required("WorkforceName") => String.t()
-  }
+      
+      delete_workforce_request() :: %{
+        required("WorkforceName") => String.t()
+      }
+      
   """
   @type delete_workforce_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  endpoint_output_configuration() :: %{
-    "EndpointName" => String.t(),
-    "InitialInstanceCount" => integer(),
-    "InstanceType" => list(any()),
-    "ServerlessConfig" => production_variant_serverless_config(),
-    "VariantName" => String.t()
-  }
+      
+      endpoint_output_configuration() :: %{
+        "EndpointName" => String.t(),
+        "InitialInstanceCount" => integer(),
+        "InstanceType" => list(any()),
+        "ServerlessConfig" => production_variant_serverless_config(),
+        "VariantName" => String.t()
+      }
+      
   """
   @type endpoint_output_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  add_tags_output() :: %{
-    "Tags" => list(tag()())
-  }
+      
+      add_tags_output() :: %{
+        "Tags" => list(tag()())
+      }
+      
   """
   @type add_tags_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  auto_ml_job_objective() :: %{
-    "MetricName" => list(any())
-  }
+      
+      auto_ml_job_objective() :: %{
+        "MetricName" => list(any())
+      }
+      
   """
   @type auto_ml_job_objective() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_describe_model_package_input() :: %{
-    required("ModelPackageArnList") => list(String.t()())
-  }
+      
+      batch_describe_model_package_input() :: %{
+        required("ModelPackageArnList") => list(String.t()())
+      }
+      
   """
   @type batch_describe_model_package_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_trial_component_response() :: %{
-    "TrialComponentArn" => String.t()
-  }
+      
+      update_trial_component_response() :: %{
+        "TrialComponentArn" => String.t()
+      }
+      
   """
   @type update_trial_component_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_project_output() :: %{
-    "ProjectArn" => String.t(),
-    "ProjectId" => String.t()
-  }
+      
+      create_project_output() :: %{
+        "ProjectArn" => String.t(),
+        "ProjectId" => String.t()
+      }
+      
   """
   @type create_project_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_hub_contents_response() :: %{
-    "HubContentSummaries" => list(hub_content_info()()),
-    "NextToken" => String.t()
-  }
+      
+      list_hub_contents_response() :: %{
+        "HubContentSummaries" => list(hub_content_info()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_hub_contents_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  labeling_job_data_source() :: %{
-    "S3DataSource" => labeling_job_s3_data_source(),
-    "SnsDataSource" => labeling_job_sns_data_source()
-  }
+      
+      labeling_job_data_source() :: %{
+        "S3DataSource" => labeling_job_s3_data_source(),
+        "SnsDataSource" => labeling_job_sns_data_source()
+      }
+      
   """
   @type labeling_job_data_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_trial_components_response() :: %{
-    "NextToken" => String.t(),
-    "TrialComponentSummaries" => list(trial_component_summary()())
-  }
+      
+      list_trial_components_response() :: %{
+        "NextToken" => String.t(),
+        "TrialComponentSummaries" => list(trial_component_summary()())
+      }
+      
   """
   @type list_trial_components_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_sagemaker_servicecatalog_portfolio_status_output() :: %{
-    "Status" => list(any())
-  }
+      
+      get_sagemaker_servicecatalog_portfolio_status_output() :: %{
+        "Status" => list(any())
+      }
+      
   """
   @type get_sagemaker_servicecatalog_portfolio_status_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_inference_components_input() :: %{
-    optional("CreationTimeAfter") => non_neg_integer(),
-    optional("CreationTimeBefore") => non_neg_integer(),
-    optional("EndpointNameEquals") => String.t(),
-    optional("LastModifiedTimeAfter") => non_neg_integer(),
-    optional("LastModifiedTimeBefore") => non_neg_integer(),
-    optional("MaxResults") => integer(),
-    optional("NameContains") => String.t(),
-    optional("NextToken") => String.t(),
-    optional("SortBy") => list(any()),
-    optional("SortOrder") => list(any()),
-    optional("StatusEquals") => list(any()),
-    optional("VariantNameEquals") => String.t()
-  }
+      
+      list_inference_components_input() :: %{
+        optional("CreationTimeAfter") => non_neg_integer(),
+        optional("CreationTimeBefore") => non_neg_integer(),
+        optional("EndpointNameEquals") => String.t(),
+        optional("LastModifiedTimeAfter") => non_neg_integer(),
+        optional("LastModifiedTimeBefore") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("NameContains") => String.t(),
+        optional("NextToken") => String.t(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any()),
+        optional("StatusEquals") => list(any()),
+        optional("VariantNameEquals") => String.t()
+      }
+      
   """
   @type list_inference_components_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  capture_content_type_header() :: %{
-    "CsvContentTypes" => list(String.t()()),
-    "JsonContentTypes" => list(String.t()())
-  }
+      
+      capture_content_type_header() :: %{
+        "CsvContentTypes" => list(String.t()()),
+        "JsonContentTypes" => list(String.t()())
+      }
+      
   """
   @type capture_content_type_header() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_endpoint_config_input() :: %{
-    optional("AsyncInferenceConfig") => async_inference_config(),
-    optional("DataCaptureConfig") => data_capture_config(),
-    optional("EnableNetworkIsolation") => boolean(),
-    optional("ExecutionRoleArn") => String.t(),
-    optional("ExplainerConfig") => explainer_config(),
-    optional("KmsKeyId") => String.t(),
-    optional("ShadowProductionVariants") => list(production_variant()()),
-    optional("Tags") => list(tag()()),
-    optional("VpcConfig") => vpc_config(),
-    required("EndpointConfigName") => String.t(),
-    required("ProductionVariants") => list(production_variant()())
-  }
+      
+      create_endpoint_config_input() :: %{
+        optional("AsyncInferenceConfig") => async_inference_config(),
+        optional("DataCaptureConfig") => data_capture_config(),
+        optional("EnableNetworkIsolation") => boolean(),
+        optional("ExecutionRoleArn") => String.t(),
+        optional("ExplainerConfig") => explainer_config(),
+        optional("KmsKeyId") => String.t(),
+        optional("ShadowProductionVariants") => list(production_variant()()),
+        optional("Tags") => list(tag()()),
+        optional("VpcConfig") => vpc_config(),
+        required("EndpointConfigName") => String.t(),
+        required("ProductionVariants") => list(production_variant()())
+      }
+      
   """
   @type create_endpoint_config_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  kernel_gateway_image_config() :: %{
-    "FileSystemConfig" => file_system_config(),
-    "KernelSpecs" => list(kernel_spec()())
-  }
+      
+      kernel_gateway_image_config() :: %{
+        "FileSystemConfig" => file_system_config(),
+        "KernelSpecs" => list(kernel_spec()())
+      }
+      
   """
   @type kernel_gateway_image_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  emr_step_metadata() :: %{
-    "ClusterId" => String.t(),
-    "LogFilePath" => String.t(),
-    "StepId" => String.t(),
-    "StepName" => String.t()
-  }
+      
+      emr_step_metadata() :: %{
+        "ClusterId" => String.t(),
+        "LogFilePath" => String.t(),
+        "StepId" => String.t(),
+        "StepName" => String.t()
+      }
+      
   """
   @type emr_step_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_inference_experiment_response() :: %{
-    "InferenceExperimentArn" => String.t()
-  }
+      
+      delete_inference_experiment_response() :: %{
+        "InferenceExperimentArn" => String.t()
+      }
+      
   """
   @type delete_inference_experiment_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cognito_config() :: %{
-    "ClientId" => String.t(),
-    "UserPool" => String.t()
-  }
+      
+      cognito_config() :: %{
+        "ClientId" => String.t(),
+        "UserPool" => String.t()
+      }
+      
   """
   @type cognito_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  model_package_group() :: %{
-    "CreatedBy" => user_context(),
-    "CreationTime" => non_neg_integer(),
-    "ModelPackageGroupArn" => String.t(),
-    "ModelPackageGroupDescription" => String.t(),
-    "ModelPackageGroupName" => String.t(),
-    "ModelPackageGroupStatus" => list(any()),
-    "Tags" => list(tag()())
-  }
+      
+      model_package_group() :: %{
+        "CreatedBy" => user_context(),
+        "CreationTime" => non_neg_integer(),
+        "ModelPackageGroupArn" => String.t(),
+        "ModelPackageGroupDescription" => String.t(),
+        "ModelPackageGroupName" => String.t(),
+        "ModelPackageGroupStatus" => list(any()),
+        "Tags" => list(tag()())
+      }
+      
   """
   @type model_package_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_artifact_response() :: %{
-    "ArtifactArn" => String.t()
-  }
+      
+      create_artifact_response() :: %{
+        "ArtifactArn" => String.t()
+      }
+      
   """
   @type create_artifact_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  edge_model_stat() :: %{
-    "ActiveDeviceCount" => float(),
-    "ConnectedDeviceCount" => float(),
-    "ModelName" => String.t(),
-    "ModelVersion" => String.t(),
-    "OfflineDeviceCount" => float(),
-    "SamplingDeviceCount" => float()
-  }
+      
+      edge_model_stat() :: %{
+        "ActiveDeviceCount" => float(),
+        "ConnectedDeviceCount" => float(),
+        "ModelName" => String.t(),
+        "ModelVersion" => String.t(),
+        "OfflineDeviceCount" => float(),
+        "SamplingDeviceCount" => float()
+      }
+      
   """
   @type edge_model_stat() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  labeling_job_stopping_conditions() :: %{
-    "MaxHumanLabeledObjectCount" => integer(),
-    "MaxPercentageOfInputDatasetLabeled" => integer()
-  }
+      
+      labeling_job_stopping_conditions() :: %{
+        "MaxHumanLabeledObjectCount" => integer(),
+        "MaxPercentageOfInputDatasetLabeled" => integer()
+      }
+      
   """
   @type labeling_job_stopping_conditions() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  monitoring_statistics_resource() :: %{
-    "S3Uri" => String.t()
-  }
+      
+      monitoring_statistics_resource() :: %{
+        "S3Uri" => String.t()
+      }
+      
   """
   @type monitoring_statistics_resource() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  input_config() :: %{
-    "DataInputConfig" => String.t(),
-    "Framework" => list(any()),
-    "FrameworkVersion" => String.t(),
-    "S3Uri" => String.t()
-  }
+      
+      input_config() :: %{
+        "DataInputConfig" => String.t(),
+        "Framework" => list(any()),
+        "FrameworkVersion" => String.t(),
+        "S3Uri" => String.t()
+      }
+      
   """
   @type input_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  space_settings() :: %{
-    "AppType" => list(any()),
-    "CodeEditorAppSettings" => space_code_editor_app_settings(),
-    "CustomFileSystems" => list(list()()),
-    "JupyterLabAppSettings" => space_jupyter_lab_app_settings(),
-    "JupyterServerAppSettings" => jupyter_server_app_settings(),
-    "KernelGatewayAppSettings" => kernel_gateway_app_settings(),
-    "SpaceStorageSettings" => space_storage_settings()
-  }
+      
+      space_settings() :: %{
+        "AppType" => list(any()),
+        "CodeEditorAppSettings" => space_code_editor_app_settings(),
+        "CustomFileSystems" => list(list()()),
+        "JupyterLabAppSettings" => space_jupyter_lab_app_settings(),
+        "JupyterServerAppSettings" => jupyter_server_app_settings(),
+        "KernelGatewayAppSettings" => kernel_gateway_app_settings(),
+        "SpaceStorageSettings" => space_storage_settings()
+      }
+      
   """
   @type space_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_training_job_request() :: %{
-    required("TrainingJobName") => String.t()
-  }
+      
+      describe_training_job_request() :: %{
+        required("TrainingJobName") => String.t()
+      }
+      
   """
   @type describe_training_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_inference_component_runtime_config_output() :: %{
-    "InferenceComponentArn" => String.t()
-  }
+      
+      update_inference_component_runtime_config_output() :: %{
+        "InferenceComponentArn" => String.t()
+      }
+      
   """
   @type update_inference_component_runtime_config_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_labeling_job_response() :: %{
-    "LabelingJobArn" => String.t()
-  }
+      
+      create_labeling_job_response() :: %{
+        "LabelingJobArn" => String.t()
+      }
+      
   """
   @type create_labeling_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  hyper_parameter_tuning_job_strategy_config() :: %{
-    "HyperbandStrategyConfig" => hyperband_strategy_config()
-  }
+      
+      hyper_parameter_tuning_job_strategy_config() :: %{
+        "HyperbandStrategyConfig" => hyperband_strategy_config()
+      }
+      
   """
   @type hyper_parameter_tuning_job_strategy_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_edge_packaging_job_response() :: %{
-    "CompilationJobName" => String.t(),
-    "CreationTime" => non_neg_integer(),
-    "EdgePackagingJobArn" => String.t(),
-    "EdgePackagingJobName" => String.t(),
-    "EdgePackagingJobStatus" => list(any()),
-    "EdgePackagingJobStatusMessage" => String.t(),
-    "LastModifiedTime" => non_neg_integer(),
-    "ModelArtifact" => String.t(),
-    "ModelName" => String.t(),
-    "ModelSignature" => String.t(),
-    "ModelVersion" => String.t(),
-    "OutputConfig" => edge_output_config(),
-    "PresetDeploymentOutput" => edge_preset_deployment_output(),
-    "ResourceKey" => String.t(),
-    "RoleArn" => String.t()
-  }
+      
+      describe_edge_packaging_job_response() :: %{
+        "CompilationJobName" => String.t(),
+        "CreationTime" => non_neg_integer(),
+        "EdgePackagingJobArn" => String.t(),
+        "EdgePackagingJobName" => String.t(),
+        "EdgePackagingJobStatus" => list(any()),
+        "EdgePackagingJobStatusMessage" => String.t(),
+        "LastModifiedTime" => non_neg_integer(),
+        "ModelArtifact" => String.t(),
+        "ModelName" => String.t(),
+        "ModelSignature" => String.t(),
+        "ModelVersion" => String.t(),
+        "OutputConfig" => edge_output_config(),
+        "PresetDeploymentOutput" => edge_preset_deployment_output(),
+        "ResourceKey" => String.t(),
+        "RoleArn" => String.t()
+      }
+      
   """
   @type describe_edge_packaging_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_resource_catalogs_response() :: %{
-    "NextToken" => String.t(),
-    "ResourceCatalogs" => list(resource_catalog()())
-  }
+      
+      list_resource_catalogs_response() :: %{
+        "NextToken" => String.t(),
+        "ResourceCatalogs" => list(resource_catalog()())
+      }
+      
   """
   @type list_resource_catalogs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  metric_definition() :: %{
-    "Name" => String.t(),
-    "Regex" => String.t()
-  }
+      
+      metric_definition() :: %{
+        "Name" => String.t(),
+        "Regex" => String.t()
+      }
+      
   """
   @type metric_definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_edge_packaging_jobs_request() :: %{
-    optional("CreationTimeAfter") => non_neg_integer(),
-    optional("CreationTimeBefore") => non_neg_integer(),
-    optional("LastModifiedTimeAfter") => non_neg_integer(),
-    optional("LastModifiedTimeBefore") => non_neg_integer(),
-    optional("MaxResults") => integer(),
-    optional("ModelNameContains") => String.t(),
-    optional("NameContains") => String.t(),
-    optional("NextToken") => String.t(),
-    optional("SortBy") => list(any()),
-    optional("SortOrder") => list(any()),
-    optional("StatusEquals") => list(any())
-  }
+      
+      list_edge_packaging_jobs_request() :: %{
+        optional("CreationTimeAfter") => non_neg_integer(),
+        optional("CreationTimeBefore") => non_neg_integer(),
+        optional("LastModifiedTimeAfter") => non_neg_integer(),
+        optional("LastModifiedTimeBefore") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("ModelNameContains") => String.t(),
+        optional("NameContains") => String.t(),
+        optional("NextToken") => String.t(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any()),
+        optional("StatusEquals") => list(any())
+      }
+      
   """
   @type list_edge_packaging_jobs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  deregister_devices_request() :: %{
-    required("DeviceFleetName") => String.t(),
-    required("DeviceNames") => list(String.t()())
-  }
+      
+      deregister_devices_request() :: %{
+        required("DeviceFleetName") => String.t(),
+        required("DeviceNames") => list(String.t()())
+      }
+      
   """
   @type deregister_devices_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  training_job_definition() :: %{
-    "HyperParameters" => map(),
-    "InputDataConfig" => list(channel()()),
-    "OutputDataConfig" => output_data_config(),
-    "ResourceConfig" => resource_config(),
-    "StoppingCondition" => stopping_condition(),
-    "TrainingInputMode" => list(any())
-  }
+      
+      training_job_definition() :: %{
+        "HyperParameters" => map(),
+        "InputDataConfig" => list(channel()()),
+        "OutputDataConfig" => output_data_config(),
+        "ResourceConfig" => resource_config(),
+        "StoppingCondition" => stopping_condition(),
+        "TrainingInputMode" => list(any())
+      }
+      
   """
   @type training_job_definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  trial_summary() :: %{
-    "CreationTime" => non_neg_integer(),
-    "DisplayName" => String.t(),
-    "LastModifiedTime" => non_neg_integer(),
-    "TrialArn" => String.t(),
-    "TrialName" => String.t(),
-    "TrialSource" => trial_source()
-  }
+      
+      trial_summary() :: %{
+        "CreationTime" => non_neg_integer(),
+        "DisplayName" => String.t(),
+        "LastModifiedTime" => non_neg_integer(),
+        "TrialArn" => String.t(),
+        "TrialName" => String.t(),
+        "TrialSource" => trial_source()
+      }
+      
   """
   @type trial_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  workforce_vpc_config_response() :: %{
-    "SecurityGroupIds" => list(String.t()()),
-    "Subnets" => list(String.t()()),
-    "VpcEndpointId" => String.t(),
-    "VpcId" => String.t()
-  }
+      
+      workforce_vpc_config_response() :: %{
+        "SecurityGroupIds" => list(String.t()()),
+        "Subnets" => list(String.t()()),
+        "VpcEndpointId" => String.t(),
+        "VpcId" => String.t()
+      }
+      
   """
   @type workforce_vpc_config_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  jupyter_lab_app_image_config() :: %{
-    "ContainerConfig" => container_config(),
-    "FileSystemConfig" => file_system_config()
-  }
+      
+      jupyter_lab_app_image_config() :: %{
+        "ContainerConfig" => container_config(),
+        "FileSystemConfig" => file_system_config()
+      }
+      
   """
   @type jupyter_lab_app_image_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  monitoring_network_config() :: %{
-    "EnableInterContainerTrafficEncryption" => boolean(),
-    "EnableNetworkIsolation" => boolean(),
-    "VpcConfig" => vpc_config()
-  }
+      
+      monitoring_network_config() :: %{
+        "EnableInterContainerTrafficEncryption" => boolean(),
+        "EnableNetworkIsolation" => boolean(),
+        "VpcConfig" => vpc_config()
+      }
+      
   """
   @type monitoring_network_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_feature_metadata_response() :: %{
-    "CreationTime" => non_neg_integer(),
-    "Description" => String.t(),
-    "FeatureGroupArn" => String.t(),
-    "FeatureGroupName" => String.t(),
-    "FeatureName" => String.t(),
-    "FeatureType" => list(any()),
-    "LastModifiedTime" => non_neg_integer(),
-    "Parameters" => list(feature_parameter()())
-  }
+      
+      describe_feature_metadata_response() :: %{
+        "CreationTime" => non_neg_integer(),
+        "Description" => String.t(),
+        "FeatureGroupArn" => String.t(),
+        "FeatureGroupName" => String.t(),
+        "FeatureName" => String.t(),
+        "FeatureType" => list(any()),
+        "LastModifiedTime" => non_neg_integer(),
+        "Parameters" => list(feature_parameter()())
+      }
+      
   """
   @type describe_feature_metadata_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  model_quality_app_specification() :: %{
-    "ContainerArguments" => list(String.t()()),
-    "ContainerEntrypoint" => list(String.t()()),
-    "Environment" => map(),
-    "ImageUri" => String.t(),
-    "PostAnalyticsProcessorSourceUri" => String.t(),
-    "ProblemType" => list(any()),
-    "RecordPreprocessorSourceUri" => String.t()
-  }
+      
+      model_quality_app_specification() :: %{
+        "ContainerArguments" => list(String.t()()),
+        "ContainerEntrypoint" => list(String.t()()),
+        "Environment" => map(),
+        "ImageUri" => String.t(),
+        "PostAnalyticsProcessorSourceUri" => String.t(),
+        "ProblemType" => list(any()),
+        "RecordPreprocessorSourceUri" => String.t()
+      }
+      
   """
   @type model_quality_app_specification() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_training_jobs_request() :: %{
-    optional("CreationTimeAfter") => non_neg_integer(),
-    optional("CreationTimeBefore") => non_neg_integer(),
-    optional("LastModifiedTimeAfter") => non_neg_integer(),
-    optional("LastModifiedTimeBefore") => non_neg_integer(),
-    optional("MaxResults") => integer(),
-    optional("NameContains") => String.t(),
-    optional("NextToken") => String.t(),
-    optional("SortBy") => list(any()),
-    optional("SortOrder") => list(any()),
-    optional("StatusEquals") => list(any()),
-    optional("WarmPoolStatusEquals") => list(any())
-  }
+      
+      list_training_jobs_request() :: %{
+        optional("CreationTimeAfter") => non_neg_integer(),
+        optional("CreationTimeBefore") => non_neg_integer(),
+        optional("LastModifiedTimeAfter") => non_neg_integer(),
+        optional("LastModifiedTimeBefore") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("NameContains") => String.t(),
+        optional("NextToken") => String.t(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any()),
+        optional("StatusEquals") => list(any()),
+        optional("WarmPoolStatusEquals") => list(any())
+      }
+      
   """
   @type list_training_jobs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  inference_component_startup_parameters() :: %{
-    "ContainerStartupHealthCheckTimeoutInSeconds" => integer(),
-    "ModelDataDownloadTimeoutInSeconds" => integer()
-  }
+      
+      inference_component_startup_parameters() :: %{
+        "ContainerStartupHealthCheckTimeoutInSeconds" => integer(),
+        "ModelDataDownloadTimeoutInSeconds" => integer()
+      }
+      
   """
   @type inference_component_startup_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  integer_parameter_range_specification() :: %{
-    "MaxValue" => String.t(),
-    "MinValue" => String.t()
-  }
+      
+      integer_parameter_range_specification() :: %{
+        "MaxValue" => String.t(),
+        "MinValue" => String.t()
+      }
+      
   """
   @type integer_parameter_range_specification() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  auto_ml_data_source() :: %{
-    "S3DataSource" => auto_ml_s3_data_source()
-  }
+      
+      auto_ml_data_source() :: %{
+        "S3DataSource" => auto_ml_s3_data_source()
+      }
+      
   """
   @type auto_ml_data_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  auto_ml_partial_failure_reason() :: %{
-    "PartialFailureMessage" => String.t()
-  }
+      
+      auto_ml_partial_failure_reason() :: %{
+        "PartialFailureMessage" => String.t()
+      }
+      
   """
   @type auto_ml_partial_failure_reason() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_app_response() :: %{
-    "AppArn" => String.t(),
-    "AppName" => String.t(),
-    "AppType" => list(any()),
-    "CreationTime" => non_neg_integer(),
-    "DomainId" => String.t(),
-    "FailureReason" => String.t(),
-    "LastHealthCheckTimestamp" => non_neg_integer(),
-    "LastUserActivityTimestamp" => non_neg_integer(),
-    "ResourceSpec" => resource_spec(),
-    "SpaceName" => String.t(),
-    "Status" => list(any()),
-    "UserProfileName" => String.t()
-  }
+      
+      describe_app_response() :: %{
+        "AppArn" => String.t(),
+        "AppName" => String.t(),
+        "AppType" => list(any()),
+        "CreationTime" => non_neg_integer(),
+        "DomainId" => String.t(),
+        "FailureReason" => String.t(),
+        "LastHealthCheckTimestamp" => non_neg_integer(),
+        "LastUserActivityTimestamp" => non_neg_integer(),
+        "ResourceSpec" => resource_spec(),
+        "SpaceName" => String.t(),
+        "Status" => list(any()),
+        "UserProfileName" => String.t()
+      }
+      
   """
   @type describe_app_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  algorithm_status_item() :: %{
-    "FailureReason" => String.t(),
-    "Name" => String.t(),
-    "Status" => list(any())
-  }
+      
+      algorithm_status_item() :: %{
+        "FailureReason" => String.t(),
+        "Name" => String.t(),
+        "Status" => list(any())
+      }
+      
   """
   @type algorithm_status_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  add_tags_input() :: %{
-    required("ResourceArn") => String.t(),
-    required("Tags") => list(tag()())
-  }
+      
+      add_tags_input() :: %{
+        required("ResourceArn") => String.t(),
+        required("Tags") => list(tag()())
+      }
+      
   """
   @type add_tags_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_device_fleet_request() :: %{
-    required("DeviceFleetName") => String.t()
-  }
+      
+      describe_device_fleet_request() :: %{
+        required("DeviceFleetName") => String.t()
+      }
+      
   """
   @type describe_device_fleet_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disable_sagemaker_servicecatalog_portfolio_output() :: %{
-
-  }
+      
+      disable_sagemaker_servicecatalog_portfolio_output() :: %{}
+      
   """
-  @type disable_sagemaker_servicecatalog_portfolio_output() :: %{String.t() => any()}
+  @type disable_sagemaker_servicecatalog_portfolio_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  profiler_config() :: %{
-    "DisableProfiler" => boolean(),
-    "ProfilingIntervalInMilliseconds" => float(),
-    "ProfilingParameters" => map(),
-    "S3OutputPath" => String.t()
-  }
+      
+      profiler_config() :: %{
+        "DisableProfiler" => boolean(),
+        "ProfilingIntervalInMilliseconds" => float(),
+        "ProfilingParameters" => map(),
+        "S3OutputPath" => String.t()
+      }
+      
   """
   @type profiler_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_hubs_response() :: %{
-    "HubSummaries" => list(hub_info()()),
-    "NextToken" => String.t()
-  }
+      
+      list_hubs_response() :: %{
+        "HubSummaries" => list(hub_info()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_hubs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  r_studio_server_pro_domain_settings_for_update() :: %{
-    "DefaultResourceSpec" => resource_spec(),
-    "DomainExecutionRoleArn" => String.t(),
-    "RStudioConnectUrl" => String.t(),
-    "RStudioPackageManagerUrl" => String.t()
-  }
+      
+      r_studio_server_pro_domain_settings_for_update() :: %{
+        "DefaultResourceSpec" => resource_spec(),
+        "DomainExecutionRoleArn" => String.t(),
+        "RStudioConnectUrl" => String.t(),
+        "RStudioPackageManagerUrl" => String.t()
+      }
+      
   """
   @type r_studio_server_pro_domain_settings_for_update() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  monitoring_parquet_dataset_format() :: %{
-
-  }
+      
+      monitoring_parquet_dataset_format() :: %{}
+      
   """
-  @type monitoring_parquet_dataset_format() :: %{String.t() => any()}
+  @type monitoring_parquet_dataset_format() :: %{}
 
   @typedoc """
 
   ## Example:
-  endpoint_metadata() :: %{
-    "EndpointConfigName" => String.t(),
-    "EndpointName" => String.t(),
-    "EndpointStatus" => list(any()),
-    "FailureReason" => String.t()
-  }
+      
+      endpoint_metadata() :: %{
+        "EndpointConfigName" => String.t(),
+        "EndpointName" => String.t(),
+        "EndpointStatus" => list(any()),
+        "FailureReason" => String.t()
+      }
+      
   """
   @type endpoint_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_inference_experiment_request() :: %{
-    required("Name") => String.t()
-  }
+      
+      delete_inference_experiment_request() :: %{
+        required("Name") => String.t()
+      }
+      
   """
   @type delete_inference_experiment_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  endpoint_input() :: %{
-    "EndTimeOffset" => String.t(),
-    "EndpointName" => String.t(),
-    "ExcludeFeaturesAttribute" => String.t(),
-    "FeaturesAttribute" => String.t(),
-    "InferenceAttribute" => String.t(),
-    "LocalPath" => String.t(),
-    "ProbabilityAttribute" => String.t(),
-    "ProbabilityThresholdAttribute" => float(),
-    "S3DataDistributionType" => list(any()),
-    "S3InputMode" => list(any()),
-    "StartTimeOffset" => String.t()
-  }
+      
+      endpoint_input() :: %{
+        "EndTimeOffset" => String.t(),
+        "EndpointName" => String.t(),
+        "ExcludeFeaturesAttribute" => String.t(),
+        "FeaturesAttribute" => String.t(),
+        "InferenceAttribute" => String.t(),
+        "LocalPath" => String.t(),
+        "ProbabilityAttribute" => String.t(),
+        "ProbabilityThresholdAttribute" => float(),
+        "S3DataDistributionType" => list(any()),
+        "S3InputMode" => list(any()),
+        "StartTimeOffset" => String.t()
+      }
+      
   """
   @type endpoint_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_model_explainability_job_definition_request() :: %{
-    required("JobDefinitionName") => String.t()
-  }
+      
+      delete_model_explainability_job_definition_request() :: %{
+        required("JobDefinitionName") => String.t()
+      }
+      
   """
   @type delete_model_explainability_job_definition_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  data_catalog_config() :: %{
-    "Catalog" => String.t(),
-    "Database" => String.t(),
-    "TableName" => String.t()
-  }
+      
+      data_catalog_config() :: %{
+        "Catalog" => String.t(),
+        "Database" => String.t(),
+        "TableName" => String.t()
+      }
+      
   """
   @type data_catalog_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  image_config() :: %{
-    "RepositoryAccessMode" => list(any()),
-    "RepositoryAuthConfig" => repository_auth_config()
-  }
+      
+      image_config() :: %{
+        "RepositoryAccessMode" => list(any()),
+        "RepositoryAuthConfig" => repository_auth_config()
+      }
+      
   """
   @type image_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_monitoring_alert_history_response() :: %{
-    "MonitoringAlertHistory" => list(monitoring_alert_history_summary()()),
-    "NextToken" => String.t()
-  }
+      
+      list_monitoring_alert_history_response() :: %{
+        "MonitoringAlertHistory" => list(monitoring_alert_history_summary()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_monitoring_alert_history_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  space_details() :: %{
-    "CreationTime" => non_neg_integer(),
-    "DomainId" => String.t(),
-    "LastModifiedTime" => non_neg_integer(),
-    "OwnershipSettingsSummary" => ownership_settings_summary(),
-    "SpaceDisplayName" => String.t(),
-    "SpaceName" => String.t(),
-    "SpaceSettingsSummary" => space_settings_summary(),
-    "SpaceSharingSettingsSummary" => space_sharing_settings_summary(),
-    "Status" => list(any())
-  }
+      
+      space_details() :: %{
+        "CreationTime" => non_neg_integer(),
+        "DomainId" => String.t(),
+        "LastModifiedTime" => non_neg_integer(),
+        "OwnershipSettingsSummary" => ownership_settings_summary(),
+        "SpaceDisplayName" => String.t(),
+        "SpaceName" => String.t(),
+        "SpaceSettingsSummary" => space_settings_summary(),
+        "SpaceSharingSettingsSummary" => space_sharing_settings_summary(),
+        "Status" => list(any())
+      }
+      
   """
   @type space_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_feature_metadata_request() :: %{
-    required("FeatureGroupName") => String.t(),
-    required("FeatureName") => String.t()
-  }
+      
+      describe_feature_metadata_request() :: %{
+        required("FeatureGroupName") => String.t(),
+        required("FeatureName") => String.t()
+      }
+      
   """
   @type describe_feature_metadata_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_artifact_response() :: %{
-    "ArtifactArn" => String.t()
-  }
+      
+      delete_artifact_response() :: %{
+        "ArtifactArn" => String.t()
+      }
+      
   """
   @type delete_artifact_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_feature_group_response() :: %{
-    "CreationTime" => non_neg_integer(),
-    "Description" => String.t(),
-    "EventTimeFeatureName" => String.t(),
-    "FailureReason" => String.t(),
-    "FeatureDefinitions" => list(feature_definition()()),
-    "FeatureGroupArn" => String.t(),
-    "FeatureGroupName" => String.t(),
-    "FeatureGroupStatus" => list(any()),
-    "LastModifiedTime" => non_neg_integer(),
-    "LastUpdateStatus" => last_update_status(),
-    "NextToken" => String.t(),
-    "OfflineStoreConfig" => offline_store_config(),
-    "OfflineStoreStatus" => offline_store_status(),
-    "OnlineStoreConfig" => online_store_config(),
-    "OnlineStoreTotalSizeBytes" => float(),
-    "RecordIdentifierFeatureName" => String.t(),
-    "RoleArn" => String.t(),
-    "ThroughputConfig" => throughput_config_description()
-  }
+      
+      describe_feature_group_response() :: %{
+        "CreationTime" => non_neg_integer(),
+        "Description" => String.t(),
+        "EventTimeFeatureName" => String.t(),
+        "FailureReason" => String.t(),
+        "FeatureDefinitions" => list(feature_definition()()),
+        "FeatureGroupArn" => String.t(),
+        "FeatureGroupName" => String.t(),
+        "FeatureGroupStatus" => list(any()),
+        "LastModifiedTime" => non_neg_integer(),
+        "LastUpdateStatus" => last_update_status(),
+        "NextToken" => String.t(),
+        "OfflineStoreConfig" => offline_store_config(),
+        "OfflineStoreStatus" => offline_store_status(),
+        "OnlineStoreConfig" => online_store_config(),
+        "OnlineStoreTotalSizeBytes" => float(),
+        "RecordIdentifierFeatureName" => String.t(),
+        "RoleArn" => String.t(),
+        "ThroughputConfig" => throughput_config_description()
+      }
+      
   """
   @type describe_feature_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  drift_check_explainability() :: %{
-    "ConfigFile" => file_source(),
-    "Constraints" => metrics_source()
-  }
+      
+      drift_check_explainability() :: %{
+        "ConfigFile" => file_source(),
+        "Constraints" => metrics_source()
+      }
+      
   """
   @type drift_check_explainability() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  data_capture_config() :: %{
-    "CaptureContentTypeHeader" => capture_content_type_header(),
-    "CaptureOptions" => list(capture_option()()),
-    "DestinationS3Uri" => String.t(),
-    "EnableCapture" => boolean(),
-    "InitialSamplingPercentage" => integer(),
-    "KmsKeyId" => String.t()
-  }
+      
+      data_capture_config() :: %{
+        "CaptureContentTypeHeader" => capture_content_type_header(),
+        "CaptureOptions" => list(capture_option()()),
+        "DestinationS3Uri" => String.t(),
+        "EnableCapture" => boolean(),
+        "InitialSamplingPercentage" => integer(),
+        "KmsKeyId" => String.t()
+      }
+      
   """
   @type data_capture_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  import_hub_content_request() :: %{
-    optional("HubContentDescription") => String.t(),
-    optional("HubContentDisplayName") => String.t(),
-    optional("HubContentMarkdown") => String.t(),
-    optional("HubContentSearchKeywords") => list(String.t()()),
-    optional("HubContentVersion") => String.t(),
-    optional("Tags") => list(tag()()),
-    required("DocumentSchemaVersion") => String.t(),
-    required("HubContentDocument") => String.t(),
-    required("HubContentName") => String.t(),
-    required("HubContentType") => list(any()),
-    required("HubName") => String.t()
-  }
+      
+      import_hub_content_request() :: %{
+        optional("HubContentDescription") => String.t(),
+        optional("HubContentDisplayName") => String.t(),
+        optional("HubContentMarkdown") => String.t(),
+        optional("HubContentSearchKeywords") => list(String.t()()),
+        optional("HubContentVersion") => String.t(),
+        optional("Tags") => list(tag()()),
+        required("DocumentSchemaVersion") => String.t(),
+        required("HubContentDocument") => String.t(),
+        required("HubContentName") => String.t(),
+        required("HubContentType") => list(any()),
+        required("HubName") => String.t()
+      }
+      
   """
   @type import_hub_content_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_model_card_request() :: %{
-    required("ModelCardName") => String.t()
-  }
+      
+      delete_model_card_request() :: %{
+        required("ModelCardName") => String.t()
+      }
+      
   """
   @type delete_model_card_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_model_cards_request() :: %{
-    optional("CreationTimeAfter") => non_neg_integer(),
-    optional("CreationTimeBefore") => non_neg_integer(),
-    optional("MaxResults") => integer(),
-    optional("ModelCardStatus") => list(any()),
-    optional("NameContains") => String.t(),
-    optional("NextToken") => String.t(),
-    optional("SortBy") => list(any()),
-    optional("SortOrder") => list(any())
-  }
+      
+      list_model_cards_request() :: %{
+        optional("CreationTimeAfter") => non_neg_integer(),
+        optional("CreationTimeBefore") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("ModelCardStatus") => list(any()),
+        optional("NameContains") => String.t(),
+        optional("NextToken") => String.t(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any())
+      }
+      
   """
   @type list_model_cards_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  edge_deployment_status() :: %{
-    "EdgeDeploymentFailedInStage" => integer(),
-    "EdgeDeploymentPendingInStage" => integer(),
-    "EdgeDeploymentStageStartTime" => non_neg_integer(),
-    "EdgeDeploymentStatusMessage" => String.t(),
-    "EdgeDeploymentSuccessInStage" => integer(),
-    "StageStatus" => list(any())
-  }
+      
+      edge_deployment_status() :: %{
+        "EdgeDeploymentFailedInStage" => integer(),
+        "EdgeDeploymentPendingInStage" => integer(),
+        "EdgeDeploymentStageStartTime" => non_neg_integer(),
+        "EdgeDeploymentStatusMessage" => String.t(),
+        "EdgeDeploymentSuccessInStage" => integer(),
+        "StageStatus" => list(any())
+      }
+      
   """
   @type edge_deployment_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tuning_job_completion_criteria() :: %{
-    "BestObjectiveNotImproving" => best_objective_not_improving(),
-    "ConvergenceDetected" => convergence_detected(),
-    "TargetObjectiveMetricValue" => float()
-  }
+      
+      tuning_job_completion_criteria() :: %{
+        "BestObjectiveNotImproving" => best_objective_not_improving(),
+        "ConvergenceDetected" => convergence_detected(),
+        "TargetObjectiveMetricValue" => float()
+      }
+      
   """
   @type tuning_job_completion_criteria() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  register_model_step_metadata() :: %{
-    "Arn" => String.t()
-  }
+      
+      register_model_step_metadata() :: %{
+        "Arn" => String.t()
+      }
+      
   """
   @type register_model_step_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  e_f_s_file_system_config() :: %{
-    "FileSystemId" => String.t(),
-    "FileSystemPath" => String.t()
-  }
+      
+      e_f_s_file_system_config() :: %{
+        "FileSystemId" => String.t(),
+        "FileSystemPath" => String.t()
+      }
+      
   """
   @type e_f_s_file_system_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_scaling_configuration_recommendation_response() :: %{
-    "DynamicScalingConfiguration" => dynamic_scaling_configuration(),
-    "EndpointName" => String.t(),
-    "InferenceRecommendationsJobName" => String.t(),
-    "Metric" => scaling_policy_metric(),
-    "RecommendationId" => String.t(),
-    "ScalingPolicyObjective" => scaling_policy_objective(),
-    "TargetCpuUtilizationPerCore" => integer()
-  }
+      
+      get_scaling_configuration_recommendation_response() :: %{
+        "DynamicScalingConfiguration" => dynamic_scaling_configuration(),
+        "EndpointName" => String.t(),
+        "InferenceRecommendationsJobName" => String.t(),
+        "Metric" => scaling_policy_metric(),
+        "RecommendationId" => String.t(),
+        "ScalingPolicyObjective" => scaling_policy_objective(),
+        "TargetCpuUtilizationPerCore" => integer()
+      }
+      
   """
   @type get_scaling_configuration_recommendation_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stop_processing_job_request() :: %{
-    required("ProcessingJobName") => String.t()
-  }
+      
+      stop_processing_job_request() :: %{
+        required("ProcessingJobName") => String.t()
+      }
+      
   """
   @type stop_processing_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_trial_response() :: %{
-    "TrialArn" => String.t()
-  }
+      
+      create_trial_response() :: %{
+        "TrialArn" => String.t()
+      }
+      
   """
   @type create_trial_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  recommendation_job_compiled_output_config() :: %{
-    "S3OutputUri" => String.t()
-  }
+      
+      recommendation_job_compiled_output_config() :: %{
+        "S3OutputUri" => String.t()
+      }
+      
   """
   @type recommendation_job_compiled_output_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_endpoint_output() :: %{
-    "EndpointArn" => String.t()
-  }
+      
+      create_endpoint_output() :: %{
+        "EndpointArn" => String.t()
+      }
+      
   """
   @type create_endpoint_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  service_catalog_provisioning_update_details() :: %{
-    "ProvisioningArtifactId" => String.t(),
-    "ProvisioningParameters" => list(provisioning_parameter()())
-  }
+      
+      service_catalog_provisioning_update_details() :: %{
+        "ProvisioningArtifactId" => String.t(),
+        "ProvisioningParameters" => list(provisioning_parameter()())
+      }
+      
   """
   @type service_catalog_provisioning_update_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  repository_auth_config() :: %{
-    "RepositoryCredentialsProviderArn" => String.t()
-  }
+      
+      repository_auth_config() :: %{
+        "RepositoryCredentialsProviderArn" => String.t()
+      }
+      
   """
   @type repository_auth_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_endpoint_output() :: %{
-    "AsyncInferenceConfig" => async_inference_config(),
-    "CreationTime" => non_neg_integer(),
-    "DataCaptureConfig" => data_capture_config_summary(),
-    "EndpointArn" => String.t(),
-    "EndpointConfigName" => String.t(),
-    "EndpointName" => String.t(),
-    "EndpointStatus" => list(any()),
-    "ExplainerConfig" => explainer_config(),
-    "FailureReason" => String.t(),
-    "LastDeploymentConfig" => deployment_config(),
-    "LastModifiedTime" => non_neg_integer(),
-    "PendingDeploymentSummary" => pending_deployment_summary(),
-    "ProductionVariants" => list(production_variant_summary()()),
-    "ShadowProductionVariants" => list(production_variant_summary()())
-  }
+      
+      describe_endpoint_output() :: %{
+        "AsyncInferenceConfig" => async_inference_config(),
+        "CreationTime" => non_neg_integer(),
+        "DataCaptureConfig" => data_capture_config_summary(),
+        "EndpointArn" => String.t(),
+        "EndpointConfigName" => String.t(),
+        "EndpointName" => String.t(),
+        "EndpointStatus" => list(any()),
+        "ExplainerConfig" => explainer_config(),
+        "FailureReason" => String.t(),
+        "LastDeploymentConfig" => deployment_config(),
+        "LastModifiedTime" => non_neg_integer(),
+        "PendingDeploymentSummary" => pending_deployment_summary(),
+        "ProductionVariants" => list(production_variant_summary()()),
+        "ShadowProductionVariants" => list(production_variant_summary()())
+      }
+      
   """
   @type describe_endpoint_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  final_auto_ml_job_objective_metric() :: %{
-    "MetricName" => list(any()),
-    "StandardMetricName" => list(any()),
-    "Type" => list(any()),
-    "Value" => float()
-  }
+      
+      final_auto_ml_job_objective_metric() :: %{
+        "MetricName" => list(any()),
+        "StandardMetricName" => list(any()),
+        "Type" => list(any()),
+        "Value" => float()
+      }
+      
   """
   @type final_auto_ml_job_objective_metric() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_training_job_request() :: %{
-    optional("ProfilerConfig") => profiler_config_for_update(),
-    optional("ProfilerRuleConfigurations") => list(profiler_rule_configuration()()),
-    optional("RemoteDebugConfig") => remote_debug_config_for_update(),
-    optional("ResourceConfig") => resource_config_for_update(),
-    required("TrainingJobName") => String.t()
-  }
+      
+      update_training_job_request() :: %{
+        optional("ProfilerConfig") => profiler_config_for_update(),
+        optional("ProfilerRuleConfigurations") => list(profiler_rule_configuration()()),
+        optional("RemoteDebugConfig") => remote_debug_config_for_update(),
+        optional("ResourceConfig") => resource_config_for_update(),
+        required("TrainingJobName") => String.t()
+      }
+      
   """
   @type update_training_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_context_request() :: %{
-    required("ContextName") => String.t()
-  }
+      
+      describe_context_request() :: %{
+        required("ContextName") => String.t()
+      }
+      
   """
   @type describe_context_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  human_task_ui_summary() :: %{
-    "CreationTime" => non_neg_integer(),
-    "HumanTaskUiArn" => String.t(),
-    "HumanTaskUiName" => String.t()
-  }
+      
+      human_task_ui_summary() :: %{
+        "CreationTime" => non_neg_integer(),
+        "HumanTaskUiArn" => String.t(),
+        "HumanTaskUiName" => String.t()
+      }
+      
   """
   @type human_task_ui_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_presigned_notebook_instance_url_output() :: %{
-    "AuthorizedUrl" => String.t()
-  }
+      
+      create_presigned_notebook_instance_url_output() :: %{
+        "AuthorizedUrl" => String.t()
+      }
+      
   """
   @type create_presigned_notebook_instance_url_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_cluster_software_response() :: %{
-    "ClusterArn" => String.t()
-  }
+      
+      update_cluster_software_response() :: %{
+        "ClusterArn" => String.t()
+      }
+      
   """
   @type update_cluster_software_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  model_metrics() :: %{
-    "Bias" => bias(),
-    "Explainability" => explainability(),
-    "ModelDataQuality" => model_data_quality(),
-    "ModelQuality" => model_quality()
-  }
+      
+      model_metrics() :: %{
+        "Bias" => bias(),
+        "Explainability" => explainability(),
+        "ModelDataQuality" => model_data_quality(),
+        "ModelQuality" => model_quality()
+      }
+      
   """
   @type model_metrics() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_notebook_instance_lifecycle_configs_output() :: %{
-    "NextToken" => String.t(),
-    "NotebookInstanceLifecycleConfigs" => list(notebook_instance_lifecycle_config_summary()())
-  }
+      
+      list_notebook_instance_lifecycle_configs_output() :: %{
+        "NextToken" => String.t(),
+        "NotebookInstanceLifecycleConfigs" => list(notebook_instance_lifecycle_config_summary()())
+      }
+      
   """
   @type list_notebook_instance_lifecycle_configs_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_compilation_job_response() :: %{
-    "CompilationEndTime" => non_neg_integer(),
-    "CompilationJobArn" => String.t(),
-    "CompilationJobName" => String.t(),
-    "CompilationJobStatus" => list(any()),
-    "CompilationStartTime" => non_neg_integer(),
-    "CreationTime" => non_neg_integer(),
-    "DerivedInformation" => derived_information(),
-    "FailureReason" => String.t(),
-    "InferenceImage" => String.t(),
-    "InputConfig" => input_config(),
-    "LastModifiedTime" => non_neg_integer(),
-    "ModelArtifacts" => model_artifacts(),
-    "ModelDigests" => model_digests(),
-    "ModelPackageVersionArn" => String.t(),
-    "OutputConfig" => output_config(),
-    "RoleArn" => String.t(),
-    "StoppingCondition" => stopping_condition(),
-    "VpcConfig" => neo_vpc_config()
-  }
+      
+      describe_compilation_job_response() :: %{
+        "CompilationEndTime" => non_neg_integer(),
+        "CompilationJobArn" => String.t(),
+        "CompilationJobName" => String.t(),
+        "CompilationJobStatus" => list(any()),
+        "CompilationStartTime" => non_neg_integer(),
+        "CreationTime" => non_neg_integer(),
+        "DerivedInformation" => derived_information(),
+        "FailureReason" => String.t(),
+        "InferenceImage" => String.t(),
+        "InputConfig" => input_config(),
+        "LastModifiedTime" => non_neg_integer(),
+        "ModelArtifacts" => model_artifacts(),
+        "ModelDigests" => model_digests(),
+        "ModelPackageVersionArn" => String.t(),
+        "OutputConfig" => output_config(),
+        "RoleArn" => String.t(),
+        "StoppingCondition" => stopping_condition(),
+        "VpcConfig" => neo_vpc_config()
+      }
+      
   """
   @type describe_compilation_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stop_hyper_parameter_tuning_job_request() :: %{
-    required("HyperParameterTuningJobName") => String.t()
-  }
+      
+      stop_hyper_parameter_tuning_job_request() :: %{
+        required("HyperParameterTuningJobName") => String.t()
+      }
+      
   """
   @type stop_hyper_parameter_tuning_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  associate_trial_component_response() :: %{
-    "TrialArn" => String.t(),
-    "TrialComponentArn" => String.t()
-  }
+      
+      associate_trial_component_response() :: %{
+        "TrialArn" => String.t(),
+        "TrialComponentArn" => String.t()
+      }
+      
   """
   @type associate_trial_component_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_notebook_instance_input() :: %{
-    required("NotebookInstanceName") => String.t()
-  }
+      
+      delete_notebook_instance_input() :: %{
+        required("NotebookInstanceName") => String.t()
+      }
+      
   """
   @type delete_notebook_instance_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_labeling_jobs_for_workteam_request() :: %{
-    optional("CreationTimeAfter") => non_neg_integer(),
-    optional("CreationTimeBefore") => non_neg_integer(),
-    optional("JobReferenceCodeContains") => String.t(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("SortBy") => list(any()),
-    optional("SortOrder") => list(any()),
-    required("WorkteamArn") => String.t()
-  }
+      
+      list_labeling_jobs_for_workteam_request() :: %{
+        optional("CreationTimeAfter") => non_neg_integer(),
+        optional("CreationTimeBefore") => non_neg_integer(),
+        optional("JobReferenceCodeContains") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any()),
+        required("WorkteamArn") => String.t()
+      }
+      
   """
   @type list_labeling_jobs_for_workteam_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  recommendation_job_vpc_config() :: %{
-    "SecurityGroupIds" => list(String.t()()),
-    "Subnets" => list(String.t()())
-  }
+      
+      recommendation_job_vpc_config() :: %{
+        "SecurityGroupIds" => list(String.t()()),
+        "Subnets" => list(String.t()())
+      }
+      
   """
   @type recommendation_job_vpc_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_workforce_response() :: %{
-    "WorkforceArn" => String.t()
-  }
+      
+      create_workforce_response() :: %{
+        "WorkforceArn" => String.t()
+      }
+      
   """
   @type create_workforce_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  flow_definition_output_config() :: %{
-    "KmsKeyId" => String.t(),
-    "S3OutputPath" => String.t()
-  }
+      
+      flow_definition_output_config() :: %{
+        "KmsKeyId" => String.t(),
+        "S3OutputPath" => String.t()
+      }
+      
   """
   @type flow_definition_output_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_cluster_request() :: %{
-    required("ClusterName") => String.t(),
-    required("InstanceGroups") => list(cluster_instance_group_specification()())
-  }
+      
+      update_cluster_request() :: %{
+        required("ClusterName") => String.t(),
+        required("InstanceGroups") => list(cluster_instance_group_specification()())
+      }
+      
   """
   @type update_cluster_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_edge_deployment_plan_request() :: %{
-    required("EdgeDeploymentPlanName") => String.t()
-  }
+      
+      delete_edge_deployment_plan_request() :: %{
+        required("EdgeDeploymentPlanName") => String.t()
+      }
+      
   """
   @type delete_edge_deployment_plan_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_code_repositories_output() :: %{
-    "CodeRepositorySummaryList" => list(code_repository_summary()()),
-    "NextToken" => String.t()
-  }
+      
+      list_code_repositories_output() :: %{
+        "CodeRepositorySummaryList" => list(code_repository_summary()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_code_repositories_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stop_edge_deployment_stage_request() :: %{
-    required("EdgeDeploymentPlanName") => String.t(),
-    required("StageName") => String.t()
-  }
+      
+      stop_edge_deployment_stage_request() :: %{
+        required("EdgeDeploymentPlanName") => String.t(),
+        required("StageName") => String.t()
+      }
+      
   """
   @type stop_edge_deployment_stage_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  hub_s3_storage_config() :: %{
-    "S3OutputPath" => String.t()
-  }
+      
+      hub_s3_storage_config() :: %{
+        "S3OutputPath" => String.t()
+      }
+      
   """
   @type hub_s3_storage_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_action_response() :: %{
-    "ActionArn" => String.t()
-  }
+      
+      create_action_response() :: %{
+        "ActionArn" => String.t()
+      }
+      
   """
   @type create_action_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  oidc_config() :: %{
-    "AuthorizationEndpoint" => String.t(),
-    "ClientId" => String.t(),
-    "ClientSecret" => String.t(),
-    "Issuer" => String.t(),
-    "JwksUri" => String.t(),
-    "LogoutEndpoint" => String.t(),
-    "TokenEndpoint" => String.t(),
-    "UserInfoEndpoint" => String.t()
-  }
+      
+      oidc_config() :: %{
+        "AuthorizationEndpoint" => String.t(),
+        "ClientId" => String.t(),
+        "ClientSecret" => String.t(),
+        "Issuer" => String.t(),
+        "JwksUri" => String.t(),
+        "LogoutEndpoint" => String.t(),
+        "TokenEndpoint" => String.t(),
+        "UserInfoEndpoint" => String.t()
+      }
+      
   """
   @type oidc_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_model_card_request() :: %{
-    optional("SecurityConfig") => model_card_security_config(),
-    optional("Tags") => list(tag()()),
-    required("Content") => String.t(),
-    required("ModelCardName") => String.t(),
-    required("ModelCardStatus") => list(any())
-  }
+      
+      create_model_card_request() :: %{
+        optional("SecurityConfig") => model_card_security_config(),
+        optional("Tags") => list(tag()()),
+        required("Content") => String.t(),
+        required("ModelCardName") => String.t(),
+        required("ModelCardStatus") => list(any())
+      }
+      
   """
   @type create_model_card_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  algorithm_specification() :: %{
-    "AlgorithmName" => String.t(),
-    "ContainerArguments" => list(String.t()()),
-    "ContainerEntrypoint" => list(String.t()()),
-    "EnableSageMakerMetricsTimeSeries" => boolean(),
-    "MetricDefinitions" => list(metric_definition()()),
-    "TrainingImage" => String.t(),
-    "TrainingImageConfig" => training_image_config(),
-    "TrainingInputMode" => list(any())
-  }
+      
+      algorithm_specification() :: %{
+        "AlgorithmName" => String.t(),
+        "ContainerArguments" => list(String.t()()),
+        "ContainerEntrypoint" => list(String.t()()),
+        "EnableSageMakerMetricsTimeSeries" => boolean(),
+        "MetricDefinitions" => list(metric_definition()()),
+        "TrainingImage" => String.t(),
+        "TrainingImageConfig" => training_image_config(),
+        "TrainingInputMode" => list(any())
+      }
+      
   """
   @type algorithm_specification() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_image_version_request() :: %{
-    optional("Aliases") => list(String.t()()),
-    optional("Horovod") => boolean(),
-    optional("JobType") => list(any()),
-    optional("MLFramework") => String.t(),
-    optional("Processor") => list(any()),
-    optional("ProgrammingLang") => String.t(),
-    optional("ReleaseNotes") => String.t(),
-    optional("VendorGuidance") => list(any()),
-    required("BaseImage") => String.t(),
-    required("ClientToken") => String.t(),
-    required("ImageName") => String.t()
-  }
+      
+      create_image_version_request() :: %{
+        optional("Aliases") => list(String.t()()),
+        optional("Horovod") => boolean(),
+        optional("JobType") => list(any()),
+        optional("MLFramework") => String.t(),
+        optional("Processor") => list(any()),
+        optional("ProgrammingLang") => String.t(),
+        optional("ReleaseNotes") => String.t(),
+        optional("VendorGuidance") => list(any()),
+        required("BaseImage") => String.t(),
+        required("ClientToken") => String.t(),
+        required("ImageName") => String.t()
+      }
+      
   """
   @type create_image_version_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  production_variant_summary() :: %{
-    "CurrentInstanceCount" => integer(),
-    "CurrentServerlessConfig" => production_variant_serverless_config(),
-    "CurrentWeight" => float(),
-    "DeployedImages" => list(deployed_image()()),
-    "DesiredInstanceCount" => integer(),
-    "DesiredServerlessConfig" => production_variant_serverless_config(),
-    "DesiredWeight" => float(),
-    "ManagedInstanceScaling" => production_variant_managed_instance_scaling(),
-    "RoutingConfig" => production_variant_routing_config(),
-    "VariantName" => String.t(),
-    "VariantStatus" => list(production_variant_status()())
-  }
+      
+      production_variant_summary() :: %{
+        "CurrentInstanceCount" => integer(),
+        "CurrentServerlessConfig" => production_variant_serverless_config(),
+        "CurrentWeight" => float(),
+        "DeployedImages" => list(deployed_image()()),
+        "DesiredInstanceCount" => integer(),
+        "DesiredServerlessConfig" => production_variant_serverless_config(),
+        "DesiredWeight" => float(),
+        "ManagedInstanceScaling" => production_variant_managed_instance_scaling(),
+        "RoutingConfig" => production_variant_routing_config(),
+        "VariantName" => String.t(),
+        "VariantStatus" => list(production_variant_status()())
+      }
+      
   """
   @type production_variant_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_edge_packaging_job_request() :: %{
-    required("EdgePackagingJobName") => String.t()
-  }
+      
+      describe_edge_packaging_job_request() :: %{
+        required("EdgePackagingJobName") => String.t()
+      }
+      
   """
   @type describe_edge_packaging_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  monitoring_alert_history_summary() :: %{
-    "AlertStatus" => list(any()),
-    "CreationTime" => non_neg_integer(),
-    "MonitoringAlertName" => String.t(),
-    "MonitoringScheduleName" => String.t()
-  }
+      
+      monitoring_alert_history_summary() :: %{
+        "AlertStatus" => list(any()),
+        "CreationTime" => non_neg_integer(),
+        "MonitoringAlertName" => String.t(),
+        "MonitoringScheduleName" => String.t()
+      }
+      
   """
   @type monitoring_alert_history_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_model_explainability_job_definition_request() :: %{
-    optional("ModelExplainabilityBaselineConfig") => model_explainability_baseline_config(),
-    optional("NetworkConfig") => monitoring_network_config(),
-    optional("StoppingCondition") => monitoring_stopping_condition(),
-    optional("Tags") => list(tag()()),
-    required("JobDefinitionName") => String.t(),
-    required("JobResources") => monitoring_resources(),
-    required("ModelExplainabilityAppSpecification") => model_explainability_app_specification(),
-    required("ModelExplainabilityJobInput") => model_explainability_job_input(),
-    required("ModelExplainabilityJobOutputConfig") => monitoring_output_config(),
-    required("RoleArn") => String.t()
-  }
+      
+      create_model_explainability_job_definition_request() :: %{
+        optional("ModelExplainabilityBaselineConfig") => model_explainability_baseline_config(),
+        optional("NetworkConfig") => monitoring_network_config(),
+        optional("StoppingCondition") => monitoring_stopping_condition(),
+        optional("Tags") => list(tag()()),
+        required("JobDefinitionName") => String.t(),
+        required("JobResources") => monitoring_resources(),
+        required("ModelExplainabilityAppSpecification") => model_explainability_app_specification(),
+        required("ModelExplainabilityJobInput") => model_explainability_job_input(),
+        required("ModelExplainabilityJobOutputConfig") => monitoring_output_config(),
+        required("RoleArn") => String.t()
+      }
+      
   """
   @type create_model_explainability_job_definition_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_action_request() :: %{
-    optional("Description") => String.t(),
-    optional("Properties") => map(),
-    optional("PropertiesToRemove") => list(String.t()()),
-    optional("Status") => list(any()),
-    required("ActionName") => String.t()
-  }
+      
+      update_action_request() :: %{
+        optional("Description") => String.t(),
+        optional("Properties") => map(),
+        optional("PropertiesToRemove") => list(String.t()()),
+        optional("Status") => list(any()),
+        required("ActionName") => String.t()
+      }
+      
   """
   @type update_action_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_code_repository_output() :: %{
-    "CodeRepositoryArn" => String.t()
-  }
+      
+      update_code_repository_output() :: %{
+        "CodeRepositoryArn" => String.t()
+      }
+      
   """
   @type update_code_repository_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  image_version() :: %{
-    "CreationTime" => non_neg_integer(),
-    "FailureReason" => String.t(),
-    "ImageArn" => String.t(),
-    "ImageVersionArn" => String.t(),
-    "ImageVersionStatus" => list(any()),
-    "LastModifiedTime" => non_neg_integer(),
-    "Version" => integer()
-  }
+      
+      image_version() :: %{
+        "CreationTime" => non_neg_integer(),
+        "FailureReason" => String.t(),
+        "ImageArn" => String.t(),
+        "ImageVersionArn" => String.t(),
+        "ImageVersionStatus" => list(any()),
+        "LastModifiedTime" => non_neg_integer(),
+        "Version" => integer()
+      }
+      
   """
   @type image_version() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  service_catalog_provisioning_details() :: %{
-    "PathId" => String.t(),
-    "ProductId" => String.t(),
-    "ProvisioningArtifactId" => String.t(),
-    "ProvisioningParameters" => list(provisioning_parameter()())
-  }
+      
+      service_catalog_provisioning_details() :: %{
+        "PathId" => String.t(),
+        "ProductId" => String.t(),
+        "ProvisioningArtifactId" => String.t(),
+        "ProvisioningParameters" => list(provisioning_parameter()())
+      }
+      
   """
   @type service_catalog_provisioning_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  iam_identity() :: %{
-    "Arn" => String.t(),
-    "PrincipalId" => String.t(),
-    "SourceIdentity" => String.t()
-  }
+      
+      iam_identity() :: %{
+        "Arn" => String.t(),
+        "PrincipalId" => String.t(),
+        "SourceIdentity" => String.t()
+      }
+      
   """
   @type iam_identity() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_action_request() :: %{
-    required("ActionName") => String.t()
-  }
+      
+      describe_action_request() :: %{
+        required("ActionName") => String.t()
+      }
+      
   """
   @type describe_action_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  customized_metric_specification() :: %{
-    "MetricName" => String.t(),
-    "Namespace" => String.t(),
-    "Statistic" => list(any())
-  }
+      
+      customized_metric_specification() :: %{
+        "MetricName" => String.t(),
+        "Namespace" => String.t(),
+        "Statistic" => list(any())
+      }
+      
   """
   @type customized_metric_specification() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_association_request() :: %{
-    required("DestinationArn") => String.t(),
-    required("SourceArn") => String.t()
-  }
+      
+      delete_association_request() :: %{
+        required("DestinationArn") => String.t(),
+        required("SourceArn") => String.t()
+      }
+      
   """
   @type delete_association_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_image_version_response() :: %{
-
-  }
+      
+      delete_image_version_response() :: %{}
+      
   """
-  @type delete_image_version_response() :: %{String.t() => any()}
+  @type delete_image_version_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  app_specification() :: %{
-    "ContainerArguments" => list(String.t()()),
-    "ContainerEntrypoint" => list(String.t()()),
-    "ImageUri" => String.t()
-  }
+      
+      app_specification() :: %{
+        "ContainerArguments" => list(String.t()()),
+        "ContainerEntrypoint" => list(String.t()()),
+        "ImageUri" => String.t()
+      }
+      
   """
   @type app_specification() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  edge_preset_deployment_output() :: %{
-    "Artifact" => String.t(),
-    "Status" => list(any()),
-    "StatusMessage" => String.t(),
-    "Type" => list(any())
-  }
+      
+      edge_preset_deployment_output() :: %{
+        "Artifact" => String.t(),
+        "Status" => list(any()),
+        "StatusMessage" => String.t(),
+        "Type" => list(any())
+      }
+      
   """
   @type edge_preset_deployment_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_project_output() :: %{
-    "CreatedBy" => user_context(),
-    "CreationTime" => non_neg_integer(),
-    "LastModifiedBy" => user_context(),
-    "LastModifiedTime" => non_neg_integer(),
-    "ProjectArn" => String.t(),
-    "ProjectDescription" => String.t(),
-    "ProjectId" => String.t(),
-    "ProjectName" => String.t(),
-    "ProjectStatus" => list(any()),
-    "ServiceCatalogProvisionedProductDetails" => service_catalog_provisioned_product_details(),
-    "ServiceCatalogProvisioningDetails" => service_catalog_provisioning_details()
-  }
+      
+      describe_project_output() :: %{
+        "CreatedBy" => user_context(),
+        "CreationTime" => non_neg_integer(),
+        "LastModifiedBy" => user_context(),
+        "LastModifiedTime" => non_neg_integer(),
+        "ProjectArn" => String.t(),
+        "ProjectDescription" => String.t(),
+        "ProjectId" => String.t(),
+        "ProjectName" => String.t(),
+        "ProjectStatus" => list(any()),
+        "ServiceCatalogProvisionedProductDetails" => service_catalog_provisioned_product_details(),
+        "ServiceCatalogProvisioningDetails" => service_catalog_provisioning_details()
+      }
+      
   """
   @type describe_project_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  user_profile_details() :: %{
-    "CreationTime" => non_neg_integer(),
-    "DomainId" => String.t(),
-    "LastModifiedTime" => non_neg_integer(),
-    "Status" => list(any()),
-    "UserProfileName" => String.t()
-  }
+      
+      user_profile_details() :: %{
+        "CreationTime" => non_neg_integer(),
+        "DomainId" => String.t(),
+        "LastModifiedTime" => non_neg_integer(),
+        "Status" => list(any()),
+        "UserProfileName" => String.t()
+      }
+      
   """
   @type user_profile_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_data_quality_job_definition_request() :: %{
-    required("JobDefinitionName") => String.t()
-  }
+      
+      describe_data_quality_job_definition_request() :: %{
+        required("JobDefinitionName") => String.t()
+      }
+      
   """
   @type describe_data_quality_job_definition_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  query_lineage_request() :: %{
-    optional("Direction") => list(any()),
-    optional("Filters") => query_filters(),
-    optional("IncludeEdges") => boolean(),
-    optional("MaxDepth") => integer(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("StartArns") => list(String.t()())
-  }
+      
+      query_lineage_request() :: %{
+        optional("Direction") => list(any()),
+        optional("Filters") => query_filters(),
+        optional("IncludeEdges") => boolean(),
+        optional("MaxDepth") => integer(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("StartArns") => list(String.t()())
+      }
+      
   """
   @type query_lineage_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_lineage_group_response() :: %{
-    "CreatedBy" => user_context(),
-    "CreationTime" => non_neg_integer(),
-    "Description" => String.t(),
-    "DisplayName" => String.t(),
-    "LastModifiedBy" => user_context(),
-    "LastModifiedTime" => non_neg_integer(),
-    "LineageGroupArn" => String.t(),
-    "LineageGroupName" => String.t()
-  }
+      
+      describe_lineage_group_response() :: %{
+        "CreatedBy" => user_context(),
+        "CreationTime" => non_neg_integer(),
+        "Description" => String.t(),
+        "DisplayName" => String.t(),
+        "LastModifiedBy" => user_context(),
+        "LastModifiedTime" => non_neg_integer(),
+        "LineageGroupArn" => String.t(),
+        "LineageGroupName" => String.t()
+      }
+      
   """
   @type describe_lineage_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_endpoint_configs_output() :: %{
-    "EndpointConfigs" => list(endpoint_config_summary()()),
-    "NextToken" => String.t()
-  }
+      
+      list_endpoint_configs_output() :: %{
+        "EndpointConfigs" => list(endpoint_config_summary()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_endpoint_configs_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  algorithm_status_details() :: %{
-    "ImageScanStatuses" => list(algorithm_status_item()()),
-    "ValidationStatuses" => list(algorithm_status_item()())
-  }
+      
+      algorithm_status_details() :: %{
+        "ImageScanStatuses" => list(algorithm_status_item()()),
+        "ValidationStatuses" => list(algorithm_status_item()())
+      }
+      
   """
   @type algorithm_status_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  query_lineage_response() :: %{
-    "Edges" => list(edge()()),
-    "NextToken" => String.t(),
-    "Vertices" => list(vertex()())
-  }
+      
+      query_lineage_response() :: %{
+        "Edges" => list(edge()()),
+        "NextToken" => String.t(),
+        "Vertices" => list(vertex()())
+      }
+      
   """
   @type query_lineage_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  async_inference_config() :: %{
-    "ClientConfig" => async_inference_client_config(),
-    "OutputConfig" => async_inference_output_config()
-  }
+      
+      async_inference_config() :: %{
+        "ClientConfig" => async_inference_client_config(),
+        "OutputConfig" => async_inference_output_config()
+      }
+      
   """
   @type async_inference_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_sagemaker_servicecatalog_portfolio_status_input() :: %{
-
-  }
+      
+      get_sagemaker_servicecatalog_portfolio_status_input() :: %{}
+      
   """
-  @type get_sagemaker_servicecatalog_portfolio_status_input() :: %{String.t() => any()}
+  @type get_sagemaker_servicecatalog_portfolio_status_input() :: %{}
 
   @typedoc """
 
   ## Example:
-  throughput_config_description() :: %{
-    "ProvisionedReadCapacityUnits" => integer(),
-    "ProvisionedWriteCapacityUnits" => integer(),
-    "ThroughputMode" => list(any())
-  }
+      
+      throughput_config_description() :: %{
+        "ProvisionedReadCapacityUnits" => integer(),
+        "ProvisionedWriteCapacityUnits" => integer(),
+        "ThroughputMode" => list(any())
+      }
+      
   """
   @type throughput_config_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  instance_metadata_service_configuration() :: %{
-    "MinimumInstanceMetadataServiceVersion" => String.t()
-  }
+      
+      instance_metadata_service_configuration() :: %{
+        "MinimumInstanceMetadataServiceVersion" => String.t()
+      }
+      
   """
   @type instance_metadata_service_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  auto_ml_job_summary() :: %{
-    "AutoMLJobArn" => String.t(),
-    "AutoMLJobName" => String.t(),
-    "AutoMLJobSecondaryStatus" => list(any()),
-    "AutoMLJobStatus" => list(any()),
-    "CreationTime" => non_neg_integer(),
-    "EndTime" => non_neg_integer(),
-    "FailureReason" => String.t(),
-    "LastModifiedTime" => non_neg_integer(),
-    "PartialFailureReasons" => list(auto_ml_partial_failure_reason()())
-  }
+      
+      auto_ml_job_summary() :: %{
+        "AutoMLJobArn" => String.t(),
+        "AutoMLJobName" => String.t(),
+        "AutoMLJobSecondaryStatus" => list(any()),
+        "AutoMLJobStatus" => list(any()),
+        "CreationTime" => non_neg_integer(),
+        "EndTime" => non_neg_integer(),
+        "FailureReason" => String.t(),
+        "LastModifiedTime" => non_neg_integer(),
+        "PartialFailureReasons" => list(auto_ml_partial_failure_reason()())
+      }
+      
   """
   @type auto_ml_job_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  member_definition() :: %{
-    "CognitoMemberDefinition" => cognito_member_definition(),
-    "OidcMemberDefinition" => oidc_member_definition()
-  }
+      
+      member_definition() :: %{
+        "CognitoMemberDefinition" => cognito_member_definition(),
+        "OidcMemberDefinition" => oidc_member_definition()
+      }
+      
   """
   @type member_definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_image_version_request() :: %{
-    optional("Alias") => String.t(),
-    optional("Version") => integer(),
-    required("ImageName") => String.t()
-  }
+      
+      delete_image_version_request() :: %{
+        optional("Alias") => String.t(),
+        optional("Version") => integer(),
+        required("ImageName") => String.t()
+      }
+      
   """
   @type delete_image_version_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  quality_check_step_metadata() :: %{
-    "BaselineUsedForDriftCheckConstraints" => String.t(),
-    "BaselineUsedForDriftCheckStatistics" => String.t(),
-    "CalculatedBaselineConstraints" => String.t(),
-    "CalculatedBaselineStatistics" => String.t(),
-    "CheckJobArn" => String.t(),
-    "CheckType" => String.t(),
-    "ModelPackageGroupName" => String.t(),
-    "RegisterNewBaseline" => boolean(),
-    "SkipCheck" => boolean(),
-    "ViolationReport" => String.t()
-  }
+      
+      quality_check_step_metadata() :: %{
+        "BaselineUsedForDriftCheckConstraints" => String.t(),
+        "BaselineUsedForDriftCheckStatistics" => String.t(),
+        "CalculatedBaselineConstraints" => String.t(),
+        "CalculatedBaselineStatistics" => String.t(),
+        "CheckJobArn" => String.t(),
+        "CheckType" => String.t(),
+        "ModelPackageGroupName" => String.t(),
+        "RegisterNewBaseline" => boolean(),
+        "SkipCheck" => boolean(),
+        "ViolationReport" => String.t()
+      }
+      
   """
   @type quality_check_step_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_labeling_jobs_response() :: %{
-    "LabelingJobSummaryList" => list(labeling_job_summary()()),
-    "NextToken" => String.t()
-  }
+      
+      list_labeling_jobs_response() :: %{
+        "LabelingJobSummaryList" => list(labeling_job_summary()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_labeling_jobs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_model_package_input() :: %{
-    required("ModelPackageName") => String.t()
-  }
+      
+      delete_model_package_input() :: %{
+        required("ModelPackageName") => String.t()
+      }
+      
   """
   @type delete_model_package_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  model_package() :: %{
-    "AdditionalInferenceSpecifications" => list(additional_inference_specification_definition()()),
-    "ApprovalDescription" => String.t(),
-    "CertifyForMarketplace" => boolean(),
-    "CreatedBy" => user_context(),
-    "CreationTime" => non_neg_integer(),
-    "CustomerMetadataProperties" => map(),
-    "Domain" => String.t(),
-    "DriftCheckBaselines" => drift_check_baselines(),
-    "InferenceSpecification" => inference_specification(),
-    "LastModifiedBy" => user_context(),
-    "LastModifiedTime" => non_neg_integer(),
-    "MetadataProperties" => metadata_properties(),
-    "ModelApprovalStatus" => list(any()),
-    "ModelMetrics" => model_metrics(),
-    "ModelPackageArn" => String.t(),
-    "ModelPackageDescription" => String.t(),
-    "ModelPackageGroupName" => String.t(),
-    "ModelPackageName" => String.t(),
-    "ModelPackageStatus" => list(any()),
-    "ModelPackageStatusDetails" => model_package_status_details(),
-    "ModelPackageVersion" => integer(),
-    "SamplePayloadUrl" => String.t(),
-    "SkipModelValidation" => list(any()),
-    "SourceAlgorithmSpecification" => source_algorithm_specification(),
-    "SourceUri" => String.t(),
-    "Tags" => list(tag()()),
-    "Task" => String.t(),
-    "ValidationSpecification" => model_package_validation_specification()
-  }
+      
+      model_package() :: %{
+        "AdditionalInferenceSpecifications" => list(additional_inference_specification_definition()()),
+        "ApprovalDescription" => String.t(),
+        "CertifyForMarketplace" => boolean(),
+        "CreatedBy" => user_context(),
+        "CreationTime" => non_neg_integer(),
+        "CustomerMetadataProperties" => map(),
+        "Domain" => String.t(),
+        "DriftCheckBaselines" => drift_check_baselines(),
+        "InferenceSpecification" => inference_specification(),
+        "LastModifiedBy" => user_context(),
+        "LastModifiedTime" => non_neg_integer(),
+        "MetadataProperties" => metadata_properties(),
+        "ModelApprovalStatus" => list(any()),
+        "ModelMetrics" => model_metrics(),
+        "ModelPackageArn" => String.t(),
+        "ModelPackageDescription" => String.t(),
+        "ModelPackageGroupName" => String.t(),
+        "ModelPackageName" => String.t(),
+        "ModelPackageStatus" => list(any()),
+        "ModelPackageStatusDetails" => model_package_status_details(),
+        "ModelPackageVersion" => integer(),
+        "SamplePayloadUrl" => String.t(),
+        "SkipModelValidation" => list(any()),
+        "SourceAlgorithmSpecification" => source_algorithm_specification(),
+        "SourceUri" => String.t(),
+        "Tags" => list(tag()()),
+        "Task" => String.t(),
+        "ValidationSpecification" => model_package_validation_specification()
+      }
+      
   """
   @type model_package() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  processing_stopping_condition() :: %{
-    "MaxRuntimeInSeconds" => integer()
-  }
+      
+      processing_stopping_condition() :: %{
+        "MaxRuntimeInSeconds" => integer()
+      }
+      
   """
   @type processing_stopping_condition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  production_variant_serverless_config() :: %{
-    "MaxConcurrency" => integer(),
-    "MemorySizeInMB" => integer(),
-    "ProvisionedConcurrency" => integer()
-  }
+      
+      production_variant_serverless_config() :: %{
+        "MaxConcurrency" => integer(),
+        "MemorySizeInMB" => integer(),
+        "ProvisionedConcurrency" => integer()
+      }
+      
   """
   @type production_variant_serverless_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  training_job_step_metadata() :: %{
-    "Arn" => String.t()
-  }
+      
+      training_job_step_metadata() :: %{
+        "Arn" => String.t()
+      }
+      
   """
   @type training_job_step_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  neo_vpc_config() :: %{
-    "SecurityGroupIds" => list(String.t()()),
-    "Subnets" => list(String.t()())
-  }
+      
+      neo_vpc_config() :: %{
+        "SecurityGroupIds" => list(String.t()()),
+        "Subnets" => list(String.t()())
+      }
+      
   """
   @type neo_vpc_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_human_task_ui_request() :: %{
-    required("HumanTaskUiName") => String.t()
-  }
+      
+      describe_human_task_ui_request() :: %{
+        required("HumanTaskUiName") => String.t()
+      }
+      
   """
   @type describe_human_task_ui_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  model_quality() :: %{
-    "Constraints" => metrics_source(),
-    "Statistics" => metrics_source()
-  }
+      
+      model_quality() :: %{
+        "Constraints" => metrics_source(),
+        "Statistics" => metrics_source()
+      }
+      
   """
   @type model_quality() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  edge_packaging_job_summary() :: %{
-    "CompilationJobName" => String.t(),
-    "CreationTime" => non_neg_integer(),
-    "EdgePackagingJobArn" => String.t(),
-    "EdgePackagingJobName" => String.t(),
-    "EdgePackagingJobStatus" => list(any()),
-    "LastModifiedTime" => non_neg_integer(),
-    "ModelName" => String.t(),
-    "ModelVersion" => String.t()
-  }
+      
+      edge_packaging_job_summary() :: %{
+        "CompilationJobName" => String.t(),
+        "CreationTime" => non_neg_integer(),
+        "EdgePackagingJobArn" => String.t(),
+        "EdgePackagingJobName" => String.t(),
+        "EdgePackagingJobStatus" => list(any()),
+        "LastModifiedTime" => non_neg_integer(),
+        "ModelName" => String.t(),
+        "ModelVersion" => String.t()
+      }
+      
   """
   @type edge_packaging_job_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_transform_job_request() :: %{
-    optional("BatchStrategy") => list(any()),
-    optional("DataCaptureConfig") => batch_data_capture_config(),
-    optional("DataProcessing") => data_processing(),
-    optional("Environment") => map(),
-    optional("ExperimentConfig") => experiment_config(),
-    optional("MaxConcurrentTransforms") => integer(),
-    optional("MaxPayloadInMB") => integer(),
-    optional("ModelClientConfig") => model_client_config(),
-    optional("Tags") => list(tag()()),
-    required("ModelName") => String.t(),
-    required("TransformInput") => transform_input(),
-    required("TransformJobName") => String.t(),
-    required("TransformOutput") => transform_output(),
-    required("TransformResources") => transform_resources()
-  }
+      
+      create_transform_job_request() :: %{
+        optional("BatchStrategy") => list(any()),
+        optional("DataCaptureConfig") => batch_data_capture_config(),
+        optional("DataProcessing") => data_processing(),
+        optional("Environment") => map(),
+        optional("ExperimentConfig") => experiment_config(),
+        optional("MaxConcurrentTransforms") => integer(),
+        optional("MaxPayloadInMB") => integer(),
+        optional("ModelClientConfig") => model_client_config(),
+        optional("Tags") => list(tag()()),
+        required("ModelName") => String.t(),
+        required("TransformInput") => transform_input(),
+        required("TransformJobName") => String.t(),
+        required("TransformOutput") => transform_output(),
+        required("TransformResources") => transform_resources()
+      }
+      
   """
   @type create_transform_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  transform_job() :: %{
-    "AutoMLJobArn" => String.t(),
-    "BatchStrategy" => list(any()),
-    "CreationTime" => non_neg_integer(),
-    "DataCaptureConfig" => batch_data_capture_config(),
-    "DataProcessing" => data_processing(),
-    "Environment" => map(),
-    "ExperimentConfig" => experiment_config(),
-    "FailureReason" => String.t(),
-    "LabelingJobArn" => String.t(),
-    "MaxConcurrentTransforms" => integer(),
-    "MaxPayloadInMB" => integer(),
-    "ModelClientConfig" => model_client_config(),
-    "ModelName" => String.t(),
-    "Tags" => list(tag()()),
-    "TransformEndTime" => non_neg_integer(),
-    "TransformInput" => transform_input(),
-    "TransformJobArn" => String.t(),
-    "TransformJobName" => String.t(),
-    "TransformJobStatus" => list(any()),
-    "TransformOutput" => transform_output(),
-    "TransformResources" => transform_resources(),
-    "TransformStartTime" => non_neg_integer()
-  }
+      
+      transform_job() :: %{
+        "AutoMLJobArn" => String.t(),
+        "BatchStrategy" => list(any()),
+        "CreationTime" => non_neg_integer(),
+        "DataCaptureConfig" => batch_data_capture_config(),
+        "DataProcessing" => data_processing(),
+        "Environment" => map(),
+        "ExperimentConfig" => experiment_config(),
+        "FailureReason" => String.t(),
+        "LabelingJobArn" => String.t(),
+        "MaxConcurrentTransforms" => integer(),
+        "MaxPayloadInMB" => integer(),
+        "ModelClientConfig" => model_client_config(),
+        "ModelName" => String.t(),
+        "Tags" => list(tag()()),
+        "TransformEndTime" => non_neg_integer(),
+        "TransformInput" => transform_input(),
+        "TransformJobArn" => String.t(),
+        "TransformJobName" => String.t(),
+        "TransformJobStatus" => list(any()),
+        "TransformOutput" => transform_output(),
+        "TransformResources" => transform_resources(),
+        "TransformStartTime" => non_neg_integer()
+      }
+      
   """
   @type transform_job() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  suggestion_query() :: %{
-    "PropertyNameQuery" => property_name_query()
-  }
+      
+      suggestion_query() :: %{
+        "PropertyNameQuery" => property_name_query()
+      }
+      
   """
   @type suggestion_query() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_human_task_uis_response() :: %{
-    "HumanTaskUiSummaries" => list(human_task_ui_summary()()),
-    "NextToken" => String.t()
-  }
+      
+      list_human_task_uis_response() :: %{
+        "HumanTaskUiSummaries" => list(human_task_ui_summary()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_human_task_uis_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  selective_execution_result() :: %{
-    "SourcePipelineExecutionArn" => String.t()
-  }
+      
+      selective_execution_result() :: %{
+        "SourcePipelineExecutionArn" => String.t()
+      }
+      
   """
   @type selective_execution_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_workforce_request() :: %{
-    required("WorkforceName") => String.t()
-  }
+      
+      describe_workforce_request() :: %{
+        required("WorkforceName") => String.t()
+      }
+      
   """
   @type describe_workforce_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_domain_request() :: %{
-    optional("RetentionPolicy") => retention_policy(),
-    required("DomainId") => String.t()
-  }
+      
+      delete_domain_request() :: %{
+        optional("RetentionPolicy") => retention_policy(),
+        required("DomainId") => String.t()
+      }
+      
   """
   @type delete_domain_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cluster_summary() :: %{
-    "ClusterArn" => String.t(),
-    "ClusterName" => String.t(),
-    "ClusterStatus" => list(any()),
-    "CreationTime" => non_neg_integer()
-  }
+      
+      cluster_summary() :: %{
+        "ClusterArn" => String.t(),
+        "ClusterName" => String.t(),
+        "ClusterStatus" => list(any()),
+        "CreationTime" => non_neg_integer()
+      }
+      
   """
   @type cluster_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_trial_response() :: %{
-    "CreatedBy" => user_context(),
-    "CreationTime" => non_neg_integer(),
-    "DisplayName" => String.t(),
-    "ExperimentName" => String.t(),
-    "LastModifiedBy" => user_context(),
-    "LastModifiedTime" => non_neg_integer(),
-    "MetadataProperties" => metadata_properties(),
-    "Source" => trial_source(),
-    "TrialArn" => String.t(),
-    "TrialName" => String.t()
-  }
+      
+      describe_trial_response() :: %{
+        "CreatedBy" => user_context(),
+        "CreationTime" => non_neg_integer(),
+        "DisplayName" => String.t(),
+        "ExperimentName" => String.t(),
+        "LastModifiedBy" => user_context(),
+        "LastModifiedTime" => non_neg_integer(),
+        "MetadataProperties" => metadata_properties(),
+        "Source" => trial_source(),
+        "TrialArn" => String.t(),
+        "TrialName" => String.t()
+      }
+      
   """
   @type describe_trial_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  renderable_task() :: %{
-    "Input" => String.t()
-  }
+      
+      renderable_task() :: %{
+        "Input" => String.t()
+      }
+      
   """
   @type renderable_task() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  app_details() :: %{
-    "AppName" => String.t(),
-    "AppType" => list(any()),
-    "CreationTime" => non_neg_integer(),
-    "DomainId" => String.t(),
-    "ResourceSpec" => resource_spec(),
-    "SpaceName" => String.t(),
-    "Status" => list(any()),
-    "UserProfileName" => String.t()
-  }
+      
+      app_details() :: %{
+        "AppName" => String.t(),
+        "AppType" => list(any()),
+        "CreationTime" => non_neg_integer(),
+        "DomainId" => String.t(),
+        "ResourceSpec" => resource_spec(),
+        "SpaceName" => String.t(),
+        "Status" => list(any()),
+        "UserProfileName" => String.t()
+      }
+      
   """
   @type app_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_model_bias_job_definitions_request() :: %{
-    optional("CreationTimeAfter") => non_neg_integer(),
-    optional("CreationTimeBefore") => non_neg_integer(),
-    optional("EndpointName") => String.t(),
-    optional("MaxResults") => integer(),
-    optional("NameContains") => String.t(),
-    optional("NextToken") => String.t(),
-    optional("SortBy") => list(any()),
-    optional("SortOrder") => list(any())
-  }
+      
+      list_model_bias_job_definitions_request() :: %{
+        optional("CreationTimeAfter") => non_neg_integer(),
+        optional("CreationTimeBefore") => non_neg_integer(),
+        optional("EndpointName") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NameContains") => String.t(),
+        optional("NextToken") => String.t(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any())
+      }
+      
   """
   @type list_model_bias_job_definitions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_algorithms_input() :: %{
-    optional("CreationTimeAfter") => non_neg_integer(),
-    optional("CreationTimeBefore") => non_neg_integer(),
-    optional("MaxResults") => integer(),
-    optional("NameContains") => String.t(),
-    optional("NextToken") => String.t(),
-    optional("SortBy") => list(any()),
-    optional("SortOrder") => list(any())
-  }
+      
+      list_algorithms_input() :: %{
+        optional("CreationTimeAfter") => non_neg_integer(),
+        optional("CreationTimeBefore") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("NameContains") => String.t(),
+        optional("NextToken") => String.t(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any())
+      }
+      
   """
   @type list_algorithms_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  generative_ai_settings() :: %{
-    "AmazonBedrockRoleArn" => String.t()
-  }
+      
+      generative_ai_settings() :: %{
+        "AmazonBedrockRoleArn" => String.t()
+      }
+      
   """
   @type generative_ai_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_model_input() :: %{
-    optional("Containers") => list(container_definition()()),
-    optional("EnableNetworkIsolation") => boolean(),
-    optional("ExecutionRoleArn") => String.t(),
-    optional("InferenceExecutionConfig") => inference_execution_config(),
-    optional("PrimaryContainer") => container_definition(),
-    optional("Tags") => list(tag()()),
-    optional("VpcConfig") => vpc_config(),
-    required("ModelName") => String.t()
-  }
+      
+      create_model_input() :: %{
+        optional("Containers") => list(container_definition()()),
+        optional("EnableNetworkIsolation") => boolean(),
+        optional("ExecutionRoleArn") => String.t(),
+        optional("InferenceExecutionConfig") => inference_execution_config(),
+        optional("PrimaryContainer") => container_definition(),
+        optional("Tags") => list(tag()()),
+        optional("VpcConfig") => vpc_config(),
+        required("ModelName") => String.t()
+      }
+      
   """
   @type create_model_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_user_profile_request() :: %{
-    required("DomainId") => String.t(),
-    required("UserProfileName") => String.t()
-  }
+      
+      describe_user_profile_request() :: %{
+        required("DomainId") => String.t(),
+        required("UserProfileName") => String.t()
+      }
+      
   """
   @type describe_user_profile_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  hyper_parameter_specification() :: %{
-    "DefaultValue" => String.t(),
-    "Description" => String.t(),
-    "IsRequired" => boolean(),
-    "IsTunable" => boolean(),
-    "Name" => String.t(),
-    "Range" => parameter_range(),
-    "Type" => list(any())
-  }
+      
+      hyper_parameter_specification() :: %{
+        "DefaultValue" => String.t(),
+        "Description" => String.t(),
+        "IsRequired" => boolean(),
+        "IsTunable" => boolean(),
+        "Name" => String.t(),
+        "Range" => parameter_range(),
+        "Type" => list(any())
+      }
+      
   """
   @type hyper_parameter_specification() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  inference_execution_config() :: %{
-    "Mode" => list(any())
-  }
+      
+      inference_execution_config() :: %{
+        "Mode" => list(any())
+      }
+      
   """
   @type inference_execution_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_edge_deployment_stage_request() :: %{
-    required("EdgeDeploymentPlanName") => String.t(),
-    required("StageName") => String.t()
-  }
+      
+      start_edge_deployment_stage_request() :: %{
+        required("EdgeDeploymentPlanName") => String.t(),
+        required("StageName") => String.t()
+      }
+      
   """
   @type start_edge_deployment_stage_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  model_dashboard_indicator_action() :: %{
-    "Enabled" => boolean()
-  }
+      
+      model_dashboard_indicator_action() :: %{
+        "Enabled" => boolean()
+      }
+      
   """
   @type model_dashboard_indicator_action() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_model_bias_job_definition_request() :: %{
-    required("JobDefinitionName") => String.t()
-  }
+      
+      describe_model_bias_job_definition_request() :: %{
+        required("JobDefinitionName") => String.t()
+      }
+      
   """
   @type describe_model_bias_job_definition_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  inference_experiment_schedule() :: %{
-    "EndTime" => non_neg_integer(),
-    "StartTime" => non_neg_integer()
-  }
+      
+      inference_experiment_schedule() :: %{
+        "EndTime" => non_neg_integer(),
+        "StartTime" => non_neg_integer()
+      }
+      
   """
   @type inference_experiment_schedule() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  auto_parameter() :: %{
-    "Name" => String.t(),
-    "ValueHint" => String.t()
-  }
+      
+      auto_parameter() :: %{
+        "Name" => String.t(),
+        "ValueHint" => String.t()
+      }
+      
   """
   @type auto_parameter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  transform_s3_data_source() :: %{
-    "S3DataType" => list(any()),
-    "S3Uri" => String.t()
-  }
+      
+      transform_s3_data_source() :: %{
+        "S3DataType" => list(any()),
+        "S3Uri" => String.t()
+      }
+      
   """
   @type transform_s3_data_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_model_card_response() :: %{
-    "Content" => String.t(),
-    "CreatedBy" => user_context(),
-    "CreationTime" => non_neg_integer(),
-    "LastModifiedBy" => user_context(),
-    "LastModifiedTime" => non_neg_integer(),
-    "ModelCardArn" => String.t(),
-    "ModelCardName" => String.t(),
-    "ModelCardProcessingStatus" => list(any()),
-    "ModelCardStatus" => list(any()),
-    "ModelCardVersion" => integer(),
-    "SecurityConfig" => model_card_security_config()
-  }
+      
+      describe_model_card_response() :: %{
+        "Content" => String.t(),
+        "CreatedBy" => user_context(),
+        "CreationTime" => non_neg_integer(),
+        "LastModifiedBy" => user_context(),
+        "LastModifiedTime" => non_neg_integer(),
+        "ModelCardArn" => String.t(),
+        "ModelCardName" => String.t(),
+        "ModelCardProcessingStatus" => list(any()),
+        "ModelCardStatus" => list(any()),
+        "ModelCardVersion" => integer(),
+        "SecurityConfig" => model_card_security_config()
+      }
+      
   """
   @type describe_model_card_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_device_fleet_request() :: %{
-    optional("Description") => String.t(),
-    optional("EnableIotRoleAlias") => boolean(),
-    optional("RoleArn") => String.t(),
-    required("DeviceFleetName") => String.t(),
-    required("OutputConfig") => edge_output_config()
-  }
+      
+      update_device_fleet_request() :: %{
+        optional("Description") => String.t(),
+        optional("EnableIotRoleAlias") => boolean(),
+        optional("RoleArn") => String.t(),
+        required("DeviceFleetName") => String.t(),
+        required("OutputConfig") => edge_output_config()
+      }
+      
   """
   @type update_device_fleet_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  output_parameter() :: %{
-    "Name" => String.t(),
-    "Value" => String.t()
-  }
+      
+      output_parameter() :: %{
+        "Name" => String.t(),
+        "Value" => String.t()
+      }
+      
   """
   @type output_parameter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_hubs_request() :: %{
-    optional("CreationTimeAfter") => non_neg_integer(),
-    optional("CreationTimeBefore") => non_neg_integer(),
-    optional("LastModifiedTimeAfter") => non_neg_integer(),
-    optional("LastModifiedTimeBefore") => non_neg_integer(),
-    optional("MaxResults") => integer(),
-    optional("NameContains") => String.t(),
-    optional("NextToken") => String.t(),
-    optional("SortBy") => list(any()),
-    optional("SortOrder") => list(any())
-  }
+      
+      list_hubs_request() :: %{
+        optional("CreationTimeAfter") => non_neg_integer(),
+        optional("CreationTimeBefore") => non_neg_integer(),
+        optional("LastModifiedTimeAfter") => non_neg_integer(),
+        optional("LastModifiedTimeBefore") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("NameContains") => String.t(),
+        optional("NextToken") => String.t(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any())
+      }
+      
   """
   @type list_hubs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_notebook_instance_output() :: %{
-    "AcceleratorTypes" => list(list(any())()),
-    "AdditionalCodeRepositories" => list(String.t()()),
-    "CreationTime" => non_neg_integer(),
-    "DefaultCodeRepository" => String.t(),
-    "DirectInternetAccess" => list(any()),
-    "FailureReason" => String.t(),
-    "InstanceMetadataServiceConfiguration" => instance_metadata_service_configuration(),
-    "InstanceType" => list(any()),
-    "KmsKeyId" => String.t(),
-    "LastModifiedTime" => non_neg_integer(),
-    "NetworkInterfaceId" => String.t(),
-    "NotebookInstanceArn" => String.t(),
-    "NotebookInstanceLifecycleConfigName" => String.t(),
-    "NotebookInstanceName" => String.t(),
-    "NotebookInstanceStatus" => list(any()),
-    "PlatformIdentifier" => String.t(),
-    "RoleArn" => String.t(),
-    "RootAccess" => list(any()),
-    "SecurityGroups" => list(String.t()()),
-    "SubnetId" => String.t(),
-    "Url" => String.t(),
-    "VolumeSizeInGB" => integer()
-  }
+      
+      describe_notebook_instance_output() :: %{
+        "AcceleratorTypes" => list(list(any())()),
+        "AdditionalCodeRepositories" => list(String.t()()),
+        "CreationTime" => non_neg_integer(),
+        "DefaultCodeRepository" => String.t(),
+        "DirectInternetAccess" => list(any()),
+        "FailureReason" => String.t(),
+        "InstanceMetadataServiceConfiguration" => instance_metadata_service_configuration(),
+        "InstanceType" => list(any()),
+        "KmsKeyId" => String.t(),
+        "LastModifiedTime" => non_neg_integer(),
+        "NetworkInterfaceId" => String.t(),
+        "NotebookInstanceArn" => String.t(),
+        "NotebookInstanceLifecycleConfigName" => String.t(),
+        "NotebookInstanceName" => String.t(),
+        "NotebookInstanceStatus" => list(any()),
+        "PlatformIdentifier" => String.t(),
+        "RoleArn" => String.t(),
+        "RootAccess" => list(any()),
+        "SecurityGroups" => list(String.t()()),
+        "SubnetId" => String.t(),
+        "Url" => String.t(),
+        "VolumeSizeInGB" => integer()
+      }
+      
   """
   @type describe_notebook_instance_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  recommendation_job_payload_config() :: %{
-    "SamplePayloadUrl" => String.t(),
-    "SupportedContentTypes" => list(String.t()())
-  }
+      
+      recommendation_job_payload_config() :: %{
+        "SamplePayloadUrl" => String.t(),
+        "SupportedContentTypes" => list(String.t()())
+      }
+      
   """
   @type recommendation_job_payload_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  model_bias_job_input() :: %{
-    "BatchTransformInput" => batch_transform_input(),
-    "EndpointInput" => endpoint_input(),
-    "GroundTruthS3Input" => monitoring_ground_truth_s3_input()
-  }
+      
+      model_bias_job_input() :: %{
+        "BatchTransformInput" => batch_transform_input(),
+        "EndpointInput" => endpoint_input(),
+        "GroundTruthS3Input" => monitoring_ground_truth_s3_input()
+      }
+      
   """
   @type model_bias_job_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  compilation_job_summary() :: %{
-    "CompilationEndTime" => non_neg_integer(),
-    "CompilationJobArn" => String.t(),
-    "CompilationJobName" => String.t(),
-    "CompilationJobStatus" => list(any()),
-    "CompilationStartTime" => non_neg_integer(),
-    "CompilationTargetDevice" => list(any()),
-    "CompilationTargetPlatformAccelerator" => list(any()),
-    "CompilationTargetPlatformArch" => list(any()),
-    "CompilationTargetPlatformOs" => list(any()),
-    "CreationTime" => non_neg_integer(),
-    "LastModifiedTime" => non_neg_integer()
-  }
+      
+      compilation_job_summary() :: %{
+        "CompilationEndTime" => non_neg_integer(),
+        "CompilationJobArn" => String.t(),
+        "CompilationJobName" => String.t(),
+        "CompilationJobStatus" => list(any()),
+        "CompilationStartTime" => non_neg_integer(),
+        "CompilationTargetDevice" => list(any()),
+        "CompilationTargetPlatformAccelerator" => list(any()),
+        "CompilationTargetPlatformArch" => list(any()),
+        "CompilationTargetPlatformOs" => list(any()),
+        "CreationTime" => non_neg_integer(),
+        "LastModifiedTime" => non_neg_integer()
+      }
+      
   """
   @type compilation_job_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  hyper_parameter_training_job_definition() :: %{
-    "AlgorithmSpecification" => hyper_parameter_algorithm_specification(),
-    "CheckpointConfig" => checkpoint_config(),
-    "DefinitionName" => String.t(),
-    "EnableInterContainerTrafficEncryption" => boolean(),
-    "EnableManagedSpotTraining" => boolean(),
-    "EnableNetworkIsolation" => boolean(),
-    "Environment" => map(),
-    "HyperParameterRanges" => parameter_ranges(),
-    "HyperParameterTuningResourceConfig" => hyper_parameter_tuning_resource_config(),
-    "InputDataConfig" => list(channel()()),
-    "OutputDataConfig" => output_data_config(),
-    "ResourceConfig" => resource_config(),
-    "RetryStrategy" => retry_strategy(),
-    "RoleArn" => String.t(),
-    "StaticHyperParameters" => map(),
-    "StoppingCondition" => stopping_condition(),
-    "TuningObjective" => hyper_parameter_tuning_job_objective(),
-    "VpcConfig" => vpc_config()
-  }
+      
+      hyper_parameter_training_job_definition() :: %{
+        "AlgorithmSpecification" => hyper_parameter_algorithm_specification(),
+        "CheckpointConfig" => checkpoint_config(),
+        "DefinitionName" => String.t(),
+        "EnableInterContainerTrafficEncryption" => boolean(),
+        "EnableManagedSpotTraining" => boolean(),
+        "EnableNetworkIsolation" => boolean(),
+        "Environment" => map(),
+        "HyperParameterRanges" => parameter_ranges(),
+        "HyperParameterTuningResourceConfig" => hyper_parameter_tuning_resource_config(),
+        "InputDataConfig" => list(channel()()),
+        "OutputDataConfig" => output_data_config(),
+        "ResourceConfig" => resource_config(),
+        "RetryStrategy" => retry_strategy(),
+        "RoleArn" => String.t(),
+        "StaticHyperParameters" => map(),
+        "StoppingCondition" => stopping_condition(),
+        "TuningObjective" => hyper_parameter_tuning_job_objective(),
+        "VpcConfig" => vpc_config()
+      }
+      
   """
   @type hyper_parameter_training_job_definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  add_association_response() :: %{
-    "DestinationArn" => String.t(),
-    "SourceArn" => String.t()
-  }
+      
+      add_association_response() :: %{
+        "DestinationArn" => String.t(),
+        "SourceArn" => String.t()
+      }
+      
   """
   @type add_association_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  r_studio_server_pro_app_settings() :: %{
-    "AccessStatus" => list(any()),
-    "UserGroup" => list(any())
-  }
+      
+      r_studio_server_pro_app_settings() :: %{
+        "AccessStatus" => list(any()),
+        "UserGroup" => list(any())
+      }
+      
   """
   @type r_studio_server_pro_app_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  labeling_job_resource_config() :: %{
-    "VolumeKmsKeyId" => String.t(),
-    "VpcConfig" => vpc_config()
-  }
+      
+      labeling_job_resource_config() :: %{
+        "VolumeKmsKeyId" => String.t(),
+        "VpcConfig" => vpc_config()
+      }
+      
   """
   @type labeling_job_resource_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  monitoring_ground_truth_s3_input() :: %{
-    "S3Uri" => String.t()
-  }
+      
+      monitoring_ground_truth_s3_input() :: %{
+        "S3Uri" => String.t()
+      }
+      
   """
   @type monitoring_ground_truth_s3_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  convergence_detected() :: %{
-    "CompleteOnConvergence" => list(any())
-  }
+      
+      convergence_detected() :: %{
+        "CompleteOnConvergence" => list(any())
+      }
+      
   """
   @type convergence_detected() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_model_card_request() :: %{
-    optional("Content") => String.t(),
-    optional("ModelCardStatus") => list(any()),
-    required("ModelCardName") => String.t()
-  }
+      
+      update_model_card_request() :: %{
+        optional("Content") => String.t(),
+        optional("ModelCardStatus") => list(any()),
+        required("ModelCardName") => String.t()
+      }
+      
   """
   @type update_model_card_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_model_package_group_policy_input() :: %{
-    required("ModelPackageGroupName") => String.t()
-  }
+      
+      delete_model_package_group_policy_input() :: %{
+        required("ModelPackageGroupName") => String.t()
+      }
+      
   """
   @type delete_model_package_group_policy_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_inference_recommendations_job_response() :: %{
-    "JobArn" => String.t()
-  }
+      
+      create_inference_recommendations_job_response() :: %{
+        "JobArn" => String.t()
+      }
+      
   """
   @type create_inference_recommendations_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_context_response() :: %{
-    "ContextArn" => String.t(),
-    "ContextName" => String.t(),
-    "ContextType" => String.t(),
-    "CreatedBy" => user_context(),
-    "CreationTime" => non_neg_integer(),
-    "Description" => String.t(),
-    "LastModifiedBy" => user_context(),
-    "LastModifiedTime" => non_neg_integer(),
-    "LineageGroupArn" => String.t(),
-    "Properties" => map(),
-    "Source" => context_source()
-  }
+      
+      describe_context_response() :: %{
+        "ContextArn" => String.t(),
+        "ContextName" => String.t(),
+        "ContextType" => String.t(),
+        "CreatedBy" => user_context(),
+        "CreationTime" => non_neg_integer(),
+        "Description" => String.t(),
+        "LastModifiedBy" => user_context(),
+        "LastModifiedTime" => non_neg_integer(),
+        "LineageGroupArn" => String.t(),
+        "Properties" => map(),
+        "Source" => context_source()
+      }
+      
   """
   @type describe_context_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_hyper_parameter_tuning_job_request() :: %{
-    required("HyperParameterTuningJobName") => String.t()
-  }
+      
+      delete_hyper_parameter_tuning_job_request() :: %{
+        required("HyperParameterTuningJobName") => String.t()
+      }
+      
   """
   @type delete_hyper_parameter_tuning_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  inference_experiment_data_storage_config() :: %{
-    "ContentType" => capture_content_type_header(),
-    "Destination" => String.t(),
-    "KmsKey" => String.t()
-  }
+      
+      inference_experiment_data_storage_config() :: %{
+        "ContentType" => capture_content_type_header(),
+        "Destination" => String.t(),
+        "KmsKey" => String.t()
+      }
+      
   """
   @type inference_experiment_data_storage_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_data_quality_job_definition_request() :: %{
-    optional("DataQualityBaselineConfig") => data_quality_baseline_config(),
-    optional("NetworkConfig") => monitoring_network_config(),
-    optional("StoppingCondition") => monitoring_stopping_condition(),
-    optional("Tags") => list(tag()()),
-    required("DataQualityAppSpecification") => data_quality_app_specification(),
-    required("DataQualityJobInput") => data_quality_job_input(),
-    required("DataQualityJobOutputConfig") => monitoring_output_config(),
-    required("JobDefinitionName") => String.t(),
-    required("JobResources") => monitoring_resources(),
-    required("RoleArn") => String.t()
-  }
+      
+      create_data_quality_job_definition_request() :: %{
+        optional("DataQualityBaselineConfig") => data_quality_baseline_config(),
+        optional("NetworkConfig") => monitoring_network_config(),
+        optional("StoppingCondition") => monitoring_stopping_condition(),
+        optional("Tags") => list(tag()()),
+        required("DataQualityAppSpecification") => data_quality_app_specification(),
+        required("DataQualityJobInput") => data_quality_job_input(),
+        required("DataQualityJobOutputConfig") => monitoring_output_config(),
+        required("JobDefinitionName") => String.t(),
+        required("JobResources") => monitoring_resources(),
+        required("RoleArn") => String.t()
+      }
+      
   """
   @type create_data_quality_job_definition_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_monitoring_executions_request() :: %{
-    optional("CreationTimeAfter") => non_neg_integer(),
-    optional("CreationTimeBefore") => non_neg_integer(),
-    optional("EndpointName") => String.t(),
-    optional("LastModifiedTimeAfter") => non_neg_integer(),
-    optional("LastModifiedTimeBefore") => non_neg_integer(),
-    optional("MaxResults") => integer(),
-    optional("MonitoringJobDefinitionName") => String.t(),
-    optional("MonitoringScheduleName") => String.t(),
-    optional("MonitoringTypeEquals") => list(any()),
-    optional("NextToken") => String.t(),
-    optional("ScheduledTimeAfter") => non_neg_integer(),
-    optional("ScheduledTimeBefore") => non_neg_integer(),
-    optional("SortBy") => list(any()),
-    optional("SortOrder") => list(any()),
-    optional("StatusEquals") => list(any())
-  }
+      
+      list_monitoring_executions_request() :: %{
+        optional("CreationTimeAfter") => non_neg_integer(),
+        optional("CreationTimeBefore") => non_neg_integer(),
+        optional("EndpointName") => String.t(),
+        optional("LastModifiedTimeAfter") => non_neg_integer(),
+        optional("LastModifiedTimeBefore") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("MonitoringJobDefinitionName") => String.t(),
+        optional("MonitoringScheduleName") => String.t(),
+        optional("MonitoringTypeEquals") => list(any()),
+        optional("NextToken") => String.t(),
+        optional("ScheduledTimeAfter") => non_neg_integer(),
+        optional("ScheduledTimeBefore") => non_neg_integer(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any()),
+        optional("StatusEquals") => list(any())
+      }
+      
   """
   @type list_monitoring_executions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_model_quality_job_definition_request() :: %{
-    optional("ModelQualityBaselineConfig") => model_quality_baseline_config(),
-    optional("NetworkConfig") => monitoring_network_config(),
-    optional("StoppingCondition") => monitoring_stopping_condition(),
-    optional("Tags") => list(tag()()),
-    required("JobDefinitionName") => String.t(),
-    required("JobResources") => monitoring_resources(),
-    required("ModelQualityAppSpecification") => model_quality_app_specification(),
-    required("ModelQualityJobInput") => model_quality_job_input(),
-    required("ModelQualityJobOutputConfig") => monitoring_output_config(),
-    required("RoleArn") => String.t()
-  }
+      
+      create_model_quality_job_definition_request() :: %{
+        optional("ModelQualityBaselineConfig") => model_quality_baseline_config(),
+        optional("NetworkConfig") => monitoring_network_config(),
+        optional("StoppingCondition") => monitoring_stopping_condition(),
+        optional("Tags") => list(tag()()),
+        required("JobDefinitionName") => String.t(),
+        required("JobResources") => monitoring_resources(),
+        required("ModelQualityAppSpecification") => model_quality_app_specification(),
+        required("ModelQualityJobInput") => model_quality_job_input(),
+        required("ModelQualityJobOutputConfig") => monitoring_output_config(),
+        required("RoleArn") => String.t()
+      }
+      
   """
   @type create_model_quality_job_definition_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_monitoring_schedules_request() :: %{
-    optional("CreationTimeAfter") => non_neg_integer(),
-    optional("CreationTimeBefore") => non_neg_integer(),
-    optional("EndpointName") => String.t(),
-    optional("LastModifiedTimeAfter") => non_neg_integer(),
-    optional("LastModifiedTimeBefore") => non_neg_integer(),
-    optional("MaxResults") => integer(),
-    optional("MonitoringJobDefinitionName") => String.t(),
-    optional("MonitoringTypeEquals") => list(any()),
-    optional("NameContains") => String.t(),
-    optional("NextToken") => String.t(),
-    optional("SortBy") => list(any()),
-    optional("SortOrder") => list(any()),
-    optional("StatusEquals") => list(any())
-  }
+      
+      list_monitoring_schedules_request() :: %{
+        optional("CreationTimeAfter") => non_neg_integer(),
+        optional("CreationTimeBefore") => non_neg_integer(),
+        optional("EndpointName") => String.t(),
+        optional("LastModifiedTimeAfter") => non_neg_integer(),
+        optional("LastModifiedTimeBefore") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("MonitoringJobDefinitionName") => String.t(),
+        optional("MonitoringTypeEquals") => list(any()),
+        optional("NameContains") => String.t(),
+        optional("NextToken") => String.t(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any()),
+        optional("StatusEquals") => list(any())
+      }
+      
   """
   @type list_monitoring_schedules_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_flow_definition_request() :: %{
-    required("FlowDefinitionName") => String.t()
-  }
+      
+      delete_flow_definition_request() :: %{
+        required("FlowDefinitionName") => String.t()
+      }
+      
   """
   @type delete_flow_definition_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  capacity_size() :: %{
-    "Type" => list(any()),
-    "Value" => integer()
-  }
+      
+      capacity_size() :: %{
+        "Type" => list(any()),
+        "Value" => integer()
+      }
+      
   """
   @type capacity_size() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_image_versions_request() :: %{
-    optional("CreationTimeAfter") => non_neg_integer(),
-    optional("CreationTimeBefore") => non_neg_integer(),
-    optional("LastModifiedTimeAfter") => non_neg_integer(),
-    optional("LastModifiedTimeBefore") => non_neg_integer(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("SortBy") => list(any()),
-    optional("SortOrder") => list(any()),
-    required("ImageName") => String.t()
-  }
+      
+      list_image_versions_request() :: %{
+        optional("CreationTimeAfter") => non_neg_integer(),
+        optional("CreationTimeBefore") => non_neg_integer(),
+        optional("LastModifiedTimeAfter") => non_neg_integer(),
+        optional("LastModifiedTimeBefore") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any()),
+        required("ImageName") => String.t()
+      }
+      
   """
   @type list_image_versions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_cluster_request() :: %{
-    optional("Tags") => list(tag()()),
-    optional("VpcConfig") => vpc_config(),
-    required("ClusterName") => String.t(),
-    required("InstanceGroups") => list(cluster_instance_group_specification()())
-  }
+      
+      create_cluster_request() :: %{
+        optional("Tags") => list(tag()()),
+        optional("VpcConfig") => vpc_config(),
+        required("ClusterName") => String.t(),
+        required("InstanceGroups") => list(cluster_instance_group_specification()())
+      }
+      
   """
   @type create_cluster_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_notebook_instance_lifecycle_config_input() :: %{
-    optional("OnCreate") => list(notebook_instance_lifecycle_hook()()),
-    optional("OnStart") => list(notebook_instance_lifecycle_hook()()),
-    required("NotebookInstanceLifecycleConfigName") => String.t()
-  }
+      
+      create_notebook_instance_lifecycle_config_input() :: %{
+        optional("OnCreate") => list(notebook_instance_lifecycle_hook()()),
+        optional("OnStart") => list(notebook_instance_lifecycle_hook()()),
+        required("NotebookInstanceLifecycleConfigName") => String.t()
+      }
+      
   """
   @type create_notebook_instance_lifecycle_config_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_studio_lifecycle_config_response() :: %{
-    "StudioLifecycleConfigArn" => String.t()
-  }
+      
+      create_studio_lifecycle_config_response() :: %{
+        "StudioLifecycleConfigArn" => String.t()
+      }
+      
   """
   @type create_studio_lifecycle_config_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  auto_ml_candidate_generation_config() :: %{
-    "AlgorithmsConfig" => list(auto_ml_algorithm_config()()),
-    "FeatureSpecificationS3Uri" => String.t()
-  }
+      
+      auto_ml_candidate_generation_config() :: %{
+        "AlgorithmsConfig" => list(auto_ml_algorithm_config()()),
+        "FeatureSpecificationS3Uri" => String.t()
+      }
+      
   """
   @type auto_ml_candidate_generation_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  artifact_source() :: %{
-    "SourceTypes" => list(artifact_source_type()()),
-    "SourceUri" => String.t()
-  }
+      
+      artifact_source() :: %{
+        "SourceTypes" => list(artifact_source_type()()),
+        "SourceUri" => String.t()
+      }
+      
   """
   @type artifact_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  metric_datum() :: %{
-    "MetricName" => list(any()),
-    "Set" => list(any()),
-    "StandardMetricName" => list(any()),
-    "Value" => float()
-  }
+      
+      metric_datum() :: %{
+        "MetricName" => list(any()),
+        "Set" => list(any()),
+        "StandardMetricName" => list(any()),
+        "Value" => float()
+      }
+      
   """
   @type metric_datum() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  direct_deploy_settings() :: %{
-    "Status" => list(any())
-  }
+      
+      direct_deploy_settings() :: %{
+        "Status" => list(any())
+      }
+      
   """
   @type direct_deploy_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  model_card_version_summary() :: %{
-    "CreationTime" => non_neg_integer(),
-    "LastModifiedTime" => non_neg_integer(),
-    "ModelCardArn" => String.t(),
-    "ModelCardName" => String.t(),
-    "ModelCardStatus" => list(any()),
-    "ModelCardVersion" => integer()
-  }
+      
+      model_card_version_summary() :: %{
+        "CreationTime" => non_neg_integer(),
+        "LastModifiedTime" => non_neg_integer(),
+        "ModelCardArn" => String.t(),
+        "ModelCardName" => String.t(),
+        "ModelCardStatus" => list(any()),
+        "ModelCardVersion" => integer()
+      }
+      
   """
   @type model_card_version_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  conflict_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      conflict_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  pending_deployment_summary() :: %{
-    "EndpointConfigName" => String.t(),
-    "ProductionVariants" => list(pending_production_variant_summary()()),
-    "ShadowProductionVariants" => list(pending_production_variant_summary()()),
-    "StartTime" => non_neg_integer()
-  }
+      
+      pending_deployment_summary() :: %{
+        "EndpointConfigName" => String.t(),
+        "ProductionVariants" => list(pending_production_variant_summary()()),
+        "ShadowProductionVariants" => list(pending_production_variant_summary()()),
+        "StartTime" => non_neg_integer()
+      }
+      
   """
   @type pending_deployment_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_workteam_response() :: %{
-    "Success" => boolean()
-  }
+      
+      delete_workteam_response() :: %{
+        "Success" => boolean()
+      }
+      
   """
   @type delete_workteam_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  processing_output() :: %{
-    "AppManaged" => boolean(),
-    "FeatureStoreOutput" => processing_feature_store_output(),
-    "OutputName" => String.t(),
-    "S3Output" => processing_s3_output()
-  }
+      
+      processing_output() :: %{
+        "AppManaged" => boolean(),
+        "FeatureStoreOutput" => processing_feature_store_output(),
+        "OutputName" => String.t(),
+        "S3Output" => processing_s3_output()
+      }
+      
   """
   @type processing_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  clarify_check_step_metadata() :: %{
-    "BaselineUsedForDriftCheckConstraints" => String.t(),
-    "CalculatedBaselineConstraints" => String.t(),
-    "CheckJobArn" => String.t(),
-    "CheckType" => String.t(),
-    "ModelPackageGroupName" => String.t(),
-    "RegisterNewBaseline" => boolean(),
-    "SkipCheck" => boolean(),
-    "ViolationReport" => String.t()
-  }
+      
+      clarify_check_step_metadata() :: %{
+        "BaselineUsedForDriftCheckConstraints" => String.t(),
+        "CalculatedBaselineConstraints" => String.t(),
+        "CheckJobArn" => String.t(),
+        "CheckType" => String.t(),
+        "ModelPackageGroupName" => String.t(),
+        "RegisterNewBaseline" => boolean(),
+        "SkipCheck" => boolean(),
+        "ViolationReport" => String.t()
+      }
+      
   """
   @type clarify_check_step_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_compilation_job_response() :: %{
-    "CompilationJobArn" => String.t()
-  }
+      
+      create_compilation_job_response() :: %{
+        "CompilationJobArn" => String.t()
+      }
+      
   """
   @type create_compilation_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_pipeline_execution_request() :: %{
-    required("PipelineExecutionArn") => String.t()
-  }
+      
+      describe_pipeline_execution_request() :: %{
+        required("PipelineExecutionArn") => String.t()
+      }
+      
   """
   @type describe_pipeline_execution_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_workteams_response() :: %{
-    "NextToken" => String.t(),
-    "Workteams" => list(workteam()())
-  }
+      
+      list_workteams_response() :: %{
+        "NextToken" => String.t(),
+        "Workteams" => list(workteam()())
+      }
+      
   """
   @type list_workteams_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_inference_recommendations_job_steps_response() :: %{
-    "NextToken" => String.t(),
-    "Steps" => list(inference_recommendations_job_step()())
-  }
+      
+      list_inference_recommendations_job_steps_response() :: %{
+        "NextToken" => String.t(),
+        "Steps" => list(inference_recommendations_job_step()())
+      }
+      
   """
   @type list_inference_recommendations_job_steps_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  send_pipeline_execution_step_failure_response() :: %{
-    "PipelineExecutionArn" => String.t()
-  }
+      
+      send_pipeline_execution_step_failure_response() :: %{
+        "PipelineExecutionArn" => String.t()
+      }
+      
   """
   @type send_pipeline_execution_step_failure_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  container_config() :: %{
-    "ContainerArguments" => list(String.t()()),
-    "ContainerEntrypoint" => list(String.t()()),
-    "ContainerEnvironmentVariables" => map()
-  }
+      
+      container_config() :: %{
+        "ContainerArguments" => list(String.t()()),
+        "ContainerEntrypoint" => list(String.t()()),
+        "ContainerEnvironmentVariables" => map()
+      }
+      
   """
   @type container_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  auto_ml_candidate_step() :: %{
-    "CandidateStepArn" => String.t(),
-    "CandidateStepName" => String.t(),
-    "CandidateStepType" => list(any())
-  }
+      
+      auto_ml_candidate_step() :: %{
+        "CandidateStepArn" => String.t(),
+        "CandidateStepName" => String.t(),
+        "CandidateStepType" => list(any())
+      }
+      
   """
   @type auto_ml_candidate_step() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  retry_pipeline_execution_request() :: %{
-    optional("ParallelismConfiguration") => parallelism_configuration(),
-    required("ClientRequestToken") => String.t(),
-    required("PipelineExecutionArn") => String.t()
-  }
+      
+      retry_pipeline_execution_request() :: %{
+        optional("ParallelismConfiguration") => parallelism_configuration(),
+        required("ClientRequestToken") => String.t(),
+        required("PipelineExecutionArn") => String.t()
+      }
+      
   """
   @type retry_pipeline_execution_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  online_store_security_config() :: %{
-    "KmsKeyId" => String.t()
-  }
+      
+      online_store_security_config() :: %{
+        "KmsKeyId" => String.t()
+      }
+      
   """
   @type online_store_security_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  time_series_transformations() :: %{
-    "Aggregation" => map(),
-    "Filling" => map()
-  }
+      
+      time_series_transformations() :: %{
+        "Aggregation" => map(),
+        "Filling" => map()
+      }
+      
   """
   @type time_series_transformations() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_artifact_request() :: %{
-    required("ArtifactArn") => String.t()
-  }
+      
+      describe_artifact_request() :: %{
+        required("ArtifactArn") => String.t()
+      }
+      
   """
   @type describe_artifact_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_notebook_instance_input() :: %{
-    optional("AcceleratorTypes") => list(list(any())()),
-    optional("AdditionalCodeRepositories") => list(String.t()()),
-    optional("DefaultCodeRepository") => String.t(),
-    optional("DisassociateAcceleratorTypes") => boolean(),
-    optional("DisassociateAdditionalCodeRepositories") => boolean(),
-    optional("DisassociateDefaultCodeRepository") => boolean(),
-    optional("DisassociateLifecycleConfig") => boolean(),
-    optional("InstanceMetadataServiceConfiguration") => instance_metadata_service_configuration(),
-    optional("InstanceType") => list(any()),
-    optional("LifecycleConfigName") => String.t(),
-    optional("RoleArn") => String.t(),
-    optional("RootAccess") => list(any()),
-    optional("VolumeSizeInGB") => integer(),
-    required("NotebookInstanceName") => String.t()
-  }
+      
+      update_notebook_instance_input() :: %{
+        optional("AcceleratorTypes") => list(list(any())()),
+        optional("AdditionalCodeRepositories") => list(String.t()()),
+        optional("DefaultCodeRepository") => String.t(),
+        optional("DisassociateAcceleratorTypes") => boolean(),
+        optional("DisassociateAdditionalCodeRepositories") => boolean(),
+        optional("DisassociateDefaultCodeRepository") => boolean(),
+        optional("DisassociateLifecycleConfig") => boolean(),
+        optional("InstanceMetadataServiceConfiguration") => instance_metadata_service_configuration(),
+        optional("InstanceType") => list(any()),
+        optional("LifecycleConfigName") => String.t(),
+        optional("RoleArn") => String.t(),
+        optional("RootAccess") => list(any()),
+        optional("VolumeSizeInGB") => integer(),
+        required("NotebookInstanceName") => String.t()
+      }
+      
   """
   @type update_notebook_instance_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  container_definition() :: %{
-    "ContainerHostname" => String.t(),
-    "Environment" => map(),
-    "Image" => String.t(),
-    "ImageConfig" => image_config(),
-    "InferenceSpecificationName" => String.t(),
-    "Mode" => list(any()),
-    "ModelDataSource" => model_data_source(),
-    "ModelDataUrl" => String.t(),
-    "ModelPackageName" => String.t(),
-    "MultiModelConfig" => multi_model_config()
-  }
+      
+      container_definition() :: %{
+        "ContainerHostname" => String.t(),
+        "Environment" => map(),
+        "Image" => String.t(),
+        "ImageConfig" => image_config(),
+        "InferenceSpecificationName" => String.t(),
+        "Mode" => list(any()),
+        "ModelDataSource" => model_data_source(),
+        "ModelDataUrl" => String.t(),
+        "ModelPackageName" => String.t(),
+        "MultiModelConfig" => multi_model_config()
+      }
+      
   """
   @type container_definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_space_response() :: %{
-    "SpaceArn" => String.t()
-  }
+      
+      create_space_response() :: %{
+        "SpaceArn" => String.t()
+      }
+      
   """
   @type create_space_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  auto_ml_candidate() :: %{
-    "CandidateName" => String.t(),
-    "CandidateProperties" => candidate_properties(),
-    "CandidateStatus" => list(any()),
-    "CandidateSteps" => list(auto_ml_candidate_step()()),
-    "CreationTime" => non_neg_integer(),
-    "EndTime" => non_neg_integer(),
-    "FailureReason" => String.t(),
-    "FinalAutoMLJobObjectiveMetric" => final_auto_ml_job_objective_metric(),
-    "InferenceContainerDefinitions" => map(),
-    "InferenceContainers" => list(auto_ml_container_definition()()),
-    "LastModifiedTime" => non_neg_integer(),
-    "ObjectiveStatus" => list(any())
-  }
+      
+      auto_ml_candidate() :: %{
+        "CandidateName" => String.t(),
+        "CandidateProperties" => candidate_properties(),
+        "CandidateStatus" => list(any()),
+        "CandidateSteps" => list(auto_ml_candidate_step()()),
+        "CreationTime" => non_neg_integer(),
+        "EndTime" => non_neg_integer(),
+        "FailureReason" => String.t(),
+        "FinalAutoMLJobObjectiveMetric" => final_auto_ml_job_objective_metric(),
+        "InferenceContainerDefinitions" => map(),
+        "InferenceContainers" => list(auto_ml_container_definition()()),
+        "LastModifiedTime" => non_neg_integer(),
+        "ObjectiveStatus" => list(any())
+      }
+      
   """
   @type auto_ml_candidate() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  space_settings_summary() :: %{
-    "AppType" => list(any()),
-    "SpaceStorageSettings" => space_storage_settings()
-  }
+      
+      space_settings_summary() :: %{
+        "AppType" => list(any()),
+        "SpaceStorageSettings" => space_storage_settings()
+      }
+      
   """
   @type space_settings_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_model_explainability_job_definition_request() :: %{
-    required("JobDefinitionName") => String.t()
-  }
+      
+      describe_model_explainability_job_definition_request() :: %{
+        required("JobDefinitionName") => String.t()
+      }
+      
   """
   @type describe_model_explainability_job_definition_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_monitoring_schedule_request() :: %{
-    required("MonitoringScheduleConfig") => monitoring_schedule_config(),
-    required("MonitoringScheduleName") => String.t()
-  }
+      
+      update_monitoring_schedule_request() :: %{
+        required("MonitoringScheduleConfig") => monitoring_schedule_config(),
+        required("MonitoringScheduleName") => String.t()
+      }
+      
   """
   @type update_monitoring_schedule_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_hyper_parameter_tuning_jobs_request() :: %{
-    optional("CreationTimeAfter") => non_neg_integer(),
-    optional("CreationTimeBefore") => non_neg_integer(),
-    optional("LastModifiedTimeAfter") => non_neg_integer(),
-    optional("LastModifiedTimeBefore") => non_neg_integer(),
-    optional("MaxResults") => integer(),
-    optional("NameContains") => String.t(),
-    optional("NextToken") => String.t(),
-    optional("SortBy") => list(any()),
-    optional("SortOrder") => list(any()),
-    optional("StatusEquals") => list(any())
-  }
+      
+      list_hyper_parameter_tuning_jobs_request() :: %{
+        optional("CreationTimeAfter") => non_neg_integer(),
+        optional("CreationTimeBefore") => non_neg_integer(),
+        optional("LastModifiedTimeAfter") => non_neg_integer(),
+        optional("LastModifiedTimeBefore") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("NameContains") => String.t(),
+        optional("NextToken") => String.t(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any()),
+        optional("StatusEquals") => list(any())
+      }
+      
   """
   @type list_hyper_parameter_tuning_jobs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_domain_request() :: %{
-    optional("AppNetworkAccessType") => list(any()),
-    optional("AppSecurityGroupManagement") => list(any()),
-    optional("DefaultSpaceSettings") => default_space_settings(),
-    optional("DomainSettings") => domain_settings(),
-    optional("HomeEfsFileSystemKmsKeyId") => String.t(),
-    optional("KmsKeyId") => String.t(),
-    optional("Tags") => list(tag()()),
-    required("AuthMode") => list(any()),
-    required("DefaultUserSettings") => user_settings(),
-    required("DomainName") => String.t(),
-    required("SubnetIds") => list(String.t()()),
-    required("VpcId") => String.t()
-  }
+      
+      create_domain_request() :: %{
+        optional("AppNetworkAccessType") => list(any()),
+        optional("AppSecurityGroupManagement") => list(any()),
+        optional("DefaultSpaceSettings") => default_space_settings(),
+        optional("DomainSettings") => domain_settings(),
+        optional("HomeEfsFileSystemKmsKeyId") => String.t(),
+        optional("KmsKeyId") => String.t(),
+        optional("Tags") => list(tag()()),
+        required("AuthMode") => list(any()),
+        required("DefaultUserSettings") => user_settings(),
+        required("DomainName") => String.t(),
+        required("SubnetIds") => list(String.t()()),
+        required("VpcId") => String.t()
+      }
+      
   """
   @type create_domain_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  auto_ml_algorithm_config() :: %{
-    "AutoMLAlgorithms" => list(list(any())())
-  }
+      
+      auto_ml_algorithm_config() :: %{
+        "AutoMLAlgorithms" => list(list(any())())
+      }
+      
   """
   @type auto_ml_algorithm_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_artifact_request() :: %{
-    optional("ArtifactArn") => String.t(),
-    optional("Source") => artifact_source()
-  }
+      
+      delete_artifact_request() :: %{
+        optional("ArtifactArn") => String.t(),
+        optional("Source") => artifact_source()
+      }
+      
   """
   @type delete_artifact_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  categorical_parameter() :: %{
-    "Name" => String.t(),
-    "Value" => list(String.t()())
-  }
+      
+      categorical_parameter() :: %{
+        "Name" => String.t(),
+        "Value" => list(String.t()())
+      }
+      
   """
   @type categorical_parameter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_monitoring_alerts_response() :: %{
-    "MonitoringAlertSummaries" => list(monitoring_alert_summary()()),
-    "NextToken" => String.t()
-  }
+      
+      list_monitoring_alerts_response() :: %{
+        "MonitoringAlertSummaries" => list(monitoring_alert_summary()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_monitoring_alerts_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  model_deploy_config() :: %{
-    "AutoGenerateEndpointName" => boolean(),
-    "EndpointName" => String.t()
-  }
+      
+      model_deploy_config() :: %{
+        "AutoGenerateEndpointName" => boolean(),
+        "EndpointName" => String.t()
+      }
+      
   """
   @type model_deploy_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_model_explainability_job_definition_response() :: %{
-    "JobDefinitionArn" => String.t()
-  }
+      
+      create_model_explainability_job_definition_response() :: %{
+        "JobDefinitionArn" => String.t()
+      }
+      
   """
   @type create_model_explainability_job_definition_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_model_package_group_output() :: %{
-    "ModelPackageGroupArn" => String.t()
-  }
+      
+      create_model_package_group_output() :: %{
+        "ModelPackageGroupArn" => String.t()
+      }
+      
   """
   @type create_model_package_group_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_experiment_request() :: %{
-    required("ExperimentName") => String.t()
-  }
+      
+      delete_experiment_request() :: %{
+        required("ExperimentName") => String.t()
+      }
+      
   """
   @type delete_experiment_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_pipeline_execution_response() :: %{
-    "PipelineExecutionArn" => String.t()
-  }
+      
+      update_pipeline_execution_response() :: %{
+        "PipelineExecutionArn" => String.t()
+      }
+      
   """
   @type update_pipeline_execution_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_image_version_request() :: %{
-    optional("Alias") => String.t(),
-    optional("Version") => integer(),
-    required("ImageName") => String.t()
-  }
+      
+      describe_image_version_request() :: %{
+        optional("Alias") => String.t(),
+        optional("Version") => integer(),
+        required("ImageName") => String.t()
+      }
+      
   """
   @type describe_image_version_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_trial_component_request() :: %{
-    required("TrialComponentName") => String.t()
-  }
+      
+      describe_trial_component_request() :: %{
+        required("TrialComponentName") => String.t()
+      }
+      
   """
   @type describe_trial_component_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_feature_group_response() :: %{
-    "FeatureGroupArn" => String.t()
-  }
+      
+      create_feature_group_response() :: %{
+        "FeatureGroupArn" => String.t()
+      }
+      
   """
   @type create_feature_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  edge_output_config() :: %{
-    "KmsKeyId" => String.t(),
-    "PresetDeploymentConfig" => String.t(),
-    "PresetDeploymentType" => list(any()),
-    "S3OutputLocation" => String.t()
-  }
+      
+      edge_output_config() :: %{
+        "KmsKeyId" => String.t(),
+        "PresetDeploymentConfig" => String.t(),
+        "PresetDeploymentType" => list(any()),
+        "S3OutputLocation" => String.t()
+      }
+      
   """
   @type edge_output_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag() :: %{
-    "Key" => String.t(),
-    "Value" => String.t()
-  }
+      
+      tag() :: %{
+        "Key" => String.t(),
+        "Value" => String.t()
+      }
+      
   """
   @type tag() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_auto_ml_jobs_request() :: %{
-    optional("CreationTimeAfter") => non_neg_integer(),
-    optional("CreationTimeBefore") => non_neg_integer(),
-    optional("LastModifiedTimeAfter") => non_neg_integer(),
-    optional("LastModifiedTimeBefore") => non_neg_integer(),
-    optional("MaxResults") => integer(),
-    optional("NameContains") => String.t(),
-    optional("NextToken") => String.t(),
-    optional("SortBy") => list(any()),
-    optional("SortOrder") => list(any()),
-    optional("StatusEquals") => list(any())
-  }
+      
+      list_auto_ml_jobs_request() :: %{
+        optional("CreationTimeAfter") => non_neg_integer(),
+        optional("CreationTimeBefore") => non_neg_integer(),
+        optional("LastModifiedTimeAfter") => non_neg_integer(),
+        optional("LastModifiedTimeBefore") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("NameContains") => String.t(),
+        optional("NextToken") => String.t(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any()),
+        optional("StatusEquals") => list(any())
+      }
+      
   """
   @type list_auto_ml_jobs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_image_version_response() :: %{
-    "BaseImage" => String.t(),
-    "ContainerImage" => String.t(),
-    "CreationTime" => non_neg_integer(),
-    "FailureReason" => String.t(),
-    "Horovod" => boolean(),
-    "ImageArn" => String.t(),
-    "ImageVersionArn" => String.t(),
-    "ImageVersionStatus" => list(any()),
-    "JobType" => list(any()),
-    "LastModifiedTime" => non_neg_integer(),
-    "MLFramework" => String.t(),
-    "Processor" => list(any()),
-    "ProgrammingLang" => String.t(),
-    "ReleaseNotes" => String.t(),
-    "VendorGuidance" => list(any()),
-    "Version" => integer()
-  }
+      
+      describe_image_version_response() :: %{
+        "BaseImage" => String.t(),
+        "ContainerImage" => String.t(),
+        "CreationTime" => non_neg_integer(),
+        "FailureReason" => String.t(),
+        "Horovod" => boolean(),
+        "ImageArn" => String.t(),
+        "ImageVersionArn" => String.t(),
+        "ImageVersionStatus" => list(any()),
+        "JobType" => list(any()),
+        "LastModifiedTime" => non_neg_integer(),
+        "MLFramework" => String.t(),
+        "Processor" => list(any()),
+        "ProgrammingLang" => String.t(),
+        "ReleaseNotes" => String.t(),
+        "VendorGuidance" => list(any()),
+        "Version" => integer()
+      }
+      
   """
   @type describe_image_version_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_hub_request() :: %{
-    required("HubName") => String.t()
-  }
+      
+      delete_hub_request() :: %{
+        required("HubName") => String.t()
+      }
+      
   """
   @type delete_hub_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  last_update_status() :: %{
-    "FailureReason" => String.t(),
-    "Status" => list(any())
-  }
+      
+      last_update_status() :: %{
+        "FailureReason" => String.t(),
+        "Status" => list(any())
+      }
+      
   """
   @type last_update_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  project() :: %{
-    "CreatedBy" => user_context(),
-    "CreationTime" => non_neg_integer(),
-    "LastModifiedBy" => user_context(),
-    "LastModifiedTime" => non_neg_integer(),
-    "ProjectArn" => String.t(),
-    "ProjectDescription" => String.t(),
-    "ProjectId" => String.t(),
-    "ProjectName" => String.t(),
-    "ProjectStatus" => list(any()),
-    "ServiceCatalogProvisionedProductDetails" => service_catalog_provisioned_product_details(),
-    "ServiceCatalogProvisioningDetails" => service_catalog_provisioning_details(),
-    "Tags" => list(tag()())
-  }
+      
+      project() :: %{
+        "CreatedBy" => user_context(),
+        "CreationTime" => non_neg_integer(),
+        "LastModifiedBy" => user_context(),
+        "LastModifiedTime" => non_neg_integer(),
+        "ProjectArn" => String.t(),
+        "ProjectDescription" => String.t(),
+        "ProjectId" => String.t(),
+        "ProjectName" => String.t(),
+        "ProjectStatus" => list(any()),
+        "ServiceCatalogProvisionedProductDetails" => service_catalog_provisioned_product_details(),
+        "ServiceCatalogProvisioningDetails" => service_catalog_provisioning_details(),
+        "Tags" => list(tag()())
+      }
+      
   """
   @type project() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_algorithm_output() :: %{
-    "AlgorithmArn" => String.t(),
-    "AlgorithmDescription" => String.t(),
-    "AlgorithmName" => String.t(),
-    "AlgorithmStatus" => list(any()),
-    "AlgorithmStatusDetails" => algorithm_status_details(),
-    "CertifyForMarketplace" => boolean(),
-    "CreationTime" => non_neg_integer(),
-    "InferenceSpecification" => inference_specification(),
-    "ProductId" => String.t(),
-    "TrainingSpecification" => training_specification(),
-    "ValidationSpecification" => algorithm_validation_specification()
-  }
+      
+      describe_algorithm_output() :: %{
+        "AlgorithmArn" => String.t(),
+        "AlgorithmDescription" => String.t(),
+        "AlgorithmName" => String.t(),
+        "AlgorithmStatus" => list(any()),
+        "AlgorithmStatusDetails" => algorithm_status_details(),
+        "CertifyForMarketplace" => boolean(),
+        "CreationTime" => non_neg_integer(),
+        "InferenceSpecification" => inference_specification(),
+        "ProductId" => String.t(),
+        "TrainingSpecification" => training_specification(),
+        "ValidationSpecification" => algorithm_validation_specification()
+      }
+      
   """
   @type describe_algorithm_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  processing_s3_output() :: %{
-    "LocalPath" => String.t(),
-    "S3UploadMode" => list(any()),
-    "S3Uri" => String.t()
-  }
+      
+      processing_s3_output() :: %{
+        "LocalPath" => String.t(),
+        "S3UploadMode" => list(any()),
+        "S3Uri" => String.t()
+      }
+      
   """
   @type processing_s3_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_feature_group_request() :: %{
-    optional("Description") => String.t(),
-    optional("OfflineStoreConfig") => offline_store_config(),
-    optional("OnlineStoreConfig") => online_store_config(),
-    optional("RoleArn") => String.t(),
-    optional("Tags") => list(tag()()),
-    optional("ThroughputConfig") => throughput_config(),
-    required("EventTimeFeatureName") => String.t(),
-    required("FeatureDefinitions") => list(feature_definition()()),
-    required("FeatureGroupName") => String.t(),
-    required("RecordIdentifierFeatureName") => String.t()
-  }
+      
+      create_feature_group_request() :: %{
+        optional("Description") => String.t(),
+        optional("OfflineStoreConfig") => offline_store_config(),
+        optional("OnlineStoreConfig") => online_store_config(),
+        optional("RoleArn") => String.t(),
+        optional("Tags") => list(tag()()),
+        optional("ThroughputConfig") => throughput_config(),
+        required("EventTimeFeatureName") => String.t(),
+        required("FeatureDefinitions") => list(feature_definition()()),
+        required("FeatureGroupName") => String.t(),
+        required("RecordIdentifierFeatureName") => String.t()
+      }
+      
   """
   @type create_feature_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_notebook_instance_input() :: %{
-    required("NotebookInstanceName") => String.t()
-  }
+      
+      describe_notebook_instance_input() :: %{
+        required("NotebookInstanceName") => String.t()
+      }
+      
   """
   @type describe_notebook_instance_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  dataset_definition() :: %{
-    "AthenaDatasetDefinition" => athena_dataset_definition(),
-    "DataDistributionType" => list(any()),
-    "InputMode" => list(any()),
-    "LocalPath" => String.t(),
-    "RedshiftDatasetDefinition" => redshift_dataset_definition()
-  }
+      
+      dataset_definition() :: %{
+        "AthenaDatasetDefinition" => athena_dataset_definition(),
+        "DataDistributionType" => list(any()),
+        "InputMode" => list(any()),
+        "LocalPath" => String.t(),
+        "RedshiftDatasetDefinition" => redshift_dataset_definition()
+      }
+      
   """
   @type dataset_definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_model_explainability_job_definitions_response() :: %{
-    "JobDefinitionSummaries" => list(monitoring_job_definition_summary()()),
-    "NextToken" => String.t()
-  }
+      
+      list_model_explainability_job_definitions_response() :: %{
+        "JobDefinitionSummaries" => list(monitoring_job_definition_summary()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_model_explainability_job_definitions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_space_request() :: %{
-    optional("OwnershipSettings") => ownership_settings(),
-    optional("SpaceDisplayName") => String.t(),
-    optional("SpaceSettings") => space_settings(),
-    optional("SpaceSharingSettings") => space_sharing_settings(),
-    optional("Tags") => list(tag()()),
-    required("DomainId") => String.t(),
-    required("SpaceName") => String.t()
-  }
+      
+      create_space_request() :: %{
+        optional("OwnershipSettings") => ownership_settings(),
+        optional("SpaceDisplayName") => String.t(),
+        optional("SpaceSettings") => space_settings(),
+        optional("SpaceSharingSettings") => space_sharing_settings(),
+        optional("Tags") => list(tag()()),
+        required("DomainId") => String.t(),
+        required("SpaceName") => String.t()
+      }
+      
   """
   @type create_space_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  clarify_shap_config() :: %{
-    "NumberOfSamples" => integer(),
-    "Seed" => integer(),
-    "ShapBaselineConfig" => clarify_shap_baseline_config(),
-    "TextConfig" => clarify_text_config(),
-    "UseLogit" => boolean()
-  }
+      
+      clarify_shap_config() :: %{
+        "NumberOfSamples" => integer(),
+        "Seed" => integer(),
+        "ShapBaselineConfig" => clarify_shap_baseline_config(),
+        "TextConfig" => clarify_text_config(),
+        "UseLogit" => boolean()
+      }
+      
   """
   @type clarify_shap_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_trial_components_request() :: %{
-    optional("CreatedAfter") => non_neg_integer(),
-    optional("CreatedBefore") => non_neg_integer(),
-    optional("ExperimentName") => String.t(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("SortBy") => list(any()),
-    optional("SortOrder") => list(any()),
-    optional("SourceArn") => String.t(),
-    optional("TrialName") => String.t()
-  }
+      
+      list_trial_components_request() :: %{
+        optional("CreatedAfter") => non_neg_integer(),
+        optional("CreatedBefore") => non_neg_integer(),
+        optional("ExperimentName") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any()),
+        optional("SourceArn") => String.t(),
+        optional("TrialName") => String.t()
+      }
+      
   """
   @type list_trial_components_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  hyper_parameter_tuning_job_search_entity() :: %{
-    "BestTrainingJob" => hyper_parameter_training_job_summary(),
-    "ConsumedResources" => hyper_parameter_tuning_job_consumed_resources(),
-    "CreationTime" => non_neg_integer(),
-    "FailureReason" => String.t(),
-    "HyperParameterTuningEndTime" => non_neg_integer(),
-    "HyperParameterTuningJobArn" => String.t(),
-    "HyperParameterTuningJobConfig" => hyper_parameter_tuning_job_config(),
-    "HyperParameterTuningJobName" => String.t(),
-    "HyperParameterTuningJobStatus" => list(any()),
-    "LastModifiedTime" => non_neg_integer(),
-    "ObjectiveStatusCounters" => objective_status_counters(),
-    "OverallBestTrainingJob" => hyper_parameter_training_job_summary(),
-    "Tags" => list(tag()()),
-    "TrainingJobDefinition" => hyper_parameter_training_job_definition(),
-    "TrainingJobDefinitions" => list(hyper_parameter_training_job_definition()()),
-    "TrainingJobStatusCounters" => training_job_status_counters(),
-    "TuningJobCompletionDetails" => hyper_parameter_tuning_job_completion_details(),
-    "WarmStartConfig" => hyper_parameter_tuning_job_warm_start_config()
-  }
+      
+      hyper_parameter_tuning_job_search_entity() :: %{
+        "BestTrainingJob" => hyper_parameter_training_job_summary(),
+        "ConsumedResources" => hyper_parameter_tuning_job_consumed_resources(),
+        "CreationTime" => non_neg_integer(),
+        "FailureReason" => String.t(),
+        "HyperParameterTuningEndTime" => non_neg_integer(),
+        "HyperParameterTuningJobArn" => String.t(),
+        "HyperParameterTuningJobConfig" => hyper_parameter_tuning_job_config(),
+        "HyperParameterTuningJobName" => String.t(),
+        "HyperParameterTuningJobStatus" => list(any()),
+        "LastModifiedTime" => non_neg_integer(),
+        "ObjectiveStatusCounters" => objective_status_counters(),
+        "OverallBestTrainingJob" => hyper_parameter_training_job_summary(),
+        "Tags" => list(tag()()),
+        "TrainingJobDefinition" => hyper_parameter_training_job_definition(),
+        "TrainingJobDefinitions" => list(hyper_parameter_training_job_definition()()),
+        "TrainingJobStatusCounters" => training_job_status_counters(),
+        "TuningJobCompletionDetails" => hyper_parameter_tuning_job_completion_details(),
+        "WarmStartConfig" => hyper_parameter_tuning_job_warm_start_config()
+      }
+      
   """
   @type hyper_parameter_tuning_job_search_entity() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_model_card_versions_request() :: %{
-    optional("CreationTimeAfter") => non_neg_integer(),
-    optional("CreationTimeBefore") => non_neg_integer(),
-    optional("MaxResults") => integer(),
-    optional("ModelCardStatus") => list(any()),
-    optional("NextToken") => String.t(),
-    optional("SortBy") => list(any()),
-    optional("SortOrder") => list(any()),
-    required("ModelCardName") => String.t()
-  }
+      
+      list_model_card_versions_request() :: %{
+        optional("CreationTimeAfter") => non_neg_integer(),
+        optional("CreationTimeBefore") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("ModelCardStatus") => list(any()),
+        optional("NextToken") => String.t(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any()),
+        required("ModelCardName") => String.t()
+      }
+      
   """
   @type list_model_card_versions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  monitoring_resources() :: %{
-    "ClusterConfig" => monitoring_cluster_config()
-  }
+      
+      monitoring_resources() :: %{
+        "ClusterConfig" => monitoring_cluster_config()
+      }
+      
   """
   @type monitoring_resources() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_image_request() :: %{
-    optional("Description") => String.t(),
-    optional("DisplayName") => String.t(),
-    optional("Tags") => list(tag()()),
-    required("ImageName") => String.t(),
-    required("RoleArn") => String.t()
-  }
+      
+      create_image_request() :: %{
+        optional("Description") => String.t(),
+        optional("DisplayName") => String.t(),
+        optional("Tags") => list(tag()()),
+        required("ImageName") => String.t(),
+        required("RoleArn") => String.t()
+      }
+      
   """
   @type create_image_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_pipeline_request() :: %{
-    optional("ParallelismConfiguration") => parallelism_configuration(),
-    optional("PipelineDefinition") => String.t(),
-    optional("PipelineDefinitionS3Location") => pipeline_definition_s3_location(),
-    optional("PipelineDescription") => String.t(),
-    optional("PipelineDisplayName") => String.t(),
-    optional("Tags") => list(tag()()),
-    required("ClientRequestToken") => String.t(),
-    required("PipelineName") => String.t(),
-    required("RoleArn") => String.t()
-  }
+      
+      create_pipeline_request() :: %{
+        optional("ParallelismConfiguration") => parallelism_configuration(),
+        optional("PipelineDefinition") => String.t(),
+        optional("PipelineDefinitionS3Location") => pipeline_definition_s3_location(),
+        optional("PipelineDescription") => String.t(),
+        optional("PipelineDisplayName") => String.t(),
+        optional("Tags") => list(tag()()),
+        required("ClientRequestToken") => String.t(),
+        required("PipelineName") => String.t(),
+        required("RoleArn") => String.t()
+      }
+      
   """
   @type create_pipeline_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_subscribed_workteam_request() :: %{
-    required("WorkteamArn") => String.t()
-  }
+      
+      describe_subscribed_workteam_request() :: %{
+        required("WorkteamArn") => String.t()
+      }
+      
   """
   @type describe_subscribed_workteam_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  property_name_suggestion() :: %{
-    "PropertyName" => String.t()
-  }
+      
+      property_name_suggestion() :: %{
+        "PropertyName" => String.t()
+      }
+      
   """
   @type property_name_suggestion() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  source_algorithm() :: %{
-    "AlgorithmName" => String.t(),
-    "ModelDataSource" => model_data_source(),
-    "ModelDataUrl" => String.t()
-  }
+      
+      source_algorithm() :: %{
+        "AlgorithmName" => String.t(),
+        "ModelDataSource" => model_data_source(),
+        "ModelDataUrl" => String.t()
+      }
+      
   """
   @type source_algorithm() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_describe_model_package_output() :: %{
-    "BatchDescribeModelPackageErrorMap" => map(),
-    "ModelPackageSummaries" => map()
-  }
+      
+      batch_describe_model_package_output() :: %{
+        "BatchDescribeModelPackageErrorMap" => map(),
+        "ModelPackageSummaries" => map()
+      }
+      
   """
   @type batch_describe_model_package_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_user_profile_request() :: %{
-    required("DomainId") => String.t(),
-    required("UserProfileName") => String.t()
-  }
+      
+      delete_user_profile_request() :: %{
+        required("DomainId") => String.t(),
+        required("UserProfileName") => String.t()
+      }
+      
   """
   @type delete_user_profile_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_artifact_request() :: %{
-    optional("ArtifactName") => String.t(),
-    optional("MetadataProperties") => metadata_properties(),
-    optional("Properties") => map(),
-    optional("Tags") => list(tag()()),
-    required("ArtifactType") => String.t(),
-    required("Source") => artifact_source()
-  }
+      
+      create_artifact_request() :: %{
+        optional("ArtifactName") => String.t(),
+        optional("MetadataProperties") => metadata_properties(),
+        optional("Properties") => map(),
+        optional("Tags") => list(tag()()),
+        required("ArtifactType") => String.t(),
+        required("Source") => artifact_source()
+      }
+      
   """
   @type create_artifact_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_model_quality_job_definition_request() :: %{
-    required("JobDefinitionName") => String.t()
-  }
+      
+      describe_model_quality_job_definition_request() :: %{
+        required("JobDefinitionName") => String.t()
+      }
+      
   """
   @type describe_model_quality_job_definition_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_image_request() :: %{
-    optional("DeleteProperties") => list(String.t()()),
-    optional("Description") => String.t(),
-    optional("DisplayName") => String.t(),
-    optional("RoleArn") => String.t(),
-    required("ImageName") => String.t()
-  }
+      
+      update_image_request() :: %{
+        optional("DeleteProperties") => list(String.t()()),
+        optional("Description") => String.t(),
+        optional("DisplayName") => String.t(),
+        optional("RoleArn") => String.t(),
+        required("ImageName") => String.t()
+      }
+      
   """
   @type update_image_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_contexts_request() :: %{
-    optional("ContextType") => String.t(),
-    optional("CreatedAfter") => non_neg_integer(),
-    optional("CreatedBefore") => non_neg_integer(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("SortBy") => list(any()),
-    optional("SortOrder") => list(any()),
-    optional("SourceUri") => String.t()
-  }
+      
+      list_contexts_request() :: %{
+        optional("ContextType") => String.t(),
+        optional("CreatedAfter") => non_neg_integer(),
+        optional("CreatedBefore") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any()),
+        optional("SourceUri") => String.t()
+      }
+      
   """
   @type list_contexts_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_labeling_job_response() :: %{
-    "CreationTime" => non_neg_integer(),
-    "FailureReason" => String.t(),
-    "HumanTaskConfig" => human_task_config(),
-    "InputConfig" => labeling_job_input_config(),
-    "JobReferenceCode" => String.t(),
-    "LabelAttributeName" => String.t(),
-    "LabelCategoryConfigS3Uri" => String.t(),
-    "LabelCounters" => label_counters(),
-    "LabelingJobAlgorithmsConfig" => labeling_job_algorithms_config(),
-    "LabelingJobArn" => String.t(),
-    "LabelingJobName" => String.t(),
-    "LabelingJobOutput" => labeling_job_output(),
-    "LabelingJobStatus" => list(any()),
-    "LastModifiedTime" => non_neg_integer(),
-    "OutputConfig" => labeling_job_output_config(),
-    "RoleArn" => String.t(),
-    "StoppingConditions" => labeling_job_stopping_conditions(),
-    "Tags" => list(tag()())
-  }
+      
+      describe_labeling_job_response() :: %{
+        "CreationTime" => non_neg_integer(),
+        "FailureReason" => String.t(),
+        "HumanTaskConfig" => human_task_config(),
+        "InputConfig" => labeling_job_input_config(),
+        "JobReferenceCode" => String.t(),
+        "LabelAttributeName" => String.t(),
+        "LabelCategoryConfigS3Uri" => String.t(),
+        "LabelCounters" => label_counters(),
+        "LabelingJobAlgorithmsConfig" => labeling_job_algorithms_config(),
+        "LabelingJobArn" => String.t(),
+        "LabelingJobName" => String.t(),
+        "LabelingJobOutput" => labeling_job_output(),
+        "LabelingJobStatus" => list(any()),
+        "LastModifiedTime" => non_neg_integer(),
+        "OutputConfig" => labeling_job_output_config(),
+        "RoleArn" => String.t(),
+        "StoppingConditions" => labeling_job_stopping_conditions(),
+        "Tags" => list(tag()())
+      }
+      
   """
   @type describe_labeling_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  sharing_settings() :: %{
-    "NotebookOutputOption" => list(any()),
-    "S3KmsKeyId" => String.t(),
-    "S3OutputPath" => String.t()
-  }
+      
+      sharing_settings() :: %{
+        "NotebookOutputOption" => list(any()),
+        "S3KmsKeyId" => String.t(),
+        "S3OutputPath" => String.t()
+      }
+      
   """
   @type sharing_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_device_request() :: %{
-    optional("NextToken") => String.t(),
-    required("DeviceFleetName") => String.t(),
-    required("DeviceName") => String.t()
-  }
+      
+      describe_device_request() :: %{
+        optional("NextToken") => String.t(),
+        required("DeviceFleetName") => String.t(),
+        required("DeviceName") => String.t()
+      }
+      
   """
   @type describe_device_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_projects_output() :: %{
-    "NextToken" => String.t(),
-    "ProjectSummaryList" => list(project_summary()())
-  }
+      
+      list_projects_output() :: %{
+        "NextToken" => String.t(),
+        "ProjectSummaryList" => list(project_summary()())
+      }
+      
   """
   @type list_projects_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  human_loop_request_source() :: %{
-    "AwsManagedHumanLoopRequestSource" => list(any())
-  }
+      
+      human_loop_request_source() :: %{
+        "AwsManagedHumanLoopRequestSource" => list(any())
+      }
+      
   """
   @type human_loop_request_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_feature_groups_response() :: %{
-    "FeatureGroupSummaries" => list(feature_group_summary()()),
-    "NextToken" => String.t()
-  }
+      
+      list_feature_groups_response() :: %{
+        "FeatureGroupSummaries" => list(feature_group_summary()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_feature_groups_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_pipeline_request() :: %{
-    optional("ParallelismConfiguration") => parallelism_configuration(),
-    optional("PipelineDefinition") => String.t(),
-    optional("PipelineDefinitionS3Location") => pipeline_definition_s3_location(),
-    optional("PipelineDescription") => String.t(),
-    optional("PipelineDisplayName") => String.t(),
-    optional("RoleArn") => String.t(),
-    required("PipelineName") => String.t()
-  }
+      
+      update_pipeline_request() :: %{
+        optional("ParallelismConfiguration") => parallelism_configuration(),
+        optional("PipelineDefinition") => String.t(),
+        optional("PipelineDefinitionS3Location") => pipeline_definition_s3_location(),
+        optional("PipelineDescription") => String.t(),
+        optional("PipelineDisplayName") => String.t(),
+        optional("RoleArn") => String.t(),
+        required("PipelineName") => String.t()
+      }
+      
   """
   @type update_pipeline_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_studio_lifecycle_config_response() :: %{
-    "CreationTime" => non_neg_integer(),
-    "LastModifiedTime" => non_neg_integer(),
-    "StudioLifecycleConfigAppType" => list(any()),
-    "StudioLifecycleConfigArn" => String.t(),
-    "StudioLifecycleConfigContent" => String.t(),
-    "StudioLifecycleConfigName" => String.t()
-  }
+      
+      describe_studio_lifecycle_config_response() :: %{
+        "CreationTime" => non_neg_integer(),
+        "LastModifiedTime" => non_neg_integer(),
+        "StudioLifecycleConfigAppType" => list(any()),
+        "StudioLifecycleConfigArn" => String.t(),
+        "StudioLifecycleConfigContent" => String.t(),
+        "StudioLifecycleConfigName" => String.t()
+      }
+      
   """
   @type describe_studio_lifecycle_config_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  model_explainability_baseline_config() :: %{
-    "BaseliningJobName" => String.t(),
-    "ConstraintsResource" => monitoring_constraints_resource()
-  }
+      
+      model_explainability_baseline_config() :: %{
+        "BaseliningJobName" => String.t(),
+        "ConstraintsResource" => monitoring_constraints_resource()
+      }
+      
   """
   @type model_explainability_baseline_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_code_repositories_input() :: %{
-    optional("CreationTimeAfter") => non_neg_integer(),
-    optional("CreationTimeBefore") => non_neg_integer(),
-    optional("LastModifiedTimeAfter") => non_neg_integer(),
-    optional("LastModifiedTimeBefore") => non_neg_integer(),
-    optional("MaxResults") => integer(),
-    optional("NameContains") => String.t(),
-    optional("NextToken") => String.t(),
-    optional("SortBy") => list(any()),
-    optional("SortOrder") => list(any())
-  }
+      
+      list_code_repositories_input() :: %{
+        optional("CreationTimeAfter") => non_neg_integer(),
+        optional("CreationTimeBefore") => non_neg_integer(),
+        optional("LastModifiedTimeAfter") => non_neg_integer(),
+        optional("LastModifiedTimeBefore") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("NameContains") => String.t(),
+        optional("NextToken") => String.t(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any())
+      }
+      
   """
   @type list_code_repositories_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_images_request() :: %{
-    optional("CreationTimeAfter") => non_neg_integer(),
-    optional("CreationTimeBefore") => non_neg_integer(),
-    optional("LastModifiedTimeAfter") => non_neg_integer(),
-    optional("LastModifiedTimeBefore") => non_neg_integer(),
-    optional("MaxResults") => integer(),
-    optional("NameContains") => String.t(),
-    optional("NextToken") => String.t(),
-    optional("SortBy") => list(any()),
-    optional("SortOrder") => list(any())
-  }
+      
+      list_images_request() :: %{
+        optional("CreationTimeAfter") => non_neg_integer(),
+        optional("CreationTimeBefore") => non_neg_integer(),
+        optional("LastModifiedTimeAfter") => non_neg_integer(),
+        optional("LastModifiedTimeBefore") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("NameContains") => String.t(),
+        optional("NextToken") => String.t(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any())
+      }
+      
   """
   @type list_images_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_auto_ml_jobs_response() :: %{
-    "AutoMLJobSummaries" => list(auto_ml_job_summary()()),
-    "NextToken" => String.t()
-  }
+      
+      list_auto_ml_jobs_response() :: %{
+        "AutoMLJobSummaries" => list(auto_ml_job_summary()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_auto_ml_jobs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_human_task_ui_response() :: %{
-    "CreationTime" => non_neg_integer(),
-    "HumanTaskUiArn" => String.t(),
-    "HumanTaskUiName" => String.t(),
-    "HumanTaskUiStatus" => list(any()),
-    "UiTemplate" => ui_template_info()
-  }
+      
+      describe_human_task_ui_response() :: %{
+        "CreationTime" => non_neg_integer(),
+        "HumanTaskUiArn" => String.t(),
+        "HumanTaskUiName" => String.t(),
+        "HumanTaskUiStatus" => list(any()),
+        "UiTemplate" => ui_template_info()
+      }
+      
   """
   @type describe_human_task_ui_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  model_package_status_item() :: %{
-    "FailureReason" => String.t(),
-    "Name" => String.t(),
-    "Status" => list(any())
-  }
+      
+      model_package_status_item() :: %{
+        "FailureReason" => String.t(),
+        "Name" => String.t(),
+        "Status" => list(any())
+      }
+      
   """
   @type model_package_status_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_project_input() :: %{
-    required("ProjectName") => String.t()
-  }
+      
+      describe_project_input() :: %{
+        required("ProjectName") => String.t()
+      }
+      
   """
   @type describe_project_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_trial_component_request() :: %{
-    optional("DisplayName") => String.t(),
-    optional("EndTime") => non_neg_integer(),
-    optional("InputArtifacts") => map(),
-    optional("InputArtifactsToRemove") => list(String.t()()),
-    optional("OutputArtifacts") => map(),
-    optional("OutputArtifactsToRemove") => list(String.t()()),
-    optional("Parameters") => map(),
-    optional("ParametersToRemove") => list(String.t()()),
-    optional("StartTime") => non_neg_integer(),
-    optional("Status") => trial_component_status(),
-    required("TrialComponentName") => String.t()
-  }
+      
+      update_trial_component_request() :: %{
+        optional("DisplayName") => String.t(),
+        optional("EndTime") => non_neg_integer(),
+        optional("InputArtifacts") => map(),
+        optional("InputArtifactsToRemove") => list(String.t()()),
+        optional("OutputArtifacts") => map(),
+        optional("OutputArtifactsToRemove") => list(String.t()()),
+        optional("Parameters") => map(),
+        optional("ParametersToRemove") => list(String.t()()),
+        optional("StartTime") => non_neg_integer(),
+        optional("Status") => trial_component_status(),
+        required("TrialComponentName") => String.t()
+      }
+      
   """
   @type update_trial_component_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  recommendation_job_input_config() :: %{
-    "ContainerConfig" => recommendation_job_container_config(),
-    "EndpointConfigurations" => list(endpoint_input_configuration()()),
-    "Endpoints" => list(endpoint_info()()),
-    "JobDurationInSeconds" => integer(),
-    "ModelName" => String.t(),
-    "ModelPackageVersionArn" => String.t(),
-    "ResourceLimit" => recommendation_job_resource_limit(),
-    "TrafficPattern" => traffic_pattern(),
-    "VolumeKmsKeyId" => String.t(),
-    "VpcConfig" => recommendation_job_vpc_config()
-  }
+      
+      recommendation_job_input_config() :: %{
+        "ContainerConfig" => recommendation_job_container_config(),
+        "EndpointConfigurations" => list(endpoint_input_configuration()()),
+        "Endpoints" => list(endpoint_info()()),
+        "JobDurationInSeconds" => integer(),
+        "ModelName" => String.t(),
+        "ModelPackageVersionArn" => String.t(),
+        "ResourceLimit" => recommendation_job_resource_limit(),
+        "TrafficPattern" => traffic_pattern(),
+        "VolumeKmsKeyId" => String.t(),
+        "VpcConfig" => recommendation_job_vpc_config()
+      }
+      
   """
   @type recommendation_job_input_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_action_request() :: %{
-    optional("Description") => String.t(),
-    optional("MetadataProperties") => metadata_properties(),
-    optional("Properties") => map(),
-    optional("Status") => list(any()),
-    optional("Tags") => list(tag()()),
-    required("ActionName") => String.t(),
-    required("ActionType") => String.t(),
-    required("Source") => action_source()
-  }
+      
+      create_action_request() :: %{
+        optional("Description") => String.t(),
+        optional("MetadataProperties") => metadata_properties(),
+        optional("Properties") => map(),
+        optional("Status") => list(any()),
+        optional("Tags") => list(tag()()),
+        required("ActionName") => String.t(),
+        required("ActionType") => String.t(),
+        required("Source") => action_source()
+      }
+      
   """
   @type create_action_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_hyper_parameter_tuning_job_response() :: %{
-    "HyperParameterTuningJobArn" => String.t()
-  }
+      
+      create_hyper_parameter_tuning_job_response() :: %{
+        "HyperParameterTuningJobArn" => String.t()
+      }
+      
   """
   @type create_hyper_parameter_tuning_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_endpoint_weights_and_capacities_output() :: %{
-    "EndpointArn" => String.t()
-  }
+      
+      update_endpoint_weights_and_capacities_output() :: %{
+        "EndpointArn" => String.t()
+      }
+      
   """
   @type update_endpoint_weights_and_capacities_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_domains_response() :: %{
-    "Domains" => list(domain_details()()),
-    "NextToken" => String.t()
-  }
+      
+      list_domains_response() :: %{
+        "Domains" => list(domain_details()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_domains_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  offline_store_config() :: %{
-    "DataCatalogConfig" => data_catalog_config(),
-    "DisableGlueTableCreation" => boolean(),
-    "S3StorageConfig" => s3_storage_config(),
-    "TableFormat" => list(any())
-  }
+      
+      offline_store_config() :: %{
+        "DataCatalogConfig" => data_catalog_config(),
+        "DisableGlueTableCreation" => boolean(),
+        "S3StorageConfig" => s3_storage_config(),
+        "TableFormat" => list(any())
+      }
+      
   """
   @type offline_store_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  model_quality_baseline_config() :: %{
-    "BaseliningJobName" => String.t(),
-    "ConstraintsResource" => monitoring_constraints_resource()
-  }
+      
+      model_quality_baseline_config() :: %{
+        "BaseliningJobName" => String.t(),
+        "ConstraintsResource" => monitoring_constraints_resource()
+      }
+      
   """
   @type model_quality_baseline_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_pipeline_request() :: %{
-    required("ClientRequestToken") => String.t(),
-    required("PipelineName") => String.t()
-  }
+      
+      delete_pipeline_request() :: %{
+        required("ClientRequestToken") => String.t(),
+        required("PipelineName") => String.t()
+      }
+      
   """
   @type delete_pipeline_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  endpoint_summary() :: %{
-    "CreationTime" => non_neg_integer(),
-    "EndpointArn" => String.t(),
-    "EndpointName" => String.t(),
-    "EndpointStatus" => list(any()),
-    "LastModifiedTime" => non_neg_integer()
-  }
+      
+      endpoint_summary() :: %{
+        "CreationTime" => non_neg_integer(),
+        "EndpointArn" => String.t(),
+        "EndpointName" => String.t(),
+        "EndpointStatus" => list(any()),
+        "LastModifiedTime" => non_neg_integer()
+      }
+      
   """
   @type endpoint_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  auto_ml_data_split_config() :: %{
-    "ValidationFraction" => float()
-  }
+      
+      auto_ml_data_split_config() :: %{
+        "ValidationFraction" => float()
+      }
+      
   """
   @type auto_ml_data_split_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_presigned_domain_url_response() :: %{
-    "AuthorizedUrl" => String.t()
-  }
+      
+      create_presigned_domain_url_response() :: %{
+        "AuthorizedUrl" => String.t()
+      }
+      
   """
   @type create_presigned_domain_url_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_auto_ml_job_request() :: %{
-    required("AutoMLJobName") => String.t()
-  }
+      
+      describe_auto_ml_job_request() :: %{
+        required("AutoMLJobName") => String.t()
+      }
+      
   """
   @type describe_auto_ml_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  trial_component_artifact() :: %{
-    "MediaType" => String.t(),
-    "Value" => String.t()
-  }
+      
+      trial_component_artifact() :: %{
+        "MediaType" => String.t(),
+        "Value" => String.t()
+      }
+      
   """
   @type trial_component_artifact() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_workteam_request() :: %{
-    optional("Description") => String.t(),
-    optional("MemberDefinitions") => list(member_definition()()),
-    optional("NotificationConfiguration") => notification_configuration(),
-    required("WorkteamName") => String.t()
-  }
+      
+      update_workteam_request() :: %{
+        optional("Description") => String.t(),
+        optional("MemberDefinitions") => list(member_definition()()),
+        optional("NotificationConfiguration") => notification_configuration(),
+        required("WorkteamName") => String.t()
+      }
+      
   """
   @type update_workteam_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_devices_request() :: %{
-    required("DeviceFleetName") => String.t(),
-    required("Devices") => list(device()())
-  }
+      
+      update_devices_request() :: %{
+        required("DeviceFleetName") => String.t(),
+        required("Devices") => list(device()())
+      }
+      
   """
   @type update_devices_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  profiler_rule_configuration() :: %{
-    "InstanceType" => list(any()),
-    "LocalPath" => String.t(),
-    "RuleConfigurationName" => String.t(),
-    "RuleEvaluatorImage" => String.t(),
-    "RuleParameters" => map(),
-    "S3OutputPath" => String.t(),
-    "VolumeSizeInGB" => integer()
-  }
+      
+      profiler_rule_configuration() :: %{
+        "InstanceType" => list(any()),
+        "LocalPath" => String.t(),
+        "RuleConfigurationName" => String.t(),
+        "RuleEvaluatorImage" => String.t(),
+        "RuleParameters" => map(),
+        "S3OutputPath" => String.t(),
+        "VolumeSizeInGB" => integer()
+      }
+      
   """
   @type profiler_rule_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  jupyter_server_app_settings() :: %{
-    "CodeRepositories" => list(code_repository()()),
-    "DefaultResourceSpec" => resource_spec(),
-    "LifecycleConfigArns" => list(String.t()())
-  }
+      
+      jupyter_server_app_settings() :: %{
+        "CodeRepositories" => list(code_repository()()),
+        "DefaultResourceSpec" => resource_spec(),
+        "LifecycleConfigArns" => list(String.t()())
+      }
+      
   """
   @type jupyter_server_app_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  data_quality_app_specification() :: %{
-    "ContainerArguments" => list(String.t()()),
-    "ContainerEntrypoint" => list(String.t()()),
-    "Environment" => map(),
-    "ImageUri" => String.t(),
-    "PostAnalyticsProcessorSourceUri" => String.t(),
-    "RecordPreprocessorSourceUri" => String.t()
-  }
+      
+      data_quality_app_specification() :: %{
+        "ContainerArguments" => list(String.t()()),
+        "ContainerEntrypoint" => list(String.t()()),
+        "Environment" => map(),
+        "ImageUri" => String.t(),
+        "PostAnalyticsProcessorSourceUri" => String.t(),
+        "RecordPreprocessorSourceUri" => String.t()
+      }
+      
   """
   @type data_quality_app_specification() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_auto_ml_job_response() :: %{
-    "AutoMLJobArn" => String.t(),
-    "AutoMLJobArtifacts" => auto_ml_job_artifacts(),
-    "AutoMLJobConfig" => auto_ml_job_config(),
-    "AutoMLJobName" => String.t(),
-    "AutoMLJobObjective" => auto_ml_job_objective(),
-    "AutoMLJobSecondaryStatus" => list(any()),
-    "AutoMLJobStatus" => list(any()),
-    "BestCandidate" => auto_ml_candidate(),
-    "CreationTime" => non_neg_integer(),
-    "EndTime" => non_neg_integer(),
-    "FailureReason" => String.t(),
-    "GenerateCandidateDefinitionsOnly" => boolean(),
-    "InputDataConfig" => list(auto_ml_channel()()),
-    "LastModifiedTime" => non_neg_integer(),
-    "ModelDeployConfig" => model_deploy_config(),
-    "ModelDeployResult" => model_deploy_result(),
-    "OutputDataConfig" => auto_ml_output_data_config(),
-    "PartialFailureReasons" => list(auto_ml_partial_failure_reason()()),
-    "ProblemType" => list(any()),
-    "ResolvedAttributes" => resolved_attributes(),
-    "RoleArn" => String.t()
-  }
+      
+      describe_auto_ml_job_response() :: %{
+        "AutoMLJobArn" => String.t(),
+        "AutoMLJobArtifacts" => auto_ml_job_artifacts(),
+        "AutoMLJobConfig" => auto_ml_job_config(),
+        "AutoMLJobName" => String.t(),
+        "AutoMLJobObjective" => auto_ml_job_objective(),
+        "AutoMLJobSecondaryStatus" => list(any()),
+        "AutoMLJobStatus" => list(any()),
+        "BestCandidate" => auto_ml_candidate(),
+        "CreationTime" => non_neg_integer(),
+        "EndTime" => non_neg_integer(),
+        "FailureReason" => String.t(),
+        "GenerateCandidateDefinitionsOnly" => boolean(),
+        "InputDataConfig" => list(auto_ml_channel()()),
+        "LastModifiedTime" => non_neg_integer(),
+        "ModelDeployConfig" => model_deploy_config(),
+        "ModelDeployResult" => model_deploy_result(),
+        "OutputDataConfig" => auto_ml_output_data_config(),
+        "PartialFailureReasons" => list(auto_ml_partial_failure_reason()()),
+        "ProblemType" => list(any()),
+        "ResolvedAttributes" => resolved_attributes(),
+        "RoleArn" => String.t()
+      }
+      
   """
   @type describe_auto_ml_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_edge_deployment_plan_response() :: %{
-    "EdgeDeploymentPlanArn" => String.t()
-  }
+      
+      create_edge_deployment_plan_response() :: %{
+        "EdgeDeploymentPlanArn" => String.t()
+      }
+      
   """
   @type create_edge_deployment_plan_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  association_summary() :: %{
-    "AssociationType" => list(any()),
-    "CreatedBy" => user_context(),
-    "CreationTime" => non_neg_integer(),
-    "DestinationArn" => String.t(),
-    "DestinationName" => String.t(),
-    "DestinationType" => String.t(),
-    "SourceArn" => String.t(),
-    "SourceName" => String.t(),
-    "SourceType" => String.t()
-  }
+      
+      association_summary() :: %{
+        "AssociationType" => list(any()),
+        "CreatedBy" => user_context(),
+        "CreationTime" => non_neg_integer(),
+        "DestinationArn" => String.t(),
+        "DestinationName" => String.t(),
+        "DestinationType" => String.t(),
+        "SourceArn" => String.t(),
+        "SourceName" => String.t(),
+        "SourceType" => String.t()
+      }
+      
   """
   @type association_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  production_variant() :: %{
-    "AcceleratorType" => list(any()),
-    "ContainerStartupHealthCheckTimeoutInSeconds" => integer(),
-    "CoreDumpConfig" => production_variant_core_dump_config(),
-    "EnableSSMAccess" => boolean(),
-    "InitialInstanceCount" => integer(),
-    "InitialVariantWeight" => float(),
-    "InstanceType" => list(any()),
-    "ManagedInstanceScaling" => production_variant_managed_instance_scaling(),
-    "ModelDataDownloadTimeoutInSeconds" => integer(),
-    "ModelName" => String.t(),
-    "RoutingConfig" => production_variant_routing_config(),
-    "ServerlessConfig" => production_variant_serverless_config(),
-    "VariantName" => String.t(),
-    "VolumeSizeInGB" => integer()
-  }
+      
+      production_variant() :: %{
+        "AcceleratorType" => list(any()),
+        "ContainerStartupHealthCheckTimeoutInSeconds" => integer(),
+        "CoreDumpConfig" => production_variant_core_dump_config(),
+        "EnableSSMAccess" => boolean(),
+        "InitialInstanceCount" => integer(),
+        "InitialVariantWeight" => float(),
+        "InstanceType" => list(any()),
+        "ManagedInstanceScaling" => production_variant_managed_instance_scaling(),
+        "ModelDataDownloadTimeoutInSeconds" => integer(),
+        "ModelName" => String.t(),
+        "RoutingConfig" => production_variant_routing_config(),
+        "ServerlessConfig" => production_variant_serverless_config(),
+        "VariantName" => String.t(),
+        "VolumeSizeInGB" => integer()
+      }
+      
   """
   @type production_variant() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  identity_provider_o_auth_setting() :: %{
-    "DataSourceName" => list(any()),
-    "SecretArn" => String.t(),
-    "Status" => list(any())
-  }
+      
+      identity_provider_o_auth_setting() :: %{
+        "DataSourceName" => list(any()),
+        "SecretArn" => String.t(),
+        "Status" => list(any())
+      }
+      
   """
   @type identity_provider_o_auth_setting() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ui_template_info() :: %{
-    "ContentSha256" => String.t(),
-    "Url" => String.t()
-  }
+      
+      ui_template_info() :: %{
+        "ContentSha256" => String.t(),
+        "Url" => String.t()
+      }
+      
   """
   @type ui_template_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_associations_response() :: %{
-    "AssociationSummaries" => list(association_summary()()),
-    "NextToken" => String.t()
-  }
+      
+      list_associations_response() :: %{
+        "AssociationSummaries" => list(association_summary()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_associations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  checkpoint_config() :: %{
-    "LocalPath" => String.t(),
-    "S3Uri" => String.t()
-  }
+      
+      checkpoint_config() :: %{
+        "LocalPath" => String.t(),
+        "S3Uri" => String.t()
+      }
+      
   """
   @type checkpoint_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stopping_condition() :: %{
-    "MaxPendingTimeInSeconds" => integer(),
-    "MaxRuntimeInSeconds" => integer(),
-    "MaxWaitTimeInSeconds" => integer()
-  }
+      
+      stopping_condition() :: %{
+        "MaxPendingTimeInSeconds" => integer(),
+        "MaxRuntimeInSeconds" => integer(),
+        "MaxWaitTimeInSeconds" => integer()
+      }
+      
   """
   @type stopping_condition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  device_deployment_summary() :: %{
-    "DeployedStageName" => String.t(),
-    "DeploymentStartTime" => non_neg_integer(),
-    "Description" => String.t(),
-    "DeviceArn" => String.t(),
-    "DeviceDeploymentStatus" => list(any()),
-    "DeviceDeploymentStatusMessage" => String.t(),
-    "DeviceFleetName" => String.t(),
-    "DeviceName" => String.t(),
-    "EdgeDeploymentPlanArn" => String.t(),
-    "EdgeDeploymentPlanName" => String.t(),
-    "StageName" => String.t()
-  }
+      
+      device_deployment_summary() :: %{
+        "DeployedStageName" => String.t(),
+        "DeploymentStartTime" => non_neg_integer(),
+        "Description" => String.t(),
+        "DeviceArn" => String.t(),
+        "DeviceDeploymentStatus" => list(any()),
+        "DeviceDeploymentStatusMessage" => String.t(),
+        "DeviceFleetName" => String.t(),
+        "DeviceName" => String.t(),
+        "EdgeDeploymentPlanArn" => String.t(),
+        "EdgeDeploymentPlanName" => String.t(),
+        "StageName" => String.t()
+      }
+      
   """
   @type device_deployment_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_hub_content_request() :: %{
-    optional("HubContentVersion") => String.t(),
-    required("HubContentName") => String.t(),
-    required("HubContentType") => list(any()),
-    required("HubName") => String.t()
-  }
+      
+      describe_hub_content_request() :: %{
+        optional("HubContentVersion") => String.t(),
+        required("HubContentName") => String.t(),
+        required("HubContentType") => list(any()),
+        required("HubName") => String.t()
+      }
+      
   """
   @type describe_hub_content_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disassociate_trial_component_request() :: %{
-    required("TrialComponentName") => String.t(),
-    required("TrialName") => String.t()
-  }
+      
+      disassociate_trial_component_request() :: %{
+        required("TrialComponentName") => String.t(),
+        required("TrialName") => String.t()
+      }
+      
   """
   @type disassociate_trial_component_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  send_pipeline_execution_step_success_response() :: %{
-    "PipelineExecutionArn" => String.t()
-  }
+      
+      send_pipeline_execution_step_success_response() :: %{
+        "PipelineExecutionArn" => String.t()
+      }
+      
   """
   @type send_pipeline_execution_step_success_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_processing_jobs_request() :: %{
-    optional("CreationTimeAfter") => non_neg_integer(),
-    optional("CreationTimeBefore") => non_neg_integer(),
-    optional("LastModifiedTimeAfter") => non_neg_integer(),
-    optional("LastModifiedTimeBefore") => non_neg_integer(),
-    optional("MaxResults") => integer(),
-    optional("NameContains") => String.t(),
-    optional("NextToken") => String.t(),
-    optional("SortBy") => list(any()),
-    optional("SortOrder") => list(any()),
-    optional("StatusEquals") => list(any())
-  }
+      
+      list_processing_jobs_request() :: %{
+        optional("CreationTimeAfter") => non_neg_integer(),
+        optional("CreationTimeBefore") => non_neg_integer(),
+        optional("LastModifiedTimeAfter") => non_neg_integer(),
+        optional("LastModifiedTimeBefore") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("NameContains") => String.t(),
+        optional("NextToken") => String.t(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any()),
+        optional("StatusEquals") => list(any())
+      }
+      
   """
   @type list_processing_jobs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  code_repository() :: %{
-    "RepositoryUrl" => String.t()
-  }
+      
+      code_repository() :: %{
+        "RepositoryUrl" => String.t()
+      }
+      
   """
   @type code_repository() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  auto_ml_s3_data_source() :: %{
-    "S3DataType" => list(any()),
-    "S3Uri" => String.t()
-  }
+      
+      auto_ml_s3_data_source() :: %{
+        "S3DataType" => list(any()),
+        "S3Uri" => String.t()
+      }
+      
   """
   @type auto_ml_s3_data_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_endpoint_configs_input() :: %{
-    optional("CreationTimeAfter") => non_neg_integer(),
-    optional("CreationTimeBefore") => non_neg_integer(),
-    optional("MaxResults") => integer(),
-    optional("NameContains") => String.t(),
-    optional("NextToken") => String.t(),
-    optional("SortBy") => list(any()),
-    optional("SortOrder") => list(any())
-  }
+      
+      list_endpoint_configs_input() :: %{
+        optional("CreationTimeAfter") => non_neg_integer(),
+        optional("CreationTimeBefore") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("NameContains") => String.t(),
+        optional("NextToken") => String.t(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any())
+      }
+      
   """
   @type list_endpoint_configs_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_edge_deployment_plan_response() :: %{
-    "CreationTime" => non_neg_integer(),
-    "DeviceFleetName" => String.t(),
-    "EdgeDeploymentFailed" => integer(),
-    "EdgeDeploymentPending" => integer(),
-    "EdgeDeploymentPlanArn" => String.t(),
-    "EdgeDeploymentPlanName" => String.t(),
-    "EdgeDeploymentSuccess" => integer(),
-    "LastModifiedTime" => non_neg_integer(),
-    "ModelConfigs" => list(edge_deployment_model_config()()),
-    "NextToken" => String.t(),
-    "Stages" => list(deployment_stage_status_summary()())
-  }
+      
+      describe_edge_deployment_plan_response() :: %{
+        "CreationTime" => non_neg_integer(),
+        "DeviceFleetName" => String.t(),
+        "EdgeDeploymentFailed" => integer(),
+        "EdgeDeploymentPending" => integer(),
+        "EdgeDeploymentPlanArn" => String.t(),
+        "EdgeDeploymentPlanName" => String.t(),
+        "EdgeDeploymentSuccess" => integer(),
+        "LastModifiedTime" => non_neg_integer(),
+        "ModelConfigs" => list(edge_deployment_model_config()()),
+        "NextToken" => String.t(),
+        "Stages" => list(deployment_stage_status_summary()())
+      }
+      
   """
   @type describe_edge_deployment_plan_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_monitoring_schedule_response() :: %{
-    "CreationTime" => non_neg_integer(),
-    "EndpointName" => String.t(),
-    "FailureReason" => String.t(),
-    "LastModifiedTime" => non_neg_integer(),
-    "LastMonitoringExecutionSummary" => monitoring_execution_summary(),
-    "MonitoringScheduleArn" => String.t(),
-    "MonitoringScheduleConfig" => monitoring_schedule_config(),
-    "MonitoringScheduleName" => String.t(),
-    "MonitoringScheduleStatus" => list(any()),
-    "MonitoringType" => list(any())
-  }
+      
+      describe_monitoring_schedule_response() :: %{
+        "CreationTime" => non_neg_integer(),
+        "EndpointName" => String.t(),
+        "FailureReason" => String.t(),
+        "LastModifiedTime" => non_neg_integer(),
+        "LastMonitoringExecutionSummary" => monitoring_execution_summary(),
+        "MonitoringScheduleArn" => String.t(),
+        "MonitoringScheduleConfig" => monitoring_schedule_config(),
+        "MonitoringScheduleName" => String.t(),
+        "MonitoringScheduleStatus" => list(any()),
+        "MonitoringType" => list(any())
+      }
+      
   """
   @type describe_monitoring_schedule_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  endpoint_config_summary() :: %{
-    "CreationTime" => non_neg_integer(),
-    "EndpointConfigArn" => String.t(),
-    "EndpointConfigName" => String.t()
-  }
+      
+      endpoint_config_summary() :: %{
+        "CreationTime" => non_neg_integer(),
+        "EndpointConfigArn" => String.t(),
+        "EndpointConfigName" => String.t()
+      }
+      
   """
   @type endpoint_config_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  training_job_status_counters() :: %{
-    "Completed" => integer(),
-    "InProgress" => integer(),
-    "NonRetryableError" => integer(),
-    "RetryableError" => integer(),
-    "Stopped" => integer()
-  }
+      
+      training_job_status_counters() :: %{
+        "Completed" => integer(),
+        "InProgress" => integer(),
+        "NonRetryableError" => integer(),
+        "RetryableError" => integer(),
+        "Stopped" => integer()
+      }
+      
   """
   @type training_job_status_counters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_training_job_response() :: %{
-    "TrainingJobArn" => String.t()
-  }
+      
+      update_training_job_response() :: %{
+        "TrainingJobArn" => String.t()
+      }
+      
   """
   @type update_training_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  variant_property() :: %{
-    "VariantPropertyType" => list(any())
-  }
+      
+      variant_property() :: %{
+        "VariantPropertyType" => list(any())
+      }
+      
   """
   @type variant_property() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  offline_store_status() :: %{
-    "BlockedReason" => String.t(),
-    "Status" => list(any())
-  }
+      
+      offline_store_status() :: %{
+        "BlockedReason" => String.t(),
+        "Status" => list(any())
+      }
+      
   """
   @type offline_store_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  labeling_job_output_config() :: %{
-    "KmsKeyId" => String.t(),
-    "S3OutputPath" => String.t(),
-    "SnsTopicArn" => String.t()
-  }
+      
+      labeling_job_output_config() :: %{
+        "KmsKeyId" => String.t(),
+        "S3OutputPath" => String.t(),
+        "SnsTopicArn" => String.t()
+      }
+      
   """
   @type labeling_job_output_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stop_notebook_instance_input() :: %{
-    required("NotebookInstanceName") => String.t()
-  }
+      
+      stop_notebook_instance_input() :: %{
+        required("NotebookInstanceName") => String.t()
+      }
+      
   """
   @type stop_notebook_instance_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_endpoints_output() :: %{
-    "Endpoints" => list(endpoint_summary()()),
-    "NextToken" => String.t()
-  }
+      
+      list_endpoints_output() :: %{
+        "Endpoints" => list(endpoint_summary()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_endpoints_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  text_generation_resolved_attributes() :: %{
-    "BaseModelName" => String.t()
-  }
+      
+      text_generation_resolved_attributes() :: %{
+        "BaseModelName" => String.t()
+      }
+      
   """
   @type text_generation_resolved_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  parameter() :: %{
-    "Name" => String.t(),
-    "Value" => String.t()
-  }
+      
+      parameter() :: %{
+        "Name" => String.t(),
+        "Value" => String.t()
+      }
+      
   """
   @type parameter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  r_studio_server_pro_domain_settings() :: %{
-    "DefaultResourceSpec" => resource_spec(),
-    "DomainExecutionRoleArn" => String.t(),
-    "RStudioConnectUrl" => String.t(),
-    "RStudioPackageManagerUrl" => String.t()
-  }
+      
+      r_studio_server_pro_domain_settings() :: %{
+        "DefaultResourceSpec" => resource_spec(),
+        "DomainExecutionRoleArn" => String.t(),
+        "RStudioConnectUrl" => String.t(),
+        "RStudioPackageManagerUrl" => String.t()
+      }
+      
   """
   @type r_studio_server_pro_domain_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stop_pipeline_execution_request() :: %{
-    required("ClientRequestToken") => String.t(),
-    required("PipelineExecutionArn") => String.t()
-  }
+      
+      stop_pipeline_execution_request() :: %{
+        required("ClientRequestToken") => String.t(),
+        required("PipelineExecutionArn") => String.t()
+      }
+      
   """
   @type stop_pipeline_execution_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  vpc_config() :: %{
-    "SecurityGroupIds" => list(String.t()()),
-    "Subnets" => list(String.t()())
-  }
+      
+      vpc_config() :: %{
+        "SecurityGroupIds" => list(String.t()()),
+        "Subnets" => list(String.t()())
+      }
+      
   """
   @type vpc_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  remote_debug_config_for_update() :: %{
-    "EnableRemoteDebug" => boolean()
-  }
+      
+      remote_debug_config_for_update() :: %{
+        "EnableRemoteDebug" => boolean()
+      }
+      
   """
   @type remote_debug_config_for_update() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_user_profiles_request() :: %{
-    optional("DomainIdEquals") => String.t(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("SortBy") => list(any()),
-    optional("SortOrder") => list(any()),
-    optional("UserProfileNameContains") => String.t()
-  }
+      
+      list_user_profiles_request() :: %{
+        optional("DomainIdEquals") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any()),
+        optional("UserProfileNameContains") => String.t()
+      }
+      
   """
   @type list_user_profiles_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_auto_ml_job_v2_request() :: %{
-    optional("AutoMLJobObjective") => auto_ml_job_objective(),
-    optional("DataSplitConfig") => auto_ml_data_split_config(),
-    optional("ModelDeployConfig") => model_deploy_config(),
-    optional("SecurityConfig") => auto_ml_security_config(),
-    optional("Tags") => list(tag()()),
-    required("AutoMLJobInputDataConfig") => list(auto_ml_job_channel()()),
-    required("AutoMLJobName") => String.t(),
-    required("AutoMLProblemTypeConfig") => list(),
-    required("OutputDataConfig") => auto_ml_output_data_config(),
-    required("RoleArn") => String.t()
-  }
+      
+      create_auto_ml_job_v2_request() :: %{
+        optional("AutoMLJobObjective") => auto_ml_job_objective(),
+        optional("DataSplitConfig") => auto_ml_data_split_config(),
+        optional("ModelDeployConfig") => model_deploy_config(),
+        optional("SecurityConfig") => auto_ml_security_config(),
+        optional("Tags") => list(tag()()),
+        required("AutoMLJobInputDataConfig") => list(auto_ml_job_channel()()),
+        required("AutoMLJobName") => String.t(),
+        required("AutoMLProblemTypeConfig") => list(),
+        required("OutputDataConfig") => auto_ml_output_data_config(),
+        required("RoleArn") => String.t()
+      }
+      
   """
   @type create_auto_ml_job_v2_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  algorithm_validation_profile() :: %{
-    "ProfileName" => String.t(),
-    "TrainingJobDefinition" => training_job_definition(),
-    "TransformJobDefinition" => transform_job_definition()
-  }
+      
+      algorithm_validation_profile() :: %{
+        "ProfileName" => String.t(),
+        "TrainingJobDefinition" => training_job_definition(),
+        "TransformJobDefinition" => transform_job_definition()
+      }
+      
   """
   @type algorithm_validation_profile() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_config_for_update() :: %{
-    "KeepAlivePeriodInSeconds" => integer()
-  }
+      
+      resource_config_for_update() :: %{
+        "KeepAlivePeriodInSeconds" => integer()
+      }
+      
   """
   @type resource_config_for_update() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  pipeline_summary() :: %{
-    "CreationTime" => non_neg_integer(),
-    "LastExecutionTime" => non_neg_integer(),
-    "LastModifiedTime" => non_neg_integer(),
-    "PipelineArn" => String.t(),
-    "PipelineDescription" => String.t(),
-    "PipelineDisplayName" => String.t(),
-    "PipelineName" => String.t(),
-    "RoleArn" => String.t()
-  }
+      
+      pipeline_summary() :: %{
+        "CreationTime" => non_neg_integer(),
+        "LastExecutionTime" => non_neg_integer(),
+        "LastModifiedTime" => non_neg_integer(),
+        "PipelineArn" => String.t(),
+        "PipelineDescription" => String.t(),
+        "PipelineDisplayName" => String.t(),
+        "PipelineName" => String.t(),
+        "RoleArn" => String.t()
+      }
+      
   """
   @type pipeline_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  clarify_explainer_config() :: %{
-    "EnableExplanations" => String.t(),
-    "InferenceConfig" => clarify_inference_config(),
-    "ShapConfig" => clarify_shap_config()
-  }
+      
+      clarify_explainer_config() :: %{
+        "EnableExplanations" => String.t(),
+        "InferenceConfig" => clarify_inference_config(),
+        "ShapConfig" => clarify_shap_config()
+      }
+      
   """
   @type clarify_explainer_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_model_package_group_input() :: %{
-    required("ModelPackageGroupName") => String.t()
-  }
+      
+      describe_model_package_group_input() :: %{
+        required("ModelPackageGroupName") => String.t()
+      }
+      
   """
   @type describe_model_package_group_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  u_s_d() :: %{
-    "Cents" => integer(),
-    "Dollars" => integer(),
-    "TenthFractionsOfACent" => integer()
-  }
+      
+      u_s_d() :: %{
+        "Cents" => integer(),
+        "Dollars" => integer(),
+        "TenthFractionsOfACent" => integer()
+      }
+      
   """
   @type u_s_d() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  deployment_stage() :: %{
-    "DeploymentConfig" => edge_deployment_config(),
-    "DeviceSelectionConfig" => device_selection_config(),
-    "StageName" => String.t()
-  }
+      
+      deployment_stage() :: %{
+        "DeploymentConfig" => edge_deployment_config(),
+        "DeviceSelectionConfig" => device_selection_config(),
+        "StageName" => String.t()
+      }
+      
   """
   @type deployment_stage() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  inference_component_container_specification_summary() :: %{
-    "ArtifactUrl" => String.t(),
-    "DeployedImage" => deployed_image(),
-    "Environment" => map()
-  }
+      
+      inference_component_container_specification_summary() :: %{
+        "ArtifactUrl" => String.t(),
+        "DeployedImage" => deployed_image(),
+        "Environment" => map()
+      }
+      
   """
   @type inference_component_container_specification_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  domain_settings_for_update() :: %{
-    "DockerSettings" => docker_settings(),
-    "ExecutionRoleIdentityConfig" => list(any()),
-    "RStudioServerProDomainSettingsForUpdate" => r_studio_server_pro_domain_settings_for_update(),
-    "SecurityGroupIds" => list(String.t()())
-  }
+      
+      domain_settings_for_update() :: %{
+        "DockerSettings" => docker_settings(),
+        "ExecutionRoleIdentityConfig" => list(any()),
+        "RStudioServerProDomainSettingsForUpdate" => r_studio_server_pro_domain_settings_for_update(),
+        "SecurityGroupIds" => list(String.t()())
+      }
+      
   """
   @type domain_settings_for_update() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_pipeline_response() :: %{
-    "CreatedBy" => user_context(),
-    "CreationTime" => non_neg_integer(),
-    "LastModifiedBy" => user_context(),
-    "LastModifiedTime" => non_neg_integer(),
-    "LastRunTime" => non_neg_integer(),
-    "ParallelismConfiguration" => parallelism_configuration(),
-    "PipelineArn" => String.t(),
-    "PipelineDefinition" => String.t(),
-    "PipelineDescription" => String.t(),
-    "PipelineDisplayName" => String.t(),
-    "PipelineName" => String.t(),
-    "PipelineStatus" => list(any()),
-    "RoleArn" => String.t()
-  }
+      
+      describe_pipeline_response() :: %{
+        "CreatedBy" => user_context(),
+        "CreationTime" => non_neg_integer(),
+        "LastModifiedBy" => user_context(),
+        "LastModifiedTime" => non_neg_integer(),
+        "LastRunTime" => non_neg_integer(),
+        "ParallelismConfiguration" => parallelism_configuration(),
+        "PipelineArn" => String.t(),
+        "PipelineDefinition" => String.t(),
+        "PipelineDescription" => String.t(),
+        "PipelineDisplayName" => String.t(),
+        "PipelineName" => String.t(),
+        "PipelineStatus" => list(any()),
+        "RoleArn" => String.t()
+      }
+      
   """
   @type describe_pipeline_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_action_response() :: %{
-    "ActionArn" => String.t()
-  }
+      
+      update_action_response() :: %{
+        "ActionArn" => String.t()
+      }
+      
   """
   @type update_action_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_pipeline_definition_for_execution_request() :: %{
-    required("PipelineExecutionArn") => String.t()
-  }
+      
+      describe_pipeline_definition_for_execution_request() :: %{
+        required("PipelineExecutionArn") => String.t()
+      }
+      
   """
   @type describe_pipeline_definition_for_execution_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_training_jobs_response() :: %{
-    "NextToken" => String.t(),
-    "TrainingJobSummaries" => list(training_job_summary()())
-  }
+      
+      list_training_jobs_response() :: %{
+        "NextToken" => String.t(),
+        "TrainingJobSummaries" => list(training_job_summary()())
+      }
+      
   """
   @type list_training_jobs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  time_series_forecasting_settings() :: %{
-    "AmazonForecastRoleArn" => String.t(),
-    "Status" => list(any())
-  }
+      
+      time_series_forecasting_settings() :: %{
+        "AmazonForecastRoleArn" => String.t(),
+        "Status" => list(any())
+      }
+      
   """
   @type time_series_forecasting_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  model_card() :: %{
-    "Content" => String.t(),
-    "CreatedBy" => user_context(),
-    "CreationTime" => non_neg_integer(),
-    "LastModifiedBy" => user_context(),
-    "LastModifiedTime" => non_neg_integer(),
-    "ModelCardArn" => String.t(),
-    "ModelCardName" => String.t(),
-    "ModelCardStatus" => list(any()),
-    "ModelCardVersion" => integer(),
-    "ModelId" => String.t(),
-    "ModelPackageGroupName" => String.t(),
-    "RiskRating" => String.t(),
-    "SecurityConfig" => model_card_security_config(),
-    "Tags" => list(tag()())
-  }
+      
+      model_card() :: %{
+        "Content" => String.t(),
+        "CreatedBy" => user_context(),
+        "CreationTime" => non_neg_integer(),
+        "LastModifiedBy" => user_context(),
+        "LastModifiedTime" => non_neg_integer(),
+        "ModelCardArn" => String.t(),
+        "ModelCardName" => String.t(),
+        "ModelCardStatus" => list(any()),
+        "ModelCardVersion" => integer(),
+        "ModelId" => String.t(),
+        "ModelPackageGroupName" => String.t(),
+        "RiskRating" => String.t(),
+        "SecurityConfig" => model_card_security_config(),
+        "Tags" => list(tag()())
+      }
+      
   """
   @type model_card() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  monitoring_execution_summary() :: %{
-    "CreationTime" => non_neg_integer(),
-    "EndpointName" => String.t(),
-    "FailureReason" => String.t(),
-    "LastModifiedTime" => non_neg_integer(),
-    "MonitoringExecutionStatus" => list(any()),
-    "MonitoringJobDefinitionName" => String.t(),
-    "MonitoringScheduleName" => String.t(),
-    "MonitoringType" => list(any()),
-    "ProcessingJobArn" => String.t(),
-    "ScheduledTime" => non_neg_integer()
-  }
+      
+      monitoring_execution_summary() :: %{
+        "CreationTime" => non_neg_integer(),
+        "EndpointName" => String.t(),
+        "FailureReason" => String.t(),
+        "LastModifiedTime" => non_neg_integer(),
+        "MonitoringExecutionStatus" => list(any()),
+        "MonitoringJobDefinitionName" => String.t(),
+        "MonitoringScheduleName" => String.t(),
+        "MonitoringType" => list(any()),
+        "ProcessingJobArn" => String.t(),
+        "ScheduledTime" => non_neg_integer()
+      }
+      
   """
   @type monitoring_execution_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  continuous_parameter_range_specification() :: %{
-    "MaxValue" => String.t(),
-    "MinValue" => String.t()
-  }
+      
+      continuous_parameter_range_specification() :: %{
+        "MaxValue" => String.t(),
+        "MinValue" => String.t()
+      }
+      
   """
   @type continuous_parameter_range_specification() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  workteam() :: %{
-    "CreateDate" => non_neg_integer(),
-    "Description" => String.t(),
-    "LastUpdatedDate" => non_neg_integer(),
-    "MemberDefinitions" => list(member_definition()()),
-    "NotificationConfiguration" => notification_configuration(),
-    "ProductListingIds" => list(String.t()()),
-    "SubDomain" => String.t(),
-    "WorkforceArn" => String.t(),
-    "WorkteamArn" => String.t(),
-    "WorkteamName" => String.t()
-  }
+      
+      workteam() :: %{
+        "CreateDate" => non_neg_integer(),
+        "Description" => String.t(),
+        "LastUpdatedDate" => non_neg_integer(),
+        "MemberDefinitions" => list(member_definition()()),
+        "NotificationConfiguration" => notification_configuration(),
+        "ProductListingIds" => list(String.t()()),
+        "SubDomain" => String.t(),
+        "WorkforceArn" => String.t(),
+        "WorkteamArn" => String.t(),
+        "WorkteamName" => String.t()
+      }
+      
   """
   @type workteam() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  drift_check_bias() :: %{
-    "ConfigFile" => file_source(),
-    "PostTrainingConstraints" => metrics_source(),
-    "PreTrainingConstraints" => metrics_source()
-  }
+      
+      drift_check_bias() :: %{
+        "ConfigFile" => file_source(),
+        "PostTrainingConstraints" => metrics_source(),
+        "PreTrainingConstraints" => metrics_source()
+      }
+      
   """
   @type drift_check_bias() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_hyper_parameter_tuning_job_request() :: %{
-    required("HyperParameterTuningJobName") => String.t()
-  }
+      
+      describe_hyper_parameter_tuning_job_request() :: %{
+        required("HyperParameterTuningJobName") => String.t()
+      }
+      
   """
   @type describe_hyper_parameter_tuning_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  model_quality_job_input() :: %{
-    "BatchTransformInput" => batch_transform_input(),
-    "EndpointInput" => endpoint_input(),
-    "GroundTruthS3Input" => monitoring_ground_truth_s3_input()
-  }
+      
+      model_quality_job_input() :: %{
+        "BatchTransformInput" => batch_transform_input(),
+        "EndpointInput" => endpoint_input(),
+        "GroundTruthS3Input" => monitoring_ground_truth_s3_input()
+      }
+      
   """
   @type model_quality_job_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_domain_response() :: %{
-    "AppNetworkAccessType" => list(any()),
-    "AppSecurityGroupManagement" => list(any()),
-    "AuthMode" => list(any()),
-    "CreationTime" => non_neg_integer(),
-    "DefaultSpaceSettings" => default_space_settings(),
-    "DefaultUserSettings" => user_settings(),
-    "DomainArn" => String.t(),
-    "DomainId" => String.t(),
-    "DomainName" => String.t(),
-    "DomainSettings" => domain_settings(),
-    "FailureReason" => String.t(),
-    "HomeEfsFileSystemId" => String.t(),
-    "HomeEfsFileSystemKmsKeyId" => String.t(),
-    "KmsKeyId" => String.t(),
-    "LastModifiedTime" => non_neg_integer(),
-    "SecurityGroupIdForDomainBoundary" => String.t(),
-    "SingleSignOnApplicationArn" => String.t(),
-    "SingleSignOnManagedApplicationInstanceId" => String.t(),
-    "Status" => list(any()),
-    "SubnetIds" => list(String.t()()),
-    "Url" => String.t(),
-    "VpcId" => String.t()
-  }
+      
+      describe_domain_response() :: %{
+        "AppNetworkAccessType" => list(any()),
+        "AppSecurityGroupManagement" => list(any()),
+        "AuthMode" => list(any()),
+        "CreationTime" => non_neg_integer(),
+        "DefaultSpaceSettings" => default_space_settings(),
+        "DefaultUserSettings" => user_settings(),
+        "DomainArn" => String.t(),
+        "DomainId" => String.t(),
+        "DomainName" => String.t(),
+        "DomainSettings" => domain_settings(),
+        "FailureReason" => String.t(),
+        "HomeEfsFileSystemId" => String.t(),
+        "HomeEfsFileSystemKmsKeyId" => String.t(),
+        "KmsKeyId" => String.t(),
+        "LastModifiedTime" => non_neg_integer(),
+        "SecurityGroupIdForDomainBoundary" => String.t(),
+        "SingleSignOnApplicationArn" => String.t(),
+        "SingleSignOnManagedApplicationInstanceId" => String.t(),
+        "Status" => list(any()),
+        "SubnetIds" => list(String.t()()),
+        "Url" => String.t(),
+        "VpcId" => String.t()
+      }
+      
   """
   @type describe_domain_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  rendering_error() :: %{
-    "Code" => String.t(),
-    "Message" => String.t()
-  }
+      
+      rendering_error() :: %{
+        "Code" => String.t(),
+        "Message" => String.t()
+      }
+      
   """
   @type rendering_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_devices_response() :: %{
-    "DeviceSummaries" => list(device_summary()()),
-    "NextToken" => String.t()
-  }
+      
+      list_devices_response() :: %{
+        "DeviceSummaries" => list(device_summary()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_devices_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_experiment_response() :: %{
-    "CreatedBy" => user_context(),
-    "CreationTime" => non_neg_integer(),
-    "Description" => String.t(),
-    "DisplayName" => String.t(),
-    "ExperimentArn" => String.t(),
-    "ExperimentName" => String.t(),
-    "LastModifiedBy" => user_context(),
-    "LastModifiedTime" => non_neg_integer(),
-    "Source" => experiment_source()
-  }
+      
+      describe_experiment_response() :: %{
+        "CreatedBy" => user_context(),
+        "CreationTime" => non_neg_integer(),
+        "Description" => String.t(),
+        "DisplayName" => String.t(),
+        "ExperimentArn" => String.t(),
+        "ExperimentName" => String.t(),
+        "LastModifiedBy" => user_context(),
+        "LastModifiedTime" => non_neg_integer(),
+        "Source" => experiment_source()
+      }
+      
   """
   @type describe_experiment_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_compilation_jobs_response() :: %{
-    "CompilationJobSummaries" => list(compilation_job_summary()()),
-    "NextToken" => String.t()
-  }
+      
+      list_compilation_jobs_response() :: %{
+        "CompilationJobSummaries" => list(compilation_job_summary()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_compilation_jobs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  pipeline_experiment_config() :: %{
-    "ExperimentName" => String.t(),
-    "TrialName" => String.t()
-  }
+      
+      pipeline_experiment_config() :: %{
+        "ExperimentName" => String.t(),
+        "TrialName" => String.t()
+      }
+      
   """
   @type pipeline_experiment_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  candidate_properties() :: %{
-    "CandidateArtifactLocations" => candidate_artifact_locations(),
-    "CandidateMetrics" => list(metric_datum()())
-  }
+      
+      candidate_properties() :: %{
+        "CandidateArtifactLocations" => candidate_artifact_locations(),
+        "CandidateMetrics" => list(metric_datum()())
+      }
+      
   """
   @type candidate_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_algorithm_input() :: %{
-    required("AlgorithmName") => String.t()
-  }
+      
+      describe_algorithm_input() :: %{
+        required("AlgorithmName") => String.t()
+      }
+      
   """
   @type describe_algorithm_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  async_inference_notification_config() :: %{
-    "ErrorTopic" => String.t(),
-    "IncludeInferenceResponseIn" => list(list(any())()),
-    "SuccessTopic" => String.t()
-  }
+      
+      async_inference_notification_config() :: %{
+        "ErrorTopic" => String.t(),
+        "IncludeInferenceResponseIn" => list(list(any())()),
+        "SuccessTopic" => String.t()
+      }
+      
   """
   @type async_inference_notification_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  model_metadata_filter() :: %{
-    "Name" => list(any()),
-    "Value" => String.t()
-  }
+      
+      model_metadata_filter() :: %{
+        "Name" => list(any()),
+        "Value" => String.t()
+      }
+      
   """
   @type model_metadata_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_inference_experiment_response() :: %{
-    "InferenceExperimentArn" => String.t()
-  }
+      
+      start_inference_experiment_response() :: %{
+        "InferenceExperimentArn" => String.t()
+      }
+      
   """
   @type start_inference_experiment_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  recommendation_job_resource_limit() :: %{
-    "MaxNumberOfTests" => integer(),
-    "MaxParallelOfTests" => integer()
-  }
+      
+      recommendation_job_resource_limit() :: %{
+        "MaxNumberOfTests" => integer(),
+        "MaxParallelOfTests" => integer()
+      }
+      
   """
   @type recommendation_job_resource_limit() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  selective_execution_config() :: %{
-    "SelectedSteps" => list(selected_step()()),
-    "SourcePipelineExecutionArn" => String.t()
-  }
+      
+      selective_execution_config() :: %{
+        "SelectedSteps" => list(selected_step()()),
+        "SourcePipelineExecutionArn" => String.t()
+      }
+      
   """
   @type selective_execution_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  labeling_job_summary() :: %{
-    "AnnotationConsolidationLambdaArn" => String.t(),
-    "CreationTime" => non_neg_integer(),
-    "FailureReason" => String.t(),
-    "InputConfig" => labeling_job_input_config(),
-    "LabelCounters" => label_counters(),
-    "LabelingJobArn" => String.t(),
-    "LabelingJobName" => String.t(),
-    "LabelingJobOutput" => labeling_job_output(),
-    "LabelingJobStatus" => list(any()),
-    "LastModifiedTime" => non_neg_integer(),
-    "PreHumanTaskLambdaArn" => String.t(),
-    "WorkteamArn" => String.t()
-  }
+      
+      labeling_job_summary() :: %{
+        "AnnotationConsolidationLambdaArn" => String.t(),
+        "CreationTime" => non_neg_integer(),
+        "FailureReason" => String.t(),
+        "InputConfig" => labeling_job_input_config(),
+        "LabelCounters" => label_counters(),
+        "LabelingJobArn" => String.t(),
+        "LabelingJobName" => String.t(),
+        "LabelingJobOutput" => labeling_job_output(),
+        "LabelingJobStatus" => list(any()),
+        "LastModifiedTime" => non_neg_integer(),
+        "PreHumanTaskLambdaArn" => String.t(),
+        "WorkteamArn" => String.t()
+      }
+      
   """
   @type labeling_job_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  enable_sagemaker_servicecatalog_portfolio_output() :: %{
-
-  }
+      
+      enable_sagemaker_servicecatalog_portfolio_output() :: %{}
+      
   """
-  @type enable_sagemaker_servicecatalog_portfolio_output() :: %{String.t() => any()}
+  @type enable_sagemaker_servicecatalog_portfolio_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_image_versions_response() :: %{
-    "ImageVersions" => list(image_version()()),
-    "NextToken" => String.t()
-  }
+      
+      list_image_versions_response() :: %{
+        "ImageVersions" => list(image_version()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_image_versions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  public_workforce_task_price() :: %{
-    "AmountInUsd" => u_s_d()
-  }
+      
+      public_workforce_task_price() :: %{
+        "AmountInUsd" => u_s_d()
+      }
+      
   """
   @type public_workforce_task_price() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  monitoring_csv_dataset_format() :: %{
-    "Header" => boolean()
-  }
+      
+      monitoring_csv_dataset_format() :: %{
+        "Header" => boolean()
+      }
+      
   """
   @type monitoring_csv_dataset_format() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  debug_rule_evaluation_status() :: %{
-    "LastModifiedTime" => non_neg_integer(),
-    "RuleConfigurationName" => String.t(),
-    "RuleEvaluationJobArn" => String.t(),
-    "RuleEvaluationStatus" => list(any()),
-    "StatusDetails" => String.t()
-  }
+      
+      debug_rule_evaluation_status() :: %{
+        "LastModifiedTime" => non_neg_integer(),
+        "RuleConfigurationName" => String.t(),
+        "RuleEvaluationJobArn" => String.t(),
+        "RuleEvaluationStatus" => list(any()),
+        "StatusDetails" => String.t()
+      }
+      
   """
   @type debug_rule_evaluation_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  file_system_config() :: %{
-    "DefaultGid" => integer(),
-    "DefaultUid" => integer(),
-    "MountPath" => String.t()
-  }
+      
+      file_system_config() :: %{
+        "DefaultGid" => integer(),
+        "DefaultUid" => integer(),
+        "MountPath" => String.t()
+      }
+      
   """
   @type file_system_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_actions_response() :: %{
-    "ActionSummaries" => list(action_summary()()),
-    "NextToken" => String.t()
-  }
+      
+      list_actions_response() :: %{
+        "ActionSummaries" => list(action_summary()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_actions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_notebook_instances_input() :: %{
-    optional("AdditionalCodeRepositoryEquals") => String.t(),
-    optional("CreationTimeAfter") => non_neg_integer(),
-    optional("CreationTimeBefore") => non_neg_integer(),
-    optional("DefaultCodeRepositoryContains") => String.t(),
-    optional("LastModifiedTimeAfter") => non_neg_integer(),
-    optional("LastModifiedTimeBefore") => non_neg_integer(),
-    optional("MaxResults") => integer(),
-    optional("NameContains") => String.t(),
-    optional("NextToken") => String.t(),
-    optional("NotebookInstanceLifecycleConfigNameContains") => String.t(),
-    optional("SortBy") => list(any()),
-    optional("SortOrder") => list(any()),
-    optional("StatusEquals") => list(any())
-  }
+      
+      list_notebook_instances_input() :: %{
+        optional("AdditionalCodeRepositoryEquals") => String.t(),
+        optional("CreationTimeAfter") => non_neg_integer(),
+        optional("CreationTimeBefore") => non_neg_integer(),
+        optional("DefaultCodeRepositoryContains") => String.t(),
+        optional("LastModifiedTimeAfter") => non_neg_integer(),
+        optional("LastModifiedTimeBefore") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("NameContains") => String.t(),
+        optional("NextToken") => String.t(),
+        optional("NotebookInstanceLifecycleConfigNameContains") => String.t(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any()),
+        optional("StatusEquals") => list(any())
+      }
+      
   """
   @type list_notebook_instances_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_training_job_request() :: %{
-    optional("CheckpointConfig") => checkpoint_config(),
-    optional("DebugHookConfig") => debug_hook_config(),
-    optional("DebugRuleConfigurations") => list(debug_rule_configuration()()),
-    optional("EnableInterContainerTrafficEncryption") => boolean(),
-    optional("EnableManagedSpotTraining") => boolean(),
-    optional("EnableNetworkIsolation") => boolean(),
-    optional("Environment") => map(),
-    optional("ExperimentConfig") => experiment_config(),
-    optional("HyperParameters") => map(),
-    optional("InfraCheckConfig") => infra_check_config(),
-    optional("InputDataConfig") => list(channel()()),
-    optional("ProfilerConfig") => profiler_config(),
-    optional("ProfilerRuleConfigurations") => list(profiler_rule_configuration()()),
-    optional("RemoteDebugConfig") => remote_debug_config(),
-    optional("RetryStrategy") => retry_strategy(),
-    optional("Tags") => list(tag()()),
-    optional("TensorBoardOutputConfig") => tensor_board_output_config(),
-    optional("VpcConfig") => vpc_config(),
-    required("AlgorithmSpecification") => algorithm_specification(),
-    required("OutputDataConfig") => output_data_config(),
-    required("ResourceConfig") => resource_config(),
-    required("RoleArn") => String.t(),
-    required("StoppingCondition") => stopping_condition(),
-    required("TrainingJobName") => String.t()
-  }
+      
+      create_training_job_request() :: %{
+        optional("CheckpointConfig") => checkpoint_config(),
+        optional("DebugHookConfig") => debug_hook_config(),
+        optional("DebugRuleConfigurations") => list(debug_rule_configuration()()),
+        optional("EnableInterContainerTrafficEncryption") => boolean(),
+        optional("EnableManagedSpotTraining") => boolean(),
+        optional("EnableNetworkIsolation") => boolean(),
+        optional("Environment") => map(),
+        optional("ExperimentConfig") => experiment_config(),
+        optional("HyperParameters") => map(),
+        optional("InfraCheckConfig") => infra_check_config(),
+        optional("InputDataConfig") => list(channel()()),
+        optional("ProfilerConfig") => profiler_config(),
+        optional("ProfilerRuleConfigurations") => list(profiler_rule_configuration()()),
+        optional("RemoteDebugConfig") => remote_debug_config(),
+        optional("RetryStrategy") => retry_strategy(),
+        optional("Tags") => list(tag()()),
+        optional("TensorBoardOutputConfig") => tensor_board_output_config(),
+        optional("VpcConfig") => vpc_config(),
+        required("AlgorithmSpecification") => algorithm_specification(),
+        required("OutputDataConfig") => output_data_config(),
+        required("ResourceConfig") => resource_config(),
+        required("RoleArn") => String.t(),
+        required("StoppingCondition") => stopping_condition(),
+        required("TrainingJobName") => String.t()
+      }
+      
   """
   @type create_training_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_hub_content_versions_request() :: %{
-    optional("CreationTimeAfter") => non_neg_integer(),
-    optional("CreationTimeBefore") => non_neg_integer(),
-    optional("MaxResults") => integer(),
-    optional("MaxSchemaVersion") => String.t(),
-    optional("MinVersion") => String.t(),
-    optional("NextToken") => String.t(),
-    optional("SortBy") => list(any()),
-    optional("SortOrder") => list(any()),
-    required("HubContentName") => String.t(),
-    required("HubContentType") => list(any()),
-    required("HubName") => String.t()
-  }
+      
+      list_hub_content_versions_request() :: %{
+        optional("CreationTimeAfter") => non_neg_integer(),
+        optional("CreationTimeBefore") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("MaxSchemaVersion") => String.t(),
+        optional("MinVersion") => String.t(),
+        optional("NextToken") => String.t(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any()),
+        required("HubContentName") => String.t(),
+        required("HubContentType") => list(any()),
+        required("HubName") => String.t()
+      }
+      
   """
   @type list_hub_content_versions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  monitoring_job_definition_summary() :: %{
-    "CreationTime" => non_neg_integer(),
-    "EndpointName" => String.t(),
-    "MonitoringJobDefinitionArn" => String.t(),
-    "MonitoringJobDefinitionName" => String.t()
-  }
+      
+      monitoring_job_definition_summary() :: %{
+        "CreationTime" => non_neg_integer(),
+        "EndpointName" => String.t(),
+        "MonitoringJobDefinitionArn" => String.t(),
+        "MonitoringJobDefinitionName" => String.t()
+      }
+      
   """
   @type monitoring_job_definition_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_image_version_response() :: %{
-    "ImageVersionArn" => String.t()
-  }
+      
+      create_image_version_response() :: %{
+        "ImageVersionArn" => String.t()
+      }
+      
   """
   @type create_image_version_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  space_storage_settings() :: %{
-    "EbsStorageSettings" => ebs_storage_settings()
-  }
+      
+      space_storage_settings() :: %{
+        "EbsStorageSettings" => ebs_storage_settings()
+      }
+      
   """
   @type space_storage_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  monitoring_input() :: %{
-    "BatchTransformInput" => batch_transform_input(),
-    "EndpointInput" => endpoint_input()
-  }
+      
+      monitoring_input() :: %{
+        "BatchTransformInput" => batch_transform_input(),
+        "EndpointInput" => endpoint_input()
+      }
+      
   """
   @type monitoring_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cluster_node_summary() :: %{
-    "InstanceGroupName" => String.t(),
-    "InstanceId" => String.t(),
-    "InstanceStatus" => cluster_instance_status_details(),
-    "InstanceType" => list(any()),
-    "LaunchTime" => non_neg_integer()
-  }
+      
+      cluster_node_summary() :: %{
+        "InstanceGroupName" => String.t(),
+        "InstanceId" => String.t(),
+        "InstanceStatus" => cluster_instance_status_details(),
+        "InstanceType" => list(any()),
+        "LaunchTime" => non_neg_integer()
+      }
+      
   """
   @type cluster_node_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ebs_storage_settings() :: %{
-    "EbsVolumeSizeInGb" => integer()
-  }
+      
+      ebs_storage_settings() :: %{
+        "EbsVolumeSizeInGb" => integer()
+      }
+      
   """
   @type ebs_storage_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  file_system_data_source() :: %{
-    "DirectoryPath" => String.t(),
-    "FileSystemAccessMode" => list(any()),
-    "FileSystemId" => String.t(),
-    "FileSystemType" => list(any())
-  }
+      
+      file_system_data_source() :: %{
+        "DirectoryPath" => String.t(),
+        "FileSystemAccessMode" => list(any()),
+        "FileSystemId" => String.t(),
+        "FileSystemType" => list(any())
+      }
+      
   """
   @type file_system_data_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_actions_request() :: %{
-    optional("ActionType") => String.t(),
-    optional("CreatedAfter") => non_neg_integer(),
-    optional("CreatedBefore") => non_neg_integer(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("SortBy") => list(any()),
-    optional("SortOrder") => list(any()),
-    optional("SourceUri") => String.t()
-  }
+      
+      list_actions_request() :: %{
+        optional("ActionType") => String.t(),
+        optional("CreatedAfter") => non_neg_integer(),
+        optional("CreatedBefore") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any()),
+        optional("SourceUri") => String.t()
+      }
+      
   """
   @type list_actions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  athena_dataset_definition() :: %{
-    "Catalog" => String.t(),
-    "Database" => String.t(),
-    "KmsKeyId" => String.t(),
-    "OutputCompression" => list(any()),
-    "OutputFormat" => list(any()),
-    "OutputS3Uri" => String.t(),
-    "QueryString" => String.t(),
-    "WorkGroup" => String.t()
-  }
+      
+      athena_dataset_definition() :: %{
+        "Catalog" => String.t(),
+        "Database" => String.t(),
+        "KmsKeyId" => String.t(),
+        "OutputCompression" => list(any()),
+        "OutputFormat" => list(any()),
+        "OutputS3Uri" => String.t(),
+        "QueryString" => String.t(),
+        "WorkGroup" => String.t()
+      }
+      
   """
   @type athena_dataset_definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  instance_group() :: %{
-    "InstanceCount" => integer(),
-    "InstanceGroupName" => String.t(),
-    "InstanceType" => list(any())
-  }
+      
+      instance_group() :: %{
+        "InstanceCount" => integer(),
+        "InstanceGroupName" => String.t(),
+        "InstanceType" => list(any())
+      }
+      
   """
   @type instance_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  profiler_rule_evaluation_status() :: %{
-    "LastModifiedTime" => non_neg_integer(),
-    "RuleConfigurationName" => String.t(),
-    "RuleEvaluationJobArn" => String.t(),
-    "RuleEvaluationStatus" => list(any()),
-    "StatusDetails" => String.t()
-  }
+      
+      profiler_rule_evaluation_status() :: %{
+        "LastModifiedTime" => non_neg_integer(),
+        "RuleConfigurationName" => String.t(),
+        "RuleEvaluationJobArn" => String.t(),
+        "RuleEvaluationStatus" => list(any()),
+        "StatusDetails" => String.t()
+      }
+      
   """
   @type profiler_rule_evaluation_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_space_response() :: %{
-    "SpaceArn" => String.t()
-  }
+      
+      update_space_response() :: %{
+        "SpaceArn" => String.t()
+      }
+      
   """
   @type update_space_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  inference_component_runtime_config() :: %{
-    "CopyCount" => integer()
-  }
+      
+      inference_component_runtime_config() :: %{
+        "CopyCount" => integer()
+      }
+      
   """
   @type inference_component_runtime_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  model_package_status_details() :: %{
-    "ImageScanStatuses" => list(model_package_status_item()()),
-    "ValidationStatuses" => list(model_package_status_item()())
-  }
+      
+      model_package_status_details() :: %{
+        "ImageScanStatuses" => list(model_package_status_item()()),
+        "ValidationStatuses" => list(model_package_status_item()())
+      }
+      
   """
   @type model_package_status_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_clusters_response() :: %{
-    "ClusterSummaries" => list(cluster_summary()()),
-    "NextToken" => String.t()
-  }
+      
+      list_clusters_response() :: %{
+        "ClusterSummaries" => list(cluster_summary()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_clusters_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  human_loop_activation_conditions_config() :: %{
-    "HumanLoopActivationConditions" => String.t()
-  }
+      
+      human_loop_activation_conditions_config() :: %{
+        "HumanLoopActivationConditions" => String.t()
+      }
+      
   """
   @type human_loop_activation_conditions_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stop_pipeline_execution_response() :: %{
-    "PipelineExecutionArn" => String.t()
-  }
+      
+      stop_pipeline_execution_response() :: %{
+        "PipelineExecutionArn" => String.t()
+      }
+      
   """
   @type stop_pipeline_execution_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  categorical_parameter_range() :: %{
-    "Name" => String.t(),
-    "Values" => list(String.t()())
-  }
+      
+      categorical_parameter_range() :: %{
+        "Name" => String.t(),
+        "Values" => list(String.t()())
+      }
+      
   """
   @type categorical_parameter_range() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  render_ui_template_request() :: %{
-    optional("HumanTaskUiArn") => String.t(),
-    optional("UiTemplate") => ui_template(),
-    required("RoleArn") => String.t(),
-    required("Task") => renderable_task()
-  }
+      
+      render_ui_template_request() :: %{
+        optional("HumanTaskUiArn") => String.t(),
+        optional("UiTemplate") => ui_template(),
+        required("RoleArn") => String.t(),
+        required("Task") => renderable_task()
+      }
+      
   """
   @type render_ui_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_notebook_instance_lifecycle_config_input() :: %{
-    required("NotebookInstanceLifecycleConfigName") => String.t()
-  }
+      
+      describe_notebook_instance_lifecycle_config_input() :: %{
+        required("NotebookInstanceLifecycleConfigName") => String.t()
+      }
+      
   """
   @type describe_notebook_instance_lifecycle_config_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_model_package_input() :: %{
-    optional("AdditionalInferenceSpecificationsToAdd") => list(additional_inference_specification_definition()()),
-    optional("ApprovalDescription") => String.t(),
-    optional("CustomerMetadataProperties") => map(),
-    optional("CustomerMetadataPropertiesToRemove") => list(String.t()()),
-    optional("InferenceSpecification") => inference_specification(),
-    optional("ModelApprovalStatus") => list(any()),
-    optional("SourceUri") => String.t(),
-    required("ModelPackageArn") => String.t()
-  }
+      
+      update_model_package_input() :: %{
+        optional("AdditionalInferenceSpecificationsToAdd") => list(additional_inference_specification_definition()()),
+        optional("ApprovalDescription") => String.t(),
+        optional("CustomerMetadataProperties") => map(),
+        optional("CustomerMetadataPropertiesToRemove") => list(String.t()()),
+        optional("InferenceSpecification") => inference_specification(),
+        optional("ModelApprovalStatus") => list(any()),
+        optional("SourceUri") => String.t(),
+        required("ModelPackageArn") => String.t()
+      }
+      
   """
   @type update_model_package_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  feature_group_summary() :: %{
-    "CreationTime" => non_neg_integer(),
-    "FeatureGroupArn" => String.t(),
-    "FeatureGroupName" => String.t(),
-    "FeatureGroupStatus" => list(any()),
-    "OfflineStoreStatus" => offline_store_status()
-  }
+      
+      feature_group_summary() :: %{
+        "CreationTime" => non_neg_integer(),
+        "FeatureGroupArn" => String.t(),
+        "FeatureGroupName" => String.t(),
+        "FeatureGroupStatus" => list(any()),
+        "OfflineStoreStatus" => offline_store_status()
+      }
+      
   """
   @type feature_group_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_workteam_response() :: %{
-    "WorkteamArn" => String.t()
-  }
+      
+      create_workteam_response() :: %{
+        "WorkteamArn" => String.t()
+      }
+      
   """
   @type create_workteam_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_cluster_response() :: %{
-    "ClusterArn" => String.t()
-  }
+      
+      delete_cluster_response() :: %{
+        "ClusterArn" => String.t()
+      }
+      
   """
   @type delete_cluster_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_presigned_domain_url_request() :: %{
-    optional("ExpiresInSeconds") => integer(),
-    optional("LandingUri") => String.t(),
-    optional("SessionExpirationDurationInSeconds") => integer(),
-    optional("SpaceName") => String.t(),
-    required("DomainId") => String.t(),
-    required("UserProfileName") => String.t()
-  }
+      
+      create_presigned_domain_url_request() :: %{
+        optional("ExpiresInSeconds") => integer(),
+        optional("LandingUri") => String.t(),
+        optional("SessionExpirationDurationInSeconds") => integer(),
+        optional("SpaceName") => String.t(),
+        required("DomainId") => String.t(),
+        required("UserProfileName") => String.t()
+      }
+      
   """
   @type create_presigned_domain_url_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  model_configuration() :: %{
-    "CompilationJobName" => String.t(),
-    "EnvironmentParameters" => list(environment_parameter()()),
-    "InferenceSpecificationName" => String.t()
-  }
+      
+      model_configuration() :: %{
+        "CompilationJobName" => String.t(),
+        "EnvironmentParameters" => list(environment_parameter()()),
+        "InferenceSpecificationName" => String.t()
+      }
+      
   """
   @type model_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  search_expression() :: %{
-    "Filters" => list(filter()()),
-    "NestedFilters" => list(nested_filters()()),
-    "Operator" => list(any()),
-    "SubExpressions" => list(search_expression()())
-  }
+      
+      search_expression() :: %{
+        "Filters" => list(filter()()),
+        "NestedFilters" => list(nested_filters()()),
+        "Operator" => list(any()),
+        "SubExpressions" => list(search_expression()())
+      }
+      
   """
   @type search_expression() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  register_devices_request() :: %{
-    optional("Tags") => list(tag()()),
-    required("DeviceFleetName") => String.t(),
-    required("Devices") => list(device()())
-  }
+      
+      register_devices_request() :: %{
+        optional("Tags") => list(tag()()),
+        required("DeviceFleetName") => String.t(),
+        required("Devices") => list(device()())
+      }
+      
   """
   @type register_devices_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  monitoring_json_dataset_format() :: %{
-    "Line" => boolean()
-  }
+      
+      monitoring_json_dataset_format() :: %{
+        "Line" => boolean()
+      }
+      
   """
   @type monitoring_json_dataset_format() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  labeling_job_for_workteam_summary() :: %{
-    "CreationTime" => non_neg_integer(),
-    "JobReferenceCode" => String.t(),
-    "LabelCounters" => label_counters_for_workteam(),
-    "LabelingJobName" => String.t(),
-    "NumberOfHumanWorkersPerDataObject" => integer(),
-    "WorkRequesterAccountId" => String.t()
-  }
+      
+      labeling_job_for_workteam_summary() :: %{
+        "CreationTime" => non_neg_integer(),
+        "JobReferenceCode" => String.t(),
+        "LabelCounters" => label_counters_for_workteam(),
+        "LabelingJobName" => String.t(),
+        "NumberOfHumanWorkersPerDataObject" => integer(),
+        "WorkRequesterAccountId" => String.t()
+      }
+      
   """
   @type labeling_job_for_workteam_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  vertex() :: %{
-    "Arn" => String.t(),
-    "LineageType" => list(any()),
-    "Type" => String.t()
-  }
+      
+      vertex() :: %{
+        "Arn" => String.t(),
+        "LineageType" => list(any()),
+        "Type" => String.t()
+      }
+      
   """
   @type vertex() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  feature_parameter() :: %{
-    "Key" => String.t(),
-    "Value" => String.t()
-  }
+      
+      feature_parameter() :: %{
+        "Key" => String.t(),
+        "Value" => String.t()
+      }
+      
   """
   @type feature_parameter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_device_fleets_request() :: %{
-    optional("CreationTimeAfter") => non_neg_integer(),
-    optional("CreationTimeBefore") => non_neg_integer(),
-    optional("LastModifiedTimeAfter") => non_neg_integer(),
-    optional("LastModifiedTimeBefore") => non_neg_integer(),
-    optional("MaxResults") => integer(),
-    optional("NameContains") => String.t(),
-    optional("NextToken") => String.t(),
-    optional("SortBy") => list(any()),
-    optional("SortOrder") => list(any())
-  }
+      
+      list_device_fleets_request() :: %{
+        optional("CreationTimeAfter") => non_neg_integer(),
+        optional("CreationTimeBefore") => non_neg_integer(),
+        optional("LastModifiedTimeAfter") => non_neg_integer(),
+        optional("LastModifiedTimeBefore") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("NameContains") => String.t(),
+        optional("NextToken") => String.t(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any())
+      }
+      
   """
   @type list_device_fleets_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  lambda_step_metadata() :: %{
-    "Arn" => String.t(),
-    "OutputParameters" => list(output_parameter()())
-  }
+      
+      lambda_step_metadata() :: %{
+        "Arn" => String.t(),
+        "OutputParameters" => list(output_parameter()())
+      }
+      
   """
   @type lambda_step_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  experiment_config() :: %{
-    "ExperimentName" => String.t(),
-    "RunName" => String.t(),
-    "TrialComponentDisplayName" => String.t(),
-    "TrialName" => String.t()
-  }
+      
+      experiment_config() :: %{
+        "ExperimentName" => String.t(),
+        "RunName" => String.t(),
+        "TrialComponentDisplayName" => String.t(),
+        "TrialName" => String.t()
+      }
+      
   """
   @type experiment_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ttl_duration() :: %{
-    "Unit" => list(any()),
-    "Value" => integer()
-  }
+      
+      ttl_duration() :: %{
+        "Unit" => list(any()),
+        "Value" => integer()
+      }
+      
   """
   @type ttl_duration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  filter() :: %{
-    "Name" => String.t(),
-    "Operator" => list(any()),
-    "Value" => String.t()
-  }
+      
+      filter() :: %{
+        "Name" => String.t(),
+        "Operator" => list(any()),
+        "Value" => String.t()
+      }
+      
   """
   @type filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_image_response() :: %{
-    "CreationTime" => non_neg_integer(),
-    "Description" => String.t(),
-    "DisplayName" => String.t(),
-    "FailureReason" => String.t(),
-    "ImageArn" => String.t(),
-    "ImageName" => String.t(),
-    "ImageStatus" => list(any()),
-    "LastModifiedTime" => non_neg_integer(),
-    "RoleArn" => String.t()
-  }
+      
+      describe_image_response() :: %{
+        "CreationTime" => non_neg_integer(),
+        "Description" => String.t(),
+        "DisplayName" => String.t(),
+        "FailureReason" => String.t(),
+        "ImageArn" => String.t(),
+        "ImageName" => String.t(),
+        "ImageStatus" => list(any()),
+        "LastModifiedTime" => non_neg_integer(),
+        "RoleArn" => String.t()
+      }
+      
   """
   @type describe_image_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_experiment_request() :: %{
-    optional("Description") => String.t(),
-    optional("DisplayName") => String.t(),
-    required("ExperimentName") => String.t()
-  }
+      
+      update_experiment_request() :: %{
+        optional("Description") => String.t(),
+        optional("DisplayName") => String.t(),
+        required("ExperimentName") => String.t()
+      }
+      
   """
   @type update_experiment_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  algorithm_summary() :: %{
-    "AlgorithmArn" => String.t(),
-    "AlgorithmDescription" => String.t(),
-    "AlgorithmName" => String.t(),
-    "AlgorithmStatus" => list(any()),
-    "CreationTime" => non_neg_integer()
-  }
+      
+      algorithm_summary() :: %{
+        "AlgorithmArn" => String.t(),
+        "AlgorithmDescription" => String.t(),
+        "AlgorithmName" => String.t(),
+        "AlgorithmStatus" => list(any()),
+        "CreationTime" => non_neg_integer()
+      }
+      
   """
   @type algorithm_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_model_package_group_input() :: %{
-    optional("ModelPackageGroupDescription") => String.t(),
-    optional("Tags") => list(tag()()),
-    required("ModelPackageGroupName") => String.t()
-  }
+      
+      create_model_package_group_input() :: %{
+        optional("ModelPackageGroupDescription") => String.t(),
+        optional("Tags") => list(tag()()),
+        required("ModelPackageGroupName") => String.t()
+      }
+      
   """
   @type create_model_package_group_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_model_quality_job_definitions_response() :: %{
-    "JobDefinitionSummaries" => list(monitoring_job_definition_summary()()),
-    "NextToken" => String.t()
-  }
+      
+      list_model_quality_job_definitions_response() :: %{
+        "JobDefinitionSummaries" => list(monitoring_job_definition_summary()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_model_quality_job_definitions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_artifact_response() :: %{
-    "ArtifactArn" => String.t(),
-    "ArtifactName" => String.t(),
-    "ArtifactType" => String.t(),
-    "CreatedBy" => user_context(),
-    "CreationTime" => non_neg_integer(),
-    "LastModifiedBy" => user_context(),
-    "LastModifiedTime" => non_neg_integer(),
-    "LineageGroupArn" => String.t(),
-    "MetadataProperties" => metadata_properties(),
-    "Properties" => map(),
-    "Source" => artifact_source()
-  }
+      
+      describe_artifact_response() :: %{
+        "ArtifactArn" => String.t(),
+        "ArtifactName" => String.t(),
+        "ArtifactType" => String.t(),
+        "CreatedBy" => user_context(),
+        "CreationTime" => non_neg_integer(),
+        "LastModifiedBy" => user_context(),
+        "LastModifiedTime" => non_neg_integer(),
+        "LineageGroupArn" => String.t(),
+        "MetadataProperties" => metadata_properties(),
+        "Properties" => map(),
+        "Source" => artifact_source()
+      }
+      
   """
   @type describe_artifact_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  inference_recommendations_job_step() :: %{
-    "InferenceBenchmark" => recommendation_job_inference_benchmark(),
-    "JobName" => String.t(),
-    "Status" => list(any()),
-    "StepType" => list(any())
-  }
+      
+      inference_recommendations_job_step() :: %{
+        "InferenceBenchmark" => recommendation_job_inference_benchmark(),
+        "JobName" => String.t(),
+        "Status" => list(any()),
+        "StepType" => list(any())
+      }
+      
   """
   @type inference_recommendations_job_step() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  infra_check_config() :: %{
-    "EnableInfraCheck" => boolean()
-  }
+      
+      infra_check_config() :: %{
+        "EnableInfraCheck" => boolean()
+      }
+      
   """
   @type infra_check_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  async_inference_client_config() :: %{
-    "MaxConcurrentInvocationsPerInstance" => integer()
-  }
+      
+      async_inference_client_config() :: %{
+        "MaxConcurrentInvocationsPerInstance" => integer()
+      }
+      
   """
   @type async_inference_client_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  canvas_app_settings() :: %{
-    "DirectDeploySettings" => direct_deploy_settings(),
-    "GenerativeAiSettings" => generative_ai_settings(),
-    "IdentityProviderOAuthSettings" => list(identity_provider_o_auth_setting()()),
-    "KendraSettings" => kendra_settings(),
-    "ModelRegisterSettings" => model_register_settings(),
-    "TimeSeriesForecastingSettings" => time_series_forecasting_settings(),
-    "WorkspaceSettings" => workspace_settings()
-  }
+      
+      canvas_app_settings() :: %{
+        "DirectDeploySettings" => direct_deploy_settings(),
+        "GenerativeAiSettings" => generative_ai_settings(),
+        "IdentityProviderOAuthSettings" => list(identity_provider_o_auth_setting()()),
+        "KendraSettings" => kendra_settings(),
+        "ModelRegisterSettings" => model_register_settings(),
+        "TimeSeriesForecastingSettings" => time_series_forecasting_settings(),
+        "WorkspaceSettings" => workspace_settings()
+      }
+      
   """
   @type canvas_app_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_images_response() :: %{
-    "Images" => list(image()()),
-    "NextToken" => String.t()
-  }
+      
+      list_images_response() :: %{
+        "Images" => list(image()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_images_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_experiment_request() :: %{
-    optional("Description") => String.t(),
-    optional("DisplayName") => String.t(),
-    optional("Tags") => list(tag()()),
-    required("ExperimentName") => String.t()
-  }
+      
+      create_experiment_request() :: %{
+        optional("Description") => String.t(),
+        optional("DisplayName") => String.t(),
+        optional("Tags") => list(tag()()),
+        required("ExperimentName") => String.t()
+      }
+      
   """
   @type create_experiment_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  auto_ml_job_channel() :: %{
-    "ChannelType" => list(any()),
-    "CompressionType" => list(any()),
-    "ContentType" => String.t(),
-    "DataSource" => auto_ml_data_source()
-  }
+      
+      auto_ml_job_channel() :: %{
+        "ChannelType" => list(any()),
+        "CompressionType" => list(any()),
+        "ContentType" => String.t(),
+        "DataSource" => auto_ml_data_source()
+      }
+      
   """
   @type auto_ml_job_channel() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  agent_version() :: %{
-    "AgentCount" => float(),
-    "Version" => String.t()
-  }
+      
+      agent_version() :: %{
+        "AgentCount" => float(),
+        "Version" => String.t()
+      }
+      
   """
   @type agent_version() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_model_package_groups_input() :: %{
-    optional("CreationTimeAfter") => non_neg_integer(),
-    optional("CreationTimeBefore") => non_neg_integer(),
-    optional("MaxResults") => integer(),
-    optional("NameContains") => String.t(),
-    optional("NextToken") => String.t(),
-    optional("SortBy") => list(any()),
-    optional("SortOrder") => list(any())
-  }
+      
+      list_model_package_groups_input() :: %{
+        optional("CreationTimeAfter") => non_neg_integer(),
+        optional("CreationTimeBefore") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("NameContains") => String.t(),
+        optional("NextToken") => String.t(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any())
+      }
+      
   """
   @type list_model_package_groups_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_contexts_response() :: %{
-    "ContextSummaries" => list(context_summary()()),
-    "NextToken" => String.t()
-  }
+      
+      list_contexts_response() :: %{
+        "ContextSummaries" => list(context_summary()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_contexts_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_app_image_configs_response() :: %{
-    "AppImageConfigs" => list(app_image_config_details()()),
-    "NextToken" => String.t()
-  }
+      
+      list_app_image_configs_response() :: %{
+        "AppImageConfigs" => list(app_image_config_details()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_app_image_configs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  warm_pool_status() :: %{
-    "ResourceRetainedBillableTimeInSeconds" => integer(),
-    "ReusedByJob" => String.t(),
-    "Status" => list(any())
-  }
+      
+      warm_pool_status() :: %{
+        "ResourceRetainedBillableTimeInSeconds" => integer(),
+        "ReusedByJob" => String.t(),
+        "Status" => list(any())
+      }
+      
   """
   @type warm_pool_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_model_package_input() :: %{
-    optional("AdditionalInferenceSpecifications") => list(additional_inference_specification_definition()()),
-    optional("CertifyForMarketplace") => boolean(),
-    optional("ClientToken") => String.t(),
-    optional("CustomerMetadataProperties") => map(),
-    optional("Domain") => String.t(),
-    optional("DriftCheckBaselines") => drift_check_baselines(),
-    optional("InferenceSpecification") => inference_specification(),
-    optional("MetadataProperties") => metadata_properties(),
-    optional("ModelApprovalStatus") => list(any()),
-    optional("ModelMetrics") => model_metrics(),
-    optional("ModelPackageDescription") => String.t(),
-    optional("ModelPackageGroupName") => String.t(),
-    optional("ModelPackageName") => String.t(),
-    optional("SamplePayloadUrl") => String.t(),
-    optional("SkipModelValidation") => list(any()),
-    optional("SourceAlgorithmSpecification") => source_algorithm_specification(),
-    optional("SourceUri") => String.t(),
-    optional("Tags") => list(tag()()),
-    optional("Task") => String.t(),
-    optional("ValidationSpecification") => model_package_validation_specification()
-  }
+      
+      create_model_package_input() :: %{
+        optional("AdditionalInferenceSpecifications") => list(additional_inference_specification_definition()()),
+        optional("CertifyForMarketplace") => boolean(),
+        optional("ClientToken") => String.t(),
+        optional("CustomerMetadataProperties") => map(),
+        optional("Domain") => String.t(),
+        optional("DriftCheckBaselines") => drift_check_baselines(),
+        optional("InferenceSpecification") => inference_specification(),
+        optional("MetadataProperties") => metadata_properties(),
+        optional("ModelApprovalStatus") => list(any()),
+        optional("ModelMetrics") => model_metrics(),
+        optional("ModelPackageDescription") => String.t(),
+        optional("ModelPackageGroupName") => String.t(),
+        optional("ModelPackageName") => String.t(),
+        optional("SamplePayloadUrl") => String.t(),
+        optional("SkipModelValidation") => list(any()),
+        optional("SourceAlgorithmSpecification") => source_algorithm_specification(),
+        optional("SourceUri") => String.t(),
+        optional("Tags") => list(tag()()),
+        optional("Task") => String.t(),
+        optional("ValidationSpecification") => model_package_validation_specification()
+      }
+      
   """
   @type create_model_package_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  recommendation_job_container_config() :: %{
-    "DataInputConfig" => String.t(),
-    "Domain" => String.t(),
-    "Framework" => String.t(),
-    "FrameworkVersion" => String.t(),
-    "NearestModelName" => String.t(),
-    "PayloadConfig" => recommendation_job_payload_config(),
-    "SupportedEndpointType" => list(any()),
-    "SupportedInstanceTypes" => list(String.t()()),
-    "SupportedResponseMIMETypes" => list(String.t()()),
-    "Task" => String.t()
-  }
+      
+      recommendation_job_container_config() :: %{
+        "DataInputConfig" => String.t(),
+        "Domain" => String.t(),
+        "Framework" => String.t(),
+        "FrameworkVersion" => String.t(),
+        "NearestModelName" => String.t(),
+        "PayloadConfig" => recommendation_job_payload_config(),
+        "SupportedEndpointType" => list(any()),
+        "SupportedInstanceTypes" => list(String.t()()),
+        "SupportedResponseMIMETypes" => list(String.t()()),
+        "Task" => String.t()
+      }
+      
   """
   @type recommendation_job_container_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_training_jobs_for_hyper_parameter_tuning_job_response() :: %{
-    "NextToken" => String.t(),
-    "TrainingJobSummaries" => list(hyper_parameter_training_job_summary()())
-  }
+      
+      list_training_jobs_for_hyper_parameter_tuning_job_response() :: %{
+        "NextToken" => String.t(),
+        "TrainingJobSummaries" => list(hyper_parameter_training_job_summary()())
+      }
+      
   """
   @type list_training_jobs_for_hyper_parameter_tuning_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  provisioning_parameter() :: %{
-    "Key" => String.t(),
-    "Value" => String.t()
-  }
+      
+      provisioning_parameter() :: %{
+        "Key" => String.t(),
+        "Value" => String.t()
+      }
+      
   """
   @type provisioning_parameter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cluster_instance_status_details() :: %{
-    "Message" => String.t(),
-    "Status" => list(any())
-  }
+      
+      cluster_instance_status_details() :: %{
+        "Message" => String.t(),
+        "Status" => list(any())
+      }
+      
   """
   @type cluster_instance_status_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_processing_job_request() :: %{
-    optional("Environment") => map(),
-    optional("ExperimentConfig") => experiment_config(),
-    optional("NetworkConfig") => network_config(),
-    optional("ProcessingInputs") => list(processing_input()()),
-    optional("ProcessingOutputConfig") => processing_output_config(),
-    optional("StoppingCondition") => processing_stopping_condition(),
-    optional("Tags") => list(tag()()),
-    required("AppSpecification") => app_specification(),
-    required("ProcessingJobName") => String.t(),
-    required("ProcessingResources") => processing_resources(),
-    required("RoleArn") => String.t()
-  }
+      
+      create_processing_job_request() :: %{
+        optional("Environment") => map(),
+        optional("ExperimentConfig") => experiment_config(),
+        optional("NetworkConfig") => network_config(),
+        optional("ProcessingInputs") => list(processing_input()()),
+        optional("ProcessingOutputConfig") => processing_output_config(),
+        optional("StoppingCondition") => processing_stopping_condition(),
+        optional("Tags") => list(tag()()),
+        required("AppSpecification") => app_specification(),
+        required("ProcessingJobName") => String.t(),
+        required("ProcessingResources") => processing_resources(),
+        required("RoleArn") => String.t()
+      }
+      
   """
   @type create_processing_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  notification_configuration() :: %{
-    "NotificationTopicArn" => String.t()
-  }
+      
+      notification_configuration() :: %{
+        "NotificationTopicArn" => String.t()
+      }
+      
   """
   @type notification_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_project_input() :: %{
-    optional("ProjectDescription") => String.t(),
-    optional("Tags") => list(tag()()),
-    required("ProjectName") => String.t(),
-    required("ServiceCatalogProvisioningDetails") => service_catalog_provisioning_details()
-  }
+      
+      create_project_input() :: %{
+        optional("ProjectDescription") => String.t(),
+        optional("Tags") => list(tag()()),
+        required("ProjectName") => String.t(),
+        required("ServiceCatalogProvisioningDetails") => service_catalog_provisioning_details()
+      }
+      
   """
   @type create_project_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  inference_component_specification_summary() :: %{
-    "ComputeResourceRequirements" => inference_component_compute_resource_requirements(),
-    "Container" => inference_component_container_specification_summary(),
-    "ModelName" => String.t(),
-    "StartupParameters" => inference_component_startup_parameters()
-  }
+      
+      inference_component_specification_summary() :: %{
+        "ComputeResourceRequirements" => inference_component_compute_resource_requirements(),
+        "Container" => inference_component_container_specification_summary(),
+        "ModelName" => String.t(),
+        "StartupParameters" => inference_component_startup_parameters()
+      }
+      
   """
   @type inference_component_specification_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_workteam_response() :: %{
-    "Workteam" => workteam()
-  }
+      
+      describe_workteam_response() :: %{
+        "Workteam" => workteam()
+      }
+      
   """
   @type describe_workteam_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  endpoint() :: %{
-    "CreationTime" => non_neg_integer(),
-    "DataCaptureConfig" => data_capture_config_summary(),
-    "EndpointArn" => String.t(),
-    "EndpointConfigName" => String.t(),
-    "EndpointName" => String.t(),
-    "EndpointStatus" => list(any()),
-    "FailureReason" => String.t(),
-    "LastModifiedTime" => non_neg_integer(),
-    "MonitoringSchedules" => list(monitoring_schedule()()),
-    "ProductionVariants" => list(production_variant_summary()()),
-    "ShadowProductionVariants" => list(production_variant_summary()()),
-    "Tags" => list(tag()())
-  }
+      
+      endpoint() :: %{
+        "CreationTime" => non_neg_integer(),
+        "DataCaptureConfig" => data_capture_config_summary(),
+        "EndpointArn" => String.t(),
+        "EndpointConfigName" => String.t(),
+        "EndpointName" => String.t(),
+        "EndpointStatus" => list(any()),
+        "FailureReason" => String.t(),
+        "LastModifiedTime" => non_neg_integer(),
+        "MonitoringSchedules" => list(monitoring_schedule()()),
+        "ProductionVariants" => list(production_variant_summary()()),
+        "ShadowProductionVariants" => list(production_variant_summary()()),
+        "Tags" => list(tag()())
+      }
+      
   """
   @type endpoint() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  recommendation_job_output_config() :: %{
-    "CompiledOutputConfig" => recommendation_job_compiled_output_config(),
-    "KmsKeyId" => String.t()
-  }
+      
+      recommendation_job_output_config() :: %{
+        "CompiledOutputConfig" => recommendation_job_compiled_output_config(),
+        "KmsKeyId" => String.t()
+      }
+      
   """
   @type recommendation_job_output_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  model_register_settings() :: %{
-    "CrossAccountModelRegisterRoleArn" => String.t(),
-    "Status" => list(any())
-  }
+      
+      model_register_settings() :: %{
+        "CrossAccountModelRegisterRoleArn" => String.t(),
+        "Status" => list(any())
+      }
+      
   """
   @type model_register_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  fail_step_metadata() :: %{
-    "ErrorMessage" => String.t()
-  }
+      
+      fail_step_metadata() :: %{
+        "ErrorMessage" => String.t()
+      }
+      
   """
   @type fail_step_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_edge_deployment_plan_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("EdgeDeploymentPlanName") => String.t()
-  }
+      
+      describe_edge_deployment_plan_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("EdgeDeploymentPlanName") => String.t()
+      }
+      
   """
   @type describe_edge_deployment_plan_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_hub_content_versions_response() :: %{
-    "HubContentSummaries" => list(hub_content_info()()),
-    "NextToken" => String.t()
-  }
+      
+      list_hub_content_versions_response() :: %{
+        "HubContentSummaries" => list(hub_content_info()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_hub_content_versions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  recommendation_job_inference_benchmark() :: %{
-    "EndpointConfiguration" => endpoint_output_configuration(),
-    "EndpointMetrics" => inference_metrics(),
-    "FailureReason" => String.t(),
-    "InvocationEndTime" => non_neg_integer(),
-    "InvocationStartTime" => non_neg_integer(),
-    "Metrics" => recommendation_metrics(),
-    "ModelConfiguration" => model_configuration()
-  }
+      
+      recommendation_job_inference_benchmark() :: %{
+        "EndpointConfiguration" => endpoint_output_configuration(),
+        "EndpointMetrics" => inference_metrics(),
+        "FailureReason" => String.t(),
+        "InvocationEndTime" => non_neg_integer(),
+        "InvocationStartTime" => non_neg_integer(),
+        "Metrics" => recommendation_metrics(),
+        "ModelConfiguration" => model_configuration()
+      }
+      
   """
   @type recommendation_job_inference_benchmark() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  model_infrastructure_config() :: %{
-    "InfrastructureType" => list(any()),
-    "RealTimeInferenceConfig" => real_time_inference_config()
-  }
+      
+      model_infrastructure_config() :: %{
+        "InfrastructureType" => list(any()),
+        "RealTimeInferenceConfig" => real_time_inference_config()
+      }
+      
   """
   @type model_infrastructure_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_image_request() :: %{
-    required("ImageName") => String.t()
-  }
+      
+      delete_image_request() :: %{
+        required("ImageName") => String.t()
+      }
+      
   """
   @type delete_image_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_workforce_response() :: %{
-
-  }
+      
+      delete_workforce_response() :: %{}
+      
   """
-  @type delete_workforce_response() :: %{String.t() => any()}
+  @type delete_workforce_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  model_metadata_search_expression() :: %{
-    "Filters" => list(model_metadata_filter()())
-  }
+      
+      model_metadata_search_expression() :: %{
+        "Filters" => list(model_metadata_filter()())
+      }
+      
   """
   @type model_metadata_search_expression() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_clusters_request() :: %{
-    optional("CreationTimeAfter") => non_neg_integer(),
-    optional("CreationTimeBefore") => non_neg_integer(),
-    optional("MaxResults") => integer(),
-    optional("NameContains") => String.t(),
-    optional("NextToken") => String.t(),
-    optional("SortBy") => list(any()),
-    optional("SortOrder") => list(any())
-  }
+      
+      list_clusters_request() :: %{
+        optional("CreationTimeAfter") => non_neg_integer(),
+        optional("CreationTimeBefore") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("NameContains") => String.t(),
+        optional("NextToken") => String.t(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any())
+      }
+      
   """
   @type list_clusters_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  schedule_config() :: %{
-    "DataAnalysisEndTime" => String.t(),
-    "DataAnalysisStartTime" => String.t(),
-    "ScheduleExpression" => String.t()
-  }
+      
+      schedule_config() :: %{
+        "DataAnalysisEndTime" => String.t(),
+        "DataAnalysisStartTime" => String.t(),
+        "ScheduleExpression" => String.t()
+      }
+      
   """
   @type schedule_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_edge_deployment_plans_request() :: %{
-    optional("CreationTimeAfter") => non_neg_integer(),
-    optional("CreationTimeBefore") => non_neg_integer(),
-    optional("DeviceFleetNameContains") => String.t(),
-    optional("LastModifiedTimeAfter") => non_neg_integer(),
-    optional("LastModifiedTimeBefore") => non_neg_integer(),
-    optional("MaxResults") => integer(),
-    optional("NameContains") => String.t(),
-    optional("NextToken") => String.t(),
-    optional("SortBy") => list(any()),
-    optional("SortOrder") => list(any())
-  }
+      
+      list_edge_deployment_plans_request() :: %{
+        optional("CreationTimeAfter") => non_neg_integer(),
+        optional("CreationTimeBefore") => non_neg_integer(),
+        optional("DeviceFleetNameContains") => String.t(),
+        optional("LastModifiedTimeAfter") => non_neg_integer(),
+        optional("LastModifiedTimeBefore") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("NameContains") => String.t(),
+        optional("NextToken") => String.t(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any())
+      }
+      
   """
   @type list_edge_deployment_plans_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tuning_job_step_meta_data() :: %{
-    "Arn" => String.t()
-  }
+      
+      tuning_job_step_meta_data() :: %{
+        "Arn" => String.t()
+      }
+      
   """
   @type tuning_job_step_meta_data() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_workforces_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NameContains") => String.t(),
-    optional("NextToken") => String.t(),
-    optional("SortBy") => list(any()),
-    optional("SortOrder") => list(any())
-  }
+      
+      list_workforces_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NameContains") => String.t(),
+        optional("NextToken") => String.t(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any())
+      }
+      
   """
   @type list_workforces_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_inference_experiment_response() :: %{
-    "InferenceExperimentArn" => String.t()
-  }
+      
+      update_inference_experiment_response() :: %{
+        "InferenceExperimentArn" => String.t()
+      }
+      
   """
   @type update_inference_experiment_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  trial_component_simple_summary() :: %{
-    "CreatedBy" => user_context(),
-    "CreationTime" => non_neg_integer(),
-    "TrialComponentArn" => String.t(),
-    "TrialComponentName" => String.t(),
-    "TrialComponentSource" => trial_component_source()
-  }
+      
+      trial_component_simple_summary() :: %{
+        "CreatedBy" => user_context(),
+        "CreationTime" => non_neg_integer(),
+        "TrialComponentArn" => String.t(),
+        "TrialComponentName" => String.t(),
+        "TrialComponentSource" => trial_component_source()
+      }
+      
   """
   @type trial_component_simple_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  send_pipeline_execution_step_failure_request() :: %{
-    optional("ClientRequestToken") => String.t(),
-    optional("FailureReason") => String.t(),
-    required("CallbackToken") => String.t()
-  }
+      
+      send_pipeline_execution_step_failure_request() :: %{
+        optional("ClientRequestToken") => String.t(),
+        optional("FailureReason") => String.t(),
+        required("CallbackToken") => String.t()
+      }
+      
   """
   @type send_pipeline_execution_step_failure_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  domain_settings() :: %{
-    "DockerSettings" => docker_settings(),
-    "ExecutionRoleIdentityConfig" => list(any()),
-    "RStudioServerProDomainSettings" => r_studio_server_pro_domain_settings(),
-    "SecurityGroupIds" => list(String.t()())
-  }
+      
+      domain_settings() :: %{
+        "DockerSettings" => docker_settings(),
+        "ExecutionRoleIdentityConfig" => list(any()),
+        "RStudioServerProDomainSettings" => r_studio_server_pro_domain_settings(),
+        "SecurityGroupIds" => list(String.t()())
+      }
+      
   """
   @type domain_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  device_summary() :: %{
-    "AgentVersion" => String.t(),
-    "Description" => String.t(),
-    "DeviceArn" => String.t(),
-    "DeviceFleetName" => String.t(),
-    "DeviceName" => String.t(),
-    "IotThingName" => String.t(),
-    "LatestHeartbeat" => non_neg_integer(),
-    "Models" => list(edge_model_summary()()),
-    "RegistrationTime" => non_neg_integer()
-  }
+      
+      device_summary() :: %{
+        "AgentVersion" => String.t(),
+        "Description" => String.t(),
+        "DeviceArn" => String.t(),
+        "DeviceFleetName" => String.t(),
+        "DeviceName" => String.t(),
+        "IotThingName" => String.t(),
+        "LatestHeartbeat" => non_neg_integer(),
+        "Models" => list(edge_model_summary()()),
+        "RegistrationTime" => non_neg_integer()
+      }
+      
   """
   @type device_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  labeling_job_algorithms_config() :: %{
-    "InitialActiveLearningModelArn" => String.t(),
-    "LabelingJobAlgorithmSpecificationArn" => String.t(),
-    "LabelingJobResourceConfig" => labeling_job_resource_config()
-  }
+      
+      labeling_job_algorithms_config() :: %{
+        "InitialActiveLearningModelArn" => String.t(),
+        "LabelingJobAlgorithmSpecificationArn" => String.t(),
+        "LabelingJobResourceConfig" => labeling_job_resource_config()
+      }
+      
   """
   @type labeling_job_algorithms_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_image_response() :: %{
-    "ImageArn" => String.t()
-  }
+      
+      update_image_response() :: %{
+        "ImageArn" => String.t()
+      }
+      
   """
   @type update_image_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_monitoring_schedule_request() :: %{
-    optional("Tags") => list(tag()()),
-    required("MonitoringScheduleConfig") => monitoring_schedule_config(),
-    required("MonitoringScheduleName") => String.t()
-  }
+      
+      create_monitoring_schedule_request() :: %{
+        optional("Tags") => list(tag()()),
+        required("MonitoringScheduleConfig") => monitoring_schedule_config(),
+        required("MonitoringScheduleName") => String.t()
+      }
+      
   """
   @type create_monitoring_schedule_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_domains_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+      
+      list_domains_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type list_domains_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_flow_definition_response() :: %{
-    "FlowDefinitionArn" => String.t()
-  }
+      
+      create_flow_definition_response() :: %{
+        "FlowDefinitionArn" => String.t()
+      }
+      
   """
   @type create_flow_definition_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  recommendation_metrics() :: %{
-    "CostPerHour" => float(),
-    "CostPerInference" => float(),
-    "CpuUtilization" => float(),
-    "MaxInvocations" => integer(),
-    "MemoryUtilization" => float(),
-    "ModelLatency" => integer(),
-    "ModelSetupTime" => integer()
-  }
+      
+      recommendation_metrics() :: %{
+        "CostPerHour" => float(),
+        "CostPerInference" => float(),
+        "CpuUtilization" => float(),
+        "MaxInvocations" => integer(),
+        "MemoryUtilization" => float(),
+        "ModelLatency" => integer(),
+        "ModelSetupTime" => integer()
+      }
+      
   """
   @type recommendation_metrics() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_model_package_group_policy_input() :: %{
-    required("ModelPackageGroupName") => String.t()
-  }
+      
+      get_model_package_group_policy_input() :: %{
+        required("ModelPackageGroupName") => String.t()
+      }
+      
   """
   @type get_model_package_group_policy_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_space_response() :: %{
-    "CreationTime" => non_neg_integer(),
-    "DomainId" => String.t(),
-    "FailureReason" => String.t(),
-    "HomeEfsFileSystemUid" => String.t(),
-    "LastModifiedTime" => non_neg_integer(),
-    "OwnershipSettings" => ownership_settings(),
-    "SpaceArn" => String.t(),
-    "SpaceDisplayName" => String.t(),
-    "SpaceName" => String.t(),
-    "SpaceSettings" => space_settings(),
-    "SpaceSharingSettings" => space_sharing_settings(),
-    "Status" => list(any()),
-    "Url" => String.t()
-  }
+      
+      describe_space_response() :: %{
+        "CreationTime" => non_neg_integer(),
+        "DomainId" => String.t(),
+        "FailureReason" => String.t(),
+        "HomeEfsFileSystemUid" => String.t(),
+        "LastModifiedTime" => non_neg_integer(),
+        "OwnershipSettings" => ownership_settings(),
+        "SpaceArn" => String.t(),
+        "SpaceDisplayName" => String.t(),
+        "SpaceName" => String.t(),
+        "SpaceSettings" => space_settings(),
+        "SpaceSharingSettings" => space_sharing_settings(),
+        "Status" => list(any()),
+        "Url" => String.t()
+      }
+      
   """
   @type describe_space_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  monitoring_dataset_format() :: %{
-    "Csv" => monitoring_csv_dataset_format(),
-    "Json" => monitoring_json_dataset_format(),
-    "Parquet" => monitoring_parquet_dataset_format()
-  }
+      
+      monitoring_dataset_format() :: %{
+        "Csv" => monitoring_csv_dataset_format(),
+        "Json" => monitoring_json_dataset_format(),
+        "Parquet" => monitoring_parquet_dataset_format()
+      }
+      
   """
   @type monitoring_dataset_format() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  training_job_summary() :: %{
-    "CreationTime" => non_neg_integer(),
-    "LastModifiedTime" => non_neg_integer(),
-    "TrainingEndTime" => non_neg_integer(),
-    "TrainingJobArn" => String.t(),
-    "TrainingJobName" => String.t(),
-    "TrainingJobStatus" => list(any()),
-    "WarmPoolStatus" => warm_pool_status()
-  }
+      
+      training_job_summary() :: %{
+        "CreationTime" => non_neg_integer(),
+        "LastModifiedTime" => non_neg_integer(),
+        "TrainingEndTime" => non_neg_integer(),
+        "TrainingJobArn" => String.t(),
+        "TrainingJobName" => String.t(),
+        "TrainingJobStatus" => list(any()),
+        "WarmPoolStatus" => warm_pool_status()
+      }
+      
   """
   @type training_job_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_training_job_response() :: %{
-    "CreationTime" => non_neg_integer(),
-    "TrainingJobArn" => String.t(),
-    "OutputDataConfig" => output_data_config(),
-    "EnableManagedSpotTraining" => boolean(),
-    "TrainingStartTime" => non_neg_integer(),
-    "VpcConfig" => vpc_config(),
-    "LastModifiedTime" => non_neg_integer(),
-    "CheckpointConfig" => checkpoint_config(),
-    "ProfilerRuleConfigurations" => list(profiler_rule_configuration()()),
-    "TrainingEndTime" => non_neg_integer(),
-    "WarmPoolStatus" => warm_pool_status(),
-    "BillableTimeInSeconds" => integer(),
-    "LabelingJobArn" => String.t(),
-    "TensorBoardOutputConfig" => tensor_board_output_config(),
-    "TrainingTimeInSeconds" => integer(),
-    "ProfilingStatus" => list(any()),
-    "EnableInterContainerTrafficEncryption" => boolean(),
-    "InfraCheckConfig" => infra_check_config(),
-    "ResourceConfig" => resource_config(),
-    "HyperParameters" => map(),
-    "SecondaryStatus" => list(any()),
-    "TrainingJobStatus" => list(any()),
-    "ProfilerConfig" => profiler_config(),
-    "TrainingJobName" => String.t(),
-    "DebugRuleEvaluationStatuses" => list(debug_rule_evaluation_status()()),
-    "AutoMLJobArn" => String.t(),
-    "DebugRuleConfigurations" => list(debug_rule_configuration()()),
-    "RetryStrategy" => retry_strategy(),
-    "Environment" => map(),
-    "AlgorithmSpecification" => algorithm_specification(),
-    "SecondaryStatusTransitions" => list(secondary_status_transition()()),
-    "TuningJobArn" => String.t(),
-    "InputDataConfig" => list(channel()()),
-    "ModelArtifacts" => model_artifacts(),
-    "FinalMetricDataList" => list(metric_data()()),
-    "ProfilerRuleEvaluationStatuses" => list(profiler_rule_evaluation_status()()),
-    "RoleArn" => String.t(),
-    "FailureReason" => String.t(),
-    "StoppingCondition" => stopping_condition(),
-    "ExperimentConfig" => experiment_config(),
-    "RemoteDebugConfig" => remote_debug_config(),
-    "EnableNetworkIsolation" => boolean(),
-    "DebugHookConfig" => debug_hook_config()
-  }
+      
+      describe_training_job_response() :: %{
+        "CreationTime" => non_neg_integer(),
+        "TrainingJobArn" => String.t(),
+        "OutputDataConfig" => output_data_config(),
+        "EnableManagedSpotTraining" => boolean(),
+        "TrainingStartTime" => non_neg_integer(),
+        "VpcConfig" => vpc_config(),
+        "LastModifiedTime" => non_neg_integer(),
+        "CheckpointConfig" => checkpoint_config(),
+        "ProfilerRuleConfigurations" => list(profiler_rule_configuration()()),
+        "TrainingEndTime" => non_neg_integer(),
+        "WarmPoolStatus" => warm_pool_status(),
+        "BillableTimeInSeconds" => integer(),
+        "LabelingJobArn" => String.t(),
+        "TensorBoardOutputConfig" => tensor_board_output_config(),
+        "TrainingTimeInSeconds" => integer(),
+        "ProfilingStatus" => list(any()),
+        "EnableInterContainerTrafficEncryption" => boolean(),
+        "InfraCheckConfig" => infra_check_config(),
+        "ResourceConfig" => resource_config(),
+        "HyperParameters" => map(),
+        "SecondaryStatus" => list(any()),
+        "TrainingJobStatus" => list(any()),
+        "ProfilerConfig" => profiler_config(),
+        "TrainingJobName" => String.t(),
+        "DebugRuleEvaluationStatuses" => list(debug_rule_evaluation_status()()),
+        "AutoMLJobArn" => String.t(),
+        "DebugRuleConfigurations" => list(debug_rule_configuration()()),
+        "RetryStrategy" => retry_strategy(),
+        "Environment" => map(),
+        "AlgorithmSpecification" => algorithm_specification(),
+        "SecondaryStatusTransitions" => list(secondary_status_transition()()),
+        "TuningJobArn" => String.t(),
+        "InputDataConfig" => list(channel()()),
+        "ModelArtifacts" => model_artifacts(),
+        "FinalMetricDataList" => list(metric_data()()),
+        "ProfilerRuleEvaluationStatuses" => list(profiler_rule_evaluation_status()()),
+        "RoleArn" => String.t(),
+        "FailureReason" => String.t(),
+        "StoppingCondition" => stopping_condition(),
+        "ExperimentConfig" => experiment_config(),
+        "RemoteDebugConfig" => remote_debug_config(),
+        "EnableNetworkIsolation" => boolean(),
+        "DebugHookConfig" => debug_hook_config()
+      }
+      
   """
   @type describe_training_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  real_time_inference_recommendation() :: %{
-    "Environment" => map(),
-    "InstanceType" => list(any()),
-    "RecommendationId" => String.t()
-  }
+      
+      real_time_inference_recommendation() :: %{
+        "Environment" => map(),
+        "InstanceType" => list(any()),
+        "RecommendationId" => String.t()
+      }
+      
   """
   @type real_time_inference_recommendation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disassociate_trial_component_response() :: %{
-    "TrialArn" => String.t(),
-    "TrialComponentArn" => String.t()
-  }
+      
+      disassociate_trial_component_response() :: %{
+        "TrialArn" => String.t(),
+        "TrialComponentArn" => String.t()
+      }
+      
   """
   @type disassociate_trial_component_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_hyper_parameter_tuning_job_response() :: %{
-    "Autotune" => autotune(),
-    "BestTrainingJob" => hyper_parameter_training_job_summary(),
-    "ConsumedResources" => hyper_parameter_tuning_job_consumed_resources(),
-    "CreationTime" => non_neg_integer(),
-    "FailureReason" => String.t(),
-    "HyperParameterTuningEndTime" => non_neg_integer(),
-    "HyperParameterTuningJobArn" => String.t(),
-    "HyperParameterTuningJobConfig" => hyper_parameter_tuning_job_config(),
-    "HyperParameterTuningJobName" => String.t(),
-    "HyperParameterTuningJobStatus" => list(any()),
-    "LastModifiedTime" => non_neg_integer(),
-    "ObjectiveStatusCounters" => objective_status_counters(),
-    "OverallBestTrainingJob" => hyper_parameter_training_job_summary(),
-    "TrainingJobDefinition" => hyper_parameter_training_job_definition(),
-    "TrainingJobDefinitions" => list(hyper_parameter_training_job_definition()()),
-    "TrainingJobStatusCounters" => training_job_status_counters(),
-    "TuningJobCompletionDetails" => hyper_parameter_tuning_job_completion_details(),
-    "WarmStartConfig" => hyper_parameter_tuning_job_warm_start_config()
-  }
+      
+      describe_hyper_parameter_tuning_job_response() :: %{
+        "Autotune" => autotune(),
+        "BestTrainingJob" => hyper_parameter_training_job_summary(),
+        "ConsumedResources" => hyper_parameter_tuning_job_consumed_resources(),
+        "CreationTime" => non_neg_integer(),
+        "FailureReason" => String.t(),
+        "HyperParameterTuningEndTime" => non_neg_integer(),
+        "HyperParameterTuningJobArn" => String.t(),
+        "HyperParameterTuningJobConfig" => hyper_parameter_tuning_job_config(),
+        "HyperParameterTuningJobName" => String.t(),
+        "HyperParameterTuningJobStatus" => list(any()),
+        "LastModifiedTime" => non_neg_integer(),
+        "ObjectiveStatusCounters" => objective_status_counters(),
+        "OverallBestTrainingJob" => hyper_parameter_training_job_summary(),
+        "TrainingJobDefinition" => hyper_parameter_training_job_definition(),
+        "TrainingJobDefinitions" => list(hyper_parameter_training_job_definition()()),
+        "TrainingJobStatusCounters" => training_job_status_counters(),
+        "TuningJobCompletionDetails" => hyper_parameter_tuning_job_completion_details(),
+        "WarmStartConfig" => hyper_parameter_tuning_job_warm_start_config()
+      }
+      
   """
   @type describe_hyper_parameter_tuning_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  additional_inference_specification_definition() :: %{
-    "Containers" => list(model_package_container_definition()()),
-    "Description" => String.t(),
-    "Name" => String.t(),
-    "SupportedContentTypes" => list(String.t()()),
-    "SupportedRealtimeInferenceInstanceTypes" => list(list(any())()),
-    "SupportedResponseMIMETypes" => list(String.t()()),
-    "SupportedTransformInstanceTypes" => list(list(any())())
-  }
+      
+      additional_inference_specification_definition() :: %{
+        "Containers" => list(model_package_container_definition()()),
+        "Description" => String.t(),
+        "Name" => String.t(),
+        "SupportedContentTypes" => list(String.t()()),
+        "SupportedRealtimeInferenceInstanceTypes" => list(list(any())()),
+        "SupportedResponseMIMETypes" => list(String.t()()),
+        "SupportedTransformInstanceTypes" => list(list(any())())
+      }
+      
   """
   @type additional_inference_specification_definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  parallelism_configuration() :: %{
-    "MaxParallelExecutionSteps" => integer()
-  }
+      
+      parallelism_configuration() :: %{
+        "MaxParallelExecutionSteps" => integer()
+      }
+      
   """
   @type parallelism_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_model_bias_job_definition_request() :: %{
-    optional("ModelBiasBaselineConfig") => model_bias_baseline_config(),
-    optional("NetworkConfig") => monitoring_network_config(),
-    optional("StoppingCondition") => monitoring_stopping_condition(),
-    optional("Tags") => list(tag()()),
-    required("JobDefinitionName") => String.t(),
-    required("JobResources") => monitoring_resources(),
-    required("ModelBiasAppSpecification") => model_bias_app_specification(),
-    required("ModelBiasJobInput") => model_bias_job_input(),
-    required("ModelBiasJobOutputConfig") => monitoring_output_config(),
-    required("RoleArn") => String.t()
-  }
+      
+      create_model_bias_job_definition_request() :: %{
+        optional("ModelBiasBaselineConfig") => model_bias_baseline_config(),
+        optional("NetworkConfig") => monitoring_network_config(),
+        optional("StoppingCondition") => monitoring_stopping_condition(),
+        optional("Tags") => list(tag()()),
+        required("JobDefinitionName") => String.t(),
+        required("JobResources") => monitoring_resources(),
+        required("ModelBiasAppSpecification") => model_bias_app_specification(),
+        required("ModelBiasJobInput") => model_bias_job_input(),
+        required("ModelBiasJobOutputConfig") => monitoring_output_config(),
+        required("RoleArn") => String.t()
+      }
+      
   """
   @type create_model_bias_job_definition_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_hub_response() :: %{
-    "HubArn" => String.t()
-  }
+      
+      update_hub_response() :: %{
+        "HubArn" => String.t()
+      }
+      
   """
   @type update_hub_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  context_source() :: %{
-    "SourceId" => String.t(),
-    "SourceType" => String.t(),
-    "SourceUri" => String.t()
-  }
+      
+      context_source() :: %{
+        "SourceId" => String.t(),
+        "SourceType" => String.t(),
+        "SourceUri" => String.t()
+      }
+      
   """
   @type context_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_inference_component_output() :: %{
-    "InferenceComponentArn" => String.t()
-  }
+      
+      create_inference_component_output() :: %{
+        "InferenceComponentArn" => String.t()
+      }
+      
   """
   @type create_inference_component_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_notebook_instance_input() :: %{
-    optional("AcceleratorTypes") => list(list(any())()),
-    optional("AdditionalCodeRepositories") => list(String.t()()),
-    optional("DefaultCodeRepository") => String.t(),
-    optional("DirectInternetAccess") => list(any()),
-    optional("InstanceMetadataServiceConfiguration") => instance_metadata_service_configuration(),
-    optional("KmsKeyId") => String.t(),
-    optional("LifecycleConfigName") => String.t(),
-    optional("PlatformIdentifier") => String.t(),
-    optional("RootAccess") => list(any()),
-    optional("SecurityGroupIds") => list(String.t()()),
-    optional("SubnetId") => String.t(),
-    optional("Tags") => list(tag()()),
-    optional("VolumeSizeInGB") => integer(),
-    required("InstanceType") => list(any()),
-    required("NotebookInstanceName") => String.t(),
-    required("RoleArn") => String.t()
-  }
+      
+      create_notebook_instance_input() :: %{
+        optional("AcceleratorTypes") => list(list(any())()),
+        optional("AdditionalCodeRepositories") => list(String.t()()),
+        optional("DefaultCodeRepository") => String.t(),
+        optional("DirectInternetAccess") => list(any()),
+        optional("InstanceMetadataServiceConfiguration") => instance_metadata_service_configuration(),
+        optional("KmsKeyId") => String.t(),
+        optional("LifecycleConfigName") => String.t(),
+        optional("PlatformIdentifier") => String.t(),
+        optional("RootAccess") => list(any()),
+        optional("SecurityGroupIds") => list(String.t()()),
+        optional("SubnetId") => String.t(),
+        optional("Tags") => list(tag()()),
+        optional("VolumeSizeInGB") => integer(),
+        required("InstanceType") => list(any()),
+        required("NotebookInstanceName") => String.t(),
+        required("RoleArn") => String.t()
+      }
+      
   """
   @type create_notebook_instance_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  monitoring_s3_output() :: %{
-    "LocalPath" => String.t(),
-    "S3UploadMode" => list(any()),
-    "S3Uri" => String.t()
-  }
+      
+      monitoring_s3_output() :: %{
+        "LocalPath" => String.t(),
+        "S3UploadMode" => list(any()),
+        "S3Uri" => String.t()
+      }
+      
   """
   @type monitoring_s3_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  clarify_inference_config() :: %{
-    "ContentTemplate" => String.t(),
-    "FeatureHeaders" => list(String.t()()),
-    "FeatureTypes" => list(list(any())()),
-    "FeaturesAttribute" => String.t(),
-    "LabelAttribute" => String.t(),
-    "LabelHeaders" => list(String.t()()),
-    "LabelIndex" => integer(),
-    "MaxPayloadInMB" => integer(),
-    "MaxRecordCount" => integer(),
-    "ProbabilityAttribute" => String.t(),
-    "ProbabilityIndex" => integer()
-  }
+      
+      clarify_inference_config() :: %{
+        "ContentTemplate" => String.t(),
+        "FeatureHeaders" => list(String.t()()),
+        "FeatureTypes" => list(list(any())()),
+        "FeaturesAttribute" => String.t(),
+        "LabelAttribute" => String.t(),
+        "LabelHeaders" => list(String.t()()),
+        "LabelIndex" => integer(),
+        "MaxPayloadInMB" => integer(),
+        "MaxRecordCount" => integer(),
+        "ProbabilityAttribute" => String.t(),
+        "ProbabilityIndex" => integer()
+      }
+      
   """
   @type clarify_inference_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  pending_production_variant_summary() :: %{
-    "AcceleratorType" => list(any()),
-    "CurrentInstanceCount" => integer(),
-    "CurrentServerlessConfig" => production_variant_serverless_config(),
-    "CurrentWeight" => float(),
-    "DeployedImages" => list(deployed_image()()),
-    "DesiredInstanceCount" => integer(),
-    "DesiredServerlessConfig" => production_variant_serverless_config(),
-    "DesiredWeight" => float(),
-    "InstanceType" => list(any()),
-    "ManagedInstanceScaling" => production_variant_managed_instance_scaling(),
-    "RoutingConfig" => production_variant_routing_config(),
-    "VariantName" => String.t(),
-    "VariantStatus" => list(production_variant_status()())
-  }
+      
+      pending_production_variant_summary() :: %{
+        "AcceleratorType" => list(any()),
+        "CurrentInstanceCount" => integer(),
+        "CurrentServerlessConfig" => production_variant_serverless_config(),
+        "CurrentWeight" => float(),
+        "DeployedImages" => list(deployed_image()()),
+        "DesiredInstanceCount" => integer(),
+        "DesiredServerlessConfig" => production_variant_serverless_config(),
+        "DesiredWeight" => float(),
+        "InstanceType" => list(any()),
+        "ManagedInstanceScaling" => production_variant_managed_instance_scaling(),
+        "RoutingConfig" => production_variant_routing_config(),
+        "VariantName" => String.t(),
+        "VariantStatus" => list(production_variant_status()())
+      }
+      
   """
   @type pending_production_variant_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  production_variant_routing_config() :: %{
-    "RoutingStrategy" => list(any())
-  }
+      
+      production_variant_routing_config() :: %{
+        "RoutingStrategy" => list(any())
+      }
+      
   """
   @type production_variant_routing_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_associations_request() :: %{
-    optional("AssociationType") => list(any()),
-    optional("CreatedAfter") => non_neg_integer(),
-    optional("CreatedBefore") => non_neg_integer(),
-    optional("DestinationArn") => String.t(),
-    optional("DestinationType") => String.t(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("SortBy") => list(any()),
-    optional("SortOrder") => list(any()),
-    optional("SourceArn") => String.t(),
-    optional("SourceType") => String.t()
-  }
+      
+      list_associations_request() :: %{
+        optional("AssociationType") => list(any()),
+        optional("CreatedAfter") => non_neg_integer(),
+        optional("CreatedBefore") => non_neg_integer(),
+        optional("DestinationArn") => String.t(),
+        optional("DestinationType") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any()),
+        optional("SourceArn") => String.t(),
+        optional("SourceType") => String.t()
+      }
+      
   """
   @type list_associations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_pipeline_executions_response() :: %{
-    "NextToken" => String.t(),
-    "PipelineExecutionSummaries" => list(pipeline_execution_summary()())
-  }
+      
+      list_pipeline_executions_response() :: %{
+        "NextToken" => String.t(),
+        "PipelineExecutionSummaries" => list(pipeline_execution_summary()())
+      }
+      
   """
   @type list_pipeline_executions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_labeling_job_request() :: %{
-    optional("LabelCategoryConfigS3Uri") => String.t(),
-    optional("LabelingJobAlgorithmsConfig") => labeling_job_algorithms_config(),
-    optional("StoppingConditions") => labeling_job_stopping_conditions(),
-    optional("Tags") => list(tag()()),
-    required("HumanTaskConfig") => human_task_config(),
-    required("InputConfig") => labeling_job_input_config(),
-    required("LabelAttributeName") => String.t(),
-    required("LabelingJobName") => String.t(),
-    required("OutputConfig") => labeling_job_output_config(),
-    required("RoleArn") => String.t()
-  }
+      
+      create_labeling_job_request() :: %{
+        optional("LabelCategoryConfigS3Uri") => String.t(),
+        optional("LabelingJobAlgorithmsConfig") => labeling_job_algorithms_config(),
+        optional("StoppingConditions") => labeling_job_stopping_conditions(),
+        optional("Tags") => list(tag()()),
+        required("HumanTaskConfig") => human_task_config(),
+        required("InputConfig") => labeling_job_input_config(),
+        required("LabelAttributeName") => String.t(),
+        required("LabelingJobName") => String.t(),
+        required("OutputConfig") => labeling_job_output_config(),
+        required("RoleArn") => String.t()
+      }
+      
   """
   @type create_labeling_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_model_card_export_job_request() :: %{
-    required("ModelCardExportJobArn") => String.t()
-  }
+      
+      describe_model_card_export_job_request() :: %{
+        required("ModelCardExportJobArn") => String.t()
+      }
+      
   """
   @type describe_model_card_export_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_code_repository_input() :: %{
-    required("CodeRepositoryName") => String.t()
-  }
+      
+      delete_code_repository_input() :: %{
+        required("CodeRepositoryName") => String.t()
+      }
+      
   """
   @type delete_code_repository_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  trial_source() :: %{
-    "SourceArn" => String.t(),
-    "SourceType" => String.t()
-  }
+      
+      trial_source() :: %{
+        "SourceArn" => String.t(),
+        "SourceType" => String.t()
+      }
+      
   """
   @type trial_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  workforce() :: %{
-    "CognitoConfig" => cognito_config(),
-    "CreateDate" => non_neg_integer(),
-    "FailureReason" => String.t(),
-    "LastUpdatedDate" => non_neg_integer(),
-    "OidcConfig" => oidc_config_for_response(),
-    "SourceIpConfig" => source_ip_config(),
-    "Status" => list(any()),
-    "SubDomain" => String.t(),
-    "WorkforceArn" => String.t(),
-    "WorkforceName" => String.t(),
-    "WorkforceVpcConfig" => workforce_vpc_config_response()
-  }
+      
+      workforce() :: %{
+        "CognitoConfig" => cognito_config(),
+        "CreateDate" => non_neg_integer(),
+        "FailureReason" => String.t(),
+        "LastUpdatedDate" => non_neg_integer(),
+        "OidcConfig" => oidc_config_for_response(),
+        "SourceIpConfig" => source_ip_config(),
+        "Status" => list(any()),
+        "SubDomain" => String.t(),
+        "WorkforceArn" => String.t(),
+        "WorkforceName" => String.t(),
+        "WorkforceVpcConfig" => workforce_vpc_config_response()
+      }
+      
   """
   @type workforce() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cache_hit_result() :: %{
-    "SourcePipelineExecutionArn" => String.t()
-  }
+      
+      cache_hit_result() :: %{
+        "SourcePipelineExecutionArn" => String.t()
+      }
+      
   """
   @type cache_hit_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  hyper_parameter_training_job_summary() :: %{
-    "CreationTime" => non_neg_integer(),
-    "FailureReason" => String.t(),
-    "FinalHyperParameterTuningJobObjectiveMetric" => final_hyper_parameter_tuning_job_objective_metric(),
-    "ObjectiveStatus" => list(any()),
-    "TrainingEndTime" => non_neg_integer(),
-    "TrainingJobArn" => String.t(),
-    "TrainingJobDefinitionName" => String.t(),
-    "TrainingJobName" => String.t(),
-    "TrainingJobStatus" => list(any()),
-    "TrainingStartTime" => non_neg_integer(),
-    "TunedHyperParameters" => map(),
-    "TuningJobName" => String.t()
-  }
+      
+      hyper_parameter_training_job_summary() :: %{
+        "CreationTime" => non_neg_integer(),
+        "FailureReason" => String.t(),
+        "FinalHyperParameterTuningJobObjectiveMetric" => final_hyper_parameter_tuning_job_objective_metric(),
+        "ObjectiveStatus" => list(any()),
+        "TrainingEndTime" => non_neg_integer(),
+        "TrainingJobArn" => String.t(),
+        "TrainingJobDefinitionName" => String.t(),
+        "TrainingJobName" => String.t(),
+        "TrainingJobStatus" => list(any()),
+        "TrainingStartTime" => non_neg_integer(),
+        "TunedHyperParameters" => map(),
+        "TuningJobName" => String.t()
+      }
+      
   """
   @type hyper_parameter_training_job_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  image_classification_job_config() :: %{
-    "CompletionCriteria" => auto_ml_job_completion_criteria()
-  }
+      
+      image_classification_job_config() :: %{
+        "CompletionCriteria" => auto_ml_job_completion_criteria()
+      }
+      
   """
   @type image_classification_job_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_workteam_request() :: %{
-    required("WorkteamName") => String.t()
-  }
+      
+      delete_workteam_request() :: %{
+        required("WorkteamName") => String.t()
+      }
+      
   """
   @type delete_workteam_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  debug_rule_configuration() :: %{
-    "InstanceType" => list(any()),
-    "LocalPath" => String.t(),
-    "RuleConfigurationName" => String.t(),
-    "RuleEvaluatorImage" => String.t(),
-    "RuleParameters" => map(),
-    "S3OutputPath" => String.t(),
-    "VolumeSizeInGB" => integer()
-  }
+      
+      debug_rule_configuration() :: %{
+        "InstanceType" => list(any()),
+        "LocalPath" => String.t(),
+        "RuleConfigurationName" => String.t(),
+        "RuleEvaluatorImage" => String.t(),
+        "RuleParameters" => map(),
+        "S3OutputPath" => String.t(),
+        "VolumeSizeInGB" => integer()
+      }
+      
   """
   @type debug_rule_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_model_card_request() :: %{
-    optional("ModelCardVersion") => integer(),
-    required("ModelCardName") => String.t()
-  }
+      
+      describe_model_card_request() :: %{
+        optional("ModelCardVersion") => integer(),
+        required("ModelCardName") => String.t()
+      }
+      
   """
   @type describe_model_card_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_model_packages_input() :: %{
-    optional("CreationTimeAfter") => non_neg_integer(),
-    optional("CreationTimeBefore") => non_neg_integer(),
-    optional("MaxResults") => integer(),
-    optional("ModelApprovalStatus") => list(any()),
-    optional("ModelPackageGroupName") => String.t(),
-    optional("ModelPackageType") => list(any()),
-    optional("NameContains") => String.t(),
-    optional("NextToken") => String.t(),
-    optional("SortBy") => list(any()),
-    optional("SortOrder") => list(any())
-  }
+      
+      list_model_packages_input() :: %{
+        optional("CreationTimeAfter") => non_neg_integer(),
+        optional("CreationTimeBefore") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("ModelApprovalStatus") => list(any()),
+        optional("ModelPackageGroupName") => String.t(),
+        optional("ModelPackageType") => list(any()),
+        optional("NameContains") => String.t(),
+        optional("NextToken") => String.t(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any())
+      }
+      
   """
   @type list_model_packages_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_human_task_ui_response() :: %{
-    "HumanTaskUiArn" => String.t()
-  }
+      
+      create_human_task_ui_response() :: %{
+        "HumanTaskUiArn" => String.t()
+      }
+      
   """
   @type create_human_task_ui_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  model_dashboard_model_card() :: %{
-    "CreatedBy" => user_context(),
-    "CreationTime" => non_neg_integer(),
-    "LastModifiedBy" => user_context(),
-    "LastModifiedTime" => non_neg_integer(),
-    "ModelCardArn" => String.t(),
-    "ModelCardName" => String.t(),
-    "ModelCardStatus" => list(any()),
-    "ModelCardVersion" => integer(),
-    "ModelId" => String.t(),
-    "RiskRating" => String.t(),
-    "SecurityConfig" => model_card_security_config(),
-    "Tags" => list(tag()())
-  }
+      
+      model_dashboard_model_card() :: %{
+        "CreatedBy" => user_context(),
+        "CreationTime" => non_neg_integer(),
+        "LastModifiedBy" => user_context(),
+        "LastModifiedTime" => non_neg_integer(),
+        "ModelCardArn" => String.t(),
+        "ModelCardName" => String.t(),
+        "ModelCardStatus" => list(any()),
+        "ModelCardVersion" => integer(),
+        "ModelId" => String.t(),
+        "RiskRating" => String.t(),
+        "SecurityConfig" => model_card_security_config(),
+        "Tags" => list(tag()())
+      }
+      
   """
   @type model_dashboard_model_card() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_trial_request() :: %{
-    optional("DisplayName") => String.t(),
-    optional("MetadataProperties") => metadata_properties(),
-    optional("Tags") => list(tag()()),
-    required("ExperimentName") => String.t(),
-    required("TrialName") => String.t()
-  }
+      
+      create_trial_request() :: %{
+        optional("DisplayName") => String.t(),
+        optional("MetadataProperties") => metadata_properties(),
+        optional("Tags") => list(tag()()),
+        required("ExperimentName") => String.t(),
+        required("TrialName") => String.t()
+      }
+      
   """
   @type create_trial_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_app_image_config_request() :: %{
-    optional("JupyterLabAppImageConfig") => jupyter_lab_app_image_config(),
-    optional("KernelGatewayImageConfig") => kernel_gateway_image_config(),
-    optional("Tags") => list(tag()()),
-    required("AppImageConfigName") => String.t()
-  }
+      
+      create_app_image_config_request() :: %{
+        optional("JupyterLabAppImageConfig") => jupyter_lab_app_image_config(),
+        optional("KernelGatewayImageConfig") => kernel_gateway_image_config(),
+        optional("Tags") => list(tag()()),
+        required("AppImageConfigName") => String.t()
+      }
+      
   """
   @type create_app_image_config_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  deployed_image() :: %{
-    "ResolutionTime" => non_neg_integer(),
-    "ResolvedImage" => String.t(),
-    "SpecifiedImage" => String.t()
-  }
+      
+      deployed_image() :: %{
+        "ResolutionTime" => non_neg_integer(),
+        "ResolvedImage" => String.t(),
+        "SpecifiedImage" => String.t()
+      }
+      
   """
   @type deployed_image() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  inference_component_summary() :: %{
-    "CreationTime" => non_neg_integer(),
-    "EndpointArn" => String.t(),
-    "EndpointName" => String.t(),
-    "InferenceComponentArn" => String.t(),
-    "InferenceComponentName" => String.t(),
-    "InferenceComponentStatus" => list(any()),
-    "LastModifiedTime" => non_neg_integer(),
-    "VariantName" => String.t()
-  }
+      
+      inference_component_summary() :: %{
+        "CreationTime" => non_neg_integer(),
+        "EndpointArn" => String.t(),
+        "EndpointName" => String.t(),
+        "InferenceComponentArn" => String.t(),
+        "InferenceComponentName" => String.t(),
+        "InferenceComponentStatus" => list(any()),
+        "LastModifiedTime" => non_neg_integer(),
+        "VariantName" => String.t()
+      }
+      
   """
   @type inference_component_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_cluster_request() :: %{
-    required("ClusterName") => String.t()
-  }
+      
+      delete_cluster_request() :: %{
+        required("ClusterName") => String.t()
+      }
+      
   """
   @type delete_cluster_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_transform_job_request() :: %{
-    required("TransformJobName") => String.t()
-  }
+      
+      describe_transform_job_request() :: %{
+        required("TransformJobName") => String.t()
+      }
+      
   """
   @type describe_transform_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_app_request() :: %{
-    optional("SpaceName") => String.t(),
-    optional("UserProfileName") => String.t(),
-    required("AppName") => String.t(),
-    required("AppType") => list(any()),
-    required("DomainId") => String.t()
-  }
+      
+      delete_app_request() :: %{
+        optional("SpaceName") => String.t(),
+        optional("UserProfileName") => String.t(),
+        required("AppName") => String.t(),
+        required("AppType") => list(any()),
+        required("DomainId") => String.t()
+      }
+      
   """
   @type delete_app_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  objective_status_counters() :: %{
-    "Failed" => integer(),
-    "Pending" => integer(),
-    "Succeeded" => integer()
-  }
+      
+      objective_status_counters() :: %{
+        "Failed" => integer(),
+        "Pending" => integer(),
+        "Succeeded" => integer()
+      }
+      
   """
   @type objective_status_counters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  parent_hyper_parameter_tuning_job() :: %{
-    "HyperParameterTuningJobName" => String.t()
-  }
+      
+      parent_hyper_parameter_tuning_job() :: %{
+        "HyperParameterTuningJobName" => String.t()
+      }
+      
   """
   @type parent_hyper_parameter_tuning_job() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  render_ui_template_response() :: %{
-    "Errors" => list(rendering_error()()),
-    "RenderedContent" => String.t()
-  }
+      
+      render_ui_template_response() :: %{
+        "Errors" => list(rendering_error()()),
+        "RenderedContent" => String.t()
+      }
+      
   """
   @type render_ui_template_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_auto_ml_job_v2_response() :: %{
-    "AutoMLJobArn" => String.t(),
-    "AutoMLJobArtifacts" => auto_ml_job_artifacts(),
-    "AutoMLJobInputDataConfig" => list(auto_ml_job_channel()()),
-    "AutoMLJobName" => String.t(),
-    "AutoMLJobObjective" => auto_ml_job_objective(),
-    "AutoMLJobSecondaryStatus" => list(any()),
-    "AutoMLJobStatus" => list(any()),
-    "AutoMLProblemTypeConfig" => list(),
-    "AutoMLProblemTypeConfigName" => list(any()),
-    "BestCandidate" => auto_ml_candidate(),
-    "CreationTime" => non_neg_integer(),
-    "DataSplitConfig" => auto_ml_data_split_config(),
-    "EndTime" => non_neg_integer(),
-    "FailureReason" => String.t(),
-    "LastModifiedTime" => non_neg_integer(),
-    "ModelDeployConfig" => model_deploy_config(),
-    "ModelDeployResult" => model_deploy_result(),
-    "OutputDataConfig" => auto_ml_output_data_config(),
-    "PartialFailureReasons" => list(auto_ml_partial_failure_reason()()),
-    "ResolvedAttributes" => auto_ml_resolved_attributes(),
-    "RoleArn" => String.t(),
-    "SecurityConfig" => auto_ml_security_config()
-  }
+      
+      describe_auto_ml_job_v2_response() :: %{
+        "AutoMLJobArn" => String.t(),
+        "AutoMLJobArtifacts" => auto_ml_job_artifacts(),
+        "AutoMLJobInputDataConfig" => list(auto_ml_job_channel()()),
+        "AutoMLJobName" => String.t(),
+        "AutoMLJobObjective" => auto_ml_job_objective(),
+        "AutoMLJobSecondaryStatus" => list(any()),
+        "AutoMLJobStatus" => list(any()),
+        "AutoMLProblemTypeConfig" => list(),
+        "AutoMLProblemTypeConfigName" => list(any()),
+        "BestCandidate" => auto_ml_candidate(),
+        "CreationTime" => non_neg_integer(),
+        "DataSplitConfig" => auto_ml_data_split_config(),
+        "EndTime" => non_neg_integer(),
+        "FailureReason" => String.t(),
+        "LastModifiedTime" => non_neg_integer(),
+        "ModelDeployConfig" => model_deploy_config(),
+        "ModelDeployResult" => model_deploy_result(),
+        "OutputDataConfig" => auto_ml_output_data_config(),
+        "PartialFailureReasons" => list(auto_ml_partial_failure_reason()()),
+        "ResolvedAttributes" => auto_ml_resolved_attributes(),
+        "RoleArn" => String.t(),
+        "SecurityConfig" => auto_ml_security_config()
+      }
+      
   """
   @type describe_auto_ml_job_v2_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_trial_component_request() :: %{
-    required("TrialComponentName") => String.t()
-  }
+      
+      delete_trial_component_request() :: %{
+        required("TrialComponentName") => String.t()
+      }
+      
   """
   @type delete_trial_component_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  model_package_group_summary() :: %{
-    "CreationTime" => non_neg_integer(),
-    "ModelPackageGroupArn" => String.t(),
-    "ModelPackageGroupDescription" => String.t(),
-    "ModelPackageGroupName" => String.t(),
-    "ModelPackageGroupStatus" => list(any())
-  }
+      
+      model_package_group_summary() :: %{
+        "CreationTime" => non_neg_integer(),
+        "ModelPackageGroupArn" => String.t(),
+        "ModelPackageGroupDescription" => String.t(),
+        "ModelPackageGroupName" => String.t(),
+        "ModelPackageGroupStatus" => list(any())
+      }
+      
   """
   @type model_package_group_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  artifact_summary() :: %{
-    "ArtifactArn" => String.t(),
-    "ArtifactName" => String.t(),
-    "ArtifactType" => String.t(),
-    "CreationTime" => non_neg_integer(),
-    "LastModifiedTime" => non_neg_integer(),
-    "Source" => artifact_source()
-  }
+      
+      artifact_summary() :: %{
+        "ArtifactArn" => String.t(),
+        "ArtifactName" => String.t(),
+        "ArtifactType" => String.t(),
+        "CreationTime" => non_neg_integer(),
+        "LastModifiedTime" => non_neg_integer(),
+        "Source" => artifact_source()
+      }
+      
   """
   @type artifact_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  image() :: %{
-    "CreationTime" => non_neg_integer(),
-    "Description" => String.t(),
-    "DisplayName" => String.t(),
-    "FailureReason" => String.t(),
-    "ImageArn" => String.t(),
-    "ImageName" => String.t(),
-    "ImageStatus" => list(any()),
-    "LastModifiedTime" => non_neg_integer()
-  }
+      
+      image() :: %{
+        "CreationTime" => non_neg_integer(),
+        "Description" => String.t(),
+        "DisplayName" => String.t(),
+        "FailureReason" => String.t(),
+        "ImageArn" => String.t(),
+        "ImageName" => String.t(),
+        "ImageStatus" => list(any()),
+        "LastModifiedTime" => non_neg_integer()
+      }
+      
   """
   @type image() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  device_fleet_summary() :: %{
-    "CreationTime" => non_neg_integer(),
-    "DeviceFleetArn" => String.t(),
-    "DeviceFleetName" => String.t(),
-    "LastModifiedTime" => non_neg_integer()
-  }
+      
+      device_fleet_summary() :: %{
+        "CreationTime" => non_neg_integer(),
+        "DeviceFleetArn" => String.t(),
+        "DeviceFleetName" => String.t(),
+        "LastModifiedTime" => non_neg_integer()
+      }
+      
   """
   @type device_fleet_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_compilation_job_request() :: %{
-    optional("InputConfig") => input_config(),
-    optional("ModelPackageVersionArn") => String.t(),
-    optional("Tags") => list(tag()()),
-    optional("VpcConfig") => neo_vpc_config(),
-    required("CompilationJobName") => String.t(),
-    required("OutputConfig") => output_config(),
-    required("RoleArn") => String.t(),
-    required("StoppingCondition") => stopping_condition()
-  }
+      
+      create_compilation_job_request() :: %{
+        optional("InputConfig") => input_config(),
+        optional("ModelPackageVersionArn") => String.t(),
+        optional("Tags") => list(tag()()),
+        optional("VpcConfig") => neo_vpc_config(),
+        required("CompilationJobName") => String.t(),
+        required("OutputConfig") => output_config(),
+        required("RoleArn") => String.t(),
+        required("StoppingCondition") => stopping_condition()
+      }
+      
   """
   @type create_compilation_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  label_counters() :: %{
-    "FailedNonRetryableError" => integer(),
-    "HumanLabeled" => integer(),
-    "MachineLabeled" => integer(),
-    "TotalLabeled" => integer(),
-    "Unlabeled" => integer()
-  }
+      
+      label_counters() :: %{
+        "FailedNonRetryableError" => integer(),
+        "HumanLabeled" => integer(),
+        "MachineLabeled" => integer(),
+        "TotalLabeled" => integer(),
+        "Unlabeled" => integer()
+      }
+      
   """
   @type label_counters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  drift_check_model_quality() :: %{
-    "Constraints" => metrics_source(),
-    "Statistics" => metrics_source()
-  }
+      
+      drift_check_model_quality() :: %{
+        "Constraints" => metrics_source(),
+        "Statistics" => metrics_source()
+      }
+      
   """
   @type drift_check_model_quality() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  explainability() :: %{
-    "Report" => metrics_source()
-  }
+      
+      explainability() :: %{
+        "Report" => metrics_source()
+      }
+      
   """
   @type explainability() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_monitoring_schedule_response() :: %{
-    "MonitoringScheduleArn" => String.t()
-  }
+      
+      update_monitoring_schedule_response() :: %{
+        "MonitoringScheduleArn" => String.t()
+      }
+      
   """
   @type update_monitoring_schedule_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_experiment_request() :: %{
-    required("ExperimentName") => String.t()
-  }
+      
+      describe_experiment_request() :: %{
+        required("ExperimentName") => String.t()
+      }
+      
   """
   @type describe_experiment_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_model_bias_job_definition_response() :: %{
-    "JobDefinitionArn" => String.t()
-  }
+      
+      create_model_bias_job_definition_response() :: %{
+        "JobDefinitionArn" => String.t()
+      }
+      
   """
   @type create_model_bias_job_definition_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_action_response() :: %{
-    "ActionArn" => String.t()
-  }
+      
+      delete_action_response() :: %{
+        "ActionArn" => String.t()
+      }
+      
   """
   @type delete_action_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_app_request() :: %{
-    optional("SpaceName") => String.t(),
-    optional("UserProfileName") => String.t(),
-    required("AppName") => String.t(),
-    required("AppType") => list(any()),
-    required("DomainId") => String.t()
-  }
+      
+      describe_app_request() :: %{
+        optional("SpaceName") => String.t(),
+        optional("UserProfileName") => String.t(),
+        required("AppName") => String.t(),
+        required("AppType") => list(any()),
+        required("DomainId") => String.t()
+      }
+      
   """
   @type describe_app_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  collection_configuration() :: %{
-    "CollectionName" => String.t(),
-    "CollectionParameters" => map()
-  }
+      
+      collection_configuration() :: %{
+        "CollectionName" => String.t(),
+        "CollectionParameters" => map()
+      }
+      
   """
   @type collection_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_config() :: %{
-    "InstanceCount" => integer(),
-    "InstanceGroups" => list(instance_group()()),
-    "InstanceType" => list(any()),
-    "KeepAlivePeriodInSeconds" => integer(),
-    "VolumeKmsKeyId" => String.t(),
-    "VolumeSizeInGB" => integer()
-  }
+      
+      resource_config() :: %{
+        "InstanceCount" => integer(),
+        "InstanceGroups" => list(instance_group()()),
+        "InstanceType" => list(any()),
+        "KeepAlivePeriodInSeconds" => integer(),
+        "VolumeKmsKeyId" => String.t(),
+        "VolumeSizeInGB" => integer()
+      }
+      
   """
   @type resource_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_project_output() :: %{
-    "ProjectArn" => String.t()
-  }
+      
+      update_project_output() :: %{
+        "ProjectArn" => String.t()
+      }
+      
   """
   @type update_project_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  real_time_inference_config() :: %{
-    "InstanceCount" => integer(),
-    "InstanceType" => list(any())
-  }
+      
+      real_time_inference_config() :: %{
+        "InstanceCount" => integer(),
+        "InstanceType" => list(any())
+      }
+      
   """
   @type real_time_inference_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_transform_job_response() :: %{
-    "AutoMLJobArn" => String.t(),
-    "BatchStrategy" => list(any()),
-    "CreationTime" => non_neg_integer(),
-    "DataCaptureConfig" => batch_data_capture_config(),
-    "DataProcessing" => data_processing(),
-    "Environment" => map(),
-    "ExperimentConfig" => experiment_config(),
-    "FailureReason" => String.t(),
-    "LabelingJobArn" => String.t(),
-    "MaxConcurrentTransforms" => integer(),
-    "MaxPayloadInMB" => integer(),
-    "ModelClientConfig" => model_client_config(),
-    "ModelName" => String.t(),
-    "TransformEndTime" => non_neg_integer(),
-    "TransformInput" => transform_input(),
-    "TransformJobArn" => String.t(),
-    "TransformJobName" => String.t(),
-    "TransformJobStatus" => list(any()),
-    "TransformOutput" => transform_output(),
-    "TransformResources" => transform_resources(),
-    "TransformStartTime" => non_neg_integer()
-  }
+      
+      describe_transform_job_response() :: %{
+        "AutoMLJobArn" => String.t(),
+        "BatchStrategy" => list(any()),
+        "CreationTime" => non_neg_integer(),
+        "DataCaptureConfig" => batch_data_capture_config(),
+        "DataProcessing" => data_processing(),
+        "Environment" => map(),
+        "ExperimentConfig" => experiment_config(),
+        "FailureReason" => String.t(),
+        "LabelingJobArn" => String.t(),
+        "MaxConcurrentTransforms" => integer(),
+        "MaxPayloadInMB" => integer(),
+        "ModelClientConfig" => model_client_config(),
+        "ModelName" => String.t(),
+        "TransformEndTime" => non_neg_integer(),
+        "TransformInput" => transform_input(),
+        "TransformJobArn" => String.t(),
+        "TransformJobName" => String.t(),
+        "TransformJobStatus" => list(any()),
+        "TransformOutput" => transform_output(),
+        "TransformResources" => transform_resources(),
+        "TransformStartTime" => non_neg_integer()
+      }
+      
   """
   @type describe_transform_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_workteams_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NameContains") => String.t(),
-    optional("NextToken") => String.t(),
-    optional("SortBy") => list(any()),
-    optional("SortOrder") => list(any())
-  }
+      
+      list_workteams_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NameContains") => String.t(),
+        optional("NextToken") => String.t(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any())
+      }
+      
   """
   @type list_workteams_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  online_store_config() :: %{
-    "EnableOnlineStore" => boolean(),
-    "SecurityConfig" => online_store_security_config(),
-    "StorageType" => list(any()),
-    "TtlDuration" => ttl_duration()
-  }
+      
+      online_store_config() :: %{
+        "EnableOnlineStore" => boolean(),
+        "SecurityConfig" => online_store_security_config(),
+        "StorageType" => list(any()),
+        "TtlDuration" => ttl_duration()
+      }
+      
   """
   @type online_store_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  processing_job_step_metadata() :: %{
-    "Arn" => String.t()
-  }
+      
+      processing_job_step_metadata() :: %{
+        "Arn" => String.t()
+      }
+      
   """
   @type processing_job_step_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  label_counters_for_workteam() :: %{
-    "HumanLabeled" => integer(),
-    "PendingHuman" => integer(),
-    "Total" => integer()
-  }
+      
+      label_counters_for_workteam() :: %{
+        "HumanLabeled" => integer(),
+        "PendingHuman" => integer(),
+        "Total" => integer()
+      }
+      
   """
   @type label_counters_for_workteam() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_artifacts_response() :: %{
-    "ArtifactSummaries" => list(artifact_summary()()),
-    "NextToken" => String.t()
-  }
+      
+      list_artifacts_response() :: %{
+        "ArtifactSummaries" => list(artifact_summary()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_artifacts_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_hub_response() :: %{
-    "CreationTime" => non_neg_integer(),
-    "FailureReason" => String.t(),
-    "HubArn" => String.t(),
-    "HubDescription" => String.t(),
-    "HubDisplayName" => String.t(),
-    "HubName" => String.t(),
-    "HubSearchKeywords" => list(String.t()()),
-    "HubStatus" => list(any()),
-    "LastModifiedTime" => non_neg_integer(),
-    "S3StorageConfig" => hub_s3_storage_config()
-  }
+      
+      describe_hub_response() :: %{
+        "CreationTime" => non_neg_integer(),
+        "FailureReason" => String.t(),
+        "HubArn" => String.t(),
+        "HubDescription" => String.t(),
+        "HubDisplayName" => String.t(),
+        "HubName" => String.t(),
+        "HubSearchKeywords" => list(String.t()()),
+        "HubStatus" => list(any()),
+        "LastModifiedTime" => non_neg_integer(),
+        "S3StorageConfig" => hub_s3_storage_config()
+      }
+      
   """
   @type describe_hub_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_app_image_config_request() :: %{
-    required("AppImageConfigName") => String.t()
-  }
+      
+      delete_app_image_config_request() :: %{
+        required("AppImageConfigName") => String.t()
+      }
+      
   """
   @type delete_app_image_config_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_feature_group_request() :: %{
-    optional("NextToken") => String.t(),
-    required("FeatureGroupName") => String.t()
-  }
+      
+      describe_feature_group_request() :: %{
+        optional("NextToken") => String.t(),
+        required("FeatureGroupName") => String.t()
+      }
+      
   """
   @type describe_feature_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_compilation_job_request() :: %{
-    required("CompilationJobName") => String.t()
-  }
+      
+      delete_compilation_job_request() :: %{
+        required("CompilationJobName") => String.t()
+      }
+      
   """
   @type delete_compilation_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  data_capture_config_summary() :: %{
-    "CaptureStatus" => list(any()),
-    "CurrentSamplingPercentage" => integer(),
-    "DestinationS3Uri" => String.t(),
-    "EnableCapture" => boolean(),
-    "KmsKeyId" => String.t()
-  }
+      
+      data_capture_config_summary() :: %{
+        "CaptureStatus" => list(any()),
+        "CurrentSamplingPercentage" => integer(),
+        "DestinationS3Uri" => String.t(),
+        "EnableCapture" => boolean(),
+        "KmsKeyId" => String.t()
+      }
+      
   """
   @type data_capture_config_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  monitoring_schedule_config() :: %{
-    "MonitoringJobDefinition" => monitoring_job_definition(),
-    "MonitoringJobDefinitionName" => String.t(),
-    "MonitoringType" => list(any()),
-    "ScheduleConfig" => schedule_config()
-  }
+      
+      monitoring_schedule_config() :: %{
+        "MonitoringJobDefinition" => monitoring_job_definition(),
+        "MonitoringJobDefinitionName" => String.t(),
+        "MonitoringType" => list(any()),
+        "ScheduleConfig" => schedule_config()
+      }
+      
   """
   @type monitoring_schedule_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  profiler_config_for_update() :: %{
-    "DisableProfiler" => boolean(),
-    "ProfilingIntervalInMilliseconds" => float(),
-    "ProfilingParameters" => map(),
-    "S3OutputPath" => String.t()
-  }
+      
+      profiler_config_for_update() :: %{
+        "DisableProfiler" => boolean(),
+        "ProfilingIntervalInMilliseconds" => float(),
+        "ProfilingParameters" => map(),
+        "S3OutputPath" => String.t()
+      }
+      
   """
   @type profiler_config_for_update() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  rolling_update_policy() :: %{
-    "MaximumBatchSize" => capacity_size(),
-    "MaximumExecutionTimeoutInSeconds" => integer(),
-    "RollbackMaximumBatchSize" => capacity_size(),
-    "WaitIntervalInSeconds" => integer()
-  }
+      
+      rolling_update_policy() :: %{
+        "MaximumBatchSize" => capacity_size(),
+        "MaximumExecutionTimeoutInSeconds" => integer(),
+        "RollbackMaximumBatchSize" => capacity_size(),
+        "WaitIntervalInSeconds" => integer()
+      }
+      
   """
   @type rolling_update_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  app_image_config_details() :: %{
-    "AppImageConfigArn" => String.t(),
-    "AppImageConfigName" => String.t(),
-    "CreationTime" => non_neg_integer(),
-    "JupyterLabAppImageConfig" => jupyter_lab_app_image_config(),
-    "KernelGatewayImageConfig" => kernel_gateway_image_config(),
-    "LastModifiedTime" => non_neg_integer()
-  }
+      
+      app_image_config_details() :: %{
+        "AppImageConfigArn" => String.t(),
+        "AppImageConfigName" => String.t(),
+        "CreationTime" => non_neg_integer(),
+        "JupyterLabAppImageConfig" => jupyter_lab_app_image_config(),
+        "KernelGatewayImageConfig" => kernel_gateway_image_config(),
+        "LastModifiedTime" => non_neg_integer()
+      }
+      
   """
   @type app_image_config_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_feature_metadata_request() :: %{
-    optional("Description") => String.t(),
-    optional("ParameterAdditions") => list(feature_parameter()()),
-    optional("ParameterRemovals") => list(String.t()()),
-    required("FeatureGroupName") => String.t(),
-    required("FeatureName") => String.t()
-  }
+      
+      update_feature_metadata_request() :: %{
+        optional("Description") => String.t(),
+        optional("ParameterAdditions") => list(feature_parameter()()),
+        optional("ParameterRemovals") => list(String.t()()),
+        required("FeatureGroupName") => String.t(),
+        required("FeatureName") => String.t()
+      }
+      
   """
   @type update_feature_metadata_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_labeling_job_request() :: %{
-    required("LabelingJobName") => String.t()
-  }
+      
+      describe_labeling_job_request() :: %{
+        required("LabelingJobName") => String.t()
+      }
+      
   """
   @type describe_labeling_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_domain_request() :: %{
-    required("DomainId") => String.t()
-  }
+      
+      describe_domain_request() :: %{
+        required("DomainId") => String.t()
+      }
+      
   """
   @type describe_domain_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_stage_devices_response() :: %{
-    "DeviceDeploymentSummaries" => list(device_deployment_summary()()),
-    "NextToken" => String.t()
-  }
+      
+      list_stage_devices_response() :: %{
+        "DeviceDeploymentSummaries" => list(device_deployment_summary()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_stage_devices_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_presigned_notebook_instance_url_input() :: %{
-    optional("SessionExpirationDurationInSeconds") => integer(),
-    required("NotebookInstanceName") => String.t()
-  }
+      
+      create_presigned_notebook_instance_url_input() :: %{
+        optional("SessionExpirationDurationInSeconds") => integer(),
+        required("NotebookInstanceName") => String.t()
+      }
+      
   """
   @type create_presigned_notebook_instance_url_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  model_explainability_job_input() :: %{
-    "BatchTransformInput" => batch_transform_input(),
-    "EndpointInput" => endpoint_input()
-  }
+      
+      model_explainability_job_input() :: %{
+        "BatchTransformInput" => batch_transform_input(),
+        "EndpointInput" => endpoint_input()
+      }
+      
   """
   @type model_explainability_job_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_space_request() :: %{
-    optional("SpaceDisplayName") => String.t(),
-    optional("SpaceSettings") => space_settings(),
-    required("DomainId") => String.t(),
-    required("SpaceName") => String.t()
-  }
+      
+      update_space_request() :: %{
+        optional("SpaceDisplayName") => String.t(),
+        optional("SpaceSettings") => space_settings(),
+        required("DomainId") => String.t(),
+        required("SpaceName") => String.t()
+      }
+      
   """
   @type update_space_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  trial_component_source_detail() :: %{
-    "ProcessingJob" => processing_job(),
-    "SourceArn" => String.t(),
-    "TrainingJob" => training_job(),
-    "TransformJob" => transform_job()
-  }
+      
+      trial_component_source_detail() :: %{
+        "ProcessingJob" => processing_job(),
+        "SourceArn" => String.t(),
+        "TrainingJob" => training_job(),
+        "TransformJob" => transform_job()
+      }
+      
   """
   @type trial_component_source_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_candidates_for_auto_ml_job_response() :: %{
-    "Candidates" => list(auto_ml_candidate()()),
-    "NextToken" => String.t()
-  }
+      
+      list_candidates_for_auto_ml_job_response() :: %{
+        "Candidates" => list(auto_ml_candidate()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_candidates_for_auto_ml_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  predefined_metric_specification() :: %{
-    "PredefinedMetricType" => String.t()
-  }
+      
+      predefined_metric_specification() :: %{
+        "PredefinedMetricType" => String.t()
+      }
+      
   """
   @type predefined_metric_specification() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  endpoint_input_configuration() :: %{
-    "EnvironmentParameterRanges" => environment_parameter_ranges(),
-    "InferenceSpecificationName" => String.t(),
-    "InstanceType" => list(any()),
-    "ServerlessConfig" => production_variant_serverless_config()
-  }
+      
+      endpoint_input_configuration() :: %{
+        "EnvironmentParameterRanges" => environment_parameter_ranges(),
+        "InferenceSpecificationName" => String.t(),
+        "InstanceType" => list(any()),
+        "ServerlessConfig" => production_variant_serverless_config()
+      }
+      
   """
   @type endpoint_input_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_model_input() :: %{
-    required("ModelName") => String.t()
-  }
+      
+      delete_model_input() :: %{
+        required("ModelName") => String.t()
+      }
+      
   """
   @type delete_model_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_monitoring_schedule_request() :: %{
-    required("MonitoringScheduleName") => String.t()
-  }
+      
+      describe_monitoring_schedule_request() :: %{
+        required("MonitoringScheduleName") => String.t()
+      }
+      
   """
   @type describe_monitoring_schedule_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  action_source() :: %{
-    "SourceId" => String.t(),
-    "SourceType" => String.t(),
-    "SourceUri" => String.t()
-  }
+      
+      action_source() :: %{
+        "SourceId" => String.t(),
+        "SourceType" => String.t(),
+        "SourceUri" => String.t()
+      }
+      
   """
   @type action_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  hyper_parameter_tuning_job_summary() :: %{
-    "CreationTime" => non_neg_integer(),
-    "HyperParameterTuningEndTime" => non_neg_integer(),
-    "HyperParameterTuningJobArn" => String.t(),
-    "HyperParameterTuningJobName" => String.t(),
-    "HyperParameterTuningJobStatus" => list(any()),
-    "LastModifiedTime" => non_neg_integer(),
-    "ObjectiveStatusCounters" => objective_status_counters(),
-    "ResourceLimits" => resource_limits(),
-    "Strategy" => list(any()),
-    "TrainingJobStatusCounters" => training_job_status_counters()
-  }
+      
+      hyper_parameter_tuning_job_summary() :: %{
+        "CreationTime" => non_neg_integer(),
+        "HyperParameterTuningEndTime" => non_neg_integer(),
+        "HyperParameterTuningJobArn" => String.t(),
+        "HyperParameterTuningJobName" => String.t(),
+        "HyperParameterTuningJobStatus" => list(any()),
+        "LastModifiedTime" => non_neg_integer(),
+        "ObjectiveStatusCounters" => objective_status_counters(),
+        "ResourceLimits" => resource_limits(),
+        "Strategy" => list(any()),
+        "TrainingJobStatusCounters" => training_job_status_counters()
+      }
+      
   """
   @type hyper_parameter_tuning_job_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  multi_model_config() :: %{
-    "ModelCacheSetting" => list(any())
-  }
+      
+      multi_model_config() :: %{
+        "ModelCacheSetting" => list(any())
+      }
+      
   """
   @type multi_model_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  model_artifacts() :: %{
-    "S3ModelArtifacts" => String.t()
-  }
+      
+      model_artifacts() :: %{
+        "S3ModelArtifacts" => String.t()
+      }
+      
   """
   @type model_artifacts() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_user_profile_request() :: %{
-    optional("SingleSignOnUserIdentifier") => String.t(),
-    optional("SingleSignOnUserValue") => String.t(),
-    optional("Tags") => list(tag()()),
-    optional("UserSettings") => user_settings(),
-    required("DomainId") => String.t(),
-    required("UserProfileName") => String.t()
-  }
+      
+      create_user_profile_request() :: %{
+        optional("SingleSignOnUserIdentifier") => String.t(),
+        optional("SingleSignOnUserValue") => String.t(),
+        optional("Tags") => list(tag()()),
+        optional("UserSettings") => user_settings(),
+        required("DomainId") => String.t(),
+        required("UserProfileName") => String.t()
+      }
+      
   """
   @type create_user_profile_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  processing_input() :: %{
-    "AppManaged" => boolean(),
-    "DatasetDefinition" => dataset_definition(),
-    "InputName" => String.t(),
-    "S3Input" => processing_s3_input()
-  }
+      
+      processing_input() :: %{
+        "AppManaged" => boolean(),
+        "DatasetDefinition" => dataset_definition(),
+        "InputName" => String.t(),
+        "S3Input" => processing_s3_input()
+      }
+      
   """
   @type processing_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_feature_group_request() :: %{
-    optional("FeatureAdditions") => list(feature_definition()()),
-    optional("OnlineStoreConfig") => online_store_config_update(),
-    optional("ThroughputConfig") => throughput_config_update(),
-    required("FeatureGroupName") => String.t()
-  }
+      
+      update_feature_group_request() :: %{
+        optional("FeatureAdditions") => list(feature_definition()()),
+        optional("OnlineStoreConfig") => online_store_config_update(),
+        optional("ThroughputConfig") => throughput_config_update(),
+        required("FeatureGroupName") => String.t()
+      }
+      
   """
   @type update_feature_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_edge_deployment_plans_response() :: %{
-    "EdgeDeploymentPlanSummaries" => list(edge_deployment_plan_summary()()),
-    "NextToken" => String.t()
-  }
+      
+      list_edge_deployment_plans_response() :: %{
+        "EdgeDeploymentPlanSummaries" => list(edge_deployment_plan_summary()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_edge_deployment_plans_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_monitoring_alert_response() :: %{
-    "MonitoringAlertName" => String.t(),
-    "MonitoringScheduleArn" => String.t()
-  }
+      
+      update_monitoring_alert_response() :: %{
+        "MonitoringAlertName" => String.t(),
+        "MonitoringScheduleArn" => String.t()
+      }
+      
   """
   @type update_monitoring_alert_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tensor_board_output_config() :: %{
-    "LocalPath" => String.t(),
-    "S3OutputPath" => String.t()
-  }
+      
+      tensor_board_output_config() :: %{
+        "LocalPath" => String.t(),
+        "S3OutputPath" => String.t()
+      }
+      
   """
   @type tensor_board_output_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  monitoring_app_specification() :: %{
-    "ContainerArguments" => list(String.t()()),
-    "ContainerEntrypoint" => list(String.t()()),
-    "ImageUri" => String.t(),
-    "PostAnalyticsProcessorSourceUri" => String.t(),
-    "RecordPreprocessorSourceUri" => String.t()
-  }
+      
+      monitoring_app_specification() :: %{
+        "ContainerArguments" => list(String.t()()),
+        "ContainerEntrypoint" => list(String.t()()),
+        "ImageUri" => String.t(),
+        "PostAnalyticsProcessorSourceUri" => String.t(),
+        "RecordPreprocessorSourceUri" => String.t()
+      }
+      
   """
   @type monitoring_app_specification() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  model_input() :: %{
-    "DataInputConfig" => String.t()
-  }
+      
+      model_input() :: %{
+        "DataInputConfig" => String.t()
+      }
+      
   """
   @type model_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  data_quality_job_input() :: %{
-    "BatchTransformInput" => batch_transform_input(),
-    "EndpointInput" => endpoint_input()
-  }
+      
+      data_quality_job_input() :: %{
+        "BatchTransformInput" => batch_transform_input(),
+        "EndpointInput" => endpoint_input()
+      }
+      
   """
   @type data_quality_job_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_subscribed_workteams_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NameContains") => String.t(),
-    optional("NextToken") => String.t()
-  }
+      
+      list_subscribed_workteams_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NameContains") => String.t(),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type list_subscribed_workteams_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_studio_lifecycle_configs_response() :: %{
-    "NextToken" => String.t(),
-    "StudioLifecycleConfigs" => list(studio_lifecycle_config_details()())
-  }
+      
+      list_studio_lifecycle_configs_response() :: %{
+        "NextToken" => String.t(),
+        "StudioLifecycleConfigs" => list(studio_lifecycle_config_details()())
+      }
+      
   """
   @type list_studio_lifecycle_configs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  data_processing() :: %{
-    "InputFilter" => String.t(),
-    "JoinSource" => list(any()),
-    "OutputFilter" => String.t()
-  }
+      
+      data_processing() :: %{
+        "InputFilter" => String.t(),
+        "JoinSource" => list(any()),
+        "OutputFilter" => String.t()
+      }
+      
   """
   @type data_processing() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  monitoring_output() :: %{
-    "S3Output" => monitoring_s3_output()
-  }
+      
+      monitoring_output() :: %{
+        "S3Output" => monitoring_s3_output()
+      }
+      
   """
   @type monitoring_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_model_bias_job_definitions_response() :: %{
-    "JobDefinitionSummaries" => list(monitoring_job_definition_summary()()),
-    "NextToken" => String.t()
-  }
+      
+      list_model_bias_job_definitions_response() :: %{
+        "JobDefinitionSummaries" => list(monitoring_job_definition_summary()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_model_bias_job_definitions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tabular_job_config() :: %{
-    "CandidateGenerationConfig" => candidate_generation_config(),
-    "CompletionCriteria" => auto_ml_job_completion_criteria(),
-    "FeatureSpecificationS3Uri" => String.t(),
-    "GenerateCandidateDefinitionsOnly" => boolean(),
-    "Mode" => list(any()),
-    "ProblemType" => list(any()),
-    "SampleWeightAttributeName" => String.t(),
-    "TargetAttributeName" => String.t()
-  }
+      
+      tabular_job_config() :: %{
+        "CandidateGenerationConfig" => candidate_generation_config(),
+        "CompletionCriteria" => auto_ml_job_completion_criteria(),
+        "FeatureSpecificationS3Uri" => String.t(),
+        "GenerateCandidateDefinitionsOnly" => boolean(),
+        "Mode" => list(any()),
+        "ProblemType" => list(any()),
+        "SampleWeightAttributeName" => String.t(),
+        "TargetAttributeName" => String.t()
+      }
+      
   """
   @type tabular_job_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_subscribed_workteam_response() :: %{
-    "SubscribedWorkteam" => subscribed_workteam()
-  }
+      
+      describe_subscribed_workteam_response() :: %{
+        "SubscribedWorkteam" => subscribed_workteam()
+      }
+      
   """
   @type describe_subscribed_workteam_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_projects_input() :: %{
-    optional("CreationTimeAfter") => non_neg_integer(),
-    optional("CreationTimeBefore") => non_neg_integer(),
-    optional("MaxResults") => integer(),
-    optional("NameContains") => String.t(),
-    optional("NextToken") => String.t(),
-    optional("SortBy") => list(any()),
-    optional("SortOrder") => list(any())
-  }
+      
+      list_projects_input() :: %{
+        optional("CreationTimeAfter") => non_neg_integer(),
+        optional("CreationTimeBefore") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("NameContains") => String.t(),
+        optional("NextToken") => String.t(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any())
+      }
+      
   """
   @type list_projects_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_transform_input() :: %{
-    "DataCapturedDestinationS3Uri" => String.t(),
-    "DatasetFormat" => monitoring_dataset_format(),
-    "EndTimeOffset" => String.t(),
-    "ExcludeFeaturesAttribute" => String.t(),
-    "FeaturesAttribute" => String.t(),
-    "InferenceAttribute" => String.t(),
-    "LocalPath" => String.t(),
-    "ProbabilityAttribute" => String.t(),
-    "ProbabilityThresholdAttribute" => float(),
-    "S3DataDistributionType" => list(any()),
-    "S3InputMode" => list(any()),
-    "StartTimeOffset" => String.t()
-  }
+      
+      batch_transform_input() :: %{
+        "DataCapturedDestinationS3Uri" => String.t(),
+        "DatasetFormat" => monitoring_dataset_format(),
+        "EndTimeOffset" => String.t(),
+        "ExcludeFeaturesAttribute" => String.t(),
+        "FeaturesAttribute" => String.t(),
+        "InferenceAttribute" => String.t(),
+        "LocalPath" => String.t(),
+        "ProbabilityAttribute" => String.t(),
+        "ProbabilityThresholdAttribute" => float(),
+        "S3DataDistributionType" => list(any()),
+        "S3InputMode" => list(any()),
+        "StartTimeOffset" => String.t()
+      }
+      
   """
   @type batch_transform_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_inference_recommendations_jobs_request() :: %{
-    optional("CreationTimeAfter") => non_neg_integer(),
-    optional("CreationTimeBefore") => non_neg_integer(),
-    optional("LastModifiedTimeAfter") => non_neg_integer(),
-    optional("LastModifiedTimeBefore") => non_neg_integer(),
-    optional("MaxResults") => integer(),
-    optional("ModelNameEquals") => String.t(),
-    optional("ModelPackageVersionArnEquals") => String.t(),
-    optional("NameContains") => String.t(),
-    optional("NextToken") => String.t(),
-    optional("SortBy") => list(any()),
-    optional("SortOrder") => list(any()),
-    optional("StatusEquals") => list(any())
-  }
+      
+      list_inference_recommendations_jobs_request() :: %{
+        optional("CreationTimeAfter") => non_neg_integer(),
+        optional("CreationTimeBefore") => non_neg_integer(),
+        optional("LastModifiedTimeAfter") => non_neg_integer(),
+        optional("LastModifiedTimeBefore") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("ModelNameEquals") => String.t(),
+        optional("ModelPackageVersionArnEquals") => String.t(),
+        optional("NameContains") => String.t(),
+        optional("NextToken") => String.t(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any()),
+        optional("StatusEquals") => list(any())
+      }
+      
   """
   @type list_inference_recommendations_jobs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  endpoint_info() :: %{
-    "EndpointName" => String.t()
-  }
+      
+      endpoint_info() :: %{
+        "EndpointName" => String.t()
+      }
+      
   """
   @type endpoint_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  enable_sagemaker_servicecatalog_portfolio_input() :: %{
-
-  }
+      
+      enable_sagemaker_servicecatalog_portfolio_input() :: %{}
+      
   """
-  @type enable_sagemaker_servicecatalog_portfolio_input() :: %{String.t() => any()}
+  @type enable_sagemaker_servicecatalog_portfolio_input() :: %{}
 
   @typedoc """
 
   ## Example:
-  inference_experiment_summary() :: %{
-    "CompletionTime" => non_neg_integer(),
-    "CreationTime" => non_neg_integer(),
-    "Description" => String.t(),
-    "LastModifiedTime" => non_neg_integer(),
-    "Name" => String.t(),
-    "RoleArn" => String.t(),
-    "Schedule" => inference_experiment_schedule(),
-    "Status" => list(any()),
-    "StatusReason" => String.t(),
-    "Type" => list(any())
-  }
+      
+      inference_experiment_summary() :: %{
+        "CompletionTime" => non_neg_integer(),
+        "CreationTime" => non_neg_integer(),
+        "Description" => String.t(),
+        "LastModifiedTime" => non_neg_integer(),
+        "Name" => String.t(),
+        "RoleArn" => String.t(),
+        "Schedule" => inference_experiment_schedule(),
+        "Status" => list(any()),
+        "StatusReason" => String.t(),
+        "Type" => list(any())
+      }
+      
   """
   @type inference_experiment_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_models_input() :: %{
-    optional("CreationTimeAfter") => non_neg_integer(),
-    optional("CreationTimeBefore") => non_neg_integer(),
-    optional("MaxResults") => integer(),
-    optional("NameContains") => String.t(),
-    optional("NextToken") => String.t(),
-    optional("SortBy") => list(any()),
-    optional("SortOrder") => list(any())
-  }
+      
+      list_models_input() :: %{
+        optional("CreationTimeAfter") => non_neg_integer(),
+        optional("CreationTimeBefore") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("NameContains") => String.t(),
+        optional("NextToken") => String.t(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any())
+      }
+      
   """
   @type list_models_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  transform_job_definition() :: %{
-    "BatchStrategy" => list(any()),
-    "Environment" => map(),
-    "MaxConcurrentTransforms" => integer(),
-    "MaxPayloadInMB" => integer(),
-    "TransformInput" => transform_input(),
-    "TransformOutput" => transform_output(),
-    "TransformResources" => transform_resources()
-  }
+      
+      transform_job_definition() :: %{
+        "BatchStrategy" => list(any()),
+        "Environment" => map(),
+        "MaxConcurrentTransforms" => integer(),
+        "MaxPayloadInMB" => integer(),
+        "TransformInput" => transform_input(),
+        "TransformOutput" => transform_output(),
+        "TransformResources" => transform_resources()
+      }
+      
   """
   @type transform_job_definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  model_card_export_job_summary() :: %{
-    "CreatedAt" => non_neg_integer(),
-    "LastModifiedAt" => non_neg_integer(),
-    "ModelCardExportJobArn" => String.t(),
-    "ModelCardExportJobName" => String.t(),
-    "ModelCardName" => String.t(),
-    "ModelCardVersion" => integer(),
-    "Status" => list(any())
-  }
+      
+      model_card_export_job_summary() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "LastModifiedAt" => non_neg_integer(),
+        "ModelCardExportJobArn" => String.t(),
+        "ModelCardExportJobName" => String.t(),
+        "ModelCardName" => String.t(),
+        "ModelCardVersion" => integer(),
+        "Status" => list(any())
+      }
+      
   """
   @type model_card_export_job_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  model_package_validation_profile() :: %{
-    "ProfileName" => String.t(),
-    "TransformJobDefinition" => transform_job_definition()
-  }
+      
+      model_package_validation_profile() :: %{
+        "ProfileName" => String.t(),
+        "TransformJobDefinition" => transform_job_definition()
+      }
+      
   """
   @type model_package_validation_profile() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  output_config() :: %{
-    "CompilerOptions" => String.t(),
-    "KmsKeyId" => String.t(),
-    "S3OutputLocation" => String.t(),
-    "TargetDevice" => list(any()),
-    "TargetPlatform" => target_platform()
-  }
+      
+      output_config() :: %{
+        "CompilerOptions" => String.t(),
+        "KmsKeyId" => String.t(),
+        "S3OutputLocation" => String.t(),
+        "TargetDevice" => list(any()),
+        "TargetPlatform" => target_platform()
+      }
+      
   """
   @type output_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_trial_request() :: %{
-    required("TrialName") => String.t()
-  }
+      
+      delete_trial_request() :: %{
+        required("TrialName") => String.t()
+      }
+      
   """
   @type delete_trial_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  hyper_parameter_tuning_job_objective() :: %{
-    "MetricName" => String.t(),
-    "Type" => list(any())
-  }
+      
+      hyper_parameter_tuning_job_objective() :: %{
+        "MetricName" => String.t(),
+        "Type" => list(any())
+      }
+      
   """
   @type hyper_parameter_tuning_job_objective() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_flow_definition_request() :: %{
-    required("FlowDefinitionName") => String.t()
-  }
+      
+      describe_flow_definition_request() :: %{
+        required("FlowDefinitionName") => String.t()
+      }
+      
   """
   @type describe_flow_definition_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  hyper_parameter_algorithm_specification() :: %{
-    "AlgorithmName" => String.t(),
-    "MetricDefinitions" => list(metric_definition()()),
-    "TrainingImage" => String.t(),
-    "TrainingInputMode" => list(any())
-  }
+      
+      hyper_parameter_algorithm_specification() :: %{
+        "AlgorithmName" => String.t(),
+        "MetricDefinitions" => list(metric_definition()()),
+        "TrainingImage" => String.t(),
+        "TrainingInputMode" => list(any())
+      }
+      
   """
   @type hyper_parameter_algorithm_specification() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  s3_model_data_source() :: %{
-    "CompressionType" => list(any()),
-    "ModelAccessConfig" => model_access_config(),
-    "S3DataType" => list(any()),
-    "S3Uri" => String.t()
-  }
+      
+      s3_model_data_source() :: %{
+        "CompressionType" => list(any()),
+        "ModelAccessConfig" => model_access_config(),
+        "S3DataType" => list(any()),
+        "S3Uri" => String.t()
+      }
+      
   """
   @type s3_model_data_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  traffic_routing_config() :: %{
-    "CanarySize" => capacity_size(),
-    "LinearStepSize" => capacity_size(),
-    "Type" => list(any()),
-    "WaitIntervalInSeconds" => integer()
-  }
+      
+      traffic_routing_config() :: %{
+        "CanarySize" => capacity_size(),
+        "LinearStepSize" => capacity_size(),
+        "Type" => list(any()),
+        "WaitIntervalInSeconds" => integer()
+      }
+      
   """
   @type traffic_routing_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_inference_experiment_request() :: %{
-    optional("DataStorageConfig") => inference_experiment_data_storage_config(),
-    optional("Description") => String.t(),
-    optional("KmsKey") => String.t(),
-    optional("Schedule") => inference_experiment_schedule(),
-    optional("Tags") => list(tag()()),
-    required("EndpointName") => String.t(),
-    required("ModelVariants") => list(model_variant_config()()),
-    required("Name") => String.t(),
-    required("RoleArn") => String.t(),
-    required("ShadowModeConfig") => shadow_mode_config(),
-    required("Type") => list(any())
-  }
+      
+      create_inference_experiment_request() :: %{
+        optional("DataStorageConfig") => inference_experiment_data_storage_config(),
+        optional("Description") => String.t(),
+        optional("KmsKey") => String.t(),
+        optional("Schedule") => inference_experiment_schedule(),
+        optional("Tags") => list(tag()()),
+        required("EndpointName") => String.t(),
+        required("ModelVariants") => list(model_variant_config()()),
+        required("Name") => String.t(),
+        required("RoleArn") => String.t(),
+        required("ShadowModeConfig") => shadow_mode_config(),
+        required("Type") => list(any())
+      }
+      
   """
   @type create_inference_experiment_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  recommendation_job_stopping_conditions() :: %{
-    "FlatInvocations" => list(any()),
-    "MaxInvocations" => integer(),
-    "ModelLatencyThresholds" => list(model_latency_threshold()())
-  }
+      
+      recommendation_job_stopping_conditions() :: %{
+        "FlatInvocations" => list(any()),
+        "MaxInvocations" => integer(),
+        "ModelLatencyThresholds" => list(model_latency_threshold()())
+      }
+      
   """
   @type recommendation_job_stopping_conditions() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  vector_config() :: %{
-    "Dimension" => integer()
-  }
+      
+      vector_config() :: %{
+        "Dimension" => integer()
+      }
+      
   """
   @type vector_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disable_sagemaker_servicecatalog_portfolio_input() :: %{
-
-  }
+      
+      disable_sagemaker_servicecatalog_portfolio_input() :: %{}
+      
   """
-  @type disable_sagemaker_servicecatalog_portfolio_input() :: %{String.t() => any()}
+  @type disable_sagemaker_servicecatalog_portfolio_input() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_device_fleet_report_request() :: %{
-    required("DeviceFleetName") => String.t()
-  }
+      
+      get_device_fleet_report_request() :: %{
+        required("DeviceFleetName") => String.t()
+      }
+      
   """
   @type get_device_fleet_report_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_endpoint_input() :: %{
-    required("EndpointName") => String.t()
-  }
+      
+      delete_endpoint_input() :: %{
+        required("EndpointName") => String.t()
+      }
+      
   """
   @type delete_endpoint_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  transform_resources() :: %{
-    "InstanceCount" => integer(),
-    "InstanceType" => list(any()),
-    "VolumeKmsKeyId" => String.t()
-  }
+      
+      transform_resources() :: %{
+        "InstanceCount" => integer(),
+        "InstanceType" => list(any()),
+        "VolumeKmsKeyId" => String.t()
+      }
+      
   """
   @type transform_resources() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_model_explainability_job_definition_response() :: %{
-    "CreationTime" => non_neg_integer(),
-    "JobDefinitionArn" => String.t(),
-    "JobDefinitionName" => String.t(),
-    "JobResources" => monitoring_resources(),
-    "ModelExplainabilityAppSpecification" => model_explainability_app_specification(),
-    "ModelExplainabilityBaselineConfig" => model_explainability_baseline_config(),
-    "ModelExplainabilityJobInput" => model_explainability_job_input(),
-    "ModelExplainabilityJobOutputConfig" => monitoring_output_config(),
-    "NetworkConfig" => monitoring_network_config(),
-    "RoleArn" => String.t(),
-    "StoppingCondition" => monitoring_stopping_condition()
-  }
+      
+      describe_model_explainability_job_definition_response() :: %{
+        "CreationTime" => non_neg_integer(),
+        "JobDefinitionArn" => String.t(),
+        "JobDefinitionName" => String.t(),
+        "JobResources" => monitoring_resources(),
+        "ModelExplainabilityAppSpecification" => model_explainability_app_specification(),
+        "ModelExplainabilityBaselineConfig" => model_explainability_baseline_config(),
+        "ModelExplainabilityJobInput" => model_explainability_job_input(),
+        "ModelExplainabilityJobOutputConfig" => monitoring_output_config(),
+        "NetworkConfig" => monitoring_network_config(),
+        "RoleArn" => String.t(),
+        "StoppingCondition" => monitoring_stopping_condition()
+      }
+      
   """
   @type describe_model_explainability_job_definition_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_data_quality_job_definition_response() :: %{
-    "CreationTime" => non_neg_integer(),
-    "DataQualityAppSpecification" => data_quality_app_specification(),
-    "DataQualityBaselineConfig" => data_quality_baseline_config(),
-    "DataQualityJobInput" => data_quality_job_input(),
-    "DataQualityJobOutputConfig" => monitoring_output_config(),
-    "JobDefinitionArn" => String.t(),
-    "JobDefinitionName" => String.t(),
-    "JobResources" => monitoring_resources(),
-    "NetworkConfig" => monitoring_network_config(),
-    "RoleArn" => String.t(),
-    "StoppingCondition" => monitoring_stopping_condition()
-  }
+      
+      describe_data_quality_job_definition_response() :: %{
+        "CreationTime" => non_neg_integer(),
+        "DataQualityAppSpecification" => data_quality_app_specification(),
+        "DataQualityBaselineConfig" => data_quality_baseline_config(),
+        "DataQualityJobInput" => data_quality_job_input(),
+        "DataQualityJobOutputConfig" => monitoring_output_config(),
+        "JobDefinitionArn" => String.t(),
+        "JobDefinitionName" => String.t(),
+        "JobResources" => monitoring_resources(),
+        "NetworkConfig" => monitoring_network_config(),
+        "RoleArn" => String.t(),
+        "StoppingCondition" => monitoring_stopping_condition()
+      }
+      
   """
   @type describe_data_quality_job_definition_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  edge_model() :: %{
-    "LatestInference" => non_neg_integer(),
-    "LatestSampleTime" => non_neg_integer(),
-    "ModelName" => String.t(),
-    "ModelVersion" => String.t()
-  }
+      
+      edge_model() :: %{
+        "LatestInference" => non_neg_integer(),
+        "LatestSampleTime" => non_neg_integer(),
+        "ModelName" => String.t(),
+        "ModelVersion" => String.t()
+      }
+      
   """
   @type edge_model() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stop_training_job_request() :: %{
-    required("TrainingJobName") => String.t()
-  }
+      
+      stop_training_job_request() :: %{
+        required("TrainingJobName") => String.t()
+      }
+      
   """
   @type stop_training_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_workforce_request() :: %{
-    optional("OidcConfig") => oidc_config(),
-    optional("SourceIpConfig") => source_ip_config(),
-    optional("WorkforceVpcConfig") => workforce_vpc_config_request(),
-    required("WorkforceName") => String.t()
-  }
+      
+      update_workforce_request() :: %{
+        optional("OidcConfig") => oidc_config(),
+        optional("SourceIpConfig") => source_ip_config(),
+        optional("WorkforceVpcConfig") => workforce_vpc_config_request(),
+        required("WorkforceName") => String.t()
+      }
+      
   """
   @type update_workforce_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_inference_components_output() :: %{
-    "InferenceComponents" => list(inference_component_summary()()),
-    "NextToken" => String.t()
-  }
+      
+      list_inference_components_output() :: %{
+        "InferenceComponents" => list(inference_component_summary()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_inference_components_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  labeling_job_input_config() :: %{
-    "DataAttributes" => labeling_job_data_attributes(),
-    "DataSource" => labeling_job_data_source()
-  }
+      
+      labeling_job_input_config() :: %{
+        "DataAttributes" => labeling_job_data_attributes(),
+        "DataSource" => labeling_job_data_source()
+      }
+      
   """
   @type labeling_job_input_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_artifact_response() :: %{
-    "ArtifactArn" => String.t()
-  }
+      
+      update_artifact_response() :: %{
+        "ArtifactArn" => String.t()
+      }
+      
   """
   @type update_artifact_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_association_response() :: %{
-    "DestinationArn" => String.t(),
-    "SourceArn" => String.t()
-  }
+      
+      delete_association_response() :: %{
+        "DestinationArn" => String.t(),
+        "SourceArn" => String.t()
+      }
+      
   """
   @type delete_association_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_trial_component_response() :: %{
-    "TrialComponentArn" => String.t()
-  }
+      
+      delete_trial_component_response() :: %{
+        "TrialComponentArn" => String.t()
+      }
+      
   """
   @type delete_trial_component_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_algorithm_output() :: %{
-    "AlgorithmArn" => String.t()
-  }
+      
+      create_algorithm_output() :: %{
+        "AlgorithmArn" => String.t()
+      }
+      
   """
   @type create_algorithm_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  training_job() :: %{
-    "CreationTime" => non_neg_integer(),
-    "TrainingJobArn" => String.t(),
-    "OutputDataConfig" => output_data_config(),
-    "EnableManagedSpotTraining" => boolean(),
-    "TrainingStartTime" => non_neg_integer(),
-    "VpcConfig" => vpc_config(),
-    "LastModifiedTime" => non_neg_integer(),
-    "CheckpointConfig" => checkpoint_config(),
-    "Tags" => list(tag()()),
-    "TrainingEndTime" => non_neg_integer(),
-    "BillableTimeInSeconds" => integer(),
-    "LabelingJobArn" => String.t(),
-    "TensorBoardOutputConfig" => tensor_board_output_config(),
-    "TrainingTimeInSeconds" => integer(),
-    "EnableInterContainerTrafficEncryption" => boolean(),
-    "ResourceConfig" => resource_config(),
-    "HyperParameters" => map(),
-    "SecondaryStatus" => list(any()),
-    "TrainingJobStatus" => list(any()),
-    "ProfilerConfig" => profiler_config(),
-    "TrainingJobName" => String.t(),
-    "DebugRuleEvaluationStatuses" => list(debug_rule_evaluation_status()()),
-    "AutoMLJobArn" => String.t(),
-    "DebugRuleConfigurations" => list(debug_rule_configuration()()),
-    "RetryStrategy" => retry_strategy(),
-    "Environment" => map(),
-    "AlgorithmSpecification" => algorithm_specification(),
-    "SecondaryStatusTransitions" => list(secondary_status_transition()()),
-    "TuningJobArn" => String.t(),
-    "InputDataConfig" => list(channel()()),
-    "ModelArtifacts" => model_artifacts(),
-    "FinalMetricDataList" => list(metric_data()()),
-    "RoleArn" => String.t(),
-    "FailureReason" => String.t(),
-    "StoppingCondition" => stopping_condition(),
-    "ExperimentConfig" => experiment_config(),
-    "EnableNetworkIsolation" => boolean(),
-    "DebugHookConfig" => debug_hook_config()
-  }
+      
+      training_job() :: %{
+        "CreationTime" => non_neg_integer(),
+        "TrainingJobArn" => String.t(),
+        "OutputDataConfig" => output_data_config(),
+        "EnableManagedSpotTraining" => boolean(),
+        "TrainingStartTime" => non_neg_integer(),
+        "VpcConfig" => vpc_config(),
+        "LastModifiedTime" => non_neg_integer(),
+        "CheckpointConfig" => checkpoint_config(),
+        "Tags" => list(tag()()),
+        "TrainingEndTime" => non_neg_integer(),
+        "BillableTimeInSeconds" => integer(),
+        "LabelingJobArn" => String.t(),
+        "TensorBoardOutputConfig" => tensor_board_output_config(),
+        "TrainingTimeInSeconds" => integer(),
+        "EnableInterContainerTrafficEncryption" => boolean(),
+        "ResourceConfig" => resource_config(),
+        "HyperParameters" => map(),
+        "SecondaryStatus" => list(any()),
+        "TrainingJobStatus" => list(any()),
+        "ProfilerConfig" => profiler_config(),
+        "TrainingJobName" => String.t(),
+        "DebugRuleEvaluationStatuses" => list(debug_rule_evaluation_status()()),
+        "AutoMLJobArn" => String.t(),
+        "DebugRuleConfigurations" => list(debug_rule_configuration()()),
+        "RetryStrategy" => retry_strategy(),
+        "Environment" => map(),
+        "AlgorithmSpecification" => algorithm_specification(),
+        "SecondaryStatusTransitions" => list(secondary_status_transition()()),
+        "TuningJobArn" => String.t(),
+        "InputDataConfig" => list(channel()()),
+        "ModelArtifacts" => model_artifacts(),
+        "FinalMetricDataList" => list(metric_data()()),
+        "RoleArn" => String.t(),
+        "FailureReason" => String.t(),
+        "StoppingCondition" => stopping_condition(),
+        "ExperimentConfig" => experiment_config(),
+        "EnableNetworkIsolation" => boolean(),
+        "DebugHookConfig" => debug_hook_config()
+      }
+      
   """
   @type training_job() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_workteam_request() :: %{
-    optional("NotificationConfiguration") => notification_configuration(),
-    optional("Tags") => list(tag()()),
-    optional("WorkforceName") => String.t(),
-    required("Description") => String.t(),
-    required("MemberDefinitions") => list(member_definition()()),
-    required("WorkteamName") => String.t()
-  }
+      
+      create_workteam_request() :: %{
+        optional("NotificationConfiguration") => notification_configuration(),
+        optional("Tags") => list(tag()()),
+        optional("WorkforceName") => String.t(),
+        required("Description") => String.t(),
+        required("MemberDefinitions") => list(member_definition()()),
+        required("WorkteamName") => String.t()
+      }
+      
   """
   @type create_workteam_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_lineage_groups_request() :: %{
-    optional("CreatedAfter") => non_neg_integer(),
-    optional("CreatedBefore") => non_neg_integer(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("SortBy") => list(any()),
-    optional("SortOrder") => list(any())
-  }
+      
+      list_lineage_groups_request() :: %{
+        optional("CreatedAfter") => non_neg_integer(),
+        optional("CreatedBefore") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any())
+      }
+      
   """
   @type list_lineage_groups_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_pipeline_execution_request() :: %{
-    optional("ParallelismConfiguration") => parallelism_configuration(),
-    optional("PipelineExecutionDescription") => String.t(),
-    optional("PipelineExecutionDisplayName") => String.t(),
-    optional("PipelineParameters") => list(parameter()()),
-    optional("SelectiveExecutionConfig") => selective_execution_config(),
-    required("ClientRequestToken") => String.t(),
-    required("PipelineName") => String.t()
-  }
+      
+      start_pipeline_execution_request() :: %{
+        optional("ParallelismConfiguration") => parallelism_configuration(),
+        optional("PipelineExecutionDescription") => String.t(),
+        optional("PipelineExecutionDisplayName") => String.t(),
+        optional("PipelineParameters") => list(parameter()()),
+        optional("SelectiveExecutionConfig") => selective_execution_config(),
+        required("ClientRequestToken") => String.t(),
+        required("PipelineName") => String.t()
+      }
+      
   """
   @type start_pipeline_execution_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_spaces_response() :: %{
-    "NextToken" => String.t(),
-    "Spaces" => list(space_details()())
-  }
+      
+      list_spaces_response() :: %{
+        "NextToken" => String.t(),
+        "Spaces" => list(space_details()())
+      }
+      
   """
   @type list_spaces_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_pipeline_execution_response() :: %{
-    "CreatedBy" => user_context(),
-    "CreationTime" => non_neg_integer(),
-    "FailureReason" => String.t(),
-    "LastModifiedBy" => user_context(),
-    "LastModifiedTime" => non_neg_integer(),
-    "ParallelismConfiguration" => parallelism_configuration(),
-    "PipelineArn" => String.t(),
-    "PipelineExecutionArn" => String.t(),
-    "PipelineExecutionDescription" => String.t(),
-    "PipelineExecutionDisplayName" => String.t(),
-    "PipelineExecutionStatus" => list(any()),
-    "PipelineExperimentConfig" => pipeline_experiment_config(),
-    "SelectiveExecutionConfig" => selective_execution_config()
-  }
+      
+      describe_pipeline_execution_response() :: %{
+        "CreatedBy" => user_context(),
+        "CreationTime" => non_neg_integer(),
+        "FailureReason" => String.t(),
+        "LastModifiedBy" => user_context(),
+        "LastModifiedTime" => non_neg_integer(),
+        "ParallelismConfiguration" => parallelism_configuration(),
+        "PipelineArn" => String.t(),
+        "PipelineExecutionArn" => String.t(),
+        "PipelineExecutionDescription" => String.t(),
+        "PipelineExecutionDisplayName" => String.t(),
+        "PipelineExecutionStatus" => list(any()),
+        "PipelineExperimentConfig" => pipeline_experiment_config(),
+        "SelectiveExecutionConfig" => selective_execution_config()
+      }
+      
   """
   @type describe_pipeline_execution_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_hyper_parameter_tuning_job_request() :: %{
-    optional("Autotune") => autotune(),
-    optional("Tags") => list(tag()()),
-    optional("TrainingJobDefinition") => hyper_parameter_training_job_definition(),
-    optional("TrainingJobDefinitions") => list(hyper_parameter_training_job_definition()()),
-    optional("WarmStartConfig") => hyper_parameter_tuning_job_warm_start_config(),
-    required("HyperParameterTuningJobConfig") => hyper_parameter_tuning_job_config(),
-    required("HyperParameterTuningJobName") => String.t()
-  }
+      
+      create_hyper_parameter_tuning_job_request() :: %{
+        optional("Autotune") => autotune(),
+        optional("Tags") => list(tag()()),
+        optional("TrainingJobDefinition") => hyper_parameter_training_job_definition(),
+        optional("TrainingJobDefinitions") => list(hyper_parameter_training_job_definition()()),
+        optional("WarmStartConfig") => hyper_parameter_tuning_job_warm_start_config(),
+        required("HyperParameterTuningJobConfig") => hyper_parameter_tuning_job_config(),
+        required("HyperParameterTuningJobName") => String.t()
+      }
+      
   """
   @type create_hyper_parameter_tuning_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_user_profile_response() :: %{
-    "UserProfileArn" => String.t()
-  }
+      
+      create_user_profile_response() :: %{
+        "UserProfileArn" => String.t()
+      }
+      
   """
   @type create_user_profile_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_auto_ml_job_v2_request() :: %{
-    required("AutoMLJobName") => String.t()
-  }
+      
+      describe_auto_ml_job_v2_request() :: %{
+        required("AutoMLJobName") => String.t()
+      }
+      
   """
   @type describe_auto_ml_job_v2_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  target_platform() :: %{
-    "Accelerator" => list(any()),
-    "Arch" => list(any()),
-    "Os" => list(any())
-  }
+      
+      target_platform() :: %{
+        "Accelerator" => list(any()),
+        "Arch" => list(any()),
+        "Os" => list(any())
+      }
+      
   """
   @type target_platform() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  auto_ml_channel() :: %{
-    "ChannelType" => list(any()),
-    "CompressionType" => list(any()),
-    "ContentType" => String.t(),
-    "DataSource" => auto_ml_data_source(),
-    "SampleWeightAttributeName" => String.t(),
-    "TargetAttributeName" => String.t()
-  }
+      
+      auto_ml_channel() :: %{
+        "ChannelType" => list(any()),
+        "CompressionType" => list(any()),
+        "ContentType" => String.t(),
+        "DataSource" => auto_ml_data_source(),
+        "SampleWeightAttributeName" => String.t(),
+        "TargetAttributeName" => String.t()
+      }
+      
   """
   @type auto_ml_channel() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_lineage_groups_response() :: %{
-    "LineageGroupSummaries" => list(lineage_group_summary()()),
-    "NextToken" => String.t()
-  }
+      
+      list_lineage_groups_response() :: %{
+        "LineageGroupSummaries" => list(lineage_group_summary()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_lineage_groups_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_artifacts_request() :: %{
-    optional("ArtifactType") => String.t(),
-    optional("CreatedAfter") => non_neg_integer(),
-    optional("CreatedBefore") => non_neg_integer(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("SortBy") => list(any()),
-    optional("SortOrder") => list(any()),
-    optional("SourceUri") => String.t()
-  }
+      
+      list_artifacts_request() :: %{
+        optional("ArtifactType") => String.t(),
+        optional("CreatedAfter") => non_neg_integer(),
+        optional("CreatedBefore") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any()),
+        optional("SourceUri") => String.t()
+      }
+      
   """
   @type list_artifacts_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  inference_component_compute_resource_requirements() :: %{
-    "MaxMemoryRequiredInMb" => integer(),
-    "MinMemoryRequiredInMb" => integer(),
-    "NumberOfAcceleratorDevicesRequired" => float(),
-    "NumberOfCpuCoresRequired" => float()
-  }
+      
+      inference_component_compute_resource_requirements() :: %{
+        "MaxMemoryRequiredInMb" => integer(),
+        "MinMemoryRequiredInMb" => integer(),
+        "NumberOfAcceleratorDevicesRequired" => float(),
+        "NumberOfCpuCoresRequired" => float()
+      }
+      
   """
   @type inference_component_compute_resource_requirements() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_edge_deployment_plan_request() :: %{
-    optional("Stages") => list(deployment_stage()()),
-    optional("Tags") => list(tag()()),
-    required("DeviceFleetName") => String.t(),
-    required("EdgeDeploymentPlanName") => String.t(),
-    required("ModelConfigs") => list(edge_deployment_model_config()())
-  }
+      
+      create_edge_deployment_plan_request() :: %{
+        optional("Stages") => list(deployment_stage()()),
+        optional("Tags") => list(tag()()),
+        required("DeviceFleetName") => String.t(),
+        required("EdgeDeploymentPlanName") => String.t(),
+        required("ModelConfigs") => list(edge_deployment_model_config()())
+      }
+      
   """
   @type create_edge_deployment_plan_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  artifact_source_type() :: %{
-    "SourceIdType" => list(any()),
-    "Value" => String.t()
-  }
+      
+      artifact_source_type() :: %{
+        "SourceIdType" => list(any()),
+        "Value" => String.t()
+      }
+      
   """
   @type artifact_source_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  model_card_export_output_config() :: %{
-    "S3OutputPath" => String.t()
-  }
+      
+      model_card_export_output_config() :: %{
+        "S3OutputPath" => String.t()
+      }
+      
   """
   @type model_card_export_output_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_model_bias_job_definition_response() :: %{
-    "CreationTime" => non_neg_integer(),
-    "JobDefinitionArn" => String.t(),
-    "JobDefinitionName" => String.t(),
-    "JobResources" => monitoring_resources(),
-    "ModelBiasAppSpecification" => model_bias_app_specification(),
-    "ModelBiasBaselineConfig" => model_bias_baseline_config(),
-    "ModelBiasJobInput" => model_bias_job_input(),
-    "ModelBiasJobOutputConfig" => monitoring_output_config(),
-    "NetworkConfig" => monitoring_network_config(),
-    "RoleArn" => String.t(),
-    "StoppingCondition" => monitoring_stopping_condition()
-  }
+      
+      describe_model_bias_job_definition_response() :: %{
+        "CreationTime" => non_neg_integer(),
+        "JobDefinitionArn" => String.t(),
+        "JobDefinitionName" => String.t(),
+        "JobResources" => monitoring_resources(),
+        "ModelBiasAppSpecification" => model_bias_app_specification(),
+        "ModelBiasBaselineConfig" => model_bias_baseline_config(),
+        "ModelBiasJobInput" => model_bias_job_input(),
+        "ModelBiasJobOutputConfig" => monitoring_output_config(),
+        "NetworkConfig" => monitoring_network_config(),
+        "RoleArn" => String.t(),
+        "StoppingCondition" => monitoring_stopping_condition()
+      }
+      
   """
   @type describe_model_bias_job_definition_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  r_session_app_settings() :: %{
-    "CustomImages" => list(custom_image()()),
-    "DefaultResourceSpec" => resource_spec()
-  }
+      
+      r_session_app_settings() :: %{
+        "CustomImages" => list(custom_image()()),
+        "DefaultResourceSpec" => resource_spec()
+      }
+      
   """
   @type r_session_app_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_feature_groups_request() :: %{
-    optional("CreationTimeAfter") => non_neg_integer(),
-    optional("CreationTimeBefore") => non_neg_integer(),
-    optional("FeatureGroupStatusEquals") => list(any()),
-    optional("MaxResults") => integer(),
-    optional("NameContains") => String.t(),
-    optional("NextToken") => String.t(),
-    optional("OfflineStoreStatusEquals") => list(any()),
-    optional("SortBy") => list(any()),
-    optional("SortOrder") => list(any())
-  }
+      
+      list_feature_groups_request() :: %{
+        optional("CreationTimeAfter") => non_neg_integer(),
+        optional("CreationTimeBefore") => non_neg_integer(),
+        optional("FeatureGroupStatusEquals") => list(any()),
+        optional("MaxResults") => integer(),
+        optional("NameContains") => String.t(),
+        optional("NextToken") => String.t(),
+        optional("OfflineStoreStatusEquals") => list(any()),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any())
+      }
+      
   """
   @type list_feature_groups_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  continuous_parameter_range() :: %{
-    "MaxValue" => String.t(),
-    "MinValue" => String.t(),
-    "Name" => String.t(),
-    "ScalingType" => list(any())
-  }
+      
+      continuous_parameter_range() :: %{
+        "MaxValue" => String.t(),
+        "MinValue" => String.t(),
+        "Name" => String.t(),
+        "ScalingType" => list(any())
+      }
+      
   """
   @type continuous_parameter_range() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_code_repository_output() :: %{
-    "CodeRepositoryArn" => String.t(),
-    "CodeRepositoryName" => String.t(),
-    "CreationTime" => non_neg_integer(),
-    "GitConfig" => git_config(),
-    "LastModifiedTime" => non_neg_integer()
-  }
+      
+      describe_code_repository_output() :: %{
+        "CodeRepositoryArn" => String.t(),
+        "CodeRepositoryName" => String.t(),
+        "CreationTime" => non_neg_integer(),
+        "GitConfig" => git_config(),
+        "LastModifiedTime" => non_neg_integer()
+      }
+      
   """
   @type describe_code_repository_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_endpoint_config_output() :: %{
-    "EndpointConfigArn" => String.t()
-  }
+      
+      create_endpoint_config_output() :: %{
+        "EndpointConfigArn" => String.t()
+      }
+      
   """
   @type create_endpoint_config_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  model_bias_app_specification() :: %{
-    "ConfigUri" => String.t(),
-    "Environment" => map(),
-    "ImageUri" => String.t()
-  }
+      
+      model_bias_app_specification() :: %{
+        "ConfigUri" => String.t(),
+        "Environment" => map(),
+        "ImageUri" => String.t()
+      }
+      
   """
   @type model_bias_app_specification() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  secondary_status_transition() :: %{
-    "EndTime" => non_neg_integer(),
-    "StartTime" => non_neg_integer(),
-    "Status" => list(any()),
-    "StatusMessage" => String.t()
-  }
+      
+      secondary_status_transition() :: %{
+        "EndTime" => non_neg_integer(),
+        "StartTime" => non_neg_integer(),
+        "Status" => list(any()),
+        "StatusMessage" => String.t()
+      }
+      
   """
   @type secondary_status_transition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  edge_deployment_model_config() :: %{
-    "EdgePackagingJobName" => String.t(),
-    "ModelHandle" => String.t()
-  }
+      
+      edge_deployment_model_config() :: %{
+        "EdgePackagingJobName" => String.t(),
+        "ModelHandle" => String.t()
+      }
+      
   """
   @type edge_deployment_model_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_experiments_request() :: %{
-    optional("CreatedAfter") => non_neg_integer(),
-    optional("CreatedBefore") => non_neg_integer(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("SortBy") => list(any()),
-    optional("SortOrder") => list(any())
-  }
+      
+      list_experiments_request() :: %{
+        optional("CreatedAfter") => non_neg_integer(),
+        optional("CreatedBefore") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any())
+      }
+      
   """
   @type list_experiments_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  clarify_text_config() :: %{
-    "Granularity" => list(any()),
-    "Language" => list(any())
-  }
+      
+      clarify_text_config() :: %{
+        "Granularity" => list(any()),
+        "Language" => list(any())
+      }
+      
   """
   @type clarify_text_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  retry_pipeline_execution_response() :: %{
-    "PipelineExecutionArn" => String.t()
-  }
+      
+      retry_pipeline_execution_response() :: %{
+        "PipelineExecutionArn" => String.t()
+      }
+      
   """
   @type retry_pipeline_execution_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  shadow_mode_config() :: %{
-    "ShadowModelVariants" => list(shadow_model_variant_config()()),
-    "SourceModelVariantName" => String.t()
-  }
+      
+      shadow_mode_config() :: %{
+        "ShadowModelVariants" => list(shadow_model_variant_config()()),
+        "SourceModelVariantName" => String.t()
+      }
+      
   """
   @type shadow_mode_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_lineage_group_policy_request() :: %{
-    required("LineageGroupName") => String.t()
-  }
+      
+      get_lineage_group_policy_request() :: %{
+        required("LineageGroupName") => String.t()
+      }
+      
   """
   @type get_lineage_group_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_auto_ml_job_v2_response() :: %{
-    "AutoMLJobArn" => String.t()
-  }
+      
+      create_auto_ml_job_v2_response() :: %{
+        "AutoMLJobArn" => String.t()
+      }
+      
   """
   @type create_auto_ml_job_v2_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_workforce_request() :: %{
-    optional("CognitoConfig") => cognito_config(),
-    optional("OidcConfig") => oidc_config(),
-    optional("SourceIpConfig") => source_ip_config(),
-    optional("Tags") => list(tag()()),
-    optional("WorkforceVpcConfig") => workforce_vpc_config_request(),
-    required("WorkforceName") => String.t()
-  }
+      
+      create_workforce_request() :: %{
+        optional("CognitoConfig") => cognito_config(),
+        optional("OidcConfig") => oidc_config(),
+        optional("SourceIpConfig") => source_ip_config(),
+        optional("Tags") => list(tag()()),
+        optional("WorkforceVpcConfig") => workforce_vpc_config_request(),
+        required("WorkforceName") => String.t()
+      }
+      
   """
   @type create_workforce_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_input() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("ResourceArn") => String.t()
-  }
+      
+      list_tags_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("ResourceArn") => String.t()
+      }
+      
   """
   @type list_tags_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_labeling_jobs_request() :: %{
-    optional("CreationTimeAfter") => non_neg_integer(),
-    optional("CreationTimeBefore") => non_neg_integer(),
-    optional("LastModifiedTimeAfter") => non_neg_integer(),
-    optional("LastModifiedTimeBefore") => non_neg_integer(),
-    optional("MaxResults") => integer(),
-    optional("NameContains") => String.t(),
-    optional("NextToken") => String.t(),
-    optional("SortBy") => list(any()),
-    optional("SortOrder") => list(any()),
-    optional("StatusEquals") => list(any())
-  }
+      
+      list_labeling_jobs_request() :: %{
+        optional("CreationTimeAfter") => non_neg_integer(),
+        optional("CreationTimeBefore") => non_neg_integer(),
+        optional("LastModifiedTimeAfter") => non_neg_integer(),
+        optional("LastModifiedTimeBefore") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("NameContains") => String.t(),
+        optional("NextToken") => String.t(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any()),
+        optional("StatusEquals") => list(any())
+      }
+      
   """
   @type list_labeling_jobs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  context_summary() :: %{
-    "ContextArn" => String.t(),
-    "ContextName" => String.t(),
-    "ContextType" => String.t(),
-    "CreationTime" => non_neg_integer(),
-    "LastModifiedTime" => non_neg_integer(),
-    "Source" => context_source()
-  }
+      
+      context_summary() :: %{
+        "ContextArn" => String.t(),
+        "ContextName" => String.t(),
+        "ContextType" => String.t(),
+        "CreationTime" => non_neg_integer(),
+        "LastModifiedTime" => non_neg_integer(),
+        "Source" => context_source()
+      }
+      
   """
   @type context_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  auto_ml_job_artifacts() :: %{
-    "CandidateDefinitionNotebookLocation" => String.t(),
-    "DataExplorationNotebookLocation" => String.t()
-  }
+      
+      auto_ml_job_artifacts() :: %{
+        "CandidateDefinitionNotebookLocation" => String.t(),
+        "DataExplorationNotebookLocation" => String.t()
+      }
+      
   """
   @type auto_ml_job_artifacts() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_model_package_group_policy_input() :: %{
-    required("ModelPackageGroupName") => String.t(),
-    required("ResourcePolicy") => String.t()
-  }
+      
+      put_model_package_group_policy_input() :: %{
+        required("ModelPackageGroupName") => String.t(),
+        required("ResourcePolicy") => String.t()
+      }
+      
   """
   @type put_model_package_group_policy_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_domain_response() :: %{
-    "DomainArn" => String.t(),
-    "Url" => String.t()
-  }
+      
+      create_domain_response() :: %{
+        "DomainArn" => String.t(),
+        "Url" => String.t()
+      }
+      
   """
   @type create_domain_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_training_jobs_for_hyper_parameter_tuning_job_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("SortBy") => list(any()),
-    optional("SortOrder") => list(any()),
-    optional("StatusEquals") => list(any()),
-    required("HyperParameterTuningJobName") => String.t()
-  }
+      
+      list_training_jobs_for_hyper_parameter_tuning_job_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any()),
+        optional("StatusEquals") => list(any()),
+        required("HyperParameterTuningJobName") => String.t()
+      }
+      
   """
   @type list_training_jobs_for_hyper_parameter_tuning_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_code_repository_input() :: %{
-    optional("Tags") => list(tag()()),
-    required("CodeRepositoryName") => String.t(),
-    required("GitConfig") => git_config()
-  }
+      
+      create_code_repository_input() :: %{
+        optional("Tags") => list(tag()()),
+        required("CodeRepositoryName") => String.t(),
+        required("GitConfig") => git_config()
+      }
+      
   """
   @type create_code_repository_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  deployment_recommendation() :: %{
-    "RealTimeInferenceRecommendations" => list(real_time_inference_recommendation()()),
-    "RecommendationStatus" => list(any())
-  }
+      
+      deployment_recommendation() :: %{
+        "RealTimeInferenceRecommendations" => list(real_time_inference_recommendation()()),
+        "RecommendationStatus" => list(any())
+      }
+      
   """
   @type deployment_recommendation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_inference_component_runtime_config_input() :: %{
-    required("DesiredRuntimeConfig") => inference_component_runtime_config(),
-    required("InferenceComponentName") => String.t()
-  }
+      
+      update_inference_component_runtime_config_input() :: %{
+        required("DesiredRuntimeConfig") => inference_component_runtime_config(),
+        required("InferenceComponentName") => String.t()
+      }
+      
   """
   @type update_inference_component_runtime_config_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_endpoint_weights_and_capacities_input() :: %{
-    required("DesiredWeightsAndCapacities") => list(desired_weight_and_capacity()()),
-    required("EndpointName") => String.t()
-  }
+      
+      update_endpoint_weights_and_capacities_input() :: %{
+        required("DesiredWeightsAndCapacities") => list(desired_weight_and_capacity()()),
+        required("EndpointName") => String.t()
+      }
+      
   """
   @type update_endpoint_weights_and_capacities_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  channel() :: %{
-    "ChannelName" => String.t(),
-    "CompressionType" => list(any()),
-    "ContentType" => String.t(),
-    "DataSource" => data_source(),
-    "InputMode" => list(any()),
-    "RecordWrapperType" => list(any()),
-    "ShuffleConfig" => shuffle_config()
-  }
+      
+      channel() :: %{
+        "ChannelName" => String.t(),
+        "CompressionType" => list(any()),
+        "ContentType" => String.t(),
+        "DataSource" => data_source(),
+        "InputMode" => list(any()),
+        "RecordWrapperType" => list(any()),
+        "ShuffleConfig" => shuffle_config()
+      }
+      
   """
   @type channel() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  send_pipeline_execution_step_success_request() :: %{
-    optional("ClientRequestToken") => String.t(),
-    optional("OutputParameters") => list(output_parameter()()),
-    required("CallbackToken") => String.t()
-  }
+      
+      send_pipeline_execution_step_success_request() :: %{
+        optional("ClientRequestToken") => String.t(),
+        optional("OutputParameters") => list(output_parameter()()),
+        required("CallbackToken") => String.t()
+      }
+      
   """
   @type send_pipeline_execution_step_success_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_image_response() :: %{
-
-  }
+      
+      delete_image_response() :: %{}
+      
   """
-  @type delete_image_response() :: %{String.t() => any()}
+  @type delete_image_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  update_notebook_instance_lifecycle_config_input() :: %{
-    optional("OnCreate") => list(notebook_instance_lifecycle_hook()()),
-    optional("OnStart") => list(notebook_instance_lifecycle_hook()()),
-    required("NotebookInstanceLifecycleConfigName") => String.t()
-  }
+      
+      update_notebook_instance_lifecycle_config_input() :: %{
+        optional("OnCreate") => list(notebook_instance_lifecycle_hook()()),
+        optional("OnStart") => list(notebook_instance_lifecycle_hook()()),
+        required("NotebookInstanceLifecycleConfigName") => String.t()
+      }
+      
   """
   @type update_notebook_instance_lifecycle_config_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_notebook_instance_input() :: %{
-    required("NotebookInstanceName") => String.t()
-  }
+      
+      start_notebook_instance_input() :: %{
+        required("NotebookInstanceName") => String.t()
+      }
+      
   """
   @type start_notebook_instance_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_workforce_response() :: %{
-    "Workforce" => workforce()
-  }
+      
+      update_workforce_response() :: %{
+        "Workforce" => workforce()
+      }
+      
   """
   @type update_workforce_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_code_repository_input() :: %{
-    required("CodeRepositoryName") => String.t()
-  }
+      
+      describe_code_repository_input() :: %{
+        required("CodeRepositoryName") => String.t()
+      }
+      
   """
   @type describe_code_repository_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_model_package_group_policy_output() :: %{
-    "ModelPackageGroupArn" => String.t()
-  }
+      
+      put_model_package_group_policy_output() :: %{
+        "ModelPackageGroupArn" => String.t()
+      }
+      
   """
   @type put_model_package_group_policy_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cognito_member_definition() :: %{
-    "ClientId" => String.t(),
-    "UserGroup" => String.t(),
-    "UserPool" => String.t()
-  }
+      
+      cognito_member_definition() :: %{
+        "ClientId" => String.t(),
+        "UserGroup" => String.t(),
+        "UserPool" => String.t()
+      }
+      
   """
   @type cognito_member_definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cluster_life_cycle_config() :: %{
-    "OnCreate" => String.t(),
-    "SourceS3Uri" => String.t()
-  }
+      
+      cluster_life_cycle_config() :: %{
+        "OnCreate" => String.t(),
+        "SourceS3Uri" => String.t()
+      }
+      
   """
   @type cluster_life_cycle_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  labeling_job_s3_data_source() :: %{
-    "ManifestS3Uri" => String.t()
-  }
+      
+      labeling_job_s3_data_source() :: %{
+        "ManifestS3Uri" => String.t()
+      }
+      
   """
   @type labeling_job_s3_data_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  candidate_artifact_locations() :: %{
-    "BacktestResults" => String.t(),
-    "Explainability" => String.t(),
-    "ModelInsights" => String.t()
-  }
+      
+      candidate_artifact_locations() :: %{
+        "BacktestResults" => String.t(),
+        "Explainability" => String.t(),
+        "ModelInsights" => String.t()
+      }
+      
   """
   @type candidate_artifact_locations() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_model_package_group_policy_output() :: %{
-    "ResourcePolicy" => String.t()
-  }
+      
+      get_model_package_group_policy_output() :: %{
+        "ResourcePolicy" => String.t()
+      }
+      
   """
   @type get_model_package_group_policy_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_flow_definition_response() :: %{
-
-  }
+      
+      delete_flow_definition_response() :: %{}
+      
   """
-  @type delete_flow_definition_response() :: %{String.t() => any()}
+  @type delete_flow_definition_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  subscribed_workteam() :: %{
-    "ListingId" => String.t(),
-    "MarketplaceDescription" => String.t(),
-    "MarketplaceTitle" => String.t(),
-    "SellerName" => String.t(),
-    "WorkteamArn" => String.t()
-  }
+      
+      subscribed_workteam() :: %{
+        "ListingId" => String.t(),
+        "MarketplaceDescription" => String.t(),
+        "MarketplaceTitle" => String.t(),
+        "SellerName" => String.t(),
+        "WorkteamArn" => String.t()
+      }
+      
   """
   @type subscribed_workteam() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_hub_request() :: %{
-    optional("HubDisplayName") => String.t(),
-    optional("HubSearchKeywords") => list(String.t()()),
-    optional("S3StorageConfig") => hub_s3_storage_config(),
-    optional("Tags") => list(tag()()),
-    required("HubDescription") => String.t(),
-    required("HubName") => String.t()
-  }
+      
+      create_hub_request() :: %{
+        optional("HubDisplayName") => String.t(),
+        optional("HubSearchKeywords") => list(String.t()()),
+        optional("S3StorageConfig") => hub_s3_storage_config(),
+        optional("Tags") => list(tag()()),
+        required("HubDescription") => String.t(),
+        required("HubName") => String.t()
+      }
+      
   """
   @type create_hub_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  auto_ml_job_config() :: %{
-    "CandidateGenerationConfig" => auto_ml_candidate_generation_config(),
-    "CompletionCriteria" => auto_ml_job_completion_criteria(),
-    "DataSplitConfig" => auto_ml_data_split_config(),
-    "Mode" => list(any()),
-    "SecurityConfig" => auto_ml_security_config()
-  }
+      
+      auto_ml_job_config() :: %{
+        "CandidateGenerationConfig" => auto_ml_candidate_generation_config(),
+        "CompletionCriteria" => auto_ml_job_completion_criteria(),
+        "DataSplitConfig" => auto_ml_data_split_config(),
+        "Mode" => list(any()),
+        "SecurityConfig" => auto_ml_security_config()
+      }
+      
   """
   @type auto_ml_job_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  e_f_s_file_system() :: %{
-    "FileSystemId" => String.t()
-  }
+      
+      e_f_s_file_system() :: %{
+        "FileSystemId" => String.t()
+      }
+      
   """
   @type e_f_s_file_system() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_model_card_export_job_response() :: %{
-    "CreatedAt" => non_neg_integer(),
-    "ExportArtifacts" => model_card_export_artifacts(),
-    "FailureReason" => String.t(),
-    "LastModifiedAt" => non_neg_integer(),
-    "ModelCardExportJobArn" => String.t(),
-    "ModelCardExportJobName" => String.t(),
-    "ModelCardName" => String.t(),
-    "ModelCardVersion" => integer(),
-    "OutputConfig" => model_card_export_output_config(),
-    "Status" => list(any())
-  }
+      
+      describe_model_card_export_job_response() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "ExportArtifacts" => model_card_export_artifacts(),
+        "FailureReason" => String.t(),
+        "LastModifiedAt" => non_neg_integer(),
+        "ModelCardExportJobArn" => String.t(),
+        "ModelCardExportJobName" => String.t(),
+        "ModelCardName" => String.t(),
+        "ModelCardVersion" => integer(),
+        "OutputConfig" => model_card_export_output_config(),
+        "Status" => list(any())
+      }
+      
   """
   @type describe_model_card_export_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  inference_metrics() :: %{
-    "MaxInvocations" => integer(),
-    "ModelLatency" => integer()
-  }
+      
+      inference_metrics() :: %{
+        "MaxInvocations" => integer(),
+        "ModelLatency" => integer()
+      }
+      
   """
   @type inference_metrics() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_pipeline_parameters_for_execution_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("PipelineExecutionArn") => String.t()
-  }
+      
+      list_pipeline_parameters_for_execution_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("PipelineExecutionArn") => String.t()
+      }
+      
   """
   @type list_pipeline_parameters_for_execution_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  callback_step_metadata() :: %{
-    "CallbackToken" => String.t(),
-    "OutputParameters" => list(output_parameter()()),
-    "SqsQueueUrl" => String.t()
-  }
+      
+      callback_step_metadata() :: %{
+        "CallbackToken" => String.t(),
+        "OutputParameters" => list(output_parameter()()),
+        "SqsQueueUrl" => String.t()
+      }
+      
   """
   @type callback_step_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  inference_component_container_specification() :: %{
-    "ArtifactUrl" => String.t(),
-    "Environment" => map(),
-    "Image" => String.t()
-  }
+      
+      inference_component_container_specification() :: %{
+        "ArtifactUrl" => String.t(),
+        "Environment" => map(),
+        "Image" => String.t()
+      }
+      
   """
   @type inference_component_container_specification() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_spec() :: %{
-    "InstanceType" => list(any()),
-    "LifecycleConfigArn" => String.t(),
-    "SageMakerImageArn" => String.t(),
-    "SageMakerImageVersionAlias" => String.t(),
-    "SageMakerImageVersionArn" => String.t()
-  }
+      
+      resource_spec() :: %{
+        "InstanceType" => list(any()),
+        "LifecycleConfigArn" => String.t(),
+        "SageMakerImageArn" => String.t(),
+        "SageMakerImageVersionAlias" => String.t(),
+        "SageMakerImageVersionArn" => String.t()
+      }
+      
   """
   @type resource_spec() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_project_input() :: %{
-    required("ProjectName") => String.t()
-  }
+      
+      delete_project_input() :: %{
+        required("ProjectName") => String.t()
+      }
+      
   """
   @type delete_project_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_transform_job_response() :: %{
-    "TransformJobArn" => String.t()
-  }
+      
+      create_transform_job_response() :: %{
+        "TransformJobArn" => String.t()
+      }
+      
   """
   @type create_transform_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_processing_job_response() :: %{
-    "ProcessingJobArn" => String.t()
-  }
+      
+      create_processing_job_response() :: %{
+        "ProcessingJobArn" => String.t()
+      }
+      
   """
   @type create_processing_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  transform_job_step_metadata() :: %{
-    "Arn" => String.t()
-  }
+      
+      transform_job_step_metadata() :: %{
+        "Arn" => String.t()
+      }
+      
   """
   @type transform_job_step_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  model_deploy_result() :: %{
-    "EndpointName" => String.t()
-  }
+      
+      model_deploy_result() :: %{
+        "EndpointName" => String.t()
+      }
+      
   """
   @type model_deploy_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_inference_component_input() :: %{
-    optional("RuntimeConfig") => inference_component_runtime_config(),
-    optional("Specification") => inference_component_specification(),
-    required("InferenceComponentName") => String.t()
-  }
+      
+      update_inference_component_input() :: %{
+        optional("RuntimeConfig") => inference_component_runtime_config(),
+        optional("Specification") => inference_component_specification(),
+        required("InferenceComponentName") => String.t()
+      }
+      
   """
   @type update_inference_component_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  debug_hook_config() :: %{
-    "CollectionConfigurations" => list(collection_configuration()()),
-    "HookParameters" => map(),
-    "LocalPath" => String.t(),
-    "S3OutputPath" => String.t()
-  }
+      
+      debug_hook_config() :: %{
+        "CollectionConfigurations" => list(collection_configuration()()),
+        "HookParameters" => map(),
+        "LocalPath" => String.t(),
+        "S3OutputPath" => String.t()
+      }
+      
   """
   @type debug_hook_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  endpoint_performance() :: %{
-    "EndpointInfo" => endpoint_info(),
-    "Metrics" => inference_metrics()
-  }
+      
+      endpoint_performance() :: %{
+        "EndpointInfo" => endpoint_info(),
+        "Metrics" => inference_metrics()
+      }
+      
   """
   @type endpoint_performance() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  query_filters() :: %{
-    "CreatedAfter" => non_neg_integer(),
-    "CreatedBefore" => non_neg_integer(),
-    "LineageTypes" => list(list(any())()),
-    "ModifiedAfter" => non_neg_integer(),
-    "ModifiedBefore" => non_neg_integer(),
-    "Properties" => map(),
-    "Types" => list(String.t()())
-  }
+      
+      query_filters() :: %{
+        "CreatedAfter" => non_neg_integer(),
+        "CreatedBefore" => non_neg_integer(),
+        "LineageTypes" => list(list(any())()),
+        "ModifiedAfter" => non_neg_integer(),
+        "ModifiedBefore" => non_neg_integer(),
+        "Properties" => map(),
+        "Types" => list(String.t()())
+      }
+      
   """
   @type query_filters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_context_response() :: %{
-    "ContextArn" => String.t()
-  }
+      
+      delete_context_response() :: %{
+        "ContextArn" => String.t()
+      }
+      
   """
   @type delete_context_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  retry_strategy() :: %{
-    "MaximumRetryAttempts" => integer()
-  }
+      
+      retry_strategy() :: %{
+        "MaximumRetryAttempts" => integer()
+      }
+      
   """
   @type retry_strategy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  production_variant_status() :: %{
-    "StartTime" => non_neg_integer(),
-    "Status" => list(any()),
-    "StatusMessage" => String.t()
-  }
+      
+      production_variant_status() :: %{
+        "StartTime" => non_neg_integer(),
+        "Status" => list(any()),
+        "StatusMessage" => String.t()
+      }
+      
   """
   @type production_variant_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  oidc_config_for_response() :: %{
-    "AuthorizationEndpoint" => String.t(),
-    "ClientId" => String.t(),
-    "Issuer" => String.t(),
-    "JwksUri" => String.t(),
-    "LogoutEndpoint" => String.t(),
-    "TokenEndpoint" => String.t(),
-    "UserInfoEndpoint" => String.t()
-  }
+      
+      oidc_config_for_response() :: %{
+        "AuthorizationEndpoint" => String.t(),
+        "ClientId" => String.t(),
+        "Issuer" => String.t(),
+        "JwksUri" => String.t(),
+        "LogoutEndpoint" => String.t(),
+        "TokenEndpoint" => String.t(),
+        "UserInfoEndpoint" => String.t()
+      }
+      
   """
   @type oidc_config_for_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  monitoring_output_config() :: %{
-    "KmsKeyId" => String.t(),
-    "MonitoringOutputs" => list(monitoring_output()())
-  }
+      
+      monitoring_output_config() :: %{
+        "KmsKeyId" => String.t(),
+        "MonitoringOutputs" => list(monitoring_output()())
+      }
+      
   """
   @type monitoring_output_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_monitoring_alert_history_request() :: %{
-    optional("CreationTimeAfter") => non_neg_integer(),
-    optional("CreationTimeBefore") => non_neg_integer(),
-    optional("MaxResults") => integer(),
-    optional("MonitoringAlertName") => String.t(),
-    optional("MonitoringScheduleName") => String.t(),
-    optional("NextToken") => String.t(),
-    optional("SortBy") => list(any()),
-    optional("SortOrder") => list(any()),
-    optional("StatusEquals") => list(any())
-  }
+      
+      list_monitoring_alert_history_request() :: %{
+        optional("CreationTimeAfter") => non_neg_integer(),
+        optional("CreationTimeBefore") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("MonitoringAlertName") => String.t(),
+        optional("MonitoringScheduleName") => String.t(),
+        optional("NextToken") => String.t(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any()),
+        optional("StatusEquals") => list(any())
+      }
+      
   """
   @type list_monitoring_alert_history_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  feature_group() :: %{
-    "CreationTime" => non_neg_integer(),
-    "Description" => String.t(),
-    "EventTimeFeatureName" => String.t(),
-    "FailureReason" => String.t(),
-    "FeatureDefinitions" => list(feature_definition()()),
-    "FeatureGroupArn" => String.t(),
-    "FeatureGroupName" => String.t(),
-    "FeatureGroupStatus" => list(any()),
-    "LastModifiedTime" => non_neg_integer(),
-    "LastUpdateStatus" => last_update_status(),
-    "OfflineStoreConfig" => offline_store_config(),
-    "OfflineStoreStatus" => offline_store_status(),
-    "OnlineStoreConfig" => online_store_config(),
-    "RecordIdentifierFeatureName" => String.t(),
-    "RoleArn" => String.t(),
-    "Tags" => list(tag()())
-  }
+      
+      feature_group() :: %{
+        "CreationTime" => non_neg_integer(),
+        "Description" => String.t(),
+        "EventTimeFeatureName" => String.t(),
+        "FailureReason" => String.t(),
+        "FeatureDefinitions" => list(feature_definition()()),
+        "FeatureGroupArn" => String.t(),
+        "FeatureGroupName" => String.t(),
+        "FeatureGroupStatus" => list(any()),
+        "LastModifiedTime" => non_neg_integer(),
+        "LastUpdateStatus" => last_update_status(),
+        "OfflineStoreConfig" => offline_store_config(),
+        "OfflineStoreStatus" => offline_store_status(),
+        "OnlineStoreConfig" => online_store_config(),
+        "RecordIdentifierFeatureName" => String.t(),
+        "RoleArn" => String.t(),
+        "Tags" => list(tag()())
+      }
+      
   """
   @type feature_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  model_client_config() :: %{
-    "InvocationsMaxRetries" => integer(),
-    "InvocationsTimeoutInSeconds" => integer()
-  }
+      
+      model_client_config() :: %{
+        "InvocationsMaxRetries" => integer(),
+        "InvocationsTimeoutInSeconds" => integer()
+      }
+      
   """
   @type model_client_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  output_data_config() :: %{
-    "CompressionType" => list(any()),
-    "KmsKeyId" => String.t(),
-    "S3OutputPath" => String.t()
-  }
+      
+      output_data_config() :: %{
+        "CompressionType" => list(any()),
+        "KmsKeyId" => String.t(),
+        "S3OutputPath" => String.t()
+      }
+      
   """
   @type output_data_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_model_output() :: %{
-    "Containers" => list(container_definition()()),
-    "CreationTime" => non_neg_integer(),
-    "DeploymentRecommendation" => deployment_recommendation(),
-    "EnableNetworkIsolation" => boolean(),
-    "ExecutionRoleArn" => String.t(),
-    "InferenceExecutionConfig" => inference_execution_config(),
-    "ModelArn" => String.t(),
-    "ModelName" => String.t(),
-    "PrimaryContainer" => container_definition(),
-    "VpcConfig" => vpc_config()
-  }
+      
+      describe_model_output() :: %{
+        "Containers" => list(container_definition()()),
+        "CreationTime" => non_neg_integer(),
+        "DeploymentRecommendation" => deployment_recommendation(),
+        "EnableNetworkIsolation" => boolean(),
+        "ExecutionRoleArn" => String.t(),
+        "InferenceExecutionConfig" => inference_execution_config(),
+        "ModelArn" => String.t(),
+        "ModelName" => String.t(),
+        "PrimaryContainer" => container_definition(),
+        "VpcConfig" => vpc_config()
+      }
+      
   """
   @type describe_model_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cluster_instance_group_specification() :: %{
-    "ExecutionRole" => String.t(),
-    "InstanceCount" => integer(),
-    "InstanceGroupName" => String.t(),
-    "InstanceType" => list(any()),
-    "LifeCycleConfig" => cluster_life_cycle_config(),
-    "ThreadsPerCore" => integer()
-  }
+      
+      cluster_instance_group_specification() :: %{
+        "ExecutionRole" => String.t(),
+        "InstanceCount" => integer(),
+        "InstanceGroupName" => String.t(),
+        "InstanceType" => list(any()),
+        "LifeCycleConfig" => cluster_life_cycle_config(),
+        "ThreadsPerCore" => integer()
+      }
+      
   """
   @type cluster_instance_group_specification() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  edge_model_summary() :: %{
-    "ModelName" => String.t(),
-    "ModelVersion" => String.t()
-  }
+      
+      edge_model_summary() :: %{
+        "ModelName" => String.t(),
+        "ModelVersion" => String.t()
+      }
+      
   """
   @type edge_model_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_apps_request() :: %{
-    optional("DomainIdEquals") => String.t(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("SortBy") => list(any()),
-    optional("SortOrder") => list(any()),
-    optional("SpaceNameEquals") => String.t(),
-    optional("UserProfileNameEquals") => String.t()
-  }
+      
+      list_apps_request() :: %{
+        optional("DomainIdEquals") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any()),
+        optional("SpaceNameEquals") => String.t(),
+        optional("UserProfileNameEquals") => String.t()
+      }
+      
   """
   @type list_apps_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  deployment_stage_status_summary() :: %{
-    "DeploymentConfig" => edge_deployment_config(),
-    "DeploymentStatus" => edge_deployment_status(),
-    "DeviceSelectionConfig" => device_selection_config(),
-    "StageName" => String.t()
-  }
+      
+      deployment_stage_status_summary() :: %{
+        "DeploymentConfig" => edge_deployment_config(),
+        "DeploymentStatus" => edge_deployment_status(),
+        "DeviceSelectionConfig" => device_selection_config(),
+        "StageName" => String.t()
+      }
+      
   """
   @type deployment_stage_status_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  git_config() :: %{
-    "Branch" => String.t(),
-    "RepositoryUrl" => String.t(),
-    "SecretArn" => String.t()
-  }
+      
+      git_config() :: %{
+        "Branch" => String.t(),
+        "RepositoryUrl" => String.t(),
+        "SecretArn" => String.t()
+      }
+      
   """
   @type git_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  nested_filters() :: %{
-    "Filters" => list(filter()()),
-    "NestedPropertyName" => String.t()
-  }
+      
+      nested_filters() :: %{
+        "Filters" => list(filter()()),
+        "NestedPropertyName" => String.t()
+      }
+      
   """
   @type nested_filters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  search_response() :: %{
-    "NextToken" => String.t(),
-    "Results" => list(search_record()())
-  }
+      
+      search_response() :: %{
+        "NextToken" => String.t(),
+        "Results" => list(search_record()())
+      }
+      
   """
   @type search_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  edge_deployment_config() :: %{
-    "FailureHandlingPolicy" => list(any())
-  }
+      
+      edge_deployment_config() :: %{
+        "FailureHandlingPolicy" => list(any())
+      }
+      
   """
   @type edge_deployment_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  device_selection_config() :: %{
-    "DeviceNameContains" => String.t(),
-    "DeviceNames" => list(String.t()()),
-    "DeviceSubsetType" => list(any()),
-    "Percentage" => integer()
-  }
+      
+      device_selection_config() :: %{
+        "DeviceNameContains" => String.t(),
+        "DeviceNames" => list(String.t()()),
+        "DeviceSubsetType" => list(any()),
+        "Percentage" => integer()
+      }
+      
   """
   @type device_selection_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_context_request() :: %{
-    optional("Description") => String.t(),
-    optional("Properties") => map(),
-    optional("Tags") => list(tag()()),
-    required("ContextName") => String.t(),
-    required("ContextType") => String.t(),
-    required("Source") => context_source()
-  }
+      
+      create_context_request() :: %{
+        optional("Description") => String.t(),
+        optional("Properties") => map(),
+        optional("Tags") => list(tag()()),
+        required("ContextName") => String.t(),
+        required("ContextType") => String.t(),
+        required("Source") => context_source()
+      }
+      
   """
   @type create_context_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_algorithm_input() :: %{
-    optional("AlgorithmDescription") => String.t(),
-    optional("CertifyForMarketplace") => boolean(),
-    optional("InferenceSpecification") => inference_specification(),
-    optional("Tags") => list(tag()()),
-    optional("ValidationSpecification") => algorithm_validation_specification(),
-    required("AlgorithmName") => String.t(),
-    required("TrainingSpecification") => training_specification()
-  }
+      
+      create_algorithm_input() :: %{
+        optional("AlgorithmDescription") => String.t(),
+        optional("CertifyForMarketplace") => boolean(),
+        optional("InferenceSpecification") => inference_specification(),
+        optional("Tags") => list(tag()()),
+        optional("ValidationSpecification") => algorithm_validation_specification(),
+        required("AlgorithmName") => String.t(),
+        required("TrainingSpecification") => training_specification()
+      }
+      
   """
   @type create_algorithm_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stairs() :: %{
-    "DurationInSeconds" => integer(),
-    "NumberOfSteps" => integer(),
-    "UsersPerStep" => integer()
-  }
+      
+      stairs() :: %{
+        "DurationInSeconds" => integer(),
+        "NumberOfSteps" => integer(),
+        "UsersPerStep" => integer()
+      }
+      
   """
   @type stairs() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_describe_model_package_error() :: %{
-    "ErrorCode" => String.t(),
-    "ErrorResponse" => String.t()
-  }
+      
+      batch_describe_model_package_error() :: %{
+        "ErrorCode" => String.t(),
+        "ErrorResponse" => String.t()
+      }
+      
   """
   @type batch_describe_model_package_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_data_quality_job_definitions_request() :: %{
-    optional("CreationTimeAfter") => non_neg_integer(),
-    optional("CreationTimeBefore") => non_neg_integer(),
-    optional("EndpointName") => String.t(),
-    optional("MaxResults") => integer(),
-    optional("NameContains") => String.t(),
-    optional("NextToken") => String.t(),
-    optional("SortBy") => list(any()),
-    optional("SortOrder") => list(any())
-  }
+      
+      list_data_quality_job_definitions_request() :: %{
+        optional("CreationTimeAfter") => non_neg_integer(),
+        optional("CreationTimeBefore") => non_neg_integer(),
+        optional("EndpointName") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NameContains") => String.t(),
+        optional("NextToken") => String.t(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any())
+      }
+      
   """
   @type list_data_quality_job_definitions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_model_card_response() :: %{
-    "ModelCardArn" => String.t()
-  }
+      
+      create_model_card_response() :: %{
+        "ModelCardArn" => String.t()
+      }
+      
   """
   @type create_model_card_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_auto_ml_job_request() :: %{
-    optional("AutoMLJobConfig") => auto_ml_job_config(),
-    optional("AutoMLJobObjective") => auto_ml_job_objective(),
-    optional("GenerateCandidateDefinitionsOnly") => boolean(),
-    optional("ModelDeployConfig") => model_deploy_config(),
-    optional("ProblemType") => list(any()),
-    optional("Tags") => list(tag()()),
-    required("AutoMLJobName") => String.t(),
-    required("InputDataConfig") => list(auto_ml_channel()()),
-    required("OutputDataConfig") => auto_ml_output_data_config(),
-    required("RoleArn") => String.t()
-  }
+      
+      create_auto_ml_job_request() :: %{
+        optional("AutoMLJobConfig") => auto_ml_job_config(),
+        optional("AutoMLJobObjective") => auto_ml_job_objective(),
+        optional("GenerateCandidateDefinitionsOnly") => boolean(),
+        optional("ModelDeployConfig") => model_deploy_config(),
+        optional("ProblemType") => list(any()),
+        optional("Tags") => list(tag()()),
+        required("AutoMLJobName") => String.t(),
+        required("InputDataConfig") => list(auto_ml_channel()()),
+        required("OutputDataConfig") => auto_ml_output_data_config(),
+        required("RoleArn") => String.t()
+      }
+      
   """
   @type create_auto_ml_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  notebook_instance_lifecycle_config_summary() :: %{
-    "CreationTime" => non_neg_integer(),
-    "LastModifiedTime" => non_neg_integer(),
-    "NotebookInstanceLifecycleConfigArn" => String.t(),
-    "NotebookInstanceLifecycleConfigName" => String.t()
-  }
+      
+      notebook_instance_lifecycle_config_summary() :: %{
+        "CreationTime" => non_neg_integer(),
+        "LastModifiedTime" => non_neg_integer(),
+        "NotebookInstanceLifecycleConfigArn" => String.t(),
+        "NotebookInstanceLifecycleConfigName" => String.t()
+      }
+      
   """
   @type notebook_instance_lifecycle_config_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_model_card_export_jobs_response() :: %{
-    "ModelCardExportJobSummaries" => list(model_card_export_job_summary()()),
-    "NextToken" => String.t()
-  }
+      
+      list_model_card_export_jobs_response() :: %{
+        "ModelCardExportJobSummaries" => list(model_card_export_job_summary()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_model_card_export_jobs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_monitoring_alerts_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("MonitoringScheduleName") => String.t()
-  }
+      
+      list_monitoring_alerts_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("MonitoringScheduleName") => String.t()
+      }
+      
   """
   @type list_monitoring_alerts_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tabular_resolved_attributes() :: %{
-    "ProblemType" => list(any())
-  }
+      
+      tabular_resolved_attributes() :: %{
+        "ProblemType" => list(any())
+      }
+      
   """
   @type tabular_resolved_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  space_sharing_settings() :: %{
-    "SharingType" => list(any())
-  }
+      
+      space_sharing_settings() :: %{
+        "SharingType" => list(any())
+      }
+      
   """
   @type space_sharing_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ownership_settings_summary() :: %{
-    "OwnerUserProfileName" => String.t()
-  }
+      
+      ownership_settings_summary() :: %{
+        "OwnerUserProfileName" => String.t()
+      }
+      
   """
   @type ownership_settings_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  default_ebs_storage_settings() :: %{
-    "DefaultEbsVolumeSizeInGb" => integer(),
-    "MaximumEbsVolumeSizeInGb" => integer()
-  }
+      
+      default_ebs_storage_settings() :: %{
+        "DefaultEbsVolumeSizeInGb" => integer(),
+        "MaximumEbsVolumeSizeInGb" => integer()
+      }
+      
   """
   @type default_ebs_storage_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_cluster_nodes_response() :: %{
-    "ClusterNodeSummaries" => list(cluster_node_summary()()),
-    "NextToken" => String.t()
-  }
+      
+      list_cluster_nodes_response() :: %{
+        "ClusterNodeSummaries" => list(cluster_node_summary()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_cluster_nodes_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_inference_experiment_request() :: %{
-    required("Name") => String.t()
-  }
+      
+      start_inference_experiment_request() :: %{
+        required("Name") => String.t()
+      }
+      
   """
   @type start_inference_experiment_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_model_quality_job_definition_request() :: %{
-    required("JobDefinitionName") => String.t()
-  }
+      
+      delete_model_quality_job_definition_request() :: %{
+        required("JobDefinitionName") => String.t()
+      }
+      
   """
   @type delete_model_quality_job_definition_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stop_labeling_job_request() :: %{
-    required("LabelingJobName") => String.t()
-  }
+      
+      stop_labeling_job_request() :: %{
+        required("LabelingJobName") => String.t()
+      }
+      
   """
   @type stop_labeling_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_model_package_groups_output() :: %{
-    "ModelPackageGroupSummaryList" => list(model_package_group_summary()()),
-    "NextToken" => String.t()
-  }
+      
+      list_model_package_groups_output() :: %{
+        "ModelPackageGroupSummaryList" => list(model_package_group_summary()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_model_package_groups_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  model_bias_baseline_config() :: %{
-    "BaseliningJobName" => String.t(),
-    "ConstraintsResource" => monitoring_constraints_resource()
-  }
+      
+      model_bias_baseline_config() :: %{
+        "BaseliningJobName" => String.t(),
+        "ConstraintsResource" => monitoring_constraints_resource()
+      }
+      
   """
   @type model_bias_baseline_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  user_context() :: %{
-    "DomainId" => String.t(),
-    "IamIdentity" => iam_identity(),
-    "UserProfileArn" => String.t(),
-    "UserProfileName" => String.t()
-  }
+      
+      user_context() :: %{
+        "DomainId" => String.t(),
+        "IamIdentity" => iam_identity(),
+        "UserProfileArn" => String.t(),
+        "UserProfileName" => String.t()
+      }
+      
   """
   @type user_context() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_model_package_group_input() :: %{
-    required("ModelPackageGroupName") => String.t()
-  }
+      
+      delete_model_package_group_input() :: %{
+        required("ModelPackageGroupName") => String.t()
+      }
+      
   """
   @type delete_model_package_group_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  model_dashboard_monitoring_schedule() :: %{
-    "BatchTransformInput" => batch_transform_input(),
-    "CreationTime" => non_neg_integer(),
-    "EndpointName" => String.t(),
-    "FailureReason" => String.t(),
-    "LastModifiedTime" => non_neg_integer(),
-    "LastMonitoringExecutionSummary" => monitoring_execution_summary(),
-    "MonitoringAlertSummaries" => list(monitoring_alert_summary()()),
-    "MonitoringScheduleArn" => String.t(),
-    "MonitoringScheduleConfig" => monitoring_schedule_config(),
-    "MonitoringScheduleName" => String.t(),
-    "MonitoringScheduleStatus" => list(any()),
-    "MonitoringType" => list(any())
-  }
+      
+      model_dashboard_monitoring_schedule() :: %{
+        "BatchTransformInput" => batch_transform_input(),
+        "CreationTime" => non_neg_integer(),
+        "EndpointName" => String.t(),
+        "FailureReason" => String.t(),
+        "LastModifiedTime" => non_neg_integer(),
+        "LastMonitoringExecutionSummary" => monitoring_execution_summary(),
+        "MonitoringAlertSummaries" => list(monitoring_alert_summary()()),
+        "MonitoringScheduleArn" => String.t(),
+        "MonitoringScheduleConfig" => monitoring_schedule_config(),
+        "MonitoringScheduleName" => String.t(),
+        "MonitoringScheduleStatus" => list(any()),
+        "MonitoringType" => list(any())
+      }
+      
   """
   @type model_dashboard_monitoring_schedule() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stop_compilation_job_request() :: %{
-    required("CompilationJobName") => String.t()
-  }
+      
+      stop_compilation_job_request() :: %{
+        required("CompilationJobName") => String.t()
+      }
+      
   """
   @type stop_compilation_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_device_fleet_report_response() :: %{
-    "AgentVersions" => list(agent_version()()),
-    "Description" => String.t(),
-    "DeviceFleetArn" => String.t(),
-    "DeviceFleetName" => String.t(),
-    "DeviceStats" => device_stats(),
-    "ModelStats" => list(edge_model_stat()()),
-    "OutputConfig" => edge_output_config(),
-    "ReportGenerated" => non_neg_integer()
-  }
+      
+      get_device_fleet_report_response() :: %{
+        "AgentVersions" => list(agent_version()()),
+        "Description" => String.t(),
+        "DeviceFleetArn" => String.t(),
+        "DeviceFleetName" => String.t(),
+        "DeviceStats" => device_stats(),
+        "ModelStats" => list(edge_model_stat()()),
+        "OutputConfig" => edge_output_config(),
+        "ReportGenerated" => non_neg_integer()
+      }
+      
   """
   @type get_device_fleet_report_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  transform_job_summary() :: %{
-    "CreationTime" => non_neg_integer(),
-    "FailureReason" => String.t(),
-    "LastModifiedTime" => non_neg_integer(),
-    "TransformEndTime" => non_neg_integer(),
-    "TransformJobArn" => String.t(),
-    "TransformJobName" => String.t(),
-    "TransformJobStatus" => list(any())
-  }
+      
+      transform_job_summary() :: %{
+        "CreationTime" => non_neg_integer(),
+        "FailureReason" => String.t(),
+        "LastModifiedTime" => non_neg_integer(),
+        "TransformEndTime" => non_neg_integer(),
+        "TransformJobArn" => String.t(),
+        "TransformJobName" => String.t(),
+        "TransformJobStatus" => list(any())
+      }
+      
   """
   @type transform_job_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  model_step_metadata() :: %{
-    "Arn" => String.t()
-  }
+      
+      model_step_metadata() :: %{
+        "Arn" => String.t()
+      }
+      
   """
   @type model_step_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_pipeline_execution_steps_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("PipelineExecutionArn") => String.t(),
-    optional("SortOrder") => list(any())
-  }
+      
+      list_pipeline_execution_steps_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("PipelineExecutionArn") => String.t(),
+        optional("SortOrder") => list(any())
+      }
+      
   """
   @type list_pipeline_execution_steps_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  monitoring_job_definition() :: %{
-    "BaselineConfig" => monitoring_baseline_config(),
-    "Environment" => map(),
-    "MonitoringAppSpecification" => monitoring_app_specification(),
-    "MonitoringInputs" => list(monitoring_input()()),
-    "MonitoringOutputConfig" => monitoring_output_config(),
-    "MonitoringResources" => monitoring_resources(),
-    "NetworkConfig" => network_config(),
-    "RoleArn" => String.t(),
-    "StoppingCondition" => monitoring_stopping_condition()
-  }
+      
+      monitoring_job_definition() :: %{
+        "BaselineConfig" => monitoring_baseline_config(),
+        "Environment" => map(),
+        "MonitoringAppSpecification" => monitoring_app_specification(),
+        "MonitoringInputs" => list(monitoring_input()()),
+        "MonitoringOutputConfig" => monitoring_output_config(),
+        "MonitoringResources" => monitoring_resources(),
+        "NetworkConfig" => network_config(),
+        "RoleArn" => String.t(),
+        "StoppingCondition" => monitoring_stopping_condition()
+      }
+      
   """
   @type monitoring_job_definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_model_package_output() :: %{
-    "ModelPackageArn" => String.t()
-  }
+      
+      create_model_package_output() :: %{
+        "ModelPackageArn" => String.t()
+      }
+      
   """
   @type create_model_package_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  user_settings() :: %{
-    "CanvasAppSettings" => canvas_app_settings(),
-    "CodeEditorAppSettings" => code_editor_app_settings(),
-    "CustomFileSystemConfigs" => list(list()()),
-    "CustomPosixUserConfig" => custom_posix_user_config(),
-    "DefaultLandingUri" => String.t(),
-    "ExecutionRole" => String.t(),
-    "JupyterLabAppSettings" => jupyter_lab_app_settings(),
-    "JupyterServerAppSettings" => jupyter_server_app_settings(),
-    "KernelGatewayAppSettings" => kernel_gateway_app_settings(),
-    "RSessionAppSettings" => r_session_app_settings(),
-    "RStudioServerProAppSettings" => r_studio_server_pro_app_settings(),
-    "SecurityGroups" => list(String.t()()),
-    "SharingSettings" => sharing_settings(),
-    "SpaceStorageSettings" => default_space_storage_settings(),
-    "StudioWebPortal" => list(any()),
-    "TensorBoardAppSettings" => tensor_board_app_settings()
-  }
+      
+      user_settings() :: %{
+        "CanvasAppSettings" => canvas_app_settings(),
+        "CodeEditorAppSettings" => code_editor_app_settings(),
+        "CustomFileSystemConfigs" => list(list()()),
+        "CustomPosixUserConfig" => custom_posix_user_config(),
+        "DefaultLandingUri" => String.t(),
+        "ExecutionRole" => String.t(),
+        "JupyterLabAppSettings" => jupyter_lab_app_settings(),
+        "JupyterServerAppSettings" => jupyter_server_app_settings(),
+        "KernelGatewayAppSettings" => kernel_gateway_app_settings(),
+        "RSessionAppSettings" => r_session_app_settings(),
+        "RStudioServerProAppSettings" => r_studio_server_pro_app_settings(),
+        "SecurityGroups" => list(String.t()()),
+        "SharingSettings" => sharing_settings(),
+        "SpaceStorageSettings" => default_space_storage_settings(),
+        "StudioWebPortal" => list(any()),
+        "TensorBoardAppSettings" => tensor_board_app_settings()
+      }
+      
   """
   @type user_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_workteam_request() :: %{
-    required("WorkteamName") => String.t()
-  }
+      
+      describe_workteam_request() :: %{
+        required("WorkteamName") => String.t()
+      }
+      
   """
   @type describe_workteam_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  model_package_validation_specification() :: %{
-    "ValidationProfiles" => list(model_package_validation_profile()()),
-    "ValidationRole" => String.t()
-  }
+      
+      model_package_validation_specification() :: %{
+        "ValidationProfiles" => list(model_package_validation_profile()()),
+        "ValidationRole" => String.t()
+      }
+      
   """
   @type model_package_validation_specification() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_endpoint_output() :: %{
-    "EndpointArn" => String.t()
-  }
+      
+      update_endpoint_output() :: %{
+        "EndpointArn" => String.t()
+      }
+      
   """
   @type update_endpoint_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  channel_specification() :: %{
-    "Description" => String.t(),
-    "IsRequired" => boolean(),
-    "Name" => String.t(),
-    "SupportedCompressionTypes" => list(list(any())()),
-    "SupportedContentTypes" => list(String.t()()),
-    "SupportedInputModes" => list(list(any())())
-  }
+      
+      channel_specification() :: %{
+        "Description" => String.t(),
+        "IsRequired" => boolean(),
+        "Name" => String.t(),
+        "SupportedCompressionTypes" => list(list(any())()),
+        "SupportedContentTypes" => list(String.t()()),
+        "SupportedInputModes" => list(list(any())())
+      }
+      
   """
   @type channel_specification() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  metrics_source() :: %{
-    "ContentDigest" => String.t(),
-    "ContentType" => String.t(),
-    "S3Uri" => String.t()
-  }
+      
+      metrics_source() :: %{
+        "ContentDigest" => String.t(),
+        "ContentType" => String.t(),
+        "S3Uri" => String.t()
+      }
+      
   """
   @type metrics_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  trial_component_summary() :: %{
-    "CreatedBy" => user_context(),
-    "CreationTime" => non_neg_integer(),
-    "DisplayName" => String.t(),
-    "EndTime" => non_neg_integer(),
-    "LastModifiedBy" => user_context(),
-    "LastModifiedTime" => non_neg_integer(),
-    "StartTime" => non_neg_integer(),
-    "Status" => trial_component_status(),
-    "TrialComponentArn" => String.t(),
-    "TrialComponentName" => String.t(),
-    "TrialComponentSource" => trial_component_source()
-  }
+      
+      trial_component_summary() :: %{
+        "CreatedBy" => user_context(),
+        "CreationTime" => non_neg_integer(),
+        "DisplayName" => String.t(),
+        "EndTime" => non_neg_integer(),
+        "LastModifiedBy" => user_context(),
+        "LastModifiedTime" => non_neg_integer(),
+        "StartTime" => non_neg_integer(),
+        "Status" => trial_component_status(),
+        "TrialComponentArn" => String.t(),
+        "TrialComponentName" => String.t(),
+        "TrialComponentSource" => trial_component_source()
+      }
+      
   """
   @type trial_component_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  domain_details() :: %{
-    "CreationTime" => non_neg_integer(),
-    "DomainArn" => String.t(),
-    "DomainId" => String.t(),
-    "DomainName" => String.t(),
-    "LastModifiedTime" => non_neg_integer(),
-    "Status" => list(any()),
-    "Url" => String.t()
-  }
+      
+      domain_details() :: %{
+        "CreationTime" => non_neg_integer(),
+        "DomainArn" => String.t(),
+        "DomainId" => String.t(),
+        "DomainName" => String.t(),
+        "LastModifiedTime" => non_neg_integer(),
+        "Status" => list(any()),
+        "Url" => String.t()
+      }
+      
   """
   @type domain_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  model_explainability_app_specification() :: %{
-    "ConfigUri" => String.t(),
-    "Environment" => map(),
-    "ImageUri" => String.t()
-  }
+      
+      model_explainability_app_specification() :: %{
+        "ConfigUri" => String.t(),
+        "Environment" => map(),
+        "ImageUri" => String.t()
+      }
+      
   """
   @type model_explainability_app_specification() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_edge_packaging_jobs_response() :: %{
-    "EdgePackagingJobSummaries" => list(edge_packaging_job_summary()()),
-    "NextToken" => String.t()
-  }
+      
+      list_edge_packaging_jobs_response() :: %{
+        "EdgePackagingJobSummaries" => list(edge_packaging_job_summary()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_edge_packaging_jobs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_notebook_instance_lifecycle_configs_input() :: %{
-    optional("CreationTimeAfter") => non_neg_integer(),
-    optional("CreationTimeBefore") => non_neg_integer(),
-    optional("LastModifiedTimeAfter") => non_neg_integer(),
-    optional("LastModifiedTimeBefore") => non_neg_integer(),
-    optional("MaxResults") => integer(),
-    optional("NameContains") => String.t(),
-    optional("NextToken") => String.t(),
-    optional("SortBy") => list(any()),
-    optional("SortOrder") => list(any())
-  }
+      
+      list_notebook_instance_lifecycle_configs_input() :: %{
+        optional("CreationTimeAfter") => non_neg_integer(),
+        optional("CreationTimeBefore") => non_neg_integer(),
+        optional("LastModifiedTimeAfter") => non_neg_integer(),
+        optional("LastModifiedTimeBefore") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("NameContains") => String.t(),
+        optional("NextToken") => String.t(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any())
+      }
+      
   """
   @type list_notebook_instance_lifecycle_configs_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_inference_recommendations_job_request() :: %{
-    optional("JobDescription") => String.t(),
-    optional("OutputConfig") => recommendation_job_output_config(),
-    optional("StoppingConditions") => recommendation_job_stopping_conditions(),
-    optional("Tags") => list(tag()()),
-    required("InputConfig") => recommendation_job_input_config(),
-    required("JobName") => String.t(),
-    required("JobType") => list(any()),
-    required("RoleArn") => String.t()
-  }
+      
+      create_inference_recommendations_job_request() :: %{
+        optional("JobDescription") => String.t(),
+        optional("OutputConfig") => recommendation_job_output_config(),
+        optional("StoppingConditions") => recommendation_job_stopping_conditions(),
+        optional("Tags") => list(tag()()),
+        required("InputConfig") => recommendation_job_input_config(),
+        required("JobName") => String.t(),
+        required("JobType") => list(any()),
+        required("RoleArn") => String.t()
+      }
+      
   """
   @type create_inference_recommendations_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  holiday_config_attributes() :: %{
-    "CountryCode" => String.t()
-  }
+      
+      holiday_config_attributes() :: %{
+        "CountryCode" => String.t()
+      }
+      
   """
   @type holiday_config_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_model_quality_job_definition_response() :: %{
-    "JobDefinitionArn" => String.t()
-  }
+      
+      create_model_quality_job_definition_response() :: %{
+        "JobDefinitionArn" => String.t()
+      }
+      
   """
   @type create_model_quality_job_definition_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  monitoring_schedule() :: %{
-    "CreationTime" => non_neg_integer(),
-    "EndpointName" => String.t(),
-    "FailureReason" => String.t(),
-    "LastModifiedTime" => non_neg_integer(),
-    "LastMonitoringExecutionSummary" => monitoring_execution_summary(),
-    "MonitoringScheduleArn" => String.t(),
-    "MonitoringScheduleConfig" => monitoring_schedule_config(),
-    "MonitoringScheduleName" => String.t(),
-    "MonitoringScheduleStatus" => list(any()),
-    "MonitoringType" => list(any()),
-    "Tags" => list(tag()())
-  }
+      
+      monitoring_schedule() :: %{
+        "CreationTime" => non_neg_integer(),
+        "EndpointName" => String.t(),
+        "FailureReason" => String.t(),
+        "LastModifiedTime" => non_neg_integer(),
+        "LastMonitoringExecutionSummary" => monitoring_execution_summary(),
+        "MonitoringScheduleArn" => String.t(),
+        "MonitoringScheduleConfig" => monitoring_schedule_config(),
+        "MonitoringScheduleName" => String.t(),
+        "MonitoringScheduleStatus" => list(any()),
+        "MonitoringType" => list(any()),
+        "Tags" => list(tag()())
+      }
+      
   """
   @type monitoring_schedule() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_monitoring_schedule_request() :: %{
-    required("MonitoringScheduleName") => String.t()
-  }
+      
+      delete_monitoring_schedule_request() :: %{
+        required("MonitoringScheduleName") => String.t()
+      }
+      
   """
   @type delete_monitoring_schedule_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_pipeline_execution_response() :: %{
-    "PipelineExecutionArn" => String.t()
-  }
+      
+      start_pipeline_execution_response() :: %{
+        "PipelineExecutionArn" => String.t()
+      }
+      
   """
   @type start_pipeline_execution_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  model_access_config() :: %{
-    "AcceptEula" => boolean()
-  }
+      
+      model_access_config() :: %{
+        "AcceptEula" => boolean()
+      }
+      
   """
   @type model_access_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_user_profile_response() :: %{
-    "CreationTime" => non_neg_integer(),
-    "DomainId" => String.t(),
-    "FailureReason" => String.t(),
-    "HomeEfsFileSystemUid" => String.t(),
-    "LastModifiedTime" => non_neg_integer(),
-    "SingleSignOnUserIdentifier" => String.t(),
-    "SingleSignOnUserValue" => String.t(),
-    "Status" => list(any()),
-    "UserProfileArn" => String.t(),
-    "UserProfileName" => String.t(),
-    "UserSettings" => user_settings()
-  }
+      
+      describe_user_profile_response() :: %{
+        "CreationTime" => non_neg_integer(),
+        "DomainId" => String.t(),
+        "FailureReason" => String.t(),
+        "HomeEfsFileSystemUid" => String.t(),
+        "LastModifiedTime" => non_neg_integer(),
+        "SingleSignOnUserIdentifier" => String.t(),
+        "SingleSignOnUserValue" => String.t(),
+        "Status" => list(any()),
+        "UserProfileArn" => String.t(),
+        "UserProfileName" => String.t(),
+        "UserSettings" => user_settings()
+      }
+      
   """
   @type describe_user_profile_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  transform_input() :: %{
-    "CompressionType" => list(any()),
-    "ContentType" => String.t(),
-    "DataSource" => transform_data_source(),
-    "SplitType" => list(any())
-  }
+      
+      transform_input() :: %{
+        "CompressionType" => list(any()),
+        "ContentType" => String.t(),
+        "DataSource" => transform_data_source(),
+        "SplitType" => list(any())
+      }
+      
   """
   @type transform_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  trial_component_metric_summary() :: %{
-    "Avg" => float(),
-    "Count" => integer(),
-    "Last" => float(),
-    "Max" => float(),
-    "MetricName" => String.t(),
-    "Min" => float(),
-    "SourceArn" => String.t(),
-    "StdDev" => float(),
-    "TimeStamp" => non_neg_integer()
-  }
+      
+      trial_component_metric_summary() :: %{
+        "Avg" => float(),
+        "Count" => integer(),
+        "Last" => float(),
+        "Max" => float(),
+        "MetricName" => String.t(),
+        "Min" => float(),
+        "SourceArn" => String.t(),
+        "StdDev" => float(),
+        "TimeStamp" => non_neg_integer()
+      }
+      
   """
   @type trial_component_metric_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  device() :: %{
-    "Description" => String.t(),
-    "DeviceName" => String.t(),
-    "IotThingName" => String.t()
-  }
+      
+      device() :: %{
+        "Description" => String.t(),
+        "DeviceName" => String.t(),
+        "IotThingName" => String.t()
+      }
+      
   """
   @type device() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_workteam_response() :: %{
-    "Workteam" => workteam()
-  }
+      
+      update_workteam_response() :: %{
+        "Workteam" => workteam()
+      }
+      
   """
   @type update_workteam_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  desired_weight_and_capacity() :: %{
-    "DesiredInstanceCount" => integer(),
-    "DesiredWeight" => float(),
-    "ServerlessUpdateConfig" => production_variant_serverless_update_config(),
-    "VariantName" => String.t()
-  }
+      
+      desired_weight_and_capacity() :: %{
+        "DesiredInstanceCount" => integer(),
+        "DesiredWeight" => float(),
+        "ServerlessUpdateConfig" => production_variant_serverless_update_config(),
+        "VariantName" => String.t()
+      }
+      
   """
   @type desired_weight_and_capacity() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  parent() :: %{
-    "ExperimentName" => String.t(),
-    "TrialName" => String.t()
-  }
+      
+      parent() :: %{
+        "ExperimentName" => String.t(),
+        "TrialName" => String.t()
+      }
+      
   """
   @type parent() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  text_classification_job_config() :: %{
-    "CompletionCriteria" => auto_ml_job_completion_criteria(),
-    "ContentColumn" => String.t(),
-    "TargetLabelColumn" => String.t()
-  }
+      
+      text_classification_job_config() :: %{
+        "CompletionCriteria" => auto_ml_job_completion_criteria(),
+        "ContentColumn" => String.t(),
+        "TargetLabelColumn" => String.t()
+      }
+      
   """
   @type text_classification_job_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  final_hyper_parameter_tuning_job_objective_metric() :: %{
-    "MetricName" => String.t(),
-    "Type" => list(any()),
-    "Value" => float()
-  }
+      
+      final_hyper_parameter_tuning_job_objective_metric() :: %{
+        "MetricName" => String.t(),
+        "Type" => list(any()),
+        "Value" => float()
+      }
+      
   """
   @type final_hyper_parameter_tuning_job_objective_metric() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_pipeline_request() :: %{
-    required("PipelineName") => String.t()
-  }
+      
+      describe_pipeline_request() :: %{
+        required("PipelineName") => String.t()
+      }
+      
   """
   @type describe_pipeline_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  data_source() :: %{
-    "FileSystemDataSource" => file_system_data_source(),
-    "S3DataSource" => s3_data_source()
-  }
+      
+      data_source() :: %{
+        "FileSystemDataSource" => file_system_data_source(),
+        "S3DataSource" => s3_data_source()
+      }
+      
   """
   @type data_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_training_job_response() :: %{
-    "TrainingJobArn" => String.t()
-  }
+      
+      create_training_job_response() :: %{
+        "TrainingJobArn" => String.t()
+      }
+      
   """
   @type create_training_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_model_bias_job_definition_request() :: %{
-    required("JobDefinitionName") => String.t()
-  }
+      
+      delete_model_bias_job_definition_request() :: %{
+        required("JobDefinitionName") => String.t()
+      }
+      
   """
   @type delete_model_bias_job_definition_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_model_cards_response() :: %{
-    "ModelCardSummaries" => list(model_card_summary()()),
-    "NextToken" => String.t()
-  }
+      
+      list_model_cards_response() :: %{
+        "ModelCardSummaries" => list(model_card_summary()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_model_cards_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_context_response() :: %{
-    "ContextArn" => String.t()
-  }
+      
+      update_context_response() :: %{
+        "ContextArn" => String.t()
+      }
+      
   """
   @type update_context_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_device_fleet_response() :: %{
-    "CreationTime" => non_neg_integer(),
-    "Description" => String.t(),
-    "DeviceFleetArn" => String.t(),
-    "DeviceFleetName" => String.t(),
-    "IotRoleAlias" => String.t(),
-    "LastModifiedTime" => non_neg_integer(),
-    "OutputConfig" => edge_output_config(),
-    "RoleArn" => String.t()
-  }
+      
+      describe_device_fleet_response() :: %{
+        "CreationTime" => non_neg_integer(),
+        "Description" => String.t(),
+        "DeviceFleetArn" => String.t(),
+        "DeviceFleetName" => String.t(),
+        "IotRoleAlias" => String.t(),
+        "LastModifiedTime" => non_neg_integer(),
+        "OutputConfig" => edge_output_config(),
+        "RoleArn" => String.t()
+      }
+      
   """
   @type describe_device_fleet_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_trials_response() :: %{
-    "NextToken" => String.t(),
-    "TrialSummaries" => list(trial_summary()())
-  }
+      
+      list_trials_response() :: %{
+        "NextToken" => String.t(),
+        "TrialSummaries" => list(trial_summary()())
+      }
+      
   """
   @type list_trials_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  labeling_job_sns_data_source() :: %{
-    "SnsTopicArn" => String.t()
-  }
+      
+      labeling_job_sns_data_source() :: %{
+        "SnsTopicArn" => String.t()
+      }
+      
   """
   @type labeling_job_sns_data_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_transform_jobs_response() :: %{
-    "NextToken" => String.t(),
-    "TransformJobSummaries" => list(transform_job_summary()())
-  }
+      
+      list_transform_jobs_response() :: %{
+        "NextToken" => String.t(),
+        "TransformJobSummaries" => list(transform_job_summary()())
+      }
+      
   """
   @type list_transform_jobs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_hub_content_request() :: %{
-    required("HubContentName") => String.t(),
-    required("HubContentType") => list(any()),
-    required("HubContentVersion") => String.t(),
-    required("HubName") => String.t()
-  }
+      
+      delete_hub_content_request() :: %{
+        required("HubContentName") => String.t(),
+        required("HubContentType") => list(any()),
+        required("HubContentVersion") => String.t(),
+        required("HubName") => String.t()
+      }
+      
   """
   @type delete_hub_content_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  space_jupyter_lab_app_settings() :: %{
-    "CodeRepositories" => list(code_repository()()),
-    "DefaultResourceSpec" => resource_spec()
-  }
+      
+      space_jupyter_lab_app_settings() :: %{
+        "CodeRepositories" => list(code_repository()()),
+        "DefaultResourceSpec" => resource_spec()
+      }
+      
   """
   @type space_jupyter_lab_app_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_flow_definitions_response() :: %{
-    "FlowDefinitionSummaries" => list(flow_definition_summary()()),
-    "NextToken" => String.t()
-  }
+      
+      list_flow_definitions_response() :: %{
+        "FlowDefinitionSummaries" => list(flow_definition_summary()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_flow_definitions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  edge() :: %{
-    "AssociationType" => list(any()),
-    "DestinationArn" => String.t(),
-    "SourceArn" => String.t()
-  }
+      
+      edge() :: %{
+        "AssociationType" => list(any()),
+        "DestinationArn" => String.t(),
+        "SourceArn" => String.t()
+      }
+      
   """
   @type edge() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  model_package_container_definition() :: %{
-    "AdditionalS3DataSource" => additional_s3_data_source(),
-    "ContainerHostname" => String.t(),
-    "Environment" => map(),
-    "Framework" => String.t(),
-    "FrameworkVersion" => String.t(),
-    "Image" => String.t(),
-    "ImageDigest" => String.t(),
-    "ModelDataSource" => model_data_source(),
-    "ModelDataUrl" => String.t(),
-    "ModelInput" => model_input(),
-    "NearestModelName" => String.t(),
-    "ProductId" => String.t()
-  }
+      
+      model_package_container_definition() :: %{
+        "AdditionalS3DataSource" => additional_s3_data_source(),
+        "ContainerHostname" => String.t(),
+        "Environment" => map(),
+        "Framework" => String.t(),
+        "FrameworkVersion" => String.t(),
+        "Image" => String.t(),
+        "ImageDigest" => String.t(),
+        "ModelDataSource" => model_data_source(),
+        "ModelDataUrl" => String.t(),
+        "ModelInput" => model_input(),
+        "NearestModelName" => String.t(),
+        "ProductId" => String.t()
+      }
+      
   """
   @type model_package_container_definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  monitoring_constraints_resource() :: %{
-    "S3Uri" => String.t()
-  }
+      
+      monitoring_constraints_resource() :: %{
+        "S3Uri" => String.t()
+      }
+      
   """
   @type monitoring_constraints_resource() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  experiment() :: %{
-    "CreatedBy" => user_context(),
-    "CreationTime" => non_neg_integer(),
-    "Description" => String.t(),
-    "DisplayName" => String.t(),
-    "ExperimentArn" => String.t(),
-    "ExperimentName" => String.t(),
-    "LastModifiedBy" => user_context(),
-    "LastModifiedTime" => non_neg_integer(),
-    "Source" => experiment_source(),
-    "Tags" => list(tag()())
-  }
+      
+      experiment() :: %{
+        "CreatedBy" => user_context(),
+        "CreationTime" => non_neg_integer(),
+        "Description" => String.t(),
+        "DisplayName" => String.t(),
+        "ExperimentArn" => String.t(),
+        "ExperimentName" => String.t(),
+        "LastModifiedBy" => user_context(),
+        "LastModifiedTime" => non_neg_integer(),
+        "Source" => experiment_source(),
+        "Tags" => list(tag()())
+      }
+      
   """
   @type experiment() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ownership_settings() :: %{
-    "OwnerUserProfileName" => String.t()
-  }
+      
+      ownership_settings() :: %{
+        "OwnerUserProfileName" => String.t()
+      }
+      
   """
   @type ownership_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  default_space_settings() :: %{
-    "ExecutionRole" => String.t(),
-    "JupyterServerAppSettings" => jupyter_server_app_settings(),
-    "KernelGatewayAppSettings" => kernel_gateway_app_settings(),
-    "SecurityGroups" => list(String.t()())
-  }
+      
+      default_space_settings() :: %{
+        "ExecutionRole" => String.t(),
+        "JupyterServerAppSettings" => jupyter_server_app_settings(),
+        "KernelGatewayAppSettings" => kernel_gateway_app_settings(),
+        "SecurityGroups" => list(String.t()())
+      }
+      
   """
   @type default_space_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stop_monitoring_schedule_request() :: %{
-    required("MonitoringScheduleName") => String.t()
-  }
+      
+      stop_monitoring_schedule_request() :: %{
+        required("MonitoringScheduleName") => String.t()
+      }
+      
   """
   @type stop_monitoring_schedule_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_app_response() :: %{
-    "AppArn" => String.t()
-  }
+      
+      create_app_response() :: %{
+        "AppArn" => String.t()
+      }
+      
   """
   @type create_app_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_model_card_export_job_request() :: %{
-    optional("ModelCardVersion") => integer(),
-    required("ModelCardExportJobName") => String.t(),
-    required("ModelCardName") => String.t(),
-    required("OutputConfig") => model_card_export_output_config()
-  }
+      
+      create_model_card_export_job_request() :: %{
+        optional("ModelCardVersion") => integer(),
+        required("ModelCardExportJobName") => String.t(),
+        required("ModelCardName") => String.t(),
+        required("OutputConfig") => model_card_export_output_config()
+      }
+      
   """
   @type create_model_card_export_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  selected_step() :: %{
-    "StepName" => String.t()
-  }
+      
+      selected_step() :: %{
+        "StepName" => String.t()
+      }
+      
   """
   @type selected_step() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_trial_response() :: %{
-    "TrialArn" => String.t()
-  }
+      
+      update_trial_response() :: %{
+        "TrialArn" => String.t()
+      }
+      
   """
   @type update_trial_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_app_image_configs_request() :: %{
-    optional("CreationTimeAfter") => non_neg_integer(),
-    optional("CreationTimeBefore") => non_neg_integer(),
-    optional("MaxResults") => integer(),
-    optional("ModifiedTimeAfter") => non_neg_integer(),
-    optional("ModifiedTimeBefore") => non_neg_integer(),
-    optional("NameContains") => String.t(),
-    optional("NextToken") => String.t(),
-    optional("SortBy") => list(any()),
-    optional("SortOrder") => list(any())
-  }
+      
+      list_app_image_configs_request() :: %{
+        optional("CreationTimeAfter") => non_neg_integer(),
+        optional("CreationTimeBefore") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("ModifiedTimeAfter") => non_neg_integer(),
+        optional("ModifiedTimeBefore") => non_neg_integer(),
+        optional("NameContains") => String.t(),
+        optional("NextToken") => String.t(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any())
+      }
+      
   """
   @type list_app_image_configs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_monitoring_alert_request() :: %{
-    required("DatapointsToAlert") => integer(),
-    required("EvaluationPeriod") => integer(),
-    required("MonitoringAlertName") => String.t(),
-    required("MonitoringScheduleName") => String.t()
-  }
+      
+      update_monitoring_alert_request() :: %{
+        required("DatapointsToAlert") => integer(),
+        required("EvaluationPeriod") => integer(),
+        required("MonitoringAlertName") => String.t(),
+        required("MonitoringScheduleName") => String.t()
+      }
+      
   """
   @type update_monitoring_alert_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_trial_component_response() :: %{
-    "CreatedBy" => user_context(),
-    "CreationTime" => non_neg_integer(),
-    "DisplayName" => String.t(),
-    "EndTime" => non_neg_integer(),
-    "InputArtifacts" => map(),
-    "LastModifiedBy" => user_context(),
-    "LastModifiedTime" => non_neg_integer(),
-    "LineageGroupArn" => String.t(),
-    "MetadataProperties" => metadata_properties(),
-    "Metrics" => list(trial_component_metric_summary()()),
-    "OutputArtifacts" => map(),
-    "Parameters" => map(),
-    "Source" => trial_component_source(),
-    "Sources" => list(trial_component_source()()),
-    "StartTime" => non_neg_integer(),
-    "Status" => trial_component_status(),
-    "TrialComponentArn" => String.t(),
-    "TrialComponentName" => String.t()
-  }
+      
+      describe_trial_component_response() :: %{
+        "CreatedBy" => user_context(),
+        "CreationTime" => non_neg_integer(),
+        "DisplayName" => String.t(),
+        "EndTime" => non_neg_integer(),
+        "InputArtifacts" => map(),
+        "LastModifiedBy" => user_context(),
+        "LastModifiedTime" => non_neg_integer(),
+        "LineageGroupArn" => String.t(),
+        "MetadataProperties" => metadata_properties(),
+        "Metrics" => list(trial_component_metric_summary()()),
+        "OutputArtifacts" => map(),
+        "Parameters" => map(),
+        "Source" => trial_component_source(),
+        "Sources" => list(trial_component_source()()),
+        "StartTime" => non_neg_integer(),
+        "Status" => trial_component_status(),
+        "TrialComponentArn" => String.t(),
+        "TrialComponentName" => String.t()
+      }
+      
   """
   @type describe_trial_component_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_limit_exceeded() :: %{
-    "Message" => String.t()
-  }
+      
+      resource_limit_exceeded() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type resource_limit_exceeded() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_monitoring_executions_response() :: %{
-    "MonitoringExecutionSummaries" => list(monitoring_execution_summary()()),
-    "NextToken" => String.t()
-  }
+      
+      list_monitoring_executions_response() :: %{
+        "MonitoringExecutionSummaries" => list(monitoring_execution_summary()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_monitoring_executions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  hyper_parameter_tuning_job_completion_details() :: %{
-    "ConvergenceDetectedTime" => non_neg_integer(),
-    "NumberOfTrainingJobsObjectiveNotImproving" => integer()
-  }
+      
+      hyper_parameter_tuning_job_completion_details() :: %{
+        "ConvergenceDetectedTime" => non_neg_integer(),
+        "NumberOfTrainingJobsObjectiveNotImproving" => integer()
+      }
+      
   """
   @type hyper_parameter_tuning_job_completion_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  model_data_source() :: %{
-    "S3DataSource" => s3_model_data_source()
-  }
+      
+      model_data_source() :: %{
+        "S3DataSource" => s3_model_data_source()
+      }
+      
   """
   @type model_data_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  inference_component_specification() :: %{
-    "ComputeResourceRequirements" => inference_component_compute_resource_requirements(),
-    "Container" => inference_component_container_specification(),
-    "ModelName" => String.t(),
-    "StartupParameters" => inference_component_startup_parameters()
-  }
+      
+      inference_component_specification() :: %{
+        "ComputeResourceRequirements" => inference_component_compute_resource_requirements(),
+        "Container" => inference_component_container_specification(),
+        "ModelName" => String.t(),
+        "StartupParameters" => inference_component_startup_parameters()
+      }
+      
   """
   @type inference_component_specification() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  auto_rollback_config() :: %{
-    "Alarms" => list(alarm()())
-  }
+      
+      auto_rollback_config() :: %{
+        "Alarms" => list(alarm()())
+      }
+      
   """
   @type auto_rollback_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_flow_definitions_request() :: %{
-    optional("CreationTimeAfter") => non_neg_integer(),
-    optional("CreationTimeBefore") => non_neg_integer(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("SortOrder") => list(any())
-  }
+      
+      list_flow_definitions_request() :: %{
+        optional("CreationTimeAfter") => non_neg_integer(),
+        optional("CreationTimeBefore") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("SortOrder") => list(any())
+      }
+      
   """
   @type list_flow_definitions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  drift_check_baselines() :: %{
-    "Bias" => drift_check_bias(),
-    "Explainability" => drift_check_explainability(),
-    "ModelDataQuality" => drift_check_model_data_quality(),
-    "ModelQuality" => drift_check_model_quality()
-  }
+      
+      drift_check_baselines() :: %{
+        "Bias" => drift_check_bias(),
+        "Explainability" => drift_check_explainability(),
+        "ModelDataQuality" => drift_check_model_data_quality(),
+        "ModelQuality" => drift_check_model_quality()
+      }
+      
   """
   @type drift_check_baselines() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_notebook_instance_output() :: %{
-    "NotebookInstanceArn" => String.t()
-  }
+      
+      create_notebook_instance_output() :: %{
+        "NotebookInstanceArn" => String.t()
+      }
+      
   """
   @type create_notebook_instance_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_hyper_parameter_tuning_jobs_response() :: %{
-    "HyperParameterTuningJobSummaries" => list(hyper_parameter_tuning_job_summary()()),
-    "NextToken" => String.t()
-  }
+      
+      list_hyper_parameter_tuning_jobs_response() :: %{
+        "HyperParameterTuningJobSummaries" => list(hyper_parameter_tuning_job_summary()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_hyper_parameter_tuning_jobs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  monitoring_schedule_summary() :: %{
-    "CreationTime" => non_neg_integer(),
-    "EndpointName" => String.t(),
-    "LastModifiedTime" => non_neg_integer(),
-    "MonitoringJobDefinitionName" => String.t(),
-    "MonitoringScheduleArn" => String.t(),
-    "MonitoringScheduleName" => String.t(),
-    "MonitoringScheduleStatus" => list(any()),
-    "MonitoringType" => list(any())
-  }
+      
+      monitoring_schedule_summary() :: %{
+        "CreationTime" => non_neg_integer(),
+        "EndpointName" => String.t(),
+        "LastModifiedTime" => non_neg_integer(),
+        "MonitoringJobDefinitionName" => String.t(),
+        "MonitoringScheduleArn" => String.t(),
+        "MonitoringScheduleName" => String.t(),
+        "MonitoringScheduleStatus" => list(any()),
+        "MonitoringType" => list(any())
+      }
+      
   """
   @type monitoring_schedule_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_model_packages_output() :: %{
-    "ModelPackageSummaryList" => list(model_package_summary()()),
-    "NextToken" => String.t()
-  }
+      
+      list_model_packages_output() :: %{
+        "ModelPackageSummaryList" => list(model_package_summary()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_model_packages_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_catalog() :: %{
-    "CreationTime" => non_neg_integer(),
-    "Description" => String.t(),
-    "ResourceCatalogArn" => String.t(),
-    "ResourceCatalogName" => String.t()
-  }
+      
+      resource_catalog() :: %{
+        "CreationTime" => non_neg_integer(),
+        "Description" => String.t(),
+        "ResourceCatalogArn" => String.t(),
+        "ResourceCatalogName" => String.t()
+      }
+      
   """
   @type resource_catalog() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  processing_output_config() :: %{
-    "KmsKeyId" => String.t(),
-    "Outputs" => list(processing_output()())
-  }
+      
+      processing_output_config() :: %{
+        "KmsKeyId" => String.t(),
+        "Outputs" => list(processing_output()())
+      }
+      
   """
   @type processing_output_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  production_variant_managed_instance_scaling() :: %{
-    "MaxInstanceCount" => integer(),
-    "MinInstanceCount" => integer(),
-    "Status" => list(any())
-  }
+      
+      production_variant_managed_instance_scaling() :: %{
+        "MaxInstanceCount" => integer(),
+        "MinInstanceCount" => integer(),
+        "Status" => list(any())
+      }
+      
   """
   @type production_variant_managed_instance_scaling() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_workforce_response() :: %{
-    "Workforce" => workforce()
-  }
+      
+      describe_workforce_response() :: %{
+        "Workforce" => workforce()
+      }
+      
   """
   @type describe_workforce_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  search_record() :: %{
-    "Endpoint" => endpoint(),
-    "Experiment" => experiment(),
-    "FeatureGroup" => feature_group(),
-    "FeatureMetadata" => feature_metadata(),
-    "HyperParameterTuningJob" => hyper_parameter_tuning_job_search_entity(),
-    "Model" => model_dashboard_model(),
-    "ModelCard" => model_card(),
-    "ModelPackage" => model_package(),
-    "ModelPackageGroup" => model_package_group(),
-    "Pipeline" => pipeline(),
-    "PipelineExecution" => pipeline_execution(),
-    "Project" => project(),
-    "TrainingJob" => training_job(),
-    "Trial" => trial(),
-    "TrialComponent" => trial_component()
-  }
+      
+      search_record() :: %{
+        "Endpoint" => endpoint(),
+        "Experiment" => experiment(),
+        "FeatureGroup" => feature_group(),
+        "FeatureMetadata" => feature_metadata(),
+        "HyperParameterTuningJob" => hyper_parameter_tuning_job_search_entity(),
+        "Model" => model_dashboard_model(),
+        "ModelCard" => model_card(),
+        "ModelPackage" => model_package(),
+        "ModelPackageGroup" => model_package_group(),
+        "Pipeline" => pipeline(),
+        "PipelineExecution" => pipeline_execution(),
+        "Project" => project(),
+        "TrainingJob" => training_job(),
+        "Trial" => trial(),
+        "TrialComponent" => trial_component()
+      }
+      
   """
   @type search_record() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  trial() :: %{
-    "CreatedBy" => user_context(),
-    "CreationTime" => non_neg_integer(),
-    "DisplayName" => String.t(),
-    "ExperimentName" => String.t(),
-    "LastModifiedBy" => user_context(),
-    "LastModifiedTime" => non_neg_integer(),
-    "MetadataProperties" => metadata_properties(),
-    "Source" => trial_source(),
-    "Tags" => list(tag()()),
-    "TrialArn" => String.t(),
-    "TrialComponentSummaries" => list(trial_component_simple_summary()()),
-    "TrialName" => String.t()
-  }
+      
+      trial() :: %{
+        "CreatedBy" => user_context(),
+        "CreationTime" => non_neg_integer(),
+        "DisplayName" => String.t(),
+        "ExperimentName" => String.t(),
+        "LastModifiedBy" => user_context(),
+        "LastModifiedTime" => non_neg_integer(),
+        "MetadataProperties" => metadata_properties(),
+        "Source" => trial_source(),
+        "Tags" => list(tag()()),
+        "TrialArn" => String.t(),
+        "TrialComponentSummaries" => list(trial_component_simple_summary()()),
+        "TrialName" => String.t()
+      }
+      
   """
   @type trial() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  processing_cluster_config() :: %{
-    "InstanceCount" => integer(),
-    "InstanceType" => list(any()),
-    "VolumeKmsKeyId" => String.t(),
-    "VolumeSizeInGB" => integer()
-  }
+      
+      processing_cluster_config() :: %{
+        "InstanceCount" => integer(),
+        "InstanceType" => list(any()),
+        "VolumeKmsKeyId" => String.t(),
+        "VolumeSizeInGB" => integer()
+      }
+      
   """
   @type processing_cluster_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  device_stats() :: %{
-    "ConnectedDeviceCount" => float(),
-    "RegisteredDeviceCount" => float()
-  }
+      
+      device_stats() :: %{
+        "ConnectedDeviceCount" => float(),
+        "RegisteredDeviceCount" => float()
+      }
+      
   """
   @type device_stats() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_model_input() :: %{
-    required("ModelName") => String.t()
-  }
+      
+      describe_model_input() :: %{
+        required("ModelName") => String.t()
+      }
+      
   """
   @type describe_model_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  environment_parameter() :: %{
-    "Key" => String.t(),
-    "Value" => String.t(),
-    "ValueType" => String.t()
-  }
+      
+      environment_parameter() :: %{
+        "Key" => String.t(),
+        "Value" => String.t(),
+        "ValueType" => String.t()
+      }
+      
   """
   @type environment_parameter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  model_dashboard_endpoint() :: %{
-    "CreationTime" => non_neg_integer(),
-    "EndpointArn" => String.t(),
-    "EndpointName" => String.t(),
-    "EndpointStatus" => list(any()),
-    "LastModifiedTime" => non_neg_integer()
-  }
+      
+      model_dashboard_endpoint() :: %{
+        "CreationTime" => non_neg_integer(),
+        "EndpointArn" => String.t(),
+        "EndpointName" => String.t(),
+        "EndpointStatus" => list(any()),
+        "LastModifiedTime" => non_neg_integer()
+      }
+      
   """
   @type model_dashboard_endpoint() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_device_fleet_request() :: %{
-    required("DeviceFleetName") => String.t()
-  }
+      
+      delete_device_fleet_request() :: %{
+        required("DeviceFleetName") => String.t()
+      }
+      
   """
   @type delete_device_fleet_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  jupyter_lab_app_settings() :: %{
-    "CodeRepositories" => list(code_repository()()),
-    "CustomImages" => list(custom_image()()),
-    "DefaultResourceSpec" => resource_spec(),
-    "LifecycleConfigArns" => list(String.t()())
-  }
+      
+      jupyter_lab_app_settings() :: %{
+        "CodeRepositories" => list(code_repository()()),
+        "CustomImages" => list(custom_image()()),
+        "DefaultResourceSpec" => resource_spec(),
+        "LifecycleConfigArns" => list(String.t()())
+      }
+      
   """
   @type jupyter_lab_app_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_experiment_response() :: %{
-    "ExperimentArn" => String.t()
-  }
+      
+      update_experiment_response() :: %{
+        "ExperimentArn" => String.t()
+      }
+      
   """
   @type update_experiment_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_algorithms_output() :: %{
-    "AlgorithmSummaryList" => list(algorithm_summary()()),
-    "NextToken" => String.t()
-  }
+      
+      list_algorithms_output() :: %{
+        "AlgorithmSummaryList" => list(algorithm_summary()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_algorithms_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_notebook_instance_lifecycle_config_input() :: %{
-    required("NotebookInstanceLifecycleConfigName") => String.t()
-  }
+      
+      delete_notebook_instance_lifecycle_config_input() :: %{
+        required("NotebookInstanceLifecycleConfigName") => String.t()
+      }
+      
   """
   @type delete_notebook_instance_lifecycle_config_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  human_loop_config() :: %{
-    "HumanTaskUiArn" => String.t(),
-    "PublicWorkforceTaskPrice" => public_workforce_task_price(),
-    "TaskAvailabilityLifetimeInSeconds" => integer(),
-    "TaskCount" => integer(),
-    "TaskDescription" => String.t(),
-    "TaskKeywords" => list(String.t()()),
-    "TaskTimeLimitInSeconds" => integer(),
-    "TaskTitle" => String.t(),
-    "WorkteamArn" => String.t()
-  }
+      
+      human_loop_config() :: %{
+        "HumanTaskUiArn" => String.t(),
+        "PublicWorkforceTaskPrice" => public_workforce_task_price(),
+        "TaskAvailabilityLifetimeInSeconds" => integer(),
+        "TaskCount" => integer(),
+        "TaskDescription" => String.t(),
+        "TaskKeywords" => list(String.t()()),
+        "TaskTimeLimitInSeconds" => integer(),
+        "TaskTitle" => String.t(),
+        "WorkteamArn" => String.t()
+      }
+      
   """
   @type human_loop_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  monitoring_baseline_config() :: %{
-    "BaseliningJobName" => String.t(),
-    "ConstraintsResource" => monitoring_constraints_resource(),
-    "StatisticsResource" => monitoring_statistics_resource()
-  }
+      
+      monitoring_baseline_config() :: %{
+        "BaseliningJobName" => String.t(),
+        "ConstraintsResource" => monitoring_constraints_resource(),
+        "StatisticsResource" => monitoring_statistics_resource()
+      }
+      
   """
   @type monitoring_baseline_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  model() :: %{
-    "Containers" => list(container_definition()()),
-    "CreationTime" => non_neg_integer(),
-    "DeploymentRecommendation" => deployment_recommendation(),
-    "EnableNetworkIsolation" => boolean(),
-    "ExecutionRoleArn" => String.t(),
-    "InferenceExecutionConfig" => inference_execution_config(),
-    "ModelArn" => String.t(),
-    "ModelName" => String.t(),
-    "PrimaryContainer" => container_definition(),
-    "Tags" => list(tag()()),
-    "VpcConfig" => vpc_config()
-  }
+      
+      model() :: %{
+        "Containers" => list(container_definition()()),
+        "CreationTime" => non_neg_integer(),
+        "DeploymentRecommendation" => deployment_recommendation(),
+        "EnableNetworkIsolation" => boolean(),
+        "ExecutionRoleArn" => String.t(),
+        "InferenceExecutionConfig" => inference_execution_config(),
+        "ModelArn" => String.t(),
+        "ModelName" => String.t(),
+        "PrimaryContainer" => container_definition(),
+        "Tags" => list(tag()()),
+        "VpcConfig" => vpc_config()
+      }
+      
   """
   @type model() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_compilation_jobs_request() :: %{
-    optional("CreationTimeAfter") => non_neg_integer(),
-    optional("CreationTimeBefore") => non_neg_integer(),
-    optional("LastModifiedTimeAfter") => non_neg_integer(),
-    optional("LastModifiedTimeBefore") => non_neg_integer(),
-    optional("MaxResults") => integer(),
-    optional("NameContains") => String.t(),
-    optional("NextToken") => String.t(),
-    optional("SortBy") => list(any()),
-    optional("SortOrder") => list(any()),
-    optional("StatusEquals") => list(any())
-  }
+      
+      list_compilation_jobs_request() :: %{
+        optional("CreationTimeAfter") => non_neg_integer(),
+        optional("CreationTimeBefore") => non_neg_integer(),
+        optional("LastModifiedTimeAfter") => non_neg_integer(),
+        optional("LastModifiedTimeBefore") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("NameContains") => String.t(),
+        optional("NextToken") => String.t(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any()),
+        optional("StatusEquals") => list(any())
+      }
+      
   """
   @type list_compilation_jobs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  transform_output() :: %{
-    "Accept" => String.t(),
-    "AssembleWith" => list(any()),
-    "KmsKeyId" => String.t(),
-    "S3OutputPath" => String.t()
-  }
+      
+      transform_output() :: %{
+        "Accept" => String.t(),
+        "AssembleWith" => list(any()),
+        "KmsKeyId" => String.t(),
+        "S3OutputPath" => String.t()
+      }
+      
   """
   @type transform_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_model_package_output() :: %{
-    "AdditionalInferenceSpecifications" => list(additional_inference_specification_definition()()),
-    "ApprovalDescription" => String.t(),
-    "CertifyForMarketplace" => boolean(),
-    "CreatedBy" => user_context(),
-    "CreationTime" => non_neg_integer(),
-    "CustomerMetadataProperties" => map(),
-    "Domain" => String.t(),
-    "DriftCheckBaselines" => drift_check_baselines(),
-    "InferenceSpecification" => inference_specification(),
-    "LastModifiedBy" => user_context(),
-    "LastModifiedTime" => non_neg_integer(),
-    "MetadataProperties" => metadata_properties(),
-    "ModelApprovalStatus" => list(any()),
-    "ModelMetrics" => model_metrics(),
-    "ModelPackageArn" => String.t(),
-    "ModelPackageDescription" => String.t(),
-    "ModelPackageGroupName" => String.t(),
-    "ModelPackageName" => String.t(),
-    "ModelPackageStatus" => list(any()),
-    "ModelPackageStatusDetails" => model_package_status_details(),
-    "ModelPackageVersion" => integer(),
-    "SamplePayloadUrl" => String.t(),
-    "SkipModelValidation" => list(any()),
-    "SourceAlgorithmSpecification" => source_algorithm_specification(),
-    "SourceUri" => String.t(),
-    "Task" => String.t(),
-    "ValidationSpecification" => model_package_validation_specification()
-  }
+      
+      describe_model_package_output() :: %{
+        "AdditionalInferenceSpecifications" => list(additional_inference_specification_definition()()),
+        "ApprovalDescription" => String.t(),
+        "CertifyForMarketplace" => boolean(),
+        "CreatedBy" => user_context(),
+        "CreationTime" => non_neg_integer(),
+        "CustomerMetadataProperties" => map(),
+        "Domain" => String.t(),
+        "DriftCheckBaselines" => drift_check_baselines(),
+        "InferenceSpecification" => inference_specification(),
+        "LastModifiedBy" => user_context(),
+        "LastModifiedTime" => non_neg_integer(),
+        "MetadataProperties" => metadata_properties(),
+        "ModelApprovalStatus" => list(any()),
+        "ModelMetrics" => model_metrics(),
+        "ModelPackageArn" => String.t(),
+        "ModelPackageDescription" => String.t(),
+        "ModelPackageGroupName" => String.t(),
+        "ModelPackageName" => String.t(),
+        "ModelPackageStatus" => list(any()),
+        "ModelPackageStatusDetails" => model_package_status_details(),
+        "ModelPackageVersion" => integer(),
+        "SamplePayloadUrl" => String.t(),
+        "SkipModelValidation" => list(any()),
+        "SourceAlgorithmSpecification" => source_algorithm_specification(),
+        "SourceUri" => String.t(),
+        "Task" => String.t(),
+        "ValidationSpecification" => model_package_validation_specification()
+      }
+      
   """
   @type describe_model_package_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_output() :: %{
-    "NextToken" => String.t(),
-    "Tags" => list(tag()())
-  }
+      
+      list_tags_output() :: %{
+        "NextToken" => String.t(),
+        "Tags" => list(tag()())
+      }
+      
   """
   @type list_tags_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_pipeline_parameters_for_execution_response() :: %{
-    "NextToken" => String.t(),
-    "PipelineParameters" => list(parameter()())
-  }
+      
+      list_pipeline_parameters_for_execution_response() :: %{
+        "NextToken" => String.t(),
+        "PipelineParameters" => list(parameter()())
+      }
+      
   """
   @type list_pipeline_parameters_for_execution_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  workspace_settings() :: %{
-    "S3ArtifactPath" => String.t(),
-    "S3KmsKeyId" => String.t()
-  }
+      
+      workspace_settings() :: %{
+        "S3ArtifactPath" => String.t(),
+        "S3KmsKeyId" => String.t()
+      }
+      
   """
   @type workspace_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  space_code_editor_app_settings() :: %{
-    "DefaultResourceSpec" => resource_spec()
-  }
+      
+      space_code_editor_app_settings() :: %{
+        "DefaultResourceSpec" => resource_spec()
+      }
+      
   """
   @type space_code_editor_app_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  autotune() :: %{
-    "Mode" => list(any())
-  }
+      
+      autotune() :: %{
+        "Mode" => list(any())
+      }
+      
   """
   @type autotune() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_describe_model_package_summary() :: %{
-    "CreationTime" => non_neg_integer(),
-    "InferenceSpecification" => inference_specification(),
-    "ModelApprovalStatus" => list(any()),
-    "ModelPackageArn" => String.t(),
-    "ModelPackageDescription" => String.t(),
-    "ModelPackageGroupName" => String.t(),
-    "ModelPackageStatus" => list(any()),
-    "ModelPackageVersion" => integer()
-  }
+      
+      batch_describe_model_package_summary() :: %{
+        "CreationTime" => non_neg_integer(),
+        "InferenceSpecification" => inference_specification(),
+        "ModelApprovalStatus" => list(any()),
+        "ModelPackageArn" => String.t(),
+        "ModelPackageDescription" => String.t(),
+        "ModelPackageGroupName" => String.t(),
+        "ModelPackageStatus" => list(any()),
+        "ModelPackageVersion" => integer()
+      }
+      
   """
   @type batch_describe_model_package_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_processing_jobs_response() :: %{
-    "NextToken" => String.t(),
-    "ProcessingJobSummaries" => list(processing_job_summary()())
-  }
+      
+      list_processing_jobs_response() :: %{
+        "NextToken" => String.t(),
+        "ProcessingJobSummaries" => list(processing_job_summary()())
+      }
+      
   """
   @type list_processing_jobs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_notebook_instance_lifecycle_config_output() :: %{
-    "CreationTime" => non_neg_integer(),
-    "LastModifiedTime" => non_neg_integer(),
-    "NotebookInstanceLifecycleConfigArn" => String.t(),
-    "NotebookInstanceLifecycleConfigName" => String.t(),
-    "OnCreate" => list(notebook_instance_lifecycle_hook()()),
-    "OnStart" => list(notebook_instance_lifecycle_hook()())
-  }
+      
+      describe_notebook_instance_lifecycle_config_output() :: %{
+        "CreationTime" => non_neg_integer(),
+        "LastModifiedTime" => non_neg_integer(),
+        "NotebookInstanceLifecycleConfigArn" => String.t(),
+        "NotebookInstanceLifecycleConfigName" => String.t(),
+        "OnCreate" => list(notebook_instance_lifecycle_hook()()),
+        "OnStart" => list(notebook_instance_lifecycle_hook()())
+      }
+      
   """
   @type describe_notebook_instance_lifecycle_config_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  hyper_parameter_tuning_job_config() :: %{
-    "HyperParameterTuningJobObjective" => hyper_parameter_tuning_job_objective(),
-    "ParameterRanges" => parameter_ranges(),
-    "RandomSeed" => integer(),
-    "ResourceLimits" => resource_limits(),
-    "Strategy" => list(any()),
-    "StrategyConfig" => hyper_parameter_tuning_job_strategy_config(),
-    "TrainingJobEarlyStoppingType" => list(any()),
-    "TuningJobCompletionCriteria" => tuning_job_completion_criteria()
-  }
+      
+      hyper_parameter_tuning_job_config() :: %{
+        "HyperParameterTuningJobObjective" => hyper_parameter_tuning_job_objective(),
+        "ParameterRanges" => parameter_ranges(),
+        "RandomSeed" => integer(),
+        "ResourceLimits" => resource_limits(),
+        "Strategy" => list(any()),
+        "StrategyConfig" => hyper_parameter_tuning_job_strategy_config(),
+        "TrainingJobEarlyStoppingType" => list(any()),
+        "TuningJobCompletionCriteria" => tuning_job_completion_criteria()
+      }
+      
   """
   @type hyper_parameter_tuning_job_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_context_response() :: %{
-    "ContextArn" => String.t()
-  }
+      
+      create_context_response() :: %{
+        "ContextArn" => String.t()
+      }
+      
   """
   @type create_context_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_compilation_job_request() :: %{
-    required("CompilationJobName") => String.t()
-  }
+      
+      describe_compilation_job_request() :: %{
+        required("CompilationJobName") => String.t()
+      }
+      
   """
   @type describe_compilation_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  auto_ml_job_completion_criteria() :: %{
-    "MaxAutoMLJobRuntimeInSeconds" => integer(),
-    "MaxCandidates" => integer(),
-    "MaxRuntimePerTrainingJobInSeconds" => integer()
-  }
+      
+      auto_ml_job_completion_criteria() :: %{
+        "MaxAutoMLJobRuntimeInSeconds" => integer(),
+        "MaxCandidates" => integer(),
+        "MaxRuntimePerTrainingJobInSeconds" => integer()
+      }
+      
   """
   @type auto_ml_job_completion_criteria() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  file_source() :: %{
-    "ContentDigest" => String.t(),
-    "ContentType" => String.t(),
-    "S3Uri" => String.t()
-  }
+      
+      file_source() :: %{
+        "ContentDigest" => String.t(),
+        "ContentType" => String.t(),
+        "S3Uri" => String.t()
+      }
+      
   """
   @type file_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_device_fleet_request() :: %{
-    optional("Description") => String.t(),
-    optional("EnableIotRoleAlias") => boolean(),
-    optional("RoleArn") => String.t(),
-    optional("Tags") => list(tag()()),
-    required("DeviceFleetName") => String.t(),
-    required("OutputConfig") => edge_output_config()
-  }
+      
+      create_device_fleet_request() :: %{
+        optional("Description") => String.t(),
+        optional("EnableIotRoleAlias") => boolean(),
+        optional("RoleArn") => String.t(),
+        optional("Tags") => list(tag()()),
+        required("DeviceFleetName") => String.t(),
+        required("OutputConfig") => edge_output_config()
+      }
+      
   """
   @type create_device_fleet_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_inference_component_input() :: %{
-    required("InferenceComponentName") => String.t()
-  }
+      
+      delete_inference_component_input() :: %{
+        required("InferenceComponentName") => String.t()
+      }
+      
   """
   @type delete_inference_component_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_image_version_request() :: %{
-    optional("Alias") => String.t(),
-    optional("AliasesToAdd") => list(String.t()()),
-    optional("AliasesToDelete") => list(String.t()()),
-    optional("Horovod") => boolean(),
-    optional("JobType") => list(any()),
-    optional("MLFramework") => String.t(),
-    optional("Processor") => list(any()),
-    optional("ProgrammingLang") => String.t(),
-    optional("ReleaseNotes") => String.t(),
-    optional("VendorGuidance") => list(any()),
-    optional("Version") => integer(),
-    required("ImageName") => String.t()
-  }
+      
+      update_image_version_request() :: %{
+        optional("Alias") => String.t(),
+        optional("AliasesToAdd") => list(String.t()()),
+        optional("AliasesToDelete") => list(String.t()()),
+        optional("Horovod") => boolean(),
+        optional("JobType") => list(any()),
+        optional("MLFramework") => String.t(),
+        optional("Processor") => list(any()),
+        optional("ProgrammingLang") => String.t(),
+        optional("ReleaseNotes") => String.t(),
+        optional("VendorGuidance") => list(any()),
+        optional("Version") => integer(),
+        required("ImageName") => String.t()
+      }
+      
   """
   @type update_image_version_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_trials_request() :: %{
-    optional("CreatedAfter") => non_neg_integer(),
-    optional("CreatedBefore") => non_neg_integer(),
-    optional("ExperimentName") => String.t(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("SortBy") => list(any()),
-    optional("SortOrder") => list(any()),
-    optional("TrialComponentName") => String.t()
-  }
+      
+      list_trials_request() :: %{
+        optional("CreatedAfter") => non_neg_integer(),
+        optional("CreatedBefore") => non_neg_integer(),
+        optional("ExperimentName") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any()),
+        optional("TrialComponentName") => String.t()
+      }
+      
   """
   @type list_trials_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cluster_instance_group_details() :: %{
-    "CurrentCount" => integer(),
-    "ExecutionRole" => String.t(),
-    "InstanceGroupName" => String.t(),
-    "InstanceType" => list(any()),
-    "LifeCycleConfig" => cluster_life_cycle_config(),
-    "TargetCount" => integer(),
-    "ThreadsPerCore" => integer()
-  }
+      
+      cluster_instance_group_details() :: %{
+        "CurrentCount" => integer(),
+        "ExecutionRole" => String.t(),
+        "InstanceGroupName" => String.t(),
+        "InstanceType" => list(any()),
+        "LifeCycleConfig" => cluster_life_cycle_config(),
+        "TargetCount" => integer(),
+        "ThreadsPerCore" => integer()
+      }
+      
   """
   @type cluster_instance_group_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  notebook_instance_lifecycle_hook() :: %{
-    "Content" => String.t()
-  }
+      
+      notebook_instance_lifecycle_hook() :: %{
+        "Content" => String.t()
+      }
+      
   """
   @type notebook_instance_lifecycle_hook() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  condition_step_metadata() :: %{
-    "Outcome" => list(any())
-  }
+      
+      condition_step_metadata() :: %{
+        "Outcome" => list(any())
+      }
+      
   """
   @type condition_step_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  code_editor_app_settings() :: %{
-    "DefaultResourceSpec" => resource_spec(),
-    "LifecycleConfigArns" => list(String.t()())
-  }
+      
+      code_editor_app_settings() :: %{
+        "DefaultResourceSpec" => resource_spec(),
+        "LifecycleConfigArns" => list(String.t()())
+      }
+      
   """
   @type code_editor_app_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  hyper_parameter_tuning_instance_config() :: %{
-    "InstanceCount" => integer(),
-    "InstanceType" => list(any()),
-    "VolumeSizeInGB" => integer()
-  }
+      
+      hyper_parameter_tuning_instance_config() :: %{
+        "InstanceCount" => integer(),
+        "InstanceType" => list(any()),
+        "VolumeSizeInGB" => integer()
+      }
+      
   """
   @type hyper_parameter_tuning_instance_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  model_dashboard_model() :: %{
-    "Endpoints" => list(model_dashboard_endpoint()()),
-    "LastBatchTransformJob" => transform_job(),
-    "Model" => model(),
-    "ModelCard" => model_dashboard_model_card(),
-    "MonitoringSchedules" => list(model_dashboard_monitoring_schedule()())
-  }
+      
+      model_dashboard_model() :: %{
+        "Endpoints" => list(model_dashboard_endpoint()()),
+        "LastBatchTransformJob" => transform_job(),
+        "Model" => model(),
+        "ModelCard" => model_dashboard_model_card(),
+        "MonitoringSchedules" => list(model_dashboard_monitoring_schedule()())
+      }
+      
   """
   @type model_dashboard_model() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  workforce_vpc_config_request() :: %{
-    "SecurityGroupIds" => list(String.t()()),
-    "Subnets" => list(String.t()()),
-    "VpcId" => String.t()
-  }
+      
+      workforce_vpc_config_request() :: %{
+        "SecurityGroupIds" => list(String.t()()),
+        "Subnets" => list(String.t()()),
+        "VpcId" => String.t()
+      }
+      
   """
   @type workforce_vpc_config_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stop_auto_ml_job_request() :: %{
-    required("AutoMLJobName") => String.t()
-  }
+      
+      stop_auto_ml_job_request() :: %{
+        required("AutoMLJobName") => String.t()
+      }
+      
   """
   @type stop_auto_ml_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tensor_board_app_settings() :: %{
-    "DefaultResourceSpec" => resource_spec()
-  }
+      
+      tensor_board_app_settings() :: %{
+        "DefaultResourceSpec" => resource_spec()
+      }
+      
   """
   @type tensor_board_app_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  associate_trial_component_request() :: %{
-    required("TrialComponentName") => String.t(),
-    required("TrialName") => String.t()
-  }
+      
+      associate_trial_component_request() :: %{
+        required("TrialComponentName") => String.t(),
+        required("TrialName") => String.t()
+      }
+      
   """
   @type associate_trial_component_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_human_task_ui_response() :: %{
-
-  }
+      
+      delete_human_task_ui_response() :: %{}
+      
   """
-  @type delete_human_task_ui_response() :: %{String.t() => any()}
+  @type delete_human_task_ui_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  stop_edge_packaging_job_request() :: %{
-    required("EdgePackagingJobName") => String.t()
-  }
+      
+      stop_edge_packaging_job_request() :: %{
+        required("EdgePackagingJobName") => String.t()
+      }
+      
   """
   @type stop_edge_packaging_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_subscribed_workteams_response() :: %{
-    "NextToken" => String.t(),
-    "SubscribedWorkteams" => list(subscribed_workteam()())
-  }
+      
+      list_subscribed_workteams_response() :: %{
+        "NextToken" => String.t(),
+        "SubscribedWorkteams" => list(subscribed_workteam()())
+      }
+      
   """
   @type list_subscribed_workteams_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_endpoint_config_input() :: %{
-    required("EndpointConfigName") => String.t()
-  }
+      
+      delete_endpoint_config_input() :: %{
+        required("EndpointConfigName") => String.t()
+      }
+      
   """
   @type delete_endpoint_config_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_edge_packaging_job_request() :: %{
-    optional("ResourceKey") => String.t(),
-    optional("Tags") => list(tag()()),
-    required("CompilationJobName") => String.t(),
-    required("EdgePackagingJobName") => String.t(),
-    required("ModelName") => String.t(),
-    required("ModelVersion") => String.t(),
-    required("OutputConfig") => edge_output_config(),
-    required("RoleArn") => String.t()
-  }
+      
+      create_edge_packaging_job_request() :: %{
+        optional("ResourceKey") => String.t(),
+        optional("Tags") => list(tag()()),
+        required("CompilationJobName") => String.t(),
+        required("EdgePackagingJobName") => String.t(),
+        required("ModelName") => String.t(),
+        required("ModelVersion") => String.t(),
+        required("OutputConfig") => edge_output_config(),
+        required("RoleArn") => String.t()
+      }
+      
   """
   @type create_edge_packaging_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_monitoring_schedule_response() :: %{
-    "MonitoringScheduleArn" => String.t()
-  }
+      
+      create_monitoring_schedule_response() :: %{
+        "MonitoringScheduleArn" => String.t()
+      }
+      
   """
   @type create_monitoring_schedule_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  auto_ml_job_step_metadata() :: %{
-    "Arn" => String.t()
-  }
+      
+      auto_ml_job_step_metadata() :: %{
+        "Arn" => String.t()
+      }
+      
   """
   @type auto_ml_job_step_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  human_loop_activation_config() :: %{
-    "HumanLoopActivationConditionsConfig" => human_loop_activation_conditions_config()
-  }
+      
+      human_loop_activation_config() :: %{
+        "HumanLoopActivationConditionsConfig" => human_loop_activation_conditions_config()
+      }
+      
   """
   @type human_loop_activation_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_image_request() :: %{
-    required("ImageName") => String.t()
-  }
+      
+      describe_image_request() :: %{
+        required("ImageName") => String.t()
+      }
+      
   """
   @type describe_image_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_pipeline_response() :: %{
-    "PipelineArn" => String.t()
-  }
+      
+      delete_pipeline_response() :: %{
+        "PipelineArn" => String.t()
+      }
+      
   """
   @type delete_pipeline_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_pipeline_executions_request() :: %{
-    optional("CreatedAfter") => non_neg_integer(),
-    optional("CreatedBefore") => non_neg_integer(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("SortBy") => list(any()),
-    optional("SortOrder") => list(any()),
-    required("PipelineName") => String.t()
-  }
+      
+      list_pipeline_executions_request() :: %{
+        optional("CreatedAfter") => non_neg_integer(),
+        optional("CreatedBefore") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any()),
+        required("PipelineName") => String.t()
+      }
+      
   """
   @type list_pipeline_executions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cluster_node_details() :: %{
-    "InstanceGroupName" => String.t(),
-    "InstanceId" => String.t(),
-    "InstanceStatus" => cluster_instance_status_details(),
-    "InstanceType" => list(any()),
-    "LaunchTime" => non_neg_integer(),
-    "LifeCycleConfig" => cluster_life_cycle_config(),
-    "ThreadsPerCore" => integer()
-  }
+      
+      cluster_node_details() :: %{
+        "InstanceGroupName" => String.t(),
+        "InstanceId" => String.t(),
+        "InstanceStatus" => cluster_instance_status_details(),
+        "InstanceType" => list(any()),
+        "LaunchTime" => non_neg_integer(),
+        "LifeCycleConfig" => cluster_life_cycle_config(),
+        "ThreadsPerCore" => integer()
+      }
+      
   """
   @type cluster_node_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  service_catalog_provisioned_product_details() :: %{
-    "ProvisionedProductId" => String.t(),
-    "ProvisionedProductStatusMessage" => String.t()
-  }
+      
+      service_catalog_provisioned_product_details() :: %{
+        "ProvisionedProductId" => String.t(),
+        "ProvisionedProductStatusMessage" => String.t()
+      }
+      
   """
   @type service_catalog_provisioned_product_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_inference_experiments_response() :: %{
-    "InferenceExperiments" => list(inference_experiment_summary()()),
-    "NextToken" => String.t()
-  }
+      
+      list_inference_experiments_response() :: %{
+        "InferenceExperiments" => list(inference_experiment_summary()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_inference_experiments_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  production_variant_core_dump_config() :: %{
-    "DestinationS3Uri" => String.t(),
-    "KmsKeyId" => String.t()
-  }
+      
+      production_variant_core_dump_config() :: %{
+        "DestinationS3Uri" => String.t(),
+        "KmsKeyId" => String.t()
+      }
+      
   """
   @type production_variant_core_dump_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  model_package_summary() :: %{
-    "CreationTime" => non_neg_integer(),
-    "ModelApprovalStatus" => list(any()),
-    "ModelPackageArn" => String.t(),
-    "ModelPackageDescription" => String.t(),
-    "ModelPackageGroupName" => String.t(),
-    "ModelPackageName" => String.t(),
-    "ModelPackageStatus" => list(any()),
-    "ModelPackageVersion" => integer()
-  }
+      
+      model_package_summary() :: %{
+        "CreationTime" => non_neg_integer(),
+        "ModelApprovalStatus" => list(any()),
+        "ModelPackageArn" => String.t(),
+        "ModelPackageDescription" => String.t(),
+        "ModelPackageGroupName" => String.t(),
+        "ModelPackageName" => String.t(),
+        "ModelPackageStatus" => list(any()),
+        "ModelPackageVersion" => integer()
+      }
+      
   """
   @type model_package_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_tags_output() :: %{
-
-  }
+      
+      delete_tags_output() :: %{}
+      
   """
-  @type delete_tags_output() :: %{String.t() => any()}
+  @type delete_tags_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_notebook_instance_lifecycle_config_output() :: %{
-    "NotebookInstanceLifecycleConfigArn" => String.t()
-  }
+      
+      create_notebook_instance_lifecycle_config_output() :: %{
+        "NotebookInstanceLifecycleConfigArn" => String.t()
+      }
+      
   """
   @type create_notebook_instance_lifecycle_config_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_feature_group_response() :: %{
-    "FeatureGroupArn" => String.t()
-  }
+      
+      update_feature_group_response() :: %{
+        "FeatureGroupArn" => String.t()
+      }
+      
   """
   @type update_feature_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  code_repository_summary() :: %{
-    "CodeRepositoryArn" => String.t(),
-    "CodeRepositoryName" => String.t(),
-    "CreationTime" => non_neg_integer(),
-    "GitConfig" => git_config(),
-    "LastModifiedTime" => non_neg_integer()
-  }
+      
+      code_repository_summary() :: %{
+        "CodeRepositoryArn" => String.t(),
+        "CodeRepositoryName" => String.t(),
+        "CreationTime" => non_neg_integer(),
+        "GitConfig" => git_config(),
+        "LastModifiedTime" => non_neg_integer()
+      }
+      
   """
   @type code_repository_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  retention_policy() :: %{
-    "HomeEfsFileSystem" => list(any())
-  }
+      
+      retention_policy() :: %{
+        "HomeEfsFileSystem" => list(any())
+      }
+      
   """
   @type retention_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  dynamic_scaling_configuration() :: %{
-    "MaxCapacity" => integer(),
-    "MinCapacity" => integer(),
-    "ScaleInCooldown" => integer(),
-    "ScaleOutCooldown" => integer(),
-    "ScalingPolicies" => list(list()())
-  }
+      
+      dynamic_scaling_configuration() :: %{
+        "MaxCapacity" => integer(),
+        "MinCapacity" => integer(),
+        "ScaleInCooldown" => integer(),
+        "ScaleOutCooldown" => integer(),
+        "ScalingPolicies" => list(list()())
+      }
+      
   """
   @type dynamic_scaling_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_spaces_request() :: %{
-    optional("DomainIdEquals") => String.t(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("SortBy") => list(any()),
-    optional("SortOrder") => list(any()),
-    optional("SpaceNameContains") => String.t()
-  }
+      
+      list_spaces_request() :: %{
+        optional("DomainIdEquals") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any()),
+        optional("SpaceNameContains") => String.t()
+      }
+      
   """
   @type list_spaces_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  processing_job() :: %{
-    "AppSpecification" => app_specification(),
-    "AutoMLJobArn" => String.t(),
-    "CreationTime" => non_neg_integer(),
-    "Environment" => map(),
-    "ExitMessage" => String.t(),
-    "ExperimentConfig" => experiment_config(),
-    "FailureReason" => String.t(),
-    "LastModifiedTime" => non_neg_integer(),
-    "MonitoringScheduleArn" => String.t(),
-    "NetworkConfig" => network_config(),
-    "ProcessingEndTime" => non_neg_integer(),
-    "ProcessingInputs" => list(processing_input()()),
-    "ProcessingJobArn" => String.t(),
-    "ProcessingJobName" => String.t(),
-    "ProcessingJobStatus" => list(any()),
-    "ProcessingOutputConfig" => processing_output_config(),
-    "ProcessingResources" => processing_resources(),
-    "ProcessingStartTime" => non_neg_integer(),
-    "RoleArn" => String.t(),
-    "StoppingCondition" => processing_stopping_condition(),
-    "Tags" => list(tag()()),
-    "TrainingJobArn" => String.t()
-  }
+      
+      processing_job() :: %{
+        "AppSpecification" => app_specification(),
+        "AutoMLJobArn" => String.t(),
+        "CreationTime" => non_neg_integer(),
+        "Environment" => map(),
+        "ExitMessage" => String.t(),
+        "ExperimentConfig" => experiment_config(),
+        "FailureReason" => String.t(),
+        "LastModifiedTime" => non_neg_integer(),
+        "MonitoringScheduleArn" => String.t(),
+        "NetworkConfig" => network_config(),
+        "ProcessingEndTime" => non_neg_integer(),
+        "ProcessingInputs" => list(processing_input()()),
+        "ProcessingJobArn" => String.t(),
+        "ProcessingJobName" => String.t(),
+        "ProcessingJobStatus" => list(any()),
+        "ProcessingOutputConfig" => processing_output_config(),
+        "ProcessingResources" => processing_resources(),
+        "ProcessingStartTime" => non_neg_integer(),
+        "RoleArn" => String.t(),
+        "StoppingCondition" => processing_stopping_condition(),
+        "Tags" => list(tag()()),
+        "TrainingJobArn" => String.t()
+      }
+      
   """
   @type processing_job() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_human_task_uis_request() :: %{
-    optional("CreationTimeAfter") => non_neg_integer(),
-    optional("CreationTimeBefore") => non_neg_integer(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("SortOrder") => list(any())
-  }
+      
+      list_human_task_uis_request() :: %{
+        optional("CreationTimeAfter") => non_neg_integer(),
+        optional("CreationTimeBefore") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("SortOrder") => list(any())
+      }
+      
   """
   @type list_human_task_uis_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  space_sharing_settings_summary() :: %{
-    "SharingType" => list(any())
-  }
+      
+      space_sharing_settings_summary() :: %{
+        "SharingType" => list(any())
+      }
+      
   """
   @type space_sharing_settings_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_cluster_response() :: %{
-    "ClusterArn" => String.t()
-  }
+      
+      update_cluster_response() :: %{
+        "ClusterArn" => String.t()
+      }
+      
   """
   @type update_cluster_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_flow_definition_request() :: %{
-    optional("HumanLoopActivationConfig") => human_loop_activation_config(),
-    optional("HumanLoopConfig") => human_loop_config(),
-    optional("HumanLoopRequestSource") => human_loop_request_source(),
-    optional("Tags") => list(tag()()),
-    required("FlowDefinitionName") => String.t(),
-    required("OutputConfig") => flow_definition_output_config(),
-    required("RoleArn") => String.t()
-  }
+      
+      create_flow_definition_request() :: %{
+        optional("HumanLoopActivationConfig") => human_loop_activation_config(),
+        optional("HumanLoopConfig") => human_loop_config(),
+        optional("HumanLoopRequestSource") => human_loop_request_source(),
+        optional("Tags") => list(tag()()),
+        required("FlowDefinitionName") => String.t(),
+        required("OutputConfig") => flow_definition_output_config(),
+        required("RoleArn") => String.t()
+      }
+      
   """
   @type create_flow_definition_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_code_repository_output() :: %{
-    "CodeRepositoryArn" => String.t()
-  }
+      
+      create_code_repository_output() :: %{
+        "CodeRepositoryArn" => String.t()
+      }
+      
   """
   @type create_code_repository_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_device_fleets_response() :: %{
-    "DeviceFleetSummaries" => list(device_fleet_summary()()),
-    "NextToken" => String.t()
-  }
+      
+      list_device_fleets_response() :: %{
+        "DeviceFleetSummaries" => list(device_fleet_summary()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_device_fleets_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_device_response() :: %{
-    "AgentVersion" => String.t(),
-    "Description" => String.t(),
-    "DeviceArn" => String.t(),
-    "DeviceFleetName" => String.t(),
-    "DeviceName" => String.t(),
-    "IotThingName" => String.t(),
-    "LatestHeartbeat" => non_neg_integer(),
-    "MaxModels" => integer(),
-    "Models" => list(edge_model()()),
-    "NextToken" => String.t(),
-    "RegistrationTime" => non_neg_integer()
-  }
+      
+      describe_device_response() :: %{
+        "AgentVersion" => String.t(),
+        "Description" => String.t(),
+        "DeviceArn" => String.t(),
+        "DeviceFleetName" => String.t(),
+        "DeviceName" => String.t(),
+        "IotThingName" => String.t(),
+        "LatestHeartbeat" => non_neg_integer(),
+        "MaxModels" => integer(),
+        "Models" => list(edge_model()()),
+        "NextToken" => String.t(),
+        "RegistrationTime" => non_neg_integer()
+      }
+      
   """
   @type describe_device_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  default_space_storage_settings() :: %{
-    "DefaultEbsStorageSettings" => default_ebs_storage_settings()
-  }
+      
+      default_space_storage_settings() :: %{
+        "DefaultEbsStorageSettings" => default_ebs_storage_settings()
+      }
+      
   """
   @type default_space_storage_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  s3_data_source() :: %{
-    "AttributeNames" => list(String.t()()),
-    "InstanceGroupNames" => list(String.t()()),
-    "S3DataDistributionType" => list(any()),
-    "S3DataType" => list(any()),
-    "S3Uri" => String.t()
-  }
+      
+      s3_data_source() :: %{
+        "AttributeNames" => list(String.t()()),
+        "InstanceGroupNames" => list(String.t()()),
+        "S3DataDistributionType" => list(any()),
+        "S3DataType" => list(any()),
+        "S3Uri" => String.t()
+      }
+      
   """
   @type s3_data_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_labeling_jobs_for_workteam_response() :: %{
-    "LabelingJobSummaryList" => list(labeling_job_for_workteam_summary()()),
-    "NextToken" => String.t()
-  }
+      
+      list_labeling_jobs_for_workteam_response() :: %{
+        "LabelingJobSummaryList" => list(labeling_job_for_workteam_summary()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_labeling_jobs_for_workteam_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  remote_debug_config() :: %{
-    "EnableRemoteDebug" => boolean()
-  }
+      
+      remote_debug_config() :: %{
+        "EnableRemoteDebug" => boolean()
+      }
+      
   """
   @type remote_debug_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_hub_response() :: %{
-    "HubArn" => String.t()
-  }
+      
+      create_hub_response() :: %{
+        "HubArn" => String.t()
+      }
+      
   """
   @type create_hub_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  async_inference_output_config() :: %{
-    "KmsKeyId" => String.t(),
-    "NotificationConfig" => async_inference_notification_config(),
-    "S3FailurePath" => String.t(),
-    "S3OutputPath" => String.t()
-  }
+      
+      async_inference_output_config() :: %{
+        "KmsKeyId" => String.t(),
+        "NotificationConfig" => async_inference_notification_config(),
+        "S3FailurePath" => String.t(),
+        "S3OutputPath" => String.t()
+      }
+      
   """
   @type async_inference_output_config() :: %{String.t() => any()}
+
+  @type add_association_errors() :: resource_limit_exceeded() | resource_not_found()
+
+  @type associate_trial_component_errors() :: resource_limit_exceeded() | resource_not_found()
+
+  @type create_action_errors() :: resource_limit_exceeded()
+
+  @type create_app_errors() :: resource_limit_exceeded() | resource_in_use()
+
+  @type create_app_image_config_errors() :: resource_in_use()
+
+  @type create_artifact_errors() :: resource_limit_exceeded()
+
+  @type create_auto_ml_job_errors() :: resource_limit_exceeded() | resource_in_use()
+
+  @type create_auto_ml_job_v2_errors() :: resource_limit_exceeded() | resource_in_use()
+
+  @type create_cluster_errors() :: resource_limit_exceeded() | resource_in_use()
+
+  @type create_compilation_job_errors() :: resource_limit_exceeded() | resource_in_use()
+
+  @type create_context_errors() :: resource_limit_exceeded()
+
+  @type create_data_quality_job_definition_errors() ::
+          resource_limit_exceeded() | resource_in_use()
+
+  @type create_device_fleet_errors() :: resource_limit_exceeded() | resource_in_use()
+
+  @type create_domain_errors() :: resource_limit_exceeded() | resource_in_use()
+
+  @type create_edge_deployment_plan_errors() :: resource_limit_exceeded()
+
+  @type create_edge_deployment_stage_errors() :: resource_limit_exceeded()
+
+  @type create_edge_packaging_job_errors() :: resource_limit_exceeded()
+
+  @type create_endpoint_errors() :: resource_limit_exceeded()
+
+  @type create_endpoint_config_errors() :: resource_limit_exceeded()
+
+  @type create_experiment_errors() :: resource_limit_exceeded()
+
+  @type create_feature_group_errors() :: resource_limit_exceeded() | resource_in_use()
+
+  @type create_flow_definition_errors() :: resource_limit_exceeded() | resource_in_use()
+
+  @type create_hub_errors() :: resource_limit_exceeded() | resource_in_use()
+
+  @type create_human_task_ui_errors() :: resource_limit_exceeded() | resource_in_use()
+
+  @type create_hyper_parameter_tuning_job_errors() ::
+          resource_limit_exceeded() | resource_in_use()
+
+  @type create_image_errors() :: resource_limit_exceeded() | resource_in_use()
+
+  @type create_image_version_errors() ::
+          resource_limit_exceeded() | resource_in_use() | resource_not_found()
+
+  @type create_inference_component_errors() :: resource_limit_exceeded()
+
+  @type create_inference_experiment_errors() :: resource_limit_exceeded() | resource_in_use()
+
+  @type create_inference_recommendations_job_errors() ::
+          resource_limit_exceeded() | resource_in_use()
+
+  @type create_labeling_job_errors() :: resource_limit_exceeded() | resource_in_use()
+
+  @type create_model_errors() :: resource_limit_exceeded()
+
+  @type create_model_bias_job_definition_errors() :: resource_limit_exceeded() | resource_in_use()
+
+  @type create_model_card_errors() :: resource_limit_exceeded() | conflict_exception()
+
+  @type create_model_card_export_job_errors() ::
+          resource_limit_exceeded() | conflict_exception() | resource_not_found()
+
+  @type create_model_explainability_job_definition_errors() ::
+          resource_limit_exceeded() | resource_in_use()
+
+  @type create_model_package_errors() :: resource_limit_exceeded() | conflict_exception()
+
+  @type create_model_package_group_errors() :: resource_limit_exceeded()
+
+  @type create_model_quality_job_definition_errors() ::
+          resource_limit_exceeded() | resource_in_use()
+
+  @type create_monitoring_schedule_errors() :: resource_limit_exceeded() | resource_in_use()
+
+  @type create_notebook_instance_errors() :: resource_limit_exceeded()
+
+  @type create_notebook_instance_lifecycle_config_errors() :: resource_limit_exceeded()
+
+  @type create_pipeline_errors() ::
+          resource_limit_exceeded() | conflict_exception() | resource_not_found()
+
+  @type create_presigned_domain_url_errors() :: resource_not_found()
+
+  @type create_processing_job_errors() ::
+          resource_limit_exceeded() | resource_in_use() | resource_not_found()
+
+  @type create_project_errors() :: resource_limit_exceeded()
+
+  @type create_space_errors() :: resource_limit_exceeded() | resource_in_use()
+
+  @type create_studio_lifecycle_config_errors() :: resource_in_use()
+
+  @type create_training_job_errors() ::
+          resource_limit_exceeded() | resource_in_use() | resource_not_found()
+
+  @type create_transform_job_errors() ::
+          resource_limit_exceeded() | resource_in_use() | resource_not_found()
+
+  @type create_trial_errors() :: resource_limit_exceeded() | resource_not_found()
+
+  @type create_trial_component_errors() :: resource_limit_exceeded()
+
+  @type create_user_profile_errors() :: resource_limit_exceeded() | resource_in_use()
+
+  @type create_workteam_errors() :: resource_limit_exceeded() | resource_in_use()
+
+  @type delete_action_errors() :: resource_not_found()
+
+  @type delete_algorithm_errors() :: conflict_exception()
+
+  @type delete_app_errors() :: resource_in_use() | resource_not_found()
+
+  @type delete_app_image_config_errors() :: resource_not_found()
+
+  @type delete_artifact_errors() :: resource_not_found()
+
+  @type delete_association_errors() :: resource_not_found()
+
+  @type delete_cluster_errors() :: conflict_exception() | resource_not_found()
+
+  @type delete_compilation_job_errors() :: resource_not_found()
+
+  @type delete_context_errors() :: resource_not_found()
+
+  @type delete_data_quality_job_definition_errors() :: resource_not_found()
+
+  @type delete_device_fleet_errors() :: resource_in_use()
+
+  @type delete_domain_errors() :: resource_in_use() | resource_not_found()
+
+  @type delete_edge_deployment_plan_errors() :: resource_in_use()
+
+  @type delete_edge_deployment_stage_errors() :: resource_in_use()
+
+  @type delete_experiment_errors() :: resource_not_found()
+
+  @type delete_feature_group_errors() :: resource_not_found()
+
+  @type delete_flow_definition_errors() :: resource_in_use() | resource_not_found()
+
+  @type delete_hub_errors() :: resource_in_use() | resource_not_found()
+
+  @type delete_hub_content_errors() :: resource_in_use() | resource_not_found()
+
+  @type delete_human_task_ui_errors() :: resource_not_found()
+
+  @type delete_image_errors() :: resource_in_use() | resource_not_found()
+
+  @type delete_image_version_errors() :: resource_in_use() | resource_not_found()
+
+  @type delete_inference_experiment_errors() :: conflict_exception() | resource_not_found()
+
+  @type delete_model_bias_job_definition_errors() :: resource_not_found()
+
+  @type delete_model_card_errors() :: conflict_exception() | resource_not_found()
+
+  @type delete_model_explainability_job_definition_errors() :: resource_not_found()
+
+  @type delete_model_package_errors() :: conflict_exception()
+
+  @type delete_model_package_group_errors() :: conflict_exception()
+
+  @type delete_model_quality_job_definition_errors() :: resource_not_found()
+
+  @type delete_monitoring_schedule_errors() :: resource_not_found()
+
+  @type delete_pipeline_errors() :: conflict_exception() | resource_not_found()
+
+  @type delete_project_errors() :: conflict_exception()
+
+  @type delete_space_errors() :: resource_in_use() | resource_not_found()
+
+  @type delete_studio_lifecycle_config_errors() :: resource_in_use() | resource_not_found()
+
+  @type delete_trial_errors() :: resource_not_found()
+
+  @type delete_trial_component_errors() :: resource_not_found()
+
+  @type delete_user_profile_errors() :: resource_in_use() | resource_not_found()
+
+  @type delete_workteam_errors() :: resource_limit_exceeded()
+
+  @type describe_action_errors() :: resource_not_found()
+
+  @type describe_app_errors() :: resource_not_found()
+
+  @type describe_app_image_config_errors() :: resource_not_found()
+
+  @type describe_artifact_errors() :: resource_not_found()
+
+  @type describe_auto_ml_job_errors() :: resource_not_found()
+
+  @type describe_auto_ml_job_v2_errors() :: resource_not_found()
+
+  @type describe_cluster_errors() :: resource_not_found()
+
+  @type describe_cluster_node_errors() :: resource_not_found()
+
+  @type describe_compilation_job_errors() :: resource_not_found()
+
+  @type describe_context_errors() :: resource_not_found()
+
+  @type describe_data_quality_job_definition_errors() :: resource_not_found()
+
+  @type describe_device_errors() :: resource_not_found()
+
+  @type describe_device_fleet_errors() :: resource_not_found()
+
+  @type describe_domain_errors() :: resource_not_found()
+
+  @type describe_edge_deployment_plan_errors() :: resource_not_found()
+
+  @type describe_edge_packaging_job_errors() :: resource_not_found()
+
+  @type describe_experiment_errors() :: resource_not_found()
+
+  @type describe_feature_group_errors() :: resource_not_found()
+
+  @type describe_feature_metadata_errors() :: resource_not_found()
+
+  @type describe_flow_definition_errors() :: resource_not_found()
+
+  @type describe_hub_errors() :: resource_not_found()
+
+  @type describe_hub_content_errors() :: resource_not_found()
+
+  @type describe_human_task_ui_errors() :: resource_not_found()
+
+  @type describe_hyper_parameter_tuning_job_errors() :: resource_not_found()
+
+  @type describe_image_errors() :: resource_not_found()
+
+  @type describe_image_version_errors() :: resource_not_found()
+
+  @type describe_inference_experiment_errors() :: resource_not_found()
+
+  @type describe_inference_recommendations_job_errors() :: resource_not_found()
+
+  @type describe_labeling_job_errors() :: resource_not_found()
+
+  @type describe_lineage_group_errors() :: resource_not_found()
+
+  @type describe_model_bias_job_definition_errors() :: resource_not_found()
+
+  @type describe_model_card_errors() :: resource_not_found()
+
+  @type describe_model_card_export_job_errors() :: resource_not_found()
+
+  @type describe_model_explainability_job_definition_errors() :: resource_not_found()
+
+  @type describe_model_quality_job_definition_errors() :: resource_not_found()
+
+  @type describe_monitoring_schedule_errors() :: resource_not_found()
+
+  @type describe_pipeline_errors() :: resource_not_found()
+
+  @type describe_pipeline_definition_for_execution_errors() :: resource_not_found()
+
+  @type describe_pipeline_execution_errors() :: resource_not_found()
+
+  @type describe_processing_job_errors() :: resource_not_found()
+
+  @type describe_space_errors() :: resource_not_found()
+
+  @type describe_studio_lifecycle_config_errors() :: resource_not_found()
+
+  @type describe_training_job_errors() :: resource_not_found()
+
+  @type describe_transform_job_errors() :: resource_not_found()
+
+  @type describe_trial_errors() :: resource_not_found()
+
+  @type describe_trial_component_errors() :: resource_not_found()
+
+  @type describe_user_profile_errors() :: resource_limit_exceeded() | resource_not_found()
+
+  @type disassociate_trial_component_errors() :: resource_not_found()
+
+  @type get_lineage_group_policy_errors() :: resource_not_found()
+
+  @type get_scaling_configuration_recommendation_errors() :: resource_not_found()
+
+  @type import_hub_content_errors() ::
+          resource_limit_exceeded() | resource_in_use() | resource_not_found()
+
+  @type list_actions_errors() :: resource_not_found()
+
+  @type list_aliases_errors() :: resource_not_found()
+
+  @type list_artifacts_errors() :: resource_not_found()
+
+  @type list_associations_errors() :: resource_not_found()
+
+  @type list_candidates_for_auto_ml_job_errors() :: resource_not_found()
+
+  @type list_cluster_nodes_errors() :: resource_not_found()
+
+  @type list_contexts_errors() :: resource_not_found()
+
+  @type list_hub_content_versions_errors() :: resource_not_found()
+
+  @type list_hub_contents_errors() :: resource_not_found()
+
+  @type list_image_versions_errors() :: resource_not_found()
+
+  @type list_inference_recommendations_job_steps_errors() :: resource_not_found()
+
+  @type list_labeling_jobs_for_workteam_errors() :: resource_not_found()
+
+  @type list_model_card_versions_errors() :: resource_not_found()
+
+  @type list_monitoring_alert_history_errors() :: resource_not_found()
+
+  @type list_monitoring_alerts_errors() :: resource_not_found()
+
+  @type list_pipeline_execution_steps_errors() :: resource_not_found()
+
+  @type list_pipeline_executions_errors() :: resource_not_found()
+
+  @type list_pipeline_parameters_for_execution_errors() :: resource_not_found()
+
+  @type list_studio_lifecycle_configs_errors() :: resource_in_use()
+
+  @type list_training_jobs_for_hyper_parameter_tuning_job_errors() :: resource_not_found()
+
+  @type list_trial_components_errors() :: resource_not_found()
+
+  @type list_trials_errors() :: resource_not_found()
+
+  @type put_model_package_group_policy_errors() :: conflict_exception()
+
+  @type query_lineage_errors() :: resource_not_found()
+
+  @type register_devices_errors() :: resource_limit_exceeded()
+
+  @type render_ui_template_errors() :: resource_not_found()
+
+  @type retry_pipeline_execution_errors() ::
+          resource_limit_exceeded() | conflict_exception() | resource_not_found()
+
+  @type send_pipeline_execution_step_failure_errors() ::
+          resource_limit_exceeded() | conflict_exception() | resource_not_found()
+
+  @type send_pipeline_execution_step_success_errors() ::
+          resource_limit_exceeded() | conflict_exception() | resource_not_found()
+
+  @type start_inference_experiment_errors() :: conflict_exception() | resource_not_found()
+
+  @type start_monitoring_schedule_errors() :: resource_not_found()
+
+  @type start_notebook_instance_errors() :: resource_limit_exceeded()
+
+  @type start_pipeline_execution_errors() ::
+          resource_limit_exceeded() | conflict_exception() | resource_not_found()
+
+  @type stop_auto_ml_job_errors() :: resource_not_found()
+
+  @type stop_compilation_job_errors() :: resource_not_found()
+
+  @type stop_hyper_parameter_tuning_job_errors() :: resource_not_found()
+
+  @type stop_inference_experiment_errors() :: conflict_exception() | resource_not_found()
+
+  @type stop_inference_recommendations_job_errors() :: resource_not_found()
+
+  @type stop_labeling_job_errors() :: resource_not_found()
+
+  @type stop_monitoring_schedule_errors() :: resource_not_found()
+
+  @type stop_pipeline_execution_errors() :: conflict_exception() | resource_not_found()
+
+  @type stop_processing_job_errors() :: resource_not_found()
+
+  @type stop_training_job_errors() :: resource_not_found()
+
+  @type stop_transform_job_errors() :: resource_not_found()
+
+  @type update_action_errors() :: conflict_exception() | resource_not_found()
+
+  @type update_app_image_config_errors() :: resource_not_found()
+
+  @type update_artifact_errors() :: conflict_exception() | resource_not_found()
+
+  @type update_cluster_errors() ::
+          resource_limit_exceeded() | conflict_exception() | resource_not_found()
+
+  @type update_cluster_software_errors() :: conflict_exception() | resource_not_found()
+
+  @type update_code_repository_errors() :: conflict_exception()
+
+  @type update_context_errors() :: conflict_exception() | resource_not_found()
+
+  @type update_device_fleet_errors() :: resource_in_use()
+
+  @type update_domain_errors() ::
+          resource_limit_exceeded() | resource_in_use() | resource_not_found()
+
+  @type update_endpoint_errors() :: resource_limit_exceeded()
+
+  @type update_endpoint_weights_and_capacities_errors() :: resource_limit_exceeded()
+
+  @type update_experiment_errors() :: conflict_exception() | resource_not_found()
+
+  @type update_feature_group_errors() :: resource_limit_exceeded() | resource_not_found()
+
+  @type update_feature_metadata_errors() :: resource_not_found()
+
+  @type update_hub_errors() :: resource_not_found()
+
+  @type update_image_errors() :: resource_in_use() | resource_not_found()
+
+  @type update_image_version_errors() :: resource_in_use() | resource_not_found()
+
+  @type update_inference_component_errors() :: resource_limit_exceeded()
+
+  @type update_inference_component_runtime_config_errors() :: resource_limit_exceeded()
+
+  @type update_inference_experiment_errors() :: conflict_exception() | resource_not_found()
+
+  @type update_model_card_errors() ::
+          resource_limit_exceeded() | conflict_exception() | resource_not_found()
+
+  @type update_model_package_errors() :: conflict_exception()
+
+  @type update_monitoring_alert_errors() :: resource_limit_exceeded() | resource_not_found()
+
+  @type update_monitoring_schedule_errors() :: resource_limit_exceeded() | resource_not_found()
+
+  @type update_notebook_instance_errors() :: resource_limit_exceeded()
+
+  @type update_notebook_instance_lifecycle_config_errors() :: resource_limit_exceeded()
+
+  @type update_pipeline_errors() :: conflict_exception() | resource_not_found()
+
+  @type update_pipeline_execution_errors() :: conflict_exception() | resource_not_found()
+
+  @type update_project_errors() :: conflict_exception()
+
+  @type update_space_errors() ::
+          resource_limit_exceeded() | resource_in_use() | resource_not_found()
+
+  @type update_training_job_errors() :: resource_limit_exceeded() | resource_not_found()
+
+  @type update_trial_errors() :: conflict_exception() | resource_not_found()
+
+  @type update_trial_component_errors() :: conflict_exception() | resource_not_found()
+
+  @type update_user_profile_errors() ::
+          resource_limit_exceeded() | resource_in_use() | resource_not_found()
+
+  @type update_workforce_errors() :: conflict_exception()
+
+  @type update_workteam_errors() :: resource_limit_exceeded()
 
   def metadata do
     %{
@@ -14005,8 +16744,7 @@ defmodule AWS.SageMaker do
   @spec add_association(map(), add_association_request(), list()) ::
           {:ok, add_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_limit_exceeded()}
-          | {:error, resource_not_found()}
+          | {:error, add_association_errors()}
   def add_association(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -14072,8 +16810,7 @@ defmodule AWS.SageMaker do
   @spec associate_trial_component(map(), associate_trial_component_request(), list()) ::
           {:ok, associate_trial_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_limit_exceeded()}
-          | {:error, resource_not_found()}
+          | {:error, associate_trial_component_errors()}
   def associate_trial_component(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -14105,7 +16842,7 @@ defmodule AWS.SageMaker do
   @spec create_action(map(), create_action_request(), list()) ::
           {:ok, create_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_limit_exceeded()}
+          | {:error, create_action_errors()}
   def create_action(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -14137,8 +16874,7 @@ defmodule AWS.SageMaker do
   @spec create_app(map(), create_app_request(), list()) ::
           {:ok, create_app_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_in_use()}
-          | {:error, resource_limit_exceeded()}
+          | {:error, create_app_errors()}
   def create_app(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -14156,7 +16892,7 @@ defmodule AWS.SageMaker do
   @spec create_app_image_config(map(), create_app_image_config_request(), list()) ::
           {:ok, create_app_image_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_in_use()}
+          | {:error, create_app_image_config_errors()}
   def create_app_image_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -14176,7 +16912,7 @@ defmodule AWS.SageMaker do
   @spec create_artifact(map(), create_artifact_request(), list()) ::
           {:ok, create_artifact_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_limit_exceeded()}
+          | {:error, create_artifact_errors()}
   def create_artifact(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -14207,8 +16943,7 @@ defmodule AWS.SageMaker do
   @spec create_auto_ml_job(map(), create_auto_ml_job_request(), list()) ::
           {:ok, create_auto_ml_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_in_use()}
-          | {:error, resource_limit_exceeded()}
+          | {:error, create_auto_ml_job_errors()}
   def create_auto_ml_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -14243,8 +16978,7 @@ defmodule AWS.SageMaker do
   @spec create_auto_ml_job_v2(map(), create_auto_ml_job_v2_request(), list()) ::
           {:ok, create_auto_ml_job_v2_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_in_use()}
-          | {:error, resource_limit_exceeded()}
+          | {:error, create_auto_ml_job_v2_errors()}
   def create_auto_ml_job_v2(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -14263,8 +16997,7 @@ defmodule AWS.SageMaker do
   @spec create_cluster(map(), create_cluster_request(), list()) ::
           {:ok, create_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_in_use()}
-          | {:error, resource_limit_exceeded()}
+          | {:error, create_cluster_errors()}
   def create_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -14342,8 +17075,7 @@ defmodule AWS.SageMaker do
   @spec create_compilation_job(map(), create_compilation_job_request(), list()) ::
           {:ok, create_compilation_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_in_use()}
-          | {:error, resource_limit_exceeded()}
+          | {:error, create_compilation_job_errors()}
   def create_compilation_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -14363,7 +17095,7 @@ defmodule AWS.SageMaker do
   @spec create_context(map(), create_context_request(), list()) ::
           {:ok, create_context_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_limit_exceeded()}
+          | {:error, create_context_errors()}
   def create_context(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -14383,8 +17115,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, create_data_quality_job_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_in_use()}
-          | {:error, resource_limit_exceeded()}
+          | {:error, create_data_quality_job_definition_errors()}
   def create_data_quality_job_definition(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -14397,8 +17128,7 @@ defmodule AWS.SageMaker do
   @spec create_device_fleet(map(), create_device_fleet_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_in_use()}
-          | {:error, resource_limit_exceeded()}
+          | {:error, create_device_fleet_errors()}
   def create_device_fleet(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -14468,8 +17198,7 @@ defmodule AWS.SageMaker do
   @spec create_domain(map(), create_domain_request(), list()) ::
           {:ok, create_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_in_use()}
-          | {:error, resource_limit_exceeded()}
+          | {:error, create_domain_errors()}
   def create_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -14485,7 +17214,7 @@ defmodule AWS.SageMaker do
   @spec create_edge_deployment_plan(map(), create_edge_deployment_plan_request(), list()) ::
           {:ok, create_edge_deployment_plan_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_limit_exceeded()}
+          | {:error, create_edge_deployment_plan_errors()}
   def create_edge_deployment_plan(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -14498,7 +17227,7 @@ defmodule AWS.SageMaker do
   @spec create_edge_deployment_stage(map(), create_edge_deployment_stage_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_limit_exceeded()}
+          | {:error, create_edge_deployment_stage_errors()}
   def create_edge_deployment_stage(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -14515,7 +17244,7 @@ defmodule AWS.SageMaker do
   @spec create_edge_packaging_job(map(), create_edge_packaging_job_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_limit_exceeded()}
+          | {:error, create_edge_packaging_job_errors()}
   def create_edge_packaging_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -14622,7 +17351,7 @@ defmodule AWS.SageMaker do
   @spec create_endpoint(map(), create_endpoint_input(), list()) ::
           {:ok, create_endpoint_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_limit_exceeded()}
+          | {:error, create_endpoint_errors()}
   def create_endpoint(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -14680,7 +17409,7 @@ defmodule AWS.SageMaker do
   @spec create_endpoint_config(map(), create_endpoint_config_input(), list()) ::
           {:ok, create_endpoint_config_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_limit_exceeded()}
+          | {:error, create_endpoint_config_errors()}
   def create_endpoint_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -14731,7 +17460,7 @@ defmodule AWS.SageMaker do
   @spec create_experiment(map(), create_experiment_request(), list()) ::
           {:ok, create_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_limit_exceeded()}
+          | {:error, create_experiment_errors()}
   def create_experiment(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -14764,8 +17493,7 @@ defmodule AWS.SageMaker do
   @spec create_feature_group(map(), create_feature_group_request(), list()) ::
           {:ok, create_feature_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_in_use()}
-          | {:error, resource_limit_exceeded()}
+          | {:error, create_feature_group_errors()}
   def create_feature_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -14778,8 +17506,7 @@ defmodule AWS.SageMaker do
   @spec create_flow_definition(map(), create_flow_definition_request(), list()) ::
           {:ok, create_flow_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_in_use()}
-          | {:error, resource_limit_exceeded()}
+          | {:error, create_flow_definition_errors()}
   def create_flow_definition(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -14794,8 +17521,7 @@ defmodule AWS.SageMaker do
   @spec create_hub(map(), create_hub_request(), list()) ::
           {:ok, create_hub_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_in_use()}
-          | {:error, resource_limit_exceeded()}
+          | {:error, create_hub_errors()}
   def create_hub(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -14811,8 +17537,7 @@ defmodule AWS.SageMaker do
   @spec create_human_task_ui(map(), create_human_task_ui_request(), list()) ::
           {:ok, create_human_task_ui_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_in_use()}
-          | {:error, resource_limit_exceeded()}
+          | {:error, create_human_task_ui_errors()}
   def create_human_task_ui(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -14851,8 +17576,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, create_hyper_parameter_tuning_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_in_use()}
-          | {:error, resource_limit_exceeded()}
+          | {:error, create_hyper_parameter_tuning_job_errors()}
   def create_hyper_parameter_tuning_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -14870,8 +17594,7 @@ defmodule AWS.SageMaker do
   @spec create_image(map(), create_image_request(), list()) ::
           {:ok, create_image_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_in_use()}
-          | {:error, resource_limit_exceeded()}
+          | {:error, create_image_errors()}
   def create_image(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -14887,9 +17610,7 @@ defmodule AWS.SageMaker do
   @spec create_image_version(map(), create_image_version_request(), list()) ::
           {:ok, create_image_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_in_use()}
-          | {:error, resource_limit_exceeded()}
-          | {:error, resource_not_found()}
+          | {:error, create_image_version_errors()}
   def create_image_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -14916,7 +17637,7 @@ defmodule AWS.SageMaker do
   @spec create_inference_component(map(), create_inference_component_input(), list()) ::
           {:ok, create_inference_component_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_limit_exceeded()}
+          | {:error, create_inference_component_errors()}
   def create_inference_component(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -14943,8 +17664,7 @@ defmodule AWS.SageMaker do
   @spec create_inference_experiment(map(), create_inference_experiment_request(), list()) ::
           {:ok, create_inference_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_in_use()}
-          | {:error, resource_limit_exceeded()}
+          | {:error, create_inference_experiment_errors()}
   def create_inference_experiment(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -14964,8 +17684,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, create_inference_recommendations_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_in_use()}
-          | {:error, resource_limit_exceeded()}
+          | {:error, create_inference_recommendations_job_errors()}
   def create_inference_recommendations_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -15026,8 +17745,7 @@ defmodule AWS.SageMaker do
   @spec create_labeling_job(map(), create_labeling_job_request(), list()) ::
           {:ok, create_labeling_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_in_use()}
-          | {:error, resource_limit_exceeded()}
+          | {:error, create_labeling_job_errors()}
   def create_labeling_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -15067,7 +17785,7 @@ defmodule AWS.SageMaker do
   @spec create_model(map(), create_model_input(), list()) ::
           {:ok, create_model_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_limit_exceeded()}
+          | {:error, create_model_errors()}
   def create_model(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -15084,8 +17802,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, create_model_bias_job_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_in_use()}
-          | {:error, resource_limit_exceeded()}
+          | {:error, create_model_bias_job_definition_errors()}
   def create_model_bias_job_definition(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -15100,8 +17817,7 @@ defmodule AWS.SageMaker do
   @spec create_model_card(map(), create_model_card_request(), list()) ::
           {:ok, create_model_card_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_limit_exceeded()}
+          | {:error, create_model_card_errors()}
   def create_model_card(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -15114,9 +17830,7 @@ defmodule AWS.SageMaker do
   @spec create_model_card_export_job(map(), create_model_card_export_job_request(), list()) ::
           {:ok, create_model_card_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_limit_exceeded()}
-          | {:error, resource_not_found()}
+          | {:error, create_model_card_export_job_errors()}
   def create_model_card_export_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -15133,8 +17847,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, create_model_explainability_job_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_in_use()}
-          | {:error, resource_limit_exceeded()}
+          | {:error, create_model_explainability_job_definition_errors()}
   def create_model_explainability_job_definition(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -15170,8 +17883,7 @@ defmodule AWS.SageMaker do
   @spec create_model_package(map(), create_model_package_input(), list()) ::
           {:ok, create_model_package_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_limit_exceeded()}
+          | {:error, create_model_package_errors()}
   def create_model_package(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -15186,7 +17898,7 @@ defmodule AWS.SageMaker do
   @spec create_model_package_group(map(), create_model_package_group_input(), list()) ::
           {:ok, create_model_package_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_limit_exceeded()}
+          | {:error, create_model_package_group_errors()}
   def create_model_package_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -15206,8 +17918,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, create_model_quality_job_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_in_use()}
-          | {:error, resource_limit_exceeded()}
+          | {:error, create_model_quality_job_definition_errors()}
   def create_model_quality_job_definition(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -15221,8 +17932,7 @@ defmodule AWS.SageMaker do
   @spec create_monitoring_schedule(map(), create_monitoring_schedule_request(), list()) ::
           {:ok, create_monitoring_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_in_use()}
-          | {:error, resource_limit_exceeded()}
+          | {:error, create_monitoring_schedule_errors()}
   def create_monitoring_schedule(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -15283,7 +17993,7 @@ defmodule AWS.SageMaker do
   @spec create_notebook_instance(map(), create_notebook_instance_input(), list()) ::
           {:ok, create_notebook_instance_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_limit_exceeded()}
+          | {:error, create_notebook_instance_errors()}
   def create_notebook_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -15322,7 +18032,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, create_notebook_instance_lifecycle_config_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_limit_exceeded()}
+          | {:error, create_notebook_instance_lifecycle_config_errors()}
   def create_notebook_instance_lifecycle_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -15335,9 +18045,7 @@ defmodule AWS.SageMaker do
   @spec create_pipeline(map(), create_pipeline_request(), list()) ::
           {:ok, create_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_limit_exceeded()}
-          | {:error, resource_not_found()}
+          | {:error, create_pipeline_errors()}
   def create_pipeline(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -15376,7 +18084,7 @@ defmodule AWS.SageMaker do
   @spec create_presigned_domain_url(map(), create_presigned_domain_url_request(), list()) ::
           {:ok, create_presigned_domain_url_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, create_presigned_domain_url_errors()}
   def create_presigned_domain_url(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -15433,9 +18141,7 @@ defmodule AWS.SageMaker do
   @spec create_processing_job(map(), create_processing_job_request(), list()) ::
           {:ok, create_processing_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_in_use()}
-          | {:error, resource_limit_exceeded()}
-          | {:error, resource_not_found()}
+          | {:error, create_processing_job_errors()}
   def create_processing_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -15450,7 +18156,7 @@ defmodule AWS.SageMaker do
   @spec create_project(map(), create_project_input(), list()) ::
           {:ok, create_project_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_limit_exceeded()}
+          | {:error, create_project_errors()}
   def create_project(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -15463,8 +18169,7 @@ defmodule AWS.SageMaker do
   @spec create_space(map(), create_space_request(), list()) ::
           {:ok, create_space_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_in_use()}
-          | {:error, resource_limit_exceeded()}
+          | {:error, create_space_errors()}
   def create_space(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -15477,7 +18182,7 @@ defmodule AWS.SageMaker do
   @spec create_studio_lifecycle_config(map(), create_studio_lifecycle_config_request(), list()) ::
           {:ok, create_studio_lifecycle_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_in_use()}
+          | {:error, create_studio_lifecycle_config_errors()}
   def create_studio_lifecycle_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -15572,9 +18277,7 @@ defmodule AWS.SageMaker do
   @spec create_training_job(map(), create_training_job_request(), list()) ::
           {:ok, create_training_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_in_use()}
-          | {:error, resource_limit_exceeded()}
-          | {:error, resource_not_found()}
+          | {:error, create_training_job_errors()}
   def create_training_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -15627,9 +18330,7 @@ defmodule AWS.SageMaker do
   @spec create_transform_job(map(), create_transform_job_request(), list()) ::
           {:ok, create_transform_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_in_use()}
-          | {:error, resource_limit_exceeded()}
-          | {:error, resource_not_found()}
+          | {:error, create_transform_job_errors()}
   def create_transform_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -15665,8 +18366,7 @@ defmodule AWS.SageMaker do
   @spec create_trial(map(), create_trial_request(), list()) ::
           {:ok, create_trial_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_limit_exceeded()}
-          | {:error, resource_not_found()}
+          | {:error, create_trial_errors()}
   def create_trial(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -15697,7 +18397,7 @@ defmodule AWS.SageMaker do
   @spec create_trial_component(map(), create_trial_component_request(), list()) ::
           {:ok, create_trial_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_limit_exceeded()}
+          | {:error, create_trial_component_errors()}
   def create_trial_component(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -15722,8 +18422,7 @@ defmodule AWS.SageMaker do
   @spec create_user_profile(map(), create_user_profile_request(), list()) ::
           {:ok, create_user_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_in_use()}
-          | {:error, resource_limit_exceeded()}
+          | {:error, create_user_profile_errors()}
   def create_user_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -15785,8 +18484,7 @@ defmodule AWS.SageMaker do
   @spec create_workteam(map(), create_workteam_request(), list()) ::
           {:ok, create_workteam_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_in_use()}
-          | {:error, resource_limit_exceeded()}
+          | {:error, create_workteam_errors()}
   def create_workteam(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -15799,7 +18497,7 @@ defmodule AWS.SageMaker do
   @spec delete_action(map(), delete_action_request(), list()) ::
           {:ok, delete_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, delete_action_errors()}
   def delete_action(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -15812,7 +18510,7 @@ defmodule AWS.SageMaker do
   @spec delete_algorithm(map(), delete_algorithm_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
+          | {:error, delete_algorithm_errors()}
   def delete_algorithm(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -15825,8 +18523,7 @@ defmodule AWS.SageMaker do
   @spec delete_app(map(), delete_app_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_in_use()}
-          | {:error, resource_not_found()}
+          | {:error, delete_app_errors()}
   def delete_app(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -15839,7 +18536,7 @@ defmodule AWS.SageMaker do
   @spec delete_app_image_config(map(), delete_app_image_config_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, delete_app_image_config_errors()}
   def delete_app_image_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -15855,7 +18552,7 @@ defmodule AWS.SageMaker do
   @spec delete_artifact(map(), delete_artifact_request(), list()) ::
           {:ok, delete_artifact_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, delete_artifact_errors()}
   def delete_artifact(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -15868,7 +18565,7 @@ defmodule AWS.SageMaker do
   @spec delete_association(map(), delete_association_request(), list()) ::
           {:ok, delete_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, delete_association_errors()}
   def delete_association(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -15881,8 +18578,7 @@ defmodule AWS.SageMaker do
   @spec delete_cluster(map(), delete_cluster_request(), list()) ::
           {:ok, delete_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found()}
+          | {:error, delete_cluster_errors()}
   def delete_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -15919,7 +18615,7 @@ defmodule AWS.SageMaker do
   @spec delete_compilation_job(map(), delete_compilation_job_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, delete_compilation_job_errors()}
   def delete_compilation_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -15932,7 +18628,7 @@ defmodule AWS.SageMaker do
   @spec delete_context(map(), delete_context_request(), list()) ::
           {:ok, delete_context_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, delete_context_errors()}
   def delete_context(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -15949,7 +18645,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, delete_data_quality_job_definition_errors()}
   def delete_data_quality_job_definition(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -15962,7 +18658,7 @@ defmodule AWS.SageMaker do
   @spec delete_device_fleet(map(), delete_device_fleet_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_in_use()}
+          | {:error, delete_device_fleet_errors()}
   def delete_device_fleet(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -15981,8 +18677,7 @@ defmodule AWS.SageMaker do
   @spec delete_domain(map(), delete_domain_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_in_use()}
-          | {:error, resource_not_found()}
+          | {:error, delete_domain_errors()}
   def delete_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -15996,7 +18691,7 @@ defmodule AWS.SageMaker do
   @spec delete_edge_deployment_plan(map(), delete_edge_deployment_plan_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_in_use()}
+          | {:error, delete_edge_deployment_plan_errors()}
   def delete_edge_deployment_plan(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -16010,7 +18705,7 @@ defmodule AWS.SageMaker do
   @spec delete_edge_deployment_stage(map(), delete_edge_deployment_stage_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_in_use()}
+          | {:error, delete_edge_deployment_stage_errors()}
   def delete_edge_deployment_stage(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -16092,7 +18787,7 @@ defmodule AWS.SageMaker do
   @spec delete_experiment(map(), delete_experiment_request(), list()) ::
           {:ok, delete_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, delete_experiment_errors()}
   def delete_experiment(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -16117,7 +18812,7 @@ defmodule AWS.SageMaker do
   @spec delete_feature_group(map(), delete_feature_group_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, delete_feature_group_errors()}
   def delete_feature_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -16130,8 +18825,7 @@ defmodule AWS.SageMaker do
   @spec delete_flow_definition(map(), delete_flow_definition_request(), list()) ::
           {:ok, delete_flow_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_in_use()}
-          | {:error, resource_not_found()}
+          | {:error, delete_flow_definition_errors()}
   def delete_flow_definition(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -16146,8 +18840,7 @@ defmodule AWS.SageMaker do
   @spec delete_hub(map(), delete_hub_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_in_use()}
-          | {:error, resource_not_found()}
+          | {:error, delete_hub_errors()}
   def delete_hub(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -16162,8 +18855,7 @@ defmodule AWS.SageMaker do
   @spec delete_hub_content(map(), delete_hub_content_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_in_use()}
-          | {:error, resource_not_found()}
+          | {:error, delete_hub_content_errors()}
   def delete_hub_content(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -16182,7 +18874,7 @@ defmodule AWS.SageMaker do
   @spec delete_human_task_ui(map(), delete_human_task_ui_request(), list()) ::
           {:ok, delete_human_task_ui_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, delete_human_task_ui_errors()}
   def delete_human_task_ui(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -16220,8 +18912,7 @@ defmodule AWS.SageMaker do
   @spec delete_image(map(), delete_image_request(), list()) ::
           {:ok, delete_image_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_in_use()}
-          | {:error, resource_not_found()}
+          | {:error, delete_image_errors()}
   def delete_image(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -16237,8 +18928,7 @@ defmodule AWS.SageMaker do
   @spec delete_image_version(map(), delete_image_version_request(), list()) ::
           {:ok, delete_image_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_in_use()}
-          | {:error, resource_not_found()}
+          | {:error, delete_image_version_errors()}
   def delete_image_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -16267,8 +18957,7 @@ defmodule AWS.SageMaker do
   @spec delete_inference_experiment(map(), delete_inference_experiment_request(), list()) ::
           {:ok, delete_inference_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found()}
+          | {:error, delete_inference_experiment_errors()}
   def delete_inference_experiment(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -16304,7 +18993,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, delete_model_bias_job_definition_errors()}
   def delete_model_bias_job_definition(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -16317,8 +19006,7 @@ defmodule AWS.SageMaker do
   @spec delete_model_card(map(), delete_model_card_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found()}
+          | {:error, delete_model_card_errors()}
   def delete_model_card(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -16335,7 +19023,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, delete_model_explainability_job_definition_errors()}
   def delete_model_explainability_job_definition(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -16353,7 +19041,7 @@ defmodule AWS.SageMaker do
   @spec delete_model_package(map(), delete_model_package_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
+          | {:error, delete_model_package_errors()}
   def delete_model_package(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -16366,7 +19054,7 @@ defmodule AWS.SageMaker do
   @spec delete_model_package_group(map(), delete_model_package_group_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
+          | {:error, delete_model_package_group_errors()}
   def delete_model_package_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -16399,7 +19087,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, delete_model_quality_job_definition_errors()}
   def delete_model_quality_job_definition(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -16415,7 +19103,7 @@ defmodule AWS.SageMaker do
   @spec delete_monitoring_schedule(map(), delete_monitoring_schedule_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, delete_monitoring_schedule_errors()}
   def delete_monitoring_schedule(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -16470,8 +19158,7 @@ defmodule AWS.SageMaker do
   @spec delete_pipeline(map(), delete_pipeline_request(), list()) ::
           {:ok, delete_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found()}
+          | {:error, delete_pipeline_errors()}
   def delete_pipeline(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -16484,7 +19171,7 @@ defmodule AWS.SageMaker do
   @spec delete_project(map(), delete_project_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
+          | {:error, delete_project_errors()}
   def delete_project(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -16497,8 +19184,7 @@ defmodule AWS.SageMaker do
   @spec delete_space(map(), delete_space_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_in_use()}
-          | {:error, resource_not_found()}
+          | {:error, delete_space_errors()}
   def delete_space(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -16515,8 +19201,7 @@ defmodule AWS.SageMaker do
   @spec delete_studio_lifecycle_config(map(), delete_studio_lifecycle_config_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_in_use()}
-          | {:error, resource_not_found()}
+          | {:error, delete_studio_lifecycle_config_errors()}
   def delete_studio_lifecycle_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -16559,7 +19244,7 @@ defmodule AWS.SageMaker do
   @spec delete_trial(map(), delete_trial_request(), list()) ::
           {:ok, delete_trial_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, delete_trial_errors()}
   def delete_trial(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -16579,7 +19264,7 @@ defmodule AWS.SageMaker do
   @spec delete_trial_component(map(), delete_trial_component_request(), list()) ::
           {:ok, delete_trial_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, delete_trial_component_errors()}
   def delete_trial_component(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -16595,8 +19280,7 @@ defmodule AWS.SageMaker do
   @spec delete_user_profile(map(), delete_user_profile_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_in_use()}
-          | {:error, resource_not_found()}
+          | {:error, delete_user_profile_errors()}
   def delete_user_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -16635,7 +19319,7 @@ defmodule AWS.SageMaker do
   @spec delete_workteam(map(), delete_workteam_request(), list()) ::
           {:ok, delete_workteam_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_limit_exceeded()}
+          | {:error, delete_workteam_errors()}
   def delete_workteam(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -16662,7 +19346,7 @@ defmodule AWS.SageMaker do
   @spec describe_action(map(), describe_action_request(), list()) ::
           {:ok, describe_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, describe_action_errors()}
   def describe_action(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -16687,7 +19371,7 @@ defmodule AWS.SageMaker do
   @spec describe_app(map(), describe_app_request(), list()) ::
           {:ok, describe_app_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, describe_app_errors()}
   def describe_app(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -16700,7 +19384,7 @@ defmodule AWS.SageMaker do
   @spec describe_app_image_config(map(), describe_app_image_config_request(), list()) ::
           {:ok, describe_app_image_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, describe_app_image_config_errors()}
   def describe_app_image_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -16713,7 +19397,7 @@ defmodule AWS.SageMaker do
   @spec describe_artifact(map(), describe_artifact_request(), list()) ::
           {:ok, describe_artifact_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, describe_artifact_errors()}
   def describe_artifact(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -16732,7 +19416,7 @@ defmodule AWS.SageMaker do
   @spec describe_auto_ml_job(map(), describe_auto_ml_job_request(), list()) ::
           {:ok, describe_auto_ml_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, describe_auto_ml_job_errors()}
   def describe_auto_ml_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -16747,7 +19431,7 @@ defmodule AWS.SageMaker do
   @spec describe_auto_ml_job_v2(map(), describe_auto_ml_job_v2_request(), list()) ::
           {:ok, describe_auto_ml_job_v2_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, describe_auto_ml_job_v2_errors()}
   def describe_auto_ml_job_v2(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -16760,7 +19444,7 @@ defmodule AWS.SageMaker do
   @spec describe_cluster(map(), describe_cluster_request(), list()) ::
           {:ok, describe_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, describe_cluster_errors()}
   def describe_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -16774,7 +19458,7 @@ defmodule AWS.SageMaker do
   @spec describe_cluster_node(map(), describe_cluster_node_request(), list()) ::
           {:ok, describe_cluster_node_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, describe_cluster_node_errors()}
   def describe_cluster_node(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -16804,7 +19488,7 @@ defmodule AWS.SageMaker do
   @spec describe_compilation_job(map(), describe_compilation_job_request(), list()) ::
           {:ok, describe_compilation_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, describe_compilation_job_errors()}
   def describe_compilation_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -16817,7 +19501,7 @@ defmodule AWS.SageMaker do
   @spec describe_context(map(), describe_context_request(), list()) ::
           {:ok, describe_context_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, describe_context_errors()}
   def describe_context(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -16834,7 +19518,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, describe_data_quality_job_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, describe_data_quality_job_definition_errors()}
   def describe_data_quality_job_definition(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -16847,7 +19531,7 @@ defmodule AWS.SageMaker do
   @spec describe_device(map(), describe_device_request(), list()) ::
           {:ok, describe_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, describe_device_errors()}
   def describe_device(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -16860,7 +19544,7 @@ defmodule AWS.SageMaker do
   @spec describe_device_fleet(map(), describe_device_fleet_request(), list()) ::
           {:ok, describe_device_fleet_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, describe_device_fleet_errors()}
   def describe_device_fleet(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -16873,7 +19557,7 @@ defmodule AWS.SageMaker do
   @spec describe_domain(map(), describe_domain_request(), list()) ::
           {:ok, describe_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, describe_domain_errors()}
   def describe_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -16886,7 +19570,7 @@ defmodule AWS.SageMaker do
   @spec describe_edge_deployment_plan(map(), describe_edge_deployment_plan_request(), list()) ::
           {:ok, describe_edge_deployment_plan_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, describe_edge_deployment_plan_errors()}
   def describe_edge_deployment_plan(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -16899,7 +19583,7 @@ defmodule AWS.SageMaker do
   @spec describe_edge_packaging_job(map(), describe_edge_packaging_job_request(), list()) ::
           {:ok, describe_edge_packaging_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, describe_edge_packaging_job_errors()}
   def describe_edge_packaging_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -16937,7 +19621,7 @@ defmodule AWS.SageMaker do
   @spec describe_experiment(map(), describe_experiment_request(), list()) ::
           {:ok, describe_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, describe_experiment_errors()}
   def describe_experiment(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -16954,7 +19638,7 @@ defmodule AWS.SageMaker do
   @spec describe_feature_group(map(), describe_feature_group_request(), list()) ::
           {:ok, describe_feature_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, describe_feature_group_errors()}
   def describe_feature_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -16967,7 +19651,7 @@ defmodule AWS.SageMaker do
   @spec describe_feature_metadata(map(), describe_feature_metadata_request(), list()) ::
           {:ok, describe_feature_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, describe_feature_metadata_errors()}
   def describe_feature_metadata(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -16980,7 +19664,7 @@ defmodule AWS.SageMaker do
   @spec describe_flow_definition(map(), describe_flow_definition_request(), list()) ::
           {:ok, describe_flow_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, describe_flow_definition_errors()}
   def describe_flow_definition(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -16995,7 +19679,7 @@ defmodule AWS.SageMaker do
   @spec describe_hub(map(), describe_hub_request(), list()) ::
           {:ok, describe_hub_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, describe_hub_errors()}
   def describe_hub(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -17010,7 +19694,7 @@ defmodule AWS.SageMaker do
   @spec describe_hub_content(map(), describe_hub_content_request(), list()) ::
           {:ok, describe_hub_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, describe_hub_content_errors()}
   def describe_hub_content(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -17024,7 +19708,7 @@ defmodule AWS.SageMaker do
   @spec describe_human_task_ui(map(), describe_human_task_ui_request(), list()) ::
           {:ok, describe_human_task_ui_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, describe_human_task_ui_errors()}
   def describe_human_task_ui(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -17045,7 +19729,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, describe_hyper_parameter_tuning_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, describe_hyper_parameter_tuning_job_errors()}
   def describe_hyper_parameter_tuning_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -17058,7 +19742,7 @@ defmodule AWS.SageMaker do
   @spec describe_image(map(), describe_image_request(), list()) ::
           {:ok, describe_image_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, describe_image_errors()}
   def describe_image(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -17071,7 +19755,7 @@ defmodule AWS.SageMaker do
   @spec describe_image_version(map(), describe_image_version_request(), list()) ::
           {:ok, describe_image_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, describe_image_version_errors()}
   def describe_image_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -17096,7 +19780,7 @@ defmodule AWS.SageMaker do
   @spec describe_inference_experiment(map(), describe_inference_experiment_request(), list()) ::
           {:ok, describe_inference_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, describe_inference_experiment_errors()}
   def describe_inference_experiment(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -17115,7 +19799,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, describe_inference_recommendations_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, describe_inference_recommendations_job_errors()}
   def describe_inference_recommendations_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -17128,7 +19812,7 @@ defmodule AWS.SageMaker do
   @spec describe_labeling_job(map(), describe_labeling_job_request(), list()) ::
           {:ok, describe_labeling_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, describe_labeling_job_errors()}
   def describe_labeling_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -17146,7 +19830,7 @@ defmodule AWS.SageMaker do
   @spec describe_lineage_group(map(), describe_lineage_group_request(), list()) ::
           {:ok, describe_lineage_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, describe_lineage_group_errors()}
   def describe_lineage_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -17176,7 +19860,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, describe_model_bias_job_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, describe_model_bias_job_definition_errors()}
   def describe_model_bias_job_definition(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -17190,7 +19874,7 @@ defmodule AWS.SageMaker do
   @spec describe_model_card(map(), describe_model_card_request(), list()) ::
           {:ok, describe_model_card_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, describe_model_card_errors()}
   def describe_model_card(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -17203,7 +19887,7 @@ defmodule AWS.SageMaker do
   @spec describe_model_card_export_job(map(), describe_model_card_export_job_request(), list()) ::
           {:ok, describe_model_card_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, describe_model_card_export_job_errors()}
   def describe_model_card_export_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -17220,7 +19904,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, describe_model_explainability_job_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, describe_model_explainability_job_definition_errors()}
   def describe_model_explainability_job_definition(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -17267,7 +19951,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, describe_model_quality_job_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, describe_model_quality_job_definition_errors()}
   def describe_model_quality_job_definition(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -17280,7 +19964,7 @@ defmodule AWS.SageMaker do
   @spec describe_monitoring_schedule(map(), describe_monitoring_schedule_request(), list()) ::
           {:ok, describe_monitoring_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, describe_monitoring_schedule_errors()}
   def describe_monitoring_schedule(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -17324,7 +20008,7 @@ defmodule AWS.SageMaker do
   @spec describe_pipeline(map(), describe_pipeline_request(), list()) ::
           {:ok, describe_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, describe_pipeline_errors()}
   def describe_pipeline(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -17341,7 +20025,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, describe_pipeline_definition_for_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, describe_pipeline_definition_for_execution_errors()}
   def describe_pipeline_definition_for_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -17354,7 +20038,7 @@ defmodule AWS.SageMaker do
   @spec describe_pipeline_execution(map(), describe_pipeline_execution_request(), list()) ::
           {:ok, describe_pipeline_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, describe_pipeline_execution_errors()}
   def describe_pipeline_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -17367,7 +20051,7 @@ defmodule AWS.SageMaker do
   @spec describe_processing_job(map(), describe_processing_job_request(), list()) ::
           {:ok, describe_processing_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, describe_processing_job_errors()}
   def describe_processing_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -17392,7 +20076,7 @@ defmodule AWS.SageMaker do
   @spec describe_space(map(), describe_space_request(), list()) ::
           {:ok, describe_space_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, describe_space_errors()}
   def describe_space(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -17409,7 +20093,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, describe_studio_lifecycle_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, describe_studio_lifecycle_config_errors()}
   def describe_studio_lifecycle_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -17445,7 +20129,7 @@ defmodule AWS.SageMaker do
   @spec describe_training_job(map(), describe_training_job_request(), list()) ::
           {:ok, describe_training_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, describe_training_job_errors()}
   def describe_training_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -17458,7 +20142,7 @@ defmodule AWS.SageMaker do
   @spec describe_transform_job(map(), describe_transform_job_request(), list()) ::
           {:ok, describe_transform_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, describe_transform_job_errors()}
   def describe_transform_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -17471,7 +20155,7 @@ defmodule AWS.SageMaker do
   @spec describe_trial(map(), describe_trial_request(), list()) ::
           {:ok, describe_trial_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, describe_trial_errors()}
   def describe_trial(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -17484,7 +20168,7 @@ defmodule AWS.SageMaker do
   @spec describe_trial_component(map(), describe_trial_component_request(), list()) ::
           {:ok, describe_trial_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, describe_trial_component_errors()}
   def describe_trial_component(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -17499,8 +20183,7 @@ defmodule AWS.SageMaker do
   @spec describe_user_profile(map(), describe_user_profile_request(), list()) ::
           {:ok, describe_user_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_limit_exceeded()}
-          | {:error, resource_not_found()}
+          | {:error, describe_user_profile_errors()}
   def describe_user_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -17582,7 +20265,7 @@ defmodule AWS.SageMaker do
   @spec disassociate_trial_component(map(), disassociate_trial_component_request(), list()) ::
           {:ok, disassociate_trial_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, disassociate_trial_component_errors()}
   def disassociate_trial_component(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -17626,7 +20309,7 @@ defmodule AWS.SageMaker do
   @spec get_lineage_group_policy(map(), get_lineage_group_policy_request(), list()) ::
           {:ok, get_lineage_group_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, get_lineage_group_policy_errors()}
   def get_lineage_group_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -17689,7 +20372,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, get_scaling_configuration_recommendation_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, get_scaling_configuration_recommendation_errors()}
   def get_scaling_configuration_recommendation(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -17721,9 +20404,7 @@ defmodule AWS.SageMaker do
   @spec import_hub_content(map(), import_hub_content_request(), list()) ::
           {:ok, import_hub_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_in_use()}
-          | {:error, resource_limit_exceeded()}
-          | {:error, resource_not_found()}
+          | {:error, import_hub_content_errors()}
   def import_hub_content(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -17736,7 +20417,7 @@ defmodule AWS.SageMaker do
   @spec list_actions(map(), list_actions_request(), list()) ::
           {:ok, list_actions_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, list_actions_errors()}
   def list_actions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -17761,7 +20442,7 @@ defmodule AWS.SageMaker do
   @spec list_aliases(map(), list_aliases_request(), list()) ::
           {:ok, list_aliases_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, list_aliases_errors()}
   def list_aliases(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -17803,7 +20484,7 @@ defmodule AWS.SageMaker do
   @spec list_artifacts(map(), list_artifacts_request(), list()) ::
           {:ok, list_artifacts_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, list_artifacts_errors()}
   def list_artifacts(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -17816,7 +20497,7 @@ defmodule AWS.SageMaker do
   @spec list_associations(map(), list_associations_request(), list()) ::
           {:ok, list_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, list_associations_errors()}
   def list_associations(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -17841,7 +20522,7 @@ defmodule AWS.SageMaker do
   @spec list_candidates_for_auto_ml_job(map(), list_candidates_for_auto_ml_job_request(), list()) ::
           {:ok, list_candidates_for_auto_ml_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, list_candidates_for_auto_ml_job_errors()}
   def list_candidates_for_auto_ml_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -17855,7 +20536,7 @@ defmodule AWS.SageMaker do
   @spec list_cluster_nodes(map(), list_cluster_nodes_request(), list()) ::
           {:ok, list_cluster_nodes_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, list_cluster_nodes_errors()}
   def list_cluster_nodes(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -17909,7 +20590,7 @@ defmodule AWS.SageMaker do
   @spec list_contexts(map(), list_contexts_request(), list()) ::
           {:ok, list_contexts_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, list_contexts_errors()}
   def list_contexts(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -18065,7 +20746,7 @@ defmodule AWS.SageMaker do
   @spec list_hub_content_versions(map(), list_hub_content_versions_request(), list()) ::
           {:ok, list_hub_content_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, list_hub_content_versions_errors()}
   def list_hub_content_versions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -18080,7 +20761,7 @@ defmodule AWS.SageMaker do
   @spec list_hub_contents(map(), list_hub_contents_request(), list()) ::
           {:ok, list_hub_contents_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, list_hub_contents_errors()}
   def list_hub_contents(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -18142,7 +20823,7 @@ defmodule AWS.SageMaker do
   @spec list_image_versions(map(), list_image_versions_request(), list()) ::
           {:ok, list_image_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, list_image_versions_errors()}
   def list_image_versions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -18202,7 +20883,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, list_inference_recommendations_job_steps_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, list_inference_recommendations_job_steps_errors()}
   def list_inference_recommendations_job_steps(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -18243,7 +20924,7 @@ defmodule AWS.SageMaker do
   @spec list_labeling_jobs_for_workteam(map(), list_labeling_jobs_for_workteam_request(), list()) ::
           {:ok, list_labeling_jobs_for_workteam_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, list_labeling_jobs_for_workteam_errors()}
   def list_labeling_jobs_for_workteam(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -18297,7 +20978,7 @@ defmodule AWS.SageMaker do
   @spec list_model_card_versions(map(), list_model_card_versions_request(), list()) ::
           {:ok, list_model_card_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, list_model_card_versions_errors()}
   def list_model_card_versions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -18403,7 +21084,7 @@ defmodule AWS.SageMaker do
   @spec list_monitoring_alert_history(map(), list_monitoring_alert_history_request(), list()) ::
           {:ok, list_monitoring_alert_history_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, list_monitoring_alert_history_errors()}
   def list_monitoring_alert_history(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -18416,7 +21097,7 @@ defmodule AWS.SageMaker do
   @spec list_monitoring_alerts(map(), list_monitoring_alerts_request(), list()) ::
           {:ok, list_monitoring_alerts_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, list_monitoring_alerts_errors()}
   def list_monitoring_alerts(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -18485,7 +21166,7 @@ defmodule AWS.SageMaker do
   @spec list_pipeline_execution_steps(map(), list_pipeline_execution_steps_request(), list()) ::
           {:ok, list_pipeline_execution_steps_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, list_pipeline_execution_steps_errors()}
   def list_pipeline_execution_steps(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -18498,7 +21179,7 @@ defmodule AWS.SageMaker do
   @spec list_pipeline_executions(map(), list_pipeline_executions_request(), list()) ::
           {:ok, list_pipeline_executions_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, list_pipeline_executions_errors()}
   def list_pipeline_executions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -18515,7 +21196,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, list_pipeline_parameters_for_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, list_pipeline_parameters_for_execution_errors()}
   def list_pipeline_parameters_for_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -18605,7 +21286,7 @@ defmodule AWS.SageMaker do
   @spec list_studio_lifecycle_configs(map(), list_studio_lifecycle_configs_request(), list()) ::
           {:ok, list_studio_lifecycle_configs_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_in_use()}
+          | {:error, list_studio_lifecycle_configs_errors()}
   def list_studio_lifecycle_configs(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -18689,7 +21370,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, list_training_jobs_for_hyper_parameter_tuning_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, list_training_jobs_for_hyper_parameter_tuning_job_errors()}
   def list_training_jobs_for_hyper_parameter_tuning_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -18737,7 +21418,7 @@ defmodule AWS.SageMaker do
   @spec list_trial_components(map(), list_trial_components_request(), list()) ::
           {:ok, list_trial_components_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, list_trial_components_errors()}
   def list_trial_components(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -18759,7 +21440,7 @@ defmodule AWS.SageMaker do
   @spec list_trials(map(), list_trials_request(), list()) ::
           {:ok, list_trials_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, list_trials_errors()}
   def list_trials(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -18821,7 +21502,7 @@ defmodule AWS.SageMaker do
   @spec put_model_package_group_policy(map(), put_model_package_group_policy_input(), list()) ::
           {:ok, put_model_package_group_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
+          | {:error, put_model_package_group_policy_errors()}
   def put_model_package_group_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -18840,7 +21521,7 @@ defmodule AWS.SageMaker do
   @spec query_lineage(map(), query_lineage_request(), list()) ::
           {:ok, query_lineage_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, query_lineage_errors()}
   def query_lineage(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -18853,7 +21534,7 @@ defmodule AWS.SageMaker do
   @spec register_devices(map(), register_devices_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_limit_exceeded()}
+          | {:error, register_devices_errors()}
   def register_devices(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -18866,7 +21547,7 @@ defmodule AWS.SageMaker do
   @spec render_ui_template(map(), render_ui_template_request(), list()) ::
           {:ok, render_ui_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, render_ui_template_errors()}
   def render_ui_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -18879,9 +21560,7 @@ defmodule AWS.SageMaker do
   @spec retry_pipeline_execution(map(), retry_pipeline_execution_request(), list()) ::
           {:ok, retry_pipeline_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_limit_exceeded()}
-          | {:error, resource_not_found()}
+          | {:error, retry_pipeline_execution_errors()}
   def retry_pipeline_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -18928,9 +21607,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, send_pipeline_execution_step_failure_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_limit_exceeded()}
-          | {:error, resource_not_found()}
+          | {:error, send_pipeline_execution_step_failure_errors()}
   def send_pipeline_execution_step_failure(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -18953,9 +21630,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, send_pipeline_execution_step_success_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_limit_exceeded()}
-          | {:error, resource_not_found()}
+          | {:error, send_pipeline_execution_step_success_errors()}
   def send_pipeline_execution_step_success(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -18980,8 +21655,7 @@ defmodule AWS.SageMaker do
   @spec start_inference_experiment(map(), start_inference_experiment_request(), list()) ::
           {:ok, start_inference_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found()}
+          | {:error, start_inference_experiment_errors()}
   def start_inference_experiment(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -18998,7 +21672,7 @@ defmodule AWS.SageMaker do
   @spec start_monitoring_schedule(map(), start_monitoring_schedule_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, start_monitoring_schedule_errors()}
   def start_monitoring_schedule(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -19016,7 +21690,7 @@ defmodule AWS.SageMaker do
   @spec start_notebook_instance(map(), start_notebook_instance_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_limit_exceeded()}
+          | {:error, start_notebook_instance_errors()}
   def start_notebook_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -19029,9 +21703,7 @@ defmodule AWS.SageMaker do
   @spec start_pipeline_execution(map(), start_pipeline_execution_request(), list()) ::
           {:ok, start_pipeline_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_limit_exceeded()}
-          | {:error, resource_not_found()}
+          | {:error, start_pipeline_execution_errors()}
   def start_pipeline_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -19044,7 +21716,7 @@ defmodule AWS.SageMaker do
   @spec stop_auto_ml_job(map(), stop_auto_ml_job_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, stop_auto_ml_job_errors()}
   def stop_auto_ml_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -19066,7 +21738,7 @@ defmodule AWS.SageMaker do
   @spec stop_compilation_job(map(), stop_compilation_job_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, stop_compilation_job_errors()}
   def stop_compilation_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -19112,7 +21784,7 @@ defmodule AWS.SageMaker do
   @spec stop_hyper_parameter_tuning_job(map(), stop_hyper_parameter_tuning_job_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, stop_hyper_parameter_tuning_job_errors()}
   def stop_hyper_parameter_tuning_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -19125,8 +21797,7 @@ defmodule AWS.SageMaker do
   @spec stop_inference_experiment(map(), stop_inference_experiment_request(), list()) ::
           {:ok, stop_inference_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found()}
+          | {:error, stop_inference_experiment_errors()}
   def stop_inference_experiment(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -19143,7 +21814,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, stop_inference_recommendations_job_errors()}
   def stop_inference_recommendations_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -19159,7 +21830,7 @@ defmodule AWS.SageMaker do
   @spec stop_labeling_job(map(), stop_labeling_job_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, stop_labeling_job_errors()}
   def stop_labeling_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -19172,7 +21843,7 @@ defmodule AWS.SageMaker do
   @spec stop_monitoring_schedule(map(), stop_monitoring_schedule_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, stop_monitoring_schedule_errors()}
   def stop_monitoring_schedule(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -19240,8 +21911,7 @@ defmodule AWS.SageMaker do
   @spec stop_pipeline_execution(map(), stop_pipeline_execution_request(), list()) ::
           {:ok, stop_pipeline_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found()}
+          | {:error, stop_pipeline_execution_errors()}
   def stop_pipeline_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -19254,7 +21924,7 @@ defmodule AWS.SageMaker do
   @spec stop_processing_job(map(), stop_processing_job_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, stop_processing_job_errors()}
   def stop_processing_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -19277,7 +21947,7 @@ defmodule AWS.SageMaker do
   @spec stop_training_job(map(), stop_training_job_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, stop_training_job_errors()}
   def stop_training_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -19298,7 +21968,7 @@ defmodule AWS.SageMaker do
   @spec stop_transform_job(map(), stop_transform_job_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, stop_transform_job_errors()}
   def stop_transform_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -19311,8 +21981,7 @@ defmodule AWS.SageMaker do
   @spec update_action(map(), update_action_request(), list()) ::
           {:ok, update_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found()}
+          | {:error, update_action_errors()}
   def update_action(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -19325,7 +21994,7 @@ defmodule AWS.SageMaker do
   @spec update_app_image_config(map(), update_app_image_config_request(), list()) ::
           {:ok, update_app_image_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, update_app_image_config_errors()}
   def update_app_image_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -19338,8 +22007,7 @@ defmodule AWS.SageMaker do
   @spec update_artifact(map(), update_artifact_request(), list()) ::
           {:ok, update_artifact_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found()}
+          | {:error, update_artifact_errors()}
   def update_artifact(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -19352,9 +22020,7 @@ defmodule AWS.SageMaker do
   @spec update_cluster(map(), update_cluster_request(), list()) ::
           {:ok, update_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_limit_exceeded()}
-          | {:error, resource_not_found()}
+          | {:error, update_cluster_errors()}
   def update_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -19371,8 +22037,7 @@ defmodule AWS.SageMaker do
   @spec update_cluster_software(map(), update_cluster_software_request(), list()) ::
           {:ok, update_cluster_software_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found()}
+          | {:error, update_cluster_software_errors()}
   def update_cluster_software(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -19385,7 +22050,7 @@ defmodule AWS.SageMaker do
   @spec update_code_repository(map(), update_code_repository_input(), list()) ::
           {:ok, update_code_repository_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
+          | {:error, update_code_repository_errors()}
   def update_code_repository(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -19398,8 +22063,7 @@ defmodule AWS.SageMaker do
   @spec update_context(map(), update_context_request(), list()) ::
           {:ok, update_context_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found()}
+          | {:error, update_context_errors()}
   def update_context(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -19412,7 +22076,7 @@ defmodule AWS.SageMaker do
   @spec update_device_fleet(map(), update_device_fleet_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_in_use()}
+          | {:error, update_device_fleet_errors()}
   def update_device_fleet(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -19437,9 +22101,7 @@ defmodule AWS.SageMaker do
   @spec update_domain(map(), update_domain_request(), list()) ::
           {:ok, update_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_in_use()}
-          | {:error, resource_limit_exceeded()}
-          | {:error, resource_not_found()}
+          | {:error, update_domain_errors()}
   def update_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -19475,7 +22137,7 @@ defmodule AWS.SageMaker do
   @spec update_endpoint(map(), update_endpoint_input(), list()) ::
           {:ok, update_endpoint_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_limit_exceeded()}
+          | {:error, update_endpoint_errors()}
   def update_endpoint(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -19500,7 +22162,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, update_endpoint_weights_and_capacities_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_limit_exceeded()}
+          | {:error, update_endpoint_weights_and_capacities_errors()}
   def update_endpoint_weights_and_capacities(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -19516,8 +22178,7 @@ defmodule AWS.SageMaker do
   @spec update_experiment(map(), update_experiment_request(), list()) ::
           {:ok, update_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found()}
+          | {:error, update_experiment_errors()}
   def update_experiment(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -19548,8 +22209,7 @@ defmodule AWS.SageMaker do
   @spec update_feature_group(map(), update_feature_group_request(), list()) ::
           {:ok, update_feature_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_limit_exceeded()}
-          | {:error, resource_not_found()}
+          | {:error, update_feature_group_errors()}
   def update_feature_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -19562,7 +22222,7 @@ defmodule AWS.SageMaker do
   @spec update_feature_metadata(map(), update_feature_metadata_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, update_feature_metadata_errors()}
   def update_feature_metadata(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -19577,7 +22237,7 @@ defmodule AWS.SageMaker do
   @spec update_hub(map(), update_hub_request(), list()) ::
           {:ok, update_hub_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found()}
+          | {:error, update_hub_errors()}
   def update_hub(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -19595,8 +22255,7 @@ defmodule AWS.SageMaker do
   @spec update_image(map(), update_image_request(), list()) ::
           {:ok, update_image_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_in_use()}
-          | {:error, resource_not_found()}
+          | {:error, update_image_errors()}
   def update_image(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -19609,8 +22268,7 @@ defmodule AWS.SageMaker do
   @spec update_image_version(map(), update_image_version_request(), list()) ::
           {:ok, update_image_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_in_use()}
-          | {:error, resource_not_found()}
+          | {:error, update_image_version_errors()}
   def update_image_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -19623,7 +22281,7 @@ defmodule AWS.SageMaker do
   @spec update_inference_component(map(), update_inference_component_input(), list()) ::
           {:ok, update_inference_component_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_limit_exceeded()}
+          | {:error, update_inference_component_errors()}
   def update_inference_component(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -19640,7 +22298,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, update_inference_component_runtime_config_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_limit_exceeded()}
+          | {:error, update_inference_component_runtime_config_errors()}
   def update_inference_component_runtime_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -19660,8 +22318,7 @@ defmodule AWS.SageMaker do
   @spec update_inference_experiment(map(), update_inference_experiment_request(), list()) ::
           {:ok, update_inference_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found()}
+          | {:error, update_inference_experiment_errors()}
   def update_inference_experiment(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -19677,9 +22334,7 @@ defmodule AWS.SageMaker do
   @spec update_model_card(map(), update_model_card_request(), list()) ::
           {:ok, update_model_card_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_limit_exceeded()}
-          | {:error, resource_not_found()}
+          | {:error, update_model_card_errors()}
   def update_model_card(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -19692,7 +22347,7 @@ defmodule AWS.SageMaker do
   @spec update_model_package(map(), update_model_package_input(), list()) ::
           {:ok, update_model_package_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
+          | {:error, update_model_package_errors()}
   def update_model_package(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -19705,8 +22360,7 @@ defmodule AWS.SageMaker do
   @spec update_monitoring_alert(map(), update_monitoring_alert_request(), list()) ::
           {:ok, update_monitoring_alert_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_limit_exceeded()}
-          | {:error, resource_not_found()}
+          | {:error, update_monitoring_alert_errors()}
   def update_monitoring_alert(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -19719,8 +22373,7 @@ defmodule AWS.SageMaker do
   @spec update_monitoring_schedule(map(), update_monitoring_schedule_request(), list()) ::
           {:ok, update_monitoring_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_limit_exceeded()}
-          | {:error, resource_not_found()}
+          | {:error, update_monitoring_schedule_errors()}
   def update_monitoring_schedule(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -19738,7 +22391,7 @@ defmodule AWS.SageMaker do
   @spec update_notebook_instance(map(), update_notebook_instance_input(), list()) ::
           {:ok, update_notebook_instance_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_limit_exceeded()}
+          | {:error, update_notebook_instance_errors()}
   def update_notebook_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -19757,7 +22410,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, update_notebook_instance_lifecycle_config_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_limit_exceeded()}
+          | {:error, update_notebook_instance_lifecycle_config_errors()}
   def update_notebook_instance_lifecycle_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -19770,8 +22423,7 @@ defmodule AWS.SageMaker do
   @spec update_pipeline(map(), update_pipeline_request(), list()) ::
           {:ok, update_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found()}
+          | {:error, update_pipeline_errors()}
   def update_pipeline(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -19784,8 +22436,7 @@ defmodule AWS.SageMaker do
   @spec update_pipeline_execution(map(), update_pipeline_execution_request(), list()) ::
           {:ok, update_pipeline_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found()}
+          | {:error, update_pipeline_execution_errors()}
   def update_pipeline_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -19804,7 +22455,7 @@ defmodule AWS.SageMaker do
   @spec update_project(map(), update_project_input(), list()) ::
           {:ok, update_project_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
+          | {:error, update_project_errors()}
   def update_project(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -19817,9 +22468,7 @@ defmodule AWS.SageMaker do
   @spec update_space(map(), update_space_request(), list()) ::
           {:ok, update_space_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_in_use()}
-          | {:error, resource_limit_exceeded()}
-          | {:error, resource_not_found()}
+          | {:error, update_space_errors()}
   def update_space(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -19834,8 +22483,7 @@ defmodule AWS.SageMaker do
   @spec update_training_job(map(), update_training_job_request(), list()) ::
           {:ok, update_training_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_limit_exceeded()}
-          | {:error, resource_not_found()}
+          | {:error, update_training_job_errors()}
   def update_training_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -19848,8 +22496,7 @@ defmodule AWS.SageMaker do
   @spec update_trial(map(), update_trial_request(), list()) ::
           {:ok, update_trial_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found()}
+          | {:error, update_trial_errors()}
   def update_trial(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -19862,8 +22509,7 @@ defmodule AWS.SageMaker do
   @spec update_trial_component(map(), update_trial_component_request(), list()) ::
           {:ok, update_trial_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found()}
+          | {:error, update_trial_component_errors()}
   def update_trial_component(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -19876,9 +22522,7 @@ defmodule AWS.SageMaker do
   @spec update_user_profile(map(), update_user_profile_request(), list()) ::
           {:ok, update_user_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_in_use()}
-          | {:error, resource_limit_exceeded()}
-          | {:error, resource_not_found()}
+          | {:error, update_user_profile_errors()}
   def update_user_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -19930,7 +22574,7 @@ defmodule AWS.SageMaker do
   @spec update_workforce(map(), update_workforce_request(), list()) ::
           {:ok, update_workforce_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
+          | {:error, update_workforce_errors()}
   def update_workforce(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -19943,7 +22587,7 @@ defmodule AWS.SageMaker do
   @spec update_workteam(map(), update_workteam_request(), list()) ::
           {:ok, update_workteam_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_limit_exceeded()}
+          | {:error, update_workteam_errors()}
   def update_workteam(%Client{} = client, input, options \\ []) do
     meta = metadata()
 

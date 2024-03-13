@@ -16,109 +16,145 @@ defmodule AWS.KinesisVideoSignaling do
   @typedoc """
 
   ## Example:
-  client_limit_exceeded_exception() :: %{
-    "Message" => String.t()
-  }
+
+      client_limit_exceeded_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type client_limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_ice_server_config_request() :: %{
-    optional("ClientId") => String.t(),
-    optional("Service") => list(any()),
-    optional("Username") => String.t(),
-    required("ChannelARN") => String.t()
-  }
+
+      get_ice_server_config_request() :: %{
+        optional("ClientId") => String.t(),
+        optional("Service") => list(any()),
+        optional("Username") => String.t(),
+        required("ChannelARN") => String.t()
+      }
+
   """
   @type get_ice_server_config_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_ice_server_config_response() :: %{
-    "IceServerList" => list(ice_server()())
-  }
+
+      get_ice_server_config_response() :: %{
+        "IceServerList" => list(ice_server()())
+      }
+
   """
   @type get_ice_server_config_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ice_server() :: %{
-    "Password" => String.t(),
-    "Ttl" => integer(),
-    "Uris" => list(String.t()()),
-    "Username" => String.t()
-  }
+
+      ice_server() :: %{
+        "Password" => String.t(),
+        "Ttl" => integer(),
+        "Uris" => list(String.t()()),
+        "Username" => String.t()
+      }
+
   """
   @type ice_server() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_argument_exception() :: %{
-    "Message" => String.t()
-  }
+
+      invalid_argument_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type invalid_argument_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_client_exception() :: %{
-    "message" => String.t()
-  }
+
+      invalid_client_exception() :: %{
+        "message" => String.t()
+      }
+
   """
   @type invalid_client_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  not_authorized_exception() :: %{
-    "Message" => String.t()
-  }
+
+      not_authorized_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type not_authorized_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_not_found_exception() :: %{
-    "Message" => String.t()
-  }
+
+      resource_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  send_alexa_offer_to_master_request() :: %{
-    required("ChannelARN") => String.t(),
-    required("MessagePayload") => String.t(),
-    required("SenderClientId") => String.t()
-  }
+
+      send_alexa_offer_to_master_request() :: %{
+        required("ChannelARN") => String.t(),
+        required("MessagePayload") => String.t(),
+        required("SenderClientId") => String.t()
+      }
+
   """
   @type send_alexa_offer_to_master_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  send_alexa_offer_to_master_response() :: %{
-    "Answer" => String.t()
-  }
+
+      send_alexa_offer_to_master_response() :: %{
+        "Answer" => String.t()
+      }
+
   """
   @type send_alexa_offer_to_master_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  session_expired_exception() :: %{
-    "message" => String.t()
-  }
+
+      session_expired_exception() :: %{
+        "message" => String.t()
+      }
+
   """
   @type session_expired_exception() :: %{String.t() => any()}
+
+  @type get_ice_server_config_errors() ::
+          session_expired_exception()
+          | resource_not_found_exception()
+          | not_authorized_exception()
+          | invalid_client_exception()
+          | invalid_argument_exception()
+          | client_limit_exceeded_exception()
+
+  @type send_alexa_offer_to_master_errors() ::
+          resource_not_found_exception()
+          | not_authorized_exception()
+          | invalid_argument_exception()
+          | client_limit_exceeded_exception()
 
   def metadata do
     %{
@@ -165,12 +201,7 @@ defmodule AWS.KinesisVideoSignaling do
   @spec get_ice_server_config(map(), get_ice_server_config_request(), list()) ::
           {:ok, get_ice_server_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, client_limit_exceeded_exception()}
-          | {:error, invalid_argument_exception()}
-          | {:error, invalid_client_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, session_expired_exception()}
+          | {:error, get_ice_server_config_errors()}
   def get_ice_server_config(%Client{} = client, input, options \\ []) do
     url_path = "/v1/get-ice-server-config"
     headers = []
@@ -209,10 +240,7 @@ defmodule AWS.KinesisVideoSignaling do
   @spec send_alexa_offer_to_master(map(), send_alexa_offer_to_master_request(), list()) ::
           {:ok, send_alexa_offer_to_master_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, client_limit_exceeded_exception()}
-          | {:error, invalid_argument_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, send_alexa_offer_to_master_errors()}
   def send_alexa_offer_to_master(%Client{} = client, input, options \\ []) do
     url_path = "/v1/send-alexa-offer-to-master"
     headers = []

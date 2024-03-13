@@ -35,796 +35,1085 @@ defmodule AWS.TimestreamWrite do
   @typedoc """
 
   ## Example:
-  partition_key() :: %{
-    "EnforcementInRecord" => list(any()),
-    "Name" => String.t(),
-    "Type" => list(any())
-  }
+      
+      partition_key() :: %{
+        "EnforcementInRecord" => list(any()),
+        "Name" => String.t(),
+        "Type" => list(any())
+      }
+      
   """
   @type partition_key() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_batch_load_task_request() :: %{
-    optional("ClientToken") => String.t(),
-    optional("DataModelConfiguration") => data_model_configuration(),
-    optional("RecordVersion") => float(),
-    required("DataSourceConfiguration") => data_source_configuration(),
-    required("ReportConfiguration") => report_configuration(),
-    required("TargetDatabaseName") => String.t(),
-    required("TargetTableName") => String.t()
-  }
+      
+      create_batch_load_task_request() :: %{
+        optional("ClientToken") => String.t(),
+        optional("DataModelConfiguration") => data_model_configuration(),
+        optional("RecordVersion") => float(),
+        required("DataSourceConfiguration") => data_source_configuration(),
+        required("ReportConfiguration") => report_configuration(),
+        required("TargetDatabaseName") => String.t(),
+        required("TargetTableName") => String.t()
+      }
+      
   """
   @type create_batch_load_task_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  magnetic_store_rejected_data_location() :: %{
-    "S3Configuration" => s3_configuration()
-  }
+      
+      magnetic_store_rejected_data_location() :: %{
+        "S3Configuration" => s3_configuration()
+      }
+      
   """
   @type magnetic_store_rejected_data_location() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  record() :: %{
-    "Dimensions" => list(dimension()()),
-    "MeasureName" => String.t(),
-    "MeasureValue" => String.t(),
-    "MeasureValueType" => list(any()),
-    "MeasureValues" => list(measure_value()()),
-    "Time" => String.t(),
-    "TimeUnit" => list(any()),
-    "Version" => float()
-  }
+      
+      record() :: %{
+        "Dimensions" => list(dimension()()),
+        "MeasureName" => String.t(),
+        "MeasureValue" => String.t(),
+        "MeasureValueType" => list(any()),
+        "MeasureValues" => list(measure_value()()),
+        "Time" => String.t(),
+        "TimeUnit" => list(any()),
+        "Version" => float()
+      }
+      
   """
   @type record() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_request() :: %{
-    required("ResourceARN") => String.t(),
-    required("Tags") => list(tag()())
-  }
+      
+      tag_resource_request() :: %{
+        required("ResourceARN") => String.t(),
+        required("Tags") => list(tag()())
+      }
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  database() :: %{
-    "Arn" => String.t(),
-    "CreationTime" => non_neg_integer(),
-    "DatabaseName" => String.t(),
-    "KmsKeyId" => String.t(),
-    "LastUpdatedTime" => non_neg_integer(),
-    "TableCount" => float()
-  }
+      
+      database() :: %{
+        "Arn" => String.t(),
+        "CreationTime" => non_neg_integer(),
+        "DatabaseName" => String.t(),
+        "KmsKeyId" => String.t(),
+        "LastUpdatedTime" => non_neg_integer(),
+        "TableCount" => float()
+      }
+      
   """
   @type database() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_table_request() :: %{
-    optional("MagneticStoreWriteProperties") => magnetic_store_write_properties(),
-    optional("RetentionProperties") => retention_properties(),
-    optional("Schema") => schema(),
-    required("DatabaseName") => String.t(),
-    required("TableName") => String.t()
-  }
+      
+      update_table_request() :: %{
+        optional("MagneticStoreWriteProperties") => magnetic_store_write_properties(),
+        optional("RetentionProperties") => retention_properties(),
+        optional("Schema") => schema(),
+        required("DatabaseName") => String.t(),
+        required("TableName") => String.t()
+      }
+      
   """
   @type update_table_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  magnetic_store_write_properties() :: %{
-    "EnableMagneticStoreWrites" => boolean(),
-    "MagneticStoreRejectedDataLocation" => magnetic_store_rejected_data_location()
-  }
+      
+      magnetic_store_write_properties() :: %{
+        "EnableMagneticStoreWrites" => boolean(),
+        "MagneticStoreRejectedDataLocation" => magnetic_store_rejected_data_location()
+      }
+      
   """
   @type magnetic_store_write_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  data_source_configuration() :: %{
-    "CsvConfiguration" => csv_configuration(),
-    "DataFormat" => list(any()),
-    "DataSourceS3Configuration" => data_source_s3_configuration()
-  }
+      
+      data_source_configuration() :: %{
+        "CsvConfiguration" => csv_configuration(),
+        "DataFormat" => list(any()),
+        "DataSourceS3Configuration" => data_source_s3_configuration()
+      }
+      
   """
   @type data_source_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_response() :: %{
-
-  }
+      
+      untag_resource_response() :: %{}
+      
   """
-  @type untag_resource_response() :: %{String.t() => any()}
+  @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  measure_value() :: %{
-    "Name" => String.t(),
-    "Type" => list(any()),
-    "Value" => String.t()
-  }
+      
+      measure_value() :: %{
+        "Name" => String.t(),
+        "Type" => list(any()),
+        "Value" => String.t()
+      }
+      
   """
   @type measure_value() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  records_ingested() :: %{
-    "MagneticStore" => integer(),
-    "MemoryStore" => integer(),
-    "Total" => integer()
-  }
+      
+      records_ingested() :: %{
+        "MagneticStore" => integer(),
+        "MemoryStore" => integer(),
+        "Total" => integer()
+      }
+      
   """
   @type records_ingested() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_table_request() :: %{
-    required("DatabaseName") => String.t(),
-    required("TableName") => String.t()
-  }
+      
+      delete_table_request() :: %{
+        required("DatabaseName") => String.t(),
+        required("TableName") => String.t()
+      }
+      
   """
   @type delete_table_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_database_response() :: %{
-    "Database" => database()
-  }
+      
+      describe_database_response() :: %{
+        "Database" => database()
+      }
+      
   """
   @type describe_database_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_load_task_description() :: %{
-    "CreationTime" => non_neg_integer(),
-    "DataModelConfiguration" => data_model_configuration(),
-    "DataSourceConfiguration" => data_source_configuration(),
-    "ErrorMessage" => String.t(),
-    "LastUpdatedTime" => non_neg_integer(),
-    "ProgressReport" => batch_load_progress_report(),
-    "RecordVersion" => float(),
-    "ReportConfiguration" => report_configuration(),
-    "ResumableUntil" => non_neg_integer(),
-    "TargetDatabaseName" => String.t(),
-    "TargetTableName" => String.t(),
-    "TaskId" => String.t(),
-    "TaskStatus" => list(any())
-  }
+      
+      batch_load_task_description() :: %{
+        "CreationTime" => non_neg_integer(),
+        "DataModelConfiguration" => data_model_configuration(),
+        "DataSourceConfiguration" => data_source_configuration(),
+        "ErrorMessage" => String.t(),
+        "LastUpdatedTime" => non_neg_integer(),
+        "ProgressReport" => batch_load_progress_report(),
+        "RecordVersion" => float(),
+        "ReportConfiguration" => report_configuration(),
+        "ResumableUntil" => non_neg_integer(),
+        "TargetDatabaseName" => String.t(),
+        "TargetTableName" => String.t(),
+        "TaskId" => String.t(),
+        "TaskStatus" => list(any())
+      }
+      
   """
   @type batch_load_task_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  multi_measure_attribute_mapping() :: %{
-    "MeasureValueType" => list(any()),
-    "SourceColumn" => String.t(),
-    "TargetMultiMeasureAttributeName" => String.t()
-  }
+      
+      multi_measure_attribute_mapping() :: %{
+        "MeasureValueType" => list(any()),
+        "SourceColumn" => String.t(),
+        "TargetMultiMeasureAttributeName" => String.t()
+      }
+      
   """
   @type multi_measure_attribute_mapping() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  csv_configuration() :: %{
-    "ColumnSeparator" => String.t(),
-    "EscapeChar" => String.t(),
-    "NullValue" => String.t(),
-    "QuoteChar" => String.t(),
-    "TrimWhiteSpace" => boolean()
-  }
+      
+      csv_configuration() :: %{
+        "ColumnSeparator" => String.t(),
+        "EscapeChar" => String.t(),
+        "NullValue" => String.t(),
+        "QuoteChar" => String.t(),
+        "TrimWhiteSpace" => boolean()
+      }
+      
   """
   @type csv_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  report_s3_configuration() :: %{
-    "BucketName" => String.t(),
-    "EncryptionOption" => list(any()),
-    "KmsKeyId" => String.t(),
-    "ObjectKeyPrefix" => String.t()
-  }
+      
+      report_s3_configuration() :: %{
+        "BucketName" => String.t(),
+        "EncryptionOption" => list(any()),
+        "KmsKeyId" => String.t(),
+        "ObjectKeyPrefix" => String.t()
+      }
+      
   """
   @type report_s3_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_endpoint_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      invalid_endpoint_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type invalid_endpoint_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_database_request() :: %{
-    required("DatabaseName") => String.t()
-  }
+      
+      describe_database_request() :: %{
+        required("DatabaseName") => String.t()
+      }
+      
   """
   @type describe_database_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_endpoints_response() :: %{
-    "Endpoints" => list(endpoint()())
-  }
+      
+      describe_endpoints_response() :: %{
+        "Endpoints" => list(endpoint()())
+      }
+      
   """
   @type describe_endpoints_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_table_request() :: %{
-    optional("MagneticStoreWriteProperties") => magnetic_store_write_properties(),
-    optional("RetentionProperties") => retention_properties(),
-    optional("Schema") => schema(),
-    optional("Tags") => list(tag()()),
-    required("DatabaseName") => String.t(),
-    required("TableName") => String.t()
-  }
+      
+      create_table_request() :: %{
+        optional("MagneticStoreWriteProperties") => magnetic_store_write_properties(),
+        optional("RetentionProperties") => retention_properties(),
+        optional("Schema") => schema(),
+        optional("Tags") => list(tag()()),
+        required("DatabaseName") => String.t(),
+        required("TableName") => String.t()
+      }
+      
   """
   @type create_table_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_table_response() :: %{
-    "Table" => table()
-  }
+      
+      describe_table_response() :: %{
+        "Table" => table()
+      }
+      
   """
   @type describe_table_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_request() :: %{
-    required("ResourceARN") => String.t(),
-    required("TagKeys") => list(String.t()())
-  }
+      
+      untag_resource_request() :: %{
+        required("ResourceARN") => String.t(),
+        required("TagKeys") => list(String.t()())
+      }
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_batch_load_task_response() :: %{
-    "BatchLoadTaskDescription" => batch_load_task_description()
-  }
+      
+      describe_batch_load_task_response() :: %{
+        "BatchLoadTaskDescription" => batch_load_task_description()
+      }
+      
   """
   @type describe_batch_load_task_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_load_task() :: %{
-    "CreationTime" => non_neg_integer(),
-    "DatabaseName" => String.t(),
-    "LastUpdatedTime" => non_neg_integer(),
-    "ResumableUntil" => non_neg_integer(),
-    "TableName" => String.t(),
-    "TaskId" => String.t(),
-    "TaskStatus" => list(any())
-  }
+      
+      batch_load_task() :: %{
+        "CreationTime" => non_neg_integer(),
+        "DatabaseName" => String.t(),
+        "LastUpdatedTime" => non_neg_integer(),
+        "ResumableUntil" => non_neg_integer(),
+        "TableName" => String.t(),
+        "TaskId" => String.t(),
+        "TaskStatus" => list(any())
+      }
+      
   """
   @type batch_load_task() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  data_model_configuration() :: %{
-    "DataModel" => data_model(),
-    "DataModelS3Configuration" => data_model_s3_configuration()
-  }
+      
+      data_model_configuration() :: %{
+        "DataModel" => data_model(),
+        "DataModelS3Configuration" => data_model_s3_configuration()
+      }
+      
   """
   @type data_model_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_endpoints_request() :: %{
-
-  }
+      
+      describe_endpoints_request() :: %{}
+      
   """
-  @type describe_endpoints_request() :: %{String.t() => any()}
+  @type describe_endpoints_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_databases_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+      
+      list_databases_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type list_databases_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  conflict_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      conflict_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_not_found_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      resource_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tables_response() :: %{
-    "NextToken" => String.t(),
-    "Tables" => list(table()())
-  }
+      
+      list_tables_response() :: %{
+        "NextToken" => String.t(),
+        "Tables" => list(table()())
+      }
+      
   """
   @type list_tables_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resume_batch_load_task_response() :: %{
-
-  }
+      
+      resume_batch_load_task_response() :: %{}
+      
   """
-  @type resume_batch_load_task_response() :: %{String.t() => any()}
+  @type resume_batch_load_task_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  tag() :: %{
-    "Key" => String.t(),
-    "Value" => String.t()
-  }
+      
+      tag() :: %{
+        "Key" => String.t(),
+        "Value" => String.t()
+      }
+      
   """
   @type tag() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_batch_load_task_request() :: %{
-    required("TaskId") => String.t()
-  }
+      
+      describe_batch_load_task_request() :: %{
+        required("TaskId") => String.t()
+      }
+      
   """
   @type describe_batch_load_task_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_table_response() :: %{
-    "Table" => table()
-  }
+      
+      create_table_response() :: %{
+        "Table" => table()
+      }
+      
   """
   @type create_table_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  service_quota_exceeded_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      service_quota_exceeded_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resume_batch_load_task_request() :: %{
-    required("TaskId") => String.t()
-  }
+      
+      resume_batch_load_task_request() :: %{
+        required("TaskId") => String.t()
+      }
+      
   """
   @type resume_batch_load_task_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  report_configuration() :: %{
-    "ReportS3Configuration" => report_s3_configuration()
-  }
+      
+      report_configuration() :: %{
+        "ReportS3Configuration" => report_s3_configuration()
+      }
+      
   """
   @type report_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  schema() :: %{
-    "CompositePartitionKey" => list(partition_key()())
-  }
+      
+      schema() :: %{
+        "CompositePartitionKey" => list(partition_key()())
+      }
+      
   """
   @type schema() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_response() :: %{
-    "Tags" => list(tag()())
-  }
+      
+      list_tags_for_resource_response() :: %{
+        "Tags" => list(tag()())
+      }
+      
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_batch_load_task_response() :: %{
-    "TaskId" => String.t()
-  }
+      
+      create_batch_load_task_response() :: %{
+        "TaskId" => String.t()
+      }
+      
   """
   @type create_batch_load_task_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_table_request() :: %{
-    required("DatabaseName") => String.t(),
-    required("TableName") => String.t()
-  }
+      
+      describe_table_request() :: %{
+        required("DatabaseName") => String.t(),
+        required("TableName") => String.t()
+      }
+      
   """
   @type describe_table_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_batch_load_tasks_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("TaskStatus") => list(any())
-  }
+      
+      list_batch_load_tasks_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("TaskStatus") => list(any())
+      }
+      
   """
   @type list_batch_load_tasks_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  endpoint() :: %{
-    "Address" => String.t(),
-    "CachePeriodInMinutes" => float()
-  }
+      
+      endpoint() :: %{
+        "Address" => String.t(),
+        "CachePeriodInMinutes" => float()
+      }
+      
   """
   @type endpoint() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  internal_server_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      internal_server_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_batch_load_tasks_response() :: %{
-    "BatchLoadTasks" => list(batch_load_task()()),
-    "NextToken" => String.t()
-  }
+      
+      list_batch_load_tasks_response() :: %{
+        "BatchLoadTasks" => list(batch_load_task()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_batch_load_tasks_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  write_records_request() :: %{
-    optional("CommonAttributes") => record(),
-    required("DatabaseName") => String.t(),
-    required("Records") => list(record()()),
-    required("TableName") => String.t()
-  }
+      
+      write_records_request() :: %{
+        optional("CommonAttributes") => record(),
+        required("DatabaseName") => String.t(),
+        required("Records") => list(record()()),
+        required("TableName") => String.t()
+      }
+      
   """
   @type write_records_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  multi_measure_mappings() :: %{
-    "MultiMeasureAttributeMappings" => list(multi_measure_attribute_mapping()()),
-    "TargetMultiMeasureName" => String.t()
-  }
+      
+      multi_measure_mappings() :: %{
+        "MultiMeasureAttributeMappings" => list(multi_measure_attribute_mapping()()),
+        "TargetMultiMeasureName" => String.t()
+      }
+      
   """
   @type multi_measure_mappings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  access_denied_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      access_denied_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  data_source_s3_configuration() :: %{
-    "BucketName" => String.t(),
-    "ObjectKeyPrefix" => String.t()
-  }
+      
+      data_source_s3_configuration() :: %{
+        "BucketName" => String.t(),
+        "ObjectKeyPrefix" => String.t()
+      }
+      
   """
   @type data_source_s3_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_response() :: %{
-
-  }
+      
+      tag_resource_response() :: %{}
+      
   """
-  @type tag_resource_response() :: %{String.t() => any()}
+  @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  validation_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      validation_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_request() :: %{
-    required("ResourceARN") => String.t()
-  }
+      
+      list_tags_for_resource_request() :: %{
+        required("ResourceARN") => String.t()
+      }
+      
   """
   @type list_tags_for_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  retention_properties() :: %{
-    "MagneticStoreRetentionPeriodInDays" => float(),
-    "MemoryStoreRetentionPeriodInHours" => float()
-  }
+      
+      retention_properties() :: %{
+        "MagneticStoreRetentionPeriodInDays" => float(),
+        "MemoryStoreRetentionPeriodInHours" => float()
+      }
+      
   """
   @type retention_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  data_model_s3_configuration() :: %{
-    "BucketName" => String.t(),
-    "ObjectKey" => String.t()
-  }
+      
+      data_model_s3_configuration() :: %{
+        "BucketName" => String.t(),
+        "ObjectKey" => String.t()
+      }
+      
   """
   @type data_model_s3_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  throttling_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      throttling_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  s3_configuration() :: %{
-    "BucketName" => String.t(),
-    "EncryptionOption" => list(any()),
-    "KmsKeyId" => String.t(),
-    "ObjectKeyPrefix" => String.t()
-  }
+      
+      s3_configuration() :: %{
+        "BucketName" => String.t(),
+        "EncryptionOption" => list(any()),
+        "KmsKeyId" => String.t(),
+        "ObjectKeyPrefix" => String.t()
+      }
+      
   """
   @type s3_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  data_model() :: %{
-    "DimensionMappings" => list(dimension_mapping()()),
-    "MeasureNameColumn" => String.t(),
-    "MixedMeasureMappings" => list(mixed_measure_mapping()()),
-    "MultiMeasureMappings" => multi_measure_mappings(),
-    "TimeColumn" => String.t(),
-    "TimeUnit" => list(any())
-  }
+      
+      data_model() :: %{
+        "DimensionMappings" => list(dimension_mapping()()),
+        "MeasureNameColumn" => String.t(),
+        "MixedMeasureMappings" => list(mixed_measure_mapping()()),
+        "MultiMeasureMappings" => multi_measure_mappings(),
+        "TimeColumn" => String.t(),
+        "TimeUnit" => list(any())
+      }
+      
   """
   @type data_model() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  mixed_measure_mapping() :: %{
-    "MeasureName" => String.t(),
-    "MeasureValueType" => list(any()),
-    "MultiMeasureAttributeMappings" => list(multi_measure_attribute_mapping()()),
-    "SourceColumn" => String.t(),
-    "TargetMeasureName" => String.t()
-  }
+      
+      mixed_measure_mapping() :: %{
+        "MeasureName" => String.t(),
+        "MeasureValueType" => list(any()),
+        "MultiMeasureAttributeMappings" => list(multi_measure_attribute_mapping()()),
+        "SourceColumn" => String.t(),
+        "TargetMeasureName" => String.t()
+      }
+      
   """
   @type mixed_measure_mapping() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_database_response() :: %{
-    "Database" => database()
-  }
+      
+      update_database_response() :: %{
+        "Database" => database()
+      }
+      
   """
   @type update_database_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  dimension() :: %{
-    "DimensionValueType" => list(any()),
-    "Name" => String.t(),
-    "Value" => String.t()
-  }
+      
+      dimension() :: %{
+        "DimensionValueType" => list(any()),
+        "Name" => String.t(),
+        "Value" => String.t()
+      }
+      
   """
   @type dimension() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  write_records_response() :: %{
-    "RecordsIngested" => records_ingested()
-  }
+      
+      write_records_response() :: %{
+        "RecordsIngested" => records_ingested()
+      }
+      
   """
   @type write_records_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_table_response() :: %{
-    "Table" => table()
-  }
+      
+      update_table_response() :: %{
+        "Table" => table()
+      }
+      
   """
   @type update_table_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  table() :: %{
-    "Arn" => String.t(),
-    "CreationTime" => non_neg_integer(),
-    "DatabaseName" => String.t(),
-    "LastUpdatedTime" => non_neg_integer(),
-    "MagneticStoreWriteProperties" => magnetic_store_write_properties(),
-    "RetentionProperties" => retention_properties(),
-    "Schema" => schema(),
-    "TableName" => String.t(),
-    "TableStatus" => list(any())
-  }
+      
+      table() :: %{
+        "Arn" => String.t(),
+        "CreationTime" => non_neg_integer(),
+        "DatabaseName" => String.t(),
+        "LastUpdatedTime" => non_neg_integer(),
+        "MagneticStoreWriteProperties" => magnetic_store_write_properties(),
+        "RetentionProperties" => retention_properties(),
+        "Schema" => schema(),
+        "TableName" => String.t(),
+        "TableStatus" => list(any())
+      }
+      
   """
   @type table() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  dimension_mapping() :: %{
-    "DestinationColumn" => String.t(),
-    "SourceColumn" => String.t()
-  }
+      
+      dimension_mapping() :: %{
+        "DestinationColumn" => String.t(),
+        "SourceColumn" => String.t()
+      }
+      
   """
   @type dimension_mapping() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  rejected_records_exception() :: %{
-    "Message" => String.t(),
-    "RejectedRecords" => list(rejected_record()())
-  }
+      
+      rejected_records_exception() :: %{
+        "Message" => String.t(),
+        "RejectedRecords" => list(rejected_record()())
+      }
+      
   """
   @type rejected_records_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_databases_response() :: %{
-    "Databases" => list(database()()),
-    "NextToken" => String.t()
-  }
+      
+      list_databases_response() :: %{
+        "Databases" => list(database()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_databases_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_database_response() :: %{
-    "Database" => database()
-  }
+      
+      create_database_response() :: %{
+        "Database" => database()
+      }
+      
   """
   @type create_database_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_database_request() :: %{
-    optional("KmsKeyId") => String.t(),
-    optional("Tags") => list(tag()()),
-    required("DatabaseName") => String.t()
-  }
+      
+      create_database_request() :: %{
+        optional("KmsKeyId") => String.t(),
+        optional("Tags") => list(tag()()),
+        required("DatabaseName") => String.t()
+      }
+      
   """
   @type create_database_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_database_request() :: %{
-    required("DatabaseName") => String.t(),
-    required("KmsKeyId") => String.t()
-  }
+      
+      update_database_request() :: %{
+        required("DatabaseName") => String.t(),
+        required("KmsKeyId") => String.t()
+      }
+      
   """
   @type update_database_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_load_progress_report() :: %{
-    "BytesMetered" => float(),
-    "FileFailures" => float(),
-    "ParseFailures" => float(),
-    "RecordIngestionFailures" => float(),
-    "RecordsIngested" => float(),
-    "RecordsProcessed" => float()
-  }
+      
+      batch_load_progress_report() :: %{
+        "BytesMetered" => float(),
+        "FileFailures" => float(),
+        "ParseFailures" => float(),
+        "RecordIngestionFailures" => float(),
+        "RecordsIngested" => float(),
+        "RecordsProcessed" => float()
+      }
+      
   """
   @type batch_load_progress_report() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  rejected_record() :: %{
-    "ExistingVersion" => float(),
-    "Reason" => String.t(),
-    "RecordIndex" => integer()
-  }
+      
+      rejected_record() :: %{
+        "ExistingVersion" => float(),
+        "Reason" => String.t(),
+        "RecordIndex" => integer()
+      }
+      
   """
   @type rejected_record() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tables_request() :: %{
-    optional("DatabaseName") => String.t(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+      
+      list_tables_request() :: %{
+        optional("DatabaseName") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type list_tables_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_database_request() :: %{
-    required("DatabaseName") => String.t()
-  }
+      
+      delete_database_request() :: %{
+        required("DatabaseName") => String.t()
+      }
+      
   """
   @type delete_database_request() :: %{String.t() => any()}
+
+  @type create_batch_load_task_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | invalid_endpoint_exception()
+
+  @type create_database_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+          | invalid_endpoint_exception()
+
+  @type create_table_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | invalid_endpoint_exception()
+
+  @type delete_database_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | invalid_endpoint_exception()
+
+  @type delete_table_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | invalid_endpoint_exception()
+
+  @type describe_batch_load_task_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | invalid_endpoint_exception()
+
+  @type describe_database_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | invalid_endpoint_exception()
+
+  @type describe_endpoints_errors() ::
+          throttling_exception() | validation_exception() | internal_server_exception()
+
+  @type describe_table_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | invalid_endpoint_exception()
+
+  @type list_batch_load_tasks_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | invalid_endpoint_exception()
+
+  @type list_databases_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | invalid_endpoint_exception()
+
+  @type list_tables_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | invalid_endpoint_exception()
+
+  @type list_tags_for_resource_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | resource_not_found_exception()
+          | invalid_endpoint_exception()
+
+  @type resume_batch_load_task_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | invalid_endpoint_exception()
+
+  @type tag_resource_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | invalid_endpoint_exception()
+
+  @type untag_resource_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | invalid_endpoint_exception()
+
+  @type update_database_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | invalid_endpoint_exception()
+
+  @type update_table_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | invalid_endpoint_exception()
+
+  @type write_records_errors() ::
+          rejected_records_exception()
+          | throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | invalid_endpoint_exception()
 
   def metadata do
     %{
@@ -859,14 +1148,7 @@ defmodule AWS.TimestreamWrite do
   @spec create_batch_load_task(map(), create_batch_load_task_request(), list()) ::
           {:ok, create_batch_load_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, invalid_endpoint_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_batch_load_task_errors()}
   def create_batch_load_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -886,13 +1168,7 @@ defmodule AWS.TimestreamWrite do
   @spec create_database(map(), create_database_request(), list()) ::
           {:ok, create_database_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, invalid_endpoint_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_database_errors()}
   def create_database(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -916,14 +1192,7 @@ defmodule AWS.TimestreamWrite do
   @spec create_table(map(), create_table_request(), list()) ::
           {:ok, create_table_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, invalid_endpoint_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_table_errors()}
   def create_table(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -952,12 +1221,7 @@ defmodule AWS.TimestreamWrite do
   @spec delete_database(map(), delete_database_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, invalid_endpoint_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_database_errors()}
   def delete_database(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -981,12 +1245,7 @@ defmodule AWS.TimestreamWrite do
   @spec delete_table(map(), delete_table_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, invalid_endpoint_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_table_errors()}
   def delete_table(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1006,11 +1265,7 @@ defmodule AWS.TimestreamWrite do
   @spec describe_batch_load_task(map(), describe_batch_load_task_request(), list()) ::
           {:ok, describe_batch_load_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, invalid_endpoint_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
+          | {:error, describe_batch_load_task_errors()}
   def describe_batch_load_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1030,12 +1285,7 @@ defmodule AWS.TimestreamWrite do
   @spec describe_database(map(), describe_database_request(), list()) ::
           {:ok, describe_database_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, invalid_endpoint_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, describe_database_errors()}
   def describe_database(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1070,9 +1320,7 @@ defmodule AWS.TimestreamWrite do
   @spec describe_endpoints(map(), describe_endpoints_request(), list()) ::
           {:ok, describe_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, describe_endpoints_errors()}
   def describe_endpoints(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1092,12 +1340,7 @@ defmodule AWS.TimestreamWrite do
   @spec describe_table(map(), describe_table_request(), list()) ::
           {:ok, describe_table_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, invalid_endpoint_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, describe_table_errors()}
   def describe_table(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1115,11 +1358,7 @@ defmodule AWS.TimestreamWrite do
   @spec list_batch_load_tasks(map(), list_batch_load_tasks_request(), list()) ::
           {:ok, list_batch_load_tasks_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, invalid_endpoint_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_batch_load_tasks_errors()}
   def list_batch_load_tasks(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1138,11 +1377,7 @@ defmodule AWS.TimestreamWrite do
   @spec list_databases(map(), list_databases_request(), list()) ::
           {:ok, list_databases_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, invalid_endpoint_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_databases_errors()}
   def list_databases(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1160,12 +1395,7 @@ defmodule AWS.TimestreamWrite do
   @spec list_tables(map(), list_tables_request(), list()) ::
           {:ok, list_tables_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, invalid_endpoint_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_tables_errors()}
   def list_tables(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1178,10 +1408,7 @@ defmodule AWS.TimestreamWrite do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_endpoint_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1191,12 +1418,7 @@ defmodule AWS.TimestreamWrite do
   @spec resume_batch_load_task(map(), resume_batch_load_task_request(), list()) ::
           {:ok, resume_batch_load_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, invalid_endpoint_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, resume_batch_load_task_errors()}
   def resume_batch_load_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1214,11 +1436,7 @@ defmodule AWS.TimestreamWrite do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_endpoint_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1231,11 +1449,7 @@ defmodule AWS.TimestreamWrite do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_endpoint_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1256,13 +1470,7 @@ defmodule AWS.TimestreamWrite do
   @spec update_database(map(), update_database_request(), list()) ::
           {:ok, update_database_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, invalid_endpoint_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_database_errors()}
   def update_database(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1288,12 +1496,7 @@ defmodule AWS.TimestreamWrite do
   @spec update_table(map(), update_table_request(), list()) ::
           {:ok, update_table_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, invalid_endpoint_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_table_errors()}
   def update_table(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1355,13 +1558,7 @@ defmodule AWS.TimestreamWrite do
   @spec write_records(map(), write_records_request(), list()) ::
           {:ok, write_records_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, invalid_endpoint_exception()}
-          | {:error, rejected_records_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, write_records_errors()}
   def write_records(%Client{} = client, input, options \\ []) do
     meta = metadata()
 

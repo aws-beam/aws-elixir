@@ -12,979 +12,1378 @@ defmodule AWS.Finspacedata do
   @typedoc """
 
   ## Example:
-  permission_group_params() :: %{
-    "datasetPermissions" => list(resource_permission()()),
-    "permissionGroupId" => String.t()
-  }
+
+      permission_group_params() :: %{
+        "datasetPermissions" => list(resource_permission()()),
+        "permissionGroupId" => String.t()
+      }
+
   """
   @type permission_group_params() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_permission_group_request() :: %{
-    optional("clientToken") => String.t(),
-    optional("description") => String.t(),
-    required("applicationPermissions") => list(list(any())()),
-    required("name") => String.t()
-  }
+
+      create_permission_group_request() :: %{
+        optional("clientToken") => String.t(),
+        optional("description") => String.t(),
+        required("applicationPermissions") => list(list(any())()),
+        required("name") => String.t()
+      }
+
   """
   @type create_permission_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_external_data_view_access_details_request() :: %{
 
-  }
+      get_external_data_view_access_details_request() :: %{}
+
   """
-  @type get_external_data_view_access_details_request() :: %{String.t() => any()}
+  @type get_external_data_view_access_details_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_users_by_permission_group_response() :: %{
-    "nextToken" => String.t(),
-    "users" => list(user_by_permission_group()())
-  }
+
+      list_users_by_permission_group_response() :: %{
+        "nextToken" => String.t(),
+        "users" => list(user_by_permission_group()())
+      }
+
   """
   @type list_users_by_permission_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_permission_group_request() :: %{
-    optional("clientToken") => String.t()
-  }
+
+      delete_permission_group_request() :: %{
+        optional("clientToken") => String.t()
+      }
+
   """
   @type delete_permission_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_dataset_response() :: %{
-    "datasetId" => String.t()
-  }
+
+      delete_dataset_response() :: %{
+        "datasetId" => String.t()
+      }
+
   """
   @type delete_dataset_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_programmatic_access_credentials_response() :: %{
-    "credentials" => credentials(),
-    "durationInMinutes" => float()
-  }
+
+      get_programmatic_access_credentials_response() :: %{
+        "credentials" => credentials(),
+        "durationInMinutes" => float()
+      }
+
   """
   @type get_programmatic_access_credentials_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_dataset_response() :: %{
-    "datasetId" => String.t()
-  }
+
+      update_dataset_response() :: %{
+        "datasetId" => String.t()
+      }
+
   """
   @type update_dataset_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_user_response() :: %{
-    "userId" => String.t()
-  }
+
+      update_user_response() :: %{
+        "userId" => String.t()
+      }
+
   """
   @type update_user_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  schema_definition() :: %{
-    "columns" => list(column_definition()()),
-    "primaryKeyColumns" => list(String.t()())
-  }
+
+      schema_definition() :: %{
+        "columns" => list(column_definition()()),
+        "primaryKeyColumns" => list(String.t()())
+      }
+
   """
   @type schema_definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_data_view_response() :: %{
-    "dataViewId" => String.t(),
-    "datasetId" => String.t()
-  }
+
+      create_data_view_response() :: %{
+        "dataViewId" => String.t(),
+        "datasetId" => String.t()
+      }
+
   """
   @type create_data_view_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  credentials() :: %{
-    "accessKeyId" => String.t(),
-    "secretAccessKey" => String.t(),
-    "sessionToken" => String.t()
-  }
+
+      credentials() :: %{
+        "accessKeyId" => String.t(),
+        "secretAccessKey" => String.t(),
+        "sessionToken" => String.t()
+      }
+
   """
   @type credentials() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_user_response() :: %{
-    "apiAccess" => list(any()),
-    "apiAccessPrincipalArn" => String.t(),
-    "createTime" => float(),
-    "emailAddress" => String.t(),
-    "firstName" => String.t(),
-    "lastDisabledTime" => float(),
-    "lastEnabledTime" => float(),
-    "lastLoginTime" => float(),
-    "lastModifiedTime" => float(),
-    "lastName" => String.t(),
-    "status" => list(any()),
-    "type" => list(any()),
-    "userId" => String.t()
-  }
+
+      get_user_response() :: %{
+        "apiAccess" => list(any()),
+        "apiAccessPrincipalArn" => String.t(),
+        "createTime" => float(),
+        "emailAddress" => String.t(),
+        "firstName" => String.t(),
+        "lastDisabledTime" => float(),
+        "lastEnabledTime" => float(),
+        "lastLoginTime" => float(),
+        "lastModifiedTime" => float(),
+        "lastName" => String.t(),
+        "status" => list(any()),
+        "type" => list(any()),
+        "userId" => String.t()
+      }
+
   """
   @type get_user_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disassociate_user_from_permission_group_response() :: %{
-    "statusCode" => integer()
-  }
+
+      disassociate_user_from_permission_group_response() :: %{
+        "statusCode" => integer()
+      }
+
   """
   @type disassociate_user_from_permission_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_permission_groups_by_user_request() :: %{
-    optional("nextToken") => String.t(),
-    required("maxResults") => integer()
-  }
+
+      list_permission_groups_by_user_request() :: %{
+        optional("nextToken") => String.t(),
+        required("maxResults") => integer()
+      }
+
   """
   @type list_permission_groups_by_user_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_datasets_request() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t()
-  }
+
+      list_datasets_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
   """
   @type list_datasets_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  associate_user_to_permission_group_response() :: %{
-    "statusCode" => integer()
-  }
+
+      associate_user_to_permission_group_response() :: %{
+        "statusCode" => integer()
+      }
+
   """
   @type associate_user_to_permission_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_permission_group_request() :: %{
 
-  }
+      get_permission_group_request() :: %{}
+
   """
-  @type get_permission_group_request() :: %{String.t() => any()}
+  @type get_permission_group_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_data_view_request() :: %{
-    optional("asOfTimestamp") => float(),
-    optional("autoUpdate") => boolean(),
-    optional("clientToken") => String.t(),
-    optional("partitionColumns") => list(String.t()()),
-    optional("sortColumns") => list(String.t()()),
-    required("destinationTypeParams") => data_view_destination_type_params()
-  }
+
+      create_data_view_request() :: %{
+        optional("asOfTimestamp") => float(),
+        optional("autoUpdate") => boolean(),
+        optional("clientToken") => String.t(),
+        optional("partitionColumns") => list(String.t()()),
+        optional("sortColumns") => list(String.t()()),
+        required("destinationTypeParams") => data_view_destination_type_params()
+      }
+
   """
   @type create_data_view_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_users_by_permission_group_request() :: %{
-    optional("nextToken") => String.t(),
-    required("maxResults") => integer()
-  }
+
+      list_users_by_permission_group_request() :: %{
+        optional("nextToken") => String.t(),
+        required("maxResults") => integer()
+      }
+
   """
   @type list_users_by_permission_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_external_data_view_access_details_response() :: %{
-    "credentials" => aws_credentials(),
-    "s3Location" => s3_location()
-  }
+
+      get_external_data_view_access_details_response() :: %{
+        "credentials" => aws_credentials(),
+        "s3Location" => s3_location()
+      }
+
   """
   @type get_external_data_view_access_details_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_changeset_request() :: %{
 
-  }
+      get_changeset_request() :: %{}
+
   """
-  @type get_changeset_request() :: %{String.t() => any()}
+  @type get_changeset_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_permission_group_response() :: %{
-    "permissionGroupId" => String.t()
-  }
+
+      create_permission_group_response() :: %{
+        "permissionGroupId" => String.t()
+      }
+
   """
   @type create_permission_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_permission_group_response() :: %{
-    "permissionGroupId" => String.t()
-  }
+
+      delete_permission_group_response() :: %{
+        "permissionGroupId" => String.t()
+      }
+
   """
   @type delete_permission_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_permission_groups_by_user_response() :: %{
-    "nextToken" => String.t(),
-    "permissionGroups" => list(permission_group_by_user()())
-  }
+
+      list_permission_groups_by_user_response() :: %{
+        "nextToken" => String.t(),
+        "permissionGroups" => list(permission_group_by_user()())
+      }
+
   """
   @type list_permission_groups_by_user_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  dataset() :: %{
-    "alias" => String.t(),
-    "createTime" => float(),
-    "datasetArn" => String.t(),
-    "datasetDescription" => String.t(),
-    "datasetId" => String.t(),
-    "datasetTitle" => String.t(),
-    "kind" => list(any()),
-    "lastModifiedTime" => float(),
-    "ownerInfo" => dataset_owner_info(),
-    "schemaDefinition" => schema_union()
-  }
+
+      dataset() :: %{
+        "alias" => String.t(),
+        "createTime" => float(),
+        "datasetArn" => String.t(),
+        "datasetDescription" => String.t(),
+        "datasetId" => String.t(),
+        "datasetTitle" => String.t(),
+        "kind" => list(any()),
+        "lastModifiedTime" => float(),
+        "ownerInfo" => dataset_owner_info(),
+        "schemaDefinition" => schema_union()
+      }
+
   """
   @type dataset() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_dataset_response() :: %{
-    "datasetId" => String.t()
-  }
+
+      create_dataset_response() :: %{
+        "datasetId" => String.t()
+      }
+
   """
   @type create_dataset_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_data_view_request() :: %{
 
-  }
+      get_data_view_request() :: %{}
+
   """
-  @type get_data_view_request() :: %{String.t() => any()}
+  @type get_data_view_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  conflict_exception() :: %{
-    "message" => String.t(),
-    "reason" => String.t()
-  }
+
+      conflict_exception() :: %{
+        "message" => String.t(),
+        "reason" => String.t()
+      }
+
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_not_found_exception() :: %{
-    "message" => String.t(),
-    "reason" => String.t()
-  }
+
+      resource_not_found_exception() :: %{
+        "message" => String.t(),
+        "reason" => String.t()
+      }
+
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_changeset_response() :: %{
-    "changesetId" => String.t(),
-    "datasetId" => String.t()
-  }
+
+      create_changeset_response() :: %{
+        "changesetId" => String.t(),
+        "datasetId" => String.t()
+      }
+
   """
   @type create_changeset_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_user_request() :: %{
 
-  }
+      get_user_request() :: %{}
+
   """
-  @type get_user_request() :: %{String.t() => any()}
+  @type get_user_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  dataset_owner_info() :: %{
-    "email" => String.t(),
-    "name" => String.t(),
-    "phoneNumber" => String.t()
-  }
+
+      dataset_owner_info() :: %{
+        "email" => String.t(),
+        "name" => String.t(),
+        "phoneNumber" => String.t()
+      }
+
   """
   @type dataset_owner_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_working_location_response() :: %{
-    "s3Bucket" => String.t(),
-    "s3Path" => String.t(),
-    "s3Uri" => String.t()
-  }
+
+      get_working_location_response() :: %{
+        "s3Bucket" => String.t(),
+        "s3Path" => String.t(),
+        "s3Uri" => String.t()
+      }
+
   """
   @type get_working_location_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_data_view_response() :: %{
-    "asOfTimestamp" => float(),
-    "autoUpdate" => boolean(),
-    "createTime" => float(),
-    "dataViewArn" => String.t(),
-    "dataViewId" => String.t(),
-    "datasetId" => String.t(),
-    "destinationTypeParams" => data_view_destination_type_params(),
-    "errorInfo" => data_view_error_info(),
-    "lastModifiedTime" => float(),
-    "partitionColumns" => list(String.t()()),
-    "sortColumns" => list(String.t()()),
-    "status" => list(any())
-  }
+
+      get_data_view_response() :: %{
+        "asOfTimestamp" => float(),
+        "autoUpdate" => boolean(),
+        "createTime" => float(),
+        "dataViewArn" => String.t(),
+        "dataViewId" => String.t(),
+        "datasetId" => String.t(),
+        "destinationTypeParams" => data_view_destination_type_params(),
+        "errorInfo" => data_view_error_info(),
+        "lastModifiedTime" => float(),
+        "partitionColumns" => list(String.t()()),
+        "sortColumns" => list(String.t()()),
+        "status" => list(any())
+      }
+
   """
   @type get_data_view_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disassociate_user_from_permission_group_request() :: %{
-    optional("clientToken") => String.t()
-  }
+
+      disassociate_user_from_permission_group_request() :: %{
+        optional("clientToken") => String.t()
+      }
+
   """
   @type disassociate_user_from_permission_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  reset_user_password_response() :: %{
-    "temporaryPassword" => String.t(),
-    "userId" => String.t()
-  }
+
+      reset_user_password_response() :: %{
+        "temporaryPassword" => String.t(),
+        "userId" => String.t()
+      }
+
   """
   @type reset_user_password_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  permission_group_by_user() :: %{
-    "membershipStatus" => list(any()),
-    "name" => String.t(),
-    "permissionGroupId" => String.t()
-  }
+
+      permission_group_by_user() :: %{
+        "membershipStatus" => list(any()),
+        "name" => String.t(),
+        "permissionGroupId" => String.t()
+      }
+
   """
   @type permission_group_by_user() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_users_response() :: %{
-    "nextToken" => String.t(),
-    "users" => list(user()())
-  }
+
+      list_users_response() :: %{
+        "nextToken" => String.t(),
+        "users" => list(user()())
+      }
+
   """
   @type list_users_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_permission_group_response() :: %{
-    "permissionGroup" => permission_group()
-  }
+
+      get_permission_group_response() :: %{
+        "permissionGroup" => permission_group()
+      }
+
   """
   @type get_permission_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  data_view_destination_type_params() :: %{
-    "destinationType" => String.t(),
-    "s3DestinationExportFileFormat" => list(any()),
-    "s3DestinationExportFileFormatOptions" => map()
-  }
+
+      data_view_destination_type_params() :: %{
+        "destinationType" => String.t(),
+        "s3DestinationExportFileFormat" => list(any()),
+        "s3DestinationExportFileFormatOptions" => map()
+      }
+
   """
   @type data_view_destination_type_params() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_permission_group_request() :: %{
-    optional("applicationPermissions") => list(list(any())()),
-    optional("clientToken") => String.t(),
-    optional("description") => String.t(),
-    optional("name") => String.t()
-  }
+
+      update_permission_group_request() :: %{
+        optional("applicationPermissions") => list(list(any())()),
+        optional("clientToken") => String.t(),
+        optional("description") => String.t(),
+        optional("name") => String.t()
+      }
+
   """
   @type update_permission_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_changeset_request() :: %{
-    optional("clientToken") => String.t(),
-    required("changeType") => list(any()),
-    required("formatParams") => map(),
-    required("sourceParams") => map()
-  }
+
+      create_changeset_request() :: %{
+        optional("clientToken") => String.t(),
+        required("changeType") => list(any()),
+        required("formatParams") => map(),
+        required("sourceParams") => map()
+      }
+
   """
   @type create_changeset_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  schema_union() :: %{
-    "tabularSchemaConfig" => schema_definition()
-  }
+
+      schema_union() :: %{
+        "tabularSchemaConfig" => schema_definition()
+      }
+
   """
   @type schema_union() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_changeset_request() :: %{
-    optional("clientToken") => String.t(),
-    required("formatParams") => map(),
-    required("sourceParams") => map()
-  }
+
+      update_changeset_request() :: %{
+        optional("clientToken") => String.t(),
+        required("formatParams") => map(),
+        required("sourceParams") => map()
+      }
+
   """
   @type update_changeset_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  s3_location() :: %{
-    "bucket" => String.t(),
-    "key" => String.t()
-  }
+
+      s3_location() :: %{
+        "bucket" => String.t(),
+        "key" => String.t()
+      }
+
   """
   @type s3_location() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_dataset_request() :: %{
-    optional("alias") => String.t(),
-    optional("clientToken") => String.t(),
-    optional("datasetDescription") => String.t(),
-    optional("schemaDefinition") => schema_union(),
-    required("datasetTitle") => String.t(),
-    required("kind") => list(any())
-  }
+
+      update_dataset_request() :: %{
+        optional("alias") => String.t(),
+        optional("clientToken") => String.t(),
+        optional("datasetDescription") => String.t(),
+        optional("schemaDefinition") => schema_union(),
+        required("datasetTitle") => String.t(),
+        required("kind") => list(any())
+      }
+
   """
   @type update_dataset_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_changesets_request() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t()
-  }
+
+      list_changesets_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
   """
   @type list_changesets_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  changeset_summary() :: %{
-    "activeFromTimestamp" => float(),
-    "activeUntilTimestamp" => float(),
-    "changeType" => list(any()),
-    "changesetArn" => String.t(),
-    "changesetId" => String.t(),
-    "createTime" => float(),
-    "datasetId" => String.t(),
-    "errorInfo" => changeset_error_info(),
-    "formatParams" => map(),
-    "sourceParams" => map(),
-    "status" => list(any()),
-    "updatedByChangesetId" => String.t(),
-    "updatesChangesetId" => String.t()
-  }
+
+      changeset_summary() :: %{
+        "activeFromTimestamp" => float(),
+        "activeUntilTimestamp" => float(),
+        "changeType" => list(any()),
+        "changesetArn" => String.t(),
+        "changesetId" => String.t(),
+        "createTime" => float(),
+        "datasetId" => String.t(),
+        "errorInfo" => changeset_error_info(),
+        "formatParams" => map(),
+        "sourceParams" => map(),
+        "status" => list(any()),
+        "updatedByChangesetId" => String.t(),
+        "updatesChangesetId" => String.t()
+      }
+
   """
   @type changeset_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  internal_server_exception() :: %{
-    "message" => String.t()
-  }
+
+      internal_server_exception() :: %{
+        "message" => String.t()
+      }
+
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  reset_user_password_request() :: %{
-    optional("clientToken") => String.t()
-  }
+
+      reset_user_password_request() :: %{
+        optional("clientToken") => String.t()
+      }
+
   """
   @type reset_user_password_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disable_user_response() :: %{
-    "userId" => String.t()
-  }
+
+      disable_user_response() :: %{
+        "userId" => String.t()
+      }
+
   """
   @type disable_user_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  changeset_error_info() :: %{
-    "errorCategory" => list(any()),
-    "errorMessage" => String.t()
-  }
+
+      changeset_error_info() :: %{
+        "errorCategory" => list(any()),
+        "errorMessage" => String.t()
+      }
+
   """
   @type changeset_error_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_changeset_response() :: %{
-    "activeFromTimestamp" => float(),
-    "activeUntilTimestamp" => float(),
-    "changeType" => list(any()),
-    "changesetArn" => String.t(),
-    "changesetId" => String.t(),
-    "createTime" => float(),
-    "datasetId" => String.t(),
-    "errorInfo" => changeset_error_info(),
-    "formatParams" => map(),
-    "sourceParams" => map(),
-    "status" => list(any()),
-    "updatedByChangesetId" => String.t(),
-    "updatesChangesetId" => String.t()
-  }
+
+      get_changeset_response() :: %{
+        "activeFromTimestamp" => float(),
+        "activeUntilTimestamp" => float(),
+        "changeType" => list(any()),
+        "changesetArn" => String.t(),
+        "changesetId" => String.t(),
+        "createTime" => float(),
+        "datasetId" => String.t(),
+        "errorInfo" => changeset_error_info(),
+        "formatParams" => map(),
+        "sourceParams" => map(),
+        "status" => list(any()),
+        "updatedByChangesetId" => String.t(),
+        "updatesChangesetId" => String.t()
+      }
+
   """
   @type get_changeset_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_permission_groups_response() :: %{
-    "nextToken" => String.t(),
-    "permissionGroups" => list(permission_group()())
-  }
+
+      list_permission_groups_response() :: %{
+        "nextToken" => String.t(),
+        "permissionGroups" => list(permission_group()())
+      }
+
   """
   @type list_permission_groups_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_changeset_response() :: %{
-    "changesetId" => String.t(),
-    "datasetId" => String.t()
-  }
+
+      update_changeset_response() :: %{
+        "changesetId" => String.t(),
+        "datasetId" => String.t()
+      }
+
   """
   @type update_changeset_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  access_denied_exception() :: %{
-    "message" => String.t()
-  }
+
+      access_denied_exception() :: %{
+        "message" => String.t()
+      }
+
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  data_view_error_info() :: %{
-    "errorCategory" => list(any()),
-    "errorMessage" => String.t()
-  }
+
+      data_view_error_info() :: %{
+        "errorCategory" => list(any()),
+        "errorMessage" => String.t()
+      }
+
   """
   @type data_view_error_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  aws_credentials() :: %{
-    "accessKeyId" => String.t(),
-    "expiration" => float(),
-    "secretAccessKey" => String.t(),
-    "sessionToken" => String.t()
-  }
+
+      aws_credentials() :: %{
+        "accessKeyId" => String.t(),
+        "expiration" => float(),
+        "secretAccessKey" => String.t(),
+        "sessionToken" => String.t()
+      }
+
   """
   @type aws_credentials() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_dataset_request() :: %{
 
-  }
+      get_dataset_request() :: %{}
+
   """
-  @type get_dataset_request() :: %{String.t() => any()}
+  @type get_dataset_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  update_user_request() :: %{
-    optional("apiAccess") => list(any()),
-    optional("apiAccessPrincipalArn") => String.t(),
-    optional("clientToken") => String.t(),
-    optional("firstName") => String.t(),
-    optional("lastName") => String.t(),
-    optional("type") => list(any())
-  }
+
+      update_user_request() :: %{
+        optional("apiAccess") => list(any()),
+        optional("apiAccessPrincipalArn") => String.t(),
+        optional("clientToken") => String.t(),
+        optional("firstName") => String.t(),
+        optional("lastName") => String.t(),
+        optional("type") => list(any())
+      }
+
   """
   @type update_user_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_dataset_response() :: %{
-    "alias" => String.t(),
-    "createTime" => float(),
-    "datasetArn" => String.t(),
-    "datasetDescription" => String.t(),
-    "datasetId" => String.t(),
-    "datasetTitle" => String.t(),
-    "kind" => list(any()),
-    "lastModifiedTime" => float(),
-    "schemaDefinition" => schema_union(),
-    "status" => list(any())
-  }
+
+      get_dataset_response() :: %{
+        "alias" => String.t(),
+        "createTime" => float(),
+        "datasetArn" => String.t(),
+        "datasetDescription" => String.t(),
+        "datasetId" => String.t(),
+        "datasetTitle" => String.t(),
+        "kind" => list(any()),
+        "lastModifiedTime" => float(),
+        "schemaDefinition" => schema_union(),
+        "status" => list(any())
+      }
+
   """
   @type get_dataset_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  validation_exception() :: %{
-    "message" => String.t(),
-    "reason" => String.t()
-  }
+
+      validation_exception() :: %{
+        "message" => String.t(),
+        "reason" => String.t()
+      }
+
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_dataset_request() :: %{
-    optional("alias") => String.t(),
-    optional("clientToken") => String.t(),
-    optional("datasetDescription") => String.t(),
-    optional("ownerInfo") => dataset_owner_info(),
-    optional("schemaDefinition") => schema_union(),
-    required("datasetTitle") => String.t(),
-    required("kind") => list(any()),
-    required("permissionGroupParams") => permission_group_params()
-  }
+
+      create_dataset_request() :: %{
+        optional("alias") => String.t(),
+        optional("clientToken") => String.t(),
+        optional("datasetDescription") => String.t(),
+        optional("ownerInfo") => dataset_owner_info(),
+        optional("schemaDefinition") => schema_union(),
+        required("datasetTitle") => String.t(),
+        required("kind") => list(any()),
+        required("permissionGroupParams") => permission_group_params()
+      }
+
   """
   @type create_dataset_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  enable_user_request() :: %{
-    optional("clientToken") => String.t()
-  }
+
+      enable_user_request() :: %{
+        optional("clientToken") => String.t()
+      }
+
   """
   @type enable_user_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_permission_group_response() :: %{
-    "permissionGroupId" => String.t()
-  }
+
+      update_permission_group_response() :: %{
+        "permissionGroupId" => String.t()
+      }
+
   """
   @type update_permission_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  associate_user_to_permission_group_request() :: %{
-    optional("clientToken") => String.t()
-  }
+
+      associate_user_to_permission_group_request() :: %{
+        optional("clientToken") => String.t()
+      }
+
   """
   @type associate_user_to_permission_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  throttling_exception() :: %{
 
-  }
+      throttling_exception() :: %{}
+
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{}
 
   @typedoc """
 
   ## Example:
-  user() :: %{
-    "apiAccess" => list(any()),
-    "apiAccessPrincipalArn" => String.t(),
-    "createTime" => float(),
-    "emailAddress" => String.t(),
-    "firstName" => String.t(),
-    "lastDisabledTime" => float(),
-    "lastEnabledTime" => float(),
-    "lastLoginTime" => float(),
-    "lastModifiedTime" => float(),
-    "lastName" => String.t(),
-    "status" => list(any()),
-    "type" => list(any()),
-    "userId" => String.t()
-  }
+
+      user() :: %{
+        "apiAccess" => list(any()),
+        "apiAccessPrincipalArn" => String.t(),
+        "createTime" => float(),
+        "emailAddress" => String.t(),
+        "firstName" => String.t(),
+        "lastDisabledTime" => float(),
+        "lastEnabledTime" => float(),
+        "lastLoginTime" => float(),
+        "lastModifiedTime" => float(),
+        "lastName" => String.t(),
+        "status" => list(any()),
+        "type" => list(any()),
+        "userId" => String.t()
+      }
+
   """
   @type user() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_data_views_request() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t()
-  }
+
+      list_data_views_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
   """
   @type list_data_views_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_users_request() :: %{
-    optional("nextToken") => String.t(),
-    required("maxResults") => integer()
-  }
+
+      list_users_request() :: %{
+        optional("nextToken") => String.t(),
+        required("maxResults") => integer()
+      }
+
   """
   @type list_users_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  user_by_permission_group() :: %{
-    "apiAccess" => list(any()),
-    "apiAccessPrincipalArn" => String.t(),
-    "emailAddress" => String.t(),
-    "firstName" => String.t(),
-    "lastName" => String.t(),
-    "membershipStatus" => list(any()),
-    "status" => list(any()),
-    "type" => list(any()),
-    "userId" => String.t()
-  }
+
+      user_by_permission_group() :: %{
+        "apiAccess" => list(any()),
+        "apiAccessPrincipalArn" => String.t(),
+        "emailAddress" => String.t(),
+        "firstName" => String.t(),
+        "lastName" => String.t(),
+        "membershipStatus" => list(any()),
+        "status" => list(any()),
+        "type" => list(any()),
+        "userId" => String.t()
+      }
+
   """
   @type user_by_permission_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  limit_exceeded_exception() :: %{
-    "message" => String.t()
-  }
+
+      limit_exceeded_exception() :: %{
+        "message" => String.t()
+      }
+
   """
   @type limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_working_location_request() :: %{
-    optional("locationType") => list(any())
-  }
+
+      get_working_location_request() :: %{
+        optional("locationType") => list(any())
+      }
+
   """
   @type get_working_location_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_permission() :: %{
-    "permission" => String.t()
-  }
+
+      resource_permission() :: %{
+        "permission" => String.t()
+      }
+
   """
   @type resource_permission() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_dataset_request() :: %{
-    optional("clientToken") => String.t()
-  }
+
+      delete_dataset_request() :: %{
+        optional("clientToken") => String.t()
+      }
+
   """
   @type delete_dataset_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_datasets_response() :: %{
-    "datasets" => list(dataset()()),
-    "nextToken" => String.t()
-  }
+
+      list_datasets_response() :: %{
+        "datasets" => list(dataset()()),
+        "nextToken" => String.t()
+      }
+
   """
   @type list_datasets_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  permission_group() :: %{
-    "applicationPermissions" => list(list(any())()),
-    "createTime" => float(),
-    "description" => String.t(),
-    "lastModifiedTime" => float(),
-    "membershipStatus" => list(any()),
-    "name" => String.t(),
-    "permissionGroupId" => String.t()
-  }
+
+      permission_group() :: %{
+        "applicationPermissions" => list(list(any())()),
+        "createTime" => float(),
+        "description" => String.t(),
+        "lastModifiedTime" => float(),
+        "membershipStatus" => list(any()),
+        "name" => String.t(),
+        "permissionGroupId" => String.t()
+      }
+
   """
   @type permission_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_programmatic_access_credentials_request() :: %{
-    optional("durationInMinutes") => float(),
-    required("environmentId") => String.t()
-  }
+
+      get_programmatic_access_credentials_request() :: %{
+        optional("durationInMinutes") => float(),
+        required("environmentId") => String.t()
+      }
+
   """
   @type get_programmatic_access_credentials_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_permission_groups_request() :: %{
-    optional("nextToken") => String.t(),
-    required("maxResults") => integer()
-  }
+
+      list_permission_groups_request() :: %{
+        optional("nextToken") => String.t(),
+        required("maxResults") => integer()
+      }
+
   """
   @type list_permission_groups_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_changesets_response() :: %{
-    "changesets" => list(changeset_summary()()),
-    "nextToken" => String.t()
-  }
+
+      list_changesets_response() :: %{
+        "changesets" => list(changeset_summary()()),
+        "nextToken" => String.t()
+      }
+
   """
   @type list_changesets_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  data_view_summary() :: %{
-    "asOfTimestamp" => float(),
-    "autoUpdate" => boolean(),
-    "createTime" => float(),
-    "dataViewArn" => String.t(),
-    "dataViewId" => String.t(),
-    "datasetId" => String.t(),
-    "destinationTypeProperties" => data_view_destination_type_params(),
-    "errorInfo" => data_view_error_info(),
-    "lastModifiedTime" => float(),
-    "partitionColumns" => list(String.t()()),
-    "sortColumns" => list(String.t()()),
-    "status" => list(any())
-  }
+
+      data_view_summary() :: %{
+        "asOfTimestamp" => float(),
+        "autoUpdate" => boolean(),
+        "createTime" => float(),
+        "dataViewArn" => String.t(),
+        "dataViewId" => String.t(),
+        "datasetId" => String.t(),
+        "destinationTypeProperties" => data_view_destination_type_params(),
+        "errorInfo" => data_view_error_info(),
+        "lastModifiedTime" => float(),
+        "partitionColumns" => list(String.t()()),
+        "sortColumns" => list(String.t()()),
+        "status" => list(any())
+      }
+
   """
   @type data_view_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disable_user_request() :: %{
-    optional("clientToken") => String.t()
-  }
+
+      disable_user_request() :: %{
+        optional("clientToken") => String.t()
+      }
+
   """
   @type disable_user_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_user_response() :: %{
-    "userId" => String.t()
-  }
+
+      create_user_response() :: %{
+        "userId" => String.t()
+      }
+
   """
   @type create_user_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  enable_user_response() :: %{
-    "userId" => String.t()
-  }
+
+      enable_user_response() :: %{
+        "userId" => String.t()
+      }
+
   """
   @type enable_user_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  column_definition() :: %{
-    "columnDescription" => String.t(),
-    "columnName" => String.t(),
-    "dataType" => list(any())
-  }
+
+      column_definition() :: %{
+        "columnDescription" => String.t(),
+        "columnName" => String.t(),
+        "dataType" => list(any())
+      }
+
   """
   @type column_definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_data_views_response() :: %{
-    "dataViews" => list(data_view_summary()()),
-    "nextToken" => String.t()
-  }
+
+      list_data_views_response() :: %{
+        "dataViews" => list(data_view_summary()()),
+        "nextToken" => String.t()
+      }
+
   """
   @type list_data_views_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_user_request() :: %{
-    optional("apiAccess") => list(any()),
-    optional("apiAccessPrincipalArn") => String.t(),
-    optional("clientToken") => String.t(),
-    optional("firstName") => String.t(),
-    optional("lastName") => String.t(),
-    required("emailAddress") => String.t(),
-    required("type") => list(any())
-  }
+
+      create_user_request() :: %{
+        optional("apiAccess") => list(any()),
+        optional("apiAccessPrincipalArn") => String.t(),
+        optional("clientToken") => String.t(),
+        optional("firstName") => String.t(),
+        optional("lastName") => String.t(),
+        required("emailAddress") => String.t(),
+        required("type") => list(any())
+      }
+
   """
   @type create_user_request() :: %{String.t() => any()}
+
+  @type associate_user_to_permission_group_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_changeset_errors() ::
+          limit_exceeded_exception()
+          | throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_data_view_errors() ::
+          limit_exceeded_exception()
+          | throttling_exception()
+          | validation_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_dataset_errors() ::
+          limit_exceeded_exception()
+          | throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_permission_group_errors() ::
+          limit_exceeded_exception()
+          | throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | conflict_exception()
+
+  @type create_user_errors() ::
+          limit_exceeded_exception()
+          | throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | conflict_exception()
+
+  @type delete_dataset_errors() ::
+          limit_exceeded_exception()
+          | throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_permission_group_errors() ::
+          limit_exceeded_exception()
+          | throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type disable_user_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type disassociate_user_from_permission_group_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type enable_user_errors() ::
+          limit_exceeded_exception()
+          | throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type get_changeset_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type get_data_view_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type get_dataset_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type get_external_data_view_access_details_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_permission_group_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_programmatic_access_credentials_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type get_user_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_working_location_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_changesets_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type list_data_views_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type list_datasets_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type list_permission_groups_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_permission_groups_by_user_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_users_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_users_by_permission_group_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type reset_user_password_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_changeset_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_dataset_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_permission_group_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_user_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   def metadata do
     %{
@@ -1014,12 +1413,7 @@ defmodule AWS.Finspacedata do
         ) ::
           {:ok, associate_user_to_permission_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, associate_user_to_permission_group_errors()}
   def associate_user_to_permission_group(
         %Client{} = client,
         permission_group_id,
@@ -1054,13 +1448,7 @@ defmodule AWS.Finspacedata do
   @spec create_changeset(map(), String.t(), create_changeset_request(), list()) ::
           {:ok, create_changeset_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_changeset_errors()}
   def create_changeset(%Client{} = client, dataset_id, input, options \\ []) do
     url_path = "/datasets/#{AWS.Util.encode_uri(dataset_id)}/changesetsv2"
     headers = []
@@ -1087,12 +1475,7 @@ defmodule AWS.Finspacedata do
   @spec create_data_view(map(), String.t(), create_data_view_request(), list()) ::
           {:ok, create_data_view_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_data_view_errors()}
   def create_data_view(%Client{} = client, dataset_id, input, options \\ []) do
     url_path = "/datasets/#{AWS.Util.encode_uri(dataset_id)}/dataviewsv2"
     headers = []
@@ -1119,13 +1502,7 @@ defmodule AWS.Finspacedata do
   @spec create_dataset(map(), create_dataset_request(), list()) ::
           {:ok, create_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_dataset_errors()}
   def create_dataset(%Client{} = client, input, options \\ []) do
     url_path = "/datasetsv2"
     headers = []
@@ -1153,12 +1530,7 @@ defmodule AWS.Finspacedata do
   @spec create_permission_group(map(), create_permission_group_request(), list()) ::
           {:ok, create_permission_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_permission_group_errors()}
   def create_permission_group(%Client{} = client, input, options \\ []) do
     url_path = "/permission-group"
     headers = []
@@ -1185,12 +1557,7 @@ defmodule AWS.Finspacedata do
   @spec create_user(map(), create_user_request(), list()) ::
           {:ok, create_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_user_errors()}
   def create_user(%Client{} = client, input, options \\ []) do
     url_path = "/user"
     headers = []
@@ -1217,13 +1584,7 @@ defmodule AWS.Finspacedata do
   @spec delete_dataset(map(), String.t(), delete_dataset_request(), list()) ::
           {:ok, delete_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_dataset_errors()}
   def delete_dataset(%Client{} = client, dataset_id, input, options \\ []) do
     url_path = "/datasetsv2/#{AWS.Util.encode_uri(dataset_id)}"
     headers = []
@@ -1257,13 +1618,7 @@ defmodule AWS.Finspacedata do
   @spec delete_permission_group(map(), String.t(), delete_permission_group_request(), list()) ::
           {:ok, delete_permission_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_permission_group_errors()}
   def delete_permission_group(%Client{} = client, permission_group_id, input, options \\ []) do
     url_path = "/permission-group/#{AWS.Util.encode_uri(permission_group_id)}"
     headers = []
@@ -1295,12 +1650,7 @@ defmodule AWS.Finspacedata do
   @spec disable_user(map(), String.t(), disable_user_request(), list()) ::
           {:ok, disable_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, disable_user_errors()}
   def disable_user(%Client{} = client, user_id, input, options \\ []) do
     url_path = "/user/#{AWS.Util.encode_uri(user_id)}/disable"
     headers = []
@@ -1333,12 +1683,7 @@ defmodule AWS.Finspacedata do
         ) ::
           {:ok, disassociate_user_from_permission_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, disassociate_user_from_permission_group_errors()}
   def disassociate_user_from_permission_group(
         %Client{} = client,
         permission_group_id,
@@ -1378,13 +1723,7 @@ defmodule AWS.Finspacedata do
   @spec enable_user(map(), String.t(), enable_user_request(), list()) ::
           {:ok, enable_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, enable_user_errors()}
   def enable_user(%Client{} = client, user_id, input, options \\ []) do
     url_path = "/user/#{AWS.Util.encode_uri(user_id)}/enable"
     headers = []
@@ -1411,12 +1750,7 @@ defmodule AWS.Finspacedata do
   @spec get_changeset(map(), String.t(), String.t(), list()) ::
           {:ok, get_changeset_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_changeset_errors()}
   def get_changeset(%Client{} = client, changeset_id, dataset_id, options \\ []) do
     url_path =
       "/datasets/#{AWS.Util.encode_uri(dataset_id)}/changesetsv2/#{AWS.Util.encode_uri(changeset_id)}"
@@ -1435,11 +1769,7 @@ defmodule AWS.Finspacedata do
   @spec get_data_view(map(), String.t(), String.t(), list()) ::
           {:ok, get_data_view_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_data_view_errors()}
   def get_data_view(%Client{} = client, data_view_id, dataset_id, options \\ []) do
     url_path =
       "/datasets/#{AWS.Util.encode_uri(dataset_id)}/dataviewsv2/#{AWS.Util.encode_uri(data_view_id)}"
@@ -1458,12 +1788,7 @@ defmodule AWS.Finspacedata do
   @spec get_dataset(map(), String.t(), list()) ::
           {:ok, get_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_dataset_errors()}
   def get_dataset(%Client{} = client, dataset_id, options \\ []) do
     url_path = "/datasetsv2/#{AWS.Util.encode_uri(dataset_id)}"
     headers = []
@@ -1495,11 +1820,7 @@ defmodule AWS.Finspacedata do
         ) ::
           {:ok, get_external_data_view_access_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_external_data_view_access_details_errors()}
   def get_external_data_view_access_details(
         %Client{} = client,
         data_view_id,
@@ -1534,11 +1855,7 @@ defmodule AWS.Finspacedata do
   @spec get_permission_group(map(), String.t(), list()) ::
           {:ok, get_permission_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_permission_group_errors()}
   def get_permission_group(%Client{} = client, permission_group_id, options \\ []) do
     url_path = "/permission-group/#{AWS.Util.encode_uri(permission_group_id)}"
     headers = []
@@ -1558,10 +1875,7 @@ defmodule AWS.Finspacedata do
   @spec get_programmatic_access_credentials(map(), String.t() | nil, String.t(), list()) ::
           {:ok, get_programmatic_access_credentials_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_programmatic_access_credentials_errors()}
   def get_programmatic_access_credentials(
         %Client{} = client,
         duration_in_minutes \\ nil,
@@ -1597,11 +1911,7 @@ defmodule AWS.Finspacedata do
   @spec get_user(map(), String.t(), list()) ::
           {:ok, get_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_user_errors()}
   def get_user(%Client{} = client, user_id, options \\ []) do
     url_path = "/user/#{AWS.Util.encode_uri(user_id)}"
     headers = []
@@ -1620,10 +1930,7 @@ defmodule AWS.Finspacedata do
   @spec get_working_location(map(), get_working_location_request(), list()) ::
           {:ok, get_working_location_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_working_location_errors()}
   def get_working_location(%Client{} = client, input, options \\ []) do
     url_path = "/workingLocationV1"
     headers = []
@@ -1650,12 +1957,7 @@ defmodule AWS.Finspacedata do
   @spec list_changesets(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_changesets_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_changesets_errors()}
   def list_changesets(
         %Client{} = client,
         dataset_id,
@@ -1692,11 +1994,7 @@ defmodule AWS.Finspacedata do
   @spec list_data_views(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_data_views_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_data_views_errors()}
   def list_data_views(
         %Client{} = client,
         dataset_id,
@@ -1733,11 +2031,7 @@ defmodule AWS.Finspacedata do
   @spec list_datasets(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_datasets_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_datasets_errors()}
   def list_datasets(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/datasetsv2"
     headers = []
@@ -1768,10 +2062,7 @@ defmodule AWS.Finspacedata do
   @spec list_permission_groups(map(), String.t(), String.t() | nil, list()) ::
           {:ok, list_permission_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_permission_groups_errors()}
   def list_permission_groups(%Client{} = client, max_results, next_token \\ nil, options \\ []) do
     url_path = "/permission-group"
     headers = []
@@ -1802,11 +2093,7 @@ defmodule AWS.Finspacedata do
   @spec list_permission_groups_by_user(map(), String.t(), String.t(), String.t() | nil, list()) ::
           {:ok, list_permission_groups_by_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_permission_groups_by_user_errors()}
   def list_permission_groups_by_user(
         %Client{} = client,
         user_id,
@@ -1843,10 +2130,7 @@ defmodule AWS.Finspacedata do
   @spec list_users(map(), String.t(), String.t() | nil, list()) ::
           {:ok, list_users_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_users_errors()}
   def list_users(%Client{} = client, max_results, next_token \\ nil, options \\ []) do
     url_path = "/user"
     headers = []
@@ -1877,11 +2161,7 @@ defmodule AWS.Finspacedata do
   @spec list_users_by_permission_group(map(), String.t(), String.t(), String.t() | nil, list()) ::
           {:ok, list_users_by_permission_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_users_by_permission_group_errors()}
   def list_users_by_permission_group(
         %Client{} = client,
         permission_group_id,
@@ -1921,12 +2201,7 @@ defmodule AWS.Finspacedata do
   @spec reset_user_password(map(), String.t(), reset_user_password_request(), list()) ::
           {:ok, reset_user_password_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, reset_user_password_errors()}
   def reset_user_password(%Client{} = client, user_id, input, options \\ []) do
     url_path = "/user/#{AWS.Util.encode_uri(user_id)}/password"
     headers = []
@@ -1953,12 +2228,7 @@ defmodule AWS.Finspacedata do
   @spec update_changeset(map(), String.t(), String.t(), update_changeset_request(), list()) ::
           {:ok, update_changeset_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_changeset_errors()}
   def update_changeset(%Client{} = client, changeset_id, dataset_id, input, options \\ []) do
     url_path =
       "/datasets/#{AWS.Util.encode_uri(dataset_id)}/changesetsv2/#{AWS.Util.encode_uri(changeset_id)}"
@@ -1977,12 +2247,7 @@ defmodule AWS.Finspacedata do
   @spec update_dataset(map(), String.t(), update_dataset_request(), list()) ::
           {:ok, update_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_dataset_errors()}
   def update_dataset(%Client{} = client, dataset_id, input, options \\ []) do
     url_path = "/datasetsv2/#{AWS.Util.encode_uri(dataset_id)}"
     headers = []
@@ -2001,12 +2266,7 @@ defmodule AWS.Finspacedata do
   @spec update_permission_group(map(), String.t(), update_permission_group_request(), list()) ::
           {:ok, update_permission_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_permission_group_errors()}
   def update_permission_group(%Client{} = client, permission_group_id, input, options \\ []) do
     url_path = "/permission-group/#{AWS.Util.encode_uri(permission_group_id)}"
     headers = []
@@ -2025,12 +2285,7 @@ defmodule AWS.Finspacedata do
   @spec update_user(map(), String.t(), update_user_request(), list()) ::
           {:ok, update_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_user_errors()}
   def update_user(%Client{} = client, user_id, input, options \\ []) do
     url_path = "/user/#{AWS.Util.encode_uri(user_id)}"
     headers = []

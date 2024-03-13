@@ -8,47 +8,63 @@ defmodule AWS.KinesisVideoWebRTCStorage do
   @typedoc """
 
   ## Example:
-  access_denied_exception() :: %{
-    "message" => [String.t()]
-  }
+
+      access_denied_exception() :: %{
+        "message" => [String.t()]
+      }
+
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  client_limit_exceeded_exception() :: %{
-    "message" => [String.t()]
-  }
+
+      client_limit_exceeded_exception() :: %{
+        "message" => [String.t()]
+      }
+
   """
   @type client_limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_argument_exception() :: %{
-    "message" => [String.t()]
-  }
+
+      invalid_argument_exception() :: %{
+        "message" => [String.t()]
+      }
+
   """
   @type invalid_argument_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  join_storage_session_input() :: %{
-    required("channelArn") => String.t()
-  }
+
+      join_storage_session_input() :: %{
+        required("channelArn") => String.t()
+      }
+
   """
   @type join_storage_session_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_not_found_exception() :: %{
-    "message" => [String.t()]
-  }
+
+      resource_not_found_exception() :: %{
+        "message" => [String.t()]
+      }
+
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @type join_storage_session_errors() ::
+          resource_not_found_exception()
+          | invalid_argument_exception()
+          | client_limit_exceeded_exception()
+          | access_denied_exception()
 
   def metadata do
     %{
@@ -95,10 +111,7 @@ defmodule AWS.KinesisVideoWebRTCStorage do
   @spec join_storage_session(map(), join_storage_session_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, client_limit_exceeded_exception()}
-          | {:error, invalid_argument_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, join_storage_session_errors()}
   def join_storage_session(%Client{} = client, input, options \\ []) do
     url_path = "/joinStorageSession"
     headers = []

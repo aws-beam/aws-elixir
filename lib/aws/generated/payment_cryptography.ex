@@ -37,674 +37,981 @@ defmodule AWS.PaymentCryptography do
   @typedoc """
 
   ## Example:
-  export_tr31_key_block() :: %{
-    "WrappingKeyIdentifier" => String.t()
-  }
+      
+      export_tr31_key_block() :: %{
+        "WrappingKeyIdentifier" => String.t()
+      }
+      
   """
   @type export_tr31_key_block() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_alias_output() :: %{
-    "Alias" => alias()
-  }
+      
+      get_alias_output() :: %{
+        "Alias" => alias()
+      }
+      
   """
   @type get_alias_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_alias_input() :: %{
-    required("AliasName") => String.t()
-  }
+      
+      get_alias_input() :: %{
+        required("AliasName") => String.t()
+      }
+      
   """
   @type get_alias_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  key_modes_of_use() :: %{
-    "Decrypt" => [boolean()],
-    "DeriveKey" => [boolean()],
-    "Encrypt" => [boolean()],
-    "Generate" => [boolean()],
-    "NoRestrictions" => [boolean()],
-    "Sign" => [boolean()],
-    "Unwrap" => [boolean()],
-    "Verify" => [boolean()],
-    "Wrap" => [boolean()]
-  }
+      
+      key_modes_of_use() :: %{
+        "Decrypt" => [boolean()],
+        "DeriveKey" => [boolean()],
+        "Encrypt" => [boolean()],
+        "Generate" => [boolean()],
+        "NoRestrictions" => [boolean()],
+        "Sign" => [boolean()],
+        "Unwrap" => [boolean()],
+        "Verify" => [boolean()],
+        "Wrap" => [boolean()]
+      }
+      
   """
   @type key_modes_of_use() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_parameters_for_export_input() :: %{
-    required("KeyMaterialType") => String.t(),
-    required("SigningKeyAlgorithm") => String.t()
-  }
+      
+      get_parameters_for_export_input() :: %{
+        required("KeyMaterialType") => String.t(),
+        required("SigningKeyAlgorithm") => String.t()
+      }
+      
   """
   @type get_parameters_for_export_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_keys_input() :: %{
-    optional("KeyState") => String.t(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+      
+      list_keys_input() :: %{
+        optional("KeyState") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type list_keys_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  key_summary() :: %{
-    "Enabled" => [boolean()],
-    "Exportable" => [boolean()],
-    "KeyArn" => String.t(),
-    "KeyAttributes" => key_attributes(),
-    "KeyCheckValue" => String.t(),
-    "KeyState" => String.t()
-  }
+      
+      key_summary() :: %{
+        "Enabled" => [boolean()],
+        "Exportable" => [boolean()],
+        "KeyArn" => String.t(),
+        "KeyAttributes" => key_attributes(),
+        "KeyCheckValue" => String.t(),
+        "KeyState" => String.t()
+      }
+      
   """
   @type key_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stop_key_usage_input() :: %{
-    required("KeyIdentifier") => String.t()
-  }
+      
+      stop_key_usage_input() :: %{
+        required("KeyIdentifier") => String.t()
+      }
+      
   """
   @type stop_key_usage_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  import_tr34_key_block() :: %{
-    "CertificateAuthorityPublicKeyIdentifier" => String.t(),
-    "ImportToken" => String.t(),
-    "KeyBlockFormat" => String.t(),
-    "RandomNonce" => String.t(),
-    "SigningKeyCertificate" => String.t(),
-    "WrappedKeyBlock" => String.t()
-  }
+      
+      import_tr34_key_block() :: %{
+        "CertificateAuthorityPublicKeyIdentifier" => String.t(),
+        "ImportToken" => String.t(),
+        "KeyBlockFormat" => String.t(),
+        "RandomNonce" => String.t(),
+        "SigningKeyCertificate" => String.t(),
+        "WrappedKeyBlock" => String.t()
+      }
+      
   """
   @type import_tr34_key_block() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  import_key_input() :: %{
-    optional("Enabled") => [boolean()],
-    optional("KeyCheckValueAlgorithm") => String.t(),
-    optional("Tags") => list(tag()()),
-    required("KeyMaterial") => list()
-  }
+      
+      import_key_input() :: %{
+        optional("Enabled") => [boolean()],
+        optional("KeyCheckValueAlgorithm") => String.t(),
+        optional("Tags") => list(tag()()),
+        required("KeyMaterial") => list()
+      }
+      
   """
   @type import_key_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  import_key_cryptogram() :: %{
-    "Exportable" => [boolean()],
-    "ImportToken" => String.t(),
-    "KeyAttributes" => key_attributes(),
-    "WrappedKeyCryptogram" => String.t(),
-    "WrappingSpec" => String.t()
-  }
+      
+      import_key_cryptogram() :: %{
+        "Exportable" => [boolean()],
+        "ImportToken" => String.t(),
+        "KeyAttributes" => key_attributes(),
+        "WrappedKeyCryptogram" => String.t(),
+        "WrappingSpec" => String.t()
+      }
+      
   """
   @type import_key_cryptogram() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_parameters_for_export_output() :: %{
-    "ExportToken" => String.t(),
-    "ParametersValidUntilTimestamp" => non_neg_integer(),
-    "SigningKeyAlgorithm" => String.t(),
-    "SigningKeyCertificate" => String.t(),
-    "SigningKeyCertificateChain" => String.t()
-  }
+      
+      get_parameters_for_export_output() :: %{
+        "ExportToken" => String.t(),
+        "ParametersValidUntilTimestamp" => non_neg_integer(),
+        "SigningKeyAlgorithm" => String.t(),
+        "SigningKeyCertificate" => String.t(),
+        "SigningKeyCertificateChain" => String.t()
+      }
+      
   """
   @type get_parameters_for_export_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_key_output() :: %{
-    "Key" => key()
-  }
+      
+      delete_key_output() :: %{
+        "Key" => key()
+      }
+      
   """
   @type delete_key_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stop_key_usage_output() :: %{
-    "Key" => key()
-  }
+      
+      stop_key_usage_output() :: %{
+        "Key" => key()
+      }
+      
   """
   @type stop_key_usage_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_aliases_output() :: %{
-    "Aliases" => list(alias()()),
-    "NextToken" => String.t()
-  }
+      
+      list_aliases_output() :: %{
+        "Aliases" => list(alias()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_aliases_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  restore_key_input() :: %{
-    required("KeyIdentifier") => String.t()
-  }
+      
+      restore_key_input() :: %{
+        required("KeyIdentifier") => String.t()
+      }
+      
   """
   @type restore_key_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_parameters_for_import_output() :: %{
-    "ImportToken" => String.t(),
-    "ParametersValidUntilTimestamp" => non_neg_integer(),
-    "WrappingKeyAlgorithm" => String.t(),
-    "WrappingKeyCertificate" => String.t(),
-    "WrappingKeyCertificateChain" => String.t()
-  }
+      
+      get_parameters_for_import_output() :: %{
+        "ImportToken" => String.t(),
+        "ParametersValidUntilTimestamp" => non_neg_integer(),
+        "WrappingKeyAlgorithm" => String.t(),
+        "WrappingKeyCertificate" => String.t(),
+        "WrappingKeyCertificateChain" => String.t()
+      }
+      
   """
   @type get_parameters_for_import_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_key_usage_output() :: %{
-    "Key" => key()
-  }
+      
+      start_key_usage_output() :: %{
+        "Key" => key()
+      }
+      
   """
   @type start_key_usage_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_output() :: %{
-    "NextToken" => String.t(),
-    "Tags" => list(tag()())
-  }
+      
+      list_tags_for_resource_output() :: %{
+        "NextToken" => String.t(),
+        "Tags" => list(tag()())
+      }
+      
   """
   @type list_tags_for_resource_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  export_key_cryptogram() :: %{
-    "CertificateAuthorityPublicKeyIdentifier" => String.t(),
-    "WrappingKeyCertificate" => String.t(),
-    "WrappingSpec" => String.t()
-  }
+      
+      export_key_cryptogram() :: %{
+        "CertificateAuthorityPublicKeyIdentifier" => String.t(),
+        "WrappingKeyCertificate" => String.t(),
+        "WrappingSpec" => String.t()
+      }
+      
   """
   @type export_key_cryptogram() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  wrapped_key() :: %{
-    "KeyCheckValue" => String.t(),
-    "KeyCheckValueAlgorithm" => String.t(),
-    "KeyMaterial" => String.t(),
-    "WrappedKeyMaterialFormat" => String.t(),
-    "WrappingKeyArn" => String.t()
-  }
+      
+      wrapped_key() :: %{
+        "KeyCheckValue" => String.t(),
+        "KeyCheckValueAlgorithm" => String.t(),
+        "KeyMaterial" => String.t(),
+        "WrappedKeyMaterialFormat" => String.t(),
+        "WrappingKeyArn" => String.t()
+      }
+      
   """
   @type wrapped_key() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_alias_input() :: %{
-    required("AliasName") => String.t()
-  }
+      
+      delete_alias_input() :: %{
+        required("AliasName") => String.t()
+      }
+      
   """
   @type delete_alias_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  export_attributes() :: %{
-    "ExportDukptInitialKey" => export_dukpt_initial_key(),
-    "KeyCheckValueAlgorithm" => String.t()
-  }
+      
+      export_attributes() :: %{
+        "ExportDukptInitialKey" => export_dukpt_initial_key(),
+        "KeyCheckValueAlgorithm" => String.t()
+      }
+      
   """
   @type export_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_key_input() :: %{
-    required("KeyIdentifier") => String.t()
-  }
+      
+      get_key_input() :: %{
+        required("KeyIdentifier") => String.t()
+      }
+      
   """
   @type get_key_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  conflict_exception() :: %{
-    "Message" => [String.t()]
-  }
+      
+      conflict_exception() :: %{
+        "Message" => [String.t()]
+      }
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_not_found_exception() :: %{
-    "ResourceId" => [String.t()]
-  }
+      
+      resource_not_found_exception() :: %{
+        "ResourceId" => [String.t()]
+      }
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag() :: %{
-    "Key" => String.t(),
-    "Value" => String.t()
-  }
+      
+      tag() :: %{
+        "Key" => String.t(),
+        "Value" => String.t()
+      }
+      
   """
   @type tag() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_key_input() :: %{
-    optional("Enabled") => [boolean()],
-    optional("KeyCheckValueAlgorithm") => String.t(),
-    optional("Tags") => list(tag()()),
-    required("Exportable") => [boolean()],
-    required("KeyAttributes") => key_attributes()
-  }
+      
+      create_key_input() :: %{
+        optional("Enabled") => [boolean()],
+        optional("KeyCheckValueAlgorithm") => String.t(),
+        optional("Tags") => list(tag()()),
+        required("Exportable") => [boolean()],
+        required("KeyAttributes") => key_attributes()
+      }
+      
   """
   @type create_key_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  service_quota_exceeded_exception() :: %{
-    "Message" => [String.t()]
-  }
+      
+      service_quota_exceeded_exception() :: %{
+        "Message" => [String.t()]
+      }
+      
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_alias_output() :: %{
-    "Alias" => alias()
-  }
+      
+      create_alias_output() :: %{
+        "Alias" => alias()
+      }
+      
   """
   @type create_alias_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  import_tr31_key_block() :: %{
-    "WrappedKeyBlock" => String.t(),
-    "WrappingKeyIdentifier" => String.t()
-  }
+      
+      import_tr31_key_block() :: %{
+        "WrappedKeyBlock" => String.t(),
+        "WrappingKeyIdentifier" => String.t()
+      }
+      
   """
   @type import_tr31_key_block() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_alias_output() :: %{
-    "Alias" => alias()
-  }
+      
+      update_alias_output() :: %{
+        "Alias" => alias()
+      }
+      
   """
   @type update_alias_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_alias_input() :: %{
-    optional("KeyArn") => String.t(),
-    required("AliasName") => String.t()
-  }
+      
+      update_alias_input() :: %{
+        optional("KeyArn") => String.t(),
+        required("AliasName") => String.t()
+      }
+      
   """
   @type update_alias_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  service_unavailable_exception() :: %{
-    "Message" => [String.t()]
-  }
+      
+      service_unavailable_exception() :: %{
+        "Message" => [String.t()]
+      }
+      
   """
   @type service_unavailable_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_key_usage_input() :: %{
-    required("KeyIdentifier") => String.t()
-  }
+      
+      start_key_usage_input() :: %{
+        required("KeyIdentifier") => String.t()
+      }
+      
   """
   @type start_key_usage_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_aliases_input() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+      
+      list_aliases_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type list_aliases_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_input() :: %{
-    required("ResourceArn") => String.t(),
-    required("Tags") => list(tag()())
-  }
+      
+      tag_resource_input() :: %{
+        required("ResourceArn") => String.t(),
+        required("Tags") => list(tag()())
+      }
+      
   """
   @type tag_resource_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_output() :: %{
-
-  }
+      
+      tag_resource_output() :: %{}
+      
   """
-  @type tag_resource_output() :: %{String.t() => any()}
+  @type tag_resource_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  key_attributes() :: %{
-    "KeyAlgorithm" => String.t(),
-    "KeyClass" => String.t(),
-    "KeyModesOfUse" => key_modes_of_use(),
-    "KeyUsage" => String.t()
-  }
+      
+      key_attributes() :: %{
+        "KeyAlgorithm" => String.t(),
+        "KeyClass" => String.t(),
+        "KeyModesOfUse" => key_modes_of_use(),
+        "KeyUsage" => String.t()
+      }
+      
   """
   @type key_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_key_input() :: %{
-    optional("DeleteKeyInDays") => [integer()],
-    required("KeyIdentifier") => String.t()
-  }
+      
+      delete_key_input() :: %{
+        optional("DeleteKeyInDays") => [integer()],
+        required("KeyIdentifier") => String.t()
+      }
+      
   """
   @type delete_key_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  internal_server_exception() :: %{
-    "Message" => [String.t()]
-  }
+      
+      internal_server_exception() :: %{
+        "Message" => [String.t()]
+      }
+      
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  export_key_input() :: %{
-    optional("ExportAttributes") => export_attributes(),
-    required("ExportKeyIdentifier") => String.t(),
-    required("KeyMaterial") => list()
-  }
+      
+      export_key_input() :: %{
+        optional("ExportAttributes") => export_attributes(),
+        required("ExportKeyIdentifier") => String.t(),
+        required("KeyMaterial") => list()
+      }
+      
   """
   @type export_key_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_public_key_certificate_input() :: %{
-    required("KeyIdentifier") => String.t()
-  }
+      
+      get_public_key_certificate_input() :: %{
+        required("KeyIdentifier") => String.t()
+      }
+      
   """
   @type get_public_key_certificate_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  alias() :: %{
-    "AliasName" => String.t(),
-    "KeyArn" => String.t()
-  }
+      
+      alias() :: %{
+        "AliasName" => String.t(),
+        "KeyArn" => String.t()
+      }
+      
   """
   @type alias() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  import_key_output() :: %{
-    "Key" => key()
-  }
+      
+      import_key_output() :: %{
+        "Key" => key()
+      }
+      
   """
   @type import_key_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  access_denied_exception() :: %{
-    "Message" => [String.t()]
-  }
+      
+      access_denied_exception() :: %{
+        "Message" => [String.t()]
+      }
+      
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_input() :: %{
-    required("ResourceArn") => String.t(),
-    required("TagKeys") => list(String.t()())
-  }
+      
+      untag_resource_input() :: %{
+        required("ResourceArn") => String.t(),
+        required("TagKeys") => list(String.t()())
+      }
+      
   """
   @type untag_resource_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  export_tr34_key_block() :: %{
-    "CertificateAuthorityPublicKeyIdentifier" => String.t(),
-    "ExportToken" => String.t(),
-    "KeyBlockFormat" => String.t(),
-    "RandomNonce" => String.t(),
-    "WrappingKeyCertificate" => String.t()
-  }
+      
+      export_tr34_key_block() :: %{
+        "CertificateAuthorityPublicKeyIdentifier" => String.t(),
+        "ExportToken" => String.t(),
+        "KeyBlockFormat" => String.t(),
+        "RandomNonce" => String.t(),
+        "WrappingKeyCertificate" => String.t()
+      }
+      
   """
   @type export_tr34_key_block() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  trusted_certificate_public_key() :: %{
-    "CertificateAuthorityPublicKeyIdentifier" => String.t(),
-    "KeyAttributes" => key_attributes(),
-    "PublicKeyCertificate" => String.t()
-  }
+      
+      trusted_certificate_public_key() :: %{
+        "CertificateAuthorityPublicKeyIdentifier" => String.t(),
+        "KeyAttributes" => key_attributes(),
+        "PublicKeyCertificate" => String.t()
+      }
+      
   """
   @type trusted_certificate_public_key() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_parameters_for_import_input() :: %{
-    required("KeyMaterialType") => String.t(),
-    required("WrappingKeyAlgorithm") => String.t()
-  }
+      
+      get_parameters_for_import_input() :: %{
+        required("KeyMaterialType") => String.t(),
+        required("WrappingKeyAlgorithm") => String.t()
+      }
+      
   """
   @type get_parameters_for_import_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  validation_exception() :: %{
-    "Message" => [String.t()]
-  }
+      
+      validation_exception() :: %{
+        "Message" => [String.t()]
+      }
+      
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_input() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("ResourceArn") => String.t()
-  }
+      
+      list_tags_for_resource_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("ResourceArn") => String.t()
+      }
+      
   """
   @type list_tags_for_resource_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_output() :: %{
-
-  }
+      
+      untag_resource_output() :: %{}
+      
   """
-  @type untag_resource_output() :: %{String.t() => any()}
+  @type untag_resource_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  throttling_exception() :: %{
-    "Message" => [String.t()]
-  }
+      
+      throttling_exception() :: %{
+        "Message" => [String.t()]
+      }
+      
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  key() :: %{
-    "CreateTimestamp" => non_neg_integer(),
-    "DeletePendingTimestamp" => non_neg_integer(),
-    "DeleteTimestamp" => non_neg_integer(),
-    "Enabled" => [boolean()],
-    "Exportable" => [boolean()],
-    "KeyArn" => String.t(),
-    "KeyAttributes" => key_attributes(),
-    "KeyCheckValue" => String.t(),
-    "KeyCheckValueAlgorithm" => String.t(),
-    "KeyOrigin" => String.t(),
-    "KeyState" => String.t(),
-    "UsageStartTimestamp" => non_neg_integer(),
-    "UsageStopTimestamp" => non_neg_integer()
-  }
+      
+      key() :: %{
+        "CreateTimestamp" => non_neg_integer(),
+        "DeletePendingTimestamp" => non_neg_integer(),
+        "DeleteTimestamp" => non_neg_integer(),
+        "Enabled" => [boolean()],
+        "Exportable" => [boolean()],
+        "KeyArn" => String.t(),
+        "KeyAttributes" => key_attributes(),
+        "KeyCheckValue" => String.t(),
+        "KeyCheckValueAlgorithm" => String.t(),
+        "KeyOrigin" => String.t(),
+        "KeyState" => String.t(),
+        "UsageStartTimestamp" => non_neg_integer(),
+        "UsageStopTimestamp" => non_neg_integer()
+      }
+      
   """
   @type key() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_keys_output() :: %{
-    "Keys" => list(key_summary()()),
-    "NextToken" => String.t()
-  }
+      
+      list_keys_output() :: %{
+        "Keys" => list(key_summary()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_keys_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_alias_input() :: %{
-    optional("KeyArn") => String.t(),
-    required("AliasName") => String.t()
-  }
+      
+      create_alias_input() :: %{
+        optional("KeyArn") => String.t(),
+        required("AliasName") => String.t()
+      }
+      
   """
   @type create_alias_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_alias_output() :: %{
-
-  }
+      
+      delete_alias_output() :: %{}
+      
   """
-  @type delete_alias_output() :: %{String.t() => any()}
+  @type delete_alias_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  export_key_output() :: %{
-    "WrappedKey" => wrapped_key()
-  }
+      
+      export_key_output() :: %{
+        "WrappedKey" => wrapped_key()
+      }
+      
   """
   @type export_key_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  export_dukpt_initial_key() :: %{
-    "KeySerialNumber" => String.t()
-  }
+      
+      export_dukpt_initial_key() :: %{
+        "KeySerialNumber" => String.t()
+      }
+      
   """
   @type export_dukpt_initial_key() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  restore_key_output() :: %{
-    "Key" => key()
-  }
+      
+      restore_key_output() :: %{
+        "Key" => key()
+      }
+      
   """
   @type restore_key_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  root_certificate_public_key() :: %{
-    "KeyAttributes" => key_attributes(),
-    "PublicKeyCertificate" => String.t()
-  }
+      
+      root_certificate_public_key() :: %{
+        "KeyAttributes" => key_attributes(),
+        "PublicKeyCertificate" => String.t()
+      }
+      
   """
   @type root_certificate_public_key() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_key_output() :: %{
-    "Key" => key()
-  }
+      
+      get_key_output() :: %{
+        "Key" => key()
+      }
+      
   """
   @type get_key_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_key_output() :: %{
-    "Key" => key()
-  }
+      
+      create_key_output() :: %{
+        "Key" => key()
+      }
+      
   """
   @type create_key_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_public_key_certificate_output() :: %{
-    "KeyCertificate" => String.t(),
-    "KeyCertificateChain" => String.t()
-  }
+      
+      get_public_key_certificate_output() :: %{
+        "KeyCertificate" => String.t(),
+        "KeyCertificateChain" => String.t()
+      }
+      
   """
   @type get_public_key_certificate_output() :: %{String.t() => any()}
+
+  @type create_alias_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_unavailable_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_key_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_unavailable_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_alias_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_key_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type export_key_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type get_alias_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+
+  @type get_key_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+
+  @type get_parameters_for_export_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_unavailable_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type get_parameters_for_import_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_unavailable_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type get_public_key_certificate_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+
+  @type import_key_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_unavailable_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type list_aliases_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+
+  @type list_keys_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+
+  @type list_tags_for_resource_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+
+  @type restore_key_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_unavailable_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type start_key_usage_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_unavailable_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type stop_key_usage_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_unavailable_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type tag_resource_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_unavailable_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type untag_resource_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_alias_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   def metadata do
     %{
@@ -764,14 +1071,7 @@ defmodule AWS.PaymentCryptography do
   @spec create_alias(map(), create_alias_input(), list()) ::
           {:ok, create_alias_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_alias_errors()}
   def create_alias(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -824,14 +1124,7 @@ defmodule AWS.PaymentCryptography do
   @spec create_key(map(), create_key_input(), list()) ::
           {:ok, create_key_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_key_errors()}
   def create_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -870,13 +1163,7 @@ defmodule AWS.PaymentCryptography do
   @spec delete_alias(map(), delete_alias_input(), list()) ::
           {:ok, delete_alias_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_alias_errors()}
   def delete_alias(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -922,13 +1209,7 @@ defmodule AWS.PaymentCryptography do
   @spec delete_key(map(), delete_key_input(), list()) ::
           {:ok, delete_key_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_key_errors()}
   def delete_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1109,13 +1390,7 @@ defmodule AWS.PaymentCryptography do
   @spec export_key(map(), export_key_input(), list()) ::
           {:ok, export_key_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, export_key_errors()}
   def export_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1149,12 +1424,7 @@ defmodule AWS.PaymentCryptography do
   @spec get_alias(map(), get_alias_input(), list()) ::
           {:ok, get_alias_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_alias_errors()}
   def get_alias(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1185,12 +1455,7 @@ defmodule AWS.PaymentCryptography do
   @spec get_key(map(), get_key_input(), list()) ::
           {:ok, get_key_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_key_errors()}
   def get_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1222,14 +1487,7 @@ defmodule AWS.PaymentCryptography do
   @spec get_parameters_for_export(map(), get_parameters_for_export_input(), list()) ::
           {:ok, get_parameters_for_export_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_parameters_for_export_errors()}
   def get_parameters_for_export(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1262,14 +1520,7 @@ defmodule AWS.PaymentCryptography do
   @spec get_parameters_for_import(map(), get_parameters_for_import_input(), list()) ::
           {:ok, get_parameters_for_import_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_parameters_for_import_errors()}
   def get_parameters_for_import(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1293,12 +1544,7 @@ defmodule AWS.PaymentCryptography do
   @spec get_public_key_certificate(map(), get_public_key_certificate_input(), list()) ::
           {:ok, get_public_key_certificate_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_public_key_certificate_errors()}
   def get_public_key_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1505,14 +1751,7 @@ defmodule AWS.PaymentCryptography do
   @spec import_key(map(), import_key_input(), list()) ::
           {:ok, import_key_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, import_key_errors()}
   def import_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1557,12 +1796,7 @@ defmodule AWS.PaymentCryptography do
   @spec list_aliases(map(), list_aliases_input(), list()) ::
           {:ok, list_aliases_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_aliases_errors()}
   def list_aliases(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1602,12 +1836,7 @@ defmodule AWS.PaymentCryptography do
   @spec list_keys(map(), list_keys_input(), list()) ::
           {:ok, list_keys_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_keys_errors()}
   def list_keys(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1641,12 +1870,7 @@ defmodule AWS.PaymentCryptography do
   @spec list_tags_for_resource(map(), list_tags_for_resource_input(), list()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1684,14 +1908,7 @@ defmodule AWS.PaymentCryptography do
   @spec restore_key(map(), restore_key_input(), list()) ::
           {:ok, restore_key_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, restore_key_errors()}
   def restore_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1714,14 +1931,7 @@ defmodule AWS.PaymentCryptography do
   @spec start_key_usage(map(), start_key_usage_input(), list()) ::
           {:ok, start_key_usage_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, start_key_usage_errors()}
   def start_key_usage(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1751,14 +1961,7 @@ defmodule AWS.PaymentCryptography do
   @spec stop_key_usage(map(), stop_key_usage_input(), list()) ::
           {:ok, stop_key_usage_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, stop_key_usage_errors()}
   def stop_key_usage(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1793,14 +1996,7 @@ defmodule AWS.PaymentCryptography do
   @spec tag_resource(map(), tag_resource_input(), list()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1829,13 +2025,7 @@ defmodule AWS.PaymentCryptography do
   @spec untag_resource(map(), untag_resource_input(), list()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1875,13 +2065,7 @@ defmodule AWS.PaymentCryptography do
   @spec update_alias(map(), update_alias_input(), list()) ::
           {:ok, update_alias_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_alias_errors()}
   def update_alias(%Client{} = client, input, options \\ []) do
     meta = metadata()
 

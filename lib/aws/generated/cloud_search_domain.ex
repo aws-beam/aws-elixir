@@ -21,208 +21,250 @@ defmodule AWS.CloudSearchDomain do
   @typedoc """
 
   ## Example:
-  bucket() :: %{
-    "count" => float(),
-    "value" => String.t()
-  }
+
+      bucket() :: %{
+        "count" => float(),
+        "value" => String.t()
+      }
+
   """
   @type bucket() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  bucket_info() :: %{
-    "buckets" => list(bucket()())
-  }
+
+      bucket_info() :: %{
+        "buckets" => list(bucket()())
+      }
+
   """
   @type bucket_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  document_service_exception() :: %{
-    "message" => String.t(),
-    "status" => String.t()
-  }
+
+      document_service_exception() :: %{
+        "message" => String.t(),
+        "status" => String.t()
+      }
+
   """
   @type document_service_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  document_service_warning() :: %{
-    "message" => String.t()
-  }
+
+      document_service_warning() :: %{
+        "message" => String.t()
+      }
+
   """
   @type document_service_warning() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  field_stats() :: %{
-    "count" => float(),
-    "max" => String.t(),
-    "mean" => String.t(),
-    "min" => String.t(),
-    "missing" => float(),
-    "stddev" => float(),
-    "sum" => float(),
-    "sumOfSquares" => float()
-  }
+
+      field_stats() :: %{
+        "count" => float(),
+        "max" => String.t(),
+        "mean" => String.t(),
+        "min" => String.t(),
+        "missing" => float(),
+        "stddev" => float(),
+        "sum" => float(),
+        "sumOfSquares" => float()
+      }
+
   """
   @type field_stats() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  hit() :: %{
-    "exprs" => map(),
-    "fields" => map(),
-    "highlights" => map(),
-    "id" => String.t()
-  }
+
+      hit() :: %{
+        "exprs" => map(),
+        "fields" => map(),
+        "highlights" => map(),
+        "id" => String.t()
+      }
+
   """
   @type hit() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  hits() :: %{
-    "cursor" => String.t(),
-    "found" => float(),
-    "hit" => list(hit()()),
-    "start" => float()
-  }
+
+      hits() :: %{
+        "cursor" => String.t(),
+        "found" => float(),
+        "hit" => list(hit()()),
+        "start" => float()
+      }
+
   """
   @type hits() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  search_exception() :: %{
-    "message" => String.t()
-  }
+
+      search_exception() :: %{
+        "message" => String.t()
+      }
+
   """
   @type search_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  search_request() :: %{
-    optional("cursor") => String.t(),
-    optional("expr") => String.t(),
-    optional("facet") => String.t(),
-    optional("filterQuery") => String.t(),
-    optional("highlight") => String.t(),
-    optional("partial") => boolean(),
-    optional("queryOptions") => String.t(),
-    optional("queryParser") => list(any()),
-    optional("return") => String.t(),
-    optional("size") => float(),
-    optional("sort") => String.t(),
-    optional("start") => float(),
-    optional("stats") => String.t(),
-    required("query") => String.t()
-  }
+
+      search_request() :: %{
+        optional("cursor") => String.t(),
+        optional("expr") => String.t(),
+        optional("facet") => String.t(),
+        optional("filterQuery") => String.t(),
+        optional("highlight") => String.t(),
+        optional("partial") => boolean(),
+        optional("queryOptions") => String.t(),
+        optional("queryParser") => list(any()),
+        optional("return") => String.t(),
+        optional("size") => float(),
+        optional("sort") => String.t(),
+        optional("start") => float(),
+        optional("stats") => String.t(),
+        required("query") => String.t()
+      }
+
   """
   @type search_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  search_response() :: %{
-    "facets" => map(),
-    "hits" => hits(),
-    "stats" => map(),
-    "status" => search_status()
-  }
+
+      search_response() :: %{
+        "facets" => map(),
+        "hits" => hits(),
+        "stats" => map(),
+        "status" => search_status()
+      }
+
   """
   @type search_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  search_status() :: %{
-    "rid" => String.t(),
-    "timems" => float()
-  }
+
+      search_status() :: %{
+        "rid" => String.t(),
+        "timems" => float()
+      }
+
   """
   @type search_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  suggest_model() :: %{
-    "found" => float(),
-    "query" => String.t(),
-    "suggestions" => list(suggestion_match()())
-  }
+
+      suggest_model() :: %{
+        "found" => float(),
+        "query" => String.t(),
+        "suggestions" => list(suggestion_match()())
+      }
+
   """
   @type suggest_model() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  suggest_request() :: %{
-    optional("size") => float(),
-    required("query") => String.t(),
-    required("suggester") => String.t()
-  }
+
+      suggest_request() :: %{
+        optional("size") => float(),
+        required("query") => String.t(),
+        required("suggester") => String.t()
+      }
+
   """
   @type suggest_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  suggest_response() :: %{
-    "status" => suggest_status(),
-    "suggest" => suggest_model()
-  }
+
+      suggest_response() :: %{
+        "status" => suggest_status(),
+        "suggest" => suggest_model()
+      }
+
   """
   @type suggest_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  suggest_status() :: %{
-    "rid" => String.t(),
-    "timems" => float()
-  }
+
+      suggest_status() :: %{
+        "rid" => String.t(),
+        "timems" => float()
+      }
+
   """
   @type suggest_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  suggestion_match() :: %{
-    "id" => String.t(),
-    "score" => float(),
-    "suggestion" => String.t()
-  }
+
+      suggestion_match() :: %{
+        "id" => String.t(),
+        "score" => float(),
+        "suggestion" => String.t()
+      }
+
   """
   @type suggestion_match() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  upload_documents_request() :: %{
-    required("contentType") => list(any()),
-    required("documents") => binary()
-  }
+
+      upload_documents_request() :: %{
+        required("contentType") => list(any()),
+        required("documents") => binary()
+      }
+
   """
   @type upload_documents_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  upload_documents_response() :: %{
-    "adds" => float(),
-    "deletes" => float(),
-    "status" => String.t(),
-    "warnings" => list(document_service_warning()())
-  }
+
+      upload_documents_response() :: %{
+        "adds" => float(),
+        "deletes" => float(),
+        "status" => String.t(),
+        "warnings" => list(document_service_warning()())
+      }
+
   """
   @type upload_documents_response() :: %{String.t() => any()}
+
+  @type search_errors() :: search_exception()
+
+  @type suggest_errors() :: search_exception()
+
+  @type upload_documents_errors() :: document_service_exception()
 
   def metadata do
     %{
@@ -287,7 +329,7 @@ defmodule AWS.CloudSearchDomain do
         ) ::
           {:ok, search_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, search_exception()}
+          | {:error, search_errors()}
   def search(
         %Client{} = client,
         cursor \\ nil,
@@ -436,7 +478,7 @@ defmodule AWS.CloudSearchDomain do
   @spec suggest(map(), String.t(), String.t() | nil, String.t(), list()) ::
           {:ok, suggest_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, search_exception()}
+          | {:error, suggest_errors()}
   def suggest(%Client{} = client, query, size \\ nil, suggester, options \\ []) do
     url_path = "/2013-01-01/suggest?format=sdk&pretty=true"
     headers = []
@@ -496,7 +538,7 @@ defmodule AWS.CloudSearchDomain do
   @spec upload_documents(map(), upload_documents_request(), list()) ::
           {:ok, upload_documents_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, document_service_exception()}
+          | {:error, upload_documents_errors()}
   def upload_documents(%Client{} = client, input, options \\ []) do
     url_path = "/2013-01-01/documents/batch?format=sdk"
 

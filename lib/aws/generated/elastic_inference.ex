@@ -22,215 +22,268 @@ defmodule AWS.ElasticInference do
   @typedoc """
 
   ## Example:
-  accelerator_type() :: %{
-    "acceleratorTypeName" => String.t(),
-    "memoryInfo" => memory_info(),
-    "throughputInfo" => list(key_value_pair()())
-  }
+
+      accelerator_type() :: %{
+        "acceleratorTypeName" => String.t(),
+        "memoryInfo" => memory_info(),
+        "throughputInfo" => list(key_value_pair()())
+      }
+
   """
   @type accelerator_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  accelerator_type_offering() :: %{
-    "acceleratorType" => String.t(),
-    "location" => String.t(),
-    "locationType" => list(any())
-  }
+
+      accelerator_type_offering() :: %{
+        "acceleratorType" => String.t(),
+        "location" => String.t(),
+        "locationType" => list(any())
+      }
+
   """
   @type accelerator_type_offering() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  bad_request_exception() :: %{
-    "message" => String.t()
-  }
+
+      bad_request_exception() :: %{
+        "message" => String.t()
+      }
+
   """
   @type bad_request_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_accelerator_offerings_request() :: %{
-    optional("acceleratorTypes") => list(String.t()()),
-    required("locationType") => list(any())
-  }
+
+      describe_accelerator_offerings_request() :: %{
+        optional("acceleratorTypes") => list(String.t()()),
+        required("locationType") => list(any())
+      }
+
   """
   @type describe_accelerator_offerings_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_accelerator_offerings_response() :: %{
-    "acceleratorTypeOfferings" => list(accelerator_type_offering()())
-  }
+
+      describe_accelerator_offerings_response() :: %{
+        "acceleratorTypeOfferings" => list(accelerator_type_offering()())
+      }
+
   """
   @type describe_accelerator_offerings_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_accelerator_types_request() :: %{
 
-  }
+      describe_accelerator_types_request() :: %{}
+
   """
-  @type describe_accelerator_types_request() :: %{String.t() => any()}
+  @type describe_accelerator_types_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  describe_accelerator_types_response() :: %{
-    "acceleratorTypes" => list(accelerator_type()())
-  }
+
+      describe_accelerator_types_response() :: %{
+        "acceleratorTypes" => list(accelerator_type()())
+      }
+
   """
   @type describe_accelerator_types_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_accelerators_request() :: %{
-    optional("acceleratorIds") => list(String.t()()),
-    optional("filters") => list(filter()()),
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t()
-  }
+
+      describe_accelerators_request() :: %{
+        optional("acceleratorIds") => list(String.t()()),
+        optional("filters") => list(filter()()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
   """
   @type describe_accelerators_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_accelerators_response() :: %{
-    "acceleratorSet" => list(elastic_inference_accelerator()()),
-    "nextToken" => String.t()
-  }
+
+      describe_accelerators_response() :: %{
+        "acceleratorSet" => list(elastic_inference_accelerator()()),
+        "nextToken" => String.t()
+      }
+
   """
   @type describe_accelerators_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  elastic_inference_accelerator() :: %{
-    "acceleratorHealth" => elastic_inference_accelerator_health(),
-    "acceleratorId" => String.t(),
-    "acceleratorType" => String.t(),
-    "attachedResource" => String.t(),
-    "availabilityZone" => String.t()
-  }
+
+      elastic_inference_accelerator() :: %{
+        "acceleratorHealth" => elastic_inference_accelerator_health(),
+        "acceleratorId" => String.t(),
+        "acceleratorType" => String.t(),
+        "attachedResource" => String.t(),
+        "availabilityZone" => String.t()
+      }
+
   """
   @type elastic_inference_accelerator() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  elastic_inference_accelerator_health() :: %{
-    "status" => String.t()
-  }
+
+      elastic_inference_accelerator_health() :: %{
+        "status" => String.t()
+      }
+
   """
   @type elastic_inference_accelerator_health() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  filter() :: %{
-    "name" => String.t(),
-    "values" => list(String.t()())
-  }
+
+      filter() :: %{
+        "name" => String.t(),
+        "values" => list(String.t()())
+      }
+
   """
   @type filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  internal_server_exception() :: %{
-    "message" => String.t()
-  }
+
+      internal_server_exception() :: %{
+        "message" => String.t()
+      }
+
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  key_value_pair() :: %{
-    "key" => String.t(),
-    "value" => integer()
-  }
+
+      key_value_pair() :: %{
+        "key" => String.t(),
+        "value" => integer()
+      }
+
   """
   @type key_value_pair() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_request() :: %{
 
-  }
+      list_tags_for_resource_request() :: %{}
+
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_result() :: %{
-    "tags" => map()
-  }
+
+      list_tags_for_resource_result() :: %{
+        "tags" => map()
+      }
+
   """
   @type list_tags_for_resource_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  memory_info() :: %{
-    "sizeInMiB" => integer()
-  }
+
+      memory_info() :: %{
+        "sizeInMiB" => integer()
+      }
+
   """
   @type memory_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_not_found_exception() :: %{
-    "message" => String.t()
-  }
+
+      resource_not_found_exception() :: %{
+        "message" => String.t()
+      }
+
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_request() :: %{
-    required("tags") => map()
-  }
+
+      tag_resource_request() :: %{
+        required("tags") => map()
+      }
+
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_result() :: %{
 
-  }
+      tag_resource_result() :: %{}
+
   """
-  @type tag_resource_result() :: %{String.t() => any()}
+  @type tag_resource_result() :: %{}
 
   @typedoc """
 
   ## Example:
-  untag_resource_request() :: %{
-    required("tagKeys") => list(String.t()())
-  }
+
+      untag_resource_request() :: %{
+        required("tagKeys") => list(String.t()())
+      }
+
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_result() :: %{
 
-  }
+      untag_resource_result() :: %{}
+
   """
-  @type untag_resource_result() :: %{String.t() => any()}
+  @type untag_resource_result() :: %{}
+
+  @type describe_accelerator_offerings_errors() ::
+          resource_not_found_exception() | internal_server_exception() | bad_request_exception()
+
+  @type describe_accelerator_types_errors() :: internal_server_exception()
+
+  @type describe_accelerators_errors() ::
+          resource_not_found_exception() | internal_server_exception() | bad_request_exception()
+
+  @type list_tags_for_resource_errors() ::
+          resource_not_found_exception() | internal_server_exception() | bad_request_exception()
+
+  @type tag_resource_errors() ::
+          resource_not_found_exception() | internal_server_exception() | bad_request_exception()
+
+  @type untag_resource_errors() ::
+          resource_not_found_exception() | internal_server_exception() | bad_request_exception()
 
   def metadata do
     %{
@@ -264,9 +317,7 @@ defmodule AWS.ElasticInference do
   @spec describe_accelerator_offerings(map(), describe_accelerator_offerings_request(), list()) ::
           {:ok, describe_accelerator_offerings_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, describe_accelerator_offerings_errors()}
   def describe_accelerator_offerings(%Client{} = client, input, options \\ []) do
     url_path = "/describe-accelerator-offerings"
     headers = []
@@ -304,7 +355,7 @@ defmodule AWS.ElasticInference do
   @spec describe_accelerator_types(map(), list()) ::
           {:ok, describe_accelerator_types_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
+          | {:error, describe_accelerator_types_errors()}
   def describe_accelerator_types(%Client{} = client, options \\ []) do
     url_path = "/describe-accelerator-types"
     headers = []
@@ -332,9 +383,7 @@ defmodule AWS.ElasticInference do
   @spec describe_accelerators(map(), describe_accelerators_request(), list()) ::
           {:ok, describe_accelerators_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, describe_accelerators_errors()}
   def describe_accelerators(%Client{} = client, input, options \\ []) do
     url_path = "/describe-accelerators"
     headers = []
@@ -371,9 +420,7 @@ defmodule AWS.ElasticInference do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -400,9 +447,7 @@ defmodule AWS.ElasticInference do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -439,9 +484,7 @@ defmodule AWS.ElasticInference do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []

@@ -24,1982 +24,2416 @@ defmodule AWS.DataSync do
   @typedoc """
 
   ## Example:
-  update_location_azure_blob_request() :: %{
-    optional("AccessTier") => list(any()),
-    optional("AgentArns") => list(String.t()()),
-    optional("AuthenticationType") => list(any()),
-    optional("BlobType") => list(any()),
-    optional("SasConfiguration") => azure_blob_sas_configuration(),
-    optional("Subdirectory") => String.t(),
-    required("LocationArn") => String.t()
-  }
+      
+      update_location_azure_blob_request() :: %{
+        optional("AccessTier") => list(any()),
+        optional("AgentArns") => list(String.t()()),
+        optional("AuthenticationType") => list(any()),
+        optional("BlobType") => list(any()),
+        optional("SasConfiguration") => azure_blob_sas_configuration(),
+        optional("Subdirectory") => String.t(),
+        required("LocationArn") => String.t()
+      }
+      
   """
   @type update_location_azure_blob_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_task_execution_response() :: %{
-    "TaskExecutionArn" => String.t()
-  }
+      
+      start_task_execution_response() :: %{
+        "TaskExecutionArn" => String.t()
+      }
+      
   """
   @type start_task_execution_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  private_link_config() :: %{
-    "PrivateLinkEndpoint" => String.t(),
-    "SecurityGroupArns" => list(String.t()()),
-    "SubnetArns" => list(String.t()()),
-    "VpcEndpointId" => String.t()
-  }
+      
+      private_link_config() :: %{
+        "PrivateLinkEndpoint" => String.t(),
+        "SecurityGroupArns" => list(String.t()()),
+        "SubnetArns" => list(String.t()()),
+        "VpcEndpointId" => String.t()
+      }
+      
   """
   @type private_link_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_location_object_storage_request() :: %{
-    optional("AccessKey") => String.t(),
-    optional("SecretKey") => String.t(),
-    optional("ServerCertificate") => binary(),
-    optional("ServerPort") => integer(),
-    optional("ServerProtocol") => list(any()),
-    optional("Subdirectory") => String.t(),
-    optional("Tags") => list(tag_list_entry()()),
-    required("AgentArns") => list(String.t()()),
-    required("BucketName") => String.t(),
-    required("ServerHostname") => String.t()
-  }
+      
+      create_location_object_storage_request() :: %{
+        optional("AccessKey") => String.t(),
+        optional("SecretKey") => String.t(),
+        optional("ServerCertificate") => binary(),
+        optional("ServerPort") => integer(),
+        optional("ServerProtocol") => list(any()),
+        optional("Subdirectory") => String.t(),
+        optional("Tags") => list(tag_list_entry()()),
+        required("AgentArns") => list(String.t()()),
+        required("BucketName") => String.t(),
+        required("ServerHostname") => String.t()
+      }
+      
   """
   @type create_location_object_storage_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  add_storage_system_request() :: %{
-    optional("CloudWatchLogGroupArn") => String.t(),
-    optional("Name") => String.t(),
-    optional("Tags") => list(tag_list_entry()()),
-    required("AgentArns") => list(String.t()()),
-    required("ClientToken") => String.t(),
-    required("Credentials") => credentials(),
-    required("ServerConfiguration") => discovery_server_configuration(),
-    required("SystemType") => list(any())
-  }
+      
+      add_storage_system_request() :: %{
+        optional("CloudWatchLogGroupArn") => String.t(),
+        optional("Name") => String.t(),
+        optional("Tags") => list(tag_list_entry()()),
+        required("AgentArns") => list(String.t()()),
+        required("ClientToken") => String.t(),
+        required("Credentials") => credentials(),
+        required("ServerConfiguration") => discovery_server_configuration(),
+        required("SystemType") => list(any())
+      }
+      
   """
   @type add_storage_system_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  fsx_protocol_nfs() :: %{
-    "MountOptions" => nfs_mount_options()
-  }
+      
+      fsx_protocol_nfs() :: %{
+        "MountOptions" => nfs_mount_options()
+      }
+      
   """
   @type fsx_protocol_nfs() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_request() :: %{
-    required("ResourceArn") => String.t(),
-    required("Tags") => list(tag_list_entry()())
-  }
+      
+      tag_resource_request() :: %{
+        required("ResourceArn") => String.t(),
+        required("Tags") => list(tag_list_entry()())
+      }
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_location_fsx_open_zfs_request() :: %{
-    required("LocationArn") => String.t()
-  }
+      
+      describe_location_fsx_open_zfs_request() :: %{
+        required("LocationArn") => String.t()
+      }
+      
   """
   @type describe_location_fsx_open_zfs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_task_request() :: %{
-    required("TaskArn") => String.t()
-  }
+      
+      describe_task_request() :: %{
+        required("TaskArn") => String.t()
+      }
+      
   """
   @type describe_task_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cancel_task_execution_request() :: %{
-    required("TaskExecutionArn") => String.t()
-  }
+      
+      cancel_task_execution_request() :: %{
+        required("TaskExecutionArn") => String.t()
+      }
+      
   """
   @type cancel_task_execution_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_location_fsx_lustre_response() :: %{
-    "LocationArn" => String.t()
-  }
+      
+      create_location_fsx_lustre_response() :: %{
+        "LocationArn" => String.t()
+      }
+      
   """
   @type create_location_fsx_lustre_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_agents_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+      
+      list_agents_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type list_agents_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  nfs_mount_options() :: %{
-    "Version" => list(any())
-  }
+      
+      nfs_mount_options() :: %{
+        "Version" => list(any())
+      }
+      
   """
   @type nfs_mount_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_task_execution_request() :: %{
-    required("Options") => options(),
-    required("TaskExecutionArn") => String.t()
-  }
+      
+      update_task_execution_request() :: %{
+        required("Options") => options(),
+        required("TaskExecutionArn") => String.t()
+      }
+      
   """
   @type update_task_execution_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_response() :: %{
-
-  }
+      
+      untag_resource_response() :: %{}
+      
   """
-  @type untag_resource_response() :: %{String.t() => any()}
+  @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  describe_location_fsx_windows_response() :: %{
-    "CreationTime" => non_neg_integer(),
-    "Domain" => String.t(),
-    "LocationArn" => String.t(),
-    "LocationUri" => String.t(),
-    "SecurityGroupArns" => list(String.t()()),
-    "User" => String.t()
-  }
+      
+      describe_location_fsx_windows_response() :: %{
+        "CreationTime" => non_neg_integer(),
+        "Domain" => String.t(),
+        "LocationArn" => String.t(),
+        "LocationUri" => String.t(),
+        "SecurityGroupArns" => list(String.t()()),
+        "User" => String.t()
+      }
+      
   """
   @type describe_location_fsx_windows_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_location_nfs_request() :: %{
-    required("LocationArn") => String.t()
-  }
+      
+      describe_location_nfs_request() :: %{
+        required("LocationArn") => String.t()
+      }
+      
   """
   @type describe_location_nfs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_agents_response() :: %{
-    "Agents" => list(agent_list_entry()()),
-    "NextToken" => String.t()
-  }
+      
+      list_agents_response() :: %{
+        "Agents" => list(agent_list_entry()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_agents_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_storage_system_response() :: %{
-    "AgentArns" => list(String.t()()),
-    "CloudWatchLogGroupArn" => String.t(),
-    "ConnectivityStatus" => list(any()),
-    "CreationTime" => non_neg_integer(),
-    "ErrorMessage" => String.t(),
-    "Name" => String.t(),
-    "SecretsManagerArn" => String.t(),
-    "ServerConfiguration" => discovery_server_configuration(),
-    "StorageSystemArn" => String.t(),
-    "SystemType" => list(any())
-  }
+      
+      describe_storage_system_response() :: %{
+        "AgentArns" => list(String.t()()),
+        "CloudWatchLogGroupArn" => String.t(),
+        "ConnectivityStatus" => list(any()),
+        "CreationTime" => non_neg_integer(),
+        "ErrorMessage" => String.t(),
+        "Name" => String.t(),
+        "SecretsManagerArn" => String.t(),
+        "ServerConfiguration" => discovery_server_configuration(),
+        "StorageSystemArn" => String.t(),
+        "SystemType" => list(any())
+      }
+      
   """
   @type describe_storage_system_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_storage_system_resources_response() :: %{
-    "NextToken" => String.t(),
-    "ResourceDetails" => resource_details()
-  }
+      
+      describe_storage_system_resources_response() :: %{
+        "NextToken" => String.t(),
+        "ResourceDetails" => resource_details()
+      }
+      
   """
   @type describe_storage_system_resources_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  filter_rule() :: %{
-    "FilterType" => list(any()),
-    "Value" => String.t()
-  }
+      
+      filter_rule() :: %{
+        "FilterType" => list(any()),
+        "Value" => String.t()
+      }
+      
   """
   @type filter_rule() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_agent_request() :: %{
-    optional("AgentName") => String.t(),
-    optional("SecurityGroupArns") => list(String.t()()),
-    optional("SubnetArns") => list(String.t()()),
-    optional("Tags") => list(tag_list_entry()()),
-    optional("VpcEndpointId") => String.t(),
-    required("ActivationKey") => String.t()
-  }
+      
+      create_agent_request() :: %{
+        optional("AgentName") => String.t(),
+        optional("SecurityGroupArns") => list(String.t()()),
+        optional("SubnetArns") => list(String.t()()),
+        optional("Tags") => list(tag_list_entry()()),
+        optional("VpcEndpointId") => String.t(),
+        required("ActivationKey") => String.t()
+      }
+      
   """
   @type create_agent_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  remove_storage_system_response() :: %{
-
-  }
+      
+      remove_storage_system_response() :: %{}
+      
   """
-  @type remove_storage_system_response() :: %{String.t() => any()}
+  @type remove_storage_system_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  generate_recommendations_response() :: %{
-
-  }
+      
+      generate_recommendations_response() :: %{}
+      
   """
-  @type generate_recommendations_response() :: %{String.t() => any()}
+  @type generate_recommendations_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  net_app_o_n_t_a_p_volume() :: %{
-    "CapacityProvisioned" => float(),
-    "CapacityUsed" => float(),
-    "CifsShareCount" => float(),
-    "LogicalCapacityUsed" => float(),
-    "LunCount" => float(),
-    "MaxP95Performance" => max_p95_performance(),
-    "NfsExported" => boolean(),
-    "RecommendationStatus" => list(any()),
-    "Recommendations" => list(recommendation()()),
-    "ResourceId" => String.t(),
-    "SecurityStyle" => String.t(),
-    "SnapshotCapacityUsed" => float(),
-    "SvmName" => String.t(),
-    "SvmUuid" => String.t(),
-    "VolumeName" => String.t()
-  }
+      
+      net_app_o_n_t_a_p_volume() :: %{
+        "CapacityProvisioned" => float(),
+        "CapacityUsed" => float(),
+        "CifsShareCount" => float(),
+        "LogicalCapacityUsed" => float(),
+        "LunCount" => float(),
+        "MaxP95Performance" => max_p95_performance(),
+        "NfsExported" => boolean(),
+        "RecommendationStatus" => list(any()),
+        "Recommendations" => list(recommendation()()),
+        "ResourceId" => String.t(),
+        "SecurityStyle" => String.t(),
+        "SnapshotCapacityUsed" => float(),
+        "SvmName" => String.t(),
+        "SvmUuid" => String.t(),
+        "VolumeName" => String.t()
+      }
+      
   """
   @type net_app_o_n_t_a_p_volume() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  report_destination() :: %{
-    "S3" => report_destination_s3()
-  }
+      
+      report_destination() :: %{
+        "S3" => report_destination_s3()
+      }
+      
   """
   @type report_destination() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_location_nfs_request() :: %{
-    optional("MountOptions") => nfs_mount_options(),
-    optional("Tags") => list(tag_list_entry()()),
-    required("OnPremConfig") => on_prem_config(),
-    required("ServerHostname") => String.t(),
-    required("Subdirectory") => String.t()
-  }
+      
+      create_location_nfs_request() :: %{
+        optional("MountOptions") => nfs_mount_options(),
+        optional("Tags") => list(tag_list_entry()()),
+        required("OnPremConfig") => on_prem_config(),
+        required("ServerHostname") => String.t(),
+        required("Subdirectory") => String.t()
+      }
+      
   """
   @type create_location_nfs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_location_fsx_ontap_request() :: %{
-    required("LocationArn") => String.t()
-  }
+      
+      describe_location_fsx_ontap_request() :: %{
+        required("LocationArn") => String.t()
+      }
+      
   """
   @type describe_location_fsx_ontap_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  credentials() :: %{
-    "Password" => String.t(),
-    "Username" => String.t()
-  }
+      
+      credentials() :: %{
+        "Password" => String.t(),
+        "Username" => String.t()
+      }
+      
   """
   @type credentials() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_location_hdfs_request() :: %{
-    optional("AgentArns") => list(String.t()()),
-    optional("AuthenticationType") => list(any()),
-    optional("BlockSize") => integer(),
-    optional("KerberosKeytab") => binary(),
-    optional("KerberosKrb5Conf") => binary(),
-    optional("KerberosPrincipal") => String.t(),
-    optional("KmsKeyProviderUri") => String.t(),
-    optional("NameNodes") => list(hdfs_name_node()()),
-    optional("QopConfiguration") => qop_configuration(),
-    optional("ReplicationFactor") => integer(),
-    optional("SimpleUser") => String.t(),
-    optional("Subdirectory") => String.t(),
-    required("LocationArn") => String.t()
-  }
+      
+      update_location_hdfs_request() :: %{
+        optional("AgentArns") => list(String.t()()),
+        optional("AuthenticationType") => list(any()),
+        optional("BlockSize") => integer(),
+        optional("KerberosKeytab") => binary(),
+        optional("KerberosKrb5Conf") => binary(),
+        optional("KerberosPrincipal") => String.t(),
+        optional("KmsKeyProviderUri") => String.t(),
+        optional("NameNodes") => list(hdfs_name_node()()),
+        optional("QopConfiguration") => qop_configuration(),
+        optional("ReplicationFactor") => integer(),
+        optional("SimpleUser") => String.t(),
+        optional("Subdirectory") => String.t(),
+        required("LocationArn") => String.t()
+      }
+      
   """
   @type update_location_hdfs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  location_filter() :: %{
-    "Name" => list(any()),
-    "Operator" => list(any()),
-    "Values" => list(String.t()())
-  }
+      
+      location_filter() :: %{
+        "Name" => list(any()),
+        "Operator" => list(any()),
+        "Values" => list(String.t()())
+      }
+      
   """
   @type location_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_task_request() :: %{
-    optional("CloudWatchLogGroupArn") => String.t(),
-    optional("Excludes") => list(filter_rule()()),
-    optional("Includes") => list(filter_rule()()),
-    optional("ManifestConfig") => manifest_config(),
-    optional("Name") => String.t(),
-    optional("Options") => options(),
-    optional("Schedule") => task_schedule(),
-    optional("Tags") => list(tag_list_entry()()),
-    optional("TaskReportConfig") => task_report_config(),
-    required("DestinationLocationArn") => String.t(),
-    required("SourceLocationArn") => String.t()
-  }
+      
+      create_task_request() :: %{
+        optional("CloudWatchLogGroupArn") => String.t(),
+        optional("Excludes") => list(filter_rule()()),
+        optional("Includes") => list(filter_rule()()),
+        optional("ManifestConfig") => manifest_config(),
+        optional("Name") => String.t(),
+        optional("Options") => options(),
+        optional("Schedule") => task_schedule(),
+        optional("Tags") => list(tag_list_entry()()),
+        optional("TaskReportConfig") => task_report_config(),
+        required("DestinationLocationArn") => String.t(),
+        required("SourceLocationArn") => String.t()
+      }
+      
   """
   @type create_task_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  task_schedule() :: %{
-    "ScheduleExpression" => String.t()
-  }
+      
+      task_schedule() :: %{
+        "ScheduleExpression" => String.t()
+      }
+      
   """
   @type task_schedule() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  report_result() :: %{
-    "ErrorCode" => String.t(),
-    "ErrorDetail" => String.t(),
-    "Status" => list(any())
-  }
+      
+      report_result() :: %{
+        "ErrorCode" => String.t(),
+        "ErrorDetail" => String.t(),
+        "Status" => list(any())
+      }
+      
   """
   @type report_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  task_list_entry() :: %{
-    "Name" => String.t(),
-    "Status" => list(any()),
-    "TaskArn" => String.t()
-  }
+      
+      task_list_entry() :: %{
+        "Name" => String.t(),
+        "Status" => list(any()),
+        "TaskArn" => String.t()
+      }
+      
   """
   @type task_list_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cancel_task_execution_response() :: %{
-
-  }
+      
+      cancel_task_execution_response() :: %{}
+      
   """
-  @type cancel_task_execution_response() :: %{String.t() => any()}
+  @type cancel_task_execution_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  delete_location_request() :: %{
-    required("LocationArn") => String.t()
-  }
+      
+      delete_location_request() :: %{
+        required("LocationArn") => String.t()
+      }
+      
   """
   @type delete_location_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_location_object_storage_request() :: %{
-    required("LocationArn") => String.t()
-  }
+      
+      describe_location_object_storage_request() :: %{
+        required("LocationArn") => String.t()
+      }
+      
   """
   @type describe_location_object_storage_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  discovery_job_list_entry() :: %{
-    "DiscoveryJobArn" => String.t(),
-    "Status" => list(any())
-  }
+      
+      discovery_job_list_entry() :: %{
+        "DiscoveryJobArn" => String.t(),
+        "Status" => list(any())
+      }
+      
   """
   @type discovery_job_list_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_location_nfs_response() :: %{
-
-  }
+      
+      update_location_nfs_response() :: %{}
+      
   """
-  @type update_location_nfs_response() :: %{String.t() => any()}
+  @type update_location_nfs_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  describe_storage_system_resource_metrics_response() :: %{
-    "Metrics" => list(resource_metrics()()),
-    "NextToken" => String.t()
-  }
+      
+      describe_storage_system_resource_metrics_response() :: %{
+        "Metrics" => list(resource_metrics()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type describe_storage_system_resource_metrics_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_location_fsx_lustre_response() :: %{
-    "CreationTime" => non_neg_integer(),
-    "LocationArn" => String.t(),
-    "LocationUri" => String.t(),
-    "SecurityGroupArns" => list(String.t()())
-  }
+      
+      describe_location_fsx_lustre_response() :: %{
+        "CreationTime" => non_neg_integer(),
+        "LocationArn" => String.t(),
+        "LocationUri" => String.t(),
+        "SecurityGroupArns" => list(String.t()())
+      }
+      
   """
   @type describe_location_fsx_lustre_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  task_execution_result_detail() :: %{
-    "ErrorCode" => String.t(),
-    "ErrorDetail" => String.t(),
-    "PrepareDuration" => float(),
-    "PrepareStatus" => list(any()),
-    "TotalDuration" => float(),
-    "TransferDuration" => float(),
-    "TransferStatus" => list(any()),
-    "VerifyDuration" => float(),
-    "VerifyStatus" => list(any())
-  }
+      
+      task_execution_result_detail() :: %{
+        "ErrorCode" => String.t(),
+        "ErrorDetail" => String.t(),
+        "PrepareDuration" => float(),
+        "PrepareStatus" => list(any()),
+        "TotalDuration" => float(),
+        "TransferDuration" => float(),
+        "TransferStatus" => list(any()),
+        "VerifyDuration" => float(),
+        "VerifyStatus" => list(any())
+      }
+      
   """
   @type task_execution_result_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_request() :: %{
-    required("Keys") => list(String.t()()),
-    required("ResourceArn") => String.t()
-  }
+      
+      untag_resource_request() :: %{
+        required("Keys") => list(String.t()()),
+        required("ResourceArn") => String.t()
+      }
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_location_efs_response() :: %{
-    "AccessPointArn" => String.t(),
-    "CreationTime" => non_neg_integer(),
-    "Ec2Config" => ec2_config(),
-    "FileSystemAccessRoleArn" => String.t(),
-    "InTransitEncryption" => list(any()),
-    "LocationArn" => String.t(),
-    "LocationUri" => String.t()
-  }
+      
+      describe_location_efs_response() :: %{
+        "AccessPointArn" => String.t(),
+        "CreationTime" => non_neg_integer(),
+        "Ec2Config" => ec2_config(),
+        "FileSystemAccessRoleArn" => String.t(),
+        "InTransitEncryption" => list(any()),
+        "LocationArn" => String.t(),
+        "LocationUri" => String.t()
+      }
+      
   """
   @type describe_location_efs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  p95_metrics() :: %{
-    "IOPS" => i_o_p_s(),
-    "Latency" => latency(),
-    "Throughput" => throughput()
-  }
+      
+      p95_metrics() :: %{
+        "IOPS" => i_o_p_s(),
+        "Latency" => latency(),
+        "Throughput" => throughput()
+      }
+      
   """
   @type p95_metrics() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  capacity() :: %{
-    "ClusterCloudStorageUsed" => float(),
-    "LogicalUsed" => float(),
-    "Provisioned" => float(),
-    "Used" => float()
-  }
+      
+      capacity() :: %{
+        "ClusterCloudStorageUsed" => float(),
+        "LogicalUsed" => float(),
+        "Provisioned" => float(),
+        "Used" => float()
+      }
+      
   """
   @type capacity() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  qop_configuration() :: %{
-    "DataTransferProtection" => list(any()),
-    "RpcProtection" => list(any())
-  }
+      
+      qop_configuration() :: %{
+        "DataTransferProtection" => list(any()),
+        "RpcProtection" => list(any())
+      }
+      
   """
   @type qop_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_location_smb_response() :: %{
-
-  }
+      
+      update_location_smb_response() :: %{}
+      
   """
-  @type update_location_smb_response() :: %{String.t() => any()}
+  @type update_location_smb_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  fsx_protocol() :: %{
-    "NFS" => fsx_protocol_nfs(),
-    "SMB" => fsx_protocol_smb()
-  }
+      
+      fsx_protocol() :: %{
+        "NFS" => fsx_protocol_nfs(),
+        "SMB" => fsx_protocol_smb()
+      }
+      
   """
   @type fsx_protocol() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_storage_system_request() :: %{
-    required("StorageSystemArn") => String.t()
-  }
+      
+      describe_storage_system_request() :: %{
+        required("StorageSystemArn") => String.t()
+      }
+      
   """
   @type describe_storage_system_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  report_overrides() :: %{
-    "Deleted" => report_override(),
-    "Skipped" => report_override(),
-    "Transferred" => report_override(),
-    "Verified" => report_override()
-  }
+      
+      report_overrides() :: %{
+        "Deleted" => report_override(),
+        "Skipped" => report_override(),
+        "Transferred" => report_override(),
+        "Verified" => report_override()
+      }
+      
   """
   @type report_overrides() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_discovery_job_request() :: %{
-    required("CollectionDurationMinutes") => integer(),
-    required("DiscoveryJobArn") => String.t()
-  }
+      
+      update_discovery_job_request() :: %{
+        required("CollectionDurationMinutes") => integer(),
+        required("DiscoveryJobArn") => String.t()
+      }
+      
   """
   @type update_discovery_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  agent_list_entry() :: %{
-    "AgentArn" => String.t(),
-    "Name" => String.t(),
-    "Platform" => platform(),
-    "Status" => list(any())
-  }
+      
+      agent_list_entry() :: %{
+        "AgentArn" => String.t(),
+        "Name" => String.t(),
+        "Platform" => platform(),
+        "Status" => list(any())
+      }
+      
   """
   @type agent_list_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_location_azure_blob_request() :: %{
-    optional("AccessTier") => list(any()),
-    optional("BlobType") => list(any()),
-    optional("SasConfiguration") => azure_blob_sas_configuration(),
-    optional("Subdirectory") => String.t(),
-    optional("Tags") => list(tag_list_entry()()),
-    required("AgentArns") => list(String.t()()),
-    required("AuthenticationType") => list(any()),
-    required("ContainerUrl") => String.t()
-  }
+      
+      create_location_azure_blob_request() :: %{
+        optional("AccessTier") => list(any()),
+        optional("BlobType") => list(any()),
+        optional("SasConfiguration") => azure_blob_sas_configuration(),
+        optional("Subdirectory") => String.t(),
+        optional("Tags") => list(tag_list_entry()()),
+        required("AgentArns") => list(String.t()()),
+        required("AuthenticationType") => list(any()),
+        required("ContainerUrl") => String.t()
+      }
+      
   """
   @type create_location_azure_blob_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_agent_response() :: %{
-    "AgentArn" => String.t(),
-    "CreationTime" => non_neg_integer(),
-    "EndpointType" => list(any()),
-    "LastConnectionTime" => non_neg_integer(),
-    "Name" => String.t(),
-    "Platform" => platform(),
-    "PrivateLinkConfig" => private_link_config(),
-    "Status" => list(any())
-  }
+      
+      describe_agent_response() :: %{
+        "AgentArn" => String.t(),
+        "CreationTime" => non_neg_integer(),
+        "EndpointType" => list(any()),
+        "LastConnectionTime" => non_neg_integer(),
+        "Name" => String.t(),
+        "Platform" => platform(),
+        "PrivateLinkConfig" => private_link_config(),
+        "Status" => list(any())
+      }
+      
   """
   @type describe_agent_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  options() :: %{
-    "Atime" => list(any()),
-    "BytesPerSecond" => float(),
-    "Gid" => list(any()),
-    "LogLevel" => list(any()),
-    "Mtime" => list(any()),
-    "ObjectTags" => list(any()),
-    "OverwriteMode" => list(any()),
-    "PosixPermissions" => list(any()),
-    "PreserveDeletedFiles" => list(any()),
-    "PreserveDevices" => list(any()),
-    "SecurityDescriptorCopyFlags" => list(any()),
-    "TaskQueueing" => list(any()),
-    "TransferMode" => list(any()),
-    "Uid" => list(any()),
-    "VerifyMode" => list(any())
-  }
+      
+      options() :: %{
+        "Atime" => list(any()),
+        "BytesPerSecond" => float(),
+        "Gid" => list(any()),
+        "LogLevel" => list(any()),
+        "Mtime" => list(any()),
+        "ObjectTags" => list(any()),
+        "OverwriteMode" => list(any()),
+        "PosixPermissions" => list(any()),
+        "PreserveDeletedFiles" => list(any()),
+        "PreserveDevices" => list(any()),
+        "SecurityDescriptorCopyFlags" => list(any()),
+        "TaskQueueing" => list(any()),
+        "TransferMode" => list(any()),
+        "Uid" => list(any()),
+        "VerifyMode" => list(any())
+      }
+      
   """
   @type options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  task_report_config() :: %{
-    "Destination" => report_destination(),
-    "ObjectVersionIds" => list(any()),
-    "OutputType" => list(any()),
-    "Overrides" => report_overrides(),
-    "ReportLevel" => list(any())
-  }
+      
+      task_report_config() :: %{
+        "Destination" => report_destination(),
+        "ObjectVersionIds" => list(any()),
+        "OutputType" => list(any()),
+        "Overrides" => report_overrides(),
+        "ReportLevel" => list(any())
+      }
+      
   """
   @type task_report_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_storage_systems_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+      
+      list_storage_systems_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type list_storage_systems_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_storage_system_resource_metrics_request() :: %{
-    optional("EndTime") => non_neg_integer(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("StartTime") => non_neg_integer(),
-    required("DiscoveryJobArn") => String.t(),
-    required("ResourceId") => String.t(),
-    required("ResourceType") => list(any())
-  }
+      
+      describe_storage_system_resource_metrics_request() :: %{
+        optional("EndTime") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("StartTime") => non_neg_integer(),
+        required("DiscoveryJobArn") => String.t(),
+        required("ResourceId") => String.t(),
+        required("ResourceType") => list(any())
+      }
+      
   """
   @type describe_storage_system_resource_metrics_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  s3_manifest_config() :: %{
-    "BucketAccessRoleArn" => String.t(),
-    "ManifestObjectPath" => String.t(),
-    "ManifestObjectVersionId" => String.t(),
-    "S3BucketArn" => String.t()
-  }
+      
+      s3_manifest_config() :: %{
+        "BucketAccessRoleArn" => String.t(),
+        "ManifestObjectPath" => String.t(),
+        "ManifestObjectVersionId" => String.t(),
+        "S3BucketArn" => String.t()
+      }
+      
   """
   @type s3_manifest_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_location_smb_request() :: %{
-    optional("AgentArns") => list(String.t()()),
-    optional("Domain") => String.t(),
-    optional("MountOptions") => smb_mount_options(),
-    optional("Password") => String.t(),
-    optional("Subdirectory") => String.t(),
-    optional("User") => String.t(),
-    required("LocationArn") => String.t()
-  }
+      
+      update_location_smb_request() :: %{
+        optional("AgentArns") => list(String.t()()),
+        optional("Domain") => String.t(),
+        optional("MountOptions") => smb_mount_options(),
+        optional("Password") => String.t(),
+        optional("Subdirectory") => String.t(),
+        optional("User") => String.t(),
+        required("LocationArn") => String.t()
+      }
+      
   """
   @type update_location_smb_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_agent_response() :: %{
-    "AgentArn" => String.t()
-  }
+      
+      create_agent_response() :: %{
+        "AgentArn" => String.t()
+      }
+      
   """
   @type create_agent_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_location_azure_blob_response() :: %{
-    "LocationArn" => String.t()
-  }
+      
+      create_location_azure_blob_response() :: %{
+        "LocationArn" => String.t()
+      }
+      
   """
   @type create_location_azure_blob_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_location_nfs_response() :: %{
-    "LocationArn" => String.t()
-  }
+      
+      create_location_nfs_response() :: %{
+        "LocationArn" => String.t()
+      }
+      
   """
   @type create_location_nfs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_location_fsx_ontap_response() :: %{
-    "CreationTime" => non_neg_integer(),
-    "FsxFilesystemArn" => String.t(),
-    "LocationArn" => String.t(),
-    "LocationUri" => String.t(),
-    "Protocol" => fsx_protocol(),
-    "SecurityGroupArns" => list(String.t()()),
-    "StorageVirtualMachineArn" => String.t()
-  }
+      
+      describe_location_fsx_ontap_response() :: %{
+        "CreationTime" => non_neg_integer(),
+        "FsxFilesystemArn" => String.t(),
+        "LocationArn" => String.t(),
+        "LocationUri" => String.t(),
+        "Protocol" => fsx_protocol(),
+        "SecurityGroupArns" => list(String.t()()),
+        "StorageVirtualMachineArn" => String.t()
+      }
+      
   """
   @type describe_location_fsx_ontap_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_list_entry() :: %{
-    "Key" => String.t(),
-    "Value" => String.t()
-  }
+      
+      tag_list_entry() :: %{
+        "Key" => String.t(),
+        "Value" => String.t()
+      }
+      
   """
   @type tag_list_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_task_response() :: %{
-
-  }
+      
+      update_task_response() :: %{}
+      
   """
-  @type update_task_response() :: %{String.t() => any()}
+  @type update_task_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  update_agent_response() :: %{
-
-  }
+      
+      update_agent_response() :: %{}
+      
   """
-  @type update_agent_response() :: %{String.t() => any()}
+  @type update_agent_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  report_override() :: %{
-    "ReportLevel" => list(any())
-  }
+      
+      report_override() :: %{
+        "ReportLevel" => list(any())
+      }
+      
   """
   @type report_override() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_request_exception() :: %{
-    "datasyncErrorCode" => String.t(),
-    "errorCode" => String.t(),
-    "message" => String.t()
-  }
+      
+      invalid_request_exception() :: %{
+        "datasyncErrorCode" => String.t(),
+        "errorCode" => String.t(),
+        "message" => String.t()
+      }
+      
   """
   @type invalid_request_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_task_executions_response() :: %{
-    "NextToken" => String.t(),
-    "TaskExecutions" => list(task_execution_list_entry()())
-  }
+      
+      list_task_executions_response() :: %{
+        "NextToken" => String.t(),
+        "TaskExecutions" => list(task_execution_list_entry()())
+      }
+      
   """
   @type list_task_executions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  on_prem_config() :: %{
-    "AgentArns" => list(String.t()())
-  }
+      
+      on_prem_config() :: %{
+        "AgentArns" => list(String.t()())
+      }
+      
   """
   @type on_prem_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  platform() :: %{
-    "Version" => String.t()
-  }
+      
+      platform() :: %{
+        "Version" => String.t()
+      }
+      
   """
   @type platform() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_location_fsx_open_zfs_response() :: %{
-    "LocationArn" => String.t()
-  }
+      
+      create_location_fsx_open_zfs_response() :: %{
+        "LocationArn" => String.t()
+      }
+      
   """
   @type create_location_fsx_open_zfs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  s3_config() :: %{
-    "BucketAccessRoleArn" => String.t()
-  }
+      
+      s3_config() :: %{
+        "BucketAccessRoleArn" => String.t()
+      }
+      
   """
   @type s3_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_task_executions_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("TaskArn") => String.t()
-  }
+      
+      list_task_executions_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("TaskArn") => String.t()
+      }
+      
   """
   @type list_task_executions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_location_fsx_ontap_request() :: %{
-    optional("Subdirectory") => String.t(),
-    optional("Tags") => list(tag_list_entry()()),
-    required("Protocol") => fsx_protocol(),
-    required("SecurityGroupArns") => list(String.t()()),
-    required("StorageVirtualMachineArn") => String.t()
-  }
+      
+      create_location_fsx_ontap_request() :: %{
+        optional("Subdirectory") => String.t(),
+        optional("Tags") => list(tag_list_entry()()),
+        required("Protocol") => fsx_protocol(),
+        required("SecurityGroupArns") => list(String.t()()),
+        required("StorageVirtualMachineArn") => String.t()
+      }
+      
   """
   @type create_location_fsx_ontap_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  discovery_server_configuration() :: %{
-    "ServerHostname" => String.t(),
-    "ServerPort" => integer()
-  }
+      
+      discovery_server_configuration() :: %{
+        "ServerHostname" => String.t(),
+        "ServerPort" => integer()
+      }
+      
   """
   @type discovery_server_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  recommendation() :: %{
-    "EstimatedMonthlyStorageCost" => String.t(),
-    "StorageConfiguration" => map(),
-    "StorageType" => String.t()
-  }
+      
+      recommendation() :: %{
+        "EstimatedMonthlyStorageCost" => String.t(),
+        "StorageConfiguration" => map(),
+        "StorageType" => String.t()
+      }
+      
   """
   @type recommendation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_location_hdfs_response() :: %{
-    "LocationArn" => String.t()
-  }
+      
+      create_location_hdfs_response() :: %{
+        "LocationArn" => String.t()
+      }
+      
   """
   @type create_location_hdfs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  storage_system_list_entry() :: %{
-    "Name" => String.t(),
-    "StorageSystemArn" => String.t()
-  }
+      
+      storage_system_list_entry() :: %{
+        "Name" => String.t(),
+        "StorageSystemArn" => String.t()
+      }
+      
   """
   @type storage_system_list_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_task_response() :: %{
-    "CloudWatchLogGroupArn" => String.t(),
-    "CreationTime" => non_neg_integer(),
-    "CurrentTaskExecutionArn" => String.t(),
-    "DestinationLocationArn" => String.t(),
-    "DestinationNetworkInterfaceArns" => list(String.t()()),
-    "ErrorCode" => String.t(),
-    "ErrorDetail" => String.t(),
-    "Excludes" => list(filter_rule()()),
-    "Includes" => list(filter_rule()()),
-    "ManifestConfig" => manifest_config(),
-    "Name" => String.t(),
-    "Options" => options(),
-    "Schedule" => task_schedule(),
-    "SourceLocationArn" => String.t(),
-    "SourceNetworkInterfaceArns" => list(String.t()()),
-    "Status" => list(any()),
-    "TaskArn" => String.t(),
-    "TaskReportConfig" => task_report_config()
-  }
+      
+      describe_task_response() :: %{
+        "CloudWatchLogGroupArn" => String.t(),
+        "CreationTime" => non_neg_integer(),
+        "CurrentTaskExecutionArn" => String.t(),
+        "DestinationLocationArn" => String.t(),
+        "DestinationNetworkInterfaceArns" => list(String.t()()),
+        "ErrorCode" => String.t(),
+        "ErrorDetail" => String.t(),
+        "Excludes" => list(filter_rule()()),
+        "Includes" => list(filter_rule()()),
+        "ManifestConfig" => manifest_config(),
+        "Name" => String.t(),
+        "Options" => options(),
+        "Schedule" => task_schedule(),
+        "SourceLocationArn" => String.t(),
+        "SourceNetworkInterfaceArns" => list(String.t()()),
+        "Status" => list(any()),
+        "TaskArn" => String.t(),
+        "TaskReportConfig" => task_report_config()
+      }
+      
   """
   @type describe_task_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_location_smb_response() :: %{
-    "LocationArn" => String.t()
-  }
+      
+      create_location_smb_response() :: %{
+        "LocationArn" => String.t()
+      }
+      
   """
   @type create_location_smb_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_location_fsx_lustre_request() :: %{
-    required("LocationArn") => String.t()
-  }
+      
+      describe_location_fsx_lustre_request() :: %{
+        required("LocationArn") => String.t()
+      }
+      
   """
   @type describe_location_fsx_lustre_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_location_s3_response() :: %{
-    "LocationArn" => String.t()
-  }
+      
+      create_location_s3_response() :: %{
+        "LocationArn" => String.t()
+      }
+      
   """
   @type create_location_s3_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  task_execution_list_entry() :: %{
-    "Status" => list(any()),
-    "TaskExecutionArn" => String.t()
-  }
+      
+      task_execution_list_entry() :: %{
+        "Status" => list(any()),
+        "TaskExecutionArn" => String.t()
+      }
+      
   """
   @type task_execution_list_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  net_app_o_n_t_a_p_cluster() :: %{
-    "CifsShareCount" => float(),
-    "ClusterBlockStorageLogicalUsed" => float(),
-    "ClusterBlockStorageSize" => float(),
-    "ClusterBlockStorageUsed" => float(),
-    "ClusterCloudStorageUsed" => float(),
-    "ClusterName" => String.t(),
-    "LunCount" => float(),
-    "MaxP95Performance" => max_p95_performance(),
-    "NfsExportedVolumes" => float(),
-    "RecommendationStatus" => list(any()),
-    "Recommendations" => list(recommendation()()),
-    "ResourceId" => String.t()
-  }
+      
+      net_app_o_n_t_a_p_cluster() :: %{
+        "CifsShareCount" => float(),
+        "ClusterBlockStorageLogicalUsed" => float(),
+        "ClusterBlockStorageSize" => float(),
+        "ClusterBlockStorageUsed" => float(),
+        "ClusterCloudStorageUsed" => float(),
+        "ClusterName" => String.t(),
+        "LunCount" => float(),
+        "MaxP95Performance" => max_p95_performance(),
+        "NfsExportedVolumes" => float(),
+        "RecommendationStatus" => list(any()),
+        "Recommendations" => list(recommendation()()),
+        "ResourceId" => String.t()
+      }
+      
   """
   @type net_app_o_n_t_a_p_cluster() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stop_discovery_job_request() :: %{
-    required("DiscoveryJobArn") => String.t()
-  }
+      
+      stop_discovery_job_request() :: %{
+        required("DiscoveryJobArn") => String.t()
+      }
+      
   """
   @type stop_discovery_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_location_object_storage_response() :: %{
-
-  }
+      
+      update_location_object_storage_response() :: %{}
+      
   """
-  @type update_location_object_storage_response() :: %{String.t() => any()}
+  @type update_location_object_storage_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  describe_location_nfs_response() :: %{
-    "CreationTime" => non_neg_integer(),
-    "LocationArn" => String.t(),
-    "LocationUri" => String.t(),
-    "MountOptions" => nfs_mount_options(),
-    "OnPremConfig" => on_prem_config()
-  }
+      
+      describe_location_nfs_response() :: %{
+        "CreationTime" => non_neg_integer(),
+        "LocationArn" => String.t(),
+        "LocationUri" => String.t(),
+        "MountOptions" => nfs_mount_options(),
+        "OnPremConfig" => on_prem_config()
+      }
+      
   """
   @type describe_location_nfs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_response() :: %{
-    "NextToken" => String.t(),
-    "Tags" => list(tag_list_entry()())
-  }
+      
+      list_tags_for_resource_response() :: %{
+        "NextToken" => String.t(),
+        "Tags" => list(tag_list_entry()())
+      }
+      
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_discovery_job_response() :: %{
-
-  }
+      
+      update_discovery_job_response() :: %{}
+      
   """
-  @type update_discovery_job_response() :: %{String.t() => any()}
+  @type update_discovery_job_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  max_p95_performance() :: %{
-    "IopsOther" => float(),
-    "IopsRead" => float(),
-    "IopsTotal" => float(),
-    "IopsWrite" => float(),
-    "LatencyOther" => float(),
-    "LatencyRead" => float(),
-    "LatencyWrite" => float(),
-    "ThroughputOther" => float(),
-    "ThroughputRead" => float(),
-    "ThroughputTotal" => float(),
-    "ThroughputWrite" => float()
-  }
+      
+      max_p95_performance() :: %{
+        "IopsOther" => float(),
+        "IopsRead" => float(),
+        "IopsTotal" => float(),
+        "IopsWrite" => float(),
+        "LatencyOther" => float(),
+        "LatencyRead" => float(),
+        "LatencyWrite" => float(),
+        "ThroughputOther" => float(),
+        "ThroughputRead" => float(),
+        "ThroughputTotal" => float(),
+        "ThroughputWrite" => float()
+      }
+      
   """
   @type max_p95_performance() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_location_fsx_open_zfs_response() :: %{
-    "CreationTime" => non_neg_integer(),
-    "LocationArn" => String.t(),
-    "LocationUri" => String.t(),
-    "Protocol" => fsx_protocol(),
-    "SecurityGroupArns" => list(String.t()())
-  }
+      
+      describe_location_fsx_open_zfs_response() :: %{
+        "CreationTime" => non_neg_integer(),
+        "LocationArn" => String.t(),
+        "LocationUri" => String.t(),
+        "Protocol" => fsx_protocol(),
+        "SecurityGroupArns" => list(String.t()())
+      }
+      
   """
   @type describe_location_fsx_open_zfs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_locations_request() :: %{
-    optional("Filters") => list(location_filter()()),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+      
+      list_locations_request() :: %{
+        optional("Filters") => list(location_filter()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type list_locations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  remove_storage_system_request() :: %{
-    required("StorageSystemArn") => String.t()
-  }
+      
+      remove_storage_system_request() :: %{
+        required("StorageSystemArn") => String.t()
+      }
+      
   """
   @type remove_storage_system_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_discovery_job_request() :: %{
-    optional("Tags") => list(tag_list_entry()()),
-    required("ClientToken") => String.t(),
-    required("CollectionDurationMinutes") => integer(),
-    required("StorageSystemArn") => String.t()
-  }
+      
+      start_discovery_job_request() :: %{
+        optional("Tags") => list(tag_list_entry()()),
+        required("ClientToken") => String.t(),
+        required("CollectionDurationMinutes") => integer(),
+        required("StorageSystemArn") => String.t()
+      }
+      
   """
   @type start_discovery_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_location_s3_request() :: %{
-    optional("AgentArns") => list(String.t()()),
-    optional("S3StorageClass") => list(any()),
-    optional("Subdirectory") => String.t(),
-    optional("Tags") => list(tag_list_entry()()),
-    required("S3BucketArn") => String.t(),
-    required("S3Config") => s3_config()
-  }
+      
+      create_location_s3_request() :: %{
+        optional("AgentArns") => list(String.t()()),
+        optional("S3StorageClass") => list(any()),
+        optional("Subdirectory") => String.t(),
+        optional("Tags") => list(tag_list_entry()()),
+        required("S3BucketArn") => String.t(),
+        required("S3Config") => s3_config()
+      }
+      
   """
   @type create_location_s3_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_location_efs_request() :: %{
-    optional("AccessPointArn") => String.t(),
-    optional("FileSystemAccessRoleArn") => String.t(),
-    optional("InTransitEncryption") => list(any()),
-    optional("Subdirectory") => String.t(),
-    optional("Tags") => list(tag_list_entry()()),
-    required("Ec2Config") => ec2_config(),
-    required("EfsFilesystemArn") => String.t()
-  }
+      
+      create_location_efs_request() :: %{
+        optional("AccessPointArn") => String.t(),
+        optional("FileSystemAccessRoleArn") => String.t(),
+        optional("InTransitEncryption") => list(any()),
+        optional("Subdirectory") => String.t(),
+        optional("Tags") => list(tag_list_entry()()),
+        required("Ec2Config") => ec2_config(),
+        required("EfsFilesystemArn") => String.t()
+      }
+      
   """
   @type create_location_efs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_agent_response() :: %{
-
-  }
+      
+      delete_agent_response() :: %{}
+      
   """
-  @type delete_agent_response() :: %{String.t() => any()}
+  @type delete_agent_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  update_task_request() :: %{
-    optional("CloudWatchLogGroupArn") => String.t(),
-    optional("Excludes") => list(filter_rule()()),
-    optional("Includes") => list(filter_rule()()),
-    optional("ManifestConfig") => manifest_config(),
-    optional("Name") => String.t(),
-    optional("Options") => options(),
-    optional("Schedule") => task_schedule(),
-    optional("TaskReportConfig") => task_report_config(),
-    required("TaskArn") => String.t()
-  }
+      
+      update_task_request() :: %{
+        optional("CloudWatchLogGroupArn") => String.t(),
+        optional("Excludes") => list(filter_rule()()),
+        optional("Includes") => list(filter_rule()()),
+        optional("ManifestConfig") => manifest_config(),
+        optional("Name") => String.t(),
+        optional("Options") => options(),
+        optional("Schedule") => task_schedule(),
+        optional("TaskReportConfig") => task_report_config(),
+        required("TaskArn") => String.t()
+      }
+      
   """
   @type update_task_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_location_azure_blob_response() :: %{
-
-  }
+      
+      update_location_azure_blob_response() :: %{}
+      
   """
-  @type update_location_azure_blob_response() :: %{String.t() => any()}
+  @type update_location_azure_blob_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  source_manifest_config() :: %{
-    "S3" => s3_manifest_config()
-  }
+      
+      source_manifest_config() :: %{
+        "S3" => s3_manifest_config()
+      }
+      
   """
   @type source_manifest_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_location_smb_request() :: %{
-    required("LocationArn") => String.t()
-  }
+      
+      describe_location_smb_request() :: %{
+        required("LocationArn") => String.t()
+      }
+      
   """
   @type describe_location_smb_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_location_fsx_open_zfs_request() :: %{
-    optional("Subdirectory") => String.t(),
-    optional("Tags") => list(tag_list_entry()()),
-    required("FsxFilesystemArn") => String.t(),
-    required("Protocol") => fsx_protocol(),
-    required("SecurityGroupArns") => list(String.t()())
-  }
+      
+      create_location_fsx_open_zfs_request() :: %{
+        optional("Subdirectory") => String.t(),
+        optional("Tags") => list(tag_list_entry()()),
+        required("FsxFilesystemArn") => String.t(),
+        required("Protocol") => fsx_protocol(),
+        required("SecurityGroupArns") => list(String.t()())
+      }
+      
   """
   @type create_location_fsx_open_zfs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_task_execution_response() :: %{
-    "BytesCompressed" => float(),
-    "BytesTransferred" => float(),
-    "BytesWritten" => float(),
-    "EstimatedBytesToTransfer" => float(),
-    "EstimatedFilesToDelete" => float(),
-    "EstimatedFilesToTransfer" => float(),
-    "Excludes" => list(filter_rule()()),
-    "FilesDeleted" => float(),
-    "FilesSkipped" => float(),
-    "FilesTransferred" => float(),
-    "FilesVerified" => float(),
-    "Includes" => list(filter_rule()()),
-    "ManifestConfig" => manifest_config(),
-    "Options" => options(),
-    "ReportResult" => report_result(),
-    "Result" => task_execution_result_detail(),
-    "StartTime" => non_neg_integer(),
-    "Status" => list(any()),
-    "TaskExecutionArn" => String.t(),
-    "TaskReportConfig" => task_report_config()
-  }
+      
+      describe_task_execution_response() :: %{
+        "BytesCompressed" => float(),
+        "BytesTransferred" => float(),
+        "BytesWritten" => float(),
+        "EstimatedBytesToTransfer" => float(),
+        "EstimatedFilesToDelete" => float(),
+        "EstimatedFilesToTransfer" => float(),
+        "Excludes" => list(filter_rule()()),
+        "FilesDeleted" => float(),
+        "FilesSkipped" => float(),
+        "FilesTransferred" => float(),
+        "FilesVerified" => float(),
+        "Includes" => list(filter_rule()()),
+        "ManifestConfig" => manifest_config(),
+        "Options" => options(),
+        "ReportResult" => report_result(),
+        "Result" => task_execution_result_detail(),
+        "StartTime" => non_neg_integer(),
+        "Status" => list(any()),
+        "TaskExecutionArn" => String.t(),
+        "TaskReportConfig" => task_report_config()
+      }
+      
   """
   @type describe_task_execution_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_location_fsx_windows_response() :: %{
-    "LocationArn" => String.t()
-  }
+      
+      create_location_fsx_windows_response() :: %{
+        "LocationArn" => String.t()
+      }
+      
   """
   @type create_location_fsx_windows_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  latency() :: %{
-    "Other" => float(),
-    "Read" => float(),
-    "Write" => float()
-  }
+      
+      latency() :: %{
+        "Other" => float(),
+        "Read" => float(),
+        "Write" => float()
+      }
+      
   """
   @type latency() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_discovery_job_response() :: %{
-    "CollectionDurationMinutes" => integer(),
-    "DiscoveryJobArn" => String.t(),
-    "JobEndTime" => non_neg_integer(),
-    "JobStartTime" => non_neg_integer(),
-    "Status" => list(any()),
-    "StorageSystemArn" => String.t()
-  }
+      
+      describe_discovery_job_response() :: %{
+        "CollectionDurationMinutes" => integer(),
+        "DiscoveryJobArn" => String.t(),
+        "JobEndTime" => non_neg_integer(),
+        "JobStartTime" => non_neg_integer(),
+        "Status" => list(any()),
+        "StorageSystemArn" => String.t()
+      }
+      
   """
   @type describe_discovery_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_storage_system_response() :: %{
-
-  }
+      
+      update_storage_system_response() :: %{}
+      
   """
-  @type update_storage_system_response() :: %{String.t() => any()}
+  @type update_storage_system_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_location_fsx_windows_request() :: %{
-    optional("Domain") => String.t(),
-    optional("Subdirectory") => String.t(),
-    optional("Tags") => list(tag_list_entry()()),
-    required("FsxFilesystemArn") => String.t(),
-    required("Password") => String.t(),
-    required("SecurityGroupArns") => list(String.t()()),
-    required("User") => String.t()
-  }
+      
+      create_location_fsx_windows_request() :: %{
+        optional("Domain") => String.t(),
+        optional("Subdirectory") => String.t(),
+        optional("Tags") => list(tag_list_entry()()),
+        required("FsxFilesystemArn") => String.t(),
+        required("Password") => String.t(),
+        required("SecurityGroupArns") => list(String.t()()),
+        required("User") => String.t()
+      }
+      
   """
   @type create_location_fsx_windows_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_task_execution_response() :: %{
-
-  }
+      
+      update_task_execution_response() :: %{}
+      
   """
-  @type update_task_execution_response() :: %{String.t() => any()}
+  @type update_task_execution_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_location_smb_request() :: %{
-    optional("Domain") => String.t(),
-    optional("MountOptions") => smb_mount_options(),
-    optional("Tags") => list(tag_list_entry()()),
-    required("AgentArns") => list(String.t()()),
-    required("Password") => String.t(),
-    required("ServerHostname") => String.t(),
-    required("Subdirectory") => String.t(),
-    required("User") => String.t()
-  }
+      
+      create_location_smb_request() :: %{
+        optional("Domain") => String.t(),
+        optional("MountOptions") => smb_mount_options(),
+        optional("Tags") => list(tag_list_entry()()),
+        required("AgentArns") => list(String.t()()),
+        required("Password") => String.t(),
+        required("ServerHostname") => String.t(),
+        required("Subdirectory") => String.t(),
+        required("User") => String.t()
+      }
+      
   """
   @type create_location_smb_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_location_response() :: %{
-
-  }
+      
+      delete_location_response() :: %{}
+      
   """
-  @type delete_location_response() :: %{String.t() => any()}
+  @type delete_location_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  describe_agent_request() :: %{
-    required("AgentArn") => String.t()
-  }
+      
+      describe_agent_request() :: %{
+        required("AgentArn") => String.t()
+      }
+      
   """
   @type describe_agent_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  report_destination_s3() :: %{
-    "BucketAccessRoleArn" => String.t(),
-    "S3BucketArn" => String.t(),
-    "Subdirectory" => String.t()
-  }
+      
+      report_destination_s3() :: %{
+        "BucketAccessRoleArn" => String.t(),
+        "S3BucketArn" => String.t(),
+        "Subdirectory" => String.t()
+      }
+      
   """
   @type report_destination_s3() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_discovery_job_request() :: %{
-    required("DiscoveryJobArn") => String.t()
-  }
+      
+      describe_discovery_job_request() :: %{
+        required("DiscoveryJobArn") => String.t()
+      }
+      
   """
   @type describe_discovery_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_storage_system_resources_request() :: %{
-    optional("Filter") => map(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("ResourceIds") => list(String.t()()),
-    required("DiscoveryJobArn") => String.t(),
-    required("ResourceType") => list(any())
-  }
+      
+      describe_storage_system_resources_request() :: %{
+        optional("Filter") => map(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("ResourceIds") => list(String.t()()),
+        required("DiscoveryJobArn") => String.t(),
+        required("ResourceType") => list(any())
+      }
+      
   """
   @type describe_storage_system_resources_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_location_azure_blob_request() :: %{
-    required("LocationArn") => String.t()
-  }
+      
+      describe_location_azure_blob_request() :: %{
+        required("LocationArn") => String.t()
+      }
+      
   """
   @type describe_location_azure_blob_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  azure_blob_sas_configuration() :: %{
-    "Token" => String.t()
-  }
+      
+      azure_blob_sas_configuration() :: %{
+        "Token" => String.t()
+      }
+      
   """
   @type azure_blob_sas_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  location_list_entry() :: %{
-    "LocationArn" => String.t(),
-    "LocationUri" => String.t()
-  }
+      
+      location_list_entry() :: %{
+        "LocationArn" => String.t(),
+        "LocationUri" => String.t()
+      }
+      
   """
   @type location_list_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  internal_exception() :: %{
-    "errorCode" => String.t(),
-    "message" => String.t()
-  }
+      
+      internal_exception() :: %{
+        "errorCode" => String.t(),
+        "message" => String.t()
+      }
+      
   """
   @type internal_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_location_s3_request() :: %{
-    required("LocationArn") => String.t()
-  }
+      
+      describe_location_s3_request() :: %{
+        required("LocationArn") => String.t()
+      }
+      
   """
   @type describe_location_s3_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  throughput() :: %{
-    "Other" => float(),
-    "Read" => float(),
-    "Total" => float(),
-    "Write" => float()
-  }
+      
+      throughput() :: %{
+        "Other" => float(),
+        "Read" => float(),
+        "Total" => float(),
+        "Write" => float()
+      }
+      
   """
   @type throughput() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_storage_systems_response() :: %{
-    "NextToken" => String.t(),
-    "StorageSystems" => list(storage_system_list_entry()())
-  }
+      
+      list_storage_systems_response() :: %{
+        "NextToken" => String.t(),
+        "StorageSystems" => list(storage_system_list_entry()())
+      }
+      
   """
   @type list_storage_systems_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_response() :: %{
-
-  }
+      
+      tag_resource_response() :: %{}
+      
   """
-  @type tag_resource_response() :: %{String.t() => any()}
+  @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_location_hdfs_request() :: %{
-    optional("BlockSize") => integer(),
-    optional("KerberosKeytab") => binary(),
-    optional("KerberosKrb5Conf") => binary(),
-    optional("KerberosPrincipal") => String.t(),
-    optional("KmsKeyProviderUri") => String.t(),
-    optional("QopConfiguration") => qop_configuration(),
-    optional("ReplicationFactor") => integer(),
-    optional("SimpleUser") => String.t(),
-    optional("Subdirectory") => String.t(),
-    optional("Tags") => list(tag_list_entry()()),
-    required("AgentArns") => list(String.t()()),
-    required("AuthenticationType") => list(any()),
-    required("NameNodes") => list(hdfs_name_node()())
-  }
+      
+      create_location_hdfs_request() :: %{
+        optional("BlockSize") => integer(),
+        optional("KerberosKeytab") => binary(),
+        optional("KerberosKrb5Conf") => binary(),
+        optional("KerberosPrincipal") => String.t(),
+        optional("KmsKeyProviderUri") => String.t(),
+        optional("QopConfiguration") => qop_configuration(),
+        optional("ReplicationFactor") => integer(),
+        optional("SimpleUser") => String.t(),
+        optional("Subdirectory") => String.t(),
+        optional("Tags") => list(tag_list_entry()()),
+        required("AgentArns") => list(String.t()()),
+        required("AuthenticationType") => list(any()),
+        required("NameNodes") => list(hdfs_name_node()())
+      }
+      
   """
   @type create_location_hdfs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_location_hdfs_response() :: %{
-
-  }
+      
+      update_location_hdfs_response() :: %{}
+      
   """
-  @type update_location_hdfs_response() :: %{String.t() => any()}
+  @type update_location_hdfs_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  update_agent_request() :: %{
-    optional("Name") => String.t(),
-    required("AgentArn") => String.t()
-  }
+      
+      update_agent_request() :: %{
+        optional("Name") => String.t(),
+        required("AgentArn") => String.t()
+      }
+      
   """
   @type update_agent_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_agent_request() :: %{
-    required("AgentArn") => String.t()
-  }
+      
+      delete_agent_request() :: %{
+        required("AgentArn") => String.t()
+      }
+      
   """
   @type delete_agent_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_task_request() :: %{
-    required("TaskArn") => String.t()
-  }
+      
+      delete_task_request() :: %{
+        required("TaskArn") => String.t()
+      }
+      
   """
   @type delete_task_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_location_nfs_request() :: %{
-    optional("MountOptions") => nfs_mount_options(),
-    optional("OnPremConfig") => on_prem_config(),
-    optional("Subdirectory") => String.t(),
-    required("LocationArn") => String.t()
-  }
+      
+      update_location_nfs_request() :: %{
+        optional("MountOptions") => nfs_mount_options(),
+        optional("OnPremConfig") => on_prem_config(),
+        optional("Subdirectory") => String.t(),
+        required("LocationArn") => String.t()
+      }
+      
   """
   @type update_location_nfs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  i_o_p_s() :: %{
-    "Other" => float(),
-    "Read" => float(),
-    "Total" => float(),
-    "Write" => float()
-  }
+      
+      i_o_p_s() :: %{
+        "Other" => float(),
+        "Read" => float(),
+        "Total" => float(),
+        "Write" => float()
+      }
+      
   """
   @type i_o_p_s() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_location_fsx_lustre_request() :: %{
-    optional("Subdirectory") => String.t(),
-    optional("Tags") => list(tag_list_entry()()),
-    required("FsxFilesystemArn") => String.t(),
-    required("SecurityGroupArns") => list(String.t()())
-  }
+      
+      create_location_fsx_lustre_request() :: %{
+        optional("Subdirectory") => String.t(),
+        optional("Tags") => list(tag_list_entry()()),
+        required("FsxFilesystemArn") => String.t(),
+        required("SecurityGroupArns") => list(String.t()())
+      }
+      
   """
   @type create_location_fsx_lustre_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("ResourceArn") => String.t()
-  }
+      
+      list_tags_for_resource_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("ResourceArn") => String.t()
+      }
+      
   """
   @type list_tags_for_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_task_response() :: %{
-    "TaskArn" => String.t()
-  }
+      
+      create_task_response() :: %{
+        "TaskArn" => String.t()
+      }
+      
   """
   @type create_task_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_metrics() :: %{
-    "Capacity" => capacity(),
-    "P95Metrics" => p95_metrics(),
-    "ResourceId" => String.t(),
-    "ResourceType" => list(any()),
-    "Timestamp" => non_neg_integer()
-  }
+      
+      resource_metrics() :: %{
+        "Capacity" => capacity(),
+        "P95Metrics" => p95_metrics(),
+        "ResourceId" => String.t(),
+        "ResourceType" => list(any()),
+        "Timestamp" => non_neg_integer()
+      }
+      
   """
   @type resource_metrics() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_storage_system_request() :: %{
-    optional("AgentArns") => list(String.t()()),
-    optional("CloudWatchLogGroupArn") => String.t(),
-    optional("Credentials") => credentials(),
-    optional("Name") => String.t(),
-    optional("ServerConfiguration") => discovery_server_configuration(),
-    required("StorageSystemArn") => String.t()
-  }
+      
+      update_storage_system_request() :: %{
+        optional("AgentArns") => list(String.t()()),
+        optional("CloudWatchLogGroupArn") => String.t(),
+        optional("Credentials") => credentials(),
+        optional("Name") => String.t(),
+        optional("ServerConfiguration") => discovery_server_configuration(),
+        required("StorageSystemArn") => String.t()
+      }
+      
   """
   @type update_storage_system_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_discovery_job_response() :: %{
-    "DiscoveryJobArn" => String.t()
-  }
+      
+      start_discovery_job_response() :: %{
+        "DiscoveryJobArn" => String.t()
+      }
+      
   """
   @type start_discovery_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_location_object_storage_request() :: %{
-    optional("AccessKey") => String.t(),
-    optional("AgentArns") => list(String.t()()),
-    optional("SecretKey") => String.t(),
-    optional("ServerCertificate") => binary(),
-    optional("ServerPort") => integer(),
-    optional("ServerProtocol") => list(any()),
-    optional("Subdirectory") => String.t(),
-    required("LocationArn") => String.t()
-  }
+      
+      update_location_object_storage_request() :: %{
+        optional("AccessKey") => String.t(),
+        optional("AgentArns") => list(String.t()()),
+        optional("SecretKey") => String.t(),
+        optional("ServerCertificate") => binary(),
+        optional("ServerPort") => integer(),
+        optional("ServerProtocol") => list(any()),
+        optional("Subdirectory") => String.t(),
+        required("LocationArn") => String.t()
+      }
+      
   """
   @type update_location_object_storage_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  net_app_o_n_t_a_p_s_v_m() :: %{
-    "CifsShareCount" => float(),
-    "ClusterUuid" => String.t(),
-    "EnabledProtocols" => list(String.t()()),
-    "LunCount" => float(),
-    "MaxP95Performance" => max_p95_performance(),
-    "NfsExportedVolumes" => float(),
-    "RecommendationStatus" => list(any()),
-    "Recommendations" => list(recommendation()()),
-    "ResourceId" => String.t(),
-    "SvmName" => String.t(),
-    "TotalCapacityProvisioned" => float(),
-    "TotalCapacityUsed" => float(),
-    "TotalLogicalCapacityUsed" => float(),
-    "TotalSnapshotCapacityUsed" => float()
-  }
+      
+      net_app_o_n_t_a_p_s_v_m() :: %{
+        "CifsShareCount" => float(),
+        "ClusterUuid" => String.t(),
+        "EnabledProtocols" => list(String.t()()),
+        "LunCount" => float(),
+        "MaxP95Performance" => max_p95_performance(),
+        "NfsExportedVolumes" => float(),
+        "RecommendationStatus" => list(any()),
+        "Recommendations" => list(recommendation()()),
+        "ResourceId" => String.t(),
+        "SvmName" => String.t(),
+        "TotalCapacityProvisioned" => float(),
+        "TotalCapacityUsed" => float(),
+        "TotalLogicalCapacityUsed" => float(),
+        "TotalSnapshotCapacityUsed" => float()
+      }
+      
   """
   @type net_app_o_n_t_a_p_s_v_m() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tasks_request() :: %{
-    optional("Filters") => list(task_filter()()),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+      
+      list_tasks_request() :: %{
+        optional("Filters") => list(task_filter()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type list_tasks_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  fsx_protocol_smb() :: %{
-    "Domain" => String.t(),
-    "MountOptions" => smb_mount_options(),
-    "Password" => String.t(),
-    "User" => String.t()
-  }
+      
+      fsx_protocol_smb() :: %{
+        "Domain" => String.t(),
+        "MountOptions" => smb_mount_options(),
+        "Password" => String.t(),
+        "User" => String.t()
+      }
+      
   """
   @type fsx_protocol_smb() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  add_storage_system_response() :: %{
-    "StorageSystemArn" => String.t()
-  }
+      
+      add_storage_system_response() :: %{
+        "StorageSystemArn" => String.t()
+      }
+      
   """
   @type add_storage_system_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_task_execution_request() :: %{
-    required("TaskExecutionArn") => String.t()
-  }
+      
+      describe_task_execution_request() :: %{
+        required("TaskExecutionArn") => String.t()
+      }
+      
   """
   @type describe_task_execution_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  hdfs_name_node() :: %{
-    "Hostname" => String.t(),
-    "Port" => integer()
-  }
+      
+      hdfs_name_node() :: %{
+        "Hostname" => String.t(),
+        "Port" => integer()
+      }
+      
   """
   @type hdfs_name_node() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  smb_mount_options() :: %{
-    "Version" => list(any())
-  }
+      
+      smb_mount_options() :: %{
+        "Version" => list(any())
+      }
+      
   """
   @type smb_mount_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_locations_response() :: %{
-    "Locations" => list(location_list_entry()()),
-    "NextToken" => String.t()
-  }
+      
+      list_locations_response() :: %{
+        "Locations" => list(location_list_entry()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_locations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_discovery_jobs_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("StorageSystemArn") => String.t()
-  }
+      
+      list_discovery_jobs_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("StorageSystemArn") => String.t()
+      }
+      
   """
   @type list_discovery_jobs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_location_hdfs_request() :: %{
-    required("LocationArn") => String.t()
-  }
+      
+      describe_location_hdfs_request() :: %{
+        required("LocationArn") => String.t()
+      }
+      
   """
   @type describe_location_hdfs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_location_efs_request() :: %{
-    required("LocationArn") => String.t()
-  }
+      
+      describe_location_efs_request() :: %{
+        required("LocationArn") => String.t()
+      }
+      
   """
   @type describe_location_efs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_details() :: %{
-    "NetAppONTAPClusters" => list(net_app_o_n_t_a_p_cluster()()),
-    "NetAppONTAPSVMs" => list(net_app_o_n_t_a_p_s_v_m()()),
-    "NetAppONTAPVolumes" => list(net_app_o_n_t_a_p_volume()())
-  }
+      
+      resource_details() :: %{
+        "NetAppONTAPClusters" => list(net_app_o_n_t_a_p_cluster()()),
+        "NetAppONTAPSVMs" => list(net_app_o_n_t_a_p_s_v_m()()),
+        "NetAppONTAPVolumes" => list(net_app_o_n_t_a_p_volume()())
+      }
+      
   """
   @type resource_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tasks_response() :: %{
-    "NextToken" => String.t(),
-    "Tasks" => list(task_list_entry()())
-  }
+      
+      list_tasks_response() :: %{
+        "NextToken" => String.t(),
+        "Tasks" => list(task_list_entry()())
+      }
+      
   """
   @type list_tasks_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_location_azure_blob_response() :: %{
-    "AccessTier" => list(any()),
-    "AgentArns" => list(String.t()()),
-    "AuthenticationType" => list(any()),
-    "BlobType" => list(any()),
-    "CreationTime" => non_neg_integer(),
-    "LocationArn" => String.t(),
-    "LocationUri" => String.t()
-  }
+      
+      describe_location_azure_blob_response() :: %{
+        "AccessTier" => list(any()),
+        "AgentArns" => list(String.t()()),
+        "AuthenticationType" => list(any()),
+        "BlobType" => list(any()),
+        "CreationTime" => non_neg_integer(),
+        "LocationArn" => String.t(),
+        "LocationUri" => String.t()
+      }
+      
   """
   @type describe_location_azure_blob_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_location_efs_response() :: %{
-    "LocationArn" => String.t()
-  }
+      
+      create_location_efs_response() :: %{
+        "LocationArn" => String.t()
+      }
+      
   """
   @type create_location_efs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  task_filter() :: %{
-    "Name" => list(any()),
-    "Operator" => list(any()),
-    "Values" => list(String.t()())
-  }
+      
+      task_filter() :: %{
+        "Name" => list(any()),
+        "Operator" => list(any()),
+        "Values" => list(String.t()())
+      }
+      
   """
   @type task_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ec2_config() :: %{
-    "SecurityGroupArns" => list(String.t()()),
-    "SubnetArn" => String.t()
-  }
+      
+      ec2_config() :: %{
+        "SecurityGroupArns" => list(String.t()()),
+        "SubnetArn" => String.t()
+      }
+      
   """
   @type ec2_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_location_hdfs_response() :: %{
-    "AgentArns" => list(String.t()()),
-    "AuthenticationType" => list(any()),
-    "BlockSize" => integer(),
-    "CreationTime" => non_neg_integer(),
-    "KerberosPrincipal" => String.t(),
-    "KmsKeyProviderUri" => String.t(),
-    "LocationArn" => String.t(),
-    "LocationUri" => String.t(),
-    "NameNodes" => list(hdfs_name_node()()),
-    "QopConfiguration" => qop_configuration(),
-    "ReplicationFactor" => integer(),
-    "SimpleUser" => String.t()
-  }
+      
+      describe_location_hdfs_response() :: %{
+        "AgentArns" => list(String.t()()),
+        "AuthenticationType" => list(any()),
+        "BlockSize" => integer(),
+        "CreationTime" => non_neg_integer(),
+        "KerberosPrincipal" => String.t(),
+        "KmsKeyProviderUri" => String.t(),
+        "LocationArn" => String.t(),
+        "LocationUri" => String.t(),
+        "NameNodes" => list(hdfs_name_node()()),
+        "QopConfiguration" => qop_configuration(),
+        "ReplicationFactor" => integer(),
+        "SimpleUser" => String.t()
+      }
+      
   """
   @type describe_location_hdfs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_location_fsx_windows_request() :: %{
-    required("LocationArn") => String.t()
-  }
+      
+      describe_location_fsx_windows_request() :: %{
+        required("LocationArn") => String.t()
+      }
+      
   """
   @type describe_location_fsx_windows_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_discovery_jobs_response() :: %{
-    "DiscoveryJobs" => list(discovery_job_list_entry()()),
-    "NextToken" => String.t()
-  }
+      
+      list_discovery_jobs_response() :: %{
+        "DiscoveryJobs" => list(discovery_job_list_entry()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_discovery_jobs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  generate_recommendations_request() :: %{
-    required("DiscoveryJobArn") => String.t(),
-    required("ResourceIds") => list(String.t()()),
-    required("ResourceType") => list(any())
-  }
+      
+      generate_recommendations_request() :: %{
+        required("DiscoveryJobArn") => String.t(),
+        required("ResourceIds") => list(String.t()()),
+        required("ResourceType") => list(any())
+      }
+      
   """
   @type generate_recommendations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_location_object_storage_response() :: %{
-    "LocationArn" => String.t()
-  }
+      
+      create_location_object_storage_response() :: %{
+        "LocationArn" => String.t()
+      }
+      
   """
   @type create_location_object_storage_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_location_object_storage_response() :: %{
-    "AccessKey" => String.t(),
-    "AgentArns" => list(String.t()()),
-    "CreationTime" => non_neg_integer(),
-    "LocationArn" => String.t(),
-    "LocationUri" => String.t(),
-    "ServerCertificate" => binary(),
-    "ServerPort" => integer(),
-    "ServerProtocol" => list(any())
-  }
+      
+      describe_location_object_storage_response() :: %{
+        "AccessKey" => String.t(),
+        "AgentArns" => list(String.t()()),
+        "CreationTime" => non_neg_integer(),
+        "LocationArn" => String.t(),
+        "LocationUri" => String.t(),
+        "ServerCertificate" => binary(),
+        "ServerPort" => integer(),
+        "ServerProtocol" => list(any())
+      }
+      
   """
   @type describe_location_object_storage_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_location_smb_response() :: %{
-    "AgentArns" => list(String.t()()),
-    "CreationTime" => non_neg_integer(),
-    "Domain" => String.t(),
-    "LocationArn" => String.t(),
-    "LocationUri" => String.t(),
-    "MountOptions" => smb_mount_options(),
-    "User" => String.t()
-  }
+      
+      describe_location_smb_response() :: %{
+        "AgentArns" => list(String.t()()),
+        "CreationTime" => non_neg_integer(),
+        "Domain" => String.t(),
+        "LocationArn" => String.t(),
+        "LocationUri" => String.t(),
+        "MountOptions" => smb_mount_options(),
+        "User" => String.t()
+      }
+      
   """
   @type describe_location_smb_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  manifest_config() :: %{
-    "Action" => list(any()),
-    "Format" => list(any()),
-    "Source" => source_manifest_config()
-  }
+      
+      manifest_config() :: %{
+        "Action" => list(any()),
+        "Format" => list(any()),
+        "Source" => source_manifest_config()
+      }
+      
   """
   @type manifest_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_task_response() :: %{
-
-  }
+      
+      delete_task_response() :: %{}
+      
   """
-  @type delete_task_response() :: %{String.t() => any()}
+  @type delete_task_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  describe_location_s3_response() :: %{
-    "AgentArns" => list(String.t()()),
-    "CreationTime" => non_neg_integer(),
-    "LocationArn" => String.t(),
-    "LocationUri" => String.t(),
-    "S3Config" => s3_config(),
-    "S3StorageClass" => list(any())
-  }
+      
+      describe_location_s3_response() :: %{
+        "AgentArns" => list(String.t()()),
+        "CreationTime" => non_neg_integer(),
+        "LocationArn" => String.t(),
+        "LocationUri" => String.t(),
+        "S3Config" => s3_config(),
+        "S3StorageClass" => list(any())
+      }
+      
   """
   @type describe_location_s3_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stop_discovery_job_response() :: %{
-
-  }
+      
+      stop_discovery_job_response() :: %{}
+      
   """
-  @type stop_discovery_job_response() :: %{String.t() => any()}
+  @type stop_discovery_job_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  start_task_execution_request() :: %{
-    optional("Excludes") => list(filter_rule()()),
-    optional("Includes") => list(filter_rule()()),
-    optional("ManifestConfig") => manifest_config(),
-    optional("OverrideOptions") => options(),
-    optional("Tags") => list(tag_list_entry()()),
-    optional("TaskReportConfig") => task_report_config(),
-    required("TaskArn") => String.t()
-  }
+      
+      start_task_execution_request() :: %{
+        optional("Excludes") => list(filter_rule()()),
+        optional("Includes") => list(filter_rule()()),
+        optional("ManifestConfig") => manifest_config(),
+        optional("OverrideOptions") => options(),
+        optional("Tags") => list(tag_list_entry()()),
+        optional("TaskReportConfig") => task_report_config(),
+        required("TaskArn") => String.t()
+      }
+      
   """
   @type start_task_execution_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_location_fsx_ontap_response() :: %{
-    "LocationArn" => String.t()
-  }
+      
+      create_location_fsx_ontap_response() :: %{
+        "LocationArn" => String.t()
+      }
+      
   """
   @type create_location_fsx_ontap_response() :: %{String.t() => any()}
+
+  @type add_storage_system_errors() :: internal_exception() | invalid_request_exception()
+
+  @type cancel_task_execution_errors() :: internal_exception() | invalid_request_exception()
+
+  @type create_agent_errors() :: internal_exception() | invalid_request_exception()
+
+  @type create_location_azure_blob_errors() :: internal_exception() | invalid_request_exception()
+
+  @type create_location_efs_errors() :: internal_exception() | invalid_request_exception()
+
+  @type create_location_fsx_lustre_errors() :: internal_exception() | invalid_request_exception()
+
+  @type create_location_fsx_ontap_errors() :: internal_exception() | invalid_request_exception()
+
+  @type create_location_fsx_open_zfs_errors() ::
+          internal_exception() | invalid_request_exception()
+
+  @type create_location_fsx_windows_errors() :: internal_exception() | invalid_request_exception()
+
+  @type create_location_hdfs_errors() :: internal_exception() | invalid_request_exception()
+
+  @type create_location_nfs_errors() :: internal_exception() | invalid_request_exception()
+
+  @type create_location_object_storage_errors() ::
+          internal_exception() | invalid_request_exception()
+
+  @type create_location_s3_errors() :: internal_exception() | invalid_request_exception()
+
+  @type create_location_smb_errors() :: internal_exception() | invalid_request_exception()
+
+  @type create_task_errors() :: internal_exception() | invalid_request_exception()
+
+  @type delete_agent_errors() :: internal_exception() | invalid_request_exception()
+
+  @type delete_location_errors() :: internal_exception() | invalid_request_exception()
+
+  @type delete_task_errors() :: internal_exception() | invalid_request_exception()
+
+  @type describe_agent_errors() :: internal_exception() | invalid_request_exception()
+
+  @type describe_discovery_job_errors() :: internal_exception() | invalid_request_exception()
+
+  @type describe_location_azure_blob_errors() ::
+          internal_exception() | invalid_request_exception()
+
+  @type describe_location_efs_errors() :: internal_exception() | invalid_request_exception()
+
+  @type describe_location_fsx_lustre_errors() ::
+          internal_exception() | invalid_request_exception()
+
+  @type describe_location_fsx_ontap_errors() :: internal_exception() | invalid_request_exception()
+
+  @type describe_location_fsx_open_zfs_errors() ::
+          internal_exception() | invalid_request_exception()
+
+  @type describe_location_fsx_windows_errors() ::
+          internal_exception() | invalid_request_exception()
+
+  @type describe_location_hdfs_errors() :: internal_exception() | invalid_request_exception()
+
+  @type describe_location_nfs_errors() :: internal_exception() | invalid_request_exception()
+
+  @type describe_location_object_storage_errors() ::
+          internal_exception() | invalid_request_exception()
+
+  @type describe_location_s3_errors() :: internal_exception() | invalid_request_exception()
+
+  @type describe_location_smb_errors() :: internal_exception() | invalid_request_exception()
+
+  @type describe_storage_system_errors() :: internal_exception() | invalid_request_exception()
+
+  @type describe_storage_system_resource_metrics_errors() ::
+          internal_exception() | invalid_request_exception()
+
+  @type describe_storage_system_resources_errors() ::
+          internal_exception() | invalid_request_exception()
+
+  @type describe_task_errors() :: internal_exception() | invalid_request_exception()
+
+  @type describe_task_execution_errors() :: internal_exception() | invalid_request_exception()
+
+  @type generate_recommendations_errors() :: internal_exception() | invalid_request_exception()
+
+  @type list_agents_errors() :: internal_exception() | invalid_request_exception()
+
+  @type list_discovery_jobs_errors() :: internal_exception() | invalid_request_exception()
+
+  @type list_locations_errors() :: internal_exception() | invalid_request_exception()
+
+  @type list_storage_systems_errors() :: internal_exception() | invalid_request_exception()
+
+  @type list_tags_for_resource_errors() :: internal_exception() | invalid_request_exception()
+
+  @type list_task_executions_errors() :: internal_exception() | invalid_request_exception()
+
+  @type list_tasks_errors() :: internal_exception() | invalid_request_exception()
+
+  @type remove_storage_system_errors() :: internal_exception() | invalid_request_exception()
+
+  @type start_discovery_job_errors() :: internal_exception() | invalid_request_exception()
+
+  @type start_task_execution_errors() :: internal_exception() | invalid_request_exception()
+
+  @type stop_discovery_job_errors() :: internal_exception() | invalid_request_exception()
+
+  @type tag_resource_errors() :: internal_exception() | invalid_request_exception()
+
+  @type untag_resource_errors() :: internal_exception() | invalid_request_exception()
+
+  @type update_agent_errors() :: internal_exception() | invalid_request_exception()
+
+  @type update_discovery_job_errors() :: internal_exception() | invalid_request_exception()
+
+  @type update_location_azure_blob_errors() :: internal_exception() | invalid_request_exception()
+
+  @type update_location_hdfs_errors() :: internal_exception() | invalid_request_exception()
+
+  @type update_location_nfs_errors() :: internal_exception() | invalid_request_exception()
+
+  @type update_location_object_storage_errors() ::
+          internal_exception() | invalid_request_exception()
+
+  @type update_location_smb_errors() :: internal_exception() | invalid_request_exception()
+
+  @type update_storage_system_errors() :: internal_exception() | invalid_request_exception()
+
+  @type update_task_errors() :: internal_exception() | invalid_request_exception()
+
+  @type update_task_execution_errors() :: internal_exception() | invalid_request_exception()
 
   def metadata do
     %{
@@ -2024,8 +2458,7 @@ defmodule AWS.DataSync do
   @spec add_storage_system(map(), add_storage_system_request(), list()) ::
           {:ok, add_storage_system_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, add_storage_system_errors()}
   def add_storage_system(%Client{} = client, input, options \\ []) do
     meta = metadata() |> Map.put_new(:host_prefix, "discovery-")
 
@@ -2051,8 +2484,7 @@ defmodule AWS.DataSync do
   @spec cancel_task_execution(map(), cancel_task_execution_request(), list()) ::
           {:ok, cancel_task_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, cancel_task_execution_errors()}
   def cancel_task_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2083,8 +2515,7 @@ defmodule AWS.DataSync do
   @spec create_agent(map(), create_agent_request(), list()) ::
           {:ok, create_agent_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, create_agent_errors()}
   def create_agent(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2108,8 +2539,7 @@ defmodule AWS.DataSync do
   @spec create_location_azure_blob(map(), create_location_azure_blob_request(), list()) ::
           {:ok, create_location_azure_blob_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, create_location_azure_blob_errors()}
   def create_location_azure_blob(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2129,8 +2559,7 @@ defmodule AWS.DataSync do
   @spec create_location_efs(map(), create_location_efs_request(), list()) ::
           {:ok, create_location_efs_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, create_location_efs_errors()}
   def create_location_efs(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2149,8 +2578,7 @@ defmodule AWS.DataSync do
   @spec create_location_fsx_lustre(map(), create_location_fsx_lustre_request(), list()) ::
           {:ok, create_location_fsx_lustre_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, create_location_fsx_lustre_errors()}
   def create_location_fsx_lustre(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2170,8 +2598,7 @@ defmodule AWS.DataSync do
   @spec create_location_fsx_ontap(map(), create_location_fsx_ontap_request(), list()) ::
           {:ok, create_location_fsx_ontap_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, create_location_fsx_ontap_errors()}
   def create_location_fsx_ontap(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2193,8 +2620,7 @@ defmodule AWS.DataSync do
   @spec create_location_fsx_open_zfs(map(), create_location_fsx_open_zfs_request(), list()) ::
           {:ok, create_location_fsx_open_zfs_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, create_location_fsx_open_zfs_errors()}
   def create_location_fsx_open_zfs(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2215,8 +2641,7 @@ defmodule AWS.DataSync do
   @spec create_location_fsx_windows(map(), create_location_fsx_windows_request(), list()) ::
           {:ok, create_location_fsx_windows_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, create_location_fsx_windows_errors()}
   def create_location_fsx_windows(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2237,8 +2662,7 @@ defmodule AWS.DataSync do
   @spec create_location_hdfs(map(), create_location_hdfs_request(), list()) ::
           {:ok, create_location_hdfs_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, create_location_hdfs_errors()}
   def create_location_hdfs(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2263,8 +2687,7 @@ defmodule AWS.DataSync do
   @spec create_location_nfs(map(), create_location_nfs_request(), list()) ::
           {:ok, create_location_nfs_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, create_location_nfs_errors()}
   def create_location_nfs(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2284,8 +2707,7 @@ defmodule AWS.DataSync do
   @spec create_location_object_storage(map(), create_location_object_storage_request(), list()) ::
           {:ok, create_location_object_storage_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, create_location_object_storage_errors()}
   def create_location_object_storage(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2314,8 +2736,7 @@ defmodule AWS.DataSync do
   @spec create_location_s3(map(), create_location_s3_request(), list()) ::
           {:ok, create_location_s3_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, create_location_s3_errors()}
   def create_location_s3(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2336,8 +2757,7 @@ defmodule AWS.DataSync do
   @spec create_location_smb(map(), create_location_smb_request(), list()) ::
           {:ok, create_location_smb_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, create_location_smb_errors()}
   def create_location_smb(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2363,8 +2783,7 @@ defmodule AWS.DataSync do
   @spec create_task(map(), create_task_request(), list()) ::
           {:ok, create_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, create_task_errors()}
   def create_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2384,8 +2803,7 @@ defmodule AWS.DataSync do
   @spec delete_agent(map(), delete_agent_request(), list()) ::
           {:ok, delete_agent_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, delete_agent_errors()}
   def delete_agent(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2398,8 +2816,7 @@ defmodule AWS.DataSync do
   @spec delete_location(map(), delete_location_request(), list()) ::
           {:ok, delete_location_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, delete_location_errors()}
   def delete_location(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2412,8 +2829,7 @@ defmodule AWS.DataSync do
   @spec delete_task(map(), delete_task_request(), list()) ::
           {:ok, delete_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, delete_task_errors()}
   def delete_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2427,8 +2843,7 @@ defmodule AWS.DataSync do
   @spec describe_agent(map(), describe_agent_request(), list()) ::
           {:ok, describe_agent_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, describe_agent_errors()}
   def describe_agent(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2441,8 +2856,7 @@ defmodule AWS.DataSync do
   @spec describe_discovery_job(map(), describe_discovery_job_request(), list()) ::
           {:ok, describe_discovery_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, describe_discovery_job_errors()}
   def describe_discovery_job(%Client{} = client, input, options \\ []) do
     meta = metadata() |> Map.put_new(:host_prefix, "discovery-")
 
@@ -2456,8 +2870,7 @@ defmodule AWS.DataSync do
   @spec describe_location_azure_blob(map(), describe_location_azure_blob_request(), list()) ::
           {:ok, describe_location_azure_blob_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, describe_location_azure_blob_errors()}
   def describe_location_azure_blob(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2471,8 +2884,7 @@ defmodule AWS.DataSync do
   @spec describe_location_efs(map(), describe_location_efs_request(), list()) ::
           {:ok, describe_location_efs_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, describe_location_efs_errors()}
   def describe_location_efs(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2486,8 +2898,7 @@ defmodule AWS.DataSync do
   @spec describe_location_fsx_lustre(map(), describe_location_fsx_lustre_request(), list()) ::
           {:ok, describe_location_fsx_lustre_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, describe_location_fsx_lustre_errors()}
   def describe_location_fsx_lustre(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2504,8 +2915,7 @@ defmodule AWS.DataSync do
   @spec describe_location_fsx_ontap(map(), describe_location_fsx_ontap_request(), list()) ::
           {:ok, describe_location_fsx_ontap_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, describe_location_fsx_ontap_errors()}
   def describe_location_fsx_ontap(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2522,8 +2932,7 @@ defmodule AWS.DataSync do
   @spec describe_location_fsx_open_zfs(map(), describe_location_fsx_open_zfs_request(), list()) ::
           {:ok, describe_location_fsx_open_zfs_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, describe_location_fsx_open_zfs_errors()}
   def describe_location_fsx_open_zfs(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2537,8 +2946,7 @@ defmodule AWS.DataSync do
   @spec describe_location_fsx_windows(map(), describe_location_fsx_windows_request(), list()) ::
           {:ok, describe_location_fsx_windows_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, describe_location_fsx_windows_errors()}
   def describe_location_fsx_windows(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2552,8 +2960,7 @@ defmodule AWS.DataSync do
   @spec describe_location_hdfs(map(), describe_location_hdfs_request(), list()) ::
           {:ok, describe_location_hdfs_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, describe_location_hdfs_errors()}
   def describe_location_hdfs(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2567,8 +2974,7 @@ defmodule AWS.DataSync do
   @spec describe_location_nfs(map(), describe_location_nfs_request(), list()) ::
           {:ok, describe_location_nfs_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, describe_location_nfs_errors()}
   def describe_location_nfs(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2586,8 +2992,7 @@ defmodule AWS.DataSync do
         ) ::
           {:ok, describe_location_object_storage_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, describe_location_object_storage_errors()}
   def describe_location_object_storage(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2601,8 +3006,7 @@ defmodule AWS.DataSync do
   @spec describe_location_s3(map(), describe_location_s3_request(), list()) ::
           {:ok, describe_location_s3_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, describe_location_s3_errors()}
   def describe_location_s3(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2616,8 +3020,7 @@ defmodule AWS.DataSync do
   @spec describe_location_smb(map(), describe_location_smb_request(), list()) ::
           {:ok, describe_location_smb_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, describe_location_smb_errors()}
   def describe_location_smb(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2631,8 +3034,7 @@ defmodule AWS.DataSync do
   @spec describe_storage_system(map(), describe_storage_system_request(), list()) ::
           {:ok, describe_storage_system_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, describe_storage_system_errors()}
   def describe_storage_system(%Client{} = client, input, options \\ []) do
     meta = metadata() |> Map.put_new(:host_prefix, "discovery-")
 
@@ -2651,8 +3053,7 @@ defmodule AWS.DataSync do
         ) ::
           {:ok, describe_storage_system_resource_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, describe_storage_system_resource_metrics_errors()}
   def describe_storage_system_resource_metrics(%Client{} = client, input, options \\ []) do
     meta = metadata() |> Map.put_new(:host_prefix, "discovery-")
 
@@ -2671,8 +3072,7 @@ defmodule AWS.DataSync do
         ) ::
           {:ok, describe_storage_system_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, describe_storage_system_resources_errors()}
   def describe_storage_system_resources(%Client{} = client, input, options \\ []) do
     meta = metadata() |> Map.put_new(:host_prefix, "discovery-")
 
@@ -2685,8 +3085,7 @@ defmodule AWS.DataSync do
   @spec describe_task(map(), describe_task_request(), list()) ::
           {:ok, describe_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, describe_task_errors()}
   def describe_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2704,8 +3103,7 @@ defmodule AWS.DataSync do
   @spec describe_task_execution(map(), describe_task_execution_request(), list()) ::
           {:ok, describe_task_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, describe_task_execution_errors()}
   def describe_task_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2729,8 +3127,7 @@ defmodule AWS.DataSync do
   @spec generate_recommendations(map(), generate_recommendations_request(), list()) ::
           {:ok, generate_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, generate_recommendations_errors()}
   def generate_recommendations(%Client{} = client, input, options \\ []) do
     meta = metadata() |> Map.put_new(:host_prefix, "discovery-")
 
@@ -2762,8 +3159,7 @@ defmodule AWS.DataSync do
   @spec list_agents(map(), list_agents_request(), list()) ::
           {:ok, list_agents_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, list_agents_errors()}
   def list_agents(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2778,8 +3174,7 @@ defmodule AWS.DataSync do
   @spec list_discovery_jobs(map(), list_discovery_jobs_request(), list()) ::
           {:ok, list_discovery_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, list_discovery_jobs_errors()}
   def list_discovery_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata() |> Map.put_new(:host_prefix, "discovery-")
 
@@ -2798,8 +3193,7 @@ defmodule AWS.DataSync do
   @spec list_locations(map(), list_locations_request(), list()) ::
           {:ok, list_locations_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, list_locations_errors()}
   def list_locations(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2812,8 +3206,7 @@ defmodule AWS.DataSync do
   @spec list_storage_systems(map(), list_storage_systems_request(), list()) ::
           {:ok, list_storage_systems_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, list_storage_systems_errors()}
   def list_storage_systems(%Client{} = client, input, options \\ []) do
     meta = metadata() |> Map.put_new(:host_prefix, "discovery-")
 
@@ -2826,8 +3219,7 @@ defmodule AWS.DataSync do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2840,8 +3232,7 @@ defmodule AWS.DataSync do
   @spec list_task_executions(map(), list_task_executions_request(), list()) ::
           {:ok, list_task_executions_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, list_task_executions_errors()}
   def list_task_executions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2854,8 +3245,7 @@ defmodule AWS.DataSync do
   @spec list_tasks(map(), list_tasks_request(), list()) ::
           {:ok, list_tasks_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, list_tasks_errors()}
   def list_tasks(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2870,8 +3260,7 @@ defmodule AWS.DataSync do
   @spec remove_storage_system(map(), remove_storage_system_request(), list()) ::
           {:ok, remove_storage_system_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, remove_storage_system_errors()}
   def remove_storage_system(%Client{} = client, input, options \\ []) do
     meta = metadata() |> Map.put_new(:host_prefix, "discovery-")
 
@@ -2889,8 +3278,7 @@ defmodule AWS.DataSync do
   @spec start_discovery_job(map(), start_discovery_job_request(), list()) ::
           {:ok, start_discovery_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, start_discovery_job_errors()}
   def start_discovery_job(%Client{} = client, input, options \\ []) do
     meta = metadata() |> Map.put_new(:host_prefix, "discovery-")
 
@@ -2915,8 +3303,7 @@ defmodule AWS.DataSync do
   @spec start_task_execution(map(), start_task_execution_request(), list()) ::
           {:ok, start_task_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, start_task_execution_errors()}
   def start_task_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2937,8 +3324,7 @@ defmodule AWS.DataSync do
   @spec stop_discovery_job(map(), stop_discovery_job_request(), list()) ::
           {:ok, stop_discovery_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, stop_discovery_job_errors()}
   def stop_discovery_job(%Client{} = client, input, options \\ []) do
     meta = metadata() |> Map.put_new(:host_prefix, "discovery-")
 
@@ -2957,8 +3343,7 @@ defmodule AWS.DataSync do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2971,8 +3356,7 @@ defmodule AWS.DataSync do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2985,8 +3369,7 @@ defmodule AWS.DataSync do
   @spec update_agent(map(), update_agent_request(), list()) ::
           {:ok, update_agent_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, update_agent_errors()}
   def update_agent(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2999,8 +3382,7 @@ defmodule AWS.DataSync do
   @spec update_discovery_job(map(), update_discovery_job_request(), list()) ::
           {:ok, update_discovery_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, update_discovery_job_errors()}
   def update_discovery_job(%Client{} = client, input, options \\ []) do
     meta = metadata() |> Map.put_new(:host_prefix, "discovery-")
 
@@ -3014,8 +3396,7 @@ defmodule AWS.DataSync do
   @spec update_location_azure_blob(map(), update_location_azure_blob_request(), list()) ::
           {:ok, update_location_azure_blob_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, update_location_azure_blob_errors()}
   def update_location_azure_blob(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3030,8 +3411,7 @@ defmodule AWS.DataSync do
   @spec update_location_hdfs(map(), update_location_hdfs_request(), list()) ::
           {:ok, update_location_hdfs_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, update_location_hdfs_errors()}
   def update_location_hdfs(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3049,8 +3429,7 @@ defmodule AWS.DataSync do
   @spec update_location_nfs(map(), update_location_nfs_request(), list()) ::
           {:ok, update_location_nfs_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, update_location_nfs_errors()}
   def update_location_nfs(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3067,8 +3446,7 @@ defmodule AWS.DataSync do
   @spec update_location_object_storage(map(), update_location_object_storage_request(), list()) ::
           {:ok, update_location_object_storage_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, update_location_object_storage_errors()}
   def update_location_object_storage(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3082,8 +3460,7 @@ defmodule AWS.DataSync do
   @spec update_location_smb(map(), update_location_smb_request(), list()) ::
           {:ok, update_location_smb_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, update_location_smb_errors()}
   def update_location_smb(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3098,8 +3475,7 @@ defmodule AWS.DataSync do
   @spec update_storage_system(map(), update_storage_system_request(), list()) ::
           {:ok, update_storage_system_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, update_storage_system_errors()}
   def update_storage_system(%Client{} = client, input, options \\ []) do
     meta = metadata() |> Map.put_new(:host_prefix, "discovery-")
 
@@ -3112,8 +3488,7 @@ defmodule AWS.DataSync do
   @spec update_task(map(), update_task_request(), list()) ::
           {:ok, update_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, update_task_errors()}
   def update_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3138,8 +3513,7 @@ defmodule AWS.DataSync do
   @spec update_task_execution(map(), update_task_execution_request(), list()) ::
           {:ok, update_task_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, update_task_execution_errors()}
   def update_task_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
 

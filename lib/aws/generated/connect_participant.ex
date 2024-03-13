@@ -26,377 +26,502 @@ defmodule AWS.ConnectParticipant do
   @typedoc """
 
   ## Example:
-  view() :: %{
-    "Arn" => String.t(),
-    "Content" => view_content(),
-    "Id" => String.t(),
-    "Name" => String.t(),
-    "Version" => integer()
-  }
+
+      view() :: %{
+        "Arn" => String.t(),
+        "Content" => view_content(),
+        "Id" => String.t(),
+        "Name" => String.t(),
+        "Version" => integer()
+      }
+
   """
   @type view() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disconnect_participant_response() :: %{
 
-  }
+      disconnect_participant_response() :: %{}
+
   """
-  @type disconnect_participant_response() :: %{String.t() => any()}
+  @type disconnect_participant_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  receipt() :: %{
-    "DeliveredTimestamp" => String.t(),
-    "ReadTimestamp" => String.t(),
-    "RecipientParticipantId" => String.t()
-  }
+
+      receipt() :: %{
+        "DeliveredTimestamp" => String.t(),
+        "ReadTimestamp" => String.t(),
+        "RecipientParticipantId" => String.t()
+      }
+
   """
   @type receipt() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_position() :: %{
-    "AbsoluteTime" => String.t(),
-    "Id" => String.t(),
-    "MostRecent" => integer()
-  }
+
+      start_position() :: %{
+        "AbsoluteTime" => String.t(),
+        "Id" => String.t(),
+        "MostRecent" => integer()
+      }
+
   """
   @type start_position() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  websocket() :: %{
-    "ConnectionExpiry" => String.t(),
-    "Url" => String.t()
-  }
+
+      websocket() :: %{
+        "ConnectionExpiry" => String.t(),
+        "Url" => String.t()
+      }
+
   """
   @type websocket() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  complete_attachment_upload_request() :: %{
-    required("AttachmentIds") => list(String.t()()),
-    required("ClientToken") => String.t(),
-    required("ConnectionToken") => String.t()
-  }
+
+      complete_attachment_upload_request() :: %{
+        required("AttachmentIds") => list(String.t()()),
+        required("ClientToken") => String.t(),
+        required("ConnectionToken") => String.t()
+      }
+
   """
   @type complete_attachment_upload_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  send_event_request() :: %{
-    optional("ClientToken") => String.t(),
-    optional("Content") => String.t(),
-    required("ConnectionToken") => String.t(),
-    required("ContentType") => String.t()
-  }
+
+      send_event_request() :: %{
+        optional("ClientToken") => String.t(),
+        optional("Content") => String.t(),
+        required("ConnectionToken") => String.t(),
+        required("ContentType") => String.t()
+      }
+
   """
   @type send_event_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_view_response() :: %{
-    "View" => view()
-  }
+
+      describe_view_response() :: %{
+        "View" => view()
+      }
+
   """
   @type describe_view_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  item() :: %{
-    "AbsoluteTime" => String.t(),
-    "Attachments" => list(attachment_item()()),
-    "ContactId" => String.t(),
-    "Content" => String.t(),
-    "ContentType" => String.t(),
-    "DisplayName" => String.t(),
-    "Id" => String.t(),
-    "MessageMetadata" => message_metadata(),
-    "ParticipantId" => String.t(),
-    "ParticipantRole" => list(any()),
-    "RelatedContactId" => String.t(),
-    "Type" => list(any())
-  }
+
+      item() :: %{
+        "AbsoluteTime" => String.t(),
+        "Attachments" => list(attachment_item()()),
+        "ContactId" => String.t(),
+        "Content" => String.t(),
+        "ContentType" => String.t(),
+        "DisplayName" => String.t(),
+        "Id" => String.t(),
+        "MessageMetadata" => message_metadata(),
+        "ParticipantId" => String.t(),
+        "ParticipantRole" => list(any()),
+        "RelatedContactId" => String.t(),
+        "Type" => list(any())
+      }
+
   """
   @type item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disconnect_participant_request() :: %{
-    optional("ClientToken") => String.t(),
-    required("ConnectionToken") => String.t()
-  }
+
+      disconnect_participant_request() :: %{
+        optional("ClientToken") => String.t(),
+        required("ConnectionToken") => String.t()
+      }
+
   """
   @type disconnect_participant_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  view_content() :: %{
-    "Actions" => list(String.t()()),
-    "InputSchema" => String.t(),
-    "Template" => String.t()
-  }
+
+      view_content() :: %{
+        "Actions" => list(String.t()()),
+        "InputSchema" => String.t(),
+        "Template" => String.t()
+      }
+
   """
   @type view_content() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_participant_connection_request() :: %{
-    optional("ConnectParticipant") => boolean(),
-    optional("Type") => list(list(any())()),
-    required("ParticipantToken") => String.t()
-  }
+
+      create_participant_connection_request() :: %{
+        optional("ConnectParticipant") => boolean(),
+        optional("Type") => list(list(any())()),
+        required("ParticipantToken") => String.t()
+      }
+
   """
   @type create_participant_connection_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  conflict_exception() :: %{
-    "Message" => String.t()
-  }
+
+      conflict_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_not_found_exception() :: %{
-    "Message" => String.t(),
-    "ResourceId" => String.t(),
-    "ResourceType" => list(any())
-  }
+
+      resource_not_found_exception() :: %{
+        "Message" => String.t(),
+        "ResourceId" => String.t(),
+        "ResourceType" => list(any())
+      }
+
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  send_event_response() :: %{
-    "AbsoluteTime" => String.t(),
-    "Id" => String.t()
-  }
+
+      send_event_response() :: %{
+        "AbsoluteTime" => String.t(),
+        "Id" => String.t()
+      }
+
   """
   @type send_event_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  service_quota_exceeded_exception() :: %{
-    "Message" => String.t()
-  }
+
+      service_quota_exceeded_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  attachment_item() :: %{
-    "AttachmentId" => String.t(),
-    "AttachmentName" => String.t(),
-    "ContentType" => String.t(),
-    "Status" => list(any())
-  }
+
+      attachment_item() :: %{
+        "AttachmentId" => String.t(),
+        "AttachmentName" => String.t(),
+        "ContentType" => String.t(),
+        "Status" => list(any())
+      }
+
   """
   @type attachment_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_view_request() :: %{
-    required("ConnectionToken") => String.t()
-  }
+
+      describe_view_request() :: %{
+        required("ConnectionToken") => String.t()
+      }
+
   """
   @type describe_view_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_attachment_response() :: %{
-    "Url" => String.t(),
-    "UrlExpiry" => String.t()
-  }
+
+      get_attachment_response() :: %{
+        "Url" => String.t(),
+        "UrlExpiry" => String.t()
+      }
+
   """
   @type get_attachment_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  message_metadata() :: %{
-    "MessageId" => String.t(),
-    "Receipts" => list(receipt()())
-  }
+
+      message_metadata() :: %{
+        "MessageId" => String.t(),
+        "Receipts" => list(receipt()())
+      }
+
   """
   @type message_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_attachment_upload_response() :: %{
-    "AttachmentId" => String.t(),
-    "UploadMetadata" => upload_metadata()
-  }
+
+      start_attachment_upload_response() :: %{
+        "AttachmentId" => String.t(),
+        "UploadMetadata" => upload_metadata()
+      }
+
   """
   @type start_attachment_upload_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_transcript_request() :: %{
-    optional("ContactId") => String.t(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("ScanDirection") => list(any()),
-    optional("SortOrder") => list(any()),
-    optional("StartPosition") => start_position(),
-    required("ConnectionToken") => String.t()
-  }
+
+      get_transcript_request() :: %{
+        optional("ContactId") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("ScanDirection") => list(any()),
+        optional("SortOrder") => list(any()),
+        optional("StartPosition") => start_position(),
+        required("ConnectionToken") => String.t()
+      }
+
   """
   @type get_transcript_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_attachment_request() :: %{
-    required("AttachmentId") => String.t(),
-    required("ConnectionToken") => String.t()
-  }
+
+      get_attachment_request() :: %{
+        required("AttachmentId") => String.t(),
+        required("ConnectionToken") => String.t()
+      }
+
   """
   @type get_attachment_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  connection_credentials() :: %{
-    "ConnectionToken" => String.t(),
-    "Expiry" => String.t()
-  }
+
+      connection_credentials() :: %{
+        "ConnectionToken" => String.t(),
+        "Expiry" => String.t()
+      }
+
   """
   @type connection_credentials() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  internal_server_exception() :: %{
-    "Message" => String.t()
-  }
+
+      internal_server_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_attachment_upload_request() :: %{
-    required("AttachmentName") => String.t(),
-    required("AttachmentSizeInBytes") => float(),
-    required("ClientToken") => String.t(),
-    required("ConnectionToken") => String.t(),
-    required("ContentType") => String.t()
-  }
+
+      start_attachment_upload_request() :: %{
+        required("AttachmentName") => String.t(),
+        required("AttachmentSizeInBytes") => float(),
+        required("ClientToken") => String.t(),
+        required("ConnectionToken") => String.t(),
+        required("ContentType") => String.t()
+      }
+
   """
   @type start_attachment_upload_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  access_denied_exception() :: %{
-    "Message" => String.t()
-  }
+
+      access_denied_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  complete_attachment_upload_response() :: %{
 
-  }
+      complete_attachment_upload_response() :: %{}
+
   """
-  @type complete_attachment_upload_response() :: %{String.t() => any()}
+  @type complete_attachment_upload_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  validation_exception() :: %{
-    "Message" => String.t()
-  }
+
+      validation_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  throttling_exception() :: %{
-    "Message" => String.t()
-  }
+
+      throttling_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_transcript_response() :: %{
-    "InitialContactId" => String.t(),
-    "NextToken" => String.t(),
-    "Transcript" => list(item()())
-  }
+
+      get_transcript_response() :: %{
+        "InitialContactId" => String.t(),
+        "NextToken" => String.t(),
+        "Transcript" => list(item()())
+      }
+
   """
   @type get_transcript_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  send_message_request() :: %{
-    optional("ClientToken") => String.t(),
-    required("ConnectionToken") => String.t(),
-    required("Content") => String.t(),
-    required("ContentType") => String.t()
-  }
+
+      send_message_request() :: %{
+        optional("ClientToken") => String.t(),
+        required("ConnectionToken") => String.t(),
+        required("Content") => String.t(),
+        required("ContentType") => String.t()
+      }
+
   """
   @type send_message_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  send_message_response() :: %{
-    "AbsoluteTime" => String.t(),
-    "Id" => String.t()
-  }
+
+      send_message_response() :: %{
+        "AbsoluteTime" => String.t(),
+        "Id" => String.t()
+      }
+
   """
   @type send_message_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  upload_metadata() :: %{
-    "HeadersToInclude" => map(),
-    "Url" => String.t(),
-    "UrlExpiry" => String.t()
-  }
+
+      upload_metadata() :: %{
+        "HeadersToInclude" => map(),
+        "Url" => String.t(),
+        "UrlExpiry" => String.t()
+      }
+
   """
   @type upload_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_participant_connection_response() :: %{
-    "ConnectionCredentials" => connection_credentials(),
-    "Websocket" => websocket()
-  }
+
+      create_participant_connection_response() :: %{
+        "ConnectionCredentials" => connection_credentials(),
+        "Websocket" => websocket()
+      }
+
   """
   @type create_participant_connection_response() :: %{String.t() => any()}
+
+  @type complete_attachment_upload_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+
+  @type create_participant_connection_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type describe_view_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type disconnect_participant_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type get_attachment_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type get_transcript_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type send_event_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | conflict_exception()
+
+  @type send_message_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type start_attachment_upload_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
 
   def metadata do
     %{
@@ -429,12 +554,7 @@ defmodule AWS.ConnectParticipant do
   @spec complete_attachment_upload(map(), complete_attachment_upload_request(), list()) ::
           {:ok, complete_attachment_upload_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, complete_attachment_upload_errors()}
   def complete_attachment_upload(%Client{} = client, input, options \\ []) do
     url_path = "/participant/complete-attachment-upload"
 
@@ -508,10 +628,7 @@ defmodule AWS.ConnectParticipant do
   @spec create_participant_connection(map(), create_participant_connection_request(), list()) ::
           {:ok, create_participant_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_participant_connection_errors()}
   def create_participant_connection(%Client{} = client, input, options \\ []) do
     url_path = "/participant/connection"
 
@@ -544,11 +661,7 @@ defmodule AWS.ConnectParticipant do
   @spec describe_view(map(), String.t(), String.t(), list()) ::
           {:ok, describe_view_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, describe_view_errors()}
   def describe_view(%Client{} = client, view_token, connection_token, options \\ []) do
     url_path = "/participant/views/#{AWS.Util.encode_uri(view_token)}"
     headers = []
@@ -578,10 +691,7 @@ defmodule AWS.ConnectParticipant do
   @spec disconnect_participant(map(), disconnect_participant_request(), list()) ::
           {:ok, disconnect_participant_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, disconnect_participant_errors()}
   def disconnect_participant(%Client{} = client, input, options \\ []) do
     url_path = "/participant/disconnect"
 
@@ -622,10 +732,7 @@ defmodule AWS.ConnectParticipant do
   @spec get_attachment(map(), get_attachment_request(), list()) ::
           {:ok, get_attachment_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_attachment_errors()}
   def get_attachment(%Client{} = client, input, options \\ []) do
     url_path = "/participant/attachment"
 
@@ -693,10 +800,7 @@ defmodule AWS.ConnectParticipant do
   @spec get_transcript(map(), get_transcript_request(), list()) ::
           {:ok, get_transcript_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_transcript_errors()}
   def get_transcript(%Client{} = client, input, options \\ []) do
     url_path = "/participant/transcript"
 
@@ -748,11 +852,7 @@ defmodule AWS.ConnectParticipant do
   @spec send_event(map(), send_event_request(), list()) ::
           {:ok, send_event_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, send_event_errors()}
   def send_event(%Client{} = client, input, options \\ []) do
     url_path = "/participant/event"
 
@@ -790,10 +890,7 @@ defmodule AWS.ConnectParticipant do
   @spec send_message(map(), send_message_request(), list()) ::
           {:ok, send_message_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, send_message_errors()}
   def send_message(%Client{} = client, input, options \\ []) do
     url_path = "/participant/message"
 
@@ -833,11 +930,7 @@ defmodule AWS.ConnectParticipant do
   @spec start_attachment_upload(map(), start_attachment_upload_request(), list()) ::
           {:ok, start_attachment_upload_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, start_attachment_upload_errors()}
   def start_attachment_upload(%Client{} = client, input, options \\ []) do
     url_path = "/participant/start-attachment-upload"
 

@@ -12,59 +12,73 @@ defmodule AWS.MarketplaceCommerceAnalytics do
   @typedoc """
 
   ## Example:
-  generate_data_set_request() :: %{
-    optional("customerDefinedValues") => map(),
-    optional("destinationS3Prefix") => String.t(),
-    required("dataSetPublicationDate") => non_neg_integer(),
-    required("dataSetType") => list(any()),
-    required("destinationS3BucketName") => String.t(),
-    required("roleNameArn") => String.t(),
-    required("snsTopicArn") => String.t()
-  }
+      
+      generate_data_set_request() :: %{
+        optional("customerDefinedValues") => map(),
+        optional("destinationS3Prefix") => String.t(),
+        required("dataSetPublicationDate") => non_neg_integer(),
+        required("dataSetType") => list(any()),
+        required("destinationS3BucketName") => String.t(),
+        required("roleNameArn") => String.t(),
+        required("snsTopicArn") => String.t()
+      }
+      
   """
   @type generate_data_set_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  generate_data_set_result() :: %{
-    "dataSetRequestId" => String.t()
-  }
+      
+      generate_data_set_result() :: %{
+        "dataSetRequestId" => String.t()
+      }
+      
   """
   @type generate_data_set_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  marketplace_commerce_analytics_exception() :: %{
-    "message" => String.t()
-  }
+      
+      marketplace_commerce_analytics_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type marketplace_commerce_analytics_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_support_data_export_request() :: %{
-    optional("customerDefinedValues") => map(),
-    optional("destinationS3Prefix") => String.t(),
-    required("dataSetType") => list(any()),
-    required("destinationS3BucketName") => String.t(),
-    required("fromDate") => non_neg_integer(),
-    required("roleNameArn") => String.t(),
-    required("snsTopicArn") => String.t()
-  }
+      
+      start_support_data_export_request() :: %{
+        optional("customerDefinedValues") => map(),
+        optional("destinationS3Prefix") => String.t(),
+        required("dataSetType") => list(any()),
+        required("destinationS3BucketName") => String.t(),
+        required("fromDate") => non_neg_integer(),
+        required("roleNameArn") => String.t(),
+        required("snsTopicArn") => String.t()
+      }
+      
   """
   @type start_support_data_export_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_support_data_export_result() :: %{
-    "dataSetRequestId" => String.t()
-  }
+      
+      start_support_data_export_result() :: %{
+        "dataSetRequestId" => String.t()
+      }
+      
   """
   @type start_support_data_export_result() :: %{String.t() => any()}
+
+  @type generate_data_set_errors() :: marketplace_commerce_analytics_exception()
+
+  @type start_support_data_export_errors() :: marketplace_commerce_analytics_exception()
 
   def metadata do
     %{
@@ -101,7 +115,7 @@ defmodule AWS.MarketplaceCommerceAnalytics do
   @spec generate_data_set(map(), generate_data_set_request(), list()) ::
           {:ok, generate_data_set_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, marketplace_commerce_analytics_exception()}
+          | {:error, generate_data_set_errors()}
   def generate_data_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -130,7 +144,7 @@ defmodule AWS.MarketplaceCommerceAnalytics do
   @spec start_support_data_export(map(), start_support_data_export_request(), list()) ::
           {:ok, start_support_data_export_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, marketplace_commerce_analytics_exception()}
+          | {:error, start_support_data_export_errors()}
   def start_support_data_export(%Client{} = client, input, options \\ []) do
     meta = metadata()
 

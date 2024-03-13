@@ -313,1226 +313,1721 @@ defmodule AWS.Codeartifact do
   @typedoc """
 
   ## Example:
-  list_package_version_assets_request() :: %{
-    optional("domainOwner") => String.t(),
-    optional("maxResults") => integer(),
-    optional("namespace") => String.t(),
-    optional("nextToken") => String.t(),
-    required("domain") => String.t(),
-    required("format") => list(any()),
-    required("package") => String.t(),
-    required("packageVersion") => String.t(),
-    required("repository") => String.t()
-  }
+
+      list_package_version_assets_request() :: %{
+        optional("domainOwner") => String.t(),
+        optional("maxResults") => integer(),
+        optional("namespace") => String.t(),
+        optional("nextToken") => String.t(),
+        required("domain") => String.t(),
+        required("format") => list(any()),
+        required("package") => String.t(),
+        required("packageVersion") => String.t(),
+        required("repository") => String.t()
+      }
+
   """
   @type list_package_version_assets_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_request() :: %{
-    required("resourceArn") => String.t(),
-    required("tags") => list(tag()())
-  }
+
+      tag_resource_request() :: %{
+        required("resourceArn") => String.t(),
+        required("tags") => list(tag()())
+      }
+
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_package_versions_status_result() :: %{
-    "failedVersions" => map(),
-    "successfulVersions" => map()
-  }
+
+      update_package_versions_status_result() :: %{
+        "failedVersions" => map(),
+        "successfulVersions" => map()
+      }
+
   """
   @type update_package_versions_status_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_package_version_assets_result() :: %{
-    "assets" => list(asset_summary()()),
-    "format" => list(any()),
-    "namespace" => String.t(),
-    "nextToken" => String.t(),
-    "package" => String.t(),
-    "version" => String.t(),
-    "versionRevision" => String.t()
-  }
+
+      list_package_version_assets_result() :: %{
+        "assets" => list(asset_summary()()),
+        "format" => list(any()),
+        "namespace" => String.t(),
+        "nextToken" => String.t(),
+        "package" => String.t(),
+        "version" => String.t(),
+        "versionRevision" => String.t()
+      }
+
   """
   @type list_package_version_assets_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_package_version_dependencies_request() :: %{
-    optional("domainOwner") => String.t(),
-    optional("namespace") => String.t(),
-    optional("nextToken") => String.t(),
-    required("domain") => String.t(),
-    required("format") => list(any()),
-    required("package") => String.t(),
-    required("packageVersion") => String.t(),
-    required("repository") => String.t()
-  }
+
+      list_package_version_dependencies_request() :: %{
+        optional("domainOwner") => String.t(),
+        optional("namespace") => String.t(),
+        optional("nextToken") => String.t(),
+        required("domain") => String.t(),
+        required("format") => list(any()),
+        required("package") => String.t(),
+        required("packageVersion") => String.t(),
+        required("repository") => String.t()
+      }
+
   """
   @type list_package_version_dependencies_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_result() :: %{
 
-  }
+      untag_resource_result() :: %{}
+
   """
-  @type untag_resource_result() :: %{String.t() => any()}
+  @type untag_resource_result() :: %{}
 
   @typedoc """
 
   ## Example:
-  dispose_package_versions_request() :: %{
-    optional("domainOwner") => String.t(),
-    optional("expectedStatus") => list(any()),
-    optional("namespace") => String.t(),
-    optional("versionRevisions") => map(),
-    required("domain") => String.t(),
-    required("format") => list(any()),
-    required("package") => String.t(),
-    required("repository") => String.t(),
-    required("versions") => list(String.t()())
-  }
+
+      dispose_package_versions_request() :: %{
+        optional("domainOwner") => String.t(),
+        optional("expectedStatus") => list(any()),
+        optional("namespace") => String.t(),
+        optional("versionRevisions") => map(),
+        required("domain") => String.t(),
+        required("format") => list(any()),
+        required("package") => String.t(),
+        required("repository") => String.t(),
+        required("versions") => list(String.t()())
+      }
+
   """
   @type dispose_package_versions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  package_origin_configuration() :: %{
-    "restrictions" => package_origin_restrictions()
-  }
+
+      package_origin_configuration() :: %{
+        "restrictions" => package_origin_restrictions()
+      }
+
   """
   @type package_origin_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_repository_result() :: %{
-    "repository" => repository_description()
-  }
+
+      describe_repository_result() :: %{
+        "repository" => repository_description()
+      }
+
   """
   @type describe_repository_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  package_version_origin() :: %{
-    "domainEntryPoint" => domain_entry_point(),
-    "originType" => list(any())
-  }
+
+      package_version_origin() :: %{
+        "domainEntryPoint" => domain_entry_point(),
+        "originType" => list(any())
+      }
+
   """
   @type package_version_origin() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  domain_summary() :: %{
-    "arn" => String.t(),
-    "createdTime" => non_neg_integer(),
-    "encryptionKey" => String.t(),
-    "name" => String.t(),
-    "owner" => String.t(),
-    "status" => list(any())
-  }
+
+      domain_summary() :: %{
+        "arn" => String.t(),
+        "createdTime" => non_neg_integer(),
+        "encryptionKey" => String.t(),
+        "name" => String.t(),
+        "owner" => String.t(),
+        "status" => list(any())
+      }
+
   """
   @type domain_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_packages_request() :: %{
-    optional("domainOwner") => String.t(),
-    optional("format") => list(any()),
-    optional("maxResults") => integer(),
-    optional("namespace") => String.t(),
-    optional("nextToken") => String.t(),
-    optional("packagePrefix") => String.t(),
-    optional("publish") => list(any()),
-    optional("upstream") => list(any()),
-    required("domain") => String.t(),
-    required("repository") => String.t()
-  }
+
+      list_packages_request() :: %{
+        optional("domainOwner") => String.t(),
+        optional("format") => list(any()),
+        optional("maxResults") => integer(),
+        optional("namespace") => String.t(),
+        optional("nextToken") => String.t(),
+        optional("packagePrefix") => String.t(),
+        optional("publish") => list(any()),
+        optional("upstream") => list(any()),
+        required("domain") => String.t(),
+        required("repository") => String.t()
+      }
+
   """
   @type list_packages_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_repository_result() :: %{
-    "repository" => repository_description()
-  }
+
+      delete_repository_result() :: %{
+        "repository" => repository_description()
+      }
+
   """
   @type delete_repository_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_package_version_asset_result() :: %{
-    "asset" => binary(),
-    "assetName" => String.t(),
-    "packageVersion" => String.t(),
-    "packageVersionRevision" => String.t()
-  }
+
+      get_package_version_asset_result() :: %{
+        "asset" => binary(),
+        "assetName" => String.t(),
+        "packageVersion" => String.t(),
+        "packageVersionRevision" => String.t()
+      }
+
   """
   @type get_package_version_asset_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  publish_package_version_result() :: %{
-    "asset" => asset_summary(),
-    "format" => list(any()),
-    "namespace" => String.t(),
-    "package" => String.t(),
-    "status" => list(any()),
-    "version" => String.t(),
-    "versionRevision" => String.t()
-  }
+
+      publish_package_version_result() :: %{
+        "asset" => asset_summary(),
+        "format" => list(any()),
+        "namespace" => String.t(),
+        "package" => String.t(),
+        "status" => list(any()),
+        "version" => String.t(),
+        "versionRevision" => String.t()
+      }
+
   """
   @type publish_package_version_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_domain_result() :: %{
-    "domain" => domain_description()
-  }
+
+      create_domain_result() :: %{
+        "domain" => domain_description()
+      }
+
   """
   @type create_domain_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  asset_summary() :: %{
-    "hashes" => map(),
-    "name" => String.t(),
-    "size" => float()
-  }
+
+      asset_summary() :: %{
+        "hashes" => map(),
+        "name" => String.t(),
+        "size" => float()
+      }
+
   """
   @type asset_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_request() :: %{
-    required("resourceArn") => String.t(),
-    required("tagKeys") => list(String.t()())
-  }
+
+      untag_resource_request() :: %{
+        required("resourceArn") => String.t(),
+        required("tagKeys") => list(String.t()())
+      }
+
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_repository_permissions_policy_request() :: %{
-    optional("domainOwner") => String.t(),
-    optional("policyRevision") => String.t(),
-    required("domain") => String.t(),
-    required("policyDocument") => String.t(),
-    required("repository") => String.t()
-  }
+
+      put_repository_permissions_policy_request() :: %{
+        optional("domainOwner") => String.t(),
+        optional("policyRevision") => String.t(),
+        required("domain") => String.t(),
+        required("policyDocument") => String.t(),
+        required("repository") => String.t()
+      }
+
   """
   @type put_repository_permissions_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  package_version_description() :: %{
-    "displayName" => String.t(),
-    "format" => list(any()),
-    "homePage" => String.t(),
-    "licenses" => list(license_info()()),
-    "namespace" => String.t(),
-    "origin" => package_version_origin(),
-    "packageName" => String.t(),
-    "publishedTime" => non_neg_integer(),
-    "revision" => String.t(),
-    "sourceCodeRepository" => String.t(),
-    "status" => list(any()),
-    "summary" => String.t(),
-    "version" => String.t()
-  }
+
+      package_version_description() :: %{
+        "displayName" => String.t(),
+        "format" => list(any()),
+        "homePage" => String.t(),
+        "licenses" => list(license_info()()),
+        "namespace" => String.t(),
+        "origin" => package_version_origin(),
+        "packageName" => String.t(),
+        "publishedTime" => non_neg_integer(),
+        "revision" => String.t(),
+        "sourceCodeRepository" => String.t(),
+        "status" => list(any()),
+        "summary" => String.t(),
+        "version" => String.t()
+      }
+
   """
   @type package_version_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_package_version_readme_result() :: %{
-    "format" => list(any()),
-    "namespace" => String.t(),
-    "package" => String.t(),
-    "readme" => String.t(),
-    "version" => String.t(),
-    "versionRevision" => String.t()
-  }
+
+      get_package_version_readme_result() :: %{
+        "format" => list(any()),
+        "namespace" => String.t(),
+        "package" => String.t(),
+        "readme" => String.t(),
+        "version" => String.t(),
+        "versionRevision" => String.t()
+      }
+
   """
   @type get_package_version_readme_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_package_version_dependencies_result() :: %{
-    "dependencies" => list(package_dependency()()),
-    "format" => list(any()),
-    "namespace" => String.t(),
-    "nextToken" => String.t(),
-    "package" => String.t(),
-    "version" => String.t(),
-    "versionRevision" => String.t()
-  }
+
+      list_package_version_dependencies_result() :: %{
+        "dependencies" => list(package_dependency()()),
+        "format" => list(any()),
+        "namespace" => String.t(),
+        "nextToken" => String.t(),
+        "package" => String.t(),
+        "version" => String.t(),
+        "versionRevision" => String.t()
+      }
+
   """
   @type list_package_version_dependencies_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  upstream_repository() :: %{
-    "repositoryName" => String.t()
-  }
+
+      upstream_repository() :: %{
+        "repositoryName" => String.t()
+      }
+
   """
   @type upstream_repository() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_repositories_result() :: %{
-    "nextToken" => String.t(),
-    "repositories" => list(repository_summary()())
-  }
+
+      list_repositories_result() :: %{
+        "nextToken" => String.t(),
+        "repositories" => list(repository_summary()())
+      }
+
   """
   @type list_repositories_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_domain_request() :: %{
-    optional("domainOwner") => String.t(),
-    required("domain") => String.t()
-  }
+
+      delete_domain_request() :: %{
+        optional("domainOwner") => String.t(),
+        required("domain") => String.t()
+      }
+
   """
   @type delete_domain_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  repository_summary() :: %{
-    "administratorAccount" => String.t(),
-    "arn" => String.t(),
-    "createdTime" => non_neg_integer(),
-    "description" => String.t(),
-    "domainName" => String.t(),
-    "domainOwner" => String.t(),
-    "name" => String.t()
-  }
+
+      repository_summary() :: %{
+        "administratorAccount" => String.t(),
+        "arn" => String.t(),
+        "createdTime" => non_neg_integer(),
+        "description" => String.t(),
+        "domainName" => String.t(),
+        "domainOwner" => String.t(),
+        "name" => String.t()
+      }
+
   """
   @type repository_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_package_versions_result() :: %{
-    "failedVersions" => map(),
-    "successfulVersions" => map()
-  }
+
+      delete_package_versions_result() :: %{
+        "failedVersions" => map(),
+        "successfulVersions" => map()
+      }
+
   """
   @type delete_package_versions_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_domain_permissions_policy_result() :: %{
-    "policy" => resource_policy()
-  }
+
+      delete_domain_permissions_policy_result() :: %{
+        "policy" => resource_policy()
+      }
+
   """
   @type delete_domain_permissions_policy_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  conflict_exception() :: %{
-    "message" => String.t(),
-    "resourceId" => String.t(),
-    "resourceType" => list(any())
-  }
+
+      conflict_exception() :: %{
+        "message" => String.t(),
+        "resourceId" => String.t(),
+        "resourceType" => list(any())
+      }
+
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_not_found_exception() :: %{
-    "message" => String.t(),
-    "resourceId" => String.t(),
-    "resourceType" => list(any())
-  }
+
+      resource_not_found_exception() :: %{
+        "message" => String.t(),
+        "resourceId" => String.t(),
+        "resourceType" => list(any())
+      }
+
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_repositories_in_domain_result() :: %{
-    "nextToken" => String.t(),
-    "repositories" => list(repository_summary()())
-  }
+
+      list_repositories_in_domain_result() :: %{
+        "nextToken" => String.t(),
+        "repositories" => list(repository_summary()())
+      }
+
   """
   @type list_repositories_in_domain_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_domain_request() :: %{
-    optional("encryptionKey") => String.t(),
-    optional("tags") => list(tag()()),
-    required("domain") => String.t()
-  }
+
+      create_domain_request() :: %{
+        optional("encryptionKey") => String.t(),
+        optional("tags") => list(tag()()),
+        required("domain") => String.t()
+      }
+
   """
   @type create_domain_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  domain_entry_point() :: %{
-    "externalConnectionName" => String.t(),
-    "repositoryName" => String.t()
-  }
+
+      domain_entry_point() :: %{
+        "externalConnectionName" => String.t(),
+        "repositoryName" => String.t()
+      }
+
   """
   @type domain_entry_point() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag() :: %{
-    "key" => String.t(),
-    "value" => String.t()
-  }
+
+      tag() :: %{
+        "key" => String.t(),
+        "value" => String.t()
+      }
+
   """
   @type tag() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_package_versions_request() :: %{
-    optional("domainOwner") => String.t(),
-    optional("expectedStatus") => list(any()),
-    optional("namespace") => String.t(),
-    required("domain") => String.t(),
-    required("format") => list(any()),
-    required("package") => String.t(),
-    required("repository") => String.t(),
-    required("versions") => list(String.t()())
-  }
+
+      delete_package_versions_request() :: %{
+        optional("domainOwner") => String.t(),
+        optional("expectedStatus") => list(any()),
+        optional("namespace") => String.t(),
+        required("domain") => String.t(),
+        required("format") => list(any()),
+        required("package") => String.t(),
+        required("repository") => String.t(),
+        required("versions") => list(String.t()())
+      }
+
   """
   @type delete_package_versions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_repository_endpoint_result() :: %{
-    "repositoryEndpoint" => String.t()
-  }
+
+      get_repository_endpoint_result() :: %{
+        "repositoryEndpoint" => String.t()
+      }
+
   """
   @type get_repository_endpoint_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  service_quota_exceeded_exception() :: %{
-    "message" => String.t(),
-    "resourceId" => String.t(),
-    "resourceType" => list(any())
-  }
+
+      service_quota_exceeded_exception() :: %{
+        "message" => String.t(),
+        "resourceId" => String.t(),
+        "resourceType" => list(any())
+      }
+
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_domain_result() :: %{
-    "domain" => domain_description()
-  }
+
+      delete_domain_result() :: %{
+        "domain" => domain_description()
+      }
+
   """
   @type delete_domain_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_package_version_readme_request() :: %{
-    optional("domainOwner") => String.t(),
-    optional("namespace") => String.t(),
-    required("domain") => String.t(),
-    required("format") => list(any()),
-    required("package") => String.t(),
-    required("packageVersion") => String.t(),
-    required("repository") => String.t()
-  }
+
+      get_package_version_readme_request() :: %{
+        optional("domainOwner") => String.t(),
+        optional("namespace") => String.t(),
+        required("domain") => String.t(),
+        required("format") => list(any()),
+        required("package") => String.t(),
+        required("packageVersion") => String.t(),
+        required("repository") => String.t()
+      }
+
   """
   @type get_package_version_readme_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_repository_request() :: %{
-    optional("domainOwner") => String.t(),
-    required("domain") => String.t(),
-    required("repository") => String.t()
-  }
+
+      delete_repository_request() :: %{
+        optional("domainOwner") => String.t(),
+        required("domain") => String.t(),
+        required("repository") => String.t()
+      }
+
   """
   @type delete_repository_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_repositories_in_domain_request() :: %{
-    optional("administratorAccount") => String.t(),
-    optional("domainOwner") => String.t(),
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t(),
-    optional("repositoryPrefix") => String.t(),
-    required("domain") => String.t()
-  }
+
+      list_repositories_in_domain_request() :: %{
+        optional("administratorAccount") => String.t(),
+        optional("domainOwner") => String.t(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("repositoryPrefix") => String.t(),
+        required("domain") => String.t()
+      }
+
   """
   @type list_repositories_in_domain_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  associate_external_connection_request() :: %{
-    optional("domainOwner") => String.t(),
-    required("domain") => String.t(),
-    required("externalConnection") => String.t(),
-    required("repository") => String.t()
-  }
+
+      associate_external_connection_request() :: %{
+        optional("domainOwner") => String.t(),
+        required("domain") => String.t(),
+        required("externalConnection") => String.t(),
+        required("repository") => String.t()
+      }
+
   """
   @type associate_external_connection_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_package_result() :: %{
-    "package" => package_description()
-  }
+
+      describe_package_result() :: %{
+        "package" => package_description()
+      }
+
   """
   @type describe_package_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  dispose_package_versions_result() :: %{
-    "failedVersions" => map(),
-    "successfulVersions" => map()
-  }
+
+      dispose_package_versions_result() :: %{
+        "failedVersions" => map(),
+        "successfulVersions" => map()
+      }
+
   """
   @type dispose_package_versions_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_domains_result() :: %{
-    "domains" => list(domain_summary()()),
-    "nextToken" => String.t()
-  }
+
+      list_domains_result() :: %{
+        "domains" => list(domain_summary()()),
+        "nextToken" => String.t()
+      }
+
   """
   @type list_domains_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_packages_result() :: %{
-    "nextToken" => String.t(),
-    "packages" => list(package_summary()())
-  }
+
+      list_packages_result() :: %{
+        "nextToken" => String.t(),
+        "packages" => list(package_summary()())
+      }
+
   """
   @type list_packages_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  successful_package_version_info() :: %{
-    "revision" => String.t(),
-    "status" => list(any())
-  }
+
+      successful_package_version_info() :: %{
+        "revision" => String.t(),
+        "status" => list(any())
+      }
+
   """
   @type successful_package_version_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_authorization_token_request() :: %{
-    optional("domainOwner") => String.t(),
-    optional("durationSeconds") => float(),
-    required("domain") => String.t()
-  }
+
+      get_authorization_token_request() :: %{
+        optional("domainOwner") => String.t(),
+        optional("durationSeconds") => float(),
+        required("domain") => String.t()
+      }
+
   """
   @type get_authorization_token_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  copy_package_versions_result() :: %{
-    "failedVersions" => map(),
-    "successfulVersions" => map()
-  }
+
+      copy_package_versions_result() :: %{
+        "failedVersions" => map(),
+        "successfulVersions" => map()
+      }
+
   """
   @type copy_package_versions_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  license_info() :: %{
-    "name" => String.t(),
-    "url" => String.t()
-  }
+
+      license_info() :: %{
+        "name" => String.t(),
+        "url" => String.t()
+      }
+
   """
   @type license_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  publish_package_version_request() :: %{
-    optional("domainOwner") => String.t(),
-    optional("namespace") => String.t(),
-    optional("unfinished") => boolean(),
-    required("assetContent") => binary(),
-    required("assetName") => String.t(),
-    required("assetSHA256") => String.t(),
-    required("domain") => String.t(),
-    required("format") => list(any()),
-    required("package") => String.t(),
-    required("packageVersion") => String.t(),
-    required("repository") => String.t()
-  }
+
+      publish_package_version_request() :: %{
+        optional("domainOwner") => String.t(),
+        optional("namespace") => String.t(),
+        optional("unfinished") => boolean(),
+        required("assetContent") => binary(),
+        required("assetName") => String.t(),
+        required("assetSHA256") => String.t(),
+        required("domain") => String.t(),
+        required("format") => list(any()),
+        required("package") => String.t(),
+        required("packageVersion") => String.t(),
+        required("repository") => String.t()
+      }
+
   """
   @type publish_package_version_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_repository_permissions_policy_result() :: %{
-    "policy" => resource_policy()
-  }
+
+      delete_repository_permissions_policy_result() :: %{
+        "policy" => resource_policy()
+      }
+
   """
   @type delete_repository_permissions_policy_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  package_description() :: %{
-    "format" => list(any()),
-    "name" => String.t(),
-    "namespace" => String.t(),
-    "originConfiguration" => package_origin_configuration()
-  }
+
+      package_description() :: %{
+        "format" => list(any()),
+        "name" => String.t(),
+        "namespace" => String.t(),
+        "originConfiguration" => package_origin_configuration()
+      }
+
   """
   @type package_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_domains_request() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t()
-  }
+
+      list_domains_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
   """
   @type list_domains_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  package_summary() :: %{
-    "format" => list(any()),
-    "namespace" => String.t(),
-    "originConfiguration" => package_origin_configuration(),
-    "package" => String.t()
-  }
+
+      package_summary() :: %{
+        "format" => list(any()),
+        "namespace" => String.t(),
+        "originConfiguration" => package_origin_configuration(),
+        "package" => String.t()
+      }
+
   """
   @type package_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  internal_server_exception() :: %{
-    "message" => String.t()
-  }
+
+      internal_server_exception() :: %{
+        "message" => String.t()
+      }
+
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_policy() :: %{
-    "document" => String.t(),
-    "resourceArn" => String.t(),
-    "revision" => String.t()
-  }
+
+      resource_policy() :: %{
+        "document" => String.t(),
+        "resourceArn" => String.t(),
+        "revision" => String.t()
+      }
+
   """
   @type resource_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_domain_permissions_policy_result() :: %{
-    "policy" => resource_policy()
-  }
+
+      get_domain_permissions_policy_result() :: %{
+        "policy" => resource_policy()
+      }
+
   """
   @type get_domain_permissions_policy_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_result() :: %{
-    "tags" => list(tag()())
-  }
+
+      list_tags_for_resource_result() :: %{
+        "tags" => list(tag()())
+      }
+
   """
   @type list_tags_for_resource_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disassociate_external_connection_result() :: %{
-    "repository" => repository_description()
-  }
+
+      disassociate_external_connection_result() :: %{
+        "repository" => repository_description()
+      }
+
   """
   @type disassociate_external_connection_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_repository_request() :: %{
-    optional("description") => String.t(),
-    optional("domainOwner") => String.t(),
-    optional("tags") => list(tag()()),
-    optional("upstreams") => list(upstream_repository()()),
-    required("domain") => String.t(),
-    required("repository") => String.t()
-  }
+
+      create_repository_request() :: %{
+        optional("description") => String.t(),
+        optional("domainOwner") => String.t(),
+        optional("tags") => list(tag()()),
+        optional("upstreams") => list(upstream_repository()()),
+        required("domain") => String.t(),
+        required("repository") => String.t()
+      }
+
   """
   @type create_repository_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disassociate_external_connection_request() :: %{
-    optional("domainOwner") => String.t(),
-    required("domain") => String.t(),
-    required("externalConnection") => String.t(),
-    required("repository") => String.t()
-  }
+
+      disassociate_external_connection_request() :: %{
+        optional("domainOwner") => String.t(),
+        required("domain") => String.t(),
+        required("externalConnection") => String.t(),
+        required("repository") => String.t()
+      }
+
   """
   @type disassociate_external_connection_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_domain_permissions_policy_result() :: %{
-    "policy" => resource_policy()
-  }
+
+      put_domain_permissions_policy_result() :: %{
+        "policy" => resource_policy()
+      }
+
   """
   @type put_domain_permissions_policy_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_package_version_result() :: %{
-    "packageVersion" => package_version_description()
-  }
+
+      describe_package_version_result() :: %{
+        "packageVersion" => package_version_description()
+      }
+
   """
   @type describe_package_version_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_package_request() :: %{
-    optional("domainOwner") => String.t(),
-    optional("namespace") => String.t(),
-    required("domain") => String.t(),
-    required("format") => list(any()),
-    required("package") => String.t(),
-    required("repository") => String.t()
-  }
+
+      delete_package_request() :: %{
+        optional("domainOwner") => String.t(),
+        optional("namespace") => String.t(),
+        required("domain") => String.t(),
+        required("format") => list(any()),
+        required("package") => String.t(),
+        required("repository") => String.t()
+      }
+
   """
   @type delete_package_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_repository_permissions_policy_result() :: %{
-    "policy" => resource_policy()
-  }
+
+      put_repository_permissions_policy_result() :: %{
+        "policy" => resource_policy()
+      }
+
   """
   @type put_repository_permissions_policy_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  access_denied_exception() :: %{
-    "message" => String.t()
-  }
+
+      access_denied_exception() :: %{
+        "message" => String.t()
+      }
+
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_domain_request() :: %{
-    optional("domainOwner") => String.t(),
-    required("domain") => String.t()
-  }
+
+      describe_domain_request() :: %{
+        optional("domainOwner") => String.t(),
+        required("domain") => String.t()
+      }
+
   """
   @type describe_domain_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  upstream_repository_info() :: %{
-    "repositoryName" => String.t()
-  }
+
+      upstream_repository_info() :: %{
+        "repositoryName" => String.t()
+      }
+
   """
   @type upstream_repository_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_authorization_token_result() :: %{
-    "authorizationToken" => String.t(),
-    "expiration" => non_neg_integer()
-  }
+
+      get_authorization_token_result() :: %{
+        "authorizationToken" => String.t(),
+        "expiration" => non_neg_integer()
+      }
+
   """
   @type get_authorization_token_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_package_origin_configuration_request() :: %{
-    optional("domainOwner") => String.t(),
-    optional("namespace") => String.t(),
-    required("domain") => String.t(),
-    required("format") => list(any()),
-    required("package") => String.t(),
-    required("repository") => String.t(),
-    required("restrictions") => package_origin_restrictions()
-  }
+
+      put_package_origin_configuration_request() :: %{
+        optional("domainOwner") => String.t(),
+        optional("namespace") => String.t(),
+        required("domain") => String.t(),
+        required("format") => list(any()),
+        required("package") => String.t(),
+        required("repository") => String.t(),
+        required("restrictions") => package_origin_restrictions()
+      }
+
   """
   @type put_package_origin_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_repository_endpoint_request() :: %{
-    optional("domainOwner") => String.t(),
-    required("domain") => String.t(),
-    required("format") => list(any()),
-    required("repository") => String.t()
-  }
+
+      get_repository_endpoint_request() :: %{
+        optional("domainOwner") => String.t(),
+        required("domain") => String.t(),
+        required("format") => list(any()),
+        required("repository") => String.t()
+      }
+
   """
   @type get_repository_endpoint_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_domain_permissions_policy_request() :: %{
-    optional("domainOwner") => String.t(),
-    required("domain") => String.t()
-  }
+
+      get_domain_permissions_policy_request() :: %{
+        optional("domainOwner") => String.t(),
+        required("domain") => String.t()
+      }
+
   """
   @type get_domain_permissions_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_repository_permissions_policy_request() :: %{
-    optional("domainOwner") => String.t(),
-    required("domain") => String.t(),
-    required("repository") => String.t()
-  }
+
+      get_repository_permissions_policy_request() :: %{
+        optional("domainOwner") => String.t(),
+        required("domain") => String.t(),
+        required("repository") => String.t()
+      }
+
   """
   @type get_repository_permissions_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  validation_exception() :: %{
-    "message" => String.t(),
-    "reason" => list(any())
-  }
+
+      validation_exception() :: %{
+        "message" => String.t(),
+        "reason" => list(any())
+      }
+
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_request() :: %{
-    required("resourceArn") => String.t()
-  }
+
+      list_tags_for_resource_request() :: %{
+        required("resourceArn") => String.t()
+      }
+
   """
   @type list_tags_for_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_domain_permissions_policy_request() :: %{
-    optional("domainOwner") => String.t(),
-    optional("policyRevision") => String.t(),
-    required("domain") => String.t(),
-    required("policyDocument") => String.t()
-  }
+
+      put_domain_permissions_policy_request() :: %{
+        optional("domainOwner") => String.t(),
+        optional("policyRevision") => String.t(),
+        required("domain") => String.t(),
+        required("policyDocument") => String.t()
+      }
+
   """
   @type put_domain_permissions_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_package_versions_request() :: %{
-    optional("domainOwner") => String.t(),
-    optional("maxResults") => integer(),
-    optional("namespace") => String.t(),
-    optional("nextToken") => String.t(),
-    optional("originType") => list(any()),
-    optional("sortBy") => list(any()),
-    optional("status") => list(any()),
-    required("domain") => String.t(),
-    required("format") => list(any()),
-    required("package") => String.t(),
-    required("repository") => String.t()
-  }
+
+      list_package_versions_request() :: %{
+        optional("domainOwner") => String.t(),
+        optional("maxResults") => integer(),
+        optional("namespace") => String.t(),
+        optional("nextToken") => String.t(),
+        optional("originType") => list(any()),
+        optional("sortBy") => list(any()),
+        optional("status") => list(any()),
+        required("domain") => String.t(),
+        required("format") => list(any()),
+        required("package") => String.t(),
+        required("repository") => String.t()
+      }
+
   """
   @type list_package_versions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  associate_external_connection_result() :: %{
-    "repository" => repository_description()
-  }
+
+      associate_external_connection_result() :: %{
+        "repository" => repository_description()
+      }
+
   """
   @type associate_external_connection_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_package_request() :: %{
-    optional("domainOwner") => String.t(),
-    optional("namespace") => String.t(),
-    required("domain") => String.t(),
-    required("format") => list(any()),
-    required("package") => String.t(),
-    required("repository") => String.t()
-  }
+
+      describe_package_request() :: %{
+        optional("domainOwner") => String.t(),
+        optional("namespace") => String.t(),
+        required("domain") => String.t(),
+        required("format") => list(any()),
+        required("package") => String.t(),
+        required("repository") => String.t()
+      }
+
   """
   @type describe_package_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  throttling_exception() :: %{
-    "message" => String.t(),
-    "retryAfterSeconds" => integer()
-  }
+
+      throttling_exception() :: %{
+        "message" => String.t(),
+        "retryAfterSeconds" => integer()
+      }
+
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  package_dependency() :: %{
-    "dependencyType" => String.t(),
-    "namespace" => String.t(),
-    "package" => String.t(),
-    "versionRequirement" => String.t()
-  }
+
+      package_dependency() :: %{
+        "dependencyType" => String.t(),
+        "namespace" => String.t(),
+        "package" => String.t(),
+        "versionRequirement" => String.t()
+      }
+
   """
   @type package_dependency() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  domain_description() :: %{
-    "arn" => String.t(),
-    "assetSizeBytes" => float(),
-    "createdTime" => non_neg_integer(),
-    "encryptionKey" => String.t(),
-    "name" => String.t(),
-    "owner" => String.t(),
-    "repositoryCount" => integer(),
-    "s3BucketArn" => String.t(),
-    "status" => list(any())
-  }
+
+      domain_description() :: %{
+        "arn" => String.t(),
+        "assetSizeBytes" => float(),
+        "createdTime" => non_neg_integer(),
+        "encryptionKey" => String.t(),
+        "name" => String.t(),
+        "owner" => String.t(),
+        "repositoryCount" => integer(),
+        "s3BucketArn" => String.t(),
+        "status" => list(any())
+      }
+
   """
   @type domain_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_package_versions_result() :: %{
-    "defaultDisplayVersion" => String.t(),
-    "format" => list(any()),
-    "namespace" => String.t(),
-    "nextToken" => String.t(),
-    "package" => String.t(),
-    "versions" => list(package_version_summary()())
-  }
+
+      list_package_versions_result() :: %{
+        "defaultDisplayVersion" => String.t(),
+        "format" => list(any()),
+        "namespace" => String.t(),
+        "nextToken" => String.t(),
+        "package" => String.t(),
+        "versions" => list(package_version_summary()())
+      }
+
   """
   @type list_package_versions_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_package_result() :: %{
-    "deletedPackage" => package_summary()
-  }
+
+      delete_package_result() :: %{
+        "deletedPackage" => package_summary()
+      }
+
   """
   @type delete_package_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  repository_external_connection_info() :: %{
-    "externalConnectionName" => String.t(),
-    "packageFormat" => list(any()),
-    "status" => list(any())
-  }
+
+      repository_external_connection_info() :: %{
+        "externalConnectionName" => String.t(),
+        "packageFormat" => list(any()),
+        "status" => list(any())
+      }
+
   """
   @type repository_external_connection_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_repository_request() :: %{
-    optional("description") => String.t(),
-    optional("domainOwner") => String.t(),
-    optional("upstreams") => list(upstream_repository()()),
-    required("domain") => String.t(),
-    required("repository") => String.t()
-  }
+
+      update_repository_request() :: %{
+        optional("description") => String.t(),
+        optional("domainOwner") => String.t(),
+        optional("upstreams") => list(upstream_repository()()),
+        required("domain") => String.t(),
+        required("repository") => String.t()
+      }
+
   """
   @type update_repository_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_result() :: %{
 
-  }
+      tag_resource_result() :: %{}
+
   """
-  @type tag_resource_result() :: %{String.t() => any()}
+  @type tag_resource_result() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_repositories_request() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t(),
-    optional("repositoryPrefix") => String.t()
-  }
+
+      list_repositories_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("repositoryPrefix") => String.t()
+      }
+
   """
   @type list_repositories_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  package_version_summary() :: %{
-    "origin" => package_version_origin(),
-    "revision" => String.t(),
-    "status" => list(any()),
-    "version" => String.t()
-  }
+
+      package_version_summary() :: %{
+        "origin" => package_version_origin(),
+        "revision" => String.t(),
+        "status" => list(any()),
+        "version" => String.t()
+      }
+
   """
   @type package_version_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_domain_result() :: %{
-    "domain" => domain_description()
-  }
+
+      describe_domain_result() :: %{
+        "domain" => domain_description()
+      }
+
   """
   @type describe_domain_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_package_version_asset_request() :: %{
-    optional("domainOwner") => String.t(),
-    optional("namespace") => String.t(),
-    optional("packageVersionRevision") => String.t(),
-    required("asset") => String.t(),
-    required("domain") => String.t(),
-    required("format") => list(any()),
-    required("package") => String.t(),
-    required("packageVersion") => String.t(),
-    required("repository") => String.t()
-  }
+
+      get_package_version_asset_request() :: %{
+        optional("domainOwner") => String.t(),
+        optional("namespace") => String.t(),
+        optional("packageVersionRevision") => String.t(),
+        required("asset") => String.t(),
+        required("domain") => String.t(),
+        required("format") => list(any()),
+        required("package") => String.t(),
+        required("packageVersion") => String.t(),
+        required("repository") => String.t()
+      }
+
   """
   @type get_package_version_asset_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_repository_result() :: %{
-    "repository" => repository_description()
-  }
+
+      create_repository_result() :: %{
+        "repository" => repository_description()
+      }
+
   """
   @type create_repository_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_package_version_request() :: %{
-    optional("domainOwner") => String.t(),
-    optional("namespace") => String.t(),
-    required("domain") => String.t(),
-    required("format") => list(any()),
-    required("package") => String.t(),
-    required("packageVersion") => String.t(),
-    required("repository") => String.t()
-  }
+
+      describe_package_version_request() :: %{
+        optional("domainOwner") => String.t(),
+        optional("namespace") => String.t(),
+        required("domain") => String.t(),
+        required("format") => list(any()),
+        required("package") => String.t(),
+        required("packageVersion") => String.t(),
+        required("repository") => String.t()
+      }
+
   """
   @type describe_package_version_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  repository_description() :: %{
-    "administratorAccount" => String.t(),
-    "arn" => String.t(),
-    "createdTime" => non_neg_integer(),
-    "description" => String.t(),
-    "domainName" => String.t(),
-    "domainOwner" => String.t(),
-    "externalConnections" => list(repository_external_connection_info()()),
-    "name" => String.t(),
-    "upstreams" => list(upstream_repository_info()())
-  }
+
+      repository_description() :: %{
+        "administratorAccount" => String.t(),
+        "arn" => String.t(),
+        "createdTime" => non_neg_integer(),
+        "description" => String.t(),
+        "domainName" => String.t(),
+        "domainOwner" => String.t(),
+        "externalConnections" => list(repository_external_connection_info()()),
+        "name" => String.t(),
+        "upstreams" => list(upstream_repository_info()())
+      }
+
   """
   @type repository_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_repository_permissions_policy_result() :: %{
-    "policy" => resource_policy()
-  }
+
+      get_repository_permissions_policy_result() :: %{
+        "policy" => resource_policy()
+      }
+
   """
   @type get_repository_permissions_policy_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  package_version_error() :: %{
-    "errorCode" => list(any()),
-    "errorMessage" => String.t()
-  }
+
+      package_version_error() :: %{
+        "errorCode" => list(any()),
+        "errorMessage" => String.t()
+      }
+
   """
   @type package_version_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_package_origin_configuration_result() :: %{
-    "originConfiguration" => package_origin_configuration()
-  }
+
+      put_package_origin_configuration_result() :: %{
+        "originConfiguration" => package_origin_configuration()
+      }
+
   """
   @type put_package_origin_configuration_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_repository_permissions_policy_request() :: %{
-    optional("domainOwner") => String.t(),
-    optional("policyRevision") => String.t(),
-    required("domain") => String.t(),
-    required("repository") => String.t()
-  }
+
+      delete_repository_permissions_policy_request() :: %{
+        optional("domainOwner") => String.t(),
+        optional("policyRevision") => String.t(),
+        required("domain") => String.t(),
+        required("repository") => String.t()
+      }
+
   """
   @type delete_repository_permissions_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  package_origin_restrictions() :: %{
-    "publish" => list(any()),
-    "upstream" => list(any())
-  }
+
+      package_origin_restrictions() :: %{
+        "publish" => list(any()),
+        "upstream" => list(any())
+      }
+
   """
   @type package_origin_restrictions() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  copy_package_versions_request() :: %{
-    optional("allowOverwrite") => boolean(),
-    optional("domainOwner") => String.t(),
-    optional("includeFromUpstream") => boolean(),
-    optional("namespace") => String.t(),
-    optional("versionRevisions") => map(),
-    optional("versions") => list(String.t()()),
-    required("destinationRepository") => String.t(),
-    required("domain") => String.t(),
-    required("format") => list(any()),
-    required("package") => String.t(),
-    required("sourceRepository") => String.t()
-  }
+
+      copy_package_versions_request() :: %{
+        optional("allowOverwrite") => boolean(),
+        optional("domainOwner") => String.t(),
+        optional("includeFromUpstream") => boolean(),
+        optional("namespace") => String.t(),
+        optional("versionRevisions") => map(),
+        optional("versions") => list(String.t()()),
+        required("destinationRepository") => String.t(),
+        required("domain") => String.t(),
+        required("format") => list(any()),
+        required("package") => String.t(),
+        required("sourceRepository") => String.t()
+      }
+
   """
   @type copy_package_versions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_package_versions_status_request() :: %{
-    optional("domainOwner") => String.t(),
-    optional("expectedStatus") => list(any()),
-    optional("namespace") => String.t(),
-    optional("versionRevisions") => map(),
-    required("domain") => String.t(),
-    required("format") => list(any()),
-    required("package") => String.t(),
-    required("repository") => String.t(),
-    required("targetStatus") => list(any()),
-    required("versions") => list(String.t()())
-  }
+
+      update_package_versions_status_request() :: %{
+        optional("domainOwner") => String.t(),
+        optional("expectedStatus") => list(any()),
+        optional("namespace") => String.t(),
+        optional("versionRevisions") => map(),
+        required("domain") => String.t(),
+        required("format") => list(any()),
+        required("package") => String.t(),
+        required("repository") => String.t(),
+        required("targetStatus") => list(any()),
+        required("versions") => list(String.t()())
+      }
+
   """
   @type update_package_versions_status_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_repository_result() :: %{
-    "repository" => repository_description()
-  }
+
+      update_repository_result() :: %{
+        "repository" => repository_description()
+      }
+
   """
   @type update_repository_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_domain_permissions_policy_request() :: %{
-    optional("domainOwner") => String.t(),
-    optional("policyRevision") => String.t(),
-    required("domain") => String.t()
-  }
+
+      delete_domain_permissions_policy_request() :: %{
+        optional("domainOwner") => String.t(),
+        optional("policyRevision") => String.t(),
+        required("domain") => String.t()
+      }
+
   """
   @type delete_domain_permissions_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_repository_request() :: %{
-    optional("domainOwner") => String.t(),
-    required("domain") => String.t(),
-    required("repository") => String.t()
-  }
+
+      describe_repository_request() :: %{
+        optional("domainOwner") => String.t(),
+        required("domain") => String.t(),
+        required("repository") => String.t()
+      }
+
   """
   @type describe_repository_request() :: %{String.t() => any()}
+
+  @type associate_external_connection_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type copy_package_versions_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_domain_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_repository_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_domain_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | conflict_exception()
+
+  @type delete_domain_permissions_policy_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_package_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_package_versions_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_repository_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_repository_permissions_policy_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type describe_domain_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type describe_package_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type describe_package_version_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type describe_repository_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type disassociate_external_connection_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type dispose_package_versions_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type get_authorization_token_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_domain_permissions_policy_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_package_version_asset_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type get_package_version_readme_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_repository_endpoint_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_repository_permissions_policy_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_domains_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_package_version_assets_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_package_version_dependencies_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_package_versions_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_packages_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_repositories_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_repositories_in_domain_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_tags_for_resource_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
+  @type publish_package_version_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type put_domain_permissions_policy_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type put_package_origin_configuration_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type put_repository_permissions_policy_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type tag_resource_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+
+  @type untag_resource_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
+  @type update_package_versions_status_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_repository_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   def metadata do
     %{
@@ -1561,13 +2056,7 @@ defmodule AWS.Codeartifact do
   @spec associate_external_connection(map(), associate_external_connection_request(), list()) ::
           {:ok, associate_external_connection_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, associate_external_connection_errors()}
   def associate_external_connection(%Client{} = client, input, options \\ []) do
     url_path = "/v1/repository/external-connection"
     headers = []
@@ -1606,13 +2095,7 @@ defmodule AWS.Codeartifact do
   @spec copy_package_versions(map(), copy_package_versions_request(), list()) ::
           {:ok, copy_package_versions_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, copy_package_versions_errors()}
   def copy_package_versions(%Client{} = client, input, options \\ []) do
     url_path = "/v1/package/versions/copy"
     headers = []
@@ -1663,13 +2146,7 @@ defmodule AWS.Codeartifact do
   @spec create_domain(map(), create_domain_request(), list()) ::
           {:ok, create_domain_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_domain_errors()}
   def create_domain(%Client{} = client, input, options \\ []) do
     url_path = "/v1/domain"
     headers = []
@@ -1702,13 +2179,7 @@ defmodule AWS.Codeartifact do
   @spec create_repository(map(), create_repository_request(), list()) ::
           {:ok, create_repository_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_repository_errors()}
   def create_repository(%Client{} = client, input, options \\ []) do
     url_path = "/v1/repository"
     headers = []
@@ -1747,11 +2218,7 @@ defmodule AWS.Codeartifact do
   @spec delete_domain(map(), delete_domain_request(), list()) ::
           {:ok, delete_domain_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_domain_errors()}
   def delete_domain(%Client{} = client, input, options \\ []) do
     url_path = "/v1/domain"
     headers = []
@@ -1789,12 +2256,7 @@ defmodule AWS.Codeartifact do
         ) ::
           {:ok, delete_domain_permissions_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_domain_permissions_policy_errors()}
   def delete_domain_permissions_policy(%Client{} = client, input, options \\ []) do
     url_path = "/v1/domain/permissions/policy"
     headers = []
@@ -1833,12 +2295,7 @@ defmodule AWS.Codeartifact do
   @spec delete_package(map(), delete_package_request(), list()) ::
           {:ok, delete_package_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_package_errors()}
   def delete_package(%Client{} = client, input, options \\ []) do
     url_path = "/v1/package"
     headers = []
@@ -1884,12 +2341,7 @@ defmodule AWS.Codeartifact do
   @spec delete_package_versions(map(), delete_package_versions_request(), list()) ::
           {:ok, delete_package_versions_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_package_versions_errors()}
   def delete_package_versions(%Client{} = client, input, options \\ []) do
     url_path = "/v1/package/versions/delete"
     headers = []
@@ -1927,12 +2379,7 @@ defmodule AWS.Codeartifact do
   @spec delete_repository(map(), delete_repository_request(), list()) ::
           {:ok, delete_repository_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_repository_errors()}
   def delete_repository(%Client{} = client, input, options \\ []) do
     url_path = "/v1/repository"
     headers = []
@@ -1979,12 +2426,7 @@ defmodule AWS.Codeartifact do
         ) ::
           {:ok, delete_repository_permissions_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_repository_permissions_policy_errors()}
   def delete_repository_permissions_policy(%Client{} = client, input, options \\ []) do
     url_path = "/v1/repository/permissions/policies"
     headers = []
@@ -2023,11 +2465,7 @@ defmodule AWS.Codeartifact do
   @spec describe_domain(map(), String.t(), String.t() | nil, list()) ::
           {:ok, describe_domain_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, describe_domain_errors()}
   def describe_domain(%Client{} = client, domain, domain_owner \\ nil, options \\ []) do
     url_path = "/v1/domain"
     headers = []
@@ -2070,11 +2508,7 @@ defmodule AWS.Codeartifact do
         ) ::
           {:ok, describe_package_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, describe_package_errors()}
   def describe_package(
         %Client{} = client,
         domain,
@@ -2156,12 +2590,7 @@ defmodule AWS.Codeartifact do
         ) ::
           {:ok, describe_package_version_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, describe_package_version_errors()}
   def describe_package_version(
         %Client{} = client,
         domain,
@@ -2239,11 +2668,7 @@ defmodule AWS.Codeartifact do
   @spec describe_repository(map(), String.t(), String.t() | nil, String.t(), list()) ::
           {:ok, describe_repository_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, describe_repository_errors()}
   def describe_repository(
         %Client{} = client,
         domain,
@@ -2292,13 +2717,7 @@ defmodule AWS.Codeartifact do
         ) ::
           {:ok, disassociate_external_connection_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, disassociate_external_connection_errors()}
   def disassociate_external_connection(%Client{} = client, input, options \\ []) do
     url_path = "/v1/repository/external-connection"
     headers = []
@@ -2347,12 +2766,7 @@ defmodule AWS.Codeartifact do
   @spec dispose_package_versions(map(), dispose_package_versions_request(), list()) ::
           {:ok, dispose_package_versions_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, dispose_package_versions_errors()}
   def dispose_package_versions(%Client{} = client, input, options \\ []) do
     url_path = "/v1/package/versions/dispose"
     headers = []
@@ -2418,11 +2832,7 @@ defmodule AWS.Codeartifact do
   @spec get_authorization_token(map(), get_authorization_token_request(), list()) ::
           {:ok, get_authorization_token_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_authorization_token_errors()}
   def get_authorization_token(%Client{} = client, input, options \\ []) do
     url_path = "/v1/authorization-token"
     headers = []
@@ -2463,11 +2873,7 @@ defmodule AWS.Codeartifact do
   @spec get_domain_permissions_policy(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_domain_permissions_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_domain_permissions_policy_errors()}
   def get_domain_permissions_policy(
         %Client{} = client,
         domain,
@@ -2520,12 +2926,7 @@ defmodule AWS.Codeartifact do
         ) ::
           {:ok, get_package_version_asset_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_package_version_asset_errors()}
   def get_package_version_asset(
         %Client{} = client,
         asset,
@@ -2642,11 +3043,7 @@ defmodule AWS.Codeartifact do
         ) ::
           {:ok, get_package_version_readme_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_package_version_readme_errors()}
   def get_package_version_readme(
         %Client{} = client,
         domain,
@@ -2749,11 +3146,7 @@ defmodule AWS.Codeartifact do
         ) ::
           {:ok, get_repository_endpoint_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_repository_endpoint_errors()}
   def get_repository_endpoint(
         %Client{} = client,
         domain,
@@ -2806,11 +3199,7 @@ defmodule AWS.Codeartifact do
   @spec get_repository_permissions_policy(map(), String.t(), String.t() | nil, String.t(), list()) ::
           {:ok, get_repository_permissions_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_repository_permissions_policy_errors()}
   def get_repository_permissions_policy(
         %Client{} = client,
         domain,
@@ -2860,10 +3249,7 @@ defmodule AWS.Codeartifact do
   @spec list_domains(map(), list_domains_request(), list()) ::
           {:ok, list_domains_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_domains_errors()}
   def list_domains(%Client{} = client, input, options \\ []) do
     url_path = "/v1/domains"
     headers = []
@@ -2894,11 +3280,7 @@ defmodule AWS.Codeartifact do
   @spec list_package_version_assets(map(), list_package_version_assets_request(), list()) ::
           {:ok, list_package_version_assets_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_package_version_assets_errors()}
   def list_package_version_assets(%Client{} = client, input, options \\ []) do
     url_path = "/v1/package/version/assets"
     headers = []
@@ -2953,11 +3335,7 @@ defmodule AWS.Codeartifact do
         ) ::
           {:ok, list_package_version_dependencies_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_package_version_dependencies_errors()}
   def list_package_version_dependencies(%Client{} = client, input, options \\ []) do
     url_path = "/v1/package/version/dependencies"
     headers = []
@@ -3003,11 +3381,7 @@ defmodule AWS.Codeartifact do
   @spec list_package_versions(map(), list_package_versions_request(), list()) ::
           {:ok, list_package_versions_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_package_versions_errors()}
   def list_package_versions(%Client{} = client, input, options \\ []) do
     url_path = "/v1/package/versions"
     headers = []
@@ -3053,11 +3427,7 @@ defmodule AWS.Codeartifact do
   @spec list_packages(map(), list_packages_request(), list()) ::
           {:ok, list_packages_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_packages_errors()}
   def list_packages(%Client{} = client, input, options \\ []) do
     url_path = "/v1/packages"
     headers = []
@@ -3106,10 +3476,7 @@ defmodule AWS.Codeartifact do
   @spec list_repositories(map(), list_repositories_request(), list()) ::
           {:ok, list_repositories_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_repositories_errors()}
   def list_repositories(%Client{} = client, input, options \\ []) do
     url_path = "/v1/repositories"
     headers = []
@@ -3151,11 +3518,7 @@ defmodule AWS.Codeartifact do
   @spec list_repositories_in_domain(map(), list_repositories_in_domain_request(), list()) ::
           {:ok, list_repositories_in_domain_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_repositories_in_domain_errors()}
   def list_repositories_in_domain(%Client{} = client, input, options \\ []) do
     url_path = "/v1/domain/repositories"
     headers = []
@@ -3193,10 +3556,7 @@ defmodule AWS.Codeartifact do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     url_path = "/v1/tags"
     headers = []
@@ -3242,13 +3602,7 @@ defmodule AWS.Codeartifact do
   @spec publish_package_version(map(), publish_package_version_request(), list()) ::
           {:ok, publish_package_version_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, publish_package_version_errors()}
   def publish_package_version(%Client{} = client, input, options \\ []) do
     url_path = "/v1/package/version/publish"
 
@@ -3300,13 +3654,7 @@ defmodule AWS.Codeartifact do
   @spec put_domain_permissions_policy(map(), put_domain_permissions_policy_request(), list()) ::
           {:ok, put_domain_permissions_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, put_domain_permissions_policy_errors()}
   def put_domain_permissions_policy(%Client{} = client, input, options \\ []) do
     url_path = "/v1/domain/permissions/policy"
     headers = []
@@ -3344,11 +3692,7 @@ defmodule AWS.Codeartifact do
         ) ::
           {:ok, put_package_origin_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, put_package_origin_configuration_errors()}
   def put_package_origin_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/v1/package"
     headers = []
@@ -3397,13 +3741,7 @@ defmodule AWS.Codeartifact do
         ) ::
           {:ok, put_repository_permissions_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, put_repository_permissions_policy_errors()}
   def put_repository_permissions_policy(%Client{} = client, input, options \\ []) do
     url_path = "/v1/repository/permissions/policy"
     headers = []
@@ -3427,11 +3765,7 @@ defmodule AWS.Codeartifact do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/v1/tag"
     headers = []
@@ -3463,10 +3797,7 @@ defmodule AWS.Codeartifact do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/v1/untag"
     headers = []
@@ -3505,12 +3836,7 @@ defmodule AWS.Codeartifact do
   @spec update_package_versions_status(map(), update_package_versions_status_request(), list()) ::
           {:ok, update_package_versions_status_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_package_versions_status_errors()}
   def update_package_versions_status(%Client{} = client, input, options \\ []) do
     url_path = "/v1/package/versions/update_status"
     headers = []
@@ -3548,13 +3874,7 @@ defmodule AWS.Codeartifact do
   @spec update_repository(map(), update_repository_request(), list()) ::
           {:ok, update_repository_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_repository_errors()}
   def update_repository(%Client{} = client, input, options \\ []) do
     url_path = "/v1/repository"
     headers = []

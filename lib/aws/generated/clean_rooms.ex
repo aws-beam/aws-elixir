@@ -28,1119 +28,1287 @@ defmodule AWS.CleanRooms do
   @typedoc """
 
   ## Example:
-  configured_table_summary() :: %{
-    "analysisMethod" => String.t(),
-    "analysisRuleTypes" => list(list(any())()),
-    "arn" => String.t(),
-    "createTime" => [non_neg_integer()],
-    "id" => String.t(),
-    "name" => String.t(),
-    "updateTime" => [non_neg_integer()]
-  }
+
+      configured_table_summary() :: %{
+        "analysisMethod" => String.t(),
+        "analysisRuleTypes" => list(list(any())()),
+        "arn" => String.t(),
+        "createTime" => [non_neg_integer()],
+        "id" => String.t(),
+        "name" => String.t(),
+        "updateTime" => [non_neg_integer()]
+      }
+
   """
   @type configured_table_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_schemas_input() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t(),
-    optional("schemaType") => list(any())
-  }
+
+      list_schemas_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("schemaType") => list(any())
+      }
+
   """
   @type list_schemas_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_configured_table_association_input() :: %{
 
-  }
+      get_configured_table_association_input() :: %{}
+
   """
-  @type get_configured_table_association_input() :: %{String.t() => any()}
+  @type get_configured_table_association_input() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_configured_audience_model_associations_input() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t()
-  }
+
+      list_configured_audience_model_associations_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
   """
   @type list_configured_audience_model_associations_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_configured_audience_model_association_output() :: %{
 
-  }
+      delete_configured_audience_model_association_output() :: %{}
+
   """
-  @type delete_configured_audience_model_association_output() :: %{String.t() => any()}
+  @type delete_configured_audience_model_association_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_analysis_templates_input() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t()
-  }
+
+      list_analysis_templates_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
   """
   @type list_analysis_templates_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_collaboration_analysis_templates_output() :: %{
-    optional("nextToken") => String.t(),
-    required("collaborationAnalysisTemplateSummaries") => list(collaboration_analysis_template_summary()())
-  }
+
+      list_collaboration_analysis_templates_output() :: %{
+        optional("nextToken") => String.t(),
+        required("collaborationAnalysisTemplateSummaries") => list(collaboration_analysis_template_summary()())
+      }
+
   """
   @type list_collaboration_analysis_templates_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_configured_table_output() :: %{
-    required("configuredTable") => configured_table()
-  }
+
+      create_configured_table_output() :: %{
+        required("configuredTable") => configured_table()
+      }
+
   """
   @type create_configured_table_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_privacy_budget_template_output() :: %{
-    "privacyBudgetTemplate" => privacy_budget_template()
-  }
+
+      create_privacy_budget_template_output() :: %{
+        "privacyBudgetTemplate" => privacy_budget_template()
+      }
+
   """
   @type create_privacy_budget_template_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  differential_privacy_preview_parameters_input() :: %{
-    "epsilon" => integer(),
-    "usersNoisePerQuery" => integer()
-  }
+
+      differential_privacy_preview_parameters_input() :: %{
+        "epsilon" => integer(),
+        "usersNoisePerQuery" => integer()
+      }
+
   """
   @type differential_privacy_preview_parameters_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_configured_table_input() :: %{
 
-  }
+      delete_configured_table_input() :: %{}
+
   """
-  @type delete_configured_table_input() :: %{String.t() => any()}
+  @type delete_configured_table_input() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_members_output() :: %{
-    optional("nextToken") => String.t(),
-    required("memberSummaries") => list(member_summary()())
-  }
+
+      list_members_output() :: %{
+        optional("nextToken") => String.t(),
+        required("memberSummaries") => list(member_summary()())
+      }
+
   """
   @type list_members_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_membership_input() :: %{
-    optional("defaultResultConfiguration") => membership_protected_query_result_configuration(),
-    optional("paymentConfiguration") => membership_payment_configuration(),
-    optional("tags") => map(),
-    required("collaborationIdentifier") => String.t(),
-    required("queryLogStatus") => String.t()
-  }
+
+      create_membership_input() :: %{
+        optional("defaultResultConfiguration") => membership_protected_query_result_configuration(),
+        optional("paymentConfiguration") => membership_payment_configuration(),
+        optional("tags") => map(),
+        required("collaborationIdentifier") => String.t(),
+        required("queryLogStatus") => String.t()
+      }
+
   """
   @type create_membership_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_get_collaboration_analysis_template_input() :: %{
-    required("analysisTemplateArns") => list(String.t()())
-  }
+
+      batch_get_collaboration_analysis_template_input() :: %{
+        required("analysisTemplateArns") => list(String.t()())
+      }
+
   """
   @type batch_get_collaboration_analysis_template_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_configured_table_analysis_rule_output() :: %{
-    required("analysisRule") => configured_table_analysis_rule()
-  }
+
+      get_configured_table_analysis_rule_output() :: %{
+        required("analysisRule") => configured_table_analysis_rule()
+      }
+
   """
   @type get_configured_table_analysis_rule_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_configured_table_input() :: %{
-    optional("description") => String.t(),
-    optional("tags") => map(),
-    required("allowedColumns") => list(String.t()()),
-    required("analysisMethod") => String.t(),
-    required("name") => String.t(),
-    required("tableReference") => list()
-  }
+
+      create_configured_table_input() :: %{
+        optional("description") => String.t(),
+        optional("tags") => map(),
+        required("allowedColumns") => list(String.t()()),
+        required("analysisMethod") => String.t(),
+        required("name") => String.t(),
+        required("tableReference") => list()
+      }
+
   """
   @type create_configured_table_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  analysis_rule() :: %{
-    "collaborationId" => String.t(),
-    "createTime" => [non_neg_integer()],
-    "name" => String.t(),
-    "policy" => list(),
-    "type" => list(any()),
-    "updateTime" => [non_neg_integer()]
-  }
+
+      analysis_rule() :: %{
+        "collaborationId" => String.t(),
+        "createTime" => [non_neg_integer()],
+        "name" => String.t(),
+        "policy" => list(),
+        "type" => list(any()),
+        "updateTime" => [non_neg_integer()]
+      }
+
   """
   @type analysis_rule() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_protected_query_output() :: %{
-    required("protectedQuery") => protected_query()
-  }
+
+      get_protected_query_output() :: %{
+        required("protectedQuery") => protected_query()
+      }
+
   """
   @type get_protected_query_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_configured_table_associations_output() :: %{
-    optional("nextToken") => String.t(),
-    required("configuredTableAssociationSummaries") => list(configured_table_association_summary()())
-  }
+
+      list_configured_table_associations_output() :: %{
+        optional("nextToken") => String.t(),
+        required("configuredTableAssociationSummaries") => list(configured_table_association_summary()())
+      }
+
   """
   @type list_configured_table_associations_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  collaboration_analysis_template() :: %{
-    "analysisParameters" => list(analysis_parameter()()),
-    "arn" => String.t(),
-    "collaborationArn" => String.t(),
-    "collaborationId" => String.t(),
-    "createTime" => [non_neg_integer()],
-    "creatorAccountId" => String.t(),
-    "description" => String.t(),
-    "format" => String.t(),
-    "id" => String.t(),
-    "name" => String.t(),
-    "schema" => analysis_schema(),
-    "source" => list(),
-    "updateTime" => [non_neg_integer()]
-  }
+
+      collaboration_analysis_template() :: %{
+        "analysisParameters" => list(analysis_parameter()()),
+        "arn" => String.t(),
+        "collaborationArn" => String.t(),
+        "collaborationId" => String.t(),
+        "createTime" => [non_neg_integer()],
+        "creatorAccountId" => String.t(),
+        "description" => String.t(),
+        "format" => String.t(),
+        "id" => String.t(),
+        "name" => String.t(),
+        "schema" => analysis_schema(),
+        "source" => list(),
+        "updateTime" => [non_neg_integer()]
+      }
+
   """
   @type collaboration_analysis_template() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_analysis_template_input() :: %{
 
-  }
+      get_analysis_template_input() :: %{}
+
   """
-  @type get_analysis_template_input() :: %{String.t() => any()}
+  @type get_analysis_template_input() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_analysis_templates_output() :: %{
-    optional("nextToken") => String.t(),
-    required("analysisTemplateSummaries") => list(analysis_template_summary()())
-  }
+
+      list_analysis_templates_output() :: %{
+        optional("nextToken") => String.t(),
+        required("analysisTemplateSummaries") => list(analysis_template_summary()())
+      }
+
   """
   @type list_analysis_templates_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  protected_query_summary() :: %{
-    "createTime" => [non_neg_integer()],
-    "id" => String.t(),
-    "membershipArn" => String.t(),
-    "membershipId" => String.t(),
-    "status" => String.t()
-  }
+
+      protected_query_summary() :: %{
+        "createTime" => [non_neg_integer()],
+        "id" => String.t(),
+        "membershipArn" => String.t(),
+        "membershipId" => String.t(),
+        "status" => String.t()
+      }
+
   """
   @type protected_query_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_collaboration_analysis_template_input() :: %{
 
-  }
+      get_collaboration_analysis_template_input() :: %{}
+
   """
-  @type get_collaboration_analysis_template_input() :: %{String.t() => any()}
+  @type get_collaboration_analysis_template_input() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_configured_table_associations_input() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t()
-  }
+
+      list_configured_table_associations_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
   """
   @type list_configured_table_associations_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_privacy_budget_template_input() :: %{
 
-  }
+      delete_privacy_budget_template_input() :: %{}
+
   """
-  @type delete_privacy_budget_template_input() :: %{String.t() => any()}
+  @type delete_privacy_budget_template_input() :: %{}
 
   @typedoc """
 
   ## Example:
-  delete_membership_output() :: %{
 
-  }
+      delete_membership_output() :: %{}
+
   """
-  @type delete_membership_output() :: %{String.t() => any()}
+  @type delete_membership_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  update_analysis_template_input() :: %{
-    optional("description") => String.t()
-  }
+
+      update_analysis_template_input() :: %{
+        optional("description") => String.t()
+      }
+
   """
   @type update_analysis_template_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  column() :: %{
-    "name" => String.t(),
-    "type" => String.t()
-  }
+
+      column() :: %{
+        "name" => String.t(),
+        "type" => String.t()
+      }
+
   """
   @type column() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_configured_tables_input() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t()
-  }
+
+      list_configured_tables_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
   """
   @type list_configured_tables_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_collaboration_output() :: %{
-    required("collaboration") => collaboration()
-  }
+
+      create_collaboration_output() :: %{
+        required("collaboration") => collaboration()
+      }
+
   """
   @type create_collaboration_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_memberships_output() :: %{
-    optional("nextToken") => String.t(),
-    required("membershipSummaries") => list(membership_summary()())
-  }
+
+      list_memberships_output() :: %{
+        optional("nextToken") => String.t(),
+        required("membershipSummaries") => list(membership_summary()())
+      }
+
   """
   @type list_memberships_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  configured_audience_model_association_summary() :: %{
-    "arn" => String.t(),
-    "collaborationArn" => String.t(),
-    "collaborationId" => String.t(),
-    "configuredAudienceModelArn" => String.t(),
-    "createTime" => [non_neg_integer()],
-    "description" => String.t(),
-    "id" => String.t(),
-    "membershipArn" => String.t(),
-    "membershipId" => String.t(),
-    "name" => String.t(),
-    "updateTime" => [non_neg_integer()]
-  }
+
+      configured_audience_model_association_summary() :: %{
+        "arn" => String.t(),
+        "collaborationArn" => String.t(),
+        "collaborationId" => String.t(),
+        "configuredAudienceModelArn" => String.t(),
+        "createTime" => [non_neg_integer()],
+        "description" => String.t(),
+        "id" => String.t(),
+        "membershipArn" => String.t(),
+        "membershipId" => String.t(),
+        "name" => String.t(),
+        "updateTime" => [non_neg_integer()]
+      }
+
   """
   @type configured_audience_model_association_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_configured_table_analysis_rule_output() :: %{
-    required("analysisRule") => configured_table_analysis_rule()
-  }
+
+      update_configured_table_analysis_rule_output() :: %{
+        required("analysisRule") => configured_table_analysis_rule()
+      }
+
   """
   @type update_configured_table_analysis_rule_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_protected_queries_output() :: %{
-    optional("nextToken") => String.t(),
-    required("protectedQueries") => list(protected_query_summary()())
-  }
+
+      list_protected_queries_output() :: %{
+        optional("nextToken") => String.t(),
+        required("protectedQueries") => list(protected_query_summary()())
+      }
+
   """
   @type list_protected_queries_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_protected_queries_input() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t(),
-    optional("status") => String.t()
-  }
+
+      list_protected_queries_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("status") => String.t()
+      }
+
   """
   @type list_protected_queries_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_configured_table_analysis_rule_input() :: %{
-    required("analysisRulePolicy") => list()
-  }
+
+      update_configured_table_analysis_rule_input() :: %{
+        required("analysisRulePolicy") => list()
+      }
+
   """
   @type update_configured_table_analysis_rule_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  differential_privacy_parameters() :: %{
-    "sensitivityParameters" => list(differential_privacy_sensitivity_parameters()())
-  }
+
+      differential_privacy_parameters() :: %{
+        "sensitivityParameters" => list(differential_privacy_sensitivity_parameters()())
+      }
+
   """
   @type differential_privacy_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_collaboration_privacy_budget_template_input() :: %{
 
-  }
+      get_collaboration_privacy_budget_template_input() :: %{}
+
   """
-  @type get_collaboration_privacy_budget_template_input() :: %{String.t() => any()}
+  @type get_collaboration_privacy_budget_template_input() :: %{}
 
   @typedoc """
 
   ## Example:
-  delete_configured_audience_model_association_input() :: %{
 
-  }
+      delete_configured_audience_model_association_input() :: %{}
+
   """
-  @type delete_configured_audience_model_association_input() :: %{String.t() => any()}
+  @type delete_configured_audience_model_association_input() :: %{}
 
   @typedoc """
 
   ## Example:
-  update_configured_table_output() :: %{
-    required("configuredTable") => configured_table()
-  }
+
+      update_configured_table_output() :: %{
+        required("configuredTable") => configured_table()
+      }
+
   """
   @type update_configured_table_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  configured_table_association() :: %{
-    "arn" => String.t(),
-    "configuredTableArn" => String.t(),
-    "configuredTableId" => String.t(),
-    "createTime" => [non_neg_integer()],
-    "description" => String.t(),
-    "id" => String.t(),
-    "membershipArn" => String.t(),
-    "membershipId" => String.t(),
-    "name" => String.t(),
-    "roleArn" => String.t(),
-    "updateTime" => [non_neg_integer()]
-  }
+
+      configured_table_association() :: %{
+        "arn" => String.t(),
+        "configuredTableArn" => String.t(),
+        "configuredTableId" => String.t(),
+        "createTime" => [non_neg_integer()],
+        "description" => String.t(),
+        "id" => String.t(),
+        "membershipArn" => String.t(),
+        "membershipId" => String.t(),
+        "name" => String.t(),
+        "roleArn" => String.t(),
+        "updateTime" => [non_neg_integer()]
+      }
+
   """
   @type configured_table_association() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_membership_output() :: %{
-    required("membership") => membership()
-  }
+
+      get_membership_output() :: %{
+        required("membership") => membership()
+      }
+
   """
   @type get_membership_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  differential_privacy_privacy_budget_aggregation() :: %{
-    "maxCount" => [integer()],
-    "remainingCount" => [integer()],
-    "type" => list(any())
-  }
+
+      differential_privacy_privacy_budget_aggregation() :: %{
+        "maxCount" => [integer()],
+        "remainingCount" => [integer()],
+        "type" => list(any())
+      }
+
   """
   @type differential_privacy_privacy_budget_aggregation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  collaboration() :: %{
-    "arn" => String.t(),
-    "createTime" => [non_neg_integer()],
-    "creatorAccountId" => String.t(),
-    "creatorDisplayName" => String.t(),
-    "dataEncryptionMetadata" => data_encryption_metadata(),
-    "description" => String.t(),
-    "id" => String.t(),
-    "memberStatus" => String.t(),
-    "membershipArn" => String.t(),
-    "membershipId" => String.t(),
-    "name" => String.t(),
-    "queryLogStatus" => String.t(),
-    "updateTime" => [non_neg_integer()]
-  }
+
+      collaboration() :: %{
+        "arn" => String.t(),
+        "createTime" => [non_neg_integer()],
+        "creatorAccountId" => String.t(),
+        "creatorDisplayName" => String.t(),
+        "dataEncryptionMetadata" => data_encryption_metadata(),
+        "description" => String.t(),
+        "id" => String.t(),
+        "memberStatus" => String.t(),
+        "membershipArn" => String.t(),
+        "membershipId" => String.t(),
+        "name" => String.t(),
+        "queryLogStatus" => String.t(),
+        "updateTime" => [non_neg_integer()]
+      }
+
   """
   @type collaboration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  analysis_rule_aggregation() :: %{
-    "aggregateColumns" => list(aggregate_column()()),
-    "allowedJoinOperators" => list(String.t()()),
-    "dimensionColumns" => list(String.t()()),
-    "joinColumns" => list(String.t()()),
-    "joinRequired" => String.t(),
-    "outputConstraints" => list(aggregation_constraint()()),
-    "scalarFunctions" => list(String.t()())
-  }
+
+      analysis_rule_aggregation() :: %{
+        "aggregateColumns" => list(aggregate_column()()),
+        "allowedJoinOperators" => list(String.t()()),
+        "dimensionColumns" => list(String.t()()),
+        "joinColumns" => list(String.t()()),
+        "joinRequired" => String.t(),
+        "outputConstraints" => list(aggregation_constraint()()),
+        "scalarFunctions" => list(String.t()())
+      }
+
   """
   @type analysis_rule_aggregation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  differential_privacy_privacy_budget() :: %{
-    "aggregations" => list(differential_privacy_privacy_budget_aggregation()()),
-    "epsilon" => integer()
-  }
+
+      differential_privacy_privacy_budget() :: %{
+        "aggregations" => list(differential_privacy_privacy_budget_aggregation()()),
+        "epsilon" => integer()
+      }
+
   """
   @type differential_privacy_privacy_budget() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_privacy_budget_templates_input() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t()
-  }
+
+      list_privacy_budget_templates_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
   """
   @type list_privacy_budget_templates_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_analysis_template_output() :: %{
-    required("analysisTemplate") => analysis_template()
-  }
+
+      update_analysis_template_output() :: %{
+        required("analysisTemplate") => analysis_template()
+      }
+
   """
   @type update_analysis_template_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  analysis_schema() :: %{
-    "referencedTables" => list(String.t()())
-  }
+
+      analysis_schema() :: %{
+        "referencedTables" => list(String.t()())
+      }
+
   """
   @type analysis_schema() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_collaboration_output() :: %{
-    required("collaboration") => collaboration()
-  }
+
+      update_collaboration_output() :: %{
+        required("collaboration") => collaboration()
+      }
+
   """
   @type update_collaboration_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_collaboration_privacy_budgets_input() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t(),
-    required("privacyBudgetType") => list(any())
-  }
+
+      list_collaboration_privacy_budgets_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        required("privacyBudgetType") => list(any())
+      }
+
   """
   @type list_collaboration_privacy_budgets_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_configured_table_association_input() :: %{
-    optional("description") => String.t(),
-    optional("roleArn") => String.t()
-  }
+
+      update_configured_table_association_input() :: %{
+        optional("description") => String.t(),
+        optional("roleArn") => String.t()
+      }
+
   """
   @type update_configured_table_association_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  differential_privacy_preview_aggregation() :: %{
-    "maxCount" => [integer()],
-    "type" => list(any())
-  }
+
+      differential_privacy_preview_aggregation() :: %{
+        "maxCount" => [integer()],
+        "type" => list(any())
+      }
+
   """
   @type differential_privacy_preview_aggregation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_output() :: %{
-    "tags" => map()
-  }
+
+      list_tags_for_resource_output() :: %{
+        "tags" => map()
+      }
+
   """
   @type list_tags_for_resource_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_collaboration_input() :: %{
-    optional("description") => String.t(),
-    optional("name") => String.t()
-  }
+
+      update_collaboration_input() :: %{
+        optional("description") => String.t(),
+        optional("name") => String.t()
+      }
+
   """
   @type update_collaboration_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  preview_privacy_impact_input() :: %{
-    required("parameters") => list()
-  }
+
+      preview_privacy_impact_input() :: %{
+        required("parameters") => list()
+      }
+
   """
   @type preview_privacy_impact_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_memberships_input() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t(),
-    optional("status") => String.t()
-  }
+
+      list_memberships_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("status") => String.t()
+      }
+
   """
   @type list_memberships_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_schemas_output() :: %{
-    optional("nextToken") => String.t(),
-    required("schemaSummaries") => list(schema_summary()())
-  }
+
+      list_schemas_output() :: %{
+        optional("nextToken") => String.t(),
+        required("schemaSummaries") => list(schema_summary()())
+      }
+
   """
   @type list_schemas_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_analysis_template_input() :: %{
 
-  }
+      delete_analysis_template_input() :: %{}
+
   """
-  @type delete_analysis_template_input() :: %{String.t() => any()}
+  @type delete_analysis_template_input() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_collaboration_privacy_budget_template_output() :: %{
-    "collaborationPrivacyBudgetTemplate" => collaboration_privacy_budget_template()
-  }
+
+      get_collaboration_privacy_budget_template_output() :: %{
+        "collaborationPrivacyBudgetTemplate" => collaboration_privacy_budget_template()
+      }
+
   """
   @type get_collaboration_privacy_budget_template_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_configured_table_analysis_rule_output() :: %{
 
-  }
+      delete_configured_table_analysis_rule_output() :: %{}
+
   """
-  @type delete_configured_table_analysis_rule_output() :: %{String.t() => any()}
+  @type delete_configured_table_analysis_rule_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  update_privacy_budget_template_input() :: %{
-    optional("parameters") => list(),
-    required("privacyBudgetType") => list(any())
-  }
+
+      update_privacy_budget_template_input() :: %{
+        optional("parameters") => list(),
+        required("privacyBudgetType") => list(any())
+      }
+
   """
   @type update_privacy_budget_template_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  analysis_rule_custom() :: %{
-    "allowedAnalyses" => list(String.t()()),
-    "allowedAnalysisProviders" => list(String.t()()),
-    "differentialPrivacy" => differential_privacy_configuration()
-  }
+
+      analysis_rule_custom() :: %{
+        "allowedAnalyses" => list(String.t()()),
+        "allowedAnalysisProviders" => list(String.t()()),
+        "differentialPrivacy" => differential_privacy_configuration()
+      }
+
   """
   @type analysis_rule_custom() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_member_output() :: %{
 
-  }
+      delete_member_output() :: %{}
+
   """
-  @type delete_member_output() :: %{String.t() => any()}
+  @type delete_member_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  delete_configured_table_association_output() :: %{
 
-  }
+      delete_configured_table_association_output() :: %{}
+
   """
-  @type delete_configured_table_association_output() :: %{String.t() => any()}
+  @type delete_configured_table_association_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_analysis_template_output() :: %{
-    required("analysisTemplate") => analysis_template()
-  }
+
+      create_analysis_template_output() :: %{
+        required("analysisTemplate") => analysis_template()
+      }
+
   """
   @type create_analysis_template_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_collaboration_input() :: %{
 
-  }
+      get_collaboration_input() :: %{}
+
   """
-  @type get_collaboration_input() :: %{String.t() => any()}
+  @type get_collaboration_input() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_protected_query_input() :: %{
 
-  }
+      get_protected_query_input() :: %{}
+
   """
-  @type get_protected_query_input() :: %{String.t() => any()}
+  @type get_protected_query_input() :: %{}
 
   @typedoc """
 
   ## Example:
-  privacy_budget_template_summary() :: %{
-    "arn" => String.t(),
-    "collaborationArn" => String.t(),
-    "collaborationId" => String.t(),
-    "createTime" => [non_neg_integer()],
-    "id" => String.t(),
-    "membershipArn" => String.t(),
-    "membershipId" => String.t(),
-    "privacyBudgetType" => list(any()),
-    "updateTime" => [non_neg_integer()]
-  }
+
+      privacy_budget_template_summary() :: %{
+        "arn" => String.t(),
+        "collaborationArn" => String.t(),
+        "collaborationId" => String.t(),
+        "createTime" => [non_neg_integer()],
+        "id" => String.t(),
+        "membershipArn" => String.t(),
+        "membershipId" => String.t(),
+        "privacyBudgetType" => list(any()),
+        "updateTime" => [non_neg_integer()]
+      }
+
   """
   @type privacy_budget_template_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_collaboration_input() :: %{
 
-  }
+      delete_collaboration_input() :: %{}
+
   """
-  @type delete_collaboration_input() :: %{String.t() => any()}
+  @type delete_collaboration_input() :: %{}
 
   @typedoc """
 
   ## Example:
-  update_protected_query_input() :: %{
-    required("targetStatus") => String.t()
-  }
+
+      update_protected_query_input() :: %{
+        required("targetStatus") => String.t()
+      }
+
   """
   @type update_protected_query_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  membership_protected_query_result_configuration() :: %{
-    "outputConfiguration" => list(),
-    "roleArn" => String.t()
-  }
+
+      membership_protected_query_result_configuration() :: %{
+        "outputConfiguration" => list(),
+        "roleArn" => String.t()
+      }
+
   """
   @type membership_protected_query_result_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_member_input() :: %{
 
-  }
+      delete_member_input() :: %{}
+
   """
-  @type delete_member_input() :: %{String.t() => any()}
+  @type delete_member_input() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_configured_audience_model_association_output() :: %{
-    "configuredAudienceModelAssociation" => configured_audience_model_association()
-  }
+
+      get_configured_audience_model_association_output() :: %{
+        "configuredAudienceModelAssociation" => configured_audience_model_association()
+      }
+
   """
   @type get_configured_audience_model_association_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_configured_audience_model_associations_output() :: %{
-    "configuredAudienceModelAssociationSummaries" => list(configured_audience_model_association_summary()()),
-    "nextToken" => String.t()
-  }
+
+      list_configured_audience_model_associations_output() :: %{
+        "configuredAudienceModelAssociationSummaries" => list(configured_audience_model_association_summary()()),
+        "nextToken" => String.t()
+      }
+
   """
   @type list_configured_audience_model_associations_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_collaboration_privacy_budget_templates_output() :: %{
-    "collaborationPrivacyBudgetTemplateSummaries" => list(collaboration_privacy_budget_template_summary()()),
-    "nextToken" => String.t()
-  }
+
+      list_collaboration_privacy_budget_templates_output() :: %{
+        "collaborationPrivacyBudgetTemplateSummaries" => list(collaboration_privacy_budget_template_summary()()),
+        "nextToken" => String.t()
+      }
+
   """
   @type list_collaboration_privacy_budget_templates_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  conflict_exception() :: %{
-    "message" => [String.t()],
-    "reason" => String.t(),
-    "resourceId" => [String.t()],
-    "resourceType" => String.t()
-  }
+
+      conflict_exception() :: %{
+        "message" => [String.t()],
+        "reason" => String.t(),
+        "resourceId" => [String.t()],
+        "resourceType" => String.t()
+      }
+
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_not_found_exception() :: %{
-    "message" => [String.t()],
-    "resourceId" => [String.t()],
-    "resourceType" => String.t()
-  }
+
+      resource_not_found_exception() :: %{
+        "message" => [String.t()],
+        "resourceId" => [String.t()],
+        "resourceType" => String.t()
+      }
+
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_configured_table_analysis_rule_input() :: %{
-    required("analysisRulePolicy") => list(),
-    required("analysisRuleType") => list(any())
-  }
+
+      create_configured_table_analysis_rule_input() :: %{
+        required("analysisRulePolicy") => list(),
+        required("analysisRuleType") => list(any())
+      }
+
   """
   @type create_configured_table_analysis_rule_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  protected_query() :: %{
-    "createTime" => [non_neg_integer()],
-    "differentialPrivacy" => differential_privacy_parameters(),
-    "error" => protected_query_error(),
-    "id" => String.t(),
-    "membershipArn" => String.t(),
-    "membershipId" => String.t(),
-    "result" => protected_query_result(),
-    "resultConfiguration" => protected_query_result_configuration(),
-    "sqlParameters" => protected_query_s_q_l_parameters(),
-    "statistics" => protected_query_statistics(),
-    "status" => String.t()
-  }
+
+      protected_query() :: %{
+        "createTime" => [non_neg_integer()],
+        "differentialPrivacy" => differential_privacy_parameters(),
+        "error" => protected_query_error(),
+        "id" => String.t(),
+        "membershipArn" => String.t(),
+        "membershipId" => String.t(),
+        "result" => protected_query_result(),
+        "resultConfiguration" => protected_query_result_configuration(),
+        "sqlParameters" => protected_query_s_q_l_parameters(),
+        "statistics" => protected_query_statistics(),
+        "status" => String.t()
+      }
+
   """
   @type protected_query() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  protected_query_result_configuration() :: %{
-    "outputConfiguration" => list()
-  }
+
+      protected_query_result_configuration() :: %{
+        "outputConfiguration" => list()
+      }
+
   """
   @type protected_query_result_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_configured_table_association_output() :: %{
-    required("configuredTableAssociation") => configured_table_association()
-  }
+
+      update_configured_table_association_output() :: %{
+        required("configuredTableAssociation") => configured_table_association()
+      }
+
   """
   @type update_configured_table_association_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  service_quota_exceeded_exception() :: %{
-    "message" => [String.t()],
-    "quotaName" => [String.t()],
-    "quotaValue" => [float()]
-  }
+
+      service_quota_exceeded_exception() :: %{
+        "message" => [String.t()],
+        "quotaName" => [String.t()],
+        "quotaValue" => [float()]
+      }
+
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  collaboration_configured_audience_model_association() :: %{
-    "arn" => String.t(),
-    "collaborationArn" => String.t(),
-    "collaborationId" => String.t(),
-    "configuredAudienceModelArn" => String.t(),
-    "createTime" => [non_neg_integer()],
-    "creatorAccountId" => String.t(),
-    "description" => String.t(),
-    "id" => String.t(),
-    "name" => String.t(),
-    "updateTime" => [non_neg_integer()]
-  }
+
+      collaboration_configured_audience_model_association() :: %{
+        "arn" => String.t(),
+        "collaborationArn" => String.t(),
+        "collaborationId" => String.t(),
+        "configuredAudienceModelArn" => String.t(),
+        "createTime" => [non_neg_integer()],
+        "creatorAccountId" => String.t(),
+        "description" => String.t(),
+        "id" => String.t(),
+        "name" => String.t(),
+        "updateTime" => [non_neg_integer()]
+      }
+
   """
   @type collaboration_configured_audience_model_association() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_configured_audience_model_association_input() :: %{
-    optional("description") => String.t(),
-    optional("tags") => map(),
-    required("configuredAudienceModelArn") => String.t(),
-    required("configuredAudienceModelAssociationName") => String.t(),
-    required("manageResourcePolicies") => [boolean()]
-  }
+
+      create_configured_audience_model_association_input() :: %{
+        optional("description") => String.t(),
+        optional("tags") => map(),
+        required("configuredAudienceModelArn") => String.t(),
+        required("configuredAudienceModelAssociationName") => String.t(),
+        required("manageResourcePolicies") => [boolean()]
+      }
+
   """
   @type create_configured_audience_model_association_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  differential_privacy_template_parameters_input() :: %{
-    "epsilon" => integer(),
-    "usersNoisePerQuery" => integer()
-  }
+
+      differential_privacy_template_parameters_input() :: %{
+        "epsilon" => integer(),
+        "usersNoisePerQuery" => integer()
+      }
+
   """
   @type differential_privacy_template_parameters_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  membership_query_compute_payment_config() :: %{
-    "isResponsible" => [boolean()]
-  }
+
+      membership_query_compute_payment_config() :: %{
+        "isResponsible" => [boolean()]
+      }
+
   """
   @type membership_query_compute_payment_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  protected_query_result() :: %{
-    "output" => list()
-  }
+
+      protected_query_result() :: %{
+        "output" => list()
+      }
+
   """
   @type protected_query_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  schema_summary() :: %{
-    "analysisMethod" => String.t(),
-    "analysisRuleTypes" => list(list(any())()),
-    "collaborationArn" => String.t(),
-    "collaborationId" => String.t(),
-    "createTime" => [non_neg_integer()],
-    "creatorAccountId" => String.t(),
-    "name" => String.t(),
-    "type" => list(any()),
-    "updateTime" => [non_neg_integer()]
-  }
+
+      schema_summary() :: %{
+        "analysisMethod" => String.t(),
+        "analysisRuleTypes" => list(list(any())()),
+        "collaborationArn" => String.t(),
+        "collaborationId" => String.t(),
+        "createTime" => [non_neg_integer()],
+        "creatorAccountId" => String.t(),
+        "name" => String.t(),
+        "type" => list(any()),
+        "updateTime" => [non_neg_integer()]
+      }
+
   """
   @type schema_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_configured_table_analysis_rule_input() :: %{
 
-  }
+      delete_configured_table_analysis_rule_input() :: %{}
+
   """
-  @type delete_configured_table_analysis_rule_input() :: %{String.t() => any()}
+  @type delete_configured_table_analysis_rule_input() :: %{}
 
   @typedoc """
 
   ## Example:
-  privacy_budget_template() :: %{
-    "arn" => String.t(),
-    "autoRefresh" => list(any()),
-    "collaborationArn" => String.t(),
-    "collaborationId" => String.t(),
-    "createTime" => [non_neg_integer()],
-    "id" => String.t(),
-    "membershipArn" => String.t(),
-    "membershipId" => String.t(),
-    "parameters" => list(),
-    "privacyBudgetType" => list(any()),
-    "updateTime" => [non_neg_integer()]
-  }
+
+      privacy_budget_template() :: %{
+        "arn" => String.t(),
+        "autoRefresh" => list(any()),
+        "collaborationArn" => String.t(),
+        "collaborationId" => String.t(),
+        "createTime" => [non_neg_integer()],
+        "id" => String.t(),
+        "membershipArn" => String.t(),
+        "membershipId" => String.t(),
+        "parameters" => list(),
+        "privacyBudgetType" => list(any()),
+        "updateTime" => [non_neg_integer()]
+      }
+
   """
   @type privacy_budget_template() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  privacy_budget_summary() :: %{
-    "budget" => list(),
-    "collaborationArn" => String.t(),
-    "collaborationId" => String.t(),
-    "createTime" => [non_neg_integer()],
-    "id" => String.t(),
-    "membershipArn" => String.t(),
-    "membershipId" => String.t(),
-    "privacyBudgetTemplateArn" => String.t(),
-    "privacyBudgetTemplateId" => String.t(),
-    "type" => list(any()),
-    "updateTime" => [non_neg_integer()]
-  }
+
+      privacy_budget_summary() :: %{
+        "budget" => list(),
+        "collaborationArn" => String.t(),
+        "collaborationId" => String.t(),
+        "createTime" => [non_neg_integer()],
+        "id" => String.t(),
+        "membershipArn" => String.t(),
+        "membershipId" => String.t(),
+        "privacyBudgetTemplateArn" => String.t(),
+        "privacyBudgetTemplateId" => String.t(),
+        "type" => list(any()),
+        "updateTime" => [non_neg_integer()]
+      }
+
   """
   @type privacy_budget_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_schema_output() :: %{
-    required("schema") => schema()
-  }
+
+      get_schema_output() :: %{
+        required("schema") => schema()
+      }
+
   """
   @type get_schema_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_collaboration_configured_audience_model_association_output() :: %{
-    "collaborationConfiguredAudienceModelAssociation" => collaboration_configured_audience_model_association()
-  }
+
+      get_collaboration_configured_audience_model_association_output() :: %{
+        "collaborationConfiguredAudienceModelAssociation" => collaboration_configured_audience_model_association()
+      }
+
   """
   @type get_collaboration_configured_audience_model_association_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_get_schema_output() :: %{
-    required("errors") => list(batch_get_schema_error()()),
-    required("schemas") => list(schema()())
-  }
+
+      batch_get_schema_output() :: %{
+        required("errors") => list(batch_get_schema_error()()),
+        required("schemas") => list(schema()())
+      }
+
   """
   @type batch_get_schema_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  collaboration_summary() :: %{
-    "arn" => String.t(),
-    "createTime" => [non_neg_integer()],
-    "creatorAccountId" => String.t(),
-    "creatorDisplayName" => String.t(),
-    "id" => String.t(),
-    "memberStatus" => String.t(),
-    "membershipArn" => String.t(),
-    "membershipId" => String.t(),
-    "name" => String.t(),
-    "updateTime" => [non_neg_integer()]
-  }
+
+      collaboration_summary() :: %{
+        "arn" => String.t(),
+        "createTime" => [non_neg_integer()],
+        "creatorAccountId" => String.t(),
+        "creatorDisplayName" => String.t(),
+        "id" => String.t(),
+        "memberStatus" => String.t(),
+        "membershipArn" => String.t(),
+        "membershipId" => String.t(),
+        "name" => String.t(),
+        "updateTime" => [non_neg_integer()]
+      }
+
   """
   @type collaboration_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  schema() :: %{
-    "analysisMethod" => String.t(),
-    "analysisRuleTypes" => list(list(any())()),
-    "collaborationArn" => String.t(),
-    "collaborationId" => String.t(),
-    "columns" => list(column()()),
-    "createTime" => [non_neg_integer()],
-    "creatorAccountId" => String.t(),
-    "description" => String.t(),
-    "name" => String.t(),
-    "partitionKeys" => list(column()()),
-    "type" => list(any()),
-    "updateTime" => [non_neg_integer()]
-  }
+
+      schema() :: %{
+        "analysisMethod" => String.t(),
+        "analysisRuleTypes" => list(list(any())()),
+        "collaborationArn" => String.t(),
+        "collaborationId" => String.t(),
+        "columns" => list(column()()),
+        "createTime" => [non_neg_integer()],
+        "creatorAccountId" => String.t(),
+        "description" => String.t(),
+        "name" => String.t(),
+        "partitionKeys" => list(column()()),
+        "type" => list(any()),
+        "updateTime" => [non_neg_integer()]
+      }
+
   """
   @type schema() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  differential_privacy_column() :: %{
-    "name" => [String.t()]
-  }
+
+      differential_privacy_column() :: %{
+        "name" => [String.t()]
+      }
+
   """
   @type differential_privacy_column() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_collaboration_privacy_budget_templates_input() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t()
-  }
+
+      list_collaboration_privacy_budget_templates_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
   """
   @type list_collaboration_privacy_budget_templates_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_privacy_budgets_input() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t(),
-    required("privacyBudgetType") => list(any())
-  }
+
+      list_privacy_budgets_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        required("privacyBudgetType") => list(any())
+      }
+
   """
   @type list_privacy_budgets_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_collaboration_configured_audience_model_associations_output() :: %{
-    "collaborationConfiguredAudienceModelAssociationSummaries" => list(collaboration_configured_audience_model_association_summary()()),
-    "nextToken" => String.t()
-  }
+
+      list_collaboration_configured_audience_model_associations_output() :: %{
+        "collaborationConfiguredAudienceModelAssociationSummaries" => list(collaboration_configured_audience_model_association_summary()()),
+        "nextToken" => String.t()
+      }
+
   """
   @type list_collaboration_configured_audience_model_associations_output() :: %{
           String.t() => any()
@@ -1149,126 +1317,144 @@ defmodule AWS.CleanRooms do
   @typedoc """
 
   ## Example:
-  delete_configured_table_association_input() :: %{
 
-  }
+      delete_configured_table_association_input() :: %{}
+
   """
-  @type delete_configured_table_association_input() :: %{String.t() => any()}
+  @type delete_configured_table_association_input() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_privacy_budget_templates_output() :: %{
-    "nextToken" => String.t(),
-    "privacyBudgetTemplateSummaries" => list(privacy_budget_template_summary()())
-  }
+
+      list_privacy_budget_templates_output() :: %{
+        "nextToken" => String.t(),
+        "privacyBudgetTemplateSummaries" => list(privacy_budget_template_summary()())
+      }
+
   """
   @type list_privacy_budget_templates_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  analysis_rule_list() :: %{
-    "allowedJoinOperators" => list(String.t()()),
-    "joinColumns" => list(String.t()()),
-    "listColumns" => list(String.t()())
-  }
+
+      analysis_rule_list() :: %{
+        "allowedJoinOperators" => list(String.t()()),
+        "joinColumns" => list(String.t()()),
+        "listColumns" => list(String.t()())
+      }
+
   """
   @type analysis_rule_list() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  membership_summary() :: %{
-    "arn" => String.t(),
-    "collaborationArn" => String.t(),
-    "collaborationCreatorAccountId" => String.t(),
-    "collaborationCreatorDisplayName" => String.t(),
-    "collaborationId" => String.t(),
-    "collaborationName" => String.t(),
-    "createTime" => [non_neg_integer()],
-    "id" => String.t(),
-    "memberAbilities" => list(String.t()()),
-    "paymentConfiguration" => membership_payment_configuration(),
-    "status" => String.t(),
-    "updateTime" => [non_neg_integer()]
-  }
+
+      membership_summary() :: %{
+        "arn" => String.t(),
+        "collaborationArn" => String.t(),
+        "collaborationCreatorAccountId" => String.t(),
+        "collaborationCreatorDisplayName" => String.t(),
+        "collaborationId" => String.t(),
+        "collaborationName" => String.t(),
+        "createTime" => [non_neg_integer()],
+        "id" => String.t(),
+        "memberAbilities" => list(String.t()()),
+        "paymentConfiguration" => membership_payment_configuration(),
+        "status" => String.t(),
+        "updateTime" => [non_neg_integer()]
+      }
+
   """
   @type membership_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  validation_exception_field() :: %{
-    "message" => [String.t()],
-    "name" => [String.t()]
-  }
+
+      validation_exception_field() :: %{
+        "message" => [String.t()],
+        "name" => [String.t()]
+      }
+
   """
   @type validation_exception_field() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_configured_table_analysis_rule_input() :: %{
 
-  }
+      get_configured_table_analysis_rule_input() :: %{}
+
   """
-  @type get_configured_table_analysis_rule_input() :: %{String.t() => any()}
+  @type get_configured_table_analysis_rule_input() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_collaboration_analysis_templates_input() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t()
-  }
+
+      list_collaboration_analysis_templates_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
   """
   @type list_collaboration_analysis_templates_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  protected_query_s3_output() :: %{
-    "location" => [String.t()]
-  }
+
+      protected_query_s3_output() :: %{
+        "location" => [String.t()]
+      }
+
   """
   @type protected_query_s3_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  collaboration_privacy_budget_summary() :: %{
-    "budget" => list(),
-    "collaborationArn" => String.t(),
-    "collaborationId" => String.t(),
-    "createTime" => [non_neg_integer()],
-    "creatorAccountId" => String.t(),
-    "id" => String.t(),
-    "privacyBudgetTemplateArn" => String.t(),
-    "privacyBudgetTemplateId" => String.t(),
-    "type" => list(any()),
-    "updateTime" => [non_neg_integer()]
-  }
+
+      collaboration_privacy_budget_summary() :: %{
+        "budget" => list(),
+        "collaborationArn" => String.t(),
+        "collaborationId" => String.t(),
+        "createTime" => [non_neg_integer()],
+        "creatorAccountId" => String.t(),
+        "id" => String.t(),
+        "privacyBudgetTemplateArn" => String.t(),
+        "privacyBudgetTemplateId" => String.t(),
+        "type" => list(any()),
+        "updateTime" => [non_neg_integer()]
+      }
+
   """
   @type collaboration_privacy_budget_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_configured_audience_model_association_input() :: %{
-    optional("description") => String.t(),
-    optional("name") => String.t()
-  }
+
+      update_configured_audience_model_association_input() :: %{
+        optional("description") => String.t(),
+        optional("name") => String.t()
+      }
+
   """
   @type update_configured_audience_model_association_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_collaboration_configured_audience_model_associations_input() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t()
-  }
+
+      list_collaboration_configured_audience_model_associations_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
   """
   @type list_collaboration_configured_audience_model_associations_input() :: %{
           String.t() => any()
@@ -1277,945 +1463,1524 @@ defmodule AWS.CleanRooms do
   @typedoc """
 
   ## Example:
-  tag_resource_input() :: %{
-    required("tags") => map()
-  }
+
+      tag_resource_input() :: %{
+        required("tags") => map()
+      }
+
   """
   @type tag_resource_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_privacy_budget_template_input() :: %{
-    optional("tags") => map(),
-    required("autoRefresh") => list(any()),
-    required("parameters") => list(),
-    required("privacyBudgetType") => list(any())
-  }
+
+      create_privacy_budget_template_input() :: %{
+        optional("tags") => map(),
+        required("autoRefresh") => list(any()),
+        required("parameters") => list(),
+        required("privacyBudgetType") => list(any())
+      }
+
   """
   @type create_privacy_budget_template_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_privacy_budget_template_output() :: %{
-    "privacyBudgetTemplate" => privacy_budget_template()
-  }
+
+      get_privacy_budget_template_output() :: %{
+        "privacyBudgetTemplate" => privacy_budget_template()
+      }
+
   """
   @type get_privacy_budget_template_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_protected_query_output() :: %{
-    required("protectedQuery") => protected_query()
-  }
+
+      update_protected_query_output() :: %{
+        required("protectedQuery") => protected_query()
+      }
+
   """
   @type update_protected_query_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_configured_table_association_output() :: %{
-    required("configuredTableAssociation") => configured_table_association()
-  }
+
+      create_configured_table_association_output() :: %{
+        required("configuredTableAssociation") => configured_table_association()
+      }
+
   """
   @type create_configured_table_association_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  differential_privacy_privacy_impact() :: %{
-    "aggregations" => list(differential_privacy_preview_aggregation()())
-  }
+
+      differential_privacy_privacy_impact() :: %{
+        "aggregations" => list(differential_privacy_preview_aggregation()())
+      }
+
   """
   @type differential_privacy_privacy_impact() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  analysis_parameter() :: %{
-    "defaultValue" => String.t(),
-    "name" => String.t(),
-    "type" => list(any())
-  }
+
+      analysis_parameter() :: %{
+        "defaultValue" => String.t(),
+        "name" => String.t(),
+        "type" => list(any())
+      }
+
   """
   @type analysis_parameter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_collaboration_input() :: %{
-    optional("creatorPaymentConfiguration") => payment_configuration(),
-    optional("dataEncryptionMetadata") => data_encryption_metadata(),
-    optional("tags") => map(),
-    required("creatorDisplayName") => String.t(),
-    required("creatorMemberAbilities") => list(String.t()()),
-    required("description") => String.t(),
-    required("members") => list(member_specification()()),
-    required("name") => String.t(),
-    required("queryLogStatus") => String.t()
-  }
+
+      create_collaboration_input() :: %{
+        optional("creatorPaymentConfiguration") => payment_configuration(),
+        optional("dataEncryptionMetadata") => data_encryption_metadata(),
+        optional("tags") => map(),
+        required("creatorDisplayName") => String.t(),
+        required("creatorMemberAbilities") => list(String.t()()),
+        required("description") => String.t(),
+        required("members") => list(member_specification()()),
+        required("name") => String.t(),
+        required("queryLogStatus") => String.t()
+      }
+
   """
   @type create_collaboration_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  configured_table_analysis_rule() :: %{
-    "configuredTableArn" => String.t(),
-    "configuredTableId" => String.t(),
-    "createTime" => [non_neg_integer()],
-    "policy" => list(),
-    "type" => list(any()),
-    "updateTime" => [non_neg_integer()]
-  }
+
+      configured_table_analysis_rule() :: %{
+        "configuredTableArn" => String.t(),
+        "configuredTableId" => String.t(),
+        "createTime" => [non_neg_integer()],
+        "policy" => list(),
+        "type" => list(any()),
+        "updateTime" => [non_neg_integer()]
+      }
+
   """
   @type configured_table_analysis_rule() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  query_compute_payment_config() :: %{
-    "isResponsible" => [boolean()]
-  }
+
+      query_compute_payment_config() :: %{
+        "isResponsible" => [boolean()]
+      }
+
   """
   @type query_compute_payment_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_members_input() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t()
-  }
+
+      list_members_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
   """
   @type list_members_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  differential_privacy_template_update_parameters() :: %{
-    "epsilon" => integer(),
-    "usersNoisePerQuery" => integer()
-  }
+
+      differential_privacy_template_update_parameters() :: %{
+        "epsilon" => integer(),
+        "usersNoisePerQuery" => integer()
+      }
+
   """
   @type differential_privacy_template_update_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_output() :: %{
 
-  }
+      tag_resource_output() :: %{}
+
   """
-  @type tag_resource_output() :: %{String.t() => any()}
+  @type tag_resource_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  aggregation_constraint() :: %{
-    "columnName" => String.t(),
-    "minimum" => [integer()],
-    "type" => String.t()
-  }
+
+      aggregation_constraint() :: %{
+        "columnName" => String.t(),
+        "minimum" => [integer()],
+        "type" => String.t()
+      }
+
   """
   @type aggregation_constraint() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_collaboration_privacy_budgets_output() :: %{
-    "collaborationPrivacyBudgetSummaries" => list(collaboration_privacy_budget_summary()()),
-    "nextToken" => String.t()
-  }
+
+      list_collaboration_privacy_budgets_output() :: %{
+        "collaborationPrivacyBudgetSummaries" => list(collaboration_privacy_budget_summary()()),
+        "nextToken" => String.t()
+      }
+
   """
   @type list_collaboration_privacy_budgets_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  internal_server_exception() :: %{
-    "message" => [String.t()]
-  }
+
+      internal_server_exception() :: %{
+        "message" => [String.t()]
+      }
+
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  collaboration_privacy_budget_template() :: %{
-    "arn" => String.t(),
-    "autoRefresh" => list(any()),
-    "collaborationArn" => String.t(),
-    "collaborationId" => String.t(),
-    "createTime" => [non_neg_integer()],
-    "creatorAccountId" => String.t(),
-    "id" => String.t(),
-    "parameters" => list(),
-    "privacyBudgetType" => list(any()),
-    "updateTime" => [non_neg_integer()]
-  }
+
+      collaboration_privacy_budget_template() :: %{
+        "arn" => String.t(),
+        "autoRefresh" => list(any()),
+        "collaborationArn" => String.t(),
+        "collaborationId" => String.t(),
+        "createTime" => [non_neg_integer()],
+        "creatorAccountId" => String.t(),
+        "id" => String.t(),
+        "parameters" => list(),
+        "privacyBudgetType" => list(any()),
+        "updateTime" => [non_neg_integer()]
+      }
+
   """
   @type collaboration_privacy_budget_template() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_schema_analysis_rule_input() :: %{
 
-  }
+      get_schema_analysis_rule_input() :: %{}
+
   """
-  @type get_schema_analysis_rule_input() :: %{String.t() => any()}
+  @type get_schema_analysis_rule_input() :: %{}
 
   @typedoc """
 
   ## Example:
-  configured_audience_model_association() :: %{
-    "arn" => String.t(),
-    "collaborationArn" => String.t(),
-    "collaborationId" => String.t(),
-    "configuredAudienceModelArn" => String.t(),
-    "createTime" => [non_neg_integer()],
-    "description" => String.t(),
-    "id" => String.t(),
-    "manageResourcePolicies" => [boolean()],
-    "membershipArn" => String.t(),
-    "membershipId" => String.t(),
-    "name" => String.t(),
-    "updateTime" => [non_neg_integer()]
-  }
+
+      configured_audience_model_association() :: %{
+        "arn" => String.t(),
+        "collaborationArn" => String.t(),
+        "collaborationId" => String.t(),
+        "configuredAudienceModelArn" => String.t(),
+        "createTime" => [non_neg_integer()],
+        "description" => String.t(),
+        "id" => String.t(),
+        "manageResourcePolicies" => [boolean()],
+        "membershipArn" => String.t(),
+        "membershipId" => String.t(),
+        "name" => String.t(),
+        "updateTime" => [non_neg_integer()]
+      }
+
   """
   @type configured_audience_model_association() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_privacy_budget_template_output() :: %{
-    "privacyBudgetTemplate" => privacy_budget_template()
-  }
+
+      update_privacy_budget_template_output() :: %{
+        "privacyBudgetTemplate" => privacy_budget_template()
+      }
+
   """
   @type update_privacy_budget_template_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  protected_query_single_member_output() :: %{
-    "accountId" => String.t()
-  }
+
+      protected_query_single_member_output() :: %{
+        "accountId" => String.t()
+      }
+
   """
   @type protected_query_single_member_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  access_denied_exception() :: %{
-    "message" => [String.t()],
-    "reason" => String.t()
-  }
+
+      access_denied_exception() :: %{
+        "message" => [String.t()],
+        "reason" => String.t()
+      }
+
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  differential_privacy_configuration() :: %{
-    "columns" => list(differential_privacy_column()())
-  }
+
+      differential_privacy_configuration() :: %{
+        "columns" => list(differential_privacy_column()())
+      }
+
   """
   @type differential_privacy_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_input() :: %{
-    required("tagKeys") => list(String.t()())
-  }
+
+      untag_resource_input() :: %{
+        required("tagKeys") => list(String.t()())
+      }
+
   """
   @type untag_resource_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_protected_query_output() :: %{
-    required("protectedQuery") => protected_query()
-  }
+
+      start_protected_query_output() :: %{
+        required("protectedQuery") => protected_query()
+      }
+
   """
   @type start_protected_query_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_configured_table_analysis_rule_output() :: %{
-    required("analysisRule") => configured_table_analysis_rule()
-  }
+
+      create_configured_table_analysis_rule_output() :: %{
+        required("analysisRule") => configured_table_analysis_rule()
+      }
+
   """
   @type create_configured_table_analysis_rule_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  analysis_template() :: %{
-    "analysisParameters" => list(analysis_parameter()()),
-    "arn" => String.t(),
-    "collaborationArn" => String.t(),
-    "collaborationId" => String.t(),
-    "createTime" => [non_neg_integer()],
-    "description" => String.t(),
-    "format" => String.t(),
-    "id" => String.t(),
-    "membershipArn" => String.t(),
-    "membershipId" => String.t(),
-    "name" => String.t(),
-    "schema" => analysis_schema(),
-    "source" => list(),
-    "updateTime" => [non_neg_integer()]
-  }
+
+      analysis_template() :: %{
+        "analysisParameters" => list(analysis_parameter()()),
+        "arn" => String.t(),
+        "collaborationArn" => String.t(),
+        "collaborationId" => String.t(),
+        "createTime" => [non_neg_integer()],
+        "description" => String.t(),
+        "format" => String.t(),
+        "id" => String.t(),
+        "membershipArn" => String.t(),
+        "membershipId" => String.t(),
+        "name" => String.t(),
+        "schema" => analysis_schema(),
+        "source" => list(),
+        "updateTime" => [non_neg_integer()]
+      }
+
   """
   @type analysis_template() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_analysis_template_output() :: %{
-    required("analysisTemplate") => analysis_template()
-  }
+
+      get_analysis_template_output() :: %{
+        required("analysisTemplate") => analysis_template()
+      }
+
   """
   @type get_analysis_template_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_configured_table_input() :: %{
-    optional("description") => String.t(),
-    optional("name") => String.t()
-  }
+
+      update_configured_table_input() :: %{
+        optional("description") => String.t(),
+        optional("name") => String.t()
+      }
+
   """
   @type update_configured_table_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_schema_input() :: %{
 
-  }
+      get_schema_input() :: %{}
+
   """
-  @type get_schema_input() :: %{String.t() => any()}
+  @type get_schema_input() :: %{}
 
   @typedoc """
 
   ## Example:
-  batch_get_collaboration_analysis_template_error() :: %{
-    "arn" => String.t(),
-    "code" => [String.t()],
-    "message" => [String.t()]
-  }
+
+      batch_get_collaboration_analysis_template_error() :: %{
+        "arn" => String.t(),
+        "code" => [String.t()],
+        "message" => [String.t()]
+      }
+
   """
   @type batch_get_collaboration_analysis_template_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_collaborations_output() :: %{
-    optional("nextToken") => String.t(),
-    required("collaborationList") => list(collaboration_summary()())
-  }
+
+      list_collaborations_output() :: %{
+        optional("nextToken") => String.t(),
+        required("collaborationList") => list(collaboration_summary()())
+      }
+
   """
   @type list_collaborations_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  configured_table_association_summary() :: %{
-    "arn" => String.t(),
-    "configuredTableId" => String.t(),
-    "createTime" => [non_neg_integer()],
-    "id" => String.t(),
-    "membershipArn" => String.t(),
-    "membershipId" => String.t(),
-    "name" => String.t(),
-    "updateTime" => [non_neg_integer()]
-  }
+
+      configured_table_association_summary() :: %{
+        "arn" => String.t(),
+        "configuredTableId" => String.t(),
+        "createTime" => [non_neg_integer()],
+        "id" => String.t(),
+        "membershipArn" => String.t(),
+        "membershipId" => String.t(),
+        "name" => String.t(),
+        "updateTime" => [non_neg_integer()]
+      }
+
   """
   @type configured_table_association_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  collaboration_configured_audience_model_association_summary() :: %{
-    "arn" => String.t(),
-    "collaborationArn" => String.t(),
-    "collaborationId" => String.t(),
-    "createTime" => [non_neg_integer()],
-    "creatorAccountId" => String.t(),
-    "description" => String.t(),
-    "id" => String.t(),
-    "name" => String.t(),
-    "updateTime" => [non_neg_integer()]
-  }
+
+      collaboration_configured_audience_model_association_summary() :: %{
+        "arn" => String.t(),
+        "collaborationArn" => String.t(),
+        "collaborationId" => String.t(),
+        "createTime" => [non_neg_integer()],
+        "creatorAccountId" => String.t(),
+        "description" => String.t(),
+        "id" => String.t(),
+        "name" => String.t(),
+        "updateTime" => [non_neg_integer()]
+      }
+
   """
   @type collaboration_configured_audience_model_association_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  validation_exception() :: %{
-    "fieldList" => list(validation_exception_field()()),
-    "message" => [String.t()],
-    "reason" => String.t()
-  }
+
+      validation_exception() :: %{
+        "fieldList" => list(validation_exception_field()()),
+        "message" => [String.t()],
+        "reason" => String.t()
+      }
+
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_input() :: %{
 
-  }
+      list_tags_for_resource_input() :: %{}
+
   """
-  @type list_tags_for_resource_input() :: %{String.t() => any()}
+  @type list_tags_for_resource_input() :: %{}
 
   @typedoc """
 
   ## Example:
-  differential_privacy_template_parameters_output() :: %{
-    "epsilon" => integer(),
-    "usersNoisePerQuery" => integer()
-  }
+
+      differential_privacy_template_parameters_output() :: %{
+        "epsilon" => integer(),
+        "usersNoisePerQuery" => integer()
+      }
+
   """
   @type differential_privacy_template_parameters_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_output() :: %{
 
-  }
+      untag_resource_output() :: %{}
+
   """
-  @type untag_resource_output() :: %{String.t() => any()}
+  @type untag_resource_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  delete_collaboration_output() :: %{
 
-  }
+      delete_collaboration_output() :: %{}
+
   """
-  @type delete_collaboration_output() :: %{String.t() => any()}
+  @type delete_collaboration_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_schema_analysis_rule_output() :: %{
-    required("analysisRule") => analysis_rule()
-  }
+
+      get_schema_analysis_rule_output() :: %{
+        required("analysisRule") => analysis_rule()
+      }
+
   """
   @type get_schema_analysis_rule_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  throttling_exception() :: %{
-    "message" => [String.t()]
-  }
+
+      throttling_exception() :: %{
+        "message" => [String.t()]
+      }
+
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  collaboration_analysis_template_summary() :: %{
-    "arn" => String.t(),
-    "collaborationArn" => String.t(),
-    "collaborationId" => String.t(),
-    "createTime" => [non_neg_integer()],
-    "creatorAccountId" => String.t(),
-    "description" => String.t(),
-    "id" => String.t(),
-    "name" => String.t(),
-    "updateTime" => [non_neg_integer()]
-  }
+
+      collaboration_analysis_template_summary() :: %{
+        "arn" => String.t(),
+        "collaborationArn" => String.t(),
+        "collaborationId" => String.t(),
+        "createTime" => [non_neg_integer()],
+        "creatorAccountId" => String.t(),
+        "description" => String.t(),
+        "id" => String.t(),
+        "name" => String.t(),
+        "updateTime" => [non_neg_integer()]
+      }
+
   """
   @type collaboration_analysis_template_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  protected_query_s_q_l_parameters() :: %{
-    "analysisTemplateArn" => String.t(),
-    "parameters" => map(),
-    "queryString" => [String.t()]
-  }
+
+      protected_query_s_q_l_parameters() :: %{
+        "analysisTemplateArn" => String.t(),
+        "parameters" => map(),
+        "queryString" => [String.t()]
+      }
+
   """
   @type protected_query_s_q_l_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_collaboration_output() :: %{
-    required("collaboration") => collaboration()
-  }
+
+      get_collaboration_output() :: %{
+        required("collaboration") => collaboration()
+      }
+
   """
   @type get_collaboration_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  protected_query_statistics() :: %{
-    "totalDurationInMillis" => [float()]
-  }
+
+      protected_query_statistics() :: %{
+        "totalDurationInMillis" => [float()]
+      }
+
   """
   @type protected_query_statistics() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  analysis_template_summary() :: %{
-    "arn" => String.t(),
-    "collaborationArn" => String.t(),
-    "collaborationId" => String.t(),
-    "createTime" => [non_neg_integer()],
-    "description" => String.t(),
-    "id" => String.t(),
-    "membershipArn" => String.t(),
-    "membershipId" => String.t(),
-    "name" => String.t(),
-    "updateTime" => [non_neg_integer()]
-  }
+
+      analysis_template_summary() :: %{
+        "arn" => String.t(),
+        "collaborationArn" => String.t(),
+        "collaborationId" => String.t(),
+        "createTime" => [non_neg_integer()],
+        "description" => String.t(),
+        "id" => String.t(),
+        "membershipArn" => String.t(),
+        "membershipId" => String.t(),
+        "name" => String.t(),
+        "updateTime" => [non_neg_integer()]
+      }
+
   """
   @type analysis_template_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_configured_audience_model_association_output() :: %{
-    "configuredAudienceModelAssociation" => configured_audience_model_association()
-  }
+
+      update_configured_audience_model_association_output() :: %{
+        "configuredAudienceModelAssociation" => configured_audience_model_association()
+      }
+
   """
   @type update_configured_audience_model_association_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_membership_output() :: %{
-    required("membership") => membership()
-  }
+
+      update_membership_output() :: %{
+        required("membership") => membership()
+      }
+
   """
   @type update_membership_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_membership_input() :: %{
-    optional("defaultResultConfiguration") => membership_protected_query_result_configuration(),
-    optional("queryLogStatus") => String.t()
-  }
+
+      update_membership_input() :: %{
+        optional("defaultResultConfiguration") => membership_protected_query_result_configuration(),
+        optional("queryLogStatus") => String.t()
+      }
+
   """
   @type update_membership_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  member_summary() :: %{
-    "abilities" => list(String.t()()),
-    "accountId" => String.t(),
-    "createTime" => [non_neg_integer()],
-    "displayName" => String.t(),
-    "membershipArn" => String.t(),
-    "membershipId" => String.t(),
-    "paymentConfiguration" => payment_configuration(),
-    "status" => String.t(),
-    "updateTime" => [non_neg_integer()]
-  }
+
+      member_summary() :: %{
+        "abilities" => list(String.t()()),
+        "accountId" => String.t(),
+        "createTime" => [non_neg_integer()],
+        "displayName" => String.t(),
+        "membershipArn" => String.t(),
+        "membershipId" => String.t(),
+        "paymentConfiguration" => payment_configuration(),
+        "status" => String.t(),
+        "updateTime" => [non_neg_integer()]
+      }
+
   """
   @type member_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_get_collaboration_analysis_template_output() :: %{
-    required("collaborationAnalysisTemplates") => list(collaboration_analysis_template()()),
-    required("errors") => list(batch_get_collaboration_analysis_template_error()())
-  }
+
+      batch_get_collaboration_analysis_template_output() :: %{
+        required("collaborationAnalysisTemplates") => list(collaboration_analysis_template()()),
+        required("errors") => list(batch_get_collaboration_analysis_template_error()())
+      }
+
   """
   @type batch_get_collaboration_analysis_template_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_get_schema_input() :: %{
-    required("names") => list(String.t()())
-  }
+
+      batch_get_schema_input() :: %{
+        required("names") => list(String.t()())
+      }
+
   """
   @type batch_get_schema_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  glue_table_reference() :: %{
-    "databaseName" => String.t(),
-    "tableName" => String.t()
-  }
+
+      glue_table_reference() :: %{
+        "databaseName" => String.t(),
+        "tableName" => String.t()
+      }
+
   """
   @type glue_table_reference() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  protected_query_error() :: %{
-    "code" => [String.t()],
-    "message" => [String.t()]
-  }
+
+      protected_query_error() :: %{
+        "code" => [String.t()],
+        "message" => [String.t()]
+      }
+
   """
   @type protected_query_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_analysis_template_output() :: %{
 
-  }
+      delete_analysis_template_output() :: %{}
+
   """
-  @type delete_analysis_template_output() :: %{String.t() => any()}
+  @type delete_analysis_template_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_configured_table_association_output() :: %{
-    required("configuredTableAssociation") => configured_table_association()
-  }
+
+      get_configured_table_association_output() :: %{
+        required("configuredTableAssociation") => configured_table_association()
+      }
+
   """
   @type get_configured_table_association_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_membership_output() :: %{
-    required("membership") => membership()
-  }
+
+      create_membership_output() :: %{
+        required("membership") => membership()
+      }
+
   """
   @type create_membership_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  membership_payment_configuration() :: %{
-    "queryCompute" => membership_query_compute_payment_config()
-  }
+
+      membership_payment_configuration() :: %{
+        "queryCompute" => membership_query_compute_payment_config()
+      }
+
   """
   @type membership_payment_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_membership_input() :: %{
 
-  }
+      get_membership_input() :: %{}
+
   """
-  @type get_membership_input() :: %{String.t() => any()}
+  @type get_membership_input() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_configured_audience_model_association_input() :: %{
 
-  }
+      get_configured_audience_model_association_input() :: %{}
+
   """
-  @type get_configured_audience_model_association_input() :: %{String.t() => any()}
+  @type get_configured_audience_model_association_input() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_configured_audience_model_association_output() :: %{
-    "configuredAudienceModelAssociation" => configured_audience_model_association()
-  }
+
+      create_configured_audience_model_association_output() :: %{
+        "configuredAudienceModelAssociation" => configured_audience_model_association()
+      }
+
   """
   @type create_configured_audience_model_association_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_protected_query_input() :: %{
-    optional("resultConfiguration") => protected_query_result_configuration(),
-    required("sqlParameters") => protected_query_s_q_l_parameters(),
-    required("type") => String.t()
-  }
+
+      start_protected_query_input() :: %{
+        optional("resultConfiguration") => protected_query_result_configuration(),
+        required("sqlParameters") => protected_query_s_q_l_parameters(),
+        required("type") => String.t()
+      }
+
   """
   @type start_protected_query_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  collaboration_privacy_budget_template_summary() :: %{
-    "arn" => String.t(),
-    "collaborationArn" => String.t(),
-    "collaborationId" => String.t(),
-    "createTime" => [non_neg_integer()],
-    "creatorAccountId" => String.t(),
-    "id" => String.t(),
-    "privacyBudgetType" => list(any()),
-    "updateTime" => [non_neg_integer()]
-  }
+
+      collaboration_privacy_budget_template_summary() :: %{
+        "arn" => String.t(),
+        "collaborationArn" => String.t(),
+        "collaborationId" => String.t(),
+        "createTime" => [non_neg_integer()],
+        "creatorAccountId" => String.t(),
+        "id" => String.t(),
+        "privacyBudgetType" => list(any()),
+        "updateTime" => [non_neg_integer()]
+      }
+
   """
   @type collaboration_privacy_budget_template_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  payment_configuration() :: %{
-    "queryCompute" => query_compute_payment_config()
-  }
+
+      payment_configuration() :: %{
+        "queryCompute" => query_compute_payment_config()
+      }
+
   """
   @type payment_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  configured_table() :: %{
-    "allowedColumns" => list(String.t()()),
-    "analysisMethod" => String.t(),
-    "analysisRuleTypes" => list(list(any())()),
-    "arn" => String.t(),
-    "createTime" => [non_neg_integer()],
-    "description" => String.t(),
-    "id" => String.t(),
-    "name" => String.t(),
-    "tableReference" => list(),
-    "updateTime" => [non_neg_integer()]
-  }
+
+      configured_table() :: %{
+        "allowedColumns" => list(String.t()()),
+        "analysisMethod" => String.t(),
+        "analysisRuleTypes" => list(list(any())()),
+        "arn" => String.t(),
+        "createTime" => [non_neg_integer()],
+        "description" => String.t(),
+        "id" => String.t(),
+        "name" => String.t(),
+        "tableReference" => list(),
+        "updateTime" => [non_neg_integer()]
+      }
+
   """
   @type configured_table() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_collaboration_analysis_template_output() :: %{
-    required("collaborationAnalysisTemplate") => collaboration_analysis_template()
-  }
+
+      get_collaboration_analysis_template_output() :: %{
+        required("collaborationAnalysisTemplate") => collaboration_analysis_template()
+      }
+
   """
   @type get_collaboration_analysis_template_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_configured_table_input() :: %{
 
-  }
+      get_configured_table_input() :: %{}
+
   """
-  @type get_configured_table_input() :: %{String.t() => any()}
+  @type get_configured_table_input() :: %{}
 
   @typedoc """
 
   ## Example:
-  aggregate_column() :: %{
-    "columnNames" => list(String.t()()),
-    "function" => String.t()
-  }
+
+      aggregate_column() :: %{
+        "columnNames" => list(String.t()()),
+        "function" => String.t()
+      }
+
   """
   @type aggregate_column() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_privacy_budget_template_input() :: %{
 
-  }
+      get_privacy_budget_template_input() :: %{}
+
   """
-  @type get_privacy_budget_template_input() :: %{String.t() => any()}
+  @type get_privacy_budget_template_input() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_analysis_template_input() :: %{
-    optional("analysisParameters") => list(analysis_parameter()()),
-    optional("description") => String.t(),
-    optional("tags") => map(),
-    required("format") => String.t(),
-    required("name") => String.t(),
-    required("source") => list()
-  }
+
+      create_analysis_template_input() :: %{
+        optional("analysisParameters") => list(analysis_parameter()()),
+        optional("description") => String.t(),
+        optional("tags") => map(),
+        required("format") => String.t(),
+        required("name") => String.t(),
+        required("source") => list()
+      }
+
   """
   @type create_analysis_template_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_configured_tables_output() :: %{
-    optional("nextToken") => String.t(),
-    required("configuredTableSummaries") => list(configured_table_summary()())
-  }
+
+      list_configured_tables_output() :: %{
+        optional("nextToken") => String.t(),
+        required("configuredTableSummaries") => list(configured_table_summary()())
+      }
+
   """
   @type list_configured_tables_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_collaboration_configured_audience_model_association_input() :: %{
 
-  }
+      get_collaboration_configured_audience_model_association_input() :: %{}
+
   """
-  @type get_collaboration_configured_audience_model_association_input() :: %{String.t() => any()}
+  @type get_collaboration_configured_audience_model_association_input() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_collaborations_input() :: %{
-    optional("maxResults") => integer(),
-    optional("memberStatus") => String.t(),
-    optional("nextToken") => String.t()
-  }
+
+      list_collaborations_input() :: %{
+        optional("maxResults") => integer(),
+        optional("memberStatus") => String.t(),
+        optional("nextToken") => String.t()
+      }
+
   """
   @type list_collaborations_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  protected_query_s3_output_configuration() :: %{
-    "bucket" => [String.t()],
-    "keyPrefix" => String.t(),
-    "resultFormat" => String.t()
-  }
+
+      protected_query_s3_output_configuration() :: %{
+        "bucket" => [String.t()],
+        "keyPrefix" => String.t(),
+        "resultFormat" => String.t()
+      }
+
   """
   @type protected_query_s3_output_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  data_encryption_metadata() :: %{
-    "allowCleartext" => [boolean()],
-    "allowDuplicates" => [boolean()],
-    "allowJoinsOnColumnsWithDifferentNames" => [boolean()],
-    "preserveNulls" => [boolean()]
-  }
+
+      data_encryption_metadata() :: %{
+        "allowCleartext" => [boolean()],
+        "allowDuplicates" => [boolean()],
+        "allowJoinsOnColumnsWithDifferentNames" => [boolean()],
+        "preserveNulls" => [boolean()]
+      }
+
   """
   @type data_encryption_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_get_schema_error() :: %{
-    "code" => [String.t()],
-    "message" => [String.t()],
-    "name" => String.t()
-  }
+
+      batch_get_schema_error() :: %{
+        "code" => [String.t()],
+        "message" => [String.t()],
+        "name" => String.t()
+      }
+
   """
   @type batch_get_schema_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  preview_privacy_impact_output() :: %{
-    "privacyImpact" => list()
-  }
+
+      preview_privacy_impact_output() :: %{
+        "privacyImpact" => list()
+      }
+
   """
   @type preview_privacy_impact_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  member_specification() :: %{
-    "accountId" => String.t(),
-    "displayName" => String.t(),
-    "memberAbilities" => list(String.t()()),
-    "paymentConfiguration" => payment_configuration()
-  }
+
+      member_specification() :: %{
+        "accountId" => String.t(),
+        "displayName" => String.t(),
+        "memberAbilities" => list(String.t()()),
+        "paymentConfiguration" => payment_configuration()
+      }
+
   """
   @type member_specification() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_membership_input() :: %{
 
-  }
+      delete_membership_input() :: %{}
+
   """
-  @type delete_membership_input() :: %{String.t() => any()}
+  @type delete_membership_input() :: %{}
 
   @typedoc """
 
   ## Example:
-  membership() :: %{
-    "arn" => String.t(),
-    "collaborationArn" => String.t(),
-    "collaborationCreatorAccountId" => String.t(),
-    "collaborationCreatorDisplayName" => String.t(),
-    "collaborationId" => String.t(),
-    "collaborationName" => String.t(),
-    "createTime" => [non_neg_integer()],
-    "defaultResultConfiguration" => membership_protected_query_result_configuration(),
-    "id" => String.t(),
-    "memberAbilities" => list(String.t()()),
-    "paymentConfiguration" => membership_payment_configuration(),
-    "queryLogStatus" => String.t(),
-    "status" => String.t(),
-    "updateTime" => [non_neg_integer()]
-  }
+
+      membership() :: %{
+        "arn" => String.t(),
+        "collaborationArn" => String.t(),
+        "collaborationCreatorAccountId" => String.t(),
+        "collaborationCreatorDisplayName" => String.t(),
+        "collaborationId" => String.t(),
+        "collaborationName" => String.t(),
+        "createTime" => [non_neg_integer()],
+        "defaultResultConfiguration" => membership_protected_query_result_configuration(),
+        "id" => String.t(),
+        "memberAbilities" => list(String.t()()),
+        "paymentConfiguration" => membership_payment_configuration(),
+        "queryLogStatus" => String.t(),
+        "status" => String.t(),
+        "updateTime" => [non_neg_integer()]
+      }
+
   """
   @type membership() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_configured_table_output() :: %{
 
-  }
+      delete_configured_table_output() :: %{}
+
   """
-  @type delete_configured_table_output() :: %{String.t() => any()}
+  @type delete_configured_table_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_configured_table_association_input() :: %{
-    optional("description") => String.t(),
-    optional("tags") => map(),
-    required("configuredTableIdentifier") => String.t(),
-    required("name") => String.t(),
-    required("roleArn") => String.t()
-  }
+
+      create_configured_table_association_input() :: %{
+        optional("description") => String.t(),
+        optional("tags") => map(),
+        required("configuredTableIdentifier") => String.t(),
+        required("name") => String.t(),
+        required("roleArn") => String.t()
+      }
+
   """
   @type create_configured_table_association_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  differential_privacy_sensitivity_parameters() :: %{
-    "aggregationExpression" => String.t(),
-    "aggregationType" => list(any()),
-    "maxColumnValue" => [float()],
-    "minColumnValue" => [float()],
-    "userContributionLimit" => [integer()]
-  }
+
+      differential_privacy_sensitivity_parameters() :: %{
+        "aggregationExpression" => String.t(),
+        "aggregationType" => list(any()),
+        "maxColumnValue" => [float()],
+        "minColumnValue" => [float()],
+        "userContributionLimit" => [integer()]
+      }
+
   """
   @type differential_privacy_sensitivity_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_configured_table_output() :: %{
-    required("configuredTable") => configured_table()
-  }
+
+      get_configured_table_output() :: %{
+        required("configuredTable") => configured_table()
+      }
+
   """
   @type get_configured_table_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_privacy_budgets_output() :: %{
-    "nextToken" => String.t(),
-    "privacyBudgetSummaries" => list(privacy_budget_summary()())
-  }
+
+      list_privacy_budgets_output() :: %{
+        "nextToken" => String.t(),
+        "privacyBudgetSummaries" => list(privacy_budget_summary()())
+      }
+
   """
   @type list_privacy_budgets_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_privacy_budget_template_output() :: %{
 
-  }
+      delete_privacy_budget_template_output() :: %{}
+
   """
-  @type delete_privacy_budget_template_output() :: %{String.t() => any()}
+  @type delete_privacy_budget_template_output() :: %{}
+
+  @type batch_get_collaboration_analysis_template_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type batch_get_schema_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type create_analysis_template_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_collaboration_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+
+  @type create_configured_audience_model_association_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_configured_table_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_configured_table_analysis_rule_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_configured_table_association_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_membership_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_privacy_budget_template_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_analysis_template_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type delete_collaboration_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type delete_configured_audience_model_association_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type delete_configured_table_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_configured_table_analysis_rule_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_configured_table_association_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_member_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_membership_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_privacy_budget_template_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_analysis_template_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_collaboration_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type get_collaboration_analysis_template_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_collaboration_configured_audience_model_association_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_collaboration_privacy_budget_template_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_configured_audience_model_association_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_configured_table_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_configured_table_analysis_rule_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_configured_table_association_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_membership_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_privacy_budget_template_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_protected_query_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_schema_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_schema_analysis_rule_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_analysis_templates_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_collaboration_analysis_templates_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_collaboration_configured_audience_model_associations_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_collaboration_privacy_budget_templates_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_collaboration_privacy_budgets_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_collaborations_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_configured_audience_model_associations_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_configured_table_associations_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_configured_tables_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_members_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_memberships_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_privacy_budget_templates_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_privacy_budgets_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_protected_queries_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_schemas_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_tags_for_resource_errors() :: validation_exception() | resource_not_found_exception()
+
+  @type preview_privacy_impact_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type start_protected_query_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+
+  @type tag_resource_errors() :: validation_exception() | resource_not_found_exception()
+
+  @type untag_resource_errors() :: validation_exception() | resource_not_found_exception()
+
+  @type update_analysis_template_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type update_collaboration_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type update_configured_audience_model_association_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type update_configured_table_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_configured_table_analysis_rule_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_configured_table_association_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_membership_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_privacy_budget_template_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_protected_query_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   def metadata do
     %{
@@ -2245,11 +3010,7 @@ defmodule AWS.CleanRooms do
         ) ::
           {:ok, batch_get_collaboration_analysis_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, batch_get_collaboration_analysis_template_errors()}
   def batch_get_collaboration_analysis_template(
         %Client{} = client,
         collaboration_identifier,
@@ -2283,11 +3044,7 @@ defmodule AWS.CleanRooms do
   @spec batch_get_schema(map(), String.t(), batch_get_schema_input(), list()) ::
           {:ok, batch_get_schema_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, batch_get_schema_errors()}
   def batch_get_schema(%Client{} = client, collaboration_identifier, input, options \\ []) do
     url_path = "/collaborations/#{AWS.Util.encode_uri(collaboration_identifier)}/batch-schema"
     headers = []
@@ -2314,13 +3071,7 @@ defmodule AWS.CleanRooms do
   @spec create_analysis_template(map(), String.t(), create_analysis_template_input(), list()) ::
           {:ok, create_analysis_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_analysis_template_errors()}
   def create_analysis_template(%Client{} = client, membership_identifier, input, options \\ []) do
     url_path = "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/analysistemplates"
     headers = []
@@ -2347,11 +3098,7 @@ defmodule AWS.CleanRooms do
   @spec create_collaboration(map(), create_collaboration_input(), list()) ::
           {:ok, create_collaboration_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_collaboration_errors()}
   def create_collaboration(%Client{} = client, input, options \\ []) do
     url_path = "/collaborations"
     headers = []
@@ -2384,13 +3131,7 @@ defmodule AWS.CleanRooms do
         ) ::
           {:ok, create_configured_audience_model_association_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_configured_audience_model_association_errors()}
   def create_configured_audience_model_association(
         %Client{} = client,
         membership_identifier,
@@ -2424,13 +3165,7 @@ defmodule AWS.CleanRooms do
   @spec create_configured_table(map(), create_configured_table_input(), list()) ::
           {:ok, create_configured_table_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_configured_table_errors()}
   def create_configured_table(%Client{} = client, input, options \\ []) do
     url_path = "/configuredTables"
     headers = []
@@ -2465,12 +3200,7 @@ defmodule AWS.CleanRooms do
         ) ::
           {:ok, create_configured_table_analysis_rule_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_configured_table_analysis_rule_errors()}
   def create_configured_table_analysis_rule(
         %Client{} = client,
         configured_table_identifier,
@@ -2512,13 +3242,7 @@ defmodule AWS.CleanRooms do
         ) ::
           {:ok, create_configured_table_association_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_configured_table_association_errors()}
   def create_configured_table_association(
         %Client{} = client,
         membership_identifier,
@@ -2553,13 +3277,7 @@ defmodule AWS.CleanRooms do
   @spec create_membership(map(), create_membership_input(), list()) ::
           {:ok, create_membership_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_membership_errors()}
   def create_membership(%Client{} = client, input, options \\ []) do
     url_path = "/memberships"
     headers = []
@@ -2595,12 +3313,7 @@ defmodule AWS.CleanRooms do
         ) ::
           {:ok, create_privacy_budget_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_privacy_budget_template_errors()}
   def create_privacy_budget_template(
         %Client{} = client,
         membership_identifier,
@@ -2638,11 +3351,7 @@ defmodule AWS.CleanRooms do
         ) ::
           {:ok, delete_analysis_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_analysis_template_errors()}
   def delete_analysis_template(
         %Client{} = client,
         analysis_template_identifier,
@@ -2679,10 +3388,7 @@ defmodule AWS.CleanRooms do
   @spec delete_collaboration(map(), String.t(), delete_collaboration_input(), list()) ::
           {:ok, delete_collaboration_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_collaboration_errors()}
   def delete_collaboration(%Client{} = client, collaboration_identifier, input, options \\ []) do
     url_path = "/collaborations/#{AWS.Util.encode_uri(collaboration_identifier)}"
     headers = []
@@ -2716,11 +3422,7 @@ defmodule AWS.CleanRooms do
         ) ::
           {:ok, delete_configured_audience_model_association_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_configured_audience_model_association_errors()}
   def delete_configured_audience_model_association(
         %Client{} = client,
         configured_audience_model_association_identifier,
@@ -2755,12 +3457,7 @@ defmodule AWS.CleanRooms do
   @spec delete_configured_table(map(), String.t(), delete_configured_table_input(), list()) ::
           {:ok, delete_configured_table_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_configured_table_errors()}
   def delete_configured_table(
         %Client{} = client,
         configured_table_identifier,
@@ -2798,12 +3495,7 @@ defmodule AWS.CleanRooms do
         ) ::
           {:ok, delete_configured_table_analysis_rule_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_configured_table_analysis_rule_errors()}
   def delete_configured_table_analysis_rule(
         %Client{} = client,
         analysis_rule_type,
@@ -2844,12 +3536,7 @@ defmodule AWS.CleanRooms do
         ) ::
           {:ok, delete_configured_table_association_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_configured_table_association_errors()}
   def delete_configured_table_association(
         %Client{} = client,
         configured_table_association_identifier,
@@ -2889,12 +3576,7 @@ defmodule AWS.CleanRooms do
   @spec delete_member(map(), String.t(), String.t(), delete_member_input(), list()) ::
           {:ok, delete_member_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_member_errors()}
   def delete_member(
         %Client{} = client,
         account_id,
@@ -2931,12 +3613,7 @@ defmodule AWS.CleanRooms do
   @spec delete_membership(map(), String.t(), delete_membership_input(), list()) ::
           {:ok, delete_membership_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_membership_errors()}
   def delete_membership(%Client{} = client, membership_identifier, input, options \\ []) do
     url_path = "/memberships/#{AWS.Util.encode_uri(membership_identifier)}"
     headers = []
@@ -2969,11 +3646,7 @@ defmodule AWS.CleanRooms do
         ) ::
           {:ok, delete_privacy_budget_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_privacy_budget_template_errors()}
   def delete_privacy_budget_template(
         %Client{} = client,
         membership_identifier,
@@ -3008,11 +3681,7 @@ defmodule AWS.CleanRooms do
   @spec get_analysis_template(map(), String.t(), String.t(), list()) ::
           {:ok, get_analysis_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_analysis_template_errors()}
   def get_analysis_template(
         %Client{} = client,
         analysis_template_identifier,
@@ -3036,10 +3705,7 @@ defmodule AWS.CleanRooms do
   @spec get_collaboration(map(), String.t(), list()) ::
           {:ok, get_collaboration_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_collaboration_errors()}
   def get_collaboration(%Client{} = client, collaboration_identifier, options \\ []) do
     url_path = "/collaborations/#{AWS.Util.encode_uri(collaboration_identifier)}"
     headers = []
@@ -3056,11 +3722,7 @@ defmodule AWS.CleanRooms do
   @spec get_collaboration_analysis_template(map(), String.t(), String.t(), list()) ::
           {:ok, get_collaboration_analysis_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_collaboration_analysis_template_errors()}
   def get_collaboration_analysis_template(
         %Client{} = client,
         analysis_template_arn,
@@ -3089,11 +3751,7 @@ defmodule AWS.CleanRooms do
         ) ::
           {:ok, get_collaboration_configured_audience_model_association_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_collaboration_configured_audience_model_association_errors()}
   def get_collaboration_configured_audience_model_association(
         %Client{} = client,
         collaboration_identifier,
@@ -3117,11 +3775,7 @@ defmodule AWS.CleanRooms do
   @spec get_collaboration_privacy_budget_template(map(), String.t(), String.t(), list()) ::
           {:ok, get_collaboration_privacy_budget_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_collaboration_privacy_budget_template_errors()}
   def get_collaboration_privacy_budget_template(
         %Client{} = client,
         collaboration_identifier,
@@ -3145,11 +3799,7 @@ defmodule AWS.CleanRooms do
   @spec get_configured_audience_model_association(map(), String.t(), String.t(), list()) ::
           {:ok, get_configured_audience_model_association_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_configured_audience_model_association_errors()}
   def get_configured_audience_model_association(
         %Client{} = client,
         configured_audience_model_association_identifier,
@@ -3173,11 +3823,7 @@ defmodule AWS.CleanRooms do
   @spec get_configured_table(map(), String.t(), list()) ::
           {:ok, get_configured_table_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_configured_table_errors()}
   def get_configured_table(%Client{} = client, configured_table_identifier, options \\ []) do
     url_path = "/configuredTables/#{AWS.Util.encode_uri(configured_table_identifier)}"
     headers = []
@@ -3194,11 +3840,7 @@ defmodule AWS.CleanRooms do
   @spec get_configured_table_analysis_rule(map(), String.t(), String.t(), list()) ::
           {:ok, get_configured_table_analysis_rule_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_configured_table_analysis_rule_errors()}
   def get_configured_table_analysis_rule(
         %Client{} = client,
         analysis_rule_type,
@@ -3222,11 +3864,7 @@ defmodule AWS.CleanRooms do
   @spec get_configured_table_association(map(), String.t(), String.t(), list()) ::
           {:ok, get_configured_table_association_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_configured_table_association_errors()}
   def get_configured_table_association(
         %Client{} = client,
         configured_table_association_identifier,
@@ -3250,11 +3888,7 @@ defmodule AWS.CleanRooms do
   @spec get_membership(map(), String.t(), list()) ::
           {:ok, get_membership_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_membership_errors()}
   def get_membership(%Client{} = client, membership_identifier, options \\ []) do
     url_path = "/memberships/#{AWS.Util.encode_uri(membership_identifier)}"
     headers = []
@@ -3271,11 +3905,7 @@ defmodule AWS.CleanRooms do
   @spec get_privacy_budget_template(map(), String.t(), String.t(), list()) ::
           {:ok, get_privacy_budget_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_privacy_budget_template_errors()}
   def get_privacy_budget_template(
         %Client{} = client,
         membership_identifier,
@@ -3299,11 +3929,7 @@ defmodule AWS.CleanRooms do
   @spec get_protected_query(map(), String.t(), String.t(), list()) ::
           {:ok, get_protected_query_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_protected_query_errors()}
   def get_protected_query(
         %Client{} = client,
         membership_identifier,
@@ -3327,11 +3953,7 @@ defmodule AWS.CleanRooms do
   @spec get_schema(map(), String.t(), String.t(), list()) ::
           {:ok, get_schema_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_schema_errors()}
   def get_schema(%Client{} = client, collaboration_identifier, name, options \\ []) do
     url_path =
       "/collaborations/#{AWS.Util.encode_uri(collaboration_identifier)}/schemas/#{AWS.Util.encode_uri(name)}"
@@ -3350,11 +3972,7 @@ defmodule AWS.CleanRooms do
   @spec get_schema_analysis_rule(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_schema_analysis_rule_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_schema_analysis_rule_errors()}
   def get_schema_analysis_rule(
         %Client{} = client,
         collaboration_identifier,
@@ -3379,11 +3997,7 @@ defmodule AWS.CleanRooms do
   @spec list_analysis_templates(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_analysis_templates_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_analysis_templates_errors()}
   def list_analysis_templates(
         %Client{} = client,
         membership_identifier,
@@ -3426,11 +4040,7 @@ defmodule AWS.CleanRooms do
         ) ::
           {:ok, list_collaboration_analysis_templates_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_collaboration_analysis_templates_errors()}
   def list_collaboration_analysis_templates(
         %Client{} = client,
         collaboration_identifier,
@@ -3475,11 +4085,7 @@ defmodule AWS.CleanRooms do
         ) ::
           {:ok, list_collaboration_configured_audience_model_associations_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_collaboration_configured_audience_model_associations_errors()}
   def list_collaboration_configured_audience_model_associations(
         %Client{} = client,
         collaboration_identifier,
@@ -3525,11 +4131,7 @@ defmodule AWS.CleanRooms do
         ) ::
           {:ok, list_collaboration_privacy_budget_templates_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_collaboration_privacy_budget_templates_errors()}
   def list_collaboration_privacy_budget_templates(
         %Client{} = client,
         collaboration_identifier,
@@ -3579,11 +4181,7 @@ defmodule AWS.CleanRooms do
         ) ::
           {:ok, list_collaboration_privacy_budgets_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_collaboration_privacy_budgets_errors()}
   def list_collaboration_privacy_budgets(
         %Client{} = client,
         collaboration_identifier,
@@ -3628,10 +4226,7 @@ defmodule AWS.CleanRooms do
   @spec list_collaborations(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_collaborations_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_collaborations_errors()}
   def list_collaborations(
         %Client{} = client,
         max_results \\ nil,
@@ -3681,11 +4276,7 @@ defmodule AWS.CleanRooms do
         ) ::
           {:ok, list_configured_audience_model_associations_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_configured_audience_model_associations_errors()}
   def list_configured_audience_model_associations(
         %Client{} = client,
         membership_identifier,
@@ -3730,11 +4321,7 @@ defmodule AWS.CleanRooms do
         ) ::
           {:ok, list_configured_table_associations_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_configured_table_associations_errors()}
   def list_configured_table_associations(
         %Client{} = client,
         membership_identifier,
@@ -3773,10 +4360,7 @@ defmodule AWS.CleanRooms do
   @spec list_configured_tables(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_configured_tables_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_configured_tables_errors()}
   def list_configured_tables(
         %Client{} = client,
         max_results \\ nil,
@@ -3812,11 +4396,7 @@ defmodule AWS.CleanRooms do
   @spec list_members(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_members_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_members_errors()}
   def list_members(
         %Client{} = client,
         collaboration_identifier,
@@ -3853,10 +4433,7 @@ defmodule AWS.CleanRooms do
   @spec list_memberships(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_memberships_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_memberships_errors()}
   def list_memberships(
         %Client{} = client,
         max_results \\ nil,
@@ -3907,11 +4484,7 @@ defmodule AWS.CleanRooms do
         ) ::
           {:ok, list_privacy_budget_templates_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_privacy_budget_templates_errors()}
   def list_privacy_budget_templates(
         %Client{} = client,
         membership_identifier,
@@ -3956,11 +4529,7 @@ defmodule AWS.CleanRooms do
         ) ::
           {:ok, list_privacy_budgets_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_privacy_budgets_errors()}
   def list_privacy_budgets(
         %Client{} = client,
         membership_identifier,
@@ -4012,11 +4581,7 @@ defmodule AWS.CleanRooms do
         ) ::
           {:ok, list_protected_queries_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_protected_queries_errors()}
   def list_protected_queries(
         %Client{} = client,
         membership_identifier,
@@ -4068,11 +4633,7 @@ defmodule AWS.CleanRooms do
         ) ::
           {:ok, list_schemas_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_schemas_errors()}
   def list_schemas(
         %Client{} = client,
         collaboration_identifier,
@@ -4117,8 +4678,7 @@ defmodule AWS.CleanRooms do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -4136,11 +4696,7 @@ defmodule AWS.CleanRooms do
   @spec preview_privacy_impact(map(), String.t(), preview_privacy_impact_input(), list()) ::
           {:ok, preview_privacy_impact_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, preview_privacy_impact_errors()}
   def preview_privacy_impact(%Client{} = client, membership_identifier, input, options \\ []) do
     url_path = "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/previewprivacyimpact"
     headers = []
@@ -4167,12 +4723,7 @@ defmodule AWS.CleanRooms do
   @spec start_protected_query(map(), String.t(), start_protected_query_input(), list()) ::
           {:ok, start_protected_query_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, start_protected_query_errors()}
   def start_protected_query(%Client{} = client, membership_identifier, input, options \\ []) do
     url_path = "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/protectedQueries"
     headers = []
@@ -4199,8 +4750,7 @@ defmodule AWS.CleanRooms do
   @spec tag_resource(map(), String.t(), tag_resource_input(), list()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -4227,8 +4777,7 @@ defmodule AWS.CleanRooms do
   @spec untag_resource(map(), String.t(), untag_resource_input(), list()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -4266,11 +4815,7 @@ defmodule AWS.CleanRooms do
         ) ::
           {:ok, update_analysis_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_analysis_template_errors()}
   def update_analysis_template(
         %Client{} = client,
         analysis_template_identifier,
@@ -4306,10 +4851,7 @@ defmodule AWS.CleanRooms do
   @spec update_collaboration(map(), String.t(), update_collaboration_input(), list()) ::
           {:ok, update_collaboration_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_collaboration_errors()}
   def update_collaboration(%Client{} = client, collaboration_identifier, input, options \\ []) do
     url_path = "/collaborations/#{AWS.Util.encode_uri(collaboration_identifier)}"
     headers = []
@@ -4343,11 +4885,7 @@ defmodule AWS.CleanRooms do
         ) ::
           {:ok, update_configured_audience_model_association_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_configured_audience_model_association_errors()}
   def update_configured_audience_model_association(
         %Client{} = client,
         configured_audience_model_association_identifier,
@@ -4382,12 +4920,7 @@ defmodule AWS.CleanRooms do
   @spec update_configured_table(map(), String.t(), update_configured_table_input(), list()) ::
           {:ok, update_configured_table_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_configured_table_errors()}
   def update_configured_table(
         %Client{} = client,
         configured_table_identifier,
@@ -4425,12 +4958,7 @@ defmodule AWS.CleanRooms do
         ) ::
           {:ok, update_configured_table_analysis_rule_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_configured_table_analysis_rule_errors()}
   def update_configured_table_analysis_rule(
         %Client{} = client,
         analysis_rule_type,
@@ -4471,12 +4999,7 @@ defmodule AWS.CleanRooms do
         ) ::
           {:ok, update_configured_table_association_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_configured_table_association_errors()}
   def update_configured_table_association(
         %Client{} = client,
         configured_table_association_identifier,
@@ -4511,12 +5034,7 @@ defmodule AWS.CleanRooms do
   @spec update_membership(map(), String.t(), update_membership_input(), list()) ::
           {:ok, update_membership_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_membership_errors()}
   def update_membership(%Client{} = client, membership_identifier, input, options \\ []) do
     url_path = "/memberships/#{AWS.Util.encode_uri(membership_identifier)}"
     headers = []
@@ -4549,12 +5067,7 @@ defmodule AWS.CleanRooms do
         ) ::
           {:ok, update_privacy_budget_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_privacy_budget_template_errors()}
   def update_privacy_budget_template(
         %Client{} = client,
         membership_identifier,
@@ -4595,12 +5108,7 @@ defmodule AWS.CleanRooms do
         ) ::
           {:ok, update_protected_query_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_protected_query_errors()}
   def update_protected_query(
         %Client{} = client,
         membership_identifier,

@@ -12,2116 +12,2855 @@ defmodule AWS.MediaConnect do
   @typedoc """
 
   ## Example:
-  deregister_gateway_instance_response() :: %{
-    "GatewayInstanceArn" => String.t(),
-    "InstanceState" => list(any())
-  }
+
+      deregister_gateway_instance_response() :: %{
+        "GatewayInstanceArn" => String.t(),
+        "InstanceState" => list(any())
+      }
+
   """
   @type deregister_gateway_instance_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_flow_request() :: %{
-    optional("Maintenance") => update_maintenance(),
-    optional("SourceFailoverConfig") => update_failover_config()
-  }
+
+      update_flow_request() :: %{
+        optional("Maintenance") => update_maintenance(),
+        optional("SourceFailoverConfig") => update_failover_config()
+      }
+
   """
   @type update_flow_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  remove_flow_vpc_interface_response() :: %{
-    "FlowArn" => String.t(),
-    "NonDeletedNetworkInterfaceIds" => list(String.t()()),
-    "VpcInterfaceName" => String.t()
-  }
+
+      remove_flow_vpc_interface_response() :: %{
+        "FlowArn" => String.t(),
+        "NonDeletedNetworkInterfaceIds" => list(String.t()()),
+        "VpcInterfaceName" => String.t()
+      }
+
   """
   @type remove_flow_vpc_interface_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  media_stream_output_configuration_request() :: %{
-    "DestinationConfigurations" => list(destination_configuration_request()()),
-    "EncodingName" => list(any()),
-    "EncodingParameters" => encoding_parameters_request(),
-    "MediaStreamName" => String.t()
-  }
+
+      media_stream_output_configuration_request() :: %{
+        "DestinationConfigurations" => list(destination_configuration_request()()),
+        "EncodingName" => list(any()),
+        "EncodingParameters" => encoding_parameters_request(),
+        "MediaStreamName" => String.t()
+      }
+
   """
   @type media_stream_output_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  add_flow_sources_response() :: %{
-    "FlowArn" => String.t(),
-    "Sources" => list(source()())
-  }
+
+      add_flow_sources_response() :: %{
+        "FlowArn" => String.t(),
+        "Sources" => list(source()())
+      }
+
   """
   @type add_flow_sources_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  listed_entitlement() :: %{
-    "DataTransferSubscriberFeePercent" => integer(),
-    "EntitlementArn" => String.t(),
-    "EntitlementName" => String.t()
-  }
+
+      listed_entitlement() :: %{
+        "DataTransferSubscriberFeePercent" => integer(),
+        "EntitlementArn" => String.t(),
+        "EntitlementName" => String.t()
+      }
+
   """
   @type listed_entitlement() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_request() :: %{
-    required("Tags") => map()
-  }
+
+      tag_resource_request() :: %{
+        required("Tags") => map()
+      }
+
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  transport_stream_program() :: %{
-    "PcrPid" => integer(),
-    "ProgramName" => String.t(),
-    "ProgramNumber" => integer(),
-    "ProgramPid" => integer(),
-    "Streams" => list(transport_stream()())
-  }
+
+      transport_stream_program() :: %{
+        "PcrPid" => integer(),
+        "ProgramName" => String.t(),
+        "ProgramNumber" => integer(),
+        "ProgramPid" => integer(),
+        "Streams" => list(transport_stream()())
+      }
+
   """
   @type transport_stream_program() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_flow_source_metadata_response() :: %{
-    "FlowArn" => String.t(),
-    "Messages" => list(message_detail()()),
-    "Timestamp" => non_neg_integer(),
-    "TransportMediaInfo" => transport_media_info()
-  }
+
+      describe_flow_source_metadata_response() :: %{
+        "FlowArn" => String.t(),
+        "Messages" => list(message_detail()()),
+        "Timestamp" => non_neg_integer(),
+        "TransportMediaInfo" => transport_media_info()
+      }
+
   """
   @type describe_flow_source_metadata_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  grant_flow_entitlements_request() :: %{
-    required("Entitlements") => list(grant_entitlement_request()())
-  }
+
+      grant_flow_entitlements_request() :: %{
+        required("Entitlements") => list(grant_entitlement_request()())
+      }
+
   """
   @type grant_flow_entitlements_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_gateway_instance_request() :: %{
 
-  }
+      describe_gateway_instance_request() :: %{}
+
   """
-  @type describe_gateway_instance_request() :: %{String.t() => any()}
+  @type describe_gateway_instance_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  describe_flow_source_metadata_request() :: %{
 
-  }
+      describe_flow_source_metadata_request() :: %{}
+
   """
-  @type describe_flow_source_metadata_request() :: %{String.t() => any()}
+  @type describe_flow_source_metadata_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  fmtp_request() :: %{
-    "ChannelOrder" => String.t(),
-    "Colorimetry" => list(any()),
-    "ExactFramerate" => String.t(),
-    "Par" => String.t(),
-    "Range" => list(any()),
-    "ScanMode" => list(any()),
-    "Tcs" => list(any())
-  }
+
+      fmtp_request() :: %{
+        "ChannelOrder" => String.t(),
+        "Colorimetry" => list(any()),
+        "ExactFramerate" => String.t(),
+        "Par" => String.t(),
+        "Range" => list(any()),
+        "ScanMode" => list(any()),
+        "Tcs" => list(any())
+      }
+
   """
   @type fmtp_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_flow_request() :: %{
-    optional("AvailabilityZone") => String.t(),
-    optional("Entitlements") => list(grant_entitlement_request()()),
-    optional("Maintenance") => add_maintenance(),
-    optional("MediaStreams") => list(add_media_stream_request()()),
-    optional("Outputs") => list(add_output_request()()),
-    optional("Source") => set_source_request(),
-    optional("SourceFailoverConfig") => failover_config(),
-    optional("Sources") => list(set_source_request()()),
-    optional("VpcInterfaces") => list(vpc_interface_request()()),
-    required("Name") => String.t()
-  }
+
+      create_flow_request() :: %{
+        optional("AvailabilityZone") => String.t(),
+        optional("Entitlements") => list(grant_entitlement_request()()),
+        optional("Maintenance") => add_maintenance(),
+        optional("MediaStreams") => list(add_media_stream_request()()),
+        optional("Outputs") => list(add_output_request()()),
+        optional("Source") => set_source_request(),
+        optional("SourceFailoverConfig") => failover_config(),
+        optional("Sources") => list(set_source_request()()),
+        optional("VpcInterfaces") => list(vpc_interface_request()()),
+        required("Name") => String.t()
+      }
+
   """
   @type create_flow_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_bridge_state_request() :: %{
-    required("DesiredState") => list(any())
-  }
+
+      update_bridge_state_request() :: %{
+        required("DesiredState") => list(any())
+      }
+
   """
   @type update_bridge_state_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_gateway_instances_response() :: %{
-    "Instances" => list(listed_gateway_instance()()),
-    "NextToken" => String.t()
-  }
+
+      list_gateway_instances_response() :: %{
+        "Instances" => list(listed_gateway_instance()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_gateway_instances_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  media_stream_source_configuration_request() :: %{
-    "EncodingName" => list(any()),
-    "InputConfigurations" => list(input_configuration_request()()),
-    "MediaStreamName" => String.t()
-  }
+
+      media_stream_source_configuration_request() :: %{
+        "EncodingName" => list(any()),
+        "InputConfigurations" => list(input_configuration_request()()),
+        "MediaStreamName" => String.t()
+      }
+
   """
   @type media_stream_source_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_egress_gateway_bridge_request() :: %{
-    optional("MaxBitrate") => integer()
-  }
+
+      update_egress_gateway_bridge_request() :: %{
+        optional("MaxBitrate") => integer()
+      }
+
   """
   @type update_egress_gateway_bridge_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  add_bridge_sources_response() :: %{
-    "BridgeArn" => String.t(),
-    "Sources" => list(bridge_source()())
-  }
+
+      add_bridge_sources_response() :: %{
+        "BridgeArn" => String.t(),
+        "Sources" => list(bridge_source()())
+      }
+
   """
   @type add_bridge_sources_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_gateway_response() :: %{
-    "Gateway" => gateway()
-  }
+
+      create_gateway_response() :: %{
+        "Gateway" => gateway()
+      }
+
   """
   @type create_gateway_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_gateways_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      list_gateways_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_gateways_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  add_flow_media_streams_response() :: %{
-    "FlowArn" => String.t(),
-    "MediaStreams" => list(media_stream()())
-  }
+
+      add_flow_media_streams_response() :: %{
+        "FlowArn" => String.t(),
+        "MediaStreams" => list(media_stream()())
+      }
+
   """
   @type add_flow_media_streams_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  add_flow_outputs_response() :: %{
-    "FlowArn" => String.t(),
-    "Outputs" => list(output()())
-  }
+
+      add_flow_outputs_response() :: %{
+        "FlowArn" => String.t(),
+        "Outputs" => list(output()())
+      }
+
   """
   @type add_flow_outputs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_flow_source_response() :: %{
-    "FlowArn" => String.t(),
-    "Source" => source()
-  }
+
+      update_flow_source_response() :: %{
+        "FlowArn" => String.t(),
+        "Source" => source()
+      }
+
   """
   @type update_flow_source_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  forbidden_exception() :: %{
-    "Message" => String.t()
-  }
+
+      forbidden_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type forbidden_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_reservations_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      list_reservations_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_reservations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_bridge_output_request() :: %{
-    optional("NetworkOutput") => update_bridge_network_output_request()
-  }
+
+      update_bridge_output_request() :: %{
+        optional("NetworkOutput") => update_bridge_network_output_request()
+      }
+
   """
   @type update_bridge_output_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_offerings_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      list_offerings_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_offerings_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_bridges_request() :: %{
-    optional("FilterArn") => String.t(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      list_bridges_request() :: %{
+        optional("FilterArn") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_bridges_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  interface_request() :: %{
-    "Name" => String.t()
-  }
+
+      interface_request() :: %{
+        "Name" => String.t()
+      }
+
   """
   @type interface_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  bridge_flow_source() :: %{
-    "FlowArn" => String.t(),
-    "FlowVpcInterfaceAttachment" => vpc_interface_attachment(),
-    "Name" => String.t(),
-    "OutputArn" => String.t()
-  }
+
+      bridge_flow_source() :: %{
+        "FlowArn" => String.t(),
+        "FlowVpcInterfaceAttachment" => vpc_interface_attachment(),
+        "Name" => String.t(),
+        "OutputArn" => String.t()
+      }
+
   """
   @type bridge_flow_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_offerings_response() :: %{
-    "NextToken" => String.t(),
-    "Offerings" => list(offering()())
-  }
+
+      list_offerings_response() :: %{
+        "NextToken" => String.t(),
+        "Offerings" => list(offering()())
+      }
+
   """
   @type list_offerings_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  remove_bridge_source_request() :: %{
 
-  }
+      remove_bridge_source_request() :: %{}
+
   """
-  @type remove_bridge_source_request() :: %{String.t() => any()}
+  @type remove_bridge_source_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  describe_gateway_instance_response() :: %{
-    "GatewayInstance" => gateway_instance()
-  }
+
+      describe_gateway_instance_response() :: %{
+        "GatewayInstance" => gateway_instance()
+      }
+
   """
   @type describe_gateway_instance_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_maintenance() :: %{
-    "MaintenanceDay" => list(any()),
-    "MaintenanceScheduledDate" => String.t(),
-    "MaintenanceStartHour" => String.t()
-  }
+
+      update_maintenance() :: %{
+        "MaintenanceDay" => list(any()),
+        "MaintenanceScheduledDate" => String.t(),
+        "MaintenanceStartHour" => String.t()
+      }
+
   """
   @type update_maintenance() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  add_bridge_source_request() :: %{
-    "FlowSource" => add_bridge_flow_source_request(),
-    "NetworkSource" => add_bridge_network_source_request()
-  }
+
+      add_bridge_source_request() :: %{
+        "FlowSource" => add_bridge_flow_source_request(),
+        "NetworkSource" => add_bridge_network_source_request()
+      }
+
   """
   @type add_bridge_source_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_ingress_gateway_bridge_request() :: %{
-    optional("MaxBitrate") => integer(),
-    optional("MaxOutputs") => integer()
-  }
+
+      update_ingress_gateway_bridge_request() :: %{
+        optional("MaxBitrate") => integer(),
+        optional("MaxOutputs") => integer()
+      }
+
   """
   @type update_ingress_gateway_bridge_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_gateway_response() :: %{
-    "GatewayArn" => String.t()
-  }
+
+      delete_gateway_response() :: %{
+        "GatewayArn" => String.t()
+      }
+
   """
   @type delete_gateway_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_flow_request() :: %{
 
-  }
+      delete_flow_request() :: %{}
+
   """
-  @type delete_flow_request() :: %{String.t() => any()}
+  @type delete_flow_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_flow420_exception() :: %{
-    "Message" => String.t()
-  }
+
+      create_flow420_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type create_flow420_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  listed_flow() :: %{
-    "AvailabilityZone" => String.t(),
-    "Description" => String.t(),
-    "FlowArn" => String.t(),
-    "Maintenance" => maintenance(),
-    "Name" => String.t(),
-    "SourceType" => list(any()),
-    "Status" => list(any())
-  }
+
+      listed_flow() :: %{
+        "AvailabilityZone" => String.t(),
+        "Description" => String.t(),
+        "FlowArn" => String.t(),
+        "Maintenance" => maintenance(),
+        "Name" => String.t(),
+        "SourceType" => list(any()),
+        "Status" => list(any())
+      }
+
   """
   @type listed_flow() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_gateway_instance_request() :: %{
-    optional("BridgePlacement") => list(any())
-  }
+
+      update_gateway_instance_request() :: %{
+        optional("BridgePlacement") => list(any())
+      }
+
   """
   @type update_gateway_instance_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  media_stream() :: %{
-    "Attributes" => media_stream_attributes(),
-    "ClockRate" => integer(),
-    "Description" => String.t(),
-    "Fmt" => integer(),
-    "MediaStreamId" => integer(),
-    "MediaStreamName" => String.t(),
-    "MediaStreamType" => list(any()),
-    "VideoFormat" => String.t()
-  }
+
+      media_stream() :: %{
+        "Attributes" => media_stream_attributes(),
+        "ClockRate" => integer(),
+        "Description" => String.t(),
+        "Fmt" => integer(),
+        "MediaStreamId" => integer(),
+        "MediaStreamName" => String.t(),
+        "MediaStreamType" => list(any()),
+        "VideoFormat" => String.t()
+      }
+
   """
   @type media_stream() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_flow_response() :: %{
-    "Flow" => flow()
-  }
+
+      create_flow_response() :: %{
+        "Flow" => flow()
+      }
+
   """
   @type create_flow_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_flow_response() :: %{
-    "FlowArn" => String.t(),
-    "Status" => list(any())
-  }
+
+      delete_flow_response() :: %{
+        "FlowArn" => String.t(),
+        "Status" => list(any())
+      }
+
   """
   @type delete_flow_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  remove_flow_media_stream_response() :: %{
-    "FlowArn" => String.t(),
-    "MediaStreamName" => String.t()
-  }
+
+      remove_flow_media_stream_response() :: %{
+        "FlowArn" => String.t(),
+        "MediaStreamName" => String.t()
+      }
+
   """
   @type remove_flow_media_stream_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_request() :: %{
-    required("TagKeys") => list(String.t()())
-  }
+
+      untag_resource_request() :: %{
+        required("TagKeys") => list(String.t()())
+      }
+
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_requests_exception() :: %{
-    "Message" => String.t()
-  }
+
+      too_many_requests_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type too_many_requests_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  remove_bridge_source_response() :: %{
-    "BridgeArn" => String.t(),
-    "SourceName" => String.t()
-  }
+
+      remove_bridge_source_response() :: %{
+        "BridgeArn" => String.t(),
+        "SourceName" => String.t()
+      }
+
   """
   @type remove_bridge_source_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_bridge_flow_source_request() :: %{
-    "FlowArn" => String.t(),
-    "FlowVpcInterfaceAttachment" => vpc_interface_attachment()
-  }
+
+      update_bridge_flow_source_request() :: %{
+        "FlowArn" => String.t(),
+        "FlowVpcInterfaceAttachment" => vpc_interface_attachment()
+      }
+
   """
   @type update_bridge_flow_source_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  encoding_parameters_request() :: %{
-    "CompressionFactor" => float(),
-    "EncoderProfile" => list(any())
-  }
+
+      encoding_parameters_request() :: %{
+        "CompressionFactor" => float(),
+        "EncoderProfile" => list(any())
+      }
+
   """
   @type encoding_parameters_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_bridge_response() :: %{
-    "Bridge" => bridge()
-  }
+
+      create_bridge_response() :: %{
+        "Bridge" => bridge()
+      }
+
   """
   @type create_bridge_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  gateway() :: %{
-    "EgressCidrBlocks" => list(String.t()()),
-    "GatewayArn" => String.t(),
-    "GatewayMessages" => list(message_detail()()),
-    "GatewayState" => list(any()),
-    "Name" => String.t(),
-    "Networks" => list(gateway_network()())
-  }
+
+      gateway() :: %{
+        "EgressCidrBlocks" => list(String.t()()),
+        "GatewayArn" => String.t(),
+        "GatewayMessages" => list(message_detail()()),
+        "GatewayState" => list(any()),
+        "Name" => String.t(),
+        "Networks" => list(gateway_network()())
+      }
+
   """
   @type gateway() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_flow_media_stream_request() :: %{
-    optional("Attributes") => media_stream_attributes_request(),
-    optional("ClockRate") => integer(),
-    optional("Description") => String.t(),
-    optional("MediaStreamType") => list(any()),
-    optional("VideoFormat") => String.t()
-  }
+
+      update_flow_media_stream_request() :: %{
+        optional("Attributes") => media_stream_attributes_request(),
+        optional("ClockRate") => integer(),
+        optional("Description") => String.t(),
+        optional("MediaStreamType") => list(any()),
+        optional("VideoFormat") => String.t()
+      }
+
   """
   @type update_flow_media_stream_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  add_media_stream_request() :: %{
-    "Attributes" => media_stream_attributes_request(),
-    "ClockRate" => integer(),
-    "Description" => String.t(),
-    "MediaStreamId" => integer(),
-    "MediaStreamName" => String.t(),
-    "MediaStreamType" => list(any()),
-    "VideoFormat" => String.t()
-  }
+
+      add_media_stream_request() :: %{
+        "Attributes" => media_stream_attributes_request(),
+        "ClockRate" => integer(),
+        "Description" => String.t(),
+        "MediaStreamId" => integer(),
+        "MediaStreamName" => String.t(),
+        "MediaStreamType" => list(any()),
+        "VideoFormat" => String.t()
+      }
+
   """
   @type add_media_stream_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ingress_gateway_bridge() :: %{
-    optional("InstanceId") => String.t(),
-    required("MaxBitrate") => integer(),
-    required("MaxOutputs") => integer()
-  }
+
+      ingress_gateway_bridge() :: %{
+        optional("InstanceId") => String.t(),
+        required("MaxBitrate") => integer(),
+        required("MaxOutputs") => integer()
+      }
+
   """
   @type ingress_gateway_bridge() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  bridge_network_output() :: %{
-    "IpAddress" => String.t(),
-    "Name" => String.t(),
-    "NetworkName" => String.t(),
-    "Port" => integer(),
-    "Protocol" => list(any()),
-    "Ttl" => integer()
-  }
+
+      bridge_network_output() :: %{
+        "IpAddress" => String.t(),
+        "Name" => String.t(),
+        "NetworkName" => String.t(),
+        "Port" => integer(),
+        "Protocol" => list(any()),
+        "Ttl" => integer()
+      }
+
   """
   @type bridge_network_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  message_detail() :: %{
-    optional("ResourceName") => String.t(),
-    required("Code") => String.t(),
-    required("Message") => String.t()
-  }
+
+      message_detail() :: %{
+        optional("ResourceName") => String.t(),
+        required("Code") => String.t(),
+        required("Message") => String.t()
+      }
+
   """
   @type message_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  media_stream_attributes_request() :: %{
-    "Fmtp" => fmtp_request(),
-    "Lang" => String.t()
-  }
+
+      media_stream_attributes_request() :: %{
+        "Fmtp" => fmtp_request(),
+        "Lang" => String.t()
+      }
+
   """
   @type media_stream_attributes_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_bridge420_exception() :: %{
-    "Message" => String.t()
-  }
+
+      create_bridge420_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type create_bridge420_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  gateway_network() :: %{
-    "CidrBlock" => String.t(),
-    "Name" => String.t()
-  }
+
+      gateway_network() :: %{
+        "CidrBlock" => String.t(),
+        "Name" => String.t()
+      }
+
   """
   @type gateway_network() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_bridge_request() :: %{
-    optional("EgressGatewayBridge") => update_egress_gateway_bridge_request(),
-    optional("IngressGatewayBridge") => update_ingress_gateway_bridge_request(),
-    optional("SourceFailoverConfig") => update_failover_config()
-  }
+
+      update_bridge_request() :: %{
+        optional("EgressGatewayBridge") => update_egress_gateway_bridge_request(),
+        optional("IngressGatewayBridge") => update_ingress_gateway_bridge_request(),
+        optional("SourceFailoverConfig") => update_failover_config()
+      }
+
   """
   @type update_bridge_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  egress_gateway_bridge() :: %{
-    optional("InstanceId") => String.t(),
-    required("MaxBitrate") => integer()
-  }
+
+      egress_gateway_bridge() :: %{
+        optional("InstanceId") => String.t(),
+        required("MaxBitrate") => integer()
+      }
+
   """
   @type egress_gateway_bridge() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_flow_source_request() :: %{
-    optional("Decryption") => update_encryption(),
-    optional("Description") => String.t(),
-    optional("EntitlementArn") => String.t(),
-    optional("GatewayBridgeSource") => update_gateway_bridge_source_request(),
-    optional("IngestPort") => integer(),
-    optional("MaxBitrate") => integer(),
-    optional("MaxLatency") => integer(),
-    optional("MaxSyncBuffer") => integer(),
-    optional("MediaStreamSourceConfigurations") => list(media_stream_source_configuration_request()()),
-    optional("MinLatency") => integer(),
-    optional("Protocol") => list(any()),
-    optional("SenderControlPort") => integer(),
-    optional("SenderIpAddress") => String.t(),
-    optional("SourceListenerAddress") => String.t(),
-    optional("SourceListenerPort") => integer(),
-    optional("StreamId") => String.t(),
-    optional("VpcInterfaceName") => String.t(),
-    optional("WhitelistCidr") => String.t()
-  }
+
+      update_flow_source_request() :: %{
+        optional("Decryption") => update_encryption(),
+        optional("Description") => String.t(),
+        optional("EntitlementArn") => String.t(),
+        optional("GatewayBridgeSource") => update_gateway_bridge_source_request(),
+        optional("IngestPort") => integer(),
+        optional("MaxBitrate") => integer(),
+        optional("MaxLatency") => integer(),
+        optional("MaxSyncBuffer") => integer(),
+        optional("MediaStreamSourceConfigurations") => list(media_stream_source_configuration_request()()),
+        optional("MinLatency") => integer(),
+        optional("Protocol") => list(any()),
+        optional("SenderControlPort") => integer(),
+        optional("SenderIpAddress") => String.t(),
+        optional("SourceListenerAddress") => String.t(),
+        optional("SourceListenerPort") => integer(),
+        optional("StreamId") => String.t(),
+        optional("VpcInterfaceName") => String.t(),
+        optional("WhitelistCidr") => String.t()
+      }
+
   """
   @type update_flow_source_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_flows_response() :: %{
-    "Flows" => list(listed_flow()()),
-    "NextToken" => String.t()
-  }
+
+      list_flows_response() :: %{
+        "Flows" => list(listed_flow()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_flows_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  add_egress_gateway_bridge_request() :: %{
-    required("MaxBitrate") => integer()
-  }
+
+      add_egress_gateway_bridge_request() :: %{
+        required("MaxBitrate") => integer()
+      }
+
   """
   @type add_egress_gateway_bridge_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  listed_gateway() :: %{
-    "GatewayArn" => String.t(),
-    "GatewayState" => list(any()),
-    "Name" => String.t()
-  }
+
+      listed_gateway() :: %{
+        "GatewayArn" => String.t(),
+        "GatewayState" => list(any()),
+        "Name" => String.t()
+      }
+
   """
   @type listed_gateway() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  add_flow_outputs420_exception() :: %{
-    "Message" => String.t()
-  }
+
+      add_flow_outputs420_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type add_flow_outputs420_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_bridge_request() :: %{
 
-  }
+      delete_bridge_request() :: %{}
+
   """
-  @type delete_bridge_request() :: %{String.t() => any()}
+  @type delete_bridge_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  bridge_output() :: %{
-    "FlowOutput" => bridge_flow_output(),
-    "NetworkOutput" => bridge_network_output()
-  }
+
+      bridge_output() :: %{
+        "FlowOutput" => bridge_flow_output(),
+        "NetworkOutput" => bridge_network_output()
+      }
+
   """
   @type bridge_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_bridge_response() :: %{
-    "BridgeArn" => String.t()
-  }
+
+      delete_bridge_response() :: %{
+        "BridgeArn" => String.t()
+      }
+
   """
   @type delete_bridge_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  conflict_exception() :: %{
-    "Message" => String.t()
-  }
+
+      conflict_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  transport() :: %{
-    "CidrAllowList" => list(String.t()()),
-    "MaxBitrate" => integer(),
-    "MaxLatency" => integer(),
-    "MaxSyncBuffer" => integer(),
-    "MinLatency" => integer(),
-    "Protocol" => list(any()),
-    "RemoteId" => String.t(),
-    "SenderControlPort" => integer(),
-    "SenderIpAddress" => String.t(),
-    "SmoothingLatency" => integer(),
-    "SourceListenerAddress" => String.t(),
-    "SourceListenerPort" => integer(),
-    "StreamId" => String.t()
-  }
+
+      transport() :: %{
+        "CidrAllowList" => list(String.t()()),
+        "MaxBitrate" => integer(),
+        "MaxLatency" => integer(),
+        "MaxSyncBuffer" => integer(),
+        "MinLatency" => integer(),
+        "Protocol" => list(any()),
+        "RemoteId" => String.t(),
+        "SenderControlPort" => integer(),
+        "SenderIpAddress" => String.t(),
+        "SmoothingLatency" => integer(),
+        "SourceListenerAddress" => String.t(),
+        "SourceListenerPort" => integer(),
+        "StreamId" => String.t()
+      }
+
   """
   @type transport() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_flow_request() :: %{
 
-  }
+      start_flow_request() :: %{}
+
   """
-  @type start_flow_request() :: %{String.t() => any()}
+  @type start_flow_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_bridge_request() :: %{
-    optional("EgressGatewayBridge") => add_egress_gateway_bridge_request(),
-    optional("IngressGatewayBridge") => add_ingress_gateway_bridge_request(),
-    optional("Outputs") => list(add_bridge_output_request()()),
-    optional("SourceFailoverConfig") => failover_config(),
-    required("Name") => String.t(),
-    required("PlacementArn") => String.t(),
-    required("Sources") => list(add_bridge_source_request()())
-  }
+
+      create_bridge_request() :: %{
+        optional("EgressGatewayBridge") => add_egress_gateway_bridge_request(),
+        optional("IngressGatewayBridge") => add_ingress_gateway_bridge_request(),
+        optional("Outputs") => list(add_bridge_output_request()()),
+        optional("SourceFailoverConfig") => failover_config(),
+        required("Name") => String.t(),
+        required("PlacementArn") => String.t(),
+        required("Sources") => list(add_bridge_source_request()())
+      }
+
   """
   @type create_bridge_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  add_flow_vpc_interfaces_request() :: %{
-    required("VpcInterfaces") => list(vpc_interface_request()())
-  }
+
+      add_flow_vpc_interfaces_request() :: %{
+        required("VpcInterfaces") => list(vpc_interface_request()())
+      }
+
   """
   @type add_flow_vpc_interfaces_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  maintenance() :: %{
-    "MaintenanceDay" => list(any()),
-    "MaintenanceDeadline" => String.t(),
-    "MaintenanceScheduledDate" => String.t(),
-    "MaintenanceStartHour" => String.t()
-  }
+
+      maintenance() :: %{
+        "MaintenanceDay" => list(any()),
+        "MaintenanceDeadline" => String.t(),
+        "MaintenanceScheduledDate" => String.t(),
+        "MaintenanceStartHour" => String.t()
+      }
+
   """
   @type maintenance() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  vpc_interface() :: %{
-    "Name" => String.t(),
-    "NetworkInterfaceIds" => list(String.t()()),
-    "NetworkInterfaceType" => list(any()),
-    "RoleArn" => String.t(),
-    "SecurityGroupIds" => list(String.t()()),
-    "SubnetId" => String.t()
-  }
+
+      vpc_interface() :: %{
+        "Name" => String.t(),
+        "NetworkInterfaceIds" => list(String.t()()),
+        "NetworkInterfaceType" => list(any()),
+        "RoleArn" => String.t(),
+        "SecurityGroupIds" => list(String.t()()),
+        "SubnetId" => String.t()
+      }
+
   """
   @type vpc_interface() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  remove_bridge_output_response() :: %{
-    "BridgeArn" => String.t(),
-    "OutputName" => String.t()
-  }
+
+      remove_bridge_output_response() :: %{
+        "BridgeArn" => String.t(),
+        "OutputName" => String.t()
+      }
+
   """
   @type remove_bridge_output_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  fmtp() :: %{
-    "ChannelOrder" => String.t(),
-    "Colorimetry" => list(any()),
-    "ExactFramerate" => String.t(),
-    "Par" => String.t(),
-    "Range" => list(any()),
-    "ScanMode" => list(any()),
-    "Tcs" => list(any())
-  }
+
+      fmtp() :: %{
+        "ChannelOrder" => String.t(),
+        "Colorimetry" => list(any()),
+        "ExactFramerate" => String.t(),
+        "Par" => String.t(),
+        "Range" => list(any()),
+        "ScanMode" => list(any()),
+        "Tcs" => list(any())
+      }
+
   """
   @type fmtp() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_gateway420_exception() :: %{
-    "Message" => String.t()
-  }
+
+      create_gateway420_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type create_gateway420_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  source_priority() :: %{
-    "PrimarySource" => String.t()
-  }
+
+      source_priority() :: %{
+        "PrimarySource" => String.t()
+      }
+
   """
   @type source_priority() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  set_gateway_bridge_source_request() :: %{
-    "BridgeArn" => String.t(),
-    "VpcInterfaceAttachment" => vpc_interface_attachment()
-  }
+
+      set_gateway_bridge_source_request() :: %{
+        "BridgeArn" => String.t(),
+        "VpcInterfaceAttachment" => vpc_interface_attachment()
+      }
+
   """
   @type set_gateway_bridge_source_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  not_found_exception() :: %{
-    "Message" => String.t()
-  }
+
+      not_found_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  add_bridge_network_source_request() :: %{
-    "MulticastIp" => String.t(),
-    "Name" => String.t(),
-    "NetworkName" => String.t(),
-    "Port" => integer(),
-    "Protocol" => list(any())
-  }
+
+      add_bridge_network_source_request() :: %{
+        "MulticastIp" => String.t(),
+        "Name" => String.t(),
+        "NetworkName" => String.t(),
+        "Port" => integer(),
+        "Protocol" => list(any())
+      }
+
   """
   @type add_bridge_network_source_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_flow_request() :: %{
 
-  }
+      describe_flow_request() :: %{}
+
   """
-  @type describe_flow_request() :: %{String.t() => any()}
+  @type describe_flow_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  start_flow_response() :: %{
-    "FlowArn" => String.t(),
-    "Status" => list(any())
-  }
+
+      start_flow_response() :: %{
+        "FlowArn" => String.t(),
+        "Status" => list(any())
+      }
+
   """
   @type start_flow_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stop_flow_response() :: %{
-    "FlowArn" => String.t(),
-    "Status" => list(any())
-  }
+
+      stop_flow_response() :: %{
+        "FlowArn" => String.t(),
+        "Status" => list(any())
+      }
+
   """
   @type stop_flow_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  encryption() :: %{
-    "Algorithm" => list(any()),
-    "ConstantInitializationVector" => String.t(),
-    "DeviceId" => String.t(),
-    "KeyType" => list(any()),
-    "Region" => String.t(),
-    "ResourceId" => String.t(),
-    "RoleArn" => String.t(),
-    "SecretArn" => String.t(),
-    "Url" => String.t()
-  }
+
+      encryption() :: %{
+        "Algorithm" => list(any()),
+        "ConstantInitializationVector" => String.t(),
+        "DeviceId" => String.t(),
+        "KeyType" => list(any()),
+        "Region" => String.t(),
+        "ResourceId" => String.t(),
+        "RoleArn" => String.t(),
+        "SecretArn" => String.t(),
+        "Url" => String.t()
+      }
+
   """
   @type encryption() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  bridge() :: %{
-    "BridgeArn" => String.t(),
-    "BridgeMessages" => list(message_detail()()),
-    "BridgeState" => list(any()),
-    "EgressGatewayBridge" => egress_gateway_bridge(),
-    "IngressGatewayBridge" => ingress_gateway_bridge(),
-    "Name" => String.t(),
-    "Outputs" => list(bridge_output()()),
-    "PlacementArn" => String.t(),
-    "SourceFailoverConfig" => failover_config(),
-    "Sources" => list(bridge_source()())
-  }
+
+      bridge() :: %{
+        "BridgeArn" => String.t(),
+        "BridgeMessages" => list(message_detail()()),
+        "BridgeState" => list(any()),
+        "EgressGatewayBridge" => egress_gateway_bridge(),
+        "IngressGatewayBridge" => ingress_gateway_bridge(),
+        "Name" => String.t(),
+        "Outputs" => list(bridge_output()()),
+        "PlacementArn" => String.t(),
+        "SourceFailoverConfig" => failover_config(),
+        "Sources" => list(bridge_source()())
+      }
+
   """
   @type bridge() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_bridge_network_output_request() :: %{
-    "IpAddress" => String.t(),
-    "NetworkName" => String.t(),
-    "Port" => integer(),
-    "Protocol" => list(any()),
-    "Ttl" => integer()
-  }
+
+      update_bridge_network_output_request() :: %{
+        "IpAddress" => String.t(),
+        "NetworkName" => String.t(),
+        "Port" => integer(),
+        "Protocol" => list(any()),
+        "Ttl" => integer()
+      }
+
   """
   @type update_bridge_network_output_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  grant_flow_entitlements420_exception() :: %{
-    "Message" => String.t()
-  }
+
+      grant_flow_entitlements420_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type grant_flow_entitlements420_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  encoding_parameters() :: %{
-    "CompressionFactor" => float(),
-    "EncoderProfile" => list(any())
-  }
+
+      encoding_parameters() :: %{
+        "CompressionFactor" => float(),
+        "EncoderProfile" => list(any())
+      }
+
   """
   @type encoding_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_response() :: %{
-    "Tags" => map()
-  }
+
+      list_tags_for_resource_response() :: %{
+        "Tags" => map()
+      }
+
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_specification() :: %{
-    "ReservedBitrate" => integer(),
-    "ResourceType" => list(any())
-  }
+
+      resource_specification() :: %{
+        "ReservedBitrate" => integer(),
+        "ResourceType" => list(any())
+      }
+
   """
   @type resource_specification() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  remove_bridge_output_request() :: %{
 
-  }
+      remove_bridge_output_request() :: %{}
+
   """
-  @type remove_bridge_output_request() :: %{String.t() => any()}
+  @type remove_bridge_output_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  update_bridge_state_response() :: %{
-    "BridgeArn" => String.t(),
-    "DesiredState" => list(any())
-  }
+
+      update_bridge_state_response() :: %{
+        "BridgeArn" => String.t(),
+        "DesiredState" => list(any())
+      }
+
   """
   @type update_bridge_state_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  reservation() :: %{
-    "CurrencyCode" => String.t(),
-    "Duration" => integer(),
-    "DurationUnits" => list(any()),
-    "End" => String.t(),
-    "OfferingArn" => String.t(),
-    "OfferingDescription" => String.t(),
-    "PricePerUnit" => String.t(),
-    "PriceUnits" => list(any()),
-    "ReservationArn" => String.t(),
-    "ReservationName" => String.t(),
-    "ReservationState" => list(any()),
-    "ResourceSpecification" => resource_specification(),
-    "Start" => String.t()
-  }
+
+      reservation() :: %{
+        "CurrencyCode" => String.t(),
+        "Duration" => integer(),
+        "DurationUnits" => list(any()),
+        "End" => String.t(),
+        "OfferingArn" => String.t(),
+        "OfferingDescription" => String.t(),
+        "PricePerUnit" => String.t(),
+        "PriceUnits" => list(any()),
+        "ReservationArn" => String.t(),
+        "ReservationName" => String.t(),
+        "ReservationState" => list(any()),
+        "ResourceSpecification" => resource_specification(),
+        "Start" => String.t()
+      }
+
   """
   @type reservation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  service_unavailable_exception() :: %{
-    "Message" => String.t()
-  }
+
+      service_unavailable_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type service_unavailable_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  input_configuration() :: %{
-    "InputIp" => String.t(),
-    "InputPort" => integer(),
-    "Interface" => interface()
-  }
+
+      input_configuration() :: %{
+        "InputIp" => String.t(),
+        "InputPort" => integer(),
+        "Interface" => interface()
+      }
+
   """
   @type input_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_entitlements_response() :: %{
-    "Entitlements" => list(listed_entitlement()()),
-    "NextToken" => String.t()
-  }
+
+      list_entitlements_response() :: %{
+        "Entitlements" => list(listed_entitlement()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_entitlements_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  add_flow_sources_request() :: %{
-    required("Sources") => list(set_source_request()())
-  }
+
+      add_flow_sources_request() :: %{
+        required("Sources") => list(set_source_request()())
+      }
+
   """
   @type add_flow_sources_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  media_stream_attributes() :: %{
-    "Fmtp" => fmtp(),
-    "Lang" => String.t()
-  }
+
+      media_stream_attributes() :: %{
+        "Fmtp" => fmtp(),
+        "Lang" => String.t()
+      }
+
   """
   @type media_stream_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_flows_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      list_flows_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_flows_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_bridge_source_response() :: %{
-    "BridgeArn" => String.t(),
-    "Source" => bridge_source()
-  }
+
+      update_bridge_source_response() :: %{
+        "BridgeArn" => String.t(),
+        "Source" => bridge_source()
+      }
+
   """
   @type update_bridge_source_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  add_bridge_outputs_response() :: %{
-    "BridgeArn" => String.t(),
-    "Outputs" => list(bridge_output()())
-  }
+
+      add_bridge_outputs_response() :: %{
+        "BridgeArn" => String.t(),
+        "Outputs" => list(bridge_output()())
+      }
+
   """
   @type add_bridge_outputs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  remove_flow_source_request() :: %{
 
-  }
+      remove_flow_source_request() :: %{}
+
   """
-  @type remove_flow_source_request() :: %{String.t() => any()}
+  @type remove_flow_source_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  describe_bridge_request() :: %{
 
-  }
+      describe_bridge_request() :: %{}
+
   """
-  @type describe_bridge_request() :: %{String.t() => any()}
+  @type describe_bridge_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  remove_flow_source_response() :: %{
-    "FlowArn" => String.t(),
-    "SourceArn" => String.t()
-  }
+
+      remove_flow_source_response() :: %{
+        "FlowArn" => String.t(),
+        "SourceArn" => String.t()
+      }
+
   """
   @type remove_flow_source_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  bridge_network_source() :: %{
-    "MulticastIp" => String.t(),
-    "Name" => String.t(),
-    "NetworkName" => String.t(),
-    "Port" => integer(),
-    "Protocol" => list(any())
-  }
+
+      bridge_network_source() :: %{
+        "MulticastIp" => String.t(),
+        "Name" => String.t(),
+        "NetworkName" => String.t(),
+        "Port" => integer(),
+        "Protocol" => list(any())
+      }
+
   """
   @type bridge_network_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  media_stream_output_configuration() :: %{
-    "DestinationConfigurations" => list(destination_configuration()()),
-    "EncodingName" => list(any()),
-    "EncodingParameters" => encoding_parameters(),
-    "MediaStreamName" => String.t()
-  }
+
+      media_stream_output_configuration() :: %{
+        "DestinationConfigurations" => list(destination_configuration()()),
+        "EncodingName" => list(any()),
+        "EncodingParameters" => encoding_parameters(),
+        "MediaStreamName" => String.t()
+      }
+
   """
   @type media_stream_output_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  add_ingress_gateway_bridge_request() :: %{
-    required("MaxBitrate") => integer(),
-    required("MaxOutputs") => integer()
-  }
+
+      add_ingress_gateway_bridge_request() :: %{
+        required("MaxBitrate") => integer(),
+        required("MaxOutputs") => integer()
+      }
+
   """
   @type add_ingress_gateway_bridge_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  source() :: %{
-    "DataTransferSubscriberFeePercent" => integer(),
-    "Decryption" => encryption(),
-    "Description" => String.t(),
-    "EntitlementArn" => String.t(),
-    "GatewayBridgeSource" => gateway_bridge_source(),
-    "IngestIp" => String.t(),
-    "IngestPort" => integer(),
-    "MediaStreamSourceConfigurations" => list(media_stream_source_configuration()()),
-    "Name" => String.t(),
-    "SenderControlPort" => integer(),
-    "SenderIpAddress" => String.t(),
-    "SourceArn" => String.t(),
-    "Transport" => transport(),
-    "VpcInterfaceName" => String.t(),
-    "WhitelistCidr" => String.t()
-  }
+
+      source() :: %{
+        "DataTransferSubscriberFeePercent" => integer(),
+        "Decryption" => encryption(),
+        "Description" => String.t(),
+        "EntitlementArn" => String.t(),
+        "GatewayBridgeSource" => gateway_bridge_source(),
+        "IngestIp" => String.t(),
+        "IngestPort" => integer(),
+        "MediaStreamSourceConfigurations" => list(media_stream_source_configuration()()),
+        "Name" => String.t(),
+        "SenderControlPort" => integer(),
+        "SenderIpAddress" => String.t(),
+        "SourceArn" => String.t(),
+        "Transport" => transport(),
+        "VpcInterfaceName" => String.t(),
+        "WhitelistCidr" => String.t()
+      }
+
   """
   @type source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  add_bridge_flow_source_request() :: %{
-    "FlowArn" => String.t(),
-    "FlowVpcInterfaceAttachment" => vpc_interface_attachment(),
-    "Name" => String.t()
-  }
+
+      add_bridge_flow_source_request() :: %{
+        "FlowArn" => String.t(),
+        "FlowVpcInterfaceAttachment" => vpc_interface_attachment(),
+        "Name" => String.t()
+      }
+
   """
   @type add_bridge_flow_source_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_gateway_instance_response() :: %{
-    "BridgePlacement" => list(any()),
-    "GatewayInstanceArn" => String.t()
-  }
+
+      update_gateway_instance_response() :: %{
+        "BridgePlacement" => list(any()),
+        "GatewayInstanceArn" => String.t()
+      }
+
   """
   @type update_gateway_instance_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_failover_config() :: %{
-    "FailoverMode" => list(any()),
-    "RecoveryWindow" => integer(),
-    "SourcePriority" => source_priority(),
-    "State" => list(any())
-  }
+
+      update_failover_config() :: %{
+        "FailoverMode" => list(any()),
+        "RecoveryWindow" => integer(),
+        "SourcePriority" => source_priority(),
+        "State" => list(any())
+      }
+
   """
   @type update_failover_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  remove_flow_output_response() :: %{
-    "FlowArn" => String.t(),
-    "OutputArn" => String.t()
-  }
+
+      remove_flow_output_response() :: %{
+        "FlowArn" => String.t(),
+        "OutputArn" => String.t()
+      }
+
   """
   @type remove_flow_output_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_bridge_response() :: %{
-    "Bridge" => bridge()
-  }
+
+      update_bridge_response() :: %{
+        "Bridge" => bridge()
+      }
+
   """
   @type update_bridge_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_gateway_request() :: %{
-    required("EgressCidrBlocks") => list(String.t()()),
-    required("Name") => String.t(),
-    required("Networks") => list(gateway_network()())
-  }
+
+      create_gateway_request() :: %{
+        required("EgressCidrBlocks") => list(String.t()()),
+        required("Name") => String.t(),
+        required("Networks") => list(gateway_network()())
+      }
+
   """
   @type create_gateway_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  grant_flow_entitlements_response() :: %{
-    "Entitlements" => list(entitlement()()),
-    "FlowArn" => String.t()
-  }
+
+      grant_flow_entitlements_response() :: %{
+        "Entitlements" => list(entitlement()()),
+        "FlowArn" => String.t()
+      }
+
   """
   @type grant_flow_entitlements_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  add_bridge_outputs_request() :: %{
-    required("Outputs") => list(add_bridge_output_request()())
-  }
+
+      add_bridge_outputs_request() :: %{
+        required("Outputs") => list(add_bridge_output_request()())
+      }
+
   """
   @type add_bridge_outputs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  add_maintenance() :: %{
-    "MaintenanceDay" => list(any()),
-    "MaintenanceStartHour" => String.t()
-  }
+
+      add_maintenance() :: %{
+        "MaintenanceDay" => list(any()),
+        "MaintenanceStartHour" => String.t()
+      }
+
   """
   @type add_maintenance() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  entitlement() :: %{
-    "DataTransferSubscriberFeePercent" => integer(),
-    "Description" => String.t(),
-    "Encryption" => encryption(),
-    "EntitlementArn" => String.t(),
-    "EntitlementStatus" => list(any()),
-    "Name" => String.t(),
-    "Subscribers" => list(String.t()())
-  }
+
+      entitlement() :: %{
+        "DataTransferSubscriberFeePercent" => integer(),
+        "Description" => String.t(),
+        "Encryption" => encryption(),
+        "EntitlementArn" => String.t(),
+        "EntitlementStatus" => list(any()),
+        "Name" => String.t(),
+        "Subscribers" => list(String.t()())
+      }
+
   """
   @type entitlement() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_encryption() :: %{
-    "Algorithm" => list(any()),
-    "ConstantInitializationVector" => String.t(),
-    "DeviceId" => String.t(),
-    "KeyType" => list(any()),
-    "Region" => String.t(),
-    "ResourceId" => String.t(),
-    "RoleArn" => String.t(),
-    "SecretArn" => String.t(),
-    "Url" => String.t()
-  }
+
+      update_encryption() :: %{
+        "Algorithm" => list(any()),
+        "ConstantInitializationVector" => String.t(),
+        "DeviceId" => String.t(),
+        "KeyType" => list(any()),
+        "Region" => String.t(),
+        "ResourceId" => String.t(),
+        "RoleArn" => String.t(),
+        "SecretArn" => String.t(),
+        "Url" => String.t()
+      }
+
   """
   @type update_encryption() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_bridge_network_source_request() :: %{
-    "MulticastIp" => String.t(),
-    "NetworkName" => String.t(),
-    "Port" => integer(),
-    "Protocol" => list(any())
-  }
+
+      update_bridge_network_source_request() :: %{
+        "MulticastIp" => String.t(),
+        "NetworkName" => String.t(),
+        "Port" => integer(),
+        "Protocol" => list(any())
+      }
+
   """
   @type update_bridge_network_source_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_reservations_response() :: %{
-    "NextToken" => String.t(),
-    "Reservations" => list(reservation()())
-  }
+
+      list_reservations_response() :: %{
+        "NextToken" => String.t(),
+        "Reservations" => list(reservation()())
+      }
+
   """
   @type list_reservations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  input_configuration_request() :: %{
-    "InputPort" => integer(),
-    "Interface" => interface_request()
-  }
+
+      input_configuration_request() :: %{
+        "InputPort" => integer(),
+        "Interface" => interface_request()
+      }
+
   """
   @type input_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  messages() :: %{
-    "Errors" => list(String.t()())
-  }
+
+      messages() :: %{
+        "Errors" => list(String.t()())
+      }
+
   """
   @type messages() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_reservation_response() :: %{
-    "Reservation" => reservation()
-  }
+
+      describe_reservation_response() :: %{
+        "Reservation" => reservation()
+      }
+
   """
   @type describe_reservation_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  destination_configuration_request() :: %{
-    "DestinationIp" => String.t(),
-    "DestinationPort" => integer(),
-    "Interface" => interface_request()
-  }
+
+      destination_configuration_request() :: %{
+        "DestinationIp" => String.t(),
+        "DestinationPort" => integer(),
+        "Interface" => interface_request()
+      }
+
   """
   @type destination_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  interface() :: %{
-    "Name" => String.t()
-  }
+
+      interface() :: %{
+        "Name" => String.t()
+      }
+
   """
   @type interface() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  transport_media_info() :: %{
-    "Programs" => list(transport_stream_program()())
-  }
+
+      transport_media_info() :: %{
+        "Programs" => list(transport_stream_program()())
+      }
+
   """
   @type transport_media_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  vpc_interface_request() :: %{
-    "Name" => String.t(),
-    "NetworkInterfaceType" => list(any()),
-    "RoleArn" => String.t(),
-    "SecurityGroupIds" => list(String.t()()),
-    "SubnetId" => String.t()
-  }
+
+      vpc_interface_request() :: %{
+        "Name" => String.t(),
+        "NetworkInterfaceType" => list(any()),
+        "RoleArn" => String.t(),
+        "SecurityGroupIds" => list(String.t()()),
+        "SubnetId" => String.t()
+      }
+
   """
   @type vpc_interface_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_gateway_request() :: %{
 
-  }
+      delete_gateway_request() :: %{}
+
   """
-  @type delete_gateway_request() :: %{String.t() => any()}
+  @type delete_gateway_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  describe_gateway_request() :: %{
 
-  }
+      describe_gateway_request() :: %{}
+
   """
-  @type describe_gateway_request() :: %{String.t() => any()}
+  @type describe_gateway_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_entitlements_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      list_entitlements_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_entitlements_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_request() :: %{
 
-  }
+      list_tags_for_resource_request() :: %{}
+
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  describe_reservation_request() :: %{
 
-  }
+      describe_reservation_request() :: %{}
+
   """
-  @type describe_reservation_request() :: %{String.t() => any()}
+  @type describe_reservation_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  internal_server_error_exception() :: %{
-    "Message" => String.t()
-  }
+
+      internal_server_error_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type internal_server_error_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  remove_flow_vpc_interface_request() :: %{
 
-  }
+      remove_flow_vpc_interface_request() :: %{}
+
   """
-  @type remove_flow_vpc_interface_request() :: %{String.t() => any()}
+  @type remove_flow_vpc_interface_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  frame_resolution() :: %{
-    "FrameHeight" => integer(),
-    "FrameWidth" => integer()
-  }
+
+      frame_resolution() :: %{
+        "FrameHeight" => integer(),
+        "FrameWidth" => integer()
+      }
+
   """
   @type frame_resolution() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  gateway_bridge_source() :: %{
-    "BridgeArn" => String.t(),
-    "VpcInterfaceAttachment" => vpc_interface_attachment()
-  }
+
+      gateway_bridge_source() :: %{
+        "BridgeArn" => String.t(),
+        "VpcInterfaceAttachment" => vpc_interface_attachment()
+      }
+
   """
   @type gateway_bridge_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  revoke_flow_entitlement_request() :: %{
 
-  }
+      revoke_flow_entitlement_request() :: %{}
+
   """
-  @type revoke_flow_entitlement_request() :: %{String.t() => any()}
+  @type revoke_flow_entitlement_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  describe_gateway_response() :: %{
-    "Gateway" => gateway()
-  }
+
+      describe_gateway_response() :: %{
+        "Gateway" => gateway()
+      }
+
   """
   @type describe_gateway_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  add_bridge_output_request() :: %{
-    "NetworkOutput" => add_bridge_network_output_request()
-  }
+
+      add_bridge_output_request() :: %{
+        "NetworkOutput" => add_bridge_network_output_request()
+      }
+
   """
   @type add_bridge_output_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_gateway_instances_request() :: %{
-    optional("FilterArn") => String.t(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      list_gateway_instances_request() :: %{
+        optional("FilterArn") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_gateway_instances_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_bridge_source_request() :: %{
-    optional("FlowSource") => update_bridge_flow_source_request(),
-    optional("NetworkSource") => update_bridge_network_source_request()
-  }
+
+      update_bridge_source_request() :: %{
+        optional("FlowSource") => update_bridge_flow_source_request(),
+        optional("NetworkSource") => update_bridge_network_source_request()
+      }
+
   """
   @type update_bridge_source_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  offering() :: %{
-    "CurrencyCode" => String.t(),
-    "Duration" => integer(),
-    "DurationUnits" => list(any()),
-    "OfferingArn" => String.t(),
-    "OfferingDescription" => String.t(),
-    "PricePerUnit" => String.t(),
-    "PriceUnits" => list(any()),
-    "ResourceSpecification" => resource_specification()
-  }
+
+      offering() :: %{
+        "CurrencyCode" => String.t(),
+        "Duration" => integer(),
+        "DurationUnits" => list(any()),
+        "OfferingArn" => String.t(),
+        "OfferingDescription" => String.t(),
+        "PricePerUnit" => String.t(),
+        "PriceUnits" => list(any()),
+        "ResourceSpecification" => resource_specification()
+      }
+
   """
   @type offering() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  remove_flow_media_stream_request() :: %{
 
-  }
+      remove_flow_media_stream_request() :: %{}
+
   """
-  @type remove_flow_media_stream_request() :: %{String.t() => any()}
+  @type remove_flow_media_stream_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  grant_entitlement_request() :: %{
-    "DataTransferSubscriberFeePercent" => integer(),
-    "Description" => String.t(),
-    "Encryption" => encryption(),
-    "EntitlementStatus" => list(any()),
-    "Name" => String.t(),
-    "Subscribers" => list(String.t()())
-  }
+
+      grant_entitlement_request() :: %{
+        "DataTransferSubscriberFeePercent" => integer(),
+        "Description" => String.t(),
+        "Encryption" => encryption(),
+        "EntitlementStatus" => list(any()),
+        "Name" => String.t(),
+        "Subscribers" => list(String.t()())
+      }
+
   """
   @type grant_entitlement_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_bridge_response() :: %{
-    "Bridge" => bridge()
-  }
+
+      describe_bridge_response() :: %{
+        "Bridge" => bridge()
+      }
+
   """
   @type describe_bridge_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_flow_output_request() :: %{
-    optional("CidrAllowList") => list(String.t()()),
-    optional("Description") => String.t(),
-    optional("Destination") => String.t(),
-    optional("Encryption") => update_encryption(),
-    optional("MaxLatency") => integer(),
-    optional("MediaStreamOutputConfigurations") => list(media_stream_output_configuration_request()()),
-    optional("MinLatency") => integer(),
-    optional("Port") => integer(),
-    optional("Protocol") => list(any()),
-    optional("RemoteId") => String.t(),
-    optional("SenderControlPort") => integer(),
-    optional("SenderIpAddress") => String.t(),
-    optional("SmoothingLatency") => integer(),
-    optional("StreamId") => String.t(),
-    optional("VpcInterfaceAttachment") => vpc_interface_attachment()
-  }
+
+      update_flow_output_request() :: %{
+        optional("CidrAllowList") => list(String.t()()),
+        optional("Description") => String.t(),
+        optional("Destination") => String.t(),
+        optional("Encryption") => update_encryption(),
+        optional("MaxLatency") => integer(),
+        optional("MediaStreamOutputConfigurations") => list(media_stream_output_configuration_request()()),
+        optional("MinLatency") => integer(),
+        optional("Port") => integer(),
+        optional("Protocol") => list(any()),
+        optional("RemoteId") => String.t(),
+        optional("SenderControlPort") => integer(),
+        optional("SenderIpAddress") => String.t(),
+        optional("SmoothingLatency") => integer(),
+        optional("StreamId") => String.t(),
+        optional("VpcInterfaceAttachment") => vpc_interface_attachment()
+      }
+
   """
   @type update_flow_output_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  gateway_instance() :: %{
-    "BridgePlacement" => list(any()),
-    "ConnectionStatus" => list(any()),
-    "GatewayArn" => String.t(),
-    "GatewayInstanceArn" => String.t(),
-    "InstanceId" => String.t(),
-    "InstanceMessages" => list(message_detail()()),
-    "InstanceState" => list(any()),
-    "RunningBridgeCount" => integer()
-  }
+
+      gateway_instance() :: %{
+        "BridgePlacement" => list(any()),
+        "ConnectionStatus" => list(any()),
+        "GatewayArn" => String.t(),
+        "GatewayInstanceArn" => String.t(),
+        "InstanceId" => String.t(),
+        "InstanceMessages" => list(message_detail()()),
+        "InstanceState" => list(any()),
+        "RunningBridgeCount" => integer()
+      }
+
   """
   @type gateway_instance() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_flow_output_response() :: %{
-    "FlowArn" => String.t(),
-    "Output" => output()
-  }
+
+      update_flow_output_response() :: %{
+        "FlowArn" => String.t(),
+        "Output" => output()
+      }
+
   """
   @type update_flow_output_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  bad_request_exception() :: %{
-    "Message" => String.t()
-  }
+
+      bad_request_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type bad_request_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  add_bridge_sources_request() :: %{
-    required("Sources") => list(add_bridge_source_request()())
-  }
+
+      add_bridge_sources_request() :: %{
+        required("Sources") => list(add_bridge_source_request()())
+      }
+
   """
   @type add_bridge_sources_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_gateway_bridge_source_request() :: %{
-    "BridgeArn" => String.t(),
-    "VpcInterfaceAttachment" => vpc_interface_attachment()
-  }
+
+      update_gateway_bridge_source_request() :: %{
+        "BridgeArn" => String.t(),
+        "VpcInterfaceAttachment" => vpc_interface_attachment()
+      }
+
   """
   @type update_gateway_bridge_source_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_flow_entitlement_response() :: %{
-    "Entitlement" => entitlement(),
-    "FlowArn" => String.t()
-  }
+
+      update_flow_entitlement_response() :: %{
+        "Entitlement" => entitlement(),
+        "FlowArn" => String.t()
+      }
+
   """
   @type update_flow_entitlement_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  listed_bridge() :: %{
-    "BridgeArn" => String.t(),
-    "BridgeState" => list(any()),
-    "BridgeType" => String.t(),
-    "Name" => String.t(),
-    "PlacementArn" => String.t()
-  }
+
+      listed_bridge() :: %{
+        "BridgeArn" => String.t(),
+        "BridgeState" => list(any()),
+        "BridgeType" => String.t(),
+        "Name" => String.t(),
+        "PlacementArn" => String.t()
+      }
+
   """
   @type listed_bridge() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_flow_response() :: %{
-    "Flow" => flow()
-  }
+
+      update_flow_response() :: %{
+        "Flow" => flow()
+      }
+
   """
   @type update_flow_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  transport_stream() :: %{
-    "Channels" => integer(),
-    "Codec" => String.t(),
-    "FrameRate" => String.t(),
-    "FrameResolution" => frame_resolution(),
-    "Pid" => integer(),
-    "SampleRate" => integer(),
-    "SampleSize" => integer(),
-    "StreamType" => String.t()
-  }
+
+      transport_stream() :: %{
+        "Channels" => integer(),
+        "Codec" => String.t(),
+        "FrameRate" => String.t(),
+        "FrameResolution" => frame_resolution(),
+        "Pid" => integer(),
+        "SampleRate" => integer(),
+        "SampleSize" => integer(),
+        "StreamType" => String.t()
+      }
+
   """
   @type transport_stream() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  revoke_flow_entitlement_response() :: %{
-    "EntitlementArn" => String.t(),
-    "FlowArn" => String.t()
-  }
+
+      revoke_flow_entitlement_response() :: %{
+        "EntitlementArn" => String.t(),
+        "FlowArn" => String.t()
+      }
+
   """
   @type revoke_flow_entitlement_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  bridge_flow_output() :: %{
-    "FlowArn" => String.t(),
-    "FlowSourceArn" => String.t(),
-    "Name" => String.t()
-  }
+
+      bridge_flow_output() :: %{
+        "FlowArn" => String.t(),
+        "FlowSourceArn" => String.t(),
+        "Name" => String.t()
+      }
+
   """
   @type bridge_flow_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_flow_media_stream_response() :: %{
-    "FlowArn" => String.t(),
-    "MediaStream" => media_stream()
-  }
+
+      update_flow_media_stream_response() :: %{
+        "FlowArn" => String.t(),
+        "MediaStream" => media_stream()
+      }
+
   """
   @type update_flow_media_stream_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  add_flow_outputs_request() :: %{
-    required("Outputs") => list(add_output_request()())
-  }
+
+      add_flow_outputs_request() :: %{
+        required("Outputs") => list(add_output_request()())
+      }
+
   """
   @type add_flow_outputs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_flow_response() :: %{
-    "Flow" => flow(),
-    "Messages" => messages()
-  }
+
+      describe_flow_response() :: %{
+        "Flow" => flow(),
+        "Messages" => messages()
+      }
+
   """
   @type describe_flow_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  flow() :: %{
-    "AvailabilityZone" => String.t(),
-    "Description" => String.t(),
-    "EgressIp" => String.t(),
-    "Entitlements" => list(entitlement()()),
-    "FlowArn" => String.t(),
-    "Maintenance" => maintenance(),
-    "MediaStreams" => list(media_stream()()),
-    "Name" => String.t(),
-    "Outputs" => list(output()()),
-    "Source" => source(),
-    "SourceFailoverConfig" => failover_config(),
-    "Sources" => list(source()()),
-    "Status" => list(any()),
-    "VpcInterfaces" => list(vpc_interface()())
-  }
+
+      flow() :: %{
+        "AvailabilityZone" => String.t(),
+        "Description" => String.t(),
+        "EgressIp" => String.t(),
+        "Entitlements" => list(entitlement()()),
+        "FlowArn" => String.t(),
+        "Maintenance" => maintenance(),
+        "MediaStreams" => list(media_stream()()),
+        "Name" => String.t(),
+        "Outputs" => list(output()()),
+        "Source" => source(),
+        "SourceFailoverConfig" => failover_config(),
+        "Sources" => list(source()()),
+        "Status" => list(any()),
+        "VpcInterfaces" => list(vpc_interface()())
+      }
+
   """
   @type flow() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  set_source_request() :: %{
-    "Decryption" => encryption(),
-    "Description" => String.t(),
-    "EntitlementArn" => String.t(),
-    "GatewayBridgeSource" => set_gateway_bridge_source_request(),
-    "IngestPort" => integer(),
-    "MaxBitrate" => integer(),
-    "MaxLatency" => integer(),
-    "MaxSyncBuffer" => integer(),
-    "MediaStreamSourceConfigurations" => list(media_stream_source_configuration_request()()),
-    "MinLatency" => integer(),
-    "Name" => String.t(),
-    "Protocol" => list(any()),
-    "SenderControlPort" => integer(),
-    "SenderIpAddress" => String.t(),
-    "SourceListenerAddress" => String.t(),
-    "SourceListenerPort" => integer(),
-    "StreamId" => String.t(),
-    "VpcInterfaceName" => String.t(),
-    "WhitelistCidr" => String.t()
-  }
+
+      set_source_request() :: %{
+        "Decryption" => encryption(),
+        "Description" => String.t(),
+        "EntitlementArn" => String.t(),
+        "GatewayBridgeSource" => set_gateway_bridge_source_request(),
+        "IngestPort" => integer(),
+        "MaxBitrate" => integer(),
+        "MaxLatency" => integer(),
+        "MaxSyncBuffer" => integer(),
+        "MediaStreamSourceConfigurations" => list(media_stream_source_configuration_request()()),
+        "MinLatency" => integer(),
+        "Name" => String.t(),
+        "Protocol" => list(any()),
+        "SenderControlPort" => integer(),
+        "SenderIpAddress" => String.t(),
+        "SourceListenerAddress" => String.t(),
+        "SourceListenerPort" => integer(),
+        "StreamId" => String.t(),
+        "VpcInterfaceName" => String.t(),
+        "WhitelistCidr" => String.t()
+      }
+
   """
   @type set_source_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  listed_gateway_instance() :: %{
-    "GatewayArn" => String.t(),
-    "GatewayInstanceArn" => String.t(),
-    "InstanceId" => String.t(),
-    "InstanceState" => list(any())
-  }
+
+      listed_gateway_instance() :: %{
+        "GatewayArn" => String.t(),
+        "GatewayInstanceArn" => String.t(),
+        "InstanceId" => String.t(),
+        "InstanceState" => list(any())
+      }
+
   """
   @type listed_gateway_instance() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_gateways_response() :: %{
-    "Gateways" => list(listed_gateway()()),
-    "NextToken" => String.t()
-  }
+
+      list_gateways_response() :: %{
+        "Gateways" => list(listed_gateway()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_gateways_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  deregister_gateway_instance_request() :: %{
-    optional("Force") => boolean()
-  }
+
+      deregister_gateway_instance_request() :: %{
+        optional("Force") => boolean()
+      }
+
   """
   @type deregister_gateway_instance_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  failover_config() :: %{
-    "FailoverMode" => list(any()),
-    "RecoveryWindow" => integer(),
-    "SourcePriority" => source_priority(),
-    "State" => list(any())
-  }
+
+      failover_config() :: %{
+        "FailoverMode" => list(any()),
+        "RecoveryWindow" => integer(),
+        "SourcePriority" => source_priority(),
+        "State" => list(any())
+      }
+
   """
   @type failover_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  add_bridge_network_output_request() :: %{
-    "IpAddress" => String.t(),
-    "Name" => String.t(),
-    "NetworkName" => String.t(),
-    "Port" => integer(),
-    "Protocol" => list(any()),
-    "Ttl" => integer()
-  }
+
+      add_bridge_network_output_request() :: %{
+        "IpAddress" => String.t(),
+        "Name" => String.t(),
+        "NetworkName" => String.t(),
+        "Port" => integer(),
+        "Protocol" => list(any()),
+        "Ttl" => integer()
+      }
+
   """
   @type add_bridge_network_output_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_offering_response() :: %{
-    "Offering" => offering()
-  }
+
+      describe_offering_response() :: %{
+        "Offering" => offering()
+      }
+
   """
   @type describe_offering_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  add_flow_vpc_interfaces_response() :: %{
-    "FlowArn" => String.t(),
-    "VpcInterfaces" => list(vpc_interface()())
-  }
+
+      add_flow_vpc_interfaces_response() :: %{
+        "FlowArn" => String.t(),
+        "VpcInterfaces" => list(vpc_interface()())
+      }
+
   """
   @type add_flow_vpc_interfaces_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_bridges_response() :: %{
-    "Bridges" => list(listed_bridge()()),
-    "NextToken" => String.t()
-  }
+
+      list_bridges_response() :: %{
+        "Bridges" => list(listed_bridge()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_bridges_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stop_flow_request() :: %{
 
-  }
+      stop_flow_request() :: %{}
+
   """
-  @type stop_flow_request() :: %{String.t() => any()}
+  @type stop_flow_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  remove_flow_output_request() :: %{
 
-  }
+      remove_flow_output_request() :: %{}
+
   """
-  @type remove_flow_output_request() :: %{String.t() => any()}
+  @type remove_flow_output_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  update_flow_entitlement_request() :: %{
-    optional("Description") => String.t(),
-    optional("Encryption") => update_encryption(),
-    optional("EntitlementStatus") => list(any()),
-    optional("Subscribers") => list(String.t()())
-  }
+
+      update_flow_entitlement_request() :: %{
+        optional("Description") => String.t(),
+        optional("Encryption") => update_encryption(),
+        optional("EntitlementStatus") => list(any()),
+        optional("Subscribers") => list(String.t()())
+      }
+
   """
   @type update_flow_entitlement_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  add_flow_media_streams_request() :: %{
-    required("MediaStreams") => list(add_media_stream_request()())
-  }
+
+      add_flow_media_streams_request() :: %{
+        required("MediaStreams") => list(add_media_stream_request()())
+      }
+
   """
   @type add_flow_media_streams_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_offering_request() :: %{
 
-  }
+      describe_offering_request() :: %{}
+
   """
-  @type describe_offering_request() :: %{String.t() => any()}
+  @type describe_offering_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  vpc_interface_attachment() :: %{
-    "VpcInterfaceName" => String.t()
-  }
+
+      vpc_interface_attachment() :: %{
+        "VpcInterfaceName" => String.t()
+      }
+
   """
   @type vpc_interface_attachment() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  output() :: %{
-    "BridgeArn" => String.t(),
-    "BridgePorts" => list(integer()()),
-    "DataTransferSubscriberFeePercent" => integer(),
-    "Description" => String.t(),
-    "Destination" => String.t(),
-    "Encryption" => encryption(),
-    "EntitlementArn" => String.t(),
-    "ListenerAddress" => String.t(),
-    "MediaLiveInputArn" => String.t(),
-    "MediaStreamOutputConfigurations" => list(media_stream_output_configuration()()),
-    "Name" => String.t(),
-    "OutputArn" => String.t(),
-    "Port" => integer(),
-    "Transport" => transport(),
-    "VpcInterfaceAttachment" => vpc_interface_attachment()
-  }
+
+      output() :: %{
+        "BridgeArn" => String.t(),
+        "BridgePorts" => list(integer()()),
+        "DataTransferSubscriberFeePercent" => integer(),
+        "Description" => String.t(),
+        "Destination" => String.t(),
+        "Encryption" => encryption(),
+        "EntitlementArn" => String.t(),
+        "ListenerAddress" => String.t(),
+        "MediaLiveInputArn" => String.t(),
+        "MediaStreamOutputConfigurations" => list(media_stream_output_configuration()()),
+        "Name" => String.t(),
+        "OutputArn" => String.t(),
+        "Port" => integer(),
+        "Transport" => transport(),
+        "VpcInterfaceAttachment" => vpc_interface_attachment()
+      }
+
   """
   @type output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  purchase_offering_response() :: %{
-    "Reservation" => reservation()
-  }
+
+      purchase_offering_response() :: %{
+        "Reservation" => reservation()
+      }
+
   """
   @type purchase_offering_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  destination_configuration() :: %{
-    "DestinationIp" => String.t(),
-    "DestinationPort" => integer(),
-    "Interface" => interface(),
-    "OutboundIp" => String.t()
-  }
+
+      destination_configuration() :: %{
+        "DestinationIp" => String.t(),
+        "DestinationPort" => integer(),
+        "Interface" => interface(),
+        "OutboundIp" => String.t()
+      }
+
   """
   @type destination_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  purchase_offering_request() :: %{
-    required("ReservationName") => String.t(),
-    required("Start") => String.t()
-  }
+
+      purchase_offering_request() :: %{
+        required("ReservationName") => String.t(),
+        required("Start") => String.t()
+      }
+
   """
   @type purchase_offering_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_bridge_output_response() :: %{
-    "BridgeArn" => String.t(),
-    "Output" => bridge_output()
-  }
+
+      update_bridge_output_response() :: %{
+        "BridgeArn" => String.t(),
+        "Output" => bridge_output()
+      }
+
   """
   @type update_bridge_output_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  media_stream_source_configuration() :: %{
-    "EncodingName" => list(any()),
-    "InputConfigurations" => list(input_configuration()()),
-    "MediaStreamName" => String.t()
-  }
+
+      media_stream_source_configuration() :: %{
+        "EncodingName" => list(any()),
+        "InputConfigurations" => list(input_configuration()()),
+        "MediaStreamName" => String.t()
+      }
+
   """
   @type media_stream_source_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  bridge_source() :: %{
-    "FlowSource" => bridge_flow_source(),
-    "NetworkSource" => bridge_network_source()
-  }
+
+      bridge_source() :: %{
+        "FlowSource" => bridge_flow_source(),
+        "NetworkSource" => bridge_network_source()
+      }
+
   """
   @type bridge_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  add_output_request() :: %{
-    "CidrAllowList" => list(String.t()()),
-    "Description" => String.t(),
-    "Destination" => String.t(),
-    "Encryption" => encryption(),
-    "MaxLatency" => integer(),
-    "MediaStreamOutputConfigurations" => list(media_stream_output_configuration_request()()),
-    "MinLatency" => integer(),
-    "Name" => String.t(),
-    "Port" => integer(),
-    "Protocol" => list(any()),
-    "RemoteId" => String.t(),
-    "SenderControlPort" => integer(),
-    "SmoothingLatency" => integer(),
-    "StreamId" => String.t(),
-    "VpcInterfaceAttachment" => vpc_interface_attachment()
-  }
+
+      add_output_request() :: %{
+        "CidrAllowList" => list(String.t()()),
+        "Description" => String.t(),
+        "Destination" => String.t(),
+        "Encryption" => encryption(),
+        "MaxLatency" => integer(),
+        "MediaStreamOutputConfigurations" => list(media_stream_output_configuration_request()()),
+        "MinLatency" => integer(),
+        "Name" => String.t(),
+        "Port" => integer(),
+        "Protocol" => list(any()),
+        "RemoteId" => String.t(),
+        "SenderControlPort" => integer(),
+        "SmoothingLatency" => integer(),
+        "StreamId" => String.t(),
+        "VpcInterfaceAttachment" => vpc_interface_attachment()
+      }
+
   """
   @type add_output_request() :: %{String.t() => any()}
+
+  @type add_bridge_outputs_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type add_bridge_sources_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type add_flow_media_streams_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type add_flow_outputs_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | add_flow_outputs420_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type add_flow_sources_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type add_flow_vpc_interfaces_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type create_bridge_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | conflict_exception()
+          | create_bridge420_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type create_flow_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | too_many_requests_exception()
+          | create_flow420_exception()
+          | forbidden_exception()
+
+  @type create_gateway_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | create_gateway420_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type delete_bridge_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type delete_flow_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type delete_gateway_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type deregister_gateway_instance_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type describe_bridge_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type describe_flow_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type describe_flow_source_metadata_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type describe_gateway_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type describe_gateway_instance_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type describe_offering_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+
+  @type describe_reservation_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+
+  @type grant_flow_entitlements_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | grant_flow_entitlements420_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type list_bridges_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+
+  @type list_entitlements_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | too_many_requests_exception()
+
+  @type list_flows_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | too_many_requests_exception()
+
+  @type list_gateway_instances_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+
+  @type list_gateways_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+
+  @type list_offerings_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | too_many_requests_exception()
+
+  @type list_reservations_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | too_many_requests_exception()
+
+  @type list_tags_for_resource_errors() ::
+          bad_request_exception() | internal_server_error_exception() | not_found_exception()
+
+  @type purchase_offering_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type remove_bridge_output_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type remove_bridge_source_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type remove_flow_media_stream_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type remove_flow_output_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type remove_flow_source_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type remove_flow_vpc_interface_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type revoke_flow_entitlement_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type start_flow_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type stop_flow_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type tag_resource_errors() ::
+          bad_request_exception() | internal_server_error_exception() | not_found_exception()
+
+  @type untag_resource_errors() ::
+          bad_request_exception() | internal_server_error_exception() | not_found_exception()
+
+  @type update_bridge_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type update_bridge_output_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type update_bridge_source_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type update_bridge_state_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type update_flow_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type update_flow_entitlement_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type update_flow_media_stream_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type update_flow_output_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type update_flow_source_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type update_gateway_instance_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
 
   def metadata do
     %{
@@ -2144,13 +2883,7 @@ defmodule AWS.MediaConnect do
   @spec add_bridge_outputs(map(), String.t(), add_bridge_outputs_request(), list()) ::
           {:ok, add_bridge_outputs_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, internal_server_error_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, add_bridge_outputs_errors()}
   def add_bridge_outputs(%Client{} = client, bridge_arn, input, options \\ []) do
     url_path = "/v1/bridges/#{AWS.Util.encode_uri(bridge_arn)}/outputs"
     headers = []
@@ -2177,13 +2910,7 @@ defmodule AWS.MediaConnect do
   @spec add_bridge_sources(map(), String.t(), add_bridge_sources_request(), list()) ::
           {:ok, add_bridge_sources_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, internal_server_error_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, add_bridge_sources_errors()}
   def add_bridge_sources(%Client{} = client, bridge_arn, input, options \\ []) do
     url_path = "/v1/bridges/#{AWS.Util.encode_uri(bridge_arn)}/sources"
     headers = []
@@ -2213,12 +2940,7 @@ defmodule AWS.MediaConnect do
   @spec add_flow_media_streams(map(), String.t(), add_flow_media_streams_request(), list()) ::
           {:ok, add_flow_media_streams_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, internal_server_error_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, add_flow_media_streams_errors()}
   def add_flow_media_streams(%Client{} = client, flow_arn, input, options \\ []) do
     url_path = "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/mediaStreams"
     headers = []
@@ -2247,13 +2969,7 @@ defmodule AWS.MediaConnect do
   @spec add_flow_outputs(map(), String.t(), add_flow_outputs_request(), list()) ::
           {:ok, add_flow_outputs_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, add_flow_outputs420_exception()}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, internal_server_error_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, add_flow_outputs_errors()}
   def add_flow_outputs(%Client{} = client, flow_arn, input, options \\ []) do
     url_path = "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/outputs"
     headers = []
@@ -2280,12 +2996,7 @@ defmodule AWS.MediaConnect do
   @spec add_flow_sources(map(), String.t(), add_flow_sources_request(), list()) ::
           {:ok, add_flow_sources_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, internal_server_error_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, add_flow_sources_errors()}
   def add_flow_sources(%Client{} = client, flow_arn, input, options \\ []) do
     url_path = "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/source"
     headers = []
@@ -2312,12 +3023,7 @@ defmodule AWS.MediaConnect do
   @spec add_flow_vpc_interfaces(map(), String.t(), add_flow_vpc_interfaces_request(), list()) ::
           {:ok, add_flow_vpc_interfaces_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, internal_server_error_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, add_flow_vpc_interfaces_errors()}
   def add_flow_vpc_interfaces(%Client{} = client, flow_arn, input, options \\ []) do
     url_path = "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/vpcInterfaces"
     headers = []
@@ -2346,13 +3052,7 @@ defmodule AWS.MediaConnect do
   @spec create_bridge(map(), create_bridge_request(), list()) ::
           {:ok, create_bridge_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, create_bridge420_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, internal_server_error_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, create_bridge_errors()}
   def create_bridge(%Client{} = client, input, options \\ []) do
     url_path = "/v1/bridges"
     headers = []
@@ -2382,12 +3082,7 @@ defmodule AWS.MediaConnect do
   @spec create_flow(map(), create_flow_request(), list()) ::
           {:ok, create_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, create_flow420_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, internal_server_error_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, create_flow_errors()}
   def create_flow(%Client{} = client, input, options \\ []) do
     url_path = "/v1/flows"
     headers = []
@@ -2416,13 +3111,7 @@ defmodule AWS.MediaConnect do
   @spec create_gateway(map(), create_gateway_request(), list()) ::
           {:ok, create_gateway_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, create_gateway420_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, internal_server_error_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, create_gateway_errors()}
   def create_gateway(%Client{} = client, input, options \\ []) do
     url_path = "/v1/gateways"
     headers = []
@@ -2451,13 +3140,7 @@ defmodule AWS.MediaConnect do
   @spec delete_bridge(map(), String.t(), delete_bridge_request(), list()) ::
           {:ok, delete_bridge_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, internal_server_error_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, delete_bridge_errors()}
   def delete_bridge(%Client{} = client, bridge_arn, input, options \\ []) do
     url_path = "/v1/bridges/#{AWS.Util.encode_uri(bridge_arn)}"
     headers = []
@@ -2486,12 +3169,7 @@ defmodule AWS.MediaConnect do
   @spec delete_flow(map(), String.t(), delete_flow_request(), list()) ::
           {:ok, delete_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, internal_server_error_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, delete_flow_errors()}
   def delete_flow(%Client{} = client, flow_arn, input, options \\ []) do
     url_path = "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}"
     headers = []
@@ -2521,13 +3199,7 @@ defmodule AWS.MediaConnect do
   @spec delete_gateway(map(), String.t(), delete_gateway_request(), list()) ::
           {:ok, delete_gateway_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, internal_server_error_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, delete_gateway_errors()}
   def delete_gateway(%Client{} = client, gateway_arn, input, options \\ []) do
     url_path = "/v1/gateways/#{AWS.Util.encode_uri(gateway_arn)}"
     headers = []
@@ -2563,13 +3235,7 @@ defmodule AWS.MediaConnect do
         ) ::
           {:ok, deregister_gateway_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, internal_server_error_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, deregister_gateway_instance_errors()}
   def deregister_gateway_instance(%Client{} = client, gateway_instance_arn, input, options \\ []) do
     url_path = "/v1/gateway-instances/#{AWS.Util.encode_uri(gateway_instance_arn)}"
     headers = []
@@ -2601,13 +3267,7 @@ defmodule AWS.MediaConnect do
   @spec describe_bridge(map(), String.t(), list()) ::
           {:ok, describe_bridge_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, internal_server_error_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, describe_bridge_errors()}
   def describe_bridge(%Client{} = client, bridge_arn, options \\ []) do
     url_path = "/v1/bridges/#{AWS.Util.encode_uri(bridge_arn)}"
     headers = []
@@ -2627,12 +3287,7 @@ defmodule AWS.MediaConnect do
   @spec describe_flow(map(), String.t(), list()) ::
           {:ok, describe_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, internal_server_error_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, describe_flow_errors()}
   def describe_flow(%Client{} = client, flow_arn, options \\ []) do
     url_path = "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}"
     headers = []
@@ -2652,12 +3307,7 @@ defmodule AWS.MediaConnect do
   @spec describe_flow_source_metadata(map(), String.t(), list()) ::
           {:ok, describe_flow_source_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, internal_server_error_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, describe_flow_source_metadata_errors()}
   def describe_flow_source_metadata(%Client{} = client, flow_arn, options \\ []) do
     url_path = "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/source-metadata"
     headers = []
@@ -2677,13 +3327,7 @@ defmodule AWS.MediaConnect do
   @spec describe_gateway(map(), String.t(), list()) ::
           {:ok, describe_gateway_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, internal_server_error_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, describe_gateway_errors()}
   def describe_gateway(%Client{} = client, gateway_arn, options \\ []) do
     url_path = "/v1/gateways/#{AWS.Util.encode_uri(gateway_arn)}"
     headers = []
@@ -2700,13 +3344,7 @@ defmodule AWS.MediaConnect do
   @spec describe_gateway_instance(map(), String.t(), list()) ::
           {:ok, describe_gateway_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, internal_server_error_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, describe_gateway_instance_errors()}
   def describe_gateway_instance(%Client{} = client, gateway_instance_arn, options \\ []) do
     url_path = "/v1/gateway-instances/#{AWS.Util.encode_uri(gateway_instance_arn)}"
     headers = []
@@ -2726,11 +3364,7 @@ defmodule AWS.MediaConnect do
   @spec describe_offering(map(), String.t(), list()) ::
           {:ok, describe_offering_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, describe_offering_errors()}
   def describe_offering(%Client{} = client, offering_arn, options \\ []) do
     url_path = "/v1/offerings/#{AWS.Util.encode_uri(offering_arn)}"
     headers = []
@@ -2751,11 +3385,7 @@ defmodule AWS.MediaConnect do
   @spec describe_reservation(map(), String.t(), list()) ::
           {:ok, describe_reservation_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, describe_reservation_errors()}
   def describe_reservation(%Client{} = client, reservation_arn, options \\ []) do
     url_path = "/v1/reservations/#{AWS.Util.encode_uri(reservation_arn)}"
     headers = []
@@ -2772,13 +3402,7 @@ defmodule AWS.MediaConnect do
   @spec grant_flow_entitlements(map(), String.t(), grant_flow_entitlements_request(), list()) ::
           {:ok, grant_flow_entitlements_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, grant_flow_entitlements420_exception()}
-          | {:error, internal_server_error_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, grant_flow_entitlements_errors()}
   def grant_flow_entitlements(%Client{} = client, flow_arn, input, options \\ []) do
     url_path = "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/entitlements"
     headers = []
@@ -2808,11 +3432,7 @@ defmodule AWS.MediaConnect do
   @spec list_bridges(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_bridges_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_error_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, list_bridges_errors()}
   def list_bridges(
         %Client{} = client,
         filter_arn \\ nil,
@@ -2858,10 +3478,7 @@ defmodule AWS.MediaConnect do
   @spec list_entitlements(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_entitlements_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, list_entitlements_errors()}
   def list_entitlements(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/v1/entitlements"
     headers = []
@@ -2894,10 +3511,7 @@ defmodule AWS.MediaConnect do
   @spec list_flows(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_flows_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, list_flows_errors()}
   def list_flows(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/v1/flows"
     headers = []
@@ -2938,11 +3552,7 @@ defmodule AWS.MediaConnect do
         ) ::
           {:ok, list_gateway_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_error_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, list_gateway_instances_errors()}
   def list_gateway_instances(
         %Client{} = client,
         filter_arn \\ nil,
@@ -2988,11 +3598,7 @@ defmodule AWS.MediaConnect do
   @spec list_gateways(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_gateways_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_error_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, list_gateways_errors()}
   def list_gateways(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/v1/gateways"
     headers = []
@@ -3028,10 +3634,7 @@ defmodule AWS.MediaConnect do
   @spec list_offerings(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_offerings_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, list_offerings_errors()}
   def list_offerings(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/v1/offerings"
     headers = []
@@ -3065,10 +3668,7 @@ defmodule AWS.MediaConnect do
   @spec list_reservations(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_reservations_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, list_reservations_errors()}
   def list_reservations(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/v1/reservations"
     headers = []
@@ -3099,9 +3699,7 @@ defmodule AWS.MediaConnect do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
-          | {:error, not_found_exception()}
+          | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -3120,12 +3718,7 @@ defmodule AWS.MediaConnect do
   @spec purchase_offering(map(), String.t(), purchase_offering_request(), list()) ::
           {:ok, purchase_offering_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, internal_server_error_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, purchase_offering_errors()}
   def purchase_offering(%Client{} = client, offering_arn, input, options \\ []) do
     url_path = "/v1/offerings/#{AWS.Util.encode_uri(offering_arn)}"
     headers = []
@@ -3158,13 +3751,7 @@ defmodule AWS.MediaConnect do
         ) ::
           {:ok, remove_bridge_output_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, internal_server_error_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, remove_bridge_output_errors()}
   def remove_bridge_output(%Client{} = client, bridge_arn, output_name, input, options \\ []) do
     url_path =
       "/v1/bridges/#{AWS.Util.encode_uri(bridge_arn)}/outputs/#{AWS.Util.encode_uri(output_name)}"
@@ -3199,13 +3786,7 @@ defmodule AWS.MediaConnect do
         ) ::
           {:ok, remove_bridge_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, internal_server_error_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, remove_bridge_source_errors()}
   def remove_bridge_source(%Client{} = client, bridge_arn, source_name, input, options \\ []) do
     url_path =
       "/v1/bridges/#{AWS.Util.encode_uri(bridge_arn)}/sources/#{AWS.Util.encode_uri(source_name)}"
@@ -3243,12 +3824,7 @@ defmodule AWS.MediaConnect do
         ) ::
           {:ok, remove_flow_media_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, internal_server_error_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, remove_flow_media_stream_errors()}
   def remove_flow_media_stream(
         %Client{} = client,
         flow_arn,
@@ -3288,12 +3864,7 @@ defmodule AWS.MediaConnect do
   @spec remove_flow_output(map(), String.t(), String.t(), remove_flow_output_request(), list()) ::
           {:ok, remove_flow_output_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, internal_server_error_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, remove_flow_output_errors()}
   def remove_flow_output(%Client{} = client, flow_arn, output_arn, input, options \\ []) do
     url_path =
       "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/outputs/#{AWS.Util.encode_uri(output_arn)}"
@@ -3324,12 +3895,7 @@ defmodule AWS.MediaConnect do
   @spec remove_flow_source(map(), String.t(), String.t(), remove_flow_source_request(), list()) ::
           {:ok, remove_flow_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, internal_server_error_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, remove_flow_source_errors()}
   def remove_flow_source(%Client{} = client, flow_arn, source_arn, input, options \\ []) do
     url_path =
       "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/source/#{AWS.Util.encode_uri(source_arn)}"
@@ -3369,12 +3935,7 @@ defmodule AWS.MediaConnect do
         ) ::
           {:ok, remove_flow_vpc_interface_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, internal_server_error_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, remove_flow_vpc_interface_errors()}
   def remove_flow_vpc_interface(
         %Client{} = client,
         flow_arn,
@@ -3418,12 +3979,7 @@ defmodule AWS.MediaConnect do
         ) ::
           {:ok, revoke_flow_entitlement_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, internal_server_error_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, revoke_flow_entitlement_errors()}
   def revoke_flow_entitlement(%Client{} = client, entitlement_arn, flow_arn, input, options \\ []) do
     url_path =
       "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/entitlements/#{AWS.Util.encode_uri(entitlement_arn)}"
@@ -3452,12 +4008,7 @@ defmodule AWS.MediaConnect do
   @spec start_flow(map(), String.t(), start_flow_request(), list()) ::
           {:ok, start_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, internal_server_error_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, start_flow_errors()}
   def start_flow(%Client{} = client, flow_arn, input, options \\ []) do
     url_path = "/v1/flows/start/#{AWS.Util.encode_uri(flow_arn)}"
     headers = []
@@ -3484,12 +4035,7 @@ defmodule AWS.MediaConnect do
   @spec stop_flow(map(), String.t(), stop_flow_request(), list()) ::
           {:ok, stop_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, internal_server_error_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, stop_flow_errors()}
   def stop_flow(%Client{} = client, flow_arn, input, options \\ []) do
     url_path = "/v1/flows/stop/#{AWS.Util.encode_uri(flow_arn)}"
     headers = []
@@ -3520,9 +4066,7 @@ defmodule AWS.MediaConnect do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
-          | {:error, not_found_exception()}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -3549,9 +4093,7 @@ defmodule AWS.MediaConnect do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
-          | {:error, not_found_exception()}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -3583,13 +4125,7 @@ defmodule AWS.MediaConnect do
   @spec update_bridge(map(), String.t(), update_bridge_request(), list()) ::
           {:ok, update_bridge_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, internal_server_error_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, update_bridge_errors()}
   def update_bridge(%Client{} = client, bridge_arn, input, options \\ []) do
     url_path = "/v1/bridges/#{AWS.Util.encode_uri(bridge_arn)}"
     headers = []
@@ -3612,13 +4148,7 @@ defmodule AWS.MediaConnect do
         ) ::
           {:ok, update_bridge_output_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, internal_server_error_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, update_bridge_output_errors()}
   def update_bridge_output(%Client{} = client, bridge_arn, output_name, input, options \\ []) do
     url_path =
       "/v1/bridges/#{AWS.Util.encode_uri(bridge_arn)}/outputs/#{AWS.Util.encode_uri(output_name)}"
@@ -3643,13 +4173,7 @@ defmodule AWS.MediaConnect do
         ) ::
           {:ok, update_bridge_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, internal_server_error_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, update_bridge_source_errors()}
   def update_bridge_source(%Client{} = client, bridge_arn, source_name, input, options \\ []) do
     url_path =
       "/v1/bridges/#{AWS.Util.encode_uri(bridge_arn)}/sources/#{AWS.Util.encode_uri(source_name)}"
@@ -3668,13 +4192,7 @@ defmodule AWS.MediaConnect do
   @spec update_bridge_state(map(), String.t(), update_bridge_state_request(), list()) ::
           {:ok, update_bridge_state_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, internal_server_error_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, update_bridge_state_errors()}
   def update_bridge_state(%Client{} = client, bridge_arn, input, options \\ []) do
     url_path = "/v1/bridges/#{AWS.Util.encode_uri(bridge_arn)}/state"
     headers = []
@@ -3691,12 +4209,7 @@ defmodule AWS.MediaConnect do
   @spec update_flow(map(), String.t(), update_flow_request(), list()) ::
           {:ok, update_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, internal_server_error_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, update_flow_errors()}
   def update_flow(%Client{} = client, flow_arn, input, options \\ []) do
     url_path = "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}"
     headers = []
@@ -3722,12 +4235,7 @@ defmodule AWS.MediaConnect do
         ) ::
           {:ok, update_flow_entitlement_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, internal_server_error_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, update_flow_entitlement_errors()}
   def update_flow_entitlement(%Client{} = client, entitlement_arn, flow_arn, input, options \\ []) do
     url_path =
       "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/entitlements/#{AWS.Util.encode_uri(entitlement_arn)}"
@@ -3752,12 +4260,7 @@ defmodule AWS.MediaConnect do
         ) ::
           {:ok, update_flow_media_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, internal_server_error_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, update_flow_media_stream_errors()}
   def update_flow_media_stream(
         %Client{} = client,
         flow_arn,
@@ -3782,12 +4285,7 @@ defmodule AWS.MediaConnect do
   @spec update_flow_output(map(), String.t(), String.t(), update_flow_output_request(), list()) ::
           {:ok, update_flow_output_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, internal_server_error_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, update_flow_output_errors()}
   def update_flow_output(%Client{} = client, flow_arn, output_arn, input, options \\ []) do
     url_path =
       "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/outputs/#{AWS.Util.encode_uri(output_arn)}"
@@ -3806,12 +4304,7 @@ defmodule AWS.MediaConnect do
   @spec update_flow_source(map(), String.t(), String.t(), update_flow_source_request(), list()) ::
           {:ok, update_flow_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, internal_server_error_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, update_flow_source_errors()}
   def update_flow_source(%Client{} = client, flow_arn, source_arn, input, options \\ []) do
     url_path =
       "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/source/#{AWS.Util.encode_uri(source_arn)}"
@@ -3830,13 +4323,7 @@ defmodule AWS.MediaConnect do
   @spec update_gateway_instance(map(), String.t(), update_gateway_instance_request(), list()) ::
           {:ok, update_gateway_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, internal_server_error_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, update_gateway_instance_errors()}
   def update_gateway_instance(%Client{} = client, gateway_instance_arn, input, options \\ []) do
     url_path = "/v1/gateway-instances/#{AWS.Util.encode_uri(gateway_instance_arn)}"
     headers = []

@@ -35,661 +35,805 @@ defmodule AWS.EMRServerless do
   @typedoc """
 
   ## Example:
-  get_job_run_response() :: %{
-    required("jobRun") => job_run()
-  }
+
+      get_job_run_response() :: %{
+        required("jobRun") => job_run()
+      }
+
   """
   @type get_job_run_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_request() :: %{
-    required("tags") => map()
-  }
+
+      tag_resource_request() :: %{
+        required("tags") => map()
+      }
+
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  image_configuration_input() :: %{
-    "imageUri" => String.t()
-  }
+
+      image_configuration_input() :: %{
+        "imageUri" => String.t()
+      }
+
   """
   @type image_configuration_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  worker_resource_config() :: %{
-    "cpu" => String.t(),
-    "disk" => String.t(),
-    "memory" => String.t()
-  }
+
+      worker_resource_config() :: %{
+        "cpu" => String.t(),
+        "disk" => String.t(),
+        "memory" => String.t()
+      }
+
   """
   @type worker_resource_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  s3_monitoring_configuration() :: %{
-    "encryptionKeyArn" => String.t(),
-    "logUri" => String.t()
-  }
+
+      s3_monitoring_configuration() :: %{
+        "encryptionKeyArn" => String.t(),
+        "logUri" => String.t()
+      }
+
   """
   @type s3_monitoring_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_job_run_request() :: %{
 
-  }
+      get_job_run_request() :: %{}
+
   """
-  @type get_job_run_request() :: %{String.t() => any()}
+  @type get_job_run_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  resource_utilization() :: %{
-    "memoryGBHour" => [float()],
-    "storageGBHour" => [float()],
-    "vCPUHour" => [float()]
-  }
+
+      resource_utilization() :: %{
+        "memoryGBHour" => [float()],
+        "storageGBHour" => [float()],
+        "vCPUHour" => [float()]
+      }
+
   """
   @type resource_utilization() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  initial_capacity_config() :: %{
-    "workerConfiguration" => worker_resource_config(),
-    "workerCount" => float()
-  }
+
+      initial_capacity_config() :: %{
+        "workerConfiguration" => worker_resource_config(),
+        "workerCount" => float()
+      }
+
   """
   @type initial_capacity_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  job_run() :: %{
-    "applicationId" => String.t(),
-    "arn" => String.t(),
-    "billedResourceUtilization" => resource_utilization(),
-    "configurationOverrides" => configuration_overrides(),
-    "createdAt" => non_neg_integer(),
-    "createdBy" => String.t(),
-    "executionRole" => String.t(),
-    "executionTimeoutMinutes" => float(),
-    "jobDriver" => list(),
-    "jobRunId" => String.t(),
-    "name" => String.t(),
-    "networkConfiguration" => network_configuration(),
-    "releaseLabel" => String.t(),
-    "state" => String.t(),
-    "stateDetails" => String.t(),
-    "tags" => map(),
-    "totalExecutionDurationSeconds" => [integer()],
-    "totalResourceUtilization" => total_resource_utilization(),
-    "updatedAt" => non_neg_integer()
-  }
+
+      job_run() :: %{
+        "applicationId" => String.t(),
+        "arn" => String.t(),
+        "billedResourceUtilization" => resource_utilization(),
+        "configurationOverrides" => configuration_overrides(),
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t(),
+        "executionRole" => String.t(),
+        "executionTimeoutMinutes" => float(),
+        "jobDriver" => list(),
+        "jobRunId" => String.t(),
+        "name" => String.t(),
+        "networkConfiguration" => network_configuration(),
+        "releaseLabel" => String.t(),
+        "state" => String.t(),
+        "stateDetails" => String.t(),
+        "tags" => map(),
+        "totalExecutionDurationSeconds" => [integer()],
+        "totalResourceUtilization" => total_resource_utilization(),
+        "updatedAt" => non_neg_integer()
+      }
+
   """
   @type job_run() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_response() :: %{
 
-  }
+      untag_resource_response() :: %{}
+
   """
-  @type untag_resource_response() :: %{String.t() => any()}
+  @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  job_run_summary() :: %{
-    "applicationId" => String.t(),
-    "arn" => String.t(),
-    "createdAt" => non_neg_integer(),
-    "createdBy" => String.t(),
-    "executionRole" => String.t(),
-    "id" => String.t(),
-    "name" => String.t(),
-    "releaseLabel" => String.t(),
-    "state" => String.t(),
-    "stateDetails" => String.t(),
-    "type" => String.t(),
-    "updatedAt" => non_neg_integer()
-  }
+
+      job_run_summary() :: %{
+        "applicationId" => String.t(),
+        "arn" => String.t(),
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t(),
+        "executionRole" => String.t(),
+        "id" => String.t(),
+        "name" => String.t(),
+        "releaseLabel" => String.t(),
+        "state" => String.t(),
+        "stateDetails" => String.t(),
+        "type" => String.t(),
+        "updatedAt" => non_neg_integer()
+      }
+
   """
   @type job_run_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_job_runs_request() :: %{
-    optional("createdAtAfter") => non_neg_integer(),
-    optional("createdAtBefore") => non_neg_integer(),
-    optional("maxResults") => [integer()],
-    optional("nextToken") => String.t(),
-    optional("states") => list(String.t()())
-  }
+
+      list_job_runs_request() :: %{
+        optional("createdAtAfter") => non_neg_integer(),
+        optional("createdAtBefore") => non_neg_integer(),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t(),
+        optional("states") => list(String.t()())
+      }
+
   """
   @type list_job_runs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  maximum_allowed_resources() :: %{
-    "cpu" => String.t(),
-    "disk" => String.t(),
-    "memory" => String.t()
-  }
+
+      maximum_allowed_resources() :: %{
+        "cpu" => String.t(),
+        "disk" => String.t(),
+        "memory" => String.t()
+      }
+
   """
   @type maximum_allowed_resources() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  configuration() :: %{
-    "classification" => String.t(),
-    "configurations" => list(configuration()()),
-    "properties" => map()
-  }
+
+      configuration() :: %{
+        "classification" => String.t(),
+        "configurations" => list(configuration()()),
+        "properties" => map()
+      }
+
   """
   @type configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  monitoring_configuration() :: %{
-    "cloudWatchLoggingConfiguration" => cloud_watch_logging_configuration(),
-    "managedPersistenceMonitoringConfiguration" => managed_persistence_monitoring_configuration(),
-    "s3MonitoringConfiguration" => s3_monitoring_configuration()
-  }
+
+      monitoring_configuration() :: %{
+        "cloudWatchLoggingConfiguration" => cloud_watch_logging_configuration(),
+        "managedPersistenceMonitoringConfiguration" => managed_persistence_monitoring_configuration(),
+        "s3MonitoringConfiguration" => s3_monitoring_configuration()
+      }
+
   """
   @type monitoring_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_request() :: %{
-    required("tagKeys") => list(String.t()())
-  }
+
+      untag_resource_request() :: %{
+        required("tagKeys") => list(String.t()())
+      }
+
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  auto_start_config() :: %{
-    "enabled" => [boolean()]
-  }
+
+      auto_start_config() :: %{
+        "enabled" => [boolean()]
+      }
+
   """
   @type auto_start_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  auto_stop_config() :: %{
-    "enabled" => [boolean()],
-    "idleTimeoutMinutes" => [integer()]
-  }
+
+      auto_stop_config() :: %{
+        "enabled" => [boolean()],
+        "idleTimeoutMinutes" => [integer()]
+      }
+
   """
   @type auto_stop_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  worker_type_specification() :: %{
-    "imageConfiguration" => image_configuration()
-  }
+
+      worker_type_specification() :: %{
+        "imageConfiguration" => image_configuration()
+      }
+
   """
   @type worker_type_specification() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  spark_submit() :: %{
-    "entryPoint" => String.t(),
-    "entryPointArguments" => list(String.t()()),
-    "sparkSubmitParameters" => String.t()
-  }
+
+      spark_submit() :: %{
+        "entryPoint" => String.t(),
+        "entryPointArguments" => list(String.t()()),
+        "sparkSubmitParameters" => String.t()
+      }
+
   """
   @type spark_submit() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  conflict_exception() :: %{
-    "message" => String.t()
-  }
+
+      conflict_exception() :: %{
+        "message" => String.t()
+      }
+
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_not_found_exception() :: %{
-    "message" => String.t()
-  }
+
+      resource_not_found_exception() :: %{
+        "message" => String.t()
+      }
+
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_job_run_response() :: %{
-    required("applicationId") => String.t(),
-    required("arn") => String.t(),
-    required("jobRunId") => String.t()
-  }
+
+      start_job_run_response() :: %{
+        required("applicationId") => String.t(),
+        required("arn") => String.t(),
+        required("jobRunId") => String.t()
+      }
+
   """
   @type start_job_run_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cancel_job_run_response() :: %{
-    required("applicationId") => String.t(),
-    required("jobRunId") => String.t()
-  }
+
+      cancel_job_run_response() :: %{
+        required("applicationId") => String.t(),
+        required("jobRunId") => String.t()
+      }
+
   """
   @type cancel_job_run_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_dashboard_for_job_run_response() :: %{
-    optional("url") => String.t()
-  }
+
+      get_dashboard_for_job_run_response() :: %{
+        optional("url") => String.t()
+      }
+
   """
   @type get_dashboard_for_job_run_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  service_quota_exceeded_exception() :: %{
-    "message" => String.t()
-  }
+
+      service_quota_exceeded_exception() :: %{
+        "message" => String.t()
+      }
+
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stop_application_request() :: %{
 
-  }
+      stop_application_request() :: %{}
+
   """
-  @type stop_application_request() :: %{String.t() => any()}
+  @type stop_application_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_job_runs_response() :: %{
-    optional("nextToken") => String.t(),
-    required("jobRuns") => list(job_run_summary()())
-  }
+
+      list_job_runs_response() :: %{
+        optional("nextToken") => String.t(),
+        required("jobRuns") => list(job_run_summary()())
+      }
+
   """
   @type list_job_runs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  application() :: %{
-    "applicationId" => String.t(),
-    "architecture" => String.t(),
-    "arn" => String.t(),
-    "autoStartConfiguration" => auto_start_config(),
-    "autoStopConfiguration" => auto_stop_config(),
-    "createdAt" => non_neg_integer(),
-    "imageConfiguration" => image_configuration(),
-    "initialCapacity" => map(),
-    "maximumCapacity" => maximum_allowed_resources(),
-    "monitoringConfiguration" => monitoring_configuration(),
-    "name" => String.t(),
-    "networkConfiguration" => network_configuration(),
-    "releaseLabel" => String.t(),
-    "runtimeConfiguration" => list(configuration()()),
-    "state" => String.t(),
-    "stateDetails" => String.t(),
-    "tags" => map(),
-    "type" => String.t(),
-    "updatedAt" => non_neg_integer(),
-    "workerTypeSpecifications" => map()
-  }
+
+      application() :: %{
+        "applicationId" => String.t(),
+        "architecture" => String.t(),
+        "arn" => String.t(),
+        "autoStartConfiguration" => auto_start_config(),
+        "autoStopConfiguration" => auto_stop_config(),
+        "createdAt" => non_neg_integer(),
+        "imageConfiguration" => image_configuration(),
+        "initialCapacity" => map(),
+        "maximumCapacity" => maximum_allowed_resources(),
+        "monitoringConfiguration" => monitoring_configuration(),
+        "name" => String.t(),
+        "networkConfiguration" => network_configuration(),
+        "releaseLabel" => String.t(),
+        "runtimeConfiguration" => list(configuration()()),
+        "state" => String.t(),
+        "stateDetails" => String.t(),
+        "tags" => map(),
+        "type" => String.t(),
+        "updatedAt" => non_neg_integer(),
+        "workerTypeSpecifications" => map()
+      }
+
   """
   @type application() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_response() :: %{
-    optional("tags") => map()
-  }
+
+      list_tags_for_resource_response() :: %{
+        optional("tags") => map()
+      }
+
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_application_request() :: %{
-    optional("architecture") => String.t(),
-    optional("autoStartConfiguration") => auto_start_config(),
-    optional("autoStopConfiguration") => auto_stop_config(),
-    optional("imageConfiguration") => image_configuration_input(),
-    optional("initialCapacity") => map(),
-    optional("maximumCapacity") => maximum_allowed_resources(),
-    optional("monitoringConfiguration") => monitoring_configuration(),
-    optional("name") => String.t(),
-    optional("networkConfiguration") => network_configuration(),
-    optional("runtimeConfiguration") => list(configuration()()),
-    optional("tags") => map(),
-    optional("workerTypeSpecifications") => map(),
-    required("clientToken") => String.t(),
-    required("releaseLabel") => String.t(),
-    required("type") => String.t()
-  }
+
+      create_application_request() :: %{
+        optional("architecture") => String.t(),
+        optional("autoStartConfiguration") => auto_start_config(),
+        optional("autoStopConfiguration") => auto_stop_config(),
+        optional("imageConfiguration") => image_configuration_input(),
+        optional("initialCapacity") => map(),
+        optional("maximumCapacity") => maximum_allowed_resources(),
+        optional("monitoringConfiguration") => monitoring_configuration(),
+        optional("name") => String.t(),
+        optional("networkConfiguration") => network_configuration(),
+        optional("runtimeConfiguration") => list(configuration()()),
+        optional("tags") => map(),
+        optional("workerTypeSpecifications") => map(),
+        required("clientToken") => String.t(),
+        required("releaseLabel") => String.t(),
+        required("type") => String.t()
+      }
+
   """
   @type create_application_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_application_response() :: %{
-    optional("name") => String.t(),
-    required("applicationId") => String.t(),
-    required("arn") => String.t()
-  }
+
+      create_application_response() :: %{
+        optional("name") => String.t(),
+        required("applicationId") => String.t(),
+        required("arn") => String.t()
+      }
+
   """
   @type create_application_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_application_response() :: %{
 
-  }
+      delete_application_response() :: %{}
+
   """
-  @type delete_application_response() :: %{String.t() => any()}
+  @type delete_application_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  start_application_response() :: %{
 
-  }
+      start_application_response() :: %{}
+
   """
-  @type start_application_response() :: %{String.t() => any()}
+  @type start_application_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  worker_type_specification_input() :: %{
-    "imageConfiguration" => image_configuration_input()
-  }
+
+      worker_type_specification_input() :: %{
+        "imageConfiguration" => image_configuration_input()
+      }
+
   """
   @type worker_type_specification_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  hive() :: %{
-    "initQueryFile" => String.t(),
-    "parameters" => String.t(),
-    "query" => String.t()
-  }
+
+      hive() :: %{
+        "initQueryFile" => String.t(),
+        "parameters" => String.t(),
+        "query" => String.t()
+      }
+
   """
   @type hive() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_application_request() :: %{
-    optional("architecture") => String.t(),
-    optional("autoStartConfiguration") => auto_start_config(),
-    optional("autoStopConfiguration") => auto_stop_config(),
-    optional("imageConfiguration") => image_configuration_input(),
-    optional("initialCapacity") => map(),
-    optional("maximumCapacity") => maximum_allowed_resources(),
-    optional("monitoringConfiguration") => monitoring_configuration(),
-    optional("networkConfiguration") => network_configuration(),
-    optional("releaseLabel") => String.t(),
-    optional("runtimeConfiguration") => list(configuration()()),
-    optional("workerTypeSpecifications") => map(),
-    required("clientToken") => String.t()
-  }
+
+      update_application_request() :: %{
+        optional("architecture") => String.t(),
+        optional("autoStartConfiguration") => auto_start_config(),
+        optional("autoStopConfiguration") => auto_stop_config(),
+        optional("imageConfiguration") => image_configuration_input(),
+        optional("initialCapacity") => map(),
+        optional("maximumCapacity") => maximum_allowed_resources(),
+        optional("monitoringConfiguration") => monitoring_configuration(),
+        optional("networkConfiguration") => network_configuration(),
+        optional("releaseLabel") => String.t(),
+        optional("runtimeConfiguration") => list(configuration()()),
+        optional("workerTypeSpecifications") => map(),
+        required("clientToken") => String.t()
+      }
+
   """
   @type update_application_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_application_response() :: %{
-    required("application") => application()
-  }
+
+      update_application_response() :: %{
+        required("application") => application()
+      }
+
   """
   @type update_application_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  internal_server_exception() :: %{
-    "message" => String.t()
-  }
+
+      internal_server_exception() :: %{
+        "message" => String.t()
+      }
+
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_application_request() :: %{
 
-  }
+      start_application_request() :: %{}
+
   """
-  @type start_application_request() :: %{String.t() => any()}
+  @type start_application_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  start_job_run_request() :: %{
-    optional("configurationOverrides") => configuration_overrides(),
-    optional("executionTimeoutMinutes") => float(),
-    optional("jobDriver") => list(),
-    optional("name") => String.t(),
-    optional("tags") => map(),
-    required("clientToken") => String.t(),
-    required("executionRoleArn") => String.t()
-  }
+
+      start_job_run_request() :: %{
+        optional("configurationOverrides") => configuration_overrides(),
+        optional("executionTimeoutMinutes") => float(),
+        optional("jobDriver") => list(),
+        optional("name") => String.t(),
+        optional("tags") => map(),
+        required("clientToken") => String.t(),
+        required("executionRoleArn") => String.t()
+      }
+
   """
   @type start_job_run_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_application_response() :: %{
-    required("application") => application()
-  }
+
+      get_application_response() :: %{
+        required("application") => application()
+      }
+
   """
   @type get_application_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_applications_request() :: %{
-    optional("maxResults") => [integer()],
-    optional("nextToken") => String.t(),
-    optional("states") => list(String.t()())
-  }
+
+      list_applications_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t(),
+        optional("states") => list(String.t()())
+      }
+
   """
   @type list_applications_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  network_configuration() :: %{
-    "securityGroupIds" => list(String.t()()),
-    "subnetIds" => list(String.t()())
-  }
+
+      network_configuration() :: %{
+        "securityGroupIds" => list(String.t()()),
+        "subnetIds" => list(String.t()())
+      }
+
   """
   @type network_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stop_application_response() :: %{
 
-  }
+      stop_application_response() :: %{}
+
   """
-  @type stop_application_response() :: %{String.t() => any()}
+  @type stop_application_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  tag_resource_response() :: %{
 
-  }
+      tag_resource_response() :: %{}
+
   """
-  @type tag_resource_response() :: %{String.t() => any()}
+  @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_dashboard_for_job_run_request() :: %{
 
-  }
+      get_dashboard_for_job_run_request() :: %{}
+
   """
-  @type get_dashboard_for_job_run_request() :: %{String.t() => any()}
+  @type get_dashboard_for_job_run_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  validation_exception() :: %{
-    "message" => String.t()
-  }
+
+      validation_exception() :: %{
+        "message" => String.t()
+      }
+
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_request() :: %{
 
-  }
+      list_tags_for_resource_request() :: %{}
+
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  total_resource_utilization() :: %{
-    "memoryGBHour" => [float()],
-    "storageGBHour" => [float()],
-    "vCPUHour" => [float()]
-  }
+
+      total_resource_utilization() :: %{
+        "memoryGBHour" => [float()],
+        "storageGBHour" => [float()],
+        "vCPUHour" => [float()]
+      }
+
   """
   @type total_resource_utilization() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  configuration_overrides() :: %{
-    "applicationConfiguration" => list(configuration()()),
-    "monitoringConfiguration" => monitoring_configuration()
-  }
+
+      configuration_overrides() :: %{
+        "applicationConfiguration" => list(configuration()()),
+        "monitoringConfiguration" => monitoring_configuration()
+      }
+
   """
   @type configuration_overrides() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  application_summary() :: %{
-    "architecture" => String.t(),
-    "arn" => String.t(),
-    "createdAt" => non_neg_integer(),
-    "id" => String.t(),
-    "name" => String.t(),
-    "releaseLabel" => String.t(),
-    "state" => String.t(),
-    "stateDetails" => String.t(),
-    "type" => String.t(),
-    "updatedAt" => non_neg_integer()
-  }
+
+      application_summary() :: %{
+        "architecture" => String.t(),
+        "arn" => String.t(),
+        "createdAt" => non_neg_integer(),
+        "id" => String.t(),
+        "name" => String.t(),
+        "releaseLabel" => String.t(),
+        "state" => String.t(),
+        "stateDetails" => String.t(),
+        "type" => String.t(),
+        "updatedAt" => non_neg_integer()
+      }
+
   """
   @type application_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_applications_response() :: %{
-    optional("nextToken") => String.t(),
-    required("applications") => list(application_summary()())
-  }
+
+      list_applications_response() :: %{
+        optional("nextToken") => String.t(),
+        required("applications") => list(application_summary()())
+      }
+
   """
   @type list_applications_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  managed_persistence_monitoring_configuration() :: %{
-    "enabled" => [boolean()],
-    "encryptionKeyArn" => String.t()
-  }
+
+      managed_persistence_monitoring_configuration() :: %{
+        "enabled" => [boolean()],
+        "encryptionKeyArn" => String.t()
+      }
+
   """
   @type managed_persistence_monitoring_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cancel_job_run_request() :: %{
 
-  }
+      cancel_job_run_request() :: %{}
+
   """
-  @type cancel_job_run_request() :: %{String.t() => any()}
+  @type cancel_job_run_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  image_configuration() :: %{
-    "imageUri" => String.t(),
-    "resolvedImageDigest" => String.t()
-  }
+
+      image_configuration() :: %{
+        "imageUri" => String.t(),
+        "resolvedImageDigest" => String.t()
+      }
+
   """
   @type image_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cloud_watch_logging_configuration() :: %{
-    "enabled" => [boolean()],
-    "encryptionKeyArn" => String.t(),
-    "logGroupName" => String.t(),
-    "logStreamNamePrefix" => String.t(),
-    "logTypes" => map()
-  }
+
+      cloud_watch_logging_configuration() :: %{
+        "enabled" => [boolean()],
+        "encryptionKeyArn" => String.t(),
+        "logGroupName" => String.t(),
+        "logStreamNamePrefix" => String.t(),
+        "logTypes" => map()
+      }
+
   """
   @type cloud_watch_logging_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_application_request() :: %{
 
-  }
+      get_application_request() :: %{}
+
   """
-  @type get_application_request() :: %{String.t() => any()}
+  @type get_application_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  delete_application_request() :: %{
 
-  }
+      delete_application_request() :: %{}
+
   """
-  @type delete_application_request() :: %{String.t() => any()}
+  @type delete_application_request() :: %{}
+
+  @type cancel_job_run_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
+
+  @type create_application_errors() ::
+          validation_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_application_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
+
+  @type get_application_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
+
+  @type get_dashboard_for_job_run_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
+
+  @type get_job_run_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
+
+  @type list_applications_errors() :: validation_exception() | internal_server_exception()
+
+  @type list_job_runs_errors() :: validation_exception() | internal_server_exception()
+
+  @type list_tags_for_resource_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
+
+  @type start_application_errors() ::
+          validation_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+
+  @type start_job_run_errors() ::
+          validation_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type stop_application_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
+
+  @type tag_resource_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
+
+  @type untag_resource_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
+
+  @type update_application_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
 
   def metadata do
     %{
@@ -712,9 +856,7 @@ defmodule AWS.EMRServerless do
   @spec cancel_job_run(map(), String.t(), String.t(), cancel_job_run_request(), list()) ::
           {:ok, cancel_job_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, cancel_job_run_errors()}
   def cancel_job_run(%Client{} = client, application_id, job_run_id, input, options \\ []) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/jobruns/#{AWS.Util.encode_uri(job_run_id)}"
@@ -743,10 +885,7 @@ defmodule AWS.EMRServerless do
   @spec create_application(map(), create_application_request(), list()) ::
           {:ok, create_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_application_errors()}
   def create_application(%Client{} = client, input, options \\ []) do
     url_path = "/applications"
     headers = []
@@ -776,9 +915,7 @@ defmodule AWS.EMRServerless do
   @spec delete_application(map(), String.t(), delete_application_request(), list()) ::
           {:ok, delete_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_application_errors()}
   def delete_application(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"
     headers = []
@@ -805,9 +942,7 @@ defmodule AWS.EMRServerless do
   @spec get_application(map(), String.t(), list()) ::
           {:ok, get_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_application_errors()}
   def get_application(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"
     headers = []
@@ -836,9 +971,7 @@ defmodule AWS.EMRServerless do
   @spec get_dashboard_for_job_run(map(), String.t(), String.t(), list()) ::
           {:ok, get_dashboard_for_job_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_dashboard_for_job_run_errors()}
   def get_dashboard_for_job_run(%Client{} = client, application_id, job_run_id, options \\ []) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/jobruns/#{AWS.Util.encode_uri(job_run_id)}/dashboard"
@@ -857,9 +990,7 @@ defmodule AWS.EMRServerless do
   @spec get_job_run(map(), String.t(), String.t(), list()) ::
           {:ok, get_job_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_job_run_errors()}
   def get_job_run(%Client{} = client, application_id, job_run_id, options \\ []) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/jobruns/#{AWS.Util.encode_uri(job_run_id)}"
@@ -878,8 +1009,7 @@ defmodule AWS.EMRServerless do
   @spec list_applications(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_applications_errors()}
   def list_applications(
         %Client{} = client,
         max_results \\ nil,
@@ -932,8 +1062,7 @@ defmodule AWS.EMRServerless do
         ) ::
           {:ok, list_job_runs_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_job_runs_errors()}
   def list_job_runs(
         %Client{} = client,
         application_id,
@@ -994,9 +1123,7 @@ defmodule AWS.EMRServerless do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -1013,10 +1140,7 @@ defmodule AWS.EMRServerless do
   @spec start_application(map(), String.t(), start_application_request(), list()) ::
           {:ok, start_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, validation_exception()}
+          | {:error, start_application_errors()}
   def start_application(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/start"
     headers = []
@@ -1043,10 +1167,7 @@ defmodule AWS.EMRServerless do
   @spec start_job_run(map(), String.t(), start_job_run_request(), list()) ::
           {:ok, start_job_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, start_job_run_errors()}
   def start_job_run(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/jobruns"
     headers = []
@@ -1076,9 +1197,7 @@ defmodule AWS.EMRServerless do
   @spec stop_application(map(), String.t(), stop_application_request(), list()) ::
           {:ok, stop_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, stop_application_errors()}
   def stop_application(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/stop"
     headers = []
@@ -1114,9 +1233,7 @@ defmodule AWS.EMRServerless do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -1143,9 +1260,7 @@ defmodule AWS.EMRServerless do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -1180,9 +1295,7 @@ defmodule AWS.EMRServerless do
   @spec update_application(map(), String.t(), update_application_request(), list()) ::
           {:ok, update_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_application_errors()}
   def update_application(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"
     headers = []

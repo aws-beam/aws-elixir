@@ -14,167 +14,207 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
   @typedoc """
 
   ## Example:
-  filter() :: %{
-    "Name" => [String.t()],
-    "Operator" => String.t(),
-    "Values" => list([String.t()]())
-  }
+
+      filter() :: %{
+        "Name" => [String.t()],
+        "Operator" => String.t(),
+        "Values" => list([String.t()]())
+      }
+
   """
   @type filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_service_settings_request() :: %{
 
-  }
+      get_service_settings_request() :: %{}
+
   """
-  @type get_service_settings_request() :: %{String.t() => any()}
+  @type get_service_settings_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_service_settings_response() :: %{
-    optional("HomeRegions") => list([String.t()]()),
-    optional("LinuxSubscriptionsDiscovery") => String.t(),
-    optional("LinuxSubscriptionsDiscoverySettings") => linux_subscriptions_discovery_settings(),
-    optional("Status") => String.t(),
-    optional("StatusMessage") => map()
-  }
+
+      get_service_settings_response() :: %{
+        optional("HomeRegions") => list([String.t()]()),
+        optional("LinuxSubscriptionsDiscovery") => String.t(),
+        optional("LinuxSubscriptionsDiscoverySettings") => linux_subscriptions_discovery_settings(),
+        optional("Status") => String.t(),
+        optional("StatusMessage") => map()
+      }
+
   """
   @type get_service_settings_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  instance() :: %{
-    "AccountID" => [String.t()],
-    "AmiId" => [String.t()],
-    "InstanceID" => [String.t()],
-    "InstanceType" => [String.t()],
-    "LastUpdatedTime" => [String.t()],
-    "ProductCode" => list([String.t()]()),
-    "Region" => [String.t()],
-    "Status" => [String.t()],
-    "SubscriptionName" => [String.t()],
-    "UsageOperation" => [String.t()]
-  }
+
+      instance() :: %{
+        "AccountID" => [String.t()],
+        "AmiId" => [String.t()],
+        "InstanceID" => [String.t()],
+        "InstanceType" => [String.t()],
+        "LastUpdatedTime" => [String.t()],
+        "ProductCode" => list([String.t()]()),
+        "Region" => [String.t()],
+        "Status" => [String.t()],
+        "SubscriptionName" => [String.t()],
+        "UsageOperation" => [String.t()]
+      }
+
   """
   @type instance() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  internal_server_exception() :: %{
-    "message" => [String.t()]
-  }
+
+      internal_server_exception() :: %{
+        "message" => [String.t()]
+      }
+
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  linux_subscriptions_discovery_settings() :: %{
-    "OrganizationIntegration" => String.t(),
-    "SourceRegions" => list([String.t()]())
-  }
+
+      linux_subscriptions_discovery_settings() :: %{
+        "OrganizationIntegration" => String.t(),
+        "SourceRegions" => list([String.t()]())
+      }
+
   """
   @type linux_subscriptions_discovery_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_linux_subscription_instances_request() :: %{
-    "Filters" => list(filter()()),
-    "MaxResults" => integer(),
-    "NextToken" => [String.t()]
-  }
+
+      list_linux_subscription_instances_request() :: %{
+        "Filters" => list(filter()()),
+        "MaxResults" => integer(),
+        "NextToken" => [String.t()]
+      }
+
   """
   @type list_linux_subscription_instances_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_linux_subscription_instances_response() :: %{
-    optional("Instances") => list(instance()()),
-    optional("NextToken") => [String.t()]
-  }
+
+      list_linux_subscription_instances_response() :: %{
+        optional("Instances") => list(instance()()),
+        optional("NextToken") => [String.t()]
+      }
+
   """
   @type list_linux_subscription_instances_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_linux_subscriptions_request() :: %{
-    "Filters" => list(filter()()),
-    "MaxResults" => integer(),
-    "NextToken" => [String.t()]
-  }
+
+      list_linux_subscriptions_request() :: %{
+        "Filters" => list(filter()()),
+        "MaxResults" => integer(),
+        "NextToken" => [String.t()]
+      }
+
   """
   @type list_linux_subscriptions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_linux_subscriptions_response() :: %{
-    optional("NextToken") => [String.t()],
-    optional("Subscriptions") => list(subscription()())
-  }
+
+      list_linux_subscriptions_response() :: %{
+        optional("NextToken") => [String.t()],
+        optional("Subscriptions") => list(subscription()())
+      }
+
   """
   @type list_linux_subscriptions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  subscription() :: %{
-    "InstanceCount" => float(),
-    "Name" => [String.t()],
-    "Type" => [String.t()]
-  }
+
+      subscription() :: %{
+        "InstanceCount" => float(),
+        "Name" => [String.t()],
+        "Type" => [String.t()]
+      }
+
   """
   @type subscription() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  throttling_exception() :: %{
-    "message" => [String.t()]
-  }
+
+      throttling_exception() :: %{
+        "message" => [String.t()]
+      }
+
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_service_settings_request() :: %{
-    optional("AllowUpdate") => [boolean()],
-    required("LinuxSubscriptionsDiscovery") => String.t(),
-    required("LinuxSubscriptionsDiscoverySettings") => linux_subscriptions_discovery_settings()
-  }
+
+      update_service_settings_request() :: %{
+        optional("AllowUpdate") => [boolean()],
+        required("LinuxSubscriptionsDiscovery") => String.t(),
+        required("LinuxSubscriptionsDiscoverySettings") => linux_subscriptions_discovery_settings()
+      }
+
   """
   @type update_service_settings_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_service_settings_response() :: %{
-    optional("HomeRegions") => list([String.t()]()),
-    optional("LinuxSubscriptionsDiscovery") => String.t(),
-    optional("LinuxSubscriptionsDiscoverySettings") => linux_subscriptions_discovery_settings(),
-    optional("Status") => String.t(),
-    optional("StatusMessage") => map()
-  }
+
+      update_service_settings_response() :: %{
+        optional("HomeRegions") => list([String.t()]()),
+        optional("LinuxSubscriptionsDiscovery") => String.t(),
+        optional("LinuxSubscriptionsDiscoverySettings") => linux_subscriptions_discovery_settings(),
+        optional("Status") => String.t(),
+        optional("StatusMessage") => map()
+      }
+
   """
   @type update_service_settings_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  validation_exception() :: %{
-    "message" => [String.t()]
-  }
+
+      validation_exception() :: %{
+        "message" => [String.t()]
+      }
+
   """
   @type validation_exception() :: %{String.t() => any()}
+
+  @type get_service_settings_errors() ::
+          validation_exception() | throttling_exception() | internal_server_exception()
+
+  @type list_linux_subscription_instances_errors() ::
+          validation_exception() | throttling_exception() | internal_server_exception()
+
+  @type list_linux_subscriptions_errors() ::
+          validation_exception() | throttling_exception() | internal_server_exception()
+
+  @type update_service_settings_errors() ::
+          validation_exception() | throttling_exception() | internal_server_exception()
 
   def metadata do
     %{
@@ -197,9 +237,7 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
   @spec get_service_settings(map(), get_service_settings_request(), list()) ::
           {:ok, get_service_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_service_settings_errors()}
   def get_service_settings(%Client{} = client, input, options \\ []) do
     url_path = "/subscription/GetServiceSettings"
     headers = []
@@ -232,9 +270,7 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
         ) ::
           {:ok, list_linux_subscription_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_linux_subscription_instances_errors()}
   def list_linux_subscription_instances(%Client{} = client, input, options \\ []) do
     url_path = "/subscription/ListLinuxSubscriptionInstances"
     headers = []
@@ -266,9 +302,7 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
   @spec list_linux_subscriptions(map(), list_linux_subscriptions_request(), list()) ::
           {:ok, list_linux_subscriptions_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_linux_subscriptions_errors()}
   def list_linux_subscriptions(%Client{} = client, input, options \\ []) do
     url_path = "/subscription/ListLinuxSubscriptions"
     headers = []
@@ -295,9 +329,7 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
   @spec update_service_settings(map(), update_service_settings_request(), list()) ::
           {:ok, update_service_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_service_settings_errors()}
   def update_service_settings(%Client{} = client, input, options \\ []) do
     url_path = "/subscription/UpdateServiceSettings"
     headers = []

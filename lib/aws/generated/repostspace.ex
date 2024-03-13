@@ -22,297 +22,414 @@ defmodule AWS.Repostspace do
   @typedoc """
 
   ## Example:
-  access_denied_exception() :: %{
-    "message" => [String.t()]
-  }
+
+      access_denied_exception() :: %{
+        "message" => [String.t()]
+      }
+
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  conflict_exception() :: %{
-    "message" => [String.t()],
-    "resourceId" => [String.t()],
-    "resourceType" => [String.t()]
-  }
+
+      conflict_exception() :: %{
+        "message" => [String.t()],
+        "resourceId" => [String.t()],
+        "resourceType" => [String.t()]
+      }
+
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_space_input() :: %{
-    optional("description") => String.t(),
-    optional("roleArn") => String.t(),
-    optional("tags") => map(),
-    optional("userKMSKey") => String.t(),
-    required("name") => String.t(),
-    required("subdomain") => String.t(),
-    required("tier") => list(any())
-  }
+
+      create_space_input() :: %{
+        optional("description") => String.t(),
+        optional("roleArn") => String.t(),
+        optional("tags") => map(),
+        optional("userKMSKey") => String.t(),
+        required("name") => String.t(),
+        required("subdomain") => String.t(),
+        required("tier") => list(any())
+      }
+
   """
   @type create_space_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_space_output() :: %{
-    "spaceId" => String.t()
-  }
+
+      create_space_output() :: %{
+        "spaceId" => String.t()
+      }
+
   """
   @type create_space_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_space_input() :: %{
 
-  }
+      delete_space_input() :: %{}
+
   """
-  @type delete_space_input() :: %{String.t() => any()}
+  @type delete_space_input() :: %{}
 
   @typedoc """
 
   ## Example:
-  deregister_admin_input() :: %{
 
-  }
+      deregister_admin_input() :: %{}
+
   """
-  @type deregister_admin_input() :: %{String.t() => any()}
+  @type deregister_admin_input() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_space_input() :: %{
 
-  }
+      get_space_input() :: %{}
+
   """
-  @type get_space_input() :: %{String.t() => any()}
+  @type get_space_input() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_space_output() :: %{
-    "arn" => String.t(),
-    "clientId" => String.t(),
-    "configurationStatus" => list(any()),
-    "contentSize" => float(),
-    "createDateTime" => [non_neg_integer()],
-    "customerRoleArn" => String.t(),
-    "deleteDateTime" => [non_neg_integer()],
-    "description" => String.t(),
-    "groupAdmins" => list(String.t()()),
-    "name" => String.t(),
-    "randomDomain" => String.t(),
-    "spaceId" => String.t(),
-    "status" => String.t(),
-    "storageLimit" => float(),
-    "tier" => list(any()),
-    "userAdmins" => list(String.t()()),
-    "userCount" => integer(),
-    "userKMSKey" => String.t(),
-    "vanityDomain" => String.t(),
-    "vanityDomainStatus" => list(any())
-  }
+
+      get_space_output() :: %{
+        "arn" => String.t(),
+        "clientId" => String.t(),
+        "configurationStatus" => list(any()),
+        "contentSize" => float(),
+        "createDateTime" => [non_neg_integer()],
+        "customerRoleArn" => String.t(),
+        "deleteDateTime" => [non_neg_integer()],
+        "description" => String.t(),
+        "groupAdmins" => list(String.t()()),
+        "name" => String.t(),
+        "randomDomain" => String.t(),
+        "spaceId" => String.t(),
+        "status" => String.t(),
+        "storageLimit" => float(),
+        "tier" => list(any()),
+        "userAdmins" => list(String.t()()),
+        "userCount" => integer(),
+        "userKMSKey" => String.t(),
+        "vanityDomain" => String.t(),
+        "vanityDomainStatus" => list(any())
+      }
+
   """
   @type get_space_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  internal_server_exception() :: %{
-    "message" => [String.t()],
-    "retryAfterSeconds" => [integer()]
-  }
+
+      internal_server_exception() :: %{
+        "message" => [String.t()],
+        "retryAfterSeconds" => [integer()]
+      }
+
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_spaces_input() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => [String.t()]
-  }
+
+      list_spaces_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => [String.t()]
+      }
+
   """
   @type list_spaces_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_spaces_output() :: %{
-    "nextToken" => [String.t()],
-    "spaces" => list(space_data()())
-  }
+
+      list_spaces_output() :: %{
+        "nextToken" => [String.t()],
+        "spaces" => list(space_data()())
+      }
+
   """
   @type list_spaces_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_request() :: %{
 
-  }
+      list_tags_for_resource_request() :: %{}
+
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_response() :: %{
-    "tags" => map()
-  }
+
+      list_tags_for_resource_response() :: %{
+        "tags" => map()
+      }
+
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  register_admin_input() :: %{
 
-  }
+      register_admin_input() :: %{}
+
   """
-  @type register_admin_input() :: %{String.t() => any()}
+  @type register_admin_input() :: %{}
 
   @typedoc """
 
   ## Example:
-  resource_not_found_exception() :: %{
-    "message" => [String.t()],
-    "resourceId" => [String.t()],
-    "resourceType" => [String.t()]
-  }
+
+      resource_not_found_exception() :: %{
+        "message" => [String.t()],
+        "resourceId" => [String.t()],
+        "resourceType" => [String.t()]
+      }
+
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  send_invites_input() :: %{
-    required("accessorIds") => list(String.t()()),
-    required("body") => String.t(),
-    required("title") => String.t()
-  }
+
+      send_invites_input() :: %{
+        required("accessorIds") => list(String.t()()),
+        required("body") => String.t(),
+        required("title") => String.t()
+      }
+
   """
   @type send_invites_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  service_quota_exceeded_exception() :: %{
-    "message" => [String.t()],
-    "quotaCode" => [String.t()],
-    "resourceId" => [String.t()],
-    "resourceType" => [String.t()],
-    "serviceCode" => [String.t()]
-  }
+
+      service_quota_exceeded_exception() :: %{
+        "message" => [String.t()],
+        "quotaCode" => [String.t()],
+        "resourceId" => [String.t()],
+        "resourceType" => [String.t()],
+        "serviceCode" => [String.t()]
+      }
+
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  space_data() :: %{
-    "arn" => String.t(),
-    "configurationStatus" => list(any()),
-    "contentSize" => float(),
-    "createDateTime" => [non_neg_integer()],
-    "deleteDateTime" => [non_neg_integer()],
-    "description" => String.t(),
-    "name" => String.t(),
-    "randomDomain" => String.t(),
-    "spaceId" => String.t(),
-    "status" => String.t(),
-    "storageLimit" => float(),
-    "tier" => list(any()),
-    "userCount" => integer(),
-    "userKMSKey" => String.t(),
-    "vanityDomain" => String.t(),
-    "vanityDomainStatus" => list(any())
-  }
+
+      space_data() :: %{
+        "arn" => String.t(),
+        "configurationStatus" => list(any()),
+        "contentSize" => float(),
+        "createDateTime" => [non_neg_integer()],
+        "deleteDateTime" => [non_neg_integer()],
+        "description" => String.t(),
+        "name" => String.t(),
+        "randomDomain" => String.t(),
+        "spaceId" => String.t(),
+        "status" => String.t(),
+        "storageLimit" => float(),
+        "tier" => list(any()),
+        "userCount" => integer(),
+        "userKMSKey" => String.t(),
+        "vanityDomain" => String.t(),
+        "vanityDomainStatus" => list(any())
+      }
+
   """
   @type space_data() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_request() :: %{
-    required("tags") => map()
-  }
+
+      tag_resource_request() :: %{
+        required("tags") => map()
+      }
+
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_response() :: %{
 
-  }
+      tag_resource_response() :: %{}
+
   """
-  @type tag_resource_response() :: %{String.t() => any()}
+  @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  throttling_exception() :: %{
-    "message" => [String.t()],
-    "quotaCode" => [String.t()],
-    "retryAfterSeconds" => [integer()],
-    "serviceCode" => [String.t()]
-  }
+
+      throttling_exception() :: %{
+        "message" => [String.t()],
+        "quotaCode" => [String.t()],
+        "retryAfterSeconds" => [integer()],
+        "serviceCode" => [String.t()]
+      }
+
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_request() :: %{
-    required("tagKeys") => list(String.t()())
-  }
+
+      untag_resource_request() :: %{
+        required("tagKeys") => list(String.t()())
+      }
+
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_response() :: %{
 
-  }
+      untag_resource_response() :: %{}
+
   """
-  @type untag_resource_response() :: %{String.t() => any()}
+  @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  update_space_input() :: %{
-    optional("description") => String.t(),
-    optional("roleArn") => String.t(),
-    optional("tier") => list(any())
-  }
+
+      update_space_input() :: %{
+        optional("description") => String.t(),
+        optional("roleArn") => String.t(),
+        optional("tier") => list(any())
+      }
+
   """
   @type update_space_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  validation_exception() :: %{
-    "fieldList" => list(validation_exception_field()()),
-    "message" => [String.t()],
-    "reason" => list(any())
-  }
+
+      validation_exception() :: %{
+        "fieldList" => list(validation_exception_field()()),
+        "message" => [String.t()],
+        "reason" => list(any())
+      }
+
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  validation_exception_field() :: %{
-    "message" => [String.t()],
-    "name" => [String.t()]
-  }
+
+      validation_exception_field() :: %{
+        "message" => [String.t()],
+        "name" => [String.t()]
+      }
+
   """
   @type validation_exception_field() :: %{String.t() => any()}
+
+  @type create_space_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type delete_space_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type deregister_admin_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type get_space_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_spaces_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_tags_for_resource_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type register_admin_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type send_invites_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type tag_resource_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type untag_resource_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type update_space_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   def metadata do
     %{
@@ -335,13 +452,7 @@ defmodule AWS.Repostspace do
   @spec create_space(map(), create_space_input(), list()) ::
           {:ok, create_space_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_space_errors()}
   def create_space(%Client{} = client, input, options \\ []) do
     url_path = "/spaces"
     headers = []
@@ -368,11 +479,7 @@ defmodule AWS.Repostspace do
   @spec delete_space(map(), String.t(), delete_space_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_space_errors()}
   def delete_space(%Client{} = client, space_id, input, options \\ []) do
     url_path = "/spaces/#{AWS.Util.encode_uri(space_id)}"
     headers = []
@@ -400,11 +507,7 @@ defmodule AWS.Repostspace do
   @spec deregister_admin(map(), String.t(), String.t(), deregister_admin_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, deregister_admin_errors()}
   def deregister_admin(%Client{} = client, admin_id, space_id, input, options \\ []) do
     url_path = "/spaces/#{AWS.Util.encode_uri(space_id)}/admins/#{AWS.Util.encode_uri(admin_id)}"
     headers = []
@@ -431,11 +534,7 @@ defmodule AWS.Repostspace do
   @spec get_space(map(), String.t(), list()) ::
           {:ok, get_space_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_space_errors()}
   def get_space(%Client{} = client, space_id, options \\ []) do
     url_path = "/spaces/#{AWS.Util.encode_uri(space_id)}"
     headers = []
@@ -453,10 +552,7 @@ defmodule AWS.Repostspace do
   @spec list_spaces(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_spaces_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_spaces_errors()}
   def list_spaces(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/spaces"
     headers = []
@@ -490,11 +586,7 @@ defmodule AWS.Repostspace do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -511,11 +603,7 @@ defmodule AWS.Repostspace do
   @spec register_admin(map(), String.t(), String.t(), register_admin_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, register_admin_errors()}
   def register_admin(%Client{} = client, admin_id, space_id, input, options \\ []) do
     url_path = "/spaces/#{AWS.Util.encode_uri(space_id)}/admins/#{AWS.Util.encode_uri(admin_id)}"
     headers = []
@@ -542,11 +630,7 @@ defmodule AWS.Repostspace do
   @spec send_invites(map(), String.t(), send_invites_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, send_invites_errors()}
   def send_invites(%Client{} = client, space_id, input, options \\ []) do
     url_path = "/spaces/#{AWS.Util.encode_uri(space_id)}/invite"
     headers = []
@@ -579,11 +663,7 @@ defmodule AWS.Repostspace do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -610,11 +690,7 @@ defmodule AWS.Repostspace do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -646,12 +722,7 @@ defmodule AWS.Repostspace do
   @spec update_space(map(), String.t(), update_space_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_space_errors()}
   def update_space(%Client{} = client, space_id, input, options \\ []) do
     url_path = "/spaces/#{AWS.Util.encode_uri(space_id)}"
     headers = []

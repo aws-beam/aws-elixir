@@ -32,921 +32,1239 @@ defmodule AWS.EntityResolution do
   @typedoc """
 
   ## Example:
-  get_id_mapping_job_input() :: %{
 
-  }
+      get_id_mapping_job_input() :: %{}
+
   """
-  @type get_id_mapping_job_input() :: %{String.t() => any()}
+  @type get_id_mapping_job_input() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_provider_services_input() :: %{
-    optional("maxResults") => [integer()],
-    optional("nextToken") => String.t(),
-    optional("providerName") => String.t()
-  }
+
+      list_provider_services_input() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t(),
+        optional("providerName") => String.t()
+      }
+
   """
   @type list_provider_services_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_matching_job_input() :: %{
 
-  }
+      start_matching_job_input() :: %{}
+
   """
-  @type start_matching_job_input() :: %{String.t() => any()}
+  @type start_matching_job_input() :: %{}
 
   @typedoc """
 
   ## Example:
-  id_mapping_techniques() :: %{
-    "idMappingType" => list(any()),
-    "providerProperties" => provider_properties()
-  }
+
+      id_mapping_techniques() :: %{
+        "idMappingType" => list(any()),
+        "providerProperties" => provider_properties()
+      }
+
   """
   @type id_mapping_techniques() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  input_source() :: %{
-    "applyNormalization" => [boolean()],
-    "inputSourceARN" => [String.t()],
-    "schemaName" => String.t()
-  }
+
+      input_source() :: %{
+        "applyNormalization" => [boolean()],
+        "inputSourceARN" => [String.t()],
+        "schemaName" => String.t()
+      }
+
   """
   @type input_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_matching_workflow_input() :: %{
 
-  }
+      delete_matching_workflow_input() :: %{}
+
   """
-  @type delete_matching_workflow_input() :: %{String.t() => any()}
+  @type delete_matching_workflow_input() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_match_id_output() :: %{
-    "matchId" => [String.t()]
-  }
+
+      get_match_id_output() :: %{
+        "matchId" => [String.t()]
+      }
+
   """
   @type get_match_id_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resolution_techniques() :: %{
-    "providerProperties" => provider_properties(),
-    "resolutionType" => list(any()),
-    "ruleBasedProperties" => rule_based_properties()
-  }
+
+      resolution_techniques() :: %{
+        "providerProperties" => provider_properties(),
+        "resolutionType" => list(any()),
+        "ruleBasedProperties" => rule_based_properties()
+      }
+
   """
   @type resolution_techniques() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_schema_mapping_output() :: %{
-    "description" => String.t(),
-    "mappedInputFields" => list(schema_input_attribute()()),
-    "schemaArn" => String.t(),
-    "schemaName" => String.t()
-  }
+
+      update_schema_mapping_output() :: %{
+        "description" => String.t(),
+        "mappedInputFields" => list(schema_input_attribute()()),
+        "schemaArn" => String.t(),
+        "schemaName" => String.t()
+      }
+
   """
   @type update_schema_mapping_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_id_mapping_workflow_output() :: %{
-    "message" => [String.t()]
-  }
+
+      delete_id_mapping_workflow_output() :: %{
+        "message" => [String.t()]
+      }
+
   """
   @type delete_id_mapping_workflow_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_schema_mapping_input() :: %{
-    optional("description") => String.t(),
-    required("mappedInputFields") => list(schema_input_attribute()())
-  }
+
+      update_schema_mapping_input() :: %{
+        optional("description") => String.t(),
+        required("mappedInputFields") => list(schema_input_attribute()())
+      }
+
   """
   @type update_schema_mapping_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_matching_workflow_input() :: %{
-    optional("description") => String.t(),
-    optional("incrementalRunConfig") => incremental_run_config(),
-    required("inputSourceConfig") => list(input_source()()),
-    required("outputSourceConfig") => list(output_source()()),
-    required("resolutionTechniques") => resolution_techniques(),
-    required("roleArn") => [String.t()]
-  }
+
+      update_matching_workflow_input() :: %{
+        optional("description") => String.t(),
+        optional("incrementalRunConfig") => incremental_run_config(),
+        required("inputSourceConfig") => list(input_source()()),
+        required("outputSourceConfig") => list(output_source()()),
+        required("resolutionTechniques") => resolution_techniques(),
+        required("roleArn") => [String.t()]
+      }
+
   """
   @type update_matching_workflow_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  provider_service_summary() :: %{
-    "providerName" => String.t(),
-    "providerServiceArn" => String.t(),
-    "providerServiceDisplayName" => String.t(),
-    "providerServiceName" => String.t(),
-    "providerServiceType" => list(any())
-  }
+
+      provider_service_summary() :: %{
+        "providerName" => String.t(),
+        "providerServiceArn" => String.t(),
+        "providerServiceDisplayName" => String.t(),
+        "providerServiceName" => String.t(),
+        "providerServiceType" => list(any())
+      }
+
   """
   @type provider_service_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_schema_mappings_output() :: %{
-    "nextToken" => String.t(),
-    "schemaList" => list(schema_mapping_summary()())
-  }
+
+      list_schema_mappings_output() :: %{
+        "nextToken" => String.t(),
+        "schemaList" => list(schema_mapping_summary()())
+      }
+
   """
   @type list_schema_mappings_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  output_attribute() :: %{
-    "hashed" => [boolean()],
-    "name" => String.t()
-  }
+
+      output_attribute() :: %{
+        "hashed" => [boolean()],
+        "name" => String.t()
+      }
+
   """
   @type output_attribute() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_matching_job_output() :: %{
-    "jobId" => String.t()
-  }
+
+      start_matching_job_output() :: %{
+        "jobId" => String.t()
+      }
+
   """
   @type start_matching_job_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  exceeds_limit_exception() :: %{
-    "message" => String.t(),
-    "quotaName" => [String.t()],
-    "quotaValue" => [integer()]
-  }
+
+      exceeds_limit_exception() :: %{
+        "message" => String.t(),
+        "quotaName" => [String.t()],
+        "quotaValue" => [integer()]
+      }
+
   """
   @type exceeds_limit_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_schema_mapping_input() :: %{
 
-  }
+      delete_schema_mapping_input() :: %{}
+
   """
-  @type delete_schema_mapping_input() :: %{String.t() => any()}
+  @type delete_schema_mapping_input() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_id_mapping_jobs_input() :: %{
-    optional("maxResults") => [integer()],
-    optional("nextToken") => String.t()
-  }
+
+      list_id_mapping_jobs_input() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t()
+      }
+
   """
   @type list_id_mapping_jobs_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_id_mapping_workflow_input() :: %{
 
-  }
+      delete_id_mapping_workflow_input() :: %{}
+
   """
-  @type delete_id_mapping_workflow_input() :: %{String.t() => any()}
+  @type delete_id_mapping_workflow_input() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_schema_mapping_output() :: %{
-    "description" => String.t(),
-    "mappedInputFields" => list(schema_input_attribute()()),
-    "schemaArn" => String.t(),
-    "schemaName" => String.t()
-  }
+
+      create_schema_mapping_output() :: %{
+        "description" => String.t(),
+        "mappedInputFields" => list(schema_input_attribute()()),
+        "schemaArn" => String.t(),
+        "schemaName" => String.t()
+      }
+
   """
   @type create_schema_mapping_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_matching_workflow_output() :: %{
-    "description" => String.t(),
-    "incrementalRunConfig" => incremental_run_config(),
-    "inputSourceConfig" => list(input_source()()),
-    "outputSourceConfig" => list(output_source()()),
-    "resolutionTechniques" => resolution_techniques(),
-    "roleArn" => [String.t()],
-    "workflowName" => String.t()
-  }
+
+      update_matching_workflow_output() :: %{
+        "description" => String.t(),
+        "incrementalRunConfig" => incremental_run_config(),
+        "inputSourceConfig" => list(input_source()()),
+        "outputSourceConfig" => list(output_source()()),
+        "resolutionTechniques" => resolution_techniques(),
+        "roleArn" => [String.t()],
+        "workflowName" => String.t()
+      }
+
   """
   @type update_matching_workflow_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_id_mapping_jobs_output() :: %{
-    "jobs" => list(job_summary()()),
-    "nextToken" => String.t()
-  }
+
+      list_id_mapping_jobs_output() :: %{
+        "jobs" => list(job_summary()()),
+        "nextToken" => String.t()
+      }
+
   """
   @type list_id_mapping_jobs_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  job_metrics() :: %{
-    "inputRecords" => [integer()],
-    "matchIDs" => [integer()],
-    "recordsNotProcessed" => [integer()],
-    "totalRecordsProcessed" => [integer()]
-  }
+
+      job_metrics() :: %{
+        "inputRecords" => [integer()],
+        "matchIDs" => [integer()],
+        "recordsNotProcessed" => [integer()],
+        "totalRecordsProcessed" => [integer()]
+      }
+
   """
   @type job_metrics() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_id_mapping_workflow_output() :: %{
-    "createdAt" => [non_neg_integer()],
-    "description" => String.t(),
-    "idMappingTechniques" => id_mapping_techniques(),
-    "inputSourceConfig" => list(id_mapping_workflow_input_source()()),
-    "outputSourceConfig" => list(id_mapping_workflow_output_source()()),
-    "roleArn" => String.t(),
-    "tags" => map(),
-    "updatedAt" => [non_neg_integer()],
-    "workflowArn" => String.t(),
-    "workflowName" => String.t()
-  }
+
+      get_id_mapping_workflow_output() :: %{
+        "createdAt" => [non_neg_integer()],
+        "description" => String.t(),
+        "idMappingTechniques" => id_mapping_techniques(),
+        "inputSourceConfig" => list(id_mapping_workflow_input_source()()),
+        "outputSourceConfig" => list(id_mapping_workflow_output_source()()),
+        "roleArn" => String.t(),
+        "tags" => map(),
+        "updatedAt" => [non_neg_integer()],
+        "workflowArn" => String.t(),
+        "workflowName" => String.t()
+      }
+
   """
   @type get_id_mapping_workflow_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_output() :: %{
-    "tags" => map()
-  }
+
+      list_tags_for_resource_output() :: %{
+        "tags" => map()
+      }
+
   """
   @type list_tags_for_resource_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_schema_mapping_output() :: %{
-    "createdAt" => [non_neg_integer()],
-    "description" => String.t(),
-    "hasWorkflows" => [boolean()],
-    "mappedInputFields" => list(schema_input_attribute()()),
-    "schemaArn" => String.t(),
-    "schemaName" => String.t(),
-    "tags" => map(),
-    "updatedAt" => [non_neg_integer()]
-  }
+
+      get_schema_mapping_output() :: %{
+        "createdAt" => [non_neg_integer()],
+        "description" => String.t(),
+        "hasWorkflows" => [boolean()],
+        "mappedInputFields" => list(schema_input_attribute()()),
+        "schemaArn" => String.t(),
+        "schemaName" => String.t(),
+        "tags" => map(),
+        "updatedAt" => [non_neg_integer()]
+      }
+
   """
   @type get_schema_mapping_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_matching_workflows_input() :: %{
-    optional("maxResults") => [integer()],
-    optional("nextToken") => String.t()
-  }
+
+      list_matching_workflows_input() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t()
+      }
+
   """
   @type list_matching_workflows_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  id_mapping_workflow_output_source() :: %{
-    "KMSArn" => String.t(),
-    "outputS3Path" => String.t()
-  }
+
+      id_mapping_workflow_output_source() :: %{
+        "KMSArn" => String.t(),
+        "outputS3Path" => String.t()
+      }
+
   """
   @type id_mapping_workflow_output_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_matching_workflow_output() :: %{
-    "description" => String.t(),
-    "incrementalRunConfig" => incremental_run_config(),
-    "inputSourceConfig" => list(input_source()()),
-    "outputSourceConfig" => list(output_source()()),
-    "resolutionTechniques" => resolution_techniques(),
-    "roleArn" => [String.t()],
-    "workflowArn" => String.t(),
-    "workflowName" => String.t()
-  }
+
+      create_matching_workflow_output() :: %{
+        "description" => String.t(),
+        "incrementalRunConfig" => incremental_run_config(),
+        "inputSourceConfig" => list(input_source()()),
+        "outputSourceConfig" => list(output_source()()),
+        "resolutionTechniques" => resolution_techniques(),
+        "roleArn" => [String.t()],
+        "workflowArn" => String.t(),
+        "workflowName" => String.t()
+      }
+
   """
   @type create_matching_workflow_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  job_summary() :: %{
-    "endTime" => [non_neg_integer()],
-    "jobId" => String.t(),
-    "startTime" => [non_neg_integer()],
-    "status" => list(any())
-  }
+
+      job_summary() :: %{
+        "endTime" => [non_neg_integer()],
+        "jobId" => String.t(),
+        "startTime" => [non_neg_integer()],
+        "status" => list(any())
+      }
+
   """
   @type job_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_schema_mapping_input() :: %{
 
-  }
+      get_schema_mapping_input() :: %{}
+
   """
-  @type get_schema_mapping_input() :: %{String.t() => any()}
+  @type get_schema_mapping_input() :: %{}
 
   @typedoc """
 
   ## Example:
-  conflict_exception() :: %{
-    "message" => String.t()
-  }
+
+      conflict_exception() :: %{
+        "message" => String.t()
+      }
+
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_not_found_exception() :: %{
-    "message" => String.t()
-  }
+
+      resource_not_found_exception() :: %{
+        "message" => String.t()
+      }
+
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  intermediate_source_configuration() :: %{
-    "intermediateS3Path" => String.t()
-  }
+
+      intermediate_source_configuration() :: %{
+        "intermediateS3Path" => String.t()
+      }
+
   """
   @type intermediate_source_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_id_mapping_workflows_output() :: %{
-    "nextToken" => String.t(),
-    "workflowSummaries" => list(id_mapping_workflow_summary()())
-  }
+
+      list_id_mapping_workflows_output() :: %{
+        "nextToken" => String.t(),
+        "workflowSummaries" => list(id_mapping_workflow_summary()())
+      }
+
   """
   @type list_id_mapping_workflows_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  id_mapping_job_metrics() :: %{
-    "inputRecords" => [integer()],
-    "recordsNotProcessed" => [integer()],
-    "totalRecordsProcessed" => [integer()]
-  }
+
+      id_mapping_job_metrics() :: %{
+        "inputRecords" => [integer()],
+        "recordsNotProcessed" => [integer()],
+        "totalRecordsProcessed" => [integer()]
+      }
+
   """
   @type id_mapping_job_metrics() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_id_mapping_workflow_input() :: %{
-    optional("description") => String.t(),
-    optional("tags") => map(),
-    required("idMappingTechniques") => id_mapping_techniques(),
-    required("inputSourceConfig") => list(id_mapping_workflow_input_source()()),
-    required("outputSourceConfig") => list(id_mapping_workflow_output_source()()),
-    required("roleArn") => String.t(),
-    required("workflowName") => String.t()
-  }
+
+      create_id_mapping_workflow_input() :: %{
+        optional("description") => String.t(),
+        optional("tags") => map(),
+        required("idMappingTechniques") => id_mapping_techniques(),
+        required("inputSourceConfig") => list(id_mapping_workflow_input_source()()),
+        required("outputSourceConfig") => list(id_mapping_workflow_output_source()()),
+        required("roleArn") => String.t(),
+        required("workflowName") => String.t()
+      }
+
   """
   @type create_id_mapping_workflow_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_matching_workflows_output() :: %{
-    "nextToken" => String.t(),
-    "workflowSummaries" => list(matching_workflow_summary()())
-  }
+
+      list_matching_workflows_output() :: %{
+        "nextToken" => String.t(),
+        "workflowSummaries" => list(matching_workflow_summary()())
+      }
+
   """
   @type list_matching_workflows_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_matching_workflow_input() :: %{
-    optional("description") => String.t(),
-    optional("incrementalRunConfig") => incremental_run_config(),
-    optional("tags") => map(),
-    required("inputSourceConfig") => list(input_source()()),
-    required("outputSourceConfig") => list(output_source()()),
-    required("resolutionTechniques") => resolution_techniques(),
-    required("roleArn") => [String.t()],
-    required("workflowName") => String.t()
-  }
+
+      create_matching_workflow_input() :: %{
+        optional("description") => String.t(),
+        optional("incrementalRunConfig") => incremental_run_config(),
+        optional("tags") => map(),
+        required("inputSourceConfig") => list(input_source()()),
+        required("outputSourceConfig") => list(output_source()()),
+        required("resolutionTechniques") => resolution_techniques(),
+        required("roleArn") => [String.t()],
+        required("workflowName") => String.t()
+      }
+
   """
   @type create_matching_workflow_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  error_details() :: %{
-    "errorMessage" => String.t()
-  }
+
+      error_details() :: %{
+        "errorMessage" => String.t()
+      }
+
   """
   @type error_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  matching_workflow_summary() :: %{
-    "createdAt" => [non_neg_integer()],
-    "resolutionType" => list(any()),
-    "updatedAt" => [non_neg_integer()],
-    "workflowArn" => String.t(),
-    "workflowName" => String.t()
-  }
+
+      matching_workflow_summary() :: %{
+        "createdAt" => [non_neg_integer()],
+        "resolutionType" => list(any()),
+        "updatedAt" => [non_neg_integer()],
+        "workflowArn" => String.t(),
+        "workflowName" => String.t()
+      }
+
   """
   @type matching_workflow_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_id_mapping_job_output() :: %{
-    "endTime" => [non_neg_integer()],
-    "errorDetails" => error_details(),
-    "jobId" => String.t(),
-    "metrics" => id_mapping_job_metrics(),
-    "startTime" => [non_neg_integer()],
-    "status" => list(any())
-  }
+
+      get_id_mapping_job_output() :: %{
+        "endTime" => [non_neg_integer()],
+        "errorDetails" => error_details(),
+        "jobId" => String.t(),
+        "metrics" => id_mapping_job_metrics(),
+        "startTime" => [non_neg_integer()],
+        "status" => list(any())
+      }
+
   """
   @type get_id_mapping_job_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_id_mapping_job_input() :: %{
 
-  }
+      start_id_mapping_job_input() :: %{}
+
   """
-  @type start_id_mapping_job_input() :: %{String.t() => any()}
+  @type start_id_mapping_job_input() :: %{}
 
   @typedoc """
 
   ## Example:
-  update_id_mapping_workflow_output() :: %{
-    "description" => String.t(),
-    "idMappingTechniques" => id_mapping_techniques(),
-    "inputSourceConfig" => list(id_mapping_workflow_input_source()()),
-    "outputSourceConfig" => list(id_mapping_workflow_output_source()()),
-    "roleArn" => String.t(),
-    "workflowArn" => String.t(),
-    "workflowName" => String.t()
-  }
+
+      update_id_mapping_workflow_output() :: %{
+        "description" => String.t(),
+        "idMappingTechniques" => id_mapping_techniques(),
+        "inputSourceConfig" => list(id_mapping_workflow_input_source()()),
+        "outputSourceConfig" => list(id_mapping_workflow_output_source()()),
+        "roleArn" => String.t(),
+        "workflowArn" => String.t(),
+        "workflowName" => String.t()
+      }
+
   """
   @type update_id_mapping_workflow_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_provider_service_input() :: %{
 
-  }
+      get_provider_service_input() :: %{}
+
   """
-  @type get_provider_service_input() :: %{String.t() => any()}
+  @type get_provider_service_input() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_schema_mappings_input() :: %{
-    optional("maxResults") => [integer()],
-    optional("nextToken") => String.t()
-  }
+
+      list_schema_mappings_input() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t()
+      }
+
   """
   @type list_schema_mappings_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_matching_jobs_input() :: %{
-    optional("maxResults") => [integer()],
-    optional("nextToken") => String.t()
-  }
+
+      list_matching_jobs_input() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t()
+      }
+
   """
   @type list_matching_jobs_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_id_mapping_workflow_input() :: %{
 
-  }
+      get_id_mapping_workflow_input() :: %{}
+
   """
-  @type get_id_mapping_workflow_input() :: %{String.t() => any()}
+  @type get_id_mapping_workflow_input() :: %{}
 
   @typedoc """
 
   ## Example:
-  tag_resource_input() :: %{
-    required("tags") => map()
-  }
+
+      tag_resource_input() :: %{
+        required("tags") => map()
+      }
+
   """
   @type tag_resource_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  rule() :: %{
-    "matchingKeys" => list(String.t()()),
-    "ruleName" => [String.t()]
-  }
+
+      rule() :: %{
+        "matchingKeys" => list(String.t()()),
+        "ruleName" => [String.t()]
+      }
+
   """
   @type rule() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_matching_workflow_output() :: %{
-    "message" => [String.t()]
-  }
+
+      delete_matching_workflow_output() :: %{
+        "message" => [String.t()]
+      }
+
   """
   @type delete_matching_workflow_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_output() :: %{
 
-  }
+      tag_resource_output() :: %{}
+
   """
-  @type tag_resource_output() :: %{String.t() => any()}
+  @type tag_resource_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  internal_server_exception() :: %{
-    "message" => String.t()
-  }
+
+      internal_server_exception() :: %{
+        "message" => String.t()
+      }
+
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_id_mapping_workflows_input() :: %{
-    optional("maxResults") => [integer()],
-    optional("nextToken") => String.t()
-  }
+
+      list_id_mapping_workflows_input() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t()
+      }
+
   """
   @type list_id_mapping_workflows_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_id_mapping_workflow_output() :: %{
-    "description" => String.t(),
-    "idMappingTechniques" => id_mapping_techniques(),
-    "inputSourceConfig" => list(id_mapping_workflow_input_source()()),
-    "outputSourceConfig" => list(id_mapping_workflow_output_source()()),
-    "roleArn" => String.t(),
-    "workflowArn" => String.t(),
-    "workflowName" => String.t()
-  }
+
+      create_id_mapping_workflow_output() :: %{
+        "description" => String.t(),
+        "idMappingTechniques" => id_mapping_techniques(),
+        "inputSourceConfig" => list(id_mapping_workflow_input_source()()),
+        "outputSourceConfig" => list(id_mapping_workflow_output_source()()),
+        "roleArn" => String.t(),
+        "workflowArn" => String.t(),
+        "workflowName" => String.t()
+      }
+
   """
   @type create_id_mapping_workflow_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_id_mapping_workflow_input() :: %{
-    optional("description") => String.t(),
-    required("idMappingTechniques") => id_mapping_techniques(),
-    required("inputSourceConfig") => list(id_mapping_workflow_input_source()()),
-    required("outputSourceConfig") => list(id_mapping_workflow_output_source()()),
-    required("roleArn") => String.t()
-  }
+
+      update_id_mapping_workflow_input() :: %{
+        optional("description") => String.t(),
+        required("idMappingTechniques") => id_mapping_techniques(),
+        required("inputSourceConfig") => list(id_mapping_workflow_input_source()()),
+        required("outputSourceConfig") => list(id_mapping_workflow_output_source()()),
+        required("roleArn") => String.t()
+      }
+
   """
   @type update_id_mapping_workflow_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  schema_mapping_summary() :: %{
-    "createdAt" => [non_neg_integer()],
-    "hasWorkflows" => [boolean()],
-    "schemaArn" => String.t(),
-    "schemaName" => String.t(),
-    "updatedAt" => [non_neg_integer()]
-  }
+
+      schema_mapping_summary() :: %{
+        "createdAt" => [non_neg_integer()],
+        "hasWorkflows" => [boolean()],
+        "schemaArn" => String.t(),
+        "schemaName" => String.t(),
+        "updatedAt" => [non_neg_integer()]
+      }
+
   """
   @type schema_mapping_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_schema_mapping_input() :: %{
-    optional("description") => String.t(),
-    optional("tags") => map(),
-    required("mappedInputFields") => list(schema_input_attribute()()),
-    required("schemaName") => String.t()
-  }
+
+      create_schema_mapping_input() :: %{
+        optional("description") => String.t(),
+        optional("tags") => map(),
+        required("mappedInputFields") => list(schema_input_attribute()()),
+        required("schemaName") => String.t()
+      }
+
   """
   @type create_schema_mapping_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  provider_intermediate_data_access_configuration() :: %{
-    "awsAccountIds" => list(String.t()()),
-    "requiredBucketActions" => list([String.t()]())
-  }
+
+      provider_intermediate_data_access_configuration() :: %{
+        "awsAccountIds" => list(String.t()()),
+        "requiredBucketActions" => list([String.t()]())
+      }
+
   """
   @type provider_intermediate_data_access_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  access_denied_exception() :: %{
-    "message" => String.t()
-  }
+
+      access_denied_exception() :: %{
+        "message" => String.t()
+      }
+
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_input() :: %{
-    required("tagKeys") => list(String.t()())
-  }
+
+      untag_resource_input() :: %{
+        required("tagKeys") => list(String.t()())
+      }
+
   """
   @type untag_resource_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_matching_job_input() :: %{
 
-  }
+      get_matching_job_input() :: %{}
+
   """
-  @type get_matching_job_input() :: %{String.t() => any()}
+  @type get_matching_job_input() :: %{}
 
   @typedoc """
 
   ## Example:
-  validation_exception() :: %{
-    "message" => String.t()
-  }
+
+      validation_exception() :: %{
+        "message" => String.t()
+      }
+
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_input() :: %{
 
-  }
+      list_tags_for_resource_input() :: %{}
+
   """
-  @type list_tags_for_resource_input() :: %{String.t() => any()}
+  @type list_tags_for_resource_input() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_provider_service_output() :: %{
-    "anonymizedOutput" => [boolean()],
-    "providerConfigurationDefinition" => [any()],
-    "providerEndpointConfiguration" => list(),
-    "providerEntityOutputDefinition" => [any()],
-    "providerIntermediateDataAccessConfiguration" => provider_intermediate_data_access_configuration(),
-    "providerName" => String.t(),
-    "providerServiceArn" => String.t(),
-    "providerServiceDisplayName" => String.t(),
-    "providerServiceName" => String.t(),
-    "providerServiceType" => list(any())
-  }
+
+      get_provider_service_output() :: %{
+        "anonymizedOutput" => [boolean()],
+        "providerConfigurationDefinition" => [any()],
+        "providerEndpointConfiguration" => list(),
+        "providerEntityOutputDefinition" => [any()],
+        "providerIntermediateDataAccessConfiguration" => provider_intermediate_data_access_configuration(),
+        "providerName" => String.t(),
+        "providerServiceArn" => String.t(),
+        "providerServiceDisplayName" => String.t(),
+        "providerServiceName" => String.t(),
+        "providerServiceType" => list(any())
+      }
+
   """
   @type get_provider_service_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_output() :: %{
 
-  }
+      untag_resource_output() :: %{}
+
   """
-  @type untag_resource_output() :: %{String.t() => any()}
+  @type untag_resource_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  id_mapping_workflow_summary() :: %{
-    "createdAt" => [non_neg_integer()],
-    "updatedAt" => [non_neg_integer()],
-    "workflowArn" => String.t(),
-    "workflowName" => String.t()
-  }
+
+      id_mapping_workflow_summary() :: %{
+        "createdAt" => [non_neg_integer()],
+        "updatedAt" => [non_neg_integer()],
+        "workflowArn" => String.t(),
+        "workflowName" => String.t()
+      }
+
   """
   @type id_mapping_workflow_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  output_source() :: %{
-    "KMSArn" => String.t(),
-    "applyNormalization" => [boolean()],
-    "output" => list(output_attribute()()),
-    "outputS3Path" => String.t()
-  }
+
+      output_source() :: %{
+        "KMSArn" => String.t(),
+        "applyNormalization" => [boolean()],
+        "output" => list(output_attribute()()),
+        "outputS3Path" => String.t()
+      }
+
   """
   @type output_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  throttling_exception() :: %{
-    "message" => String.t()
-  }
+
+      throttling_exception() :: %{
+        "message" => String.t()
+      }
+
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  provider_properties() :: %{
-    "intermediateSourceConfiguration" => intermediate_source_configuration(),
-    "providerConfiguration" => [any()],
-    "providerServiceArn" => String.t()
-  }
+
+      provider_properties() :: %{
+        "intermediateSourceConfiguration" => intermediate_source_configuration(),
+        "providerConfiguration" => [any()],
+        "providerServiceArn" => String.t()
+      }
+
   """
   @type provider_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_schema_mapping_output() :: %{
-    "message" => [String.t()]
-  }
+
+      delete_schema_mapping_output() :: %{
+        "message" => [String.t()]
+      }
+
   """
   @type delete_schema_mapping_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_id_mapping_job_output() :: %{
-    "jobId" => String.t()
-  }
+
+      start_id_mapping_job_output() :: %{
+        "jobId" => String.t()
+      }
+
   """
   @type start_id_mapping_job_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_matching_workflow_output() :: %{
-    "createdAt" => [non_neg_integer()],
-    "description" => String.t(),
-    "incrementalRunConfig" => incremental_run_config(),
-    "inputSourceConfig" => list(input_source()()),
-    "outputSourceConfig" => list(output_source()()),
-    "resolutionTechniques" => resolution_techniques(),
-    "roleArn" => [String.t()],
-    "tags" => map(),
-    "updatedAt" => [non_neg_integer()],
-    "workflowArn" => String.t(),
-    "workflowName" => String.t()
-  }
+
+      get_matching_workflow_output() :: %{
+        "createdAt" => [non_neg_integer()],
+        "description" => String.t(),
+        "incrementalRunConfig" => incremental_run_config(),
+        "inputSourceConfig" => list(input_source()()),
+        "outputSourceConfig" => list(output_source()()),
+        "resolutionTechniques" => resolution_techniques(),
+        "roleArn" => [String.t()],
+        "tags" => map(),
+        "updatedAt" => [non_neg_integer()],
+        "workflowArn" => String.t(),
+        "workflowName" => String.t()
+      }
+
   """
   @type get_matching_workflow_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  schema_input_attribute() :: %{
-    "fieldName" => String.t(),
-    "groupName" => String.t(),
-    "matchKey" => String.t(),
-    "subType" => String.t(),
-    "type" => list(any())
-  }
+
+      schema_input_attribute() :: %{
+        "fieldName" => String.t(),
+        "groupName" => String.t(),
+        "matchKey" => String.t(),
+        "subType" => String.t(),
+        "type" => list(any())
+      }
+
   """
   @type schema_input_attribute() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  provider_marketplace_configuration() :: %{
-    "assetId" => [String.t()],
-    "dataSetId" => [String.t()],
-    "listingId" => [String.t()],
-    "revisionId" => [String.t()]
-  }
+
+      provider_marketplace_configuration() :: %{
+        "assetId" => [String.t()],
+        "dataSetId" => [String.t()],
+        "listingId" => [String.t()],
+        "revisionId" => [String.t()]
+      }
+
   """
   @type provider_marketplace_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_matching_job_output() :: %{
-    "endTime" => [non_neg_integer()],
-    "errorDetails" => error_details(),
-    "jobId" => String.t(),
-    "metrics" => job_metrics(),
-    "startTime" => [non_neg_integer()],
-    "status" => list(any())
-  }
+
+      get_matching_job_output() :: %{
+        "endTime" => [non_neg_integer()],
+        "errorDetails" => error_details(),
+        "jobId" => String.t(),
+        "metrics" => job_metrics(),
+        "startTime" => [non_neg_integer()],
+        "status" => list(any())
+      }
+
   """
   @type get_matching_job_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  rule_based_properties() :: %{
-    "attributeMatchingModel" => list(any()),
-    "rules" => list(rule()())
-  }
+
+      rule_based_properties() :: %{
+        "attributeMatchingModel" => list(any()),
+        "rules" => list(rule()())
+      }
+
   """
   @type rule_based_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  id_mapping_workflow_input_source() :: %{
-    "inputSourceARN" => [String.t()],
-    "schemaName" => String.t()
-  }
+
+      id_mapping_workflow_input_source() :: %{
+        "inputSourceARN" => [String.t()],
+        "schemaName" => String.t()
+      }
+
   """
   @type id_mapping_workflow_input_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_match_id_input() :: %{
-    required("record") => map()
-  }
+
+      get_match_id_input() :: %{
+        required("record") => map()
+      }
+
   """
   @type get_match_id_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  incremental_run_config() :: %{
-    "incrementalRunType" => list(any())
-  }
+
+      incremental_run_config() :: %{
+        "incrementalRunType" => list(any())
+      }
+
   """
   @type incremental_run_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_matching_workflow_input() :: %{
 
-  }
+      get_matching_workflow_input() :: %{}
+
   """
-  @type get_matching_workflow_input() :: %{String.t() => any()}
+  @type get_matching_workflow_input() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_matching_jobs_output() :: %{
-    "jobs" => list(job_summary()()),
-    "nextToken" => String.t()
-  }
+
+      list_matching_jobs_output() :: %{
+        "jobs" => list(job_summary()()),
+        "nextToken" => String.t()
+      }
+
   """
   @type list_matching_jobs_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_provider_services_output() :: %{
-    "nextToken" => String.t(),
-    "providerServiceSummaries" => list(provider_service_summary()())
-  }
+
+      list_provider_services_output() :: %{
+        "nextToken" => String.t(),
+        "providerServiceSummaries" => list(provider_service_summary()())
+      }
+
   """
   @type list_provider_services_output() :: %{String.t() => any()}
+
+  @type create_id_mapping_workflow_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | exceeds_limit_exception()
+
+  @type create_matching_workflow_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | exceeds_limit_exception()
+
+  @type create_schema_mapping_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | exceeds_limit_exception()
+
+  @type delete_id_mapping_workflow_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type delete_matching_workflow_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type delete_schema_mapping_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | conflict_exception()
+
+  @type get_id_mapping_job_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_id_mapping_workflow_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_match_id_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_matching_job_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_matching_workflow_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_provider_service_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_schema_mapping_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_id_mapping_jobs_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_id_mapping_workflows_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_matching_jobs_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_matching_workflows_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_provider_services_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_schema_mappings_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_tags_for_resource_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
+
+  @type start_id_mapping_job_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | exceeds_limit_exception()
+
+  @type start_matching_job_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | exceeds_limit_exception()
+
+  @type tag_resource_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
+
+  @type untag_resource_errors() :: internal_server_exception() | resource_not_found_exception()
+
+  @type update_id_mapping_workflow_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type update_matching_workflow_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type update_schema_mapping_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   def metadata do
     %{
@@ -974,12 +1292,7 @@ defmodule AWS.EntityResolution do
   @spec create_id_mapping_workflow(map(), create_id_mapping_workflow_input(), list()) ::
           {:ok, create_id_mapping_workflow_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, exceeds_limit_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_id_mapping_workflow_errors()}
   def create_id_mapping_workflow(%Client{} = client, input, options \\ []) do
     url_path = "/idmappingworkflows"
     headers = []
@@ -1011,12 +1324,7 @@ defmodule AWS.EntityResolution do
   @spec create_matching_workflow(map(), create_matching_workflow_input(), list()) ::
           {:ok, create_matching_workflow_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, exceeds_limit_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_matching_workflow_errors()}
   def create_matching_workflow(%Client{} = client, input, options \\ []) do
     url_path = "/matchingworkflows"
     headers = []
@@ -1047,12 +1355,7 @@ defmodule AWS.EntityResolution do
   @spec create_schema_mapping(map(), create_schema_mapping_input(), list()) ::
           {:ok, create_schema_mapping_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, exceeds_limit_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_schema_mapping_errors()}
   def create_schema_mapping(%Client{} = client, input, options \\ []) do
     url_path = "/schemas"
     headers = []
@@ -1082,10 +1385,7 @@ defmodule AWS.EntityResolution do
   @spec delete_id_mapping_workflow(map(), String.t(), delete_id_mapping_workflow_input(), list()) ::
           {:ok, delete_id_mapping_workflow_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_id_mapping_workflow_errors()}
   def delete_id_mapping_workflow(%Client{} = client, workflow_name, input, options \\ []) do
     url_path = "/idmappingworkflows/#{AWS.Util.encode_uri(workflow_name)}"
     headers = []
@@ -1115,10 +1415,7 @@ defmodule AWS.EntityResolution do
   @spec delete_matching_workflow(map(), String.t(), delete_matching_workflow_input(), list()) ::
           {:ok, delete_matching_workflow_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_matching_workflow_errors()}
   def delete_matching_workflow(%Client{} = client, workflow_name, input, options \\ []) do
     url_path = "/matchingworkflows/#{AWS.Util.encode_uri(workflow_name)}"
     headers = []
@@ -1151,11 +1448,7 @@ defmodule AWS.EntityResolution do
   @spec delete_schema_mapping(map(), String.t(), delete_schema_mapping_input(), list()) ::
           {:ok, delete_schema_mapping_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_schema_mapping_errors()}
   def delete_schema_mapping(%Client{} = client, schema_name, input, options \\ []) do
     url_path = "/schemas/#{AWS.Util.encode_uri(schema_name)}"
     headers = []
@@ -1184,11 +1477,7 @@ defmodule AWS.EntityResolution do
   @spec get_id_mapping_job(map(), String.t(), String.t(), list()) ::
           {:ok, get_id_mapping_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_id_mapping_job_errors()}
   def get_id_mapping_job(%Client{} = client, job_id, workflow_name, options \\ []) do
     url_path =
       "/idmappingworkflows/#{AWS.Util.encode_uri(workflow_name)}/jobs/#{AWS.Util.encode_uri(job_id)}"
@@ -1207,11 +1496,7 @@ defmodule AWS.EntityResolution do
   @spec get_id_mapping_workflow(map(), String.t(), list()) ::
           {:ok, get_id_mapping_workflow_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_id_mapping_workflow_errors()}
   def get_id_mapping_workflow(%Client{} = client, workflow_name, options \\ []) do
     url_path = "/idmappingworkflows/#{AWS.Util.encode_uri(workflow_name)}"
     headers = []
@@ -1229,11 +1514,7 @@ defmodule AWS.EntityResolution do
   @spec get_match_id(map(), String.t(), get_match_id_input(), list()) ::
           {:ok, get_match_id_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_match_id_errors()}
   def get_match_id(%Client{} = client, workflow_name, input, options \\ []) do
     url_path = "/matchingworkflows/#{AWS.Util.encode_uri(workflow_name)}/matches"
     headers = []
@@ -1262,11 +1543,7 @@ defmodule AWS.EntityResolution do
   @spec get_matching_job(map(), String.t(), String.t(), list()) ::
           {:ok, get_matching_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_matching_job_errors()}
   def get_matching_job(%Client{} = client, job_id, workflow_name, options \\ []) do
     url_path =
       "/matchingworkflows/#{AWS.Util.encode_uri(workflow_name)}/jobs/#{AWS.Util.encode_uri(job_id)}"
@@ -1285,11 +1562,7 @@ defmodule AWS.EntityResolution do
   @spec get_matching_workflow(map(), String.t(), list()) ::
           {:ok, get_matching_workflow_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_matching_workflow_errors()}
   def get_matching_workflow(%Client{} = client, workflow_name, options \\ []) do
     url_path = "/matchingworkflows/#{AWS.Util.encode_uri(workflow_name)}"
     headers = []
@@ -1306,11 +1579,7 @@ defmodule AWS.EntityResolution do
   @spec get_provider_service(map(), String.t(), String.t(), list()) ::
           {:ok, get_provider_service_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_provider_service_errors()}
   def get_provider_service(
         %Client{} = client,
         provider_name,
@@ -1334,11 +1603,7 @@ defmodule AWS.EntityResolution do
   @spec get_schema_mapping(map(), String.t(), list()) ::
           {:ok, get_schema_mapping_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_schema_mapping_errors()}
   def get_schema_mapping(%Client{} = client, schema_name, options \\ []) do
     url_path = "/schemas/#{AWS.Util.encode_uri(schema_name)}"
     headers = []
@@ -1355,11 +1620,7 @@ defmodule AWS.EntityResolution do
   @spec list_id_mapping_jobs(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_id_mapping_jobs_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_id_mapping_jobs_errors()}
   def list_id_mapping_jobs(
         %Client{} = client,
         workflow_name,
@@ -1397,10 +1658,7 @@ defmodule AWS.EntityResolution do
   @spec list_id_mapping_workflows(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_id_mapping_workflows_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_id_mapping_workflows_errors()}
   def list_id_mapping_workflows(
         %Client{} = client,
         max_results \\ nil,
@@ -1436,11 +1694,7 @@ defmodule AWS.EntityResolution do
   @spec list_matching_jobs(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_matching_jobs_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_matching_jobs_errors()}
   def list_matching_jobs(
         %Client{} = client,
         workflow_name,
@@ -1478,10 +1732,7 @@ defmodule AWS.EntityResolution do
   @spec list_matching_workflows(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_matching_workflows_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_matching_workflows_errors()}
   def list_matching_workflows(
         %Client{} = client,
         max_results \\ nil,
@@ -1524,10 +1775,7 @@ defmodule AWS.EntityResolution do
         ) ::
           {:ok, list_provider_services_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_provider_services_errors()}
   def list_provider_services(
         %Client{} = client,
         max_results \\ nil,
@@ -1572,10 +1820,7 @@ defmodule AWS.EntityResolution do
   @spec list_schema_mappings(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_schema_mappings_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_schema_mappings_errors()}
   def list_schema_mappings(
         %Client{} = client,
         max_results \\ nil,
@@ -1614,9 +1859,7 @@ defmodule AWS.EntityResolution do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -1636,13 +1879,7 @@ defmodule AWS.EntityResolution do
   @spec start_id_mapping_job(map(), String.t(), start_id_mapping_job_input(), list()) ::
           {:ok, start_id_mapping_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, exceeds_limit_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, start_id_mapping_job_errors()}
   def start_id_mapping_job(%Client{} = client, workflow_name, input, options \\ []) do
     url_path = "/idmappingworkflows/#{AWS.Util.encode_uri(workflow_name)}/jobs"
     headers = []
@@ -1672,13 +1909,7 @@ defmodule AWS.EntityResolution do
   @spec start_matching_job(map(), String.t(), start_matching_job_input(), list()) ::
           {:ok, start_matching_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, exceeds_limit_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, start_matching_job_errors()}
   def start_matching_job(%Client{} = client, workflow_name, input, options \\ []) do
     url_path = "/matchingworkflows/#{AWS.Util.encode_uri(workflow_name)}/jobs"
     headers = []
@@ -1721,9 +1952,7 @@ defmodule AWS.EntityResolution do
   @spec tag_resource(map(), String.t(), tag_resource_input(), list()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -1753,8 +1982,7 @@ defmodule AWS.EntityResolution do
   @spec untag_resource(map(), String.t(), untag_resource_input(), list()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -1791,11 +2019,7 @@ defmodule AWS.EntityResolution do
   @spec update_id_mapping_workflow(map(), String.t(), update_id_mapping_workflow_input(), list()) ::
           {:ok, update_id_mapping_workflow_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_id_mapping_workflow_errors()}
   def update_id_mapping_workflow(%Client{} = client, workflow_name, input, options \\ []) do
     url_path = "/idmappingworkflows/#{AWS.Util.encode_uri(workflow_name)}"
     headers = []
@@ -1817,11 +2041,7 @@ defmodule AWS.EntityResolution do
   @spec update_matching_workflow(map(), String.t(), update_matching_workflow_input(), list()) ::
           {:ok, update_matching_workflow_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_matching_workflow_errors()}
   def update_matching_workflow(%Client{} = client, workflow_name, input, options \\ []) do
     url_path = "/matchingworkflows/#{AWS.Util.encode_uri(workflow_name)}"
     headers = []
@@ -1842,12 +2062,7 @@ defmodule AWS.EntityResolution do
   @spec update_schema_mapping(map(), String.t(), update_schema_mapping_input(), list()) ::
           {:ok, update_schema_mapping_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_schema_mapping_errors()}
   def update_schema_mapping(%Client{} = client, schema_name, input, options \\ []) do
     url_path = "/schemas/#{AWS.Util.encode_uri(schema_name)}"
     headers = []

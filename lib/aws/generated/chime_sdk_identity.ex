@@ -19,842 +19,1252 @@ defmodule AWS.ChimeSDKIdentity do
   @typedoc """
 
   ## Example:
-  list_app_instances_response() :: %{
-    "AppInstances" => list(app_instance_summary()()),
-    "NextToken" => String.t()
-  }
+
+      list_app_instances_response() :: %{
+        "AppInstances" => list(app_instance_summary()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_app_instances_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  app_instance_bot_summary() :: %{
-    "AppInstanceBotArn" => String.t(),
-    "Metadata" => String.t(),
-    "Name" => String.t()
-  }
+
+      app_instance_bot_summary() :: %{
+        "AppInstanceBotArn" => String.t(),
+        "Metadata" => String.t(),
+        "Name" => String.t()
+      }
+
   """
   @type app_instance_bot_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_app_instance_user_expiration_settings_request() :: %{
-    optional("ExpirationSettings") => expiration_settings()
-  }
+
+      put_app_instance_user_expiration_settings_request() :: %{
+        optional("ExpirationSettings") => expiration_settings()
+      }
+
   """
   @type put_app_instance_user_expiration_settings_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_app_instance_admin_request() :: %{
 
-  }
+      delete_app_instance_admin_request() :: %{}
+
   """
-  @type delete_app_instance_admin_request() :: %{String.t() => any()}
+  @type delete_app_instance_admin_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  delete_app_instance_user_request() :: %{
 
-  }
+      delete_app_instance_user_request() :: %{}
+
   """
-  @type delete_app_instance_user_request() :: %{String.t() => any()}
+  @type delete_app_instance_user_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  tag_resource_request() :: %{
-    required("ResourceARN") => String.t(),
-    required("Tags") => list(tag()())
-  }
+
+      tag_resource_request() :: %{
+        required("ResourceARN") => String.t(),
+        required("Tags") => list(tag()())
+      }
+
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_app_instance_admins_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      list_app_instance_admins_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_app_instance_admins_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  endpoint_state() :: %{
-    "Status" => list(any()),
-    "StatusReason" => list(any())
-  }
+
+      endpoint_state() :: %{
+        "Status" => list(any()),
+        "StatusReason" => list(any())
+      }
+
   """
   @type endpoint_state() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_app_instance_bots_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("AppInstanceArn") => String.t()
-  }
+
+      list_app_instance_bots_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("AppInstanceArn") => String.t()
+      }
+
   """
   @type list_app_instance_bots_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_app_instance_response() :: %{
-    "AppInstanceArn" => String.t()
-  }
+
+      create_app_instance_response() :: %{
+        "AppInstanceArn" => String.t()
+      }
+
   """
   @type create_app_instance_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_app_instance_response() :: %{
-    "AppInstanceArn" => String.t()
-  }
+
+      update_app_instance_response() :: %{
+        "AppInstanceArn" => String.t()
+      }
+
   """
   @type update_app_instance_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  lex_configuration() :: %{
-    "InvokedBy" => invoked_by(),
-    "LexBotAliasArn" => String.t(),
-    "LocaleId" => String.t(),
-    "RespondsTo" => list(any()),
-    "WelcomeIntent" => String.t()
-  }
+
+      lex_configuration() :: %{
+        "InvokedBy" => invoked_by(),
+        "LexBotAliasArn" => String.t(),
+        "LocaleId" => String.t(),
+        "RespondsTo" => list(any()),
+        "WelcomeIntent" => String.t()
+      }
+
   """
   @type lex_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_app_instance_admins_response() :: %{
-    "AppInstanceAdmins" => list(app_instance_admin_summary()()),
-    "AppInstanceArn" => String.t(),
-    "NextToken" => String.t()
-  }
+
+      list_app_instance_admins_response() :: %{
+        "AppInstanceAdmins" => list(app_instance_admin_summary()()),
+        "AppInstanceArn" => String.t(),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_app_instance_admins_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  service_failure_exception() :: %{
-    "Code" => list(any()),
-    "Message" => String.t()
-  }
+
+      service_failure_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t()
+      }
+
   """
   @type service_failure_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  identity() :: %{
-    "Arn" => String.t(),
-    "Name" => String.t()
-  }
+
+      identity() :: %{
+        "Arn" => String.t(),
+        "Name" => String.t()
+      }
+
   """
   @type identity() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  forbidden_exception() :: %{
-    "Code" => list(any()),
-    "Message" => String.t()
-  }
+
+      forbidden_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t()
+      }
+
   """
   @type forbidden_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  unauthorized_client_exception() :: %{
-    "Code" => list(any()),
-    "Message" => String.t()
-  }
+
+      unauthorized_client_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t()
+      }
+
   """
   @type unauthorized_client_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_app_instance_request() :: %{
 
-  }
+      describe_app_instance_request() :: %{}
+
   """
-  @type describe_app_instance_request() :: %{String.t() => any()}
+  @type describe_app_instance_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_app_instances_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      list_app_instances_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_app_instances_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  configuration() :: %{
-    "Lex" => lex_configuration()
-  }
+
+      configuration() :: %{
+        "Lex" => lex_configuration()
+      }
+
   """
   @type configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_app_instance_request() :: %{
-    required("Metadata") => String.t(),
-    required("Name") => String.t()
-  }
+
+      update_app_instance_request() :: %{
+        required("Metadata") => String.t(),
+        required("Name") => String.t()
+      }
+
   """
   @type update_app_instance_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  throttled_client_exception() :: %{
-    "Code" => list(any()),
-    "Message" => String.t()
-  }
+
+      throttled_client_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t()
+      }
+
   """
   @type throttled_client_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  endpoint_attributes() :: %{
-    "DeviceToken" => String.t(),
-    "VoipDeviceToken" => String.t()
-  }
+
+      endpoint_attributes() :: %{
+        "DeviceToken" => String.t(),
+        "VoipDeviceToken" => String.t()
+      }
+
   """
   @type endpoint_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_app_instance_users_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("AppInstanceArn") => String.t()
-  }
+
+      list_app_instance_users_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("AppInstanceArn") => String.t()
+      }
+
   """
   @type list_app_instance_users_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  expiration_settings() :: %{
-    "ExpirationCriterion" => list(any()),
-    "ExpirationDays" => integer()
-  }
+
+      expiration_settings() :: %{
+        "ExpirationCriterion" => list(any()),
+        "ExpirationDays" => integer()
+      }
+
   """
   @type expiration_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_request() :: %{
-    required("ResourceARN") => String.t(),
-    required("TagKeys") => list(String.t()())
-  }
+
+      untag_resource_request() :: %{
+        required("ResourceARN") => String.t(),
+        required("TagKeys") => list(String.t()())
+      }
+
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_app_instance_retention_settings_request() :: %{
-    required("AppInstanceRetentionSettings") => app_instance_retention_settings()
-  }
+
+      put_app_instance_retention_settings_request() :: %{
+        required("AppInstanceRetentionSettings") => app_instance_retention_settings()
+      }
+
   """
   @type put_app_instance_retention_settings_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  register_app_instance_user_endpoint_request() :: %{
-    optional("AllowMessages") => list(any()),
-    optional("Name") => String.t(),
-    required("ClientRequestToken") => String.t(),
-    required("EndpointAttributes") => endpoint_attributes(),
-    required("ResourceArn") => String.t(),
-    required("Type") => list(any())
-  }
+
+      register_app_instance_user_endpoint_request() :: %{
+        optional("AllowMessages") => list(any()),
+        optional("Name") => String.t(),
+        required("ClientRequestToken") => String.t(),
+        required("EndpointAttributes") => endpoint_attributes(),
+        required("ResourceArn") => String.t(),
+        required("Type") => list(any())
+      }
+
   """
   @type register_app_instance_user_endpoint_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_app_instance_retention_settings_request() :: %{
 
-  }
+      get_app_instance_retention_settings_request() :: %{}
+
   """
-  @type get_app_instance_retention_settings_request() :: %{String.t() => any()}
+  @type get_app_instance_retention_settings_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  conflict_exception() :: %{
-    "Code" => list(any()),
-    "Message" => String.t()
-  }
+
+      conflict_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t()
+      }
+
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_app_instance_bot_request() :: %{
 
-  }
+      delete_app_instance_bot_request() :: %{}
+
   """
-  @type delete_app_instance_bot_request() :: %{String.t() => any()}
+  @type delete_app_instance_bot_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  put_app_instance_user_expiration_settings_response() :: %{
-    "AppInstanceUserArn" => String.t(),
-    "ExpirationSettings" => expiration_settings()
-  }
+
+      put_app_instance_user_expiration_settings_response() :: %{
+        "AppInstanceUserArn" => String.t(),
+        "ExpirationSettings" => expiration_settings()
+      }
+
   """
   @type put_app_instance_user_expiration_settings_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_app_instance_user_endpoint_response() :: %{
-    "AppInstanceUserArn" => String.t(),
-    "EndpointId" => String.t()
-  }
+
+      update_app_instance_user_endpoint_response() :: %{
+        "AppInstanceUserArn" => String.t(),
+        "EndpointId" => String.t()
+      }
+
   """
   @type update_app_instance_user_endpoint_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag() :: %{
-    "Key" => String.t(),
-    "Value" => String.t()
-  }
+
+      tag() :: %{
+        "Key" => String.t(),
+        "Value" => String.t()
+      }
+
   """
   @type tag() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_app_instance_user_response() :: %{
-    "AppInstanceUser" => app_instance_user()
-  }
+
+      describe_app_instance_user_response() :: %{
+        "AppInstanceUser" => app_instance_user()
+      }
+
   """
   @type describe_app_instance_user_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_app_instance_bot_response() :: %{
-    "AppInstanceBot" => app_instance_bot()
-  }
+
+      describe_app_instance_bot_response() :: %{
+        "AppInstanceBot" => app_instance_bot()
+      }
+
   """
   @type describe_app_instance_bot_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_app_instance_response() :: %{
-    "AppInstance" => app_instance()
-  }
+
+      describe_app_instance_response() :: %{
+        "AppInstance" => app_instance()
+      }
+
   """
   @type describe_app_instance_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_app_instance_user_response() :: %{
-    "AppInstanceUserArn" => String.t()
-  }
+
+      update_app_instance_user_response() :: %{
+        "AppInstanceUserArn" => String.t()
+      }
+
   """
   @type update_app_instance_user_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_app_instance_users_response() :: %{
-    "AppInstanceArn" => String.t(),
-    "AppInstanceUsers" => list(app_instance_user_summary()()),
-    "NextToken" => String.t()
-  }
+
+      list_app_instance_users_response() :: %{
+        "AppInstanceArn" => String.t(),
+        "AppInstanceUsers" => list(app_instance_user_summary()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_app_instance_users_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_limit_exceeded_exception() :: %{
-    "Code" => list(any()),
-    "Message" => String.t()
-  }
+
+      resource_limit_exceeded_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t()
+      }
+
   """
   @type resource_limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  app_instance_summary() :: %{
-    "AppInstanceArn" => String.t(),
-    "Metadata" => String.t(),
-    "Name" => String.t()
-  }
+
+      app_instance_summary() :: %{
+        "AppInstanceArn" => String.t(),
+        "Metadata" => String.t(),
+        "Name" => String.t()
+      }
+
   """
   @type app_instance_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  not_found_exception() :: %{
-    "Code" => list(any()),
-    "Message" => String.t()
-  }
+
+      not_found_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t()
+      }
+
   """
   @type not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  app_instance_user() :: %{
-    "AppInstanceUserArn" => String.t(),
-    "CreatedTimestamp" => non_neg_integer(),
-    "ExpirationSettings" => expiration_settings(),
-    "LastUpdatedTimestamp" => non_neg_integer(),
-    "Metadata" => String.t(),
-    "Name" => String.t()
-  }
+
+      app_instance_user() :: %{
+        "AppInstanceUserArn" => String.t(),
+        "CreatedTimestamp" => non_neg_integer(),
+        "ExpirationSettings" => expiration_settings(),
+        "LastUpdatedTimestamp" => non_neg_integer(),
+        "Metadata" => String.t(),
+        "Name" => String.t()
+      }
+
   """
   @type app_instance_user() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_app_instance_user_endpoints_response() :: %{
-    "AppInstanceUserEndpoints" => list(app_instance_user_endpoint_summary()()),
-    "NextToken" => String.t()
-  }
+
+      list_app_instance_user_endpoints_response() :: %{
+        "AppInstanceUserEndpoints" => list(app_instance_user_endpoint_summary()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_app_instance_user_endpoints_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_app_instance_bot_response() :: %{
-    "AppInstanceBotArn" => String.t()
-  }
+
+      update_app_instance_bot_response() :: %{
+        "AppInstanceBotArn" => String.t()
+      }
+
   """
   @type update_app_instance_bot_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_response() :: %{
-    "Tags" => list(tag()())
-  }
+
+      list_tags_for_resource_response() :: %{
+        "Tags" => list(tag()())
+      }
+
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  channel_retention_settings() :: %{
-    "RetentionDays" => integer()
-  }
+
+      channel_retention_settings() :: %{
+        "RetentionDays" => integer()
+      }
+
   """
   @type channel_retention_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  app_instance_user_endpoint() :: %{
-    "AllowMessages" => list(any()),
-    "AppInstanceUserArn" => String.t(),
-    "CreatedTimestamp" => non_neg_integer(),
-    "EndpointAttributes" => endpoint_attributes(),
-    "EndpointId" => String.t(),
-    "EndpointState" => endpoint_state(),
-    "LastUpdatedTimestamp" => non_neg_integer(),
-    "Name" => String.t(),
-    "ResourceArn" => String.t(),
-    "Type" => list(any())
-  }
+
+      app_instance_user_endpoint() :: %{
+        "AllowMessages" => list(any()),
+        "AppInstanceUserArn" => String.t(),
+        "CreatedTimestamp" => non_neg_integer(),
+        "EndpointAttributes" => endpoint_attributes(),
+        "EndpointId" => String.t(),
+        "EndpointState" => endpoint_state(),
+        "LastUpdatedTimestamp" => non_neg_integer(),
+        "Name" => String.t(),
+        "ResourceArn" => String.t(),
+        "Type" => list(any())
+      }
+
   """
   @type app_instance_user_endpoint() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  service_unavailable_exception() :: %{
-    "Code" => list(any()),
-    "Message" => String.t()
-  }
+
+      service_unavailable_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t()
+      }
+
   """
   @type service_unavailable_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  app_instance_user_endpoint_summary() :: %{
-    "AllowMessages" => list(any()),
-    "AppInstanceUserArn" => String.t(),
-    "EndpointId" => String.t(),
-    "EndpointState" => endpoint_state(),
-    "Name" => String.t(),
-    "Type" => list(any())
-  }
+
+      app_instance_user_endpoint_summary() :: %{
+        "AllowMessages" => list(any()),
+        "AppInstanceUserArn" => String.t(),
+        "EndpointId" => String.t(),
+        "EndpointState" => endpoint_state(),
+        "Name" => String.t(),
+        "Type" => list(any())
+      }
+
   """
   @type app_instance_user_endpoint_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_app_instance_retention_settings_response() :: %{
-    "AppInstanceRetentionSettings" => app_instance_retention_settings(),
-    "InitiateDeletionTimestamp" => non_neg_integer()
-  }
+
+      get_app_instance_retention_settings_response() :: %{
+        "AppInstanceRetentionSettings" => app_instance_retention_settings(),
+        "InitiateDeletionTimestamp" => non_neg_integer()
+      }
+
   """
   @type get_app_instance_retention_settings_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  app_instance_admin() :: %{
-    "Admin" => identity(),
-    "AppInstanceArn" => String.t(),
-    "CreatedTimestamp" => non_neg_integer()
-  }
+
+      app_instance_admin() :: %{
+        "Admin" => identity(),
+        "AppInstanceArn" => String.t(),
+        "CreatedTimestamp" => non_neg_integer()
+      }
+
   """
   @type app_instance_admin() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_app_instance_bots_response() :: %{
-    "AppInstanceArn" => String.t(),
-    "AppInstanceBots" => list(app_instance_bot_summary()()),
-    "NextToken" => String.t()
-  }
+
+      list_app_instance_bots_response() :: %{
+        "AppInstanceArn" => String.t(),
+        "AppInstanceBots" => list(app_instance_bot_summary()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_app_instance_bots_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_app_instance_user_request() :: %{
-    required("Metadata") => String.t(),
-    required("Name") => String.t()
-  }
+
+      update_app_instance_user_request() :: %{
+        required("Metadata") => String.t(),
+        required("Name") => String.t()
+      }
+
   """
   @type update_app_instance_user_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_app_instance_admin_response() :: %{
-    "AppInstanceAdmin" => app_instance_admin()
-  }
+
+      describe_app_instance_admin_response() :: %{
+        "AppInstanceAdmin" => app_instance_admin()
+      }
+
   """
   @type describe_app_instance_admin_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_app_instance_request() :: %{
-    optional("Metadata") => String.t(),
-    optional("Tags") => list(tag()()),
-    required("ClientRequestToken") => String.t(),
-    required("Name") => String.t()
-  }
+
+      create_app_instance_request() :: %{
+        optional("Metadata") => String.t(),
+        optional("Tags") => list(tag()()),
+        required("ClientRequestToken") => String.t(),
+        required("Name") => String.t()
+      }
+
   """
   @type create_app_instance_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_app_instance_bot_response() :: %{
-    "AppInstanceBotArn" => String.t()
-  }
+
+      create_app_instance_bot_response() :: %{
+        "AppInstanceBotArn" => String.t()
+      }
+
   """
   @type create_app_instance_bot_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  app_instance_admin_summary() :: %{
-    "Admin" => identity()
-  }
+
+      app_instance_admin_summary() :: %{
+        "Admin" => identity()
+      }
+
   """
   @type app_instance_admin_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_request() :: %{
-    required("ResourceARN") => String.t()
-  }
+
+      list_tags_for_resource_request() :: %{
+        required("ResourceARN") => String.t()
+      }
+
   """
   @type list_tags_for_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invoked_by() :: %{
-    "StandardMessages" => list(any()),
-    "TargetedMessages" => list(any())
-  }
+
+      invoked_by() :: %{
+        "StandardMessages" => list(any()),
+        "TargetedMessages" => list(any())
+      }
+
   """
   @type invoked_by() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_app_instance_bot_request() :: %{
-    optional("Metadata") => String.t(),
-    optional("Name") => String.t(),
-    optional("Tags") => list(tag()()),
-    required("AppInstanceArn") => String.t(),
-    required("ClientRequestToken") => String.t(),
-    required("Configuration") => configuration()
-  }
+
+      create_app_instance_bot_request() :: %{
+        optional("Metadata") => String.t(),
+        optional("Name") => String.t(),
+        optional("Tags") => list(tag()()),
+        required("AppInstanceArn") => String.t(),
+        required("ClientRequestToken") => String.t(),
+        required("Configuration") => configuration()
+      }
+
   """
   @type create_app_instance_bot_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_app_instance_admin_response() :: %{
-    "AppInstanceAdmin" => identity(),
-    "AppInstanceArn" => String.t()
-  }
+
+      create_app_instance_admin_response() :: %{
+        "AppInstanceAdmin" => identity(),
+        "AppInstanceArn" => String.t()
+      }
+
   """
   @type create_app_instance_admin_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_app_instance_retention_settings_response() :: %{
-    "AppInstanceRetentionSettings" => app_instance_retention_settings(),
-    "InitiateDeletionTimestamp" => non_neg_integer()
-  }
+
+      put_app_instance_retention_settings_response() :: %{
+        "AppInstanceRetentionSettings" => app_instance_retention_settings(),
+        "InitiateDeletionTimestamp" => non_neg_integer()
+      }
+
   """
   @type put_app_instance_retention_settings_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  app_instance_retention_settings() :: %{
-    "ChannelRetentionSettings" => channel_retention_settings()
-  }
+
+      app_instance_retention_settings() :: %{
+        "ChannelRetentionSettings" => channel_retention_settings()
+      }
+
   """
   @type app_instance_retention_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_app_instance_admin_request() :: %{
-    required("AppInstanceAdminArn") => String.t()
-  }
+
+      create_app_instance_admin_request() :: %{
+        required("AppInstanceAdminArn") => String.t()
+      }
+
   """
   @type create_app_instance_admin_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  bad_request_exception() :: %{
-    "Code" => list(any()),
-    "Message" => String.t()
-  }
+
+      bad_request_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t()
+      }
+
   """
   @type bad_request_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_app_instance_admin_request() :: %{
 
-  }
+      describe_app_instance_admin_request() :: %{}
+
   """
-  @type describe_app_instance_admin_request() :: %{String.t() => any()}
+  @type describe_app_instance_admin_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  describe_app_instance_user_endpoint_request() :: %{
 
-  }
+      describe_app_instance_user_endpoint_request() :: %{}
+
   """
-  @type describe_app_instance_user_endpoint_request() :: %{String.t() => any()}
+  @type describe_app_instance_user_endpoint_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  deregister_app_instance_user_endpoint_request() :: %{
 
-  }
+      deregister_app_instance_user_endpoint_request() :: %{}
+
   """
-  @type deregister_app_instance_user_endpoint_request() :: %{String.t() => any()}
+  @type deregister_app_instance_user_endpoint_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  delete_app_instance_request() :: %{
 
-  }
+      delete_app_instance_request() :: %{}
+
   """
-  @type delete_app_instance_request() :: %{String.t() => any()}
+  @type delete_app_instance_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  app_instance_user_summary() :: %{
-    "AppInstanceUserArn" => String.t(),
-    "Metadata" => String.t(),
-    "Name" => String.t()
-  }
+
+      app_instance_user_summary() :: %{
+        "AppInstanceUserArn" => String.t(),
+        "Metadata" => String.t(),
+        "Name" => String.t()
+      }
+
   """
   @type app_instance_user_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  register_app_instance_user_endpoint_response() :: %{
-    "AppInstanceUserArn" => String.t(),
-    "EndpointId" => String.t()
-  }
+
+      register_app_instance_user_endpoint_response() :: %{
+        "AppInstanceUserArn" => String.t(),
+        "EndpointId" => String.t()
+      }
+
   """
   @type register_app_instance_user_endpoint_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_app_instance_user_endpoint_request() :: %{
-    optional("AllowMessages") => list(any()),
-    optional("Name") => String.t()
-  }
+
+      update_app_instance_user_endpoint_request() :: %{
+        optional("AllowMessages") => list(any()),
+        optional("Name") => String.t()
+      }
+
   """
   @type update_app_instance_user_endpoint_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_app_instance_user_endpoint_response() :: %{
-    "AppInstanceUserEndpoint" => app_instance_user_endpoint()
-  }
+
+      describe_app_instance_user_endpoint_response() :: %{
+        "AppInstanceUserEndpoint" => app_instance_user_endpoint()
+      }
+
   """
   @type describe_app_instance_user_endpoint_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_app_instance_user_request() :: %{
 
-  }
+      describe_app_instance_user_request() :: %{}
+
   """
-  @type describe_app_instance_user_request() :: %{String.t() => any()}
+  @type describe_app_instance_user_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  update_app_instance_bot_request() :: %{
-    optional("Configuration") => configuration(),
-    required("Metadata") => String.t(),
-    required("Name") => String.t()
-  }
+
+      update_app_instance_bot_request() :: %{
+        optional("Configuration") => configuration(),
+        required("Metadata") => String.t(),
+        required("Name") => String.t()
+      }
+
   """
   @type update_app_instance_bot_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_app_instance_user_endpoints_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      list_app_instance_user_endpoints_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_app_instance_user_endpoints_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_app_instance_bot_request() :: %{
 
-  }
+      describe_app_instance_bot_request() :: %{}
+
   """
-  @type describe_app_instance_bot_request() :: %{String.t() => any()}
+  @type describe_app_instance_bot_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_app_instance_user_request() :: %{
-    optional("ExpirationSettings") => expiration_settings(),
-    optional("Metadata") => String.t(),
-    optional("Tags") => list(tag()()),
-    required("AppInstanceArn") => String.t(),
-    required("AppInstanceUserId") => String.t(),
-    required("ClientRequestToken") => String.t(),
-    required("Name") => String.t()
-  }
+
+      create_app_instance_user_request() :: %{
+        optional("ExpirationSettings") => expiration_settings(),
+        optional("Metadata") => String.t(),
+        optional("Tags") => list(tag()()),
+        required("AppInstanceArn") => String.t(),
+        required("AppInstanceUserId") => String.t(),
+        required("ClientRequestToken") => String.t(),
+        required("Name") => String.t()
+      }
+
   """
   @type create_app_instance_user_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  app_instance() :: %{
-    "AppInstanceArn" => String.t(),
-    "CreatedTimestamp" => non_neg_integer(),
-    "LastUpdatedTimestamp" => non_neg_integer(),
-    "Metadata" => String.t(),
-    "Name" => String.t()
-  }
+
+      app_instance() :: %{
+        "AppInstanceArn" => String.t(),
+        "CreatedTimestamp" => non_neg_integer(),
+        "LastUpdatedTimestamp" => non_neg_integer(),
+        "Metadata" => String.t(),
+        "Name" => String.t()
+      }
+
   """
   @type app_instance() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  app_instance_bot() :: %{
-    "AppInstanceBotArn" => String.t(),
-    "Configuration" => configuration(),
-    "CreatedTimestamp" => non_neg_integer(),
-    "LastUpdatedTimestamp" => non_neg_integer(),
-    "Metadata" => String.t(),
-    "Name" => String.t()
-  }
+
+      app_instance_bot() :: %{
+        "AppInstanceBotArn" => String.t(),
+        "Configuration" => configuration(),
+        "CreatedTimestamp" => non_neg_integer(),
+        "LastUpdatedTimestamp" => non_neg_integer(),
+        "Metadata" => String.t(),
+        "Name" => String.t()
+      }
+
   """
   @type app_instance_bot() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_app_instance_user_response() :: %{
-    "AppInstanceUserArn" => String.t()
-  }
+
+      create_app_instance_user_response() :: %{
+        "AppInstanceUserArn" => String.t()
+      }
+
   """
   @type create_app_instance_user_response() :: %{String.t() => any()}
+
+  @type create_app_instance_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | resource_limit_exceeded_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type create_app_instance_admin_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | resource_limit_exceeded_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type create_app_instance_bot_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | resource_limit_exceeded_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type create_app_instance_user_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | resource_limit_exceeded_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type delete_app_instance_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | resource_limit_exceeded_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type delete_app_instance_admin_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | resource_limit_exceeded_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type delete_app_instance_bot_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | resource_limit_exceeded_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type delete_app_instance_user_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | resource_limit_exceeded_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type deregister_app_instance_user_endpoint_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type describe_app_instance_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type describe_app_instance_admin_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type describe_app_instance_bot_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type describe_app_instance_user_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type describe_app_instance_user_endpoint_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type get_app_instance_retention_settings_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type list_app_instance_admins_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | resource_limit_exceeded_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type list_app_instance_bots_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | resource_limit_exceeded_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type list_app_instance_user_endpoints_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type list_app_instance_users_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type list_app_instances_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type list_tags_for_resource_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type put_app_instance_retention_settings_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type put_app_instance_user_expiration_settings_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type register_app_instance_user_endpoint_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | resource_limit_exceeded_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type tag_resource_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | resource_limit_exceeded_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type untag_resource_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type update_app_instance_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type update_app_instance_bot_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | resource_limit_exceeded_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type update_app_instance_user_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | resource_limit_exceeded_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type update_app_instance_user_endpoint_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
 
   def metadata do
     %{
@@ -882,14 +1292,7 @@ defmodule AWS.ChimeSDKIdentity do
   @spec create_app_instance(map(), create_app_instance_request(), list()) ::
           {:ok, create_app_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, resource_limit_exceeded_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, create_app_instance_errors()}
   def create_app_instance(%Client{} = client, input, options \\ []) do
     url_path = "/app-instances"
     headers = []
@@ -933,14 +1336,7 @@ defmodule AWS.ChimeSDKIdentity do
   @spec create_app_instance_admin(map(), String.t(), create_app_instance_admin_request(), list()) ::
           {:ok, create_app_instance_admin_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, resource_limit_exceeded_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, create_app_instance_admin_errors()}
   def create_app_instance_admin(%Client{} = client, app_instance_arn, input, options \\ []) do
     url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}/admins"
     headers = []
@@ -970,14 +1366,7 @@ defmodule AWS.ChimeSDKIdentity do
   @spec create_app_instance_bot(map(), create_app_instance_bot_request(), list()) ::
           {:ok, create_app_instance_bot_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, resource_limit_exceeded_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, create_app_instance_bot_errors()}
   def create_app_instance_bot(%Client{} = client, input, options \\ []) do
     url_path = "/app-instance-bots"
     headers = []
@@ -1007,14 +1396,7 @@ defmodule AWS.ChimeSDKIdentity do
   @spec create_app_instance_user(map(), create_app_instance_user_request(), list()) ::
           {:ok, create_app_instance_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, resource_limit_exceeded_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, create_app_instance_user_errors()}
   def create_app_instance_user(%Client{} = client, input, options \\ []) do
     url_path = "/app-instance-users"
     headers = []
@@ -1041,13 +1423,7 @@ defmodule AWS.ChimeSDKIdentity do
   @spec delete_app_instance(map(), String.t(), delete_app_instance_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, resource_limit_exceeded_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, delete_app_instance_errors()}
   def delete_app_instance(%Client{} = client, app_instance_arn, input, options \\ []) do
     url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}"
     headers = []
@@ -1084,14 +1460,7 @@ defmodule AWS.ChimeSDKIdentity do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, resource_limit_exceeded_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, delete_app_instance_admin_errors()}
   def delete_app_instance_admin(
         %Client{} = client,
         app_instance_admin_arn,
@@ -1126,14 +1495,7 @@ defmodule AWS.ChimeSDKIdentity do
   @spec delete_app_instance_bot(map(), String.t(), delete_app_instance_bot_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, resource_limit_exceeded_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, delete_app_instance_bot_errors()}
   def delete_app_instance_bot(%Client{} = client, app_instance_bot_arn, input, options \\ []) do
     url_path = "/app-instance-bots/#{AWS.Util.encode_uri(app_instance_bot_arn)}"
     headers = []
@@ -1160,14 +1522,7 @@ defmodule AWS.ChimeSDKIdentity do
   @spec delete_app_instance_user(map(), String.t(), delete_app_instance_user_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, resource_limit_exceeded_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, delete_app_instance_user_errors()}
   def delete_app_instance_user(%Client{} = client, app_instance_user_arn, input, options \\ []) do
     url_path = "/app-instance-users/#{AWS.Util.encode_uri(app_instance_user_arn)}"
     headers = []
@@ -1200,12 +1555,7 @@ defmodule AWS.ChimeSDKIdentity do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, deregister_app_instance_user_endpoint_errors()}
   def deregister_app_instance_user_endpoint(
         %Client{} = client,
         app_instance_user_arn,
@@ -1240,12 +1590,7 @@ defmodule AWS.ChimeSDKIdentity do
   @spec describe_app_instance(map(), String.t(), list()) ::
           {:ok, describe_app_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, describe_app_instance_errors()}
   def describe_app_instance(%Client{} = client, app_instance_arn, options \\ []) do
     url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}"
     headers = []
@@ -1262,12 +1607,7 @@ defmodule AWS.ChimeSDKIdentity do
   @spec describe_app_instance_admin(map(), String.t(), String.t(), list()) ::
           {:ok, describe_app_instance_admin_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, describe_app_instance_admin_errors()}
   def describe_app_instance_admin(
         %Client{} = client,
         app_instance_admin_arn,
@@ -1291,13 +1631,7 @@ defmodule AWS.ChimeSDKIdentity do
   @spec describe_app_instance_bot(map(), String.t(), list()) ::
           {:ok, describe_app_instance_bot_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, describe_app_instance_bot_errors()}
   def describe_app_instance_bot(%Client{} = client, app_instance_bot_arn, options \\ []) do
     url_path = "/app-instance-bots/#{AWS.Util.encode_uri(app_instance_bot_arn)}"
     headers = []
@@ -1314,12 +1648,7 @@ defmodule AWS.ChimeSDKIdentity do
   @spec describe_app_instance_user(map(), String.t(), list()) ::
           {:ok, describe_app_instance_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, describe_app_instance_user_errors()}
   def describe_app_instance_user(%Client{} = client, app_instance_user_arn, options \\ []) do
     url_path = "/app-instance-users/#{AWS.Util.encode_uri(app_instance_user_arn)}"
     headers = []
@@ -1336,12 +1665,7 @@ defmodule AWS.ChimeSDKIdentity do
   @spec describe_app_instance_user_endpoint(map(), String.t(), String.t(), list()) ::
           {:ok, describe_app_instance_user_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, describe_app_instance_user_endpoint_errors()}
   def describe_app_instance_user_endpoint(
         %Client{} = client,
         app_instance_user_arn,
@@ -1365,12 +1689,7 @@ defmodule AWS.ChimeSDKIdentity do
   @spec get_app_instance_retention_settings(map(), String.t(), list()) ::
           {:ok, get_app_instance_retention_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, get_app_instance_retention_settings_errors()}
   def get_app_instance_retention_settings(%Client{} = client, app_instance_arn, options \\ []) do
     url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}/retention-settings"
     headers = []
@@ -1387,13 +1706,7 @@ defmodule AWS.ChimeSDKIdentity do
   @spec list_app_instance_admins(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_app_instance_admins_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, resource_limit_exceeded_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, list_app_instance_admins_errors()}
   def list_app_instance_admins(
         %Client{} = client,
         app_instance_arn,
@@ -1430,13 +1743,7 @@ defmodule AWS.ChimeSDKIdentity do
   @spec list_app_instance_bots(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_app_instance_bots_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, resource_limit_exceeded_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, list_app_instance_bots_errors()}
   def list_app_instance_bots(
         %Client{} = client,
         app_instance_arn,
@@ -1487,12 +1794,7 @@ defmodule AWS.ChimeSDKIdentity do
         ) ::
           {:ok, list_app_instance_user_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, list_app_instance_user_endpoints_errors()}
   def list_app_instance_user_endpoints(
         %Client{} = client,
         app_instance_user_arn,
@@ -1530,12 +1832,7 @@ defmodule AWS.ChimeSDKIdentity do
   @spec list_app_instance_users(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_app_instance_users_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, list_app_instance_users_errors()}
   def list_app_instance_users(
         %Client{} = client,
         app_instance_arn,
@@ -1580,12 +1877,7 @@ defmodule AWS.ChimeSDKIdentity do
   @spec list_app_instances(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_app_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, list_app_instances_errors()}
   def list_app_instances(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/app-instances"
     headers = []
@@ -1616,12 +1908,7 @@ defmodule AWS.ChimeSDKIdentity do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags"
     headers = []
@@ -1651,12 +1938,7 @@ defmodule AWS.ChimeSDKIdentity do
         ) ::
           {:ok, put_app_instance_retention_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, put_app_instance_retention_settings_errors()}
   def put_app_instance_retention_settings(
         %Client{} = client,
         app_instance_arn,
@@ -1691,13 +1973,7 @@ defmodule AWS.ChimeSDKIdentity do
         ) ::
           {:ok, put_app_instance_user_expiration_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, put_app_instance_user_expiration_settings_errors()}
   def put_app_instance_user_expiration_settings(
         %Client{} = client,
         app_instance_user_arn,
@@ -1729,14 +2005,7 @@ defmodule AWS.ChimeSDKIdentity do
         ) ::
           {:ok, register_app_instance_user_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, resource_limit_exceeded_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, register_app_instance_user_endpoint_errors()}
   def register_app_instance_user_endpoint(
         %Client{} = client,
         app_instance_user_arn,
@@ -1768,13 +2037,7 @@ defmodule AWS.ChimeSDKIdentity do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, resource_limit_exceeded_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tags?operation=tag-resource"
     headers = []
@@ -1802,12 +2065,7 @@ defmodule AWS.ChimeSDKIdentity do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tags?operation=untag-resource"
     headers = []
@@ -1834,13 +2092,7 @@ defmodule AWS.ChimeSDKIdentity do
   @spec update_app_instance(map(), String.t(), update_app_instance_request(), list()) ::
           {:ok, update_app_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, update_app_instance_errors()}
   def update_app_instance(%Client{} = client, app_instance_arn, input, options \\ []) do
     url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}"
     headers = []
@@ -1857,14 +2109,7 @@ defmodule AWS.ChimeSDKIdentity do
   @spec update_app_instance_bot(map(), String.t(), update_app_instance_bot_request(), list()) ::
           {:ok, update_app_instance_bot_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, resource_limit_exceeded_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, update_app_instance_bot_errors()}
   def update_app_instance_bot(%Client{} = client, app_instance_bot_arn, input, options \\ []) do
     url_path = "/app-instance-bots/#{AWS.Util.encode_uri(app_instance_bot_arn)}"
     headers = []
@@ -1884,14 +2129,7 @@ defmodule AWS.ChimeSDKIdentity do
   @spec update_app_instance_user(map(), String.t(), update_app_instance_user_request(), list()) ::
           {:ok, update_app_instance_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, resource_limit_exceeded_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, update_app_instance_user_errors()}
   def update_app_instance_user(%Client{} = client, app_instance_user_arn, input, options \\ []) do
     url_path = "/app-instance-users/#{AWS.Util.encode_uri(app_instance_user_arn)}"
     headers = []
@@ -1916,13 +2154,7 @@ defmodule AWS.ChimeSDKIdentity do
         ) ::
           {:ok, update_app_instance_user_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, update_app_instance_user_endpoint_errors()}
   def update_app_instance_user_endpoint(
         %Client{} = client,
         app_instance_user_arn,

@@ -16,899 +16,1291 @@ defmodule AWS.Kinesis do
   @typedoc """
 
   ## Example:
-  kms_disabled_exception() :: %{
-    "message" => String.t()
-  }
+      
+      kms_disabled_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type kms_disabled_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_shards_output() :: %{
-    "NextToken" => String.t(),
-    "Shards" => list(shard()())
-  }
+      
+      list_shards_output() :: %{
+        "NextToken" => String.t(),
+        "Shards" => list(shard()())
+      }
+      
   """
   @type list_shards_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  consumer_description() :: %{
-    "ConsumerARN" => String.t(),
-    "ConsumerCreationTimestamp" => non_neg_integer(),
-    "ConsumerName" => String.t(),
-    "ConsumerStatus" => list(any()),
-    "StreamARN" => String.t()
-  }
+      
+      consumer_description() :: %{
+        "ConsumerARN" => String.t(),
+        "ConsumerCreationTimestamp" => non_neg_integer(),
+        "ConsumerName" => String.t(),
+        "ConsumerStatus" => list(any()),
+        "StreamARN" => String.t()
+      }
+      
   """
   @type consumer_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  record() :: %{
-    "ApproximateArrivalTimestamp" => non_neg_integer(),
-    "Data" => binary(),
-    "EncryptionType" => list(any()),
-    "PartitionKey" => String.t(),
-    "SequenceNumber" => String.t()
-  }
+      
+      record() :: %{
+        "ApproximateArrivalTimestamp" => non_neg_integer(),
+        "Data" => binary(),
+        "EncryptionType" => list(any()),
+        "PartitionKey" => String.t(),
+        "SequenceNumber" => String.t()
+      }
+      
   """
   @type record() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_limits_output() :: %{
-    "OnDemandStreamCount" => integer(),
-    "OnDemandStreamCountLimit" => integer(),
-    "OpenShardCount" => integer(),
-    "ShardLimit" => integer()
-  }
+      
+      describe_limits_output() :: %{
+        "OnDemandStreamCount" => integer(),
+        "OnDemandStreamCountLimit" => integer(),
+        "OpenShardCount" => integer(),
+        "ShardLimit" => integer()
+      }
+      
   """
   @type describe_limits_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  internal_failure_exception() :: %{
-    "message" => String.t()
-  }
+      
+      internal_failure_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type internal_failure_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  enable_enhanced_monitoring_input() :: %{
-    optional("StreamARN") => String.t(),
-    optional("StreamName") => String.t(),
-    required("ShardLevelMetrics") => list(list(any())())
-  }
+      
+      enable_enhanced_monitoring_input() :: %{
+        optional("StreamARN") => String.t(),
+        optional("StreamName") => String.t(),
+        required("ShardLevelMetrics") => list(list(any())())
+      }
+      
   """
   @type enable_enhanced_monitoring_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_shards_input() :: %{
-    optional("ExclusiveStartShardId") => String.t(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("ShardFilter") => shard_filter(),
-    optional("StreamARN") => String.t(),
-    optional("StreamCreationTimestamp") => non_neg_integer(),
-    optional("StreamName") => String.t()
-  }
+      
+      list_shards_input() :: %{
+        optional("ExclusiveStartShardId") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("ShardFilter") => shard_filter(),
+        optional("StreamARN") => String.t(),
+        optional("StreamCreationTimestamp") => non_neg_integer(),
+        optional("StreamName") => String.t()
+      }
+      
   """
   @type list_shards_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  kms_opt_in_required() :: %{
-    "message" => String.t()
-  }
+      
+      kms_opt_in_required() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type kms_opt_in_required() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_stream_consumers_input() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("StreamCreationTimestamp") => non_neg_integer(),
-    required("StreamARN") => String.t()
-  }
+      
+      list_stream_consumers_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("StreamCreationTimestamp") => non_neg_integer(),
+        required("StreamARN") => String.t()
+      }
+      
   """
   @type list_stream_consumers_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_resource_policy_output() :: %{
-    "Policy" => String.t()
-  }
+      
+      get_resource_policy_output() :: %{
+        "Policy" => String.t()
+      }
+      
   """
   @type get_resource_policy_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  starting_position() :: %{
-    "SequenceNumber" => String.t(),
-    "Timestamp" => non_neg_integer(),
-    "Type" => list(any())
-  }
+      
+      starting_position() :: %{
+        "SequenceNumber" => String.t(),
+        "Timestamp" => non_neg_integer(),
+        "Type" => list(any())
+      }
+      
   """
   @type starting_position() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  kms_throttling_exception() :: %{
-    "message" => String.t()
-  }
+      
+      kms_throttling_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type kms_throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_in_use_exception() :: %{
-    "message" => String.t()
-  }
+      
+      resource_in_use_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type resource_in_use_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_shard_count_input() :: %{
-    optional("StreamARN") => String.t(),
-    optional("StreamName") => String.t(),
-    required("ScalingType") => list(any()),
-    required("TargetShardCount") => integer()
-  }
+      
+      update_shard_count_input() :: %{
+        optional("StreamARN") => String.t(),
+        optional("StreamName") => String.t(),
+        required("ScalingType") => list(any()),
+        required("TargetShardCount") => integer()
+      }
+      
   """
   @type update_shard_count_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_stream_output() :: %{
-    "HasMoreTags" => boolean(),
-    "Tags" => list(tag()())
-  }
+      
+      list_tags_for_stream_output() :: %{
+        "HasMoreTags" => boolean(),
+        "Tags" => list(tag()())
+      }
+      
   """
   @type list_tags_for_stream_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stream_description() :: %{
-    "EncryptionType" => list(any()),
-    "EnhancedMonitoring" => list(enhanced_metrics()()),
-    "HasMoreShards" => boolean(),
-    "KeyId" => String.t(),
-    "RetentionPeriodHours" => integer(),
-    "Shards" => list(shard()()),
-    "StreamARN" => String.t(),
-    "StreamCreationTimestamp" => non_neg_integer(),
-    "StreamModeDetails" => stream_mode_details(),
-    "StreamName" => String.t(),
-    "StreamStatus" => list(any())
-  }
+      
+      stream_description() :: %{
+        "EncryptionType" => list(any()),
+        "EnhancedMonitoring" => list(enhanced_metrics()()),
+        "HasMoreShards" => boolean(),
+        "KeyId" => String.t(),
+        "RetentionPeriodHours" => integer(),
+        "Shards" => list(shard()()),
+        "StreamARN" => String.t(),
+        "StreamCreationTimestamp" => non_neg_integer(),
+        "StreamModeDetails" => stream_mode_details(),
+        "StreamName" => String.t(),
+        "StreamStatus" => list(any())
+      }
+      
   """
   @type stream_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  decrease_stream_retention_period_input() :: %{
-    optional("StreamARN") => String.t(),
-    optional("StreamName") => String.t(),
-    required("RetentionPeriodHours") => integer()
-  }
+      
+      decrease_stream_retention_period_input() :: %{
+        optional("StreamARN") => String.t(),
+        optional("StreamName") => String.t(),
+        required("RetentionPeriodHours") => integer()
+      }
+      
   """
   @type decrease_stream_retention_period_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stream_description_summary() :: %{
-    "ConsumerCount" => integer(),
-    "EncryptionType" => list(any()),
-    "EnhancedMonitoring" => list(enhanced_metrics()()),
-    "KeyId" => String.t(),
-    "OpenShardCount" => integer(),
-    "RetentionPeriodHours" => integer(),
-    "StreamARN" => String.t(),
-    "StreamCreationTimestamp" => non_neg_integer(),
-    "StreamModeDetails" => stream_mode_details(),
-    "StreamName" => String.t(),
-    "StreamStatus" => list(any())
-  }
+      
+      stream_description_summary() :: %{
+        "ConsumerCount" => integer(),
+        "EncryptionType" => list(any()),
+        "EnhancedMonitoring" => list(enhanced_metrics()()),
+        "KeyId" => String.t(),
+        "OpenShardCount" => integer(),
+        "RetentionPeriodHours" => integer(),
+        "StreamARN" => String.t(),
+        "StreamCreationTimestamp" => non_neg_integer(),
+        "StreamModeDetails" => stream_mode_details(),
+        "StreamName" => String.t(),
+        "StreamStatus" => list(any())
+      }
+      
   """
   @type stream_description_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  deregister_stream_consumer_input() :: %{
-    optional("ConsumerARN") => String.t(),
-    optional("ConsumerName") => String.t(),
-    optional("StreamARN") => String.t()
-  }
+      
+      deregister_stream_consumer_input() :: %{
+        optional("ConsumerARN") => String.t(),
+        optional("ConsumerName") => String.t(),
+        optional("StreamARN") => String.t()
+      }
+      
   """
   @type deregister_stream_consumer_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  increase_stream_retention_period_input() :: %{
-    optional("StreamARN") => String.t(),
-    optional("StreamName") => String.t(),
-    required("RetentionPeriodHours") => integer()
-  }
+      
+      increase_stream_retention_period_input() :: %{
+        optional("StreamARN") => String.t(),
+        optional("StreamName") => String.t(),
+        required("RetentionPeriodHours") => integer()
+      }
+      
   """
   @type increase_stream_retention_period_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_stream_input() :: %{
-    optional("EnforceConsumerDeletion") => boolean(),
-    optional("StreamARN") => String.t(),
-    optional("StreamName") => String.t()
-  }
+      
+      delete_stream_input() :: %{
+        optional("EnforceConsumerDeletion") => boolean(),
+        optional("StreamARN") => String.t(),
+        optional("StreamName") => String.t()
+      }
+      
   """
   @type delete_stream_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_resource_policy_input() :: %{
-    required("ResourceARN") => String.t()
-  }
+      
+      delete_resource_policy_input() :: %{
+        required("ResourceARN") => String.t()
+      }
+      
   """
   @type delete_resource_policy_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_records_input() :: %{
-    optional("StreamARN") => String.t(),
-    optional("StreamName") => String.t(),
-    required("Records") => list(put_records_request_entry()())
-  }
+      
+      put_records_input() :: %{
+        optional("StreamARN") => String.t(),
+        optional("StreamName") => String.t(),
+        required("Records") => list(put_records_request_entry()())
+      }
+      
   """
   @type put_records_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_records_output() :: %{
-    "ChildShards" => list(child_shard()()),
-    "MillisBehindLatest" => float(),
-    "NextShardIterator" => String.t(),
-    "Records" => list(record()())
-  }
+      
+      get_records_output() :: %{
+        "ChildShards" => list(child_shard()()),
+        "MillisBehindLatest" => float(),
+        "NextShardIterator" => String.t(),
+        "Records" => list(record()())
+      }
+      
   """
   @type get_records_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  add_tags_to_stream_input() :: %{
-    optional("StreamARN") => String.t(),
-    optional("StreamName") => String.t(),
-    required("Tags") => map()
-  }
+      
+      add_tags_to_stream_input() :: %{
+        optional("StreamARN") => String.t(),
+        optional("StreamName") => String.t(),
+        required("Tags") => map()
+      }
+      
   """
   @type add_tags_to_stream_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_streams_output() :: %{
-    "HasMoreStreams" => boolean(),
-    "NextToken" => String.t(),
-    "StreamNames" => list(String.t()()),
-    "StreamSummaries" => list(stream_summary()())
-  }
+      
+      list_streams_output() :: %{
+        "HasMoreStreams" => boolean(),
+        "NextToken" => String.t(),
+        "StreamNames" => list(String.t()()),
+        "StreamSummaries" => list(stream_summary()())
+      }
+      
   """
   @type list_streams_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  expired_next_token_exception() :: %{
-    "message" => String.t()
-  }
+      
+      expired_next_token_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type expired_next_token_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  register_stream_consumer_output() :: %{
-    "Consumer" => consumer()
-  }
+      
+      register_stream_consumer_output() :: %{
+        "Consumer" => consumer()
+      }
+      
   """
   @type register_stream_consumer_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  hash_key_range() :: %{
-    "EndingHashKey" => String.t(),
-    "StartingHashKey" => String.t()
-  }
+      
+      hash_key_range() :: %{
+        "EndingHashKey" => String.t(),
+        "StartingHashKey" => String.t()
+      }
+      
   """
   @type hash_key_range() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  provisioned_throughput_exceeded_exception() :: %{
-    "message" => String.t()
-  }
+      
+      provisioned_throughput_exceeded_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type provisioned_throughput_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_not_found_exception() :: %{
-    "message" => String.t()
-  }
+      
+      resource_not_found_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_records_result_entry() :: %{
-    "ErrorCode" => String.t(),
-    "ErrorMessage" => String.t(),
-    "SequenceNumber" => String.t(),
-    "ShardId" => String.t()
-  }
+      
+      put_records_result_entry() :: %{
+        "ErrorCode" => String.t(),
+        "ErrorMessage" => String.t(),
+        "SequenceNumber" => String.t(),
+        "ShardId" => String.t()
+      }
+      
   """
   @type put_records_result_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag() :: %{
-    "Key" => String.t(),
-    "Value" => String.t()
-  }
+      
+      tag() :: %{
+        "Key" => String.t(),
+        "Value" => String.t()
+      }
+      
   """
   @type tag() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_resource_policy_input() :: %{
-    required("Policy") => String.t(),
-    required("ResourceARN") => String.t()
-  }
+      
+      put_resource_policy_input() :: %{
+        required("Policy") => String.t(),
+        required("ResourceARN") => String.t()
+      }
+      
   """
   @type put_resource_policy_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  register_stream_consumer_input() :: %{
-    required("ConsumerName") => String.t(),
-    required("StreamARN") => String.t()
-  }
+      
+      register_stream_consumer_input() :: %{
+        required("ConsumerName") => String.t(),
+        required("StreamARN") => String.t()
+      }
+      
   """
   @type register_stream_consumer_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_shard_iterator_input() :: %{
-    optional("StartingSequenceNumber") => String.t(),
-    optional("StreamARN") => String.t(),
-    optional("StreamName") => String.t(),
-    optional("Timestamp") => non_neg_integer(),
-    required("ShardId") => String.t(),
-    required("ShardIteratorType") => list(any())
-  }
+      
+      get_shard_iterator_input() :: %{
+        optional("StartingSequenceNumber") => String.t(),
+        optional("StreamARN") => String.t(),
+        optional("StreamName") => String.t(),
+        optional("Timestamp") => non_neg_integer(),
+        required("ShardId") => String.t(),
+        required("ShardIteratorType") => list(any())
+      }
+      
   """
   @type get_shard_iterator_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_stream_consumer_input() :: %{
-    optional("ConsumerARN") => String.t(),
-    optional("ConsumerName") => String.t(),
-    optional("StreamARN") => String.t()
-  }
+      
+      describe_stream_consumer_input() :: %{
+        optional("ConsumerARN") => String.t(),
+        optional("ConsumerName") => String.t(),
+        optional("StreamARN") => String.t()
+      }
+      
   """
   @type describe_stream_consumer_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  remove_tags_from_stream_input() :: %{
-    optional("StreamARN") => String.t(),
-    optional("StreamName") => String.t(),
-    required("TagKeys") => list(String.t()())
-  }
+      
+      remove_tags_from_stream_input() :: %{
+        optional("StreamARN") => String.t(),
+        optional("StreamName") => String.t(),
+        required("TagKeys") => list(String.t()())
+      }
+      
   """
   @type remove_tags_from_stream_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  merge_shards_input() :: %{
-    optional("StreamARN") => String.t(),
-    optional("StreamName") => String.t(),
-    required("AdjacentShardToMerge") => String.t(),
-    required("ShardToMerge") => String.t()
-  }
+      
+      merge_shards_input() :: %{
+        optional("StreamARN") => String.t(),
+        optional("StreamName") => String.t(),
+        required("AdjacentShardToMerge") => String.t(),
+        required("ShardToMerge") => String.t()
+      }
+      
   """
   @type merge_shards_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_shard_iterator_output() :: %{
-    "ShardIterator" => String.t()
-  }
+      
+      get_shard_iterator_output() :: %{
+        "ShardIterator" => String.t()
+      }
+      
   """
   @type get_shard_iterator_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  expired_iterator_exception() :: %{
-    "message" => String.t()
-  }
+      
+      expired_iterator_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type expired_iterator_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_stream_summary_input() :: %{
-    optional("StreamARN") => String.t(),
-    optional("StreamName") => String.t()
-  }
+      
+      describe_stream_summary_input() :: %{
+        optional("StreamARN") => String.t(),
+        optional("StreamName") => String.t()
+      }
+      
   """
   @type describe_stream_summary_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_stream_consumers_output() :: %{
-    "Consumers" => list(consumer()()),
-    "NextToken" => String.t()
-  }
+      
+      list_stream_consumers_output() :: %{
+        "Consumers" => list(consumer()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_stream_consumers_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_limits_input() :: %{
-
-  }
+      
+      describe_limits_input() :: %{}
+      
   """
-  @type describe_limits_input() :: %{String.t() => any()}
+  @type describe_limits_input() :: %{}
 
   @typedoc """
 
   ## Example:
-  kms_access_denied_exception() :: %{
-    "message" => String.t()
-  }
+      
+      kms_access_denied_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type kms_access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_record_output() :: %{
-    "EncryptionType" => list(any()),
-    "SequenceNumber" => String.t(),
-    "ShardId" => String.t()
-  }
+      
+      put_record_output() :: %{
+        "EncryptionType" => list(any()),
+        "SequenceNumber" => String.t(),
+        "ShardId" => String.t()
+      }
+      
   """
   @type put_record_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_streams_input() :: %{
-    optional("ExclusiveStartStreamName") => String.t(),
-    optional("Limit") => integer(),
-    optional("NextToken") => String.t()
-  }
+      
+      list_streams_input() :: %{
+        optional("ExclusiveStartStreamName") => String.t(),
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type list_streams_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  shard() :: %{
-    "AdjacentParentShardId" => String.t(),
-    "HashKeyRange" => hash_key_range(),
-    "ParentShardId" => String.t(),
-    "SequenceNumberRange" => sequence_number_range(),
-    "ShardId" => String.t()
-  }
+      
+      shard() :: %{
+        "AdjacentParentShardId" => String.t(),
+        "HashKeyRange" => hash_key_range(),
+        "ParentShardId" => String.t(),
+        "SequenceNumberRange" => sequence_number_range(),
+        "ShardId" => String.t()
+      }
+      
   """
   @type shard() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  subscribe_to_shard_input() :: %{
-    required("ConsumerARN") => String.t(),
-    required("ShardId") => String.t(),
-    required("StartingPosition") => starting_position()
-  }
+      
+      subscribe_to_shard_input() :: %{
+        required("ConsumerARN") => String.t(),
+        required("ShardId") => String.t(),
+        required("StartingPosition") => starting_position()
+      }
+      
   """
   @type subscribe_to_shard_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_stream_output() :: %{
-    "StreamDescription" => stream_description()
-  }
+      
+      describe_stream_output() :: %{
+        "StreamDescription" => stream_description()
+      }
+      
   """
   @type describe_stream_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stop_stream_encryption_input() :: %{
-    optional("StreamARN") => String.t(),
-    optional("StreamName") => String.t(),
-    required("EncryptionType") => list(any()),
-    required("KeyId") => String.t()
-  }
+      
+      stop_stream_encryption_input() :: %{
+        optional("StreamARN") => String.t(),
+        optional("StreamName") => String.t(),
+        required("EncryptionType") => list(any()),
+        required("KeyId") => String.t()
+      }
+      
   """
   @type stop_stream_encryption_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_records_input() :: %{
-    optional("Limit") => integer(),
-    optional("StreamARN") => String.t(),
-    required("ShardIterator") => String.t()
-  }
+      
+      get_records_input() :: %{
+        optional("Limit") => integer(),
+        optional("StreamARN") => String.t(),
+        required("ShardIterator") => String.t()
+      }
+      
   """
   @type get_records_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  kms_not_found_exception() :: %{
-    "message" => String.t()
-  }
+      
+      kms_not_found_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type kms_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  access_denied_exception() :: %{
-    "message" => String.t()
-  }
+      
+      access_denied_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stream_mode_details() :: %{
-    "StreamMode" => list(any())
-  }
+      
+      stream_mode_details() :: %{
+        "StreamMode" => list(any())
+      }
+      
   """
   @type stream_mode_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_stream_input() :: %{
-    optional("ExclusiveStartTagKey") => String.t(),
-    optional("Limit") => integer(),
-    optional("StreamARN") => String.t(),
-    optional("StreamName") => String.t()
-  }
+      
+      list_tags_for_stream_input() :: %{
+        optional("ExclusiveStartTagKey") => String.t(),
+        optional("Limit") => integer(),
+        optional("StreamARN") => String.t(),
+        optional("StreamName") => String.t()
+      }
+      
   """
   @type list_tags_for_stream_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  enhanced_monitoring_output() :: %{
-    "CurrentShardLevelMetrics" => list(list(any())()),
-    "DesiredShardLevelMetrics" => list(list(any())()),
-    "StreamARN" => String.t(),
-    "StreamName" => String.t()
-  }
+      
+      enhanced_monitoring_output() :: %{
+        "CurrentShardLevelMetrics" => list(list(any())()),
+        "DesiredShardLevelMetrics" => list(list(any())()),
+        "StreamARN" => String.t(),
+        "StreamName" => String.t()
+      }
+      
   """
   @type enhanced_monitoring_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_resource_policy_input() :: %{
-    required("ResourceARN") => String.t()
-  }
+      
+      get_resource_policy_input() :: %{
+        required("ResourceARN") => String.t()
+      }
+      
   """
   @type get_resource_policy_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_argument_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_argument_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_argument_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_stream_mode_input() :: %{
-    required("StreamARN") => String.t(),
-    required("StreamModeDetails") => stream_mode_details()
-  }
+      
+      update_stream_mode_input() :: %{
+        required("StreamARN") => String.t(),
+        required("StreamModeDetails") => stream_mode_details()
+      }
+      
   """
   @type update_stream_mode_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  sequence_number_range() :: %{
-    "EndingSequenceNumber" => String.t(),
-    "StartingSequenceNumber" => String.t()
-  }
+      
+      sequence_number_range() :: %{
+        "EndingSequenceNumber" => String.t(),
+        "StartingSequenceNumber" => String.t()
+      }
+      
   """
   @type sequence_number_range() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  validation_exception() :: %{
-    "message" => String.t()
-  }
+      
+      validation_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  subscribe_to_shard_event() :: %{
-    "ChildShards" => list(child_shard()()),
-    "ContinuationSequenceNumber" => String.t(),
-    "MillisBehindLatest" => float(),
-    "Records" => list(record()())
-  }
+      
+      subscribe_to_shard_event() :: %{
+        "ChildShards" => list(child_shard()()),
+        "ContinuationSequenceNumber" => String.t(),
+        "MillisBehindLatest" => float(),
+        "Records" => list(record()())
+      }
+      
   """
   @type subscribe_to_shard_event() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  child_shard() :: %{
-    "HashKeyRange" => hash_key_range(),
-    "ParentShards" => list(String.t()()),
-    "ShardId" => String.t()
-  }
+      
+      child_shard() :: %{
+        "HashKeyRange" => hash_key_range(),
+        "ParentShards" => list(String.t()()),
+        "ShardId" => String.t()
+      }
+      
   """
   @type child_shard() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stream_summary() :: %{
-    "StreamARN" => String.t(),
-    "StreamCreationTimestamp" => non_neg_integer(),
-    "StreamModeDetails" => stream_mode_details(),
-    "StreamName" => String.t(),
-    "StreamStatus" => list(any())
-  }
+      
+      stream_summary() :: %{
+        "StreamARN" => String.t(),
+        "StreamCreationTimestamp" => non_neg_integer(),
+        "StreamModeDetails" => stream_mode_details(),
+        "StreamName" => String.t(),
+        "StreamStatus" => list(any())
+      }
+      
   """
   @type stream_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  shard_filter() :: %{
-    "ShardId" => String.t(),
-    "Timestamp" => non_neg_integer(),
-    "Type" => list(any())
-  }
+      
+      shard_filter() :: %{
+        "ShardId" => String.t(),
+        "Timestamp" => non_neg_integer(),
+        "Type" => list(any())
+      }
+      
   """
   @type shard_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  consumer() :: %{
-    "ConsumerARN" => String.t(),
-    "ConsumerCreationTimestamp" => non_neg_integer(),
-    "ConsumerName" => String.t(),
-    "ConsumerStatus" => list(any())
-  }
+      
+      consumer() :: %{
+        "ConsumerARN" => String.t(),
+        "ConsumerCreationTimestamp" => non_neg_integer(),
+        "ConsumerName" => String.t(),
+        "ConsumerStatus" => list(any())
+      }
+      
   """
   @type consumer() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_stream_input() :: %{
-    optional("ShardCount") => integer(),
-    optional("StreamModeDetails") => stream_mode_details(),
-    required("StreamName") => String.t()
-  }
+      
+      create_stream_input() :: %{
+        optional("ShardCount") => integer(),
+        optional("StreamModeDetails") => stream_mode_details(),
+        required("StreamName") => String.t()
+      }
+      
   """
   @type create_stream_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  limit_exceeded_exception() :: %{
-    "message" => String.t()
-  }
+      
+      limit_exceeded_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_records_request_entry() :: %{
-    "Data" => binary(),
-    "ExplicitHashKey" => String.t(),
-    "PartitionKey" => String.t()
-  }
+      
+      put_records_request_entry() :: %{
+        "Data" => binary(),
+        "ExplicitHashKey" => String.t(),
+        "PartitionKey" => String.t()
+      }
+      
   """
   @type put_records_request_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_stream_encryption_input() :: %{
-    optional("StreamARN") => String.t(),
-    optional("StreamName") => String.t(),
-    required("EncryptionType") => list(any()),
-    required("KeyId") => String.t()
-  }
+      
+      start_stream_encryption_input() :: %{
+        optional("StreamARN") => String.t(),
+        optional("StreamName") => String.t(),
+        required("EncryptionType") => list(any()),
+        required("KeyId") => String.t()
+      }
+      
   """
   @type start_stream_encryption_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disable_enhanced_monitoring_input() :: %{
-    optional("StreamARN") => String.t(),
-    optional("StreamName") => String.t(),
-    required("ShardLevelMetrics") => list(list(any())())
-  }
+      
+      disable_enhanced_monitoring_input() :: %{
+        optional("StreamARN") => String.t(),
+        optional("StreamName") => String.t(),
+        required("ShardLevelMetrics") => list(list(any())())
+      }
+      
   """
   @type disable_enhanced_monitoring_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_shard_count_output() :: %{
-    "CurrentShardCount" => integer(),
-    "StreamARN" => String.t(),
-    "StreamName" => String.t(),
-    "TargetShardCount" => integer()
-  }
+      
+      update_shard_count_output() :: %{
+        "CurrentShardCount" => integer(),
+        "StreamARN" => String.t(),
+        "StreamName" => String.t(),
+        "TargetShardCount" => integer()
+      }
+      
   """
   @type update_shard_count_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_stream_consumer_output() :: %{
-    "ConsumerDescription" => consumer_description()
-  }
+      
+      describe_stream_consumer_output() :: %{
+        "ConsumerDescription" => consumer_description()
+      }
+      
   """
   @type describe_stream_consumer_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  enhanced_metrics() :: %{
-    "ShardLevelMetrics" => list(list(any())())
-  }
+      
+      enhanced_metrics() :: %{
+        "ShardLevelMetrics" => list(list(any())())
+      }
+      
   """
   @type enhanced_metrics() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  split_shard_input() :: %{
-    optional("StreamARN") => String.t(),
-    optional("StreamName") => String.t(),
-    required("NewStartingHashKey") => String.t(),
-    required("ShardToSplit") => String.t()
-  }
+      
+      split_shard_input() :: %{
+        optional("StreamARN") => String.t(),
+        optional("StreamName") => String.t(),
+        required("NewStartingHashKey") => String.t(),
+        required("ShardToSplit") => String.t()
+      }
+      
   """
   @type split_shard_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_record_input() :: %{
-    optional("ExplicitHashKey") => String.t(),
-    optional("SequenceNumberForOrdering") => String.t(),
-    optional("StreamARN") => String.t(),
-    optional("StreamName") => String.t(),
-    required("Data") => binary(),
-    required("PartitionKey") => String.t()
-  }
+      
+      put_record_input() :: %{
+        optional("ExplicitHashKey") => String.t(),
+        optional("SequenceNumberForOrdering") => String.t(),
+        optional("StreamARN") => String.t(),
+        optional("StreamName") => String.t(),
+        required("Data") => binary(),
+        required("PartitionKey") => String.t()
+      }
+      
   """
   @type put_record_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  kms_invalid_state_exception() :: %{
-    "message" => String.t()
-  }
+      
+      kms_invalid_state_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type kms_invalid_state_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_stream_input() :: %{
-    optional("ExclusiveStartShardId") => String.t(),
-    optional("Limit") => integer(),
-    optional("StreamARN") => String.t(),
-    optional("StreamName") => String.t()
-  }
+      
+      describe_stream_input() :: %{
+        optional("ExclusiveStartShardId") => String.t(),
+        optional("Limit") => integer(),
+        optional("StreamARN") => String.t(),
+        optional("StreamName") => String.t()
+      }
+      
   """
   @type describe_stream_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  subscribe_to_shard_output() :: %{
-    "EventStream" => list()
-  }
+      
+      subscribe_to_shard_output() :: %{
+        "EventStream" => list()
+      }
+      
   """
   @type subscribe_to_shard_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_records_output() :: %{
-    "EncryptionType" => list(any()),
-    "FailedRecordCount" => integer(),
-    "Records" => list(put_records_result_entry()())
-  }
+      
+      put_records_output() :: %{
+        "EncryptionType" => list(any()),
+        "FailedRecordCount" => integer(),
+        "Records" => list(put_records_result_entry()())
+      }
+      
   """
   @type put_records_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_stream_summary_output() :: %{
-    "StreamDescriptionSummary" => stream_description_summary()
-  }
+      
+      describe_stream_summary_output() :: %{
+        "StreamDescriptionSummary" => stream_description_summary()
+      }
+      
   """
   @type describe_stream_summary_output() :: %{String.t() => any()}
+
+  @type add_tags_to_stream_errors() ::
+          limit_exceeded_exception()
+          | invalid_argument_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | resource_in_use_exception()
+
+  @type create_stream_errors() ::
+          limit_exceeded_exception() | invalid_argument_exception() | resource_in_use_exception()
+
+  @type decrease_stream_retention_period_errors() ::
+          limit_exceeded_exception()
+          | invalid_argument_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | resource_in_use_exception()
+
+  @type delete_resource_policy_errors() ::
+          limit_exceeded_exception()
+          | invalid_argument_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | resource_in_use_exception()
+
+  @type delete_stream_errors() ::
+          limit_exceeded_exception()
+          | invalid_argument_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | resource_in_use_exception()
+
+  @type deregister_stream_consumer_errors() ::
+          limit_exceeded_exception()
+          | invalid_argument_exception()
+          | resource_not_found_exception()
+
+  @type describe_limits_errors() :: limit_exceeded_exception()
+
+  @type describe_stream_errors() ::
+          limit_exceeded_exception()
+          | invalid_argument_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
+  @type describe_stream_consumer_errors() ::
+          limit_exceeded_exception()
+          | invalid_argument_exception()
+          | resource_not_found_exception()
+
+  @type describe_stream_summary_errors() ::
+          limit_exceeded_exception()
+          | invalid_argument_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
+  @type disable_enhanced_monitoring_errors() ::
+          limit_exceeded_exception()
+          | invalid_argument_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | resource_in_use_exception()
+
+  @type enable_enhanced_monitoring_errors() ::
+          limit_exceeded_exception()
+          | invalid_argument_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | resource_in_use_exception()
+
+  @type get_records_errors() ::
+          kms_invalid_state_exception()
+          | invalid_argument_exception()
+          | access_denied_exception()
+          | kms_not_found_exception()
+          | kms_access_denied_exception()
+          | expired_iterator_exception()
+          | resource_not_found_exception()
+          | provisioned_throughput_exceeded_exception()
+          | kms_throttling_exception()
+          | kms_opt_in_required()
+          | kms_disabled_exception()
+
+  @type get_resource_policy_errors() ::
+          limit_exceeded_exception()
+          | invalid_argument_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
+  @type get_shard_iterator_errors() ::
+          invalid_argument_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | provisioned_throughput_exceeded_exception()
+
+  @type increase_stream_retention_period_errors() ::
+          limit_exceeded_exception()
+          | invalid_argument_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | resource_in_use_exception()
+
+  @type list_shards_errors() ::
+          limit_exceeded_exception()
+          | invalid_argument_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | expired_next_token_exception()
+          | resource_in_use_exception()
+
+  @type list_stream_consumers_errors() ::
+          limit_exceeded_exception()
+          | invalid_argument_exception()
+          | resource_not_found_exception()
+          | expired_next_token_exception()
+          | resource_in_use_exception()
+
+  @type list_streams_errors() ::
+          limit_exceeded_exception()
+          | invalid_argument_exception()
+          | expired_next_token_exception()
+
+  @type list_tags_for_stream_errors() ::
+          limit_exceeded_exception()
+          | invalid_argument_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
+  @type merge_shards_errors() ::
+          limit_exceeded_exception()
+          | validation_exception()
+          | invalid_argument_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | resource_in_use_exception()
+
+  @type put_record_errors() ::
+          kms_invalid_state_exception()
+          | invalid_argument_exception()
+          | access_denied_exception()
+          | kms_not_found_exception()
+          | kms_access_denied_exception()
+          | resource_not_found_exception()
+          | provisioned_throughput_exceeded_exception()
+          | kms_throttling_exception()
+          | kms_opt_in_required()
+          | kms_disabled_exception()
+
+  @type put_records_errors() ::
+          kms_invalid_state_exception()
+          | invalid_argument_exception()
+          | access_denied_exception()
+          | kms_not_found_exception()
+          | kms_access_denied_exception()
+          | resource_not_found_exception()
+          | provisioned_throughput_exceeded_exception()
+          | kms_throttling_exception()
+          | kms_opt_in_required()
+          | kms_disabled_exception()
+
+  @type put_resource_policy_errors() ::
+          limit_exceeded_exception()
+          | invalid_argument_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | resource_in_use_exception()
+
+  @type register_stream_consumer_errors() ::
+          limit_exceeded_exception()
+          | invalid_argument_exception()
+          | resource_not_found_exception()
+          | resource_in_use_exception()
+
+  @type remove_tags_from_stream_errors() ::
+          limit_exceeded_exception()
+          | invalid_argument_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | resource_in_use_exception()
+
+  @type split_shard_errors() ::
+          limit_exceeded_exception()
+          | validation_exception()
+          | invalid_argument_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | resource_in_use_exception()
+
+  @type start_stream_encryption_errors() ::
+          kms_invalid_state_exception()
+          | limit_exceeded_exception()
+          | invalid_argument_exception()
+          | access_denied_exception()
+          | kms_not_found_exception()
+          | kms_access_denied_exception()
+          | resource_not_found_exception()
+          | resource_in_use_exception()
+          | kms_throttling_exception()
+          | kms_opt_in_required()
+          | kms_disabled_exception()
+
+  @type stop_stream_encryption_errors() ::
+          limit_exceeded_exception()
+          | invalid_argument_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | resource_in_use_exception()
+
+  @type subscribe_to_shard_errors() ::
+          limit_exceeded_exception()
+          | invalid_argument_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | resource_in_use_exception()
+
+  @type update_shard_count_errors() ::
+          limit_exceeded_exception()
+          | validation_exception()
+          | invalid_argument_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | resource_in_use_exception()
+
+  @type update_stream_mode_errors() ::
+          limit_exceeded_exception()
+          | invalid_argument_exception()
+          | resource_not_found_exception()
+          | resource_in_use_exception()
 
   def metadata do
     %{
@@ -944,11 +1336,7 @@ defmodule AWS.Kinesis do
   @spec add_tags_to_stream(map(), add_tags_to_stream_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, invalid_argument_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_in_use_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, add_tags_to_stream_errors()}
   def add_tags_to_stream(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1022,9 +1410,7 @@ defmodule AWS.Kinesis do
   @spec create_stream(map(), create_stream_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_argument_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_in_use_exception()}
+          | {:error, create_stream_errors()}
   def create_stream(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1052,11 +1438,7 @@ defmodule AWS.Kinesis do
   @spec decrease_stream_retention_period(map(), decrease_stream_retention_period_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, invalid_argument_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_in_use_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, decrease_stream_retention_period_errors()}
   def decrease_stream_retention_period(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1078,11 +1460,7 @@ defmodule AWS.Kinesis do
   @spec delete_resource_policy(map(), delete_resource_policy_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, invalid_argument_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_in_use_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, delete_resource_policy_errors()}
   def delete_resource_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1125,11 +1503,7 @@ defmodule AWS.Kinesis do
   @spec delete_stream(map(), delete_stream_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, invalid_argument_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_in_use_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, delete_stream_errors()}
   def delete_stream(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1155,9 +1529,7 @@ defmodule AWS.Kinesis do
   @spec deregister_stream_consumer(map(), deregister_stream_consumer_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_argument_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, deregister_stream_consumer_errors()}
   def deregister_stream_consumer(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1175,7 +1547,7 @@ defmodule AWS.Kinesis do
   @spec describe_limits(map(), describe_limits_input(), list()) ::
           {:ok, describe_limits_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, limit_exceeded_exception()}
+          | {:error, describe_limits_errors()}
   def describe_limits(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1223,10 +1595,7 @@ defmodule AWS.Kinesis do
   @spec describe_stream(map(), describe_stream_input(), list()) ::
           {:ok, describe_stream_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, invalid_argument_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, describe_stream_errors()}
   def describe_stream(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1256,9 +1625,7 @@ defmodule AWS.Kinesis do
   @spec describe_stream_consumer(map(), describe_stream_consumer_input(), list()) ::
           {:ok, describe_stream_consumer_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_argument_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, describe_stream_consumer_errors()}
   def describe_stream_consumer(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1286,10 +1653,7 @@ defmodule AWS.Kinesis do
   @spec describe_stream_summary(map(), describe_stream_summary_input(), list()) ::
           {:ok, describe_stream_summary_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, invalid_argument_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, describe_stream_summary_errors()}
   def describe_stream_summary(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1306,11 +1670,7 @@ defmodule AWS.Kinesis do
   @spec disable_enhanced_monitoring(map(), disable_enhanced_monitoring_input(), list()) ::
           {:ok, enhanced_monitoring_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, invalid_argument_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_in_use_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, disable_enhanced_monitoring_errors()}
   def disable_enhanced_monitoring(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1327,11 +1687,7 @@ defmodule AWS.Kinesis do
   @spec enable_enhanced_monitoring(map(), enable_enhanced_monitoring_input(), list()) ::
           {:ok, enhanced_monitoring_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, invalid_argument_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_in_use_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, enable_enhanced_monitoring_errors()}
   def enable_enhanced_monitoring(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1426,17 +1782,7 @@ defmodule AWS.Kinesis do
   @spec get_records(map(), get_records_input(), list()) ::
           {:ok, get_records_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, expired_iterator_exception()}
-          | {:error, invalid_argument_exception()}
-          | {:error, kms_access_denied_exception()}
-          | {:error, kms_disabled_exception()}
-          | {:error, kms_invalid_state_exception()}
-          | {:error, kms_not_found_exception()}
-          | {:error, kms_opt_in_required()}
-          | {:error, kms_throttling_exception()}
-          | {:error, provisioned_throughput_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, get_records_errors()}
   def get_records(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1458,10 +1804,7 @@ defmodule AWS.Kinesis do
   @spec get_resource_policy(map(), get_resource_policy_input(), list()) ::
           {:ok, get_resource_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, invalid_argument_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, get_resource_policy_errors()}
   def get_resource_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1527,10 +1870,7 @@ defmodule AWS.Kinesis do
   @spec get_shard_iterator(map(), get_shard_iterator_input(), list()) ::
           {:ok, get_shard_iterator_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, invalid_argument_exception()}
-          | {:error, provisioned_throughput_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, get_shard_iterator_errors()}
   def get_shard_iterator(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1564,11 +1904,7 @@ defmodule AWS.Kinesis do
   @spec increase_stream_retention_period(map(), increase_stream_retention_period_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, invalid_argument_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_in_use_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, increase_stream_retention_period_errors()}
   def increase_stream_retention_period(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1599,12 +1935,7 @@ defmodule AWS.Kinesis do
   @spec list_shards(map(), list_shards_input(), list()) ::
           {:ok, list_shards_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, expired_next_token_exception()}
-          | {:error, invalid_argument_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_in_use_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, list_shards_errors()}
   def list_shards(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1621,11 +1952,7 @@ defmodule AWS.Kinesis do
   @spec list_stream_consumers(map(), list_stream_consumers_input(), list()) ::
           {:ok, list_stream_consumers_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, expired_next_token_exception()}
-          | {:error, invalid_argument_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_in_use_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, list_stream_consumers_errors()}
   def list_stream_consumers(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1657,9 +1984,7 @@ defmodule AWS.Kinesis do
   @spec list_streams(map(), list_streams_input(), list()) ::
           {:ok, list_streams_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, expired_next_token_exception()}
-          | {:error, invalid_argument_exception()}
-          | {:error, limit_exceeded_exception()}
+          | {:error, list_streams_errors()}
   def list_streams(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1679,10 +2004,7 @@ defmodule AWS.Kinesis do
   @spec list_tags_for_stream(map(), list_tags_for_stream_input(), list()) ::
           {:ok, list_tags_for_stream_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, invalid_argument_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, list_tags_for_stream_errors()}
   def list_tags_for_stream(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1750,12 +2072,7 @@ defmodule AWS.Kinesis do
   @spec merge_shards(map(), merge_shards_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, invalid_argument_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_in_use_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, merge_shards_errors()}
   def merge_shards(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1829,16 +2146,7 @@ defmodule AWS.Kinesis do
   @spec put_record(map(), put_record_input(), list()) ::
           {:ok, put_record_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, invalid_argument_exception()}
-          | {:error, kms_access_denied_exception()}
-          | {:error, kms_disabled_exception()}
-          | {:error, kms_invalid_state_exception()}
-          | {:error, kms_not_found_exception()}
-          | {:error, kms_opt_in_required()}
-          | {:error, kms_throttling_exception()}
-          | {:error, provisioned_throughput_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, put_record_errors()}
   def put_record(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1939,16 +2247,7 @@ defmodule AWS.Kinesis do
   @spec put_records(map(), put_records_input(), list()) ::
           {:ok, put_records_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, invalid_argument_exception()}
-          | {:error, kms_access_denied_exception()}
-          | {:error, kms_disabled_exception()}
-          | {:error, kms_invalid_state_exception()}
-          | {:error, kms_not_found_exception()}
-          | {:error, kms_opt_in_required()}
-          | {:error, kms_throttling_exception()}
-          | {:error, provisioned_throughput_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, put_records_errors()}
   def put_records(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1984,11 +2283,7 @@ defmodule AWS.Kinesis do
   @spec put_resource_policy(map(), put_resource_policy_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, invalid_argument_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_in_use_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, put_resource_policy_errors()}
   def put_resource_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2023,10 +2318,7 @@ defmodule AWS.Kinesis do
   @spec register_stream_consumer(map(), register_stream_consumer_input(), list()) ::
           {:ok, register_stream_consumer_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_argument_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_in_use_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, register_stream_consumer_errors()}
   def register_stream_consumer(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2051,11 +2343,7 @@ defmodule AWS.Kinesis do
   @spec remove_tags_from_stream(map(), remove_tags_from_stream_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, invalid_argument_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_in_use_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, remove_tags_from_stream_errors()}
   def remove_tags_from_stream(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2128,12 +2416,7 @@ defmodule AWS.Kinesis do
   @spec split_shard(map(), split_shard_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, invalid_argument_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_in_use_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, split_shard_errors()}
   def split_shard(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2172,17 +2455,7 @@ defmodule AWS.Kinesis do
   @spec start_stream_encryption(map(), start_stream_encryption_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, invalid_argument_exception()}
-          | {:error, kms_access_denied_exception()}
-          | {:error, kms_disabled_exception()}
-          | {:error, kms_invalid_state_exception()}
-          | {:error, kms_not_found_exception()}
-          | {:error, kms_opt_in_required()}
-          | {:error, kms_throttling_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_in_use_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, start_stream_encryption_errors()}
   def start_stream_encryption(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2221,11 +2494,7 @@ defmodule AWS.Kinesis do
   @spec stop_stream_encryption(map(), stop_stream_encryption_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, invalid_argument_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_in_use_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, stop_stream_encryption_errors()}
   def stop_stream_encryption(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2271,11 +2540,7 @@ defmodule AWS.Kinesis do
   @spec subscribe_to_shard(map(), subscribe_to_shard_input(), list()) ::
           {:ok, subscribe_to_shard_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, invalid_argument_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_in_use_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, subscribe_to_shard_errors()}
   def subscribe_to_shard(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2350,12 +2615,7 @@ defmodule AWS.Kinesis do
   @spec update_shard_count(map(), update_shard_count_input(), list()) ::
           {:ok, update_shard_count_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, invalid_argument_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_in_use_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_shard_count_errors()}
   def update_shard_count(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2372,10 +2632,7 @@ defmodule AWS.Kinesis do
   @spec update_stream_mode(map(), update_stream_mode_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_argument_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_in_use_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, update_stream_mode_errors()}
   def update_stream_mode(%Client{} = client, input, options \\ []) do
     meta = metadata()
 

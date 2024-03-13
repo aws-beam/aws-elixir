@@ -55,373 +55,514 @@ defmodule AWS.ARCZonalShift do
   @typedoc """
 
   ## Example:
-  list_managed_resources_response() :: %{
-    "items" => list(managed_resource_summary()()),
-    "nextToken" => [String.t()]
-  }
+
+      list_managed_resources_response() :: %{
+        "items" => list(managed_resource_summary()()),
+        "nextToken" => [String.t()]
+      }
+
   """
   @type list_managed_resources_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_managed_resource_response() :: %{
-    "appliedWeights" => map(),
-    "arn" => String.t(),
-    "autoshifts" => list(autoshift_in_resource()()),
-    "name" => String.t(),
-    "practiceRunConfiguration" => practice_run_configuration(),
-    "zonalAutoshiftStatus" => list(any()),
-    "zonalShifts" => list(zonal_shift_in_resource()())
-  }
+
+      get_managed_resource_response() :: %{
+        "appliedWeights" => map(),
+        "arn" => String.t(),
+        "autoshifts" => list(autoshift_in_resource()()),
+        "name" => String.t(),
+        "practiceRunConfiguration" => practice_run_configuration(),
+        "zonalAutoshiftStatus" => list(any()),
+        "zonalShifts" => list(zonal_shift_in_resource()())
+      }
+
   """
   @type get_managed_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_zonal_shifts_response() :: %{
-    "items" => list(zonal_shift_summary()()),
-    "nextToken" => [String.t()]
-  }
+
+      list_zonal_shifts_response() :: %{
+        "items" => list(zonal_shift_summary()()),
+        "nextToken" => [String.t()]
+      }
+
   """
   @type list_zonal_shifts_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_zonal_shift_request() :: %{
-    optional("comment") => String.t(),
-    optional("expiresIn") => String.t()
-  }
+
+      update_zonal_shift_request() :: %{
+        optional("comment") => String.t(),
+        optional("expiresIn") => String.t()
+      }
+
   """
   @type update_zonal_shift_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  autoshift_summary() :: %{
-    "awayFrom" => String.t(),
-    "endTime" => non_neg_integer(),
-    "startTime" => non_neg_integer(),
-    "status" => list(any())
-  }
+
+      autoshift_summary() :: %{
+        "awayFrom" => String.t(),
+        "endTime" => non_neg_integer(),
+        "startTime" => non_neg_integer(),
+        "status" => list(any())
+      }
+
   """
   @type autoshift_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_autoshifts_request() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => [String.t()],
-    optional("status") => list(any())
-  }
+
+      list_autoshifts_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => [String.t()],
+        optional("status") => list(any())
+      }
+
   """
   @type list_autoshifts_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  zonal_shift() :: %{
-    required("awayFrom") => String.t(),
-    required("comment") => String.t(),
-    required("expiryTime") => non_neg_integer(),
-    required("resourceIdentifier") => String.t(),
-    required("startTime") => non_neg_integer(),
-    required("status") => list(any()),
-    required("zonalShiftId") => String.t()
-  }
+
+      zonal_shift() :: %{
+        required("awayFrom") => String.t(),
+        required("comment") => String.t(),
+        required("expiryTime") => non_neg_integer(),
+        required("resourceIdentifier") => String.t(),
+        required("startTime") => non_neg_integer(),
+        required("status") => list(any()),
+        required("zonalShiftId") => String.t()
+      }
+
   """
   @type zonal_shift() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  autoshift_in_resource() :: %{
-    "appliedStatus" => list(any()),
-    "awayFrom" => String.t(),
-    "startTime" => non_neg_integer()
-  }
+
+      autoshift_in_resource() :: %{
+        "appliedStatus" => list(any()),
+        "awayFrom" => String.t(),
+        "startTime" => non_neg_integer()
+      }
+
   """
   @type autoshift_in_resource() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  managed_resource_summary() :: %{
-    "appliedWeights" => map(),
-    "arn" => String.t(),
-    "autoshifts" => list(autoshift_in_resource()()),
-    "availabilityZones" => list(String.t()()),
-    "name" => String.t(),
-    "practiceRunStatus" => list(any()),
-    "zonalAutoshiftStatus" => list(any()),
-    "zonalShifts" => list(zonal_shift_in_resource()())
-  }
+
+      managed_resource_summary() :: %{
+        "appliedWeights" => map(),
+        "arn" => String.t(),
+        "autoshifts" => list(autoshift_in_resource()()),
+        "availabilityZones" => list(String.t()()),
+        "name" => String.t(),
+        "practiceRunStatus" => list(any()),
+        "zonalAutoshiftStatus" => list(any()),
+        "zonalShifts" => list(zonal_shift_in_resource()())
+      }
+
   """
   @type managed_resource_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_zonal_autoshift_configuration_request() :: %{
-    required("zonalAutoshiftStatus") => list(any())
-  }
+
+      update_zonal_autoshift_configuration_request() :: %{
+        required("zonalAutoshiftStatus") => list(any())
+      }
+
   """
   @type update_zonal_autoshift_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  zonal_shift_summary() :: %{
-    "awayFrom" => String.t(),
-    "comment" => String.t(),
-    "expiryTime" => non_neg_integer(),
-    "practiceRunOutcome" => list(any()),
-    "resourceIdentifier" => String.t(),
-    "startTime" => non_neg_integer(),
-    "status" => list(any()),
-    "zonalShiftId" => String.t()
-  }
+
+      zonal_shift_summary() :: %{
+        "awayFrom" => String.t(),
+        "comment" => String.t(),
+        "expiryTime" => non_neg_integer(),
+        "practiceRunOutcome" => list(any()),
+        "resourceIdentifier" => String.t(),
+        "startTime" => non_neg_integer(),
+        "status" => list(any()),
+        "zonalShiftId" => String.t()
+      }
+
   """
   @type zonal_shift_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cancel_zonal_shift_request() :: %{
 
-  }
+      cancel_zonal_shift_request() :: %{}
+
   """
-  @type cancel_zonal_shift_request() :: %{String.t() => any()}
+  @type cancel_zonal_shift_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  update_practice_run_configuration_request() :: %{
-    optional("blockedDates") => list(String.t()()),
-    optional("blockedWindows") => list(String.t()()),
-    optional("blockingAlarms") => list(control_condition()()),
-    optional("outcomeAlarms") => list(control_condition()())
-  }
+
+      update_practice_run_configuration_request() :: %{
+        optional("blockedDates") => list(String.t()()),
+        optional("blockedWindows") => list(String.t()()),
+        optional("blockingAlarms") => list(control_condition()()),
+        optional("outcomeAlarms") => list(control_condition()())
+      }
+
   """
   @type update_practice_run_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  conflict_exception() :: %{
-    "message" => [String.t()],
-    "reason" => String.t(),
-    "zonalShiftId" => [String.t()]
-  }
+
+      conflict_exception() :: %{
+        "message" => [String.t()],
+        "reason" => String.t(),
+        "zonalShiftId" => [String.t()]
+      }
+
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_not_found_exception() :: %{
-    "message" => [String.t()]
-  }
+
+      resource_not_found_exception() :: %{
+        "message" => [String.t()]
+      }
+
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  zonal_shift_in_resource() :: %{
-    "appliedStatus" => list(any()),
-    "awayFrom" => String.t(),
-    "comment" => String.t(),
-    "expiryTime" => non_neg_integer(),
-    "practiceRunOutcome" => list(any()),
-    "resourceIdentifier" => String.t(),
-    "startTime" => non_neg_integer(),
-    "zonalShiftId" => String.t()
-  }
+
+      zonal_shift_in_resource() :: %{
+        "appliedStatus" => list(any()),
+        "awayFrom" => String.t(),
+        "comment" => String.t(),
+        "expiryTime" => non_neg_integer(),
+        "practiceRunOutcome" => list(any()),
+        "resourceIdentifier" => String.t(),
+        "startTime" => non_neg_integer(),
+        "zonalShiftId" => String.t()
+      }
+
   """
   @type zonal_shift_in_resource() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_zonal_shifts_request() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => [String.t()],
-    optional("resourceIdentifier") => String.t(),
-    optional("status") => list(any())
-  }
+
+      list_zonal_shifts_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => [String.t()],
+        optional("resourceIdentifier") => String.t(),
+        optional("status") => list(any())
+      }
+
   """
   @type list_zonal_shifts_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_managed_resources_request() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => [String.t()]
-  }
+
+      list_managed_resources_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => [String.t()]
+      }
+
   """
   @type list_managed_resources_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_zonal_autoshift_configuration_response() :: %{
-    "resourceIdentifier" => String.t(),
-    "zonalAutoshiftStatus" => list(any())
-  }
+
+      update_zonal_autoshift_configuration_response() :: %{
+        "resourceIdentifier" => String.t(),
+        "zonalAutoshiftStatus" => list(any())
+      }
+
   """
   @type update_zonal_autoshift_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  control_condition() :: %{
-    "alarmIdentifier" => String.t(),
-    "type" => list(any())
-  }
+
+      control_condition() :: %{
+        "alarmIdentifier" => String.t(),
+        "type" => list(any())
+      }
+
   """
   @type control_condition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_practice_run_configuration_response() :: %{
-    "arn" => String.t(),
-    "name" => String.t(),
-    "practiceRunConfiguration" => practice_run_configuration(),
-    "zonalAutoshiftStatus" => list(any())
-  }
+
+      create_practice_run_configuration_response() :: %{
+        "arn" => String.t(),
+        "name" => String.t(),
+        "practiceRunConfiguration" => practice_run_configuration(),
+        "zonalAutoshiftStatus" => list(any())
+      }
+
   """
   @type create_practice_run_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  internal_server_exception() :: %{
-    "message" => [String.t()]
-  }
+
+      internal_server_exception() :: %{
+        "message" => [String.t()]
+      }
+
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_managed_resource_request() :: %{
 
-  }
+      get_managed_resource_request() :: %{}
+
   """
-  @type get_managed_resource_request() :: %{String.t() => any()}
+  @type get_managed_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  access_denied_exception() :: %{
-    "message" => [String.t()]
-  }
+
+      access_denied_exception() :: %{
+        "message" => [String.t()]
+      }
+
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_zonal_shift_request() :: %{
-    required("awayFrom") => String.t(),
-    required("comment") => String.t(),
-    required("expiresIn") => String.t(),
-    required("resourceIdentifier") => String.t()
-  }
+
+      start_zonal_shift_request() :: %{
+        required("awayFrom") => String.t(),
+        required("comment") => String.t(),
+        required("expiresIn") => String.t(),
+        required("resourceIdentifier") => String.t()
+      }
+
   """
   @type start_zonal_shift_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_practice_run_configuration_request() :: %{
 
-  }
+      delete_practice_run_configuration_request() :: %{}
+
   """
-  @type delete_practice_run_configuration_request() :: %{String.t() => any()}
+  @type delete_practice_run_configuration_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_autoshifts_response() :: %{
-    "items" => list(autoshift_summary()()),
-    "nextToken" => [String.t()]
-  }
+
+      list_autoshifts_response() :: %{
+        "items" => list(autoshift_summary()()),
+        "nextToken" => [String.t()]
+      }
+
   """
   @type list_autoshifts_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  validation_exception() :: %{
-    "message" => [String.t()],
-    "reason" => String.t()
-  }
+
+      validation_exception() :: %{
+        "message" => [String.t()],
+        "reason" => String.t()
+      }
+
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  throttling_exception() :: %{
-    "message" => [String.t()]
-  }
+
+      throttling_exception() :: %{
+        "message" => [String.t()]
+      }
+
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_practice_run_configuration_response() :: %{
-    "arn" => String.t(),
-    "name" => String.t(),
-    "practiceRunConfiguration" => practice_run_configuration(),
-    "zonalAutoshiftStatus" => list(any())
-  }
+
+      update_practice_run_configuration_response() :: %{
+        "arn" => String.t(),
+        "name" => String.t(),
+        "practiceRunConfiguration" => practice_run_configuration(),
+        "zonalAutoshiftStatus" => list(any())
+      }
+
   """
   @type update_practice_run_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_practice_run_configuration_request() :: %{
-    optional("blockedDates") => list(String.t()()),
-    optional("blockedWindows") => list(String.t()()),
-    optional("blockingAlarms") => list(control_condition()()),
-    required("outcomeAlarms") => list(control_condition()()),
-    required("resourceIdentifier") => String.t()
-  }
+
+      create_practice_run_configuration_request() :: %{
+        optional("blockedDates") => list(String.t()()),
+        optional("blockedWindows") => list(String.t()()),
+        optional("blockingAlarms") => list(control_condition()()),
+        required("outcomeAlarms") => list(control_condition()()),
+        required("resourceIdentifier") => String.t()
+      }
+
   """
   @type create_practice_run_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  practice_run_configuration() :: %{
-    "blockedDates" => list(String.t()()),
-    "blockedWindows" => list(String.t()()),
-    "blockingAlarms" => list(control_condition()()),
-    "outcomeAlarms" => list(control_condition()())
-  }
+
+      practice_run_configuration() :: %{
+        "blockedDates" => list(String.t()()),
+        "blockedWindows" => list(String.t()()),
+        "blockingAlarms" => list(control_condition()()),
+        "outcomeAlarms" => list(control_condition()())
+      }
+
   """
   @type practice_run_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_practice_run_configuration_response() :: %{
-    "arn" => String.t(),
-    "name" => String.t(),
-    "zonalAutoshiftStatus" => list(any())
-  }
+
+      delete_practice_run_configuration_response() :: %{
+        "arn" => String.t(),
+        "name" => String.t(),
+        "zonalAutoshiftStatus" => list(any())
+      }
+
   """
   @type delete_practice_run_configuration_response() :: %{String.t() => any()}
+
+  @type cancel_zonal_shift_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_practice_run_configuration_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_practice_run_configuration_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type get_managed_resource_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_autoshifts_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_managed_resources_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_zonal_shifts_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type start_zonal_shift_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_practice_run_configuration_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_zonal_autoshift_configuration_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_zonal_shift_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   def metadata do
     %{
@@ -452,12 +593,7 @@ defmodule AWS.ARCZonalShift do
   @spec cancel_zonal_shift(map(), String.t(), cancel_zonal_shift_request(), list()) ::
           {:ok, zonal_shift(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, cancel_zonal_shift_errors()}
   def cancel_zonal_shift(%Client{} = client, zonal_shift_id, input, options \\ []) do
     url_path = "/zonalshifts/#{AWS.Util.encode_uri(zonal_shift_id)}"
     headers = []
@@ -502,12 +638,7 @@ defmodule AWS.ARCZonalShift do
         ) ::
           {:ok, create_practice_run_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_practice_run_configuration_errors()}
   def create_practice_run_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/configuration"
     headers = []
@@ -545,12 +676,7 @@ defmodule AWS.ARCZonalShift do
         ) ::
           {:ok, delete_practice_run_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_practice_run_configuration_errors()}
   def delete_practice_run_configuration(
         %Client{} = client,
         resource_identifier,
@@ -592,11 +718,7 @@ defmodule AWS.ARCZonalShift do
   @spec get_managed_resource(map(), String.t(), list()) ::
           {:ok, get_managed_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_managed_resource_errors()}
   def get_managed_resource(%Client{} = client, resource_identifier, options \\ []) do
     url_path = "/managedresources/#{AWS.Util.encode_uri(resource_identifier)}"
     headers = []
@@ -613,10 +735,7 @@ defmodule AWS.ARCZonalShift do
   @spec list_autoshifts(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_autoshifts_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_autoshifts_errors()}
   def list_autoshifts(
         %Client{} = client,
         max_results \\ nil,
@@ -668,10 +787,7 @@ defmodule AWS.ARCZonalShift do
   @spec list_managed_resources(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_managed_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_managed_resources_errors()}
   def list_managed_resources(
         %Client{} = client,
         max_results \\ nil,
@@ -725,10 +841,7 @@ defmodule AWS.ARCZonalShift do
         ) ::
           {:ok, list_zonal_shifts_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_zonal_shifts_errors()}
   def list_zonal_shifts(
         %Client{} = client,
         max_results \\ nil,
@@ -801,12 +914,7 @@ defmodule AWS.ARCZonalShift do
   @spec start_zonal_shift(map(), start_zonal_shift_request(), list()) ::
           {:ok, zonal_shift(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, start_zonal_shift_errors()}
   def start_zonal_shift(%Client{} = client, input, options \\ []) do
     url_path = "/zonalshifts"
     headers = []
@@ -840,12 +948,7 @@ defmodule AWS.ARCZonalShift do
         ) ::
           {:ok, update_practice_run_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_practice_run_configuration_errors()}
   def update_practice_run_configuration(
         %Client{} = client,
         resource_identifier,
@@ -890,12 +993,7 @@ defmodule AWS.ARCZonalShift do
         ) ::
           {:ok, update_zonal_autoshift_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_zonal_autoshift_configuration_errors()}
   def update_zonal_autoshift_configuration(
         %Client{} = client,
         resource_identifier,
@@ -921,12 +1019,7 @@ defmodule AWS.ARCZonalShift do
   @spec update_zonal_shift(map(), String.t(), update_zonal_shift_request(), list()) ::
           {:ok, zonal_shift(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_zonal_shift_errors()}
   def update_zonal_shift(%Client{} = client, zonal_shift_id, input, options \\ []) do
     url_path = "/zonalshifts/#{AWS.Util.encode_uri(zonal_shift_id)}"
     headers = []

@@ -42,736 +42,979 @@ defmodule AWS.Signer do
   @typedoc """
 
   ## Example:
-  cancel_signing_profile_request() :: %{
 
-  }
+      cancel_signing_profile_request() :: %{}
+
   """
-  @type cancel_signing_profile_request() :: %{String.t() => any()}
+  @type cancel_signing_profile_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  tag_resource_request() :: %{
-    required("tags") => map()
-  }
+
+      tag_resource_request() :: %{
+        required("tags") => map()
+      }
+
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  remove_profile_permission_response() :: %{
-    "revisionId" => String.t()
-  }
+
+      remove_profile_permission_response() :: %{
+        "revisionId" => String.t()
+      }
+
   """
   @type remove_profile_permission_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  s3_source() :: %{
-    "bucketName" => String.t(),
-    "key" => String.t(),
-    "version" => String.t()
-  }
+
+      s3_source() :: %{
+        "bucketName" => String.t(),
+        "key" => String.t(),
+        "version" => String.t()
+      }
+
   """
   @type s3_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  signing_platform_overrides() :: %{
-    "signingConfiguration" => signing_configuration_overrides(),
-    "signingImageFormat" => list(any())
-  }
+
+      signing_platform_overrides() :: %{
+        "signingConfiguration" => signing_configuration_overrides(),
+        "signingImageFormat" => list(any())
+      }
+
   """
   @type signing_platform_overrides() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  signing_configuration_overrides() :: %{
-    "encryptionAlgorithm" => list(any()),
-    "hashAlgorithm" => list(any())
-  }
+
+      signing_configuration_overrides() :: %{
+        "encryptionAlgorithm" => list(any()),
+        "hashAlgorithm" => list(any())
+      }
+
   """
   @type signing_configuration_overrides() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_signing_job_request() :: %{
-    optional("profileOwner") => String.t(),
-    required("clientRequestToken") => String.t(),
-    required("destination") => destination(),
-    required("profileName") => String.t(),
-    required("source") => source()
-  }
+
+      start_signing_job_request() :: %{
+        optional("profileOwner") => String.t(),
+        required("clientRequestToken") => String.t(),
+        required("destination") => destination(),
+        required("profileName") => String.t(),
+        required("source") => source()
+      }
+
   """
   @type start_signing_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  signing_platform() :: %{
-    "category" => list(any()),
-    "displayName" => String.t(),
-    "maxSizeInMB" => integer(),
-    "partner" => String.t(),
-    "platformId" => String.t(),
-    "revocationSupported" => boolean(),
-    "signingConfiguration" => signing_configuration(),
-    "signingImageFormat" => signing_image_format(),
-    "target" => String.t()
-  }
+
+      signing_platform() :: %{
+        "category" => list(any()),
+        "displayName" => String.t(),
+        "maxSizeInMB" => integer(),
+        "partner" => String.t(),
+        "platformId" => String.t(),
+        "revocationSupported" => boolean(),
+        "signingConfiguration" => signing_configuration(),
+        "signingImageFormat" => signing_image_format(),
+        "target" => String.t()
+      }
+
   """
   @type signing_platform() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_response() :: %{
 
-  }
+      untag_resource_response() :: %{}
+
   """
-  @type untag_resource_response() :: %{String.t() => any()}
+  @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  signing_image_format() :: %{
-    "defaultFormat" => list(any()),
-    "supportedFormats" => list(list(any())())
-  }
+
+      signing_image_format() :: %{
+        "defaultFormat" => list(any()),
+        "supportedFormats" => list(list(any())())
+      }
+
   """
   @type signing_image_format() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  remove_profile_permission_request() :: %{
-    required("revisionId") => String.t()
-  }
+
+      remove_profile_permission_request() :: %{
+        required("revisionId") => String.t()
+      }
+
   """
   @type remove_profile_permission_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  signing_profile() :: %{
-    "arn" => String.t(),
-    "platformDisplayName" => String.t(),
-    "platformId" => String.t(),
-    "profileName" => String.t(),
-    "profileVersion" => String.t(),
-    "profileVersionArn" => String.t(),
-    "signatureValidityPeriod" => signature_validity_period(),
-    "signingMaterial" => signing_material(),
-    "signingParameters" => map(),
-    "status" => list(any()),
-    "tags" => map()
-  }
+
+      signing_profile() :: %{
+        "arn" => String.t(),
+        "platformDisplayName" => String.t(),
+        "platformId" => String.t(),
+        "profileName" => String.t(),
+        "profileVersion" => String.t(),
+        "profileVersionArn" => String.t(),
+        "signatureValidityPeriod" => signature_validity_period(),
+        "signingMaterial" => signing_material(),
+        "signingParameters" => map(),
+        "status" => list(any()),
+        "tags" => map()
+      }
+
   """
   @type signing_profile() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_signing_jobs_response() :: %{
-    "jobs" => list(signing_job()()),
-    "nextToken" => String.t()
-  }
+
+      list_signing_jobs_response() :: %{
+        "jobs" => list(signing_job()()),
+        "nextToken" => String.t()
+      }
+
   """
   @type list_signing_jobs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  add_profile_permission_request() :: %{
-    optional("profileVersion") => String.t(),
-    optional("revisionId") => String.t(),
-    required("action") => String.t(),
-    required("principal") => String.t(),
-    required("statementId") => String.t()
-  }
+
+      add_profile_permission_request() :: %{
+        optional("profileVersion") => String.t(),
+        optional("revisionId") => String.t(),
+        required("action") => String.t(),
+        required("principal") => String.t(),
+        required("statementId") => String.t()
+      }
+
   """
   @type add_profile_permission_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  internal_service_error_exception() :: %{
-    "code" => String.t(),
-    "message" => String.t()
-  }
+
+      internal_service_error_exception() :: %{
+        "code" => String.t(),
+        "message" => String.t()
+      }
+
   """
   @type internal_service_error_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_request() :: %{
-    required("tagKeys") => list(String.t()())
-  }
+
+      untag_resource_request() :: %{
+        required("tagKeys") => list(String.t()())
+      }
+
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_requests_exception() :: %{
-    "code" => String.t(),
-    "message" => String.t()
-  }
+
+      too_many_requests_exception() :: %{
+        "code" => String.t(),
+        "message" => String.t()
+      }
+
   """
   @type too_many_requests_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_signing_profile_request() :: %{
-    optional("overrides") => signing_platform_overrides(),
-    optional("signatureValidityPeriod") => signature_validity_period(),
-    optional("signingMaterial") => signing_material(),
-    optional("signingParameters") => map(),
-    optional("tags") => map(),
-    required("platformId") => String.t()
-  }
+
+      put_signing_profile_request() :: %{
+        optional("overrides") => signing_platform_overrides(),
+        optional("signatureValidityPeriod") => signature_validity_period(),
+        optional("signingMaterial") => signing_material(),
+        optional("signingParameters") => map(),
+        optional("tags") => map(),
+        required("platformId") => String.t()
+      }
+
   """
   @type put_signing_profile_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_signing_platform_request() :: %{
 
-  }
+      get_signing_platform_request() :: %{}
+
   """
-  @type get_signing_platform_request() :: %{String.t() => any()}
+  @type get_signing_platform_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  signing_configuration() :: %{
-    "encryptionAlgorithmOptions" => encryption_algorithm_options(),
-    "hashAlgorithmOptions" => hash_algorithm_options()
-  }
+
+      signing_configuration() :: %{
+        "encryptionAlgorithmOptions" => encryption_algorithm_options(),
+        "hashAlgorithmOptions" => hash_algorithm_options()
+      }
+
   """
   @type signing_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_signing_profile_request() :: %{
-    optional("profileOwner") => String.t()
-  }
+
+      get_signing_profile_request() :: %{
+        optional("profileOwner") => String.t()
+      }
+
   """
   @type get_signing_profile_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  signature_validity_period() :: %{
-    "type" => list(any()),
-    "value" => integer()
-  }
+
+      signature_validity_period() :: %{
+        "type" => list(any()),
+        "value" => integer()
+      }
+
   """
   @type signature_validity_period() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  signing_job_revocation_record() :: %{
-    "reason" => String.t(),
-    "revokedAt" => non_neg_integer(),
-    "revokedBy" => String.t()
-  }
+
+      signing_job_revocation_record() :: %{
+        "reason" => String.t(),
+        "revokedAt" => non_neg_integer(),
+        "revokedBy" => String.t()
+      }
+
   """
   @type signing_job_revocation_record() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_signing_job_request() :: %{
 
-  }
+      describe_signing_job_request() :: %{}
+
   """
-  @type describe_signing_job_request() :: %{String.t() => any()}
+  @type describe_signing_job_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  conflict_exception() :: %{
-    "code" => String.t(),
-    "message" => String.t()
-  }
+
+      conflict_exception() :: %{
+        "code" => String.t(),
+        "message" => String.t()
+      }
+
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_not_found_exception() :: %{
-    "code" => String.t(),
-    "message" => String.t()
-  }
+
+      resource_not_found_exception() :: %{
+        "code" => String.t(),
+        "message" => String.t()
+      }
+
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_signing_profile_response() :: %{
-    "arn" => String.t(),
-    "profileVersion" => String.t(),
-    "profileVersionArn" => String.t()
-  }
+
+      put_signing_profile_response() :: %{
+        "arn" => String.t(),
+        "profileVersion" => String.t(),
+        "profileVersionArn" => String.t()
+      }
+
   """
   @type put_signing_profile_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_signing_platform_response() :: %{
-    "category" => list(any()),
-    "displayName" => String.t(),
-    "maxSizeInMB" => integer(),
-    "partner" => String.t(),
-    "platformId" => String.t(),
-    "revocationSupported" => boolean(),
-    "signingConfiguration" => signing_configuration(),
-    "signingImageFormat" => signing_image_format(),
-    "target" => String.t()
-  }
+
+      get_signing_platform_response() :: %{
+        "category" => list(any()),
+        "displayName" => String.t(),
+        "maxSizeInMB" => integer(),
+        "partner" => String.t(),
+        "platformId" => String.t(),
+        "revocationSupported" => boolean(),
+        "signingConfiguration" => signing_configuration(),
+        "signingImageFormat" => signing_image_format(),
+        "target" => String.t()
+      }
+
   """
   @type get_signing_platform_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_revocation_status_response() :: %{
-    "revokedEntities" => list(String.t()())
-  }
+
+      get_revocation_status_response() :: %{
+        "revokedEntities" => list(String.t()())
+      }
+
   """
   @type get_revocation_status_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_signing_job_response() :: %{
-    "completedAt" => non_neg_integer(),
-    "createdAt" => non_neg_integer(),
-    "jobId" => String.t(),
-    "jobInvoker" => String.t(),
-    "jobOwner" => String.t(),
-    "overrides" => signing_platform_overrides(),
-    "platformDisplayName" => String.t(),
-    "platformId" => String.t(),
-    "profileName" => String.t(),
-    "profileVersion" => String.t(),
-    "requestedBy" => String.t(),
-    "revocationRecord" => signing_job_revocation_record(),
-    "signatureExpiresAt" => non_neg_integer(),
-    "signedObject" => signed_object(),
-    "signingMaterial" => signing_material(),
-    "signingParameters" => map(),
-    "source" => source(),
-    "status" => list(any()),
-    "statusReason" => String.t()
-  }
+
+      describe_signing_job_response() :: %{
+        "completedAt" => non_neg_integer(),
+        "createdAt" => non_neg_integer(),
+        "jobId" => String.t(),
+        "jobInvoker" => String.t(),
+        "jobOwner" => String.t(),
+        "overrides" => signing_platform_overrides(),
+        "platformDisplayName" => String.t(),
+        "platformId" => String.t(),
+        "profileName" => String.t(),
+        "profileVersion" => String.t(),
+        "requestedBy" => String.t(),
+        "revocationRecord" => signing_job_revocation_record(),
+        "signatureExpiresAt" => non_neg_integer(),
+        "signedObject" => signed_object(),
+        "signingMaterial" => signing_material(),
+        "signingParameters" => map(),
+        "source" => source(),
+        "status" => list(any()),
+        "statusReason" => String.t()
+      }
+
   """
   @type describe_signing_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  not_found_exception() :: %{
-    "code" => String.t(),
-    "message" => String.t()
-  }
+
+      not_found_exception() :: %{
+        "code" => String.t(),
+        "message" => String.t()
+      }
+
   """
   @type not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_response() :: %{
-    "tags" => map()
-  }
+
+      list_tags_for_resource_response() :: %{
+        "tags" => map()
+      }
+
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_revocation_status_request() :: %{
-    required("certificateHashes") => list(String.t()()),
-    required("jobArn") => String.t(),
-    required("platformId") => String.t(),
-    required("profileVersionArn") => String.t(),
-    required("signatureTimestamp") => non_neg_integer()
-  }
+
+      get_revocation_status_request() :: %{
+        required("certificateHashes") => list(String.t()()),
+        required("jobArn") => String.t(),
+        required("platformId") => String.t(),
+        required("profileVersionArn") => String.t(),
+        required("signatureTimestamp") => non_neg_integer()
+      }
+
   """
   @type get_revocation_status_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_profile_permissions_response() :: %{
-    "nextToken" => String.t(),
-    "permissions" => list(permission()()),
-    "policySizeBytes" => integer(),
-    "revisionId" => String.t()
-  }
+
+      list_profile_permissions_response() :: %{
+        "nextToken" => String.t(),
+        "permissions" => list(permission()()),
+        "policySizeBytes" => integer(),
+        "revisionId" => String.t()
+      }
+
   """
   @type list_profile_permissions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  s3_destination() :: %{
-    "bucketName" => String.t(),
-    "prefix" => String.t()
-  }
+
+      s3_destination() :: %{
+        "bucketName" => String.t(),
+        "prefix" => String.t()
+      }
+
   """
   @type s3_destination() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_signing_jobs_request() :: %{
-    optional("isRevoked") => boolean(),
-    optional("jobInvoker") => String.t(),
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t(),
-    optional("platformId") => String.t(),
-    optional("requestedBy") => String.t(),
-    optional("signatureExpiresAfter") => non_neg_integer(),
-    optional("signatureExpiresBefore") => non_neg_integer(),
-    optional("status") => list(any())
-  }
+
+      list_signing_jobs_request() :: %{
+        optional("isRevoked") => boolean(),
+        optional("jobInvoker") => String.t(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("platformId") => String.t(),
+        optional("requestedBy") => String.t(),
+        optional("signatureExpiresAfter") => non_neg_integer(),
+        optional("signatureExpiresBefore") => non_neg_integer(),
+        optional("status") => list(any())
+      }
+
   """
   @type list_signing_jobs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  source() :: %{
-    "s3" => s3_source()
-  }
+
+      source() :: %{
+        "s3" => s3_source()
+      }
+
   """
   @type source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  signed_object() :: %{
-    "s3" => s3_signed_object()
-  }
+
+      signed_object() :: %{
+        "s3" => s3_signed_object()
+      }
+
   """
   @type signed_object() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  signing_material() :: %{
-    "certificateArn" => String.t()
-  }
+
+      signing_material() :: %{
+        "certificateArn" => String.t()
+      }
+
   """
   @type signing_material() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  access_denied_exception() :: %{
-    "code" => String.t(),
-    "message" => String.t()
-  }
+
+      access_denied_exception() :: %{
+        "code" => String.t(),
+        "message" => String.t()
+      }
+
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_signing_job_response() :: %{
-    "jobId" => String.t(),
-    "jobOwner" => String.t()
-  }
+
+      start_signing_job_response() :: %{
+        "jobId" => String.t(),
+        "jobOwner" => String.t()
+      }
+
   """
   @type start_signing_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_response() :: %{
 
-  }
+      tag_resource_response() :: %{}
+
   """
-  @type tag_resource_response() :: %{String.t() => any()}
+  @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_signing_profiles_request() :: %{
-    optional("includeCanceled") => boolean(),
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t(),
-    optional("platformId") => String.t(),
-    optional("statuses") => list(list(any())())
-  }
+
+      list_signing_profiles_request() :: %{
+        optional("includeCanceled") => boolean(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("platformId") => String.t(),
+        optional("statuses") => list(list(any())())
+      }
+
   """
   @type list_signing_profiles_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  signing_profile_revocation_record() :: %{
-    "revocationEffectiveFrom" => non_neg_integer(),
-    "revokedAt" => non_neg_integer(),
-    "revokedBy" => String.t()
-  }
+
+      signing_profile_revocation_record() :: %{
+        "revocationEffectiveFrom" => non_neg_integer(),
+        "revokedAt" => non_neg_integer(),
+        "revokedBy" => String.t()
+      }
+
   """
   @type signing_profile_revocation_record() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  validation_exception() :: %{
-    "code" => String.t(),
-    "message" => String.t()
-  }
+
+      validation_exception() :: %{
+        "code" => String.t(),
+        "message" => String.t()
+      }
+
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_request() :: %{
 
-  }
+      list_tags_for_resource_request() :: %{}
+
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  destination() :: %{
-    "s3" => s3_destination()
-  }
+
+      destination() :: %{
+        "s3" => s3_destination()
+      }
+
   """
   @type destination() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  service_limit_exceeded_exception() :: %{
-    "code" => String.t(),
-    "message" => String.t()
-  }
+
+      service_limit_exceeded_exception() :: %{
+        "code" => String.t(),
+        "message" => String.t()
+      }
+
   """
   @type service_limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  throttling_exception() :: %{
-    "code" => String.t(),
-    "message" => String.t()
-  }
+
+      throttling_exception() :: %{
+        "code" => String.t(),
+        "message" => String.t()
+      }
+
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  signing_job() :: %{
-    "createdAt" => non_neg_integer(),
-    "isRevoked" => boolean(),
-    "jobId" => String.t(),
-    "jobInvoker" => String.t(),
-    "jobOwner" => String.t(),
-    "platformDisplayName" => String.t(),
-    "platformId" => String.t(),
-    "profileName" => String.t(),
-    "profileVersion" => String.t(),
-    "signatureExpiresAt" => non_neg_integer(),
-    "signedObject" => signed_object(),
-    "signingMaterial" => signing_material(),
-    "source" => source(),
-    "status" => list(any())
-  }
+
+      signing_job() :: %{
+        "createdAt" => non_neg_integer(),
+        "isRevoked" => boolean(),
+        "jobId" => String.t(),
+        "jobInvoker" => String.t(),
+        "jobOwner" => String.t(),
+        "platformDisplayName" => String.t(),
+        "platformId" => String.t(),
+        "profileName" => String.t(),
+        "profileVersion" => String.t(),
+        "signatureExpiresAt" => non_neg_integer(),
+        "signedObject" => signed_object(),
+        "signingMaterial" => signing_material(),
+        "source" => source(),
+        "status" => list(any())
+      }
+
   """
   @type signing_job() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  hash_algorithm_options() :: %{
-    "allowedValues" => list(list(any())()),
-    "defaultValue" => list(any())
-  }
+
+      hash_algorithm_options() :: %{
+        "allowedValues" => list(list(any())()),
+        "defaultValue" => list(any())
+      }
+
   """
   @type hash_algorithm_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  revoke_signing_profile_request() :: %{
-    required("effectiveTime") => non_neg_integer(),
-    required("profileVersion") => String.t(),
-    required("reason") => String.t()
-  }
+
+      revoke_signing_profile_request() :: %{
+        required("effectiveTime") => non_neg_integer(),
+        required("profileVersion") => String.t(),
+        required("reason") => String.t()
+      }
+
   """
   @type revoke_signing_profile_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  bad_request_exception() :: %{
-    "code" => String.t(),
-    "message" => String.t()
-  }
+
+      bad_request_exception() :: %{
+        "code" => String.t(),
+        "message" => String.t()
+      }
+
   """
   @type bad_request_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  s3_signed_object() :: %{
-    "bucketName" => String.t(),
-    "key" => String.t()
-  }
+
+      s3_signed_object() :: %{
+        "bucketName" => String.t(),
+        "key" => String.t()
+      }
+
   """
   @type s3_signed_object() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  sign_payload_request() :: %{
-    optional("profileOwner") => String.t(),
-    required("payload") => binary(),
-    required("payloadFormat") => String.t(),
-    required("profileName") => String.t()
-  }
+
+      sign_payload_request() :: %{
+        optional("profileOwner") => String.t(),
+        required("payload") => binary(),
+        required("payloadFormat") => String.t(),
+        required("profileName") => String.t()
+      }
+
   """
   @type sign_payload_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_signing_profile_response() :: %{
-    "arn" => String.t(),
-    "overrides" => signing_platform_overrides(),
-    "platformDisplayName" => String.t(),
-    "platformId" => String.t(),
-    "profileName" => String.t(),
-    "profileVersion" => String.t(),
-    "profileVersionArn" => String.t(),
-    "revocationRecord" => signing_profile_revocation_record(),
-    "signatureValidityPeriod" => signature_validity_period(),
-    "signingMaterial" => signing_material(),
-    "signingParameters" => map(),
-    "status" => list(any()),
-    "statusReason" => String.t(),
-    "tags" => map()
-  }
+
+      get_signing_profile_response() :: %{
+        "arn" => String.t(),
+        "overrides" => signing_platform_overrides(),
+        "platformDisplayName" => String.t(),
+        "platformId" => String.t(),
+        "profileName" => String.t(),
+        "profileVersion" => String.t(),
+        "profileVersionArn" => String.t(),
+        "revocationRecord" => signing_profile_revocation_record(),
+        "signatureValidityPeriod" => signature_validity_period(),
+        "signingMaterial" => signing_material(),
+        "signingParameters" => map(),
+        "status" => list(any()),
+        "statusReason" => String.t(),
+        "tags" => map()
+      }
+
   """
   @type get_signing_profile_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_signing_profiles_response() :: %{
-    "nextToken" => String.t(),
-    "profiles" => list(signing_profile()())
-  }
+
+      list_signing_profiles_response() :: %{
+        "nextToken" => String.t(),
+        "profiles" => list(signing_profile()())
+      }
+
   """
   @type list_signing_profiles_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  sign_payload_response() :: %{
-    "jobId" => String.t(),
-    "jobOwner" => String.t(),
-    "metadata" => map(),
-    "signature" => binary()
-  }
+
+      sign_payload_response() :: %{
+        "jobId" => String.t(),
+        "jobOwner" => String.t(),
+        "metadata" => map(),
+        "signature" => binary()
+      }
+
   """
   @type sign_payload_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_signing_platforms_request() :: %{
-    optional("category") => String.t(),
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t(),
-    optional("partner") => String.t(),
-    optional("target") => String.t()
-  }
+
+      list_signing_platforms_request() :: %{
+        optional("category") => String.t(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("partner") => String.t(),
+        optional("target") => String.t()
+      }
+
   """
   @type list_signing_platforms_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  revoke_signature_request() :: %{
-    optional("jobOwner") => String.t(),
-    required("reason") => String.t()
-  }
+
+      revoke_signature_request() :: %{
+        optional("jobOwner") => String.t(),
+        required("reason") => String.t()
+      }
+
   """
   @type revoke_signature_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  add_profile_permission_response() :: %{
-    "revisionId" => String.t()
-  }
+
+      add_profile_permission_response() :: %{
+        "revisionId" => String.t()
+      }
+
   """
   @type add_profile_permission_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_signing_platforms_response() :: %{
-    "nextToken" => String.t(),
-    "platforms" => list(signing_platform()())
-  }
+
+      list_signing_platforms_response() :: %{
+        "nextToken" => String.t(),
+        "platforms" => list(signing_platform()())
+      }
+
   """
   @type list_signing_platforms_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  permission() :: %{
-    "action" => String.t(),
-    "principal" => String.t(),
-    "profileVersion" => String.t(),
-    "statementId" => String.t()
-  }
+
+      permission() :: %{
+        "action" => String.t(),
+        "principal" => String.t(),
+        "profileVersion" => String.t(),
+        "statementId" => String.t()
+      }
+
   """
   @type permission() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  encryption_algorithm_options() :: %{
-    "allowedValues" => list(list(any())()),
-    "defaultValue" => list(any())
-  }
+
+      encryption_algorithm_options() :: %{
+        "allowedValues" => list(list(any())()),
+        "defaultValue" => list(any())
+      }
+
   """
   @type encryption_algorithm_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_profile_permissions_request() :: %{
-    optional("nextToken") => String.t()
-  }
+
+      list_profile_permissions_request() :: %{
+        optional("nextToken") => String.t()
+      }
+
   """
   @type list_profile_permissions_request() :: %{String.t() => any()}
+
+  @type add_profile_permission_errors() ::
+          service_limit_exceeded_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | internal_service_error_exception()
+
+  @type cancel_signing_profile_errors() ::
+          access_denied_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | internal_service_error_exception()
+
+  @type describe_signing_job_errors() ::
+          access_denied_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | internal_service_error_exception()
+
+  @type get_revocation_status_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | too_many_requests_exception()
+          | internal_service_error_exception()
+
+  @type get_signing_platform_errors() ::
+          access_denied_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | internal_service_error_exception()
+
+  @type get_signing_profile_errors() ::
+          access_denied_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | internal_service_error_exception()
+
+  @type list_profile_permissions_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | internal_service_error_exception()
+
+  @type list_signing_jobs_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | too_many_requests_exception()
+          | internal_service_error_exception()
+
+  @type list_signing_platforms_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | too_many_requests_exception()
+          | internal_service_error_exception()
+
+  @type list_signing_profiles_errors() ::
+          access_denied_exception()
+          | too_many_requests_exception()
+          | internal_service_error_exception()
+
+  @type list_tags_for_resource_errors() ::
+          bad_request_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | internal_service_error_exception()
+
+  @type put_signing_profile_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | internal_service_error_exception()
+
+  @type remove_profile_permission_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | internal_service_error_exception()
+
+  @type revoke_signature_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | internal_service_error_exception()
+
+  @type revoke_signing_profile_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | internal_service_error_exception()
+
+  @type sign_payload_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | internal_service_error_exception()
+
+  @type start_signing_job_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | internal_service_error_exception()
+
+  @type tag_resource_errors() ::
+          bad_request_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | internal_service_error_exception()
+
+  @type untag_resource_errors() ::
+          bad_request_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | internal_service_error_exception()
 
   def metadata do
     %{
@@ -794,13 +1037,7 @@ defmodule AWS.Signer do
   @spec add_profile_permission(map(), String.t(), add_profile_permission_request(), list()) ::
           {:ok, add_profile_permission_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_service_error_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_limit_exceeded_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, validation_exception()}
+          | {:error, add_profile_permission_errors()}
   def add_profile_permission(%Client{} = client, profile_name, input, options \\ []) do
     url_path = "/signing-profiles/#{AWS.Util.encode_uri(profile_name)}/permissions"
     headers = []
@@ -832,10 +1069,7 @@ defmodule AWS.Signer do
   @spec cancel_signing_profile(map(), String.t(), cancel_signing_profile_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_service_error_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, cancel_signing_profile_errors()}
   def cancel_signing_profile(%Client{} = client, profile_name, input, options \\ []) do
     url_path = "/signing-profiles/#{AWS.Util.encode_uri(profile_name)}"
     headers = []
@@ -866,10 +1100,7 @@ defmodule AWS.Signer do
   @spec describe_signing_job(map(), String.t(), list()) ::
           {:ok, describe_signing_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_service_error_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, describe_signing_job_errors()}
   def describe_signing_job(%Client{} = client, job_id, options \\ []) do
     url_path = "/signing-jobs/#{AWS.Util.encode_uri(job_id)}"
     headers = []
@@ -896,10 +1127,7 @@ defmodule AWS.Signer do
         ) ::
           {:ok, get_revocation_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_service_error_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_revocation_status_errors()}
   def get_revocation_status(
         %Client{} = client,
         certificate_hashes,
@@ -959,10 +1187,7 @@ defmodule AWS.Signer do
   @spec get_signing_platform(map(), String.t(), list()) ::
           {:ok, get_signing_platform_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_service_error_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, get_signing_platform_errors()}
   def get_signing_platform(%Client{} = client, platform_id, options \\ []) do
     url_path = "/signing-platforms/#{AWS.Util.encode_uri(platform_id)}"
     headers = []
@@ -979,10 +1204,7 @@ defmodule AWS.Signer do
   @spec get_signing_profile(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_signing_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_service_error_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, get_signing_profile_errors()}
   def get_signing_profile(%Client{} = client, profile_name, profile_owner \\ nil, options \\ []) do
     url_path = "/signing-profiles/#{AWS.Util.encode_uri(profile_name)}"
     headers = []
@@ -1006,11 +1228,7 @@ defmodule AWS.Signer do
   @spec list_profile_permissions(map(), String.t(), String.t() | nil, list()) ::
           {:ok, list_profile_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_service_error_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_profile_permissions_errors()}
   def list_profile_permissions(%Client{} = client, profile_name, next_token \\ nil, options \\ []) do
     url_path = "/signing-profiles/#{AWS.Util.encode_uri(profile_name)}/permissions"
     headers = []
@@ -1055,10 +1273,7 @@ defmodule AWS.Signer do
         ) ::
           {:ok, list_signing_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_service_error_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_signing_jobs_errors()}
   def list_signing_jobs(
         %Client{} = client,
         is_revoked \\ nil,
@@ -1167,10 +1382,7 @@ defmodule AWS.Signer do
         ) ::
           {:ok, list_signing_platforms_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_service_error_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_signing_platforms_errors()}
   def list_signing_platforms(
         %Client{} = client,
         category \\ nil,
@@ -1247,9 +1459,7 @@ defmodule AWS.Signer do
         ) ::
           {:ok, list_signing_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_service_error_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, list_signing_profiles_errors()}
   def list_signing_profiles(
         %Client{} = client,
         include_canceled \\ nil,
@@ -1309,10 +1519,7 @@ defmodule AWS.Signer do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_service_error_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -1332,11 +1539,7 @@ defmodule AWS.Signer do
   @spec put_signing_profile(map(), String.t(), put_signing_profile_request(), list()) ::
           {:ok, put_signing_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_service_error_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, validation_exception()}
+          | {:error, put_signing_profile_errors()}
   def put_signing_profile(%Client{} = client, profile_name, input, options \\ []) do
     url_path = "/signing-profiles/#{AWS.Util.encode_uri(profile_name)}"
     headers = []
@@ -1359,12 +1562,7 @@ defmodule AWS.Signer do
         ) ::
           {:ok, remove_profile_permission_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_service_error_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, validation_exception()}
+          | {:error, remove_profile_permission_errors()}
   def remove_profile_permission(
         %Client{} = client,
         profile_name,
@@ -1407,11 +1605,7 @@ defmodule AWS.Signer do
   @spec revoke_signature(map(), String.t(), revoke_signature_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_service_error_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, validation_exception()}
+          | {:error, revoke_signature_errors()}
   def revoke_signature(%Client{} = client, job_id, input, options \\ []) do
     url_path = "/signing-jobs/#{AWS.Util.encode_uri(job_id)}/revoke"
     headers = []
@@ -1432,11 +1626,7 @@ defmodule AWS.Signer do
   @spec revoke_signing_profile(map(), String.t(), revoke_signing_profile_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_service_error_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, validation_exception()}
+          | {:error, revoke_signing_profile_errors()}
   def revoke_signing_profile(%Client{} = client, profile_name, input, options \\ []) do
     url_path = "/signing-profiles/#{AWS.Util.encode_uri(profile_name)}/revoke"
     headers = []
@@ -1453,11 +1643,7 @@ defmodule AWS.Signer do
   @spec sign_payload(map(), sign_payload_request(), list()) ::
           {:ok, sign_payload_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_service_error_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, validation_exception()}
+          | {:error, sign_payload_errors()}
   def sign_payload(%Client{} = client, input, options \\ []) do
     url_path = "/signing-jobs/with-payload"
     headers = []
@@ -1515,12 +1701,7 @@ defmodule AWS.Signer do
   @spec start_signing_job(map(), start_signing_job_request(), list()) ::
           {:ok, start_signing_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_service_error_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, too_many_requests_exception()}
-          | {:error, validation_exception()}
+          | {:error, start_signing_job_errors()}
   def start_signing_job(%Client{} = client, input, options \\ []) do
     url_path = "/signing-jobs"
     headers = []
@@ -1554,10 +1735,7 @@ defmodule AWS.Signer do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_service_error_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -1587,10 +1765,7 @@ defmodule AWS.Signer do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_service_error_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []

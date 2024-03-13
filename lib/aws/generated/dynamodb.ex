@@ -41,1889 +41,2225 @@ defmodule AWS.DynamoDB do
   @typedoc """
 
   ## Example:
-  table_description() :: %{
-    "ArchivalSummary" => archival_summary(),
-    "AttributeDefinitions" => list(attribute_definition()()),
-    "BillingModeSummary" => billing_mode_summary(),
-    "CreationDateTime" => non_neg_integer(),
-    "DeletionProtectionEnabled" => boolean(),
-    "GlobalSecondaryIndexes" => list(global_secondary_index_description()()),
-    "GlobalTableVersion" => String.t(),
-    "ItemCount" => float(),
-    "KeySchema" => list(key_schema_element()()),
-    "LatestStreamArn" => String.t(),
-    "LatestStreamLabel" => String.t(),
-    "LocalSecondaryIndexes" => list(local_secondary_index_description()()),
-    "ProvisionedThroughput" => provisioned_throughput_description(),
-    "Replicas" => list(replica_description()()),
-    "RestoreSummary" => restore_summary(),
-    "SSEDescription" => sse_description(),
-    "StreamSpecification" => stream_specification(),
-    "TableArn" => String.t(),
-    "TableClassSummary" => table_class_summary(),
-    "TableId" => String.t(),
-    "TableName" => String.t(),
-    "TableSizeBytes" => float(),
-    "TableStatus" => list(any())
-  }
+      
+      table_description() :: %{
+        "ArchivalSummary" => archival_summary(),
+        "AttributeDefinitions" => list(attribute_definition()()),
+        "BillingModeSummary" => billing_mode_summary(),
+        "CreationDateTime" => non_neg_integer(),
+        "DeletionProtectionEnabled" => boolean(),
+        "GlobalSecondaryIndexes" => list(global_secondary_index_description()()),
+        "GlobalTableVersion" => String.t(),
+        "ItemCount" => float(),
+        "KeySchema" => list(key_schema_element()()),
+        "LatestStreamArn" => String.t(),
+        "LatestStreamLabel" => String.t(),
+        "LocalSecondaryIndexes" => list(local_secondary_index_description()()),
+        "ProvisionedThroughput" => provisioned_throughput_description(),
+        "Replicas" => list(replica_description()()),
+        "RestoreSummary" => restore_summary(),
+        "SSEDescription" => sse_description(),
+        "StreamSpecification" => stream_specification(),
+        "TableArn" => String.t(),
+        "TableClassSummary" => table_class_summary(),
+        "TableId" => String.t(),
+        "TableName" => String.t(),
+        "TableSizeBytes" => float(),
+        "TableStatus" => list(any())
+      }
+      
   """
   @type table_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  transact_write_items_output() :: %{
-    "ConsumedCapacity" => list(consumed_capacity()()),
-    "ItemCollectionMetrics" => map()
-  }
+      
+      transact_write_items_output() :: %{
+        "ConsumedCapacity" => list(consumed_capacity()()),
+        "ItemCollectionMetrics" => map()
+      }
+      
   """
   @type transact_write_items_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  replica_settings_description() :: %{
-    "RegionName" => String.t(),
-    "ReplicaBillingModeSummary" => billing_mode_summary(),
-    "ReplicaGlobalSecondaryIndexSettings" => list(replica_global_secondary_index_settings_description()()),
-    "ReplicaProvisionedReadCapacityAutoScalingSettings" => auto_scaling_settings_description(),
-    "ReplicaProvisionedReadCapacityUnits" => float(),
-    "ReplicaProvisionedWriteCapacityAutoScalingSettings" => auto_scaling_settings_description(),
-    "ReplicaProvisionedWriteCapacityUnits" => float(),
-    "ReplicaStatus" => list(any()),
-    "ReplicaTableClassSummary" => table_class_summary()
-  }
+      
+      replica_settings_description() :: %{
+        "RegionName" => String.t(),
+        "ReplicaBillingModeSummary" => billing_mode_summary(),
+        "ReplicaGlobalSecondaryIndexSettings" => list(replica_global_secondary_index_settings_description()()),
+        "ReplicaProvisionedReadCapacityAutoScalingSettings" => auto_scaling_settings_description(),
+        "ReplicaProvisionedReadCapacityUnits" => float(),
+        "ReplicaProvisionedWriteCapacityAutoScalingSettings" => auto_scaling_settings_description(),
+        "ReplicaProvisionedWriteCapacityUnits" => float(),
+        "ReplicaStatus" => list(any()),
+        "ReplicaTableClassSummary" => table_class_summary()
+      }
+      
   """
   @type replica_settings_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  sse_description() :: %{
-    "InaccessibleEncryptionDateTime" => non_neg_integer(),
-    "KMSMasterKeyArn" => String.t(),
-    "SSEType" => list(any()),
-    "Status" => list(any())
-  }
+      
+      sse_description() :: %{
+        "InaccessibleEncryptionDateTime" => non_neg_integer(),
+        "KMSMasterKeyArn" => String.t(),
+        "SSEType" => list(any()),
+        "Status" => list(any())
+      }
+      
   """
   @type sse_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  global_table_global_secondary_index_settings_update() :: %{
-    "IndexName" => String.t(),
-    "ProvisionedWriteCapacityAutoScalingSettingsUpdate" => auto_scaling_settings_update(),
-    "ProvisionedWriteCapacityUnits" => float()
-  }
+      
+      global_table_global_secondary_index_settings_update() :: %{
+        "IndexName" => String.t(),
+        "ProvisionedWriteCapacityAutoScalingSettingsUpdate" => auto_scaling_settings_update(),
+        "ProvisionedWriteCapacityUnits" => float()
+      }
+      
   """
   @type global_table_global_secondary_index_settings_update() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  transact_write_items_input() :: %{
-    optional("ClientRequestToken") => String.t(),
-    optional("ReturnConsumedCapacity") => list(any()),
-    optional("ReturnItemCollectionMetrics") => list(any()),
-    required("TransactItems") => list(transact_write_item()())
-  }
+      
+      transact_write_items_input() :: %{
+        optional("ClientRequestToken") => String.t(),
+        optional("ReturnConsumedCapacity") => list(any()),
+        optional("ReturnItemCollectionMetrics") => list(any()),
+        required("TransactItems") => list(transact_write_item()())
+      }
+      
   """
   @type transact_write_items_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  local_secondary_index() :: %{
-    "IndexName" => String.t(),
-    "KeySchema" => list(key_schema_element()()),
-    "Projection" => projection()
-  }
+      
+      local_secondary_index() :: %{
+        "IndexName" => String.t(),
+        "KeySchema" => list(key_schema_element()()),
+        "Projection" => projection()
+      }
+      
   """
   @type local_secondary_index() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_table_output() :: %{
-    "TableDescription" => table_description()
-  }
+      
+      create_table_output() :: %{
+        "TableDescription" => table_description()
+      }
+      
   """
   @type create_table_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  local_secondary_index_info() :: %{
-    "IndexName" => String.t(),
-    "KeySchema" => list(key_schema_element()()),
-    "Projection" => projection()
-  }
+      
+      local_secondary_index_info() :: %{
+        "IndexName" => String.t(),
+        "KeySchema" => list(key_schema_element()()),
+        "Projection" => projection()
+      }
+      
   """
   @type local_secondary_index_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  transact_write_item() :: %{
-    "ConditionCheck" => condition_check(),
-    "Delete" => delete(),
-    "Put" => put(),
-    "Update" => update()
-  }
+      
+      transact_write_item() :: %{
+        "ConditionCheck" => condition_check(),
+        "Delete" => delete(),
+        "Put" => put(),
+        "Update" => update()
+      }
+      
   """
   @type transact_write_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_limits_output() :: %{
-    "AccountMaxReadCapacityUnits" => float(),
-    "AccountMaxWriteCapacityUnits" => float(),
-    "TableMaxReadCapacityUnits" => float(),
-    "TableMaxWriteCapacityUnits" => float()
-  }
+      
+      describe_limits_output() :: %{
+        "AccountMaxReadCapacityUnits" => float(),
+        "AccountMaxWriteCapacityUnits" => float(),
+        "TableMaxReadCapacityUnits" => float(),
+        "TableMaxWriteCapacityUnits" => float()
+      }
+      
   """
   @type describe_limits_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  time_to_live_specification() :: %{
-    "AttributeName" => String.t(),
-    "Enabled" => boolean()
-  }
+      
+      time_to_live_specification() :: %{
+        "AttributeName" => String.t(),
+        "Enabled" => boolean()
+      }
+      
   """
   @type time_to_live_specification() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  expected_attribute_value() :: %{
-    "AttributeValueList" => list(list()()),
-    "ComparisonOperator" => list(any()),
-    "Exists" => boolean(),
-    "Value" => list()
-  }
+      
+      expected_attribute_value() :: %{
+        "AttributeValueList" => list(list()()),
+        "ComparisonOperator" => list(any()),
+        "Exists" => boolean(),
+        "Value" => list()
+      }
+      
   """
   @type expected_attribute_value() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  keys_and_attributes() :: %{
-    "AttributesToGet" => list(String.t()()),
-    "ConsistentRead" => boolean(),
-    "ExpressionAttributeNames" => map(),
-    "Keys" => list(map()()),
-    "ProjectionExpression" => String.t()
-  }
+      
+      keys_and_attributes() :: %{
+        "AttributesToGet" => list(String.t()()),
+        "ConsistentRead" => boolean(),
+        "ExpressionAttributeNames" => map(),
+        "Keys" => list(map()()),
+        "ProjectionExpression" => String.t()
+      }
+      
   """
   @type keys_and_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  point_in_time_recovery_description() :: %{
-    "EarliestRestorableDateTime" => non_neg_integer(),
-    "LatestRestorableDateTime" => non_neg_integer(),
-    "PointInTimeRecoveryStatus" => list(any())
-  }
+      
+      point_in_time_recovery_description() :: %{
+        "EarliestRestorableDateTime" => non_neg_integer(),
+        "LatestRestorableDateTime" => non_neg_integer(),
+        "PointInTimeRecoveryStatus" => list(any())
+      }
+      
   """
   @type point_in_time_recovery_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_execute_statement_output() :: %{
-    "ConsumedCapacity" => list(consumed_capacity()()),
-    "Responses" => list(batch_statement_response()())
-  }
+      
+      batch_execute_statement_output() :: %{
+        "ConsumedCapacity" => list(consumed_capacity()()),
+        "Responses" => list(batch_statement_response()())
+      }
+      
   """
   @type batch_execute_statement_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_export_output() :: %{
-    "ExportDescription" => export_description()
-  }
+      
+      describe_export_output() :: %{
+        "ExportDescription" => export_description()
+      }
+      
   """
   @type describe_export_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  item_collection_size_limit_exceeded_exception() :: %{
-    "message" => String.t()
-  }
+      
+      item_collection_size_limit_exceeded_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type item_collection_size_limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  attribute_definition() :: %{
-    "AttributeName" => String.t(),
-    "AttributeType" => list(any())
-  }
+      
+      attribute_definition() :: %{
+        "AttributeName" => String.t(),
+        "AttributeType" => list(any())
+      }
+      
   """
   @type attribute_definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_time_to_live_output() :: %{
-    "TimeToLiveSpecification" => time_to_live_specification()
-  }
+      
+      update_time_to_live_output() :: %{
+        "TimeToLiveSpecification" => time_to_live_specification()
+      }
+      
   """
   @type update_time_to_live_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_replication_group_member_action() :: %{
-    "GlobalSecondaryIndexes" => list(replica_global_secondary_index()()),
-    "KMSMasterKeyId" => String.t(),
-    "ProvisionedThroughputOverride" => provisioned_throughput_override(),
-    "RegionName" => String.t(),
-    "TableClassOverride" => list(any())
-  }
+      
+      create_replication_group_member_action() :: %{
+        "GlobalSecondaryIndexes" => list(replica_global_secondary_index()()),
+        "KMSMasterKeyId" => String.t(),
+        "ProvisionedThroughputOverride" => provisioned_throughput_override(),
+        "RegionName" => String.t(),
+        "TableClassOverride" => list(any())
+      }
+      
   """
   @type create_replication_group_member_action() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  table_already_exists_exception() :: %{
-    "message" => String.t()
-  }
+      
+      table_already_exists_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type table_already_exists_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_imports_input() :: %{
-    optional("NextToken") => String.t(),
-    optional("PageSize") => integer(),
-    optional("TableArn") => String.t()
-  }
+      
+      list_imports_input() :: %{
+        optional("NextToken") => String.t(),
+        optional("PageSize") => integer(),
+        optional("TableArn") => String.t()
+      }
+      
   """
   @type list_imports_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  point_in_time_recovery_unavailable_exception() :: %{
-    "message" => String.t()
-  }
+      
+      point_in_time_recovery_unavailable_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type point_in_time_recovery_unavailable_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_item_output() :: %{
-    "ConsumedCapacity" => consumed_capacity(),
-    "Item" => map()
-  }
+      
+      get_item_output() :: %{
+        "ConsumedCapacity" => consumed_capacity(),
+        "Item" => map()
+      }
+      
   """
   @type get_item_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_global_table_input() :: %{
-    required("GlobalTableName") => String.t(),
-    required("ReplicationGroup") => list(replica()())
-  }
+      
+      create_global_table_input() :: %{
+        required("GlobalTableName") => String.t(),
+        required("ReplicationGroup") => list(replica()())
+      }
+      
   """
   @type create_global_table_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_get_item_input() :: %{
-    optional("ReturnConsumedCapacity") => list(any()),
-    required("RequestItems") => map()
-  }
+      
+      batch_get_item_input() :: %{
+        optional("ReturnConsumedCapacity") => list(any()),
+        required("RequestItems") => map()
+      }
+      
   """
   @type batch_get_item_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  kinesis_data_stream_destination() :: %{
-    "ApproximateCreationDateTimePrecision" => list(any()),
-    "DestinationStatus" => list(any()),
-    "DestinationStatusDescription" => String.t(),
-    "StreamArn" => String.t()
-  }
+      
+      kinesis_data_stream_destination() :: %{
+        "ApproximateCreationDateTimePrecision" => list(any()),
+        "DestinationStatus" => list(any()),
+        "DestinationStatusDescription" => String.t(),
+        "StreamArn" => String.t()
+      }
+      
   """
   @type kinesis_data_stream_destination() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  execute_transaction_input() :: %{
-    optional("ClientRequestToken") => String.t(),
-    optional("ReturnConsumedCapacity") => list(any()),
-    required("TransactStatements") => list(parameterized_statement()())
-  }
+      
+      execute_transaction_input() :: %{
+        optional("ClientRequestToken") => String.t(),
+        optional("ReturnConsumedCapacity") => list(any()),
+        required("TransactStatements") => list(parameterized_statement()())
+      }
+      
   """
   @type execute_transaction_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_global_tables_output() :: %{
-    "GlobalTables" => list(global_table()()),
-    "LastEvaluatedGlobalTableName" => String.t()
-  }
+      
+      list_global_tables_output() :: %{
+        "GlobalTables" => list(global_table()()),
+        "LastEvaluatedGlobalTableName" => String.t()
+      }
+      
   """
   @type list_global_tables_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_replica_action() :: %{
-    "RegionName" => String.t()
-  }
+      
+      delete_replica_action() :: %{
+        "RegionName" => String.t()
+      }
+      
   """
   @type delete_replica_action() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete() :: %{
-    "ConditionExpression" => String.t(),
-    "ExpressionAttributeNames" => map(),
-    "ExpressionAttributeValues" => map(),
-    "Key" => map(),
-    "ReturnValuesOnConditionCheckFailure" => list(any()),
-    "TableName" => String.t()
-  }
+      
+      delete() :: %{
+        "ConditionExpression" => String.t(),
+        "ExpressionAttributeNames" => map(),
+        "ExpressionAttributeValues" => map(),
+        "Key" => map(),
+        "ReturnValuesOnConditionCheckFailure" => list(any()),
+        "TableName" => String.t()
+      }
+      
   """
   @type delete() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_continuous_backups_output() :: %{
-    "ContinuousBackupsDescription" => continuous_backups_description()
-  }
+      
+      update_continuous_backups_output() :: %{
+        "ContinuousBackupsDescription" => continuous_backups_description()
+      }
+      
   """
   @type update_continuous_backups_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  billing_mode_summary() :: %{
-    "BillingMode" => list(any()),
-    "LastUpdateToPayPerRequestDateTime" => non_neg_integer()
-  }
+      
+      billing_mode_summary() :: %{
+        "BillingMode" => list(any()),
+        "LastUpdateToPayPerRequestDateTime" => non_neg_integer()
+      }
+      
   """
   @type billing_mode_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_in_use_exception() :: %{
-    "message" => String.t()
-  }
+      
+      resource_in_use_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type resource_in_use_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_backups_input() :: %{
-    optional("BackupType") => list(any()),
-    optional("ExclusiveStartBackupArn") => String.t(),
-    optional("Limit") => integer(),
-    optional("TableName") => String.t(),
-    optional("TimeRangeLowerBound") => non_neg_integer(),
-    optional("TimeRangeUpperBound") => non_neg_integer()
-  }
+      
+      list_backups_input() :: %{
+        optional("BackupType") => list(any()),
+        optional("ExclusiveStartBackupArn") => String.t(),
+        optional("Limit") => integer(),
+        optional("TableName") => String.t(),
+        optional("TimeRangeLowerBound") => non_neg_integer(),
+        optional("TimeRangeUpperBound") => non_neg_integer()
+      }
+      
   """
   @type list_backups_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  replica_global_secondary_index_auto_scaling_update() :: %{
-    "IndexName" => String.t(),
-    "ProvisionedReadCapacityAutoScalingUpdate" => auto_scaling_settings_update()
-  }
+      
+      replica_global_secondary_index_auto_scaling_update() :: %{
+        "IndexName" => String.t(),
+        "ProvisionedReadCapacityAutoScalingUpdate" => auto_scaling_settings_update()
+      }
+      
   """
   @type replica_global_secondary_index_auto_scaling_update() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  replica_auto_scaling_description() :: %{
-    "GlobalSecondaryIndexes" => list(replica_global_secondary_index_auto_scaling_description()()),
-    "RegionName" => String.t(),
-    "ReplicaProvisionedReadCapacityAutoScalingSettings" => auto_scaling_settings_description(),
-    "ReplicaProvisionedWriteCapacityAutoScalingSettings" => auto_scaling_settings_description(),
-    "ReplicaStatus" => list(any())
-  }
+      
+      replica_auto_scaling_description() :: %{
+        "GlobalSecondaryIndexes" => list(replica_global_secondary_index_auto_scaling_description()()),
+        "RegionName" => String.t(),
+        "ReplicaProvisionedReadCapacityAutoScalingSettings" => auto_scaling_settings_description(),
+        "ReplicaProvisionedWriteCapacityAutoScalingSettings" => auto_scaling_settings_description(),
+        "ReplicaStatus" => list(any())
+      }
+      
   """
   @type replica_auto_scaling_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  replica_settings_update() :: %{
-    "RegionName" => String.t(),
-    "ReplicaGlobalSecondaryIndexSettingsUpdate" => list(replica_global_secondary_index_settings_update()()),
-    "ReplicaProvisionedReadCapacityAutoScalingSettingsUpdate" => auto_scaling_settings_update(),
-    "ReplicaProvisionedReadCapacityUnits" => float(),
-    "ReplicaTableClass" => list(any())
-  }
+      
+      replica_settings_update() :: %{
+        "RegionName" => String.t(),
+        "ReplicaGlobalSecondaryIndexSettingsUpdate" => list(replica_global_secondary_index_settings_update()()),
+        "ReplicaProvisionedReadCapacityAutoScalingSettingsUpdate" => auto_scaling_settings_update(),
+        "ReplicaProvisionedReadCapacityUnits" => float(),
+        "ReplicaTableClass" => list(any())
+      }
+      
   """
   @type replica_settings_update() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  global_table() :: %{
-    "GlobalTableName" => String.t(),
-    "ReplicationGroup" => list(replica()())
-  }
+      
+      global_table() :: %{
+        "GlobalTableName" => String.t(),
+        "ReplicationGroup" => list(replica()())
+      }
+      
   """
   @type global_table() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_write_item_output() :: %{
-    "ConsumedCapacity" => list(consumed_capacity()()),
-    "ItemCollectionMetrics" => map(),
-    "UnprocessedItems" => map()
-  }
+      
+      batch_write_item_output() :: %{
+        "ConsumedCapacity" => list(consumed_capacity()()),
+        "ItemCollectionMetrics" => map(),
+        "UnprocessedItems" => map()
+      }
+      
   """
   @type batch_write_item_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_table_input() :: %{
-    optional("BillingMode") => list(any()),
-    optional("DeletionProtectionEnabled") => boolean(),
-    optional("GlobalSecondaryIndexes") => list(global_secondary_index()()),
-    optional("LocalSecondaryIndexes") => list(local_secondary_index()()),
-    optional("ProvisionedThroughput") => provisioned_throughput(),
-    optional("SSESpecification") => sse_specification(),
-    optional("StreamSpecification") => stream_specification(),
-    optional("TableClass") => list(any()),
-    optional("Tags") => list(tag()()),
-    required("AttributeDefinitions") => list(attribute_definition()()),
-    required("KeySchema") => list(key_schema_element()()),
-    required("TableName") => String.t()
-  }
+      
+      create_table_input() :: %{
+        optional("BillingMode") => list(any()),
+        optional("DeletionProtectionEnabled") => boolean(),
+        optional("GlobalSecondaryIndexes") => list(global_secondary_index()()),
+        optional("LocalSecondaryIndexes") => list(local_secondary_index()()),
+        optional("ProvisionedThroughput") => provisioned_throughput(),
+        optional("SSESpecification") => sse_specification(),
+        optional("StreamSpecification") => stream_specification(),
+        optional("TableClass") => list(any()),
+        optional("Tags") => list(tag()()),
+        required("AttributeDefinitions") => list(attribute_definition()()),
+        required("KeySchema") => list(key_schema_element()()),
+        required("TableName") => String.t()
+      }
+      
   """
   @type create_table_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  write_request() :: %{
-    "DeleteRequest" => delete_request(),
-    "PutRequest" => put_request()
-  }
+      
+      write_request() :: %{
+        "DeleteRequest" => delete_request(),
+        "PutRequest" => put_request()
+      }
+      
   """
   @type write_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  restore_summary() :: %{
-    "RestoreDateTime" => non_neg_integer(),
-    "RestoreInProgress" => boolean(),
-    "SourceBackupArn" => String.t(),
-    "SourceTableArn" => String.t()
-  }
+      
+      restore_summary() :: %{
+        "RestoreDateTime" => non_neg_integer(),
+        "RestoreInProgress" => boolean(),
+        "SourceBackupArn" => String.t(),
+        "SourceTableArn" => String.t()
+      }
+      
   """
   @type restore_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  enable_kinesis_streaming_configuration() :: %{
-    "ApproximateCreationDateTimePrecision" => list(any())
-  }
+      
+      enable_kinesis_streaming_configuration() :: %{
+        "ApproximateCreationDateTimePrecision" => list(any())
+      }
+      
   """
   @type enable_kinesis_streaming_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_endpoint_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      invalid_endpoint_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type invalid_endpoint_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_global_table_output() :: %{
-    "GlobalTableDescription" => global_table_description()
-  }
+      
+      describe_global_table_output() :: %{
+        "GlobalTableDescription" => global_table_description()
+      }
+      
   """
   @type describe_global_table_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  table_creation_parameters() :: %{
-    "AttributeDefinitions" => list(attribute_definition()()),
-    "BillingMode" => list(any()),
-    "GlobalSecondaryIndexes" => list(global_secondary_index()()),
-    "KeySchema" => list(key_schema_element()()),
-    "ProvisionedThroughput" => provisioned_throughput(),
-    "SSESpecification" => sse_specification(),
-    "TableName" => String.t()
-  }
+      
+      table_creation_parameters() :: %{
+        "AttributeDefinitions" => list(attribute_definition()()),
+        "BillingMode" => list(any()),
+        "GlobalSecondaryIndexes" => list(global_secondary_index()()),
+        "KeySchema" => list(key_schema_element()()),
+        "ProvisionedThroughput" => provisioned_throughput(),
+        "SSESpecification" => sse_specification(),
+        "TableName" => String.t()
+      }
+      
   """
   @type table_creation_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  execute_statement_output() :: %{
-    "ConsumedCapacity" => consumed_capacity(),
-    "Items" => list(map()()),
-    "LastEvaluatedKey" => map(),
-    "NextToken" => String.t()
-  }
+      
+      execute_statement_output() :: %{
+        "ConsumedCapacity" => consumed_capacity(),
+        "Items" => list(map()()),
+        "LastEvaluatedKey" => map(),
+        "NextToken" => String.t()
+      }
+      
   """
   @type execute_statement_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_endpoints_response() :: %{
-    "Endpoints" => list(endpoint()())
-  }
+      
+      describe_endpoints_response() :: %{
+        "Endpoints" => list(endpoint()())
+      }
+      
   """
   @type describe_endpoints_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  backup_summary() :: %{
-    "BackupArn" => String.t(),
-    "BackupCreationDateTime" => non_neg_integer(),
-    "BackupExpiryDateTime" => non_neg_integer(),
-    "BackupName" => String.t(),
-    "BackupSizeBytes" => float(),
-    "BackupStatus" => list(any()),
-    "BackupType" => list(any()),
-    "TableArn" => String.t(),
-    "TableId" => String.t(),
-    "TableName" => String.t()
-  }
+      
+      backup_summary() :: %{
+        "BackupArn" => String.t(),
+        "BackupCreationDateTime" => non_neg_integer(),
+        "BackupExpiryDateTime" => non_neg_integer(),
+        "BackupName" => String.t(),
+        "BackupSizeBytes" => float(),
+        "BackupStatus" => list(any()),
+        "BackupType" => list(any()),
+        "TableArn" => String.t(),
+        "TableId" => String.t(),
+        "TableName" => String.t()
+      }
+      
   """
   @type backup_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_kinesis_streaming_destination_input() :: %{
-    required("TableName") => String.t()
-  }
+      
+      describe_kinesis_streaming_destination_input() :: %{
+        required("TableName") => String.t()
+      }
+      
   """
   @type describe_kinesis_streaming_destination_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  auto_scaling_settings_description() :: %{
-    "AutoScalingDisabled" => boolean(),
-    "AutoScalingRoleArn" => String.t(),
-    "MaximumUnits" => float(),
-    "MinimumUnits" => float(),
-    "ScalingPolicies" => list(auto_scaling_policy_description()())
-  }
+      
+      auto_scaling_settings_description() :: %{
+        "AutoScalingDisabled" => boolean(),
+        "AutoScalingRoleArn" => String.t(),
+        "MaximumUnits" => float(),
+        "MinimumUnits" => float(),
+        "ScalingPolicies" => list(auto_scaling_policy_description()())
+      }
+      
   """
   @type auto_scaling_settings_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_contributor_insights_output() :: %{
-    "ContributorInsightsStatus" => list(any()),
-    "IndexName" => String.t(),
-    "TableName" => String.t()
-  }
+      
+      update_contributor_insights_output() :: %{
+        "ContributorInsightsStatus" => list(any()),
+        "IndexName" => String.t(),
+        "TableName" => String.t()
+      }
+      
   """
   @type update_contributor_insights_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_global_table_settings_input() :: %{
-    optional("GlobalTableBillingMode") => list(any()),
-    optional("GlobalTableGlobalSecondaryIndexSettingsUpdate") => list(global_table_global_secondary_index_settings_update()()),
-    optional("GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate") => auto_scaling_settings_update(),
-    optional("GlobalTableProvisionedWriteCapacityUnits") => float(),
-    optional("ReplicaSettingsUpdate") => list(replica_settings_update()()),
-    required("GlobalTableName") => String.t()
-  }
+      
+      update_global_table_settings_input() :: %{
+        optional("GlobalTableBillingMode") => list(any()),
+        optional("GlobalTableGlobalSecondaryIndexSettingsUpdate") => list(global_table_global_secondary_index_settings_update()()),
+        optional("GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate") => auto_scaling_settings_update(),
+        optional("GlobalTableProvisionedWriteCapacityUnits") => float(),
+        optional("ReplicaSettingsUpdate") => list(replica_settings_update()()),
+        required("GlobalTableName") => String.t()
+      }
+      
   """
   @type update_global_table_settings_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  scan_input() :: %{
-    optional("AttributesToGet") => list(String.t()()),
-    optional("ConditionalOperator") => list(any()),
-    optional("ConsistentRead") => boolean(),
-    optional("ExclusiveStartKey") => map(),
-    optional("ExpressionAttributeNames") => map(),
-    optional("ExpressionAttributeValues") => map(),
-    optional("FilterExpression") => String.t(),
-    optional("IndexName") => String.t(),
-    optional("Limit") => integer(),
-    optional("ProjectionExpression") => String.t(),
-    optional("ReturnConsumedCapacity") => list(any()),
-    optional("ScanFilter") => map(),
-    optional("Segment") => integer(),
-    optional("Select") => list(any()),
-    optional("TotalSegments") => integer(),
-    required("TableName") => String.t()
-  }
+      
+      scan_input() :: %{
+        optional("AttributesToGet") => list(String.t()()),
+        optional("ConditionalOperator") => list(any()),
+        optional("ConsistentRead") => boolean(),
+        optional("ExclusiveStartKey") => map(),
+        optional("ExpressionAttributeNames") => map(),
+        optional("ExpressionAttributeValues") => map(),
+        optional("FilterExpression") => String.t(),
+        optional("IndexName") => String.t(),
+        optional("Limit") => integer(),
+        optional("ProjectionExpression") => String.t(),
+        optional("ReturnConsumedCapacity") => list(any()),
+        optional("ScanFilter") => map(),
+        optional("Segment") => integer(),
+        optional("Select") => list(any()),
+        optional("TotalSegments") => integer(),
+        required("TableName") => String.t()
+      }
+      
   """
   @type scan_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  import_summary() :: %{
-    "CloudWatchLogGroupArn" => String.t(),
-    "EndTime" => non_neg_integer(),
-    "ImportArn" => String.t(),
-    "ImportStatus" => list(any()),
-    "InputFormat" => list(any()),
-    "S3BucketSource" => s3_bucket_source(),
-    "StartTime" => non_neg_integer(),
-    "TableArn" => String.t()
-  }
+      
+      import_summary() :: %{
+        "CloudWatchLogGroupArn" => String.t(),
+        "EndTime" => non_neg_integer(),
+        "ImportArn" => String.t(),
+        "ImportStatus" => list(any()),
+        "InputFormat" => list(any()),
+        "S3BucketSource" => s3_bucket_source(),
+        "StartTime" => non_neg_integer(),
+        "TableArn" => String.t()
+      }
+      
   """
   @type import_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  table_class_summary() :: %{
-    "LastUpdateDateTime" => non_neg_integer(),
-    "TableClass" => list(any())
-  }
+      
+      table_class_summary() :: %{
+        "LastUpdateDateTime" => non_neg_integer(),
+        "TableClass" => list(any())
+      }
+      
   """
   @type table_class_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_table_output() :: %{
-    "Table" => table_description()
-  }
+      
+      describe_table_output() :: %{
+        "Table" => table_description()
+      }
+      
   """
   @type describe_table_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  key_schema_element() :: %{
-    "AttributeName" => String.t(),
-    "KeyType" => list(any())
-  }
+      
+      key_schema_element() :: %{
+        "AttributeName" => String.t(),
+        "KeyType" => list(any())
+      }
+      
   """
   @type key_schema_element() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  transaction_canceled_exception() :: %{
-    "CancellationReasons" => list(cancellation_reason()()),
-    "Message" => String.t()
-  }
+      
+      transaction_canceled_exception() :: %{
+        "CancellationReasons" => list(cancellation_reason()()),
+        "Message" => String.t()
+      }
+      
   """
   @type transaction_canceled_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_table_replica_auto_scaling_output() :: %{
-    "TableAutoScalingDescription" => table_auto_scaling_description()
-  }
+      
+      update_table_replica_auto_scaling_output() :: %{
+        "TableAutoScalingDescription" => table_auto_scaling_description()
+      }
+      
   """
   @type update_table_replica_auto_scaling_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_import_output() :: %{
-    "ImportTableDescription" => import_table_description()
-  }
+      
+      describe_import_output() :: %{
+        "ImportTableDescription" => import_table_description()
+      }
+      
   """
   @type describe_import_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_replica_action() :: %{
-    "RegionName" => String.t()
-  }
+      
+      create_replica_action() :: %{
+        "RegionName" => String.t()
+      }
+      
   """
   @type create_replica_action() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  parameterized_statement() :: %{
-    "Parameters" => list(list()()),
-    "ReturnValuesOnConditionCheckFailure" => list(any()),
-    "Statement" => String.t()
-  }
+      
+      parameterized_statement() :: %{
+        "Parameters" => list(list()()),
+        "ReturnValuesOnConditionCheckFailure" => list(any()),
+        "Statement" => String.t()
+      }
+      
   """
   @type parameterized_statement() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_of_resource_output() :: %{
-    "NextToken" => String.t(),
-    "Tags" => list(tag()())
-  }
+      
+      list_tags_of_resource_output() :: %{
+        "NextToken" => String.t(),
+        "Tags" => list(tag()())
+      }
+      
   """
   @type list_tags_of_resource_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  query_output() :: %{
-    "ConsumedCapacity" => consumed_capacity(),
-    "Count" => integer(),
-    "Items" => list(map()()),
-    "LastEvaluatedKey" => map(),
-    "ScannedCount" => integer()
-  }
+      
+      query_output() :: %{
+        "ConsumedCapacity" => consumed_capacity(),
+        "Count" => integer(),
+        "Items" => list(map()()),
+        "LastEvaluatedKey" => map(),
+        "ScannedCount" => integer()
+      }
+      
   """
   @type query_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  capacity() :: %{
-    "CapacityUnits" => float(),
-    "ReadCapacityUnits" => float(),
-    "WriteCapacityUnits" => float()
-  }
+      
+      capacity() :: %{
+        "CapacityUnits" => float(),
+        "ReadCapacityUnits" => float(),
+        "WriteCapacityUnits" => float()
+      }
+      
   """
   @type capacity() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_write_item_input() :: %{
-    optional("ReturnConsumedCapacity") => list(any()),
-    optional("ReturnItemCollectionMetrics") => list(any()),
-    required("RequestItems") => map()
-  }
+      
+      batch_write_item_input() :: %{
+        optional("ReturnConsumedCapacity") => list(any()),
+        optional("ReturnItemCollectionMetrics") => list(any()),
+        required("RequestItems") => map()
+      }
+      
   """
   @type batch_write_item_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_kinesis_streaming_destination_output() :: %{
-    "DestinationStatus" => list(any()),
-    "StreamArn" => String.t(),
-    "TableName" => String.t(),
-    "UpdateKinesisStreamingConfiguration" => update_kinesis_streaming_configuration()
-  }
+      
+      update_kinesis_streaming_destination_output() :: %{
+        "DestinationStatus" => list(any()),
+        "StreamArn" => String.t(),
+        "TableName" => String.t(),
+        "UpdateKinesisStreamingConfiguration" => update_kinesis_streaming_configuration()
+      }
+      
   """
   @type update_kinesis_streaming_destination_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_global_table_input() :: %{
-    required("GlobalTableName") => String.t(),
-    required("ReplicaUpdates") => list(replica_update()())
-  }
+      
+      update_global_table_input() :: %{
+        required("GlobalTableName") => String.t(),
+        required("ReplicaUpdates") => list(replica_update()())
+      }
+      
   """
   @type update_global_table_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  execute_statement_input() :: %{
-    optional("ConsistentRead") => boolean(),
-    optional("Limit") => integer(),
-    optional("NextToken") => String.t(),
-    optional("Parameters") => list(list()()),
-    optional("ReturnConsumedCapacity") => list(any()),
-    optional("ReturnValuesOnConditionCheckFailure") => list(any()),
-    required("Statement") => String.t()
-  }
+      
+      execute_statement_input() :: %{
+        optional("ConsistentRead") => boolean(),
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t(),
+        optional("Parameters") => list(list()()),
+        optional("ReturnConsumedCapacity") => list(any()),
+        optional("ReturnValuesOnConditionCheckFailure") => list(any()),
+        required("Statement") => String.t()
+      }
+      
   """
   @type execute_statement_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tables_input() :: %{
-    optional("ExclusiveStartTableName") => String.t(),
-    optional("Limit") => integer()
-  }
+      
+      list_tables_input() :: %{
+        optional("ExclusiveStartTableName") => String.t(),
+        optional("Limit") => integer()
+      }
+      
   """
   @type list_tables_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_global_table_settings_input() :: %{
-    required("GlobalTableName") => String.t()
-  }
+      
+      describe_global_table_settings_input() :: %{
+        required("GlobalTableName") => String.t()
+      }
+      
   """
   @type describe_global_table_settings_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_execute_statement_input() :: %{
-    optional("ReturnConsumedCapacity") => list(any()),
-    required("Statements") => list(batch_statement_request()())
-  }
+      
+      batch_execute_statement_input() :: %{
+        optional("ReturnConsumedCapacity") => list(any()),
+        required("Statements") => list(batch_statement_request()())
+      }
+      
   """
   @type batch_execute_statement_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_table_replica_auto_scaling_input() :: %{
-    optional("GlobalSecondaryIndexUpdates") => list(global_secondary_index_auto_scaling_update()()),
-    optional("ProvisionedWriteCapacityAutoScalingUpdate") => auto_scaling_settings_update(),
-    optional("ReplicaUpdates") => list(replica_auto_scaling_update()()),
-    required("TableName") => String.t()
-  }
+      
+      update_table_replica_auto_scaling_input() :: %{
+        optional("GlobalSecondaryIndexUpdates") => list(global_secondary_index_auto_scaling_update()()),
+        optional("ProvisionedWriteCapacityAutoScalingUpdate") => auto_scaling_settings_update(),
+        optional("ReplicaUpdates") => list(replica_auto_scaling_update()()),
+        required("TableName") => String.t()
+      }
+      
   """
   @type update_table_replica_auto_scaling_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  kinesis_streaming_destination_input() :: %{
-    optional("EnableKinesisStreamingConfiguration") => enable_kinesis_streaming_configuration(),
-    required("StreamArn") => String.t(),
-    required("TableName") => String.t()
-  }
+      
+      kinesis_streaming_destination_input() :: %{
+        optional("EnableKinesisStreamingConfiguration") => enable_kinesis_streaming_configuration(),
+        required("StreamArn") => String.t(),
+        required("TableName") => String.t()
+      }
+      
   """
   @type kinesis_streaming_destination_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_import_input() :: %{
-    required("ImportArn") => String.t()
-  }
+      
+      describe_import_input() :: %{
+        required("ImportArn") => String.t()
+      }
+      
   """
   @type describe_import_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  replica_auto_scaling_update() :: %{
-    "RegionName" => String.t(),
-    "ReplicaGlobalSecondaryIndexUpdates" => list(replica_global_secondary_index_auto_scaling_update()()),
-    "ReplicaProvisionedReadCapacityAutoScalingUpdate" => auto_scaling_settings_update()
-  }
+      
+      replica_auto_scaling_update() :: %{
+        "RegionName" => String.t(),
+        "ReplicaGlobalSecondaryIndexUpdates" => list(replica_global_secondary_index_auto_scaling_update()()),
+        "ReplicaProvisionedReadCapacityAutoScalingUpdate" => auto_scaling_settings_update()
+      }
+      
   """
   @type replica_auto_scaling_update() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  replica_already_exists_exception() :: %{
-    "message" => String.t()
-  }
+      
+      replica_already_exists_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type replica_already_exists_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  restore_table_to_point_in_time_output() :: %{
-    "TableDescription" => table_description()
-  }
+      
+      restore_table_to_point_in_time_output() :: %{
+        "TableDescription" => table_description()
+      }
+      
   """
   @type restore_table_to_point_in_time_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  csv_options() :: %{
-    "Delimiter" => String.t(),
-    "HeaderList" => list(String.t()())
-  }
+      
+      csv_options() :: %{
+        "Delimiter" => String.t(),
+        "HeaderList" => list(String.t()())
+      }
+      
   """
   @type csv_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  projection() :: %{
-    "NonKeyAttributes" => list(String.t()()),
-    "ProjectionType" => list(any())
-  }
+      
+      projection() :: %{
+        "NonKeyAttributes" => list(String.t()()),
+        "ProjectionType" => list(any())
+      }
+      
   """
   @type projection() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  replica_global_secondary_index() :: %{
-    "IndexName" => String.t(),
-    "ProvisionedThroughputOverride" => provisioned_throughput_override()
-  }
+      
+      replica_global_secondary_index() :: %{
+        "IndexName" => String.t(),
+        "ProvisionedThroughputOverride" => provisioned_throughput_override()
+      }
+      
   """
   @type replica_global_secondary_index() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  provisioned_throughput_exceeded_exception() :: %{
-    "message" => String.t()
-  }
+      
+      provisioned_throughput_exceeded_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type provisioned_throughput_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_get_item_output() :: %{
-    "ConsumedCapacity" => list(consumed_capacity()()),
-    "Responses" => map(),
-    "UnprocessedKeys" => map()
-  }
+      
+      batch_get_item_output() :: %{
+        "ConsumedCapacity" => list(consumed_capacity()()),
+        "Responses" => map(),
+        "UnprocessedKeys" => map()
+      }
+      
   """
   @type batch_get_item_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_backup_input() :: %{
-    required("BackupArn") => String.t()
-  }
+      
+      describe_backup_input() :: %{
+        required("BackupArn") => String.t()
+      }
+      
   """
   @type describe_backup_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  source_table_details() :: %{
-    "BillingMode" => list(any()),
-    "ItemCount" => float(),
-    "KeySchema" => list(key_schema_element()()),
-    "ProvisionedThroughput" => provisioned_throughput(),
-    "TableArn" => String.t(),
-    "TableCreationDateTime" => non_neg_integer(),
-    "TableId" => String.t(),
-    "TableName" => String.t(),
-    "TableSizeBytes" => float()
-  }
+      
+      source_table_details() :: %{
+        "BillingMode" => list(any()),
+        "ItemCount" => float(),
+        "KeySchema" => list(key_schema_element()()),
+        "ProvisionedThroughput" => provisioned_throughput(),
+        "TableArn" => String.t(),
+        "TableCreationDateTime" => non_neg_integer(),
+        "TableId" => String.t(),
+        "TableName" => String.t(),
+        "TableSizeBytes" => float()
+      }
+      
   """
   @type source_table_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  global_secondary_index_auto_scaling_update() :: %{
-    "IndexName" => String.t(),
-    "ProvisionedWriteCapacityAutoScalingUpdate" => auto_scaling_settings_update()
-  }
+      
+      global_secondary_index_auto_scaling_update() :: %{
+        "IndexName" => String.t(),
+        "ProvisionedWriteCapacityAutoScalingUpdate" => auto_scaling_settings_update()
+      }
+      
   """
   @type global_secondary_index_auto_scaling_update() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update() :: %{
-    "ConditionExpression" => String.t(),
-    "ExpressionAttributeNames" => map(),
-    "ExpressionAttributeValues" => map(),
-    "Key" => map(),
-    "ReturnValuesOnConditionCheckFailure" => list(any()),
-    "TableName" => String.t(),
-    "UpdateExpression" => String.t()
-  }
+      
+      update() :: %{
+        "ConditionExpression" => String.t(),
+        "ExpressionAttributeNames" => map(),
+        "ExpressionAttributeValues" => map(),
+        "Key" => map(),
+        "ReturnValuesOnConditionCheckFailure" => list(any()),
+        "TableName" => String.t(),
+        "UpdateExpression" => String.t()
+      }
+      
   """
   @type update() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_contributor_insights_output() :: %{
-    "ContributorInsightsRuleList" => list(String.t()()),
-    "ContributorInsightsStatus" => list(any()),
-    "FailureException" => failure_exception(),
-    "IndexName" => String.t(),
-    "LastUpdateDateTime" => non_neg_integer(),
-    "TableName" => String.t()
-  }
+      
+      describe_contributor_insights_output() :: %{
+        "ContributorInsightsRuleList" => list(String.t()()),
+        "ContributorInsightsStatus" => list(any()),
+        "FailureException" => failure_exception(),
+        "IndexName" => String.t(),
+        "LastUpdateDateTime" => non_neg_integer(),
+        "TableName" => String.t()
+      }
+      
   """
   @type describe_contributor_insights_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_endpoints_request() :: %{
-
-  }
+      
+      describe_endpoints_request() :: %{}
+      
   """
-  @type describe_endpoints_request() :: %{String.t() => any()}
+  @type describe_endpoints_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  resource_not_found_exception() :: %{
-    "message" => String.t()
-  }
+      
+      resource_not_found_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_table_input() :: %{
-    required("TableName") => String.t()
-  }
+      
+      describe_table_input() :: %{
+        required("TableName") => String.t()
+      }
+      
   """
   @type describe_table_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_backup_input() :: %{
-    required("BackupArn") => String.t()
-  }
+      
+      delete_backup_input() :: %{
+        required("BackupArn") => String.t()
+      }
+      
   """
   @type delete_backup_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  consumed_capacity() :: %{
-    "CapacityUnits" => float(),
-    "GlobalSecondaryIndexes" => map(),
-    "LocalSecondaryIndexes" => map(),
-    "ReadCapacityUnits" => float(),
-    "Table" => capacity(),
-    "TableName" => String.t(),
-    "WriteCapacityUnits" => float()
-  }
+      
+      consumed_capacity() :: %{
+        "CapacityUnits" => float(),
+        "GlobalSecondaryIndexes" => map(),
+        "LocalSecondaryIndexes" => map(),
+        "ReadCapacityUnits" => float(),
+        "Table" => capacity(),
+        "TableName" => String.t(),
+        "WriteCapacityUnits" => float()
+      }
+      
   """
   @type consumed_capacity() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  backup_not_found_exception() :: %{
-    "message" => String.t()
-  }
+      
+      backup_not_found_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type backup_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag() :: %{
-    "Key" => String.t(),
-    "Value" => String.t()
-  }
+      
+      tag() :: %{
+        "Key" => String.t(),
+        "Value" => String.t()
+      }
+      
   """
   @type tag() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_table_input() :: %{
-    required("TableName") => String.t()
-  }
+      
+      delete_table_input() :: %{
+        required("TableName") => String.t()
+      }
+      
   """
   @type delete_table_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_backup_output() :: %{
-    "BackupDescription" => backup_description()
-  }
+      
+      describe_backup_output() :: %{
+        "BackupDescription" => backup_description()
+      }
+      
   """
   @type describe_backup_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_global_secondary_index_action() :: %{
-    "IndexName" => String.t(),
-    "KeySchema" => list(key_schema_element()()),
-    "Projection" => projection(),
-    "ProvisionedThroughput" => provisioned_throughput()
-  }
+      
+      create_global_secondary_index_action() :: %{
+        "IndexName" => String.t(),
+        "KeySchema" => list(key_schema_element()()),
+        "Projection" => projection(),
+        "ProvisionedThroughput" => provisioned_throughput()
+      }
+      
   """
   @type create_global_secondary_index_action() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  local_secondary_index_description() :: %{
-    "IndexArn" => String.t(),
-    "IndexName" => String.t(),
-    "IndexSizeBytes" => float(),
-    "ItemCount" => float(),
-    "KeySchema" => list(key_schema_element()()),
-    "Projection" => projection()
-  }
+      
+      local_secondary_index_description() :: %{
+        "IndexArn" => String.t(),
+        "IndexName" => String.t(),
+        "IndexSizeBytes" => float(),
+        "ItemCount" => float(),
+        "KeySchema" => list(key_schema_element()()),
+        "Projection" => projection()
+      }
+      
   """
   @type local_secondary_index_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_item_output() :: %{
-    "Attributes" => map(),
-    "ConsumedCapacity" => consumed_capacity(),
-    "ItemCollectionMetrics" => item_collection_metrics()
-  }
+      
+      delete_item_output() :: %{
+        "Attributes" => map(),
+        "ConsumedCapacity" => consumed_capacity(),
+        "ItemCollectionMetrics" => item_collection_metrics()
+      }
+      
   """
   @type delete_item_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  replica_global_secondary_index_settings_description() :: %{
-    "IndexName" => String.t(),
-    "IndexStatus" => list(any()),
-    "ProvisionedReadCapacityAutoScalingSettings" => auto_scaling_settings_description(),
-    "ProvisionedReadCapacityUnits" => float(),
-    "ProvisionedWriteCapacityAutoScalingSettings" => auto_scaling_settings_description(),
-    "ProvisionedWriteCapacityUnits" => float()
-  }
+      
+      replica_global_secondary_index_settings_description() :: %{
+        "IndexName" => String.t(),
+        "IndexStatus" => list(any()),
+        "ProvisionedReadCapacityAutoScalingSettings" => auto_scaling_settings_description(),
+        "ProvisionedReadCapacityUnits" => float(),
+        "ProvisionedWriteCapacityAutoScalingSettings" => auto_scaling_settings_description(),
+        "ProvisionedWriteCapacityUnits" => float()
+      }
+      
   """
   @type replica_global_secondary_index_settings_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  continuous_backups_unavailable_exception() :: %{
-    "message" => String.t()
-  }
+      
+      continuous_backups_unavailable_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type continuous_backups_unavailable_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  replica_update() :: %{
-    "Create" => create_replica_action(),
-    "Delete" => delete_replica_action()
-  }
+      
+      replica_update() :: %{
+        "Create" => create_replica_action(),
+        "Delete" => delete_replica_action()
+      }
+      
   """
   @type replica_update() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  global_table_already_exists_exception() :: %{
-    "message" => String.t()
-  }
+      
+      global_table_already_exists_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type global_table_already_exists_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_statement_error() :: %{
-    "Code" => list(any()),
-    "Item" => map(),
-    "Message" => String.t()
-  }
+      
+      batch_statement_error() :: %{
+        "Code" => list(any()),
+        "Item" => map(),
+        "Message" => String.t()
+      }
+      
   """
   @type batch_statement_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  auto_scaling_policy_description() :: %{
-    "PolicyName" => String.t(),
-    "TargetTrackingScalingPolicyConfiguration" => auto_scaling_target_tracking_scaling_policy_configuration_description()
-  }
+      
+      auto_scaling_policy_description() :: %{
+        "PolicyName" => String.t(),
+        "TargetTrackingScalingPolicyConfiguration" => auto_scaling_target_tracking_scaling_policy_configuration_description()
+      }
+      
   """
   @type auto_scaling_policy_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_request() :: %{
-    "Key" => map()
-  }
+      
+      delete_request() :: %{
+        "Key" => map()
+      }
+      
   """
   @type delete_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_continuous_backups_input() :: %{
-    required("TableName") => String.t()
-  }
+      
+      describe_continuous_backups_input() :: %{
+        required("TableName") => String.t()
+      }
+      
   """
   @type describe_continuous_backups_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_statement_response() :: %{
-    "Error" => batch_statement_error(),
-    "Item" => map(),
-    "TableName" => String.t()
-  }
+      
+      batch_statement_response() :: %{
+        "Error" => batch_statement_error(),
+        "Item" => map(),
+        "TableName" => String.t()
+      }
+      
   """
   @type batch_statement_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  idempotent_parameter_mismatch_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      idempotent_parameter_mismatch_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type idempotent_parameter_mismatch_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  auto_scaling_policy_update() :: %{
-    "PolicyName" => String.t(),
-    "TargetTrackingScalingPolicyConfiguration" => auto_scaling_target_tracking_scaling_policy_configuration_update()
-  }
+      
+      auto_scaling_policy_update() :: %{
+        "PolicyName" => String.t(),
+        "TargetTrackingScalingPolicyConfiguration" => auto_scaling_target_tracking_scaling_policy_configuration_update()
+      }
+      
   """
   @type auto_scaling_policy_update() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  export_summary() :: %{
-    "ExportArn" => String.t(),
-    "ExportStatus" => list(any()),
-    "ExportType" => list(any())
-  }
+      
+      export_summary() :: %{
+        "ExportArn" => String.t(),
+        "ExportStatus" => list(any()),
+        "ExportType" => list(any())
+      }
+      
   """
   @type export_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  item_collection_metrics() :: %{
-    "ItemCollectionKey" => map(),
-    "SizeEstimateRangeGB" => list(float()())
-  }
+      
+      item_collection_metrics() :: %{
+        "ItemCollectionKey" => map(),
+        "SizeEstimateRangeGB" => list(float()())
+      }
+      
   """
   @type item_collection_metrics() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_global_table_settings_output() :: %{
-    "GlobalTableName" => String.t(),
-    "ReplicaSettings" => list(replica_settings_description()())
-  }
+      
+      describe_global_table_settings_output() :: %{
+        "GlobalTableName" => String.t(),
+        "ReplicaSettings" => list(replica_settings_description()())
+      }
+      
   """
   @type describe_global_table_settings_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_replication_group_member_action() :: %{
-    "GlobalSecondaryIndexes" => list(replica_global_secondary_index()()),
-    "KMSMasterKeyId" => String.t(),
-    "ProvisionedThroughputOverride" => provisioned_throughput_override(),
-    "RegionName" => String.t(),
-    "TableClassOverride" => list(any())
-  }
+      
+      update_replication_group_member_action() :: %{
+        "GlobalSecondaryIndexes" => list(replica_global_secondary_index()()),
+        "KMSMasterKeyId" => String.t(),
+        "ProvisionedThroughputOverride" => provisioned_throughput_override(),
+        "RegionName" => String.t(),
+        "TableClassOverride" => list(any())
+      }
+      
   """
   @type update_replication_group_member_action() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stream_specification() :: %{
-    "StreamEnabled" => boolean(),
-    "StreamViewType" => list(any())
-  }
+      
+      stream_specification() :: %{
+        "StreamEnabled" => boolean(),
+        "StreamViewType" => list(any())
+      }
+      
   """
   @type stream_specification() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_export_input() :: %{
-    required("ExportArn") => String.t()
-  }
+      
+      describe_export_input() :: %{
+        required("ExportArn") => String.t()
+      }
+      
   """
   @type describe_export_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  provisioned_throughput_description() :: %{
-    "LastDecreaseDateTime" => non_neg_integer(),
-    "LastIncreaseDateTime" => non_neg_integer(),
-    "NumberOfDecreasesToday" => float(),
-    "ReadCapacityUnits" => float(),
-    "WriteCapacityUnits" => float()
-  }
+      
+      provisioned_throughput_description() :: %{
+        "LastDecreaseDateTime" => non_neg_integer(),
+        "LastIncreaseDateTime" => non_neg_integer(),
+        "NumberOfDecreasesToday" => float(),
+        "ReadCapacityUnits" => float(),
+        "WriteCapacityUnits" => float()
+      }
+      
   """
   @type provisioned_throughput_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_backup_input() :: %{
-    required("BackupName") => String.t(),
-    required("TableName") => String.t()
-  }
+      
+      create_backup_input() :: %{
+        required("BackupName") => String.t(),
+        required("TableName") => String.t()
+      }
+      
   """
   @type create_backup_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  duplicate_item_exception() :: %{
-    "message" => String.t()
-  }
+      
+      duplicate_item_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type duplicate_item_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  transact_get_items_output() :: %{
-    "ConsumedCapacity" => list(consumed_capacity()()),
-    "Responses" => list(item_response()())
-  }
+      
+      transact_get_items_output() :: %{
+        "ConsumedCapacity" => list(consumed_capacity()()),
+        "Responses" => list(item_response()())
+      }
+      
   """
   @type transact_get_items_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_time_to_live_output() :: %{
-    "TimeToLiveDescription" => time_to_live_description()
-  }
+      
+      describe_time_to_live_output() :: %{
+        "TimeToLiveDescription" => time_to_live_description()
+      }
+      
   """
   @type describe_time_to_live_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_contributor_insights_input() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("TableName") => String.t()
-  }
+      
+      list_contributor_insights_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("TableName") => String.t()
+      }
+      
   """
   @type list_contributor_insights_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  point_in_time_recovery_specification() :: %{
-    "PointInTimeRecoveryEnabled" => boolean()
-  }
+      
+      point_in_time_recovery_specification() :: %{
+        "PointInTimeRecoveryEnabled" => boolean()
+      }
+      
   """
   @type point_in_time_recovery_specification() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  time_to_live_description() :: %{
-    "AttributeName" => String.t(),
-    "TimeToLiveStatus" => list(any())
-  }
+      
+      time_to_live_description() :: %{
+        "AttributeName" => String.t(),
+        "TimeToLiveStatus" => list(any())
+      }
+      
   """
   @type time_to_live_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  replica_global_secondary_index_auto_scaling_description() :: %{
-    "IndexName" => String.t(),
-    "IndexStatus" => list(any()),
-    "ProvisionedReadCapacityAutoScalingSettings" => auto_scaling_settings_description(),
-    "ProvisionedWriteCapacityAutoScalingSettings" => auto_scaling_settings_description()
-  }
+      
+      replica_global_secondary_index_auto_scaling_description() :: %{
+        "IndexName" => String.t(),
+        "IndexStatus" => list(any()),
+        "ProvisionedReadCapacityAutoScalingSettings" => auto_scaling_settings_description(),
+        "ProvisionedWriteCapacityAutoScalingSettings" => auto_scaling_settings_description()
+      }
+      
   """
   @type replica_global_secondary_index_auto_scaling_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  kinesis_streaming_destination_output() :: %{
-    optional("DestinationStatus") => list(any()),
-    optional("EnableKinesisStreamingConfiguration") => enable_kinesis_streaming_configuration(),
-    optional("StreamArn") => String.t(),
-    optional("TableName") => String.t()
-  }
+      
+      kinesis_streaming_destination_output() :: %{
+        optional("DestinationStatus") => list(any()),
+        optional("EnableKinesisStreamingConfiguration") => enable_kinesis_streaming_configuration(),
+        optional("StreamArn") => String.t(),
+        optional("TableName") => String.t()
+      }
+      
   """
   @type kinesis_streaming_destination_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  condition() :: %{
-    "AttributeValueList" => list(list()()),
-    "ComparisonOperator" => list(any())
-  }
+      
+      condition() :: %{
+        "AttributeValueList" => list(list()()),
+        "ComparisonOperator" => list(any())
+      }
+      
   """
   @type condition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  transact_get_items_input() :: %{
-    optional("ReturnConsumedCapacity") => list(any()),
-    required("TransactItems") => list(transact_get_item()())
-  }
+      
+      transact_get_items_input() :: %{
+        optional("ReturnConsumedCapacity") => list(any()),
+        required("TransactItems") => list(transact_get_item()())
+      }
+      
   """
   @type transact_get_items_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  import_table_input() :: %{
-    optional("ClientToken") => String.t(),
-    optional("InputCompressionType") => list(any()),
-    optional("InputFormatOptions") => input_format_options(),
-    required("InputFormat") => list(any()),
-    required("S3BucketSource") => s3_bucket_source(),
-    required("TableCreationParameters") => table_creation_parameters()
-  }
+      
+      import_table_input() :: %{
+        optional("ClientToken") => String.t(),
+        optional("InputCompressionType") => list(any()),
+        optional("InputFormatOptions") => input_format_options(),
+        required("InputFormat") => list(any()),
+        required("S3BucketSource") => s3_bucket_source(),
+        required("TableCreationParameters") => table_creation_parameters()
+      }
+      
   """
   @type import_table_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  transaction_conflict_exception() :: %{
-    "message" => String.t()
-  }
+      
+      transaction_conflict_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type transaction_conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_global_table_input() :: %{
-    required("GlobalTableName") => String.t()
-  }
+      
+      describe_global_table_input() :: %{
+        required("GlobalTableName") => String.t()
+      }
+      
   """
   @type describe_global_table_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  replica_global_secondary_index_settings_update() :: %{
-    "IndexName" => String.t(),
-    "ProvisionedReadCapacityAutoScalingSettingsUpdate" => auto_scaling_settings_update(),
-    "ProvisionedReadCapacityUnits" => float()
-  }
+      
+      replica_global_secondary_index_settings_update() :: %{
+        "IndexName" => String.t(),
+        "ProvisionedReadCapacityAutoScalingSettingsUpdate" => auto_scaling_settings_update(),
+        "ProvisionedReadCapacityUnits" => float()
+      }
+      
   """
   @type replica_global_secondary_index_settings_update() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_item_input() :: %{
-    optional("ConditionExpression") => String.t(),
-    optional("ConditionalOperator") => list(any()),
-    optional("Expected") => map(),
-    optional("ExpressionAttributeNames") => map(),
-    optional("ExpressionAttributeValues") => map(),
-    optional("ReturnConsumedCapacity") => list(any()),
-    optional("ReturnItemCollectionMetrics") => list(any()),
-    optional("ReturnValues") => list(any()),
-    optional("ReturnValuesOnConditionCheckFailure") => list(any()),
-    required("Item") => map(),
-    required("TableName") => String.t()
-  }
+      
+      put_item_input() :: %{
+        optional("ConditionExpression") => String.t(),
+        optional("ConditionalOperator") => list(any()),
+        optional("Expected") => map(),
+        optional("ExpressionAttributeNames") => map(),
+        optional("ExpressionAttributeValues") => map(),
+        optional("ReturnConsumedCapacity") => list(any()),
+        optional("ReturnItemCollectionMetrics") => list(any()),
+        optional("ReturnValues") => list(any()),
+        optional("ReturnValuesOnConditionCheckFailure") => list(any()),
+        required("Item") => map(),
+        required("TableName") => String.t()
+      }
+      
   """
   @type put_item_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_of_resource_input() :: %{
-    optional("NextToken") => String.t(),
-    required("ResourceArn") => String.t()
-  }
+      
+      list_tags_of_resource_input() :: %{
+        optional("NextToken") => String.t(),
+        required("ResourceArn") => String.t()
+      }
+      
   """
   @type list_tags_of_resource_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_input() :: %{
-    required("ResourceArn") => String.t(),
-    required("Tags") => list(tag()())
-  }
+      
+      tag_resource_input() :: %{
+        required("ResourceArn") => String.t(),
+        required("Tags") => list(tag()())
+      }
+      
   """
   @type tag_resource_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_table_replica_auto_scaling_input() :: %{
-    required("TableName") => String.t()
-  }
+      
+      describe_table_replica_auto_scaling_input() :: %{
+        required("TableName") => String.t()
+      }
+      
   """
   @type describe_table_replica_auto_scaling_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  export_table_to_point_in_time_input() :: %{
-    optional("ClientToken") => String.t(),
-    optional("ExportFormat") => list(any()),
-    optional("ExportTime") => non_neg_integer(),
-    optional("ExportType") => list(any()),
-    optional("IncrementalExportSpecification") => incremental_export_specification(),
-    optional("S3BucketOwner") => String.t(),
-    optional("S3Prefix") => String.t(),
-    optional("S3SseAlgorithm") => list(any()),
-    optional("S3SseKmsKeyId") => String.t(),
-    required("S3Bucket") => String.t(),
-    required("TableArn") => String.t()
-  }
+      
+      export_table_to_point_in_time_input() :: %{
+        optional("ClientToken") => String.t(),
+        optional("ExportFormat") => list(any()),
+        optional("ExportTime") => non_neg_integer(),
+        optional("ExportType") => list(any()),
+        optional("IncrementalExportSpecification") => incremental_export_specification(),
+        optional("S3BucketOwner") => String.t(),
+        optional("S3Prefix") => String.t(),
+        optional("S3SseAlgorithm") => list(any()),
+        optional("S3SseKmsKeyId") => String.t(),
+        required("S3Bucket") => String.t(),
+        required("TableArn") => String.t()
+      }
+      
   """
   @type export_table_to_point_in_time_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  execute_transaction_output() :: %{
-    "ConsumedCapacity" => list(consumed_capacity()()),
-    "Responses" => list(item_response()())
-  }
+      
+      execute_transaction_output() :: %{
+        "ConsumedCapacity" => list(consumed_capacity()()),
+        "Responses" => list(item_response()())
+      }
+      
   """
   @type execute_transaction_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  transact_get_item() :: %{
-    "Get" => get()
-  }
+      
+      transact_get_item() :: %{
+        "Get" => get()
+      }
+      
   """
   @type transact_get_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  global_table_not_found_exception() :: %{
-    "message" => String.t()
-  }
+      
+      global_table_not_found_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type global_table_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  endpoint() :: %{
-    "Address" => String.t(),
-    "CachePeriodInMinutes" => float()
-  }
+      
+      endpoint() :: %{
+        "Address" => String.t(),
+        "CachePeriodInMinutes" => float()
+      }
+      
   """
   @type endpoint() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_item_output() :: %{
-    "Attributes" => map(),
-    "ConsumedCapacity" => consumed_capacity(),
-    "ItemCollectionMetrics" => item_collection_metrics()
-  }
+      
+      update_item_output() :: %{
+        "Attributes" => map(),
+        "ConsumedCapacity" => consumed_capacity(),
+        "ItemCollectionMetrics" => item_collection_metrics()
+      }
+      
   """
   @type update_item_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_contributor_insights_input() :: %{
-    optional("IndexName") => String.t(),
-    required("TableName") => String.t()
-  }
+      
+      describe_contributor_insights_input() :: %{
+        optional("IndexName") => String.t(),
+        required("TableName") => String.t()
+      }
+      
   """
   @type describe_contributor_insights_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  backup_description() :: %{
-    "BackupDetails" => backup_details(),
-    "SourceTableDetails" => source_table_details(),
-    "SourceTableFeatureDetails" => source_table_feature_details()
-  }
+      
+      backup_description() :: %{
+        "BackupDetails" => backup_details(),
+        "SourceTableDetails" => source_table_details(),
+        "SourceTableFeatureDetails" => source_table_feature_details()
+      }
+      
   """
   @type backup_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_kinesis_streaming_destination_output() :: %{
-    "KinesisDataStreamDestinations" => list(kinesis_data_stream_destination()()),
-    "TableName" => String.t()
-  }
+      
+      describe_kinesis_streaming_destination_output() :: %{
+        "KinesisDataStreamDestinations" => list(kinesis_data_stream_destination()()),
+        "TableName" => String.t()
+      }
+      
   """
   @type describe_kinesis_streaming_destination_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  backup_in_use_exception() :: %{
-    "message" => String.t()
-  }
+      
+      backup_in_use_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type backup_in_use_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  conditional_check_failed_exception() :: %{
-    "Item" => map(),
-    "message" => String.t()
-  }
+      
+      conditional_check_failed_exception() :: %{
+        "Item" => map(),
+        "message" => String.t()
+      }
+      
   """
   @type conditional_check_failed_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_limits_input() :: %{
-
-  }
+      
+      describe_limits_input() :: %{}
+      
   """
-  @type describe_limits_input() :: %{String.t() => any()}
+  @type describe_limits_input() :: %{}
 
   @typedoc """
 
   ## Example:
-  global_secondary_index_update() :: %{
-    "Create" => create_global_secondary_index_action(),
-    "Delete" => delete_global_secondary_index_action(),
-    "Update" => update_global_secondary_index_action()
-  }
+      
+      global_secondary_index_update() :: %{
+        "Create" => create_global_secondary_index_action(),
+        "Delete" => delete_global_secondary_index_action(),
+        "Update" => update_global_secondary_index_action()
+      }
+      
   """
   @type global_secondary_index_update() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_backup_output() :: %{
-    "BackupDetails" => backup_details()
-  }
+      
+      create_backup_output() :: %{
+        "BackupDetails" => backup_details()
+      }
+      
   """
   @type create_backup_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_exports_input() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("TableArn") => String.t()
-  }
+      
+      list_exports_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("TableArn") => String.t()
+      }
+      
   """
   @type list_exports_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  backup_details() :: %{
-    "BackupArn" => String.t(),
-    "BackupCreationDateTime" => non_neg_integer(),
-    "BackupExpiryDateTime" => non_neg_integer(),
-    "BackupName" => String.t(),
-    "BackupSizeBytes" => float(),
-    "BackupStatus" => list(any()),
-    "BackupType" => list(any())
-  }
+      
+      backup_details() :: %{
+        "BackupArn" => String.t(),
+        "BackupCreationDateTime" => non_neg_integer(),
+        "BackupExpiryDateTime" => non_neg_integer(),
+        "BackupName" => String.t(),
+        "BackupSizeBytes" => float(),
+        "BackupStatus" => list(any()),
+        "BackupType" => list(any())
+      }
+      
   """
   @type backup_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  input_format_options() :: %{
-    "Csv" => csv_options()
-  }
+      
+      input_format_options() :: %{
+        "Csv" => csv_options()
+      }
+      
   """
   @type input_format_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  import_not_found_exception() :: %{
-    "message" => String.t()
-  }
+      
+      import_not_found_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type import_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_exports_output() :: %{
-    "ExportSummaries" => list(export_summary()()),
-    "NextToken" => String.t()
-  }
+      
+      list_exports_output() :: %{
+        "ExportSummaries" => list(export_summary()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_exports_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  auto_scaling_settings_update() :: %{
-    "AutoScalingDisabled" => boolean(),
-    "AutoScalingRoleArn" => String.t(),
-    "MaximumUnits" => float(),
-    "MinimumUnits" => float(),
-    "ScalingPolicyUpdate" => auto_scaling_policy_update()
-  }
+      
+      auto_scaling_settings_update() :: %{
+        "AutoScalingDisabled" => boolean(),
+        "AutoScalingRoleArn" => String.t(),
+        "MaximumUnits" => float(),
+        "MinimumUnits" => float(),
+        "ScalingPolicyUpdate" => auto_scaling_policy_update()
+      }
+      
   """
   @type auto_scaling_settings_update() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_global_table_output() :: %{
-    "GlobalTableDescription" => global_table_description()
-  }
+      
+      create_global_table_output() :: %{
+        "GlobalTableDescription" => global_table_description()
+      }
+      
   """
   @type create_global_table_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_global_tables_input() :: %{
-    optional("ExclusiveStartGlobalTableName") => String.t(),
-    optional("Limit") => integer(),
-    optional("RegionName") => String.t()
-  }
+      
+      list_global_tables_input() :: %{
+        optional("ExclusiveStartGlobalTableName") => String.t(),
+        optional("Limit") => integer(),
+        optional("RegionName") => String.t()
+      }
+      
   """
   @type list_global_tables_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  provisioned_throughput() :: %{
-    "ReadCapacityUnits" => float(),
-    "WriteCapacityUnits" => float()
-  }
+      
+      provisioned_throughput() :: %{
+        "ReadCapacityUnits" => float(),
+        "WriteCapacityUnits" => float()
+      }
+      
   """
   @type provisioned_throughput() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  global_secondary_index_description() :: %{
-    "Backfilling" => boolean(),
-    "IndexArn" => String.t(),
-    "IndexName" => String.t(),
-    "IndexSizeBytes" => float(),
-    "IndexStatus" => list(any()),
-    "ItemCount" => float(),
-    "KeySchema" => list(key_schema_element()()),
-    "Projection" => projection(),
-    "ProvisionedThroughput" => provisioned_throughput_description()
-  }
+      
+      global_secondary_index_description() :: %{
+        "Backfilling" => boolean(),
+        "IndexArn" => String.t(),
+        "IndexName" => String.t(),
+        "IndexSizeBytes" => float(),
+        "IndexStatus" => list(any()),
+        "ItemCount" => float(),
+        "KeySchema" => list(key_schema_element()()),
+        "Projection" => projection(),
+        "ProvisionedThroughput" => provisioned_throughput_description()
+      }
+      
   """
   @type global_secondary_index_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  global_secondary_index_info() :: %{
-    "IndexName" => String.t(),
-    "KeySchema" => list(key_schema_element()()),
-    "Projection" => projection(),
-    "ProvisionedThroughput" => provisioned_throughput()
-  }
+      
+      global_secondary_index_info() :: %{
+        "IndexName" => String.t(),
+        "KeySchema" => list(key_schema_element()()),
+        "Projection" => projection(),
+        "ProvisionedThroughput" => provisioned_throughput()
+      }
+      
   """
   @type global_secondary_index_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_request() :: %{
-    "Item" => map()
-  }
+      
+      put_request() :: %{
+        "Item" => map()
+      }
+      
   """
   @type put_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_item_input() :: %{
-    optional("ConditionExpression") => String.t(),
-    optional("ConditionalOperator") => list(any()),
-    optional("Expected") => map(),
-    optional("ExpressionAttributeNames") => map(),
-    optional("ExpressionAttributeValues") => map(),
-    optional("ReturnConsumedCapacity") => list(any()),
-    optional("ReturnItemCollectionMetrics") => list(any()),
-    optional("ReturnValues") => list(any()),
-    optional("ReturnValuesOnConditionCheckFailure") => list(any()),
-    required("Key") => map(),
-    required("TableName") => String.t()
-  }
+      
+      delete_item_input() :: %{
+        optional("ConditionExpression") => String.t(),
+        optional("ConditionalOperator") => list(any()),
+        optional("Expected") => map(),
+        optional("ExpressionAttributeNames") => map(),
+        optional("ExpressionAttributeValues") => map(),
+        optional("ReturnConsumedCapacity") => list(any()),
+        optional("ReturnItemCollectionMetrics") => list(any()),
+        optional("ReturnValues") => list(any()),
+        optional("ReturnValuesOnConditionCheckFailure") => list(any()),
+        required("Key") => map(),
+        required("TableName") => String.t()
+      }
+      
   """
   @type delete_item_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  replica_global_secondary_index_description() :: %{
-    "IndexName" => String.t(),
-    "ProvisionedThroughputOverride" => provisioned_throughput_override()
-  }
+      
+      replica_global_secondary_index_description() :: %{
+        "IndexName" => String.t(),
+        "ProvisionedThroughputOverride" => provisioned_throughput_override()
+      }
+      
   """
   @type replica_global_secondary_index_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  internal_server_error() :: %{
-    "message" => String.t()
-  }
+      
+      internal_server_error() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type internal_server_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  auto_scaling_target_tracking_scaling_policy_configuration_description() :: %{
-    "DisableScaleIn" => boolean(),
-    "ScaleInCooldown" => integer(),
-    "ScaleOutCooldown" => integer(),
-    "TargetValue" => float()
-  }
+      
+      auto_scaling_target_tracking_scaling_policy_configuration_description() :: %{
+        "DisableScaleIn" => boolean(),
+        "ScaleInCooldown" => integer(),
+        "ScaleOutCooldown" => integer(),
+        "TargetValue" => float()
+      }
+      
   """
   @type auto_scaling_target_tracking_scaling_policy_configuration_description() :: %{
           String.t() => any()
@@ -1932,405 +2268,471 @@ defmodule AWS.DynamoDB do
   @typedoc """
 
   ## Example:
-  query_input() :: %{
-    optional("AttributesToGet") => list(String.t()()),
-    optional("ConditionalOperator") => list(any()),
-    optional("ConsistentRead") => boolean(),
-    optional("ExclusiveStartKey") => map(),
-    optional("ExpressionAttributeNames") => map(),
-    optional("ExpressionAttributeValues") => map(),
-    optional("FilterExpression") => String.t(),
-    optional("IndexName") => String.t(),
-    optional("KeyConditionExpression") => String.t(),
-    optional("KeyConditions") => map(),
-    optional("Limit") => integer(),
-    optional("ProjectionExpression") => String.t(),
-    optional("QueryFilter") => map(),
-    optional("ReturnConsumedCapacity") => list(any()),
-    optional("ScanIndexForward") => boolean(),
-    optional("Select") => list(any()),
-    required("TableName") => String.t()
-  }
+      
+      query_input() :: %{
+        optional("AttributesToGet") => list(String.t()()),
+        optional("ConditionalOperator") => list(any()),
+        optional("ConsistentRead") => boolean(),
+        optional("ExclusiveStartKey") => map(),
+        optional("ExpressionAttributeNames") => map(),
+        optional("ExpressionAttributeValues") => map(),
+        optional("FilterExpression") => String.t(),
+        optional("IndexName") => String.t(),
+        optional("KeyConditionExpression") => String.t(),
+        optional("KeyConditions") => map(),
+        optional("Limit") => integer(),
+        optional("ProjectionExpression") => String.t(),
+        optional("QueryFilter") => map(),
+        optional("ReturnConsumedCapacity") => list(any()),
+        optional("ScanIndexForward") => boolean(),
+        optional("Select") => list(any()),
+        required("TableName") => String.t()
+      }
+      
   """
   @type query_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_global_table_output() :: %{
-    "GlobalTableDescription" => global_table_description()
-  }
+      
+      update_global_table_output() :: %{
+        "GlobalTableDescription" => global_table_description()
+      }
+      
   """
   @type update_global_table_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_restore_time_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_restore_time_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_restore_time_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  sse_specification() :: %{
-    "Enabled" => boolean(),
-    "KMSMasterKeyId" => String.t(),
-    "SSEType" => list(any())
-  }
+      
+      sse_specification() :: %{
+        "Enabled" => boolean(),
+        "KMSMasterKeyId" => String.t(),
+        "SSEType" => list(any())
+      }
+      
   """
   @type sse_specification() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_continuous_backups_output() :: %{
-    "ContinuousBackupsDescription" => continuous_backups_description()
-  }
+      
+      describe_continuous_backups_output() :: %{
+        "ContinuousBackupsDescription" => continuous_backups_description()
+      }
+      
   """
   @type describe_continuous_backups_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_input() :: %{
-    required("ResourceArn") => String.t(),
-    required("TagKeys") => list(String.t()())
-  }
+      
+      untag_resource_input() :: %{
+        required("ResourceArn") => String.t(),
+        required("TagKeys") => list(String.t()())
+      }
+      
   """
   @type untag_resource_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_item_input() :: %{
-    optional("AttributeUpdates") => map(),
-    optional("ConditionExpression") => String.t(),
-    optional("ConditionalOperator") => list(any()),
-    optional("Expected") => map(),
-    optional("ExpressionAttributeNames") => map(),
-    optional("ExpressionAttributeValues") => map(),
-    optional("ReturnConsumedCapacity") => list(any()),
-    optional("ReturnItemCollectionMetrics") => list(any()),
-    optional("ReturnValues") => list(any()),
-    optional("ReturnValuesOnConditionCheckFailure") => list(any()),
-    optional("UpdateExpression") => String.t(),
-    required("Key") => map(),
-    required("TableName") => String.t()
-  }
+      
+      update_item_input() :: %{
+        optional("AttributeUpdates") => map(),
+        optional("ConditionExpression") => String.t(),
+        optional("ConditionalOperator") => list(any()),
+        optional("Expected") => map(),
+        optional("ExpressionAttributeNames") => map(),
+        optional("ExpressionAttributeValues") => map(),
+        optional("ReturnConsumedCapacity") => list(any()),
+        optional("ReturnItemCollectionMetrics") => list(any()),
+        optional("ReturnValues") => list(any()),
+        optional("ReturnValuesOnConditionCheckFailure") => list(any()),
+        optional("UpdateExpression") => String.t(),
+        required("Key") => map(),
+        required("TableName") => String.t()
+      }
+      
   """
   @type update_item_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  global_table_description() :: %{
-    "CreationDateTime" => non_neg_integer(),
-    "GlobalTableArn" => String.t(),
-    "GlobalTableName" => String.t(),
-    "GlobalTableStatus" => list(any()),
-    "ReplicationGroup" => list(replica_description()())
-  }
+      
+      global_table_description() :: %{
+        "CreationDateTime" => non_neg_integer(),
+        "GlobalTableArn" => String.t(),
+        "GlobalTableName" => String.t(),
+        "GlobalTableStatus" => list(any()),
+        "ReplicationGroup" => list(replica_description()())
+      }
+      
   """
   @type global_table_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  continuous_backups_description() :: %{
-    "ContinuousBackupsStatus" => list(any()),
-    "PointInTimeRecoveryDescription" => point_in_time_recovery_description()
-  }
+      
+      continuous_backups_description() :: %{
+        "ContinuousBackupsStatus" => list(any()),
+        "PointInTimeRecoveryDescription" => point_in_time_recovery_description()
+      }
+      
   """
   @type continuous_backups_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  global_secondary_index() :: %{
-    "IndexName" => String.t(),
-    "KeySchema" => list(key_schema_element()()),
-    "Projection" => projection(),
-    "ProvisionedThroughput" => provisioned_throughput()
-  }
+      
+      global_secondary_index() :: %{
+        "IndexName" => String.t(),
+        "KeySchema" => list(key_schema_element()()),
+        "Projection" => projection(),
+        "ProvisionedThroughput" => provisioned_throughput()
+      }
+      
   """
   @type global_secondary_index() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  restore_table_to_point_in_time_input() :: %{
-    optional("BillingModeOverride") => list(any()),
-    optional("GlobalSecondaryIndexOverride") => list(global_secondary_index()()),
-    optional("LocalSecondaryIndexOverride") => list(local_secondary_index()()),
-    optional("ProvisionedThroughputOverride") => provisioned_throughput(),
-    optional("RestoreDateTime") => non_neg_integer(),
-    optional("SSESpecificationOverride") => sse_specification(),
-    optional("SourceTableArn") => String.t(),
-    optional("SourceTableName") => String.t(),
-    optional("UseLatestRestorableTime") => boolean(),
-    required("TargetTableName") => String.t()
-  }
+      
+      restore_table_to_point_in_time_input() :: %{
+        optional("BillingModeOverride") => list(any()),
+        optional("GlobalSecondaryIndexOverride") => list(global_secondary_index()()),
+        optional("LocalSecondaryIndexOverride") => list(local_secondary_index()()),
+        optional("ProvisionedThroughputOverride") => provisioned_throughput(),
+        optional("RestoreDateTime") => non_neg_integer(),
+        optional("SSESpecificationOverride") => sse_specification(),
+        optional("SourceTableArn") => String.t(),
+        optional("SourceTableName") => String.t(),
+        optional("UseLatestRestorableTime") => boolean(),
+        required("TargetTableName") => String.t()
+      }
+      
   """
   @type restore_table_to_point_in_time_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  request_limit_exceeded() :: %{
-    "message" => String.t()
-  }
+      
+      request_limit_exceeded() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type request_limit_exceeded() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  restore_table_from_backup_input() :: %{
-    optional("BillingModeOverride") => list(any()),
-    optional("GlobalSecondaryIndexOverride") => list(global_secondary_index()()),
-    optional("LocalSecondaryIndexOverride") => list(local_secondary_index()()),
-    optional("ProvisionedThroughputOverride") => provisioned_throughput(),
-    optional("SSESpecificationOverride") => sse_specification(),
-    required("BackupArn") => String.t(),
-    required("TargetTableName") => String.t()
-  }
+      
+      restore_table_from_backup_input() :: %{
+        optional("BillingModeOverride") => list(any()),
+        optional("GlobalSecondaryIndexOverride") => list(global_secondary_index()()),
+        optional("LocalSecondaryIndexOverride") => list(local_secondary_index()()),
+        optional("ProvisionedThroughputOverride") => provisioned_throughput(),
+        optional("SSESpecificationOverride") => sse_specification(),
+        required("BackupArn") => String.t(),
+        required("TargetTableName") => String.t()
+      }
+      
   """
   @type restore_table_from_backup_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cancellation_reason() :: %{
-    "Code" => String.t(),
-    "Item" => map(),
-    "Message" => String.t()
-  }
+      
+      cancellation_reason() :: %{
+        "Code" => String.t(),
+        "Item" => map(),
+        "Message" => String.t()
+      }
+      
   """
   @type cancellation_reason() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  source_table_feature_details() :: %{
-    "GlobalSecondaryIndexes" => list(global_secondary_index_info()()),
-    "LocalSecondaryIndexes" => list(local_secondary_index_info()()),
-    "SSEDescription" => sse_description(),
-    "StreamDescription" => stream_specification(),
-    "TimeToLiveDescription" => time_to_live_description()
-  }
+      
+      source_table_feature_details() :: %{
+        "GlobalSecondaryIndexes" => list(global_secondary_index_info()()),
+        "LocalSecondaryIndexes" => list(local_secondary_index_info()()),
+        "SSEDescription" => sse_description(),
+        "StreamDescription" => stream_specification(),
+        "TimeToLiveDescription" => time_to_live_description()
+      }
+      
   """
   @type source_table_feature_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  import_conflict_exception() :: %{
-    "message" => String.t()
-  }
+      
+      import_conflict_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type import_conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  item_response() :: %{
-    "Item" => map()
-  }
+      
+      item_response() :: %{
+        "Item" => map()
+      }
+      
   """
   @type item_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  restore_table_from_backup_output() :: %{
-    "TableDescription" => table_description()
-  }
+      
+      restore_table_from_backup_output() :: %{
+        "TableDescription" => table_description()
+      }
+      
   """
   @type restore_table_from_backup_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  failure_exception() :: %{
-    "ExceptionDescription" => String.t(),
-    "ExceptionName" => String.t()
-  }
+      
+      failure_exception() :: %{
+        "ExceptionDescription" => String.t(),
+        "ExceptionName" => String.t()
+      }
+      
   """
   @type failure_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  replica_description() :: %{
-    "GlobalSecondaryIndexes" => list(replica_global_secondary_index_description()()),
-    "KMSMasterKeyId" => String.t(),
-    "ProvisionedThroughputOverride" => provisioned_throughput_override(),
-    "RegionName" => String.t(),
-    "ReplicaInaccessibleDateTime" => non_neg_integer(),
-    "ReplicaStatus" => list(any()),
-    "ReplicaStatusDescription" => String.t(),
-    "ReplicaStatusPercentProgress" => String.t(),
-    "ReplicaTableClassSummary" => table_class_summary()
-  }
+      
+      replica_description() :: %{
+        "GlobalSecondaryIndexes" => list(replica_global_secondary_index_description()()),
+        "KMSMasterKeyId" => String.t(),
+        "ProvisionedThroughputOverride" => provisioned_throughput_override(),
+        "RegionName" => String.t(),
+        "ReplicaInaccessibleDateTime" => non_neg_integer(),
+        "ReplicaStatus" => list(any()),
+        "ReplicaStatusDescription" => String.t(),
+        "ReplicaStatusPercentProgress" => String.t(),
+        "ReplicaTableClassSummary" => table_class_summary()
+      }
+      
   """
   @type replica_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  scan_output() :: %{
-    "ConsumedCapacity" => consumed_capacity(),
-    "Count" => integer(),
-    "Items" => list(map()()),
-    "LastEvaluatedKey" => map(),
-    "ScannedCount" => integer()
-  }
+      
+      scan_output() :: %{
+        "ConsumedCapacity" => consumed_capacity(),
+        "Count" => integer(),
+        "Items" => list(map()()),
+        "LastEvaluatedKey" => map(),
+        "ScannedCount" => integer()
+      }
+      
   """
   @type scan_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_replication_group_member_action() :: %{
-    "RegionName" => String.t()
-  }
+      
+      delete_replication_group_member_action() :: %{
+        "RegionName" => String.t()
+      }
+      
   """
   @type delete_replication_group_member_action() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  replication_group_update() :: %{
-    "Create" => create_replication_group_member_action(),
-    "Delete" => delete_replication_group_member_action(),
-    "Update" => update_replication_group_member_action()
-  }
+      
+      replication_group_update() :: %{
+        "Create" => create_replication_group_member_action(),
+        "Delete" => delete_replication_group_member_action(),
+        "Update" => update_replication_group_member_action()
+      }
+      
   """
   @type replication_group_update() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  transaction_in_progress_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      transaction_in_progress_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type transaction_in_progress_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_contributor_insights_output() :: %{
-    "ContributorInsightsSummaries" => list(contributor_insights_summary()()),
-    "NextToken" => String.t()
-  }
+      
+      list_contributor_insights_output() :: %{
+        "ContributorInsightsSummaries" => list(contributor_insights_summary()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_contributor_insights_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  export_description() :: %{
-    "BilledSizeBytes" => float(),
-    "ClientToken" => String.t(),
-    "EndTime" => non_neg_integer(),
-    "ExportArn" => String.t(),
-    "ExportFormat" => list(any()),
-    "ExportManifest" => String.t(),
-    "ExportStatus" => list(any()),
-    "ExportTime" => non_neg_integer(),
-    "ExportType" => list(any()),
-    "FailureCode" => String.t(),
-    "FailureMessage" => String.t(),
-    "IncrementalExportSpecification" => incremental_export_specification(),
-    "ItemCount" => float(),
-    "S3Bucket" => String.t(),
-    "S3BucketOwner" => String.t(),
-    "S3Prefix" => String.t(),
-    "S3SseAlgorithm" => list(any()),
-    "S3SseKmsKeyId" => String.t(),
-    "StartTime" => non_neg_integer(),
-    "TableArn" => String.t(),
-    "TableId" => String.t()
-  }
+      
+      export_description() :: %{
+        "BilledSizeBytes" => float(),
+        "ClientToken" => String.t(),
+        "EndTime" => non_neg_integer(),
+        "ExportArn" => String.t(),
+        "ExportFormat" => list(any()),
+        "ExportManifest" => String.t(),
+        "ExportStatus" => list(any()),
+        "ExportTime" => non_neg_integer(),
+        "ExportType" => list(any()),
+        "FailureCode" => String.t(),
+        "FailureMessage" => String.t(),
+        "IncrementalExportSpecification" => incremental_export_specification(),
+        "ItemCount" => float(),
+        "S3Bucket" => String.t(),
+        "S3BucketOwner" => String.t(),
+        "S3Prefix" => String.t(),
+        "S3SseAlgorithm" => list(any()),
+        "S3SseKmsKeyId" => String.t(),
+        "StartTime" => non_neg_integer(),
+        "TableArn" => String.t(),
+        "TableId" => String.t()
+      }
+      
   """
   @type export_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_global_secondary_index_action() :: %{
-    "IndexName" => String.t(),
-    "ProvisionedThroughput" => provisioned_throughput()
-  }
+      
+      update_global_secondary_index_action() :: %{
+        "IndexName" => String.t(),
+        "ProvisionedThroughput" => provisioned_throughput()
+      }
+      
   """
   @type update_global_secondary_index_action() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  replica() :: %{
-    "RegionName" => String.t()
-  }
+      
+      replica() :: %{
+        "RegionName" => String.t()
+      }
+      
   """
   @type replica() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  contributor_insights_summary() :: %{
-    "ContributorInsightsStatus" => list(any()),
-    "IndexName" => String.t(),
-    "TableName" => String.t()
-  }
+      
+      contributor_insights_summary() :: %{
+        "ContributorInsightsStatus" => list(any()),
+        "IndexName" => String.t(),
+        "TableName" => String.t()
+      }
+      
   """
   @type contributor_insights_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_item_input() :: %{
-    optional("AttributesToGet") => list(String.t()()),
-    optional("ConsistentRead") => boolean(),
-    optional("ExpressionAttributeNames") => map(),
-    optional("ProjectionExpression") => String.t(),
-    optional("ReturnConsumedCapacity") => list(any()),
-    required("Key") => map(),
-    required("TableName") => String.t()
-  }
+      
+      get_item_input() :: %{
+        optional("AttributesToGet") => list(String.t()()),
+        optional("ConsistentRead") => boolean(),
+        optional("ExpressionAttributeNames") => map(),
+        optional("ProjectionExpression") => String.t(),
+        optional("ReturnConsumedCapacity") => list(any()),
+        required("Key") => map(),
+        required("TableName") => String.t()
+      }
+      
   """
   @type get_item_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_time_to_live_input() :: %{
-    required("TableName") => String.t()
-  }
+      
+      describe_time_to_live_input() :: %{
+        required("TableName") => String.t()
+      }
+      
   """
   @type describe_time_to_live_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  limit_exceeded_exception() :: %{
-    "message" => String.t()
-  }
+      
+      limit_exceeded_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  auto_scaling_target_tracking_scaling_policy_configuration_update() :: %{
-    "DisableScaleIn" => boolean(),
-    "ScaleInCooldown" => integer(),
-    "ScaleOutCooldown" => integer(),
-    "TargetValue" => float()
-  }
+      
+      auto_scaling_target_tracking_scaling_policy_configuration_update() :: %{
+        "DisableScaleIn" => boolean(),
+        "ScaleInCooldown" => integer(),
+        "ScaleOutCooldown" => integer(),
+        "TargetValue" => float()
+      }
+      
   """
   @type auto_scaling_target_tracking_scaling_policy_configuration_update() :: %{
           String.t() => any()
@@ -2339,390 +2741,768 @@ defmodule AWS.DynamoDB do
   @typedoc """
 
   ## Example:
-  update_continuous_backups_input() :: %{
-    required("PointInTimeRecoverySpecification") => point_in_time_recovery_specification(),
-    required("TableName") => String.t()
-  }
+      
+      update_continuous_backups_input() :: %{
+        required("PointInTimeRecoverySpecification") => point_in_time_recovery_specification(),
+        required("TableName") => String.t()
+      }
+      
   """
   @type update_continuous_backups_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  archival_summary() :: %{
-    "ArchivalBackupArn" => String.t(),
-    "ArchivalDateTime" => non_neg_integer(),
-    "ArchivalReason" => String.t()
-  }
+      
+      archival_summary() :: %{
+        "ArchivalBackupArn" => String.t(),
+        "ArchivalDateTime" => non_neg_integer(),
+        "ArchivalReason" => String.t()
+      }
+      
   """
   @type archival_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tables_output() :: %{
-    "LastEvaluatedTableName" => String.t(),
-    "TableNames" => list(String.t()())
-  }
+      
+      list_tables_output() :: %{
+        "LastEvaluatedTableName" => String.t(),
+        "TableNames" => list(String.t()())
+      }
+      
   """
   @type list_tables_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_export_time_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_export_time_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_export_time_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  attribute_value_update() :: %{
-    "Action" => list(any()),
-    "Value" => list()
-  }
+      
+      attribute_value_update() :: %{
+        "Action" => list(any()),
+        "Value" => list()
+      }
+      
   """
   @type attribute_value_update() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  import_table_output() :: %{
-    "ImportTableDescription" => import_table_description()
-  }
+      
+      import_table_output() :: %{
+        "ImportTableDescription" => import_table_description()
+      }
+      
   """
   @type import_table_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_item_output() :: %{
-    "Attributes" => map(),
-    "ConsumedCapacity" => consumed_capacity(),
-    "ItemCollectionMetrics" => item_collection_metrics()
-  }
+      
+      put_item_output() :: %{
+        "Attributes" => map(),
+        "ConsumedCapacity" => consumed_capacity(),
+        "ItemCollectionMetrics" => item_collection_metrics()
+      }
+      
   """
   @type put_item_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_global_table_settings_output() :: %{
-    "GlobalTableName" => String.t(),
-    "ReplicaSettings" => list(replica_settings_description()())
-  }
+      
+      update_global_table_settings_output() :: %{
+        "GlobalTableName" => String.t(),
+        "ReplicaSettings" => list(replica_settings_description()())
+      }
+      
   """
   @type update_global_table_settings_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  table_in_use_exception() :: %{
-    "message" => String.t()
-  }
+      
+      table_in_use_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type table_in_use_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  incremental_export_specification() :: %{
-    "ExportFromTime" => non_neg_integer(),
-    "ExportToTime" => non_neg_integer(),
-    "ExportViewType" => list(any())
-  }
+      
+      incremental_export_specification() :: %{
+        "ExportFromTime" => non_neg_integer(),
+        "ExportToTime" => non_neg_integer(),
+        "ExportViewType" => list(any())
+      }
+      
   """
   @type incremental_export_specification() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  import_table_description() :: %{
-    "ClientToken" => String.t(),
-    "CloudWatchLogGroupArn" => String.t(),
-    "EndTime" => non_neg_integer(),
-    "ErrorCount" => float(),
-    "FailureCode" => String.t(),
-    "FailureMessage" => String.t(),
-    "ImportArn" => String.t(),
-    "ImportStatus" => list(any()),
-    "ImportedItemCount" => float(),
-    "InputCompressionType" => list(any()),
-    "InputFormat" => list(any()),
-    "InputFormatOptions" => input_format_options(),
-    "ProcessedItemCount" => float(),
-    "ProcessedSizeBytes" => float(),
-    "S3BucketSource" => s3_bucket_source(),
-    "StartTime" => non_neg_integer(),
-    "TableArn" => String.t(),
-    "TableCreationParameters" => table_creation_parameters(),
-    "TableId" => String.t()
-  }
+      
+      import_table_description() :: %{
+        "ClientToken" => String.t(),
+        "CloudWatchLogGroupArn" => String.t(),
+        "EndTime" => non_neg_integer(),
+        "ErrorCount" => float(),
+        "FailureCode" => String.t(),
+        "FailureMessage" => String.t(),
+        "ImportArn" => String.t(),
+        "ImportStatus" => list(any()),
+        "ImportedItemCount" => float(),
+        "InputCompressionType" => list(any()),
+        "InputFormat" => list(any()),
+        "InputFormatOptions" => input_format_options(),
+        "ProcessedItemCount" => float(),
+        "ProcessedSizeBytes" => float(),
+        "S3BucketSource" => s3_bucket_source(),
+        "StartTime" => non_neg_integer(),
+        "TableArn" => String.t(),
+        "TableCreationParameters" => table_creation_parameters(),
+        "TableId" => String.t()
+      }
+      
   """
   @type import_table_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_table_output() :: %{
-    "TableDescription" => table_description()
-  }
+      
+      delete_table_output() :: %{
+        "TableDescription" => table_description()
+      }
+      
   """
   @type delete_table_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  index_not_found_exception() :: %{
-    "message" => String.t()
-  }
+      
+      index_not_found_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type index_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_table_input() :: %{
-    optional("AttributeDefinitions") => list(attribute_definition()()),
-    optional("BillingMode") => list(any()),
-    optional("DeletionProtectionEnabled") => boolean(),
-    optional("GlobalSecondaryIndexUpdates") => list(global_secondary_index_update()()),
-    optional("ProvisionedThroughput") => provisioned_throughput(),
-    optional("ReplicaUpdates") => list(replication_group_update()()),
-    optional("SSESpecification") => sse_specification(),
-    optional("StreamSpecification") => stream_specification(),
-    optional("TableClass") => list(any()),
-    required("TableName") => String.t()
-  }
+      
+      update_table_input() :: %{
+        optional("AttributeDefinitions") => list(attribute_definition()()),
+        optional("BillingMode") => list(any()),
+        optional("DeletionProtectionEnabled") => boolean(),
+        optional("GlobalSecondaryIndexUpdates") => list(global_secondary_index_update()()),
+        optional("ProvisionedThroughput") => provisioned_throughput(),
+        optional("ReplicaUpdates") => list(replication_group_update()()),
+        optional("SSESpecification") => sse_specification(),
+        optional("StreamSpecification") => stream_specification(),
+        optional("TableClass") => list(any()),
+        required("TableName") => String.t()
+      }
+      
   """
   @type update_table_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put() :: %{
-    "ConditionExpression" => String.t(),
-    "ExpressionAttributeNames" => map(),
-    "ExpressionAttributeValues" => map(),
-    "Item" => map(),
-    "ReturnValuesOnConditionCheckFailure" => list(any()),
-    "TableName" => String.t()
-  }
+      
+      put() :: %{
+        "ConditionExpression" => String.t(),
+        "ExpressionAttributeNames" => map(),
+        "ExpressionAttributeValues" => map(),
+        "Item" => map(),
+        "ReturnValuesOnConditionCheckFailure" => list(any()),
+        "TableName" => String.t()
+      }
+      
   """
   @type put() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_statement_request() :: %{
-    "ConsistentRead" => boolean(),
-    "Parameters" => list(list()()),
-    "ReturnValuesOnConditionCheckFailure" => list(any()),
-    "Statement" => String.t()
-  }
+      
+      batch_statement_request() :: %{
+        "ConsistentRead" => boolean(),
+        "Parameters" => list(list()()),
+        "ReturnValuesOnConditionCheckFailure" => list(any()),
+        "Statement" => String.t()
+      }
+      
   """
   @type batch_statement_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  replica_not_found_exception() :: %{
-    "message" => String.t()
-  }
+      
+      replica_not_found_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type replica_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_backup_output() :: %{
-    "BackupDescription" => backup_description()
-  }
+      
+      delete_backup_output() :: %{
+        "BackupDescription" => backup_description()
+      }
+      
   """
   @type delete_backup_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_kinesis_streaming_configuration() :: %{
-    "ApproximateCreationDateTimePrecision" => list(any())
-  }
+      
+      update_kinesis_streaming_configuration() :: %{
+        "ApproximateCreationDateTimePrecision" => list(any())
+      }
+      
   """
   @type update_kinesis_streaming_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_table_output() :: %{
-    "TableDescription" => table_description()
-  }
+      
+      update_table_output() :: %{
+        "TableDescription" => table_description()
+      }
+      
   """
   @type update_table_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  s3_bucket_source() :: %{
-    "S3Bucket" => String.t(),
-    "S3BucketOwner" => String.t(),
-    "S3KeyPrefix" => String.t()
-  }
+      
+      s3_bucket_source() :: %{
+        "S3Bucket" => String.t(),
+        "S3BucketOwner" => String.t(),
+        "S3KeyPrefix" => String.t()
+      }
+      
   """
   @type s3_bucket_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_backups_output() :: %{
-    "BackupSummaries" => list(backup_summary()()),
-    "LastEvaluatedBackupArn" => String.t()
-  }
+      
+      list_backups_output() :: %{
+        "BackupSummaries" => list(backup_summary()()),
+        "LastEvaluatedBackupArn" => String.t()
+      }
+      
   """
   @type list_backups_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_contributor_insights_input() :: %{
-    optional("IndexName") => String.t(),
-    required("ContributorInsightsAction") => list(any()),
-    required("TableName") => String.t()
-  }
+      
+      update_contributor_insights_input() :: %{
+        optional("IndexName") => String.t(),
+        required("ContributorInsightsAction") => list(any()),
+        required("TableName") => String.t()
+      }
+      
   """
   @type update_contributor_insights_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_table_replica_auto_scaling_output() :: %{
-    "TableAutoScalingDescription" => table_auto_scaling_description()
-  }
+      
+      describe_table_replica_auto_scaling_output() :: %{
+        "TableAutoScalingDescription" => table_auto_scaling_description()
+      }
+      
   """
   @type describe_table_replica_auto_scaling_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  export_conflict_exception() :: %{
-    "message" => String.t()
-  }
+      
+      export_conflict_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type export_conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_time_to_live_input() :: %{
-    required("TableName") => String.t(),
-    required("TimeToLiveSpecification") => time_to_live_specification()
-  }
+      
+      update_time_to_live_input() :: %{
+        required("TableName") => String.t(),
+        required("TimeToLiveSpecification") => time_to_live_specification()
+      }
+      
   """
   @type update_time_to_live_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get() :: %{
-    "ExpressionAttributeNames" => map(),
-    "Key" => map(),
-    "ProjectionExpression" => String.t(),
-    "TableName" => String.t()
-  }
+      
+      get() :: %{
+        "ExpressionAttributeNames" => map(),
+        "Key" => map(),
+        "ProjectionExpression" => String.t(),
+        "TableName" => String.t()
+      }
+      
   """
   @type get() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  export_table_to_point_in_time_output() :: %{
-    "ExportDescription" => export_description()
-  }
+      
+      export_table_to_point_in_time_output() :: %{
+        "ExportDescription" => export_description()
+      }
+      
   """
   @type export_table_to_point_in_time_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_kinesis_streaming_destination_input() :: %{
-    optional("UpdateKinesisStreamingConfiguration") => update_kinesis_streaming_configuration(),
-    required("StreamArn") => String.t(),
-    required("TableName") => String.t()
-  }
+      
+      update_kinesis_streaming_destination_input() :: %{
+        optional("UpdateKinesisStreamingConfiguration") => update_kinesis_streaming_configuration(),
+        required("StreamArn") => String.t(),
+        required("TableName") => String.t()
+      }
+      
   """
   @type update_kinesis_streaming_destination_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  export_not_found_exception() :: %{
-    "message" => String.t()
-  }
+      
+      export_not_found_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type export_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_global_secondary_index_action() :: %{
-    "IndexName" => String.t()
-  }
+      
+      delete_global_secondary_index_action() :: %{
+        "IndexName" => String.t()
+      }
+      
   """
   @type delete_global_secondary_index_action() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  provisioned_throughput_override() :: %{
-    "ReadCapacityUnits" => float()
-  }
+      
+      provisioned_throughput_override() :: %{
+        "ReadCapacityUnits" => float()
+      }
+      
   """
   @type provisioned_throughput_override() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  table_auto_scaling_description() :: %{
-    "Replicas" => list(replica_auto_scaling_description()()),
-    "TableName" => String.t(),
-    "TableStatus" => list(any())
-  }
+      
+      table_auto_scaling_description() :: %{
+        "Replicas" => list(replica_auto_scaling_description()()),
+        "TableName" => String.t(),
+        "TableStatus" => list(any())
+      }
+      
   """
   @type table_auto_scaling_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_imports_output() :: %{
-    "ImportSummaryList" => list(import_summary()()),
-    "NextToken" => String.t()
-  }
+      
+      list_imports_output() :: %{
+        "ImportSummaryList" => list(import_summary()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_imports_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  table_not_found_exception() :: %{
-    "message" => String.t()
-  }
+      
+      table_not_found_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type table_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  condition_check() :: %{
-    "ConditionExpression" => String.t(),
-    "ExpressionAttributeNames" => map(),
-    "ExpressionAttributeValues" => map(),
-    "Key" => map(),
-    "ReturnValuesOnConditionCheckFailure" => list(any()),
-    "TableName" => String.t()
-  }
+      
+      condition_check() :: %{
+        "ConditionExpression" => String.t(),
+        "ExpressionAttributeNames" => map(),
+        "ExpressionAttributeValues" => map(),
+        "Key" => map(),
+        "ReturnValuesOnConditionCheckFailure" => list(any()),
+        "TableName" => String.t()
+      }
+      
   """
   @type condition_check() :: %{String.t() => any()}
+
+  @type batch_execute_statement_errors() :: request_limit_exceeded() | internal_server_error()
+
+  @type batch_get_item_errors() ::
+          request_limit_exceeded()
+          | internal_server_error()
+          | resource_not_found_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_endpoint_exception()
+
+  @type batch_write_item_errors() ::
+          request_limit_exceeded()
+          | internal_server_error()
+          | resource_not_found_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_endpoint_exception()
+          | item_collection_size_limit_exceeded_exception()
+
+  @type create_backup_errors() ::
+          table_not_found_exception()
+          | table_in_use_exception()
+          | limit_exceeded_exception()
+          | internal_server_error()
+          | backup_in_use_exception()
+          | continuous_backups_unavailable_exception()
+          | invalid_endpoint_exception()
+
+  @type create_global_table_errors() ::
+          table_not_found_exception()
+          | limit_exceeded_exception()
+          | internal_server_error()
+          | global_table_already_exists_exception()
+          | invalid_endpoint_exception()
+
+  @type create_table_errors() ::
+          limit_exceeded_exception()
+          | internal_server_error()
+          | invalid_endpoint_exception()
+          | resource_in_use_exception()
+
+  @type delete_backup_errors() ::
+          limit_exceeded_exception()
+          | internal_server_error()
+          | backup_in_use_exception()
+          | backup_not_found_exception()
+          | invalid_endpoint_exception()
+
+  @type delete_item_errors() ::
+          request_limit_exceeded()
+          | internal_server_error()
+          | conditional_check_failed_exception()
+          | transaction_conflict_exception()
+          | resource_not_found_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_endpoint_exception()
+          | item_collection_size_limit_exceeded_exception()
+
+  @type delete_table_errors() ::
+          limit_exceeded_exception()
+          | internal_server_error()
+          | resource_not_found_exception()
+          | invalid_endpoint_exception()
+          | resource_in_use_exception()
+
+  @type describe_backup_errors() ::
+          internal_server_error() | backup_not_found_exception() | invalid_endpoint_exception()
+
+  @type describe_continuous_backups_errors() ::
+          table_not_found_exception() | internal_server_error() | invalid_endpoint_exception()
+
+  @type describe_contributor_insights_errors() ::
+          internal_server_error() | resource_not_found_exception()
+
+  @type describe_export_errors() ::
+          export_not_found_exception() | limit_exceeded_exception() | internal_server_error()
+
+  @type describe_global_table_errors() ::
+          internal_server_error()
+          | global_table_not_found_exception()
+          | invalid_endpoint_exception()
+
+  @type describe_global_table_settings_errors() ::
+          internal_server_error()
+          | global_table_not_found_exception()
+          | invalid_endpoint_exception()
+
+  @type describe_import_errors() :: import_not_found_exception()
+
+  @type describe_kinesis_streaming_destination_errors() ::
+          internal_server_error() | resource_not_found_exception() | invalid_endpoint_exception()
+
+  @type describe_limits_errors() :: internal_server_error() | invalid_endpoint_exception()
+
+  @type describe_table_errors() ::
+          internal_server_error() | resource_not_found_exception() | invalid_endpoint_exception()
+
+  @type describe_table_replica_auto_scaling_errors() ::
+          internal_server_error() | resource_not_found_exception()
+
+  @type describe_time_to_live_errors() ::
+          internal_server_error() | resource_not_found_exception() | invalid_endpoint_exception()
+
+  @type disable_kinesis_streaming_destination_errors() ::
+          limit_exceeded_exception()
+          | internal_server_error()
+          | resource_not_found_exception()
+          | invalid_endpoint_exception()
+          | resource_in_use_exception()
+
+  @type enable_kinesis_streaming_destination_errors() ::
+          limit_exceeded_exception()
+          | internal_server_error()
+          | resource_not_found_exception()
+          | invalid_endpoint_exception()
+          | resource_in_use_exception()
+
+  @type execute_statement_errors() ::
+          request_limit_exceeded()
+          | internal_server_error()
+          | conditional_check_failed_exception()
+          | transaction_conflict_exception()
+          | duplicate_item_exception()
+          | resource_not_found_exception()
+          | provisioned_throughput_exceeded_exception()
+          | item_collection_size_limit_exceeded_exception()
+
+  @type execute_transaction_errors() ::
+          transaction_in_progress_exception()
+          | request_limit_exceeded()
+          | internal_server_error()
+          | idempotent_parameter_mismatch_exception()
+          | resource_not_found_exception()
+          | provisioned_throughput_exceeded_exception()
+          | transaction_canceled_exception()
+
+  @type export_table_to_point_in_time_errors() ::
+          table_not_found_exception()
+          | export_conflict_exception()
+          | invalid_export_time_exception()
+          | limit_exceeded_exception()
+          | internal_server_error()
+          | point_in_time_recovery_unavailable_exception()
+
+  @type get_item_errors() ::
+          request_limit_exceeded()
+          | internal_server_error()
+          | resource_not_found_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_endpoint_exception()
+
+  @type import_table_errors() ::
+          limit_exceeded_exception() | import_conflict_exception() | resource_in_use_exception()
+
+  @type list_backups_errors() :: internal_server_error() | invalid_endpoint_exception()
+
+  @type list_contributor_insights_errors() ::
+          internal_server_error() | resource_not_found_exception()
+
+  @type list_exports_errors() :: limit_exceeded_exception() | internal_server_error()
+
+  @type list_global_tables_errors() :: internal_server_error() | invalid_endpoint_exception()
+
+  @type list_imports_errors() :: limit_exceeded_exception()
+
+  @type list_tables_errors() :: internal_server_error() | invalid_endpoint_exception()
+
+  @type list_tags_of_resource_errors() ::
+          internal_server_error() | resource_not_found_exception() | invalid_endpoint_exception()
+
+  @type put_item_errors() ::
+          request_limit_exceeded()
+          | internal_server_error()
+          | conditional_check_failed_exception()
+          | transaction_conflict_exception()
+          | resource_not_found_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_endpoint_exception()
+          | item_collection_size_limit_exceeded_exception()
+
+  @type query_errors() ::
+          request_limit_exceeded()
+          | internal_server_error()
+          | resource_not_found_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_endpoint_exception()
+
+  @type restore_table_from_backup_errors() ::
+          table_in_use_exception()
+          | limit_exceeded_exception()
+          | internal_server_error()
+          | backup_in_use_exception()
+          | backup_not_found_exception()
+          | invalid_endpoint_exception()
+          | table_already_exists_exception()
+
+  @type restore_table_to_point_in_time_errors() ::
+          table_not_found_exception()
+          | table_in_use_exception()
+          | limit_exceeded_exception()
+          | invalid_restore_time_exception()
+          | internal_server_error()
+          | invalid_endpoint_exception()
+          | point_in_time_recovery_unavailable_exception()
+          | table_already_exists_exception()
+
+  @type scan_errors() ::
+          request_limit_exceeded()
+          | internal_server_error()
+          | resource_not_found_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_endpoint_exception()
+
+  @type tag_resource_errors() ::
+          limit_exceeded_exception()
+          | internal_server_error()
+          | resource_not_found_exception()
+          | invalid_endpoint_exception()
+          | resource_in_use_exception()
+
+  @type transact_get_items_errors() ::
+          request_limit_exceeded()
+          | internal_server_error()
+          | resource_not_found_exception()
+          | provisioned_throughput_exceeded_exception()
+          | transaction_canceled_exception()
+          | invalid_endpoint_exception()
+
+  @type transact_write_items_errors() ::
+          transaction_in_progress_exception()
+          | request_limit_exceeded()
+          | internal_server_error()
+          | idempotent_parameter_mismatch_exception()
+          | resource_not_found_exception()
+          | provisioned_throughput_exceeded_exception()
+          | transaction_canceled_exception()
+          | invalid_endpoint_exception()
+
+  @type untag_resource_errors() ::
+          limit_exceeded_exception()
+          | internal_server_error()
+          | resource_not_found_exception()
+          | invalid_endpoint_exception()
+          | resource_in_use_exception()
+
+  @type update_continuous_backups_errors() ::
+          table_not_found_exception()
+          | internal_server_error()
+          | continuous_backups_unavailable_exception()
+          | invalid_endpoint_exception()
+
+  @type update_contributor_insights_errors() ::
+          internal_server_error() | resource_not_found_exception()
+
+  @type update_global_table_errors() ::
+          table_not_found_exception()
+          | replica_not_found_exception()
+          | internal_server_error()
+          | global_table_not_found_exception()
+          | replica_already_exists_exception()
+          | invalid_endpoint_exception()
+
+  @type update_global_table_settings_errors() ::
+          replica_not_found_exception()
+          | index_not_found_exception()
+          | limit_exceeded_exception()
+          | internal_server_error()
+          | global_table_not_found_exception()
+          | invalid_endpoint_exception()
+          | resource_in_use_exception()
+
+  @type update_item_errors() ::
+          request_limit_exceeded()
+          | internal_server_error()
+          | conditional_check_failed_exception()
+          | transaction_conflict_exception()
+          | resource_not_found_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_endpoint_exception()
+          | item_collection_size_limit_exceeded_exception()
+
+  @type update_kinesis_streaming_destination_errors() ::
+          limit_exceeded_exception()
+          | internal_server_error()
+          | resource_not_found_exception()
+          | invalid_endpoint_exception()
+          | resource_in_use_exception()
+
+  @type update_table_errors() ::
+          limit_exceeded_exception()
+          | internal_server_error()
+          | resource_not_found_exception()
+          | invalid_endpoint_exception()
+          | resource_in_use_exception()
+
+  @type update_table_replica_auto_scaling_errors() ::
+          limit_exceeded_exception()
+          | internal_server_error()
+          | resource_not_found_exception()
+          | resource_in_use_exception()
+
+  @type update_time_to_live_errors() ::
+          limit_exceeded_exception()
+          | internal_server_error()
+          | resource_not_found_exception()
+          | invalid_endpoint_exception()
+          | resource_in_use_exception()
 
   def metadata do
     %{
@@ -2761,8 +3541,7 @@ defmodule AWS.DynamoDB do
   @spec batch_execute_statement(map(), batch_execute_statement_input(), list()) ::
           {:ok, batch_execute_statement_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, request_limit_exceeded()}
+          | {:error, batch_execute_statement_errors()}
   def batch_execute_statement(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2844,11 +3623,7 @@ defmodule AWS.DynamoDB do
   @spec batch_get_item(map(), batch_get_item_input(), list()) ::
           {:ok, batch_get_item_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_endpoint_exception()}
-          | {:error, provisioned_throughput_exceeded_exception()}
-          | {:error, request_limit_exceeded()}
-          | {:error, resource_not_found_exception()}
+          | {:error, batch_get_item_errors()}
   def batch_get_item(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2962,12 +3737,7 @@ defmodule AWS.DynamoDB do
   @spec batch_write_item(map(), batch_write_item_input(), list()) ::
           {:ok, batch_write_item_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_endpoint_exception()}
-          | {:error, item_collection_size_limit_exceeded_exception()}
-          | {:error, provisioned_throughput_exceeded_exception()}
-          | {:error, request_limit_exceeded()}
-          | {:error, resource_not_found_exception()}
+          | {:error, batch_write_item_errors()}
   def batch_write_item(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3019,13 +3789,7 @@ defmodule AWS.DynamoDB do
   @spec create_backup(map(), create_backup_input(), list()) ::
           {:ok, create_backup_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, backup_in_use_exception()}
-          | {:error, continuous_backups_unavailable_exception()}
-          | {:error, internal_server_error()}
-          | {:error, invalid_endpoint_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, table_in_use_exception()}
-          | {:error, table_not_found_exception()}
+          | {:error, create_backup_errors()}
   def create_backup(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3105,11 +3869,7 @@ defmodule AWS.DynamoDB do
   @spec create_global_table(map(), create_global_table_input(), list()) ::
           {:ok, create_global_table_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, global_table_already_exists_exception()}
-          | {:error, internal_server_error()}
-          | {:error, invalid_endpoint_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, table_not_found_exception()}
+          | {:error, create_global_table_errors()}
   def create_global_table(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3140,10 +3900,7 @@ defmodule AWS.DynamoDB do
   @spec create_table(map(), create_table_input(), list()) ::
           {:ok, create_table_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_endpoint_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_in_use_exception()}
+          | {:error, create_table_errors()}
   def create_table(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3159,11 +3916,7 @@ defmodule AWS.DynamoDB do
   @spec delete_backup(map(), delete_backup_input(), list()) ::
           {:ok, delete_backup_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, backup_in_use_exception()}
-          | {:error, backup_not_found_exception()}
-          | {:error, internal_server_error()}
-          | {:error, invalid_endpoint_exception()}
-          | {:error, limit_exceeded_exception()}
+          | {:error, delete_backup_errors()}
   def delete_backup(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3194,14 +3947,7 @@ defmodule AWS.DynamoDB do
   @spec delete_item(map(), delete_item_input(), list()) ::
           {:ok, delete_item_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conditional_check_failed_exception()}
-          | {:error, internal_server_error()}
-          | {:error, invalid_endpoint_exception()}
-          | {:error, item_collection_size_limit_exceeded_exception()}
-          | {:error, provisioned_throughput_exceeded_exception()}
-          | {:error, request_limit_exceeded()}
-          | {:error, resource_not_found_exception()}
-          | {:error, transaction_conflict_exception()}
+          | {:error, delete_item_errors()}
   def delete_item(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3239,11 +3985,7 @@ defmodule AWS.DynamoDB do
   @spec delete_table(map(), delete_table_input(), list()) ::
           {:ok, delete_table_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_endpoint_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_in_use_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, delete_table_errors()}
   def delete_table(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3259,9 +4001,7 @@ defmodule AWS.DynamoDB do
   @spec describe_backup(map(), describe_backup_input(), list()) ::
           {:ok, describe_backup_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, backup_not_found_exception()}
-          | {:error, internal_server_error()}
-          | {:error, invalid_endpoint_exception()}
+          | {:error, describe_backup_errors()}
   def describe_backup(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3291,9 +4031,7 @@ defmodule AWS.DynamoDB do
   @spec describe_continuous_backups(map(), describe_continuous_backups_input(), list()) ::
           {:ok, describe_continuous_backups_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_endpoint_exception()}
-          | {:error, table_not_found_exception()}
+          | {:error, describe_continuous_backups_errors()}
   def describe_continuous_backups(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3308,8 +4046,7 @@ defmodule AWS.DynamoDB do
   @spec describe_contributor_insights(map(), describe_contributor_insights_input(), list()) ::
           {:ok, describe_contributor_insights_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, resource_not_found_exception()}
+          | {:error, describe_contributor_insights_errors()}
   def describe_contributor_insights(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3337,9 +4074,7 @@ defmodule AWS.DynamoDB do
   @spec describe_export(map(), describe_export_input(), list()) ::
           {:ok, describe_export_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, export_not_found_exception()}
-          | {:error, internal_server_error()}
-          | {:error, limit_exceeded_exception()}
+          | {:error, describe_export_errors()}
   def describe_export(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3365,9 +4100,7 @@ defmodule AWS.DynamoDB do
   @spec describe_global_table(map(), describe_global_table_input(), list()) ::
           {:ok, describe_global_table_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, global_table_not_found_exception()}
-          | {:error, internal_server_error()}
-          | {:error, invalid_endpoint_exception()}
+          | {:error, describe_global_table_errors()}
   def describe_global_table(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3393,9 +4126,7 @@ defmodule AWS.DynamoDB do
   @spec describe_global_table_settings(map(), describe_global_table_settings_input(), list()) ::
           {:ok, describe_global_table_settings_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, global_table_not_found_exception()}
-          | {:error, internal_server_error()}
-          | {:error, invalid_endpoint_exception()}
+          | {:error, describe_global_table_settings_errors()}
   def describe_global_table_settings(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3408,7 +4139,7 @@ defmodule AWS.DynamoDB do
   @spec describe_import(map(), describe_import_input(), list()) ::
           {:ok, describe_import_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, import_not_found_exception()}
+          | {:error, describe_import_errors()}
   def describe_import(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3425,9 +4156,7 @@ defmodule AWS.DynamoDB do
         ) ::
           {:ok, describe_kinesis_streaming_destination_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_endpoint_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, describe_kinesis_streaming_destination_errors()}
   def describe_kinesis_streaming_destination(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3521,8 +4250,7 @@ defmodule AWS.DynamoDB do
   @spec describe_limits(map(), describe_limits_input(), list()) ::
           {:ok, describe_limits_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_endpoint_exception()}
+          | {:error, describe_limits_errors()}
   def describe_limits(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3548,9 +4276,7 @@ defmodule AWS.DynamoDB do
   @spec describe_table(map(), describe_table_input(), list()) ::
           {:ok, describe_table_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_endpoint_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, describe_table_errors()}
   def describe_table(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3570,8 +4296,7 @@ defmodule AWS.DynamoDB do
         ) ::
           {:ok, describe_table_replica_auto_scaling_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, resource_not_found_exception()}
+          | {:error, describe_table_replica_auto_scaling_errors()}
   def describe_table_replica_auto_scaling(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3584,9 +4309,7 @@ defmodule AWS.DynamoDB do
   @spec describe_time_to_live(map(), describe_time_to_live_input(), list()) ::
           {:ok, describe_time_to_live_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_endpoint_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, describe_time_to_live_errors()}
   def describe_time_to_live(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3606,11 +4329,7 @@ defmodule AWS.DynamoDB do
         ) ::
           {:ok, kinesis_streaming_destination_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_endpoint_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_in_use_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, disable_kinesis_streaming_destination_errors()}
   def disable_kinesis_streaming_destination(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3630,11 +4349,7 @@ defmodule AWS.DynamoDB do
   @spec enable_kinesis_streaming_destination(map(), kinesis_streaming_destination_input(), list()) ::
           {:ok, kinesis_streaming_destination_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_endpoint_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_in_use_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, enable_kinesis_streaming_destination_errors()}
   def enable_kinesis_streaming_destination(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3665,14 +4380,7 @@ defmodule AWS.DynamoDB do
   @spec execute_statement(map(), execute_statement_input(), list()) ::
           {:ok, execute_statement_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conditional_check_failed_exception()}
-          | {:error, duplicate_item_exception()}
-          | {:error, internal_server_error()}
-          | {:error, item_collection_size_limit_exceeded_exception()}
-          | {:error, provisioned_throughput_exceeded_exception()}
-          | {:error, request_limit_exceeded()}
-          | {:error, resource_not_found_exception()}
-          | {:error, transaction_conflict_exception()}
+          | {:error, execute_statement_errors()}
   def execute_statement(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3696,13 +4404,7 @@ defmodule AWS.DynamoDB do
   @spec execute_transaction(map(), execute_transaction_input(), list()) ::
           {:ok, execute_transaction_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, idempotent_parameter_mismatch_exception()}
-          | {:error, internal_server_error()}
-          | {:error, provisioned_throughput_exceeded_exception()}
-          | {:error, request_limit_exceeded()}
-          | {:error, resource_not_found_exception()}
-          | {:error, transaction_canceled_exception()}
-          | {:error, transaction_in_progress_exception()}
+          | {:error, execute_transaction_errors()}
   def execute_transaction(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3719,12 +4421,7 @@ defmodule AWS.DynamoDB do
   @spec export_table_to_point_in_time(map(), export_table_to_point_in_time_input(), list()) ::
           {:ok, export_table_to_point_in_time_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, export_conflict_exception()}
-          | {:error, internal_server_error()}
-          | {:error, invalid_export_time_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, point_in_time_recovery_unavailable_exception()}
-          | {:error, table_not_found_exception()}
+          | {:error, export_table_to_point_in_time_errors()}
   def export_table_to_point_in_time(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3746,11 +4443,7 @@ defmodule AWS.DynamoDB do
   @spec get_item(map(), get_item_input(), list()) ::
           {:ok, get_item_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_endpoint_exception()}
-          | {:error, provisioned_throughput_exceeded_exception()}
-          | {:error, request_limit_exceeded()}
-          | {:error, resource_not_found_exception()}
+          | {:error, get_item_errors()}
   def get_item(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3763,9 +4456,7 @@ defmodule AWS.DynamoDB do
   @spec import_table(map(), import_table_input(), list()) ::
           {:ok, import_table_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, import_conflict_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_in_use_exception()}
+          | {:error, import_table_errors()}
   def import_table(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3795,8 +4486,7 @@ defmodule AWS.DynamoDB do
   @spec list_backups(map(), list_backups_input(), list()) ::
           {:ok, list_backups_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_endpoint_exception()}
+          | {:error, list_backups_errors()}
   def list_backups(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3811,8 +4501,7 @@ defmodule AWS.DynamoDB do
   @spec list_contributor_insights(map(), list_contributor_insights_input(), list()) ::
           {:ok, list_contributor_insights_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, resource_not_found_exception()}
+          | {:error, list_contributor_insights_errors()}
   def list_contributor_insights(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3825,8 +4514,7 @@ defmodule AWS.DynamoDB do
   @spec list_exports(map(), list_exports_input(), list()) ::
           {:ok, list_exports_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, limit_exceeded_exception()}
+          | {:error, list_exports_errors()}
   def list_exports(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3852,8 +4540,7 @@ defmodule AWS.DynamoDB do
   @spec list_global_tables(map(), list_global_tables_input(), list()) ::
           {:ok, list_global_tables_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_endpoint_exception()}
+          | {:error, list_global_tables_errors()}
   def list_global_tables(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3866,7 +4553,7 @@ defmodule AWS.DynamoDB do
   @spec list_imports(map(), list_imports_input(), list()) ::
           {:ok, list_imports_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, limit_exceeded_exception()}
+          | {:error, list_imports_errors()}
   def list_imports(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3884,8 +4571,7 @@ defmodule AWS.DynamoDB do
   @spec list_tables(map(), list_tables_input(), list()) ::
           {:ok, list_tables_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_endpoint_exception()}
+          | {:error, list_tables_errors()}
   def list_tables(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3904,9 +4590,7 @@ defmodule AWS.DynamoDB do
   @spec list_tags_of_resource(map(), list_tags_of_resource_input(), list()) ::
           {:ok, list_tags_of_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_endpoint_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, list_tags_of_resource_errors()}
   def list_tags_of_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3951,14 +4635,7 @@ defmodule AWS.DynamoDB do
   @spec put_item(map(), put_item_input(), list()) ::
           {:ok, put_item_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conditional_check_failed_exception()}
-          | {:error, internal_server_error()}
-          | {:error, invalid_endpoint_exception()}
-          | {:error, item_collection_size_limit_exceeded_exception()}
-          | {:error, provisioned_throughput_exceeded_exception()}
-          | {:error, request_limit_exceeded()}
-          | {:error, resource_not_found_exception()}
-          | {:error, transaction_conflict_exception()}
+          | {:error, put_item_errors()}
   def put_item(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4035,11 +4712,7 @@ defmodule AWS.DynamoDB do
   @spec query(map(), query_input(), list()) ::
           {:ok, query_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_endpoint_exception()}
-          | {:error, provisioned_throughput_exceeded_exception()}
-          | {:error, request_limit_exceeded()}
-          | {:error, resource_not_found_exception()}
+          | {:error, query_errors()}
   def query(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4078,13 +4751,7 @@ defmodule AWS.DynamoDB do
   @spec restore_table_from_backup(map(), restore_table_from_backup_input(), list()) ::
           {:ok, restore_table_from_backup_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, backup_in_use_exception()}
-          | {:error, backup_not_found_exception()}
-          | {:error, internal_server_error()}
-          | {:error, invalid_endpoint_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, table_already_exists_exception()}
-          | {:error, table_in_use_exception()}
+          | {:error, restore_table_from_backup_errors()}
   def restore_table_from_backup(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4149,14 +4816,7 @@ defmodule AWS.DynamoDB do
   @spec restore_table_to_point_in_time(map(), restore_table_to_point_in_time_input(), list()) ::
           {:ok, restore_table_to_point_in_time_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_endpoint_exception()}
-          | {:error, invalid_restore_time_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, point_in_time_recovery_unavailable_exception()}
-          | {:error, table_already_exists_exception()}
-          | {:error, table_in_use_exception()}
-          | {:error, table_not_found_exception()}
+          | {:error, restore_table_to_point_in_time_errors()}
   def restore_table_to_point_in_time(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4223,11 +4883,7 @@ defmodule AWS.DynamoDB do
   @spec scan(map(), scan_input(), list()) ::
           {:ok, scan_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_endpoint_exception()}
-          | {:error, provisioned_throughput_exceeded_exception()}
-          | {:error, request_limit_exceeded()}
-          | {:error, resource_not_found_exception()}
+          | {:error, scan_errors()}
   def scan(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4250,11 +4906,7 @@ defmodule AWS.DynamoDB do
   @spec tag_resource(map(), tag_resource_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_endpoint_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_in_use_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4296,12 +4948,7 @@ defmodule AWS.DynamoDB do
   @spec transact_get_items(map(), transact_get_items_input(), list()) ::
           {:ok, transact_get_items_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_endpoint_exception()}
-          | {:error, provisioned_throughput_exceeded_exception()}
-          | {:error, request_limit_exceeded()}
-          | {:error, resource_not_found_exception()}
-          | {:error, transaction_canceled_exception()}
+          | {:error, transact_get_items_errors()}
   def transact_get_items(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4389,14 +5036,7 @@ defmodule AWS.DynamoDB do
   @spec transact_write_items(map(), transact_write_items_input(), list()) ::
           {:ok, transact_write_items_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, idempotent_parameter_mismatch_exception()}
-          | {:error, internal_server_error()}
-          | {:error, invalid_endpoint_exception()}
-          | {:error, provisioned_throughput_exceeded_exception()}
-          | {:error, request_limit_exceeded()}
-          | {:error, resource_not_found_exception()}
-          | {:error, transaction_canceled_exception()}
-          | {:error, transaction_in_progress_exception()}
+          | {:error, transact_write_items_errors()}
   def transact_write_items(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4415,11 +5055,7 @@ defmodule AWS.DynamoDB do
   @spec untag_resource(map(), untag_resource_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_endpoint_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_in_use_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4447,10 +5083,7 @@ defmodule AWS.DynamoDB do
   @spec update_continuous_backups(map(), update_continuous_backups_input(), list()) ::
           {:ok, update_continuous_backups_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, continuous_backups_unavailable_exception()}
-          | {:error, internal_server_error()}
-          | {:error, invalid_endpoint_exception()}
-          | {:error, table_not_found_exception()}
+          | {:error, update_continuous_backups_errors()}
   def update_continuous_backups(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4476,8 +5109,7 @@ defmodule AWS.DynamoDB do
   @spec update_contributor_insights(map(), update_contributor_insights_input(), list()) ::
           {:ok, update_contributor_insights_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, resource_not_found_exception()}
+          | {:error, update_contributor_insights_errors()}
   def update_contributor_insights(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4536,12 +5168,7 @@ defmodule AWS.DynamoDB do
   @spec update_global_table(map(), update_global_table_input(), list()) ::
           {:ok, update_global_table_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, global_table_not_found_exception()}
-          | {:error, internal_server_error()}
-          | {:error, invalid_endpoint_exception()}
-          | {:error, replica_already_exists_exception()}
-          | {:error, replica_not_found_exception()}
-          | {:error, table_not_found_exception()}
+          | {:error, update_global_table_errors()}
   def update_global_table(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4567,13 +5194,7 @@ defmodule AWS.DynamoDB do
   @spec update_global_table_settings(map(), update_global_table_settings_input(), list()) ::
           {:ok, update_global_table_settings_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, global_table_not_found_exception()}
-          | {:error, index_not_found_exception()}
-          | {:error, internal_server_error()}
-          | {:error, invalid_endpoint_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, replica_not_found_exception()}
-          | {:error, resource_in_use_exception()}
+          | {:error, update_global_table_settings_errors()}
   def update_global_table_settings(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4597,14 +5218,7 @@ defmodule AWS.DynamoDB do
   @spec update_item(map(), update_item_input(), list()) ::
           {:ok, update_item_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conditional_check_failed_exception()}
-          | {:error, internal_server_error()}
-          | {:error, invalid_endpoint_exception()}
-          | {:error, item_collection_size_limit_exceeded_exception()}
-          | {:error, provisioned_throughput_exceeded_exception()}
-          | {:error, request_limit_exceeded()}
-          | {:error, resource_not_found_exception()}
-          | {:error, transaction_conflict_exception()}
+          | {:error, update_item_errors()}
   def update_item(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4621,11 +5235,7 @@ defmodule AWS.DynamoDB do
         ) ::
           {:ok, update_kinesis_streaming_destination_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_endpoint_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_in_use_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, update_kinesis_streaming_destination_errors()}
   def update_kinesis_streaming_destination(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4665,11 +5275,7 @@ defmodule AWS.DynamoDB do
   @spec update_table(map(), update_table_input(), list()) ::
           {:ok, update_table_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_endpoint_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_in_use_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, update_table_errors()}
   def update_table(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4689,10 +5295,7 @@ defmodule AWS.DynamoDB do
         ) ::
           {:ok, update_table_replica_auto_scaling_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_in_use_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, update_table_replica_auto_scaling_errors()}
   def update_table_replica_auto_scaling(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4738,11 +5341,7 @@ defmodule AWS.DynamoDB do
   @spec update_time_to_live(map(), update_time_to_live_input(), list()) ::
           {:ok, update_time_to_live_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_endpoint_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_in_use_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, update_time_to_live_errors()}
   def update_time_to_live(%Client{} = client, input, options \\ []) do
     meta = metadata()
 

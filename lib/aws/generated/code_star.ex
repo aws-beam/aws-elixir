@@ -102,646 +102,847 @@ defmodule AWS.CodeStar do
   @typedoc """
 
   ## Example:
-  project_creation_failed_exception() :: %{
-    "message" => String.t()
-  }
+      
+      project_creation_failed_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type project_creation_failed_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_user_profile_result() :: %{
-    "userArn" => String.t()
-  }
+      
+      delete_user_profile_result() :: %{
+        "userArn" => String.t()
+      }
+      
   """
   @type delete_user_profile_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_user_profile_request() :: %{
-    optional("displayName") => String.t(),
-    optional("emailAddress") => String.t(),
-    optional("sshPublicKey") => String.t(),
-    required("userArn") => String.t()
-  }
+      
+      update_user_profile_request() :: %{
+        optional("displayName") => String.t(),
+        optional("emailAddress") => String.t(),
+        optional("sshPublicKey") => String.t(),
+        required("userArn") => String.t()
+      }
+      
   """
   @type update_user_profile_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  team_member_not_found_exception() :: %{
-    "message" => String.t()
-  }
+      
+      team_member_not_found_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type team_member_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  toolchain_source() :: %{
-    "s3" => s3_location()
-  }
+      
+      toolchain_source() :: %{
+        "s3" => s3_location()
+      }
+      
   """
   @type toolchain_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  toolchain() :: %{
-    "roleArn" => String.t(),
-    "source" => toolchain_source(),
-    "stackParameters" => map()
-  }
+      
+      toolchain() :: %{
+        "roleArn" => String.t(),
+        "source" => toolchain_source(),
+        "stackParameters" => map()
+      }
+      
   """
   @type toolchain() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_project_result() :: %{
-    "arn" => String.t(),
-    "clientRequestToken" => String.t(),
-    "createdTimeStamp" => non_neg_integer(),
-    "description" => String.t(),
-    "id" => String.t(),
-    "name" => String.t(),
-    "projectTemplateId" => String.t(),
-    "stackId" => String.t(),
-    "status" => project_status()
-  }
+      
+      describe_project_result() :: %{
+        "arn" => String.t(),
+        "clientRequestToken" => String.t(),
+        "createdTimeStamp" => non_neg_integer(),
+        "description" => String.t(),
+        "id" => String.t(),
+        "name" => String.t(),
+        "projectTemplateId" => String.t(),
+        "stackId" => String.t(),
+        "status" => project_status()
+      }
+      
   """
   @type describe_project_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  code_commit_code_destination() :: %{
-    "name" => String.t()
-  }
+      
+      code_commit_code_destination() :: %{
+        "name" => String.t()
+      }
+      
   """
   @type code_commit_code_destination() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_user_profiles_result() :: %{
-    "nextToken" => String.t(),
-    "userProfiles" => list(user_profile_summary()())
-  }
+      
+      list_user_profiles_result() :: %{
+        "nextToken" => String.t(),
+        "userProfiles" => list(user_profile_summary()())
+      }
+      
   """
   @type list_user_profiles_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  project_summary() :: %{
-    "projectArn" => String.t(),
-    "projectId" => String.t()
-  }
+      
+      project_summary() :: %{
+        "projectArn" => String.t(),
+        "projectId" => String.t()
+      }
+      
   """
   @type project_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_project_request() :: %{
-    required("id") => String.t()
-  }
+      
+      describe_project_request() :: %{
+        required("id") => String.t()
+      }
+      
   """
   @type describe_project_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_project_result() :: %{
-    "projectArn" => String.t(),
-    "stackId" => String.t()
-  }
+      
+      delete_project_result() :: %{
+        "projectArn" => String.t(),
+        "stackId" => String.t()
+      }
+      
   """
   @type delete_project_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  user_profile_already_exists_exception() :: %{
-    "message" => String.t()
-  }
+      
+      user_profile_already_exists_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type user_profile_already_exists_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_project_result() :: %{
-    "tags" => map()
-  }
+      
+      tag_project_result() :: %{
+        "tags" => map()
+      }
+      
   """
   @type tag_project_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disassociate_team_member_result() :: %{
-
-  }
+      
+      disassociate_team_member_result() :: %{}
+      
   """
-  @type disassociate_team_member_result() :: %{String.t() => any()}
+  @type disassociate_team_member_result() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_project_request() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t(),
-    required("id") => String.t()
-  }
+      
+      list_tags_for_project_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        required("id") => String.t()
+      }
+      
   """
   @type list_tags_for_project_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_user_profile_result() :: %{
-    "createdTimestamp" => non_neg_integer(),
-    "displayName" => String.t(),
-    "emailAddress" => String.t(),
-    "lastModifiedTimestamp" => non_neg_integer(),
-    "sshPublicKey" => String.t(),
-    "userArn" => String.t()
-  }
+      
+      describe_user_profile_result() :: %{
+        "createdTimestamp" => non_neg_integer(),
+        "displayName" => String.t(),
+        "emailAddress" => String.t(),
+        "lastModifiedTimestamp" => non_neg_integer(),
+        "sshPublicKey" => String.t(),
+        "userArn" => String.t()
+      }
+      
   """
   @type describe_user_profile_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_user_profile_request() :: %{
-    required("userArn") => String.t()
-  }
+      
+      describe_user_profile_request() :: %{
+        required("userArn") => String.t()
+      }
+      
   """
   @type describe_user_profile_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_team_members_request() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t(),
-    required("projectId") => String.t()
-  }
+      
+      list_team_members_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        required("projectId") => String.t()
+      }
+      
   """
   @type list_team_members_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_team_members_result() :: %{
-    "nextToken" => String.t(),
-    "teamMembers" => list(team_member()())
-  }
+      
+      list_team_members_result() :: %{
+        "nextToken" => String.t(),
+        "teamMembers" => list(team_member()())
+      }
+      
   """
   @type list_team_members_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_user_profile_request() :: %{
-    required("userArn") => String.t()
-  }
+      
+      delete_user_profile_request() :: %{
+        required("userArn") => String.t()
+      }
+      
   """
   @type delete_user_profile_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  code_destination() :: %{
-    "codeCommit" => code_commit_code_destination(),
-    "gitHub" => git_hub_code_destination()
-  }
+      
+      code_destination() :: %{
+        "codeCommit" => code_commit_code_destination(),
+        "gitHub" => git_hub_code_destination()
+      }
+      
   """
   @type code_destination() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_next_token_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_next_token_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_next_token_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  team_member() :: %{
-    "projectRole" => String.t(),
-    "remoteAccessAllowed" => boolean(),
-    "userArn" => String.t()
-  }
+      
+      team_member() :: %{
+        "projectRole" => String.t(),
+        "remoteAccessAllowed" => boolean(),
+        "userArn" => String.t()
+      }
+      
   """
   @type team_member() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_user_profiles_request() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t()
-  }
+      
+      list_user_profiles_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+      
   """
   @type list_user_profiles_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  team_member_already_associated_exception() :: %{
-    "message" => String.t()
-  }
+      
+      team_member_already_associated_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type team_member_already_associated_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_user_profile_result() :: %{
-    "createdTimestamp" => non_neg_integer(),
-    "displayName" => String.t(),
-    "emailAddress" => String.t(),
-    "lastModifiedTimestamp" => non_neg_integer(),
-    "sshPublicKey" => String.t(),
-    "userArn" => String.t()
-  }
+      
+      update_user_profile_result() :: %{
+        "createdTimestamp" => non_neg_integer(),
+        "displayName" => String.t(),
+        "emailAddress" => String.t(),
+        "lastModifiedTimestamp" => non_neg_integer(),
+        "sshPublicKey" => String.t(),
+        "userArn" => String.t()
+      }
+      
   """
   @type update_user_profile_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  s3_location() :: %{
-    "bucketKey" => String.t(),
-    "bucketName" => String.t()
-  }
+      
+      s3_location() :: %{
+        "bucketKey" => String.t(),
+        "bucketName" => String.t()
+      }
+      
   """
   @type s3_location() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_resources_result() :: %{
-    "nextToken" => String.t(),
-    "resources" => list(resource()())
-  }
+      
+      list_resources_result() :: %{
+        "nextToken" => String.t(),
+        "resources" => list(resource()())
+      }
+      
   """
   @type list_resources_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_project_result() :: %{
-
-  }
+      
+      untag_project_result() :: %{}
+      
   """
-  @type untag_project_result() :: %{String.t() => any()}
+  @type untag_project_result() :: %{}
 
   @typedoc """
 
   ## Example:
-  code() :: %{
-    "destination" => code_destination(),
-    "source" => code_source()
-  }
+      
+      code() :: %{
+        "destination" => code_destination(),
+        "source" => code_source()
+      }
+      
   """
   @type code() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disassociate_team_member_request() :: %{
-    required("projectId") => String.t(),
-    required("userArn") => String.t()
-  }
+      
+      disassociate_team_member_request() :: %{
+        required("projectId") => String.t(),
+        required("userArn") => String.t()
+      }
+      
   """
   @type disassociate_team_member_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_project_request() :: %{
-    optional("description") => String.t(),
-    optional("name") => String.t(),
-    required("id") => String.t()
-  }
+      
+      update_project_request() :: %{
+        optional("description") => String.t(),
+        optional("name") => String.t(),
+        required("id") => String.t()
+      }
+      
   """
   @type update_project_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  project_already_exists_exception() :: %{
-    "message" => String.t()
-  }
+      
+      project_already_exists_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type project_already_exists_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_team_member_result() :: %{
-    "projectRole" => String.t(),
-    "remoteAccessAllowed" => boolean(),
-    "userArn" => String.t()
-  }
+      
+      update_team_member_result() :: %{
+        "projectRole" => String.t(),
+        "remoteAccessAllowed" => boolean(),
+        "userArn" => String.t()
+      }
+      
   """
   @type update_team_member_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_project_result() :: %{
-    "nextToken" => String.t(),
-    "tags" => map()
-  }
+      
+      list_tags_for_project_result() :: %{
+        "nextToken" => String.t(),
+        "tags" => map()
+      }
+      
   """
   @type list_tags_for_project_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  code_source() :: %{
-    "s3" => s3_location()
-  }
+      
+      code_source() :: %{
+        "s3" => s3_location()
+      }
+      
   """
   @type code_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  git_hub_code_destination() :: %{
-    "description" => String.t(),
-    "issuesEnabled" => boolean(),
-    "name" => String.t(),
-    "owner" => String.t(),
-    "privateRepository" => boolean(),
-    "token" => String.t(),
-    "type" => String.t()
-  }
+      
+      git_hub_code_destination() :: %{
+        "description" => String.t(),
+        "issuesEnabled" => boolean(),
+        "name" => String.t(),
+        "owner" => String.t(),
+        "privateRepository" => boolean(),
+        "token" => String.t(),
+        "type" => String.t()
+      }
+      
   """
   @type git_hub_code_destination() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  user_profile_summary() :: %{
-    "displayName" => String.t(),
-    "emailAddress" => String.t(),
-    "sshPublicKey" => String.t(),
-    "userArn" => String.t()
-  }
+      
+      user_profile_summary() :: %{
+        "displayName" => String.t(),
+        "emailAddress" => String.t(),
+        "sshPublicKey" => String.t(),
+        "userArn" => String.t()
+      }
+      
   """
   @type user_profile_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_user_profile_request() :: %{
-    optional("sshPublicKey") => String.t(),
-    required("displayName") => String.t(),
-    required("emailAddress") => String.t(),
-    required("userArn") => String.t()
-  }
+      
+      create_user_profile_request() :: %{
+        optional("sshPublicKey") => String.t(),
+        required("displayName") => String.t(),
+        required("emailAddress") => String.t(),
+        required("userArn") => String.t()
+      }
+      
   """
   @type create_user_profile_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_user_profile_result() :: %{
-    "createdTimestamp" => non_neg_integer(),
-    "displayName" => String.t(),
-    "emailAddress" => String.t(),
-    "lastModifiedTimestamp" => non_neg_integer(),
-    "sshPublicKey" => String.t(),
-    "userArn" => String.t()
-  }
+      
+      create_user_profile_result() :: %{
+        "createdTimestamp" => non_neg_integer(),
+        "displayName" => String.t(),
+        "emailAddress" => String.t(),
+        "lastModifiedTimestamp" => non_neg_integer(),
+        "sshPublicKey" => String.t(),
+        "userArn" => String.t()
+      }
+      
   """
   @type create_user_profile_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  concurrent_modification_exception() :: %{
-    "message" => String.t()
-  }
+      
+      concurrent_modification_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type concurrent_modification_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  validation_exception() :: %{
-    "message" => String.t()
-  }
+      
+      validation_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_project_request() :: %{
-    optional("clientRequestToken") => String.t(),
-    optional("description") => String.t(),
-    optional("sourceCode") => list(code()()),
-    optional("tags") => map(),
-    optional("toolchain") => toolchain(),
-    required("id") => String.t(),
-    required("name") => String.t()
-  }
+      
+      create_project_request() :: %{
+        optional("clientRequestToken") => String.t(),
+        optional("description") => String.t(),
+        optional("sourceCode") => list(code()()),
+        optional("tags") => map(),
+        optional("toolchain") => toolchain(),
+        required("id") => String.t(),
+        required("name") => String.t()
+      }
+      
   """
   @type create_project_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  project_status() :: %{
-    "reason" => String.t(),
-    "state" => String.t()
-  }
+      
+      project_status() :: %{
+        "reason" => String.t(),
+        "state" => String.t()
+      }
+      
   """
   @type project_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_projects_request() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t()
-  }
+      
+      list_projects_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+      
   """
   @type list_projects_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  limit_exceeded_exception() :: %{
-    "message" => String.t()
-  }
+      
+      limit_exceeded_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_resources_request() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t(),
-    required("projectId") => String.t()
-  }
+      
+      list_resources_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        required("projectId") => String.t()
+      }
+      
   """
   @type list_resources_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  associate_team_member_result() :: %{
-    "clientRequestToken" => String.t()
-  }
+      
+      associate_team_member_result() :: %{
+        "clientRequestToken" => String.t()
+      }
+      
   """
   @type associate_team_member_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  associate_team_member_request() :: %{
-    optional("clientRequestToken") => String.t(),
-    optional("remoteAccessAllowed") => boolean(),
-    required("projectId") => String.t(),
-    required("projectRole") => String.t(),
-    required("userArn") => String.t()
-  }
+      
+      associate_team_member_request() :: %{
+        optional("clientRequestToken") => String.t(),
+        optional("remoteAccessAllowed") => boolean(),
+        required("projectId") => String.t(),
+        required("projectRole") => String.t(),
+        required("userArn") => String.t()
+      }
+      
   """
   @type associate_team_member_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_projects_result() :: %{
-    "nextToken" => String.t(),
-    "projects" => list(project_summary()())
-  }
+      
+      list_projects_result() :: %{
+        "nextToken" => String.t(),
+        "projects" => list(project_summary()())
+      }
+      
   """
   @type list_projects_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_project_request() :: %{
-    optional("clientRequestToken") => String.t(),
-    optional("deleteStack") => boolean(),
-    required("id") => String.t()
-  }
+      
+      delete_project_request() :: %{
+        optional("clientRequestToken") => String.t(),
+        optional("deleteStack") => boolean(),
+        required("id") => String.t()
+      }
+      
   """
   @type delete_project_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  project_not_found_exception() :: %{
-    "message" => String.t()
-  }
+      
+      project_not_found_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type project_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  user_profile_not_found_exception() :: %{
-    "message" => String.t()
-  }
+      
+      user_profile_not_found_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type user_profile_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_service_role_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_service_role_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_service_role_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_project_result() :: %{
-    "arn" => String.t(),
-    "clientRequestToken" => String.t(),
-    "id" => String.t(),
-    "projectTemplateId" => String.t()
-  }
+      
+      create_project_result() :: %{
+        "arn" => String.t(),
+        "clientRequestToken" => String.t(),
+        "id" => String.t(),
+        "projectTemplateId" => String.t()
+      }
+      
   """
   @type create_project_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_project_request() :: %{
-    required("id") => String.t(),
-    required("tags") => list(String.t()())
-  }
+      
+      untag_project_request() :: %{
+        required("id") => String.t(),
+        required("tags") => list(String.t()())
+      }
+      
   """
   @type untag_project_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  project_configuration_exception() :: %{
-    "message" => String.t()
-  }
+      
+      project_configuration_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type project_configuration_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_team_member_request() :: %{
-    optional("projectRole") => String.t(),
-    optional("remoteAccessAllowed") => boolean(),
-    required("projectId") => String.t(),
-    required("userArn") => String.t()
-  }
+      
+      update_team_member_request() :: %{
+        optional("projectRole") => String.t(),
+        optional("remoteAccessAllowed") => boolean(),
+        required("projectId") => String.t(),
+        required("userArn") => String.t()
+      }
+      
   """
   @type update_team_member_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource() :: %{
-    "id" => String.t()
-  }
+      
+      resource() :: %{
+        "id" => String.t()
+      }
+      
   """
   @type resource() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_project_request() :: %{
-    required("id") => String.t(),
-    required("tags") => map()
-  }
+      
+      tag_project_request() :: %{
+        required("id") => String.t(),
+        required("tags") => map()
+      }
+      
   """
   @type tag_project_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_project_result() :: %{
-
-  }
+      
+      update_project_result() :: %{}
+      
   """
-  @type update_project_result() :: %{String.t() => any()}
+  @type update_project_result() :: %{}
+
+  @type associate_team_member_errors() ::
+          project_configuration_exception()
+          | invalid_service_role_exception()
+          | project_not_found_exception()
+          | limit_exceeded_exception()
+          | validation_exception()
+          | concurrent_modification_exception()
+          | team_member_already_associated_exception()
+
+  @type create_project_errors() ::
+          project_configuration_exception()
+          | invalid_service_role_exception()
+          | limit_exceeded_exception()
+          | validation_exception()
+          | concurrent_modification_exception()
+          | project_already_exists_exception()
+          | project_creation_failed_exception()
+
+  @type create_user_profile_errors() ::
+          validation_exception() | user_profile_already_exists_exception()
+
+  @type delete_project_errors() ::
+          invalid_service_role_exception()
+          | validation_exception()
+          | concurrent_modification_exception()
+
+  @type delete_user_profile_errors() :: validation_exception()
+
+  @type describe_project_errors() ::
+          project_configuration_exception()
+          | invalid_service_role_exception()
+          | project_not_found_exception()
+          | validation_exception()
+          | concurrent_modification_exception()
+
+  @type describe_user_profile_errors() ::
+          user_profile_not_found_exception() | validation_exception()
+
+  @type disassociate_team_member_errors() ::
+          invalid_service_role_exception()
+          | project_not_found_exception()
+          | validation_exception()
+          | concurrent_modification_exception()
+
+  @type list_projects_errors() :: validation_exception() | invalid_next_token_exception()
+
+  @type list_resources_errors() ::
+          project_not_found_exception() | validation_exception() | invalid_next_token_exception()
+
+  @type list_tags_for_project_errors() ::
+          project_not_found_exception() | validation_exception() | invalid_next_token_exception()
+
+  @type list_team_members_errors() ::
+          project_not_found_exception() | validation_exception() | invalid_next_token_exception()
+
+  @type list_user_profiles_errors() :: validation_exception() | invalid_next_token_exception()
+
+  @type tag_project_errors() ::
+          project_not_found_exception()
+          | limit_exceeded_exception()
+          | validation_exception()
+          | concurrent_modification_exception()
+
+  @type untag_project_errors() ::
+          project_not_found_exception()
+          | limit_exceeded_exception()
+          | validation_exception()
+          | concurrent_modification_exception()
+
+  @type update_project_errors() :: project_not_found_exception() | validation_exception()
+
+  @type update_team_member_errors() ::
+          project_configuration_exception()
+          | invalid_service_role_exception()
+          | project_not_found_exception()
+          | limit_exceeded_exception()
+          | validation_exception()
+          | concurrent_modification_exception()
+          | team_member_not_found_exception()
+
+  @type update_user_profile_errors() ::
+          user_profile_not_found_exception() | validation_exception()
 
   def metadata do
     %{
@@ -764,13 +965,7 @@ defmodule AWS.CodeStar do
   @spec associate_team_member(map(), associate_team_member_request(), list()) ::
           {:ok, associate_team_member_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, invalid_service_role_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, project_configuration_exception()}
-          | {:error, project_not_found_exception()}
-          | {:error, team_member_already_associated_exception()}
-          | {:error, validation_exception()}
+          | {:error, associate_team_member_errors()}
   def associate_team_member(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -789,13 +984,7 @@ defmodule AWS.CodeStar do
   @spec create_project(map(), create_project_request(), list()) ::
           {:ok, create_project_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, invalid_service_role_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, project_already_exists_exception()}
-          | {:error, project_configuration_exception()}
-          | {:error, project_creation_failed_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_project_errors()}
   def create_project(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -815,8 +1004,7 @@ defmodule AWS.CodeStar do
   @spec create_user_profile(map(), create_user_profile_request(), list()) ::
           {:ok, create_user_profile_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, user_profile_already_exists_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_user_profile_errors()}
   def create_user_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -832,9 +1020,7 @@ defmodule AWS.CodeStar do
   @spec delete_project(map(), delete_project_request(), list()) ::
           {:ok, delete_project_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, invalid_service_role_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_project_errors()}
   def delete_project(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -852,7 +1038,7 @@ defmodule AWS.CodeStar do
   @spec delete_user_profile(map(), delete_user_profile_request(), list()) ::
           {:ok, delete_user_profile_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, validation_exception()}
+          | {:error, delete_user_profile_errors()}
   def delete_user_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -865,11 +1051,7 @@ defmodule AWS.CodeStar do
   @spec describe_project(map(), describe_project_request(), list()) ::
           {:ok, describe_project_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, invalid_service_role_exception()}
-          | {:error, project_configuration_exception()}
-          | {:error, project_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, describe_project_errors()}
   def describe_project(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -882,8 +1064,7 @@ defmodule AWS.CodeStar do
   @spec describe_user_profile(map(), describe_user_profile_request(), list()) ::
           {:ok, describe_user_profile_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, user_profile_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, describe_user_profile_errors()}
   def describe_user_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -903,10 +1084,7 @@ defmodule AWS.CodeStar do
   @spec disassociate_team_member(map(), disassociate_team_member_request(), list()) ::
           {:ok, disassociate_team_member_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, invalid_service_role_exception()}
-          | {:error, project_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, disassociate_team_member_errors()}
   def disassociate_team_member(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -919,8 +1097,7 @@ defmodule AWS.CodeStar do
   @spec list_projects(map(), list_projects_request(), list()) ::
           {:ok, list_projects_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_next_token_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_projects_errors()}
   def list_projects(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -933,9 +1110,7 @@ defmodule AWS.CodeStar do
   @spec list_resources(map(), list_resources_request(), list()) ::
           {:ok, list_resources_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_next_token_exception()}
-          | {:error, project_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_resources_errors()}
   def list_resources(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -948,9 +1123,7 @@ defmodule AWS.CodeStar do
   @spec list_tags_for_project(map(), list_tags_for_project_request(), list()) ::
           {:ok, list_tags_for_project_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_next_token_exception()}
-          | {:error, project_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_tags_for_project_errors()}
   def list_tags_for_project(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -963,9 +1136,7 @@ defmodule AWS.CodeStar do
   @spec list_team_members(map(), list_team_members_request(), list()) ::
           {:ok, list_team_members_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_next_token_exception()}
-          | {:error, project_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_team_members_errors()}
   def list_team_members(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -978,8 +1149,7 @@ defmodule AWS.CodeStar do
   @spec list_user_profiles(map(), list_user_profiles_request(), list()) ::
           {:ok, list_user_profiles_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_next_token_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_user_profiles_errors()}
   def list_user_profiles(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -992,10 +1162,7 @@ defmodule AWS.CodeStar do
   @spec tag_project(map(), tag_project_request(), list()) ::
           {:ok, tag_project_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, project_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, tag_project_errors()}
   def tag_project(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1008,10 +1175,7 @@ defmodule AWS.CodeStar do
   @spec untag_project(map(), untag_project_request(), list()) ::
           {:ok, untag_project_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, project_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, untag_project_errors()}
   def untag_project(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1024,8 +1188,7 @@ defmodule AWS.CodeStar do
   @spec update_project(map(), update_project_request(), list()) ::
           {:ok, update_project_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, project_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_project_errors()}
   def update_project(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1043,13 +1206,7 @@ defmodule AWS.CodeStar do
   @spec update_team_member(map(), update_team_member_request(), list()) ::
           {:ok, update_team_member_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, invalid_service_role_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, project_configuration_exception()}
-          | {:error, project_not_found_exception()}
-          | {:error, team_member_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_team_member_errors()}
   def update_team_member(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1067,8 +1224,7 @@ defmodule AWS.CodeStar do
   @spec update_user_profile(map(), update_user_profile_request(), list()) ::
           {:ok, update_user_profile_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, user_profile_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_user_profile_errors()}
   def update_user_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
 

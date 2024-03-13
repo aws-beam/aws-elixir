@@ -50,6573 +50,8322 @@ defmodule AWS.SSM do
   @typedoc """
 
   ## Example:
-  get_automation_execution_result() :: %{
-    "AutomationExecution" => automation_execution()
-  }
+      
+      get_automation_execution_result() :: %{
+        "AutomationExecution" => automation_execution()
+      }
+      
   """
   @type get_automation_execution_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  send_automation_signal_result() :: %{
-
-  }
+      
+      send_automation_signal_result() :: %{}
+      
   """
-  @type send_automation_signal_result() :: %{String.t() => any()}
+  @type send_automation_signal_result() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_maintenance_window_execution_task_invocation_request() :: %{
-    required("InvocationId") => String.t(),
-    required("TaskId") => String.t(),
-    required("WindowExecutionId") => String.t()
-  }
+      
+      get_maintenance_window_execution_task_invocation_request() :: %{
+        required("InvocationId") => String.t(),
+        required("TaskId") => String.t(),
+        required("WindowExecutionId") => String.t()
+      }
+      
   """
   @type get_maintenance_window_execution_task_invocation_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  register_default_patch_baseline_result() :: %{
-    "BaselineId" => String.t()
-  }
+      
+      register_default_patch_baseline_result() :: %{
+        "BaselineId" => String.t()
+      }
+      
   """
   @type register_default_patch_baseline_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_command_invocations_request() :: %{
-    optional("CommandId") => String.t(),
-    optional("Details") => boolean(),
-    optional("Filters") => list(command_filter()()),
-    optional("InstanceId") => String.t(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+      
+      list_command_invocations_request() :: %{
+        optional("CommandId") => String.t(),
+        optional("Details") => boolean(),
+        optional("Filters") => list(command_filter()()),
+        optional("InstanceId") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type list_command_invocations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  compliance_string_filter() :: %{
-    "Key" => String.t(),
-    "Type" => list(any()),
-    "Values" => list(String.t()())
-  }
+      
+      compliance_string_filter() :: %{
+        "Key" => String.t(),
+        "Type" => list(any()),
+        "Values" => list(String.t()())
+      }
+      
   """
   @type compliance_string_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  notification_config() :: %{
-    "NotificationArn" => String.t(),
-    "NotificationEvents" => list(list(any())()),
-    "NotificationType" => list(any())
-  }
+      
+      notification_config() :: %{
+        "NotificationArn" => String.t(),
+        "NotificationEvents" => list(list(any())()),
+        "NotificationType" => list(any())
+      }
+      
   """
   @type notification_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  deregister_target_from_maintenance_window_request() :: %{
-    optional("Safe") => boolean(),
-    required("WindowId") => String.t(),
-    required("WindowTargetId") => String.t()
-  }
+      
+      deregister_target_from_maintenance_window_request() :: %{
+        optional("Safe") => boolean(),
+        required("WindowId") => String.t(),
+        required("WindowTargetId") => String.t()
+      }
+      
   """
   @type deregister_target_from_maintenance_window_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  parent_step_details() :: %{
-    "Action" => String.t(),
-    "Iteration" => integer(),
-    "IteratorValue" => String.t(),
-    "StepExecutionId" => String.t(),
-    "StepName" => String.t()
-  }
+      
+      parent_step_details() :: %{
+        "Action" => String.t(),
+        "Iteration" => integer(),
+        "IteratorValue" => String.t(),
+        "StepExecutionId" => String.t(),
+        "StepName" => String.t()
+      }
+      
   """
   @type parent_step_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cancel_maintenance_window_execution_result() :: %{
-    "WindowExecutionId" => String.t()
-  }
+      
+      cancel_maintenance_window_execution_result() :: %{
+        "WindowExecutionId" => String.t()
+      }
+      
   """
   @type cancel_maintenance_window_execution_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_ops_item_events_response() :: %{
-    "NextToken" => String.t(),
-    "Summaries" => list(ops_item_event_summary()())
-  }
+      
+      list_ops_item_events_response() :: %{
+        "NextToken" => String.t(),
+        "Summaries" => list(ops_item_event_summary()())
+      }
+      
   """
   @type list_ops_item_events_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_inventory_deletions_request() :: %{
-    optional("DeletionId") => String.t(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+      
+      describe_inventory_deletions_request() :: %{
+        optional("DeletionId") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type describe_inventory_deletions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  register_target_with_maintenance_window_result() :: %{
-    "WindowTargetId" => String.t()
-  }
+      
+      register_target_with_maintenance_window_result() :: %{
+        "WindowTargetId" => String.t()
+      }
+      
   """
   @type register_target_with_maintenance_window_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_associations_once_result() :: %{
-
-  }
+      
+      start_associations_once_result() :: %{}
+      
   """
-  @type start_associations_once_result() :: %{String.t() => any()}
+  @type start_associations_once_result() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_patch_baseline_request() :: %{
-    optional("ApprovalRules") => patch_rule_group(),
-    optional("ApprovedPatches") => list(String.t()()),
-    optional("ApprovedPatchesComplianceLevel") => list(any()),
-    optional("ApprovedPatchesEnableNonSecurity") => boolean(),
-    optional("ClientToken") => String.t(),
-    optional("Description") => String.t(),
-    optional("GlobalFilters") => patch_filter_group(),
-    optional("OperatingSystem") => list(any()),
-    optional("RejectedPatches") => list(String.t()()),
-    optional("RejectedPatchesAction") => list(any()),
-    optional("Sources") => list(patch_source()()),
-    optional("Tags") => list(tag()()),
-    required("Name") => String.t()
-  }
+      
+      create_patch_baseline_request() :: %{
+        optional("ApprovalRules") => patch_rule_group(),
+        optional("ApprovedPatches") => list(String.t()()),
+        optional("ApprovedPatchesComplianceLevel") => list(any()),
+        optional("ApprovedPatchesEnableNonSecurity") => boolean(),
+        optional("ClientToken") => String.t(),
+        optional("Description") => String.t(),
+        optional("GlobalFilters") => patch_filter_group(),
+        optional("OperatingSystem") => list(any()),
+        optional("RejectedPatches") => list(String.t()()),
+        optional("RejectedPatchesAction") => list(any()),
+        optional("Sources") => list(patch_source()()),
+        optional("Tags") => list(tag()()),
+        required("Name") => String.t()
+      }
+      
   """
   @type create_patch_baseline_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_association() :: %{
-    "Message" => String.t()
-  }
+      
+      invalid_association() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type invalid_association() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_association_status_result() :: %{
-    "AssociationDescription" => association_description()
-  }
+      
+      update_association_status_result() :: %{
+        "AssociationDescription" => association_description()
+      }
+      
   """
   @type update_association_status_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_maintenance_window_task_request() :: %{
-    optional("AlarmConfiguration") => alarm_configuration(),
-    optional("CutoffBehavior") => list(any()),
-    optional("Description") => String.t(),
-    optional("LoggingInfo") => logging_info(),
-    optional("MaxConcurrency") => String.t(),
-    optional("MaxErrors") => String.t(),
-    optional("Name") => String.t(),
-    optional("Priority") => integer(),
-    optional("Replace") => boolean(),
-    optional("ServiceRoleArn") => String.t(),
-    optional("Targets") => list(target()()),
-    optional("TaskArn") => String.t(),
-    optional("TaskInvocationParameters") => maintenance_window_task_invocation_parameters(),
-    optional("TaskParameters") => map(),
-    required("WindowId") => String.t(),
-    required("WindowTaskId") => String.t()
-  }
+      
+      update_maintenance_window_task_request() :: %{
+        optional("AlarmConfiguration") => alarm_configuration(),
+        optional("CutoffBehavior") => list(any()),
+        optional("Description") => String.t(),
+        optional("LoggingInfo") => logging_info(),
+        optional("MaxConcurrency") => String.t(),
+        optional("MaxErrors") => String.t(),
+        optional("Name") => String.t(),
+        optional("Priority") => integer(),
+        optional("Replace") => boolean(),
+        optional("ServiceRoleArn") => String.t(),
+        optional("Targets") => list(target()()),
+        optional("TaskArn") => String.t(),
+        optional("TaskInvocationParameters") => maintenance_window_task_invocation_parameters(),
+        optional("TaskParameters") => map(),
+        required("WindowId") => String.t(),
+        required("WindowTaskId") => String.t()
+      }
+      
   """
   @type update_maintenance_window_task_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_maintenance_window_execution_request() :: %{
-    required("WindowExecutionId") => String.t()
-  }
+      
+      get_maintenance_window_execution_request() :: %{
+        required("WindowExecutionId") => String.t()
+      }
+      
   """
   @type get_maintenance_window_execution_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  inventory_item_attribute() :: %{
-    "DataType" => list(any()),
-    "Name" => String.t()
-  }
+      
+      inventory_item_attribute() :: %{
+        "DataType" => list(any()),
+        "Name" => String.t()
+      }
+      
   """
   @type inventory_item_attribute() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_default_patch_baseline_request() :: %{
-    optional("OperatingSystem") => list(any())
-  }
+      
+      get_default_patch_baseline_request() :: %{
+        optional("OperatingSystem") => list(any())
+      }
+      
   """
   @type get_default_patch_baseline_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_parameters_result() :: %{
-    "InvalidParameters" => list(String.t()()),
-    "Parameters" => list(parameter()())
-  }
+      
+      get_parameters_result() :: %{
+        "InvalidParameters" => list(String.t()()),
+        "Parameters" => list(parameter()())
+      }
+      
   """
   @type get_parameters_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  metadata_value() :: %{
-    "Value" => String.t()
-  }
+      
+      metadata_value() :: %{
+        "Value" => String.t()
+      }
+      
   """
   @type metadata_value() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_maintenance_window_task_request() :: %{
-    required("WindowId") => String.t(),
-    required("WindowTaskId") => String.t()
-  }
+      
+      get_maintenance_window_task_request() :: %{
+        required("WindowId") => String.t(),
+        required("WindowTaskId") => String.t()
+      }
+      
   """
   @type get_maintenance_window_task_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_resource_policy_response() :: %{
-
-  }
+      
+      delete_resource_policy_response() :: %{}
+      
   """
-  @type delete_resource_policy_response() :: %{String.t() => any()}
+  @type delete_resource_policy_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  patch_group_patch_baseline_mapping() :: %{
-    "BaselineIdentity" => patch_baseline_identity(),
-    "PatchGroup" => String.t()
-  }
+      
+      patch_group_patch_baseline_mapping() :: %{
+        "BaselineIdentity" => patch_baseline_identity(),
+        "PatchGroup" => String.t()
+      }
+      
   """
   @type patch_group_patch_baseline_mapping() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  parameter_metadata() :: %{
-    "ARN" => String.t(),
-    "AllowedPattern" => String.t(),
-    "DataType" => String.t(),
-    "Description" => String.t(),
-    "KeyId" => String.t(),
-    "LastModifiedDate" => non_neg_integer(),
-    "LastModifiedUser" => String.t(),
-    "Name" => String.t(),
-    "Policies" => list(parameter_inline_policy()()),
-    "Tier" => list(any()),
-    "Type" => list(any()),
-    "Version" => float()
-  }
+      
+      parameter_metadata() :: %{
+        "ARN" => String.t(),
+        "AllowedPattern" => String.t(),
+        "DataType" => String.t(),
+        "Description" => String.t(),
+        "KeyId" => String.t(),
+        "LastModifiedDate" => non_neg_integer(),
+        "LastModifiedUser" => String.t(),
+        "Name" => String.t(),
+        "Policies" => list(parameter_inline_policy()()),
+        "Tier" => list(any()),
+        "Type" => list(any()),
+        "Version" => float()
+      }
+      
   """
   @type parameter_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  max_document_size_exceeded() :: %{
-    "Message" => String.t()
-  }
+      
+      max_document_size_exceeded() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type max_document_size_exceeded() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_data_sync_already_exists_exception() :: %{
-    "SyncName" => String.t()
-  }
+      
+      resource_data_sync_already_exists_exception() :: %{
+        "SyncName" => String.t()
+      }
+      
   """
   @type resource_data_sync_already_exists_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_available_patches_result() :: %{
-    "NextToken" => String.t(),
-    "Patches" => list(patch()())
-  }
+      
+      describe_available_patches_result() :: %{
+        "NextToken" => String.t(),
+        "Patches" => list(patch()())
+      }
+      
   """
   @type describe_available_patches_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_association_result() :: %{
-
-  }
+      
+      delete_association_result() :: %{}
+      
   """
-  @type delete_association_result() :: %{String.t() => any()}
+  @type delete_association_result() :: %{}
 
   @typedoc """
 
   ## Example:
-  describe_patch_properties_result() :: %{
-    "NextToken" => String.t(),
-    "Properties" => list(map()())
-  }
+      
+      describe_patch_properties_result() :: %{
+        "NextToken" => String.t(),
+        "Properties" => list(map()())
+      }
+      
   """
   @type describe_patch_properties_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_resource_data_sync_result() :: %{
-
-  }
+      
+      update_resource_data_sync_result() :: %{}
+      
   """
-  @type update_resource_data_sync_result() :: %{String.t() => any()}
+  @type update_resource_data_sync_result() :: %{}
 
   @typedoc """
 
   ## Example:
-  describe_activations_filter() :: %{
-    "FilterKey" => list(any()),
-    "FilterValues" => list(String.t()())
-  }
+      
+      describe_activations_filter() :: %{
+        "FilterKey" => list(any()),
+        "FilterValues" => list(String.t()())
+      }
+      
   """
   @type describe_activations_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ops_item() :: %{
-    "ActualEndTime" => non_neg_integer(),
-    "ActualStartTime" => non_neg_integer(),
-    "Category" => String.t(),
-    "CreatedBy" => String.t(),
-    "CreatedTime" => non_neg_integer(),
-    "Description" => String.t(),
-    "LastModifiedBy" => String.t(),
-    "LastModifiedTime" => non_neg_integer(),
-    "Notifications" => list(ops_item_notification()()),
-    "OperationalData" => map(),
-    "OpsItemArn" => String.t(),
-    "OpsItemId" => String.t(),
-    "OpsItemType" => String.t(),
-    "PlannedEndTime" => non_neg_integer(),
-    "PlannedStartTime" => non_neg_integer(),
-    "Priority" => integer(),
-    "RelatedOpsItems" => list(related_ops_item()()),
-    "Severity" => String.t(),
-    "Source" => String.t(),
-    "Status" => list(any()),
-    "Title" => String.t(),
-    "Version" => String.t()
-  }
+      
+      ops_item() :: %{
+        "ActualEndTime" => non_neg_integer(),
+        "ActualStartTime" => non_neg_integer(),
+        "Category" => String.t(),
+        "CreatedBy" => String.t(),
+        "CreatedTime" => non_neg_integer(),
+        "Description" => String.t(),
+        "LastModifiedBy" => String.t(),
+        "LastModifiedTime" => non_neg_integer(),
+        "Notifications" => list(ops_item_notification()()),
+        "OperationalData" => map(),
+        "OpsItemArn" => String.t(),
+        "OpsItemId" => String.t(),
+        "OpsItemType" => String.t(),
+        "PlannedEndTime" => non_neg_integer(),
+        "PlannedStartTime" => non_neg_integer(),
+        "Priority" => integer(),
+        "RelatedOpsItems" => list(related_ops_item()()),
+        "Severity" => String.t(),
+        "Source" => String.t(),
+        "Status" => list(any()),
+        "Title" => String.t(),
+        "Version" => String.t()
+      }
+      
   """
   @type ops_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_service_setting_result() :: %{
-    "ServiceSetting" => service_setting()
-  }
+      
+      get_service_setting_result() :: %{
+        "ServiceSetting" => service_setting()
+      }
+      
   """
   @type get_service_setting_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_associations_once_request() :: %{
-    required("AssociationIds") => list(String.t()())
-  }
+      
+      start_associations_once_request() :: %{
+        required("AssociationIds") => list(String.t()())
+      }
+      
   """
   @type start_associations_once_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_document_result() :: %{
-    "DocumentDescription" => document_description()
-  }
+      
+      update_document_result() :: %{
+        "DocumentDescription" => document_description()
+      }
+      
   """
   @type update_document_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_policy_attribute_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_policy_attribute_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_policy_attribute_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_association_request() :: %{
-    optional("AssociationId") => String.t(),
-    optional("AssociationVersion") => String.t(),
-    optional("InstanceId") => String.t(),
-    optional("Name") => String.t()
-  }
+      
+      describe_association_request() :: %{
+        optional("AssociationId") => String.t(),
+        optional("AssociationVersion") => String.t(),
+        optional("InstanceId") => String.t(),
+        optional("Name") => String.t()
+      }
+      
   """
   @type describe_association_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_plugin_name() :: %{
-
-  }
+      
+      invalid_plugin_name() :: %{}
+      
   """
-  @type invalid_plugin_name() :: %{String.t() => any()}
+  @type invalid_plugin_name() :: %{}
 
   @typedoc """
 
   ## Example:
-  invalid_type_name_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      invalid_type_name_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type invalid_type_name_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_parameter_request() :: %{
-    optional("AllowedPattern") => String.t(),
-    optional("DataType") => String.t(),
-    optional("Description") => String.t(),
-    optional("KeyId") => String.t(),
-    optional("Overwrite") => boolean(),
-    optional("Policies") => String.t(),
-    optional("Tags") => list(tag()()),
-    optional("Tier") => list(any()),
-    optional("Type") => list(any()),
-    required("Name") => String.t(),
-    required("Value") => String.t()
-  }
+      
+      put_parameter_request() :: %{
+        optional("AllowedPattern") => String.t(),
+        optional("DataType") => String.t(),
+        optional("Description") => String.t(),
+        optional("KeyId") => String.t(),
+        optional("Overwrite") => boolean(),
+        optional("Policies") => String.t(),
+        optional("Tags") => list(tag()()),
+        optional("Tier") => list(any()),
+        optional("Type") => list(any()),
+        required("Name") => String.t(),
+        required("Value") => String.t()
+      }
+      
   """
   @type put_parameter_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  maintenance_window_execution() :: %{
-    "EndTime" => non_neg_integer(),
-    "StartTime" => non_neg_integer(),
-    "Status" => list(any()),
-    "StatusDetails" => String.t(),
-    "WindowExecutionId" => String.t(),
-    "WindowId" => String.t()
-  }
+      
+      maintenance_window_execution() :: %{
+        "EndTime" => non_neg_integer(),
+        "StartTime" => non_neg_integer(),
+        "Status" => list(any()),
+        "StatusDetails" => String.t(),
+        "WindowExecutionId" => String.t(),
+        "WindowId" => String.t()
+      }
+      
   """
   @type maintenance_window_execution() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  unlabel_parameter_version_request() :: %{
-    required("Labels") => list(String.t()()),
-    required("Name") => String.t(),
-    required("ParameterVersion") => float()
-  }
+      
+      unlabel_parameter_version_request() :: %{
+        required("Labels") => list(String.t()()),
+        required("Name") => String.t(),
+        required("ParameterVersion") => float()
+      }
+      
   """
   @type unlabel_parameter_version_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_item_content_exception() :: %{
-    "Message" => String.t(),
-    "TypeName" => String.t()
-  }
+      
+      invalid_item_content_exception() :: %{
+        "Message" => String.t(),
+        "TypeName" => String.t()
+      }
+      
   """
   @type invalid_item_content_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_ops_item_request() :: %{
-    optional("OpsItemArn") => String.t(),
-    required("OpsItemId") => String.t()
-  }
+      
+      get_ops_item_request() :: %{
+        optional("OpsItemArn") => String.t(),
+        required("OpsItemId") => String.t()
+      }
+      
   """
   @type get_ops_item_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_session_request() :: %{
-    optional("DocumentName") => String.t(),
-    optional("Parameters") => map(),
-    optional("Reason") => String.t(),
-    required("Target") => String.t()
-  }
+      
+      start_session_request() :: %{
+        optional("DocumentName") => String.t(),
+        optional("Parameters") => map(),
+        optional("Reason") => String.t(),
+        required("Target") => String.t()
+      }
+      
   """
   @type start_session_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_instance_patch_states_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("InstanceIds") => list(String.t()())
-  }
+      
+      describe_instance_patch_states_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("InstanceIds") => list(String.t()())
+      }
+      
   """
   @type describe_instance_patch_states_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_data_sync_s3_destination() :: %{
-    "AWSKMSKeyARN" => String.t(),
-    "BucketName" => String.t(),
-    "DestinationDataSharing" => resource_data_sync_destination_data_sharing(),
-    "Prefix" => String.t(),
-    "Region" => String.t(),
-    "SyncFormat" => list(any())
-  }
+      
+      resource_data_sync_s3_destination() :: %{
+        "AWSKMSKeyARN" => String.t(),
+        "BucketName" => String.t(),
+        "DestinationDataSharing" => resource_data_sync_destination_data_sharing(),
+        "Prefix" => String.t(),
+        "Region" => String.t(),
+        "SyncFormat" => list(any())
+      }
+      
   """
   @type resource_data_sync_s3_destination() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_ops_item_response() :: %{
-
-  }
+      
+      delete_ops_item_response() :: %{}
+      
   """
-  @type delete_ops_item_response() :: %{String.t() => any()}
+  @type delete_ops_item_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  incompatible_policy_exception() :: %{
-    "message" => String.t()
-  }
+      
+      incompatible_policy_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type incompatible_policy_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  step_execution_filter() :: %{
-    "Key" => list(any()),
-    "Values" => list(String.t()())
-  }
+      
+      step_execution_filter() :: %{
+        "Key" => list(any()),
+        "Values" => list(String.t()())
+      }
+      
   """
   @type step_execution_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  parameter_not_found() :: %{
-    "message" => String.t()
-  }
+      
+      parameter_not_found() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type parameter_not_found() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  inventory_group() :: %{
-    "Filters" => list(inventory_filter()()),
-    "Name" => String.t()
-  }
+      
+      inventory_group() :: %{
+        "Filters" => list(inventory_filter()()),
+        "Name" => String.t()
+      }
+      
   """
   @type inventory_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ops_item_access_denied_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      ops_item_access_denied_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type ops_item_access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  malformed_resource_policy_document_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      malformed_resource_policy_document_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type malformed_resource_policy_document_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ops_item_identity() :: %{
-    "Arn" => String.t()
-  }
+      
+      ops_item_identity() :: %{
+        "Arn" => String.t()
+      }
+      
   """
   @type ops_item_identity() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_result_attribute_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      invalid_result_attribute_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type invalid_result_attribute_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_parameter_request() :: %{
-    required("Name") => String.t()
-  }
+      
+      delete_parameter_request() :: %{
+        required("Name") => String.t()
+      }
+      
   """
   @type delete_parameter_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  deregister_task_from_maintenance_window_result() :: %{
-    "WindowId" => String.t(),
-    "WindowTaskId" => String.t()
-  }
+      
+      deregister_task_from_maintenance_window_result() :: %{
+        "WindowId" => String.t(),
+        "WindowTaskId" => String.t()
+      }
+      
   """
   @type deregister_task_from_maintenance_window_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_ops_metadata_request() :: %{
-    optional("KeysToDelete") => list(String.t()()),
-    optional("MetadataToUpdate") => map(),
-    required("OpsMetadataArn") => String.t()
-  }
+      
+      update_ops_metadata_request() :: %{
+        optional("KeysToDelete") => list(String.t()()),
+        optional("MetadataToUpdate") => map(),
+        required("OpsMetadataArn") => String.t()
+      }
+      
   """
   @type update_ops_metadata_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_target() :: %{
-    "Message" => String.t()
-  }
+      
+      invalid_target() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type invalid_target() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  inventory_result_entity() :: %{
-    "Data" => map(),
-    "Id" => String.t()
-  }
+      
+      inventory_result_entity() :: %{
+        "Data" => map(),
+        "Id" => String.t()
+      }
+      
   """
   @type inventory_result_entity() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  deregister_patch_baseline_for_patch_group_request() :: %{
-    required("BaselineId") => String.t(),
-    required("PatchGroup") => String.t()
-  }
+      
+      deregister_patch_baseline_for_patch_group_request() :: %{
+        required("BaselineId") => String.t(),
+        required("PatchGroup") => String.t()
+      }
+      
   """
   @type deregister_patch_baseline_for_patch_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_resource_compliance_summaries_request() :: %{
-    optional("Filters") => list(compliance_string_filter()()),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+      
+      list_resource_compliance_summaries_request() :: %{
+        optional("Filters") => list(compliance_string_filter()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type list_resource_compliance_summaries_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_in_use_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      resource_in_use_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type resource_in_use_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cloud_watch_output_config() :: %{
-    "CloudWatchLogGroupName" => String.t(),
-    "CloudWatchOutputEnabled" => boolean()
-  }
+      
+      cloud_watch_output_config() :: %{
+        "CloudWatchLogGroupName" => String.t(),
+        "CloudWatchOutputEnabled" => boolean()
+      }
+      
   """
   @type cloud_watch_output_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  document_review_comment_source() :: %{
-    "Content" => String.t(),
-    "Type" => list(any())
-  }
+      
+      document_review_comment_source() :: %{
+        "Content" => String.t(),
+        "Type" => list(any())
+      }
+      
   """
   @type document_review_comment_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  account_sharing_info() :: %{
-    "AccountId" => String.t(),
-    "SharedDocumentVersion" => String.t()
-  }
+      
+      account_sharing_info() :: %{
+        "AccountId" => String.t(),
+        "SharedDocumentVersion" => String.t()
+      }
+      
   """
   @type account_sharing_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_tag() :: %{
-    "Message" => String.t()
-  }
+      
+      invalid_tag() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type invalid_tag() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_instance_associations_status_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("InstanceId") => String.t()
-  }
+      
+      describe_instance_associations_status_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("InstanceId") => String.t()
+      }
+      
   """
   @type describe_instance_associations_status_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_data_sync_item() :: %{
-    "LastStatus" => list(any()),
-    "LastSuccessfulSyncTime" => non_neg_integer(),
-    "LastSyncStatusMessage" => String.t(),
-    "LastSyncTime" => non_neg_integer(),
-    "S3Destination" => resource_data_sync_s3_destination(),
-    "SyncCreatedTime" => non_neg_integer(),
-    "SyncLastModifiedTime" => non_neg_integer(),
-    "SyncName" => String.t(),
-    "SyncSource" => resource_data_sync_source_with_state(),
-    "SyncType" => String.t()
-  }
+      
+      resource_data_sync_item() :: %{
+        "LastStatus" => list(any()),
+        "LastSuccessfulSyncTime" => non_neg_integer(),
+        "LastSyncStatusMessage" => String.t(),
+        "LastSyncTime" => non_neg_integer(),
+        "S3Destination" => resource_data_sync_s3_destination(),
+        "SyncCreatedTime" => non_neg_integer(),
+        "SyncLastModifiedTime" => non_neg_integer(),
+        "SyncName" => String.t(),
+        "SyncSource" => resource_data_sync_source_with_state(),
+        "SyncType" => String.t()
+      }
+      
   """
   @type resource_data_sync_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ops_metadata_filter() :: %{
-    "Key" => String.t(),
-    "Values" => list(String.t()())
-  }
+      
+      ops_metadata_filter() :: %{
+        "Key" => String.t(),
+        "Values" => list(String.t()())
+      }
+      
   """
   @type ops_metadata_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  unsupported_parameter_type() :: %{
-    "message" => String.t()
-  }
+      
+      unsupported_parameter_type() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type unsupported_parameter_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  document_parameter() :: %{
-    "DefaultValue" => String.t(),
-    "Description" => String.t(),
-    "Name" => String.t(),
-    "Type" => list(any())
-  }
+      
+      document_parameter() :: %{
+        "DefaultValue" => String.t(),
+        "Description" => String.t(),
+        "Name" => String.t(),
+        "Type" => list(any())
+      }
+      
   """
   @type document_parameter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  document_version_limit_exceeded() :: %{
-    "Message" => String.t()
-  }
+      
+      document_version_limit_exceeded() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type document_version_limit_exceeded() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  compliance_item() :: %{
-    "ComplianceType" => String.t(),
-    "Details" => map(),
-    "ExecutionSummary" => compliance_execution_summary(),
-    "Id" => String.t(),
-    "ResourceId" => String.t(),
-    "ResourceType" => String.t(),
-    "Severity" => list(any()),
-    "Status" => list(any()),
-    "Title" => String.t()
-  }
+      
+      compliance_item() :: %{
+        "ComplianceType" => String.t(),
+        "Details" => map(),
+        "ExecutionSummary" => compliance_execution_summary(),
+        "Id" => String.t(),
+        "ResourceId" => String.t(),
+        "ResourceType" => String.t(),
+        "Severity" => list(any()),
+        "Status" => list(any()),
+        "Title" => String.t()
+      }
+      
   """
   @type compliance_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  logging_info() :: %{
-    "S3BucketName" => String.t(),
-    "S3KeyPrefix" => String.t(),
-    "S3Region" => String.t()
-  }
+      
+      logging_info() :: %{
+        "S3BucketName" => String.t(),
+        "S3KeyPrefix" => String.t(),
+        "S3Region" => String.t()
+      }
+      
   """
   @type logging_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  register_default_patch_baseline_request() :: %{
-    required("BaselineId") => String.t()
-  }
+      
+      register_default_patch_baseline_request() :: %{
+        required("BaselineId") => String.t()
+      }
+      
   """
   @type register_default_patch_baseline_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  already_exists_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      already_exists_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type already_exists_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resume_session_request() :: %{
-    required("SessionId") => String.t()
-  }
+      
+      resume_session_request() :: %{
+        required("SessionId") => String.t()
+      }
+      
   """
   @type resume_session_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_maintenance_window_targets_result() :: %{
-    "NextToken" => String.t(),
-    "Targets" => list(maintenance_window_target()())
-  }
+      
+      describe_maintenance_window_targets_result() :: %{
+        "NextToken" => String.t(),
+        "Targets" => list(maintenance_window_target()())
+      }
+      
   """
   @type describe_maintenance_window_targets_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_parameters_request() :: %{
-    optional("Filters") => list(parameters_filter()()),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("ParameterFilters") => list(parameter_string_filter()()),
-    optional("Shared") => boolean()
-  }
+      
+      describe_parameters_request() :: %{
+        optional("Filters") => list(parameters_filter()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("ParameterFilters") => list(parameter_string_filter()()),
+        optional("Shared") => boolean()
+      }
+      
   """
   @type describe_parameters_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_policy_limit_exceeded_exception() :: %{
-    "Limit" => integer(),
-    "LimitType" => String.t(),
-    "Message" => String.t()
-  }
+      
+      resource_policy_limit_exceeded_exception() :: %{
+        "Limit" => integer(),
+        "LimitType" => String.t(),
+        "Message" => String.t()
+      }
+      
   """
   @type resource_policy_limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  alarm() :: %{
-    "Name" => String.t()
-  }
+      
+      alarm() :: %{
+        "Name" => String.t()
+      }
+      
   """
   @type alarm() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  automation_execution_filter() :: %{
-    "Key" => list(any()),
-    "Values" => list(String.t()())
-  }
+      
+      automation_execution_filter() :: %{
+        "Key" => list(any()),
+        "Values" => list(String.t()())
+      }
+      
   """
   @type automation_execution_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  inventory_deletion_summary_item() :: %{
-    "Count" => integer(),
-    "RemainingCount" => integer(),
-    "Version" => String.t()
-  }
+      
+      inventory_deletion_summary_item() :: %{
+        "Count" => integer(),
+        "RemainingCount" => integer(),
+        "Version" => String.t()
+      }
+      
   """
   @type inventory_deletion_summary_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_association_result() :: %{
-    "AssociationDescription" => association_description()
-  }
+      
+      describe_association_result() :: %{
+        "AssociationDescription" => association_description()
+      }
+      
   """
   @type describe_association_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_association_versions_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("AssociationId") => String.t()
-  }
+      
+      list_association_versions_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("AssociationId") => String.t()
+      }
+      
   """
   @type list_association_versions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_policy_invalid_parameter_exception() :: %{
-    "Message" => String.t(),
-    "ParameterNames" => list(String.t()())
-  }
+      
+      resource_policy_invalid_parameter_exception() :: %{
+        "Message" => String.t(),
+        "ParameterNames" => list(String.t()())
+      }
+      
   """
   @type resource_policy_invalid_parameter_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  non_compliant_summary() :: %{
-    "NonCompliantCount" => integer(),
-    "SeveritySummary" => severity_summary()
-  }
+      
+      non_compliant_summary() :: %{
+        "NonCompliantCount" => integer(),
+        "SeveritySummary" => severity_summary()
+      }
+      
   """
   @type non_compliant_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_maintenance_window_execution_task_invocations_request() :: %{
-    optional("Filters") => list(maintenance_window_filter()()),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("TaskId") => String.t(),
-    required("WindowExecutionId") => String.t()
-  }
+      
+      describe_maintenance_window_execution_task_invocations_request() :: %{
+        optional("Filters") => list(maintenance_window_filter()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("TaskId") => String.t(),
+        required("WindowExecutionId") => String.t()
+      }
+      
   """
   @type describe_maintenance_window_execution_task_invocations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  related_ops_item() :: %{
-    "OpsItemId" => String.t()
-  }
+      
+      related_ops_item() :: %{
+        "OpsItemId" => String.t()
+      }
+      
   """
   @type related_ops_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_maintenance_window_request() :: %{
-    required("WindowId") => String.t()
-  }
+      
+      get_maintenance_window_request() :: %{
+        required("WindowId") => String.t()
+      }
+      
   """
   @type get_maintenance_window_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  patch_filter() :: %{
-    "Key" => list(any()),
-    "Values" => list(String.t()())
-  }
+      
+      patch_filter() :: %{
+        "Key" => list(any()),
+        "Values" => list(String.t()())
+      }
+      
   """
   @type patch_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ops_result_attribute() :: %{
-    "TypeName" => String.t()
-  }
+      
+      ops_result_attribute() :: %{
+        "TypeName" => String.t()
+      }
+      
   """
   @type ops_result_attribute() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ops_entity() :: %{
-    "Data" => map(),
-    "Id" => String.t()
-  }
+      
+      ops_entity() :: %{
+        "Data" => map(),
+        "Id" => String.t()
+      }
+      
   """
   @type ops_entity() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  document_reviewer_response_source() :: %{
-    "Comment" => list(document_review_comment_source()()),
-    "CreateTime" => non_neg_integer(),
-    "ReviewStatus" => list(any()),
-    "Reviewer" => String.t(),
-    "UpdatedTime" => non_neg_integer()
-  }
+      
+      document_reviewer_response_source() :: %{
+        "Comment" => list(document_review_comment_source()()),
+        "CreateTime" => non_neg_integer(),
+        "ReviewStatus" => list(any()),
+        "Reviewer" => String.t(),
+        "UpdatedTime" => non_neg_integer()
+      }
+      
   """
   @type document_reviewer_response_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  activation() :: %{
-    "ActivationId" => String.t(),
-    "CreatedDate" => non_neg_integer(),
-    "DefaultInstanceName" => String.t(),
-    "Description" => String.t(),
-    "ExpirationDate" => non_neg_integer(),
-    "Expired" => boolean(),
-    "IamRole" => String.t(),
-    "RegistrationLimit" => integer(),
-    "RegistrationsCount" => integer(),
-    "Tags" => list(tag()())
-  }
+      
+      activation() :: %{
+        "ActivationId" => String.t(),
+        "CreatedDate" => non_neg_integer(),
+        "DefaultInstanceName" => String.t(),
+        "Description" => String.t(),
+        "ExpirationDate" => non_neg_integer(),
+        "Expired" => boolean(),
+        "IamRole" => String.t(),
+        "RegistrationLimit" => integer(),
+        "RegistrationsCount" => integer(),
+        "Tags" => list(tag()())
+      }
+      
   """
   @type activation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_available_patches_request() :: %{
-    optional("Filters") => list(patch_orchestrator_filter()()),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+      
+      describe_available_patches_request() :: %{
+        optional("Filters") => list(patch_orchestrator_filter()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type describe_available_patches_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_patch_baseline_request() :: %{
-    optional("ApprovalRules") => patch_rule_group(),
-    optional("ApprovedPatches") => list(String.t()()),
-    optional("ApprovedPatchesComplianceLevel") => list(any()),
-    optional("ApprovedPatchesEnableNonSecurity") => boolean(),
-    optional("Description") => String.t(),
-    optional("GlobalFilters") => patch_filter_group(),
-    optional("Name") => String.t(),
-    optional("RejectedPatches") => list(String.t()()),
-    optional("RejectedPatchesAction") => list(any()),
-    optional("Replace") => boolean(),
-    optional("Sources") => list(patch_source()()),
-    required("BaselineId") => String.t()
-  }
+      
+      update_patch_baseline_request() :: %{
+        optional("ApprovalRules") => patch_rule_group(),
+        optional("ApprovedPatches") => list(String.t()()),
+        optional("ApprovedPatchesComplianceLevel") => list(any()),
+        optional("ApprovedPatchesEnableNonSecurity") => boolean(),
+        optional("Description") => String.t(),
+        optional("GlobalFilters") => patch_filter_group(),
+        optional("Name") => String.t(),
+        optional("RejectedPatches") => list(String.t()()),
+        optional("RejectedPatchesAction") => list(any()),
+        optional("Replace") => boolean(),
+        optional("Sources") => list(patch_source()()),
+        required("BaselineId") => String.t()
+      }
+      
   """
   @type update_patch_baseline_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  association_status() :: %{
-    "AdditionalInfo" => String.t(),
-    "Date" => non_neg_integer(),
-    "Message" => String.t(),
-    "Name" => list(any())
-  }
+      
+      association_status() :: %{
+        "AdditionalInfo" => String.t(),
+        "Date" => non_neg_integer(),
+        "Message" => String.t(),
+        "Name" => list(any())
+      }
+      
   """
   @type association_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  inventory_filter() :: %{
-    "Key" => String.t(),
-    "Type" => list(any()),
-    "Values" => list(String.t()())
-  }
+      
+      inventory_filter() :: %{
+        "Key" => String.t(),
+        "Type" => list(any()),
+        "Values" => list(String.t()())
+      }
+      
   """
   @type inventory_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_maintenance_window_target_result() :: %{
-    "Description" => String.t(),
-    "Name" => String.t(),
-    "OwnerInformation" => String.t(),
-    "Targets" => list(target()()),
-    "WindowId" => String.t(),
-    "WindowTargetId" => String.t()
-  }
+      
+      update_maintenance_window_target_result() :: %{
+        "Description" => String.t(),
+        "Name" => String.t(),
+        "OwnerInformation" => String.t(),
+        "Targets" => list(target()()),
+        "WindowId" => String.t(),
+        "WindowTargetId" => String.t()
+      }
+      
   """
   @type update_maintenance_window_target_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  instance_association_output_location() :: %{
-    "S3Location" => s3_output_location()
-  }
+      
+      instance_association_output_location() :: %{
+        "S3Location" => s3_output_location()
+      }
+      
   """
   @type instance_association_output_location() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  associate_ops_item_related_item_response() :: %{
-    "AssociationId" => String.t()
-  }
+      
+      associate_ops_item_related_item_response() :: %{
+        "AssociationId" => String.t()
+      }
+      
   """
   @type associate_ops_item_related_item_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  add_tags_to_resource_request() :: %{
-    required("ResourceId") => String.t(),
-    required("ResourceType") => list(any()),
-    required("Tags") => list(tag()())
-  }
+      
+      add_tags_to_resource_request() :: %{
+        required("ResourceId") => String.t(),
+        required("ResourceType") => list(any()),
+        required("Tags") => list(tag()())
+      }
+      
   """
   @type add_tags_to_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  document_permission_limit() :: %{
-    "Message" => String.t()
-  }
+      
+      document_permission_limit() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type document_permission_limit() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  result_attribute() :: %{
-    "TypeName" => String.t()
-  }
+      
+      result_attribute() :: %{
+        "TypeName" => String.t()
+      }
+      
   """
   @type result_attribute() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_parameter_history_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("WithDecryption") => boolean(),
-    required("Name") => String.t()
-  }
+      
+      get_parameter_history_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("WithDecryption") => boolean(),
+        required("Name") => String.t()
+      }
+      
   """
   @type get_parameter_history_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  association_execution_target() :: %{
-    "AssociationId" => String.t(),
-    "AssociationVersion" => String.t(),
-    "DetailedStatus" => String.t(),
-    "ExecutionId" => String.t(),
-    "LastExecutionDate" => non_neg_integer(),
-    "OutputSource" => output_source(),
-    "ResourceId" => String.t(),
-    "ResourceType" => String.t(),
-    "Status" => String.t()
-  }
+      
+      association_execution_target() :: %{
+        "AssociationId" => String.t(),
+        "AssociationVersion" => String.t(),
+        "DetailedStatus" => String.t(),
+        "ExecutionId" => String.t(),
+        "LastExecutionDate" => non_neg_integer(),
+        "OutputSource" => output_source(),
+        "ResourceId" => String.t(),
+        "ResourceType" => String.t(),
+        "Status" => String.t()
+      }
+      
   """
   @type association_execution_target() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  send_command_result() :: %{
-    "Command" => command()
-  }
+      
+      send_command_result() :: %{
+        "Command" => command()
+      }
+      
   """
   @type send_command_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  association_limit_exceeded() :: %{
-
-  }
+      
+      association_limit_exceeded() :: %{}
+      
   """
-  @type association_limit_exceeded() :: %{String.t() => any()}
+  @type association_limit_exceeded() :: %{}
 
   @typedoc """
 
   ## Example:
-  describe_patch_properties_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("PatchSet") => list(any()),
-    required("OperatingSystem") => list(any()),
-    required("Property") => list(any())
-  }
+      
+      describe_patch_properties_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("PatchSet") => list(any()),
+        required("OperatingSystem") => list(any()),
+        required("Property") => list(any())
+      }
+      
   """
   @type describe_patch_properties_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  maintenance_window_task_parameter_value_expression() :: %{
-    "Values" => list(String.t()())
-  }
+      
+      maintenance_window_task_parameter_value_expression() :: %{
+        "Values" => list(String.t()())
+      }
+      
   """
   @type maintenance_window_task_parameter_value_expression() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  unsupported_feature_required_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      unsupported_feature_required_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type unsupported_feature_required_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_document() :: %{
-    "Message" => String.t()
-  }
+      
+      invalid_document() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type invalid_document() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_document_content() :: %{
-    "Message" => String.t()
-  }
+      
+      invalid_document_content() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type invalid_document_content() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  unsupported_inventory_item_context_exception() :: %{
-    "Message" => String.t(),
-    "TypeName" => String.t()
-  }
+      
+      unsupported_inventory_item_context_exception() :: %{
+        "Message" => String.t(),
+        "TypeName" => String.t()
+      }
+      
   """
   @type unsupported_inventory_item_context_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_parameters() :: %{
-    "Message" => String.t()
-  }
+      
+      invalid_parameters() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type invalid_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_data_sync_conflict_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      resource_data_sync_conflict_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type resource_data_sync_conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_patch_baseline_request() :: %{
-    required("BaselineId") => String.t()
-  }
+      
+      get_patch_baseline_request() :: %{
+        required("BaselineId") => String.t()
+      }
+      
   """
   @type get_patch_baseline_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_delete_inventory_parameters_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      invalid_delete_inventory_parameters_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type invalid_delete_inventory_parameters_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  parameter_inline_policy() :: %{
-    "PolicyStatus" => String.t(),
-    "PolicyText" => String.t(),
-    "PolicyType" => String.t()
-  }
+      
+      parameter_inline_policy() :: %{
+        "PolicyStatus" => String.t(),
+        "PolicyText" => String.t(),
+        "PolicyType" => String.t()
+      }
+      
   """
   @type parameter_inline_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  association_version_info() :: %{
-    "ApplyOnlyAtCronInterval" => boolean(),
-    "AssociationId" => String.t(),
-    "AssociationName" => String.t(),
-    "AssociationVersion" => String.t(),
-    "CalendarNames" => list(String.t()()),
-    "ComplianceSeverity" => list(any()),
-    "CreatedDate" => non_neg_integer(),
-    "DocumentVersion" => String.t(),
-    "Duration" => integer(),
-    "MaxConcurrency" => String.t(),
-    "MaxErrors" => String.t(),
-    "Name" => String.t(),
-    "OutputLocation" => instance_association_output_location(),
-    "Parameters" => map(),
-    "ScheduleExpression" => String.t(),
-    "ScheduleOffset" => integer(),
-    "SyncCompliance" => list(any()),
-    "TargetLocations" => list(target_location()()),
-    "TargetMaps" => list(map()()),
-    "Targets" => list(target()())
-  }
+      
+      association_version_info() :: %{
+        "ApplyOnlyAtCronInterval" => boolean(),
+        "AssociationId" => String.t(),
+        "AssociationName" => String.t(),
+        "AssociationVersion" => String.t(),
+        "CalendarNames" => list(String.t()()),
+        "ComplianceSeverity" => list(any()),
+        "CreatedDate" => non_neg_integer(),
+        "DocumentVersion" => String.t(),
+        "Duration" => integer(),
+        "MaxConcurrency" => String.t(),
+        "MaxErrors" => String.t(),
+        "Name" => String.t(),
+        "OutputLocation" => instance_association_output_location(),
+        "Parameters" => map(),
+        "ScheduleExpression" => String.t(),
+        "ScheduleOffset" => integer(),
+        "SyncCompliance" => list(any()),
+        "TargetLocations" => list(target_location()()),
+        "TargetMaps" => list(map()()),
+        "Targets" => list(target()())
+      }
+      
   """
   @type association_version_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  instance_association_status_info() :: %{
-    "AssociationId" => String.t(),
-    "AssociationName" => String.t(),
-    "AssociationVersion" => String.t(),
-    "DetailedStatus" => String.t(),
-    "DocumentVersion" => String.t(),
-    "ErrorCode" => String.t(),
-    "ExecutionDate" => non_neg_integer(),
-    "ExecutionSummary" => String.t(),
-    "InstanceId" => String.t(),
-    "Name" => String.t(),
-    "OutputUrl" => instance_association_output_url(),
-    "Status" => String.t()
-  }
+      
+      instance_association_status_info() :: %{
+        "AssociationId" => String.t(),
+        "AssociationName" => String.t(),
+        "AssociationVersion" => String.t(),
+        "DetailedStatus" => String.t(),
+        "DocumentVersion" => String.t(),
+        "ErrorCode" => String.t(),
+        "ExecutionDate" => non_neg_integer(),
+        "ExecutionSummary" => String.t(),
+        "InstanceId" => String.t(),
+        "Name" => String.t(),
+        "OutputUrl" => instance_association_output_url(),
+        "Status" => String.t()
+      }
+      
   """
   @type instance_association_status_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_ops_summary_request() :: %{
-    optional("Aggregators") => list(ops_aggregator()()),
-    optional("Filters") => list(ops_filter()()),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("ResultAttributes") => list(ops_result_attribute()()),
-    optional("SyncName") => String.t()
-  }
+      
+      get_ops_summary_request() :: %{
+        optional("Aggregators") => list(ops_aggregator()()),
+        optional("Filters") => list(ops_filter()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("ResultAttributes") => list(ops_result_attribute()()),
+        optional("SyncName") => String.t()
+      }
+      
   """
   @type get_ops_summary_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_document_request() :: %{
-    optional("Attachments") => list(attachments_source()()),
-    optional("DisplayName") => String.t(),
-    optional("DocumentFormat") => list(any()),
-    optional("DocumentVersion") => String.t(),
-    optional("TargetType") => String.t(),
-    optional("VersionName") => String.t(),
-    required("Content") => String.t(),
-    required("Name") => String.t()
-  }
+      
+      update_document_request() :: %{
+        optional("Attachments") => list(attachments_source()()),
+        optional("DisplayName") => String.t(),
+        optional("DocumentFormat") => list(any()),
+        optional("DocumentVersion") => String.t(),
+        optional("TargetType") => String.t(),
+        optional("VersionName") => String.t(),
+        required("Content") => String.t(),
+        required("Name") => String.t()
+      }
+      
   """
   @type update_document_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  patch_orchestrator_filter() :: %{
-    "Key" => String.t(),
-    "Values" => list(String.t()())
-  }
+      
+      patch_orchestrator_filter() :: %{
+        "Key" => String.t(),
+        "Values" => list(String.t()())
+      }
+      
   """
   @type patch_orchestrator_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_parameters_request() :: %{
-    required("Names") => list(String.t()())
-  }
+      
+      delete_parameters_request() :: %{
+        required("Names") => list(String.t()())
+      }
+      
   """
   @type delete_parameters_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  parameter_string_filter() :: %{
-    "Key" => String.t(),
-    "Option" => String.t(),
-    "Values" => list(String.t()())
-  }
+      
+      parameter_string_filter() :: %{
+        "Key" => String.t(),
+        "Option" => String.t(),
+        "Values" => list(String.t()())
+      }
+      
   """
   @type parameter_string_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  attachment_information() :: %{
-    "Name" => String.t()
-  }
+      
+      attachment_information() :: %{
+        "Name" => String.t()
+      }
+      
   """
   @type attachment_information() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_document_version() :: %{
-    "Message" => String.t()
-  }
+      
+      invalid_document_version() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type invalid_document_version() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  automation_execution_not_found_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      automation_execution_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type automation_execution_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_patch_baselines_request() :: %{
-    optional("Filters") => list(patch_orchestrator_filter()()),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+      
+      describe_patch_baselines_request() :: %{
+        optional("Filters") => list(patch_orchestrator_filter()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type describe_patch_baselines_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_instance_information_request() :: %{
-    optional("Filters") => list(instance_information_string_filter()()),
-    optional("InstanceInformationFilterList") => list(instance_information_filter()()),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+      
+      describe_instance_information_request() :: %{
+        optional("Filters") => list(instance_information_string_filter()()),
+        optional("InstanceInformationFilterList") => list(instance_information_filter()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type describe_instance_information_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  policies_limit_exceeded_exception() :: %{
-    "message" => String.t()
-  }
+      
+      policies_limit_exceeded_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type policies_limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_data_sync_source_with_state() :: %{
-    "AwsOrganizationsSource" => resource_data_sync_aws_organizations_source(),
-    "EnableAllOpsDataSources" => boolean(),
-    "IncludeFutureRegions" => boolean(),
-    "SourceRegions" => list(String.t()()),
-    "SourceType" => String.t(),
-    "State" => String.t()
-  }
+      
+      resource_data_sync_source_with_state() :: %{
+        "AwsOrganizationsSource" => resource_data_sync_aws_organizations_source(),
+        "EnableAllOpsDataSources" => boolean(),
+        "IncludeFutureRegions" => boolean(),
+        "SourceRegions" => list(String.t()()),
+        "SourceType" => String.t(),
+        "State" => String.t()
+      }
+      
   """
   @type resource_data_sync_source_with_state() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  association_overview() :: %{
-    "AssociationStatusAggregatedCount" => map(),
-    "DetailedStatus" => String.t(),
-    "Status" => String.t()
-  }
+      
+      association_overview() :: %{
+        "AssociationStatusAggregatedCount" => map(),
+        "DetailedStatus" => String.t(),
+        "Status" => String.t()
+      }
+      
   """
   @type association_overview() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  inventory_aggregator() :: %{
-    "Aggregators" => list(inventory_aggregator()()),
-    "Expression" => String.t(),
-    "Groups" => list(inventory_group()())
-  }
+      
+      inventory_aggregator() :: %{
+        "Aggregators" => list(inventory_aggregator()()),
+        "Expression" => String.t(),
+        "Groups" => list(inventory_group()())
+      }
+      
   """
   @type inventory_aggregator() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  send_automation_signal_request() :: %{
-    optional("Payload") => map(),
-    required("AutomationExecutionId") => String.t(),
-    required("SignalType") => list(any())
-  }
+      
+      send_automation_signal_request() :: %{
+        optional("Payload") => map(),
+        required("AutomationExecutionId") => String.t(),
+        required("SignalType") => list(any())
+      }
+      
   """
   @type send_automation_signal_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  instance_patch_state_filter() :: %{
-    "Key" => String.t(),
-    "Type" => list(any()),
-    "Values" => list(String.t()())
-  }
+      
+      instance_patch_state_filter() :: %{
+        "Key" => String.t(),
+        "Type" => list(any()),
+        "Values" => list(String.t()())
+      }
+      
   """
   @type instance_patch_state_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_automation_executions_result() :: %{
-    "AutomationExecutionMetadataList" => list(automation_execution_metadata()()),
-    "NextToken" => String.t()
-  }
+      
+      describe_automation_executions_result() :: %{
+        "AutomationExecutionMetadataList" => list(automation_execution_metadata()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type describe_automation_executions_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_ops_metadata_request() :: %{
-    optional("Filters") => list(ops_metadata_filter()()),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+      
+      list_ops_metadata_request() :: %{
+        optional("Filters") => list(ops_metadata_filter()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type list_ops_metadata_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  label_parameter_version_request() :: %{
-    optional("ParameterVersion") => float(),
-    required("Labels") => list(String.t()()),
-    required("Name") => String.t()
-  }
+      
+      label_parameter_version_request() :: %{
+        optional("ParameterVersion") => float(),
+        required("Labels") => list(String.t()()),
+        required("Name") => String.t()
+      }
+      
   """
   @type label_parameter_version_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_document_request() :: %{
-    optional("DocumentVersion") => String.t(),
-    optional("Force") => boolean(),
-    optional("VersionName") => String.t(),
-    required("Name") => String.t()
-  }
+      
+      delete_document_request() :: %{
+        optional("DocumentVersion") => String.t(),
+        optional("Force") => boolean(),
+        optional("VersionName") => String.t(),
+        required("Name") => String.t()
+      }
+      
   """
   @type delete_document_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_connection_status_request() :: %{
-    required("Target") => String.t()
-  }
+      
+      get_connection_status_request() :: %{
+        required("Target") => String.t()
+      }
+      
   """
   @type get_connection_status_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_association_batch_result() :: %{
-    "Failed" => list(failed_create_association()()),
-    "Successful" => list(association_description()())
-  }
+      
+      create_association_batch_result() :: %{
+        "Failed" => list(failed_create_association()()),
+        "Successful" => list(association_description()())
+      }
+      
   """
   @type create_association_batch_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  inventory_item_schema() :: %{
-    "Attributes" => list(inventory_item_attribute()()),
-    "DisplayName" => String.t(),
-    "TypeName" => String.t(),
-    "Version" => String.t()
-  }
+      
+      inventory_item_schema() :: %{
+        "Attributes" => list(inventory_item_attribute()()),
+        "DisplayName" => String.t(),
+        "TypeName" => String.t(),
+        "Version" => String.t()
+      }
+      
   """
   @type inventory_item_schema() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_resource_policies_response_entry() :: %{
-    "Policy" => String.t(),
-    "PolicyHash" => String.t(),
-    "PolicyId" => String.t()
-  }
+      
+      get_resource_policies_response_entry() :: %{
+        "Policy" => String.t(),
+        "PolicyHash" => String.t(),
+        "PolicyId" => String.t()
+      }
+      
   """
   @type get_resource_policies_response_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  duplicate_document_content() :: %{
-    "Message" => String.t()
-  }
+      
+      duplicate_document_content() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type duplicate_document_content() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_association_batch_request() :: %{
-    required("Entries") => list(create_association_batch_request_entry()())
-  }
+      
+      create_association_batch_request() :: %{
+        required("Entries") => list(create_association_batch_request_entry()())
+      }
+      
   """
   @type create_association_batch_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  association_execution_does_not_exist() :: %{
-    "Message" => String.t()
-  }
+      
+      association_execution_does_not_exist() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type association_execution_does_not_exist() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  maintenance_window_step_functions_parameters() :: %{
-    "Input" => String.t(),
-    "Name" => String.t()
-  }
+      
+      maintenance_window_step_functions_parameters() :: %{
+        "Input" => String.t(),
+        "Name" => String.t()
+      }
+      
   """
   @type maintenance_window_step_functions_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_data_sync_invalid_configuration_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      resource_data_sync_invalid_configuration_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type resource_data_sync_invalid_configuration_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  effective_patch() :: %{
-    "Patch" => patch(),
-    "PatchStatus" => patch_status()
-  }
+      
+      effective_patch() :: %{
+        "Patch" => patch(),
+        "PatchStatus" => patch_status()
+      }
+      
   """
   @type effective_patch() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_ops_metadata_request() :: %{
-    required("OpsMetadataArn") => String.t()
-  }
+      
+      delete_ops_metadata_request() :: %{
+        required("OpsMetadataArn") => String.t()
+      }
+      
   """
   @type delete_ops_metadata_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  document_identifier() :: %{
-    "Author" => String.t(),
-    "CreatedDate" => non_neg_integer(),
-    "DisplayName" => String.t(),
-    "DocumentFormat" => list(any()),
-    "DocumentType" => list(any()),
-    "DocumentVersion" => String.t(),
-    "Name" => String.t(),
-    "Owner" => String.t(),
-    "PlatformTypes" => list(list(any())()),
-    "Requires" => list(document_requires()()),
-    "ReviewStatus" => list(any()),
-    "SchemaVersion" => String.t(),
-    "Tags" => list(tag()()),
-    "TargetType" => String.t(),
-    "VersionName" => String.t()
-  }
+      
+      document_identifier() :: %{
+        "Author" => String.t(),
+        "CreatedDate" => non_neg_integer(),
+        "DisplayName" => String.t(),
+        "DocumentFormat" => list(any()),
+        "DocumentType" => list(any()),
+        "DocumentVersion" => String.t(),
+        "Name" => String.t(),
+        "Owner" => String.t(),
+        "PlatformTypes" => list(list(any())()),
+        "Requires" => list(document_requires()()),
+        "ReviewStatus" => list(any()),
+        "SchemaVersion" => String.t(),
+        "Tags" => list(tag()()),
+        "TargetType" => String.t(),
+        "VersionName" => String.t()
+      }
+      
   """
   @type document_identifier() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  total_size_limit_exceeded_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      total_size_limit_exceeded_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type total_size_limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ops_aggregator() :: %{
-    "AggregatorType" => String.t(),
-    "Aggregators" => list(ops_aggregator()()),
-    "AttributeName" => String.t(),
-    "Filters" => list(ops_filter()()),
-    "TypeName" => String.t(),
-    "Values" => map()
-  }
+      
+      ops_aggregator() :: %{
+        "AggregatorType" => String.t(),
+        "Aggregators" => list(ops_aggregator()()),
+        "AttributeName" => String.t(),
+        "Filters" => list(ops_filter()()),
+        "TypeName" => String.t(),
+        "Values" => map()
+      }
+      
   """
   @type ops_aggregator() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  failure_details() :: %{
-    "Details" => map(),
-    "FailureStage" => String.t(),
-    "FailureType" => String.t()
-  }
+      
+      failure_details() :: %{
+        "Details" => map(),
+        "FailureStage" => String.t(),
+        "FailureType" => String.t()
+      }
+      
   """
   @type failure_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_maintenance_window_request() :: %{
-    required("WindowId") => String.t()
-  }
+      
+      delete_maintenance_window_request() :: %{
+        required("WindowId") => String.t()
+      }
+      
   """
   @type delete_maintenance_window_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_inventory_request() :: %{
-    required("InstanceId") => String.t(),
-    required("Items") => list(inventory_item()())
-  }
+      
+      put_inventory_request() :: %{
+        required("InstanceId") => String.t(),
+        required("Items") => list(inventory_item()())
+      }
+      
   """
   @type put_inventory_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_resource_compliance_summaries_result() :: %{
-    "NextToken" => String.t(),
-    "ResourceComplianceSummaryItems" => list(resource_compliance_summary_item()())
-  }
+      
+      list_resource_compliance_summaries_result() :: %{
+        "NextToken" => String.t(),
+        "ResourceComplianceSummaryItems" => list(resource_compliance_summary_item()())
+      }
+      
   """
   @type list_resource_compliance_summaries_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_maintenance_window_result() :: %{
-    "WindowId" => String.t()
-  }
+      
+      create_maintenance_window_result() :: %{
+        "WindowId" => String.t()
+      }
+      
   """
   @type create_maintenance_window_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ops_metadata_not_found_exception() :: %{
-    "message" => String.t()
-  }
+      
+      ops_metadata_not_found_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type ops_metadata_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_commands_request() :: %{
-    optional("CommandId") => String.t(),
-    optional("Filters") => list(command_filter()()),
-    optional("InstanceId") => String.t(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+      
+      list_commands_request() :: %{
+        optional("CommandId") => String.t(),
+        optional("Filters") => list(command_filter()()),
+        optional("InstanceId") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type list_commands_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_patch_groups_request() :: %{
-    optional("Filters") => list(patch_orchestrator_filter()()),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+      
+      describe_patch_groups_request() :: %{
+        optional("Filters") => list(patch_orchestrator_filter()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type describe_patch_groups_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_resource_type() :: %{
-
-  }
+      
+      invalid_resource_type() :: %{}
+      
   """
-  @type invalid_resource_type() :: %{String.t() => any()}
+  @type invalid_resource_type() :: %{}
 
   @typedoc """
 
   ## Example:
-  compliance_summary_item() :: %{
-    "ComplianceType" => String.t(),
-    "CompliantSummary" => compliant_summary(),
-    "NonCompliantSummary" => non_compliant_summary()
-  }
+      
+      compliance_summary_item() :: %{
+        "ComplianceType" => String.t(),
+        "CompliantSummary" => compliant_summary(),
+        "NonCompliantSummary" => non_compliant_summary()
+      }
+      
   """
   @type compliance_summary_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  associate_ops_item_related_item_request() :: %{
-    required("AssociationType") => String.t(),
-    required("OpsItemId") => String.t(),
-    required("ResourceType") => String.t(),
-    required("ResourceUri") => String.t()
-  }
+      
+      associate_ops_item_related_item_request() :: %{
+        required("AssociationType") => String.t(),
+        required("OpsItemId") => String.t(),
+        required("ResourceType") => String.t(),
+        required("ResourceUri") => String.t()
+      }
+      
   """
   @type associate_ops_item_related_item_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_ops_item_response() :: %{
-    "OpsItemArn" => String.t(),
-    "OpsItemId" => String.t()
-  }
+      
+      create_ops_item_response() :: %{
+        "OpsItemArn" => String.t(),
+        "OpsItemId" => String.t()
+      }
+      
   """
   @type create_ops_item_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_resource_id() :: %{
-
-  }
+      
+      invalid_resource_id() :: %{}
+      
   """
-  @type invalid_resource_id() :: %{String.t() => any()}
+  @type invalid_resource_id() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_document_metadata_history_request() :: %{
-    optional("DocumentVersion") => String.t(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("Metadata") => list(any()),
-    required("Name") => String.t()
-  }
+      
+      list_document_metadata_history_request() :: %{
+        optional("DocumentVersion") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("Metadata") => list(any()),
+        required("Name") => String.t()
+      }
+      
   """
   @type list_document_metadata_history_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_parameters_result() :: %{
-    "DeletedParameters" => list(String.t()()),
-    "InvalidParameters" => list(String.t()())
-  }
+      
+      delete_parameters_result() :: %{
+        "DeletedParameters" => list(String.t()()),
+        "InvalidParameters" => list(String.t()())
+      }
+      
   """
   @type delete_parameters_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  association_execution_filter() :: %{
-    "Key" => list(any()),
-    "Type" => list(any()),
-    "Value" => String.t()
-  }
+      
+      association_execution_filter() :: %{
+        "Key" => list(any()),
+        "Type" => list(any()),
+        "Value" => String.t()
+      }
+      
   """
   @type association_execution_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  association_version_limit_exceeded() :: %{
-    "Message" => String.t()
-  }
+      
+      association_version_limit_exceeded() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type association_version_limit_exceeded() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_association_versions_result() :: %{
-    "AssociationVersions" => list(association_version_info()()),
-    "NextToken" => String.t()
-  }
+      
+      list_association_versions_result() :: %{
+        "AssociationVersions" => list(association_version_info()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_association_versions_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_association_request() :: %{
-    optional("AssociationId") => String.t(),
-    optional("InstanceId") => String.t(),
-    optional("Name") => String.t()
-  }
+      
+      delete_association_request() :: %{
+        optional("AssociationId") => String.t(),
+        optional("InstanceId") => String.t(),
+        optional("Name") => String.t()
+      }
+      
   """
   @type delete_association_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_filter_value() :: %{
-    "Message" => String.t()
-  }
+      
+      invalid_filter_value() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type invalid_filter_value() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_default_patch_baseline_result() :: %{
-    "BaselineId" => String.t(),
-    "OperatingSystem" => list(any())
-  }
+      
+      get_default_patch_baseline_result() :: %{
+        "BaselineId" => String.t(),
+        "OperatingSystem" => list(any())
+      }
+      
   """
   @type get_default_patch_baseline_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_activation_result() :: %{
-
-  }
+      
+      delete_activation_result() :: %{}
+      
   """
-  @type delete_activation_result() :: %{String.t() => any()}
+  @type delete_activation_result() :: %{}
 
   @typedoc """
 
   ## Example:
-  custom_schema_count_limit_exceeded_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      custom_schema_count_limit_exceeded_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type custom_schema_count_limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cancel_maintenance_window_execution_request() :: %{
-    required("WindowExecutionId") => String.t()
-  }
+      
+      cancel_maintenance_window_execution_request() :: %{
+        required("WindowExecutionId") => String.t()
+      }
+      
   """
   @type cancel_maintenance_window_execution_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_document_result() :: %{
-    "AttachmentsContent" => list(attachment_content()()),
-    "Content" => String.t(),
-    "CreatedDate" => non_neg_integer(),
-    "DisplayName" => String.t(),
-    "DocumentFormat" => list(any()),
-    "DocumentType" => list(any()),
-    "DocumentVersion" => String.t(),
-    "Name" => String.t(),
-    "Requires" => list(document_requires()()),
-    "ReviewStatus" => list(any()),
-    "Status" => list(any()),
-    "StatusInformation" => String.t(),
-    "VersionName" => String.t()
-  }
+      
+      get_document_result() :: %{
+        "AttachmentsContent" => list(attachment_content()()),
+        "Content" => String.t(),
+        "CreatedDate" => non_neg_integer(),
+        "DisplayName" => String.t(),
+        "DocumentFormat" => list(any()),
+        "DocumentType" => list(any()),
+        "DocumentVersion" => String.t(),
+        "Name" => String.t(),
+        "Requires" => list(document_requires()()),
+        "ReviewStatus" => list(any()),
+        "Status" => list(any()),
+        "StatusInformation" => String.t(),
+        "VersionName" => String.t()
+      }
+      
   """
   @type get_document_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_patch_group_state_result() :: %{
-    "Instances" => integer(),
-    "InstancesWithCriticalNonCompliantPatches" => integer(),
-    "InstancesWithFailedPatches" => integer(),
-    "InstancesWithInstalledOtherPatches" => integer(),
-    "InstancesWithInstalledPatches" => integer(),
-    "InstancesWithInstalledPendingRebootPatches" => integer(),
-    "InstancesWithInstalledRejectedPatches" => integer(),
-    "InstancesWithMissingPatches" => integer(),
-    "InstancesWithNotApplicablePatches" => integer(),
-    "InstancesWithOtherNonCompliantPatches" => integer(),
-    "InstancesWithSecurityNonCompliantPatches" => integer(),
-    "InstancesWithUnreportedNotApplicablePatches" => integer()
-  }
+      
+      describe_patch_group_state_result() :: %{
+        "Instances" => integer(),
+        "InstancesWithCriticalNonCompliantPatches" => integer(),
+        "InstancesWithFailedPatches" => integer(),
+        "InstancesWithInstalledOtherPatches" => integer(),
+        "InstancesWithInstalledPatches" => integer(),
+        "InstancesWithInstalledPendingRebootPatches" => integer(),
+        "InstancesWithInstalledRejectedPatches" => integer(),
+        "InstancesWithMissingPatches" => integer(),
+        "InstancesWithNotApplicablePatches" => integer(),
+        "InstancesWithOtherNonCompliantPatches" => integer(),
+        "InstancesWithSecurityNonCompliantPatches" => integer(),
+        "InstancesWithUnreportedNotApplicablePatches" => integer()
+      }
+      
   """
   @type describe_patch_group_state_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  parameter_version_not_found() :: %{
-    "message" => String.t()
-  }
+      
+      parameter_version_not_found() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type parameter_version_not_found() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_automation_execution_request() :: %{
-    optional("AlarmConfiguration") => alarm_configuration(),
-    optional("ClientToken") => String.t(),
-    optional("DocumentVersion") => String.t(),
-    optional("MaxConcurrency") => String.t(),
-    optional("MaxErrors") => String.t(),
-    optional("Mode") => list(any()),
-    optional("Parameters") => map(),
-    optional("Tags") => list(tag()()),
-    optional("TargetLocations") => list(target_location()()),
-    optional("TargetMaps") => list(map()()),
-    optional("TargetParameterName") => String.t(),
-    optional("Targets") => list(target()()),
-    required("DocumentName") => String.t()
-  }
+      
+      start_automation_execution_request() :: %{
+        optional("AlarmConfiguration") => alarm_configuration(),
+        optional("ClientToken") => String.t(),
+        optional("DocumentVersion") => String.t(),
+        optional("MaxConcurrency") => String.t(),
+        optional("MaxErrors") => String.t(),
+        optional("Mode") => list(any()),
+        optional("Parameters") => map(),
+        optional("Tags") => list(tag()()),
+        optional("TargetLocations") => list(target_location()()),
+        optional("TargetMaps") => list(map()()),
+        optional("TargetParameterName") => String.t(),
+        optional("Targets") => list(target()()),
+        required("DocumentName") => String.t()
+      }
+      
   """
   @type start_automation_execution_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  instance_aggregated_association_overview() :: %{
-    "DetailedStatus" => String.t(),
-    "InstanceAssociationStatusAggregatedCount" => map()
-  }
+      
+      instance_aggregated_association_overview() :: %{
+        "DetailedStatus" => String.t(),
+        "InstanceAssociationStatusAggregatedCount" => map()
+      }
+      
   """
   @type instance_aggregated_association_overview() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_inventory_schema_result() :: %{
-    "NextToken" => String.t(),
-    "Schemas" => list(inventory_item_schema()())
-  }
+      
+      get_inventory_schema_result() :: %{
+        "NextToken" => String.t(),
+        "Schemas" => list(inventory_item_schema()())
+      }
+      
   """
   @type get_inventory_schema_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_resource_data_sync_request() :: %{
-    optional("S3Destination") => resource_data_sync_s3_destination(),
-    optional("SyncSource") => resource_data_sync_source(),
-    optional("SyncType") => String.t(),
-    required("SyncName") => String.t()
-  }
+      
+      create_resource_data_sync_request() :: %{
+        optional("S3Destination") => resource_data_sync_s3_destination(),
+        optional("SyncSource") => resource_data_sync_source(),
+        optional("SyncType") => String.t(),
+        required("SyncName") => String.t()
+      }
+      
   """
   @type create_resource_data_sync_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  deregister_patch_baseline_for_patch_group_result() :: %{
-    "BaselineId" => String.t(),
-    "PatchGroup" => String.t()
-  }
+      
+      deregister_patch_baseline_for_patch_group_result() :: %{
+        "BaselineId" => String.t(),
+        "PatchGroup" => String.t()
+      }
+      
   """
   @type deregister_patch_baseline_for_patch_group_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  terminate_session_request() :: %{
-    required("SessionId") => String.t()
-  }
+      
+      terminate_session_request() :: %{
+        required("SessionId") => String.t()
+      }
+      
   """
   @type terminate_session_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_instance_patches_request() :: %{
-    optional("Filters") => list(patch_orchestrator_filter()()),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("InstanceId") => String.t()
-  }
+      
+      describe_instance_patches_request() :: %{
+        optional("Filters") => list(patch_orchestrator_filter()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("InstanceId") => String.t()
+      }
+      
   """
   @type describe_instance_patches_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  instance_patch_state() :: %{
-    "BaselineId" => String.t(),
-    "CriticalNonCompliantCount" => integer(),
-    "FailedCount" => integer(),
-    "InstallOverrideList" => String.t(),
-    "InstalledCount" => integer(),
-    "InstalledOtherCount" => integer(),
-    "InstalledPendingRebootCount" => integer(),
-    "InstalledRejectedCount" => integer(),
-    "InstanceId" => String.t(),
-    "LastNoRebootInstallOperationTime" => non_neg_integer(),
-    "MissingCount" => integer(),
-    "NotApplicableCount" => integer(),
-    "Operation" => list(any()),
-    "OperationEndTime" => non_neg_integer(),
-    "OperationStartTime" => non_neg_integer(),
-    "OtherNonCompliantCount" => integer(),
-    "OwnerInformation" => String.t(),
-    "PatchGroup" => String.t(),
-    "RebootOption" => list(any()),
-    "SecurityNonCompliantCount" => integer(),
-    "SnapshotId" => String.t(),
-    "UnreportedNotApplicableCount" => integer()
-  }
+      
+      instance_patch_state() :: %{
+        "BaselineId" => String.t(),
+        "CriticalNonCompliantCount" => integer(),
+        "FailedCount" => integer(),
+        "InstallOverrideList" => String.t(),
+        "InstalledCount" => integer(),
+        "InstalledOtherCount" => integer(),
+        "InstalledPendingRebootCount" => integer(),
+        "InstalledRejectedCount" => integer(),
+        "InstanceId" => String.t(),
+        "LastNoRebootInstallOperationTime" => non_neg_integer(),
+        "MissingCount" => integer(),
+        "NotApplicableCount" => integer(),
+        "Operation" => list(any()),
+        "OperationEndTime" => non_neg_integer(),
+        "OperationStartTime" => non_neg_integer(),
+        "OtherNonCompliantCount" => integer(),
+        "OwnerInformation" => String.t(),
+        "PatchGroup" => String.t(),
+        "RebootOption" => list(any()),
+        "SecurityNonCompliantCount" => integer(),
+        "SnapshotId" => String.t(),
+        "UnreportedNotApplicableCount" => integer()
+      }
+      
   """
   @type instance_patch_state() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_activations_request() :: %{
-    optional("Filters") => list(describe_activations_filter()()),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+      
+      describe_activations_request() :: %{
+        optional("Filters") => list(describe_activations_filter()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type describe_activations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  idempotent_parameter_mismatch() :: %{
-    "Message" => String.t()
-  }
+      
+      idempotent_parameter_mismatch() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type idempotent_parameter_mismatch() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  target() :: %{
-    "Key" => String.t(),
-    "Values" => list(String.t()())
-  }
+      
+      target() :: %{
+        "Key" => String.t(),
+        "Values" => list(String.t()())
+      }
+      
   """
   @type target() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_maintenance_window_result() :: %{
-    "AllowUnassociatedTargets" => boolean(),
-    "CreatedDate" => non_neg_integer(),
-    "Cutoff" => integer(),
-    "Description" => String.t(),
-    "Duration" => integer(),
-    "Enabled" => boolean(),
-    "EndDate" => String.t(),
-    "ModifiedDate" => non_neg_integer(),
-    "Name" => String.t(),
-    "NextExecutionTime" => String.t(),
-    "Schedule" => String.t(),
-    "ScheduleOffset" => integer(),
-    "ScheduleTimezone" => String.t(),
-    "StartDate" => String.t(),
-    "WindowId" => String.t()
-  }
+      
+      get_maintenance_window_result() :: %{
+        "AllowUnassociatedTargets" => boolean(),
+        "CreatedDate" => non_neg_integer(),
+        "Cutoff" => integer(),
+        "Description" => String.t(),
+        "Duration" => integer(),
+        "Enabled" => boolean(),
+        "EndDate" => String.t(),
+        "ModifiedDate" => non_neg_integer(),
+        "Name" => String.t(),
+        "NextExecutionTime" => String.t(),
+        "Schedule" => String.t(),
+        "ScheduleOffset" => integer(),
+        "ScheduleTimezone" => String.t(),
+        "StartDate" => String.t(),
+        "WindowId" => String.t()
+      }
+      
   """
   @type get_maintenance_window_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_ops_metadata_request() :: %{
-    optional("Metadata") => map(),
-    optional("Tags") => list(tag()()),
-    required("ResourceId") => String.t()
-  }
+      
+      create_ops_metadata_request() :: %{
+        optional("Metadata") => map(),
+        optional("Tags") => list(tag()()),
+        required("ResourceId") => String.t()
+      }
+      
   """
   @type create_ops_metadata_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  automation_execution() :: %{
-    "TriggeredAlarms" => list(alarm_state_information()()),
-    "MaxErrors" => String.t(),
-    "AlarmConfiguration" => alarm_configuration(),
-    "AutomationSubtype" => list(any()),
-    "ExecutedBy" => String.t(),
-    "TargetLocations" => list(target_location()()),
-    "FailureMessage" => String.t(),
-    "Mode" => list(any()),
-    "Variables" => map(),
-    "AutomationExecutionId" => String.t(),
-    "ChangeRequestName" => String.t(),
-    "Target" => String.t(),
-    "Parameters" => map(),
-    "ExecutionEndTime" => non_neg_integer(),
-    "MaxConcurrency" => String.t(),
-    "StepExecutions" => list(step_execution()()),
-    "ParentAutomationExecutionId" => String.t(),
-    "DocumentVersion" => String.t(),
-    "AssociationId" => String.t(),
-    "TargetParameterName" => String.t(),
-    "ExecutionStartTime" => non_neg_integer(),
-    "ProgressCounters" => progress_counters(),
-    "StepExecutionsTruncated" => boolean(),
-    "ResolvedTargets" => resolved_targets(),
-    "Runbooks" => list(runbook()()),
-    "TargetMaps" => list(map()()),
-    "Outputs" => map(),
-    "CurrentAction" => String.t(),
-    "CurrentStepName" => String.t(),
-    "ScheduledTime" => non_neg_integer(),
-    "Targets" => list(target()()),
-    "AutomationExecutionStatus" => list(any()),
-    "OpsItemId" => String.t(),
-    "DocumentName" => String.t()
-  }
+      
+      automation_execution() :: %{
+        "TriggeredAlarms" => list(alarm_state_information()()),
+        "MaxErrors" => String.t(),
+        "AlarmConfiguration" => alarm_configuration(),
+        "AutomationSubtype" => list(any()),
+        "ExecutedBy" => String.t(),
+        "TargetLocations" => list(target_location()()),
+        "FailureMessage" => String.t(),
+        "Mode" => list(any()),
+        "Variables" => map(),
+        "AutomationExecutionId" => String.t(),
+        "ChangeRequestName" => String.t(),
+        "Target" => String.t(),
+        "Parameters" => map(),
+        "ExecutionEndTime" => non_neg_integer(),
+        "MaxConcurrency" => String.t(),
+        "StepExecutions" => list(step_execution()()),
+        "ParentAutomationExecutionId" => String.t(),
+        "DocumentVersion" => String.t(),
+        "AssociationId" => String.t(),
+        "TargetParameterName" => String.t(),
+        "ExecutionStartTime" => non_neg_integer(),
+        "ProgressCounters" => progress_counters(),
+        "StepExecutionsTruncated" => boolean(),
+        "ResolvedTargets" => resolved_targets(),
+        "Runbooks" => list(runbook()()),
+        "TargetMaps" => list(map()()),
+        "Outputs" => map(),
+        "CurrentAction" => String.t(),
+        "CurrentStepName" => String.t(),
+        "ScheduledTime" => non_neg_integer(),
+        "Targets" => list(target()()),
+        "AutomationExecutionStatus" => list(any()),
+        "OpsItemId" => String.t(),
+        "DocumentName" => String.t()
+      }
+      
   """
   @type automation_execution() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_maintenance_window_tasks_result() :: %{
-    "NextToken" => String.t(),
-    "Tasks" => list(maintenance_window_task()())
-  }
+      
+      describe_maintenance_window_tasks_result() :: %{
+        "NextToken" => String.t(),
+        "Tasks" => list(maintenance_window_task()())
+      }
+      
   """
   @type describe_maintenance_window_tasks_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_association_execution_targets_result() :: %{
-    "AssociationExecutionTargets" => list(association_execution_target()()),
-    "NextToken" => String.t()
-  }
+      
+      describe_association_execution_targets_result() :: %{
+        "AssociationExecutionTargets" => list(association_execution_target()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type describe_association_execution_targets_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_patch_groups_result() :: %{
-    "Mappings" => list(patch_group_patch_baseline_mapping()()),
-    "NextToken" => String.t()
-  }
+      
+      describe_patch_groups_result() :: %{
+        "Mappings" => list(patch_group_patch_baseline_mapping()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type describe_patch_groups_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invocation_does_not_exist() :: %{
-
-  }
+      
+      invocation_does_not_exist() :: %{}
+      
   """
-  @type invocation_does_not_exist() :: %{String.t() => any()}
+  @type invocation_does_not_exist() :: %{}
 
   @typedoc """
 
   ## Example:
-  describe_maintenance_window_executions_result() :: %{
-    "NextToken" => String.t(),
-    "WindowExecutions" => list(maintenance_window_execution()())
-  }
+      
+      describe_maintenance_window_executions_result() :: %{
+        "NextToken" => String.t(),
+        "WindowExecutions" => list(maintenance_window_execution()())
+      }
+      
   """
   @type describe_maintenance_window_executions_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  s3_output_location() :: %{
-    "OutputS3BucketName" => String.t(),
-    "OutputS3KeyPrefix" => String.t(),
-    "OutputS3Region" => String.t()
-  }
+      
+      s3_output_location() :: %{
+        "OutputS3BucketName" => String.t(),
+        "OutputS3KeyPrefix" => String.t(),
+        "OutputS3Region" => String.t()
+      }
+      
   """
   @type s3_output_location() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  terminate_session_response() :: %{
-    "SessionId" => String.t()
-  }
+      
+      terminate_session_response() :: %{
+        "SessionId" => String.t()
+      }
+      
   """
   @type terminate_session_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_patch_baseline_request() :: %{
-    required("BaselineId") => String.t()
-  }
+      
+      delete_patch_baseline_request() :: %{
+        required("BaselineId") => String.t()
+      }
+      
   """
   @type delete_patch_baseline_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_document_request() :: %{
-    optional("DocumentFormat") => list(any()),
-    optional("DocumentVersion") => String.t(),
-    optional("VersionName") => String.t(),
-    required("Name") => String.t()
-  }
+      
+      get_document_request() :: %{
+        optional("DocumentFormat") => list(any()),
+        optional("DocumentVersion") => String.t(),
+        optional("VersionName") => String.t(),
+        required("Name") => String.t()
+      }
+      
   """
   @type get_document_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  reset_service_setting_result() :: %{
-    "ServiceSetting" => service_setting()
-  }
+      
+      reset_service_setting_result() :: %{
+        "ServiceSetting" => service_setting()
+      }
+      
   """
   @type reset_service_setting_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  document_metadata_response_info() :: %{
-    "ReviewerResponse" => list(document_reviewer_response_source()())
-  }
+      
+      document_metadata_response_info() :: %{
+        "ReviewerResponse" => list(document_reviewer_response_source()())
+      }
+      
   """
   @type document_metadata_response_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  baseline_override() :: %{
-    "ApprovalRules" => patch_rule_group(),
-    "ApprovedPatches" => list(String.t()()),
-    "ApprovedPatchesComplianceLevel" => list(any()),
-    "ApprovedPatchesEnableNonSecurity" => boolean(),
-    "GlobalFilters" => patch_filter_group(),
-    "OperatingSystem" => list(any()),
-    "RejectedPatches" => list(String.t()()),
-    "RejectedPatchesAction" => list(any()),
-    "Sources" => list(patch_source()())
-  }
+      
+      baseline_override() :: %{
+        "ApprovalRules" => patch_rule_group(),
+        "ApprovedPatches" => list(String.t()()),
+        "ApprovedPatchesComplianceLevel" => list(any()),
+        "ApprovedPatchesEnableNonSecurity" => boolean(),
+        "GlobalFilters" => patch_filter_group(),
+        "OperatingSystem" => list(any()),
+        "RejectedPatches" => list(String.t()()),
+        "RejectedPatchesAction" => list(any()),
+        "Sources" => list(patch_source()())
+      }
+      
   """
   @type baseline_override() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_parameters_by_path_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("ParameterFilters") => list(parameter_string_filter()()),
-    optional("Recursive") => boolean(),
-    optional("WithDecryption") => boolean(),
-    required("Path") => String.t()
-  }
+      
+      get_parameters_by_path_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("ParameterFilters") => list(parameter_string_filter()()),
+        optional("Recursive") => boolean(),
+        optional("WithDecryption") => boolean(),
+        required("Path") => String.t()
+      }
+      
   """
   @type get_parameters_by_path_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ops_item_not_found_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      ops_item_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type ops_item_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  runbook() :: %{
-    "DocumentName" => String.t(),
-    "DocumentVersion" => String.t(),
-    "MaxConcurrency" => String.t(),
-    "MaxErrors" => String.t(),
-    "Parameters" => map(),
-    "TargetLocations" => list(target_location()()),
-    "TargetMaps" => list(map()()),
-    "TargetParameterName" => String.t(),
-    "Targets" => list(target()())
-  }
+      
+      runbook() :: %{
+        "DocumentName" => String.t(),
+        "DocumentVersion" => String.t(),
+        "MaxConcurrency" => String.t(),
+        "MaxErrors" => String.t(),
+        "Parameters" => map(),
+        "TargetLocations" => list(target_location()()),
+        "TargetMaps" => list(map()()),
+        "TargetParameterName" => String.t(),
+        "Targets" => list(target()())
+      }
+      
   """
   @type runbook() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_automation_step_executions_result() :: %{
-    "NextToken" => String.t(),
-    "StepExecutions" => list(step_execution()())
-  }
+      
+      describe_automation_step_executions_result() :: %{
+        "NextToken" => String.t(),
+        "StepExecutions" => list(step_execution()())
+      }
+      
   """
   @type describe_automation_step_executions_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_maintenance_window_schedule_request() :: %{
-    optional("Filters") => list(patch_orchestrator_filter()()),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("ResourceType") => list(any()),
-    optional("Targets") => list(target()()),
-    optional("WindowId") => String.t()
-  }
+      
+      describe_maintenance_window_schedule_request() :: %{
+        optional("Filters") => list(patch_orchestrator_filter()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("ResourceType") => list(any()),
+        optional("Targets") => list(target()()),
+        optional("WindowId") => String.t()
+      }
+      
   """
   @type describe_maintenance_window_schedule_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ops_item_conflict_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      ops_item_conflict_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type ops_item_conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  register_task_with_maintenance_window_request() :: %{
-    optional("AlarmConfiguration") => alarm_configuration(),
-    optional("ClientToken") => String.t(),
-    optional("CutoffBehavior") => list(any()),
-    optional("Description") => String.t(),
-    optional("LoggingInfo") => logging_info(),
-    optional("MaxConcurrency") => String.t(),
-    optional("MaxErrors") => String.t(),
-    optional("Name") => String.t(),
-    optional("Priority") => integer(),
-    optional("ServiceRoleArn") => String.t(),
-    optional("Targets") => list(target()()),
-    optional("TaskInvocationParameters") => maintenance_window_task_invocation_parameters(),
-    optional("TaskParameters") => map(),
-    required("TaskArn") => String.t(),
-    required("TaskType") => list(any()),
-    required("WindowId") => String.t()
-  }
+      
+      register_task_with_maintenance_window_request() :: %{
+        optional("AlarmConfiguration") => alarm_configuration(),
+        optional("ClientToken") => String.t(),
+        optional("CutoffBehavior") => list(any()),
+        optional("Description") => String.t(),
+        optional("LoggingInfo") => logging_info(),
+        optional("MaxConcurrency") => String.t(),
+        optional("MaxErrors") => String.t(),
+        optional("Name") => String.t(),
+        optional("Priority") => integer(),
+        optional("ServiceRoleArn") => String.t(),
+        optional("Targets") => list(target()()),
+        optional("TaskInvocationParameters") => maintenance_window_task_invocation_parameters(),
+        optional("TaskParameters") => map(),
+        required("TaskArn") => String.t(),
+        required("TaskType") => list(any()),
+        required("WindowId") => String.t()
+      }
+      
   """
   @type register_task_with_maintenance_window_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_aggregator_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      invalid_aggregator_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type invalid_aggregator_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_not_found_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      resource_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_option_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      invalid_option_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type invalid_option_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  unsupported_calendar_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      unsupported_calendar_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type unsupported_calendar_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_schedule() :: %{
-    "Message" => String.t()
-  }
+      
+      invalid_schedule() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type invalid_schedule() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_service_setting_request() :: %{
-    required("SettingId") => String.t()
-  }
+      
+      get_service_setting_request() :: %{
+        required("SettingId") => String.t()
+      }
+      
   """
   @type get_service_setting_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  instance_information() :: %{
-    "ActivationId" => String.t(),
-    "AgentVersion" => String.t(),
-    "AssociationOverview" => instance_aggregated_association_overview(),
-    "AssociationStatus" => String.t(),
-    "ComputerName" => String.t(),
-    "IPAddress" => String.t(),
-    "IamRole" => String.t(),
-    "InstanceId" => String.t(),
-    "IsLatestVersion" => boolean(),
-    "LastAssociationExecutionDate" => non_neg_integer(),
-    "LastPingDateTime" => non_neg_integer(),
-    "LastSuccessfulAssociationExecutionDate" => non_neg_integer(),
-    "Name" => String.t(),
-    "PingStatus" => list(any()),
-    "PlatformName" => String.t(),
-    "PlatformType" => list(any()),
-    "PlatformVersion" => String.t(),
-    "RegistrationDate" => non_neg_integer(),
-    "ResourceType" => list(any()),
-    "SourceId" => String.t(),
-    "SourceType" => list(any())
-  }
+      
+      instance_information() :: %{
+        "ActivationId" => String.t(),
+        "AgentVersion" => String.t(),
+        "AssociationOverview" => instance_aggregated_association_overview(),
+        "AssociationStatus" => String.t(),
+        "ComputerName" => String.t(),
+        "IPAddress" => String.t(),
+        "IamRole" => String.t(),
+        "InstanceId" => String.t(),
+        "IsLatestVersion" => boolean(),
+        "LastAssociationExecutionDate" => non_neg_integer(),
+        "LastPingDateTime" => non_neg_integer(),
+        "LastSuccessfulAssociationExecutionDate" => non_neg_integer(),
+        "Name" => String.t(),
+        "PingStatus" => list(any()),
+        "PlatformName" => String.t(),
+        "PlatformType" => list(any()),
+        "PlatformVersion" => String.t(),
+        "RegistrationDate" => non_neg_integer(),
+        "ResourceType" => list(any()),
+        "SourceId" => String.t(),
+        "SourceType" => list(any())
+      }
+      
   """
   @type instance_information() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_role() :: %{
-    "Message" => String.t()
-  }
+      
+      invalid_role() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type invalid_role() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_maintenance_window_tasks_request() :: %{
-    optional("Filters") => list(maintenance_window_filter()()),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("WindowId") => String.t()
-  }
+      
+      describe_maintenance_window_tasks_request() :: %{
+        optional("Filters") => list(maintenance_window_filter()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("WindowId") => String.t()
+      }
+      
   """
   @type describe_maintenance_window_tasks_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  command_filter() :: %{
-    "key" => list(any()),
-    "value" => String.t()
-  }
+      
+      command_filter() :: %{
+        "key" => list(any()),
+        "value" => String.t()
+      }
+      
   """
   @type command_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_tags_error() :: %{
-
-  }
+      
+      too_many_tags_error() :: %{}
+      
   """
-  @type too_many_tags_error() :: %{String.t() => any()}
+  @type too_many_tags_error() :: %{}
 
   @typedoc """
 
   ## Example:
-  update_resource_data_sync_request() :: %{
-    required("SyncName") => String.t(),
-    required("SyncSource") => resource_data_sync_source(),
-    required("SyncType") => String.t()
-  }
+      
+      update_resource_data_sync_request() :: %{
+        required("SyncName") => String.t(),
+        required("SyncSource") => resource_data_sync_source(),
+        required("SyncType") => String.t()
+      }
+      
   """
   @type update_resource_data_sync_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ops_item_summary() :: %{
-    "ActualEndTime" => non_neg_integer(),
-    "ActualStartTime" => non_neg_integer(),
-    "Category" => String.t(),
-    "CreatedBy" => String.t(),
-    "CreatedTime" => non_neg_integer(),
-    "LastModifiedBy" => String.t(),
-    "LastModifiedTime" => non_neg_integer(),
-    "OperationalData" => map(),
-    "OpsItemId" => String.t(),
-    "OpsItemType" => String.t(),
-    "PlannedEndTime" => non_neg_integer(),
-    "PlannedStartTime" => non_neg_integer(),
-    "Priority" => integer(),
-    "Severity" => String.t(),
-    "Source" => String.t(),
-    "Status" => list(any()),
-    "Title" => String.t()
-  }
+      
+      ops_item_summary() :: %{
+        "ActualEndTime" => non_neg_integer(),
+        "ActualStartTime" => non_neg_integer(),
+        "Category" => String.t(),
+        "CreatedBy" => String.t(),
+        "CreatedTime" => non_neg_integer(),
+        "LastModifiedBy" => String.t(),
+        "LastModifiedTime" => non_neg_integer(),
+        "OperationalData" => map(),
+        "OpsItemId" => String.t(),
+        "OpsItemType" => String.t(),
+        "PlannedEndTime" => non_neg_integer(),
+        "PlannedStartTime" => non_neg_integer(),
+        "Priority" => integer(),
+        "Severity" => String.t(),
+        "Source" => String.t(),
+        "Status" => list(any()),
+        "Title" => String.t()
+      }
+      
   """
   @type ops_item_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  register_patch_baseline_for_patch_group_result() :: %{
-    "BaselineId" => String.t(),
-    "PatchGroup" => String.t()
-  }
+      
+      register_patch_baseline_for_patch_group_result() :: %{
+        "BaselineId" => String.t(),
+        "PatchGroup" => String.t()
+      }
+      
   """
   @type register_patch_baseline_for_patch_group_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ops_metadata_invalid_argument_exception() :: %{
-    "message" => String.t()
-  }
+      
+      ops_metadata_invalid_argument_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type ops_metadata_invalid_argument_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag() :: %{
-    "Key" => String.t(),
-    "Value" => String.t()
-  }
+      
+      tag() :: %{
+        "Key" => String.t(),
+        "Value" => String.t()
+      }
+      
   """
   @type tag() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_patch_group_state_request() :: %{
-    required("PatchGroup") => String.t()
-  }
+      
+      describe_patch_group_state_request() :: %{
+        required("PatchGroup") => String.t()
+      }
+      
   """
   @type describe_patch_group_state_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_service_setting_request() :: %{
-    required("SettingId") => String.t(),
-    required("SettingValue") => String.t()
-  }
+      
+      update_service_setting_request() :: %{
+        required("SettingId") => String.t(),
+        required("SettingValue") => String.t()
+      }
+      
   """
   @type update_service_setting_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_document_result() :: %{
-    "DocumentDescription" => document_description()
-  }
+      
+      create_document_result() :: %{
+        "DocumentDescription" => document_description()
+      }
+      
   """
   @type create_document_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  deregister_managed_instance_result() :: %{
-
-  }
+      
+      deregister_managed_instance_result() :: %{}
+      
   """
-  @type deregister_managed_instance_result() :: %{String.t() => any()}
+  @type deregister_managed_instance_result() :: %{}
 
   @typedoc """
 
   ## Example:
-  invalid_deletion_id_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      invalid_deletion_id_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type invalid_deletion_id_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  compliance_item_entry() :: %{
-    "Details" => map(),
-    "Id" => String.t(),
-    "Severity" => list(any()),
-    "Status" => list(any()),
-    "Title" => String.t()
-  }
+      
+      compliance_item_entry() :: %{
+        "Details" => map(),
+        "Id" => String.t(),
+        "Severity" => list(any()),
+        "Status" => list(any()),
+        "Title" => String.t()
+      }
+      
   """
   @type compliance_item_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_parameter_result() :: %{
-    "Parameter" => parameter()
-  }
+      
+      get_parameter_result() :: %{
+        "Parameter" => parameter()
+      }
+      
   """
   @type get_parameter_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ops_item_event_summary() :: %{
-    "CreatedBy" => ops_item_identity(),
-    "CreatedTime" => non_neg_integer(),
-    "Detail" => String.t(),
-    "DetailType" => String.t(),
-    "EventId" => String.t(),
-    "OpsItemId" => String.t(),
-    "Source" => String.t()
-  }
+      
+      ops_item_event_summary() :: %{
+        "CreatedBy" => ops_item_identity(),
+        "CreatedTime" => non_neg_integer(),
+        "Detail" => String.t(),
+        "DetailType" => String.t(),
+        "EventId" => String.t(),
+        "OpsItemId" => String.t(),
+        "Source" => String.t()
+      }
+      
   """
   @type ops_item_event_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  parameter_already_exists() :: %{
-    "message" => String.t()
-  }
+      
+      parameter_already_exists() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type parameter_already_exists() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_activation_id() :: %{
-    "Message" => String.t()
-  }
+      
+      invalid_activation_id() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type invalid_activation_id() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  modify_document_permission_request() :: %{
-    optional("AccountIdsToAdd") => list(String.t()()),
-    optional("AccountIdsToRemove") => list(String.t()()),
-    optional("SharedDocumentVersion") => String.t(),
-    required("Name") => String.t(),
-    required("PermissionType") => list(any())
-  }
+      
+      modify_document_permission_request() :: %{
+        optional("AccountIdsToAdd") => list(String.t()()),
+        optional("AccountIdsToRemove") => list(String.t()()),
+        optional("SharedDocumentVersion") => String.t(),
+        required("Name") => String.t(),
+        required("PermissionType") => list(any())
+      }
+      
   """
   @type modify_document_permission_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ops_metadata_already_exists_exception() :: %{
-    "message" => String.t()
-  }
+      
+      ops_metadata_already_exists_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type ops_metadata_already_exists_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  send_command_request() :: %{
-    optional("AlarmConfiguration") => alarm_configuration(),
-    optional("CloudWatchOutputConfig") => cloud_watch_output_config(),
-    optional("Comment") => String.t(),
-    optional("DocumentHash") => String.t(),
-    optional("DocumentHashType") => list(any()),
-    optional("DocumentVersion") => String.t(),
-    optional("InstanceIds") => list(String.t()()),
-    optional("MaxConcurrency") => String.t(),
-    optional("MaxErrors") => String.t(),
-    optional("NotificationConfig") => notification_config(),
-    optional("OutputS3BucketName") => String.t(),
-    optional("OutputS3KeyPrefix") => String.t(),
-    optional("OutputS3Region") => String.t(),
-    optional("Parameters") => map(),
-    optional("ServiceRoleArn") => String.t(),
-    optional("Targets") => list(target()()),
-    optional("TimeoutSeconds") => integer(),
-    required("DocumentName") => String.t()
-  }
+      
+      send_command_request() :: %{
+        optional("AlarmConfiguration") => alarm_configuration(),
+        optional("CloudWatchOutputConfig") => cloud_watch_output_config(),
+        optional("Comment") => String.t(),
+        optional("DocumentHash") => String.t(),
+        optional("DocumentHashType") => list(any()),
+        optional("DocumentVersion") => String.t(),
+        optional("InstanceIds") => list(String.t()()),
+        optional("MaxConcurrency") => String.t(),
+        optional("MaxErrors") => String.t(),
+        optional("NotificationConfig") => notification_config(),
+        optional("OutputS3BucketName") => String.t(),
+        optional("OutputS3KeyPrefix") => String.t(),
+        optional("OutputS3Region") => String.t(),
+        optional("Parameters") => map(),
+        optional("ServiceRoleArn") => String.t(),
+        optional("Targets") => list(target()()),
+        optional("TimeoutSeconds") => integer(),
+        required("DocumentName") => String.t()
+      }
+      
   """
   @type send_command_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  duplicate_instance_id() :: %{
-
-  }
+      
+      duplicate_instance_id() :: %{}
+      
   """
-  @type duplicate_instance_id() :: %{String.t() => any()}
+  @type duplicate_instance_id() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_ops_metadata_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("OpsMetadataArn") => String.t()
-  }
+      
+      get_ops_metadata_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("OpsMetadataArn") => String.t()
+      }
+      
   """
   @type get_ops_metadata_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  inventory_deletion_status_item() :: %{
-    "DeletionId" => String.t(),
-    "DeletionStartTime" => non_neg_integer(),
-    "DeletionSummary" => inventory_deletion_summary(),
-    "LastStatus" => list(any()),
-    "LastStatusMessage" => String.t(),
-    "LastStatusUpdateTime" => non_neg_integer(),
-    "TypeName" => String.t()
-  }
+      
+      inventory_deletion_status_item() :: %{
+        "DeletionId" => String.t(),
+        "DeletionStartTime" => non_neg_integer(),
+        "DeletionSummary" => inventory_deletion_summary(),
+        "LastStatus" => list(any()),
+        "LastStatusMessage" => String.t(),
+        "LastStatusUpdateTime" => non_neg_integer(),
+        "TypeName" => String.t()
+      }
+      
   """
   @type inventory_deletion_status_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ops_filter() :: %{
-    "Key" => String.t(),
-    "Type" => list(any()),
-    "Values" => list(String.t()())
-  }
+      
+      ops_filter() :: %{
+        "Key" => String.t(),
+        "Type" => list(any()),
+        "Values" => list(String.t()())
+      }
+      
   """
   @type ops_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  document_default_version_description() :: %{
-    "DefaultVersion" => String.t(),
-    "DefaultVersionName" => String.t(),
-    "Name" => String.t()
-  }
+      
+      document_default_version_description() :: %{
+        "DefaultVersion" => String.t(),
+        "DefaultVersionName" => String.t(),
+        "Name" => String.t()
+      }
+      
   """
   @type document_default_version_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_compliance_summary_item() :: %{
-    "ComplianceType" => String.t(),
-    "CompliantSummary" => compliant_summary(),
-    "ExecutionSummary" => compliance_execution_summary(),
-    "NonCompliantSummary" => non_compliant_summary(),
-    "OverallSeverity" => list(any()),
-    "ResourceId" => String.t(),
-    "ResourceType" => String.t(),
-    "Status" => list(any())
-  }
+      
+      resource_compliance_summary_item() :: %{
+        "ComplianceType" => String.t(),
+        "CompliantSummary" => compliant_summary(),
+        "ExecutionSummary" => compliance_execution_summary(),
+        "NonCompliantSummary" => non_compliant_summary(),
+        "OverallSeverity" => list(any()),
+        "ResourceId" => String.t(),
+        "ResourceType" => String.t(),
+        "Status" => list(any())
+      }
+      
   """
   @type resource_compliance_summary_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  patch() :: %{
-    "AdvisoryIds" => list(String.t()()),
-    "Arch" => String.t(),
-    "BugzillaIds" => list(String.t()()),
-    "CVEIds" => list(String.t()()),
-    "Classification" => String.t(),
-    "ContentUrl" => String.t(),
-    "Description" => String.t(),
-    "Epoch" => integer(),
-    "Id" => String.t(),
-    "KbNumber" => String.t(),
-    "Language" => String.t(),
-    "MsrcNumber" => String.t(),
-    "MsrcSeverity" => String.t(),
-    "Name" => String.t(),
-    "Product" => String.t(),
-    "ProductFamily" => String.t(),
-    "Release" => String.t(),
-    "ReleaseDate" => non_neg_integer(),
-    "Repository" => String.t(),
-    "Severity" => String.t(),
-    "Title" => String.t(),
-    "Vendor" => String.t(),
-    "Version" => String.t()
-  }
+      
+      patch() :: %{
+        "AdvisoryIds" => list(String.t()()),
+        "Arch" => String.t(),
+        "BugzillaIds" => list(String.t()()),
+        "CVEIds" => list(String.t()()),
+        "Classification" => String.t(),
+        "ContentUrl" => String.t(),
+        "Description" => String.t(),
+        "Epoch" => integer(),
+        "Id" => String.t(),
+        "KbNumber" => String.t(),
+        "Language" => String.t(),
+        "MsrcNumber" => String.t(),
+        "MsrcSeverity" => String.t(),
+        "Name" => String.t(),
+        "Product" => String.t(),
+        "ProductFamily" => String.t(),
+        "Release" => String.t(),
+        "ReleaseDate" => non_neg_integer(),
+        "Repository" => String.t(),
+        "Severity" => String.t(),
+        "Title" => String.t(),
+        "Vendor" => String.t(),
+        "Version" => String.t()
+      }
+      
   """
   @type patch() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_commands_result() :: %{
-    "Commands" => list(command()()),
-    "NextToken" => String.t()
-  }
+      
+      list_commands_result() :: %{
+        "Commands" => list(command()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_commands_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_calendar_state_request() :: %{
-    optional("AtTime") => String.t(),
-    required("CalendarNames") => list(String.t()())
-  }
+      
+      get_calendar_state_request() :: %{
+        optional("AtTime") => String.t(),
+        required("CalendarNames") => list(String.t()())
+      }
+      
   """
   @type get_calendar_state_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_inventory_request() :: %{
-    optional("Aggregators") => list(inventory_aggregator()()),
-    optional("Filters") => list(inventory_filter()()),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("ResultAttributes") => list(result_attribute()())
-  }
+      
+      get_inventory_request() :: %{
+        optional("Aggregators") => list(inventory_aggregator()()),
+        optional("Filters") => list(inventory_filter()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("ResultAttributes") => list(result_attribute()())
+      }
+      
   """
   @type get_inventory_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_patch_baseline_for_patch_group_result() :: %{
-    "BaselineId" => String.t(),
-    "OperatingSystem" => list(any()),
-    "PatchGroup" => String.t()
-  }
+      
+      get_patch_baseline_for_patch_group_result() :: %{
+        "BaselineId" => String.t(),
+        "OperatingSystem" => list(any()),
+        "PatchGroup" => String.t()
+      }
+      
   """
   @type get_patch_baseline_for_patch_group_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_maintenance_window_execution_tasks_request() :: %{
-    optional("Filters") => list(maintenance_window_filter()()),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("WindowExecutionId") => String.t()
-  }
+      
+      describe_maintenance_window_execution_tasks_request() :: %{
+        optional("Filters") => list(maintenance_window_filter()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("WindowExecutionId") => String.t()
+      }
+      
   """
   @type describe_maintenance_window_execution_tasks_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_limit_exceeded_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      resource_limit_exceeded_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type resource_limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_maintenance_window_request() :: %{
-    optional("AllowUnassociatedTargets") => boolean(),
-    optional("Cutoff") => integer(),
-    optional("Description") => String.t(),
-    optional("Duration") => integer(),
-    optional("Enabled") => boolean(),
-    optional("EndDate") => String.t(),
-    optional("Name") => String.t(),
-    optional("Replace") => boolean(),
-    optional("Schedule") => String.t(),
-    optional("ScheduleOffset") => integer(),
-    optional("ScheduleTimezone") => String.t(),
-    optional("StartDate") => String.t(),
-    required("WindowId") => String.t()
-  }
+      
+      update_maintenance_window_request() :: %{
+        optional("AllowUnassociatedTargets") => boolean(),
+        optional("Cutoff") => integer(),
+        optional("Description") => String.t(),
+        optional("Duration") => integer(),
+        optional("Enabled") => boolean(),
+        optional("EndDate") => String.t(),
+        optional("Name") => String.t(),
+        optional("Replace") => boolean(),
+        optional("Schedule") => String.t(),
+        optional("ScheduleOffset") => integer(),
+        optional("ScheduleTimezone") => String.t(),
+        optional("StartDate") => String.t(),
+        required("WindowId") => String.t()
+      }
+      
   """
   @type update_maintenance_window_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_parameter_history_result() :: %{
-    "NextToken" => String.t(),
-    "Parameters" => list(parameter_history()())
-  }
+      
+      get_parameter_history_result() :: %{
+        "NextToken" => String.t(),
+        "Parameters" => list(parameter_history()())
+      }
+      
   """
   @type get_parameter_history_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  deregister_target_from_maintenance_window_result() :: %{
-    "WindowId" => String.t(),
-    "WindowTargetId" => String.t()
-  }
+      
+      deregister_target_from_maintenance_window_result() :: %{
+        "WindowId" => String.t(),
+        "WindowTargetId" => String.t()
+      }
+      
   """
   @type deregister_target_from_maintenance_window_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  deregister_managed_instance_request() :: %{
-    required("InstanceId") => String.t()
-  }
+      
+      deregister_managed_instance_request() :: %{
+        required("InstanceId") => String.t()
+      }
+      
   """
   @type deregister_managed_instance_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  association_execution_targets_filter() :: %{
-    "Key" => list(any()),
-    "Value" => String.t()
-  }
+      
+      association_execution_targets_filter() :: %{
+        "Key" => list(any()),
+        "Value" => String.t()
+      }
+      
   """
   @type association_execution_targets_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  review_information() :: %{
-    "ReviewedTime" => non_neg_integer(),
-    "Reviewer" => String.t(),
-    "Status" => list(any())
-  }
+      
+      review_information() :: %{
+        "ReviewedTime" => non_neg_integer(),
+        "Reviewer" => String.t(),
+        "Status" => list(any())
+      }
+      
   """
   @type review_information() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  register_task_with_maintenance_window_result() :: %{
-    "WindowTaskId" => String.t()
-  }
+      
+      register_task_with_maintenance_window_result() :: %{
+        "WindowTaskId" => String.t()
+      }
+      
   """
   @type register_task_with_maintenance_window_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_maintenance_window_request() :: %{
-    optional("ClientToken") => String.t(),
-    optional("Description") => String.t(),
-    optional("EndDate") => String.t(),
-    optional("ScheduleOffset") => integer(),
-    optional("ScheduleTimezone") => String.t(),
-    optional("StartDate") => String.t(),
-    optional("Tags") => list(tag()()),
-    required("AllowUnassociatedTargets") => boolean(),
-    required("Cutoff") => integer(),
-    required("Duration") => integer(),
-    required("Name") => String.t(),
-    required("Schedule") => String.t()
-  }
+      
+      create_maintenance_window_request() :: %{
+        optional("ClientToken") => String.t(),
+        optional("Description") => String.t(),
+        optional("EndDate") => String.t(),
+        optional("ScheduleOffset") => integer(),
+        optional("ScheduleTimezone") => String.t(),
+        optional("StartDate") => String.t(),
+        optional("Tags") => list(tag()()),
+        required("AllowUnassociatedTargets") => boolean(),
+        required("Cutoff") => integer(),
+        required("Duration") => integer(),
+        required("Name") => String.t(),
+        required("Schedule") => String.t()
+      }
+      
   """
   @type create_maintenance_window_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_ops_items_response() :: %{
-    "NextToken" => String.t(),
-    "OpsItemSummaries" => list(ops_item_summary()())
-  }
+      
+      describe_ops_items_response() :: %{
+        "NextToken" => String.t(),
+        "OpsItemSummaries" => list(ops_item_summary()())
+      }
+      
   """
   @type describe_ops_items_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  document_reviews() :: %{
-    "Action" => list(any()),
-    "Comment" => list(document_review_comment_source()())
-  }
+      
+      document_reviews() :: %{
+        "Action" => list(any()),
+        "Comment" => list(document_review_comment_source()())
+      }
+      
   """
   @type document_reviews() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_activation() :: %{
-    "Message" => String.t()
-  }
+      
+      invalid_activation() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type invalid_activation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  unsupported_inventory_schema_version_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      unsupported_inventory_schema_version_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type unsupported_inventory_schema_version_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_parameter_result() :: %{
-
-  }
+      
+      delete_parameter_result() :: %{}
+      
   """
-  @type delete_parameter_result() :: %{String.t() => any()}
+  @type delete_parameter_result() :: %{}
 
   @typedoc """
 
   ## Example:
-  resource_data_sync_organizational_unit() :: %{
-    "OrganizationalUnitId" => String.t()
-  }
+      
+      resource_data_sync_organizational_unit() :: %{
+        "OrganizationalUnitId" => String.t()
+      }
+      
   """
   @type resource_data_sync_organizational_unit() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_instance_patch_states_result() :: %{
-    "InstancePatchStates" => list(instance_patch_state()()),
-    "NextToken" => String.t()
-  }
+      
+      describe_instance_patch_states_result() :: %{
+        "InstancePatchStates" => list(instance_patch_state()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type describe_instance_patch_states_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_filter_option() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_filter_option() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_filter_option() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ops_metadata() :: %{
-    "CreationDate" => non_neg_integer(),
-    "LastModifiedDate" => non_neg_integer(),
-    "LastModifiedUser" => String.t(),
-    "OpsMetadataArn" => String.t(),
-    "ResourceId" => String.t()
-  }
+      
+      ops_metadata() :: %{
+        "CreationDate" => non_neg_integer(),
+        "LastModifiedDate" => non_neg_integer(),
+        "LastModifiedUser" => String.t(),
+        "OpsMetadataArn" => String.t(),
+        "ResourceId" => String.t()
+      }
+      
   """
   @type ops_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_key_id() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_key_id() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_key_id() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_allowed_pattern_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_allowed_pattern_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_allowed_pattern_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_ops_metadata_result() :: %{
-    "OpsMetadataArn" => String.t()
-  }
+      
+      update_ops_metadata_result() :: %{
+        "OpsMetadataArn" => String.t()
+      }
+      
   """
   @type update_ops_metadata_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ops_item_related_item_association_not_found_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      ops_item_related_item_association_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type ops_item_related_item_association_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ops_item_related_item_already_exists_exception() :: %{
-    "Message" => String.t(),
-    "OpsItemId" => String.t(),
-    "ResourceUri" => String.t()
-  }
+      
+      ops_item_related_item_already_exists_exception() :: %{
+        "Message" => String.t(),
+        "OpsItemId" => String.t(),
+        "ResourceUri" => String.t()
+      }
+      
   """
   @type ops_item_related_item_already_exists_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  parameter() :: %{
-    "ARN" => String.t(),
-    "DataType" => String.t(),
-    "LastModifiedDate" => non_neg_integer(),
-    "Name" => String.t(),
-    "Selector" => String.t(),
-    "SourceResult" => String.t(),
-    "Type" => list(any()),
-    "Value" => String.t(),
-    "Version" => float()
-  }
+      
+      parameter() :: %{
+        "ARN" => String.t(),
+        "DataType" => String.t(),
+        "LastModifiedDate" => non_neg_integer(),
+        "Name" => String.t(),
+        "Selector" => String.t(),
+        "SourceResult" => String.t(),
+        "Type" => list(any()),
+        "Value" => String.t(),
+        "Version" => float()
+      }
+      
   """
   @type parameter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_automation_step_executions_request() :: %{
-    optional("Filters") => list(step_execution_filter()()),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("ReverseOrder") => boolean(),
-    required("AutomationExecutionId") => String.t()
-  }
+      
+      describe_automation_step_executions_request() :: %{
+        optional("Filters") => list(step_execution_filter()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("ReverseOrder") => boolean(),
+        required("AutomationExecutionId") => String.t()
+      }
+      
   """
   @type describe_automation_step_executions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_connection_status_response() :: %{
-    "Status" => list(any()),
-    "Target" => String.t()
-  }
+      
+      get_connection_status_response() :: %{
+        "Status" => list(any()),
+        "Target" => String.t()
+      }
+      
   """
   @type get_connection_status_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  parameters_filter() :: %{
-    "Key" => list(any()),
-    "Values" => list(String.t()())
-  }
+      
+      parameters_filter() :: %{
+        "Key" => list(any()),
+        "Values" => list(String.t()())
+      }
+      
   """
   @type parameters_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  association() :: %{
-    "AssociationId" => String.t(),
-    "AssociationName" => String.t(),
-    "AssociationVersion" => String.t(),
-    "DocumentVersion" => String.t(),
-    "Duration" => integer(),
-    "InstanceId" => String.t(),
-    "LastExecutionDate" => non_neg_integer(),
-    "Name" => String.t(),
-    "Overview" => association_overview(),
-    "ScheduleExpression" => String.t(),
-    "ScheduleOffset" => integer(),
-    "TargetMaps" => list(map()()),
-    "Targets" => list(target()())
-  }
+      
+      association() :: %{
+        "AssociationId" => String.t(),
+        "AssociationName" => String.t(),
+        "AssociationVersion" => String.t(),
+        "DocumentVersion" => String.t(),
+        "Duration" => integer(),
+        "InstanceId" => String.t(),
+        "LastExecutionDate" => non_neg_integer(),
+        "Name" => String.t(),
+        "Overview" => association_overview(),
+        "ScheduleExpression" => String.t(),
+        "ScheduleOffset" => integer(),
+        "TargetMaps" => list(map()()),
+        "Targets" => list(target()())
+      }
+      
   """
   @type association() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_command_invocation_request() :: %{
-    optional("PluginName") => String.t(),
-    required("CommandId") => String.t(),
-    required("InstanceId") => String.t()
-  }
+      
+      get_command_invocation_request() :: %{
+        optional("PluginName") => String.t(),
+        required("CommandId") => String.t(),
+        required("InstanceId") => String.t()
+      }
+      
   """
   @type get_command_invocation_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_ops_items_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("OpsItemFilters") => list(ops_item_filter()())
-  }
+      
+      describe_ops_items_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("OpsItemFilters") => list(ops_item_filter()())
+      }
+      
   """
   @type describe_ops_items_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_maintenance_window_execution_result() :: %{
-    "EndTime" => non_neg_integer(),
-    "StartTime" => non_neg_integer(),
-    "Status" => list(any()),
-    "StatusDetails" => String.t(),
-    "TaskIds" => list(String.t()()),
-    "WindowExecutionId" => String.t()
-  }
+      
+      get_maintenance_window_execution_result() :: %{
+        "EndTime" => non_neg_integer(),
+        "StartTime" => non_neg_integer(),
+        "Status" => list(any()),
+        "StatusDetails" => String.t(),
+        "TaskIds" => list(String.t()()),
+        "WindowExecutionId" => String.t()
+      }
+      
   """
   @type get_maintenance_window_execution_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_associations_result() :: %{
-    "Associations" => list(association()()),
-    "NextToken" => String.t()
-  }
+      
+      list_associations_result() :: %{
+        "Associations" => list(association()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_associations_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_managed_instance_role_request() :: %{
-    required("IamRole") => String.t(),
-    required("InstanceId") => String.t()
-  }
+      
+      update_managed_instance_role_request() :: %{
+        required("IamRole") => String.t(),
+        required("InstanceId") => String.t()
+      }
+      
   """
   @type update_managed_instance_role_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_document_versions_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("Name") => String.t()
-  }
+      
+      list_document_versions_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("Name") => String.t()
+      }
+      
   """
   @type list_document_versions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ops_metadata_key_limit_exceeded_exception() :: %{
-    "message" => String.t()
-  }
+      
+      ops_metadata_key_limit_exceeded_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type ops_metadata_key_limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_document_schema_version() :: %{
-    "Message" => String.t()
-  }
+      
+      invalid_document_schema_version() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type invalid_document_schema_version() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_activation_request() :: %{
-    optional("DefaultInstanceName") => String.t(),
-    optional("Description") => String.t(),
-    optional("ExpirationDate") => non_neg_integer(),
-    optional("RegistrationLimit") => integer(),
-    optional("RegistrationMetadata") => list(registration_metadata_item()()),
-    optional("Tags") => list(tag()()),
-    required("IamRole") => String.t()
-  }
+      
+      create_activation_request() :: %{
+        optional("DefaultInstanceName") => String.t(),
+        optional("Description") => String.t(),
+        optional("ExpirationDate") => non_neg_integer(),
+        optional("RegistrationLimit") => integer(),
+        optional("RegistrationMetadata") => list(registration_metadata_item()()),
+        optional("Tags") => list(tag()()),
+        required("IamRole") => String.t()
+      }
+      
   """
   @type create_activation_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_parameters_request() :: %{
-    optional("WithDecryption") => boolean(),
-    required("Names") => list(String.t()())
-  }
+      
+      get_parameters_request() :: %{
+        optional("WithDecryption") => boolean(),
+        required("Names") => list(String.t()())
+      }
+      
   """
   @type get_parameters_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  automation_step_not_found_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      automation_step_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type automation_step_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  inventory_deletion_summary() :: %{
-    "RemainingCount" => integer(),
-    "SummaryItems" => list(inventory_deletion_summary_item()()),
-    "TotalCount" => integer()
-  }
+      
+      inventory_deletion_summary() :: %{
+        "RemainingCount" => integer(),
+        "SummaryItems" => list(inventory_deletion_summary_item()()),
+        "TotalCount" => integer()
+      }
+      
   """
   @type inventory_deletion_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  document_filter() :: %{
-    "key" => list(any()),
-    "value" => String.t()
-  }
+      
+      document_filter() :: %{
+        "key" => list(any()),
+        "value" => String.t()
+      }
+      
   """
   @type document_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_maintenance_window_execution_tasks_result() :: %{
-    "NextToken" => String.t(),
-    "WindowExecutionTaskIdentities" => list(maintenance_window_execution_task_identity()())
-  }
+      
+      describe_maintenance_window_execution_tasks_result() :: %{
+        "NextToken" => String.t(),
+        "WindowExecutionTaskIdentities" => list(maintenance_window_execution_task_identity()())
+      }
+      
   """
   @type describe_maintenance_window_execution_tasks_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_patch_baseline_for_patch_group_request() :: %{
-    optional("OperatingSystem") => list(any()),
-    required("PatchGroup") => String.t()
-  }
+      
+      get_patch_baseline_for_patch_group_request() :: %{
+        optional("OperatingSystem") => list(any()),
+        required("PatchGroup") => String.t()
+      }
+      
   """
   @type get_patch_baseline_for_patch_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_command_invocation_result() :: %{
-    "CloudWatchOutputConfig" => cloud_watch_output_config(),
-    "CommandId" => String.t(),
-    "Comment" => String.t(),
-    "DocumentName" => String.t(),
-    "DocumentVersion" => String.t(),
-    "ExecutionElapsedTime" => String.t(),
-    "ExecutionEndDateTime" => String.t(),
-    "ExecutionStartDateTime" => String.t(),
-    "InstanceId" => String.t(),
-    "PluginName" => String.t(),
-    "ResponseCode" => integer(),
-    "StandardErrorContent" => String.t(),
-    "StandardErrorUrl" => String.t(),
-    "StandardOutputContent" => String.t(),
-    "StandardOutputUrl" => String.t(),
-    "Status" => list(any()),
-    "StatusDetails" => String.t()
-  }
+      
+      get_command_invocation_result() :: %{
+        "CloudWatchOutputConfig" => cloud_watch_output_config(),
+        "CommandId" => String.t(),
+        "Comment" => String.t(),
+        "DocumentName" => String.t(),
+        "DocumentVersion" => String.t(),
+        "ExecutionElapsedTime" => String.t(),
+        "ExecutionEndDateTime" => String.t(),
+        "ExecutionStartDateTime" => String.t(),
+        "InstanceId" => String.t(),
+        "PluginName" => String.t(),
+        "ResponseCode" => integer(),
+        "StandardErrorContent" => String.t(),
+        "StandardErrorUrl" => String.t(),
+        "StandardOutputContent" => String.t(),
+        "StandardOutputUrl" => String.t(),
+        "Status" => list(any()),
+        "StatusDetails" => String.t()
+      }
+      
   """
   @type get_command_invocation_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_compliance_items_result() :: %{
-
-  }
+      
+      put_compliance_items_result() :: %{}
+      
   """
-  @type put_compliance_items_result() :: %{String.t() => any()}
+  @type put_compliance_items_result() :: %{}
 
   @typedoc """
 
   ## Example:
-  describe_effective_patches_for_patch_baseline_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("BaselineId") => String.t()
-  }
+      
+      describe_effective_patches_for_patch_baseline_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("BaselineId") => String.t()
+      }
+      
   """
   @type describe_effective_patches_for_patch_baseline_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  hierarchy_level_limit_exceeded_exception() :: %{
-    "message" => String.t()
-  }
+      
+      hierarchy_level_limit_exceeded_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type hierarchy_level_limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_policy_conflict_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      resource_policy_conflict_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type resource_policy_conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_resource_data_sync_result() :: %{
-
-  }
+      
+      create_resource_data_sync_result() :: %{}
+      
   """
-  @type create_resource_data_sync_result() :: %{String.t() => any()}
+  @type create_resource_data_sync_result() :: %{}
 
   @typedoc """
 
   ## Example:
-  describe_maintenance_window_executions_request() :: %{
-    optional("Filters") => list(maintenance_window_filter()()),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("WindowId") => String.t()
-  }
+      
+      describe_maintenance_window_executions_request() :: %{
+        optional("Filters") => list(maintenance_window_filter()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("WindowId") => String.t()
+      }
+      
   """
   @type describe_maintenance_window_executions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_maintenance_window_execution_task_result() :: %{
-    "AlarmConfiguration" => alarm_configuration(),
-    "EndTime" => non_neg_integer(),
-    "MaxConcurrency" => String.t(),
-    "MaxErrors" => String.t(),
-    "Priority" => integer(),
-    "ServiceRole" => String.t(),
-    "StartTime" => non_neg_integer(),
-    "Status" => list(any()),
-    "StatusDetails" => String.t(),
-    "TaskArn" => String.t(),
-    "TaskExecutionId" => String.t(),
-    "TaskParameters" => list(map()()),
-    "TriggeredAlarms" => list(alarm_state_information()()),
-    "Type" => list(any()),
-    "WindowExecutionId" => String.t()
-  }
+      
+      get_maintenance_window_execution_task_result() :: %{
+        "AlarmConfiguration" => alarm_configuration(),
+        "EndTime" => non_neg_integer(),
+        "MaxConcurrency" => String.t(),
+        "MaxErrors" => String.t(),
+        "Priority" => integer(),
+        "ServiceRole" => String.t(),
+        "StartTime" => non_neg_integer(),
+        "Status" => list(any()),
+        "StatusDetails" => String.t(),
+        "TaskArn" => String.t(),
+        "TaskExecutionId" => String.t(),
+        "TaskParameters" => list(map()()),
+        "TriggeredAlarms" => list(alarm_state_information()()),
+        "Type" => list(any()),
+        "WindowExecutionId" => String.t()
+      }
+      
   """
   @type get_maintenance_window_execution_task_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_deployable_patch_snapshot_for_instance_result() :: %{
-    "InstanceId" => String.t(),
-    "Product" => String.t(),
-    "SnapshotDownloadUrl" => String.t(),
-    "SnapshotId" => String.t()
-  }
+      
+      get_deployable_patch_snapshot_for_instance_result() :: %{
+        "InstanceId" => String.t(),
+        "Product" => String.t(),
+        "SnapshotDownloadUrl" => String.t(),
+        "SnapshotId" => String.t()
+      }
+      
   """
   @type get_deployable_patch_snapshot_for_instance_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  patch_rule_group() :: %{
-    "PatchRules" => list(patch_rule()())
-  }
+      
+      patch_rule_group() :: %{
+        "PatchRules" => list(patch_rule()())
+      }
+      
   """
   @type patch_rule_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  registration_metadata_item() :: %{
-    "Key" => String.t(),
-    "Value" => String.t()
-  }
+      
+      registration_metadata_item() :: %{
+        "Key" => String.t(),
+        "Value" => String.t()
+      }
+      
   """
   @type registration_metadata_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  command_plugin() :: %{
-    "Name" => String.t(),
-    "Output" => String.t(),
-    "OutputS3BucketName" => String.t(),
-    "OutputS3KeyPrefix" => String.t(),
-    "OutputS3Region" => String.t(),
-    "ResponseCode" => integer(),
-    "ResponseFinishDateTime" => non_neg_integer(),
-    "ResponseStartDateTime" => non_neg_integer(),
-    "StandardErrorUrl" => String.t(),
-    "StandardOutputUrl" => String.t(),
-    "Status" => list(any()),
-    "StatusDetails" => String.t()
-  }
+      
+      command_plugin() :: %{
+        "Name" => String.t(),
+        "Output" => String.t(),
+        "OutputS3BucketName" => String.t(),
+        "OutputS3KeyPrefix" => String.t(),
+        "OutputS3Region" => String.t(),
+        "ResponseCode" => integer(),
+        "ResponseFinishDateTime" => non_neg_integer(),
+        "ResponseStartDateTime" => non_neg_integer(),
+        "StandardErrorUrl" => String.t(),
+        "StandardOutputUrl" => String.t(),
+        "Status" => list(any()),
+        "StatusDetails" => String.t()
+      }
+      
   """
   @type command_plugin() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_patch_baseline_result() :: %{
-    "ApprovalRules" => patch_rule_group(),
-    "ApprovedPatches" => list(String.t()()),
-    "ApprovedPatchesComplianceLevel" => list(any()),
-    "ApprovedPatchesEnableNonSecurity" => boolean(),
-    "BaselineId" => String.t(),
-    "CreatedDate" => non_neg_integer(),
-    "Description" => String.t(),
-    "GlobalFilters" => patch_filter_group(),
-    "ModifiedDate" => non_neg_integer(),
-    "Name" => String.t(),
-    "OperatingSystem" => list(any()),
-    "PatchGroups" => list(String.t()()),
-    "RejectedPatches" => list(String.t()()),
-    "RejectedPatchesAction" => list(any()),
-    "Sources" => list(patch_source()())
-  }
+      
+      get_patch_baseline_result() :: %{
+        "ApprovalRules" => patch_rule_group(),
+        "ApprovedPatches" => list(String.t()()),
+        "ApprovedPatchesComplianceLevel" => list(any()),
+        "ApprovedPatchesEnableNonSecurity" => boolean(),
+        "BaselineId" => String.t(),
+        "CreatedDate" => non_neg_integer(),
+        "Description" => String.t(),
+        "GlobalFilters" => patch_filter_group(),
+        "ModifiedDate" => non_neg_integer(),
+        "Name" => String.t(),
+        "OperatingSystem" => list(any()),
+        "PatchGroups" => list(String.t()()),
+        "RejectedPatches" => list(String.t()()),
+        "RejectedPatchesAction" => list(any()),
+        "Sources" => list(patch_source()())
+      }
+      
   """
   @type get_patch_baseline_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_documents_request() :: %{
-    optional("DocumentFilterList") => list(document_filter()()),
-    optional("Filters") => list(document_key_values_filter()()),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+      
+      list_documents_request() :: %{
+        optional("DocumentFilterList") => list(document_filter()()),
+        optional("Filters") => list(document_key_values_filter()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type list_documents_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_command_id() :: %{
-
-  }
+      
+      invalid_command_id() :: %{}
+      
   """
-  @type invalid_command_id() :: %{String.t() => any()}
+  @type invalid_command_id() :: %{}
 
   @typedoc """
 
   ## Example:
-  remove_tags_from_resource_request() :: %{
-    required("ResourceId") => String.t(),
-    required("ResourceType") => list(any()),
-    required("TagKeys") => list(String.t()())
-  }
+      
+      remove_tags_from_resource_request() :: %{
+        required("ResourceId") => String.t(),
+        required("ResourceType") => list(any()),
+        required("TagKeys") => list(String.t()())
+      }
+      
   """
   @type remove_tags_from_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  instance_information_string_filter() :: %{
-    "Key" => String.t(),
-    "Values" => list(String.t()())
-  }
+      
+      instance_information_string_filter() :: %{
+        "Key" => String.t(),
+        "Values" => list(String.t()())
+      }
+      
   """
   @type instance_information_string_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  session() :: %{
-    "Details" => String.t(),
-    "DocumentName" => String.t(),
-    "EndDate" => non_neg_integer(),
-    "MaxSessionDuration" => String.t(),
-    "OutputUrl" => session_manager_output_url(),
-    "Owner" => String.t(),
-    "Reason" => String.t(),
-    "SessionId" => String.t(),
-    "StartDate" => non_neg_integer(),
-    "Status" => list(any()),
-    "Target" => String.t()
-  }
+      
+      session() :: %{
+        "Details" => String.t(),
+        "DocumentName" => String.t(),
+        "EndDate" => non_neg_integer(),
+        "MaxSessionDuration" => String.t(),
+        "OutputUrl" => session_manager_output_url(),
+        "Owner" => String.t(),
+        "Reason" => String.t(),
+        "SessionId" => String.t(),
+        "StartDate" => non_neg_integer(),
+        "Status" => list(any()),
+        "Target" => String.t()
+      }
+      
   """
   @type session() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_resource_policies_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("ResourceArn") => String.t()
-  }
+      
+      get_resource_policies_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("ResourceArn") => String.t()
+      }
+      
   """
   @type get_resource_policies_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_resource_policies_response() :: %{
-    "NextToken" => String.t(),
-    "Policies" => list(get_resource_policies_response_entry()())
-  }
+      
+      get_resource_policies_response() :: %{
+        "NextToken" => String.t(),
+        "Policies" => list(get_resource_policies_response_entry()())
+      }
+      
   """
   @type get_resource_policies_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  association_execution() :: %{
-    "AlarmConfiguration" => alarm_configuration(),
-    "AssociationId" => String.t(),
-    "AssociationVersion" => String.t(),
-    "CreatedTime" => non_neg_integer(),
-    "DetailedStatus" => String.t(),
-    "ExecutionId" => String.t(),
-    "LastExecutionDate" => non_neg_integer(),
-    "ResourceCountByStatus" => String.t(),
-    "Status" => String.t(),
-    "TriggeredAlarms" => list(alarm_state_information()())
-  }
+      
+      association_execution() :: %{
+        "AlarmConfiguration" => alarm_configuration(),
+        "AssociationId" => String.t(),
+        "AssociationVersion" => String.t(),
+        "CreatedTime" => non_neg_integer(),
+        "DetailedStatus" => String.t(),
+        "ExecutionId" => String.t(),
+        "LastExecutionDate" => non_neg_integer(),
+        "ResourceCountByStatus" => String.t(),
+        "Status" => String.t(),
+        "TriggeredAlarms" => list(alarm_state_information()())
+      }
+      
   """
   @type association_execution() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_permission_type() :: %{
-    "Message" => String.t()
-  }
+      
+      invalid_permission_type() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type invalid_permission_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ops_item_data_value() :: %{
-    "Type" => list(any()),
-    "Value" => String.t()
-  }
+      
+      ops_item_data_value() :: %{
+        "Type" => list(any()),
+        "Value" => String.t()
+      }
+      
   """
   @type ops_item_data_value() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  modify_document_permission_response() :: %{
-
-  }
+      
+      modify_document_permission_response() :: %{}
+      
   """
-  @type modify_document_permission_response() :: %{String.t() => any()}
+  @type modify_document_permission_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_ops_metadata_result() :: %{
-    "NextToken" => String.t(),
-    "OpsMetadataList" => list(ops_metadata()())
-  }
+      
+      list_ops_metadata_result() :: %{
+        "NextToken" => String.t(),
+        "OpsMetadataList" => list(ops_metadata()())
+      }
+      
   """
   @type list_ops_metadata_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ops_metadata_too_many_updates_exception() :: %{
-    "message" => String.t()
-  }
+      
+      ops_metadata_too_many_updates_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type ops_metadata_too_many_updates_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_managed_instance_role_result() :: %{
-
-  }
+      
+      update_managed_instance_role_result() :: %{}
+      
   """
-  @type update_managed_instance_role_result() :: %{String.t() => any()}
+  @type update_managed_instance_role_result() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_resource_data_sync_result() :: %{
-    "NextToken" => String.t(),
-    "ResourceDataSyncItems" => list(resource_data_sync_item()())
-  }
+      
+      list_resource_data_sync_result() :: %{
+        "NextToken" => String.t(),
+        "ResourceDataSyncItems" => list(resource_data_sync_item()())
+      }
+      
   """
   @type list_resource_data_sync_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_inventory_item_context_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      invalid_inventory_item_context_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type invalid_inventory_item_context_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_parameter_request() :: %{
-    optional("WithDecryption") => boolean(),
-    required("Name") => String.t()
-  }
+      
+      get_parameter_request() :: %{
+        optional("WithDecryption") => boolean(),
+        required("Name") => String.t()
+      }
+      
   """
   @type get_parameter_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_ops_item_request() :: %{
-    required("OpsItemId") => String.t()
-  }
+      
+      delete_ops_item_request() :: %{
+        required("OpsItemId") => String.t()
+      }
+      
   """
   @type delete_ops_item_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  document_key_values_filter() :: %{
-    "Key" => String.t(),
-    "Values" => list(String.t()())
-  }
+      
+      document_key_values_filter() :: %{
+        "Key" => String.t(),
+        "Values" => list(String.t()())
+      }
+      
   """
   @type document_key_values_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_document_metadata_request() :: %{
-    optional("DocumentVersion") => String.t(),
-    required("DocumentReviews") => document_reviews(),
-    required("Name") => String.t()
-  }
+      
+      update_document_metadata_request() :: %{
+        optional("DocumentVersion") => String.t(),
+        required("DocumentReviews") => document_reviews(),
+        required("Name") => String.t()
+      }
+      
   """
   @type update_document_metadata_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_effective_instance_associations_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("InstanceId") => String.t()
-  }
+      
+      describe_effective_instance_associations_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("InstanceId") => String.t()
+      }
+      
   """
   @type describe_effective_instance_associations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_compliance_summaries_request() :: %{
-    optional("Filters") => list(compliance_string_filter()()),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+      
+      list_compliance_summaries_request() :: %{
+        optional("Filters") => list(compliance_string_filter()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type list_compliance_summaries_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_automation_execution_parameters_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      invalid_automation_execution_parameters_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type invalid_automation_execution_parameters_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_ops_summary_result() :: %{
-    "Entities" => list(ops_entity()()),
-    "NextToken" => String.t()
-  }
+      
+      get_ops_summary_result() :: %{
+        "Entities" => list(ops_entity()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type get_ops_summary_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_inventory_result() :: %{
-    "DeletionId" => String.t(),
-    "DeletionSummary" => inventory_deletion_summary(),
-    "TypeName" => String.t()
-  }
+      
+      delete_inventory_result() :: %{
+        "DeletionId" => String.t(),
+        "DeletionSummary" => inventory_deletion_summary(),
+        "TypeName" => String.t()
+      }
+      
   """
   @type delete_inventory_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resume_session_response() :: %{
-    "SessionId" => String.t(),
-    "StreamUrl" => String.t(),
-    "TokenValue" => String.t()
-  }
+      
+      resume_session_response() :: %{
+        "SessionId" => String.t(),
+        "StreamUrl" => String.t(),
+        "TokenValue" => String.t()
+      }
+      
   """
   @type resume_session_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_data_sync_count_exceeded_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      resource_data_sync_count_exceeded_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type resource_data_sync_count_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_document_result() :: %{
-
-  }
+      
+      delete_document_result() :: %{}
+      
   """
-  @type delete_document_result() :: %{String.t() => any()}
+  @type delete_document_result() :: %{}
 
   @typedoc """
 
   ## Example:
-  ops_item_already_exists_exception() :: %{
-    "Message" => String.t(),
-    "OpsItemId" => String.t()
-  }
+      
+      ops_item_already_exists_exception() :: %{
+        "Message" => String.t(),
+        "OpsItemId" => String.t()
+      }
+      
   """
   @type ops_item_already_exists_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  service_setting_not_found() :: %{
-    "Message" => String.t()
-  }
+      
+      service_setting_not_found() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type service_setting_not_found() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_document_type() :: %{
-    "Message" => String.t()
-  }
+      
+      invalid_document_type() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type invalid_document_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_data_sync_aws_organizations_source() :: %{
-    "OrganizationSourceType" => String.t(),
-    "OrganizationalUnits" => list(resource_data_sync_organizational_unit()())
-  }
+      
+      resource_data_sync_aws_organizations_source() :: %{
+        "OrganizationSourceType" => String.t(),
+        "OrganizationalUnits" => list(resource_data_sync_organizational_unit()())
+      }
+      
   """
   @type resource_data_sync_aws_organizations_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_notification_config() :: %{
-    "Message" => String.t()
-  }
+      
+      invalid_notification_config() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type invalid_notification_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  item_size_limit_exceeded_exception() :: %{
-    "Message" => String.t(),
-    "TypeName" => String.t()
-  }
+      
+      item_size_limit_exceeded_exception() :: %{
+        "Message" => String.t(),
+        "TypeName" => String.t()
+      }
+      
   """
   @type item_size_limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cancel_command_request() :: %{
-    optional("InstanceIds") => list(String.t()()),
-    required("CommandId") => String.t()
-  }
+      
+      cancel_command_request() :: %{
+        optional("InstanceIds") => list(String.t()()),
+        required("CommandId") => String.t()
+      }
+      
   """
   @type cancel_command_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  status_unchanged() :: %{
-
-  }
+      
+      status_unchanged() :: %{}
+      
   """
-  @type status_unchanged() :: %{String.t() => any()}
+  @type status_unchanged() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_automation_execution_request() :: %{
-    required("AutomationExecutionId") => String.t()
-  }
+      
+      get_automation_execution_request() :: %{
+        required("AutomationExecutionId") => String.t()
+      }
+      
   """
   @type get_automation_execution_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_instance_patch_states_for_patch_group_request() :: %{
-    optional("Filters") => list(instance_patch_state_filter()()),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("PatchGroup") => String.t()
-  }
+      
+      describe_instance_patch_states_for_patch_group_request() :: %{
+        optional("Filters") => list(instance_patch_state_filter()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("PatchGroup") => String.t()
+      }
+      
   """
   @type describe_instance_patch_states_for_patch_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_data_sync_destination_data_sharing() :: %{
-    "DestinationDataSharingType" => String.t()
-  }
+      
+      resource_data_sync_destination_data_sharing() :: %{
+        "DestinationDataSharingType" => String.t()
+      }
+      
   """
   @type resource_data_sync_destination_data_sharing() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_document_metadata_response() :: %{
-
-  }
+      
+      update_document_metadata_response() :: %{}
+      
   """
-  @type update_document_metadata_response() :: %{String.t() => any()}
+  @type update_document_metadata_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_ops_item_response() :: %{
-    "OpsItem" => ops_item()
-  }
+      
+      get_ops_item_response() :: %{
+        "OpsItem" => ops_item()
+      }
+      
   """
   @type get_ops_item_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_association_status_request() :: %{
-    required("AssociationStatus") => association_status(),
-    required("InstanceId") => String.t(),
-    required("Name") => String.t()
-  }
+      
+      update_association_status_request() :: %{
+        required("AssociationStatus") => association_status(),
+        required("InstanceId") => String.t(),
+        required("Name") => String.t()
+      }
+      
   """
   @type update_association_status_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  duplicate_document_version_name() :: %{
-    "Message" => String.t()
-  }
+      
+      duplicate_document_version_name() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type duplicate_document_version_name() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  document_already_exists() :: %{
-    "Message" => String.t()
-  }
+      
+      document_already_exists() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type document_already_exists() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_document_metadata_history_response() :: %{
-    "Author" => String.t(),
-    "DocumentVersion" => String.t(),
-    "Metadata" => document_metadata_response_info(),
-    "Name" => String.t(),
-    "NextToken" => String.t()
-  }
+      
+      list_document_metadata_history_response() :: %{
+        "Author" => String.t(),
+        "DocumentVersion" => String.t(),
+        "Metadata" => document_metadata_response_info(),
+        "Name" => String.t(),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_document_metadata_history_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  maintenance_window_identity() :: %{
-    "Cutoff" => integer(),
-    "Description" => String.t(),
-    "Duration" => integer(),
-    "Enabled" => boolean(),
-    "EndDate" => String.t(),
-    "Name" => String.t(),
-    "NextExecutionTime" => String.t(),
-    "Schedule" => String.t(),
-    "ScheduleOffset" => integer(),
-    "ScheduleTimezone" => String.t(),
-    "StartDate" => String.t(),
-    "WindowId" => String.t()
-  }
+      
+      maintenance_window_identity() :: %{
+        "Cutoff" => integer(),
+        "Description" => String.t(),
+        "Duration" => integer(),
+        "Enabled" => boolean(),
+        "EndDate" => String.t(),
+        "Name" => String.t(),
+        "NextExecutionTime" => String.t(),
+        "Schedule" => String.t(),
+        "ScheduleOffset" => integer(),
+        "ScheduleTimezone" => String.t(),
+        "StartDate" => String.t(),
+        "WindowId" => String.t()
+      }
+      
   """
   @type maintenance_window_identity() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_output_folder() :: %{
-
-  }
+      
+      invalid_output_folder() :: %{}
+      
   """
-  @type invalid_output_folder() :: %{String.t() => any()}
+  @type invalid_output_folder() :: %{}
 
   @typedoc """
 
   ## Example:
-  describe_parameters_result() :: %{
-    "NextToken" => String.t(),
-    "Parameters" => list(parameter_metadata()())
-  }
+      
+      describe_parameters_result() :: %{
+        "NextToken" => String.t(),
+        "Parameters" => list(parameter_metadata()())
+      }
+      
   """
   @type describe_parameters_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_result() :: %{
-    "TagList" => list(tag()())
-  }
+      
+      list_tags_for_resource_result() :: %{
+        "TagList" => list(tag()())
+      }
+      
   """
   @type list_tags_for_resource_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  instance_association() :: %{
-    "AssociationId" => String.t(),
-    "AssociationVersion" => String.t(),
-    "Content" => String.t(),
-    "InstanceId" => String.t()
-  }
+      
+      instance_association() :: %{
+        "AssociationId" => String.t(),
+        "AssociationVersion" => String.t(),
+        "Content" => String.t(),
+        "InstanceId" => String.t()
+      }
+      
   """
   @type instance_association() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_automation_executions_request() :: %{
-    optional("Filters") => list(automation_execution_filter()()),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+      
+      describe_automation_executions_request() :: %{
+        optional("Filters") => list(automation_execution_filter()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type describe_automation_executions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_maintenance_window_result() :: %{
-    "AllowUnassociatedTargets" => boolean(),
-    "Cutoff" => integer(),
-    "Description" => String.t(),
-    "Duration" => integer(),
-    "Enabled" => boolean(),
-    "EndDate" => String.t(),
-    "Name" => String.t(),
-    "Schedule" => String.t(),
-    "ScheduleOffset" => integer(),
-    "ScheduleTimezone" => String.t(),
-    "StartDate" => String.t(),
-    "WindowId" => String.t()
-  }
+      
+      update_maintenance_window_result() :: %{
+        "AllowUnassociatedTargets" => boolean(),
+        "Cutoff" => integer(),
+        "Description" => String.t(),
+        "Duration" => integer(),
+        "Enabled" => boolean(),
+        "EndDate" => String.t(),
+        "Name" => String.t(),
+        "Schedule" => String.t(),
+        "ScheduleOffset" => integer(),
+        "ScheduleTimezone" => String.t(),
+        "StartDate" => String.t(),
+        "WindowId" => String.t()
+      }
+      
   """
   @type update_maintenance_window_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_inventory_group_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      invalid_inventory_group_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type invalid_inventory_group_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  severity_summary() :: %{
-    "CriticalCount" => integer(),
-    "HighCount" => integer(),
-    "InformationalCount" => integer(),
-    "LowCount" => integer(),
-    "MediumCount" => integer(),
-    "UnspecifiedCount" => integer()
-  }
+      
+      severity_summary() :: %{
+        "CriticalCount" => integer(),
+        "HighCount" => integer(),
+        "InformationalCount" => integer(),
+        "LowCount" => integer(),
+        "MediumCount" => integer(),
+        "UnspecifiedCount" => integer()
+      }
+      
   """
   @type severity_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_associations_request() :: %{
-    optional("AssociationFilterList") => list(association_filter()()),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+      
+      list_associations_request() :: %{
+        optional("AssociationFilterList") => list(association_filter()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type list_associations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_inventory_deletions_result() :: %{
-    "InventoryDeletions" => list(inventory_deletion_status_item()()),
-    "NextToken" => String.t()
-  }
+      
+      describe_inventory_deletions_result() :: %{
+        "InventoryDeletions" => list(inventory_deletion_status_item()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type describe_inventory_deletions_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_maintenance_window_result() :: %{
-    "WindowId" => String.t()
-  }
+      
+      delete_maintenance_window_result() :: %{
+        "WindowId" => String.t()
+      }
+      
   """
   @type delete_maintenance_window_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_sessions_response() :: %{
-    "NextToken" => String.t(),
-    "Sessions" => list(session()())
-  }
+      
+      describe_sessions_response() :: %{
+        "NextToken" => String.t(),
+        "Sessions" => list(session()())
+      }
+      
   """
   @type describe_sessions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  session_filter() :: %{
-    "key" => list(any()),
-    "value" => String.t()
-  }
+      
+      session_filter() :: %{
+        "key" => list(any()),
+        "value" => String.t()
+      }
+      
   """
   @type session_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_association_request() :: %{
-    optional("AlarmConfiguration") => alarm_configuration(),
-    optional("ApplyOnlyAtCronInterval") => boolean(),
-    optional("AssociationName") => String.t(),
-    optional("AutomationTargetParameterName") => String.t(),
-    optional("CalendarNames") => list(String.t()()),
-    optional("ComplianceSeverity") => list(any()),
-    optional("DocumentVersion") => String.t(),
-    optional("Duration") => integer(),
-    optional("InstanceId") => String.t(),
-    optional("MaxConcurrency") => String.t(),
-    optional("MaxErrors") => String.t(),
-    optional("OutputLocation") => instance_association_output_location(),
-    optional("Parameters") => map(),
-    optional("ScheduleExpression") => String.t(),
-    optional("ScheduleOffset") => integer(),
-    optional("SyncCompliance") => list(any()),
-    optional("Tags") => list(tag()()),
-    optional("TargetLocations") => list(target_location()()),
-    optional("TargetMaps") => list(map()()),
-    optional("Targets") => list(target()()),
-    required("Name") => String.t()
-  }
+      
+      create_association_request() :: %{
+        optional("AlarmConfiguration") => alarm_configuration(),
+        optional("ApplyOnlyAtCronInterval") => boolean(),
+        optional("AssociationName") => String.t(),
+        optional("AutomationTargetParameterName") => String.t(),
+        optional("CalendarNames") => list(String.t()()),
+        optional("ComplianceSeverity") => list(any()),
+        optional("DocumentVersion") => String.t(),
+        optional("Duration") => integer(),
+        optional("InstanceId") => String.t(),
+        optional("MaxConcurrency") => String.t(),
+        optional("MaxErrors") => String.t(),
+        optional("OutputLocation") => instance_association_output_location(),
+        optional("Parameters") => map(),
+        optional("ScheduleExpression") => String.t(),
+        optional("ScheduleOffset") => integer(),
+        optional("SyncCompliance") => list(any()),
+        optional("Tags") => list(tag()()),
+        optional("TargetLocations") => list(target_location()()),
+        optional("TargetMaps") => list(map()()),
+        optional("Targets") => list(target()()),
+        required("Name") => String.t()
+      }
+      
   """
   @type create_association_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_ops_item_response() :: %{
-
-  }
+      
+      update_ops_item_response() :: %{}
+      
   """
-  @type update_ops_item_response() :: %{String.t() => any()}
+  @type update_ops_item_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_command_invocations_result() :: %{
-    "CommandInvocations" => list(command_invocation()()),
-    "NextToken" => String.t()
-  }
+      
+      list_command_invocations_result() :: %{
+        "CommandInvocations" => list(command_invocation()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_command_invocations_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_resource_policy_request() :: %{
-    optional("PolicyHash") => String.t(),
-    optional("PolicyId") => String.t(),
-    required("Policy") => String.t(),
-    required("ResourceArn") => String.t()
-  }
+      
+      put_resource_policy_request() :: %{
+        optional("PolicyHash") => String.t(),
+        optional("PolicyId") => String.t(),
+        required("Policy") => String.t(),
+        required("ResourceArn") => String.t()
+      }
+      
   """
   @type put_resource_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  label_parameter_version_result() :: %{
-    "InvalidLabels" => list(String.t()()),
-    "ParameterVersion" => float()
-  }
+      
+      label_parameter_version_result() :: %{
+        "InvalidLabels" => list(String.t()()),
+        "ParameterVersion" => float()
+      }
+      
   """
   @type label_parameter_version_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  document_description() :: %{
-    "ApprovedVersion" => String.t(),
-    "AttachmentsInformation" => list(attachment_information()()),
-    "Author" => String.t(),
-    "Category" => list(String.t()()),
-    "CategoryEnum" => list(String.t()()),
-    "CreatedDate" => non_neg_integer(),
-    "DefaultVersion" => String.t(),
-    "Description" => String.t(),
-    "DisplayName" => String.t(),
-    "DocumentFormat" => list(any()),
-    "DocumentType" => list(any()),
-    "DocumentVersion" => String.t(),
-    "Hash" => String.t(),
-    "HashType" => list(any()),
-    "LatestVersion" => String.t(),
-    "Name" => String.t(),
-    "Owner" => String.t(),
-    "Parameters" => list(document_parameter()()),
-    "PendingReviewVersion" => String.t(),
-    "PlatformTypes" => list(list(any())()),
-    "Requires" => list(document_requires()()),
-    "ReviewInformation" => list(review_information()()),
-    "ReviewStatus" => list(any()),
-    "SchemaVersion" => String.t(),
-    "Sha1" => String.t(),
-    "Status" => list(any()),
-    "StatusInformation" => String.t(),
-    "Tags" => list(tag()()),
-    "TargetType" => String.t(),
-    "VersionName" => String.t()
-  }
+      
+      document_description() :: %{
+        "ApprovedVersion" => String.t(),
+        "AttachmentsInformation" => list(attachment_information()()),
+        "Author" => String.t(),
+        "Category" => list(String.t()()),
+        "CategoryEnum" => list(String.t()()),
+        "CreatedDate" => non_neg_integer(),
+        "DefaultVersion" => String.t(),
+        "Description" => String.t(),
+        "DisplayName" => String.t(),
+        "DocumentFormat" => list(any()),
+        "DocumentType" => list(any()),
+        "DocumentVersion" => String.t(),
+        "Hash" => String.t(),
+        "HashType" => list(any()),
+        "LatestVersion" => String.t(),
+        "Name" => String.t(),
+        "Owner" => String.t(),
+        "Parameters" => list(document_parameter()()),
+        "PendingReviewVersion" => String.t(),
+        "PlatformTypes" => list(list(any())()),
+        "Requires" => list(document_requires()()),
+        "ReviewInformation" => list(review_information()()),
+        "ReviewStatus" => list(any()),
+        "SchemaVersion" => String.t(),
+        "Sha1" => String.t(),
+        "Status" => list(any()),
+        "StatusInformation" => String.t(),
+        "Tags" => list(tag()()),
+        "TargetType" => String.t(),
+        "VersionName" => String.t()
+      }
+      
   """
   @type document_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_session_response() :: %{
-    "SessionId" => String.t(),
-    "StreamUrl" => String.t(),
-    "TokenValue" => String.t()
-  }
+      
+      start_session_response() :: %{
+        "SessionId" => String.t(),
+        "StreamUrl" => String.t(),
+        "TokenValue" => String.t()
+      }
+      
   """
   @type start_session_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_ops_metadata_result() :: %{
-
-  }
+      
+      delete_ops_metadata_result() :: %{}
+      
   """
-  @type delete_ops_metadata_result() :: %{String.t() => any()}
+  @type delete_ops_metadata_result() :: %{}
 
   @typedoc """
 
   ## Example:
-  update_association_result() :: %{
-    "AssociationDescription" => association_description()
-  }
+      
+      update_association_result() :: %{
+        "AssociationDescription" => association_description()
+      }
+      
   """
   @type update_association_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_output_location() :: %{
-
-  }
+      
+      invalid_output_location() :: %{}
+      
   """
-  @type invalid_output_location() :: %{String.t() => any()}
+  @type invalid_output_location() :: %{}
 
   @typedoc """
 
   ## Example:
-  describe_document_request() :: %{
-    optional("DocumentVersion") => String.t(),
-    optional("VersionName") => String.t(),
-    required("Name") => String.t()
-  }
+      
+      describe_document_request() :: %{
+        optional("DocumentVersion") => String.t(),
+        optional("VersionName") => String.t(),
+        required("Name") => String.t()
+      }
+      
   """
   @type describe_document_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_inventory_request_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      invalid_inventory_request_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type invalid_inventory_request_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  compliant_summary() :: %{
-    "CompliantCount" => integer(),
-    "SeveritySummary" => severity_summary()
-  }
+      
+      compliant_summary() :: %{
+        "CompliantCount" => integer(),
+        "SeveritySummary" => severity_summary()
+      }
+      
   """
   @type compliant_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_maintenance_windows_result() :: %{
-    "NextToken" => String.t(),
-    "WindowIdentities" => list(maintenance_window_identity()())
-  }
+      
+      describe_maintenance_windows_result() :: %{
+        "NextToken" => String.t(),
+        "WindowIdentities" => list(maintenance_window_identity()())
+      }
+      
   """
   @type describe_maintenance_windows_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_association_execution_targets_request() :: %{
-    optional("Filters") => list(association_execution_targets_filter()()),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("AssociationId") => String.t(),
-    required("ExecutionId") => String.t()
-  }
+      
+      describe_association_execution_targets_request() :: %{
+        optional("Filters") => list(association_execution_targets_filter()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("AssociationId") => String.t(),
+        required("ExecutionId") => String.t()
+      }
+      
   """
   @type describe_association_execution_targets_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  internal_server_error() :: %{
-    "Message" => String.t()
-  }
+      
+      internal_server_error() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type internal_server_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_instance_patch_states_for_patch_group_result() :: %{
-    "InstancePatchStates" => list(instance_patch_state()()),
-    "NextToken" => String.t()
-  }
+      
+      describe_instance_patch_states_for_patch_group_result() :: %{
+        "InstancePatchStates" => list(instance_patch_state()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type describe_instance_patch_states_for_patch_group_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  target_location() :: %{
-    "Accounts" => list(String.t()()),
-    "ExecutionRoleName" => String.t(),
-    "Regions" => list(String.t()()),
-    "TargetLocationAlarmConfiguration" => alarm_configuration(),
-    "TargetLocationMaxConcurrency" => String.t(),
-    "TargetLocationMaxErrors" => String.t()
-  }
+      
+      target_location() :: %{
+        "Accounts" => list(String.t()()),
+        "ExecutionRoleName" => String.t(),
+        "Regions" => list(String.t()()),
+        "TargetLocationAlarmConfiguration" => alarm_configuration(),
+        "TargetLocationMaxConcurrency" => String.t(),
+        "TargetLocationMaxErrors" => String.t()
+      }
+      
   """
   @type target_location() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_activation_request() :: %{
-    required("ActivationId") => String.t()
-  }
+      
+      delete_activation_request() :: %{
+        required("ActivationId") => String.t()
+      }
+      
   """
   @type delete_activation_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_instance_information_result() :: %{
-    "InstanceInformationList" => list(instance_information()()),
-    "NextToken" => String.t()
-  }
+      
+      describe_instance_information_result() :: %{
+        "InstanceInformationList" => list(instance_information()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type describe_instance_information_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_target_maps() :: %{
-    "Message" => String.t()
-  }
+      
+      invalid_target_maps() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type invalid_target_maps() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_resource_data_sync_request() :: %{
-    optional("SyncType") => String.t(),
-    required("SyncName") => String.t()
-  }
+      
+      delete_resource_data_sync_request() :: %{
+        optional("SyncType") => String.t(),
+        required("SyncName") => String.t()
+      }
+      
   """
   @type delete_resource_data_sync_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_document_versions_result() :: %{
-    "DocumentVersions" => list(document_version_info()()),
-    "NextToken" => String.t()
-  }
+      
+      list_document_versions_result() :: %{
+        "DocumentVersions" => list(document_version_info()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_document_versions_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ops_entity_item() :: %{
-    "CaptureTime" => String.t(),
-    "Content" => list(map()())
-  }
+      
+      ops_entity_item() :: %{
+        "CaptureTime" => String.t(),
+        "Content" => list(map()())
+      }
+      
   """
   @type ops_entity_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_service_setting_result() :: %{
-
-  }
+      
+      update_service_setting_result() :: %{}
+      
   """
-  @type update_service_setting_result() :: %{String.t() => any()}
+  @type update_service_setting_result() :: %{}
 
   @typedoc """
 
   ## Example:
-  disassociate_ops_item_related_item_request() :: %{
-    required("AssociationId") => String.t(),
-    required("OpsItemId") => String.t()
-  }
+      
+      disassociate_ops_item_related_item_request() :: %{
+        required("AssociationId") => String.t(),
+        required("OpsItemId") => String.t()
+      }
+      
   """
   @type disassociate_ops_item_related_item_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  register_patch_baseline_for_patch_group_request() :: %{
-    required("BaselineId") => String.t(),
-    required("PatchGroup") => String.t()
-  }
+      
+      register_patch_baseline_for_patch_group_request() :: %{
+        required("BaselineId") => String.t(),
+        required("PatchGroup") => String.t()
+      }
+      
   """
   @type register_patch_baseline_for_patch_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_updates() :: %{
-    "Message" => String.t()
-  }
+      
+      too_many_updates() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type too_many_updates() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_association_result() :: %{
-    "AssociationDescription" => association_description()
-  }
+      
+      create_association_result() :: %{
+        "AssociationDescription" => association_description()
+      }
+      
   """
   @type create_association_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  patch_rule() :: %{
-    "ApproveAfterDays" => integer(),
-    "ApproveUntilDate" => String.t(),
-    "ComplianceLevel" => list(any()),
-    "EnableNonSecurity" => boolean(),
-    "PatchFilterGroup" => patch_filter_group()
-  }
+      
+      patch_rule() :: %{
+        "ApproveAfterDays" => integer(),
+        "ApproveUntilDate" => String.t(),
+        "ComplianceLevel" => list(any()),
+        "EnableNonSecurity" => boolean(),
+        "PatchFilterGroup" => patch_filter_group()
+      }
+      
   """
   @type patch_rule() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  reset_service_setting_request() :: %{
-    required("SettingId") => String.t()
-  }
+      
+      reset_service_setting_request() :: %{
+        required("SettingId") => String.t()
+      }
+      
   """
   @type reset_service_setting_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ops_item_notification() :: %{
-    "Arn" => String.t()
-  }
+      
+      ops_item_notification() :: %{
+        "Arn" => String.t()
+      }
+      
   """
   @type ops_item_notification() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ops_item_invalid_parameter_exception() :: %{
-    "Message" => String.t(),
-    "ParameterNames" => list(String.t()())
-  }
+      
+      ops_item_invalid_parameter_exception() :: %{
+        "Message" => String.t(),
+        "ParameterNames" => list(String.t()())
+      }
+      
   """
   @type ops_item_invalid_parameter_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_document_result() :: %{
-    "Document" => document_description()
-  }
+      
+      describe_document_result() :: %{
+        "Document" => document_description()
+      }
+      
   """
   @type describe_document_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  maintenance_window_target() :: %{
-    "Description" => String.t(),
-    "Name" => String.t(),
-    "OwnerInformation" => String.t(),
-    "ResourceType" => list(any()),
-    "Targets" => list(target()()),
-    "WindowId" => String.t(),
-    "WindowTargetId" => String.t()
-  }
+      
+      maintenance_window_target() :: %{
+        "Description" => String.t(),
+        "Name" => String.t(),
+        "OwnerInformation" => String.t(),
+        "ResourceType" => list(any()),
+        "Targets" => list(target()()),
+        "WindowId" => String.t(),
+        "WindowTargetId" => String.t()
+      }
+      
   """
   @type maintenance_window_target() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_maintenance_window_schedule_result() :: %{
-    "NextToken" => String.t(),
-    "ScheduledWindowExecutions" => list(scheduled_window_execution()())
-  }
+      
+      describe_maintenance_window_schedule_result() :: %{
+        "NextToken" => String.t(),
+        "ScheduledWindowExecutions" => list(scheduled_window_execution()())
+      }
+      
   """
   @type describe_maintenance_window_schedule_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  feature_not_available_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      feature_not_available_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type feature_not_available_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  maintenance_window_run_command_parameters() :: %{
-    "CloudWatchOutputConfig" => cloud_watch_output_config(),
-    "Comment" => String.t(),
-    "DocumentHash" => String.t(),
-    "DocumentHashType" => list(any()),
-    "DocumentVersion" => String.t(),
-    "NotificationConfig" => notification_config(),
-    "OutputS3BucketName" => String.t(),
-    "OutputS3KeyPrefix" => String.t(),
-    "Parameters" => map(),
-    "ServiceRoleArn" => String.t(),
-    "TimeoutSeconds" => integer()
-  }
+      
+      maintenance_window_run_command_parameters() :: %{
+        "CloudWatchOutputConfig" => cloud_watch_output_config(),
+        "Comment" => String.t(),
+        "DocumentHash" => String.t(),
+        "DocumentHashType" => list(any()),
+        "DocumentVersion" => String.t(),
+        "NotificationConfig" => notification_config(),
+        "OutputS3BucketName" => String.t(),
+        "OutputS3KeyPrefix" => String.t(),
+        "Parameters" => map(),
+        "ServiceRoleArn" => String.t(),
+        "TimeoutSeconds" => integer()
+      }
+      
   """
   @type maintenance_window_run_command_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_effective_patches_for_patch_baseline_result() :: %{
-    "EffectivePatches" => list(effective_patch()()),
-    "NextToken" => String.t()
-  }
+      
+      describe_effective_patches_for_patch_baseline_result() :: %{
+        "EffectivePatches" => list(effective_patch()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type describe_effective_patches_for_patch_baseline_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  failed_create_association() :: %{
-    "Entry" => create_association_batch_request_entry(),
-    "Fault" => list(any()),
-    "Message" => String.t()
-  }
+      
+      failed_create_association() :: %{
+        "Entry" => create_association_batch_request_entry(),
+        "Fault" => list(any()),
+        "Message" => String.t()
+      }
+      
   """
   @type failed_create_association() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_ops_item_related_items_response() :: %{
-    "NextToken" => String.t(),
-    "Summaries" => list(ops_item_related_item_summary()())
-  }
+      
+      list_ops_item_related_items_response() :: %{
+        "NextToken" => String.t(),
+        "Summaries" => list(ops_item_related_item_summary()())
+      }
+      
   """
   @type list_ops_item_related_items_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_association_executions_request() :: %{
-    optional("Filters") => list(association_execution_filter()()),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("AssociationId") => String.t()
-  }
+      
+      describe_association_executions_request() :: %{
+        optional("Filters") => list(association_execution_filter()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("AssociationId") => String.t()
+      }
+      
   """
   @type describe_association_executions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_activation_result() :: %{
-    "ActivationCode" => String.t(),
-    "ActivationId" => String.t()
-  }
+      
+      create_activation_result() :: %{
+        "ActivationCode" => String.t(),
+        "ActivationId" => String.t()
+      }
+      
   """
   @type create_activation_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_instance_id() :: %{
-    "Message" => String.t()
-  }
+      
+      invalid_instance_id() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type invalid_instance_id() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disassociate_ops_item_related_item_response() :: %{
-
-  }
+      
+      disassociate_ops_item_related_item_response() :: %{}
+      
   """
-  @type disassociate_ops_item_related_item_response() :: %{String.t() => any()}
+  @type disassociate_ops_item_related_item_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  update_maintenance_window_task_result() :: %{
-    "AlarmConfiguration" => alarm_configuration(),
-    "CutoffBehavior" => list(any()),
-    "Description" => String.t(),
-    "LoggingInfo" => logging_info(),
-    "MaxConcurrency" => String.t(),
-    "MaxErrors" => String.t(),
-    "Name" => String.t(),
-    "Priority" => integer(),
-    "ServiceRoleArn" => String.t(),
-    "Targets" => list(target()()),
-    "TaskArn" => String.t(),
-    "TaskInvocationParameters" => maintenance_window_task_invocation_parameters(),
-    "TaskParameters" => map(),
-    "WindowId" => String.t(),
-    "WindowTaskId" => String.t()
-  }
+      
+      update_maintenance_window_task_result() :: %{
+        "AlarmConfiguration" => alarm_configuration(),
+        "CutoffBehavior" => list(any()),
+        "Description" => String.t(),
+        "LoggingInfo" => logging_info(),
+        "MaxConcurrency" => String.t(),
+        "MaxErrors" => String.t(),
+        "Name" => String.t(),
+        "Priority" => integer(),
+        "ServiceRoleArn" => String.t(),
+        "Targets" => list(target()()),
+        "TaskArn" => String.t(),
+        "TaskInvocationParameters" => maintenance_window_task_invocation_parameters(),
+        "TaskParameters" => map(),
+        "WindowId" => String.t(),
+        "WindowTaskId" => String.t()
+      }
+      
   """
   @type update_maintenance_window_task_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_data_sync_source() :: %{
-    "AwsOrganizationsSource" => resource_data_sync_aws_organizations_source(),
-    "EnableAllOpsDataSources" => boolean(),
-    "IncludeFutureRegions" => boolean(),
-    "SourceRegions" => list(String.t()()),
-    "SourceType" => String.t()
-  }
+      
+      resource_data_sync_source() :: %{
+        "AwsOrganizationsSource" => resource_data_sync_aws_organizations_source(),
+        "EnableAllOpsDataSources" => boolean(),
+        "IncludeFutureRegions" => boolean(),
+        "SourceRegions" => list(String.t()()),
+        "SourceType" => String.t()
+      }
+      
   """
   @type resource_data_sync_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_request() :: %{
-    required("ResourceId") => String.t(),
-    required("ResourceType") => list(any())
-  }
+      
+      list_tags_for_resource_request() :: %{
+        required("ResourceId") => String.t(),
+        required("ResourceType") => list(any())
+      }
+      
   """
   @type list_tags_for_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ops_item_event_filter() :: %{
-    "Key" => list(any()),
-    "Operator" => list(any()),
-    "Values" => list(String.t()())
-  }
+      
+      ops_item_event_filter() :: %{
+        "Key" => list(any()),
+        "Operator" => list(any()),
+        "Values" => list(String.t()())
+      }
+      
   """
   @type ops_item_event_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  patch_compliance_data() :: %{
-    "CVEIds" => String.t(),
-    "Classification" => String.t(),
-    "InstalledTime" => non_neg_integer(),
-    "KBId" => String.t(),
-    "Severity" => String.t(),
-    "State" => list(any()),
-    "Title" => String.t()
-  }
+      
+      patch_compliance_data() :: %{
+        "CVEIds" => String.t(),
+        "Classification" => String.t(),
+        "InstalledTime" => non_neg_integer(),
+        "KBId" => String.t(),
+        "Severity" => String.t(),
+        "State" => list(any()),
+        "Title" => String.t()
+      }
+      
   """
   @type patch_compliance_data() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_automation_status_update_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      invalid_automation_status_update_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type invalid_automation_status_update_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  progress_counters() :: %{
-    "CancelledSteps" => integer(),
-    "FailedSteps" => integer(),
-    "SuccessSteps" => integer(),
-    "TimedOutSteps" => integer(),
-    "TotalSteps" => integer()
-  }
+      
+      progress_counters() :: %{
+        "CancelledSteps" => integer(),
+        "FailedSteps" => integer(),
+        "SuccessSteps" => integer(),
+        "TimedOutSteps" => integer(),
+        "TotalSteps" => integer()
+      }
+      
   """
   @type progress_counters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  attachment_content() :: %{
-    "Hash" => String.t(),
-    "HashType" => list(any()),
-    "Name" => String.t(),
-    "Size" => float(),
-    "Url" => String.t()
-  }
+      
+      attachment_content() :: %{
+        "Hash" => String.t(),
+        "HashType" => list(any()),
+        "Name" => String.t(),
+        "Size" => float(),
+        "Url" => String.t()
+      }
+      
   """
   @type attachment_content() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_compliance_summaries_result() :: %{
-    "ComplianceSummaryItems" => list(compliance_summary_item()()),
-    "NextToken" => String.t()
-  }
+      
+      list_compliance_summaries_result() :: %{
+        "ComplianceSummaryItems" => list(compliance_summary_item()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_compliance_summaries_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  automation_execution_metadata() :: %{
-    "AlarmConfiguration" => alarm_configuration(),
-    "AssociationId" => String.t(),
-    "AutomationExecutionId" => String.t(),
-    "AutomationExecutionStatus" => list(any()),
-    "AutomationSubtype" => list(any()),
-    "AutomationType" => list(any()),
-    "ChangeRequestName" => String.t(),
-    "CurrentAction" => String.t(),
-    "CurrentStepName" => String.t(),
-    "DocumentName" => String.t(),
-    "DocumentVersion" => String.t(),
-    "ExecutedBy" => String.t(),
-    "ExecutionEndTime" => non_neg_integer(),
-    "ExecutionStartTime" => non_neg_integer(),
-    "FailureMessage" => String.t(),
-    "LogFile" => String.t(),
-    "MaxConcurrency" => String.t(),
-    "MaxErrors" => String.t(),
-    "Mode" => list(any()),
-    "OpsItemId" => String.t(),
-    "Outputs" => map(),
-    "ParentAutomationExecutionId" => String.t(),
-    "ResolvedTargets" => resolved_targets(),
-    "Runbooks" => list(runbook()()),
-    "ScheduledTime" => non_neg_integer(),
-    "Target" => String.t(),
-    "TargetMaps" => list(map()()),
-    "TargetParameterName" => String.t(),
-    "Targets" => list(target()()),
-    "TriggeredAlarms" => list(alarm_state_information()())
-  }
+      
+      automation_execution_metadata() :: %{
+        "AlarmConfiguration" => alarm_configuration(),
+        "AssociationId" => String.t(),
+        "AutomationExecutionId" => String.t(),
+        "AutomationExecutionStatus" => list(any()),
+        "AutomationSubtype" => list(any()),
+        "AutomationType" => list(any()),
+        "ChangeRequestName" => String.t(),
+        "CurrentAction" => String.t(),
+        "CurrentStepName" => String.t(),
+        "DocumentName" => String.t(),
+        "DocumentVersion" => String.t(),
+        "ExecutedBy" => String.t(),
+        "ExecutionEndTime" => non_neg_integer(),
+        "ExecutionStartTime" => non_neg_integer(),
+        "FailureMessage" => String.t(),
+        "LogFile" => String.t(),
+        "MaxConcurrency" => String.t(),
+        "MaxErrors" => String.t(),
+        "Mode" => list(any()),
+        "OpsItemId" => String.t(),
+        "Outputs" => map(),
+        "ParentAutomationExecutionId" => String.t(),
+        "ResolvedTargets" => resolved_targets(),
+        "Runbooks" => list(runbook()()),
+        "ScheduledTime" => non_neg_integer(),
+        "Target" => String.t(),
+        "TargetMaps" => list(map()()),
+        "TargetParameterName" => String.t(),
+        "Targets" => list(target()()),
+        "TriggeredAlarms" => list(alarm_state_information()())
+      }
+      
   """
   @type automation_execution_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  associated_instances() :: %{
-
-  }
+      
+      associated_instances() :: %{}
+      
   """
-  @type associated_instances() :: %{String.t() => any()}
+  @type associated_instances() :: %{}
 
   @typedoc """
 
   ## Example:
-  describe_maintenance_window_targets_request() :: %{
-    optional("Filters") => list(maintenance_window_filter()()),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("WindowId") => String.t()
-  }
+      
+      describe_maintenance_window_targets_request() :: %{
+        optional("Filters") => list(maintenance_window_filter()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("WindowId") => String.t()
+      }
+      
   """
   @type describe_maintenance_window_targets_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  maintenance_window_task_invocation_parameters() :: %{
-    "Automation" => maintenance_window_automation_parameters(),
-    "Lambda" => maintenance_window_lambda_parameters(),
-    "RunCommand" => maintenance_window_run_command_parameters(),
-    "StepFunctions" => maintenance_window_step_functions_parameters()
-  }
+      
+      maintenance_window_task_invocation_parameters() :: %{
+        "Automation" => maintenance_window_automation_parameters(),
+        "Lambda" => maintenance_window_lambda_parameters(),
+        "RunCommand" => maintenance_window_run_command_parameters(),
+        "StepFunctions" => maintenance_window_step_functions_parameters()
+      }
+      
   """
   @type maintenance_window_task_invocation_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  output_source() :: %{
-    "OutputSourceId" => String.t(),
-    "OutputSourceType" => String.t()
-  }
+      
+      output_source() :: %{
+        "OutputSourceId" => String.t(),
+        "OutputSourceType" => String.t()
+      }
+      
   """
   @type output_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  register_target_with_maintenance_window_request() :: %{
-    optional("ClientToken") => String.t(),
-    optional("Description") => String.t(),
-    optional("Name") => String.t(),
-    optional("OwnerInformation") => String.t(),
-    required("ResourceType") => list(any()),
-    required("Targets") => list(target()()),
-    required("WindowId") => String.t()
-  }
+      
+      register_target_with_maintenance_window_request() :: %{
+        optional("ClientToken") => String.t(),
+        optional("Description") => String.t(),
+        optional("Name") => String.t(),
+        optional("OwnerInformation") => String.t(),
+        required("ResourceType") => list(any()),
+        required("Targets") => list(target()()),
+        required("WindowId") => String.t()
+      }
+      
   """
   @type register_target_with_maintenance_window_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  automation_definition_version_not_found_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      automation_definition_version_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type automation_definition_version_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_update() :: %{
-    "Message" => String.t()
-  }
+      
+      invalid_update() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type invalid_update() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_compliance_items_result() :: %{
-    "ComplianceItems" => list(compliance_item()()),
-    "NextToken" => String.t()
-  }
+      
+      list_compliance_items_result() :: %{
+        "ComplianceItems" => list(compliance_item()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_compliance_items_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_maintenance_window_execution_task_invocation_result() :: %{
-    "EndTime" => non_neg_integer(),
-    "ExecutionId" => String.t(),
-    "InvocationId" => String.t(),
-    "OwnerInformation" => String.t(),
-    "Parameters" => String.t(),
-    "StartTime" => non_neg_integer(),
-    "Status" => list(any()),
-    "StatusDetails" => String.t(),
-    "TaskExecutionId" => String.t(),
-    "TaskType" => list(any()),
-    "WindowExecutionId" => String.t(),
-    "WindowTargetId" => String.t()
-  }
+      
+      get_maintenance_window_execution_task_invocation_result() :: %{
+        "EndTime" => non_neg_integer(),
+        "ExecutionId" => String.t(),
+        "InvocationId" => String.t(),
+        "OwnerInformation" => String.t(),
+        "Parameters" => String.t(),
+        "StartTime" => non_neg_integer(),
+        "Status" => list(any()),
+        "StatusDetails" => String.t(),
+        "TaskExecutionId" => String.t(),
+        "TaskType" => list(any()),
+        "WindowExecutionId" => String.t(),
+        "WindowTargetId" => String.t()
+      }
+      
   """
   @type get_maintenance_window_execution_task_invocation_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_filter() :: %{
-    "Message" => String.t()
-  }
+      
+      invalid_filter() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type invalid_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  s3_output_url() :: %{
-    "OutputUrl" => String.t()
-  }
+      
+      s3_output_url() :: %{
+        "OutputUrl" => String.t()
+      }
+      
   """
   @type s3_output_url() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  association_already_exists() :: %{
-
-  }
+      
+      association_already_exists() :: %{}
+      
   """
-  @type association_already_exists() :: %{String.t() => any()}
+  @type association_already_exists() :: %{}
 
   @typedoc """
 
   ## Example:
-  describe_sessions_request() :: %{
-    optional("Filters") => list(session_filter()()),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("State") => list(any())
-  }
+      
+      describe_sessions_request() :: %{
+        optional("Filters") => list(session_filter()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("State") => list(any())
+      }
+      
   """
   @type describe_sessions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  document_version_info() :: %{
-    "CreatedDate" => non_neg_integer(),
-    "DisplayName" => String.t(),
-    "DocumentFormat" => list(any()),
-    "DocumentVersion" => String.t(),
-    "IsDefaultVersion" => boolean(),
-    "Name" => String.t(),
-    "ReviewStatus" => list(any()),
-    "Status" => list(any()),
-    "StatusInformation" => String.t(),
-    "VersionName" => String.t()
-  }
+      
+      document_version_info() :: %{
+        "CreatedDate" => non_neg_integer(),
+        "DisplayName" => String.t(),
+        "DocumentFormat" => list(any()),
+        "DocumentVersion" => String.t(),
+        "IsDefaultVersion" => boolean(),
+        "Name" => String.t(),
+        "ReviewStatus" => list(any()),
+        "Status" => list(any()),
+        "StatusInformation" => String.t(),
+        "VersionName" => String.t()
+      }
+      
   """
   @type document_version_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  command_invocation() :: %{
-    "CloudWatchOutputConfig" => cloud_watch_output_config(),
-    "CommandId" => String.t(),
-    "CommandPlugins" => list(command_plugin()()),
-    "Comment" => String.t(),
-    "DocumentName" => String.t(),
-    "DocumentVersion" => String.t(),
-    "InstanceId" => String.t(),
-    "InstanceName" => String.t(),
-    "NotificationConfig" => notification_config(),
-    "RequestedDateTime" => non_neg_integer(),
-    "ServiceRole" => String.t(),
-    "StandardErrorUrl" => String.t(),
-    "StandardOutputUrl" => String.t(),
-    "Status" => list(any()),
-    "StatusDetails" => String.t(),
-    "TraceOutput" => String.t()
-  }
+      
+      command_invocation() :: %{
+        "CloudWatchOutputConfig" => cloud_watch_output_config(),
+        "CommandId" => String.t(),
+        "CommandPlugins" => list(command_plugin()()),
+        "Comment" => String.t(),
+        "DocumentName" => String.t(),
+        "DocumentVersion" => String.t(),
+        "InstanceId" => String.t(),
+        "InstanceName" => String.t(),
+        "NotificationConfig" => notification_config(),
+        "RequestedDateTime" => non_neg_integer(),
+        "ServiceRole" => String.t(),
+        "StandardErrorUrl" => String.t(),
+        "StandardOutputUrl" => String.t(),
+        "Status" => list(any()),
+        "StatusDetails" => String.t(),
+        "TraceOutput" => String.t()
+      }
+      
   """
   @type command_invocation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_patch_baseline_result() :: %{
-    "BaselineId" => String.t()
-  }
+      
+      delete_patch_baseline_result() :: %{
+        "BaselineId" => String.t()
+      }
+      
   """
   @type delete_patch_baseline_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  document_requires() :: %{
-    "Name" => String.t(),
-    "RequireType" => String.t(),
-    "Version" => String.t(),
-    "VersionName" => String.t()
-  }
+      
+      document_requires() :: %{
+        "Name" => String.t(),
+        "RequireType" => String.t(),
+        "Version" => String.t(),
+        "VersionName" => String.t()
+      }
+      
   """
   @type document_requires() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_filter_key() :: %{
-
-  }
+      
+      invalid_filter_key() :: %{}
+      
   """
-  @type invalid_filter_key() :: %{String.t() => any()}
+  @type invalid_filter_key() :: %{}
 
   @typedoc """
 
   ## Example:
-  parameter_pattern_mismatch_exception() :: %{
-    "message" => String.t()
-  }
+      
+      parameter_pattern_mismatch_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type parameter_pattern_mismatch_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  patch_status() :: %{
-    "ApprovalDate" => non_neg_integer(),
-    "ComplianceLevel" => list(any()),
-    "DeploymentStatus" => list(any())
-  }
+      
+      patch_status() :: %{
+        "ApprovalDate" => non_neg_integer(),
+        "ComplianceLevel" => list(any()),
+        "DeploymentStatus" => list(any())
+      }
+      
   """
   @type patch_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ops_item_limit_exceeded_exception() :: %{
-    "Limit" => integer(),
-    "LimitType" => String.t(),
-    "Message" => String.t(),
-    "ResourceTypes" => list(String.t()())
-  }
+      
+      ops_item_limit_exceeded_exception() :: %{
+        "Limit" => integer(),
+        "LimitType" => String.t(),
+        "Message" => String.t(),
+        "ResourceTypes" => list(String.t()())
+      }
+      
   """
   @type ops_item_limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_inventory_result() :: %{
-    "Entities" => list(inventory_result_entity()()),
-    "NextToken" => String.t()
-  }
+      
+      get_inventory_result() :: %{
+        "Entities" => list(inventory_result_entity()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type get_inventory_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_inventory_entries_result() :: %{
-    "CaptureTime" => String.t(),
-    "Entries" => list(map()()),
-    "InstanceId" => String.t(),
-    "NextToken" => String.t(),
-    "SchemaVersion" => String.t(),
-    "TypeName" => String.t()
-  }
+      
+      list_inventory_entries_result() :: %{
+        "CaptureTime" => String.t(),
+        "Entries" => list(map()()),
+        "InstanceId" => String.t(),
+        "NextToken" => String.t(),
+        "SchemaVersion" => String.t(),
+        "TypeName" => String.t()
+      }
+      
   """
   @type list_inventory_entries_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_resource_policy_response() :: %{
-    "PolicyHash" => String.t(),
-    "PolicyId" => String.t()
-  }
+      
+      put_resource_policy_response() :: %{
+        "PolicyHash" => String.t(),
+        "PolicyId" => String.t()
+      }
+      
   """
   @type put_resource_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cancel_command_result() :: %{
-
-  }
+      
+      cancel_command_result() :: %{}
+      
   """
-  @type cancel_command_result() :: %{String.t() => any()}
+  @type cancel_command_result() :: %{}
 
   @typedoc """
 
   ## Example:
-  resource_data_sync_not_found_exception() :: %{
-    "Message" => String.t(),
-    "SyncName" => String.t(),
-    "SyncType" => String.t()
-  }
+      
+      resource_data_sync_not_found_exception() :: %{
+        "Message" => String.t(),
+        "SyncName" => String.t(),
+        "SyncType" => String.t()
+      }
+      
   """
   @type resource_data_sync_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  attachments_source() :: %{
-    "Key" => list(any()),
-    "Name" => String.t(),
-    "Values" => list(String.t()())
-  }
+      
+      attachments_source() :: %{
+        "Key" => list(any()),
+        "Name" => String.t(),
+        "Values" => list(String.t()())
+      }
+      
   """
   @type attachments_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_maintenance_window_execution_task_invocations_result() :: %{
-    "NextToken" => String.t(),
-    "WindowExecutionTaskInvocationIdentities" => list(maintenance_window_execution_task_invocation_identity()())
-  }
+      
+      describe_maintenance_window_execution_task_invocations_result() :: %{
+        "NextToken" => String.t(),
+        "WindowExecutionTaskInvocationIdentities" => list(maintenance_window_execution_task_invocation_identity()())
+      }
+      
   """
   @type describe_maintenance_window_execution_task_invocations_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  session_manager_output_url() :: %{
-    "CloudWatchOutputUrl" => String.t(),
-    "S3OutputUrl" => String.t()
-  }
+      
+      session_manager_output_url() :: %{
+        "CloudWatchOutputUrl" => String.t(),
+        "S3OutputUrl" => String.t()
+      }
+      
   """
   @type session_manager_output_url() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_activations_result() :: %{
-    "ActivationList" => list(activation()()),
-    "NextToken" => String.t()
-  }
+      
+      describe_activations_result() :: %{
+        "ActivationList" => list(activation()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type describe_activations_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  parameter_limit_exceeded() :: %{
-    "message" => String.t()
-  }
+      
+      parameter_limit_exceeded() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type parameter_limit_exceeded() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  remove_tags_from_resource_result() :: %{
-
-  }
+      
+      remove_tags_from_resource_result() :: %{}
+      
   """
-  @type remove_tags_from_resource_result() :: %{String.t() => any()}
+  @type remove_tags_from_resource_result() :: %{}
 
   @typedoc """
 
   ## Example:
-  instance_association_output_url() :: %{
-    "S3OutputUrl" => s3_output_url()
-  }
+      
+      instance_association_output_url() :: %{
+        "S3OutputUrl" => s3_output_url()
+      }
+      
   """
   @type instance_association_output_url() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_ops_metadata_result() :: %{
-    "Metadata" => map(),
-    "NextToken" => String.t(),
-    "ResourceId" => String.t()
-  }
+      
+      get_ops_metadata_result() :: %{
+        "Metadata" => map(),
+        "NextToken" => String.t(),
+        "ResourceId" => String.t()
+      }
+      
   """
   @type get_ops_metadata_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  document_limit_exceeded() :: %{
-    "Message" => String.t()
-  }
+      
+      document_limit_exceeded() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type document_limit_exceeded() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  target_not_connected() :: %{
-    "Message" => String.t()
-  }
+      
+      target_not_connected() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type target_not_connected() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_ops_metadata_result() :: %{
-    "OpsMetadataArn" => String.t()
-  }
+      
+      create_ops_metadata_result() :: %{
+        "OpsMetadataArn" => String.t()
+      }
+      
   """
   @type create_ops_metadata_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ops_item_related_item_summary() :: %{
-    "AssociationId" => String.t(),
-    "AssociationType" => String.t(),
-    "CreatedBy" => ops_item_identity(),
-    "CreatedTime" => non_neg_integer(),
-    "LastModifiedBy" => ops_item_identity(),
-    "LastModifiedTime" => non_neg_integer(),
-    "OpsItemId" => String.t(),
-    "ResourceType" => String.t(),
-    "ResourceUri" => String.t()
-  }
+      
+      ops_item_related_item_summary() :: %{
+        "AssociationId" => String.t(),
+        "AssociationType" => String.t(),
+        "CreatedBy" => ops_item_identity(),
+        "CreatedTime" => non_neg_integer(),
+        "LastModifiedBy" => ops_item_identity(),
+        "LastModifiedTime" => non_neg_integer(),
+        "OpsItemId" => String.t(),
+        "ResourceType" => String.t(),
+        "ResourceUri" => String.t()
+      }
+      
   """
   @type ops_item_related_item_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  parameter_version_label_limit_exceeded() :: %{
-    "message" => String.t()
-  }
+      
+      parameter_version_label_limit_exceeded() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type parameter_version_label_limit_exceeded() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_resource_policy_request() :: %{
-    required("PolicyHash") => String.t(),
-    required("PolicyId") => String.t(),
-    required("ResourceArn") => String.t()
-  }
+      
+      delete_resource_policy_request() :: %{
+        required("PolicyHash") => String.t(),
+        required("PolicyId") => String.t(),
+        required("ResourceArn") => String.t()
+      }
+      
   """
   @type delete_resource_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_calendar_state_response() :: %{
-    "AtTime" => String.t(),
-    "NextTransitionTime" => String.t(),
-    "State" => list(any())
-  }
+      
+      get_calendar_state_response() :: %{
+        "AtTime" => String.t(),
+        "NextTransitionTime" => String.t(),
+        "State" => list(any())
+      }
+      
   """
   @type get_calendar_state_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_compliance_items_request() :: %{
-    optional("Filters") => list(compliance_string_filter()()),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("ResourceIds") => list(String.t()()),
-    optional("ResourceTypes") => list(String.t()())
-  }
+      
+      list_compliance_items_request() :: %{
+        optional("Filters") => list(compliance_string_filter()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("ResourceIds") => list(String.t()()),
+        optional("ResourceTypes") => list(String.t()())
+      }
+      
   """
   @type list_compliance_items_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_instance_patches_result() :: %{
-    "NextToken" => String.t(),
-    "Patches" => list(patch_compliance_data()())
-  }
+      
+      describe_instance_patches_result() :: %{
+        "NextToken" => String.t(),
+        "Patches" => list(patch_compliance_data()())
+      }
+      
   """
   @type describe_instance_patches_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  command() :: %{
-    "AlarmConfiguration" => alarm_configuration(),
-    "CloudWatchOutputConfig" => cloud_watch_output_config(),
-    "CommandId" => String.t(),
-    "Comment" => String.t(),
-    "CompletedCount" => integer(),
-    "DeliveryTimedOutCount" => integer(),
-    "DocumentName" => String.t(),
-    "DocumentVersion" => String.t(),
-    "ErrorCount" => integer(),
-    "ExpiresAfter" => non_neg_integer(),
-    "InstanceIds" => list(String.t()()),
-    "MaxConcurrency" => String.t(),
-    "MaxErrors" => String.t(),
-    "NotificationConfig" => notification_config(),
-    "OutputS3BucketName" => String.t(),
-    "OutputS3KeyPrefix" => String.t(),
-    "OutputS3Region" => String.t(),
-    "Parameters" => map(),
-    "RequestedDateTime" => non_neg_integer(),
-    "ServiceRole" => String.t(),
-    "Status" => list(any()),
-    "StatusDetails" => String.t(),
-    "TargetCount" => integer(),
-    "Targets" => list(target()()),
-    "TimeoutSeconds" => integer(),
-    "TriggeredAlarms" => list(alarm_state_information()())
-  }
+      
+      command() :: %{
+        "AlarmConfiguration" => alarm_configuration(),
+        "CloudWatchOutputConfig" => cloud_watch_output_config(),
+        "CommandId" => String.t(),
+        "Comment" => String.t(),
+        "CompletedCount" => integer(),
+        "DeliveryTimedOutCount" => integer(),
+        "DocumentName" => String.t(),
+        "DocumentVersion" => String.t(),
+        "ErrorCount" => integer(),
+        "ExpiresAfter" => non_neg_integer(),
+        "InstanceIds" => list(String.t()()),
+        "MaxConcurrency" => String.t(),
+        "MaxErrors" => String.t(),
+        "NotificationConfig" => notification_config(),
+        "OutputS3BucketName" => String.t(),
+        "OutputS3KeyPrefix" => String.t(),
+        "OutputS3Region" => String.t(),
+        "Parameters" => map(),
+        "RequestedDateTime" => non_neg_integer(),
+        "ServiceRole" => String.t(),
+        "Status" => list(any()),
+        "StatusDetails" => String.t(),
+        "TargetCount" => integer(),
+        "Targets" => list(target()()),
+        "TimeoutSeconds" => integer(),
+        "TriggeredAlarms" => list(alarm_state_information()())
+      }
+      
   """
   @type command() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  parameter_history() :: %{
-    "AllowedPattern" => String.t(),
-    "DataType" => String.t(),
-    "Description" => String.t(),
-    "KeyId" => String.t(),
-    "Labels" => list(String.t()()),
-    "LastModifiedDate" => non_neg_integer(),
-    "LastModifiedUser" => String.t(),
-    "Name" => String.t(),
-    "Policies" => list(parameter_inline_policy()()),
-    "Tier" => list(any()),
-    "Type" => list(any()),
-    "Value" => String.t(),
-    "Version" => float()
-  }
+      
+      parameter_history() :: %{
+        "AllowedPattern" => String.t(),
+        "DataType" => String.t(),
+        "Description" => String.t(),
+        "KeyId" => String.t(),
+        "Labels" => list(String.t()()),
+        "LastModifiedDate" => non_neg_integer(),
+        "LastModifiedUser" => String.t(),
+        "Name" => String.t(),
+        "Policies" => list(parameter_inline_policy()()),
+        "Tier" => list(any()),
+        "Type" => list(any()),
+        "Value" => String.t(),
+        "Version" => float()
+      }
+      
   """
   @type parameter_history() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_maintenance_window_execution_task_request() :: %{
-    required("TaskId") => String.t(),
-    required("WindowExecutionId") => String.t()
-  }
+      
+      get_maintenance_window_execution_task_request() :: %{
+        required("TaskId") => String.t(),
+        required("WindowExecutionId") => String.t()
+      }
+      
   """
   @type get_maintenance_window_execution_task_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_parameter_result() :: %{
-    "Tier" => list(any()),
-    "Version" => float()
-  }
+      
+      put_parameter_result() :: %{
+        "Tier" => list(any()),
+        "Version" => float()
+      }
+      
   """
   @type put_parameter_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_document_default_version_result() :: %{
-    "Description" => document_default_version_description()
-  }
+      
+      update_document_default_version_result() :: %{
+        "Description" => document_default_version_description()
+      }
+      
   """
   @type update_document_default_version_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  automation_execution_limit_exceeded_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      automation_execution_limit_exceeded_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type automation_execution_limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_ops_item_related_items_request() :: %{
-    optional("Filters") => list(ops_item_related_items_filter()()),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("OpsItemId") => String.t()
-  }
+      
+      list_ops_item_related_items_request() :: %{
+        optional("Filters") => list(ops_item_related_items_filter()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("OpsItemId") => String.t()
+      }
+      
   """
   @type list_ops_item_related_items_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_ops_item_request() :: %{
-    optional("AccountId") => String.t(),
-    optional("ActualEndTime") => non_neg_integer(),
-    optional("ActualStartTime") => non_neg_integer(),
-    optional("Category") => String.t(),
-    optional("Notifications") => list(ops_item_notification()()),
-    optional("OperationalData") => map(),
-    optional("OpsItemType") => String.t(),
-    optional("PlannedEndTime") => non_neg_integer(),
-    optional("PlannedStartTime") => non_neg_integer(),
-    optional("Priority") => integer(),
-    optional("RelatedOpsItems") => list(related_ops_item()()),
-    optional("Severity") => String.t(),
-    optional("Tags") => list(tag()()),
-    required("Description") => String.t(),
-    required("Source") => String.t(),
-    required("Title") => String.t()
-  }
+      
+      create_ops_item_request() :: %{
+        optional("AccountId") => String.t(),
+        optional("ActualEndTime") => non_neg_integer(),
+        optional("ActualStartTime") => non_neg_integer(),
+        optional("Category") => String.t(),
+        optional("Notifications") => list(ops_item_notification()()),
+        optional("OperationalData") => map(),
+        optional("OpsItemType") => String.t(),
+        optional("PlannedEndTime") => non_neg_integer(),
+        optional("PlannedStartTime") => non_neg_integer(),
+        optional("Priority") => integer(),
+        optional("RelatedOpsItems") => list(related_ops_item()()),
+        optional("Severity") => String.t(),
+        optional("Tags") => list(tag()()),
+        required("Description") => String.t(),
+        required("Source") => String.t(),
+        required("Title") => String.t()
+      }
+      
   """
   @type create_ops_item_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  sub_type_count_limit_exceeded_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      sub_type_count_limit_exceeded_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type sub_type_count_limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_automation_execution_result() :: %{
-    "AutomationExecutionId" => String.t()
-  }
+      
+      start_automation_execution_result() :: %{
+        "AutomationExecutionId" => String.t()
+      }
+      
   """
   @type start_automation_execution_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_automation_signal_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      invalid_automation_signal_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type invalid_automation_signal_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_resource_data_sync_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("SyncType") => String.t()
-  }
+      
+      list_resource_data_sync_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("SyncType") => String.t()
+      }
+      
   """
   @type list_resource_data_sync_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  association_does_not_exist() :: %{
-    "Message" => String.t()
-  }
+      
+      association_does_not_exist() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type association_does_not_exist() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  deregister_task_from_maintenance_window_request() :: %{
-    required("WindowId") => String.t(),
-    required("WindowTaskId") => String.t()
-  }
+      
+      deregister_task_from_maintenance_window_request() :: %{
+        required("WindowId") => String.t(),
+        required("WindowTaskId") => String.t()
+      }
+      
   """
   @type deregister_task_from_maintenance_window_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  add_tags_to_resource_result() :: %{
-
-  }
+      
+      add_tags_to_resource_result() :: %{}
+      
   """
-  @type add_tags_to_resource_result() :: %{String.t() => any()}
+  @type add_tags_to_resource_result() :: %{}
 
   @typedoc """
 
   ## Example:
-  invalid_policy_type_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_policy_type_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_policy_type_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_policy_not_found_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      resource_policy_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type resource_policy_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_association_batch_request_entry() :: %{
-    "AlarmConfiguration" => alarm_configuration(),
-    "ApplyOnlyAtCronInterval" => boolean(),
-    "AssociationName" => String.t(),
-    "AutomationTargetParameterName" => String.t(),
-    "CalendarNames" => list(String.t()()),
-    "ComplianceSeverity" => list(any()),
-    "DocumentVersion" => String.t(),
-    "Duration" => integer(),
-    "InstanceId" => String.t(),
-    "MaxConcurrency" => String.t(),
-    "MaxErrors" => String.t(),
-    "Name" => String.t(),
-    "OutputLocation" => instance_association_output_location(),
-    "Parameters" => map(),
-    "ScheduleExpression" => String.t(),
-    "ScheduleOffset" => integer(),
-    "SyncCompliance" => list(any()),
-    "TargetLocations" => list(target_location()()),
-    "TargetMaps" => list(map()()),
-    "Targets" => list(target()())
-  }
+      
+      create_association_batch_request_entry() :: %{
+        "AlarmConfiguration" => alarm_configuration(),
+        "ApplyOnlyAtCronInterval" => boolean(),
+        "AssociationName" => String.t(),
+        "AutomationTargetParameterName" => String.t(),
+        "CalendarNames" => list(String.t()()),
+        "ComplianceSeverity" => list(any()),
+        "DocumentVersion" => String.t(),
+        "Duration" => integer(),
+        "InstanceId" => String.t(),
+        "MaxConcurrency" => String.t(),
+        "MaxErrors" => String.t(),
+        "Name" => String.t(),
+        "OutputLocation" => instance_association_output_location(),
+        "Parameters" => map(),
+        "ScheduleExpression" => String.t(),
+        "ScheduleOffset" => integer(),
+        "SyncCompliance" => list(any()),
+        "TargetLocations" => list(target_location()()),
+        "TargetMaps" => list(map()()),
+        "Targets" => list(target()())
+      }
+      
   """
   @type create_association_batch_request_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  service_setting() :: %{
-    "ARN" => String.t(),
-    "LastModifiedDate" => non_neg_integer(),
-    "LastModifiedUser" => String.t(),
-    "SettingId" => String.t(),
-    "SettingValue" => String.t(),
-    "Status" => String.t()
-  }
+      
+      service_setting() :: %{
+        "ARN" => String.t(),
+        "LastModifiedDate" => non_neg_integer(),
+        "LastModifiedUser" => String.t(),
+        "SettingId" => String.t(),
+        "SettingValue" => String.t(),
+        "Status" => String.t()
+      }
+      
   """
   @type service_setting() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  maintenance_window_automation_parameters() :: %{
-    "DocumentVersion" => String.t(),
-    "Parameters" => map()
-  }
+      
+      maintenance_window_automation_parameters() :: %{
+        "DocumentVersion" => String.t(),
+        "Parameters" => map()
+      }
+      
   """
   @type maintenance_window_automation_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_document_default_version_request() :: %{
-    required("DocumentVersion") => String.t(),
-    required("Name") => String.t()
-  }
+      
+      update_document_default_version_request() :: %{
+        required("DocumentVersion") => String.t(),
+        required("Name") => String.t()
+      }
+      
   """
   @type update_document_default_version_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  patch_filter_group() :: %{
-    "PatchFilters" => list(patch_filter()())
-  }
+      
+      patch_filter_group() :: %{
+        "PatchFilters" => list(patch_filter()())
+      }
+      
   """
   @type patch_filter_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_inventory_result() :: %{
-    "Message" => String.t()
-  }
+      
+      put_inventory_result() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type put_inventory_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resolved_targets() :: %{
-    "ParameterValues" => list(String.t()()),
-    "Truncated" => boolean()
-  }
+      
+      resolved_targets() :: %{
+        "ParameterValues" => list(String.t()()),
+        "Truncated" => boolean()
+      }
+      
   """
   @type resolved_targets() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_effective_instance_associations_result() :: %{
-    "Associations" => list(instance_association()()),
-    "NextToken" => String.t()
-  }
+      
+      describe_effective_instance_associations_result() :: %{
+        "Associations" => list(instance_association()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type describe_effective_instance_associations_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  scheduled_window_execution() :: %{
-    "ExecutionTime" => String.t(),
-    "Name" => String.t(),
-    "WindowId" => String.t()
-  }
+      
+      scheduled_window_execution() :: %{
+        "ExecutionTime" => String.t(),
+        "Name" => String.t(),
+        "WindowId" => String.t()
+      }
+      
   """
   @type scheduled_window_execution() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  automation_definition_not_found_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      automation_definition_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type automation_definition_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  automation_definition_not_approved_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      automation_definition_not_approved_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type automation_definition_not_approved_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_maintenance_window_task_result() :: %{
-    "AlarmConfiguration" => alarm_configuration(),
-    "CutoffBehavior" => list(any()),
-    "Description" => String.t(),
-    "LoggingInfo" => logging_info(),
-    "MaxConcurrency" => String.t(),
-    "MaxErrors" => String.t(),
-    "Name" => String.t(),
-    "Priority" => integer(),
-    "ServiceRoleArn" => String.t(),
-    "Targets" => list(target()()),
-    "TaskArn" => String.t(),
-    "TaskInvocationParameters" => maintenance_window_task_invocation_parameters(),
-    "TaskParameters" => map(),
-    "TaskType" => list(any()),
-    "WindowId" => String.t(),
-    "WindowTaskId" => String.t()
-  }
+      
+      get_maintenance_window_task_result() :: %{
+        "AlarmConfiguration" => alarm_configuration(),
+        "CutoffBehavior" => list(any()),
+        "Description" => String.t(),
+        "LoggingInfo" => logging_info(),
+        "MaxConcurrency" => String.t(),
+        "MaxErrors" => String.t(),
+        "Name" => String.t(),
+        "Priority" => integer(),
+        "ServiceRoleArn" => String.t(),
+        "Targets" => list(target()()),
+        "TaskArn" => String.t(),
+        "TaskInvocationParameters" => maintenance_window_task_invocation_parameters(),
+        "TaskParameters" => map(),
+        "TaskType" => list(any()),
+        "WindowId" => String.t(),
+        "WindowTaskId" => String.t()
+      }
+      
   """
   @type get_maintenance_window_task_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  compliance_type_count_limit_exceeded_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      compliance_type_count_limit_exceeded_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type compliance_type_count_limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  unsupported_platform_type() :: %{
-    "Message" => String.t()
-  }
+      
+      unsupported_platform_type() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type unsupported_platform_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_instance_associations_status_result() :: %{
-    "InstanceAssociationStatusInfos" => list(instance_association_status_info()()),
-    "NextToken" => String.t()
-  }
+      
+      describe_instance_associations_status_result() :: %{
+        "InstanceAssociationStatusInfos" => list(instance_association_status_info()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type describe_instance_associations_status_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  inventory_result_item() :: %{
-    "CaptureTime" => String.t(),
-    "Content" => list(map()()),
-    "ContentHash" => String.t(),
-    "SchemaVersion" => String.t(),
-    "TypeName" => String.t()
-  }
+      
+      inventory_result_item() :: %{
+        "CaptureTime" => String.t(),
+        "Content" => list(map()()),
+        "ContentHash" => String.t(),
+        "SchemaVersion" => String.t(),
+        "TypeName" => String.t()
+      }
+      
   """
   @type inventory_result_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  does_not_exist_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      does_not_exist_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type does_not_exist_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_document_permission_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("Name") => String.t(),
-    required("PermissionType") => list(any())
-  }
+      
+      describe_document_permission_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("Name") => String.t(),
+        required("PermissionType") => list(any())
+      }
+      
   """
   @type describe_document_permission_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  patch_baseline_identity() :: %{
-    "BaselineDescription" => String.t(),
-    "BaselineId" => String.t(),
-    "BaselineName" => String.t(),
-    "DefaultBaseline" => boolean(),
-    "OperatingSystem" => list(any())
-  }
+      
+      patch_baseline_identity() :: %{
+        "BaselineDescription" => String.t(),
+        "BaselineId" => String.t(),
+        "BaselineName" => String.t(),
+        "DefaultBaseline" => boolean(),
+        "OperatingSystem" => list(any())
+      }
+      
   """
   @type patch_baseline_identity() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  step_execution() :: %{
-    "Action" => String.t(),
-    "ExecutionEndTime" => non_neg_integer(),
-    "ExecutionStartTime" => non_neg_integer(),
-    "FailureDetails" => failure_details(),
-    "FailureMessage" => String.t(),
-    "Inputs" => map(),
-    "IsCritical" => boolean(),
-    "IsEnd" => boolean(),
-    "MaxAttempts" => integer(),
-    "NextStep" => String.t(),
-    "OnFailure" => String.t(),
-    "Outputs" => map(),
-    "OverriddenParameters" => map(),
-    "ParentStepDetails" => parent_step_details(),
-    "Response" => String.t(),
-    "ResponseCode" => String.t(),
-    "StepExecutionId" => String.t(),
-    "StepName" => String.t(),
-    "StepStatus" => list(any()),
-    "TargetLocation" => target_location(),
-    "Targets" => list(target()()),
-    "TimeoutSeconds" => float(),
-    "TriggeredAlarms" => list(alarm_state_information()()),
-    "ValidNextSteps" => list(String.t()())
-  }
+      
+      step_execution() :: %{
+        "Action" => String.t(),
+        "ExecutionEndTime" => non_neg_integer(),
+        "ExecutionStartTime" => non_neg_integer(),
+        "FailureDetails" => failure_details(),
+        "FailureMessage" => String.t(),
+        "Inputs" => map(),
+        "IsCritical" => boolean(),
+        "IsEnd" => boolean(),
+        "MaxAttempts" => integer(),
+        "NextStep" => String.t(),
+        "OnFailure" => String.t(),
+        "Outputs" => map(),
+        "OverriddenParameters" => map(),
+        "ParentStepDetails" => parent_step_details(),
+        "Response" => String.t(),
+        "ResponseCode" => String.t(),
+        "StepExecutionId" => String.t(),
+        "StepName" => String.t(),
+        "StepStatus" => list(any()),
+        "TargetLocation" => target_location(),
+        "Targets" => list(target()()),
+        "TimeoutSeconds" => float(),
+        "TriggeredAlarms" => list(alarm_state_information()()),
+        "ValidNextSteps" => list(String.t()())
+      }
+      
   """
   @type step_execution() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_inventory_request() :: %{
-    optional("ClientToken") => String.t(),
-    optional("DryRun") => boolean(),
-    optional("SchemaDeleteOption") => list(any()),
-    required("TypeName") => String.t()
-  }
+      
+      delete_inventory_request() :: %{
+        optional("ClientToken") => String.t(),
+        optional("DryRun") => boolean(),
+        optional("SchemaDeleteOption") => list(any()),
+        required("TypeName") => String.t()
+      }
+      
   """
   @type delete_inventory_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_association_executions_result() :: %{
-    "AssociationExecutions" => list(association_execution()()),
-    "NextToken" => String.t()
-  }
+      
+      describe_association_executions_result() :: %{
+        "AssociationExecutions" => list(association_execution()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type describe_association_executions_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_maintenance_window_target_request() :: %{
-    optional("Description") => String.t(),
-    optional("Name") => String.t(),
-    optional("OwnerInformation") => String.t(),
-    optional("Replace") => boolean(),
-    optional("Targets") => list(target()()),
-    required("WindowId") => String.t(),
-    required("WindowTargetId") => String.t()
-  }
+      
+      update_maintenance_window_target_request() :: %{
+        optional("Description") => String.t(),
+        optional("Name") => String.t(),
+        optional("OwnerInformation") => String.t(),
+        optional("Replace") => boolean(),
+        optional("Targets") => list(target()()),
+        required("WindowId") => String.t(),
+        required("WindowTargetId") => String.t()
+      }
+      
   """
   @type update_maintenance_window_target_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  hierarchy_type_mismatch_exception() :: %{
-    "message" => String.t()
-  }
+      
+      hierarchy_type_mismatch_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type hierarchy_type_mismatch_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  maintenance_window_execution_task_identity() :: %{
-    "AlarmConfiguration" => alarm_configuration(),
-    "EndTime" => non_neg_integer(),
-    "StartTime" => non_neg_integer(),
-    "Status" => list(any()),
-    "StatusDetails" => String.t(),
-    "TaskArn" => String.t(),
-    "TaskExecutionId" => String.t(),
-    "TaskType" => list(any()),
-    "TriggeredAlarms" => list(alarm_state_information()()),
-    "WindowExecutionId" => String.t()
-  }
+      
+      maintenance_window_execution_task_identity() :: %{
+        "AlarmConfiguration" => alarm_configuration(),
+        "EndTime" => non_neg_integer(),
+        "StartTime" => non_neg_integer(),
+        "Status" => list(any()),
+        "StatusDetails" => String.t(),
+        "TaskArn" => String.t(),
+        "TaskExecutionId" => String.t(),
+        "TaskType" => list(any()),
+        "TriggeredAlarms" => list(alarm_state_information()()),
+        "WindowExecutionId" => String.t()
+      }
+      
   """
   @type maintenance_window_execution_task_identity() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_patch_baseline_result() :: %{
-    "BaselineId" => String.t()
-  }
+      
+      create_patch_baseline_result() :: %{
+        "BaselineId" => String.t()
+      }
+      
   """
   @type create_patch_baseline_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  target_in_use_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      target_in_use_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type target_in_use_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  item_content_mismatch_exception() :: %{
-    "Message" => String.t(),
-    "TypeName" => String.t()
-  }
+      
+      item_content_mismatch_exception() :: %{
+        "Message" => String.t(),
+        "TypeName" => String.t()
+      }
+      
   """
   @type item_content_mismatch_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_association_version() :: %{
-    "Message" => String.t()
-  }
+      
+      invalid_association_version() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type invalid_association_version() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_documents_result() :: %{
-    "DocumentIdentifiers" => list(document_identifier()()),
-    "NextToken" => String.t()
-  }
+      
+      list_documents_result() :: %{
+        "DocumentIdentifiers" => list(document_identifier()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_documents_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stop_automation_execution_request() :: %{
-    optional("Type") => list(any()),
-    required("AutomationExecutionId") => String.t()
-  }
+      
+      stop_automation_execution_request() :: %{
+        optional("Type") => list(any()),
+        required("AutomationExecutionId") => String.t()
+      }
+      
   """
   @type stop_automation_execution_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_patch_baselines_result() :: %{
-    "BaselineIdentities" => list(patch_baseline_identity()()),
-    "NextToken" => String.t()
-  }
+      
+      describe_patch_baselines_result() :: %{
+        "BaselineIdentities" => list(patch_baseline_identity()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type describe_patch_baselines_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_association_request() :: %{
-    optional("AlarmConfiguration") => alarm_configuration(),
-    optional("ApplyOnlyAtCronInterval") => boolean(),
-    optional("AssociationName") => String.t(),
-    optional("AssociationVersion") => String.t(),
-    optional("AutomationTargetParameterName") => String.t(),
-    optional("CalendarNames") => list(String.t()()),
-    optional("ComplianceSeverity") => list(any()),
-    optional("DocumentVersion") => String.t(),
-    optional("Duration") => integer(),
-    optional("MaxConcurrency") => String.t(),
-    optional("MaxErrors") => String.t(),
-    optional("Name") => String.t(),
-    optional("OutputLocation") => instance_association_output_location(),
-    optional("Parameters") => map(),
-    optional("ScheduleExpression") => String.t(),
-    optional("ScheduleOffset") => integer(),
-    optional("SyncCompliance") => list(any()),
-    optional("TargetLocations") => list(target_location()()),
-    optional("TargetMaps") => list(map()()),
-    optional("Targets") => list(target()()),
-    required("AssociationId") => String.t()
-  }
+      
+      update_association_request() :: %{
+        optional("AlarmConfiguration") => alarm_configuration(),
+        optional("ApplyOnlyAtCronInterval") => boolean(),
+        optional("AssociationName") => String.t(),
+        optional("AssociationVersion") => String.t(),
+        optional("AutomationTargetParameterName") => String.t(),
+        optional("CalendarNames") => list(String.t()()),
+        optional("ComplianceSeverity") => list(any()),
+        optional("DocumentVersion") => String.t(),
+        optional("Duration") => integer(),
+        optional("MaxConcurrency") => String.t(),
+        optional("MaxErrors") => String.t(),
+        optional("Name") => String.t(),
+        optional("OutputLocation") => instance_association_output_location(),
+        optional("Parameters") => map(),
+        optional("ScheduleExpression") => String.t(),
+        optional("ScheduleOffset") => integer(),
+        optional("SyncCompliance") => list(any()),
+        optional("TargetLocations") => list(target_location()()),
+        optional("TargetMaps") => list(map()()),
+        optional("Targets") => list(target()()),
+        required("AssociationId") => String.t()
+      }
+      
   """
   @type update_association_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_maintenance_windows_for_target_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("ResourceType") => list(any()),
-    required("Targets") => list(target()())
-  }
+      
+      describe_maintenance_windows_for_target_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("ResourceType") => list(any()),
+        required("Targets") => list(target()())
+      }
+      
   """
   @type describe_maintenance_windows_for_target_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_instance_information_filter_value() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_instance_information_filter_value() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_instance_information_filter_value() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  instance_information_filter() :: %{
-    "key" => list(any()),
-    "valueSet" => list(String.t()())
-  }
+      
+      instance_information_filter() :: %{
+        "key" => list(any()),
+        "valueSet" => list(String.t()())
+      }
+      
   """
   @type instance_information_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_resource_data_sync_result() :: %{
-
-  }
+      
+      delete_resource_data_sync_result() :: %{}
+      
   """
-  @type delete_resource_data_sync_result() :: %{String.t() => any()}
+  @type delete_resource_data_sync_result() :: %{}
 
   @typedoc """
 
   ## Example:
-  start_change_request_execution_result() :: %{
-    "AutomationExecutionId" => String.t()
-  }
+      
+      start_change_request_execution_result() :: %{
+        "AutomationExecutionId" => String.t()
+      }
+      
   """
   @type start_change_request_execution_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_maintenance_windows_request() :: %{
-    optional("Filters") => list(maintenance_window_filter()()),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+      
+      describe_maintenance_windows_request() :: %{
+        optional("Filters") => list(maintenance_window_filter()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type describe_maintenance_windows_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_change_request_execution_request() :: %{
-    optional("AutoApprove") => boolean(),
-    optional("ChangeDetails") => String.t(),
-    optional("ChangeRequestName") => String.t(),
-    optional("ClientToken") => String.t(),
-    optional("DocumentVersion") => String.t(),
-    optional("Parameters") => map(),
-    optional("ScheduledEndTime") => non_neg_integer(),
-    optional("ScheduledTime") => non_neg_integer(),
-    optional("Tags") => list(tag()()),
-    required("DocumentName") => String.t(),
-    required("Runbooks") => list(runbook()())
-  }
+      
+      start_change_request_execution_request() :: %{
+        optional("AutoApprove") => boolean(),
+        optional("ChangeDetails") => String.t(),
+        optional("ChangeRequestName") => String.t(),
+        optional("ClientToken") => String.t(),
+        optional("DocumentVersion") => String.t(),
+        optional("Parameters") => map(),
+        optional("ScheduledEndTime") => non_neg_integer(),
+        optional("ScheduledTime") => non_neg_integer(),
+        optional("Tags") => list(tag()()),
+        required("DocumentName") => String.t(),
+        required("Runbooks") => list(runbook()())
+      }
+      
   """
   @type start_change_request_execution_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_ops_item_request() :: %{
-    optional("ActualEndTime") => non_neg_integer(),
-    optional("ActualStartTime") => non_neg_integer(),
-    optional("Category") => String.t(),
-    optional("Description") => String.t(),
-    optional("Notifications") => list(ops_item_notification()()),
-    optional("OperationalData") => map(),
-    optional("OperationalDataToDelete") => list(String.t()()),
-    optional("OpsItemArn") => String.t(),
-    optional("PlannedEndTime") => non_neg_integer(),
-    optional("PlannedStartTime") => non_neg_integer(),
-    optional("Priority") => integer(),
-    optional("RelatedOpsItems") => list(related_ops_item()()),
-    optional("Severity") => String.t(),
-    optional("Status") => list(any()),
-    optional("Title") => String.t(),
-    required("OpsItemId") => String.t()
-  }
+      
+      update_ops_item_request() :: %{
+        optional("ActualEndTime") => non_neg_integer(),
+        optional("ActualStartTime") => non_neg_integer(),
+        optional("Category") => String.t(),
+        optional("Description") => String.t(),
+        optional("Notifications") => list(ops_item_notification()()),
+        optional("OperationalData") => map(),
+        optional("OperationalDataToDelete") => list(String.t()()),
+        optional("OpsItemArn") => String.t(),
+        optional("PlannedEndTime") => non_neg_integer(),
+        optional("PlannedStartTime") => non_neg_integer(),
+        optional("Priority") => integer(),
+        optional("RelatedOpsItems") => list(related_ops_item()()),
+        optional("Severity") => String.t(),
+        optional("Status") => list(any()),
+        optional("Title") => String.t(),
+        required("OpsItemId") => String.t()
+      }
+      
   """
   @type update_ops_item_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  unlabel_parameter_version_result() :: %{
-    "InvalidLabels" => list(String.t()()),
-    "RemovedLabels" => list(String.t()())
-  }
+      
+      unlabel_parameter_version_result() :: %{
+        "InvalidLabels" => list(String.t()()),
+        "RemovedLabels" => list(String.t()())
+      }
+      
   """
   @type unlabel_parameter_version_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  association_filter() :: %{
-    "key" => list(any()),
-    "value" => String.t()
-  }
+      
+      association_filter() :: %{
+        "key" => list(any()),
+        "value" => String.t()
+      }
+      
   """
   @type association_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  inventory_item() :: %{
-    "CaptureTime" => String.t(),
-    "Content" => list(map()()),
-    "ContentHash" => String.t(),
-    "Context" => map(),
-    "SchemaVersion" => String.t(),
-    "TypeName" => String.t()
-  }
+      
+      inventory_item() :: %{
+        "CaptureTime" => String.t(),
+        "Content" => list(map()()),
+        "ContentHash" => String.t(),
+        "Context" => map(),
+        "SchemaVersion" => String.t(),
+        "TypeName" => String.t()
+      }
+      
   """
   @type inventory_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ops_metadata_limit_exceeded_exception() :: %{
-    "message" => String.t()
-  }
+      
+      ops_metadata_limit_exceeded_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type ops_metadata_limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stop_automation_execution_result() :: %{
-
-  }
+      
+      stop_automation_execution_result() :: %{}
+      
   """
-  @type stop_automation_execution_result() :: %{String.t() => any()}
+  @type stop_automation_execution_result() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_deployable_patch_snapshot_for_instance_request() :: %{
-    optional("BaselineOverride") => baseline_override(),
-    required("InstanceId") => String.t(),
-    required("SnapshotId") => String.t()
-  }
+      
+      get_deployable_patch_snapshot_for_instance_request() :: %{
+        optional("BaselineOverride") => baseline_override(),
+        required("InstanceId") => String.t(),
+        required("SnapshotId") => String.t()
+      }
+      
   """
   @type get_deployable_patch_snapshot_for_instance_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_document_permission_response() :: %{
-    "AccountIds" => list(String.t()()),
-    "AccountSharingInfoList" => list(account_sharing_info()()),
-    "NextToken" => String.t()
-  }
+      
+      describe_document_permission_response() :: %{
+        "AccountIds" => list(String.t()()),
+        "AccountSharingInfoList" => list(account_sharing_info()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type describe_document_permission_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ops_item_related_items_filter() :: %{
-    "Key" => list(any()),
-    "Operator" => list(any()),
-    "Values" => list(String.t()())
-  }
+      
+      ops_item_related_items_filter() :: %{
+        "Key" => list(any()),
+        "Operator" => list(any()),
+        "Values" => list(String.t()())
+      }
+      
   """
   @type ops_item_related_items_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  compliance_execution_summary() :: %{
-    "ExecutionId" => String.t(),
-    "ExecutionTime" => non_neg_integer(),
-    "ExecutionType" => String.t()
-  }
+      
+      compliance_execution_summary() :: %{
+        "ExecutionId" => String.t(),
+        "ExecutionTime" => non_neg_integer(),
+        "ExecutionType" => String.t()
+      }
+      
   """
   @type compliance_execution_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ops_item_filter() :: %{
-    "Key" => list(any()),
-    "Operator" => list(any()),
-    "Values" => list(String.t()())
-  }
+      
+      ops_item_filter() :: %{
+        "Key" => list(any()),
+        "Operator" => list(any()),
+        "Values" => list(String.t()())
+      }
+      
   """
   @type ops_item_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  maintenance_window_filter() :: %{
-    "Key" => String.t(),
-    "Values" => list(String.t()())
-  }
+      
+      maintenance_window_filter() :: %{
+        "Key" => String.t(),
+        "Values" => list(String.t()())
+      }
+      
   """
   @type maintenance_window_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_compliance_items_request() :: %{
-    optional("ItemContentHash") => String.t(),
-    optional("UploadType") => list(any()),
-    required("ComplianceType") => String.t(),
-    required("ExecutionSummary") => compliance_execution_summary(),
-    required("Items") => list(compliance_item_entry()()),
-    required("ResourceId") => String.t(),
-    required("ResourceType") => String.t()
-  }
+      
+      put_compliance_items_request() :: %{
+        optional("ItemContentHash") => String.t(),
+        optional("UploadType") => list(any()),
+        required("ComplianceType") => String.t(),
+        required("ExecutionSummary") => compliance_execution_summary(),
+        required("Items") => list(compliance_item_entry()()),
+        required("ResourceId") => String.t(),
+        required("ResourceType") => String.t()
+      }
+      
   """
   @type put_compliance_items_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_next_token() :: %{
-    "Message" => String.t()
-  }
+      
+      invalid_next_token() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type invalid_next_token() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_maintenance_windows_for_target_result() :: %{
-    "NextToken" => String.t(),
-    "WindowIdentities" => list(maintenance_window_identity_for_target()())
-  }
+      
+      describe_maintenance_windows_for_target_result() :: %{
+        "NextToken" => String.t(),
+        "WindowIdentities" => list(maintenance_window_identity_for_target()())
+      }
+      
   """
   @type describe_maintenance_windows_for_target_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_parameters_by_path_result() :: %{
-    "NextToken" => String.t(),
-    "Parameters" => list(parameter()())
-  }
+      
+      get_parameters_by_path_result() :: %{
+        "NextToken" => String.t(),
+        "Parameters" => list(parameter()())
+      }
+      
   """
   @type get_parameters_by_path_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  alarm_configuration() :: %{
-    "Alarms" => list(alarm()()),
-    "IgnorePollAlarmFailure" => boolean()
-  }
+      
+      alarm_configuration() :: %{
+        "Alarms" => list(alarm()()),
+        "IgnorePollAlarmFailure" => boolean()
+      }
+      
   """
   @type alarm_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  maintenance_window_task() :: %{
-    "AlarmConfiguration" => alarm_configuration(),
-    "CutoffBehavior" => list(any()),
-    "Description" => String.t(),
-    "LoggingInfo" => logging_info(),
-    "MaxConcurrency" => String.t(),
-    "MaxErrors" => String.t(),
-    "Name" => String.t(),
-    "Priority" => integer(),
-    "ServiceRoleArn" => String.t(),
-    "Targets" => list(target()()),
-    "TaskArn" => String.t(),
-    "TaskParameters" => map(),
-    "Type" => list(any()),
-    "WindowId" => String.t(),
-    "WindowTaskId" => String.t()
-  }
+      
+      maintenance_window_task() :: %{
+        "AlarmConfiguration" => alarm_configuration(),
+        "CutoffBehavior" => list(any()),
+        "Description" => String.t(),
+        "LoggingInfo" => logging_info(),
+        "MaxConcurrency" => String.t(),
+        "MaxErrors" => String.t(),
+        "Name" => String.t(),
+        "Priority" => integer(),
+        "ServiceRoleArn" => String.t(),
+        "Targets" => list(target()()),
+        "TaskArn" => String.t(),
+        "TaskParameters" => map(),
+        "Type" => list(any()),
+        "WindowId" => String.t(),
+        "WindowTaskId" => String.t()
+      }
+      
   """
   @type maintenance_window_task() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_document_operation() :: %{
-    "Message" => String.t()
-  }
+      
+      invalid_document_operation() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type invalid_document_operation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_document_request() :: %{
-    optional("Attachments") => list(attachments_source()()),
-    optional("DisplayName") => String.t(),
-    optional("DocumentFormat") => list(any()),
-    optional("DocumentType") => list(any()),
-    optional("Requires") => list(document_requires()()),
-    optional("Tags") => list(tag()()),
-    optional("TargetType") => String.t(),
-    optional("VersionName") => String.t(),
-    required("Content") => String.t(),
-    required("Name") => String.t()
-  }
+      
+      create_document_request() :: %{
+        optional("Attachments") => list(attachments_source()()),
+        optional("DisplayName") => String.t(),
+        optional("DocumentFormat") => list(any()),
+        optional("DocumentType") => list(any()),
+        optional("Requires") => list(document_requires()()),
+        optional("Tags") => list(tag()()),
+        optional("TargetType") => String.t(),
+        optional("VersionName") => String.t(),
+        required("Content") => String.t(),
+        required("Name") => String.t()
+      }
+      
   """
   @type create_document_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  association_description() :: %{
-    "AlarmConfiguration" => alarm_configuration(),
-    "ApplyOnlyAtCronInterval" => boolean(),
-    "AssociationId" => String.t(),
-    "AssociationName" => String.t(),
-    "AssociationVersion" => String.t(),
-    "AutomationTargetParameterName" => String.t(),
-    "CalendarNames" => list(String.t()()),
-    "ComplianceSeverity" => list(any()),
-    "Date" => non_neg_integer(),
-    "DocumentVersion" => String.t(),
-    "Duration" => integer(),
-    "InstanceId" => String.t(),
-    "LastExecutionDate" => non_neg_integer(),
-    "LastSuccessfulExecutionDate" => non_neg_integer(),
-    "LastUpdateAssociationDate" => non_neg_integer(),
-    "MaxConcurrency" => String.t(),
-    "MaxErrors" => String.t(),
-    "Name" => String.t(),
-    "OutputLocation" => instance_association_output_location(),
-    "Overview" => association_overview(),
-    "Parameters" => map(),
-    "ScheduleExpression" => String.t(),
-    "ScheduleOffset" => integer(),
-    "Status" => association_status(),
-    "SyncCompliance" => list(any()),
-    "TargetLocations" => list(target_location()()),
-    "TargetMaps" => list(map()()),
-    "Targets" => list(target()()),
-    "TriggeredAlarms" => list(alarm_state_information()())
-  }
+      
+      association_description() :: %{
+        "AlarmConfiguration" => alarm_configuration(),
+        "ApplyOnlyAtCronInterval" => boolean(),
+        "AssociationId" => String.t(),
+        "AssociationName" => String.t(),
+        "AssociationVersion" => String.t(),
+        "AutomationTargetParameterName" => String.t(),
+        "CalendarNames" => list(String.t()()),
+        "ComplianceSeverity" => list(any()),
+        "Date" => non_neg_integer(),
+        "DocumentVersion" => String.t(),
+        "Duration" => integer(),
+        "InstanceId" => String.t(),
+        "LastExecutionDate" => non_neg_integer(),
+        "LastSuccessfulExecutionDate" => non_neg_integer(),
+        "LastUpdateAssociationDate" => non_neg_integer(),
+        "MaxConcurrency" => String.t(),
+        "MaxErrors" => String.t(),
+        "Name" => String.t(),
+        "OutputLocation" => instance_association_output_location(),
+        "Overview" => association_overview(),
+        "Parameters" => map(),
+        "ScheduleExpression" => String.t(),
+        "ScheduleOffset" => integer(),
+        "Status" => association_status(),
+        "SyncCompliance" => list(any()),
+        "TargetLocations" => list(target_location()()),
+        "TargetMaps" => list(map()()),
+        "Targets" => list(target()()),
+        "TriggeredAlarms" => list(alarm_state_information()())
+      }
+      
   """
   @type association_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  alarm_state_information() :: %{
-    "Name" => String.t(),
-    "State" => list(any())
-  }
+      
+      alarm_state_information() :: %{
+        "Name" => String.t(),
+        "State" => list(any())
+      }
+      
   """
   @type alarm_state_information() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_ops_item_events_request() :: %{
-    optional("Filters") => list(ops_item_event_filter()()),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+      
+      list_ops_item_events_request() :: %{
+        optional("Filters") => list(ops_item_event_filter()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type list_ops_item_events_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_patch_baseline_result() :: %{
-    "ApprovalRules" => patch_rule_group(),
-    "ApprovedPatches" => list(String.t()()),
-    "ApprovedPatchesComplianceLevel" => list(any()),
-    "ApprovedPatchesEnableNonSecurity" => boolean(),
-    "BaselineId" => String.t(),
-    "CreatedDate" => non_neg_integer(),
-    "Description" => String.t(),
-    "GlobalFilters" => patch_filter_group(),
-    "ModifiedDate" => non_neg_integer(),
-    "Name" => String.t(),
-    "OperatingSystem" => list(any()),
-    "RejectedPatches" => list(String.t()()),
-    "RejectedPatchesAction" => list(any()),
-    "Sources" => list(patch_source()())
-  }
+      
+      update_patch_baseline_result() :: %{
+        "ApprovalRules" => patch_rule_group(),
+        "ApprovedPatches" => list(String.t()()),
+        "ApprovedPatchesComplianceLevel" => list(any()),
+        "ApprovedPatchesEnableNonSecurity" => boolean(),
+        "BaselineId" => String.t(),
+        "CreatedDate" => non_neg_integer(),
+        "Description" => String.t(),
+        "GlobalFilters" => patch_filter_group(),
+        "ModifiedDate" => non_neg_integer(),
+        "Name" => String.t(),
+        "OperatingSystem" => list(any()),
+        "RejectedPatches" => list(String.t()()),
+        "RejectedPatchesAction" => list(any()),
+        "Sources" => list(patch_source()())
+      }
+      
   """
   @type update_patch_baseline_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  maintenance_window_lambda_parameters() :: %{
-    "ClientContext" => String.t(),
-    "Payload" => binary(),
-    "Qualifier" => String.t()
-  }
+      
+      maintenance_window_lambda_parameters() :: %{
+        "ClientContext" => String.t(),
+        "Payload" => binary(),
+        "Qualifier" => String.t()
+      }
+      
   """
   @type maintenance_window_lambda_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  patch_source() :: %{
-    "Configuration" => String.t(),
-    "Name" => String.t(),
-    "Products" => list(String.t()())
-  }
+      
+      patch_source() :: %{
+        "Configuration" => String.t(),
+        "Name" => String.t(),
+        "Products" => list(String.t()())
+      }
+      
   """
   @type patch_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  maintenance_window_identity_for_target() :: %{
-    "Name" => String.t(),
-    "WindowId" => String.t()
-  }
+      
+      maintenance_window_identity_for_target() :: %{
+        "Name" => String.t(),
+        "WindowId" => String.t()
+      }
+      
   """
   @type maintenance_window_identity_for_target() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_inventory_entries_request() :: %{
-    optional("Filters") => list(inventory_filter()()),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("InstanceId") => String.t(),
-    required("TypeName") => String.t()
-  }
+      
+      list_inventory_entries_request() :: %{
+        optional("Filters") => list(inventory_filter()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("InstanceId") => String.t(),
+        required("TypeName") => String.t()
+      }
+      
   """
   @type list_inventory_entries_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  maintenance_window_execution_task_invocation_identity() :: %{
-    "EndTime" => non_neg_integer(),
-    "ExecutionId" => String.t(),
-    "InvocationId" => String.t(),
-    "OwnerInformation" => String.t(),
-    "Parameters" => String.t(),
-    "StartTime" => non_neg_integer(),
-    "Status" => list(any()),
-    "StatusDetails" => String.t(),
-    "TaskExecutionId" => String.t(),
-    "TaskType" => list(any()),
-    "WindowExecutionId" => String.t(),
-    "WindowTargetId" => String.t()
-  }
+      
+      maintenance_window_execution_task_invocation_identity() :: %{
+        "EndTime" => non_neg_integer(),
+        "ExecutionId" => String.t(),
+        "InvocationId" => String.t(),
+        "OwnerInformation" => String.t(),
+        "Parameters" => String.t(),
+        "StartTime" => non_neg_integer(),
+        "Status" => list(any()),
+        "StatusDetails" => String.t(),
+        "TaskExecutionId" => String.t(),
+        "TaskType" => list(any()),
+        "WindowExecutionId" => String.t(),
+        "WindowTargetId" => String.t()
+      }
+      
   """
   @type maintenance_window_execution_task_invocation_identity() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  parameter_max_version_limit_exceeded() :: %{
-    "message" => String.t()
-  }
+      
+      parameter_max_version_limit_exceeded() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type parameter_max_version_limit_exceeded() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  unsupported_operating_system() :: %{
-    "Message" => String.t()
-  }
+      
+      unsupported_operating_system() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type unsupported_operating_system() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_inventory_schema_request() :: %{
-    optional("Aggregator") => boolean(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("SubType") => boolean(),
-    optional("TypeName") => String.t()
-  }
+      
+      get_inventory_schema_request() :: %{
+        optional("Aggregator") => boolean(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("SubType") => boolean(),
+        optional("TypeName") => String.t()
+      }
+      
   """
   @type get_inventory_schema_request() :: %{String.t() => any()}
+
+  @type add_tags_to_resource_errors() ::
+          too_many_updates()
+          | internal_server_error()
+          | too_many_tags_error()
+          | invalid_resource_id()
+          | invalid_resource_type()
+
+  @type associate_ops_item_related_item_errors() ::
+          ops_item_limit_exceeded_exception()
+          | ops_item_invalid_parameter_exception()
+          | internal_server_error()
+          | ops_item_related_item_already_exists_exception()
+          | ops_item_conflict_exception()
+          | ops_item_not_found_exception()
+
+  @type cancel_command_errors() ::
+          invalid_instance_id()
+          | internal_server_error()
+          | invalid_command_id()
+          | duplicate_instance_id()
+
+  @type cancel_maintenance_window_execution_errors() ::
+          does_not_exist_exception() | internal_server_error()
+
+  @type create_activation_errors() :: internal_server_error() | invalid_parameters()
+
+  @type create_association_errors() ::
+          unsupported_platform_type()
+          | association_already_exists()
+          | invalid_instance_id()
+          | invalid_target_maps()
+          | internal_server_error()
+          | invalid_output_location()
+          | invalid_schedule()
+          | invalid_document_version()
+          | invalid_parameters()
+          | invalid_document()
+          | association_limit_exceeded()
+          | invalid_tag()
+          | invalid_target()
+
+  @type create_association_batch_errors() ::
+          unsupported_platform_type()
+          | invalid_instance_id()
+          | invalid_target_maps()
+          | internal_server_error()
+          | invalid_output_location()
+          | duplicate_instance_id()
+          | invalid_schedule()
+          | invalid_document_version()
+          | invalid_parameters()
+          | invalid_document()
+          | association_limit_exceeded()
+          | invalid_target()
+
+  @type create_document_errors() ::
+          document_limit_exceeded()
+          | internal_server_error()
+          | document_already_exists()
+          | invalid_document_schema_version()
+          | invalid_document_content()
+          | max_document_size_exceeded()
+
+  @type create_maintenance_window_errors() ::
+          internal_server_error()
+          | resource_limit_exceeded_exception()
+          | idempotent_parameter_mismatch()
+
+  @type create_ops_item_errors() ::
+          ops_item_limit_exceeded_exception()
+          | ops_item_invalid_parameter_exception()
+          | internal_server_error()
+          | ops_item_already_exists_exception()
+          | ops_item_access_denied_exception()
+
+  @type create_ops_metadata_errors() ::
+          ops_metadata_limit_exceeded_exception()
+          | internal_server_error()
+          | ops_metadata_too_many_updates_exception()
+          | ops_metadata_already_exists_exception()
+          | ops_metadata_invalid_argument_exception()
+
+  @type create_patch_baseline_errors() ::
+          internal_server_error()
+          | resource_limit_exceeded_exception()
+          | idempotent_parameter_mismatch()
+
+  @type create_resource_data_sync_errors() ::
+          internal_server_error()
+          | resource_data_sync_count_exceeded_exception()
+          | resource_data_sync_invalid_configuration_exception()
+          | resource_data_sync_already_exists_exception()
+
+  @type delete_activation_errors() ::
+          too_many_updates()
+          | internal_server_error()
+          | invalid_activation()
+          | invalid_activation_id()
+
+  @type delete_association_errors() ::
+          association_does_not_exist()
+          | invalid_instance_id()
+          | too_many_updates()
+          | internal_server_error()
+          | invalid_document()
+
+  @type delete_document_errors() ::
+          invalid_document_operation()
+          | associated_instances()
+          | internal_server_error()
+          | invalid_document()
+
+  @type delete_inventory_errors() ::
+          internal_server_error()
+          | invalid_inventory_request_exception()
+          | invalid_option_exception()
+          | invalid_delete_inventory_parameters_exception()
+          | invalid_type_name_exception()
+
+  @type delete_maintenance_window_errors() :: internal_server_error()
+
+  @type delete_ops_item_errors() ::
+          ops_item_invalid_parameter_exception() | internal_server_error()
+
+  @type delete_ops_metadata_errors() ::
+          internal_server_error()
+          | ops_metadata_invalid_argument_exception()
+          | ops_metadata_not_found_exception()
+
+  @type delete_parameter_errors() :: internal_server_error() | parameter_not_found()
+
+  @type delete_parameters_errors() :: internal_server_error()
+
+  @type delete_patch_baseline_errors() :: internal_server_error() | resource_in_use_exception()
+
+  @type delete_resource_data_sync_errors() ::
+          resource_data_sync_not_found_exception()
+          | internal_server_error()
+          | resource_data_sync_invalid_configuration_exception()
+
+  @type delete_resource_policy_errors() ::
+          resource_policy_not_found_exception()
+          | internal_server_error()
+          | resource_policy_conflict_exception()
+          | resource_not_found_exception()
+          | resource_policy_invalid_parameter_exception()
+          | malformed_resource_policy_document_exception()
+
+  @type deregister_managed_instance_errors() :: invalid_instance_id() | internal_server_error()
+
+  @type deregister_patch_baseline_for_patch_group_errors() ::
+          internal_server_error() | invalid_resource_id()
+
+  @type deregister_target_from_maintenance_window_errors() ::
+          target_in_use_exception() | does_not_exist_exception() | internal_server_error()
+
+  @type deregister_task_from_maintenance_window_errors() ::
+          does_not_exist_exception() | internal_server_error()
+
+  @type describe_activations_errors() ::
+          invalid_next_token() | invalid_filter() | internal_server_error()
+
+  @type describe_association_errors() ::
+          invalid_association_version()
+          | association_does_not_exist()
+          | invalid_instance_id()
+          | internal_server_error()
+          | invalid_document()
+
+  @type describe_association_execution_targets_errors() ::
+          invalid_next_token()
+          | association_does_not_exist()
+          | internal_server_error()
+          | association_execution_does_not_exist()
+
+  @type describe_association_executions_errors() ::
+          invalid_next_token() | association_does_not_exist() | internal_server_error()
+
+  @type describe_automation_executions_errors() ::
+          invalid_next_token()
+          | invalid_filter_key()
+          | internal_server_error()
+          | invalid_filter_value()
+
+  @type describe_automation_step_executions_errors() ::
+          invalid_next_token()
+          | invalid_filter_key()
+          | internal_server_error()
+          | invalid_filter_value()
+          | automation_execution_not_found_exception()
+
+  @type describe_available_patches_errors() :: internal_server_error()
+
+  @type describe_document_errors() ::
+          internal_server_error() | invalid_document_version() | invalid_document()
+
+  @type describe_document_permission_errors() ::
+          invalid_document_operation()
+          | invalid_next_token()
+          | internal_server_error()
+          | invalid_permission_type()
+          | invalid_document()
+
+  @type describe_effective_instance_associations_errors() ::
+          invalid_next_token() | invalid_instance_id() | internal_server_error()
+
+  @type describe_effective_patches_for_patch_baseline_errors() ::
+          unsupported_operating_system()
+          | does_not_exist_exception()
+          | internal_server_error()
+          | invalid_resource_id()
+
+  @type describe_instance_associations_status_errors() ::
+          invalid_next_token() | invalid_instance_id() | internal_server_error()
+
+  @type describe_instance_information_errors() ::
+          invalid_next_token()
+          | invalid_instance_information_filter_value()
+          | invalid_filter_key()
+          | invalid_instance_id()
+          | internal_server_error()
+
+  @type describe_instance_patch_states_errors() :: invalid_next_token() | internal_server_error()
+
+  @type describe_instance_patch_states_for_patch_group_errors() ::
+          invalid_next_token() | invalid_filter() | internal_server_error()
+
+  @type describe_instance_patches_errors() ::
+          invalid_next_token()
+          | invalid_filter()
+          | invalid_instance_id()
+          | internal_server_error()
+
+  @type describe_inventory_deletions_errors() ::
+          invalid_next_token() | internal_server_error() | invalid_deletion_id_exception()
+
+  @type describe_maintenance_window_execution_task_invocations_errors() ::
+          does_not_exist_exception() | internal_server_error()
+
+  @type describe_maintenance_window_execution_tasks_errors() ::
+          does_not_exist_exception() | internal_server_error()
+
+  @type describe_maintenance_window_executions_errors() :: internal_server_error()
+
+  @type describe_maintenance_window_schedule_errors() ::
+          does_not_exist_exception() | internal_server_error()
+
+  @type describe_maintenance_window_targets_errors() ::
+          does_not_exist_exception() | internal_server_error()
+
+  @type describe_maintenance_window_tasks_errors() ::
+          does_not_exist_exception() | internal_server_error()
+
+  @type describe_maintenance_windows_errors() :: internal_server_error()
+
+  @type describe_maintenance_windows_for_target_errors() :: internal_server_error()
+
+  @type describe_ops_items_errors() :: internal_server_error()
+
+  @type describe_parameters_errors() ::
+          invalid_next_token()
+          | invalid_filter_key()
+          | internal_server_error()
+          | invalid_filter_option()
+          | invalid_filter_value()
+
+  @type describe_patch_baselines_errors() :: internal_server_error()
+
+  @type describe_patch_group_state_errors() :: invalid_next_token() | internal_server_error()
+
+  @type describe_patch_groups_errors() :: internal_server_error()
+
+  @type describe_patch_properties_errors() :: internal_server_error()
+
+  @type describe_sessions_errors() ::
+          invalid_next_token() | invalid_filter_key() | internal_server_error()
+
+  @type disassociate_ops_item_related_item_errors() ::
+          ops_item_invalid_parameter_exception()
+          | internal_server_error()
+          | ops_item_related_item_association_not_found_exception()
+          | ops_item_conflict_exception()
+          | ops_item_not_found_exception()
+
+  @type get_automation_execution_errors() ::
+          internal_server_error() | automation_execution_not_found_exception()
+
+  @type get_calendar_state_errors() ::
+          internal_server_error()
+          | invalid_document_type()
+          | unsupported_calendar_exception()
+          | invalid_document()
+
+  @type get_command_invocation_errors() ::
+          invalid_instance_id()
+          | internal_server_error()
+          | invalid_command_id()
+          | invocation_does_not_exist()
+          | invalid_plugin_name()
+
+  @type get_connection_status_errors() :: internal_server_error()
+
+  @type get_default_patch_baseline_errors() :: internal_server_error()
+
+  @type get_deployable_patch_snapshot_for_instance_errors() ::
+          unsupported_operating_system()
+          | internal_server_error()
+          | unsupported_feature_required_exception()
+
+  @type get_document_errors() ::
+          internal_server_error() | invalid_document_version() | invalid_document()
+
+  @type get_inventory_errors() ::
+          invalid_next_token()
+          | invalid_filter()
+          | internal_server_error()
+          | invalid_inventory_group_exception()
+          | invalid_aggregator_exception()
+          | invalid_result_attribute_exception()
+          | invalid_type_name_exception()
+
+  @type get_inventory_schema_errors() ::
+          invalid_next_token() | internal_server_error() | invalid_type_name_exception()
+
+  @type get_maintenance_window_errors() :: does_not_exist_exception() | internal_server_error()
+
+  @type get_maintenance_window_execution_errors() ::
+          does_not_exist_exception() | internal_server_error()
+
+  @type get_maintenance_window_execution_task_errors() ::
+          does_not_exist_exception() | internal_server_error()
+
+  @type get_maintenance_window_execution_task_invocation_errors() ::
+          does_not_exist_exception() | internal_server_error()
+
+  @type get_maintenance_window_task_errors() ::
+          does_not_exist_exception() | internal_server_error()
+
+  @type get_ops_item_errors() ::
+          internal_server_error()
+          | ops_item_not_found_exception()
+          | ops_item_access_denied_exception()
+
+  @type get_ops_metadata_errors() ::
+          internal_server_error()
+          | ops_metadata_invalid_argument_exception()
+          | ops_metadata_not_found_exception()
+
+  @type get_ops_summary_errors() ::
+          invalid_next_token()
+          | resource_data_sync_not_found_exception()
+          | invalid_filter()
+          | internal_server_error()
+          | invalid_aggregator_exception()
+          | invalid_type_name_exception()
+
+  @type get_parameter_errors() ::
+          internal_server_error()
+          | invalid_key_id()
+          | parameter_version_not_found()
+          | parameter_not_found()
+
+  @type get_parameter_history_errors() ::
+          invalid_next_token()
+          | internal_server_error()
+          | invalid_key_id()
+          | parameter_not_found()
+
+  @type get_parameters_errors() :: internal_server_error() | invalid_key_id()
+
+  @type get_parameters_by_path_errors() ::
+          invalid_next_token()
+          | invalid_filter_key()
+          | internal_server_error()
+          | invalid_key_id()
+          | invalid_filter_option()
+          | invalid_filter_value()
+
+  @type get_patch_baseline_errors() ::
+          does_not_exist_exception() | internal_server_error() | invalid_resource_id()
+
+  @type get_patch_baseline_for_patch_group_errors() :: internal_server_error()
+
+  @type get_resource_policies_errors() ::
+          internal_server_error()
+          | resource_not_found_exception()
+          | resource_policy_invalid_parameter_exception()
+
+  @type get_service_setting_errors() :: internal_server_error() | service_setting_not_found()
+
+  @type label_parameter_version_errors() ::
+          parameter_version_label_limit_exceeded()
+          | too_many_updates()
+          | internal_server_error()
+          | parameter_version_not_found()
+          | parameter_not_found()
+
+  @type list_association_versions_errors() ::
+          invalid_next_token() | association_does_not_exist() | internal_server_error()
+
+  @type list_associations_errors() :: invalid_next_token() | internal_server_error()
+
+  @type list_command_invocations_errors() ::
+          invalid_next_token()
+          | invalid_filter_key()
+          | invalid_instance_id()
+          | internal_server_error()
+          | invalid_command_id()
+
+  @type list_commands_errors() ::
+          invalid_next_token()
+          | invalid_filter_key()
+          | invalid_instance_id()
+          | internal_server_error()
+          | invalid_command_id()
+
+  @type list_compliance_items_errors() ::
+          invalid_next_token()
+          | invalid_filter()
+          | internal_server_error()
+          | invalid_resource_id()
+          | invalid_resource_type()
+
+  @type list_compliance_summaries_errors() ::
+          invalid_next_token() | invalid_filter() | internal_server_error()
+
+  @type list_document_metadata_history_errors() ::
+          invalid_next_token()
+          | internal_server_error()
+          | invalid_document_version()
+          | invalid_document()
+
+  @type list_document_versions_errors() ::
+          invalid_next_token() | internal_server_error() | invalid_document()
+
+  @type list_documents_errors() ::
+          invalid_next_token() | invalid_filter_key() | internal_server_error()
+
+  @type list_inventory_entries_errors() ::
+          invalid_next_token()
+          | invalid_filter()
+          | invalid_instance_id()
+          | internal_server_error()
+          | invalid_type_name_exception()
+
+  @type list_ops_item_events_errors() ::
+          ops_item_limit_exceeded_exception()
+          | ops_item_invalid_parameter_exception()
+          | internal_server_error()
+          | ops_item_not_found_exception()
+
+  @type list_ops_item_related_items_errors() ::
+          ops_item_invalid_parameter_exception() | internal_server_error()
+
+  @type list_ops_metadata_errors() ::
+          internal_server_error() | ops_metadata_invalid_argument_exception()
+
+  @type list_resource_compliance_summaries_errors() ::
+          invalid_next_token() | invalid_filter() | internal_server_error()
+
+  @type list_resource_data_sync_errors() ::
+          invalid_next_token()
+          | internal_server_error()
+          | resource_data_sync_invalid_configuration_exception()
+
+  @type list_tags_for_resource_errors() ::
+          internal_server_error() | invalid_resource_id() | invalid_resource_type()
+
+  @type modify_document_permission_errors() ::
+          document_limit_exceeded()
+          | internal_server_error()
+          | invalid_permission_type()
+          | invalid_document()
+          | document_permission_limit()
+
+  @type put_compliance_items_errors() ::
+          compliance_type_count_limit_exceeded_exception()
+          | internal_server_error()
+          | item_size_limit_exceeded_exception()
+          | invalid_resource_id()
+          | invalid_resource_type()
+          | total_size_limit_exceeded_exception()
+          | invalid_item_content_exception()
+
+  @type put_inventory_errors() ::
+          item_content_mismatch_exception()
+          | sub_type_count_limit_exceeded_exception()
+          | invalid_instance_id()
+          | internal_server_error()
+          | item_size_limit_exceeded_exception()
+          | invalid_inventory_item_context_exception()
+          | unsupported_inventory_schema_version_exception()
+          | custom_schema_count_limit_exceeded_exception()
+          | total_size_limit_exceeded_exception()
+          | unsupported_inventory_item_context_exception()
+          | invalid_item_content_exception()
+          | invalid_type_name_exception()
+
+  @type put_parameter_errors() ::
+          parameter_max_version_limit_exceeded()
+          | hierarchy_type_mismatch_exception()
+          | invalid_policy_type_exception()
+          | parameter_limit_exceeded()
+          | parameter_pattern_mismatch_exception()
+          | too_many_updates()
+          | internal_server_error()
+          | hierarchy_level_limit_exceeded_exception()
+          | invalid_allowed_pattern_exception()
+          | invalid_key_id()
+          | parameter_already_exists()
+          | policies_limit_exceeded_exception()
+          | unsupported_parameter_type()
+          | incompatible_policy_exception()
+          | invalid_policy_attribute_exception()
+
+  @type put_resource_policy_errors() ::
+          resource_policy_not_found_exception()
+          | internal_server_error()
+          | resource_policy_conflict_exception()
+          | resource_not_found_exception()
+          | resource_policy_invalid_parameter_exception()
+          | resource_policy_limit_exceeded_exception()
+          | malformed_resource_policy_document_exception()
+
+  @type register_default_patch_baseline_errors() ::
+          does_not_exist_exception() | internal_server_error() | invalid_resource_id()
+
+  @type register_patch_baseline_for_patch_group_errors() ::
+          does_not_exist_exception()
+          | internal_server_error()
+          | resource_limit_exceeded_exception()
+          | invalid_resource_id()
+          | already_exists_exception()
+
+  @type register_target_with_maintenance_window_errors() ::
+          does_not_exist_exception()
+          | internal_server_error()
+          | resource_limit_exceeded_exception()
+          | idempotent_parameter_mismatch()
+
+  @type register_task_with_maintenance_window_errors() ::
+          does_not_exist_exception()
+          | feature_not_available_exception()
+          | internal_server_error()
+          | resource_limit_exceeded_exception()
+          | idempotent_parameter_mismatch()
+
+  @type remove_tags_from_resource_errors() ::
+          too_many_updates()
+          | internal_server_error()
+          | invalid_resource_id()
+          | invalid_resource_type()
+
+  @type reset_service_setting_errors() ::
+          too_many_updates() | internal_server_error() | service_setting_not_found()
+
+  @type resume_session_errors() :: does_not_exist_exception() | internal_server_error()
+
+  @type send_automation_signal_errors() ::
+          invalid_automation_signal_exception()
+          | internal_server_error()
+          | automation_step_not_found_exception()
+          | automation_execution_not_found_exception()
+
+  @type send_command_errors() ::
+          unsupported_platform_type()
+          | invalid_instance_id()
+          | internal_server_error()
+          | invalid_output_folder()
+          | invalid_notification_config()
+          | duplicate_instance_id()
+          | invalid_role()
+          | invalid_document_version()
+          | invalid_parameters()
+          | invalid_document()
+          | max_document_size_exceeded()
+
+  @type start_associations_once_errors() :: association_does_not_exist() | invalid_association()
+
+  @type start_automation_execution_errors() ::
+          automation_definition_not_found_exception()
+          | automation_execution_limit_exceeded_exception()
+          | automation_definition_version_not_found_exception()
+          | internal_server_error()
+          | invalid_automation_execution_parameters_exception()
+          | idempotent_parameter_mismatch()
+          | invalid_target()
+
+  @type start_change_request_execution_errors() ::
+          automation_definition_not_approved_exception()
+          | automation_definition_not_found_exception()
+          | automation_execution_limit_exceeded_exception()
+          | automation_definition_version_not_found_exception()
+          | internal_server_error()
+          | invalid_automation_execution_parameters_exception()
+          | idempotent_parameter_mismatch()
+
+  @type start_session_errors() ::
+          target_not_connected() | internal_server_error() | invalid_document()
+
+  @type stop_automation_execution_errors() ::
+          invalid_automation_status_update_exception()
+          | internal_server_error()
+          | automation_execution_not_found_exception()
+
+  @type terminate_session_errors() :: internal_server_error()
+
+  @type unlabel_parameter_version_errors() ::
+          too_many_updates()
+          | internal_server_error()
+          | parameter_version_not_found()
+          | parameter_not_found()
+
+  @type update_association_errors() ::
+          invalid_association_version()
+          | association_does_not_exist()
+          | invalid_update()
+          | too_many_updates()
+          | invalid_target_maps()
+          | internal_server_error()
+          | invalid_output_location()
+          | invalid_schedule()
+          | association_version_limit_exceeded()
+          | invalid_document_version()
+          | invalid_parameters()
+          | invalid_document()
+          | invalid_target()
+
+  @type update_association_status_errors() ::
+          association_does_not_exist()
+          | invalid_instance_id()
+          | too_many_updates()
+          | internal_server_error()
+          | status_unchanged()
+          | invalid_document()
+
+  @type update_document_errors() ::
+          invalid_document_operation()
+          | internal_server_error()
+          | duplicate_document_version_name()
+          | invalid_document_schema_version()
+          | duplicate_document_content()
+          | invalid_document_version()
+          | invalid_document_content()
+          | invalid_document()
+          | document_version_limit_exceeded()
+          | max_document_size_exceeded()
+
+  @type update_document_default_version_errors() ::
+          internal_server_error()
+          | invalid_document_schema_version()
+          | invalid_document_version()
+          | invalid_document()
+
+  @type update_document_metadata_errors() ::
+          invalid_document_operation()
+          | internal_server_error()
+          | invalid_document_version()
+          | invalid_document()
+
+  @type update_maintenance_window_errors() :: does_not_exist_exception() | internal_server_error()
+
+  @type update_maintenance_window_target_errors() ::
+          does_not_exist_exception() | internal_server_error()
+
+  @type update_maintenance_window_task_errors() ::
+          does_not_exist_exception() | internal_server_error()
+
+  @type update_managed_instance_role_errors() :: invalid_instance_id() | internal_server_error()
+
+  @type update_ops_item_errors() ::
+          ops_item_limit_exceeded_exception()
+          | ops_item_invalid_parameter_exception()
+          | internal_server_error()
+          | ops_item_already_exists_exception()
+          | ops_item_conflict_exception()
+          | ops_item_not_found_exception()
+          | ops_item_access_denied_exception()
+
+  @type update_ops_metadata_errors() ::
+          internal_server_error()
+          | ops_metadata_too_many_updates_exception()
+          | ops_metadata_key_limit_exceeded_exception()
+          | ops_metadata_invalid_argument_exception()
+          | ops_metadata_not_found_exception()
+
+  @type update_patch_baseline_errors() :: does_not_exist_exception() | internal_server_error()
+
+  @type update_resource_data_sync_errors() ::
+          resource_data_sync_not_found_exception()
+          | internal_server_error()
+          | resource_data_sync_invalid_configuration_exception()
+          | resource_data_sync_conflict_exception()
+
+  @type update_service_setting_errors() ::
+          too_many_updates() | internal_server_error() | service_setting_not_found()
 
   def metadata do
     %{
@@ -6692,11 +8441,7 @@ defmodule AWS.SSM do
   @spec add_tags_to_resource(map(), add_tags_to_resource_request(), list()) ::
           {:ok, add_tags_to_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_resource_id()}
-          | {:error, invalid_resource_type()}
-          | {:error, too_many_tags_error()}
-          | {:error, too_many_updates()}
+          | {:error, add_tags_to_resource_errors()}
   def add_tags_to_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6714,12 +8459,7 @@ defmodule AWS.SSM do
   @spec associate_ops_item_related_item(map(), associate_ops_item_related_item_request(), list()) ::
           {:ok, associate_ops_item_related_item_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, ops_item_conflict_exception()}
-          | {:error, ops_item_invalid_parameter_exception()}
-          | {:error, ops_item_limit_exceeded_exception()}
-          | {:error, ops_item_not_found_exception()}
-          | {:error, ops_item_related_item_already_exists_exception()}
+          | {:error, associate_ops_item_related_item_errors()}
   def associate_ops_item_related_item(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6735,10 +8475,7 @@ defmodule AWS.SSM do
   @spec cancel_command(map(), cancel_command_request(), list()) ::
           {:ok, cancel_command_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, duplicate_instance_id()}
-          | {:error, internal_server_error()}
-          | {:error, invalid_command_id()}
-          | {:error, invalid_instance_id()}
+          | {:error, cancel_command_errors()}
   def cancel_command(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6760,8 +8497,7 @@ defmodule AWS.SSM do
         ) ::
           {:ok, cancel_maintenance_window_execution_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, does_not_exist_exception()}
-          | {:error, internal_server_error()}
+          | {:error, cancel_maintenance_window_execution_errors()}
   def cancel_maintenance_window_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6791,8 +8527,7 @@ defmodule AWS.SSM do
   @spec create_activation(map(), create_activation_request(), list()) ::
           {:ok, create_activation_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_parameters()}
+          | {:error, create_activation_errors()}
   def create_activation(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6825,19 +8560,7 @@ defmodule AWS.SSM do
   @spec create_association(map(), create_association_request(), list()) ::
           {:ok, create_association_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, association_already_exists()}
-          | {:error, association_limit_exceeded()}
-          | {:error, internal_server_error()}
-          | {:error, invalid_document()}
-          | {:error, invalid_document_version()}
-          | {:error, invalid_instance_id()}
-          | {:error, invalid_output_location()}
-          | {:error, invalid_parameters()}
-          | {:error, invalid_schedule()}
-          | {:error, invalid_tag()}
-          | {:error, invalid_target()}
-          | {:error, invalid_target_maps()}
-          | {:error, unsupported_platform_type()}
+          | {:error, create_association_errors()}
   def create_association(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6862,18 +8585,7 @@ defmodule AWS.SSM do
   @spec create_association_batch(map(), create_association_batch_request(), list()) ::
           {:ok, create_association_batch_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, association_limit_exceeded()}
-          | {:error, duplicate_instance_id()}
-          | {:error, internal_server_error()}
-          | {:error, invalid_document()}
-          | {:error, invalid_document_version()}
-          | {:error, invalid_instance_id()}
-          | {:error, invalid_output_location()}
-          | {:error, invalid_parameters()}
-          | {:error, invalid_schedule()}
-          | {:error, invalid_target()}
-          | {:error, invalid_target_maps()}
-          | {:error, unsupported_platform_type()}
+          | {:error, create_association_batch_errors()}
   def create_association_batch(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6894,12 +8606,7 @@ defmodule AWS.SSM do
   @spec create_document(map(), create_document_request(), list()) ::
           {:ok, create_document_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, document_already_exists()}
-          | {:error, document_limit_exceeded()}
-          | {:error, internal_server_error()}
-          | {:error, invalid_document_content()}
-          | {:error, invalid_document_schema_version()}
-          | {:error, max_document_size_exceeded()}
+          | {:error, create_document_errors()}
   def create_document(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6923,9 +8630,7 @@ defmodule AWS.SSM do
   @spec create_maintenance_window(map(), create_maintenance_window_request(), list()) ::
           {:ok, create_maintenance_window_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, idempotent_parameter_mismatch()}
-          | {:error, internal_server_error()}
-          | {:error, resource_limit_exceeded_exception()}
+          | {:error, create_maintenance_window_errors()}
   def create_maintenance_window(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6951,11 +8656,7 @@ defmodule AWS.SSM do
   @spec create_ops_item(map(), create_ops_item_request(), list()) ::
           {:ok, create_ops_item_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, ops_item_access_denied_exception()}
-          | {:error, ops_item_already_exists_exception()}
-          | {:error, ops_item_invalid_parameter_exception()}
-          | {:error, ops_item_limit_exceeded_exception()}
+          | {:error, create_ops_item_errors()}
   def create_ops_item(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6970,11 +8671,7 @@ defmodule AWS.SSM do
   @spec create_ops_metadata(map(), create_ops_metadata_request(), list()) ::
           {:ok, create_ops_metadata_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, ops_metadata_already_exists_exception()}
-          | {:error, ops_metadata_invalid_argument_exception()}
-          | {:error, ops_metadata_limit_exceeded_exception()}
-          | {:error, ops_metadata_too_many_updates_exception()}
+          | {:error, create_ops_metadata_errors()}
   def create_ops_metadata(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6990,9 +8687,7 @@ defmodule AWS.SSM do
   @spec create_patch_baseline(map(), create_patch_baseline_request(), list()) ::
           {:ok, create_patch_baseline_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, idempotent_parameter_mismatch()}
-          | {:error, internal_server_error()}
-          | {:error, resource_limit_exceeded_exception()}
+          | {:error, create_patch_baseline_errors()}
   def create_patch_baseline(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7042,10 +8737,7 @@ defmodule AWS.SSM do
   @spec create_resource_data_sync(map(), create_resource_data_sync_request(), list()) ::
           {:ok, create_resource_data_sync_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, resource_data_sync_already_exists_exception()}
-          | {:error, resource_data_sync_count_exceeded_exception()}
-          | {:error, resource_data_sync_invalid_configuration_exception()}
+          | {:error, create_resource_data_sync_errors()}
   def create_resource_data_sync(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7063,10 +8755,7 @@ defmodule AWS.SSM do
   @spec delete_activation(map(), delete_activation_request(), list()) ::
           {:ok, delete_activation_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_activation()}
-          | {:error, invalid_activation_id()}
-          | {:error, too_many_updates()}
+          | {:error, delete_activation_errors()}
   def delete_activation(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7092,11 +8781,7 @@ defmodule AWS.SSM do
   @spec delete_association(map(), delete_association_request(), list()) ::
           {:ok, delete_association_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, association_does_not_exist()}
-          | {:error, internal_server_error()}
-          | {:error, invalid_document()}
-          | {:error, invalid_instance_id()}
-          | {:error, too_many_updates()}
+          | {:error, delete_association_errors()}
   def delete_association(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7114,10 +8799,7 @@ defmodule AWS.SSM do
   @spec delete_document(map(), delete_document_request(), list()) ::
           {:ok, delete_document_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, associated_instances()}
-          | {:error, internal_server_error()}
-          | {:error, invalid_document()}
-          | {:error, invalid_document_operation()}
+          | {:error, delete_document_errors()}
   def delete_document(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7135,11 +8817,7 @@ defmodule AWS.SSM do
   @spec delete_inventory(map(), delete_inventory_request(), list()) ::
           {:ok, delete_inventory_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_delete_inventory_parameters_exception()}
-          | {:error, invalid_inventory_request_exception()}
-          | {:error, invalid_option_exception()}
-          | {:error, invalid_type_name_exception()}
+          | {:error, delete_inventory_errors()}
   def delete_inventory(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7152,7 +8830,7 @@ defmodule AWS.SSM do
   @spec delete_maintenance_window(map(), delete_maintenance_window_request(), list()) ::
           {:ok, delete_maintenance_window_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
+          | {:error, delete_maintenance_window_errors()}
   def delete_maintenance_window(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7197,8 +8875,7 @@ defmodule AWS.SSM do
   @spec delete_ops_item(map(), delete_ops_item_request(), list()) ::
           {:ok, delete_ops_item_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, ops_item_invalid_parameter_exception()}
+          | {:error, delete_ops_item_errors()}
   def delete_ops_item(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7211,9 +8888,7 @@ defmodule AWS.SSM do
   @spec delete_ops_metadata(map(), delete_ops_metadata_request(), list()) ::
           {:ok, delete_ops_metadata_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, ops_metadata_invalid_argument_exception()}
-          | {:error, ops_metadata_not_found_exception()}
+          | {:error, delete_ops_metadata_errors()}
   def delete_ops_metadata(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7229,8 +8904,7 @@ defmodule AWS.SSM do
   @spec delete_parameter(map(), delete_parameter_request(), list()) ::
           {:ok, delete_parameter_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, parameter_not_found()}
+          | {:error, delete_parameter_errors()}
   def delete_parameter(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7246,7 +8920,7 @@ defmodule AWS.SSM do
   @spec delete_parameters(map(), delete_parameters_request(), list()) ::
           {:ok, delete_parameters_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
+          | {:error, delete_parameters_errors()}
   def delete_parameters(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7259,8 +8933,7 @@ defmodule AWS.SSM do
   @spec delete_patch_baseline(map(), delete_patch_baseline_request(), list()) ::
           {:ok, delete_patch_baseline_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, resource_in_use_exception()}
+          | {:error, delete_patch_baseline_errors()}
   def delete_patch_baseline(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7278,9 +8951,7 @@ defmodule AWS.SSM do
   @spec delete_resource_data_sync(map(), delete_resource_data_sync_request(), list()) ::
           {:ok, delete_resource_data_sync_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, resource_data_sync_invalid_configuration_exception()}
-          | {:error, resource_data_sync_not_found_exception()}
+          | {:error, delete_resource_data_sync_errors()}
   def delete_resource_data_sync(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7311,12 +8982,7 @@ defmodule AWS.SSM do
   @spec delete_resource_policy(map(), delete_resource_policy_request(), list()) ::
           {:ok, delete_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, malformed_resource_policy_document_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, resource_policy_conflict_exception()}
-          | {:error, resource_policy_invalid_parameter_exception()}
-          | {:error, resource_policy_not_found_exception()}
+          | {:error, delete_resource_policy_errors()}
   def delete_resource_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7334,8 +9000,7 @@ defmodule AWS.SSM do
   @spec deregister_managed_instance(map(), deregister_managed_instance_request(), list()) ::
           {:ok, deregister_managed_instance_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_instance_id()}
+          | {:error, deregister_managed_instance_errors()}
   def deregister_managed_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7352,8 +9017,7 @@ defmodule AWS.SSM do
         ) ::
           {:ok, deregister_patch_baseline_for_patch_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_resource_id()}
+          | {:error, deregister_patch_baseline_for_patch_group_errors()}
   def deregister_patch_baseline_for_patch_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7370,9 +9034,7 @@ defmodule AWS.SSM do
         ) ::
           {:ok, deregister_target_from_maintenance_window_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, does_not_exist_exception()}
-          | {:error, internal_server_error()}
-          | {:error, target_in_use_exception()}
+          | {:error, deregister_target_from_maintenance_window_errors()}
   def deregister_target_from_maintenance_window(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7389,8 +9051,7 @@ defmodule AWS.SSM do
         ) ::
           {:ok, deregister_task_from_maintenance_window_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, does_not_exist_exception()}
-          | {:error, internal_server_error()}
+          | {:error, deregister_task_from_maintenance_window_errors()}
   def deregister_task_from_maintenance_window(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7409,9 +9070,7 @@ defmodule AWS.SSM do
   @spec describe_activations(map(), describe_activations_request(), list()) ::
           {:ok, describe_activations_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_filter()}
-          | {:error, invalid_next_token()}
+          | {:error, describe_activations_errors()}
   def describe_activations(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7429,11 +9088,7 @@ defmodule AWS.SSM do
   @spec describe_association(map(), describe_association_request(), list()) ::
           {:ok, describe_association_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, association_does_not_exist()}
-          | {:error, internal_server_error()}
-          | {:error, invalid_association_version()}
-          | {:error, invalid_document()}
-          | {:error, invalid_instance_id()}
+          | {:error, describe_association_errors()}
   def describe_association(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7450,10 +9105,7 @@ defmodule AWS.SSM do
         ) ::
           {:ok, describe_association_execution_targets_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, association_does_not_exist()}
-          | {:error, association_execution_does_not_exist()}
-          | {:error, internal_server_error()}
-          | {:error, invalid_next_token()}
+          | {:error, describe_association_execution_targets_errors()}
   def describe_association_execution_targets(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7466,9 +9118,7 @@ defmodule AWS.SSM do
   @spec describe_association_executions(map(), describe_association_executions_request(), list()) ::
           {:ok, describe_association_executions_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, association_does_not_exist()}
-          | {:error, internal_server_error()}
-          | {:error, invalid_next_token()}
+          | {:error, describe_association_executions_errors()}
   def describe_association_executions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7481,10 +9131,7 @@ defmodule AWS.SSM do
   @spec describe_automation_executions(map(), describe_automation_executions_request(), list()) ::
           {:ok, describe_automation_executions_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_filter_key()}
-          | {:error, invalid_filter_value()}
-          | {:error, invalid_next_token()}
+          | {:error, describe_automation_executions_errors()}
   def describe_automation_executions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7502,11 +9149,7 @@ defmodule AWS.SSM do
         ) ::
           {:ok, describe_automation_step_executions_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, automation_execution_not_found_exception()}
-          | {:error, internal_server_error()}
-          | {:error, invalid_filter_key()}
-          | {:error, invalid_filter_value()}
-          | {:error, invalid_next_token()}
+          | {:error, describe_automation_step_executions_errors()}
   def describe_automation_step_executions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7522,7 +9165,7 @@ defmodule AWS.SSM do
   @spec describe_available_patches(map(), describe_available_patches_request(), list()) ::
           {:ok, describe_available_patches_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
+          | {:error, describe_available_patches_errors()}
   def describe_available_patches(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7536,9 +9179,7 @@ defmodule AWS.SSM do
   @spec describe_document(map(), describe_document_request(), list()) ::
           {:ok, describe_document_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_document()}
-          | {:error, invalid_document_version()}
+          | {:error, describe_document_errors()}
   def describe_document(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7557,11 +9198,7 @@ defmodule AWS.SSM do
   @spec describe_document_permission(map(), describe_document_permission_request(), list()) ::
           {:ok, describe_document_permission_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_document()}
-          | {:error, invalid_document_operation()}
-          | {:error, invalid_next_token()}
-          | {:error, invalid_permission_type()}
+          | {:error, describe_document_permission_errors()}
   def describe_document_permission(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7578,9 +9215,7 @@ defmodule AWS.SSM do
         ) ::
           {:ok, describe_effective_instance_associations_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_instance_id()}
-          | {:error, invalid_next_token()}
+          | {:error, describe_effective_instance_associations_errors()}
   def describe_effective_instance_associations(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7601,10 +9236,7 @@ defmodule AWS.SSM do
         ) ::
           {:ok, describe_effective_patches_for_patch_baseline_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, does_not_exist_exception()}
-          | {:error, internal_server_error()}
-          | {:error, invalid_resource_id()}
-          | {:error, unsupported_operating_system()}
+          | {:error, describe_effective_patches_for_patch_baseline_errors()}
   def describe_effective_patches_for_patch_baseline(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7621,9 +9253,7 @@ defmodule AWS.SSM do
         ) ::
           {:ok, describe_instance_associations_status_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_instance_id()}
-          | {:error, invalid_next_token()}
+          | {:error, describe_instance_associations_status_errors()}
   def describe_instance_associations_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7653,11 +9283,7 @@ defmodule AWS.SSM do
   @spec describe_instance_information(map(), describe_instance_information_request(), list()) ::
           {:ok, describe_instance_information_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_filter_key()}
-          | {:error, invalid_instance_id()}
-          | {:error, invalid_instance_information_filter_value()}
-          | {:error, invalid_next_token()}
+          | {:error, describe_instance_information_errors()}
   def describe_instance_information(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7670,8 +9296,7 @@ defmodule AWS.SSM do
   @spec describe_instance_patch_states(map(), describe_instance_patch_states_request(), list()) ::
           {:ok, describe_instance_patch_states_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_next_token()}
+          | {:error, describe_instance_patch_states_errors()}
   def describe_instance_patch_states(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7690,9 +9315,7 @@ defmodule AWS.SSM do
         ) ::
           {:ok, describe_instance_patch_states_for_patch_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_filter()}
-          | {:error, invalid_next_token()}
+          | {:error, describe_instance_patch_states_for_patch_group_errors()}
   def describe_instance_patch_states_for_patch_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7707,10 +9330,7 @@ defmodule AWS.SSM do
   @spec describe_instance_patches(map(), describe_instance_patches_request(), list()) ::
           {:ok, describe_instance_patches_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_filter()}
-          | {:error, invalid_instance_id()}
-          | {:error, invalid_next_token()}
+          | {:error, describe_instance_patches_errors()}
   def describe_instance_patches(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7723,9 +9343,7 @@ defmodule AWS.SSM do
   @spec describe_inventory_deletions(map(), describe_inventory_deletions_request(), list()) ::
           {:ok, describe_inventory_deletions_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_deletion_id_exception()}
-          | {:error, invalid_next_token()}
+          | {:error, describe_inventory_deletions_errors()}
   def describe_inventory_deletions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7744,8 +9362,7 @@ defmodule AWS.SSM do
         ) ::
           {:ok, describe_maintenance_window_execution_task_invocations_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, does_not_exist_exception()}
-          | {:error, internal_server_error()}
+          | {:error, describe_maintenance_window_execution_task_invocations_errors()}
   def describe_maintenance_window_execution_task_invocations(
         %Client{} = client,
         input,
@@ -7772,8 +9389,7 @@ defmodule AWS.SSM do
         ) ::
           {:ok, describe_maintenance_window_execution_tasks_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, does_not_exist_exception()}
-          | {:error, internal_server_error()}
+          | {:error, describe_maintenance_window_execution_tasks_errors()}
   def describe_maintenance_window_execution_tasks(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7795,7 +9411,7 @@ defmodule AWS.SSM do
         ) ::
           {:ok, describe_maintenance_window_executions_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
+          | {:error, describe_maintenance_window_executions_errors()}
   def describe_maintenance_window_executions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7812,8 +9428,7 @@ defmodule AWS.SSM do
         ) ::
           {:ok, describe_maintenance_window_schedule_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, does_not_exist_exception()}
-          | {:error, internal_server_error()}
+          | {:error, describe_maintenance_window_schedule_errors()}
   def describe_maintenance_window_schedule(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7830,8 +9445,7 @@ defmodule AWS.SSM do
         ) ::
           {:ok, describe_maintenance_window_targets_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, does_not_exist_exception()}
-          | {:error, internal_server_error()}
+          | {:error, describe_maintenance_window_targets_errors()}
   def describe_maintenance_window_targets(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7854,8 +9468,7 @@ defmodule AWS.SSM do
         ) ::
           {:ok, describe_maintenance_window_tasks_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, does_not_exist_exception()}
-          | {:error, internal_server_error()}
+          | {:error, describe_maintenance_window_tasks_errors()}
   def describe_maintenance_window_tasks(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7868,7 +9481,7 @@ defmodule AWS.SSM do
   @spec describe_maintenance_windows(map(), describe_maintenance_windows_request(), list()) ::
           {:ok, describe_maintenance_windows_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
+          | {:error, describe_maintenance_windows_errors()}
   def describe_maintenance_windows(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7887,7 +9500,7 @@ defmodule AWS.SSM do
         ) ::
           {:ok, describe_maintenance_windows_for_target_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
+          | {:error, describe_maintenance_windows_for_target_errors()}
   def describe_maintenance_windows_for_target(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7914,7 +9527,7 @@ defmodule AWS.SSM do
   @spec describe_ops_items(map(), describe_ops_items_request(), list()) ::
           {:ok, describe_ops_items_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
+          | {:error, describe_ops_items_errors()}
   def describe_ops_items(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7947,11 +9560,7 @@ defmodule AWS.SSM do
   @spec describe_parameters(map(), describe_parameters_request(), list()) ::
           {:ok, describe_parameters_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_filter_key()}
-          | {:error, invalid_filter_option()}
-          | {:error, invalid_filter_value()}
-          | {:error, invalid_next_token()}
+          | {:error, describe_parameters_errors()}
   def describe_parameters(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7964,7 +9573,7 @@ defmodule AWS.SSM do
   @spec describe_patch_baselines(map(), describe_patch_baselines_request(), list()) ::
           {:ok, describe_patch_baselines_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
+          | {:error, describe_patch_baselines_errors()}
   def describe_patch_baselines(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7978,8 +9587,7 @@ defmodule AWS.SSM do
   @spec describe_patch_group_state(map(), describe_patch_group_state_request(), list()) ::
           {:ok, describe_patch_group_state_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_next_token()}
+          | {:error, describe_patch_group_state_errors()}
   def describe_patch_group_state(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7992,7 +9600,7 @@ defmodule AWS.SSM do
   @spec describe_patch_groups(map(), describe_patch_groups_request(), list()) ::
           {:ok, describe_patch_groups_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
+          | {:error, describe_patch_groups_errors()}
   def describe_patch_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8064,7 +9672,7 @@ defmodule AWS.SSM do
   @spec describe_patch_properties(map(), describe_patch_properties_request(), list()) ::
           {:ok, describe_patch_properties_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
+          | {:error, describe_patch_properties_errors()}
   def describe_patch_properties(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8079,9 +9687,7 @@ defmodule AWS.SSM do
   @spec describe_sessions(map(), describe_sessions_request(), list()) ::
           {:ok, describe_sessions_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_filter_key()}
-          | {:error, invalid_next_token()}
+          | {:error, describe_sessions_errors()}
   def describe_sessions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8103,11 +9709,7 @@ defmodule AWS.SSM do
         ) ::
           {:ok, disassociate_ops_item_related_item_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, ops_item_conflict_exception()}
-          | {:error, ops_item_invalid_parameter_exception()}
-          | {:error, ops_item_not_found_exception()}
-          | {:error, ops_item_related_item_association_not_found_exception()}
+          | {:error, disassociate_ops_item_related_item_errors()}
   def disassociate_ops_item_related_item(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8120,8 +9722,7 @@ defmodule AWS.SSM do
   @spec get_automation_execution(map(), get_automation_execution_request(), list()) ::
           {:ok, get_automation_execution_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, automation_execution_not_found_exception()}
-          | {:error, internal_server_error()}
+          | {:error, get_automation_execution_errors()}
   def get_automation_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8152,10 +9753,7 @@ defmodule AWS.SSM do
   @spec get_calendar_state(map(), get_calendar_state_request(), list()) ::
           {:ok, get_calendar_state_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_document()}
-          | {:error, invalid_document_type()}
-          | {:error, unsupported_calendar_exception()}
+          | {:error, get_calendar_state_errors()}
   def get_calendar_state(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8176,11 +9774,7 @@ defmodule AWS.SSM do
   @spec get_command_invocation(map(), get_command_invocation_request(), list()) ::
           {:ok, get_command_invocation_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_command_id()}
-          | {:error, invalid_instance_id()}
-          | {:error, invalid_plugin_name()}
-          | {:error, invocation_does_not_exist()}
+          | {:error, get_command_invocation_errors()}
   def get_command_invocation(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8195,7 +9789,7 @@ defmodule AWS.SSM do
   @spec get_connection_status(map(), get_connection_status_request(), list()) ::
           {:ok, get_connection_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
+          | {:error, get_connection_status_errors()}
   def get_connection_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8216,7 +9810,7 @@ defmodule AWS.SSM do
   @spec get_default_patch_baseline(map(), get_default_patch_baseline_request(), list()) ::
           {:ok, get_default_patch_baseline_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
+          | {:error, get_default_patch_baseline_errors()}
   def get_default_patch_baseline(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8248,9 +9842,7 @@ defmodule AWS.SSM do
         ) ::
           {:ok, get_deployable_patch_snapshot_for_instance_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, unsupported_feature_required_exception()}
-          | {:error, unsupported_operating_system()}
+          | {:error, get_deployable_patch_snapshot_for_instance_errors()}
   def get_deployable_patch_snapshot_for_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8264,9 +9856,7 @@ defmodule AWS.SSM do
   @spec get_document(map(), get_document_request(), list()) ::
           {:ok, get_document_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_document()}
-          | {:error, invalid_document_version()}
+          | {:error, get_document_errors()}
   def get_document(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8282,13 +9872,7 @@ defmodule AWS.SSM do
   @spec get_inventory(map(), get_inventory_request(), list()) ::
           {:ok, get_inventory_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_aggregator_exception()}
-          | {:error, invalid_filter()}
-          | {:error, invalid_inventory_group_exception()}
-          | {:error, invalid_next_token()}
-          | {:error, invalid_result_attribute_exception()}
-          | {:error, invalid_type_name_exception()}
+          | {:error, get_inventory_errors()}
   def get_inventory(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8303,9 +9887,7 @@ defmodule AWS.SSM do
   @spec get_inventory_schema(map(), get_inventory_schema_request(), list()) ::
           {:ok, get_inventory_schema_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_next_token()}
-          | {:error, invalid_type_name_exception()}
+          | {:error, get_inventory_schema_errors()}
   def get_inventory_schema(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8318,8 +9900,7 @@ defmodule AWS.SSM do
   @spec get_maintenance_window(map(), get_maintenance_window_request(), list()) ::
           {:ok, get_maintenance_window_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, does_not_exist_exception()}
-          | {:error, internal_server_error()}
+          | {:error, get_maintenance_window_errors()}
   def get_maintenance_window(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8336,8 +9917,7 @@ defmodule AWS.SSM do
         ) ::
           {:ok, get_maintenance_window_execution_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, does_not_exist_exception()}
-          | {:error, internal_server_error()}
+          | {:error, get_maintenance_window_execution_errors()}
   def get_maintenance_window_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8355,8 +9935,7 @@ defmodule AWS.SSM do
         ) ::
           {:ok, get_maintenance_window_execution_task_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, does_not_exist_exception()}
-          | {:error, internal_server_error()}
+          | {:error, get_maintenance_window_execution_task_errors()}
   def get_maintenance_window_execution_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8373,8 +9952,7 @@ defmodule AWS.SSM do
         ) ::
           {:ok, get_maintenance_window_execution_task_invocation_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, does_not_exist_exception()}
-          | {:error, internal_server_error()}
+          | {:error, get_maintenance_window_execution_task_invocation_errors()}
   def get_maintenance_window_execution_task_invocation(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8402,8 +9980,7 @@ defmodule AWS.SSM do
   @spec get_maintenance_window_task(map(), get_maintenance_window_task_request(), list()) ::
           {:ok, get_maintenance_window_task_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, does_not_exist_exception()}
-          | {:error, internal_server_error()}
+          | {:error, get_maintenance_window_task_errors()}
   def get_maintenance_window_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8431,9 +10008,7 @@ defmodule AWS.SSM do
   @spec get_ops_item(map(), get_ops_item_request(), list()) ::
           {:ok, get_ops_item_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, ops_item_access_denied_exception()}
-          | {:error, ops_item_not_found_exception()}
+          | {:error, get_ops_item_errors()}
   def get_ops_item(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8446,9 +10021,7 @@ defmodule AWS.SSM do
   @spec get_ops_metadata(map(), get_ops_metadata_request(), list()) ::
           {:ok, get_ops_metadata_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, ops_metadata_invalid_argument_exception()}
-          | {:error, ops_metadata_not_found_exception()}
+          | {:error, get_ops_metadata_errors()}
   def get_ops_metadata(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8468,12 +10041,7 @@ defmodule AWS.SSM do
   @spec get_ops_summary(map(), get_ops_summary_request(), list()) ::
           {:ok, get_ops_summary_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_aggregator_exception()}
-          | {:error, invalid_filter()}
-          | {:error, invalid_next_token()}
-          | {:error, invalid_type_name_exception()}
-          | {:error, resource_data_sync_not_found_exception()}
+          | {:error, get_ops_summary_errors()}
   def get_ops_summary(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8489,10 +10057,7 @@ defmodule AWS.SSM do
   @spec get_parameter(map(), get_parameter_request(), list()) ::
           {:ok, get_parameter_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_key_id()}
-          | {:error, parameter_not_found()}
-          | {:error, parameter_version_not_found()}
+          | {:error, get_parameter_errors()}
   def get_parameter(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8511,10 +10076,7 @@ defmodule AWS.SSM do
   @spec get_parameter_history(map(), get_parameter_history_request(), list()) ::
           {:ok, get_parameter_history_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_key_id()}
-          | {:error, invalid_next_token()}
-          | {:error, parameter_not_found()}
+          | {:error, get_parameter_history_errors()}
   def get_parameter_history(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8531,8 +10093,7 @@ defmodule AWS.SSM do
   @spec get_parameters(map(), get_parameters_request(), list()) ::
           {:ok, get_parameters_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_key_id()}
+          | {:error, get_parameters_errors()}
   def get_parameters(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8555,12 +10116,7 @@ defmodule AWS.SSM do
   @spec get_parameters_by_path(map(), get_parameters_by_path_request(), list()) ::
           {:ok, get_parameters_by_path_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_filter_key()}
-          | {:error, invalid_filter_option()}
-          | {:error, invalid_filter_value()}
-          | {:error, invalid_key_id()}
-          | {:error, invalid_next_token()}
+          | {:error, get_parameters_by_path_errors()}
   def get_parameters_by_path(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8573,9 +10129,7 @@ defmodule AWS.SSM do
   @spec get_patch_baseline(map(), get_patch_baseline_request(), list()) ::
           {:ok, get_patch_baseline_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, does_not_exist_exception()}
-          | {:error, internal_server_error()}
-          | {:error, invalid_resource_id()}
+          | {:error, get_patch_baseline_errors()}
   def get_patch_baseline(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8592,7 +10146,7 @@ defmodule AWS.SSM do
         ) ::
           {:ok, get_patch_baseline_for_patch_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
+          | {:error, get_patch_baseline_for_patch_group_errors()}
   def get_patch_baseline_for_patch_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8605,9 +10159,7 @@ defmodule AWS.SSM do
   @spec get_resource_policies(map(), get_resource_policies_request(), list()) ::
           {:ok, get_resource_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, resource_not_found_exception()}
-          | {:error, resource_policy_invalid_parameter_exception()}
+          | {:error, get_resource_policies_errors()}
   def get_resource_policies(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8643,8 +10195,7 @@ defmodule AWS.SSM do
   @spec get_service_setting(map(), get_service_setting_request(), list()) ::
           {:ok, get_service_setting_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, service_setting_not_found()}
+          | {:error, get_service_setting_errors()}
   def get_service_setting(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8703,11 +10254,7 @@ defmodule AWS.SSM do
   @spec label_parameter_version(map(), label_parameter_version_request(), list()) ::
           {:ok, label_parameter_version_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, parameter_not_found()}
-          | {:error, parameter_version_label_limit_exceeded()}
-          | {:error, parameter_version_not_found()}
-          | {:error, too_many_updates()}
+          | {:error, label_parameter_version_errors()}
   def label_parameter_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8720,9 +10267,7 @@ defmodule AWS.SSM do
   @spec list_association_versions(map(), list_association_versions_request(), list()) ::
           {:ok, list_association_versions_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, association_does_not_exist()}
-          | {:error, internal_server_error()}
-          | {:error, invalid_next_token()}
+          | {:error, list_association_versions_errors()}
   def list_association_versions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8742,8 +10287,7 @@ defmodule AWS.SSM do
   @spec list_associations(map(), list_associations_request(), list()) ::
           {:ok, list_associations_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_next_token()}
+          | {:error, list_associations_errors()}
   def list_associations(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8765,11 +10309,7 @@ defmodule AWS.SSM do
   @spec list_command_invocations(map(), list_command_invocations_request(), list()) ::
           {:ok, list_command_invocations_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_command_id()}
-          | {:error, invalid_filter_key()}
-          | {:error, invalid_instance_id()}
-          | {:error, invalid_next_token()}
+          | {:error, list_command_invocations_errors()}
   def list_command_invocations(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8782,11 +10322,7 @@ defmodule AWS.SSM do
   @spec list_commands(map(), list_commands_request(), list()) ::
           {:ok, list_commands_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_command_id()}
-          | {:error, invalid_filter_key()}
-          | {:error, invalid_instance_id()}
-          | {:error, invalid_next_token()}
+          | {:error, list_commands_errors()}
   def list_commands(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8804,11 +10340,7 @@ defmodule AWS.SSM do
   @spec list_compliance_items(map(), list_compliance_items_request(), list()) ::
           {:ok, list_compliance_items_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_filter()}
-          | {:error, invalid_next_token()}
-          | {:error, invalid_resource_id()}
-          | {:error, invalid_resource_type()}
+          | {:error, list_compliance_items_errors()}
   def list_compliance_items(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8827,9 +10359,7 @@ defmodule AWS.SSM do
   @spec list_compliance_summaries(map(), list_compliance_summaries_request(), list()) ::
           {:ok, list_compliance_summaries_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_filter()}
-          | {:error, invalid_next_token()}
+          | {:error, list_compliance_summaries_errors()}
   def list_compliance_summaries(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8843,10 +10373,7 @@ defmodule AWS.SSM do
   @spec list_document_metadata_history(map(), list_document_metadata_history_request(), list()) ::
           {:ok, list_document_metadata_history_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_document()}
-          | {:error, invalid_document_version()}
-          | {:error, invalid_next_token()}
+          | {:error, list_document_metadata_history_errors()}
   def list_document_metadata_history(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8859,9 +10386,7 @@ defmodule AWS.SSM do
   @spec list_document_versions(map(), list_document_versions_request(), list()) ::
           {:ok, list_document_versions_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_document()}
-          | {:error, invalid_next_token()}
+          | {:error, list_document_versions_errors()}
   def list_document_versions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8878,9 +10403,7 @@ defmodule AWS.SSM do
   @spec list_documents(map(), list_documents_request(), list()) ::
           {:ok, list_documents_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_filter_key()}
-          | {:error, invalid_next_token()}
+          | {:error, list_documents_errors()}
   def list_documents(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8893,11 +10416,7 @@ defmodule AWS.SSM do
   @spec list_inventory_entries(map(), list_inventory_entries_request(), list()) ::
           {:ok, list_inventory_entries_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_filter()}
-          | {:error, invalid_instance_id()}
-          | {:error, invalid_next_token()}
-          | {:error, invalid_type_name_exception()}
+          | {:error, list_inventory_entries_errors()}
   def list_inventory_entries(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8915,10 +10434,7 @@ defmodule AWS.SSM do
   @spec list_ops_item_events(map(), list_ops_item_events_request(), list()) ::
           {:ok, list_ops_item_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, ops_item_invalid_parameter_exception()}
-          | {:error, ops_item_limit_exceeded_exception()}
-          | {:error, ops_item_not_found_exception()}
+          | {:error, list_ops_item_events_errors()}
   def list_ops_item_events(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8935,8 +10451,7 @@ defmodule AWS.SSM do
   @spec list_ops_item_related_items(map(), list_ops_item_related_items_request(), list()) ::
           {:ok, list_ops_item_related_items_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, ops_item_invalid_parameter_exception()}
+          | {:error, list_ops_item_related_items_errors()}
   def list_ops_item_related_items(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8951,8 +10466,7 @@ defmodule AWS.SSM do
   @spec list_ops_metadata(map(), list_ops_metadata_request(), list()) ::
           {:ok, list_ops_metadata_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, ops_metadata_invalid_argument_exception()}
+          | {:error, list_ops_metadata_errors()}
   def list_ops_metadata(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8974,9 +10488,7 @@ defmodule AWS.SSM do
         ) ::
           {:ok, list_resource_compliance_summaries_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_filter()}
-          | {:error, invalid_next_token()}
+          | {:error, list_resource_compliance_summaries_errors()}
   def list_resource_compliance_summaries(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9005,9 +10517,7 @@ defmodule AWS.SSM do
   @spec list_resource_data_sync(map(), list_resource_data_sync_request(), list()) ::
           {:ok, list_resource_data_sync_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_next_token()}
-          | {:error, resource_data_sync_invalid_configuration_exception()}
+          | {:error, list_resource_data_sync_errors()}
   def list_resource_data_sync(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9023,9 +10533,7 @@ defmodule AWS.SSM do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_resource_id()}
-          | {:error, invalid_resource_type()}
+          | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9045,11 +10553,7 @@ defmodule AWS.SSM do
   @spec modify_document_permission(map(), modify_document_permission_request(), list()) ::
           {:ok, modify_document_permission_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, document_limit_exceeded()}
-          | {:error, document_permission_limit()}
-          | {:error, internal_server_error()}
-          | {:error, invalid_document()}
-          | {:error, invalid_permission_type()}
+          | {:error, modify_document_permission_errors()}
   def modify_document_permission(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9125,13 +10629,7 @@ defmodule AWS.SSM do
   @spec put_compliance_items(map(), put_compliance_items_request(), list()) ::
           {:ok, put_compliance_items_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, compliance_type_count_limit_exceeded_exception()}
-          | {:error, internal_server_error()}
-          | {:error, invalid_item_content_exception()}
-          | {:error, invalid_resource_id()}
-          | {:error, invalid_resource_type()}
-          | {:error, item_size_limit_exceeded_exception()}
-          | {:error, total_size_limit_exceeded_exception()}
+          | {:error, put_compliance_items_errors()}
   def put_compliance_items(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9149,18 +10647,7 @@ defmodule AWS.SSM do
   @spec put_inventory(map(), put_inventory_request(), list()) ::
           {:ok, put_inventory_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, custom_schema_count_limit_exceeded_exception()}
-          | {:error, internal_server_error()}
-          | {:error, invalid_instance_id()}
-          | {:error, invalid_inventory_item_context_exception()}
-          | {:error, invalid_item_content_exception()}
-          | {:error, invalid_type_name_exception()}
-          | {:error, item_content_mismatch_exception()}
-          | {:error, item_size_limit_exceeded_exception()}
-          | {:error, sub_type_count_limit_exceeded_exception()}
-          | {:error, total_size_limit_exceeded_exception()}
-          | {:error, unsupported_inventory_item_context_exception()}
-          | {:error, unsupported_inventory_schema_version_exception()}
+          | {:error, put_inventory_errors()}
   def put_inventory(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9173,21 +10660,7 @@ defmodule AWS.SSM do
   @spec put_parameter(map(), put_parameter_request(), list()) ::
           {:ok, put_parameter_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, hierarchy_level_limit_exceeded_exception()}
-          | {:error, hierarchy_type_mismatch_exception()}
-          | {:error, incompatible_policy_exception()}
-          | {:error, internal_server_error()}
-          | {:error, invalid_allowed_pattern_exception()}
-          | {:error, invalid_key_id()}
-          | {:error, invalid_policy_attribute_exception()}
-          | {:error, invalid_policy_type_exception()}
-          | {:error, parameter_already_exists()}
-          | {:error, parameter_limit_exceeded()}
-          | {:error, parameter_max_version_limit_exceeded()}
-          | {:error, parameter_pattern_mismatch_exception()}
-          | {:error, policies_limit_exceeded_exception()}
-          | {:error, too_many_updates()}
-          | {:error, unsupported_parameter_type()}
+          | {:error, put_parameter_errors()}
   def put_parameter(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9245,13 +10718,7 @@ defmodule AWS.SSM do
   @spec put_resource_policy(map(), put_resource_policy_request(), list()) ::
           {:ok, put_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, malformed_resource_policy_document_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, resource_policy_conflict_exception()}
-          | {:error, resource_policy_invalid_parameter_exception()}
-          | {:error, resource_policy_limit_exceeded_exception()}
-          | {:error, resource_policy_not_found_exception()}
+          | {:error, put_resource_policy_errors()}
   def put_resource_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9272,9 +10739,7 @@ defmodule AWS.SSM do
   @spec register_default_patch_baseline(map(), register_default_patch_baseline_request(), list()) ::
           {:ok, register_default_patch_baseline_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, does_not_exist_exception()}
-          | {:error, internal_server_error()}
-          | {:error, invalid_resource_id()}
+          | {:error, register_default_patch_baseline_errors()}
   def register_default_patch_baseline(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9291,11 +10756,7 @@ defmodule AWS.SSM do
         ) ::
           {:ok, register_patch_baseline_for_patch_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, already_exists_exception()}
-          | {:error, does_not_exist_exception()}
-          | {:error, internal_server_error()}
-          | {:error, invalid_resource_id()}
-          | {:error, resource_limit_exceeded_exception()}
+          | {:error, register_patch_baseline_for_patch_group_errors()}
   def register_patch_baseline_for_patch_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9312,10 +10773,7 @@ defmodule AWS.SSM do
         ) ::
           {:ok, register_target_with_maintenance_window_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, does_not_exist_exception()}
-          | {:error, idempotent_parameter_mismatch()}
-          | {:error, internal_server_error()}
-          | {:error, resource_limit_exceeded_exception()}
+          | {:error, register_target_with_maintenance_window_errors()}
   def register_target_with_maintenance_window(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9332,11 +10790,7 @@ defmodule AWS.SSM do
         ) ::
           {:ok, register_task_with_maintenance_window_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, does_not_exist_exception()}
-          | {:error, feature_not_available_exception()}
-          | {:error, idempotent_parameter_mismatch()}
-          | {:error, internal_server_error()}
-          | {:error, resource_limit_exceeded_exception()}
+          | {:error, register_task_with_maintenance_window_errors()}
   def register_task_with_maintenance_window(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9349,10 +10803,7 @@ defmodule AWS.SSM do
   @spec remove_tags_from_resource(map(), remove_tags_from_resource_request(), list()) ::
           {:ok, remove_tags_from_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_resource_id()}
-          | {:error, invalid_resource_type()}
-          | {:error, too_many_updates()}
+          | {:error, remove_tags_from_resource_errors()}
   def remove_tags_from_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9392,9 +10843,7 @@ defmodule AWS.SSM do
   @spec reset_service_setting(map(), reset_service_setting_request(), list()) ::
           {:ok, reset_service_setting_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, service_setting_not_found()}
-          | {:error, too_many_updates()}
+          | {:error, reset_service_setting_errors()}
   def reset_service_setting(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9414,8 +10863,7 @@ defmodule AWS.SSM do
   @spec resume_session(map(), resume_session_request(), list()) ::
           {:ok, resume_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, does_not_exist_exception()}
-          | {:error, internal_server_error()}
+          | {:error, resume_session_errors()}
   def resume_session(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9430,10 +10878,7 @@ defmodule AWS.SSM do
   @spec send_automation_signal(map(), send_automation_signal_request(), list()) ::
           {:ok, send_automation_signal_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, automation_execution_not_found_exception()}
-          | {:error, automation_step_not_found_exception()}
-          | {:error, internal_server_error()}
-          | {:error, invalid_automation_signal_exception()}
+          | {:error, send_automation_signal_errors()}
   def send_automation_signal(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9446,17 +10891,7 @@ defmodule AWS.SSM do
   @spec send_command(map(), send_command_request(), list()) ::
           {:ok, send_command_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, duplicate_instance_id()}
-          | {:error, internal_server_error()}
-          | {:error, invalid_document()}
-          | {:error, invalid_document_version()}
-          | {:error, invalid_instance_id()}
-          | {:error, invalid_notification_config()}
-          | {:error, invalid_output_folder()}
-          | {:error, invalid_parameters()}
-          | {:error, invalid_role()}
-          | {:error, max_document_size_exceeded()}
-          | {:error, unsupported_platform_type()}
+          | {:error, send_command_errors()}
   def send_command(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9472,8 +10907,7 @@ defmodule AWS.SSM do
   @spec start_associations_once(map(), start_associations_once_request(), list()) ::
           {:ok, start_associations_once_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, association_does_not_exist()}
-          | {:error, invalid_association()}
+          | {:error, start_associations_once_errors()}
   def start_associations_once(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9486,13 +10920,7 @@ defmodule AWS.SSM do
   @spec start_automation_execution(map(), start_automation_execution_request(), list()) ::
           {:ok, start_automation_execution_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, automation_definition_not_found_exception()}
-          | {:error, automation_definition_version_not_found_exception()}
-          | {:error, automation_execution_limit_exceeded_exception()}
-          | {:error, idempotent_parameter_mismatch()}
-          | {:error, internal_server_error()}
-          | {:error, invalid_automation_execution_parameters_exception()}
-          | {:error, invalid_target()}
+          | {:error, start_automation_execution_errors()}
   def start_automation_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9510,13 +10938,7 @@ defmodule AWS.SSM do
   @spec start_change_request_execution(map(), start_change_request_execution_request(), list()) ::
           {:ok, start_change_request_execution_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, automation_definition_not_approved_exception()}
-          | {:error, automation_definition_not_found_exception()}
-          | {:error, automation_definition_version_not_found_exception()}
-          | {:error, automation_execution_limit_exceeded_exception()}
-          | {:error, idempotent_parameter_mismatch()}
-          | {:error, internal_server_error()}
-          | {:error, invalid_automation_execution_parameters_exception()}
+          | {:error, start_change_request_execution_errors()}
   def start_change_request_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9545,9 +10967,7 @@ defmodule AWS.SSM do
   @spec start_session(map(), start_session_request(), list()) ::
           {:ok, start_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_document()}
-          | {:error, target_not_connected()}
+          | {:error, start_session_errors()}
   def start_session(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9560,9 +10980,7 @@ defmodule AWS.SSM do
   @spec stop_automation_execution(map(), stop_automation_execution_request(), list()) ::
           {:ok, stop_automation_execution_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, automation_execution_not_found_exception()}
-          | {:error, internal_server_error()}
-          | {:error, invalid_automation_status_update_exception()}
+          | {:error, stop_automation_execution_errors()}
   def stop_automation_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9579,7 +10997,7 @@ defmodule AWS.SSM do
   @spec terminate_session(map(), terminate_session_request(), list()) ::
           {:ok, terminate_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
+          | {:error, terminate_session_errors()}
   def terminate_session(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9592,10 +11010,7 @@ defmodule AWS.SSM do
   @spec unlabel_parameter_version(map(), unlabel_parameter_version_request(), list()) ::
           {:ok, unlabel_parameter_version_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, parameter_not_found()}
-          | {:error, parameter_version_not_found()}
-          | {:error, too_many_updates()}
+          | {:error, unlabel_parameter_version_errors()}
   def unlabel_parameter_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9641,19 +11056,7 @@ defmodule AWS.SSM do
   @spec update_association(map(), update_association_request(), list()) ::
           {:ok, update_association_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, association_does_not_exist()}
-          | {:error, association_version_limit_exceeded()}
-          | {:error, internal_server_error()}
-          | {:error, invalid_association_version()}
-          | {:error, invalid_document()}
-          | {:error, invalid_document_version()}
-          | {:error, invalid_output_location()}
-          | {:error, invalid_parameters()}
-          | {:error, invalid_schedule()}
-          | {:error, invalid_target()}
-          | {:error, invalid_target_maps()}
-          | {:error, invalid_update()}
-          | {:error, too_many_updates()}
+          | {:error, update_association_errors()}
   def update_association(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9674,12 +11077,7 @@ defmodule AWS.SSM do
   @spec update_association_status(map(), update_association_status_request(), list()) ::
           {:ok, update_association_status_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, association_does_not_exist()}
-          | {:error, internal_server_error()}
-          | {:error, invalid_document()}
-          | {:error, invalid_instance_id()}
-          | {:error, status_unchanged()}
-          | {:error, too_many_updates()}
+          | {:error, update_association_status_errors()}
   def update_association_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9692,16 +11090,7 @@ defmodule AWS.SSM do
   @spec update_document(map(), update_document_request(), list()) ::
           {:ok, update_document_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, document_version_limit_exceeded()}
-          | {:error, duplicate_document_content()}
-          | {:error, duplicate_document_version_name()}
-          | {:error, internal_server_error()}
-          | {:error, invalid_document()}
-          | {:error, invalid_document_content()}
-          | {:error, invalid_document_operation()}
-          | {:error, invalid_document_schema_version()}
-          | {:error, invalid_document_version()}
-          | {:error, max_document_size_exceeded()}
+          | {:error, update_document_errors()}
   def update_document(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9719,10 +11108,7 @@ defmodule AWS.SSM do
   @spec update_document_default_version(map(), update_document_default_version_request(), list()) ::
           {:ok, update_document_default_version_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_document()}
-          | {:error, invalid_document_schema_version()}
-          | {:error, invalid_document_version()}
+          | {:error, update_document_default_version_errors()}
   def update_document_default_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9737,10 +11123,7 @@ defmodule AWS.SSM do
   @spec update_document_metadata(map(), update_document_metadata_request(), list()) ::
           {:ok, update_document_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_document()}
-          | {:error, invalid_document_operation()}
-          | {:error, invalid_document_version()}
+          | {:error, update_document_metadata_errors()}
   def update_document_metadata(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9766,8 +11149,7 @@ defmodule AWS.SSM do
   @spec update_maintenance_window(map(), update_maintenance_window_request(), list()) ::
           {:ok, update_maintenance_window_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, does_not_exist_exception()}
-          | {:error, internal_server_error()}
+          | {:error, update_maintenance_window_errors()}
   def update_maintenance_window(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9809,8 +11191,7 @@ defmodule AWS.SSM do
         ) ::
           {:ok, update_maintenance_window_target_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, does_not_exist_exception()}
-          | {:error, internal_server_error()}
+          | {:error, update_maintenance_window_target_errors()}
   def update_maintenance_window_target(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9878,8 +11259,7 @@ defmodule AWS.SSM do
   @spec update_maintenance_window_task(map(), update_maintenance_window_task_request(), list()) ::
           {:ok, update_maintenance_window_task_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, does_not_exist_exception()}
-          | {:error, internal_server_error()}
+          | {:error, update_maintenance_window_task_errors()}
   def update_maintenance_window_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9897,8 +11277,7 @@ defmodule AWS.SSM do
   @spec update_managed_instance_role(map(), update_managed_instance_role_request(), list()) ::
           {:ok, update_managed_instance_role_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_instance_id()}
+          | {:error, update_managed_instance_role_errors()}
   def update_managed_instance_role(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9925,13 +11304,7 @@ defmodule AWS.SSM do
   @spec update_ops_item(map(), update_ops_item_request(), list()) ::
           {:ok, update_ops_item_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, ops_item_access_denied_exception()}
-          | {:error, ops_item_already_exists_exception()}
-          | {:error, ops_item_conflict_exception()}
-          | {:error, ops_item_invalid_parameter_exception()}
-          | {:error, ops_item_limit_exceeded_exception()}
-          | {:error, ops_item_not_found_exception()}
+          | {:error, update_ops_item_errors()}
   def update_ops_item(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9945,11 +11318,7 @@ defmodule AWS.SSM do
   @spec update_ops_metadata(map(), update_ops_metadata_request(), list()) ::
           {:ok, update_ops_metadata_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, ops_metadata_invalid_argument_exception()}
-          | {:error, ops_metadata_key_limit_exceeded_exception()}
-          | {:error, ops_metadata_not_found_exception()}
-          | {:error, ops_metadata_too_many_updates_exception()}
+          | {:error, update_ops_metadata_errors()}
   def update_ops_metadata(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9968,8 +11337,7 @@ defmodule AWS.SSM do
   @spec update_patch_baseline(map(), update_patch_baseline_request(), list()) ::
           {:ok, update_patch_baseline_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, does_not_exist_exception()}
-          | {:error, internal_server_error()}
+          | {:error, update_patch_baseline_errors()}
   def update_patch_baseline(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -10000,10 +11368,7 @@ defmodule AWS.SSM do
   @spec update_resource_data_sync(map(), update_resource_data_sync_request(), list()) ::
           {:ok, update_resource_data_sync_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, resource_data_sync_conflict_exception()}
-          | {:error, resource_data_sync_invalid_configuration_exception()}
-          | {:error, resource_data_sync_not_found_exception()}
+          | {:error, update_resource_data_sync_errors()}
   def update_resource_data_sync(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -10040,9 +11405,7 @@ defmodule AWS.SSM do
   @spec update_service_setting(map(), update_service_setting_request(), list()) ::
           {:ok, update_service_setting_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, service_setting_not_found()}
-          | {:error, too_many_updates()}
+          | {:error, update_service_setting_errors()}
   def update_service_setting(%Client{} = client, input, options \\ []) do
     meta = metadata()
 

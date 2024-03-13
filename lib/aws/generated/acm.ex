@@ -18,537 +18,719 @@ defmodule AWS.ACM do
   @typedoc """
 
   ## Example:
-  update_certificate_options_request() :: %{
-    required("CertificateArn") => String.t(),
-    required("Options") => certificate_options()
-  }
+      
+      update_certificate_options_request() :: %{
+        required("CertificateArn") => String.t(),
+        required("Options") => certificate_options()
+      }
+      
   """
   @type update_certificate_options_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  domain_validation_option() :: %{
-    "DomainName" => String.t(),
-    "ValidationDomain" => String.t()
-  }
+      
+      domain_validation_option() :: %{
+        "DomainName" => String.t(),
+        "ValidationDomain" => String.t()
+      }
+      
   """
   @type domain_validation_option() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  request_in_progress_exception() :: %{
-    "message" => String.t()
-  }
+      
+      request_in_progress_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type request_in_progress_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_in_use_exception() :: %{
-    "message" => String.t()
-  }
+      
+      resource_in_use_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type resource_in_use_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  export_certificate_response() :: %{
-    "Certificate" => String.t(),
-    "CertificateChain" => String.t(),
-    "PrivateKey" => String.t()
-  }
+      
+      export_certificate_response() :: %{
+        "Certificate" => String.t(),
+        "CertificateChain" => String.t(),
+        "PrivateKey" => String.t()
+      }
+      
   """
   @type export_certificate_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  import_certificate_response() :: %{
-    "CertificateArn" => String.t()
-  }
+      
+      import_certificate_response() :: %{
+        "CertificateArn" => String.t()
+      }
+      
   """
   @type import_certificate_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  export_certificate_request() :: %{
-    required("CertificateArn") => String.t(),
-    required("Passphrase") => binary()
-  }
+      
+      export_certificate_request() :: %{
+        required("CertificateArn") => String.t(),
+        required("Passphrase") => binary()
+      }
+      
   """
   @type export_certificate_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_policy_exception() :: %{
-    "message" => String.t()
-  }
+      
+      tag_policy_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type tag_policy_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  renewal_summary() :: %{
-    "DomainValidationOptions" => list(domain_validation()()),
-    "RenewalStatus" => list(any()),
-    "RenewalStatusReason" => list(any()),
-    "UpdatedAt" => non_neg_integer()
-  }
+      
+      renewal_summary() :: %{
+        "DomainValidationOptions" => list(domain_validation()()),
+        "RenewalStatus" => list(any()),
+        "RenewalStatusReason" => list(any()),
+        "UpdatedAt" => non_neg_integer()
+      }
+      
   """
   @type renewal_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_state_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_state_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_state_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_certificates_request() :: %{
-    optional("CertificateStatuses") => list(list(any())()),
-    optional("Includes") => filters(),
-    optional("MaxItems") => integer(),
-    optional("NextToken") => String.t(),
-    optional("SortBy") => list(any()),
-    optional("SortOrder") => list(any())
-  }
+      
+      list_certificates_request() :: %{
+        optional("CertificateStatuses") => list(list(any())()),
+        optional("Includes") => filters(),
+        optional("MaxItems") => integer(),
+        optional("NextToken") => String.t(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any())
+      }
+      
   """
   @type list_certificates_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  request_certificate_request() :: %{
-    optional("CertificateAuthorityArn") => String.t(),
-    optional("DomainValidationOptions") => list(domain_validation_option()()),
-    optional("IdempotencyToken") => String.t(),
-    optional("KeyAlgorithm") => list(any()),
-    optional("Options") => certificate_options(),
-    optional("SubjectAlternativeNames") => list(String.t()()),
-    optional("Tags") => list(tag()()),
-    optional("ValidationMethod") => list(any()),
-    required("DomainName") => String.t()
-  }
+      
+      request_certificate_request() :: %{
+        optional("CertificateAuthorityArn") => String.t(),
+        optional("DomainValidationOptions") => list(domain_validation_option()()),
+        optional("IdempotencyToken") => String.t(),
+        optional("KeyAlgorithm") => list(any()),
+        optional("Options") => certificate_options(),
+        optional("SubjectAlternativeNames") => list(String.t()()),
+        optional("Tags") => list(tag()()),
+        optional("ValidationMethod") => list(any()),
+        required("DomainName") => String.t()
+      }
+      
   """
   @type request_certificate_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  remove_tags_from_certificate_request() :: %{
-    required("CertificateArn") => String.t(),
-    required("Tags") => list(tag()())
-  }
+      
+      remove_tags_from_certificate_request() :: %{
+        required("CertificateArn") => String.t(),
+        required("Tags") => list(tag()())
+      }
+      
   """
   @type remove_tags_from_certificate_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_arn_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_arn_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_arn_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_args_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_args_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_args_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  certificate_summary() :: %{
-    "CertificateArn" => String.t(),
-    "CreatedAt" => non_neg_integer(),
-    "DomainName" => String.t(),
-    "Exported" => boolean(),
-    "ExtendedKeyUsages" => list(list(any())()),
-    "HasAdditionalSubjectAlternativeNames" => boolean(),
-    "ImportedAt" => non_neg_integer(),
-    "InUse" => boolean(),
-    "IssuedAt" => non_neg_integer(),
-    "KeyAlgorithm" => list(any()),
-    "KeyUsages" => list(list(any())()),
-    "NotAfter" => non_neg_integer(),
-    "NotBefore" => non_neg_integer(),
-    "RenewalEligibility" => list(any()),
-    "RevokedAt" => non_neg_integer(),
-    "Status" => list(any()),
-    "SubjectAlternativeNameSummaries" => list(String.t()()),
-    "Type" => list(any())
-  }
+      
+      certificate_summary() :: %{
+        "CertificateArn" => String.t(),
+        "CreatedAt" => non_neg_integer(),
+        "DomainName" => String.t(),
+        "Exported" => boolean(),
+        "ExtendedKeyUsages" => list(list(any())()),
+        "HasAdditionalSubjectAlternativeNames" => boolean(),
+        "ImportedAt" => non_neg_integer(),
+        "InUse" => boolean(),
+        "IssuedAt" => non_neg_integer(),
+        "KeyAlgorithm" => list(any()),
+        "KeyUsages" => list(list(any())()),
+        "NotAfter" => non_neg_integer(),
+        "NotBefore" => non_neg_integer(),
+        "RenewalEligibility" => list(any()),
+        "RevokedAt" => non_neg_integer(),
+        "Status" => list(any()),
+        "SubjectAlternativeNameSummaries" => list(String.t()()),
+        "Type" => list(any())
+      }
+      
   """
   @type certificate_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  renew_certificate_request() :: %{
-    required("CertificateArn") => String.t()
-  }
+      
+      renew_certificate_request() :: %{
+        required("CertificateArn") => String.t()
+      }
+      
   """
   @type renew_certificate_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  certificate_options() :: %{
-    "CertificateTransparencyLoggingPreference" => list(any())
-  }
+      
+      certificate_options() :: %{
+        "CertificateTransparencyLoggingPreference" => list(any())
+      }
+      
   """
   @type certificate_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_certificate_request() :: %{
-    required("CertificateArn") => String.t()
-  }
+      
+      list_tags_for_certificate_request() :: %{
+        required("CertificateArn") => String.t()
+      }
+      
   """
   @type list_tags_for_certificate_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  conflict_exception() :: %{
-    "message" => String.t()
-  }
+      
+      conflict_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_not_found_exception() :: %{
-    "message" => String.t()
-  }
+      
+      resource_not_found_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  expiry_events_configuration() :: %{
-    "DaysBeforeExpiry" => integer()
-  }
+      
+      expiry_events_configuration() :: %{
+        "DaysBeforeExpiry" => integer()
+      }
+      
   """
   @type expiry_events_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag() :: %{
-    "Key" => String.t(),
-    "Value" => String.t()
-  }
+      
+      tag() :: %{
+        "Key" => String.t(),
+        "Value" => String.t()
+      }
+      
   """
   @type tag() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_account_configuration_request() :: %{
-    optional("ExpiryEvents") => expiry_events_configuration(),
-    required("IdempotencyToken") => String.t()
-  }
+      
+      put_account_configuration_request() :: %{
+        optional("ExpiryEvents") => expiry_events_configuration(),
+        required("IdempotencyToken") => String.t()
+      }
+      
   """
   @type put_account_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_certificate_request() :: %{
-    required("CertificateArn") => String.t()
-  }
+      
+      get_certificate_request() :: %{
+        required("CertificateArn") => String.t()
+      }
+      
   """
   @type get_certificate_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_certificate_request() :: %{
-    required("CertificateArn") => String.t()
-  }
+      
+      describe_certificate_request() :: %{
+        required("CertificateArn") => String.t()
+      }
+      
   """
   @type describe_certificate_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  request_certificate_response() :: %{
-    "CertificateArn" => String.t()
-  }
+      
+      request_certificate_response() :: %{
+        "CertificateArn" => String.t()
+      }
+      
   """
   @type request_certificate_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_account_configuration_response() :: %{
-    "ExpiryEvents" => expiry_events_configuration()
-  }
+      
+      get_account_configuration_response() :: %{
+        "ExpiryEvents" => expiry_events_configuration()
+      }
+      
   """
   @type get_account_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resend_validation_email_request() :: %{
-    required("CertificateArn") => String.t(),
-    required("Domain") => String.t(),
-    required("ValidationDomain") => String.t()
-  }
+      
+      resend_validation_email_request() :: %{
+        required("CertificateArn") => String.t(),
+        required("Domain") => String.t(),
+        required("ValidationDomain") => String.t()
+      }
+      
   """
   @type resend_validation_email_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_certificate_response() :: %{
-    "Tags" => list(tag()())
-  }
+      
+      list_tags_for_certificate_response() :: %{
+        "Tags" => list(tag()())
+      }
+      
   """
   @type list_tags_for_certificate_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_domain_validation_options_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_domain_validation_options_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_domain_validation_options_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  add_tags_to_certificate_request() :: %{
-    required("CertificateArn") => String.t(),
-    required("Tags") => list(tag()())
-  }
+      
+      add_tags_to_certificate_request() :: %{
+        required("CertificateArn") => String.t(),
+        required("Tags") => list(tag()())
+      }
+      
   """
   @type add_tags_to_certificate_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  import_certificate_request() :: %{
-    optional("CertificateArn") => String.t(),
-    optional("CertificateChain") => binary(),
-    optional("Tags") => list(tag()()),
-    required("Certificate") => binary(),
-    required("PrivateKey") => binary()
-  }
+      
+      import_certificate_request() :: %{
+        optional("CertificateArn") => String.t(),
+        optional("CertificateChain") => binary(),
+        optional("Tags") => list(tag()()),
+        required("Certificate") => binary(),
+        required("PrivateKey") => binary()
+      }
+      
   """
   @type import_certificate_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  access_denied_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      access_denied_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_parameter_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_parameter_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_parameter_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_certificate_request() :: %{
-    required("CertificateArn") => String.t()
-  }
+      
+      delete_certificate_request() :: %{
+        required("CertificateArn") => String.t()
+      }
+      
   """
   @type delete_certificate_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_certificate_response() :: %{
-    "Certificate" => certificate_detail()
-  }
+      
+      describe_certificate_response() :: %{
+        "Certificate" => certificate_detail()
+      }
+      
   """
   @type describe_certificate_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  validation_exception() :: %{
-    "message" => String.t()
-  }
+      
+      validation_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  throttling_exception() :: %{
-    "message" => String.t()
-  }
+      
+      throttling_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  filters() :: %{
-    "extendedKeyUsage" => list(list(any())()),
-    "keyTypes" => list(list(any())()),
-    "keyUsage" => list(list(any())())
-  }
+      
+      filters() :: %{
+        "extendedKeyUsage" => list(list(any())()),
+        "keyTypes" => list(list(any())()),
+        "keyUsage" => list(list(any())())
+      }
+      
   """
   @type filters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  limit_exceeded_exception() :: %{
-    "message" => String.t()
-  }
+      
+      limit_exceeded_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  extended_key_usage() :: %{
-    "Name" => list(any()),
-    "OID" => String.t()
-  }
+      
+      extended_key_usage() :: %{
+        "Name" => list(any()),
+        "OID" => String.t()
+      }
+      
   """
   @type extended_key_usage() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  domain_validation() :: %{
-    "DomainName" => String.t(),
-    "ResourceRecord" => resource_record(),
-    "ValidationDomain" => String.t(),
-    "ValidationEmails" => list(String.t()()),
-    "ValidationMethod" => list(any()),
-    "ValidationStatus" => list(any())
-  }
+      
+      domain_validation() :: %{
+        "DomainName" => String.t(),
+        "ResourceRecord" => resource_record(),
+        "ValidationDomain" => String.t(),
+        "ValidationEmails" => list(String.t()()),
+        "ValidationMethod" => list(any()),
+        "ValidationStatus" => list(any())
+      }
+      
   """
   @type domain_validation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_record() :: %{
-    "Name" => String.t(),
-    "Type" => list(any()),
-    "Value" => String.t()
-  }
+      
+      resource_record() :: %{
+        "Name" => String.t(),
+        "Type" => list(any()),
+        "Value" => String.t()
+      }
+      
   """
   @type resource_record() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_tag_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_tag_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_tag_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_certificate_response() :: %{
-    "Certificate" => String.t(),
-    "CertificateChain" => String.t()
-  }
+      
+      get_certificate_response() :: %{
+        "Certificate" => String.t(),
+        "CertificateChain" => String.t()
+      }
+      
   """
   @type get_certificate_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  key_usage() :: %{
-    "Name" => list(any())
-  }
+      
+      key_usage() :: %{
+        "Name" => list(any())
+      }
+      
   """
   @type key_usage() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_tags_exception() :: %{
-    "message" => String.t()
-  }
+      
+      too_many_tags_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type too_many_tags_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_certificates_response() :: %{
-    "CertificateSummaryList" => list(certificate_summary()()),
-    "NextToken" => String.t()
-  }
+      
+      list_certificates_response() :: %{
+        "CertificateSummaryList" => list(certificate_summary()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_certificates_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  certificate_detail() :: %{
-    "CertificateArn" => String.t(),
-    "CertificateAuthorityArn" => String.t(),
-    "CreatedAt" => non_neg_integer(),
-    "DomainName" => String.t(),
-    "DomainValidationOptions" => list(domain_validation()()),
-    "ExtendedKeyUsages" => list(extended_key_usage()()),
-    "FailureReason" => list(any()),
-    "ImportedAt" => non_neg_integer(),
-    "InUseBy" => list(String.t()()),
-    "IssuedAt" => non_neg_integer(),
-    "Issuer" => String.t(),
-    "KeyAlgorithm" => list(any()),
-    "KeyUsages" => list(key_usage()()),
-    "NotAfter" => non_neg_integer(),
-    "NotBefore" => non_neg_integer(),
-    "Options" => certificate_options(),
-    "RenewalEligibility" => list(any()),
-    "RenewalSummary" => renewal_summary(),
-    "RevocationReason" => list(any()),
-    "RevokedAt" => non_neg_integer(),
-    "Serial" => String.t(),
-    "SignatureAlgorithm" => String.t(),
-    "Status" => list(any()),
-    "Subject" => String.t(),
-    "SubjectAlternativeNames" => list(String.t()()),
-    "Type" => list(any())
-  }
+      
+      certificate_detail() :: %{
+        "CertificateArn" => String.t(),
+        "CertificateAuthorityArn" => String.t(),
+        "CreatedAt" => non_neg_integer(),
+        "DomainName" => String.t(),
+        "DomainValidationOptions" => list(domain_validation()()),
+        "ExtendedKeyUsages" => list(extended_key_usage()()),
+        "FailureReason" => list(any()),
+        "ImportedAt" => non_neg_integer(),
+        "InUseBy" => list(String.t()()),
+        "IssuedAt" => non_neg_integer(),
+        "Issuer" => String.t(),
+        "KeyAlgorithm" => list(any()),
+        "KeyUsages" => list(key_usage()()),
+        "NotAfter" => non_neg_integer(),
+        "NotBefore" => non_neg_integer(),
+        "Options" => certificate_options(),
+        "RenewalEligibility" => list(any()),
+        "RenewalSummary" => renewal_summary(),
+        "RevocationReason" => list(any()),
+        "RevokedAt" => non_neg_integer(),
+        "Serial" => String.t(),
+        "SignatureAlgorithm" => String.t(),
+        "Status" => list(any()),
+        "Subject" => String.t(),
+        "SubjectAlternativeNames" => list(String.t()()),
+        "Type" => list(any())
+      }
+      
   """
   @type certificate_detail() :: %{String.t() => any()}
+
+  @type add_tags_to_certificate_errors() ::
+          too_many_tags_exception()
+          | invalid_tag_exception()
+          | throttling_exception()
+          | invalid_parameter_exception()
+          | resource_not_found_exception()
+          | invalid_arn_exception()
+          | tag_policy_exception()
+
+  @type delete_certificate_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | invalid_arn_exception()
+          | resource_in_use_exception()
+
+  @type describe_certificate_errors() :: resource_not_found_exception() | invalid_arn_exception()
+
+  @type export_certificate_errors() ::
+          resource_not_found_exception()
+          | invalid_arn_exception()
+          | request_in_progress_exception()
+
+  @type get_account_configuration_errors() :: throttling_exception() | access_denied_exception()
+
+  @type get_certificate_errors() ::
+          resource_not_found_exception()
+          | invalid_arn_exception()
+          | request_in_progress_exception()
+
+  @type import_certificate_errors() ::
+          too_many_tags_exception()
+          | invalid_tag_exception()
+          | limit_exceeded_exception()
+          | invalid_parameter_exception()
+          | resource_not_found_exception()
+          | invalid_arn_exception()
+          | tag_policy_exception()
+
+  @type list_certificates_errors() :: validation_exception() | invalid_args_exception()
+
+  @type list_tags_for_certificate_errors() ::
+          resource_not_found_exception() | invalid_arn_exception()
+
+  @type put_account_configuration_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | conflict_exception()
+
+  @type remove_tags_from_certificate_errors() ::
+          invalid_tag_exception()
+          | throttling_exception()
+          | invalid_parameter_exception()
+          | resource_not_found_exception()
+          | invalid_arn_exception()
+          | tag_policy_exception()
+
+  @type renew_certificate_errors() :: resource_not_found_exception() | invalid_arn_exception()
+
+  @type request_certificate_errors() ::
+          too_many_tags_exception()
+          | invalid_tag_exception()
+          | limit_exceeded_exception()
+          | invalid_parameter_exception()
+          | invalid_domain_validation_options_exception()
+          | invalid_arn_exception()
+          | tag_policy_exception()
+
+  @type resend_validation_email_errors() ::
+          invalid_domain_validation_options_exception()
+          | resource_not_found_exception()
+          | invalid_arn_exception()
+          | invalid_state_exception()
+
+  @type update_certificate_options_errors() ::
+          limit_exceeded_exception()
+          | resource_not_found_exception()
+          | invalid_arn_exception()
+          | invalid_state_exception()
 
   def metadata do
     %{
@@ -595,13 +777,7 @@ defmodule AWS.ACM do
   @spec add_tags_to_certificate(map(), add_tags_to_certificate_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_arn_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, invalid_tag_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, tag_policy_exception()}
-          | {:error, throttling_exception()}
-          | {:error, too_many_tags_exception()}
+          | {:error, add_tags_to_certificate_errors()}
   def add_tags_to_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -625,12 +801,7 @@ defmodule AWS.ACM do
   @spec delete_certificate(map(), delete_certificate_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, invalid_arn_exception()}
-          | {:error, resource_in_use_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
+          | {:error, delete_certificate_errors()}
   def delete_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -647,8 +818,7 @@ defmodule AWS.ACM do
   @spec describe_certificate(map(), describe_certificate_request(), list()) ::
           {:ok, describe_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_arn_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, describe_certificate_errors()}
   def describe_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -675,9 +845,7 @@ defmodule AWS.ACM do
   @spec export_certificate(map(), export_certificate_request(), list()) ::
           {:ok, export_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_arn_exception()}
-          | {:error, request_in_progress_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, export_certificate_errors()}
   def export_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -691,8 +859,7 @@ defmodule AWS.ACM do
   @spec get_account_configuration(map(), %{}, list()) ::
           {:ok, get_account_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, throttling_exception()}
+          | {:error, get_account_configuration_errors()}
   def get_account_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -712,9 +879,7 @@ defmodule AWS.ACM do
   @spec get_certificate(map(), get_certificate_request(), list()) ::
           {:ok, get_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_arn_exception()}
-          | {:error, request_in_progress_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, get_certificate_errors()}
   def get_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -813,13 +978,7 @@ defmodule AWS.ACM do
   @spec import_certificate(map(), import_certificate_request(), list()) ::
           {:ok, import_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_arn_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, invalid_tag_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, tag_policy_exception()}
-          | {:error, too_many_tags_exception()}
+          | {:error, import_certificate_errors()}
   def import_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -838,8 +997,7 @@ defmodule AWS.ACM do
   @spec list_certificates(map(), list_certificates_request(), list()) ::
           {:ok, list_certificates_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_args_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_certificates_errors()}
   def list_certificates(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -858,8 +1016,7 @@ defmodule AWS.ACM do
   @spec list_tags_for_certificate(map(), list_tags_for_certificate_request(), list()) ::
           {:ok, list_tags_for_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_arn_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, list_tags_for_certificate_errors()}
   def list_tags_for_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -879,10 +1036,7 @@ defmodule AWS.ACM do
   @spec put_account_configuration(map(), put_account_configuration_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, put_account_configuration_errors()}
   def put_account_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -906,12 +1060,7 @@ defmodule AWS.ACM do
   @spec remove_tags_from_certificate(map(), remove_tags_from_certificate_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_arn_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, invalid_tag_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, tag_policy_exception()}
-          | {:error, throttling_exception()}
+          | {:error, remove_tags_from_certificate_errors()}
   def remove_tags_from_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -932,8 +1081,7 @@ defmodule AWS.ACM do
   @spec renew_certificate(map(), renew_certificate_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_arn_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, renew_certificate_errors()}
   def renew_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -970,13 +1118,7 @@ defmodule AWS.ACM do
   @spec request_certificate(map(), request_certificate_request(), list()) ::
           {:ok, request_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_arn_exception()}
-          | {:error, invalid_domain_validation_options_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, invalid_tag_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, tag_policy_exception()}
-          | {:error, too_many_tags_exception()}
+          | {:error, request_certificate_errors()}
   def request_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1006,10 +1148,7 @@ defmodule AWS.ACM do
   @spec resend_validation_email(map(), resend_validation_email_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_arn_exception()}
-          | {:error, invalid_domain_validation_options_exception()}
-          | {:error, invalid_state_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, resend_validation_email_errors()}
   def resend_validation_email(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1028,10 +1167,7 @@ defmodule AWS.ACM do
   @spec update_certificate_options(map(), update_certificate_options_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_arn_exception()}
-          | {:error, invalid_state_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, update_certificate_options_errors()}
   def update_certificate_options(%Client{} = client, input, options \\ []) do
     meta = metadata()
 

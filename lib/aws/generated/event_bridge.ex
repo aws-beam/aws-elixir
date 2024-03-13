@@ -37,2024 +37,2615 @@ defmodule AWS.EventBridge do
   @typedoc """
 
   ## Example:
-  cancel_replay_request() :: %{
-    required("ReplayName") => String.t()
-  }
+      
+      cancel_replay_request() :: %{
+        required("ReplayName") => String.t()
+      }
+      
   """
   @type cancel_replay_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_event_bus_request() :: %{
-    optional("Name") => String.t()
-  }
+      
+      describe_event_bus_request() :: %{
+        optional("Name") => String.t()
+      }
+      
   """
   @type describe_event_bus_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_connection_request() :: %{
-    optional("AuthParameters") => update_connection_auth_request_parameters(),
-    optional("AuthorizationType") => list(any()),
-    optional("Description") => String.t(),
-    required("Name") => String.t()
-  }
+      
+      update_connection_request() :: %{
+        optional("AuthParameters") => update_connection_auth_request_parameters(),
+        optional("AuthorizationType") => list(any()),
+        optional("Description") => String.t(),
+        required("Name") => String.t()
+      }
+      
   """
   @type update_connection_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  deauthorize_connection_response() :: %{
-    "ConnectionArn" => String.t(),
-    "ConnectionState" => list(any()),
-    "CreationTime" => non_neg_integer(),
-    "LastAuthorizedTime" => non_neg_integer(),
-    "LastModifiedTime" => non_neg_integer()
-  }
+      
+      deauthorize_connection_response() :: %{
+        "ConnectionArn" => String.t(),
+        "ConnectionState" => list(any()),
+        "CreationTime" => non_neg_integer(),
+        "LastAuthorizedTime" => non_neg_integer(),
+        "LastModifiedTime" => non_neg_integer()
+      }
+      
   """
   @type deauthorize_connection_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_event_bus_request() :: %{
-    optional("EventSourceName") => String.t(),
-    optional("Tags") => list(tag()()),
-    required("Name") => String.t()
-  }
+      
+      create_event_bus_request() :: %{
+        optional("EventSourceName") => String.t(),
+        optional("Tags") => list(tag()()),
+        required("Name") => String.t()
+      }
+      
   """
   @type create_event_bus_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_request() :: %{
-    required("ResourceARN") => String.t(),
-    required("Tags") => list(tag()())
-  }
+      
+      tag_resource_request() :: %{
+        required("ResourceARN") => String.t(),
+        required("Tags") => list(tag()())
+      }
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_retry_strategy() :: %{
-    "Attempts" => integer()
-  }
+      
+      batch_retry_strategy() :: %{
+        "Attempts" => integer()
+      }
+      
   """
   @type batch_retry_strategy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_archives_response() :: %{
-    "Archives" => list(archive()()),
-    "NextToken" => String.t()
-  }
+      
+      list_archives_response() :: %{
+        "Archives" => list(archive()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_archives_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_partner_events_request_entry() :: %{
-    "Detail" => String.t(),
-    "DetailType" => String.t(),
-    "Resources" => list(String.t()()),
-    "Source" => String.t(),
-    "Time" => non_neg_integer()
-  }
+      
+      put_partner_events_request_entry() :: %{
+        "Detail" => String.t(),
+        "DetailType" => String.t(),
+        "Resources" => list(String.t()()),
+        "Source" => String.t(),
+        "Time" => non_neg_integer()
+      }
+      
   """
   @type put_partner_events_request_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  connection_query_string_parameter() :: %{
-    "IsValueSecret" => boolean(),
-    "Key" => String.t(),
-    "Value" => String.t()
-  }
+      
+      connection_query_string_parameter() :: %{
+        "IsValueSecret" => boolean(),
+        "Key" => String.t(),
+        "Value" => String.t()
+      }
+      
   """
   @type connection_query_string_parameter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_connection_o_auth_request_parameters() :: %{
-    "AuthorizationEndpoint" => String.t(),
-    "ClientParameters" => update_connection_o_auth_client_request_parameters(),
-    "HttpMethod" => list(any()),
-    "OAuthHttpParameters" => connection_http_parameters()
-  }
+      
+      update_connection_o_auth_request_parameters() :: %{
+        "AuthorizationEndpoint" => String.t(),
+        "ClientParameters" => update_connection_o_auth_client_request_parameters(),
+        "HttpMethod" => list(any()),
+        "OAuthHttpParameters" => connection_http_parameters()
+      }
+      
   """
   @type update_connection_o_auth_request_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_rule_response() :: %{
-    "RuleArn" => String.t()
-  }
+      
+      put_rule_response() :: %{
+        "RuleArn" => String.t()
+      }
+      
   """
   @type put_rule_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  run_command_target() :: %{
-    "Key" => String.t(),
-    "Values" => list(String.t()())
-  }
+      
+      run_command_target() :: %{
+        "Key" => String.t(),
+        "Values" => list(String.t()())
+      }
+      
   """
   @type run_command_target() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_event_pattern_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_event_pattern_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_event_pattern_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_endpoint_response() :: %{
-    "Arn" => String.t(),
-    "EndpointId" => String.t(),
-    "EndpointUrl" => String.t(),
-    "EventBuses" => list(endpoint_event_bus()()),
-    "Name" => String.t(),
-    "ReplicationConfig" => replication_config(),
-    "RoleArn" => String.t(),
-    "RoutingConfig" => routing_config(),
-    "State" => list(any())
-  }
+      
+      update_endpoint_response() :: %{
+        "Arn" => String.t(),
+        "EndpointId" => String.t(),
+        "EndpointUrl" => String.t(),
+        "EventBuses" => list(endpoint_event_bus()()),
+        "Name" => String.t(),
+        "ReplicationConfig" => replication_config(),
+        "RoleArn" => String.t(),
+        "RoutingConfig" => routing_config(),
+        "State" => list(any())
+      }
+      
   """
   @type update_endpoint_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_event_source_response() :: %{
-    "Arn" => String.t(),
-    "CreatedBy" => String.t(),
-    "CreationTime" => non_neg_integer(),
-    "ExpirationTime" => non_neg_integer(),
-    "Name" => String.t(),
-    "State" => list(any())
-  }
+      
+      describe_event_source_response() :: %{
+        "Arn" => String.t(),
+        "CreatedBy" => String.t(),
+        "CreationTime" => non_neg_integer(),
+        "ExpirationTime" => non_neg_integer(),
+        "Name" => String.t(),
+        "State" => list(any())
+      }
+      
   """
   @type describe_event_source_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  policy_length_exceeded_exception() :: %{
-    "message" => String.t()
-  }
+      
+      policy_length_exceeded_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type policy_length_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_response() :: %{
-
-  }
+      
+      untag_resource_response() :: %{}
+      
   """
-  @type untag_resource_response() :: %{String.t() => any()}
+  @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  put_targets_result_entry() :: %{
-    "ErrorCode" => String.t(),
-    "ErrorMessage" => String.t(),
-    "TargetId" => String.t()
-  }
+      
+      put_targets_result_entry() :: %{
+        "ErrorCode" => String.t(),
+        "ErrorMessage" => String.t(),
+        "TargetId" => String.t()
+      }
+      
   """
   @type put_targets_result_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_connection_request() :: %{
-    required("Name") => String.t()
-  }
+      
+      describe_connection_request() :: %{
+        required("Name") => String.t()
+      }
+      
   """
   @type describe_connection_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_api_destination_request() :: %{
-    required("Name") => String.t()
-  }
+      
+      describe_api_destination_request() :: %{
+        required("Name") => String.t()
+      }
+      
   """
   @type describe_api_destination_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  enable_rule_request() :: %{
-    optional("EventBusName") => String.t(),
-    required("Name") => String.t()
-  }
+      
+      enable_rule_request() :: %{
+        optional("EventBusName") => String.t(),
+        required("Name") => String.t()
+      }
+      
   """
   @type enable_rule_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_archive_request() :: %{
-    required("ArchiveName") => String.t()
-  }
+      
+      describe_archive_request() :: %{
+        required("ArchiveName") => String.t()
+      }
+      
   """
   @type describe_archive_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  test_event_pattern_request() :: %{
-    required("Event") => String.t(),
-    required("EventPattern") => String.t()
-  }
+      
+      test_event_pattern_request() :: %{
+        required("Event") => String.t(),
+        required("EventPattern") => String.t()
+      }
+      
   """
   @type test_event_pattern_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  connection_auth_response_parameters() :: %{
-    "ApiKeyAuthParameters" => connection_api_key_auth_response_parameters(),
-    "BasicAuthParameters" => connection_basic_auth_response_parameters(),
-    "InvocationHttpParameters" => connection_http_parameters(),
-    "OAuthParameters" => connection_o_auth_response_parameters()
-  }
+      
+      connection_auth_response_parameters() :: %{
+        "ApiKeyAuthParameters" => connection_api_key_auth_response_parameters(),
+        "BasicAuthParameters" => connection_basic_auth_response_parameters(),
+        "InvocationHttpParameters" => connection_http_parameters(),
+        "OAuthParameters" => connection_o_auth_response_parameters()
+      }
+      
   """
   @type connection_auth_response_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  deactivate_event_source_request() :: %{
-    required("Name") => String.t()
-  }
+      
+      deactivate_event_source_request() :: %{
+        required("Name") => String.t()
+      }
+      
   """
   @type deactivate_event_source_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_event_sources_response() :: %{
-    "EventSources" => list(event_source()()),
-    "NextToken" => String.t()
-  }
+      
+      list_event_sources_response() :: %{
+        "EventSources" => list(event_source()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_event_sources_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_array_properties() :: %{
-    "Size" => integer()
-  }
+      
+      batch_array_properties() :: %{
+        "Size" => integer()
+      }
+      
   """
   @type batch_array_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  partner_event_source_account() :: %{
-    "Account" => String.t(),
-    "CreationTime" => non_neg_integer(),
-    "ExpirationTime" => non_neg_integer(),
-    "State" => list(any())
-  }
+      
+      partner_event_source_account() :: %{
+        "Account" => String.t(),
+        "CreationTime" => non_neg_integer(),
+        "ExpirationTime" => non_neg_integer(),
+        "State" => list(any())
+      }
+      
   """
   @type partner_event_source_account() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_connection_o_auth_request_parameters() :: %{
-    "AuthorizationEndpoint" => String.t(),
-    "ClientParameters" => create_connection_o_auth_client_request_parameters(),
-    "HttpMethod" => list(any()),
-    "OAuthHttpParameters" => connection_http_parameters()
-  }
+      
+      create_connection_o_auth_request_parameters() :: %{
+        "AuthorizationEndpoint" => String.t(),
+        "ClientParameters" => create_connection_o_auth_client_request_parameters(),
+        "HttpMethod" => list(any()),
+        "OAuthHttpParameters" => connection_http_parameters()
+      }
+      
   """
   @type create_connection_o_auth_request_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_partner_event_source_request() :: %{
-    required("Account") => String.t(),
-    required("Name") => String.t()
-  }
+      
+      create_partner_event_source_request() :: %{
+        required("Account") => String.t(),
+        required("Name") => String.t()
+      }
+      
   """
   @type create_partner_event_source_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_connections_response() :: %{
-    "Connections" => list(connection()()),
-    "NextToken" => String.t()
-  }
+      
+      list_connections_response() :: %{
+        "Connections" => list(connection()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_connections_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_parameters() :: %{
-    "ArrayProperties" => batch_array_properties(),
-    "JobDefinition" => String.t(),
-    "JobName" => String.t(),
-    "RetryStrategy" => batch_retry_strategy()
-  }
+      
+      batch_parameters() :: %{
+        "ArrayProperties" => batch_array_properties(),
+        "JobDefinition" => String.t(),
+        "JobName" => String.t(),
+        "RetryStrategy" => batch_retry_strategy()
+      }
+      
   """
   @type batch_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_event_sources_request() :: %{
-    optional("Limit") => integer(),
-    optional("NamePrefix") => String.t(),
-    optional("NextToken") => String.t()
-  }
+      
+      list_event_sources_request() :: %{
+        optional("Limit") => integer(),
+        optional("NamePrefix") => String.t(),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type list_event_sources_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  run_command_parameters() :: %{
-    "RunCommandTargets" => list(run_command_target()())
-  }
+      
+      run_command_parameters() :: %{
+        "RunCommandTargets" => list(run_command_target()())
+      }
+      
   """
   @type run_command_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_endpoint_request() :: %{
-    optional("Description") => String.t(),
-    optional("ReplicationConfig") => replication_config(),
-    optional("RoleArn") => String.t(),
-    required("EventBuses") => list(endpoint_event_bus()()),
-    required("Name") => String.t(),
-    required("RoutingConfig") => routing_config()
-  }
+      
+      create_endpoint_request() :: %{
+        optional("Description") => String.t(),
+        optional("ReplicationConfig") => replication_config(),
+        optional("RoleArn") => String.t(),
+        required("EventBuses") => list(endpoint_event_bus()()),
+        required("Name") => String.t(),
+        required("RoutingConfig") => routing_config()
+      }
+      
   """
   @type create_endpoint_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  http_parameters() :: %{
-    "HeaderParameters" => map(),
-    "PathParameterValues" => list(String.t()()),
-    "QueryStringParameters" => map()
-  }
+      
+      http_parameters() :: %{
+        "HeaderParameters" => map(),
+        "PathParameterValues" => list(String.t()()),
+        "QueryStringParameters" => map()
+      }
+      
   """
   @type http_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  app_sync_parameters() :: %{
-    "GraphQLOperation" => String.t()
-  }
+      
+      app_sync_parameters() :: %{
+        "GraphQLOperation" => String.t()
+      }
+      
   """
   @type app_sync_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  sage_maker_pipeline_parameter() :: %{
-    "Name" => String.t(),
-    "Value" => String.t()
-  }
+      
+      sage_maker_pipeline_parameter() :: %{
+        "Name" => String.t(),
+        "Value" => String.t()
+      }
+      
   """
   @type sage_maker_pipeline_parameter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  connection_header_parameter() :: %{
-    "IsValueSecret" => boolean(),
-    "Key" => String.t(),
-    "Value" => String.t()
-  }
+      
+      connection_header_parameter() :: %{
+        "IsValueSecret" => boolean(),
+        "Key" => String.t(),
+        "Value" => String.t()
+      }
+      
   """
   @type connection_header_parameter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_api_destination_response() :: %{
-
-  }
+      
+      delete_api_destination_response() :: %{}
+      
   """
-  @type delete_api_destination_response() :: %{String.t() => any()}
+  @type delete_api_destination_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_event_bus_response() :: %{
-    "EventBusArn" => String.t()
-  }
+      
+      create_event_bus_response() :: %{
+        "EventBusArn" => String.t()
+      }
+      
   """
   @type create_event_bus_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_endpoint_request() :: %{
-    optional("Description") => String.t(),
-    optional("EventBuses") => list(endpoint_event_bus()()),
-    optional("ReplicationConfig") => replication_config(),
-    optional("RoleArn") => String.t(),
-    optional("RoutingConfig") => routing_config(),
-    required("Name") => String.t()
-  }
+      
+      update_endpoint_request() :: %{
+        optional("Description") => String.t(),
+        optional("EventBuses") => list(endpoint_event_bus()()),
+        optional("ReplicationConfig") => replication_config(),
+        optional("RoleArn") => String.t(),
+        optional("RoutingConfig") => routing_config(),
+        required("Name") => String.t()
+      }
+      
   """
   @type update_endpoint_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_events_response() :: %{
-    "Entries" => list(put_events_result_entry()()),
-    "FailedEntryCount" => integer()
-  }
+      
+      put_events_response() :: %{
+        "Entries" => list(put_events_result_entry()()),
+        "FailedEntryCount" => integer()
+      }
+      
   """
   @type put_events_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  routing_config() :: %{
-    "FailoverConfig" => failover_config()
-  }
+      
+      routing_config() :: %{
+        "FailoverConfig" => failover_config()
+      }
+      
   """
   @type routing_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_events_request_entry() :: %{
-    "Detail" => String.t(),
-    "DetailType" => String.t(),
-    "EventBusName" => String.t(),
-    "Resources" => list(String.t()()),
-    "Source" => String.t(),
-    "Time" => non_neg_integer(),
-    "TraceHeader" => String.t()
-  }
+      
+      put_events_request_entry() :: %{
+        "Detail" => String.t(),
+        "DetailType" => String.t(),
+        "EventBusName" => String.t(),
+        "Resources" => list(String.t()()),
+        "Source" => String.t(),
+        "Time" => non_neg_integer(),
+        "TraceHeader" => String.t()
+      }
+      
   """
   @type put_events_request_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_request() :: %{
-    required("ResourceARN") => String.t(),
-    required("TagKeys") => list(String.t()())
-  }
+      
+      untag_resource_request() :: %{
+        required("ResourceARN") => String.t(),
+        required("TagKeys") => list(String.t()())
+      }
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_state_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_state_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_state_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_replay_response() :: %{
-    "Description" => String.t(),
-    "Destination" => replay_destination(),
-    "EventEndTime" => non_neg_integer(),
-    "EventLastReplayedTime" => non_neg_integer(),
-    "EventSourceArn" => String.t(),
-    "EventStartTime" => non_neg_integer(),
-    "ReplayArn" => String.t(),
-    "ReplayEndTime" => non_neg_integer(),
-    "ReplayName" => String.t(),
-    "ReplayStartTime" => non_neg_integer(),
-    "State" => list(any()),
-    "StateReason" => String.t()
-  }
+      
+      describe_replay_response() :: %{
+        "Description" => String.t(),
+        "Destination" => replay_destination(),
+        "EventEndTime" => non_neg_integer(),
+        "EventLastReplayedTime" => non_neg_integer(),
+        "EventSourceArn" => String.t(),
+        "EventStartTime" => non_neg_integer(),
+        "ReplayArn" => String.t(),
+        "ReplayEndTime" => non_neg_integer(),
+        "ReplayName" => String.t(),
+        "ReplayStartTime" => non_neg_integer(),
+        "State" => list(any()),
+        "StateReason" => String.t()
+      }
+      
   """
   @type describe_replay_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  connection_api_key_auth_response_parameters() :: %{
-    "ApiKeyName" => String.t()
-  }
+      
+      connection_api_key_auth_response_parameters() :: %{
+        "ApiKeyName" => String.t()
+      }
+      
   """
   @type connection_api_key_auth_response_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  replay() :: %{
-    "EventEndTime" => non_neg_integer(),
-    "EventLastReplayedTime" => non_neg_integer(),
-    "EventSourceArn" => String.t(),
-    "EventStartTime" => non_neg_integer(),
-    "ReplayEndTime" => non_neg_integer(),
-    "ReplayName" => String.t(),
-    "ReplayStartTime" => non_neg_integer(),
-    "State" => list(any()),
-    "StateReason" => String.t()
-  }
+      
+      replay() :: %{
+        "EventEndTime" => non_neg_integer(),
+        "EventLastReplayedTime" => non_neg_integer(),
+        "EventSourceArn" => String.t(),
+        "EventStartTime" => non_neg_integer(),
+        "ReplayEndTime" => non_neg_integer(),
+        "ReplayName" => String.t(),
+        "ReplayStartTime" => non_neg_integer(),
+        "State" => list(any()),
+        "StateReason" => String.t()
+      }
+      
   """
   @type replay() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_rules_request() :: %{
-    optional("EventBusName") => String.t(),
-    optional("Limit") => integer(),
-    optional("NamePrefix") => String.t(),
-    optional("NextToken") => String.t()
-  }
+      
+      list_rules_request() :: %{
+        optional("EventBusName") => String.t(),
+        optional("Limit") => integer(),
+        optional("NamePrefix") => String.t(),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type list_rules_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  event_source() :: %{
-    "Arn" => String.t(),
-    "CreatedBy" => String.t(),
-    "CreationTime" => non_neg_integer(),
-    "ExpirationTime" => non_neg_integer(),
-    "Name" => String.t(),
-    "State" => list(any())
-  }
+      
+      event_source() :: %{
+        "Arn" => String.t(),
+        "CreatedBy" => String.t(),
+        "CreationTime" => non_neg_integer(),
+        "ExpirationTime" => non_neg_integer(),
+        "Name" => String.t(),
+        "State" => list(any())
+      }
+      
   """
   @type event_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_connection_auth_request_parameters() :: %{
-    "ApiKeyAuthParameters" => update_connection_api_key_auth_request_parameters(),
-    "BasicAuthParameters" => update_connection_basic_auth_request_parameters(),
-    "InvocationHttpParameters" => connection_http_parameters(),
-    "OAuthParameters" => update_connection_o_auth_request_parameters()
-  }
+      
+      update_connection_auth_request_parameters() :: %{
+        "ApiKeyAuthParameters" => update_connection_api_key_auth_request_parameters(),
+        "BasicAuthParameters" => update_connection_basic_auth_request_parameters(),
+        "InvocationHttpParameters" => connection_http_parameters(),
+        "OAuthParameters" => update_connection_o_auth_request_parameters()
+      }
+      
   """
   @type update_connection_auth_request_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  endpoint_event_bus() :: %{
-    "EventBusArn" => String.t()
-  }
+      
+      endpoint_event_bus() :: %{
+        "EventBusArn" => String.t()
+      }
+      
   """
   @type endpoint_event_bus() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_partner_event_source_response() :: %{
-    "Arn" => String.t(),
-    "Name" => String.t()
-  }
+      
+      describe_partner_event_source_response() :: %{
+        "Arn" => String.t(),
+        "Name" => String.t()
+      }
+      
   """
   @type describe_partner_event_source_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_archive_response() :: %{
-
-  }
+      
+      delete_archive_response() :: %{}
+      
   """
-  @type delete_archive_response() :: %{String.t() => any()}
+  @type delete_archive_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  update_connection_api_key_auth_request_parameters() :: %{
-    "ApiKeyName" => String.t(),
-    "ApiKeyValue" => String.t()
-  }
+      
+      update_connection_api_key_auth_request_parameters() :: %{
+        "ApiKeyName" => String.t(),
+        "ApiKeyValue" => String.t()
+      }
+      
   """
   @type update_connection_api_key_auth_request_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_archive_request() :: %{
-    optional("Description") => String.t(),
-    optional("EventPattern") => String.t(),
-    optional("RetentionDays") => integer(),
-    required("ArchiveName") => String.t(),
-    required("EventSourceArn") => String.t()
-  }
+      
+      create_archive_request() :: %{
+        optional("Description") => String.t(),
+        optional("EventPattern") => String.t(),
+        optional("RetentionDays") => integer(),
+        required("ArchiveName") => String.t(),
+        required("EventSourceArn") => String.t()
+      }
+      
   """
   @type create_archive_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_rule_request() :: %{
-    optional("EventBusName") => String.t(),
-    optional("Force") => boolean(),
-    required("Name") => String.t()
-  }
+      
+      delete_rule_request() :: %{
+        optional("EventBusName") => String.t(),
+        optional("Force") => boolean(),
+        required("Name") => String.t()
+      }
+      
   """
   @type delete_rule_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_archive_request() :: %{
-    required("ArchiveName") => String.t()
-  }
+      
+      delete_archive_request() :: %{
+        required("ArchiveName") => String.t()
+      }
+      
   """
   @type delete_archive_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_partner_event_source_accounts_request() :: %{
-    optional("Limit") => integer(),
-    optional("NextToken") => String.t(),
-    required("EventSourceName") => String.t()
-  }
+      
+      list_partner_event_source_accounts_request() :: %{
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t(),
+        required("EventSourceName") => String.t()
+      }
+      
   """
   @type list_partner_event_source_accounts_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_connection_response() :: %{
-    "AuthParameters" => connection_auth_response_parameters(),
-    "AuthorizationType" => list(any()),
-    "ConnectionArn" => String.t(),
-    "ConnectionState" => list(any()),
-    "CreationTime" => non_neg_integer(),
-    "Description" => String.t(),
-    "LastAuthorizedTime" => non_neg_integer(),
-    "LastModifiedTime" => non_neg_integer(),
-    "Name" => String.t(),
-    "SecretArn" => String.t(),
-    "StateReason" => String.t()
-  }
+      
+      describe_connection_response() :: %{
+        "AuthParameters" => connection_auth_response_parameters(),
+        "AuthorizationType" => list(any()),
+        "ConnectionArn" => String.t(),
+        "ConnectionState" => list(any()),
+        "CreationTime" => non_neg_integer(),
+        "Description" => String.t(),
+        "LastAuthorizedTime" => non_neg_integer(),
+        "LastModifiedTime" => non_neg_integer(),
+        "Name" => String.t(),
+        "SecretArn" => String.t(),
+        "StateReason" => String.t()
+      }
+      
   """
   @type describe_connection_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  remove_targets_result_entry() :: %{
-    "ErrorCode" => String.t(),
-    "ErrorMessage" => String.t(),
-    "TargetId" => String.t()
-  }
+      
+      remove_targets_result_entry() :: %{
+        "ErrorCode" => String.t(),
+        "ErrorMessage" => String.t(),
+        "TargetId" => String.t()
+      }
+      
   """
   @type remove_targets_result_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_api_destination_response() :: %{
-    "ApiDestinationArn" => String.t(),
-    "ApiDestinationState" => list(any()),
-    "ConnectionArn" => String.t(),
-    "CreationTime" => non_neg_integer(),
-    "Description" => String.t(),
-    "HttpMethod" => list(any()),
-    "InvocationEndpoint" => String.t(),
-    "InvocationRateLimitPerSecond" => integer(),
-    "LastModifiedTime" => non_neg_integer(),
-    "Name" => String.t()
-  }
+      
+      describe_api_destination_response() :: %{
+        "ApiDestinationArn" => String.t(),
+        "ApiDestinationState" => list(any()),
+        "ConnectionArn" => String.t(),
+        "CreationTime" => non_neg_integer(),
+        "Description" => String.t(),
+        "HttpMethod" => list(any()),
+        "InvocationEndpoint" => String.t(),
+        "InvocationRateLimitPerSecond" => integer(),
+        "LastModifiedTime" => non_neg_integer(),
+        "Name" => String.t()
+      }
+      
   """
   @type describe_api_destination_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  target() :: %{
-    "AppSyncParameters" => app_sync_parameters(),
-    "Arn" => String.t(),
-    "BatchParameters" => batch_parameters(),
-    "DeadLetterConfig" => dead_letter_config(),
-    "EcsParameters" => ecs_parameters(),
-    "HttpParameters" => http_parameters(),
-    "Id" => String.t(),
-    "Input" => String.t(),
-    "InputPath" => String.t(),
-    "InputTransformer" => input_transformer(),
-    "KinesisParameters" => kinesis_parameters(),
-    "RedshiftDataParameters" => redshift_data_parameters(),
-    "RetryPolicy" => retry_policy(),
-    "RoleArn" => String.t(),
-    "RunCommandParameters" => run_command_parameters(),
-    "SageMakerPipelineParameters" => sage_maker_pipeline_parameters(),
-    "SqsParameters" => sqs_parameters()
-  }
+      
+      target() :: %{
+        "AppSyncParameters" => app_sync_parameters(),
+        "Arn" => String.t(),
+        "BatchParameters" => batch_parameters(),
+        "DeadLetterConfig" => dead_letter_config(),
+        "EcsParameters" => ecs_parameters(),
+        "HttpParameters" => http_parameters(),
+        "Id" => String.t(),
+        "Input" => String.t(),
+        "InputPath" => String.t(),
+        "InputTransformer" => input_transformer(),
+        "KinesisParameters" => kinesis_parameters(),
+        "RedshiftDataParameters" => redshift_data_parameters(),
+        "RetryPolicy" => retry_policy(),
+        "RoleArn" => String.t(),
+        "RunCommandParameters" => run_command_parameters(),
+        "SageMakerPipelineParameters" => sage_maker_pipeline_parameters(),
+        "SqsParameters" => sqs_parameters()
+      }
+      
   """
   @type target() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_connections_request() :: %{
-    optional("ConnectionState") => list(any()),
-    optional("Limit") => integer(),
-    optional("NamePrefix") => String.t(),
-    optional("NextToken") => String.t()
-  }
+      
+      list_connections_request() :: %{
+        optional("ConnectionState") => list(any()),
+        optional("Limit") => integer(),
+        optional("NamePrefix") => String.t(),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type list_connections_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_archives_request() :: %{
-    optional("EventSourceArn") => String.t(),
-    optional("Limit") => integer(),
-    optional("NamePrefix") => String.t(),
-    optional("NextToken") => String.t(),
-    optional("State") => list(any())
-  }
+      
+      list_archives_request() :: %{
+        optional("EventSourceArn") => String.t(),
+        optional("Limit") => integer(),
+        optional("NamePrefix") => String.t(),
+        optional("NextToken") => String.t(),
+        optional("State") => list(any())
+      }
+      
   """
   @type list_archives_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_archive_response() :: %{
-    "ArchiveArn" => String.t(),
-    "ArchiveName" => String.t(),
-    "CreationTime" => non_neg_integer(),
-    "Description" => String.t(),
-    "EventCount" => float(),
-    "EventPattern" => String.t(),
-    "EventSourceArn" => String.t(),
-    "RetentionDays" => integer(),
-    "SizeBytes" => float(),
-    "State" => list(any()),
-    "StateReason" => String.t()
-  }
+      
+      describe_archive_response() :: %{
+        "ArchiveArn" => String.t(),
+        "ArchiveName" => String.t(),
+        "CreationTime" => non_neg_integer(),
+        "Description" => String.t(),
+        "EventCount" => float(),
+        "EventPattern" => String.t(),
+        "EventSourceArn" => String.t(),
+        "RetentionDays" => integer(),
+        "SizeBytes" => float(),
+        "State" => list(any()),
+        "StateReason" => String.t()
+      }
+      
   """
   @type describe_archive_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_replays_request() :: %{
-    optional("EventSourceArn") => String.t(),
-    optional("Limit") => integer(),
-    optional("NamePrefix") => String.t(),
-    optional("NextToken") => String.t(),
-    optional("State") => list(any())
-  }
+      
+      list_replays_request() :: %{
+        optional("EventSourceArn") => String.t(),
+        optional("Limit") => integer(),
+        optional("NamePrefix") => String.t(),
+        optional("NextToken") => String.t(),
+        optional("State") => list(any())
+      }
+      
   """
   @type list_replays_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  redshift_data_parameters() :: %{
-    "Database" => String.t(),
-    "DbUser" => String.t(),
-    "SecretManagerArn" => String.t(),
-    "Sql" => String.t(),
-    "Sqls" => list(String.t()()),
-    "StatementName" => String.t(),
-    "WithEvent" => boolean()
-  }
+      
+      redshift_data_parameters() :: %{
+        "Database" => String.t(),
+        "DbUser" => String.t(),
+        "SecretManagerArn" => String.t(),
+        "Sql" => String.t(),
+        "Sqls" => list(String.t()()),
+        "StatementName" => String.t(),
+        "WithEvent" => boolean()
+      }
+      
   """
   @type redshift_data_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_replay_response() :: %{
-    "ReplayArn" => String.t(),
-    "ReplayStartTime" => non_neg_integer(),
-    "State" => list(any()),
-    "StateReason" => String.t()
-  }
+      
+      start_replay_response() :: %{
+        "ReplayArn" => String.t(),
+        "ReplayStartTime" => non_neg_integer(),
+        "State" => list(any()),
+        "StateReason" => String.t()
+      }
+      
   """
   @type start_replay_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  secondary() :: %{
-    "Route" => String.t()
-  }
+      
+      secondary() :: %{
+        "Route" => String.t()
+      }
+      
   """
   @type secondary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_not_found_exception() :: %{
-    "message" => String.t()
-  }
+      
+      resource_not_found_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  deauthorize_connection_request() :: %{
-    required("Name") => String.t()
-  }
+      
+      deauthorize_connection_request() :: %{
+        required("Name") => String.t()
+      }
+      
   """
   @type deauthorize_connection_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  input_transformer() :: %{
-    "InputPathsMap" => map(),
-    "InputTemplate" => String.t()
-  }
+      
+      input_transformer() :: %{
+        "InputPathsMap" => map(),
+        "InputTemplate" => String.t()
+      }
+      
   """
   @type input_transformer() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  connection_http_parameters() :: %{
-    "BodyParameters" => list(connection_body_parameter()()),
-    "HeaderParameters" => list(connection_header_parameter()()),
-    "QueryStringParameters" => list(connection_query_string_parameter()())
-  }
+      
+      connection_http_parameters() :: %{
+        "BodyParameters" => list(connection_body_parameter()()),
+        "HeaderParameters" => list(connection_header_parameter()()),
+        "QueryStringParameters" => list(connection_query_string_parameter()())
+      }
+      
   """
   @type connection_http_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag() :: %{
-    "Key" => String.t(),
-    "Value" => String.t()
-  }
+      
+      tag() :: %{
+        "Key" => String.t(),
+        "Value" => String.t()
+      }
+      
   """
   @type tag() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_api_destination_request() :: %{
-    optional("Description") => String.t(),
-    optional("InvocationRateLimitPerSecond") => integer(),
-    required("ConnectionArn") => String.t(),
-    required("HttpMethod") => list(any()),
-    required("InvocationEndpoint") => String.t(),
-    required("Name") => String.t()
-  }
+      
+      create_api_destination_request() :: %{
+        optional("Description") => String.t(),
+        optional("InvocationRateLimitPerSecond") => integer(),
+        required("ConnectionArn") => String.t(),
+        required("HttpMethod") => list(any()),
+        required("InvocationEndpoint") => String.t(),
+        required("Name") => String.t()
+      }
+      
   """
   @type create_api_destination_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_endpoint_response() :: %{
-
-  }
+      
+      delete_endpoint_response() :: %{}
+      
   """
-  @type delete_endpoint_response() :: %{String.t() => any()}
+  @type delete_endpoint_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_endpoints_response() :: %{
-    "Endpoints" => list(endpoint()()),
-    "NextToken" => String.t()
-  }
+      
+      list_endpoints_response() :: %{
+        "Endpoints" => list(endpoint()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_endpoints_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_events_request() :: %{
-    optional("EndpointId") => String.t(),
-    required("Entries") => list(put_events_request_entry()())
-  }
+      
+      put_events_request() :: %{
+        optional("EndpointId") => String.t(),
+        required("Entries") => list(put_events_request_entry()())
+      }
+      
   """
   @type put_events_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  connection() :: %{
-    "AuthorizationType" => list(any()),
-    "ConnectionArn" => String.t(),
-    "ConnectionState" => list(any()),
-    "CreationTime" => non_neg_integer(),
-    "LastAuthorizedTime" => non_neg_integer(),
-    "LastModifiedTime" => non_neg_integer(),
-    "Name" => String.t(),
-    "StateReason" => String.t()
-  }
+      
+      connection() :: %{
+        "AuthorizationType" => list(any()),
+        "ConnectionArn" => String.t(),
+        "ConnectionState" => list(any()),
+        "CreationTime" => non_neg_integer(),
+        "LastAuthorizedTime" => non_neg_integer(),
+        "LastModifiedTime" => non_neg_integer(),
+        "Name" => String.t(),
+        "StateReason" => String.t()
+      }
+      
   """
   @type connection() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  primary() :: %{
-    "HealthCheck" => String.t()
-  }
+      
+      primary() :: %{
+        "HealthCheck" => String.t()
+      }
+      
   """
   @type primary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  activate_event_source_request() :: %{
-    required("Name") => String.t()
-  }
+      
+      activate_event_source_request() :: %{
+        required("Name") => String.t()
+      }
+      
   """
   @type activate_event_source_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  replay_destination() :: %{
-    "Arn" => String.t(),
-    "FilterArns" => list(String.t()())
-  }
+      
+      replay_destination() :: %{
+        "Arn" => String.t(),
+        "FilterArns" => list(String.t()())
+      }
+      
   """
   @type replay_destination() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_replays_response() :: %{
-    "NextToken" => String.t(),
-    "Replays" => list(replay()())
-  }
+      
+      list_replays_response() :: %{
+        "NextToken" => String.t(),
+        "Replays" => list(replay()())
+      }
+      
   """
   @type list_replays_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_event_buses_request() :: %{
-    optional("Limit") => integer(),
-    optional("NamePrefix") => String.t(),
-    optional("NextToken") => String.t()
-  }
+      
+      list_event_buses_request() :: %{
+        optional("Limit") => integer(),
+        optional("NamePrefix") => String.t(),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type list_event_buses_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_event_source_request() :: %{
-    required("Name") => String.t()
-  }
+      
+      describe_event_source_request() :: %{
+        required("Name") => String.t()
+      }
+      
   """
   @type describe_event_source_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_api_destination_response() :: %{
-    "ApiDestinationArn" => String.t(),
-    "ApiDestinationState" => list(any()),
-    "CreationTime" => non_neg_integer(),
-    "LastModifiedTime" => non_neg_integer()
-  }
+      
+      create_api_destination_response() :: %{
+        "ApiDestinationArn" => String.t(),
+        "ApiDestinationState" => list(any()),
+        "CreationTime" => non_neg_integer(),
+        "LastModifiedTime" => non_neg_integer()
+      }
+      
   """
   @type create_api_destination_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  remove_permission_request() :: %{
-    optional("EventBusName") => String.t(),
-    optional("RemoveAllPermissions") => boolean(),
-    optional("StatementId") => String.t()
-  }
+      
+      remove_permission_request() :: %{
+        optional("EventBusName") => String.t(),
+        optional("RemoveAllPermissions") => boolean(),
+        optional("StatementId") => String.t()
+      }
+      
   """
   @type remove_permission_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_endpoint_request() :: %{
-    optional("HomeRegion") => String.t(),
-    required("Name") => String.t()
-  }
+      
+      describe_endpoint_request() :: %{
+        optional("HomeRegion") => String.t(),
+        required("Name") => String.t()
+      }
+      
   """
   @type describe_endpoint_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_response() :: %{
-    "Tags" => list(tag()())
-  }
+      
+      list_tags_for_resource_response() :: %{
+        "Tags" => list(tag()())
+      }
+      
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  sage_maker_pipeline_parameters() :: %{
-    "PipelineParameterList" => list(sage_maker_pipeline_parameter()())
-  }
+      
+      sage_maker_pipeline_parameters() :: %{
+        "PipelineParameterList" => list(sage_maker_pipeline_parameter()())
+      }
+      
   """
   @type sage_maker_pipeline_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  managed_rule_exception() :: %{
-    "message" => String.t()
-  }
+      
+      managed_rule_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type managed_rule_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disable_rule_request() :: %{
-    optional("EventBusName") => String.t(),
-    required("Name") => String.t()
-  }
+      
+      disable_rule_request() :: %{
+        optional("EventBusName") => String.t(),
+        required("Name") => String.t()
+      }
+      
   """
   @type disable_rule_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_connection_response() :: %{
-    "ConnectionArn" => String.t(),
-    "ConnectionState" => list(any()),
-    "CreationTime" => non_neg_integer(),
-    "LastAuthorizedTime" => non_neg_integer(),
-    "LastModifiedTime" => non_neg_integer()
-  }
+      
+      update_connection_response() :: %{
+        "ConnectionArn" => String.t(),
+        "ConnectionState" => list(any()),
+        "CreationTime" => non_neg_integer(),
+        "LastAuthorizedTime" => non_neg_integer(),
+        "LastModifiedTime" => non_neg_integer()
+      }
+      
   """
   @type update_connection_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  sqs_parameters() :: %{
-    "MessageGroupId" => String.t()
-  }
+      
+      sqs_parameters() :: %{
+        "MessageGroupId" => String.t()
+      }
+      
   """
   @type sqs_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_permission_request() :: %{
-    optional("Action") => String.t(),
-    optional("Condition") => condition(),
-    optional("EventBusName") => String.t(),
-    optional("Policy") => String.t(),
-    optional("Principal") => String.t(),
-    optional("StatementId") => String.t()
-  }
+      
+      put_permission_request() :: %{
+        optional("Action") => String.t(),
+        optional("Condition") => condition(),
+        optional("EventBusName") => String.t(),
+        optional("Policy") => String.t(),
+        optional("Principal") => String.t(),
+        optional("StatementId") => String.t()
+      }
+      
   """
   @type put_permission_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_api_destinations_response() :: %{
-    "ApiDestinations" => list(api_destination()()),
-    "NextToken" => String.t()
-  }
+      
+      list_api_destinations_response() :: %{
+        "ApiDestinations" => list(api_destination()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_api_destinations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_event_bus_request() :: %{
-    required("Name") => String.t()
-  }
+      
+      delete_event_bus_request() :: %{
+        required("Name") => String.t()
+      }
+      
   """
   @type delete_event_bus_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  condition() :: %{
-    "Key" => String.t(),
-    "Type" => String.t(),
-    "Value" => String.t()
-  }
+      
+      condition() :: %{
+        "Key" => String.t(),
+        "Type" => String.t(),
+        "Value" => String.t()
+      }
+      
   """
   @type condition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_partner_events_response() :: %{
-    "Entries" => list(put_partner_events_result_entry()()),
-    "FailedEntryCount" => integer()
-  }
+      
+      put_partner_events_response() :: %{
+        "Entries" => list(put_partner_events_result_entry()()),
+        "FailedEntryCount" => integer()
+      }
+      
   """
   @type put_partner_events_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  partner_event_source() :: %{
-    "Arn" => String.t(),
-    "Name" => String.t()
-  }
+      
+      partner_event_source() :: %{
+        "Arn" => String.t(),
+        "Name" => String.t()
+      }
+      
   """
   @type partner_event_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  operation_disabled_exception() :: %{
-    "message" => String.t()
-  }
+      
+      operation_disabled_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type operation_disabled_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  rule() :: %{
-    "Arn" => String.t(),
-    "Description" => String.t(),
-    "EventBusName" => String.t(),
-    "EventPattern" => String.t(),
-    "ManagedBy" => String.t(),
-    "Name" => String.t(),
-    "RoleArn" => String.t(),
-    "ScheduleExpression" => String.t(),
-    "State" => list(any())
-  }
+      
+      rule() :: %{
+        "Arn" => String.t(),
+        "Description" => String.t(),
+        "EventBusName" => String.t(),
+        "EventPattern" => String.t(),
+        "ManagedBy" => String.t(),
+        "Name" => String.t(),
+        "RoleArn" => String.t(),
+        "ScheduleExpression" => String.t(),
+        "State" => list(any())
+      }
+      
   """
   @type rule() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_events_result_entry() :: %{
-    "ErrorCode" => String.t(),
-    "ErrorMessage" => String.t(),
-    "EventId" => String.t()
-  }
+      
+      put_events_result_entry() :: %{
+        "ErrorCode" => String.t(),
+        "ErrorMessage" => String.t(),
+        "EventId" => String.t()
+      }
+      
   """
   @type put_events_result_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_api_destination_request() :: %{
-    optional("ConnectionArn") => String.t(),
-    optional("Description") => String.t(),
-    optional("HttpMethod") => list(any()),
-    optional("InvocationEndpoint") => String.t(),
-    optional("InvocationRateLimitPerSecond") => integer(),
-    required("Name") => String.t()
-  }
+      
+      update_api_destination_request() :: %{
+        optional("ConnectionArn") => String.t(),
+        optional("Description") => String.t(),
+        optional("HttpMethod") => list(any()),
+        optional("InvocationEndpoint") => String.t(),
+        optional("InvocationRateLimitPerSecond") => integer(),
+        required("Name") => String.t()
+      }
+      
   """
   @type update_api_destination_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  endpoint() :: %{
-    "Arn" => String.t(),
-    "CreationTime" => non_neg_integer(),
-    "Description" => String.t(),
-    "EndpointId" => String.t(),
-    "EndpointUrl" => String.t(),
-    "EventBuses" => list(endpoint_event_bus()()),
-    "LastModifiedTime" => non_neg_integer(),
-    "Name" => String.t(),
-    "ReplicationConfig" => replication_config(),
-    "RoleArn" => String.t(),
-    "RoutingConfig" => routing_config(),
-    "State" => list(any()),
-    "StateReason" => String.t()
-  }
+      
+      endpoint() :: %{
+        "Arn" => String.t(),
+        "CreationTime" => non_neg_integer(),
+        "Description" => String.t(),
+        "EndpointId" => String.t(),
+        "EndpointUrl" => String.t(),
+        "EventBuses" => list(endpoint_event_bus()()),
+        "LastModifiedTime" => non_neg_integer(),
+        "Name" => String.t(),
+        "ReplicationConfig" => replication_config(),
+        "RoleArn" => String.t(),
+        "RoutingConfig" => routing_config(),
+        "State" => list(any()),
+        "StateReason" => String.t()
+      }
+      
   """
   @type endpoint() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_connection_api_key_auth_request_parameters() :: %{
-    "ApiKeyName" => String.t(),
-    "ApiKeyValue" => String.t()
-  }
+      
+      create_connection_api_key_auth_request_parameters() :: %{
+        "ApiKeyName" => String.t(),
+        "ApiKeyValue" => String.t()
+      }
+      
   """
   @type create_connection_api_key_auth_request_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_endpoints_request() :: %{
-    optional("HomeRegion") => String.t(),
-    optional("MaxResults") => integer(),
-    optional("NamePrefix") => String.t(),
-    optional("NextToken") => String.t()
-  }
+      
+      list_endpoints_request() :: %{
+        optional("HomeRegion") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NamePrefix") => String.t(),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type list_endpoints_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_rule_request() :: %{
-    optional("EventBusName") => String.t(),
-    required("Name") => String.t()
-  }
+      
+      describe_rule_request() :: %{
+        optional("EventBusName") => String.t(),
+        required("Name") => String.t()
+      }
+      
   """
   @type describe_rule_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_connection_o_auth_client_request_parameters() :: %{
-    "ClientID" => String.t(),
-    "ClientSecret" => String.t()
-  }
+      
+      create_connection_o_auth_client_request_parameters() :: %{
+        "ClientID" => String.t(),
+        "ClientSecret" => String.t()
+      }
+      
   """
   @type create_connection_o_auth_client_request_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  capacity_provider_strategy_item() :: %{
-    "base" => integer(),
-    "capacityProvider" => String.t(),
-    "weight" => integer()
-  }
+      
+      capacity_provider_strategy_item() :: %{
+        "base" => integer(),
+        "capacityProvider" => String.t(),
+        "weight" => integer()
+      }
+      
   """
   @type capacity_provider_strategy_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_endpoint_request() :: %{
-    required("Name") => String.t()
-  }
+      
+      delete_endpoint_request() :: %{
+        required("Name") => String.t()
+      }
+      
   """
   @type delete_endpoint_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  placement_constraint() :: %{
-    "expression" => String.t(),
-    "type" => list(any())
-  }
+      
+      placement_constraint() :: %{
+        "expression" => String.t(),
+        "type" => list(any())
+      }
+      
   """
   @type placement_constraint() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  network_configuration() :: %{
-    "awsvpcConfiguration" => aws_vpc_configuration()
-  }
+      
+      network_configuration() :: %{
+        "awsvpcConfiguration" => aws_vpc_configuration()
+      }
+      
   """
   @type network_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  api_destination() :: %{
-    "ApiDestinationArn" => String.t(),
-    "ApiDestinationState" => list(any()),
-    "ConnectionArn" => String.t(),
-    "CreationTime" => non_neg_integer(),
-    "HttpMethod" => list(any()),
-    "InvocationEndpoint" => String.t(),
-    "InvocationRateLimitPerSecond" => integer(),
-    "LastModifiedTime" => non_neg_integer(),
-    "Name" => String.t()
-  }
+      
+      api_destination() :: %{
+        "ApiDestinationArn" => String.t(),
+        "ApiDestinationState" => list(any()),
+        "ConnectionArn" => String.t(),
+        "CreationTime" => non_neg_integer(),
+        "HttpMethod" => list(any()),
+        "InvocationEndpoint" => String.t(),
+        "InvocationRateLimitPerSecond" => integer(),
+        "LastModifiedTime" => non_neg_integer(),
+        "Name" => String.t()
+      }
+      
   """
   @type api_destination() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  internal_exception() :: %{
-    "message" => String.t()
-  }
+      
+      internal_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type internal_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_rules_response() :: %{
-    "NextToken" => String.t(),
-    "Rules" => list(rule()())
-  }
+      
+      list_rules_response() :: %{
+        "NextToken" => String.t(),
+        "Rules" => list(rule()())
+      }
+      
   """
   @type list_rules_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_endpoint_response() :: %{
-    "Arn" => String.t(),
-    "CreationTime" => non_neg_integer(),
-    "Description" => String.t(),
-    "EndpointId" => String.t(),
-    "EndpointUrl" => String.t(),
-    "EventBuses" => list(endpoint_event_bus()()),
-    "LastModifiedTime" => non_neg_integer(),
-    "Name" => String.t(),
-    "ReplicationConfig" => replication_config(),
-    "RoleArn" => String.t(),
-    "RoutingConfig" => routing_config(),
-    "State" => list(any()),
-    "StateReason" => String.t()
-  }
+      
+      describe_endpoint_response() :: %{
+        "Arn" => String.t(),
+        "CreationTime" => non_neg_integer(),
+        "Description" => String.t(),
+        "EndpointId" => String.t(),
+        "EndpointUrl" => String.t(),
+        "EventBuses" => list(endpoint_event_bus()()),
+        "LastModifiedTime" => non_neg_integer(),
+        "Name" => String.t(),
+        "ReplicationConfig" => replication_config(),
+        "RoleArn" => String.t(),
+        "RoutingConfig" => routing_config(),
+        "State" => list(any()),
+        "StateReason" => String.t()
+      }
+      
   """
   @type describe_endpoint_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_partner_event_source_request() :: %{
-    required("Name") => String.t()
-  }
+      
+      describe_partner_event_source_request() :: %{
+        required("Name") => String.t()
+      }
+      
   """
   @type describe_partner_event_source_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_partner_event_source_response() :: %{
-    "EventSourceArn" => String.t()
-  }
+      
+      create_partner_event_source_response() :: %{
+        "EventSourceArn" => String.t()
+      }
+      
   """
   @type create_partner_event_source_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_response() :: %{
-
-  }
+      
+      tag_resource_response() :: %{}
+      
   """
-  @type tag_resource_response() :: %{String.t() => any()}
+  @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  update_connection_basic_auth_request_parameters() :: %{
-    "Password" => String.t(),
-    "Username" => String.t()
-  }
+      
+      update_connection_basic_auth_request_parameters() :: %{
+        "Password" => String.t(),
+        "Username" => String.t()
+      }
+      
   """
   @type update_connection_basic_auth_request_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_partner_event_sources_request() :: %{
-    optional("Limit") => integer(),
-    optional("NextToken") => String.t(),
-    required("NamePrefix") => String.t()
-  }
+      
+      list_partner_event_sources_request() :: %{
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t(),
+        required("NamePrefix") => String.t()
+      }
+      
   """
   @type list_partner_event_sources_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_event_bus_response() :: %{
-    "Arn" => String.t(),
-    "Name" => String.t(),
-    "Policy" => String.t()
-  }
+      
+      describe_event_bus_response() :: %{
+        "Arn" => String.t(),
+        "Name" => String.t(),
+        "Policy" => String.t()
+      }
+      
   """
   @type describe_event_bus_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  remove_targets_request() :: %{
-    optional("EventBusName") => String.t(),
-    optional("Force") => boolean(),
-    required("Ids") => list(String.t()()),
-    required("Rule") => String.t()
-  }
+      
+      remove_targets_request() :: %{
+        optional("EventBusName") => String.t(),
+        optional("Force") => boolean(),
+        required("Ids") => list(String.t()()),
+        required("Rule") => String.t()
+      }
+      
   """
   @type remove_targets_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  dead_letter_config() :: %{
-    "Arn" => String.t()
-  }
+      
+      dead_letter_config() :: %{
+        "Arn" => String.t()
+      }
+      
   """
   @type dead_letter_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  concurrent_modification_exception() :: %{
-    "message" => String.t()
-  }
+      
+      concurrent_modification_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type concurrent_modification_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_api_destination_response() :: %{
-    "ApiDestinationArn" => String.t(),
-    "ApiDestinationState" => list(any()),
-    "CreationTime" => non_neg_integer(),
-    "LastModifiedTime" => non_neg_integer()
-  }
+      
+      update_api_destination_response() :: %{
+        "ApiDestinationArn" => String.t(),
+        "ApiDestinationState" => list(any()),
+        "CreationTime" => non_neg_integer(),
+        "LastModifiedTime" => non_neg_integer()
+      }
+      
   """
   @type update_api_destination_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cancel_replay_response() :: %{
-    "ReplayArn" => String.t(),
-    "State" => list(any()),
-    "StateReason" => String.t()
-  }
+      
+      cancel_replay_response() :: %{
+        "ReplayArn" => String.t(),
+        "State" => list(any()),
+        "StateReason" => String.t()
+      }
+      
   """
   @type cancel_replay_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_connection_response() :: %{
-    "ConnectionArn" => String.t(),
-    "ConnectionState" => list(any()),
-    "CreationTime" => non_neg_integer(),
-    "LastAuthorizedTime" => non_neg_integer(),
-    "LastModifiedTime" => non_neg_integer()
-  }
+      
+      delete_connection_response() :: %{
+        "ConnectionArn" => String.t(),
+        "ConnectionState" => list(any()),
+        "CreationTime" => non_neg_integer(),
+        "LastAuthorizedTime" => non_neg_integer(),
+        "LastModifiedTime" => non_neg_integer()
+      }
+      
   """
   @type delete_connection_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_request() :: %{
-    required("ResourceARN") => String.t()
-  }
+      
+      list_tags_for_resource_request() :: %{
+        required("ResourceARN") => String.t()
+      }
+      
   """
   @type list_tags_for_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_rule_request() :: %{
-    optional("Description") => String.t(),
-    optional("EventBusName") => String.t(),
-    optional("EventPattern") => String.t(),
-    optional("RoleArn") => String.t(),
-    optional("ScheduleExpression") => String.t(),
-    optional("State") => list(any()),
-    optional("Tags") => list(tag()()),
-    required("Name") => String.t()
-  }
+      
+      put_rule_request() :: %{
+        optional("Description") => String.t(),
+        optional("EventBusName") => String.t(),
+        optional("EventPattern") => String.t(),
+        optional("RoleArn") => String.t(),
+        optional("ScheduleExpression") => String.t(),
+        optional("State") => list(any()),
+        optional("Tags") => list(tag()()),
+        required("Name") => String.t()
+      }
+      
   """
   @type put_rule_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_partner_event_sources_response() :: %{
-    "NextToken" => String.t(),
-    "PartnerEventSources" => list(partner_event_source()())
-  }
+      
+      list_partner_event_sources_response() :: %{
+        "NextToken" => String.t(),
+        "PartnerEventSources" => list(partner_event_source()())
+      }
+      
   """
   @type list_partner_event_sources_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_replay_request() :: %{
-    required("ReplayName") => String.t()
-  }
+      
+      describe_replay_request() :: %{
+        required("ReplayName") => String.t()
+      }
+      
   """
   @type describe_replay_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_api_destinations_request() :: %{
-    optional("ConnectionArn") => String.t(),
-    optional("Limit") => integer(),
-    optional("NamePrefix") => String.t(),
-    optional("NextToken") => String.t()
-  }
+      
+      list_api_destinations_request() :: %{
+        optional("ConnectionArn") => String.t(),
+        optional("Limit") => integer(),
+        optional("NamePrefix") => String.t(),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type list_api_destinations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_archive_response() :: %{
-    "ArchiveArn" => String.t(),
-    "CreationTime" => non_neg_integer(),
-    "State" => list(any()),
-    "StateReason" => String.t()
-  }
+      
+      create_archive_response() :: %{
+        "ArchiveArn" => String.t(),
+        "CreationTime" => non_neg_integer(),
+        "State" => list(any()),
+        "StateReason" => String.t()
+      }
+      
   """
   @type create_archive_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_replay_request() :: %{
-    optional("Description") => String.t(),
-    required("Destination") => replay_destination(),
-    required("EventEndTime") => non_neg_integer(),
-    required("EventSourceArn") => String.t(),
-    required("EventStartTime") => non_neg_integer(),
-    required("ReplayName") => String.t()
-  }
+      
+      start_replay_request() :: %{
+        optional("Description") => String.t(),
+        required("Destination") => replay_destination(),
+        required("EventEndTime") => non_neg_integer(),
+        required("EventSourceArn") => String.t(),
+        required("EventStartTime") => non_neg_integer(),
+        required("ReplayName") => String.t()
+      }
+      
   """
   @type start_replay_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  connection_o_auth_response_parameters() :: %{
-    "AuthorizationEndpoint" => String.t(),
-    "ClientParameters" => connection_o_auth_client_response_parameters(),
-    "HttpMethod" => list(any()),
-    "OAuthHttpParameters" => connection_http_parameters()
-  }
+      
+      connection_o_auth_response_parameters() :: %{
+        "AuthorizationEndpoint" => String.t(),
+        "ClientParameters" => connection_o_auth_client_response_parameters(),
+        "HttpMethod" => list(any()),
+        "OAuthHttpParameters" => connection_http_parameters()
+      }
+      
   """
   @type connection_o_auth_response_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  archive() :: %{
-    "ArchiveName" => String.t(),
-    "CreationTime" => non_neg_integer(),
-    "EventCount" => float(),
-    "EventSourceArn" => String.t(),
-    "RetentionDays" => integer(),
-    "SizeBytes" => float(),
-    "State" => list(any()),
-    "StateReason" => String.t()
-  }
+      
+      archive() :: %{
+        "ArchiveName" => String.t(),
+        "CreationTime" => non_neg_integer(),
+        "EventCount" => float(),
+        "EventSourceArn" => String.t(),
+        "RetentionDays" => integer(),
+        "SizeBytes" => float(),
+        "State" => list(any()),
+        "StateReason" => String.t()
+      }
+      
   """
   @type archive() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  remove_targets_response() :: %{
-    "FailedEntries" => list(remove_targets_result_entry()()),
-    "FailedEntryCount" => integer()
-  }
+      
+      remove_targets_response() :: %{
+        "FailedEntries" => list(remove_targets_result_entry()()),
+        "FailedEntryCount" => integer()
+      }
+      
   """
   @type remove_targets_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  limit_exceeded_exception() :: %{
-    "message" => String.t()
-  }
+      
+      limit_exceeded_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_connection_response() :: %{
-    "ConnectionArn" => String.t(),
-    "ConnectionState" => list(any()),
-    "CreationTime" => non_neg_integer(),
-    "LastModifiedTime" => non_neg_integer()
-  }
+      
+      create_connection_response() :: %{
+        "ConnectionArn" => String.t(),
+        "ConnectionState" => list(any()),
+        "CreationTime" => non_neg_integer(),
+        "LastModifiedTime" => non_neg_integer()
+      }
+      
   """
   @type create_connection_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_event_buses_response() :: %{
-    "EventBuses" => list(event_bus()()),
-    "NextToken" => String.t()
-  }
+      
+      list_event_buses_response() :: %{
+        "EventBuses" => list(event_bus()()),
+        "NextToken" => String.t()
+      }
+      
   """
   @type list_event_buses_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_archive_request() :: %{
-    optional("Description") => String.t(),
-    optional("EventPattern") => String.t(),
-    optional("RetentionDays") => integer(),
-    required("ArchiveName") => String.t()
-  }
+      
+      update_archive_request() :: %{
+        optional("Description") => String.t(),
+        optional("EventPattern") => String.t(),
+        optional("RetentionDays") => integer(),
+        required("ArchiveName") => String.t()
+      }
+      
   """
   @type update_archive_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_rule_names_by_target_request() :: %{
-    optional("EventBusName") => String.t(),
-    optional("Limit") => integer(),
-    optional("NextToken") => String.t(),
-    required("TargetArn") => String.t()
-  }
+      
+      list_rule_names_by_target_request() :: %{
+        optional("EventBusName") => String.t(),
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t(),
+        required("TargetArn") => String.t()
+      }
+      
   """
   @type list_rule_names_by_target_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  aws_vpc_configuration() :: %{
-    "AssignPublicIp" => list(any()),
-    "SecurityGroups" => list(String.t()()),
-    "Subnets" => list(String.t()())
-  }
+      
+      aws_vpc_configuration() :: %{
+        "AssignPublicIp" => list(any()),
+        "SecurityGroups" => list(String.t()()),
+        "Subnets" => list(String.t()())
+      }
+      
   """
   @type aws_vpc_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_endpoint_response() :: %{
-    "Arn" => String.t(),
-    "EventBuses" => list(endpoint_event_bus()()),
-    "Name" => String.t(),
-    "ReplicationConfig" => replication_config(),
-    "RoleArn" => String.t(),
-    "RoutingConfig" => routing_config(),
-    "State" => list(any())
-  }
+      
+      create_endpoint_response() :: %{
+        "Arn" => String.t(),
+        "EventBuses" => list(endpoint_event_bus()()),
+        "Name" => String.t(),
+        "ReplicationConfig" => replication_config(),
+        "RoleArn" => String.t(),
+        "RoutingConfig" => routing_config(),
+        "State" => list(any())
+      }
+      
   """
   @type create_endpoint_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_partner_events_result_entry() :: %{
-    "ErrorCode" => String.t(),
-    "ErrorMessage" => String.t(),
-    "EventId" => String.t()
-  }
+      
+      put_partner_events_result_entry() :: %{
+        "ErrorCode" => String.t(),
+        "ErrorMessage" => String.t(),
+        "EventId" => String.t()
+      }
+      
   """
   @type put_partner_events_result_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_connection_basic_auth_request_parameters() :: %{
-    "Password" => String.t(),
-    "Username" => String.t()
-  }
+      
+      create_connection_basic_auth_request_parameters() :: %{
+        "Password" => String.t(),
+        "Username" => String.t()
+      }
+      
   """
   @type create_connection_basic_auth_request_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_partner_events_request() :: %{
-    required("Entries") => list(put_partner_events_request_entry()())
-  }
+      
+      put_partner_events_request() :: %{
+        required("Entries") => list(put_partner_events_request_entry()())
+      }
+      
   """
   @type put_partner_events_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_already_exists_exception() :: %{
-    "message" => String.t()
-  }
+      
+      resource_already_exists_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type resource_already_exists_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  kinesis_parameters() :: %{
-    "PartitionKeyPath" => String.t()
-  }
+      
+      kinesis_parameters() :: %{
+        "PartitionKeyPath" => String.t()
+      }
+      
   """
   @type kinesis_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_targets_by_rule_response() :: %{
-    "NextToken" => String.t(),
-    "Targets" => list(target()())
-  }
+      
+      list_targets_by_rule_response() :: %{
+        "NextToken" => String.t(),
+        "Targets" => list(target()())
+      }
+      
   """
   @type list_targets_by_rule_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_connection_request() :: %{
-    required("Name") => String.t()
-  }
+      
+      delete_connection_request() :: %{
+        required("Name") => String.t()
+      }
+      
   """
   @type delete_connection_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  replication_config() :: %{
-    "State" => list(any())
-  }
+      
+      replication_config() :: %{
+        "State" => list(any())
+      }
+      
   """
   @type replication_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_archive_response() :: %{
-    "ArchiveArn" => String.t(),
-    "CreationTime" => non_neg_integer(),
-    "State" => list(any()),
-    "StateReason" => String.t()
-  }
+      
+      update_archive_response() :: %{
+        "ArchiveArn" => String.t(),
+        "CreationTime" => non_neg_integer(),
+        "State" => list(any()),
+        "StateReason" => String.t()
+      }
+      
   """
   @type update_archive_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  test_event_pattern_response() :: %{
-    "Result" => boolean()
-  }
+      
+      test_event_pattern_response() :: %{
+        "Result" => boolean()
+      }
+      
   """
   @type test_event_pattern_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  illegal_status_exception() :: %{
-    "message" => String.t()
-  }
+      
+      illegal_status_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type illegal_status_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_targets_by_rule_request() :: %{
-    optional("EventBusName") => String.t(),
-    optional("Limit") => integer(),
-    optional("NextToken") => String.t(),
-    required("Rule") => String.t()
-  }
+      
+      list_targets_by_rule_request() :: %{
+        optional("EventBusName") => String.t(),
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t(),
+        required("Rule") => String.t()
+      }
+      
   """
   @type list_targets_by_rule_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  retry_policy() :: %{
-    "MaximumEventAgeInSeconds" => integer(),
-    "MaximumRetryAttempts" => integer()
-  }
+      
+      retry_policy() :: %{
+        "MaximumEventAgeInSeconds" => integer(),
+        "MaximumRetryAttempts" => integer()
+      }
+      
   """
   @type retry_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  connection_body_parameter() :: %{
-    "IsValueSecret" => boolean(),
-    "Key" => String.t(),
-    "Value" => String.t()
-  }
+      
+      connection_body_parameter() :: %{
+        "IsValueSecret" => boolean(),
+        "Key" => String.t(),
+        "Value" => String.t()
+      }
+      
   """
   @type connection_body_parameter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  failover_config() :: %{
-    "Primary" => primary(),
-    "Secondary" => secondary()
-  }
+      
+      failover_config() :: %{
+        "Primary" => primary(),
+        "Secondary" => secondary()
+      }
+      
   """
   @type failover_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  connection_basic_auth_response_parameters() :: %{
-    "Username" => String.t()
-  }
+      
+      connection_basic_auth_response_parameters() :: %{
+        "Username" => String.t()
+      }
+      
   """
   @type connection_basic_auth_response_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_targets_request() :: %{
-    optional("EventBusName") => String.t(),
-    required("Rule") => String.t(),
-    required("Targets") => list(target()())
-  }
+      
+      put_targets_request() :: %{
+        optional("EventBusName") => String.t(),
+        required("Rule") => String.t(),
+        required("Targets") => list(target()())
+      }
+      
   """
   @type put_targets_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_connection_request() :: %{
-    optional("Description") => String.t(),
-    required("AuthParameters") => create_connection_auth_request_parameters(),
-    required("AuthorizationType") => list(any()),
-    required("Name") => String.t()
-  }
+      
+      create_connection_request() :: %{
+        optional("Description") => String.t(),
+        required("AuthParameters") => create_connection_auth_request_parameters(),
+        required("AuthorizationType") => list(any()),
+        required("Name") => String.t()
+      }
+      
   """
   @type create_connection_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_connection_o_auth_client_request_parameters() :: %{
-    "ClientID" => String.t(),
-    "ClientSecret" => String.t()
-  }
+      
+      update_connection_o_auth_client_request_parameters() :: %{
+        "ClientID" => String.t(),
+        "ClientSecret" => String.t()
+      }
+      
   """
   @type update_connection_o_auth_client_request_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  event_bus() :: %{
-    "Arn" => String.t(),
-    "Name" => String.t(),
-    "Policy" => String.t()
-  }
+      
+      event_bus() :: %{
+        "Arn" => String.t(),
+        "Name" => String.t(),
+        "Policy" => String.t()
+      }
+      
   """
   @type event_bus() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_connection_auth_request_parameters() :: %{
-    "ApiKeyAuthParameters" => create_connection_api_key_auth_request_parameters(),
-    "BasicAuthParameters" => create_connection_basic_auth_request_parameters(),
-    "InvocationHttpParameters" => connection_http_parameters(),
-    "OAuthParameters" => create_connection_o_auth_request_parameters()
-  }
+      
+      create_connection_auth_request_parameters() :: %{
+        "ApiKeyAuthParameters" => create_connection_api_key_auth_request_parameters(),
+        "BasicAuthParameters" => create_connection_basic_auth_request_parameters(),
+        "InvocationHttpParameters" => connection_http_parameters(),
+        "OAuthParameters" => create_connection_o_auth_request_parameters()
+      }
+      
   """
   @type create_connection_auth_request_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_api_destination_request() :: %{
-    required("Name") => String.t()
-  }
+      
+      delete_api_destination_request() :: %{
+        required("Name") => String.t()
+      }
+      
   """
   @type delete_api_destination_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  connection_o_auth_client_response_parameters() :: %{
-    "ClientID" => String.t()
-  }
+      
+      connection_o_auth_client_response_parameters() :: %{
+        "ClientID" => String.t()
+      }
+      
   """
   @type connection_o_auth_client_response_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_rule_response() :: %{
-    "Arn" => String.t(),
-    "CreatedBy" => String.t(),
-    "Description" => String.t(),
-    "EventBusName" => String.t(),
-    "EventPattern" => String.t(),
-    "ManagedBy" => String.t(),
-    "Name" => String.t(),
-    "RoleArn" => String.t(),
-    "ScheduleExpression" => String.t(),
-    "State" => list(any())
-  }
+      
+      describe_rule_response() :: %{
+        "Arn" => String.t(),
+        "CreatedBy" => String.t(),
+        "Description" => String.t(),
+        "EventBusName" => String.t(),
+        "EventPattern" => String.t(),
+        "ManagedBy" => String.t(),
+        "Name" => String.t(),
+        "RoleArn" => String.t(),
+        "ScheduleExpression" => String.t(),
+        "State" => list(any())
+      }
+      
   """
   @type describe_rule_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_partner_event_source_accounts_response() :: %{
-    "NextToken" => String.t(),
-    "PartnerEventSourceAccounts" => list(partner_event_source_account()())
-  }
+      
+      list_partner_event_source_accounts_response() :: %{
+        "NextToken" => String.t(),
+        "PartnerEventSourceAccounts" => list(partner_event_source_account()())
+      }
+      
   """
   @type list_partner_event_source_accounts_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_rule_names_by_target_response() :: %{
-    "NextToken" => String.t(),
-    "RuleNames" => list(String.t()())
-  }
+      
+      list_rule_names_by_target_response() :: %{
+        "NextToken" => String.t(),
+        "RuleNames" => list(String.t()())
+      }
+      
   """
   @type list_rule_names_by_target_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_partner_event_source_request() :: %{
-    required("Account") => String.t(),
-    required("Name") => String.t()
-  }
+      
+      delete_partner_event_source_request() :: %{
+        required("Account") => String.t(),
+        required("Name") => String.t()
+      }
+      
   """
   @type delete_partner_event_source_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  placement_strategy() :: %{
-    "field" => String.t(),
-    "type" => list(any())
-  }
+      
+      placement_strategy() :: %{
+        "field" => String.t(),
+        "type" => list(any())
+      }
+      
   """
   @type placement_strategy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ecs_parameters() :: %{
-    "CapacityProviderStrategy" => list(capacity_provider_strategy_item()()),
-    "EnableECSManagedTags" => boolean(),
-    "EnableExecuteCommand" => boolean(),
-    "Group" => String.t(),
-    "LaunchType" => list(any()),
-    "NetworkConfiguration" => network_configuration(),
-    "PlacementConstraints" => list(placement_constraint()()),
-    "PlacementStrategy" => list(placement_strategy()()),
-    "PlatformVersion" => String.t(),
-    "PropagateTags" => list(any()),
-    "ReferenceId" => String.t(),
-    "Tags" => list(tag()()),
-    "TaskCount" => integer(),
-    "TaskDefinitionArn" => String.t()
-  }
+      
+      ecs_parameters() :: %{
+        "CapacityProviderStrategy" => list(capacity_provider_strategy_item()()),
+        "EnableECSManagedTags" => boolean(),
+        "EnableExecuteCommand" => boolean(),
+        "Group" => String.t(),
+        "LaunchType" => list(any()),
+        "NetworkConfiguration" => network_configuration(),
+        "PlacementConstraints" => list(placement_constraint()()),
+        "PlacementStrategy" => list(placement_strategy()()),
+        "PlatformVersion" => String.t(),
+        "PropagateTags" => list(any()),
+        "ReferenceId" => String.t(),
+        "Tags" => list(tag()()),
+        "TaskCount" => integer(),
+        "TaskDefinitionArn" => String.t()
+      }
+      
   """
   @type ecs_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_targets_response() :: %{
-    "FailedEntries" => list(put_targets_result_entry()()),
-    "FailedEntryCount" => integer()
-  }
+      
+      put_targets_response() :: %{
+        "FailedEntries" => list(put_targets_result_entry()()),
+        "FailedEntryCount" => integer()
+      }
+      
   """
   @type put_targets_response() :: %{String.t() => any()}
+
+  @type activate_event_source_errors() ::
+          concurrent_modification_exception()
+          | internal_exception()
+          | operation_disabled_exception()
+          | resource_not_found_exception()
+          | invalid_state_exception()
+
+  @type cancel_replay_errors() ::
+          illegal_status_exception()
+          | concurrent_modification_exception()
+          | internal_exception()
+          | resource_not_found_exception()
+
+  @type create_api_destination_errors() ::
+          resource_already_exists_exception()
+          | limit_exceeded_exception()
+          | internal_exception()
+          | resource_not_found_exception()
+
+  @type create_archive_errors() ::
+          resource_already_exists_exception()
+          | limit_exceeded_exception()
+          | concurrent_modification_exception()
+          | internal_exception()
+          | resource_not_found_exception()
+          | invalid_event_pattern_exception()
+
+  @type create_connection_errors() ::
+          resource_already_exists_exception() | limit_exceeded_exception() | internal_exception()
+
+  @type create_endpoint_errors() ::
+          resource_already_exists_exception() | limit_exceeded_exception() | internal_exception()
+
+  @type create_event_bus_errors() ::
+          resource_already_exists_exception()
+          | limit_exceeded_exception()
+          | concurrent_modification_exception()
+          | internal_exception()
+          | operation_disabled_exception()
+          | resource_not_found_exception()
+          | invalid_state_exception()
+
+  @type create_partner_event_source_errors() ::
+          resource_already_exists_exception()
+          | limit_exceeded_exception()
+          | concurrent_modification_exception()
+          | internal_exception()
+          | operation_disabled_exception()
+
+  @type deactivate_event_source_errors() ::
+          concurrent_modification_exception()
+          | internal_exception()
+          | operation_disabled_exception()
+          | resource_not_found_exception()
+          | invalid_state_exception()
+
+  @type deauthorize_connection_errors() ::
+          concurrent_modification_exception()
+          | internal_exception()
+          | resource_not_found_exception()
+
+  @type delete_api_destination_errors() ::
+          concurrent_modification_exception()
+          | internal_exception()
+          | resource_not_found_exception()
+
+  @type delete_archive_errors() ::
+          concurrent_modification_exception()
+          | internal_exception()
+          | resource_not_found_exception()
+
+  @type delete_connection_errors() ::
+          concurrent_modification_exception()
+          | internal_exception()
+          | resource_not_found_exception()
+
+  @type delete_endpoint_errors() ::
+          concurrent_modification_exception()
+          | internal_exception()
+          | resource_not_found_exception()
+
+  @type delete_event_bus_errors() :: concurrent_modification_exception() | internal_exception()
+
+  @type delete_partner_event_source_errors() ::
+          concurrent_modification_exception()
+          | internal_exception()
+          | operation_disabled_exception()
+
+  @type delete_rule_errors() ::
+          concurrent_modification_exception()
+          | internal_exception()
+          | managed_rule_exception()
+          | resource_not_found_exception()
+
+  @type describe_api_destination_errors() :: internal_exception() | resource_not_found_exception()
+
+  @type describe_archive_errors() ::
+          resource_already_exists_exception()
+          | internal_exception()
+          | resource_not_found_exception()
+
+  @type describe_connection_errors() :: internal_exception() | resource_not_found_exception()
+
+  @type describe_endpoint_errors() :: internal_exception() | resource_not_found_exception()
+
+  @type describe_event_bus_errors() :: internal_exception() | resource_not_found_exception()
+
+  @type describe_event_source_errors() ::
+          internal_exception() | operation_disabled_exception() | resource_not_found_exception()
+
+  @type describe_partner_event_source_errors() ::
+          internal_exception() | operation_disabled_exception() | resource_not_found_exception()
+
+  @type describe_replay_errors() :: internal_exception() | resource_not_found_exception()
+
+  @type describe_rule_errors() :: internal_exception() | resource_not_found_exception()
+
+  @type disable_rule_errors() ::
+          concurrent_modification_exception()
+          | internal_exception()
+          | managed_rule_exception()
+          | resource_not_found_exception()
+
+  @type enable_rule_errors() ::
+          concurrent_modification_exception()
+          | internal_exception()
+          | managed_rule_exception()
+          | resource_not_found_exception()
+
+  @type list_api_destinations_errors() :: internal_exception()
+
+  @type list_archives_errors() :: internal_exception() | resource_not_found_exception()
+
+  @type list_connections_errors() :: internal_exception()
+
+  @type list_endpoints_errors() :: internal_exception()
+
+  @type list_event_buses_errors() :: internal_exception()
+
+  @type list_event_sources_errors() :: internal_exception() | operation_disabled_exception()
+
+  @type list_partner_event_source_accounts_errors() ::
+          internal_exception() | operation_disabled_exception() | resource_not_found_exception()
+
+  @type list_partner_event_sources_errors() ::
+          internal_exception() | operation_disabled_exception()
+
+  @type list_replays_errors() :: internal_exception()
+
+  @type list_rule_names_by_target_errors() ::
+          internal_exception() | resource_not_found_exception()
+
+  @type list_rules_errors() :: internal_exception() | resource_not_found_exception()
+
+  @type list_tags_for_resource_errors() :: internal_exception() | resource_not_found_exception()
+
+  @type list_targets_by_rule_errors() :: internal_exception() | resource_not_found_exception()
+
+  @type put_events_errors() :: internal_exception()
+
+  @type put_partner_events_errors() :: internal_exception() | operation_disabled_exception()
+
+  @type put_permission_errors() ::
+          concurrent_modification_exception()
+          | internal_exception()
+          | operation_disabled_exception()
+          | resource_not_found_exception()
+          | policy_length_exceeded_exception()
+
+  @type put_rule_errors() ::
+          limit_exceeded_exception()
+          | concurrent_modification_exception()
+          | internal_exception()
+          | managed_rule_exception()
+          | resource_not_found_exception()
+          | invalid_event_pattern_exception()
+
+  @type put_targets_errors() ::
+          limit_exceeded_exception()
+          | concurrent_modification_exception()
+          | internal_exception()
+          | managed_rule_exception()
+          | resource_not_found_exception()
+
+  @type remove_permission_errors() ::
+          concurrent_modification_exception()
+          | internal_exception()
+          | operation_disabled_exception()
+          | resource_not_found_exception()
+
+  @type remove_targets_errors() ::
+          concurrent_modification_exception()
+          | internal_exception()
+          | managed_rule_exception()
+          | resource_not_found_exception()
+
+  @type start_replay_errors() ::
+          resource_already_exists_exception()
+          | limit_exceeded_exception()
+          | internal_exception()
+          | resource_not_found_exception()
+          | invalid_event_pattern_exception()
+
+  @type tag_resource_errors() ::
+          concurrent_modification_exception()
+          | internal_exception()
+          | managed_rule_exception()
+          | resource_not_found_exception()
+
+  @type test_event_pattern_errors() :: internal_exception() | invalid_event_pattern_exception()
+
+  @type untag_resource_errors() ::
+          concurrent_modification_exception()
+          | internal_exception()
+          | managed_rule_exception()
+          | resource_not_found_exception()
+
+  @type update_api_destination_errors() ::
+          limit_exceeded_exception()
+          | concurrent_modification_exception()
+          | internal_exception()
+          | resource_not_found_exception()
+
+  @type update_archive_errors() ::
+          limit_exceeded_exception()
+          | concurrent_modification_exception()
+          | internal_exception()
+          | resource_not_found_exception()
+          | invalid_event_pattern_exception()
+
+  @type update_connection_errors() ::
+          limit_exceeded_exception()
+          | concurrent_modification_exception()
+          | internal_exception()
+          | resource_not_found_exception()
+
+  @type update_endpoint_errors() ::
+          concurrent_modification_exception()
+          | internal_exception()
+          | resource_not_found_exception()
 
   def metadata do
     %{
@@ -2080,11 +2671,7 @@ defmodule AWS.EventBridge do
   @spec activate_event_source(map(), activate_event_source_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, internal_exception()}
-          | {:error, invalid_state_exception()}
-          | {:error, operation_disabled_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, activate_event_source_errors()}
   def activate_event_source(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2097,10 +2684,7 @@ defmodule AWS.EventBridge do
   @spec cancel_replay(map(), cancel_replay_request(), list()) ::
           {:ok, cancel_replay_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, illegal_status_exception()}
-          | {:error, internal_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, cancel_replay_errors()}
   def cancel_replay(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2121,10 +2705,7 @@ defmodule AWS.EventBridge do
   @spec create_api_destination(map(), create_api_destination_request(), list()) ::
           {:ok, create_api_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_already_exists_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, create_api_destination_errors()}
   def create_api_destination(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2146,12 +2727,7 @@ defmodule AWS.EventBridge do
   @spec create_archive(map(), create_archive_request(), list()) ::
           {:ok, create_archive_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, internal_exception()}
-          | {:error, invalid_event_pattern_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_already_exists_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, create_archive_errors()}
   def create_archive(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2167,9 +2743,7 @@ defmodule AWS.EventBridge do
   @spec create_connection(map(), create_connection_request(), list()) ::
           {:ok, create_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_already_exists_exception()}
+          | {:error, create_connection_errors()}
   def create_connection(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2190,9 +2764,7 @@ defmodule AWS.EventBridge do
   @spec create_endpoint(map(), create_endpoint_request(), list()) ::
           {:ok, create_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_already_exists_exception()}
+          | {:error, create_endpoint_errors()}
   def create_endpoint(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2210,13 +2782,7 @@ defmodule AWS.EventBridge do
   @spec create_event_bus(map(), create_event_bus_request(), list()) ::
           {:ok, create_event_bus_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, internal_exception()}
-          | {:error, invalid_state_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, operation_disabled_exception()}
-          | {:error, resource_already_exists_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, create_event_bus_errors()}
   def create_event_bus(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2280,11 +2846,7 @@ defmodule AWS.EventBridge do
   @spec create_partner_event_source(map(), create_partner_event_source_request(), list()) ::
           {:ok, create_partner_event_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, internal_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, operation_disabled_exception()}
-          | {:error, resource_already_exists_exception()}
+          | {:error, create_partner_event_source_errors()}
   def create_partner_event_source(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2308,11 +2870,7 @@ defmodule AWS.EventBridge do
   @spec deactivate_event_source(map(), deactivate_event_source_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, internal_exception()}
-          | {:error, invalid_state_exception()}
-          | {:error, operation_disabled_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, deactivate_event_source_errors()}
   def deactivate_event_source(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2329,9 +2887,7 @@ defmodule AWS.EventBridge do
   @spec deauthorize_connection(map(), deauthorize_connection_request(), list()) ::
           {:ok, deauthorize_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, internal_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, deauthorize_connection_errors()}
   def deauthorize_connection(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2344,9 +2900,7 @@ defmodule AWS.EventBridge do
   @spec delete_api_destination(map(), delete_api_destination_request(), list()) ::
           {:ok, delete_api_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, internal_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, delete_api_destination_errors()}
   def delete_api_destination(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2359,9 +2913,7 @@ defmodule AWS.EventBridge do
   @spec delete_archive(map(), delete_archive_request(), list()) ::
           {:ok, delete_archive_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, internal_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, delete_archive_errors()}
   def delete_archive(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2374,9 +2926,7 @@ defmodule AWS.EventBridge do
   @spec delete_connection(map(), delete_connection_request(), list()) ::
           {:ok, delete_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, internal_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, delete_connection_errors()}
   def delete_connection(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2393,9 +2943,7 @@ defmodule AWS.EventBridge do
   @spec delete_endpoint(map(), delete_endpoint_request(), list()) ::
           {:ok, delete_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, internal_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, delete_endpoint_errors()}
   def delete_endpoint(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2412,8 +2960,7 @@ defmodule AWS.EventBridge do
   @spec delete_event_bus(map(), delete_event_bus_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, internal_exception()}
+          | {:error, delete_event_bus_errors()}
   def delete_event_bus(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2433,9 +2980,7 @@ defmodule AWS.EventBridge do
   @spec delete_partner_event_source(map(), delete_partner_event_source_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, internal_exception()}
-          | {:error, operation_disabled_exception()}
+          | {:error, delete_partner_event_source_errors()}
   def delete_partner_event_source(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2469,10 +3014,7 @@ defmodule AWS.EventBridge do
   @spec delete_rule(map(), delete_rule_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, internal_exception()}
-          | {:error, managed_rule_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, delete_rule_errors()}
   def delete_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2485,8 +3027,7 @@ defmodule AWS.EventBridge do
   @spec describe_api_destination(map(), describe_api_destination_request(), list()) ::
           {:ok, describe_api_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, describe_api_destination_errors()}
   def describe_api_destination(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2499,9 +3040,7 @@ defmodule AWS.EventBridge do
   @spec describe_archive(map(), describe_archive_request(), list()) ::
           {:ok, describe_archive_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, resource_already_exists_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, describe_archive_errors()}
   def describe_archive(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2514,8 +3053,7 @@ defmodule AWS.EventBridge do
   @spec describe_connection(map(), describe_connection_request(), list()) ::
           {:ok, describe_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, describe_connection_errors()}
   def describe_connection(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2532,8 +3070,7 @@ defmodule AWS.EventBridge do
   @spec describe_endpoint(map(), describe_endpoint_request(), list()) ::
           {:ok, describe_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, describe_endpoint_errors()}
   def describe_endpoint(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2559,8 +3096,7 @@ defmodule AWS.EventBridge do
   @spec describe_event_bus(map(), describe_event_bus_request(), list()) ::
           {:ok, describe_event_bus_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, describe_event_bus_errors()}
   def describe_event_bus(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2575,9 +3111,7 @@ defmodule AWS.EventBridge do
   @spec describe_event_source(map(), describe_event_source_request(), list()) ::
           {:ok, describe_event_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, operation_disabled_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, describe_event_source_errors()}
   def describe_event_source(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2598,9 +3132,7 @@ defmodule AWS.EventBridge do
   @spec describe_partner_event_source(map(), describe_partner_event_source_request(), list()) ::
           {:ok, describe_partner_event_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, operation_disabled_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, describe_partner_event_source_errors()}
   def describe_partner_event_source(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2625,8 +3157,7 @@ defmodule AWS.EventBridge do
   @spec describe_replay(map(), describe_replay_request(), list()) ::
           {:ok, describe_replay_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, describe_replay_errors()}
   def describe_replay(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2644,8 +3175,7 @@ defmodule AWS.EventBridge do
   @spec describe_rule(map(), describe_rule_request(), list()) ::
           {:ok, describe_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, describe_rule_errors()}
   def describe_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2665,10 +3195,7 @@ defmodule AWS.EventBridge do
   @spec disable_rule(map(), disable_rule_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, internal_exception()}
-          | {:error, managed_rule_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, disable_rule_errors()}
   def disable_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2687,10 +3214,7 @@ defmodule AWS.EventBridge do
   @spec enable_rule(map(), enable_rule_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, internal_exception()}
-          | {:error, managed_rule_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, enable_rule_errors()}
   def enable_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2703,7 +3227,7 @@ defmodule AWS.EventBridge do
   @spec list_api_destinations(map(), list_api_destinations_request(), list()) ::
           {:ok, list_api_destinations_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
+          | {:error, list_api_destinations_errors()}
   def list_api_destinations(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2719,8 +3243,7 @@ defmodule AWS.EventBridge do
   @spec list_archives(map(), list_archives_request(), list()) ::
           {:ok, list_archives_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, list_archives_errors()}
   def list_archives(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2733,7 +3256,7 @@ defmodule AWS.EventBridge do
   @spec list_connections(map(), list_connections_request(), list()) ::
           {:ok, list_connections_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
+          | {:error, list_connections_errors()}
   def list_connections(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2750,7 +3273,7 @@ defmodule AWS.EventBridge do
   @spec list_endpoints(map(), list_endpoints_request(), list()) ::
           {:ok, list_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
+          | {:error, list_endpoints_errors()}
   def list_endpoints(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2765,7 +3288,7 @@ defmodule AWS.EventBridge do
   @spec list_event_buses(map(), list_event_buses_request(), list()) ::
           {:ok, list_event_buses_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
+          | {:error, list_event_buses_errors()}
   def list_event_buses(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2783,8 +3306,7 @@ defmodule AWS.EventBridge do
   @spec list_event_sources(map(), list_event_sources_request(), list()) ::
           {:ok, list_event_sources_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, operation_disabled_exception()}
+          | {:error, list_event_sources_errors()}
   def list_event_sources(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2806,9 +3328,7 @@ defmodule AWS.EventBridge do
         ) ::
           {:ok, list_partner_event_source_accounts_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, operation_disabled_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, list_partner_event_source_accounts_errors()}
   def list_partner_event_source_accounts(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2825,8 +3345,7 @@ defmodule AWS.EventBridge do
   @spec list_partner_event_sources(map(), list_partner_event_sources_request(), list()) ::
           {:ok, list_partner_event_sources_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, operation_disabled_exception()}
+          | {:error, list_partner_event_sources_errors()}
   def list_partner_event_sources(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2842,7 +3361,7 @@ defmodule AWS.EventBridge do
   @spec list_replays(map(), list_replays_request(), list()) ::
           {:ok, list_replays_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
+          | {:error, list_replays_errors()}
   def list_replays(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2860,8 +3379,7 @@ defmodule AWS.EventBridge do
   @spec list_rule_names_by_target(map(), list_rule_names_by_target_request(), list()) ::
           {:ok, list_rule_names_by_target_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, list_rule_names_by_target_errors()}
   def list_rule_names_by_target(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2884,8 +3402,7 @@ defmodule AWS.EventBridge do
   @spec list_rules(map(), list_rules_request(), list()) ::
           {:ok, list_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, list_rules_errors()}
   def list_rules(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2901,8 +3418,7 @@ defmodule AWS.EventBridge do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2917,8 +3433,7 @@ defmodule AWS.EventBridge do
   @spec list_targets_by_rule(map(), list_targets_by_rule_request(), list()) ::
           {:ok, list_targets_by_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, list_targets_by_rule_errors()}
   def list_targets_by_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2944,7 +3459,7 @@ defmodule AWS.EventBridge do
   @spec put_events(map(), put_events_request(), list()) ::
           {:ok, put_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
+          | {:error, put_events_errors()}
   def put_events(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2964,8 +3479,7 @@ defmodule AWS.EventBridge do
   @spec put_partner_events(map(), put_partner_events_request(), list()) ::
           {:ok, put_partner_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, operation_disabled_exception()}
+          | {:error, put_partner_events_errors()}
   def put_partner_events(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3007,11 +3521,7 @@ defmodule AWS.EventBridge do
   @spec put_permission(map(), put_permission_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, internal_exception()}
-          | {:error, operation_disabled_exception()}
-          | {:error, policy_length_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, put_permission_errors()}
   def put_permission(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3099,12 +3609,7 @@ defmodule AWS.EventBridge do
   @spec put_rule(map(), put_rule_request(), list()) ::
           {:ok, put_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, internal_exception()}
-          | {:error, invalid_event_pattern_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, managed_rule_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, put_rule_errors()}
   def put_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3249,11 +3754,7 @@ defmodule AWS.EventBridge do
   @spec put_targets(map(), put_targets_request(), list()) ::
           {:ok, put_targets_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, internal_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, managed_rule_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, put_targets_errors()}
   def put_targets(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3273,10 +3774,7 @@ defmodule AWS.EventBridge do
   @spec remove_permission(map(), remove_permission_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, internal_exception()}
-          | {:error, operation_disabled_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, remove_permission_errors()}
   def remove_permission(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3307,10 +3805,7 @@ defmodule AWS.EventBridge do
   @spec remove_targets(map(), remove_targets_request(), list()) ::
           {:ok, remove_targets_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, internal_exception()}
-          | {:error, managed_rule_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, remove_targets_errors()}
   def remove_targets(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3337,11 +3832,7 @@ defmodule AWS.EventBridge do
   @spec start_replay(map(), start_replay_request(), list()) ::
           {:ok, start_replay_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, invalid_event_pattern_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_already_exists_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, start_replay_errors()}
   def start_replay(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3375,10 +3866,7 @@ defmodule AWS.EventBridge do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, internal_exception()}
-          | {:error, managed_rule_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3399,8 +3887,7 @@ defmodule AWS.EventBridge do
   @spec test_event_pattern(map(), test_event_pattern_request(), list()) ::
           {:ok, test_event_pattern_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_exception()}
-          | {:error, invalid_event_pattern_exception()}
+          | {:error, test_event_pattern_errors()}
   def test_event_pattern(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3416,10 +3903,7 @@ defmodule AWS.EventBridge do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, internal_exception()}
-          | {:error, managed_rule_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3432,10 +3916,7 @@ defmodule AWS.EventBridge do
   @spec update_api_destination(map(), update_api_destination_request(), list()) ::
           {:ok, update_api_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, internal_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, update_api_destination_errors()}
   def update_api_destination(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3448,11 +3929,7 @@ defmodule AWS.EventBridge do
   @spec update_archive(map(), update_archive_request(), list()) ::
           {:ok, update_archive_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, internal_exception()}
-          | {:error, invalid_event_pattern_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, update_archive_errors()}
   def update_archive(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3465,10 +3942,7 @@ defmodule AWS.EventBridge do
   @spec update_connection(map(), update_connection_request(), list()) ::
           {:ok, update_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, internal_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, update_connection_errors()}
   def update_connection(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3485,9 +3959,7 @@ defmodule AWS.EventBridge do
   @spec update_endpoint(map(), update_endpoint_request(), list()) ::
           {:ok, update_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, concurrent_modification_exception()}
-          | {:error, internal_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, update_endpoint_errors()}
   def update_endpoint(%Client{} = client, input, options \\ []) do
     meta = metadata()
 

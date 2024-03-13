@@ -12,153 +12,185 @@ defmodule AWS.SagemakerEdge do
   @typedoc """
 
   ## Example:
-  checksum() :: %{
-    "Sum" => String.t(),
-    "Type" => list(any())
-  }
+
+      checksum() :: %{
+        "Sum" => String.t(),
+        "Type" => list(any())
+      }
+
   """
   @type checksum() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  definition() :: %{
-    "Checksum" => checksum(),
-    "ModelHandle" => String.t(),
-    "S3Url" => String.t(),
-    "State" => list(any())
-  }
+
+      definition() :: %{
+        "Checksum" => checksum(),
+        "ModelHandle" => String.t(),
+        "S3Url" => String.t(),
+        "State" => list(any())
+      }
+
   """
   @type definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  deployment_model() :: %{
-    "DesiredState" => list(any()),
-    "ModelHandle" => String.t(),
-    "ModelName" => String.t(),
-    "ModelVersion" => String.t(),
-    "RollbackFailureReason" => String.t(),
-    "State" => list(any()),
-    "Status" => list(any()),
-    "StatusReason" => String.t()
-  }
+
+      deployment_model() :: %{
+        "DesiredState" => list(any()),
+        "ModelHandle" => String.t(),
+        "ModelName" => String.t(),
+        "ModelVersion" => String.t(),
+        "RollbackFailureReason" => String.t(),
+        "State" => list(any()),
+        "Status" => list(any()),
+        "StatusReason" => String.t()
+      }
+
   """
   @type deployment_model() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  deployment_result() :: %{
-    "DeploymentEndTime" => non_neg_integer(),
-    "DeploymentModels" => list(deployment_model()()),
-    "DeploymentName" => String.t(),
-    "DeploymentStartTime" => non_neg_integer(),
-    "DeploymentStatus" => String.t(),
-    "DeploymentStatusMessage" => String.t()
-  }
+
+      deployment_result() :: %{
+        "DeploymentEndTime" => non_neg_integer(),
+        "DeploymentModels" => list(deployment_model()()),
+        "DeploymentName" => String.t(),
+        "DeploymentStartTime" => non_neg_integer(),
+        "DeploymentStatus" => String.t(),
+        "DeploymentStatusMessage" => String.t()
+      }
+
   """
   @type deployment_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  edge_deployment() :: %{
-    "Definitions" => list(definition()()),
-    "DeploymentName" => String.t(),
-    "FailureHandlingPolicy" => list(any()),
-    "Type" => list(any())
-  }
+
+      edge_deployment() :: %{
+        "Definitions" => list(definition()()),
+        "DeploymentName" => String.t(),
+        "FailureHandlingPolicy" => list(any()),
+        "Type" => list(any())
+      }
+
   """
   @type edge_deployment() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  edge_metric() :: %{
-    "Dimension" => String.t(),
-    "MetricName" => String.t(),
-    "Timestamp" => non_neg_integer(),
-    "Value" => float()
-  }
+
+      edge_metric() :: %{
+        "Dimension" => String.t(),
+        "MetricName" => String.t(),
+        "Timestamp" => non_neg_integer(),
+        "Value" => float()
+      }
+
   """
   @type edge_metric() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_deployments_request() :: %{
-    required("DeviceFleetName") => String.t(),
-    required("DeviceName") => String.t()
-  }
+
+      get_deployments_request() :: %{
+        required("DeviceFleetName") => String.t(),
+        required("DeviceName") => String.t()
+      }
+
   """
   @type get_deployments_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_deployments_result() :: %{
-    "Deployments" => list(edge_deployment()())
-  }
+
+      get_deployments_result() :: %{
+        "Deployments" => list(edge_deployment()())
+      }
+
   """
   @type get_deployments_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_device_registration_request() :: %{
-    required("DeviceFleetName") => String.t(),
-    required("DeviceName") => String.t()
-  }
+
+      get_device_registration_request() :: %{
+        required("DeviceFleetName") => String.t(),
+        required("DeviceName") => String.t()
+      }
+
   """
   @type get_device_registration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_device_registration_result() :: %{
-    "CacheTTL" => String.t(),
-    "DeviceRegistration" => String.t()
-  }
+
+      get_device_registration_result() :: %{
+        "CacheTTL" => String.t(),
+        "DeviceRegistration" => String.t()
+      }
+
   """
   @type get_device_registration_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  internal_service_exception() :: %{
-    "Message" => String.t()
-  }
+
+      internal_service_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type internal_service_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  model() :: %{
-    "LatestInference" => non_neg_integer(),
-    "LatestSampleTime" => non_neg_integer(),
-    "ModelMetrics" => list(edge_metric()()),
-    "ModelName" => String.t(),
-    "ModelVersion" => String.t()
-  }
+
+      model() :: %{
+        "LatestInference" => non_neg_integer(),
+        "LatestSampleTime" => non_neg_integer(),
+        "ModelMetrics" => list(edge_metric()()),
+        "ModelName" => String.t(),
+        "ModelVersion" => String.t()
+      }
+
   """
   @type model() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  send_heartbeat_request() :: %{
-    optional("AgentMetrics") => list(edge_metric()()),
-    optional("DeploymentResult") => deployment_result(),
-    optional("Models") => list(model()()),
-    required("AgentVersion") => String.t(),
-    required("DeviceFleetName") => String.t(),
-    required("DeviceName") => String.t()
-  }
+
+      send_heartbeat_request() :: %{
+        optional("AgentMetrics") => list(edge_metric()()),
+        optional("DeploymentResult") => deployment_result(),
+        optional("Models") => list(model()()),
+        required("AgentVersion") => String.t(),
+        required("DeviceFleetName") => String.t(),
+        required("DeviceName") => String.t()
+      }
+
   """
   @type send_heartbeat_request() :: %{String.t() => any()}
+
+  @type get_deployments_errors() :: internal_service_exception()
+
+  @type get_device_registration_errors() :: internal_service_exception()
+
+  @type send_heartbeat_errors() :: internal_service_exception()
 
   def metadata do
     %{
@@ -181,7 +213,7 @@ defmodule AWS.SagemakerEdge do
   @spec get_deployments(map(), get_deployments_request(), list()) ::
           {:ok, get_deployments_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
+          | {:error, get_deployments_errors()}
   def get_deployments(%Client{} = client, input, options \\ []) do
     url_path = "/GetDeployments"
     headers = []
@@ -208,7 +240,7 @@ defmodule AWS.SagemakerEdge do
   @spec get_device_registration(map(), get_device_registration_request(), list()) ::
           {:ok, get_device_registration_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
+          | {:error, get_device_registration_errors()}
   def get_device_registration(%Client{} = client, input, options \\ []) do
     url_path = "/GetDeviceRegistration"
     headers = []
@@ -235,7 +267,7 @@ defmodule AWS.SagemakerEdge do
   @spec send_heartbeat(map(), send_heartbeat_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_service_exception()}
+          | {:error, send_heartbeat_errors()}
   def send_heartbeat(%Client{} = client, input, options \\ []) do
     url_path = "/SendHeartbeat"
     headers = []

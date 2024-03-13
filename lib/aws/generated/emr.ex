@@ -17,2385 +17,2885 @@ defmodule AWS.EMR do
   @typedoc """
 
   ## Example:
-  cancel_steps_info() :: %{
-    "Reason" => String.t(),
-    "Status" => list(any()),
-    "StepId" => String.t()
-  }
+      
+      cancel_steps_info() :: %{
+        "Reason" => String.t(),
+        "Status" => list(any()),
+        "StepId" => String.t()
+      }
+      
   """
   @type cancel_steps_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  instance_state_change_reason() :: %{
-    "Code" => list(any()),
-    "Message" => String.t()
-  }
+      
+      instance_state_change_reason() :: %{
+        "Code" => list(any()),
+        "Message" => String.t()
+      }
+      
   """
   @type instance_state_change_reason() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  output_notebook_s3_location_from_input() :: %{
-    "Bucket" => String.t(),
-    "Key" => String.t()
-  }
+      
+      output_notebook_s3_location_from_input() :: %{
+        "Bucket" => String.t(),
+        "Key" => String.t()
+      }
+      
   """
   @type output_notebook_s3_location_from_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_auto_termination_policy_input() :: %{
-    required("ClusterId") => String.t()
-  }
+      
+      get_auto_termination_policy_input() :: %{
+        required("ClusterId") => String.t()
+      }
+      
   """
   @type get_auto_termination_policy_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  bootstrap_action_detail() :: %{
-    "BootstrapActionConfig" => bootstrap_action_config()
-  }
+      
+      bootstrap_action_detail() :: %{
+        "BootstrapActionConfig" => bootstrap_action_config()
+      }
+      
   """
   @type bootstrap_action_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_bootstrap_actions_input() :: %{
-    optional("Marker") => String.t(),
-    required("ClusterId") => String.t()
-  }
+      
+      list_bootstrap_actions_input() :: %{
+        optional("Marker") => String.t(),
+        required("ClusterId") => String.t()
+      }
+      
   """
   @type list_bootstrap_actions_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_auto_termination_policy_output() :: %{
-
-  }
+      
+      put_auto_termination_policy_output() :: %{}
+      
   """
-  @type put_auto_termination_policy_output() :: %{String.t() => any()}
+  @type put_auto_termination_policy_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  auto_termination_policy() :: %{
-    "IdleTimeout" => float()
-  }
+      
+      auto_termination_policy() :: %{
+        "IdleTimeout" => float()
+      }
+      
   """
   @type auto_termination_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_release_label_input() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("ReleaseLabel") => String.t()
-  }
+      
+      describe_release_label_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("ReleaseLabel") => String.t()
+      }
+      
   """
   @type describe_release_label_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  scaling_trigger() :: %{
-    "CloudWatchAlarmDefinition" => cloud_watch_alarm_definition()
-  }
+      
+      scaling_trigger() :: %{
+        "CloudWatchAlarmDefinition" => cloud_watch_alarm_definition()
+      }
+      
   """
   @type scaling_trigger() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  bootstrap_action_config() :: %{
-    "Name" => String.t(),
-    "ScriptBootstrapAction" => script_bootstrap_action_config()
-  }
+      
+      bootstrap_action_config() :: %{
+        "Name" => String.t(),
+        "ScriptBootstrapAction" => script_bootstrap_action_config()
+      }
+      
   """
   @type bootstrap_action_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_studio_input() :: %{
-    required("StudioId") => String.t()
-  }
+      
+      delete_studio_input() :: %{
+        required("StudioId") => String.t()
+      }
+      
   """
   @type delete_studio_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_security_configuration_output() :: %{
-    "CreationDateTime" => non_neg_integer(),
-    "Name" => String.t(),
-    "SecurityConfiguration" => String.t()
-  }
+      
+      describe_security_configuration_output() :: %{
+        "CreationDateTime" => non_neg_integer(),
+        "Name" => String.t(),
+        "SecurityConfiguration" => String.t()
+      }
+      
   """
   @type describe_security_configuration_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_instance_groups_output() :: %{
-    "InstanceGroups" => list(instance_group()()),
-    "Marker" => String.t()
-  }
+      
+      list_instance_groups_output() :: %{
+        "InstanceGroups" => list(instance_group()()),
+        "Marker" => String.t()
+      }
+      
   """
   @type list_instance_groups_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  step_state_change_reason() :: %{
-    "Code" => list(any()),
-    "Message" => String.t()
-  }
+      
+      step_state_change_reason() :: %{
+        "Code" => list(any()),
+        "Message" => String.t()
+      }
+      
   """
   @type step_state_change_reason() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  release_label_filter() :: %{
-    "Application" => String.t(),
-    "Prefix" => String.t()
-  }
+      
+      release_label_filter() :: %{
+        "Application" => String.t(),
+        "Prefix" => String.t()
+      }
+      
   """
   @type release_label_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  auto_scaling_policy_status() :: %{
-    "State" => list(any()),
-    "StateChangeReason" => auto_scaling_policy_state_change_reason()
-  }
+      
+      auto_scaling_policy_status() :: %{
+        "State" => list(any()),
+        "StateChangeReason" => auto_scaling_policy_state_change_reason()
+      }
+      
   """
   @type auto_scaling_policy_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_cluster_output() :: %{
-    "Cluster" => cluster()
-  }
+      
+      describe_cluster_output() :: %{
+        "Cluster" => cluster()
+      }
+      
   """
   @type describe_cluster_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_studio_session_mapping_input() :: %{
-    optional("IdentityId") => String.t(),
-    optional("IdentityName") => String.t(),
-    required("IdentityType") => list(any()),
-    required("SessionPolicyArn") => String.t(),
-    required("StudioId") => String.t()
-  }
+      
+      create_studio_session_mapping_input() :: %{
+        optional("IdentityId") => String.t(),
+        optional("IdentityName") => String.t(),
+        required("IdentityType") => list(any()),
+        required("SessionPolicyArn") => String.t(),
+        required("StudioId") => String.t()
+      }
+      
   """
   @type create_studio_session_mapping_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_cluster_session_credentials_input() :: %{
-    optional("ExecutionRoleArn") => String.t(),
-    required("ClusterId") => String.t()
-  }
+      
+      get_cluster_session_credentials_input() :: %{
+        optional("ExecutionRoleArn") => String.t(),
+        required("ClusterId") => String.t()
+      }
+      
   """
   @type get_cluster_session_credentials_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  simplified_application() :: %{
-    "Name" => String.t(),
-    "Version" => String.t()
-  }
+      
+      simplified_application() :: %{
+        "Name" => String.t(),
+        "Version" => String.t()
+      }
+      
   """
   @type simplified_application() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_step_output() :: %{
-    "Step" => step()
-  }
+      
+      describe_step_output() :: %{
+        "Step" => step()
+      }
+      
   """
   @type describe_step_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  set_visible_to_all_users_input() :: %{
-    required("JobFlowIds") => list(String.t()()),
-    required("VisibleToAllUsers") => boolean()
-  }
+      
+      set_visible_to_all_users_input() :: %{
+        required("JobFlowIds") => list(String.t()()),
+        required("VisibleToAllUsers") => boolean()
+      }
+      
   """
   @type set_visible_to_all_users_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_block_public_access_configuration_input() :: %{
-    required("BlockPublicAccessConfiguration") => block_public_access_configuration()
-  }
+      
+      put_block_public_access_configuration_input() :: %{
+        required("BlockPublicAccessConfiguration") => block_public_access_configuration()
+      }
+      
   """
   @type put_block_public_access_configuration_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  add_instance_fleet_input() :: %{
-    required("ClusterId") => String.t(),
-    required("InstanceFleet") => instance_fleet_config()
-  }
+      
+      add_instance_fleet_input() :: %{
+        required("ClusterId") => String.t(),
+        required("InstanceFleet") => instance_fleet_config()
+      }
+      
   """
   @type add_instance_fleet_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_instance_fleets_output() :: %{
-    "InstanceFleets" => list(instance_fleet()()),
-    "Marker" => String.t()
-  }
+      
+      list_instance_fleets_output() :: %{
+        "InstanceFleets" => list(instance_fleet()()),
+        "Marker" => String.t()
+      }
+      
   """
   @type list_instance_fleets_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  step_detail() :: %{
-    "ExecutionStatusDetail" => step_execution_status_detail(),
-    "StepConfig" => step_config()
-  }
+      
+      step_detail() :: %{
+        "ExecutionStatusDetail" => step_execution_status_detail(),
+        "StepConfig" => step_config()
+      }
+      
   """
   @type step_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  script_bootstrap_action_config() :: %{
-    "Args" => list(String.t()()),
-    "Path" => String.t()
-  }
+      
+      script_bootstrap_action_config() :: %{
+        "Args" => list(String.t()()),
+        "Path" => String.t()
+      }
+      
   """
   @type script_bootstrap_action_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  add_instance_groups_output() :: %{
-    "ClusterArn" => String.t(),
-    "InstanceGroupIds" => list(String.t()()),
-    "JobFlowId" => String.t()
-  }
+      
+      add_instance_groups_output() :: %{
+        "ClusterArn" => String.t(),
+        "InstanceGroupIds" => list(String.t()()),
+        "JobFlowId" => String.t()
+      }
+      
   """
   @type add_instance_groups_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  volume_specification() :: %{
-    "Iops" => integer(),
-    "SizeInGB" => integer(),
-    "Throughput" => integer(),
-    "VolumeType" => String.t()
-  }
+      
+      volume_specification() :: %{
+        "Iops" => integer(),
+        "SizeInGB" => integer(),
+        "Throughput" => integer(),
+        "VolumeType" => String.t()
+      }
+      
   """
   @type volume_specification() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_steps_input() :: %{
-    optional("Marker") => String.t(),
-    optional("StepIds") => list(String.t()()),
-    optional("StepStates") => list(list(any())()),
-    required("ClusterId") => String.t()
-  }
+      
+      list_steps_input() :: %{
+        optional("Marker") => String.t(),
+        optional("StepIds") => list(String.t()()),
+        optional("StepStates") => list(list(any())()),
+        required("ClusterId") => String.t()
+      }
+      
   """
   @type list_steps_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  add_tags_output() :: %{
-
-  }
+      
+      add_tags_output() :: %{}
+      
   """
-  @type add_tags_output() :: %{String.t() => any()}
+  @type add_tags_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  start_notebook_execution_output() :: %{
-    "NotebookExecutionId" => String.t()
-  }
+      
+      start_notebook_execution_output() :: %{
+        "NotebookExecutionId" => String.t()
+      }
+      
   """
   @type start_notebook_execution_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  spot_resizing_specification() :: %{
-    "TimeoutDurationMinutes" => integer()
-  }
+      
+      spot_resizing_specification() :: %{
+        "TimeoutDurationMinutes" => integer()
+      }
+      
   """
   @type spot_resizing_specification() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  configuration() :: %{
-    "Classification" => String.t(),
-    "Configurations" => list(configuration()()),
-    "Properties" => map()
-  }
+      
+      configuration() :: %{
+        "Classification" => String.t(),
+        "Configurations" => list(configuration()()),
+        "Properties" => map()
+      }
+      
   """
   @type configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  instance_group_timeline() :: %{
-    "CreationDateTime" => non_neg_integer(),
-    "EndDateTime" => non_neg_integer(),
-    "ReadyDateTime" => non_neg_integer()
-  }
+      
+      instance_group_timeline() :: %{
+        "CreationDateTime" => non_neg_integer(),
+        "EndDateTime" => non_neg_integer(),
+        "ReadyDateTime" => non_neg_integer()
+      }
+      
   """
   @type instance_group_timeline() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  supported_product_config() :: %{
-    "Args" => list(String.t()()),
-    "Name" => String.t()
-  }
+      
+      supported_product_config() :: %{
+        "Args" => list(String.t()()),
+        "Name" => String.t()
+      }
+      
   """
   @type supported_product_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_security_configurations_input() :: %{
-    optional("Marker") => String.t()
-  }
+      
+      list_security_configurations_input() :: %{
+        optional("Marker") => String.t()
+      }
+      
   """
   @type list_security_configurations_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  auto_scaling_policy() :: %{
-    "Constraints" => scaling_constraints(),
-    "Rules" => list(scaling_rule()())
-  }
+      
+      auto_scaling_policy() :: %{
+        "Constraints" => scaling_constraints(),
+        "Rules" => list(scaling_rule()())
+      }
+      
   """
   @type auto_scaling_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  instance_fleet() :: %{
-    "Id" => String.t(),
-    "InstanceFleetType" => list(any()),
-    "InstanceTypeSpecifications" => list(instance_type_specification()()),
-    "LaunchSpecifications" => instance_fleet_provisioning_specifications(),
-    "Name" => String.t(),
-    "ProvisionedOnDemandCapacity" => integer(),
-    "ProvisionedSpotCapacity" => integer(),
-    "ResizeSpecifications" => instance_fleet_resizing_specifications(),
-    "Status" => instance_fleet_status(),
-    "TargetOnDemandCapacity" => integer(),
-    "TargetSpotCapacity" => integer()
-  }
+      
+      instance_fleet() :: %{
+        "Id" => String.t(),
+        "InstanceFleetType" => list(any()),
+        "InstanceTypeSpecifications" => list(instance_type_specification()()),
+        "LaunchSpecifications" => instance_fleet_provisioning_specifications(),
+        "Name" => String.t(),
+        "ProvisionedOnDemandCapacity" => integer(),
+        "ProvisionedSpotCapacity" => integer(),
+        "ResizeSpecifications" => instance_fleet_resizing_specifications(),
+        "Status" => instance_fleet_status(),
+        "TargetOnDemandCapacity" => integer(),
+        "TargetSpotCapacity" => integer()
+      }
+      
   """
   @type instance_fleet() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_job_flows_input() :: %{
-    optional("CreatedAfter") => non_neg_integer(),
-    optional("CreatedBefore") => non_neg_integer(),
-    optional("JobFlowIds") => list(String.t()()),
-    optional("JobFlowStates") => list(list(any())())
-  }
+      
+      describe_job_flows_input() :: %{
+        optional("CreatedAfter") => non_neg_integer(),
+        optional("CreatedBefore") => non_neg_integer(),
+        optional("JobFlowIds") => list(String.t()()),
+        optional("JobFlowStates") => list(list(any())())
+      }
+      
   """
   @type describe_job_flows_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  placement_group_config() :: %{
-    "InstanceRole" => list(any()),
-    "PlacementStrategy" => list(any())
-  }
+      
+      placement_group_config() :: %{
+        "InstanceRole" => list(any()),
+        "PlacementStrategy" => list(any())
+      }
+      
   """
   @type placement_group_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  add_tags_input() :: %{
-    required("ResourceId") => String.t(),
-    required("Tags") => list(tag()())
-  }
+      
+      add_tags_input() :: %{
+        required("ResourceId") => String.t(),
+        required("Tags") => list(tag()())
+      }
+      
   """
   @type add_tags_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  hadoop_step_config() :: %{
-    "Args" => list(String.t()()),
-    "Jar" => String.t(),
-    "MainClass" => String.t(),
-    "Properties" => map()
-  }
+      
+      hadoop_step_config() :: %{
+        "Args" => list(String.t()()),
+        "Jar" => String.t(),
+        "MainClass" => String.t(),
+        "Properties" => map()
+      }
+      
   """
   @type hadoop_step_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_supported_instance_types_input() :: %{
-    optional("Marker") => String.t(),
-    required("ReleaseLabel") => String.t()
-  }
+      
+      list_supported_instance_types_input() :: %{
+        optional("Marker") => String.t(),
+        required("ReleaseLabel") => String.t()
+      }
+      
   """
   @type list_supported_instance_types_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_release_label_output() :: %{
-    "Applications" => list(simplified_application()()),
-    "AvailableOSReleases" => list(o_s_release()()),
-    "NextToken" => String.t(),
-    "ReleaseLabel" => String.t()
-  }
+      
+      describe_release_label_output() :: %{
+        "Applications" => list(simplified_application()()),
+        "AvailableOSReleases" => list(o_s_release()()),
+        "NextToken" => String.t(),
+        "ReleaseLabel" => String.t()
+      }
+      
   """
   @type describe_release_label_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_managed_scaling_policy_input() :: %{
-    required("ClusterId") => String.t()
-  }
+      
+      get_managed_scaling_policy_input() :: %{
+        required("ClusterId") => String.t()
+      }
+      
   """
   @type get_managed_scaling_policy_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  security_configuration_summary() :: %{
-    "CreationDateTime" => non_neg_integer(),
-    "Name" => String.t()
-  }
+      
+      security_configuration_summary() :: %{
+        "CreationDateTime" => non_neg_integer(),
+        "Name" => String.t()
+      }
+      
   """
   @type security_configuration_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  job_flow_detail() :: %{
-    "AmiVersion" => String.t(),
-    "AutoScalingRole" => String.t(),
-    "BootstrapActions" => list(bootstrap_action_detail()()),
-    "ExecutionStatusDetail" => job_flow_execution_status_detail(),
-    "Instances" => job_flow_instances_detail(),
-    "JobFlowId" => String.t(),
-    "JobFlowRole" => String.t(),
-    "LogEncryptionKmsKeyId" => String.t(),
-    "LogUri" => String.t(),
-    "Name" => String.t(),
-    "ScaleDownBehavior" => list(any()),
-    "ServiceRole" => String.t(),
-    "Steps" => list(step_detail()()),
-    "SupportedProducts" => list(String.t()()),
-    "VisibleToAllUsers" => boolean()
-  }
+      
+      job_flow_detail() :: %{
+        "AmiVersion" => String.t(),
+        "AutoScalingRole" => String.t(),
+        "BootstrapActions" => list(bootstrap_action_detail()()),
+        "ExecutionStatusDetail" => job_flow_execution_status_detail(),
+        "Instances" => job_flow_instances_detail(),
+        "JobFlowId" => String.t(),
+        "JobFlowRole" => String.t(),
+        "LogEncryptionKmsKeyId" => String.t(),
+        "LogUri" => String.t(),
+        "Name" => String.t(),
+        "ScaleDownBehavior" => list(any()),
+        "ServiceRole" => String.t(),
+        "Steps" => list(step_detail()()),
+        "SupportedProducts" => list(String.t()()),
+        "VisibleToAllUsers" => boolean()
+      }
+      
   """
   @type job_flow_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  remove_auto_termination_policy_input() :: %{
-    required("ClusterId") => String.t()
-  }
+      
+      remove_auto_termination_policy_input() :: %{
+        required("ClusterId") => String.t()
+      }
+      
   """
   @type remove_auto_termination_policy_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_instances_output() :: %{
-    "Instances" => list(instance()()),
-    "Marker" => String.t()
-  }
+      
+      list_instances_output() :: %{
+        "Instances" => list(instance()()),
+        "Marker" => String.t()
+      }
+      
   """
   @type list_instances_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  failure_details() :: %{
-    "LogFile" => String.t(),
-    "Message" => String.t(),
-    "Reason" => String.t()
-  }
+      
+      failure_details() :: %{
+        "LogFile" => String.t(),
+        "Message" => String.t(),
+        "Reason" => String.t()
+      }
+      
   """
   @type failure_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_clusters_output() :: %{
-    "Clusters" => list(cluster_summary()()),
-    "Marker" => String.t()
-  }
+      
+      list_clusters_output() :: %{
+        "Clusters" => list(cluster_summary()()),
+        "Marker" => String.t()
+      }
+      
   """
   @type list_clusters_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_auto_termination_policy_output() :: %{
-    "AutoTerminationPolicy" => auto_termination_policy()
-  }
+      
+      get_auto_termination_policy_output() :: %{
+        "AutoTerminationPolicy" => auto_termination_policy()
+      }
+      
   """
   @type get_auto_termination_policy_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  notebook_execution() :: %{
-    "Arn" => String.t(),
-    "EditorId" => String.t(),
-    "EndTime" => non_neg_integer(),
-    "EnvironmentVariables" => map(),
-    "ExecutionEngine" => execution_engine_config(),
-    "LastStateChangeReason" => String.t(),
-    "NotebookExecutionId" => String.t(),
-    "NotebookExecutionName" => String.t(),
-    "NotebookInstanceSecurityGroupId" => String.t(),
-    "NotebookParams" => String.t(),
-    "NotebookS3Location" => notebook_s3_location_for_output(),
-    "OutputNotebookFormat" => list(any()),
-    "OutputNotebookS3Location" => output_notebook_s3_location_for_output(),
-    "OutputNotebookURI" => String.t(),
-    "StartTime" => non_neg_integer(),
-    "Status" => list(any()),
-    "Tags" => list(tag()())
-  }
+      
+      notebook_execution() :: %{
+        "Arn" => String.t(),
+        "EditorId" => String.t(),
+        "EndTime" => non_neg_integer(),
+        "EnvironmentVariables" => map(),
+        "ExecutionEngine" => execution_engine_config(),
+        "LastStateChangeReason" => String.t(),
+        "NotebookExecutionId" => String.t(),
+        "NotebookExecutionName" => String.t(),
+        "NotebookInstanceSecurityGroupId" => String.t(),
+        "NotebookParams" => String.t(),
+        "NotebookS3Location" => notebook_s3_location_for_output(),
+        "OutputNotebookFormat" => list(any()),
+        "OutputNotebookS3Location" => output_notebook_s3_location_for_output(),
+        "OutputNotebookURI" => String.t(),
+        "StartTime" => non_neg_integer(),
+        "Status" => list(any()),
+        "Tags" => list(tag()())
+      }
+      
   """
   @type notebook_execution() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  remove_tags_output() :: %{
-
-  }
+      
+      remove_tags_output() :: %{}
+      
   """
-  @type remove_tags_output() :: %{String.t() => any()}
+  @type remove_tags_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  instance_group_status() :: %{
-    "State" => list(any()),
-    "StateChangeReason" => instance_group_state_change_reason(),
-    "Timeline" => instance_group_timeline()
-  }
+      
+      instance_group_status() :: %{
+        "State" => list(any()),
+        "StateChangeReason" => instance_group_state_change_reason(),
+        "Timeline" => instance_group_timeline()
+      }
+      
   """
   @type instance_group_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  notebook_s3_location_from_input() :: %{
-    "Bucket" => String.t(),
-    "Key" => String.t()
-  }
+      
+      notebook_s3_location_from_input() :: %{
+        "Bucket" => String.t(),
+        "Key" => String.t()
+      }
+      
   """
   @type notebook_s3_location_from_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  block_public_access_configuration_metadata() :: %{
-    "CreatedByArn" => String.t(),
-    "CreationDateTime" => non_neg_integer()
-  }
+      
+      block_public_access_configuration_metadata() :: %{
+        "CreatedByArn" => String.t(),
+        "CreationDateTime" => non_neg_integer()
+      }
+      
   """
   @type block_public_access_configuration_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_block_public_access_configuration_output() :: %{
-
-  }
+      
+      put_block_public_access_configuration_output() :: %{}
+      
   """
-  @type put_block_public_access_configuration_output() :: %{String.t() => any()}
+  @type put_block_public_access_configuration_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  cluster_summary() :: %{
-    "ClusterArn" => String.t(),
-    "Id" => String.t(),
-    "Name" => String.t(),
-    "NormalizedInstanceHours" => integer(),
-    "OutpostArn" => String.t(),
-    "Status" => cluster_status()
-  }
+      
+      cluster_summary() :: %{
+        "ClusterArn" => String.t(),
+        "Id" => String.t(),
+        "Name" => String.t(),
+        "NormalizedInstanceHours" => integer(),
+        "OutpostArn" => String.t(),
+        "Status" => cluster_status()
+      }
+      
   """
   @type cluster_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_auto_scaling_policy_input() :: %{
-    required("AutoScalingPolicy") => auto_scaling_policy(),
-    required("ClusterId") => String.t(),
-    required("InstanceGroupId") => String.t()
-  }
+      
+      put_auto_scaling_policy_input() :: %{
+        required("AutoScalingPolicy") => auto_scaling_policy(),
+        required("ClusterId") => String.t(),
+        required("InstanceGroupId") => String.t()
+      }
+      
   """
   @type put_auto_scaling_policy_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cloud_watch_alarm_definition() :: %{
-    "ComparisonOperator" => list(any()),
-    "Dimensions" => list(metric_dimension()()),
-    "EvaluationPeriods" => integer(),
-    "MetricName" => String.t(),
-    "Namespace" => String.t(),
-    "Period" => integer(),
-    "Statistic" => list(any()),
-    "Threshold" => float(),
-    "Unit" => list(any())
-  }
+      
+      cloud_watch_alarm_definition() :: %{
+        "ComparisonOperator" => list(any()),
+        "Dimensions" => list(metric_dimension()()),
+        "EvaluationPeriods" => integer(),
+        "MetricName" => String.t(),
+        "Namespace" => String.t(),
+        "Period" => integer(),
+        "Statistic" => list(any()),
+        "Threshold" => float(),
+        "Unit" => list(any())
+      }
+      
   """
   @type cloud_watch_alarm_definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  modify_cluster_output() :: %{
-    "StepConcurrencyLevel" => integer()
-  }
+      
+      modify_cluster_output() :: %{
+        "StepConcurrencyLevel" => integer()
+      }
+      
   """
   @type modify_cluster_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  step_status() :: %{
-    "FailureDetails" => failure_details(),
-    "State" => list(any()),
-    "StateChangeReason" => step_state_change_reason(),
-    "Timeline" => step_timeline()
-  }
+      
+      step_status() :: %{
+        "FailureDetails" => failure_details(),
+        "State" => list(any()),
+        "StateChangeReason" => step_state_change_reason(),
+        "Timeline" => step_timeline()
+      }
+      
   """
   @type step_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_studio_session_mapping_input() :: %{
-    optional("IdentityId") => String.t(),
-    optional("IdentityName") => String.t(),
-    required("IdentityType") => list(any()),
-    required("StudioId") => String.t()
-  }
+      
+      delete_studio_session_mapping_input() :: %{
+        optional("IdentityId") => String.t(),
+        optional("IdentityName") => String.t(),
+        required("IdentityType") => list(any()),
+        required("StudioId") => String.t()
+      }
+      
   """
   @type delete_studio_session_mapping_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  remove_managed_scaling_policy_input() :: %{
-    required("ClusterId") => String.t()
-  }
+      
+      remove_managed_scaling_policy_input() :: %{
+        required("ClusterId") => String.t()
+      }
+      
   """
   @type remove_managed_scaling_policy_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  on_demand_capacity_reservation_options() :: %{
-    "CapacityReservationPreference" => list(any()),
-    "CapacityReservationResourceGroupArn" => String.t(),
-    "UsageStrategy" => list(any())
-  }
+      
+      on_demand_capacity_reservation_options() :: %{
+        "CapacityReservationPreference" => list(any()),
+        "CapacityReservationResourceGroupArn" => String.t(),
+        "UsageStrategy" => list(any())
+      }
+      
   """
   @type on_demand_capacity_reservation_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  set_keep_job_flow_alive_when_no_steps_input() :: %{
-    required("JobFlowIds") => list(String.t()()),
-    required("KeepJobFlowAliveWhenNoSteps") => boolean()
-  }
+      
+      set_keep_job_flow_alive_when_no_steps_input() :: %{
+        required("JobFlowIds") => list(String.t()()),
+        required("KeepJobFlowAliveWhenNoSteps") => boolean()
+      }
+      
   """
   @type set_keep_job_flow_alive_when_no_steps_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_security_configuration_output() :: %{
-    "CreationDateTime" => non_neg_integer(),
-    "Name" => String.t()
-  }
+      
+      create_security_configuration_output() :: %{
+        "CreationDateTime" => non_neg_integer(),
+        "Name" => String.t()
+      }
+      
   """
   @type create_security_configuration_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  add_job_flow_steps_output() :: %{
-    "StepIds" => list(String.t()())
-  }
+      
+      add_job_flow_steps_output() :: %{
+        "StepIds" => list(String.t()())
+      }
+      
   """
   @type add_job_flow_steps_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  auto_scaling_policy_state_change_reason() :: %{
-    "Code" => list(any()),
-    "Message" => String.t()
-  }
+      
+      auto_scaling_policy_state_change_reason() :: %{
+        "Code" => list(any()),
+        "Message" => String.t()
+      }
+      
   """
   @type auto_scaling_policy_state_change_reason() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_notebook_executions_output() :: %{
-    "Marker" => String.t(),
-    "NotebookExecutions" => list(notebook_execution_summary()())
-  }
+      
+      list_notebook_executions_output() :: %{
+        "Marker" => String.t(),
+        "NotebookExecutions" => list(notebook_execution_summary()())
+      }
+      
   """
   @type list_notebook_executions_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  session_mapping_summary() :: %{
-    "CreationTime" => non_neg_integer(),
-    "IdentityId" => String.t(),
-    "IdentityName" => String.t(),
-    "IdentityType" => list(any()),
-    "SessionPolicyArn" => String.t(),
-    "StudioId" => String.t()
-  }
+      
+      session_mapping_summary() :: %{
+        "CreationTime" => non_neg_integer(),
+        "IdentityId" => String.t(),
+        "IdentityName" => String.t(),
+        "IdentityType" => list(any()),
+        "SessionPolicyArn" => String.t(),
+        "StudioId" => String.t()
+      }
+      
   """
   @type session_mapping_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_studios_input() :: %{
-    optional("Marker") => String.t()
-  }
+      
+      list_studios_input() :: %{
+        optional("Marker") => String.t()
+      }
+      
   """
   @type list_studios_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  add_instance_groups_input() :: %{
-    required("InstanceGroups") => list(instance_group_config()()),
-    required("JobFlowId") => String.t()
-  }
+      
+      add_instance_groups_input() :: %{
+        required("InstanceGroups") => list(instance_group_config()()),
+        required("JobFlowId") => String.t()
+      }
+      
   """
   @type add_instance_groups_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag() :: %{
-    "Key" => String.t(),
-    "Value" => String.t()
-  }
+      
+      tag() :: %{
+        "Key" => String.t(),
+        "Value" => String.t()
+      }
+      
   """
   @type tag() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  instance_group_detail() :: %{
-    "BidPrice" => String.t(),
-    "CreationDateTime" => non_neg_integer(),
-    "CustomAmiId" => String.t(),
-    "EndDateTime" => non_neg_integer(),
-    "InstanceGroupId" => String.t(),
-    "InstanceRequestCount" => integer(),
-    "InstanceRole" => list(any()),
-    "InstanceRunningCount" => integer(),
-    "InstanceType" => String.t(),
-    "LastStateChangeReason" => String.t(),
-    "Market" => list(any()),
-    "Name" => String.t(),
-    "ReadyDateTime" => non_neg_integer(),
-    "StartDateTime" => non_neg_integer(),
-    "State" => list(any())
-  }
+      
+      instance_group_detail() :: %{
+        "BidPrice" => String.t(),
+        "CreationDateTime" => non_neg_integer(),
+        "CustomAmiId" => String.t(),
+        "EndDateTime" => non_neg_integer(),
+        "InstanceGroupId" => String.t(),
+        "InstanceRequestCount" => integer(),
+        "InstanceRole" => list(any()),
+        "InstanceRunningCount" => integer(),
+        "InstanceType" => String.t(),
+        "LastStateChangeReason" => String.t(),
+        "Market" => list(any()),
+        "Name" => String.t(),
+        "ReadyDateTime" => non_neg_integer(),
+        "StartDateTime" => non_neg_integer(),
+        "State" => list(any())
+      }
+      
   """
   @type instance_group_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_request_exception() :: %{
-    "ErrorCode" => String.t(),
-    "Message" => String.t()
-  }
+      
+      invalid_request_exception() :: %{
+        "ErrorCode" => String.t(),
+        "Message" => String.t()
+      }
+      
   """
   @type invalid_request_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_studio_session_mappings_input() :: %{
-    optional("IdentityType") => list(any()),
-    optional("Marker") => String.t(),
-    optional("StudioId") => String.t()
-  }
+      
+      list_studio_session_mappings_input() :: %{
+        optional("IdentityType") => list(any()),
+        optional("Marker") => String.t(),
+        optional("StudioId") => String.t()
+      }
+      
   """
   @type list_studio_session_mappings_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ebs_volume() :: %{
-    "Device" => String.t(),
-    "VolumeId" => String.t()
-  }
+      
+      ebs_volume() :: %{
+        "Device" => String.t(),
+        "VolumeId" => String.t()
+      }
+      
   """
   @type ebs_volume() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_security_configuration_input() :: %{
-    required("Name") => String.t()
-  }
+      
+      describe_security_configuration_input() :: %{
+        required("Name") => String.t()
+      }
+      
   """
   @type describe_security_configuration_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cluster() :: %{
-    "Status" => cluster_status(),
-    "SecurityConfiguration" => String.t(),
-    "AutoScalingRole" => String.t(),
-    "TerminationProtected" => boolean(),
-    "ClusterArn" => String.t(),
-    "Tags" => list(tag()()),
-    "ReleaseLabel" => String.t(),
-    "CustomAmiId" => String.t(),
-    "LogUri" => String.t(),
-    "Configurations" => list(configuration()()),
-    "Applications" => list(application()()),
-    "AutoTerminate" => boolean(),
-    "StepConcurrencyLevel" => integer(),
-    "MasterPublicDnsName" => String.t(),
-    "OutpostArn" => String.t(),
-    "Id" => String.t(),
-    "KerberosAttributes" => kerberos_attributes(),
-    "EbsRootVolumeThroughput" => integer(),
-    "ServiceRole" => String.t(),
-    "PlacementGroups" => list(placement_group_config()()),
-    "RequestedAmiVersion" => String.t(),
-    "NormalizedInstanceHours" => integer(),
-    "EbsRootVolumeIops" => integer(),
-    "UnhealthyNodeReplacement" => boolean(),
-    "ScaleDownBehavior" => list(any()),
-    "VisibleToAllUsers" => boolean(),
-    "Ec2InstanceAttributes" => ec2_instance_attributes(),
-    "EbsRootVolumeSize" => integer(),
-    "RepoUpgradeOnBoot" => list(any()),
-    "Name" => String.t(),
-    "InstanceCollectionType" => list(any()),
-    "LogEncryptionKmsKeyId" => String.t(),
-    "RunningAmiVersion" => String.t(),
-    "OSReleaseLabel" => String.t()
-  }
+      
+      cluster() :: %{
+        "Status" => cluster_status(),
+        "SecurityConfiguration" => String.t(),
+        "AutoScalingRole" => String.t(),
+        "TerminationProtected" => boolean(),
+        "ClusterArn" => String.t(),
+        "Tags" => list(tag()()),
+        "ReleaseLabel" => String.t(),
+        "CustomAmiId" => String.t(),
+        "LogUri" => String.t(),
+        "Configurations" => list(configuration()()),
+        "Applications" => list(application()()),
+        "AutoTerminate" => boolean(),
+        "StepConcurrencyLevel" => integer(),
+        "MasterPublicDnsName" => String.t(),
+        "OutpostArn" => String.t(),
+        "Id" => String.t(),
+        "KerberosAttributes" => kerberos_attributes(),
+        "EbsRootVolumeThroughput" => integer(),
+        "ServiceRole" => String.t(),
+        "PlacementGroups" => list(placement_group_config()()),
+        "RequestedAmiVersion" => String.t(),
+        "NormalizedInstanceHours" => integer(),
+        "EbsRootVolumeIops" => integer(),
+        "UnhealthyNodeReplacement" => boolean(),
+        "ScaleDownBehavior" => list(any()),
+        "VisibleToAllUsers" => boolean(),
+        "Ec2InstanceAttributes" => ec2_instance_attributes(),
+        "EbsRootVolumeSize" => integer(),
+        "RepoUpgradeOnBoot" => list(any()),
+        "Name" => String.t(),
+        "InstanceCollectionType" => list(any()),
+        "LogEncryptionKmsKeyId" => String.t(),
+        "RunningAmiVersion" => String.t(),
+        "OSReleaseLabel" => String.t()
+      }
+      
   """
   @type cluster() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_studio_session_mapping_output() :: %{
-    "SessionMapping" => session_mapping_detail()
-  }
+      
+      get_studio_session_mapping_output() :: %{
+        "SessionMapping" => session_mapping_detail()
+      }
+      
   """
   @type get_studio_session_mapping_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  instance_group_config() :: %{
-    "AutoScalingPolicy" => auto_scaling_policy(),
-    "BidPrice" => String.t(),
-    "Configurations" => list(configuration()()),
-    "CustomAmiId" => String.t(),
-    "EbsConfiguration" => ebs_configuration(),
-    "InstanceCount" => integer(),
-    "InstanceRole" => list(any()),
-    "InstanceType" => String.t(),
-    "Market" => list(any()),
-    "Name" => String.t()
-  }
+      
+      instance_group_config() :: %{
+        "AutoScalingPolicy" => auto_scaling_policy(),
+        "BidPrice" => String.t(),
+        "Configurations" => list(configuration()()),
+        "CustomAmiId" => String.t(),
+        "EbsConfiguration" => ebs_configuration(),
+        "InstanceCount" => integer(),
+        "InstanceRole" => list(any()),
+        "InstanceType" => String.t(),
+        "Market" => list(any()),
+        "Name" => String.t()
+      }
+      
   """
   @type instance_group_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_security_configurations_output() :: %{
-    "Marker" => String.t(),
-    "SecurityConfigurations" => list(security_configuration_summary()())
-  }
+      
+      list_security_configurations_output() :: %{
+        "Marker" => String.t(),
+        "SecurityConfigurations" => list(security_configuration_summary()())
+      }
+      
   """
   @type list_security_configurations_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  auto_scaling_policy_description() :: %{
-    "Constraints" => scaling_constraints(),
-    "Rules" => list(scaling_rule()()),
-    "Status" => auto_scaling_policy_status()
-  }
+      
+      auto_scaling_policy_description() :: %{
+        "Constraints" => scaling_constraints(),
+        "Rules" => list(scaling_rule()()),
+        "Status" => auto_scaling_policy_status()
+      }
+      
   """
   @type auto_scaling_policy_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_managed_scaling_policy_output() :: %{
-    "ManagedScalingPolicy" => managed_scaling_policy()
-  }
+      
+      get_managed_scaling_policy_output() :: %{
+        "ManagedScalingPolicy" => managed_scaling_policy()
+      }
+      
   """
   @type get_managed_scaling_policy_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  run_job_flow_output() :: %{
-    "ClusterArn" => String.t(),
-    "JobFlowId" => String.t()
-  }
+      
+      run_job_flow_output() :: %{
+        "ClusterArn" => String.t(),
+        "JobFlowId" => String.t()
+      }
+      
   """
   @type run_job_flow_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cluster_state_change_reason() :: %{
-    "Code" => list(any()),
-    "Message" => String.t()
-  }
+      
+      cluster_state_change_reason() :: %{
+        "Code" => list(any()),
+        "Message" => String.t()
+      }
+      
   """
   @type cluster_state_change_reason() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_instance_fleets_input() :: %{
-    optional("Marker") => String.t(),
-    required("ClusterId") => String.t()
-  }
+      
+      list_instance_fleets_input() :: %{
+        optional("Marker") => String.t(),
+        required("ClusterId") => String.t()
+      }
+      
   """
   @type list_instance_fleets_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_clusters_input() :: %{
-    optional("ClusterStates") => list(list(any())()),
-    optional("CreatedAfter") => non_neg_integer(),
-    optional("CreatedBefore") => non_neg_integer(),
-    optional("Marker") => String.t()
-  }
+      
+      list_clusters_input() :: %{
+        optional("ClusterStates") => list(list(any())()),
+        optional("CreatedAfter") => non_neg_integer(),
+        optional("CreatedBefore") => non_neg_integer(),
+        optional("Marker") => String.t()
+      }
+      
   """
   @type list_clusters_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_auto_scaling_policy_output() :: %{
-    "AutoScalingPolicy" => auto_scaling_policy_description(),
-    "ClusterArn" => String.t(),
-    "ClusterId" => String.t(),
-    "InstanceGroupId" => String.t()
-  }
+      
+      put_auto_scaling_policy_output() :: %{
+        "AutoScalingPolicy" => auto_scaling_policy_description(),
+        "ClusterArn" => String.t(),
+        "ClusterId" => String.t(),
+        "InstanceGroupId" => String.t()
+      }
+      
   """
   @type put_auto_scaling_policy_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stop_notebook_execution_input() :: %{
-    required("NotebookExecutionId") => String.t()
-  }
+      
+      stop_notebook_execution_input() :: %{
+        required("NotebookExecutionId") => String.t()
+      }
+      
   """
   @type stop_notebook_execution_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_studio_session_mappings_output() :: %{
-    "Marker" => String.t(),
-    "SessionMappings" => list(session_mapping_summary()())
-  }
+      
+      list_studio_session_mappings_output() :: %{
+        "Marker" => String.t(),
+        "SessionMappings" => list(session_mapping_summary()())
+      }
+      
   """
   @type list_studio_session_mappings_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  remove_auto_termination_policy_output() :: %{
-
-  }
+      
+      remove_auto_termination_policy_output() :: %{}
+      
   """
-  @type remove_auto_termination_policy_output() :: %{String.t() => any()}
+  @type remove_auto_termination_policy_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_cluster_session_credentials_output() :: %{
-    "Credentials" => list(),
-    "ExpiresAt" => non_neg_integer()
-  }
+      
+      get_cluster_session_credentials_output() :: %{
+        "Credentials" => list(),
+        "ExpiresAt" => non_neg_integer()
+      }
+      
   """
   @type get_cluster_session_credentials_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  instance_fleet_provisioning_specifications() :: %{
-    "OnDemandSpecification" => on_demand_provisioning_specification(),
-    "SpotSpecification" => spot_provisioning_specification()
-  }
+      
+      instance_fleet_provisioning_specifications() :: %{
+        "OnDemandSpecification" => on_demand_provisioning_specification(),
+        "SpotSpecification" => spot_provisioning_specification()
+      }
+      
   """
   @type instance_fleet_provisioning_specifications() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  application() :: %{
-    "AdditionalInfo" => map(),
-    "Args" => list(String.t()()),
-    "Name" => String.t(),
-    "Version" => String.t()
-  }
+      
+      application() :: %{
+        "AdditionalInfo" => map(),
+        "Args" => list(String.t()()),
+        "Name" => String.t(),
+        "Version" => String.t()
+      }
+      
   """
   @type application() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_security_configuration_output() :: %{
-
-  }
+      
+      delete_security_configuration_output() :: %{}
+      
   """
-  @type delete_security_configuration_output() :: %{String.t() => any()}
+  @type delete_security_configuration_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  describe_studio_input() :: %{
-    required("StudioId") => String.t()
-  }
+      
+      describe_studio_input() :: %{
+        required("StudioId") => String.t()
+      }
+      
   """
   @type describe_studio_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_supported_instance_types_output() :: %{
-    "Marker" => String.t(),
-    "SupportedInstanceTypes" => list(supported_instance_type()())
-  }
+      
+      list_supported_instance_types_output() :: %{
+        "Marker" => String.t(),
+        "SupportedInstanceTypes" => list(supported_instance_type()())
+      }
+      
   """
   @type list_supported_instance_types_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  instance_fleet_resizing_specifications() :: %{
-    "OnDemandResizeSpecification" => on_demand_resizing_specification(),
-    "SpotResizeSpecification" => spot_resizing_specification()
-  }
+      
+      instance_fleet_resizing_specifications() :: %{
+        "OnDemandResizeSpecification" => on_demand_resizing_specification(),
+        "SpotResizeSpecification" => spot_resizing_specification()
+      }
+      
   """
   @type instance_fleet_resizing_specifications() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  instance_type_config() :: %{
-    "BidPrice" => String.t(),
-    "BidPriceAsPercentageOfOnDemandPrice" => float(),
-    "Configurations" => list(configuration()()),
-    "CustomAmiId" => String.t(),
-    "EbsConfiguration" => ebs_configuration(),
-    "InstanceType" => String.t(),
-    "WeightedCapacity" => integer()
-  }
+      
+      instance_type_config() :: %{
+        "BidPrice" => String.t(),
+        "BidPriceAsPercentageOfOnDemandPrice" => float(),
+        "Configurations" => list(configuration()()),
+        "CustomAmiId" => String.t(),
+        "EbsConfiguration" => ebs_configuration(),
+        "InstanceType" => String.t(),
+        "WeightedCapacity" => integer()
+      }
+      
   """
   @type instance_type_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  supported_instance_type() :: %{
-    "Architecture" => String.t(),
-    "EbsOptimizedAvailable" => boolean(),
-    "EbsOptimizedByDefault" => boolean(),
-    "EbsStorageOnly" => boolean(),
-    "InstanceFamilyId" => String.t(),
-    "Is64BitsOnly" => boolean(),
-    "MemoryGB" => float(),
-    "NumberOfDisks" => integer(),
-    "StorageGB" => integer(),
-    "Type" => String.t(),
-    "VCPU" => integer()
-  }
+      
+      supported_instance_type() :: %{
+        "Architecture" => String.t(),
+        "EbsOptimizedAvailable" => boolean(),
+        "EbsOptimizedByDefault" => boolean(),
+        "EbsStorageOnly" => boolean(),
+        "InstanceFamilyId" => String.t(),
+        "Is64BitsOnly" => boolean(),
+        "MemoryGB" => float(),
+        "NumberOfDisks" => integer(),
+        "StorageGB" => integer(),
+        "Type" => String.t(),
+        "VCPU" => integer()
+      }
+      
   """
   @type supported_instance_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_job_flows_output() :: %{
-    "JobFlows" => list(job_flow_detail()())
-  }
+      
+      describe_job_flows_output() :: %{
+        "JobFlows" => list(job_flow_detail()())
+      }
+      
   """
   @type describe_job_flows_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  instance_fleet_status() :: %{
-    "State" => list(any()),
-    "StateChangeReason" => instance_fleet_state_change_reason(),
-    "Timeline" => instance_fleet_timeline()
-  }
+      
+      instance_fleet_status() :: %{
+        "State" => list(any()),
+        "StateChangeReason" => instance_fleet_state_change_reason(),
+        "Timeline" => instance_fleet_timeline()
+      }
+      
   """
   @type instance_fleet_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  step_config() :: %{
-    "ActionOnFailure" => list(any()),
-    "HadoopJarStep" => hadoop_jar_step_config(),
-    "Name" => String.t()
-  }
+      
+      step_config() :: %{
+        "ActionOnFailure" => list(any()),
+        "HadoopJarStep" => hadoop_jar_step_config(),
+        "Name" => String.t()
+      }
+      
   """
   @type step_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  add_instance_fleet_output() :: %{
-    "ClusterArn" => String.t(),
-    "ClusterId" => String.t(),
-    "InstanceFleetId" => String.t()
-  }
+      
+      add_instance_fleet_output() :: %{
+        "ClusterArn" => String.t(),
+        "ClusterId" => String.t(),
+        "InstanceFleetId" => String.t()
+      }
+      
   """
   @type add_instance_fleet_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_bootstrap_actions_output() :: %{
-    "BootstrapActions" => list(command()()),
-    "Marker" => String.t()
-  }
+      
+      list_bootstrap_actions_output() :: %{
+        "BootstrapActions" => list(command()()),
+        "Marker" => String.t()
+      }
+      
   """
   @type list_bootstrap_actions_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  instance_group() :: %{
-    "AutoScalingPolicy" => auto_scaling_policy_description(),
-    "BidPrice" => String.t(),
-    "Configurations" => list(configuration()()),
-    "ConfigurationsVersion" => float(),
-    "CustomAmiId" => String.t(),
-    "EbsBlockDevices" => list(ebs_block_device()()),
-    "EbsOptimized" => boolean(),
-    "Id" => String.t(),
-    "InstanceGroupType" => list(any()),
-    "InstanceType" => String.t(),
-    "LastSuccessfullyAppliedConfigurations" => list(configuration()()),
-    "LastSuccessfullyAppliedConfigurationsVersion" => float(),
-    "Market" => list(any()),
-    "Name" => String.t(),
-    "RequestedInstanceCount" => integer(),
-    "RunningInstanceCount" => integer(),
-    "ShrinkPolicy" => shrink_policy(),
-    "Status" => instance_group_status()
-  }
+      
+      instance_group() :: %{
+        "AutoScalingPolicy" => auto_scaling_policy_description(),
+        "BidPrice" => String.t(),
+        "Configurations" => list(configuration()()),
+        "ConfigurationsVersion" => float(),
+        "CustomAmiId" => String.t(),
+        "EbsBlockDevices" => list(ebs_block_device()()),
+        "EbsOptimized" => boolean(),
+        "Id" => String.t(),
+        "InstanceGroupType" => list(any()),
+        "InstanceType" => String.t(),
+        "LastSuccessfullyAppliedConfigurations" => list(configuration()()),
+        "LastSuccessfullyAppliedConfigurationsVersion" => float(),
+        "Market" => list(any()),
+        "Name" => String.t(),
+        "RequestedInstanceCount" => integer(),
+        "RunningInstanceCount" => integer(),
+        "ShrinkPolicy" => shrink_policy(),
+        "Status" => instance_group_status()
+      }
+      
   """
   @type instance_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  step_timeline() :: %{
-    "CreationDateTime" => non_neg_integer(),
-    "EndDateTime" => non_neg_integer(),
-    "StartDateTime" => non_neg_integer()
-  }
+      
+      step_timeline() :: %{
+        "CreationDateTime" => non_neg_integer(),
+        "EndDateTime" => non_neg_integer(),
+        "StartDateTime" => non_neg_integer()
+      }
+      
   """
   @type step_timeline() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ebs_block_device() :: %{
-    "Device" => String.t(),
-    "VolumeSpecification" => volume_specification()
-  }
+      
+      ebs_block_device() :: %{
+        "Device" => String.t(),
+        "VolumeSpecification" => volume_specification()
+      }
+      
   """
   @type ebs_block_device() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ebs_configuration() :: %{
-    "EbsBlockDeviceConfigs" => list(ebs_block_device_config()()),
-    "EbsOptimized" => boolean()
-  }
+      
+      ebs_configuration() :: %{
+        "EbsBlockDeviceConfigs" => list(ebs_block_device_config()()),
+        "EbsOptimized" => boolean()
+      }
+      
   """
   @type ebs_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_studio_input() :: %{
-    optional("DefaultS3Location") => String.t(),
-    optional("Description") => String.t(),
-    optional("EncryptionKeyArn") => String.t(),
-    optional("Name") => String.t(),
-    optional("SubnetIds") => list(String.t()()),
-    required("StudioId") => String.t()
-  }
+      
+      update_studio_input() :: %{
+        optional("DefaultS3Location") => String.t(),
+        optional("Description") => String.t(),
+        optional("EncryptionKeyArn") => String.t(),
+        optional("Name") => String.t(),
+        optional("SubnetIds") => list(String.t()()),
+        required("StudioId") => String.t()
+      }
+      
   """
   @type update_studio_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  instance_resize_policy() :: %{
-    "InstanceTerminationTimeout" => integer(),
-    "InstancesToProtect" => list(String.t()()),
-    "InstancesToTerminate" => list(String.t()())
-  }
+      
+      instance_resize_policy() :: %{
+        "InstanceTerminationTimeout" => integer(),
+        "InstancesToProtect" => list(String.t()()),
+        "InstancesToTerminate" => list(String.t()())
+      }
+      
   """
   @type instance_resize_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_studio_session_mapping_input() :: %{
-    optional("IdentityId") => String.t(),
-    optional("IdentityName") => String.t(),
-    required("IdentityType") => list(any()),
-    required("StudioId") => String.t()
-  }
+      
+      get_studio_session_mapping_input() :: %{
+        optional("IdentityId") => String.t(),
+        optional("IdentityName") => String.t(),
+        required("IdentityType") => list(any()),
+        required("StudioId") => String.t()
+      }
+      
   """
   @type get_studio_session_mapping_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_block_public_access_configuration_output() :: %{
-    "BlockPublicAccessConfiguration" => block_public_access_configuration(),
-    "BlockPublicAccessConfigurationMetadata" => block_public_access_configuration_metadata()
-  }
+      
+      get_block_public_access_configuration_output() :: %{
+        "BlockPublicAccessConfiguration" => block_public_access_configuration(),
+        "BlockPublicAccessConfigurationMetadata" => block_public_access_configuration_metadata()
+      }
+      
   """
   @type get_block_public_access_configuration_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  metric_dimension() :: %{
-    "Key" => String.t(),
-    "Value" => String.t()
-  }
+      
+      metric_dimension() :: %{
+        "Key" => String.t(),
+        "Value" => String.t()
+      }
+      
   """
   @type metric_dimension() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  remove_managed_scaling_policy_output() :: %{
-
-  }
+      
+      remove_managed_scaling_policy_output() :: %{}
+      
   """
-  @type remove_managed_scaling_policy_output() :: %{String.t() => any()}
+  @type remove_managed_scaling_policy_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  remove_auto_scaling_policy_input() :: %{
-    required("ClusterId") => String.t(),
-    required("InstanceGroupId") => String.t()
-  }
+      
+      remove_auto_scaling_policy_input() :: %{
+        required("ClusterId") => String.t(),
+        required("InstanceGroupId") => String.t()
+      }
+      
   """
   @type remove_auto_scaling_policy_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_studios_output() :: %{
-    "Marker" => String.t(),
-    "Studios" => list(studio_summary()())
-  }
+      
+      list_studios_output() :: %{
+        "Marker" => String.t(),
+        "Studios" => list(studio_summary()())
+      }
+      
   """
   @type list_studios_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  job_flow_instances_config() :: %{
-    "AdditionalMasterSecurityGroups" => list(String.t()()),
-    "AdditionalSlaveSecurityGroups" => list(String.t()()),
-    "Ec2KeyName" => String.t(),
-    "Ec2SubnetId" => String.t(),
-    "Ec2SubnetIds" => list(String.t()()),
-    "EmrManagedMasterSecurityGroup" => String.t(),
-    "EmrManagedSlaveSecurityGroup" => String.t(),
-    "HadoopVersion" => String.t(),
-    "InstanceCount" => integer(),
-    "InstanceFleets" => list(instance_fleet_config()()),
-    "InstanceGroups" => list(instance_group_config()()),
-    "KeepJobFlowAliveWhenNoSteps" => boolean(),
-    "MasterInstanceType" => String.t(),
-    "Placement" => placement_type(),
-    "ServiceAccessSecurityGroup" => String.t(),
-    "SlaveInstanceType" => String.t(),
-    "TerminationProtected" => boolean(),
-    "UnhealthyNodeReplacement" => boolean()
-  }
+      
+      job_flow_instances_config() :: %{
+        "AdditionalMasterSecurityGroups" => list(String.t()()),
+        "AdditionalSlaveSecurityGroups" => list(String.t()()),
+        "Ec2KeyName" => String.t(),
+        "Ec2SubnetId" => String.t(),
+        "Ec2SubnetIds" => list(String.t()()),
+        "EmrManagedMasterSecurityGroup" => String.t(),
+        "EmrManagedSlaveSecurityGroup" => String.t(),
+        "HadoopVersion" => String.t(),
+        "InstanceCount" => integer(),
+        "InstanceFleets" => list(instance_fleet_config()()),
+        "InstanceGroups" => list(instance_group_config()()),
+        "KeepJobFlowAliveWhenNoSteps" => boolean(),
+        "MasterInstanceType" => String.t(),
+        "Placement" => placement_type(),
+        "ServiceAccessSecurityGroup" => String.t(),
+        "SlaveInstanceType" => String.t(),
+        "TerminationProtected" => boolean(),
+        "UnhealthyNodeReplacement" => boolean()
+      }
+      
   """
   @type job_flow_instances_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cancel_steps_output() :: %{
-    "CancelStepsInfoList" => list(cancel_steps_info()())
-  }
+      
+      cancel_steps_output() :: %{
+        "CancelStepsInfoList" => list(cancel_steps_info()())
+      }
+      
   """
   @type cancel_steps_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  execution_engine_config() :: %{
-    "ExecutionRoleArn" => String.t(),
-    "Id" => String.t(),
-    "MasterInstanceSecurityGroupId" => String.t(),
-    "Type" => list(any())
-  }
+      
+      execution_engine_config() :: %{
+        "ExecutionRoleArn" => String.t(),
+        "Id" => String.t(),
+        "MasterInstanceSecurityGroupId" => String.t(),
+        "Type" => list(any())
+      }
+      
   """
   @type execution_engine_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_notebook_execution_input() :: %{
-    optional("EditorId") => String.t(),
-    optional("EnvironmentVariables") => map(),
-    optional("NotebookExecutionName") => String.t(),
-    optional("NotebookInstanceSecurityGroupId") => String.t(),
-    optional("NotebookParams") => String.t(),
-    optional("NotebookS3Location") => notebook_s3_location_from_input(),
-    optional("OutputNotebookFormat") => list(any()),
-    optional("OutputNotebookS3Location") => output_notebook_s3_location_from_input(),
-    optional("RelativePath") => String.t(),
-    optional("Tags") => list(tag()()),
-    required("ExecutionEngine") => execution_engine_config(),
-    required("ServiceRole") => String.t()
-  }
+      
+      start_notebook_execution_input() :: %{
+        optional("EditorId") => String.t(),
+        optional("EnvironmentVariables") => map(),
+        optional("NotebookExecutionName") => String.t(),
+        optional("NotebookInstanceSecurityGroupId") => String.t(),
+        optional("NotebookParams") => String.t(),
+        optional("NotebookS3Location") => notebook_s3_location_from_input(),
+        optional("OutputNotebookFormat") => list(any()),
+        optional("OutputNotebookS3Location") => output_notebook_s3_location_from_input(),
+        optional("RelativePath") => String.t(),
+        optional("Tags") => list(tag()()),
+        required("ExecutionEngine") => execution_engine_config(),
+        required("ServiceRole") => String.t()
+      }
+      
   """
   @type start_notebook_execution_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  o_s_release() :: %{
-    "Label" => String.t()
-  }
+      
+      o_s_release() :: %{
+        "Label" => String.t()
+      }
+      
   """
   @type o_s_release() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  studio_summary() :: %{
-    "AuthMode" => list(any()),
-    "CreationTime" => non_neg_integer(),
-    "Description" => String.t(),
-    "Name" => String.t(),
-    "StudioId" => String.t(),
-    "Url" => String.t(),
-    "VpcId" => String.t()
-  }
+      
+      studio_summary() :: %{
+        "AuthMode" => list(any()),
+        "CreationTime" => non_neg_integer(),
+        "Description" => String.t(),
+        "Name" => String.t(),
+        "StudioId" => String.t(),
+        "Url" => String.t(),
+        "VpcId" => String.t()
+      }
+      
   """
   @type studio_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_block_public_access_configuration_input() :: %{
-
-  }
+      
+      get_block_public_access_configuration_input() :: %{}
+      
   """
-  @type get_block_public_access_configuration_input() :: %{String.t() => any()}
+  @type get_block_public_access_configuration_input() :: %{}
 
   @typedoc """
 
   ## Example:
-  internal_server_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      internal_server_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  block_public_access_configuration() :: %{
-    "BlockPublicSecurityGroupRules" => boolean(),
-    "Classification" => String.t(),
-    "Configurations" => list(configuration()()),
-    "PermittedPublicSecurityGroupRuleRanges" => list(port_range()()),
-    "Properties" => map()
-  }
+      
+      block_public_access_configuration() :: %{
+        "BlockPublicSecurityGroupRules" => boolean(),
+        "Classification" => String.t(),
+        "Configurations" => list(configuration()()),
+        "PermittedPublicSecurityGroupRuleRanges" => list(port_range()()),
+        "Properties" => map()
+      }
+      
   """
   @type block_public_access_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  instance_group_modify_config() :: %{
-    "Configurations" => list(configuration()()),
-    "EC2InstanceIdsToTerminate" => list(String.t()()),
-    "InstanceCount" => integer(),
-    "InstanceGroupId" => String.t(),
-    "ReconfigurationType" => list(any()),
-    "ShrinkPolicy" => shrink_policy()
-  }
+      
+      instance_group_modify_config() :: %{
+        "Configurations" => list(configuration()()),
+        "EC2InstanceIdsToTerminate" => list(String.t()()),
+        "InstanceCount" => integer(),
+        "InstanceGroupId" => String.t(),
+        "ReconfigurationType" => list(any()),
+        "ShrinkPolicy" => shrink_policy()
+      }
+      
   """
   @type instance_group_modify_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  scaling_constraints() :: %{
-    "MaxCapacity" => integer(),
-    "MinCapacity" => integer()
-  }
+      
+      scaling_constraints() :: %{
+        "MaxCapacity" => integer(),
+        "MinCapacity" => integer()
+      }
+      
   """
   @type scaling_constraints() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_step_input() :: %{
-    required("ClusterId") => String.t(),
-    required("StepId") => String.t()
-  }
+      
+      describe_step_input() :: %{
+        required("ClusterId") => String.t(),
+        required("StepId") => String.t()
+      }
+      
   """
   @type describe_step_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  port_range() :: %{
-    "MaxRange" => integer(),
-    "MinRange" => integer()
-  }
+      
+      port_range() :: %{
+        "MaxRange" => integer(),
+        "MinRange" => integer()
+      }
+      
   """
   @type port_range() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_studio_output() :: %{
-    "StudioId" => String.t(),
-    "Url" => String.t()
-  }
+      
+      create_studio_output() :: %{
+        "StudioId" => String.t(),
+        "Url" => String.t()
+      }
+      
   """
   @type create_studio_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ebs_block_device_config() :: %{
-    "VolumeSpecification" => volume_specification(),
-    "VolumesPerInstance" => integer()
-  }
+      
+      ebs_block_device_config() :: %{
+        "VolumeSpecification" => volume_specification(),
+        "VolumesPerInstance" => integer()
+      }
+      
   """
   @type ebs_block_device_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  notebook_s3_location_for_output() :: %{
-    "Bucket" => String.t(),
-    "Key" => String.t()
-  }
+      
+      notebook_s3_location_for_output() :: %{
+        "Bucket" => String.t(),
+        "Key" => String.t()
+      }
+      
   """
   @type notebook_s3_location_for_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  error_detail() :: %{
-    "ErrorCode" => String.t(),
-    "ErrorData" => list(map()()),
-    "ErrorMessage" => String.t()
-  }
+      
+      error_detail() :: %{
+        "ErrorCode" => String.t(),
+        "ErrorData" => list(map()()),
+        "ErrorMessage" => String.t()
+      }
+      
   """
   @type error_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  kerberos_attributes() :: %{
-    "ADDomainJoinPassword" => String.t(),
-    "ADDomainJoinUser" => String.t(),
-    "CrossRealmTrustPrincipalPassword" => String.t(),
-    "KdcAdminPassword" => String.t(),
-    "Realm" => String.t()
-  }
+      
+      kerberos_attributes() :: %{
+        "ADDomainJoinPassword" => String.t(),
+        "ADDomainJoinUser" => String.t(),
+        "CrossRealmTrustPrincipalPassword" => String.t(),
+        "KdcAdminPassword" => String.t(),
+        "Realm" => String.t()
+      }
+      
   """
   @type kerberos_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  instance_timeline() :: %{
-    "CreationDateTime" => non_neg_integer(),
-    "EndDateTime" => non_neg_integer(),
-    "ReadyDateTime" => non_neg_integer()
-  }
+      
+      instance_timeline() :: %{
+        "CreationDateTime" => non_neg_integer(),
+        "EndDateTime" => non_neg_integer(),
+        "ReadyDateTime" => non_neg_integer()
+      }
+      
   """
   @type instance_timeline() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  internal_server_error() :: %{
-
-  }
+      
+      internal_server_error() :: %{}
+      
   """
-  @type internal_server_error() :: %{String.t() => any()}
+  @type internal_server_error() :: %{}
 
   @typedoc """
 
   ## Example:
-  update_studio_session_mapping_input() :: %{
-    optional("IdentityId") => String.t(),
-    optional("IdentityName") => String.t(),
-    required("IdentityType") => list(any()),
-    required("SessionPolicyArn") => String.t(),
-    required("StudioId") => String.t()
-  }
+      
+      update_studio_session_mapping_input() :: %{
+        optional("IdentityId") => String.t(),
+        optional("IdentityName") => String.t(),
+        required("IdentityType") => list(any()),
+        required("SessionPolicyArn") => String.t(),
+        required("StudioId") => String.t()
+      }
+      
   """
   @type update_studio_session_mapping_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_instances_input() :: %{
-    optional("InstanceFleetId") => String.t(),
-    optional("InstanceFleetType") => list(any()),
-    optional("InstanceGroupId") => String.t(),
-    optional("InstanceGroupTypes") => list(list(any())()),
-    optional("InstanceStates") => list(list(any())()),
-    optional("Marker") => String.t(),
-    required("ClusterId") => String.t()
-  }
+      
+      list_instances_input() :: %{
+        optional("InstanceFleetId") => String.t(),
+        optional("InstanceFleetType") => list(any()),
+        optional("InstanceGroupId") => String.t(),
+        optional("InstanceGroupTypes") => list(list(any())()),
+        optional("InstanceStates") => list(list(any())()),
+        optional("Marker") => String.t(),
+        required("ClusterId") => String.t()
+      }
+      
   """
   @type list_instances_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  instance() :: %{
-    "EbsVolumes" => list(ebs_volume()()),
-    "Ec2InstanceId" => String.t(),
-    "Id" => String.t(),
-    "InstanceFleetId" => String.t(),
-    "InstanceGroupId" => String.t(),
-    "InstanceType" => String.t(),
-    "Market" => list(any()),
-    "PrivateDnsName" => String.t(),
-    "PrivateIpAddress" => String.t(),
-    "PublicDnsName" => String.t(),
-    "PublicIpAddress" => String.t(),
-    "Status" => instance_status()
-  }
+      
+      instance() :: %{
+        "EbsVolumes" => list(ebs_volume()()),
+        "Ec2InstanceId" => String.t(),
+        "Id" => String.t(),
+        "InstanceFleetId" => String.t(),
+        "InstanceGroupId" => String.t(),
+        "InstanceType" => String.t(),
+        "Market" => list(any()),
+        "PrivateDnsName" => String.t(),
+        "PrivateIpAddress" => String.t(),
+        "PublicDnsName" => String.t(),
+        "PublicIpAddress" => String.t(),
+        "Status" => instance_status()
+      }
+      
   """
   @type instance() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  instance_group_state_change_reason() :: %{
-    "Code" => list(any()),
-    "Message" => String.t()
-  }
+      
+      instance_group_state_change_reason() :: %{
+        "Code" => list(any()),
+        "Message" => String.t()
+      }
+      
   """
   @type instance_group_state_change_reason() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cluster_timeline() :: %{
-    "CreationDateTime" => non_neg_integer(),
-    "EndDateTime" => non_neg_integer(),
-    "ReadyDateTime" => non_neg_integer()
-  }
+      
+      cluster_timeline() :: %{
+        "CreationDateTime" => non_neg_integer(),
+        "EndDateTime" => non_neg_integer(),
+        "ReadyDateTime" => non_neg_integer()
+      }
+      
   """
   @type cluster_timeline() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  remove_auto_scaling_policy_output() :: %{
-
-  }
+      
+      remove_auto_scaling_policy_output() :: %{}
+      
   """
-  @type remove_auto_scaling_policy_output() :: %{String.t() => any()}
+  @type remove_auto_scaling_policy_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  describe_notebook_execution_input() :: %{
-    required("NotebookExecutionId") => String.t()
-  }
+      
+      describe_notebook_execution_input() :: %{
+        required("NotebookExecutionId") => String.t()
+      }
+      
   """
   @type describe_notebook_execution_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cancel_steps_input() :: %{
-    optional("StepCancellationOption") => list(any()),
-    required("ClusterId") => String.t(),
-    required("StepIds") => list(String.t()())
-  }
+      
+      cancel_steps_input() :: %{
+        optional("StepCancellationOption") => list(any()),
+        required("ClusterId") => String.t(),
+        required("StepIds") => list(String.t()())
+      }
+      
   """
   @type cancel_steps_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  simple_scaling_policy_configuration() :: %{
-    "AdjustmentType" => list(any()),
-    "CoolDown" => integer(),
-    "ScalingAdjustment" => integer()
-  }
+      
+      simple_scaling_policy_configuration() :: %{
+        "AdjustmentType" => list(any()),
+        "CoolDown" => integer(),
+        "ScalingAdjustment" => integer()
+      }
+      
   """
   @type simple_scaling_policy_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  username_password() :: %{
-    "Password" => String.t(),
-    "Username" => String.t()
-  }
+      
+      username_password() :: %{
+        "Password" => String.t(),
+        "Username" => String.t()
+      }
+      
   """
   @type username_password() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_release_labels_input() :: %{
-    optional("Filters") => release_label_filter(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+      
+      list_release_labels_input() :: %{
+        optional("Filters") => release_label_filter(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
   """
   @type list_release_labels_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  modify_cluster_input() :: %{
-    optional("StepConcurrencyLevel") => integer(),
-    required("ClusterId") => String.t()
-  }
+      
+      modify_cluster_input() :: %{
+        optional("StepConcurrencyLevel") => integer(),
+        required("ClusterId") => String.t()
+      }
+      
   """
   @type modify_cluster_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  hadoop_jar_step_config() :: %{
-    "Args" => list(String.t()()),
-    "Jar" => String.t(),
-    "MainClass" => String.t(),
-    "Properties" => list(key_value()())
-  }
+      
+      hadoop_jar_step_config() :: %{
+        "Args" => list(String.t()()),
+        "Jar" => String.t(),
+        "MainClass" => String.t(),
+        "Properties" => list(key_value()())
+      }
+      
   """
   @type hadoop_jar_step_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  compute_limits() :: %{
-    "MaximumCapacityUnits" => integer(),
-    "MaximumCoreCapacityUnits" => integer(),
-    "MaximumOnDemandCapacityUnits" => integer(),
-    "MinimumCapacityUnits" => integer(),
-    "UnitType" => list(any())
-  }
+      
+      compute_limits() :: %{
+        "MaximumCapacityUnits" => integer(),
+        "MaximumCoreCapacityUnits" => integer(),
+        "MaximumOnDemandCapacityUnits" => integer(),
+        "MinimumCapacityUnits" => integer(),
+        "UnitType" => list(any())
+      }
+      
   """
   @type compute_limits() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  add_job_flow_steps_input() :: %{
-    optional("ExecutionRoleArn") => String.t(),
-    required("JobFlowId") => String.t(),
-    required("Steps") => list(step_config()())
-  }
+      
+      add_job_flow_steps_input() :: %{
+        optional("ExecutionRoleArn") => String.t(),
+        required("JobFlowId") => String.t(),
+        required("Steps") => list(step_config()())
+      }
+      
   """
   @type add_job_flow_steps_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cluster_status() :: %{
-    "ErrorDetails" => list(error_detail()()),
-    "State" => list(any()),
-    "StateChangeReason" => cluster_state_change_reason(),
-    "Timeline" => cluster_timeline()
-  }
+      
+      cluster_status() :: %{
+        "ErrorDetails" => list(error_detail()()),
+        "State" => list(any()),
+        "StateChangeReason" => cluster_state_change_reason(),
+        "Timeline" => cluster_timeline()
+      }
+      
   """
   @type cluster_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  set_unhealthy_node_replacement_input() :: %{
-    required("JobFlowIds") => list(String.t()()),
-    required("UnhealthyNodeReplacement") => boolean()
-  }
+      
+      set_unhealthy_node_replacement_input() :: %{
+        required("JobFlowIds") => list(String.t()()),
+        required("UnhealthyNodeReplacement") => boolean()
+      }
+      
   """
   @type set_unhealthy_node_replacement_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_steps_output() :: %{
-    "Marker" => String.t(),
-    "Steps" => list(step_summary()())
-  }
+      
+      list_steps_output() :: %{
+        "Marker" => String.t(),
+        "Steps" => list(step_summary()())
+      }
+      
   """
   @type list_steps_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  terminate_job_flows_input() :: %{
-    required("JobFlowIds") => list(String.t()())
-  }
+      
+      terminate_job_flows_input() :: %{
+        required("JobFlowIds") => list(String.t()())
+      }
+      
   """
   @type terminate_job_flows_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ec2_instance_attributes() :: %{
-    "AdditionalMasterSecurityGroups" => list(String.t()()),
-    "AdditionalSlaveSecurityGroups" => list(String.t()()),
-    "Ec2AvailabilityZone" => String.t(),
-    "Ec2KeyName" => String.t(),
-    "Ec2SubnetId" => String.t(),
-    "EmrManagedMasterSecurityGroup" => String.t(),
-    "EmrManagedSlaveSecurityGroup" => String.t(),
-    "IamInstanceProfile" => String.t(),
-    "RequestedEc2AvailabilityZones" => list(String.t()()),
-    "RequestedEc2SubnetIds" => list(String.t()()),
-    "ServiceAccessSecurityGroup" => String.t()
-  }
+      
+      ec2_instance_attributes() :: %{
+        "AdditionalMasterSecurityGroups" => list(String.t()()),
+        "AdditionalSlaveSecurityGroups" => list(String.t()()),
+        "Ec2AvailabilityZone" => String.t(),
+        "Ec2KeyName" => String.t(),
+        "Ec2SubnetId" => String.t(),
+        "EmrManagedMasterSecurityGroup" => String.t(),
+        "EmrManagedSlaveSecurityGroup" => String.t(),
+        "IamInstanceProfile" => String.t(),
+        "RequestedEc2AvailabilityZones" => list(String.t()()),
+        "RequestedEc2SubnetIds" => list(String.t()()),
+        "ServiceAccessSecurityGroup" => String.t()
+      }
+      
   """
   @type ec2_instance_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  on_demand_resizing_specification() :: %{
-    "TimeoutDurationMinutes" => integer()
-  }
+      
+      on_demand_resizing_specification() :: %{
+        "TimeoutDurationMinutes" => integer()
+      }
+      
   """
   @type on_demand_resizing_specification() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_studio_input() :: %{
-    optional("Description") => String.t(),
-    optional("EncryptionKeyArn") => String.t(),
-    optional("IdcInstanceArn") => String.t(),
-    optional("IdcUserAssignment") => list(any()),
-    optional("IdpAuthUrl") => String.t(),
-    optional("IdpRelayStateParameterName") => String.t(),
-    optional("Tags") => list(tag()()),
-    optional("TrustedIdentityPropagationEnabled") => boolean(),
-    optional("UserRole") => String.t(),
-    required("AuthMode") => list(any()),
-    required("DefaultS3Location") => String.t(),
-    required("EngineSecurityGroupId") => String.t(),
-    required("Name") => String.t(),
-    required("ServiceRole") => String.t(),
-    required("SubnetIds") => list(String.t()()),
-    required("VpcId") => String.t(),
-    required("WorkspaceSecurityGroupId") => String.t()
-  }
+      
+      create_studio_input() :: %{
+        optional("Description") => String.t(),
+        optional("EncryptionKeyArn") => String.t(),
+        optional("IdcInstanceArn") => String.t(),
+        optional("IdcUserAssignment") => list(any()),
+        optional("IdpAuthUrl") => String.t(),
+        optional("IdpRelayStateParameterName") => String.t(),
+        optional("Tags") => list(tag()()),
+        optional("TrustedIdentityPropagationEnabled") => boolean(),
+        optional("UserRole") => String.t(),
+        required("AuthMode") => list(any()),
+        required("DefaultS3Location") => String.t(),
+        required("EngineSecurityGroupId") => String.t(),
+        required("Name") => String.t(),
+        required("ServiceRole") => String.t(),
+        required("SubnetIds") => list(String.t()()),
+        required("VpcId") => String.t(),
+        required("WorkspaceSecurityGroupId") => String.t()
+      }
+      
   """
   @type create_studio_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  job_flow_execution_status_detail() :: %{
-    "CreationDateTime" => non_neg_integer(),
-    "EndDateTime" => non_neg_integer(),
-    "LastStateChangeReason" => String.t(),
-    "ReadyDateTime" => non_neg_integer(),
-    "StartDateTime" => non_neg_integer(),
-    "State" => list(any())
-  }
+      
+      job_flow_execution_status_detail() :: %{
+        "CreationDateTime" => non_neg_integer(),
+        "EndDateTime" => non_neg_integer(),
+        "LastStateChangeReason" => String.t(),
+        "ReadyDateTime" => non_neg_integer(),
+        "StartDateTime" => non_neg_integer(),
+        "State" => list(any())
+      }
+      
   """
   @type job_flow_execution_status_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_studio_output() :: %{
-    "Studio" => studio()
-  }
+      
+      describe_studio_output() :: %{
+        "Studio" => studio()
+      }
+      
   """
   @type describe_studio_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  session_mapping_detail() :: %{
-    "CreationTime" => non_neg_integer(),
-    "IdentityId" => String.t(),
-    "IdentityName" => String.t(),
-    "IdentityType" => list(any()),
-    "LastModifiedTime" => non_neg_integer(),
-    "SessionPolicyArn" => String.t(),
-    "StudioId" => String.t()
-  }
+      
+      session_mapping_detail() :: %{
+        "CreationTime" => non_neg_integer(),
+        "IdentityId" => String.t(),
+        "IdentityName" => String.t(),
+        "IdentityType" => list(any()),
+        "LastModifiedTime" => non_neg_integer(),
+        "SessionPolicyArn" => String.t(),
+        "StudioId" => String.t()
+      }
+      
   """
   @type session_mapping_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  step_execution_status_detail() :: %{
-    "CreationDateTime" => non_neg_integer(),
-    "EndDateTime" => non_neg_integer(),
-    "LastStateChangeReason" => String.t(),
-    "StartDateTime" => non_neg_integer(),
-    "State" => list(any())
-  }
+      
+      step_execution_status_detail() :: %{
+        "CreationDateTime" => non_neg_integer(),
+        "EndDateTime" => non_neg_integer(),
+        "LastStateChangeReason" => String.t(),
+        "StartDateTime" => non_neg_integer(),
+        "State" => list(any())
+      }
+      
   """
   @type step_execution_status_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_auto_termination_policy_input() :: %{
-    optional("AutoTerminationPolicy") => auto_termination_policy(),
-    required("ClusterId") => String.t()
-  }
+      
+      put_auto_termination_policy_input() :: %{
+        optional("AutoTerminationPolicy") => auto_termination_policy(),
+        required("ClusterId") => String.t()
+      }
+      
   """
   @type put_auto_termination_policy_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  scaling_action() :: %{
-    "Market" => list(any()),
-    "SimpleScalingPolicyConfiguration" => simple_scaling_policy_configuration()
-  }
+      
+      scaling_action() :: %{
+        "Market" => list(any()),
+        "SimpleScalingPolicyConfiguration" => simple_scaling_policy_configuration()
+      }
+      
   """
   @type scaling_action() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_instance_groups_input() :: %{
-    optional("Marker") => String.t(),
-    required("ClusterId") => String.t()
-  }
+      
+      list_instance_groups_input() :: %{
+        optional("Marker") => String.t(),
+        required("ClusterId") => String.t()
+      }
+      
   """
   @type list_instance_groups_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_notebook_executions_input() :: %{
-    optional("EditorId") => String.t(),
-    optional("ExecutionEngineId") => String.t(),
-    optional("From") => non_neg_integer(),
-    optional("Marker") => String.t(),
-    optional("Status") => list(any()),
-    optional("To") => non_neg_integer()
-  }
+      
+      list_notebook_executions_input() :: %{
+        optional("EditorId") => String.t(),
+        optional("ExecutionEngineId") => String.t(),
+        optional("From") => non_neg_integer(),
+        optional("Marker") => String.t(),
+        optional("Status") => list(any()),
+        optional("To") => non_neg_integer()
+      }
+      
   """
   @type list_notebook_executions_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  job_flow_instances_detail() :: %{
-    "Ec2KeyName" => String.t(),
-    "Ec2SubnetId" => String.t(),
-    "HadoopVersion" => String.t(),
-    "InstanceCount" => integer(),
-    "InstanceGroups" => list(instance_group_detail()()),
-    "KeepJobFlowAliveWhenNoSteps" => boolean(),
-    "MasterInstanceId" => String.t(),
-    "MasterInstanceType" => String.t(),
-    "MasterPublicDnsName" => String.t(),
-    "NormalizedInstanceHours" => integer(),
-    "Placement" => placement_type(),
-    "SlaveInstanceType" => String.t(),
-    "TerminationProtected" => boolean(),
-    "UnhealthyNodeReplacement" => boolean()
-  }
+      
+      job_flow_instances_detail() :: %{
+        "Ec2KeyName" => String.t(),
+        "Ec2SubnetId" => String.t(),
+        "HadoopVersion" => String.t(),
+        "InstanceCount" => integer(),
+        "InstanceGroups" => list(instance_group_detail()()),
+        "KeepJobFlowAliveWhenNoSteps" => boolean(),
+        "MasterInstanceId" => String.t(),
+        "MasterInstanceType" => String.t(),
+        "MasterPublicDnsName" => String.t(),
+        "NormalizedInstanceHours" => integer(),
+        "Placement" => placement_type(),
+        "SlaveInstanceType" => String.t(),
+        "TerminationProtected" => boolean(),
+        "UnhealthyNodeReplacement" => boolean()
+      }
+      
   """
   @type job_flow_instances_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  shrink_policy() :: %{
-    "DecommissionTimeout" => integer(),
-    "InstanceResizePolicy" => instance_resize_policy()
-  }
+      
+      shrink_policy() :: %{
+        "DecommissionTimeout" => integer(),
+        "InstanceResizePolicy" => instance_resize_policy()
+      }
+      
   """
   @type shrink_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  notebook_execution_summary() :: %{
-    "EditorId" => String.t(),
-    "EndTime" => non_neg_integer(),
-    "ExecutionEngineId" => String.t(),
-    "NotebookExecutionId" => String.t(),
-    "NotebookExecutionName" => String.t(),
-    "NotebookS3Location" => notebook_s3_location_for_output(),
-    "StartTime" => non_neg_integer(),
-    "Status" => list(any())
-  }
+      
+      notebook_execution_summary() :: %{
+        "EditorId" => String.t(),
+        "EndTime" => non_neg_integer(),
+        "ExecutionEngineId" => String.t(),
+        "NotebookExecutionId" => String.t(),
+        "NotebookExecutionName" => String.t(),
+        "NotebookS3Location" => notebook_s3_location_for_output(),
+        "StartTime" => non_neg_integer(),
+        "Status" => list(any())
+      }
+      
   """
   @type notebook_execution_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_security_configuration_input() :: %{
-    required("Name") => String.t()
-  }
+      
+      delete_security_configuration_input() :: %{
+        required("Name") => String.t()
+      }
+      
   """
   @type delete_security_configuration_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  command() :: %{
-    "Args" => list(String.t()()),
-    "Name" => String.t(),
-    "ScriptPath" => String.t()
-  }
+      
+      command() :: %{
+        "Args" => list(String.t()()),
+        "Name" => String.t(),
+        "ScriptPath" => String.t()
+      }
+      
   """
   @type command() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  instance_fleet_config() :: %{
-    "InstanceFleetType" => list(any()),
-    "InstanceTypeConfigs" => list(instance_type_config()()),
-    "LaunchSpecifications" => instance_fleet_provisioning_specifications(),
-    "Name" => String.t(),
-    "ResizeSpecifications" => instance_fleet_resizing_specifications(),
-    "TargetOnDemandCapacity" => integer(),
-    "TargetSpotCapacity" => integer()
-  }
+      
+      instance_fleet_config() :: %{
+        "InstanceFleetType" => list(any()),
+        "InstanceTypeConfigs" => list(instance_type_config()()),
+        "LaunchSpecifications" => instance_fleet_provisioning_specifications(),
+        "Name" => String.t(),
+        "ResizeSpecifications" => instance_fleet_resizing_specifications(),
+        "TargetOnDemandCapacity" => integer(),
+        "TargetSpotCapacity" => integer()
+      }
+      
   """
   @type instance_fleet_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  spot_provisioning_specification() :: %{
-    "AllocationStrategy" => list(any()),
-    "BlockDurationMinutes" => integer(),
-    "TimeoutAction" => list(any()),
-    "TimeoutDurationMinutes" => integer()
-  }
+      
+      spot_provisioning_specification() :: %{
+        "AllocationStrategy" => list(any()),
+        "BlockDurationMinutes" => integer(),
+        "TimeoutAction" => list(any()),
+        "TimeoutDurationMinutes" => integer()
+      }
+      
   """
   @type spot_provisioning_specification() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  key_value() :: %{
-    "Key" => String.t(),
-    "Value" => String.t()
-  }
+      
+      key_value() :: %{
+        "Key" => String.t(),
+        "Value" => String.t()
+      }
+      
   """
   @type key_value() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  instance_status() :: %{
-    "State" => list(any()),
-    "StateChangeReason" => instance_state_change_reason(),
-    "Timeline" => instance_timeline()
-  }
+      
+      instance_status() :: %{
+        "State" => list(any()),
+        "StateChangeReason" => instance_state_change_reason(),
+        "Timeline" => instance_timeline()
+      }
+      
   """
   @type instance_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  instance_fleet_modify_config() :: %{
-    "InstanceFleetId" => String.t(),
-    "ResizeSpecifications" => instance_fleet_resizing_specifications(),
-    "TargetOnDemandCapacity" => integer(),
-    "TargetSpotCapacity" => integer()
-  }
+      
+      instance_fleet_modify_config() :: %{
+        "InstanceFleetId" => String.t(),
+        "ResizeSpecifications" => instance_fleet_resizing_specifications(),
+        "TargetOnDemandCapacity" => integer(),
+        "TargetSpotCapacity" => integer()
+      }
+      
   """
   @type instance_fleet_modify_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  managed_scaling_policy() :: %{
-    "ComputeLimits" => compute_limits()
-  }
+      
+      managed_scaling_policy() :: %{
+        "ComputeLimits" => compute_limits()
+      }
+      
   """
   @type managed_scaling_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  placement_type() :: %{
-    "AvailabilityZone" => String.t(),
-    "AvailabilityZones" => list(String.t()())
-  }
+      
+      placement_type() :: %{
+        "AvailabilityZone" => String.t(),
+        "AvailabilityZones" => list(String.t()())
+      }
+      
   """
   @type placement_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  set_termination_protection_input() :: %{
-    required("JobFlowIds") => list(String.t()()),
-    required("TerminationProtected") => boolean()
-  }
+      
+      set_termination_protection_input() :: %{
+        required("JobFlowIds") => list(String.t()()),
+        required("TerminationProtected") => boolean()
+      }
+      
   """
   @type set_termination_protection_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  output_notebook_s3_location_for_output() :: %{
-    "Bucket" => String.t(),
-    "Key" => String.t()
-  }
+      
+      output_notebook_s3_location_for_output() :: %{
+        "Bucket" => String.t(),
+        "Key" => String.t()
+      }
+      
   """
   @type output_notebook_s3_location_for_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_release_labels_output() :: %{
-    "NextToken" => String.t(),
-    "ReleaseLabels" => list(String.t()())
-  }
+      
+      list_release_labels_output() :: %{
+        "NextToken" => String.t(),
+        "ReleaseLabels" => list(String.t()())
+      }
+      
   """
   @type list_release_labels_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_cluster_input() :: %{
-    required("ClusterId") => String.t()
-  }
+      
+      describe_cluster_input() :: %{
+        required("ClusterId") => String.t()
+      }
+      
   """
   @type describe_cluster_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  remove_tags_input() :: %{
-    required("ResourceId") => String.t(),
-    required("TagKeys") => list(String.t()())
-  }
+      
+      remove_tags_input() :: %{
+        required("ResourceId") => String.t(),
+        required("TagKeys") => list(String.t()())
+      }
+      
   """
   @type remove_tags_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  step() :: %{
-    "ActionOnFailure" => list(any()),
-    "Config" => hadoop_step_config(),
-    "ExecutionRoleArn" => String.t(),
-    "Id" => String.t(),
-    "Name" => String.t(),
-    "Status" => step_status()
-  }
+      
+      step() :: %{
+        "ActionOnFailure" => list(any()),
+        "Config" => hadoop_step_config(),
+        "ExecutionRoleArn" => String.t(),
+        "Id" => String.t(),
+        "Name" => String.t(),
+        "Status" => step_status()
+      }
+      
   """
   @type step() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  modify_instance_groups_input() :: %{
-    optional("ClusterId") => String.t(),
-    optional("InstanceGroups") => list(instance_group_modify_config()())
-  }
+      
+      modify_instance_groups_input() :: %{
+        optional("ClusterId") => String.t(),
+        optional("InstanceGroups") => list(instance_group_modify_config()())
+      }
+      
   """
   @type modify_instance_groups_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_managed_scaling_policy_input() :: %{
-    required("ClusterId") => String.t(),
-    required("ManagedScalingPolicy") => managed_scaling_policy()
-  }
+      
+      put_managed_scaling_policy_input() :: %{
+        required("ClusterId") => String.t(),
+        required("ManagedScalingPolicy") => managed_scaling_policy()
+      }
+      
   """
   @type put_managed_scaling_policy_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  on_demand_provisioning_specification() :: %{
-    "AllocationStrategy" => list(any()),
-    "CapacityReservationOptions" => on_demand_capacity_reservation_options()
-  }
+      
+      on_demand_provisioning_specification() :: %{
+        "AllocationStrategy" => list(any()),
+        "CapacityReservationOptions" => on_demand_capacity_reservation_options()
+      }
+      
   """
   @type on_demand_provisioning_specification() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  step_summary() :: %{
-    "ActionOnFailure" => list(any()),
-    "Config" => hadoop_step_config(),
-    "Id" => String.t(),
-    "Name" => String.t(),
-    "Status" => step_status()
-  }
+      
+      step_summary() :: %{
+        "ActionOnFailure" => list(any()),
+        "Config" => hadoop_step_config(),
+        "Id" => String.t(),
+        "Name" => String.t(),
+        "Status" => step_status()
+      }
+      
   """
   @type step_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  instance_fleet_state_change_reason() :: %{
-    "Code" => list(any()),
-    "Message" => String.t()
-  }
+      
+      instance_fleet_state_change_reason() :: %{
+        "Code" => list(any()),
+        "Message" => String.t()
+      }
+      
   """
   @type instance_fleet_state_change_reason() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_notebook_execution_output() :: %{
-    "NotebookExecution" => notebook_execution()
-  }
+      
+      describe_notebook_execution_output() :: %{
+        "NotebookExecution" => notebook_execution()
+      }
+      
   """
   @type describe_notebook_execution_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  instance_fleet_timeline() :: %{
-    "CreationDateTime" => non_neg_integer(),
-    "EndDateTime" => non_neg_integer(),
-    "ReadyDateTime" => non_neg_integer()
-  }
+      
+      instance_fleet_timeline() :: %{
+        "CreationDateTime" => non_neg_integer(),
+        "EndDateTime" => non_neg_integer(),
+        "ReadyDateTime" => non_neg_integer()
+      }
+      
   """
   @type instance_fleet_timeline() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  modify_instance_fleet_input() :: %{
-    required("ClusterId") => String.t(),
-    required("InstanceFleet") => instance_fleet_modify_config()
-  }
+      
+      modify_instance_fleet_input() :: %{
+        required("ClusterId") => String.t(),
+        required("InstanceFleet") => instance_fleet_modify_config()
+      }
+      
   """
   @type modify_instance_fleet_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  studio() :: %{
-    "AuthMode" => list(any()),
-    "CreationTime" => non_neg_integer(),
-    "DefaultS3Location" => String.t(),
-    "Description" => String.t(),
-    "EncryptionKeyArn" => String.t(),
-    "EngineSecurityGroupId" => String.t(),
-    "IdcInstanceArn" => String.t(),
-    "IdcUserAssignment" => list(any()),
-    "IdpAuthUrl" => String.t(),
-    "IdpRelayStateParameterName" => String.t(),
-    "Name" => String.t(),
-    "ServiceRole" => String.t(),
-    "StudioArn" => String.t(),
-    "StudioId" => String.t(),
-    "SubnetIds" => list(String.t()()),
-    "Tags" => list(tag()()),
-    "TrustedIdentityPropagationEnabled" => boolean(),
-    "Url" => String.t(),
-    "UserRole" => String.t(),
-    "VpcId" => String.t(),
-    "WorkspaceSecurityGroupId" => String.t()
-  }
+      
+      studio() :: %{
+        "AuthMode" => list(any()),
+        "CreationTime" => non_neg_integer(),
+        "DefaultS3Location" => String.t(),
+        "Description" => String.t(),
+        "EncryptionKeyArn" => String.t(),
+        "EngineSecurityGroupId" => String.t(),
+        "IdcInstanceArn" => String.t(),
+        "IdcUserAssignment" => list(any()),
+        "IdpAuthUrl" => String.t(),
+        "IdpRelayStateParameterName" => String.t(),
+        "Name" => String.t(),
+        "ServiceRole" => String.t(),
+        "StudioArn" => String.t(),
+        "StudioId" => String.t(),
+        "SubnetIds" => list(String.t()()),
+        "Tags" => list(tag()()),
+        "TrustedIdentityPropagationEnabled" => boolean(),
+        "Url" => String.t(),
+        "UserRole" => String.t(),
+        "VpcId" => String.t(),
+        "WorkspaceSecurityGroupId" => String.t()
+      }
+      
   """
   @type studio() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_managed_scaling_policy_output() :: %{
-
-  }
+      
+      put_managed_scaling_policy_output() :: %{}
+      
   """
-  @type put_managed_scaling_policy_output() :: %{String.t() => any()}
+  @type put_managed_scaling_policy_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  instance_type_specification() :: %{
-    "BidPrice" => String.t(),
-    "BidPriceAsPercentageOfOnDemandPrice" => float(),
-    "Configurations" => list(configuration()()),
-    "CustomAmiId" => String.t(),
-    "EbsBlockDevices" => list(ebs_block_device()()),
-    "EbsOptimized" => boolean(),
-    "InstanceType" => String.t(),
-    "WeightedCapacity" => integer()
-  }
+      
+      instance_type_specification() :: %{
+        "BidPrice" => String.t(),
+        "BidPriceAsPercentageOfOnDemandPrice" => float(),
+        "Configurations" => list(configuration()()),
+        "CustomAmiId" => String.t(),
+        "EbsBlockDevices" => list(ebs_block_device()()),
+        "EbsOptimized" => boolean(),
+        "InstanceType" => String.t(),
+        "WeightedCapacity" => integer()
+      }
+      
   """
   @type instance_type_specification() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  run_job_flow_input() :: %{
-    optional("AdditionalInfo") => String.t(),
-    optional("AmiVersion") => String.t(),
-    optional("Applications") => list(application()()),
-    optional("AutoScalingRole") => String.t(),
-    optional("AutoTerminationPolicy") => auto_termination_policy(),
-    optional("BootstrapActions") => list(bootstrap_action_config()()),
-    optional("Configurations") => list(configuration()()),
-    optional("CustomAmiId") => String.t(),
-    optional("EbsRootVolumeIops") => integer(),
-    optional("EbsRootVolumeSize") => integer(),
-    optional("EbsRootVolumeThroughput") => integer(),
-    optional("JobFlowRole") => String.t(),
-    optional("KerberosAttributes") => kerberos_attributes(),
-    optional("LogEncryptionKmsKeyId") => String.t(),
-    optional("LogUri") => String.t(),
-    optional("ManagedScalingPolicy") => managed_scaling_policy(),
-    optional("NewSupportedProducts") => list(supported_product_config()()),
-    optional("OSReleaseLabel") => String.t(),
-    optional("PlacementGroupConfigs") => list(placement_group_config()()),
-    optional("ReleaseLabel") => String.t(),
-    optional("RepoUpgradeOnBoot") => list(any()),
-    optional("ScaleDownBehavior") => list(any()),
-    optional("SecurityConfiguration") => String.t(),
-    optional("ServiceRole") => String.t(),
-    optional("StepConcurrencyLevel") => integer(),
-    optional("Steps") => list(step_config()()),
-    optional("SupportedProducts") => list(String.t()()),
-    optional("Tags") => list(tag()()),
-    optional("VisibleToAllUsers") => boolean(),
-    required("Instances") => job_flow_instances_config(),
-    required("Name") => String.t()
-  }
+      
+      run_job_flow_input() :: %{
+        optional("AdditionalInfo") => String.t(),
+        optional("AmiVersion") => String.t(),
+        optional("Applications") => list(application()()),
+        optional("AutoScalingRole") => String.t(),
+        optional("AutoTerminationPolicy") => auto_termination_policy(),
+        optional("BootstrapActions") => list(bootstrap_action_config()()),
+        optional("Configurations") => list(configuration()()),
+        optional("CustomAmiId") => String.t(),
+        optional("EbsRootVolumeIops") => integer(),
+        optional("EbsRootVolumeSize") => integer(),
+        optional("EbsRootVolumeThroughput") => integer(),
+        optional("JobFlowRole") => String.t(),
+        optional("KerberosAttributes") => kerberos_attributes(),
+        optional("LogEncryptionKmsKeyId") => String.t(),
+        optional("LogUri") => String.t(),
+        optional("ManagedScalingPolicy") => managed_scaling_policy(),
+        optional("NewSupportedProducts") => list(supported_product_config()()),
+        optional("OSReleaseLabel") => String.t(),
+        optional("PlacementGroupConfigs") => list(placement_group_config()()),
+        optional("ReleaseLabel") => String.t(),
+        optional("RepoUpgradeOnBoot") => list(any()),
+        optional("ScaleDownBehavior") => list(any()),
+        optional("SecurityConfiguration") => String.t(),
+        optional("ServiceRole") => String.t(),
+        optional("StepConcurrencyLevel") => integer(),
+        optional("Steps") => list(step_config()()),
+        optional("SupportedProducts") => list(String.t()()),
+        optional("Tags") => list(tag()()),
+        optional("VisibleToAllUsers") => boolean(),
+        required("Instances") => job_flow_instances_config(),
+        required("Name") => String.t()
+      }
+      
   """
   @type run_job_flow_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_security_configuration_input() :: %{
-    required("Name") => String.t(),
-    required("SecurityConfiguration") => String.t()
-  }
+      
+      create_security_configuration_input() :: %{
+        required("Name") => String.t(),
+        required("SecurityConfiguration") => String.t()
+      }
+      
   """
   @type create_security_configuration_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  scaling_rule() :: %{
-    "Action" => scaling_action(),
-    "Description" => String.t(),
-    "Name" => String.t(),
-    "Trigger" => scaling_trigger()
-  }
+      
+      scaling_rule() :: %{
+        "Action" => scaling_action(),
+        "Description" => String.t(),
+        "Name" => String.t(),
+        "Trigger" => scaling_trigger()
+      }
+      
   """
   @type scaling_rule() :: %{String.t() => any()}
+
+  @type add_instance_fleet_errors() :: internal_server_exception() | invalid_request_exception()
+
+  @type add_instance_groups_errors() :: internal_server_error()
+
+  @type add_job_flow_steps_errors() :: internal_server_error()
+
+  @type add_tags_errors() :: internal_server_exception() | invalid_request_exception()
+
+  @type cancel_steps_errors() :: internal_server_error() | invalid_request_exception()
+
+  @type create_security_configuration_errors() ::
+          internal_server_exception() | invalid_request_exception()
+
+  @type create_studio_errors() :: internal_server_exception() | invalid_request_exception()
+
+  @type create_studio_session_mapping_errors() ::
+          internal_server_error() | invalid_request_exception()
+
+  @type delete_security_configuration_errors() ::
+          internal_server_exception() | invalid_request_exception()
+
+  @type delete_studio_errors() :: internal_server_exception() | invalid_request_exception()
+
+  @type delete_studio_session_mapping_errors() ::
+          internal_server_error() | invalid_request_exception()
+
+  @type describe_cluster_errors() :: internal_server_exception() | invalid_request_exception()
+
+  @type describe_job_flows_errors() :: internal_server_error()
+
+  @type describe_notebook_execution_errors() ::
+          internal_server_error() | invalid_request_exception()
+
+  @type describe_release_label_errors() ::
+          internal_server_exception() | invalid_request_exception()
+
+  @type describe_security_configuration_errors() ::
+          internal_server_exception() | invalid_request_exception()
+
+  @type describe_step_errors() :: internal_server_exception() | invalid_request_exception()
+
+  @type describe_studio_errors() :: internal_server_exception() | invalid_request_exception()
+
+  @type get_block_public_access_configuration_errors() ::
+          internal_server_exception() | invalid_request_exception()
+
+  @type get_cluster_session_credentials_errors() ::
+          internal_server_error() | invalid_request_exception()
+
+  @type get_studio_session_mapping_errors() ::
+          internal_server_error() | invalid_request_exception()
+
+  @type list_bootstrap_actions_errors() ::
+          internal_server_exception() | invalid_request_exception()
+
+  @type list_clusters_errors() :: internal_server_exception() | invalid_request_exception()
+
+  @type list_instance_fleets_errors() :: internal_server_exception() | invalid_request_exception()
+
+  @type list_instance_groups_errors() :: internal_server_exception() | invalid_request_exception()
+
+  @type list_instances_errors() :: internal_server_exception() | invalid_request_exception()
+
+  @type list_notebook_executions_errors() :: internal_server_error() | invalid_request_exception()
+
+  @type list_release_labels_errors() :: internal_server_exception() | invalid_request_exception()
+
+  @type list_security_configurations_errors() ::
+          internal_server_exception() | invalid_request_exception()
+
+  @type list_steps_errors() :: internal_server_exception() | invalid_request_exception()
+
+  @type list_studio_session_mappings_errors() ::
+          internal_server_error() | invalid_request_exception()
+
+  @type list_studios_errors() :: internal_server_exception() | invalid_request_exception()
+
+  @type list_supported_instance_types_errors() ::
+          internal_server_exception() | invalid_request_exception()
+
+  @type modify_cluster_errors() :: internal_server_error() | invalid_request_exception()
+
+  @type modify_instance_fleet_errors() ::
+          internal_server_exception() | invalid_request_exception()
+
+  @type modify_instance_groups_errors() :: internal_server_error()
+
+  @type put_block_public_access_configuration_errors() ::
+          internal_server_exception() | invalid_request_exception()
+
+  @type remove_tags_errors() :: internal_server_exception() | invalid_request_exception()
+
+  @type run_job_flow_errors() :: internal_server_error()
+
+  @type set_keep_job_flow_alive_when_no_steps_errors() :: internal_server_error()
+
+  @type set_termination_protection_errors() :: internal_server_error()
+
+  @type set_unhealthy_node_replacement_errors() :: internal_server_error()
+
+  @type set_visible_to_all_users_errors() :: internal_server_error()
+
+  @type start_notebook_execution_errors() ::
+          internal_server_exception() | invalid_request_exception()
+
+  @type stop_notebook_execution_errors() :: internal_server_error() | invalid_request_exception()
+
+  @type terminate_job_flows_errors() :: internal_server_error()
+
+  @type update_studio_errors() :: internal_server_exception() | invalid_request_exception()
+
+  @type update_studio_session_mapping_errors() ::
+          internal_server_error() | invalid_request_exception()
 
   def metadata do
     %{
@@ -2421,8 +2921,7 @@ defmodule AWS.EMR do
   @spec add_instance_fleet(map(), add_instance_fleet_input(), list()) ::
           {:ok, add_instance_fleet_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, add_instance_fleet_errors()}
   def add_instance_fleet(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2435,7 +2934,7 @@ defmodule AWS.EMR do
   @spec add_instance_groups(map(), add_instance_groups_input(), list()) ::
           {:ok, add_instance_groups_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
+          | {:error, add_instance_groups_errors()}
   def add_instance_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2478,7 +2977,7 @@ defmodule AWS.EMR do
   @spec add_job_flow_steps(map(), add_job_flow_steps_input(), list()) ::
           {:ok, add_job_flow_steps_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
+          | {:error, add_job_flow_steps_errors()}
   def add_job_flow_steps(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2497,8 +2996,7 @@ defmodule AWS.EMR do
   @spec add_tags(map(), add_tags_input(), list()) ::
           {:ok, add_tags_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, add_tags_errors()}
   def add_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2521,8 +3019,7 @@ defmodule AWS.EMR do
   @spec cancel_steps(map(), cancel_steps_input(), list()) ::
           {:ok, cancel_steps_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_request_exception()}
+          | {:error, cancel_steps_errors()}
   def cancel_steps(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2537,8 +3034,7 @@ defmodule AWS.EMR do
   @spec create_security_configuration(map(), create_security_configuration_input(), list()) ::
           {:ok, create_security_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, create_security_configuration_errors()}
   def create_security_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2551,8 +3047,7 @@ defmodule AWS.EMR do
   @spec create_studio(map(), create_studio_input(), list()) ::
           {:ok, create_studio_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, create_studio_errors()}
   def create_studio(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2572,8 +3067,7 @@ defmodule AWS.EMR do
   @spec create_studio_session_mapping(map(), create_studio_session_mapping_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_request_exception()}
+          | {:error, create_studio_session_mapping_errors()}
   def create_studio_session_mapping(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2586,8 +3080,7 @@ defmodule AWS.EMR do
   @spec delete_security_configuration(map(), delete_security_configuration_input(), list()) ::
           {:ok, delete_security_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, delete_security_configuration_errors()}
   def delete_security_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2600,8 +3093,7 @@ defmodule AWS.EMR do
   @spec delete_studio(map(), delete_studio_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, delete_studio_errors()}
   def delete_studio(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2614,8 +3106,7 @@ defmodule AWS.EMR do
   @spec delete_studio_session_mapping(map(), delete_studio_session_mapping_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_request_exception()}
+          | {:error, delete_studio_session_mapping_errors()}
   def delete_studio_session_mapping(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2630,8 +3121,7 @@ defmodule AWS.EMR do
   @spec describe_cluster(map(), describe_cluster_input(), list()) ::
           {:ok, describe_cluster_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, describe_cluster_errors()}
   def describe_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2672,7 +3162,7 @@ defmodule AWS.EMR do
   @spec describe_job_flows(map(), describe_job_flows_input(), list()) ::
           {:ok, describe_job_flows_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
+          | {:error, describe_job_flows_errors()}
   def describe_job_flows(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2685,8 +3175,7 @@ defmodule AWS.EMR do
   @spec describe_notebook_execution(map(), describe_notebook_execution_input(), list()) ::
           {:ok, describe_notebook_execution_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_request_exception()}
+          | {:error, describe_notebook_execution_errors()}
   def describe_notebook_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2704,8 +3193,7 @@ defmodule AWS.EMR do
   @spec describe_release_label(map(), describe_release_label_input(), list()) ::
           {:ok, describe_release_label_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, describe_release_label_errors()}
   def describe_release_label(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2719,8 +3207,7 @@ defmodule AWS.EMR do
   @spec describe_security_configuration(map(), describe_security_configuration_input(), list()) ::
           {:ok, describe_security_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, describe_security_configuration_errors()}
   def describe_security_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2733,8 +3220,7 @@ defmodule AWS.EMR do
   @spec describe_step(map(), describe_step_input(), list()) ::
           {:ok, describe_step_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, describe_step_errors()}
   def describe_step(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2748,8 +3234,7 @@ defmodule AWS.EMR do
   @spec describe_studio(map(), describe_studio_input(), list()) ::
           {:ok, describe_studio_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, describe_studio_errors()}
   def describe_studio(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2784,8 +3269,7 @@ defmodule AWS.EMR do
         ) ::
           {:ok, get_block_public_access_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, get_block_public_access_configuration_errors()}
   def get_block_public_access_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2804,8 +3288,7 @@ defmodule AWS.EMR do
   @spec get_cluster_session_credentials(map(), get_cluster_session_credentials_input(), list()) ::
           {:ok, get_cluster_session_credentials_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_request_exception()}
+          | {:error, get_cluster_session_credentials_errors()}
   def get_cluster_session_credentials(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2831,8 +3314,7 @@ defmodule AWS.EMR do
   @spec get_studio_session_mapping(map(), get_studio_session_mapping_input(), list()) ::
           {:ok, get_studio_session_mapping_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_request_exception()}
+          | {:error, get_studio_session_mapping_errors()}
   def get_studio_session_mapping(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2845,8 +3327,7 @@ defmodule AWS.EMR do
   @spec list_bootstrap_actions(map(), list_bootstrap_actions_input(), list()) ::
           {:ok, list_bootstrap_actions_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, list_bootstrap_actions_errors()}
   def list_bootstrap_actions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2868,8 +3349,7 @@ defmodule AWS.EMR do
   @spec list_clusters(map(), list_clusters_input(), list()) ::
           {:ok, list_clusters_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, list_clusters_errors()}
   def list_clusters(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2885,8 +3365,7 @@ defmodule AWS.EMR do
   @spec list_instance_fleets(map(), list_instance_fleets_input(), list()) ::
           {:ok, list_instance_fleets_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, list_instance_fleets_errors()}
   def list_instance_fleets(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2899,8 +3378,7 @@ defmodule AWS.EMR do
   @spec list_instance_groups(map(), list_instance_groups_input(), list()) ::
           {:ok, list_instance_groups_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, list_instance_groups_errors()}
   def list_instance_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2919,8 +3397,7 @@ defmodule AWS.EMR do
   @spec list_instances(map(), list_instances_input(), list()) ::
           {:ok, list_instances_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, list_instances_errors()}
   def list_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2940,8 +3417,7 @@ defmodule AWS.EMR do
   @spec list_notebook_executions(map(), list_notebook_executions_input(), list()) ::
           {:ok, list_notebook_executions_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_request_exception()}
+          | {:error, list_notebook_executions_errors()}
   def list_notebook_executions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2955,8 +3431,7 @@ defmodule AWS.EMR do
   @spec list_release_labels(map(), list_release_labels_input(), list()) ::
           {:ok, list_release_labels_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, list_release_labels_errors()}
   def list_release_labels(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2975,8 +3450,7 @@ defmodule AWS.EMR do
   @spec list_security_configurations(map(), list_security_configurations_input(), list()) ::
           {:ok, list_security_configurations_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, list_security_configurations_errors()}
   def list_security_configurations(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2997,8 +3471,7 @@ defmodule AWS.EMR do
   @spec list_steps(map(), list_steps_input(), list()) ::
           {:ok, list_steps_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, list_steps_errors()}
   def list_steps(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3012,8 +3485,7 @@ defmodule AWS.EMR do
   @spec list_studio_session_mappings(map(), list_studio_session_mappings_input(), list()) ::
           {:ok, list_studio_session_mappings_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_request_exception()}
+          | {:error, list_studio_session_mappings_errors()}
   def list_studio_session_mappings(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3030,8 +3502,7 @@ defmodule AWS.EMR do
   @spec list_studios(map(), list_studios_input(), list()) ::
           {:ok, list_studios_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, list_studios_errors()}
   def list_studios(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3047,8 +3518,7 @@ defmodule AWS.EMR do
   @spec list_supported_instance_types(map(), list_supported_instance_types_input(), list()) ::
           {:ok, list_supported_instance_types_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, list_supported_instance_types_errors()}
   def list_supported_instance_types(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3063,8 +3533,7 @@ defmodule AWS.EMR do
   @spec modify_cluster(map(), modify_cluster_input(), list()) ::
           {:ok, modify_cluster_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_request_exception()}
+          | {:error, modify_cluster_errors()}
   def modify_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3085,8 +3554,7 @@ defmodule AWS.EMR do
   @spec modify_instance_fleet(map(), modify_instance_fleet_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, modify_instance_fleet_errors()}
   def modify_instance_fleet(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3104,7 +3572,7 @@ defmodule AWS.EMR do
   @spec modify_instance_groups(map(), modify_instance_groups_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
+          | {:error, modify_instance_groups_errors()}
   def modify_instance_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3169,8 +3637,7 @@ defmodule AWS.EMR do
         ) ::
           {:ok, put_block_public_access_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, put_block_public_access_configuration_errors()}
   def put_block_public_access_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3247,8 +3714,7 @@ defmodule AWS.EMR do
   @spec remove_tags(map(), remove_tags_input(), list()) ::
           {:ok, remove_tags_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, remove_tags_errors()}
   def remove_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3295,7 +3761,7 @@ defmodule AWS.EMR do
   @spec run_job_flow(map(), run_job_flow_input(), list()) ::
           {:ok, run_job_flow_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
+          | {:error, run_job_flow_errors()}
   def run_job_flow(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3322,7 +3788,7 @@ defmodule AWS.EMR do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
+          | {:error, set_keep_job_flow_alive_when_no_steps_errors()}
   def set_keep_job_flow_alive_when_no_steps(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3357,7 +3823,7 @@ defmodule AWS.EMR do
   @spec set_termination_protection(map(), set_termination_protection_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
+          | {:error, set_termination_protection_errors()}
   def set_termination_protection(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3389,7 +3855,7 @@ defmodule AWS.EMR do
   @spec set_unhealthy_node_replacement(map(), set_unhealthy_node_replacement_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
+          | {:error, set_unhealthy_node_replacement_errors()}
   def set_unhealthy_node_replacement(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3425,7 +3891,7 @@ defmodule AWS.EMR do
   @spec set_visible_to_all_users(map(), set_visible_to_all_users_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
+          | {:error, set_visible_to_all_users_errors()}
   def set_visible_to_all_users(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3438,8 +3904,7 @@ defmodule AWS.EMR do
   @spec start_notebook_execution(map(), start_notebook_execution_input(), list()) ::
           {:ok, start_notebook_execution_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, start_notebook_execution_errors()}
   def start_notebook_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3452,8 +3917,7 @@ defmodule AWS.EMR do
   @spec stop_notebook_execution(map(), stop_notebook_execution_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_request_exception()}
+          | {:error, stop_notebook_execution_errors()}
   def stop_notebook_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3479,7 +3943,7 @@ defmodule AWS.EMR do
   @spec terminate_job_flows(map(), terminate_job_flows_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
+          | {:error, terminate_job_flows_errors()}
   def terminate_job_flows(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3493,8 +3957,7 @@ defmodule AWS.EMR do
   @spec update_studio(map(), update_studio_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, invalid_request_exception()}
+          | {:error, update_studio_errors()}
   def update_studio(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3508,8 +3971,7 @@ defmodule AWS.EMR do
   @spec update_studio_session_mapping(map(), update_studio_session_mapping_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_error()}
-          | {:error, invalid_request_exception()}
+          | {:error, update_studio_session_mapping_errors()}
   def update_studio_session_mapping(%Client{} = client, input, options \\ []) do
     meta = metadata()
 

@@ -36,168 +36,216 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
   @typedoc """
 
   ## Example:
-  access_forbidden() :: %{
-    "Message" => String.t()
-  }
+
+      access_forbidden() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type access_forbidden() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_get_record_error() :: %{
-    "ErrorCode" => String.t(),
-    "ErrorMessage" => String.t(),
-    "FeatureGroupName" => String.t(),
-    "RecordIdentifierValueAsString" => String.t()
-  }
+
+      batch_get_record_error() :: %{
+        "ErrorCode" => String.t(),
+        "ErrorMessage" => String.t(),
+        "FeatureGroupName" => String.t(),
+        "RecordIdentifierValueAsString" => String.t()
+      }
+
   """
   @type batch_get_record_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_get_record_identifier() :: %{
-    "FeatureGroupName" => String.t(),
-    "FeatureNames" => list(String.t()()),
-    "RecordIdentifiersValueAsString" => list(String.t()())
-  }
+
+      batch_get_record_identifier() :: %{
+        "FeatureGroupName" => String.t(),
+        "FeatureNames" => list(String.t()()),
+        "RecordIdentifiersValueAsString" => list(String.t()())
+      }
+
   """
   @type batch_get_record_identifier() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_get_record_request() :: %{
-    optional("ExpirationTimeResponse") => list(any()),
-    required("Identifiers") => list(batch_get_record_identifier()())
-  }
+
+      batch_get_record_request() :: %{
+        optional("ExpirationTimeResponse") => list(any()),
+        required("Identifiers") => list(batch_get_record_identifier()())
+      }
+
   """
   @type batch_get_record_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_get_record_response() :: %{
-    "Errors" => list(batch_get_record_error()()),
-    "Records" => list(batch_get_record_result_detail()()),
-    "UnprocessedIdentifiers" => list(batch_get_record_identifier()())
-  }
+
+      batch_get_record_response() :: %{
+        "Errors" => list(batch_get_record_error()()),
+        "Records" => list(batch_get_record_result_detail()()),
+        "UnprocessedIdentifiers" => list(batch_get_record_identifier()())
+      }
+
   """
   @type batch_get_record_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_get_record_result_detail() :: %{
-    "ExpiresAt" => String.t(),
-    "FeatureGroupName" => String.t(),
-    "Record" => list(feature_value()()),
-    "RecordIdentifierValueAsString" => String.t()
-  }
+
+      batch_get_record_result_detail() :: %{
+        "ExpiresAt" => String.t(),
+        "FeatureGroupName" => String.t(),
+        "Record" => list(feature_value()()),
+        "RecordIdentifierValueAsString" => String.t()
+      }
+
   """
   @type batch_get_record_result_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_record_request() :: %{
-    optional("DeletionMode") => list(any()),
-    optional("TargetStores") => list(list(any())()),
-    required("EventTime") => String.t(),
-    required("RecordIdentifierValueAsString") => String.t()
-  }
+
+      delete_record_request() :: %{
+        optional("DeletionMode") => list(any()),
+        optional("TargetStores") => list(list(any())()),
+        required("EventTime") => String.t(),
+        required("RecordIdentifierValueAsString") => String.t()
+      }
+
   """
   @type delete_record_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  feature_value() :: %{
-    "FeatureName" => String.t(),
-    "ValueAsString" => String.t(),
-    "ValueAsStringList" => list(String.t()())
-  }
+
+      feature_value() :: %{
+        "FeatureName" => String.t(),
+        "ValueAsString" => String.t(),
+        "ValueAsStringList" => list(String.t()())
+      }
+
   """
   @type feature_value() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_record_request() :: %{
-    optional("ExpirationTimeResponse") => list(any()),
-    optional("FeatureNames") => list(String.t()()),
-    required("RecordIdentifierValueAsString") => String.t()
-  }
+
+      get_record_request() :: %{
+        optional("ExpirationTimeResponse") => list(any()),
+        optional("FeatureNames") => list(String.t()()),
+        required("RecordIdentifierValueAsString") => String.t()
+      }
+
   """
   @type get_record_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_record_response() :: %{
-    "ExpiresAt" => String.t(),
-    "Record" => list(feature_value()())
-  }
+
+      get_record_response() :: %{
+        "ExpiresAt" => String.t(),
+        "Record" => list(feature_value()())
+      }
+
   """
   @type get_record_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  internal_failure() :: %{
-    "Message" => String.t()
-  }
+
+      internal_failure() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type internal_failure() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_record_request() :: %{
-    optional("TargetStores") => list(list(any())()),
-    optional("TtlDuration") => ttl_duration(),
-    required("Record") => list(feature_value()())
-  }
+
+      put_record_request() :: %{
+        optional("TargetStores") => list(list(any())()),
+        optional("TtlDuration") => ttl_duration(),
+        required("Record") => list(feature_value()())
+      }
+
   """
   @type put_record_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_not_found() :: %{
-    "Message" => String.t()
-  }
+
+      resource_not_found() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type resource_not_found() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  service_unavailable() :: %{
-    "Message" => String.t()
-  }
+
+      service_unavailable() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type service_unavailable() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ttl_duration() :: %{
-    "Unit" => list(any()),
-    "Value" => integer()
-  }
+
+      ttl_duration() :: %{
+        "Unit" => list(any()),
+        "Value" => integer()
+      }
+
   """
   @type ttl_duration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  validation_error() :: %{
-    "Message" => String.t()
-  }
+
+      validation_error() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type validation_error() :: %{String.t() => any()}
+
+  @type batch_get_record_errors() ::
+          validation_error() | service_unavailable() | internal_failure() | access_forbidden()
+
+  @type delete_record_errors() ::
+          validation_error() | service_unavailable() | internal_failure() | access_forbidden()
+
+  @type get_record_errors() ::
+          validation_error()
+          | service_unavailable()
+          | resource_not_found()
+          | internal_failure()
+          | access_forbidden()
+
+  @type put_record_errors() ::
+          validation_error() | service_unavailable() | internal_failure() | access_forbidden()
 
   def metadata do
     %{
@@ -220,10 +268,7 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
   @spec batch_get_record(map(), batch_get_record_request(), list()) ::
           {:ok, batch_get_record_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_forbidden()}
-          | {:error, internal_failure()}
-          | {:error, service_unavailable()}
-          | {:error, validation_error()}
+          | {:error, batch_get_record_errors()}
   def batch_get_record(%Client{} = client, input, options \\ []) do
     url_path = "/BatchGetRecord"
     headers = []
@@ -291,10 +336,7 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
   @spec delete_record(map(), String.t(), delete_record_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_forbidden()}
-          | {:error, internal_failure()}
-          | {:error, service_unavailable()}
-          | {:error, validation_error()}
+          | {:error, delete_record_errors()}
   def delete_record(%Client{} = client, feature_group_name, input, options \\ []) do
     url_path = "/FeatureGroup/#{AWS.Util.encode_uri(feature_group_name)}"
     headers = []
@@ -333,11 +375,7 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
   @spec get_record(map(), String.t(), String.t() | nil, String.t() | nil, String.t(), list()) ::
           {:ok, get_record_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_forbidden()}
-          | {:error, internal_failure()}
-          | {:error, resource_not_found()}
-          | {:error, service_unavailable()}
-          | {:error, validation_error()}
+          | {:error, get_record_errors()}
   def get_record(
         %Client{} = client,
         feature_group_name,
@@ -401,10 +439,7 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
   @spec put_record(map(), String.t(), put_record_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_forbidden()}
-          | {:error, internal_failure()}
-          | {:error, service_unavailable()}
-          | {:error, validation_error()}
+          | {:error, put_record_errors()}
   def put_record(%Client{} = client, feature_group_name, input, options \\ []) do
     url_path = "/FeatureGroup/#{AWS.Util.encode_uri(feature_group_name)}"
     headers = []

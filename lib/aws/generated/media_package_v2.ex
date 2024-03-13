@@ -38,824 +38,1093 @@ defmodule AWS.MediaPackageV2 do
   @typedoc """
 
   ## Example:
-  put_channel_policy_request() :: %{
-    required("Policy") => String.t()
-  }
+
+      put_channel_policy_request() :: %{
+        required("Policy") => String.t()
+      }
+
   """
   @type put_channel_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_channel_request() :: %{
 
-  }
+      delete_channel_request() :: %{}
+
   """
-  @type delete_channel_request() :: %{String.t() => any()}
+  @type delete_channel_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_channel_request() :: %{
 
-  }
+      get_channel_request() :: %{}
+
   """
-  @type get_channel_request() :: %{String.t() => any()}
+  @type get_channel_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  put_channel_policy_response() :: %{
 
-  }
+      put_channel_policy_response() :: %{}
+
   """
-  @type put_channel_policy_response() :: %{String.t() => any()}
+  @type put_channel_policy_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  tag_resource_request() :: %{
-    required("Tags") => map()
-  }
+
+      tag_resource_request() :: %{
+        required("Tags") => map()
+      }
+
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_origin_endpoint_request() :: %{
-    optional("ClientToken") => String.t(),
-    optional("Description") => String.t(),
-    optional("HlsManifests") => list(create_hls_manifest_configuration()()),
-    optional("LowLatencyHlsManifests") => list(create_low_latency_hls_manifest_configuration()()),
-    optional("Segment") => segment(),
-    optional("StartoverWindowSeconds") => [integer()],
-    optional("Tags") => map(),
-    required("ContainerType") => list(any()),
-    required("OriginEndpointName") => String.t()
-  }
+
+      create_origin_endpoint_request() :: %{
+        optional("ClientToken") => String.t(),
+        optional("Description") => String.t(),
+        optional("HlsManifests") => list(create_hls_manifest_configuration()()),
+        optional("LowLatencyHlsManifests") => list(create_low_latency_hls_manifest_configuration()()),
+        optional("Segment") => segment(),
+        optional("StartoverWindowSeconds") => [integer()],
+        optional("Tags") => map(),
+        required("ContainerType") => list(any()),
+        required("OriginEndpointName") => String.t()
+      }
+
   """
   @type create_origin_endpoint_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  channel_list_configuration() :: %{
-    "Arn" => [String.t()],
-    "ChannelGroupName" => [String.t()],
-    "ChannelName" => [String.t()],
-    "CreatedAt" => [non_neg_integer()],
-    "Description" => String.t(),
-    "ModifiedAt" => [non_neg_integer()]
-  }
+
+      channel_list_configuration() :: %{
+        "Arn" => [String.t()],
+        "ChannelGroupName" => [String.t()],
+        "ChannelName" => [String.t()],
+        "CreatedAt" => [non_neg_integer()],
+        "Description" => String.t(),
+        "ModifiedAt" => [non_neg_integer()]
+      }
+
   """
   @type channel_list_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_channel_response() :: %{
-    "Arn" => [String.t()],
-    "ChannelGroupName" => [String.t()],
-    "ChannelName" => [String.t()],
-    "CreatedAt" => [non_neg_integer()],
-    "Description" => String.t(),
-    "ETag" => String.t(),
-    "IngestEndpoints" => list(ingest_endpoint()()),
-    "ModifiedAt" => [non_neg_integer()],
-    "Tags" => map()
-  }
+
+      create_channel_response() :: %{
+        "Arn" => [String.t()],
+        "ChannelGroupName" => [String.t()],
+        "ChannelName" => [String.t()],
+        "CreatedAt" => [non_neg_integer()],
+        "Description" => String.t(),
+        "ETag" => String.t(),
+        "IngestEndpoints" => list(ingest_endpoint()()),
+        "ModifiedAt" => [non_neg_integer()],
+        "Tags" => map()
+      }
+
   """
   @type create_channel_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  channel_group_list_configuration() :: %{
-    "Arn" => [String.t()],
-    "ChannelGroupName" => [String.t()],
-    "CreatedAt" => [non_neg_integer()],
-    "Description" => String.t(),
-    "ModifiedAt" => [non_neg_integer()]
-  }
+
+      channel_group_list_configuration() :: %{
+        "Arn" => [String.t()],
+        "ChannelGroupName" => [String.t()],
+        "CreatedAt" => [non_neg_integer()],
+        "Description" => String.t(),
+        "ModifiedAt" => [non_neg_integer()]
+      }
+
   """
   @type channel_group_list_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_channel_response() :: %{
 
-  }
+      delete_channel_response() :: %{}
+
   """
-  @type delete_channel_response() :: %{String.t() => any()}
+  @type delete_channel_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_hls_manifest_configuration() :: %{
-    "ChildManifestName" => String.t(),
-    "ManifestName" => String.t(),
-    "Url" => [String.t()]
-  }
+
+      list_hls_manifest_configuration() :: %{
+        "ChildManifestName" => String.t(),
+        "ManifestName" => String.t(),
+        "Url" => [String.t()]
+      }
+
   """
   @type list_hls_manifest_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_origin_endpoint_response() :: %{
-    "Arn" => [String.t()],
-    "ChannelGroupName" => String.t(),
-    "ChannelName" => String.t(),
-    "ContainerType" => list(any()),
-    "CreatedAt" => [non_neg_integer()],
-    "Description" => String.t(),
-    "ETag" => String.t(),
-    "HlsManifests" => list(get_hls_manifest_configuration()()),
-    "LowLatencyHlsManifests" => list(get_low_latency_hls_manifest_configuration()()),
-    "ModifiedAt" => [non_neg_integer()],
-    "OriginEndpointName" => String.t(),
-    "Segment" => segment(),
-    "StartoverWindowSeconds" => [integer()],
-    "Tags" => map()
-  }
+
+      create_origin_endpoint_response() :: %{
+        "Arn" => [String.t()],
+        "ChannelGroupName" => String.t(),
+        "ChannelName" => String.t(),
+        "ContainerType" => list(any()),
+        "CreatedAt" => [non_neg_integer()],
+        "Description" => String.t(),
+        "ETag" => String.t(),
+        "HlsManifests" => list(get_hls_manifest_configuration()()),
+        "LowLatencyHlsManifests" => list(get_low_latency_hls_manifest_configuration()()),
+        "ModifiedAt" => [non_neg_integer()],
+        "OriginEndpointName" => String.t(),
+        "Segment" => segment(),
+        "StartoverWindowSeconds" => [integer()],
+        "Tags" => map()
+      }
+
   """
   @type create_origin_endpoint_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_hls_manifest_configuration() :: %{
-    "ChildManifestName" => String.t(),
-    "FilterConfiguration" => filter_configuration(),
-    "ManifestName" => String.t(),
-    "ManifestWindowSeconds" => [integer()],
-    "ProgramDateTimeIntervalSeconds" => [integer()],
-    "ScteHls" => scte_hls()
-  }
+
+      create_hls_manifest_configuration() :: %{
+        "ChildManifestName" => String.t(),
+        "FilterConfiguration" => filter_configuration(),
+        "ManifestName" => String.t(),
+        "ManifestWindowSeconds" => [integer()],
+        "ProgramDateTimeIntervalSeconds" => [integer()],
+        "ScteHls" => scte_hls()
+      }
+
   """
   @type create_hls_manifest_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_origin_endpoint_request() :: %{
-    optional("Description") => String.t(),
-    optional("ETag") => String.t(),
-    optional("HlsManifests") => list(create_hls_manifest_configuration()()),
-    optional("LowLatencyHlsManifests") => list(create_low_latency_hls_manifest_configuration()()),
-    optional("Segment") => segment(),
-    optional("StartoverWindowSeconds") => [integer()],
-    required("ContainerType") => list(any())
-  }
+
+      update_origin_endpoint_request() :: %{
+        optional("Description") => String.t(),
+        optional("ETag") => String.t(),
+        optional("HlsManifests") => list(create_hls_manifest_configuration()()),
+        optional("LowLatencyHlsManifests") => list(create_low_latency_hls_manifest_configuration()()),
+        optional("Segment") => segment(),
+        optional("StartoverWindowSeconds") => [integer()],
+        required("ContainerType") => list(any())
+      }
+
   """
   @type update_origin_endpoint_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_channel_policy_request() :: %{
 
-  }
+      delete_channel_policy_request() :: %{}
+
   """
-  @type delete_channel_policy_request() :: %{String.t() => any()}
+  @type delete_channel_policy_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  put_origin_endpoint_policy_request() :: %{
-    required("Policy") => String.t()
-  }
+
+      put_origin_endpoint_policy_request() :: %{
+        required("Policy") => String.t()
+      }
+
   """
   @type put_origin_endpoint_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_origin_endpoint_response() :: %{
 
-  }
+      delete_origin_endpoint_response() :: %{}
+
   """
-  @type delete_origin_endpoint_response() :: %{String.t() => any()}
+  @type delete_origin_endpoint_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  delete_origin_endpoint_request() :: %{
 
-  }
+      delete_origin_endpoint_request() :: %{}
+
   """
-  @type delete_origin_endpoint_request() :: %{String.t() => any()}
+  @type delete_origin_endpoint_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_low_latency_hls_manifest_configuration() :: %{
-    "ChildManifestName" => String.t(),
-    "FilterConfiguration" => filter_configuration(),
-    "ManifestName" => String.t(),
-    "ManifestWindowSeconds" => [integer()],
-    "ProgramDateTimeIntervalSeconds" => [integer()],
-    "ScteHls" => scte_hls(),
-    "Url" => [String.t()]
-  }
+
+      get_low_latency_hls_manifest_configuration() :: %{
+        "ChildManifestName" => String.t(),
+        "FilterConfiguration" => filter_configuration(),
+        "ManifestName" => String.t(),
+        "ManifestWindowSeconds" => [integer()],
+        "ProgramDateTimeIntervalSeconds" => [integer()],
+        "ScteHls" => scte_hls(),
+        "Url" => [String.t()]
+      }
+
   """
   @type get_low_latency_hls_manifest_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_hls_manifest_configuration() :: %{
-    "ChildManifestName" => String.t(),
-    "FilterConfiguration" => filter_configuration(),
-    "ManifestName" => String.t(),
-    "ManifestWindowSeconds" => [integer()],
-    "ProgramDateTimeIntervalSeconds" => [integer()],
-    "ScteHls" => scte_hls(),
-    "Url" => [String.t()]
-  }
+
+      get_hls_manifest_configuration() :: %{
+        "ChildManifestName" => String.t(),
+        "FilterConfiguration" => filter_configuration(),
+        "ManifestName" => String.t(),
+        "ManifestWindowSeconds" => [integer()],
+        "ProgramDateTimeIntervalSeconds" => [integer()],
+        "ScteHls" => scte_hls(),
+        "Url" => [String.t()]
+      }
+
   """
   @type get_hls_manifest_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_request() :: %{
-    required("TagKeys") => list(String.t()())
-  }
+
+      untag_resource_request() :: %{
+        required("TagKeys") => list(String.t()())
+      }
+
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_channel_groups_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => [String.t()]
-  }
+
+      list_channel_groups_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => [String.t()]
+      }
+
   """
   @type list_channel_groups_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  segment() :: %{
-    "Encryption" => encryption(),
-    "IncludeIframeOnlyStreams" => [boolean()],
-    "Scte" => scte(),
-    "SegmentDurationSeconds" => [integer()],
-    "SegmentName" => [String.t()],
-    "TsIncludeDvbSubtitles" => [boolean()],
-    "TsUseAudioRenditionGroup" => [boolean()]
-  }
+
+      segment() :: %{
+        "Encryption" => encryption(),
+        "IncludeIframeOnlyStreams" => [boolean()],
+        "Scte" => scte(),
+        "SegmentDurationSeconds" => [integer()],
+        "SegmentName" => [String.t()],
+        "TsIncludeDvbSubtitles" => [boolean()],
+        "TsUseAudioRenditionGroup" => [boolean()]
+      }
+
   """
   @type segment() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_origin_endpoints_response() :: %{
-    "Items" => list(origin_endpoint_list_configuration()()),
-    "NextToken" => [String.t()]
-  }
+
+      list_origin_endpoints_response() :: %{
+        "Items" => list(origin_endpoint_list_configuration()()),
+        "NextToken" => [String.t()]
+      }
+
   """
   @type list_origin_endpoints_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_channel_group_request() :: %{
 
-  }
+      delete_channel_group_request() :: %{}
+
   """
-  @type delete_channel_group_request() :: %{String.t() => any()}
+  @type delete_channel_group_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  put_origin_endpoint_policy_response() :: %{
 
-  }
+      put_origin_endpoint_policy_response() :: %{}
+
   """
-  @type put_origin_endpoint_policy_response() :: %{String.t() => any()}
+  @type put_origin_endpoint_policy_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  conflict_exception() :: %{
-    "ConflictExceptionType" => list(any()),
-    "Message" => [String.t()]
-  }
+
+      conflict_exception() :: %{
+        "ConflictExceptionType" => list(any()),
+        "Message" => [String.t()]
+      }
+
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_not_found_exception() :: %{
-    "Message" => [String.t()],
-    "ResourceTypeNotFound" => list(any())
-  }
+
+      resource_not_found_exception() :: %{
+        "Message" => [String.t()],
+        "ResourceTypeNotFound" => list(any())
+      }
+
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_channel_group_request() :: %{
-    optional("ClientToken") => String.t(),
-    optional("Description") => String.t(),
-    optional("Tags") => map(),
-    required("ChannelGroupName") => String.t()
-  }
+
+      create_channel_group_request() :: %{
+        optional("ClientToken") => String.t(),
+        optional("Description") => String.t(),
+        optional("Tags") => map(),
+        required("ChannelGroupName") => String.t()
+      }
+
   """
   @type create_channel_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  service_quota_exceeded_exception() :: %{
-    "Message" => [String.t()]
-  }
+
+      service_quota_exceeded_exception() :: %{
+        "Message" => [String.t()]
+      }
+
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_origin_endpoint_policy_response() :: %{
 
-  }
+      delete_origin_endpoint_policy_response() :: %{}
+
   """
-  @type delete_origin_endpoint_policy_response() :: %{String.t() => any()}
+  @type delete_origin_endpoint_policy_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_origin_endpoint_policy_request() :: %{
 
-  }
+      get_origin_endpoint_policy_request() :: %{}
+
   """
-  @type get_origin_endpoint_policy_request() :: %{String.t() => any()}
+  @type get_origin_endpoint_policy_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  delete_channel_policy_response() :: %{
 
-  }
+      delete_channel_policy_response() :: %{}
+
   """
-  @type delete_channel_policy_response() :: %{String.t() => any()}
+  @type delete_channel_policy_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  update_channel_group_request() :: %{
-    optional("Description") => String.t(),
-    optional("ETag") => String.t()
-  }
+
+      update_channel_group_request() :: %{
+        optional("Description") => String.t(),
+        optional("ETag") => String.t()
+      }
+
   """
   @type update_channel_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  speke_key_provider() :: %{
-    "DrmSystems" => list(list(any())()),
-    "EncryptionContractConfiguration" => encryption_contract_configuration(),
-    "ResourceId" => [String.t()],
-    "RoleArn" => [String.t()],
-    "Url" => [String.t()]
-  }
+
+      speke_key_provider() :: %{
+        "DrmSystems" => list(list(any())()),
+        "EncryptionContractConfiguration" => encryption_contract_configuration(),
+        "ResourceId" => [String.t()],
+        "RoleArn" => [String.t()],
+        "Url" => [String.t()]
+      }
+
   """
   @type speke_key_provider() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  encryption() :: %{
-    "ConstantInitializationVector" => [String.t()],
-    "EncryptionMethod" => encryption_method(),
-    "KeyRotationIntervalSeconds" => [integer()],
-    "SpekeKeyProvider" => speke_key_provider()
-  }
+
+      encryption() :: %{
+        "ConstantInitializationVector" => [String.t()],
+        "EncryptionMethod" => encryption_method(),
+        "KeyRotationIntervalSeconds" => [integer()],
+        "SpekeKeyProvider" => speke_key_provider()
+      }
+
   """
   @type encryption() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ingest_endpoint() :: %{
-    "Id" => [String.t()],
-    "Url" => [String.t()]
-  }
+
+      ingest_endpoint() :: %{
+        "Id" => [String.t()],
+        "Url" => [String.t()]
+      }
+
   """
   @type ingest_endpoint() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_channel_group_response() :: %{
 
-  }
+      delete_channel_group_response() :: %{}
+
   """
-  @type delete_channel_group_response() :: %{String.t() => any()}
+  @type delete_channel_group_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_channel_request() :: %{
-    optional("ClientToken") => String.t(),
-    optional("Description") => String.t(),
-    optional("Tags") => map(),
-    required("ChannelName") => String.t()
-  }
+
+      create_channel_request() :: %{
+        optional("ClientToken") => String.t(),
+        optional("Description") => String.t(),
+        optional("Tags") => map(),
+        required("ChannelName") => String.t()
+      }
+
   """
   @type create_channel_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  filter_configuration() :: %{
-    "End" => [non_neg_integer()],
-    "ManifestFilter" => [String.t()],
-    "Start" => [non_neg_integer()],
-    "TimeDelaySeconds" => [integer()]
-  }
+
+      filter_configuration() :: %{
+        "End" => [non_neg_integer()],
+        "ManifestFilter" => [String.t()],
+        "Start" => [non_neg_integer()],
+        "TimeDelaySeconds" => [integer()]
+      }
+
   """
   @type filter_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_response() :: %{
-    "Tags" => map()
-  }
+
+      list_tags_for_resource_response() :: %{
+        "Tags" => map()
+      }
+
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_channel_policy_response() :: %{
-    "ChannelGroupName" => [String.t()],
-    "ChannelName" => [String.t()],
-    "Policy" => String.t()
-  }
+
+      get_channel_policy_response() :: %{
+        "ChannelGroupName" => [String.t()],
+        "ChannelName" => [String.t()],
+        "Policy" => String.t()
+      }
+
   """
   @type get_channel_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_channels_response() :: %{
-    "Items" => list(channel_list_configuration()()),
-    "NextToken" => [String.t()]
-  }
+
+      list_channels_response() :: %{
+        "Items" => list(channel_list_configuration()()),
+        "NextToken" => [String.t()]
+      }
+
   """
   @type list_channels_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_origin_endpoint_policy_request() :: %{
 
-  }
+      delete_origin_endpoint_policy_request() :: %{}
+
   """
-  @type delete_origin_endpoint_policy_request() :: %{String.t() => any()}
+  @type delete_origin_endpoint_policy_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  update_channel_group_response() :: %{
-    "Arn" => [String.t()],
-    "ChannelGroupName" => [String.t()],
-    "CreatedAt" => [non_neg_integer()],
-    "Description" => String.t(),
-    "ETag" => String.t(),
-    "EgressDomain" => [String.t()],
-    "ModifiedAt" => [non_neg_integer()],
-    "Tags" => map()
-  }
+
+      update_channel_group_response() :: %{
+        "Arn" => [String.t()],
+        "ChannelGroupName" => [String.t()],
+        "CreatedAt" => [non_neg_integer()],
+        "Description" => String.t(),
+        "ETag" => String.t(),
+        "EgressDomain" => [String.t()],
+        "ModifiedAt" => [non_neg_integer()],
+        "Tags" => map()
+      }
+
   """
   @type update_channel_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_channel_request() :: %{
-    optional("Description") => String.t(),
-    optional("ETag") => String.t()
-  }
+
+      update_channel_request() :: %{
+        optional("Description") => String.t(),
+        optional("ETag") => String.t()
+      }
+
   """
   @type update_channel_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  encryption_contract_configuration() :: %{
-    "PresetSpeke20Audio" => list(any()),
-    "PresetSpeke20Video" => list(any())
-  }
+
+      encryption_contract_configuration() :: %{
+        "PresetSpeke20Audio" => list(any()),
+        "PresetSpeke20Video" => list(any())
+      }
+
   """
   @type encryption_contract_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  internal_server_exception() :: %{
-    "Message" => [String.t()]
-  }
+
+      internal_server_exception() :: %{
+        "Message" => [String.t()]
+      }
+
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_channel_groups_response() :: %{
-    "Items" => list(channel_group_list_configuration()()),
-    "NextToken" => [String.t()]
-  }
+
+      list_channel_groups_response() :: %{
+        "Items" => list(channel_group_list_configuration()()),
+        "NextToken" => [String.t()]
+      }
+
   """
   @type list_channel_groups_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  access_denied_exception() :: %{
-    "Message" => [String.t()]
-  }
+
+      access_denied_exception() :: %{
+        "Message" => [String.t()]
+      }
+
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  encryption_method() :: %{
-    "CmafEncryptionMethod" => list(any()),
-    "TsEncryptionMethod" => list(any())
-  }
+
+      encryption_method() :: %{
+        "CmafEncryptionMethod" => list(any()),
+        "TsEncryptionMethod" => list(any())
+      }
+
   """
   @type encryption_method() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  scte_hls() :: %{
-    "AdMarkerHls" => list(any())
-  }
+
+      scte_hls() :: %{
+        "AdMarkerHls" => list(any())
+      }
+
   """
   @type scte_hls() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  validation_exception() :: %{
-    "Message" => [String.t()],
-    "ValidationExceptionType" => list(any())
-  }
+
+      validation_exception() :: %{
+        "Message" => [String.t()],
+        "ValidationExceptionType" => list(any())
+      }
+
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_request() :: %{
 
-  }
+      list_tags_for_resource_request() :: %{}
+
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  throttling_exception() :: %{
-    "Message" => [String.t()]
-  }
+
+      throttling_exception() :: %{
+        "Message" => [String.t()]
+      }
+
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_low_latency_hls_manifest_configuration() :: %{
-    "ChildManifestName" => String.t(),
-    "ManifestName" => String.t(),
-    "Url" => [String.t()]
-  }
+
+      list_low_latency_hls_manifest_configuration() :: %{
+        "ChildManifestName" => String.t(),
+        "ManifestName" => String.t(),
+        "Url" => [String.t()]
+      }
+
   """
   @type list_low_latency_hls_manifest_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_channel_group_request() :: %{
 
-  }
+      get_channel_group_request() :: %{}
+
   """
-  @type get_channel_group_request() :: %{String.t() => any()}
+  @type get_channel_group_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  scte() :: %{
-    "ScteFilter" => list(list(any())())
-  }
+
+      scte() :: %{
+        "ScteFilter" => list(list(any())())
+      }
+
   """
   @type scte() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_channel_response() :: %{
-    "Arn" => [String.t()],
-    "ChannelGroupName" => [String.t()],
-    "ChannelName" => [String.t()],
-    "CreatedAt" => [non_neg_integer()],
-    "Description" => String.t(),
-    "ETag" => String.t(),
-    "IngestEndpoints" => list(ingest_endpoint()()),
-    "ModifiedAt" => [non_neg_integer()],
-    "Tags" => map()
-  }
+
+      get_channel_response() :: %{
+        "Arn" => [String.t()],
+        "ChannelGroupName" => [String.t()],
+        "ChannelName" => [String.t()],
+        "CreatedAt" => [non_neg_integer()],
+        "Description" => String.t(),
+        "ETag" => String.t(),
+        "IngestEndpoints" => list(ingest_endpoint()()),
+        "ModifiedAt" => [non_neg_integer()],
+        "Tags" => map()
+      }
+
   """
   @type get_channel_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_origin_endpoint_request() :: %{
 
-  }
+      get_origin_endpoint_request() :: %{}
+
   """
-  @type get_origin_endpoint_request() :: %{String.t() => any()}
+  @type get_origin_endpoint_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  update_channel_response() :: %{
-    "Arn" => [String.t()],
-    "ChannelGroupName" => [String.t()],
-    "ChannelName" => [String.t()],
-    "CreatedAt" => [non_neg_integer()],
-    "Description" => String.t(),
-    "ETag" => String.t(),
-    "IngestEndpoints" => list(ingest_endpoint()()),
-    "ModifiedAt" => [non_neg_integer()],
-    "Tags" => map()
-  }
+
+      update_channel_response() :: %{
+        "Arn" => [String.t()],
+        "ChannelGroupName" => [String.t()],
+        "ChannelName" => [String.t()],
+        "CreatedAt" => [non_neg_integer()],
+        "Description" => String.t(),
+        "ETag" => String.t(),
+        "IngestEndpoints" => list(ingest_endpoint()()),
+        "ModifiedAt" => [non_neg_integer()],
+        "Tags" => map()
+      }
+
   """
   @type update_channel_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  origin_endpoint_list_configuration() :: %{
-    "Arn" => [String.t()],
-    "ChannelGroupName" => String.t(),
-    "ChannelName" => String.t(),
-    "ContainerType" => list(any()),
-    "CreatedAt" => [non_neg_integer()],
-    "Description" => String.t(),
-    "HlsManifests" => list(list_hls_manifest_configuration()()),
-    "LowLatencyHlsManifests" => list(list_low_latency_hls_manifest_configuration()()),
-    "ModifiedAt" => [non_neg_integer()],
-    "OriginEndpointName" => String.t()
-  }
+
+      origin_endpoint_list_configuration() :: %{
+        "Arn" => [String.t()],
+        "ChannelGroupName" => String.t(),
+        "ChannelName" => String.t(),
+        "ContainerType" => list(any()),
+        "CreatedAt" => [non_neg_integer()],
+        "Description" => String.t(),
+        "HlsManifests" => list(list_hls_manifest_configuration()()),
+        "LowLatencyHlsManifests" => list(list_low_latency_hls_manifest_configuration()()),
+        "ModifiedAt" => [non_neg_integer()],
+        "OriginEndpointName" => String.t()
+      }
+
   """
   @type origin_endpoint_list_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_channel_policy_request() :: %{
 
-  }
+      get_channel_policy_request() :: %{}
+
   """
-  @type get_channel_policy_request() :: %{String.t() => any()}
+  @type get_channel_policy_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_channel_group_response() :: %{
-    "Arn" => [String.t()],
-    "ChannelGroupName" => [String.t()],
-    "CreatedAt" => [non_neg_integer()],
-    "Description" => String.t(),
-    "ETag" => String.t(),
-    "EgressDomain" => [String.t()],
-    "ModifiedAt" => [non_neg_integer()],
-    "Tags" => map()
-  }
+
+      get_channel_group_response() :: %{
+        "Arn" => [String.t()],
+        "ChannelGroupName" => [String.t()],
+        "CreatedAt" => [non_neg_integer()],
+        "Description" => String.t(),
+        "ETag" => String.t(),
+        "EgressDomain" => [String.t()],
+        "ModifiedAt" => [non_neg_integer()],
+        "Tags" => map()
+      }
+
   """
   @type get_channel_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_low_latency_hls_manifest_configuration() :: %{
-    "ChildManifestName" => String.t(),
-    "FilterConfiguration" => filter_configuration(),
-    "ManifestName" => String.t(),
-    "ManifestWindowSeconds" => [integer()],
-    "ProgramDateTimeIntervalSeconds" => [integer()],
-    "ScteHls" => scte_hls()
-  }
+
+      create_low_latency_hls_manifest_configuration() :: %{
+        "ChildManifestName" => String.t(),
+        "FilterConfiguration" => filter_configuration(),
+        "ManifestName" => String.t(),
+        "ManifestWindowSeconds" => [integer()],
+        "ProgramDateTimeIntervalSeconds" => [integer()],
+        "ScteHls" => scte_hls()
+      }
+
   """
   @type create_low_latency_hls_manifest_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_channel_group_response() :: %{
-    "Arn" => [String.t()],
-    "ChannelGroupName" => [String.t()],
-    "CreatedAt" => [non_neg_integer()],
-    "Description" => String.t(),
-    "ETag" => String.t(),
-    "EgressDomain" => [String.t()],
-    "ModifiedAt" => [non_neg_integer()],
-    "Tags" => map()
-  }
+
+      create_channel_group_response() :: %{
+        "Arn" => [String.t()],
+        "ChannelGroupName" => [String.t()],
+        "CreatedAt" => [non_neg_integer()],
+        "Description" => String.t(),
+        "ETag" => String.t(),
+        "EgressDomain" => [String.t()],
+        "ModifiedAt" => [non_neg_integer()],
+        "Tags" => map()
+      }
+
   """
   @type create_channel_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_origin_endpoint_response() :: %{
-    "Arn" => [String.t()],
-    "ChannelGroupName" => String.t(),
-    "ChannelName" => String.t(),
-    "ContainerType" => list(any()),
-    "CreatedAt" => [non_neg_integer()],
-    "Description" => String.t(),
-    "ETag" => String.t(),
-    "HlsManifests" => list(get_hls_manifest_configuration()()),
-    "LowLatencyHlsManifests" => list(get_low_latency_hls_manifest_configuration()()),
-    "ModifiedAt" => [non_neg_integer()],
-    "OriginEndpointName" => String.t(),
-    "Segment" => segment(),
-    "StartoverWindowSeconds" => [integer()],
-    "Tags" => map()
-  }
+
+      update_origin_endpoint_response() :: %{
+        "Arn" => [String.t()],
+        "ChannelGroupName" => String.t(),
+        "ChannelName" => String.t(),
+        "ContainerType" => list(any()),
+        "CreatedAt" => [non_neg_integer()],
+        "Description" => String.t(),
+        "ETag" => String.t(),
+        "HlsManifests" => list(get_hls_manifest_configuration()()),
+        "LowLatencyHlsManifests" => list(get_low_latency_hls_manifest_configuration()()),
+        "ModifiedAt" => [non_neg_integer()],
+        "OriginEndpointName" => String.t(),
+        "Segment" => segment(),
+        "StartoverWindowSeconds" => [integer()],
+        "Tags" => map()
+      }
+
   """
   @type update_origin_endpoint_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_channels_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => [String.t()]
-  }
+
+      list_channels_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => [String.t()]
+      }
+
   """
   @type list_channels_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_origin_endpoints_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => [String.t()]
-  }
+
+      list_origin_endpoints_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => [String.t()]
+      }
+
   """
   @type list_origin_endpoints_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_origin_endpoint_policy_response() :: %{
-    "ChannelGroupName" => String.t(),
-    "ChannelName" => String.t(),
-    "OriginEndpointName" => String.t(),
-    "Policy" => String.t()
-  }
+
+      get_origin_endpoint_policy_response() :: %{
+        "ChannelGroupName" => String.t(),
+        "ChannelName" => String.t(),
+        "OriginEndpointName" => String.t(),
+        "Policy" => String.t()
+      }
+
   """
   @type get_origin_endpoint_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_origin_endpoint_response() :: %{
-    "Arn" => [String.t()],
-    "ChannelGroupName" => String.t(),
-    "ChannelName" => String.t(),
-    "ContainerType" => list(any()),
-    "CreatedAt" => [non_neg_integer()],
-    "Description" => String.t(),
-    "ETag" => String.t(),
-    "HlsManifests" => list(get_hls_manifest_configuration()()),
-    "LowLatencyHlsManifests" => list(get_low_latency_hls_manifest_configuration()()),
-    "ModifiedAt" => [non_neg_integer()],
-    "OriginEndpointName" => String.t(),
-    "Segment" => segment(),
-    "StartoverWindowSeconds" => [integer()],
-    "Tags" => map()
-  }
+
+      get_origin_endpoint_response() :: %{
+        "Arn" => [String.t()],
+        "ChannelGroupName" => String.t(),
+        "ChannelName" => String.t(),
+        "ContainerType" => list(any()),
+        "CreatedAt" => [non_neg_integer()],
+        "Description" => String.t(),
+        "ETag" => String.t(),
+        "HlsManifests" => list(get_hls_manifest_configuration()()),
+        "LowLatencyHlsManifests" => list(get_low_latency_hls_manifest_configuration()()),
+        "ModifiedAt" => [non_neg_integer()],
+        "OriginEndpointName" => String.t(),
+        "Segment" => segment(),
+        "StartoverWindowSeconds" => [integer()],
+        "Tags" => map()
+      }
+
   """
   @type get_origin_endpoint_response() :: %{String.t() => any()}
+
+  @type create_channel_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_channel_group_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_origin_endpoint_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_channel_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | conflict_exception()
+
+  @type delete_channel_group_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | conflict_exception()
+
+  @type delete_channel_policy_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | conflict_exception()
+
+  @type delete_origin_endpoint_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type delete_origin_endpoint_policy_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | conflict_exception()
+
+  @type get_channel_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_channel_group_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_channel_policy_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_origin_endpoint_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_origin_endpoint_policy_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_channel_groups_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_channels_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_origin_endpoints_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_tags_for_resource_errors() :: validation_exception()
+
+  @type put_channel_policy_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type put_origin_endpoint_policy_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type tag_resource_errors() :: validation_exception()
+
+  @type untag_resource_errors() :: validation_exception()
+
+  @type update_channel_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_channel_group_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_origin_endpoint_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   def metadata do
     %{
@@ -886,13 +1155,7 @@ defmodule AWS.MediaPackageV2 do
   @spec create_channel(map(), String.t(), create_channel_request(), list()) ::
           {:ok, create_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_channel_errors()}
   def create_channel(%Client{} = client, channel_group_name, input, options \\ []) do
     url_path = "/channelGroup/#{AWS.Util.encode_uri(channel_group_name)}/channel"
 
@@ -931,13 +1194,7 @@ defmodule AWS.MediaPackageV2 do
   @spec create_channel_group(map(), create_channel_group_request(), list()) ::
           {:ok, create_channel_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_channel_group_errors()}
   def create_channel_group(%Client{} = client, input, options \\ []) do
     url_path = "/channelGroup"
 
@@ -982,13 +1239,7 @@ defmodule AWS.MediaPackageV2 do
         ) ::
           {:ok, create_origin_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_origin_endpoint_errors()}
   def create_origin_endpoint(
         %Client{} = client,
         channel_group_name,
@@ -1032,11 +1283,7 @@ defmodule AWS.MediaPackageV2 do
   @spec delete_channel(map(), String.t(), String.t(), delete_channel_request(), list()) ::
           {:ok, delete_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_channel_errors()}
   def delete_channel(%Client{} = client, channel_group_name, channel_name, input, options \\ []) do
     url_path =
       "/channelGroup/#{AWS.Util.encode_uri(channel_group_name)}/channel/#{AWS.Util.encode_uri(channel_name)}/"
@@ -1069,11 +1316,7 @@ defmodule AWS.MediaPackageV2 do
   @spec delete_channel_group(map(), String.t(), delete_channel_group_request(), list()) ::
           {:ok, delete_channel_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_channel_group_errors()}
   def delete_channel_group(%Client{} = client, channel_group_name, input, options \\ []) do
     url_path = "/channelGroup/#{AWS.Util.encode_uri(channel_group_name)}"
     headers = []
@@ -1106,11 +1349,7 @@ defmodule AWS.MediaPackageV2 do
         ) ::
           {:ok, delete_channel_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_channel_policy_errors()}
   def delete_channel_policy(
         %Client{} = client,
         channel_group_name,
@@ -1155,10 +1394,7 @@ defmodule AWS.MediaPackageV2 do
         ) ::
           {:ok, delete_origin_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_origin_endpoint_errors()}
   def delete_origin_endpoint(
         %Client{} = client,
         channel_group_name,
@@ -1201,11 +1437,7 @@ defmodule AWS.MediaPackageV2 do
         ) ::
           {:ok, delete_origin_endpoint_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_origin_endpoint_policy_errors()}
   def delete_origin_endpoint_policy(
         %Client{} = client,
         channel_group_name,
@@ -1242,11 +1474,7 @@ defmodule AWS.MediaPackageV2 do
   @spec get_channel(map(), String.t(), String.t(), list()) ::
           {:ok, get_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_channel_errors()}
   def get_channel(%Client{} = client, channel_group_name, channel_name, options \\ []) do
     url_path =
       "/channelGroup/#{AWS.Util.encode_uri(channel_group_name)}/channel/#{AWS.Util.encode_uri(channel_name)}/"
@@ -1267,11 +1495,7 @@ defmodule AWS.MediaPackageV2 do
   @spec get_channel_group(map(), String.t(), list()) ::
           {:ok, get_channel_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_channel_group_errors()}
   def get_channel_group(%Client{} = client, channel_group_name, options \\ []) do
     url_path = "/channelGroup/#{AWS.Util.encode_uri(channel_group_name)}"
     headers = []
@@ -1292,11 +1516,7 @@ defmodule AWS.MediaPackageV2 do
   @spec get_channel_policy(map(), String.t(), String.t(), list()) ::
           {:ok, get_channel_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_channel_policy_errors()}
   def get_channel_policy(%Client{} = client, channel_group_name, channel_name, options \\ []) do
     url_path =
       "/channelGroup/#{AWS.Util.encode_uri(channel_group_name)}/channel/#{AWS.Util.encode_uri(channel_name)}/policy"
@@ -1317,11 +1537,7 @@ defmodule AWS.MediaPackageV2 do
   @spec get_origin_endpoint(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_origin_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_origin_endpoint_errors()}
   def get_origin_endpoint(
         %Client{} = client,
         channel_group_name,
@@ -1347,11 +1563,7 @@ defmodule AWS.MediaPackageV2 do
   @spec get_origin_endpoint_policy(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_origin_endpoint_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_origin_endpoint_policy_errors()}
   def get_origin_endpoint_policy(
         %Client{} = client,
         channel_group_name,
@@ -1377,10 +1589,7 @@ defmodule AWS.MediaPackageV2 do
   @spec list_channel_groups(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_channel_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_channel_groups_errors()}
   def list_channel_groups(
         %Client{} = client,
         max_results \\ nil,
@@ -1418,11 +1627,7 @@ defmodule AWS.MediaPackageV2 do
   @spec list_channels(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_channels_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_channels_errors()}
   def list_channels(
         %Client{} = client,
         channel_group_name,
@@ -1467,11 +1672,7 @@ defmodule AWS.MediaPackageV2 do
         ) ::
           {:ok, list_origin_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_origin_endpoints_errors()}
   def list_origin_endpoints(
         %Client{} = client,
         channel_group_name,
@@ -1511,7 +1712,7 @@ defmodule AWS.MediaPackageV2 do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, validation_exception()}
+          | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -1532,12 +1733,7 @@ defmodule AWS.MediaPackageV2 do
   @spec put_channel_policy(map(), String.t(), String.t(), put_channel_policy_request(), list()) ::
           {:ok, put_channel_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, put_channel_policy_errors()}
   def put_channel_policy(
         %Client{} = client,
         channel_group_name,
@@ -1571,12 +1767,7 @@ defmodule AWS.MediaPackageV2 do
         ) ::
           {:ok, put_origin_endpoint_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, put_origin_endpoint_policy_errors()}
   def put_origin_endpoint_policy(
         %Client{} = client,
         channel_group_name,
@@ -1624,7 +1815,7 @@ defmodule AWS.MediaPackageV2 do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, validation_exception()}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -1651,7 +1842,7 @@ defmodule AWS.MediaPackageV2 do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, validation_exception()}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -1691,12 +1882,7 @@ defmodule AWS.MediaPackageV2 do
   @spec update_channel(map(), String.t(), String.t(), update_channel_request(), list()) ::
           {:ok, update_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_channel_errors()}
   def update_channel(%Client{} = client, channel_group_name, channel_name, input, options \\ []) do
     url_path =
       "/channelGroup/#{AWS.Util.encode_uri(channel_group_name)}/channel/#{AWS.Util.encode_uri(channel_name)}/"
@@ -1727,12 +1913,7 @@ defmodule AWS.MediaPackageV2 do
   @spec update_channel_group(map(), String.t(), update_channel_group_request(), list()) ::
           {:ok, update_channel_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_channel_group_errors()}
   def update_channel_group(%Client{} = client, channel_group_name, input, options \\ []) do
     url_path = "/channelGroup/#{AWS.Util.encode_uri(channel_group_name)}"
 
@@ -1768,13 +1949,7 @@ defmodule AWS.MediaPackageV2 do
         ) ::
           {:ok, update_origin_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_origin_endpoint_errors()}
   def update_origin_endpoint(
         %Client{} = client,
         channel_group_name,

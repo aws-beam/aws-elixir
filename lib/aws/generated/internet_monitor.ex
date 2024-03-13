@@ -47,588 +47,771 @@ defmodule AWS.InternetMonitor do
   @typedoc """
 
   ## Example:
-  get_health_event_output() :: %{
-    optional("CreatedAt") => [non_neg_integer()],
-    optional("EndedAt") => [non_neg_integer()],
-    optional("HealthScoreThreshold") => float(),
-    optional("PercentOfTotalTrafficImpacted") => [float()],
-    required("EventArn") => String.t(),
-    required("EventId") => String.t(),
-    required("ImpactType") => String.t(),
-    required("ImpactedLocations") => list(impacted_location()()),
-    required("LastUpdatedAt") => [non_neg_integer()],
-    required("StartedAt") => [non_neg_integer()],
-    required("Status") => String.t()
-  }
+
+      get_health_event_output() :: %{
+        optional("CreatedAt") => [non_neg_integer()],
+        optional("EndedAt") => [non_neg_integer()],
+        optional("HealthScoreThreshold") => float(),
+        optional("PercentOfTotalTrafficImpacted") => [float()],
+        required("EventArn") => String.t(),
+        required("EventId") => String.t(),
+        required("ImpactType") => String.t(),
+        required("ImpactedLocations") => list(impacted_location()()),
+        required("LastUpdatedAt") => [non_neg_integer()],
+        required("StartedAt") => [non_neg_integer()],
+        required("Status") => String.t()
+      }
+
   """
   @type get_health_event_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  health_events_config() :: %{
-    "AvailabilityLocalHealthEventsConfig" => local_health_events_config(),
-    "AvailabilityScoreThreshold" => float(),
-    "PerformanceLocalHealthEventsConfig" => local_health_events_config(),
-    "PerformanceScoreThreshold" => float()
-  }
+
+      health_events_config() :: %{
+        "AvailabilityLocalHealthEventsConfig" => local_health_events_config(),
+        "AvailabilityScoreThreshold" => float(),
+        "PerformanceLocalHealthEventsConfig" => local_health_events_config(),
+        "PerformanceScoreThreshold" => float()
+      }
+
   """
   @type health_events_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_monitors_input() :: %{
-    optional("MaxResults") => integer(),
-    optional("MonitorStatus") => [String.t()],
-    optional("NextToken") => [String.t()]
-  }
+
+      list_monitors_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("MonitorStatus") => [String.t()],
+        optional("NextToken") => [String.t()]
+      }
+
   """
   @type list_monitors_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_query_results_output() :: %{
-    "Data" => list(list([String.t()]())()),
-    "Fields" => list(query_field()()),
-    "NextToken" => [String.t()]
-  }
+
+      get_query_results_output() :: %{
+        "Data" => list(list([String.t()]())()),
+        "Fields" => list(query_field()()),
+        "NextToken" => [String.t()]
+      }
+
   """
   @type get_query_results_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_monitor_output() :: %{
-    "CreatedAt" => [non_neg_integer()],
-    "HealthEventsConfig" => health_events_config(),
-    "InternetMeasurementsLogDelivery" => internet_measurements_log_delivery(),
-    "MaxCityNetworksToMonitor" => integer(),
-    "ModifiedAt" => [non_neg_integer()],
-    "MonitorArn" => String.t(),
-    "MonitorName" => String.t(),
-    "ProcessingStatus" => String.t(),
-    "ProcessingStatusInfo" => [String.t()],
-    "Resources" => list(String.t()()),
-    "Status" => String.t(),
-    "Tags" => map(),
-    "TrafficPercentageToMonitor" => integer()
-  }
+
+      get_monitor_output() :: %{
+        "CreatedAt" => [non_neg_integer()],
+        "HealthEventsConfig" => health_events_config(),
+        "InternetMeasurementsLogDelivery" => internet_measurements_log_delivery(),
+        "MaxCityNetworksToMonitor" => integer(),
+        "ModifiedAt" => [non_neg_integer()],
+        "MonitorArn" => String.t(),
+        "MonitorName" => String.t(),
+        "ProcessingStatus" => String.t(),
+        "ProcessingStatusInfo" => [String.t()],
+        "Resources" => list(String.t()()),
+        "Status" => String.t(),
+        "Tags" => map(),
+        "TrafficPercentageToMonitor" => integer()
+      }
+
   """
   @type get_monitor_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_query_output() :: %{
-    "QueryId" => [String.t()]
-  }
+
+      start_query_output() :: %{
+        "QueryId" => [String.t()]
+      }
+
   """
   @type start_query_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_monitors_output() :: %{
-    "Monitors" => list(monitor()()),
-    "NextToken" => [String.t()]
-  }
+
+      list_monitors_output() :: %{
+        "Monitors" => list(monitor()()),
+        "NextToken" => [String.t()]
+      }
+
   """
   @type list_monitors_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  filter_parameter() :: %{
-    "Field" => [String.t()],
-    "Operator" => String.t(),
-    "Values" => list([String.t()]())
-  }
+
+      filter_parameter() :: %{
+        "Field" => [String.t()],
+        "Operator" => String.t(),
+        "Values" => list([String.t()]())
+      }
+
   """
   @type filter_parameter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stop_query_input() :: %{
 
-  }
+      stop_query_input() :: %{}
+
   """
-  @type stop_query_input() :: %{String.t() => any()}
+  @type stop_query_input() :: %{}
 
   @typedoc """
 
   ## Example:
-  network_impairment() :: %{
-    "AsPath" => list(network()()),
-    "NetworkEventType" => String.t(),
-    "Networks" => list(network()())
-  }
+
+      network_impairment() :: %{
+        "AsPath" => list(network()()),
+        "NetworkEventType" => String.t(),
+        "Networks" => list(network()())
+      }
+
   """
   @type network_impairment() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_monitor_output() :: %{
 
-  }
+      delete_monitor_output() :: %{}
+
   """
-  @type delete_monitor_output() :: %{String.t() => any()}
+  @type delete_monitor_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  too_many_requests_exception() :: %{
-    "message" => [String.t()]
-  }
+
+      too_many_requests_exception() :: %{
+        "message" => [String.t()]
+      }
+
   """
   @type too_many_requests_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_output() :: %{
-    optional("Tags") => map()
-  }
+
+      list_tags_for_resource_output() :: %{
+        optional("Tags") => map()
+      }
+
   """
   @type list_tags_for_resource_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  monitor() :: %{
-    "MonitorArn" => String.t(),
-    "MonitorName" => String.t(),
-    "ProcessingStatus" => String.t(),
-    "Status" => String.t()
-  }
+
+      monitor() :: %{
+        "MonitorArn" => String.t(),
+        "MonitorName" => String.t(),
+        "ProcessingStatus" => String.t(),
+        "Status" => String.t()
+      }
+
   """
   @type monitor() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  impacted_location() :: %{
-    "ASName" => [String.t()],
-    "ASNumber" => [float()],
-    "CausedBy" => network_impairment(),
-    "City" => [String.t()],
-    "Country" => [String.t()],
-    "CountryCode" => [String.t()],
-    "InternetHealth" => internet_health(),
-    "Ipv4Prefixes" => list([String.t()]()),
-    "Latitude" => [float()],
-    "Longitude" => [float()],
-    "Metro" => [String.t()],
-    "ServiceLocation" => [String.t()],
-    "Status" => String.t(),
-    "Subdivision" => [String.t()],
-    "SubdivisionCode" => [String.t()]
-  }
+
+      impacted_location() :: %{
+        "ASName" => [String.t()],
+        "ASNumber" => [float()],
+        "CausedBy" => network_impairment(),
+        "City" => [String.t()],
+        "Country" => [String.t()],
+        "CountryCode" => [String.t()],
+        "InternetHealth" => internet_health(),
+        "Ipv4Prefixes" => list([String.t()]()),
+        "Latitude" => [float()],
+        "Longitude" => [float()],
+        "Metro" => [String.t()],
+        "ServiceLocation" => [String.t()],
+        "Status" => String.t(),
+        "Subdivision" => [String.t()],
+        "SubdivisionCode" => [String.t()]
+      }
+
   """
   @type impacted_location() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_query_status_output() :: %{
-    "Status" => String.t()
-  }
+
+      get_query_status_output() :: %{
+        "Status" => String.t()
+      }
+
   """
   @type get_query_status_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_monitor_input() :: %{
 
-  }
+      delete_monitor_input() :: %{}
+
   """
-  @type delete_monitor_input() :: %{String.t() => any()}
+  @type delete_monitor_input() :: %{}
 
   @typedoc """
 
   ## Example:
-  conflict_exception() :: %{
-    "message" => [String.t()]
-  }
+
+      conflict_exception() :: %{
+        "message" => [String.t()]
+      }
+
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_not_found_exception() :: %{
-    "message" => [String.t()]
-  }
+
+      resource_not_found_exception() :: %{
+        "message" => [String.t()]
+      }
+
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  internet_measurements_log_delivery() :: %{
-    "S3Config" => s3_config()
-  }
+
+      internet_measurements_log_delivery() :: %{
+        "S3Config" => s3_config()
+      }
+
   """
   @type internet_measurements_log_delivery() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  local_health_events_config() :: %{
-    "HealthScoreThreshold" => float(),
-    "MinTrafficImpact" => float(),
-    "Status" => String.t()
-  }
+
+      local_health_events_config() :: %{
+        "HealthScoreThreshold" => float(),
+        "MinTrafficImpact" => float(),
+        "Status" => String.t()
+      }
+
   """
   @type local_health_events_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  s3_config() :: %{
-    "BucketName" => [String.t()],
-    "BucketPrefix" => [String.t()],
-    "LogDeliveryStatus" => String.t()
-  }
+
+      s3_config() :: %{
+        "BucketName" => [String.t()],
+        "BucketPrefix" => [String.t()],
+        "LogDeliveryStatus" => String.t()
+      }
+
   """
   @type s3_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  not_found_exception() :: %{
-    "message" => [String.t()]
-  }
+
+      not_found_exception() :: %{
+        "message" => [String.t()]
+      }
+
   """
   @type not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  performance_measurement() :: %{
-    "ExperienceScore" => [float()],
-    "PercentOfClientLocationImpacted" => [float()],
-    "PercentOfTotalTrafficImpacted" => [float()],
-    "RoundTripTime" => round_trip_time()
-  }
+
+      performance_measurement() :: %{
+        "ExperienceScore" => [float()],
+        "PercentOfClientLocationImpacted" => [float()],
+        "PercentOfTotalTrafficImpacted" => [float()],
+        "RoundTripTime" => round_trip_time()
+      }
+
   """
   @type performance_measurement() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_query_status_input() :: %{
 
-  }
+      get_query_status_input() :: %{}
+
   """
-  @type get_query_status_input() :: %{String.t() => any()}
+  @type get_query_status_input() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_monitor_input() :: %{
 
-  }
+      get_monitor_input() :: %{}
+
   """
-  @type get_monitor_input() :: %{String.t() => any()}
+  @type get_monitor_input() :: %{}
 
   @typedoc """
 
   ## Example:
-  stop_query_output() :: %{
 
-  }
+      stop_query_output() :: %{}
+
   """
-  @type stop_query_output() :: %{String.t() => any()}
+  @type stop_query_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  tag_resource_input() :: %{
-    "Tags" => map()
-  }
+
+      tag_resource_input() :: %{
+        "Tags" => map()
+      }
+
   """
   @type tag_resource_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_health_events_output() :: %{
-    optional("NextToken") => [String.t()],
-    required("HealthEvents") => list(health_event()())
-  }
+
+      list_health_events_output() :: %{
+        optional("NextToken") => [String.t()],
+        required("HealthEvents") => list(health_event()())
+      }
+
   """
   @type list_health_events_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_health_event_input() :: %{
 
-  }
+      get_health_event_input() :: %{}
+
   """
-  @type get_health_event_input() :: %{String.t() => any()}
+  @type get_health_event_input() :: %{}
 
   @typedoc """
 
   ## Example:
-  tag_resource_output() :: %{
 
-  }
+      tag_resource_output() :: %{}
+
   """
-  @type tag_resource_output() :: %{String.t() => any()}
+  @type tag_resource_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  internal_server_exception() :: %{
-    "message" => [String.t()]
-  }
+
+      internal_server_exception() :: %{
+        "message" => [String.t()]
+      }
+
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  availability_measurement() :: %{
-    "ExperienceScore" => [float()],
-    "PercentOfClientLocationImpacted" => [float()],
-    "PercentOfTotalTrafficImpacted" => [float()]
-  }
+
+      availability_measurement() :: %{
+        "ExperienceScore" => [float()],
+        "PercentOfClientLocationImpacted" => [float()],
+        "PercentOfTotalTrafficImpacted" => [float()]
+      }
+
   """
   @type availability_measurement() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_health_events_input() :: %{
-    optional("EndTime") => [non_neg_integer()],
-    optional("EventStatus") => String.t(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => [String.t()],
-    optional("StartTime") => [non_neg_integer()]
-  }
+
+      list_health_events_input() :: %{
+        optional("EndTime") => [non_neg_integer()],
+        optional("EventStatus") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => [String.t()],
+        optional("StartTime") => [non_neg_integer()]
+      }
+
   """
   @type list_health_events_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  access_denied_exception() :: %{
-    "message" => [String.t()]
-  }
+
+      access_denied_exception() :: %{
+        "message" => [String.t()]
+      }
+
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  query_field() :: %{
-    "Name" => [String.t()],
-    "Type" => [String.t()]
-  }
+
+      query_field() :: %{
+        "Name" => [String.t()],
+        "Type" => [String.t()]
+      }
+
   """
   @type query_field() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_input() :: %{
-    "TagKeys" => list(String.t()())
-  }
+
+      untag_resource_input() :: %{
+        "TagKeys" => list(String.t()())
+      }
+
   """
   @type untag_resource_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_monitor_input() :: %{
-    optional("ClientToken") => [String.t()],
-    optional("HealthEventsConfig") => health_events_config(),
-    optional("InternetMeasurementsLogDelivery") => internet_measurements_log_delivery(),
-    optional("MaxCityNetworksToMonitor") => integer(),
-    optional("ResourcesToAdd") => list(String.t()()),
-    optional("ResourcesToRemove") => list(String.t()()),
-    optional("Status") => String.t(),
-    optional("TrafficPercentageToMonitor") => integer()
-  }
+
+      update_monitor_input() :: %{
+        optional("ClientToken") => [String.t()],
+        optional("HealthEventsConfig") => health_events_config(),
+        optional("InternetMeasurementsLogDelivery") => internet_measurements_log_delivery(),
+        optional("MaxCityNetworksToMonitor") => integer(),
+        optional("ResourcesToAdd") => list(String.t()()),
+        optional("ResourcesToRemove") => list(String.t()()),
+        optional("Status") => String.t(),
+        optional("TrafficPercentageToMonitor") => integer()
+      }
+
   """
   @type update_monitor_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  health_event() :: %{
-    "CreatedAt" => [non_neg_integer()],
-    "EndedAt" => [non_neg_integer()],
-    "EventArn" => String.t(),
-    "EventId" => String.t(),
-    "HealthScoreThreshold" => float(),
-    "ImpactType" => String.t(),
-    "ImpactedLocations" => list(impacted_location()()),
-    "LastUpdatedAt" => [non_neg_integer()],
-    "PercentOfTotalTrafficImpacted" => [float()],
-    "StartedAt" => [non_neg_integer()],
-    "Status" => String.t()
-  }
+
+      health_event() :: %{
+        "CreatedAt" => [non_neg_integer()],
+        "EndedAt" => [non_neg_integer()],
+        "EventArn" => String.t(),
+        "EventId" => String.t(),
+        "HealthScoreThreshold" => float(),
+        "ImpactType" => String.t(),
+        "ImpactedLocations" => list(impacted_location()()),
+        "LastUpdatedAt" => [non_neg_integer()],
+        "PercentOfTotalTrafficImpacted" => [float()],
+        "StartedAt" => [non_neg_integer()],
+        "Status" => String.t()
+      }
+
   """
   @type health_event() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_query_results_input() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => [String.t()]
-  }
+
+      get_query_results_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => [String.t()]
+      }
+
   """
   @type get_query_results_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  network() :: %{
-    "ASName" => [String.t()],
-    "ASNumber" => [float()]
-  }
+
+      network() :: %{
+        "ASName" => [String.t()],
+        "ASNumber" => [float()]
+      }
+
   """
   @type network() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  round_trip_time() :: %{
-    "P50" => [float()],
-    "P90" => [float()],
-    "P95" => [float()]
-  }
+
+      round_trip_time() :: %{
+        "P50" => [float()],
+        "P90" => [float()],
+        "P95" => [float()]
+      }
+
   """
   @type round_trip_time() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  validation_exception() :: %{
-    "message" => [String.t()]
-  }
+
+      validation_exception() :: %{
+        "message" => [String.t()]
+      }
+
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_input() :: %{
 
-  }
+      list_tags_for_resource_input() :: %{}
+
   """
-  @type list_tags_for_resource_input() :: %{String.t() => any()}
+  @type list_tags_for_resource_input() :: %{}
 
   @typedoc """
 
   ## Example:
-  untag_resource_output() :: %{
 
-  }
+      untag_resource_output() :: %{}
+
   """
-  @type untag_resource_output() :: %{String.t() => any()}
+  @type untag_resource_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  internal_server_error_exception() :: %{
-    "message" => [String.t()]
-  }
+
+      internal_server_error_exception() :: %{
+        "message" => [String.t()]
+      }
+
   """
   @type internal_server_error_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  throttling_exception() :: %{
-    "message" => [String.t()]
-  }
+
+      throttling_exception() :: %{
+        "message" => [String.t()]
+      }
+
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  limit_exceeded_exception() :: %{
-    "message" => [String.t()]
-  }
+
+      limit_exceeded_exception() :: %{
+        "message" => [String.t()]
+      }
+
   """
   @type limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_monitor_output() :: %{
-    "Arn" => String.t(),
-    "Status" => String.t()
-  }
+
+      create_monitor_output() :: %{
+        "Arn" => String.t(),
+        "Status" => String.t()
+      }
+
   """
   @type create_monitor_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  bad_request_exception() :: %{
-    "message" => [String.t()]
-  }
+
+      bad_request_exception() :: %{
+        "message" => [String.t()]
+      }
+
   """
   @type bad_request_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  internet_health() :: %{
-    "Availability" => availability_measurement(),
-    "Performance" => performance_measurement()
-  }
+
+      internet_health() :: %{
+        "Availability" => availability_measurement(),
+        "Performance" => performance_measurement()
+      }
+
   """
   @type internet_health() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_query_input() :: %{
-    optional("FilterParameters") => list(filter_parameter()()),
-    required("EndTime") => [non_neg_integer()],
-    required("QueryType") => String.t(),
-    required("StartTime") => [non_neg_integer()]
-  }
+
+      start_query_input() :: %{
+        optional("FilterParameters") => list(filter_parameter()()),
+        required("EndTime") => [non_neg_integer()],
+        required("QueryType") => String.t(),
+        required("StartTime") => [non_neg_integer()]
+      }
+
   """
   @type start_query_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_monitor_output() :: %{
-    "MonitorArn" => String.t(),
-    "Status" => String.t()
-  }
+
+      update_monitor_output() :: %{
+        "MonitorArn" => String.t(),
+        "Status" => String.t()
+      }
+
   """
   @type update_monitor_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_monitor_input() :: %{
-    optional("ClientToken") => [String.t()],
-    optional("HealthEventsConfig") => health_events_config(),
-    optional("InternetMeasurementsLogDelivery") => internet_measurements_log_delivery(),
-    optional("MaxCityNetworksToMonitor") => integer(),
-    optional("Resources") => list(String.t()()),
-    optional("Tags") => map(),
-    optional("TrafficPercentageToMonitor") => integer(),
-    required("MonitorName") => String.t()
-  }
+
+      create_monitor_input() :: %{
+        optional("ClientToken") => [String.t()],
+        optional("HealthEventsConfig") => health_events_config(),
+        optional("InternetMeasurementsLogDelivery") => internet_measurements_log_delivery(),
+        optional("MaxCityNetworksToMonitor") => integer(),
+        optional("Resources") => list(String.t()()),
+        optional("Tags") => map(),
+        optional("TrafficPercentageToMonitor") => integer(),
+        required("MonitorName") => String.t()
+      }
+
   """
   @type create_monitor_input() :: %{String.t() => any()}
+
+  @type create_monitor_errors() ::
+          limit_exceeded_exception()
+          | throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | conflict_exception()
+
+  @type delete_monitor_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type get_health_event_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type get_monitor_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type get_query_results_errors() ::
+          limit_exceeded_exception()
+          | throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type get_query_status_errors() ::
+          limit_exceeded_exception()
+          | throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_health_events_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_monitors_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_tags_for_resource_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | access_denied_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+
+  @type start_query_errors() ::
+          limit_exceeded_exception()
+          | throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type stop_query_errors() ::
+          limit_exceeded_exception()
+          | throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type tag_resource_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | access_denied_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+
+  @type untag_resource_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | access_denied_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+
+  @type update_monitor_errors() ::
+          limit_exceeded_exception()
+          | throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
 
   def metadata do
     %{
@@ -673,12 +856,7 @@ defmodule AWS.InternetMonitor do
   @spec create_monitor(map(), create_monitor_input(), list()) ::
           {:ok, create_monitor_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_monitor_errors()}
   def create_monitor(%Client{} = client, input, options \\ []) do
     url_path = "/v20210603/Monitors"
     headers = []
@@ -705,10 +883,7 @@ defmodule AWS.InternetMonitor do
   @spec delete_monitor(map(), String.t(), delete_monitor_input(), list()) ::
           {:ok, delete_monitor_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_monitor_errors()}
   def delete_monitor(%Client{} = client, monitor_name, input, options \\ []) do
     url_path = "/v20210603/Monitors/#{AWS.Util.encode_uri(monitor_name)}"
     headers = []
@@ -746,10 +921,7 @@ defmodule AWS.InternetMonitor do
   @spec get_health_event(map(), String.t(), String.t(), list()) ::
           {:ok, get_health_event_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_health_event_errors()}
   def get_health_event(%Client{} = client, event_id, monitor_name, options \\ []) do
     url_path =
       "/v20210603/Monitors/#{AWS.Util.encode_uri(monitor_name)}/HealthEvents/#{AWS.Util.encode_uri(event_id)}"
@@ -772,10 +944,7 @@ defmodule AWS.InternetMonitor do
   @spec get_monitor(map(), String.t(), list()) ::
           {:ok, get_monitor_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_monitor_errors()}
   def get_monitor(%Client{} = client, monitor_name, options \\ []) do
     url_path = "/v20210603/Monitors/#{AWS.Util.encode_uri(monitor_name)}"
     headers = []
@@ -807,11 +976,7 @@ defmodule AWS.InternetMonitor do
         ) ::
           {:ok, get_query_results_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_query_results_errors()}
   def get_query_results(
         %Client{} = client,
         monitor_name,
@@ -875,11 +1040,7 @@ defmodule AWS.InternetMonitor do
   @spec get_query_status(map(), String.t(), String.t(), list()) ::
           {:ok, get_query_status_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_query_status_errors()}
   def get_query_status(%Client{} = client, monitor_name, query_id, options \\ []) do
     url_path =
       "/v20210603/Monitors/#{AWS.Util.encode_uri(monitor_name)}/Queries/#{AWS.Util.encode_uri(query_id)}/Status"
@@ -913,10 +1074,7 @@ defmodule AWS.InternetMonitor do
         ) ::
           {:ok, list_health_events_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_health_events_errors()}
   def list_health_events(
         %Client{} = client,
         monitor_name,
@@ -978,10 +1136,7 @@ defmodule AWS.InternetMonitor do
   @spec list_monitors(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_monitors_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_monitors_errors()}
   def list_monitors(
         %Client{} = client,
         max_results \\ nil,
@@ -1027,11 +1182,7 @@ defmodule AWS.InternetMonitor do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -1059,11 +1210,7 @@ defmodule AWS.InternetMonitor do
   @spec start_query(map(), String.t(), start_query_input(), list()) ::
           {:ok, start_query_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, start_query_errors()}
   def start_query(%Client{} = client, monitor_name, input, options \\ []) do
     url_path = "/v20210603/Monitors/#{AWS.Util.encode_uri(monitor_name)}/Queries"
     headers = []
@@ -1090,11 +1237,7 @@ defmodule AWS.InternetMonitor do
   @spec stop_query(map(), String.t(), String.t(), stop_query_input(), list()) ::
           {:ok, stop_query_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, stop_query_errors()}
   def stop_query(%Client{} = client, monitor_name, query_id, input, options \\ []) do
     url_path =
       "/v20210603/Monitors/#{AWS.Util.encode_uri(monitor_name)}/Queries/#{AWS.Util.encode_uri(query_id)}"
@@ -1129,11 +1272,7 @@ defmodule AWS.InternetMonitor do
   @spec tag_resource(map(), String.t(), tag_resource_input(), list()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -1160,11 +1299,7 @@ defmodule AWS.InternetMonitor do
   @spec untag_resource(map(), String.t(), untag_resource_input(), list()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, bad_request_exception()}
-          | {:error, internal_server_error_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -1206,12 +1341,7 @@ defmodule AWS.InternetMonitor do
   @spec update_monitor(map(), String.t(), update_monitor_input(), list()) ::
           {:ok, update_monitor_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_monitor_errors()}
   def update_monitor(%Client{} = client, monitor_name, input, options \\ []) do
     url_path = "/v20210603/Monitors/#{AWS.Util.encode_uri(monitor_name)}"
     headers = []

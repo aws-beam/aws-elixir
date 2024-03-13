@@ -72,770 +72,1124 @@ defmodule AWS.SQS do
   @typedoc """
 
   ## Example:
-  list_queue_tags_request() :: %{
-    required("QueueUrl") => String.t()
-  }
+      
+      list_queue_tags_request() :: %{
+        required("QueueUrl") => String.t()
+      }
+      
   """
   @type list_queue_tags_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  kms_access_denied() :: %{
-    "message" => String.t()
-  }
+      
+      kms_access_denied() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type kms_access_denied() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_queue_request() :: %{
-    required("QueueUrl") => String.t(),
-    required("Tags") => map()
-  }
+      
+      tag_queue_request() :: %{
+        required("QueueUrl") => String.t(),
+        required("Tags") => map()
+      }
+      
   """
   @type tag_queue_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  queue_name_exists() :: %{
-    "message" => String.t()
-  }
+      
+      queue_name_exists() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type queue_name_exists() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_queues_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("QueueNamePrefix") => String.t()
-  }
+      
+      list_queues_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("QueueNamePrefix") => String.t()
+      }
+      
   """
   @type list_queues_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  set_queue_attributes_request() :: %{
-    required("Attributes") => map(),
-    required("QueueUrl") => String.t()
-  }
+      
+      set_queue_attributes_request() :: %{
+        required("Attributes") => map(),
+        required("QueueUrl") => String.t()
+      }
+      
   """
   @type set_queue_attributes_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_message_contents() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_message_contents() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_message_contents() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  kms_opt_in_required() :: %{
-    "message" => String.t()
-  }
+      
+      kms_opt_in_required() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type kms_opt_in_required() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  purge_queue_in_progress() :: %{
-    "message" => String.t()
-  }
+      
+      purge_queue_in_progress() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type purge_queue_in_progress() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_attribute_name() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_attribute_name() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_attribute_name() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  queue_does_not_exist() :: %{
-    "message" => String.t()
-  }
+      
+      queue_does_not_exist() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type queue_does_not_exist() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  receive_message_result() :: %{
-    "Messages" => list(message()())
-  }
+      
+      receive_message_result() :: %{
+        "Messages" => list(message()())
+      }
+      
   """
   @type receive_message_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  purge_queue_request() :: %{
-    required("QueueUrl") => String.t()
-  }
+      
+      purge_queue_request() :: %{
+        required("QueueUrl") => String.t()
+      }
+      
   """
   @type purge_queue_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_security() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_security() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_security() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  send_message_batch_request() :: %{
-    required("Entries") => list(send_message_batch_request_entry()()),
-    required("QueueUrl") => String.t()
-  }
+      
+      send_message_batch_request() :: %{
+        required("Entries") => list(send_message_batch_request_entry()()),
+        required("QueueUrl") => String.t()
+      }
+      
   """
   @type send_message_batch_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_message_batch_request() :: %{
-    required("Entries") => list(delete_message_batch_request_entry()()),
-    required("QueueUrl") => String.t()
-  }
+      
+      delete_message_batch_request() :: %{
+        required("Entries") => list(delete_message_batch_request_entry()()),
+        required("QueueUrl") => String.t()
+      }
+      
   """
   @type delete_message_batch_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_entries_in_batch_request() :: %{
-    "message" => String.t()
-  }
+      
+      too_many_entries_in_batch_request() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type too_many_entries_in_batch_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_message_request() :: %{
-    required("QueueUrl") => String.t(),
-    required("ReceiptHandle") => String.t()
-  }
+      
+      delete_message_request() :: %{
+        required("QueueUrl") => String.t(),
+        required("ReceiptHandle") => String.t()
+      }
+      
   """
   @type delete_message_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_queue_url_request() :: %{
-    optional("QueueOwnerAWSAccountId") => String.t(),
-    required("QueueName") => String.t()
-  }
+      
+      get_queue_url_request() :: %{
+        optional("QueueOwnerAWSAccountId") => String.t(),
+        required("QueueName") => String.t()
+      }
+      
   """
   @type get_queue_url_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  kms_throttled() :: %{
-    "message" => String.t()
-  }
+      
+      kms_throttled() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type kms_throttled() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cancel_message_move_task_request() :: %{
-    required("TaskHandle") => String.t()
-  }
+      
+      cancel_message_move_task_request() :: %{
+        required("TaskHandle") => String.t()
+      }
+      
   """
   @type cancel_message_move_task_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  message_attribute_value() :: %{
-    "BinaryListValues" => list(binary()()),
-    "BinaryValue" => binary(),
-    "DataType" => String.t(),
-    "StringListValues" => list(String.t()()),
-    "StringValue" => String.t()
-  }
+      
+      message_attribute_value() :: %{
+        "BinaryListValues" => list(binary()()),
+        "BinaryValue" => binary(),
+        "DataType" => String.t(),
+        "StringListValues" => list(String.t()()),
+        "StringValue" => String.t()
+      }
+      
   """
   @type message_attribute_value() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_message_move_tasks_result() :: %{
-    "Results" => list(list_message_move_tasks_result_entry()())
-  }
+      
+      list_message_move_tasks_result() :: %{
+        "Results" => list(list_message_move_tasks_result_entry()())
+      }
+      
   """
   @type list_message_move_tasks_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  kms_disabled() :: %{
-    "message" => String.t()
-  }
+      
+      kms_disabled() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type kms_disabled() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_queues_result() :: %{
-    "NextToken" => String.t(),
-    "QueueUrls" => list(String.t()())
-  }
+      
+      list_queues_result() :: %{
+        "NextToken" => String.t(),
+        "QueueUrls" => list(String.t()())
+      }
+      
   """
   @type list_queues_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_result_error_entry() :: %{
-    "Code" => String.t(),
-    "Id" => String.t(),
-    "Message" => String.t(),
-    "SenderFault" => boolean()
-  }
+      
+      batch_result_error_entry() :: %{
+        "Code" => String.t(),
+        "Id" => String.t(),
+        "Message" => String.t(),
+        "SenderFault" => boolean()
+      }
+      
   """
   @type batch_result_error_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  change_message_visibility_batch_result_entry() :: %{
-    "Id" => String.t()
-  }
+      
+      change_message_visibility_batch_result_entry() :: %{
+        "Id" => String.t()
+      }
+      
   """
   @type change_message_visibility_batch_result_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_message_batch_result() :: %{
-    "Failed" => list(batch_result_error_entry()()),
-    "Successful" => list(delete_message_batch_result_entry()())
-  }
+      
+      delete_message_batch_result() :: %{
+        "Failed" => list(batch_result_error_entry()()),
+        "Successful" => list(delete_message_batch_result_entry()())
+      }
+      
   """
   @type delete_message_batch_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_message_move_tasks_result_entry() :: %{
-    "ApproximateNumberOfMessagesMoved" => float(),
-    "ApproximateNumberOfMessagesToMove" => float(),
-    "DestinationArn" => String.t(),
-    "FailureReason" => String.t(),
-    "MaxNumberOfMessagesPerSecond" => integer(),
-    "SourceArn" => String.t(),
-    "StartedTimestamp" => float(),
-    "Status" => String.t(),
-    "TaskHandle" => String.t()
-  }
+      
+      list_message_move_tasks_result_entry() :: %{
+        "ApproximateNumberOfMessagesMoved" => float(),
+        "ApproximateNumberOfMessagesToMove" => float(),
+        "DestinationArn" => String.t(),
+        "FailureReason" => String.t(),
+        "MaxNumberOfMessagesPerSecond" => integer(),
+        "SourceArn" => String.t(),
+        "StartedTimestamp" => float(),
+        "Status" => String.t(),
+        "TaskHandle" => String.t()
+      }
+      
   """
   @type list_message_move_tasks_result_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  unsupported_operation() :: %{
-    "message" => String.t()
-  }
+      
+      unsupported_operation() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type unsupported_operation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  send_message_batch_result() :: %{
-    "Failed" => list(batch_result_error_entry()()),
-    "Successful" => list(send_message_batch_result_entry()())
-  }
+      
+      send_message_batch_result() :: %{
+        "Failed" => list(batch_result_error_entry()()),
+        "Successful" => list(send_message_batch_result_entry()())
+      }
+      
   """
   @type send_message_batch_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_queue_request() :: %{
-    required("QueueUrl") => String.t(),
-    required("TagKeys") => list(String.t()())
-  }
+      
+      untag_queue_request() :: %{
+        required("QueueUrl") => String.t(),
+        required("TagKeys") => list(String.t()())
+      }
+      
   """
   @type untag_queue_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_attribute_value() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_attribute_value() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_attribute_value() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_message_move_tasks_request() :: %{
-    optional("MaxResults") => integer(),
-    required("SourceArn") => String.t()
-  }
+      
+      list_message_move_tasks_request() :: %{
+        optional("MaxResults") => integer(),
+        required("SourceArn") => String.t()
+      }
+      
   """
   @type list_message_move_tasks_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cancel_message_move_task_result() :: %{
-    "ApproximateNumberOfMessagesMoved" => float()
-  }
+      
+      cancel_message_move_task_result() :: %{
+        "ApproximateNumberOfMessagesMoved" => float()
+      }
+      
   """
   @type cancel_message_move_task_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  send_message_batch_result_entry() :: %{
-    "Id" => String.t(),
-    "MD5OfMessageAttributes" => String.t(),
-    "MD5OfMessageBody" => String.t(),
-    "MD5OfMessageSystemAttributes" => String.t(),
-    "MessageId" => String.t(),
-    "SequenceNumber" => String.t()
-  }
+      
+      send_message_batch_result_entry() :: %{
+        "Id" => String.t(),
+        "MD5OfMessageAttributes" => String.t(),
+        "MD5OfMessageBody" => String.t(),
+        "MD5OfMessageSystemAttributes" => String.t(),
+        "MessageId" => String.t(),
+        "SequenceNumber" => String.t()
+      }
+      
   """
   @type send_message_batch_result_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  empty_batch_request() :: %{
-    "message" => String.t()
-  }
+      
+      empty_batch_request() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type empty_batch_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_not_found_exception() :: %{
-    "message" => String.t()
-  }
+      
+      resource_not_found_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  request_throttled() :: %{
-    "message" => String.t()
-  }
+      
+      request_throttled() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type request_throttled() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_queue_result() :: %{
-    "QueueUrl" => String.t()
-  }
+      
+      create_queue_result() :: %{
+        "QueueUrl" => String.t()
+      }
+      
   """
   @type create_queue_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  change_message_visibility_batch_request() :: %{
-    required("Entries") => list(change_message_visibility_batch_request_entry()()),
-    required("QueueUrl") => String.t()
-  }
+      
+      change_message_visibility_batch_request() :: %{
+        required("Entries") => list(change_message_visibility_batch_request_entry()()),
+        required("QueueUrl") => String.t()
+      }
+      
   """
   @type change_message_visibility_batch_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  send_message_batch_request_entry() :: %{
-    "DelaySeconds" => integer(),
-    "Id" => String.t(),
-    "MessageAttributes" => map(),
-    "MessageBody" => String.t(),
-    "MessageDeduplicationId" => String.t(),
-    "MessageGroupId" => String.t(),
-    "MessageSystemAttributes" => map()
-  }
+      
+      send_message_batch_request_entry() :: %{
+        "DelaySeconds" => integer(),
+        "Id" => String.t(),
+        "MessageAttributes" => map(),
+        "MessageBody" => String.t(),
+        "MessageDeduplicationId" => String.t(),
+        "MessageGroupId" => String.t(),
+        "MessageSystemAttributes" => map()
+      }
+      
   """
   @type send_message_batch_request_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  remove_permission_request() :: %{
-    required("Label") => String.t(),
-    required("QueueUrl") => String.t()
-  }
+      
+      remove_permission_request() :: %{
+        required("Label") => String.t(),
+        required("QueueUrl") => String.t()
+      }
+      
   """
   @type remove_permission_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  change_message_visibility_request() :: %{
-    required("QueueUrl") => String.t(),
-    required("ReceiptHandle") => String.t(),
-    required("VisibilityTimeout") => integer()
-  }
+      
+      change_message_visibility_request() :: %{
+        required("QueueUrl") => String.t(),
+        required("ReceiptHandle") => String.t(),
+        required("VisibilityTimeout") => integer()
+      }
+      
   """
   @type change_message_visibility_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  send_message_result() :: %{
-    "MD5OfMessageAttributes" => String.t(),
-    "MD5OfMessageBody" => String.t(),
-    "MD5OfMessageSystemAttributes" => String.t(),
-    "MessageId" => String.t(),
-    "SequenceNumber" => String.t()
-  }
+      
+      send_message_result() :: %{
+        "MD5OfMessageAttributes" => String.t(),
+        "MD5OfMessageBody" => String.t(),
+        "MD5OfMessageSystemAttributes" => String.t(),
+        "MessageId" => String.t(),
+        "SequenceNumber" => String.t()
+      }
+      
   """
   @type send_message_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_queue_request() :: %{
-    optional("Attributes") => map(),
-    optional("tags") => map(),
-    required("QueueName") => String.t()
-  }
+      
+      create_queue_request() :: %{
+        optional("Attributes") => map(),
+        optional("tags") => map(),
+        required("QueueName") => String.t()
+      }
+      
   """
   @type create_queue_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_queue_tags_result() :: %{
-    "Tags" => map()
-  }
+      
+      list_queue_tags_result() :: %{
+        "Tags" => map()
+      }
+      
   """
   @type list_queue_tags_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  kms_not_found() :: %{
-    "message" => String.t()
-  }
+      
+      kms_not_found() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type kms_not_found() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  change_message_visibility_batch_request_entry() :: %{
-    "Id" => String.t(),
-    "ReceiptHandle" => String.t(),
-    "VisibilityTimeout" => integer()
-  }
+      
+      change_message_visibility_batch_request_entry() :: %{
+        "Id" => String.t(),
+        "ReceiptHandle" => String.t(),
+        "VisibilityTimeout" => integer()
+      }
+      
   """
   @type change_message_visibility_batch_request_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_message_move_task_request() :: %{
-    optional("DestinationArn") => String.t(),
-    optional("MaxNumberOfMessagesPerSecond") => integer(),
-    required("SourceArn") => String.t()
-  }
+      
+      start_message_move_task_request() :: %{
+        optional("DestinationArn") => String.t(),
+        optional("MaxNumberOfMessagesPerSecond") => integer(),
+        required("SourceArn") => String.t()
+      }
+      
   """
   @type start_message_move_task_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_queue_attributes_request() :: %{
-    optional("AttributeNames") => list(list(any())()),
-    required("QueueUrl") => String.t()
-  }
+      
+      get_queue_attributes_request() :: %{
+        optional("AttributeNames") => list(list(any())()),
+        required("QueueUrl") => String.t()
+      }
+      
   """
   @type get_queue_attributes_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  kms_invalid_state() :: %{
-    "message" => String.t()
-  }
+      
+      kms_invalid_state() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type kms_invalid_state() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_id_format() :: %{
-
-  }
+      
+      invalid_id_format() :: %{}
+      
   """
-  @type invalid_id_format() :: %{String.t() => any()}
+  @type invalid_id_format() :: %{}
 
   @typedoc """
 
   ## Example:
-  receive_message_request() :: %{
-    optional("AttributeNames") => list(list(any())()),
-    optional("MaxNumberOfMessages") => integer(),
-    optional("MessageAttributeNames") => list(String.t()()),
-    optional("ReceiveRequestAttemptId") => String.t(),
-    optional("VisibilityTimeout") => integer(),
-    optional("WaitTimeSeconds") => integer(),
-    required("QueueUrl") => String.t()
-  }
+      
+      receive_message_request() :: %{
+        optional("AttributeNames") => list(list(any())()),
+        optional("MaxNumberOfMessages") => integer(),
+        optional("MessageAttributeNames") => list(String.t()()),
+        optional("ReceiveRequestAttemptId") => String.t(),
+        optional("VisibilityTimeout") => integer(),
+        optional("WaitTimeSeconds") => integer(),
+        required("QueueUrl") => String.t()
+      }
+      
   """
   @type receive_message_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_message_batch_result_entry() :: %{
-    "Id" => String.t()
-  }
+      
+      delete_message_batch_result_entry() :: %{
+        "Id" => String.t()
+      }
+      
   """
   @type delete_message_batch_result_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  message_system_attribute_value() :: %{
-    "BinaryListValues" => list(binary()()),
-    "BinaryValue" => binary(),
-    "DataType" => String.t(),
-    "StringListValues" => list(String.t()()),
-    "StringValue" => String.t()
-  }
+      
+      message_system_attribute_value() :: %{
+        "BinaryListValues" => list(binary()()),
+        "BinaryValue" => binary(),
+        "DataType" => String.t(),
+        "StringListValues" => list(String.t()()),
+        "StringValue" => String.t()
+      }
+      
   """
   @type message_system_attribute_value() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  queue_deleted_recently() :: %{
-    "message" => String.t()
-  }
+      
+      queue_deleted_recently() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type queue_deleted_recently() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_message_move_task_result() :: %{
-    "TaskHandle" => String.t()
-  }
+      
+      start_message_move_task_result() :: %{
+        "TaskHandle" => String.t()
+      }
+      
   """
   @type start_message_move_task_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_dead_letter_source_queues_result() :: %{
-    "NextToken" => String.t(),
-    "queueUrls" => list(String.t()())
-  }
+      
+      list_dead_letter_source_queues_result() :: %{
+        "NextToken" => String.t(),
+        "queueUrls" => list(String.t()())
+      }
+      
   """
   @type list_dead_letter_source_queues_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_batch_entry_id() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_batch_entry_id() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_batch_entry_id() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_entry_ids_not_distinct() :: %{
-    "message" => String.t()
-  }
+      
+      batch_entry_ids_not_distinct() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type batch_entry_ids_not_distinct() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  kms_invalid_key_usage() :: %{
-    "message" => String.t()
-  }
+      
+      kms_invalid_key_usage() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type kms_invalid_key_usage() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  send_message_request() :: %{
-    optional("DelaySeconds") => integer(),
-    optional("MessageAttributes") => map(),
-    optional("MessageDeduplicationId") => String.t(),
-    optional("MessageGroupId") => String.t(),
-    optional("MessageSystemAttributes") => map(),
-    required("MessageBody") => String.t(),
-    required("QueueUrl") => String.t()
-  }
+      
+      send_message_request() :: %{
+        optional("DelaySeconds") => integer(),
+        optional("MessageAttributes") => map(),
+        optional("MessageDeduplicationId") => String.t(),
+        optional("MessageGroupId") => String.t(),
+        optional("MessageSystemAttributes") => map(),
+        required("MessageBody") => String.t(),
+        required("QueueUrl") => String.t()
+      }
+      
   """
   @type send_message_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_queue_request() :: %{
-    required("QueueUrl") => String.t()
-  }
+      
+      delete_queue_request() :: %{
+        required("QueueUrl") => String.t()
+      }
+      
   """
   @type delete_queue_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  message_not_inflight() :: %{
-
-  }
+      
+      message_not_inflight() :: %{}
+      
   """
-  @type message_not_inflight() :: %{String.t() => any()}
+  @type message_not_inflight() :: %{}
 
   @typedoc """
 
   ## Example:
-  over_limit() :: %{
-    "message" => String.t()
-  }
+      
+      over_limit() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type over_limit() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_queue_url_result() :: %{
-    "QueueUrl" => String.t()
-  }
+      
+      get_queue_url_result() :: %{
+        "QueueUrl" => String.t()
+      }
+      
   """
   @type get_queue_url_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_request_too_long() :: %{
-    "message" => String.t()
-  }
+      
+      batch_request_too_long() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type batch_request_too_long() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  change_message_visibility_batch_result() :: %{
-    "Failed" => list(batch_result_error_entry()()),
-    "Successful" => list(change_message_visibility_batch_result_entry()())
-  }
+      
+      change_message_visibility_batch_result() :: %{
+        "Failed" => list(batch_result_error_entry()()),
+        "Successful" => list(change_message_visibility_batch_result_entry()())
+      }
+      
   """
   @type change_message_visibility_batch_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_address() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_address() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_address() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_dead_letter_source_queues_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("QueueUrl") => String.t()
-  }
+      
+      list_dead_letter_source_queues_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("QueueUrl") => String.t()
+      }
+      
   """
   @type list_dead_letter_source_queues_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_message_batch_request_entry() :: %{
-    "Id" => String.t(),
-    "ReceiptHandle" => String.t()
-  }
+      
+      delete_message_batch_request_entry() :: %{
+        "Id" => String.t(),
+        "ReceiptHandle" => String.t()
+      }
+      
   """
   @type delete_message_batch_request_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_queue_attributes_result() :: %{
-    "Attributes" => map()
-  }
+      
+      get_queue_attributes_result() :: %{
+        "Attributes" => map()
+      }
+      
   """
   @type get_queue_attributes_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  receipt_handle_is_invalid() :: %{
-    "message" => String.t()
-  }
+      
+      receipt_handle_is_invalid() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type receipt_handle_is_invalid() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  add_permission_request() :: %{
-    required("AWSAccountIds") => list(String.t()()),
-    required("Actions") => list(String.t()()),
-    required("Label") => String.t(),
-    required("QueueUrl") => String.t()
-  }
+      
+      add_permission_request() :: %{
+        required("AWSAccountIds") => list(String.t()()),
+        required("Actions") => list(String.t()()),
+        required("Label") => String.t(),
+        required("QueueUrl") => String.t()
+      }
+      
   """
   @type add_permission_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  message() :: %{
-    "Attributes" => map(),
-    "Body" => String.t(),
-    "MD5OfBody" => String.t(),
-    "MD5OfMessageAttributes" => String.t(),
-    "MessageAttributes" => map(),
-    "MessageId" => String.t(),
-    "ReceiptHandle" => String.t()
-  }
+      
+      message() :: %{
+        "Attributes" => map(),
+        "Body" => String.t(),
+        "MD5OfBody" => String.t(),
+        "MD5OfMessageAttributes" => String.t(),
+        "MessageAttributes" => map(),
+        "MessageId" => String.t(),
+        "ReceiptHandle" => String.t()
+      }
+      
   """
   @type message() :: %{String.t() => any()}
+
+  @type add_permission_errors() ::
+          invalid_address()
+          | over_limit()
+          | request_throttled()
+          | unsupported_operation()
+          | invalid_security()
+          | queue_does_not_exist()
+
+  @type cancel_message_move_task_errors() ::
+          invalid_address()
+          | request_throttled()
+          | resource_not_found_exception()
+          | unsupported_operation()
+          | invalid_security()
+
+  @type change_message_visibility_errors() ::
+          receipt_handle_is_invalid()
+          | invalid_address()
+          | message_not_inflight()
+          | request_throttled()
+          | unsupported_operation()
+          | invalid_security()
+          | queue_does_not_exist()
+
+  @type change_message_visibility_batch_errors() ::
+          invalid_address()
+          | batch_entry_ids_not_distinct()
+          | invalid_batch_entry_id()
+          | request_throttled()
+          | empty_batch_request()
+          | unsupported_operation()
+          | too_many_entries_in_batch_request()
+          | invalid_security()
+          | queue_does_not_exist()
+
+  @type create_queue_errors() ::
+          invalid_address()
+          | queue_deleted_recently()
+          | request_throttled()
+          | invalid_attribute_value()
+          | unsupported_operation()
+          | invalid_security()
+          | invalid_attribute_name()
+          | queue_name_exists()
+
+  @type delete_message_errors() ::
+          receipt_handle_is_invalid()
+          | invalid_address()
+          | invalid_id_format()
+          | request_throttled()
+          | unsupported_operation()
+          | invalid_security()
+          | queue_does_not_exist()
+
+  @type delete_message_batch_errors() ::
+          invalid_address()
+          | batch_entry_ids_not_distinct()
+          | invalid_batch_entry_id()
+          | request_throttled()
+          | empty_batch_request()
+          | unsupported_operation()
+          | too_many_entries_in_batch_request()
+          | invalid_security()
+          | queue_does_not_exist()
+
+  @type delete_queue_errors() ::
+          invalid_address()
+          | request_throttled()
+          | unsupported_operation()
+          | invalid_security()
+          | queue_does_not_exist()
+
+  @type get_queue_attributes_errors() ::
+          invalid_address()
+          | request_throttled()
+          | unsupported_operation()
+          | invalid_security()
+          | queue_does_not_exist()
+          | invalid_attribute_name()
+
+  @type get_queue_url_errors() ::
+          invalid_address()
+          | request_throttled()
+          | unsupported_operation()
+          | invalid_security()
+          | queue_does_not_exist()
+
+  @type list_dead_letter_source_queues_errors() ::
+          invalid_address()
+          | request_throttled()
+          | unsupported_operation()
+          | invalid_security()
+          | queue_does_not_exist()
+
+  @type list_message_move_tasks_errors() ::
+          invalid_address()
+          | request_throttled()
+          | resource_not_found_exception()
+          | unsupported_operation()
+          | invalid_security()
+
+  @type list_queue_tags_errors() ::
+          invalid_address()
+          | request_throttled()
+          | unsupported_operation()
+          | invalid_security()
+          | queue_does_not_exist()
+
+  @type list_queues_errors() ::
+          invalid_address() | request_throttled() | unsupported_operation() | invalid_security()
+
+  @type purge_queue_errors() ::
+          invalid_address()
+          | request_throttled()
+          | unsupported_operation()
+          | invalid_security()
+          | queue_does_not_exist()
+          | purge_queue_in_progress()
+
+  @type receive_message_errors() ::
+          invalid_address()
+          | over_limit()
+          | kms_invalid_key_usage()
+          | kms_invalid_state()
+          | kms_not_found()
+          | request_throttled()
+          | unsupported_operation()
+          | kms_disabled()
+          | kms_throttled()
+          | invalid_security()
+          | queue_does_not_exist()
+          | kms_opt_in_required()
+          | kms_access_denied()
+
+  @type remove_permission_errors() ::
+          invalid_address()
+          | request_throttled()
+          | unsupported_operation()
+          | invalid_security()
+          | queue_does_not_exist()
+
+  @type send_message_errors() ::
+          invalid_address()
+          | kms_invalid_key_usage()
+          | kms_invalid_state()
+          | kms_not_found()
+          | request_throttled()
+          | unsupported_operation()
+          | kms_disabled()
+          | kms_throttled()
+          | invalid_security()
+          | queue_does_not_exist()
+          | kms_opt_in_required()
+          | invalid_message_contents()
+          | kms_access_denied()
+
+  @type send_message_batch_errors() ::
+          invalid_address()
+          | batch_request_too_long()
+          | kms_invalid_key_usage()
+          | batch_entry_ids_not_distinct()
+          | invalid_batch_entry_id()
+          | kms_invalid_state()
+          | kms_not_found()
+          | request_throttled()
+          | empty_batch_request()
+          | unsupported_operation()
+          | kms_disabled()
+          | kms_throttled()
+          | too_many_entries_in_batch_request()
+          | invalid_security()
+          | queue_does_not_exist()
+          | kms_opt_in_required()
+          | kms_access_denied()
+
+  @type set_queue_attributes_errors() ::
+          invalid_address()
+          | over_limit()
+          | request_throttled()
+          | invalid_attribute_value()
+          | unsupported_operation()
+          | invalid_security()
+          | queue_does_not_exist()
+          | invalid_attribute_name()
+
+  @type start_message_move_task_errors() ::
+          invalid_address()
+          | request_throttled()
+          | resource_not_found_exception()
+          | unsupported_operation()
+          | invalid_security()
+
+  @type tag_queue_errors() ::
+          invalid_address()
+          | request_throttled()
+          | unsupported_operation()
+          | invalid_security()
+          | queue_does_not_exist()
+
+  @type untag_queue_errors() ::
+          invalid_address()
+          | request_throttled()
+          | unsupported_operation()
+          | invalid_security()
+          | queue_does_not_exist()
 
   def metadata do
     %{
@@ -903,12 +1257,7 @@ defmodule AWS.SQS do
   @spec add_permission(map(), add_permission_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_address()}
-          | {:error, invalid_security()}
-          | {:error, over_limit()}
-          | {:error, queue_does_not_exist()}
-          | {:error, request_throttled()}
-          | {:error, unsupported_operation()}
+          | {:error, add_permission_errors()}
   def add_permission(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -943,11 +1292,7 @@ defmodule AWS.SQS do
   @spec cancel_message_move_task(map(), cancel_message_move_task_request(), list()) ::
           {:ok, cancel_message_move_task_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_address()}
-          | {:error, invalid_security()}
-          | {:error, request_throttled()}
-          | {:error, resource_not_found_exception()}
-          | {:error, unsupported_operation()}
+          | {:error, cancel_message_move_task_errors()}
   def cancel_message_move_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1035,13 +1380,7 @@ defmodule AWS.SQS do
   @spec change_message_visibility(map(), change_message_visibility_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_address()}
-          | {:error, invalid_security()}
-          | {:error, message_not_inflight()}
-          | {:error, queue_does_not_exist()}
-          | {:error, receipt_handle_is_invalid()}
-          | {:error, request_throttled()}
-          | {:error, unsupported_operation()}
+          | {:error, change_message_visibility_errors()}
   def change_message_visibility(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1078,15 +1417,7 @@ defmodule AWS.SQS do
   @spec change_message_visibility_batch(map(), change_message_visibility_batch_request(), list()) ::
           {:ok, change_message_visibility_batch_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, batch_entry_ids_not_distinct()}
-          | {:error, empty_batch_request()}
-          | {:error, invalid_address()}
-          | {:error, invalid_batch_entry_id()}
-          | {:error, invalid_security()}
-          | {:error, queue_does_not_exist()}
-          | {:error, request_throttled()}
-          | {:error, too_many_entries_in_batch_request()}
-          | {:error, unsupported_operation()}
+          | {:error, change_message_visibility_batch_errors()}
   def change_message_visibility_batch(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1164,14 +1495,7 @@ defmodule AWS.SQS do
   @spec create_queue(map(), create_queue_request(), list()) ::
           {:ok, create_queue_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_address()}
-          | {:error, invalid_attribute_name()}
-          | {:error, invalid_attribute_value()}
-          | {:error, invalid_security()}
-          | {:error, queue_deleted_recently()}
-          | {:error, queue_name_exists()}
-          | {:error, request_throttled()}
-          | {:error, unsupported_operation()}
+          | {:error, create_queue_errors()}
   def create_queue(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1210,13 +1534,7 @@ defmodule AWS.SQS do
   @spec delete_message(map(), delete_message_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_address()}
-          | {:error, invalid_id_format()}
-          | {:error, invalid_security()}
-          | {:error, queue_does_not_exist()}
-          | {:error, receipt_handle_is_invalid()}
-          | {:error, request_throttled()}
-          | {:error, unsupported_operation()}
+          | {:error, delete_message_errors()}
   def delete_message(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1244,15 +1562,7 @@ defmodule AWS.SQS do
   @spec delete_message_batch(map(), delete_message_batch_request(), list()) ::
           {:ok, delete_message_batch_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, batch_entry_ids_not_distinct()}
-          | {:error, empty_batch_request()}
-          | {:error, invalid_address()}
-          | {:error, invalid_batch_entry_id()}
-          | {:error, invalid_security()}
-          | {:error, queue_does_not_exist()}
-          | {:error, request_throttled()}
-          | {:error, too_many_entries_in_batch_request()}
-          | {:error, unsupported_operation()}
+          | {:error, delete_message_batch_errors()}
   def delete_message_batch(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1293,11 +1603,7 @@ defmodule AWS.SQS do
   @spec delete_queue(map(), delete_queue_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_address()}
-          | {:error, invalid_security()}
-          | {:error, queue_does_not_exist()}
-          | {:error, request_throttled()}
-          | {:error, unsupported_operation()}
+          | {:error, delete_queue_errors()}
   def delete_queue(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1315,12 +1621,7 @@ defmodule AWS.SQS do
   @spec get_queue_attributes(map(), get_queue_attributes_request(), list()) ::
           {:ok, get_queue_attributes_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_address()}
-          | {:error, invalid_attribute_name()}
-          | {:error, invalid_security()}
-          | {:error, queue_does_not_exist()}
-          | {:error, request_throttled()}
-          | {:error, unsupported_operation()}
+          | {:error, get_queue_attributes_errors()}
   def get_queue_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1349,11 +1650,7 @@ defmodule AWS.SQS do
   @spec get_queue_url(map(), get_queue_url_request(), list()) ::
           {:ok, get_queue_url_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_address()}
-          | {:error, invalid_security()}
-          | {:error, queue_does_not_exist()}
-          | {:error, request_throttled()}
-          | {:error, unsupported_operation()}
+          | {:error, get_queue_url_errors()}
   def get_queue_url(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1380,11 +1677,7 @@ defmodule AWS.SQS do
   @spec list_dead_letter_source_queues(map(), list_dead_letter_source_queues_request(), list()) ::
           {:ok, list_dead_letter_source_queues_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_address()}
-          | {:error, invalid_security()}
-          | {:error, queue_does_not_exist()}
-          | {:error, request_throttled()}
-          | {:error, unsupported_operation()}
+          | {:error, list_dead_letter_source_queues_errors()}
   def list_dead_letter_source_queues(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1413,11 +1706,7 @@ defmodule AWS.SQS do
   @spec list_message_move_tasks(map(), list_message_move_tasks_request(), list()) ::
           {:ok, list_message_move_tasks_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_address()}
-          | {:error, invalid_security()}
-          | {:error, request_throttled()}
-          | {:error, resource_not_found_exception()}
-          | {:error, unsupported_operation()}
+          | {:error, list_message_move_tasks_errors()}
   def list_message_move_tasks(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1441,11 +1730,7 @@ defmodule AWS.SQS do
   @spec list_queue_tags(map(), list_queue_tags_request(), list()) ::
           {:ok, list_queue_tags_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_address()}
-          | {:error, invalid_security()}
-          | {:error, queue_does_not_exist()}
-          | {:error, request_throttled()}
-          | {:error, unsupported_operation()}
+          | {:error, list_queue_tags_errors()}
   def list_queue_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1476,10 +1761,7 @@ defmodule AWS.SQS do
   @spec list_queues(map(), list_queues_request(), list()) ::
           {:ok, list_queues_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_address()}
-          | {:error, invalid_security()}
-          | {:error, request_throttled()}
-          | {:error, unsupported_operation()}
+          | {:error, list_queues_errors()}
   def list_queues(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1507,12 +1789,7 @@ defmodule AWS.SQS do
   @spec purge_queue(map(), purge_queue_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_address()}
-          | {:error, invalid_security()}
-          | {:error, purge_queue_in_progress()}
-          | {:error, queue_does_not_exist()}
-          | {:error, request_throttled()}
-          | {:error, unsupported_operation()}
+          | {:error, purge_queue_errors()}
   def purge_queue(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1590,19 +1867,7 @@ defmodule AWS.SQS do
   @spec receive_message(map(), receive_message_request(), list()) ::
           {:ok, receive_message_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_address()}
-          | {:error, invalid_security()}
-          | {:error, kms_access_denied()}
-          | {:error, kms_disabled()}
-          | {:error, kms_invalid_key_usage()}
-          | {:error, kms_invalid_state()}
-          | {:error, kms_not_found()}
-          | {:error, kms_opt_in_required()}
-          | {:error, kms_throttled()}
-          | {:error, over_limit()}
-          | {:error, queue_does_not_exist()}
-          | {:error, request_throttled()}
-          | {:error, unsupported_operation()}
+          | {:error, receive_message_errors()}
   def receive_message(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1630,11 +1895,7 @@ defmodule AWS.SQS do
   @spec remove_permission(map(), remove_permission_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_address()}
-          | {:error, invalid_security()}
-          | {:error, queue_does_not_exist()}
-          | {:error, request_throttled()}
-          | {:error, unsupported_operation()}
+          | {:error, remove_permission_errors()}
   def remove_permission(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1658,19 +1919,7 @@ defmodule AWS.SQS do
   @spec send_message(map(), send_message_request(), list()) ::
           {:ok, send_message_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_address()}
-          | {:error, invalid_message_contents()}
-          | {:error, invalid_security()}
-          | {:error, kms_access_denied()}
-          | {:error, kms_disabled()}
-          | {:error, kms_invalid_key_usage()}
-          | {:error, kms_invalid_state()}
-          | {:error, kms_not_found()}
-          | {:error, kms_opt_in_required()}
-          | {:error, kms_throttled()}
-          | {:error, queue_does_not_exist()}
-          | {:error, request_throttled()}
-          | {:error, unsupported_operation()}
+          | {:error, send_message_errors()}
   def send_message(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1724,23 +1973,7 @@ defmodule AWS.SQS do
   @spec send_message_batch(map(), send_message_batch_request(), list()) ::
           {:ok, send_message_batch_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, batch_entry_ids_not_distinct()}
-          | {:error, batch_request_too_long()}
-          | {:error, empty_batch_request()}
-          | {:error, invalid_address()}
-          | {:error, invalid_batch_entry_id()}
-          | {:error, invalid_security()}
-          | {:error, kms_access_denied()}
-          | {:error, kms_disabled()}
-          | {:error, kms_invalid_key_usage()}
-          | {:error, kms_invalid_state()}
-          | {:error, kms_not_found()}
-          | {:error, kms_opt_in_required()}
-          | {:error, kms_throttled()}
-          | {:error, queue_does_not_exist()}
-          | {:error, request_throttled()}
-          | {:error, too_many_entries_in_batch_request()}
-          | {:error, unsupported_operation()}
+          | {:error, send_message_batch_errors()}
   def send_message_batch(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1778,14 +2011,7 @@ defmodule AWS.SQS do
   @spec set_queue_attributes(map(), set_queue_attributes_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_address()}
-          | {:error, invalid_attribute_name()}
-          | {:error, invalid_attribute_value()}
-          | {:error, invalid_security()}
-          | {:error, over_limit()}
-          | {:error, queue_does_not_exist()}
-          | {:error, request_throttled()}
-          | {:error, unsupported_operation()}
+          | {:error, set_queue_attributes_errors()}
   def set_queue_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1820,11 +2046,7 @@ defmodule AWS.SQS do
   @spec start_message_move_task(map(), start_message_move_task_request(), list()) ::
           {:ok, start_message_move_task_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_address()}
-          | {:error, invalid_security()}
-          | {:error, request_throttled()}
-          | {:error, resource_not_found_exception()}
-          | {:error, unsupported_operation()}
+          | {:error, start_message_move_task_errors()}
   def start_message_move_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1868,11 +2090,7 @@ defmodule AWS.SQS do
   @spec tag_queue(map(), tag_queue_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_address()}
-          | {:error, invalid_security()}
-          | {:error, queue_does_not_exist()}
-          | {:error, request_throttled()}
-          | {:error, unsupported_operation()}
+          | {:error, tag_queue_errors()}
   def tag_queue(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1896,11 +2114,7 @@ defmodule AWS.SQS do
   @spec untag_queue(map(), untag_queue_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_address()}
-          | {:error, invalid_security()}
-          | {:error, queue_does_not_exist()}
-          | {:error, request_throttled()}
-          | {:error, unsupported_operation()}
+          | {:error, untag_queue_errors()}
   def untag_queue(%Client{} = client, input, options \\ []) do
     meta = metadata()
 

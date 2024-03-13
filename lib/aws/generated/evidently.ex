@@ -30,1412 +30,1857 @@ defmodule AWS.Evidently do
   @typedoc """
 
   ## Example:
-  evaluation_request() :: %{
-    "entityId" => String.t(),
-    "evaluationContext" => String.t(),
-    "feature" => String.t()
-  }
+
+      evaluation_request() :: %{
+        "entityId" => String.t(),
+        "evaluationContext" => String.t(),
+        "feature" => String.t()
+      }
+
   """
   @type evaluation_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_experiments_response() :: %{
-    optional("experiments") => list(experiment()()),
-    optional("nextToken") => String.t()
-  }
+
+      list_experiments_response() :: %{
+        optional("experiments") => list(experiment()()),
+        optional("nextToken") => String.t()
+      }
+
   """
   @type list_experiments_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_experiment_response() :: %{
 
-  }
+      delete_experiment_response() :: %{}
+
   """
-  @type delete_experiment_response() :: %{String.t() => any()}
+  @type delete_experiment_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  treatment_config() :: %{
-    "description" => String.t(),
-    "feature" => String.t(),
-    "name" => String.t(),
-    "variation" => String.t()
-  }
+
+      treatment_config() :: %{
+        "description" => String.t(),
+        "feature" => String.t(),
+        "name" => String.t(),
+        "variation" => String.t()
+      }
+
   """
   @type treatment_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  launch_group() :: %{
-    "description" => String.t(),
-    "featureVariations" => map(),
-    "name" => String.t()
-  }
+
+      launch_group() :: %{
+        "description" => String.t(),
+        "featureVariations" => map(),
+        "name" => String.t()
+      }
+
   """
   @type launch_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_request() :: %{
-    required("tags") => map()
-  }
+
+      tag_resource_request() :: %{
+        required("tags") => map()
+      }
+
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_launches_response() :: %{
-    optional("launches") => list(launch()()),
-    optional("nextToken") => String.t()
-  }
+
+      list_launches_response() :: %{
+        optional("launches") => list(launch()()),
+        optional("nextToken") => String.t()
+      }
+
   """
   @type list_launches_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_feature_request() :: %{
-    optional("defaultVariation") => String.t(),
-    optional("description") => String.t(),
-    optional("entityOverrides") => map(),
-    optional("evaluationStrategy") => String.t(),
-    optional("tags") => map(),
-    required("name") => String.t(),
-    required("variations") => list(variation_config()())
-  }
+
+      create_feature_request() :: %{
+        optional("defaultVariation") => String.t(),
+        optional("description") => String.t(),
+        optional("entityOverrides") => map(),
+        optional("evaluationStrategy") => String.t(),
+        optional("tags") => map(),
+        required("name") => String.t(),
+        required("variations") => list(variation_config()())
+      }
+
   """
   @type create_feature_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_feature_response() :: %{
-    optional("feature") => feature()
-  }
+
+      create_feature_response() :: %{
+        optional("feature") => feature()
+      }
+
   """
   @type create_feature_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_project_data_delivery_response() :: %{
-    required("project") => project()
-  }
+
+      update_project_data_delivery_response() :: %{
+        required("project") => project()
+      }
+
   """
   @type update_project_data_delivery_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_experiment_response() :: %{
-    optional("experiment") => experiment()
-  }
+
+      get_experiment_response() :: %{
+        optional("experiment") => experiment()
+      }
+
   """
   @type get_experiment_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  test_segment_pattern_request() :: %{
-    required("pattern") => String.t(),
-    required("payload") => String.t()
-  }
+
+      test_segment_pattern_request() :: %{
+        required("pattern") => String.t(),
+        required("payload") => String.t()
+      }
+
   """
   @type test_segment_pattern_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  feature() :: %{
-    "arn" => String.t(),
-    "createdTime" => [non_neg_integer()],
-    "defaultVariation" => String.t(),
-    "description" => String.t(),
-    "entityOverrides" => map(),
-    "evaluationRules" => list(evaluation_rule()()),
-    "evaluationStrategy" => String.t(),
-    "lastUpdatedTime" => [non_neg_integer()],
-    "name" => String.t(),
-    "project" => String.t(),
-    "status" => String.t(),
-    "tags" => map(),
-    "valueType" => String.t(),
-    "variations" => list(variation()())
-  }
+
+      feature() :: %{
+        "arn" => String.t(),
+        "createdTime" => [non_neg_integer()],
+        "defaultVariation" => String.t(),
+        "description" => String.t(),
+        "entityOverrides" => map(),
+        "evaluationRules" => list(evaluation_rule()()),
+        "evaluationStrategy" => String.t(),
+        "lastUpdatedTime" => [non_neg_integer()],
+        "name" => String.t(),
+        "project" => String.t(),
+        "status" => String.t(),
+        "tags" => map(),
+        "valueType" => String.t(),
+        "variations" => list(variation()())
+      }
+
   """
   @type feature() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  online_ab_definition() :: %{
-    "controlTreatmentName" => String.t(),
-    "treatmentWeights" => map()
-  }
+
+      online_ab_definition() :: %{
+        "controlTreatmentName" => String.t(),
+        "treatmentWeights" => map()
+      }
+
   """
   @type online_ab_definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  scheduled_splits_launch_definition() :: %{
-    "steps" => list(scheduled_split()())
-  }
+
+      scheduled_splits_launch_definition() :: %{
+        "steps" => list(scheduled_split()())
+      }
+
   """
   @type scheduled_splits_launch_definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  project_summary() :: %{
-    "activeExperimentCount" => [float()],
-    "activeLaunchCount" => [float()],
-    "arn" => String.t(),
-    "createdTime" => [non_neg_integer()],
-    "description" => String.t(),
-    "experimentCount" => [float()],
-    "featureCount" => [float()],
-    "lastUpdatedTime" => [non_neg_integer()],
-    "launchCount" => [float()],
-    "name" => String.t(),
-    "status" => String.t(),
-    "tags" => map()
-  }
+
+      project_summary() :: %{
+        "activeExperimentCount" => [float()],
+        "activeLaunchCount" => [float()],
+        "arn" => String.t(),
+        "createdTime" => [non_neg_integer()],
+        "description" => String.t(),
+        "experimentCount" => [float()],
+        "featureCount" => [float()],
+        "lastUpdatedTime" => [non_neg_integer()],
+        "launchCount" => [float()],
+        "name" => String.t(),
+        "status" => String.t(),
+        "tags" => map()
+      }
+
   """
   @type project_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_response() :: %{
 
-  }
+      untag_resource_response() :: %{}
+
   """
-  @type untag_resource_response() :: %{String.t() => any()}
+  @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_launch_response() :: %{
-    optional("launch") => launch()
-  }
+
+      get_launch_response() :: %{
+        optional("launch") => launch()
+      }
+
   """
   @type get_launch_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_segment_request() :: %{
 
-  }
+      get_segment_request() :: %{}
+
   """
-  @type get_segment_request() :: %{String.t() => any()}
+  @type get_segment_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  put_project_events_response() :: %{
-    optional("eventResults") => list(put_project_events_result_entry()()),
-    optional("failedEventCount") => [integer()]
-  }
+
+      put_project_events_response() :: %{
+        optional("eventResults") => list(put_project_events_result_entry()()),
+        optional("failedEventCount") => [integer()]
+      }
+
   """
   @type put_project_events_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  variation_config() :: %{
-    "name" => String.t(),
-    "value" => list()
-  }
+
+      variation_config() :: %{
+        "name" => String.t(),
+        "value" => list()
+      }
+
   """
   @type variation_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  test_segment_pattern_response() :: %{
-    required("match") => [boolean()]
-  }
+
+      test_segment_pattern_response() :: %{
+        required("match") => [boolean()]
+      }
+
   """
   @type test_segment_pattern_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_project_request() :: %{
 
-  }
+      get_project_request() :: %{}
+
   """
-  @type get_project_request() :: %{String.t() => any()}
+  @type get_project_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_segment_references_response() :: %{
-    optional("nextToken") => String.t(),
-    optional("referencedBy") => list(ref_resource()())
-  }
+
+      list_segment_references_response() :: %{
+        optional("nextToken") => String.t(),
+        optional("referencedBy") => list(ref_resource()())
+      }
+
   """
   @type list_segment_references_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cloud_watch_logs_destination() :: %{
-    "logGroup" => String.t()
-  }
+
+      cloud_watch_logs_destination() :: %{
+        "logGroup" => String.t()
+      }
+
   """
   @type cloud_watch_logs_destination() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_project_events_result_entry() :: %{
-    "errorCode" => String.t(),
-    "errorMessage" => String.t(),
-    "eventId" => String.t()
-  }
+
+      put_project_events_result_entry() :: %{
+        "errorCode" => String.t(),
+        "errorMessage" => String.t(),
+        "eventId" => String.t()
+      }
+
   """
   @type put_project_events_result_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_features_response() :: %{
-    optional("features") => list(feature_summary()()),
-    optional("nextToken") => String.t()
-  }
+
+      list_features_response() :: %{
+        optional("features") => list(feature_summary()()),
+        optional("nextToken") => String.t()
+      }
+
   """
   @type list_features_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  metric_definition_config() :: %{
-    "entityIdKey" => String.t(),
-    "eventPattern" => String.t(),
-    "name" => String.t(),
-    "unitLabel" => String.t(),
-    "valueKey" => String.t()
-  }
+
+      metric_definition_config() :: %{
+        "entityIdKey" => String.t(),
+        "eventPattern" => String.t(),
+        "name" => String.t(),
+        "unitLabel" => String.t(),
+        "valueKey" => String.t()
+      }
+
   """
   @type metric_definition_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_experiment_response() :: %{
-    required("experiment") => experiment()
-  }
+
+      create_experiment_response() :: %{
+        required("experiment") => experiment()
+      }
+
   """
   @type create_experiment_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  segment_override() :: %{
-    "evaluationOrder" => [float()],
-    "segment" => String.t(),
-    "weights" => map()
-  }
+
+      segment_override() :: %{
+        "evaluationOrder" => [float()],
+        "segment" => String.t(),
+        "weights" => map()
+      }
+
   """
   @type segment_override() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_launches_request() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t(),
-    optional("status") => String.t()
-  }
+
+      list_launches_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("status") => String.t()
+      }
+
   """
   @type list_launches_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_launch_response() :: %{
 
-  }
+      delete_launch_response() :: %{}
+
   """
-  @type delete_launch_response() :: %{String.t() => any()}
+  @type delete_launch_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_features_request() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t()
-  }
+
+      list_features_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
   """
   @type list_features_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  metric_definition() :: %{
-    "entityIdKey" => String.t(),
-    "eventPattern" => String.t(),
-    "name" => String.t(),
-    "unitLabel" => String.t(),
-    "valueKey" => String.t()
-  }
+
+      metric_definition() :: %{
+        "entityIdKey" => String.t(),
+        "eventPattern" => String.t(),
+        "name" => String.t(),
+        "unitLabel" => String.t(),
+        "valueKey" => String.t()
+      }
+
   """
   @type metric_definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_launch_request() :: %{
-    optional("description") => String.t(),
-    optional("metricMonitors") => list(metric_monitor_config()()),
-    optional("randomizationSalt") => String.t(),
-    optional("scheduledSplitsConfig") => scheduled_splits_launch_config(),
-    optional("tags") => map(),
-    required("groups") => list(launch_group_config()()),
-    required("name") => String.t()
-  }
+
+      create_launch_request() :: %{
+        optional("description") => String.t(),
+        optional("metricMonitors") => list(metric_monitor_config()()),
+        optional("randomizationSalt") => String.t(),
+        optional("scheduledSplitsConfig") => scheduled_splits_launch_config(),
+        optional("tags") => map(),
+        required("groups") => list(launch_group_config()()),
+        required("name") => String.t()
+      }
+
   """
   @type create_launch_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_project_data_delivery_request() :: %{
-    optional("cloudWatchLogs") => cloud_watch_logs_destination_config(),
-    optional("s3Destination") => s3_destination_config()
-  }
+
+      update_project_data_delivery_request() :: %{
+        optional("cloudWatchLogs") => cloud_watch_logs_destination_config(),
+        optional("s3Destination") => s3_destination_config()
+      }
+
   """
   @type update_project_data_delivery_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  variation() :: %{
-    "name" => String.t(),
-    "value" => list()
-  }
+
+      variation() :: %{
+        "name" => String.t(),
+        "value" => list()
+      }
+
   """
   @type variation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_request() :: %{
-    required("tagKeys") => list(String.t()())
-  }
+
+      untag_resource_request() :: %{
+        required("tagKeys") => list(String.t()())
+      }
+
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_project_response() :: %{
-    required("project") => project()
-  }
+
+      update_project_response() :: %{
+        required("project") => project()
+      }
+
   """
   @type update_project_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  evaluate_feature_response() :: %{
-    optional("details") => String.t(),
-    optional("reason") => [String.t()],
-    optional("value") => list(),
-    optional("variation") => [String.t()]
-  }
+
+      evaluate_feature_response() :: %{
+        optional("details") => String.t(),
+        optional("reason") => [String.t()],
+        optional("value") => list(),
+        optional("variation") => [String.t()]
+      }
+
   """
   @type evaluate_feature_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_feature_request() :: %{
-    optional("addOrUpdateVariations") => list(variation_config()()),
-    optional("defaultVariation") => String.t(),
-    optional("description") => String.t(),
-    optional("entityOverrides") => map(),
-    optional("evaluationStrategy") => String.t(),
-    optional("removeVariations") => list(String.t()())
-  }
+
+      update_feature_request() :: %{
+        optional("addOrUpdateVariations") => list(variation_config()()),
+        optional("defaultVariation") => String.t(),
+        optional("description") => String.t(),
+        optional("entityOverrides") => map(),
+        optional("evaluationStrategy") => String.t(),
+        optional("removeVariations") => list(String.t()())
+      }
+
   """
   @type update_feature_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  segment() :: %{
-    "arn" => String.t(),
-    "createdTime" => [non_neg_integer()],
-    "description" => String.t(),
-    "experimentCount" => [float()],
-    "lastUpdatedTime" => [non_neg_integer()],
-    "launchCount" => [float()],
-    "name" => String.t(),
-    "pattern" => String.t(),
-    "tags" => map()
-  }
+
+      segment() :: %{
+        "arn" => String.t(),
+        "createdTime" => [non_neg_integer()],
+        "description" => String.t(),
+        "experimentCount" => [float()],
+        "lastUpdatedTime" => [non_neg_integer()],
+        "launchCount" => [float()],
+        "name" => String.t(),
+        "pattern" => String.t(),
+        "tags" => map()
+      }
+
   """
   @type segment() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_project_events_request() :: %{
-    required("events") => list(event()())
-  }
+
+      put_project_events_request() :: %{
+        required("events") => list(event()())
+      }
+
   """
   @type put_project_events_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  project_data_delivery_config() :: %{
-    "cloudWatchLogs" => cloud_watch_logs_destination_config(),
-    "s3Destination" => s3_destination_config()
-  }
+
+      project_data_delivery_config() :: %{
+        "cloudWatchLogs" => cloud_watch_logs_destination_config(),
+        "s3Destination" => s3_destination_config()
+      }
+
   """
   @type project_data_delivery_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_segment_response() :: %{
-    required("segment") => segment()
-  }
+
+      create_segment_response() :: %{
+        required("segment") => segment()
+      }
+
   """
   @type create_segment_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  project_app_config_resource() :: %{
-    "applicationId" => String.t(),
-    "configurationProfileId" => String.t(),
-    "environmentId" => String.t()
-  }
+
+      project_app_config_resource() :: %{
+        "applicationId" => String.t(),
+        "configurationProfileId" => String.t(),
+        "environmentId" => String.t()
+      }
+
   """
   @type project_app_config_resource() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_segments_response() :: %{
-    optional("nextToken") => String.t(),
-    optional("segments") => list(segment()())
-  }
+
+      list_segments_response() :: %{
+        optional("nextToken") => String.t(),
+        optional("segments") => list(segment()())
+      }
+
   """
   @type list_segments_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  evaluate_feature_request() :: %{
-    optional("evaluationContext") => String.t(),
-    required("entityId") => String.t()
-  }
+
+      evaluate_feature_request() :: %{
+        optional("evaluationContext") => String.t(),
+        required("entityId") => String.t()
+      }
+
   """
   @type evaluate_feature_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  scheduled_split_config() :: %{
-    "groupWeights" => map(),
-    "segmentOverrides" => list(segment_override()()),
-    "startTime" => [non_neg_integer()]
-  }
+
+      scheduled_split_config() :: %{
+        "groupWeights" => map(),
+        "segmentOverrides" => list(segment_override()()),
+        "startTime" => [non_neg_integer()]
+      }
+
   """
   @type scheduled_split_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_project_response() :: %{
-    required("project") => project()
-  }
+
+      create_project_response() :: %{
+        required("project") => project()
+      }
+
   """
   @type create_project_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  conflict_exception() :: %{
-    "message" => [String.t()],
-    "resourceId" => [String.t()],
-    "resourceType" => [String.t()]
-  }
+
+      conflict_exception() :: %{
+        "message" => [String.t()],
+        "resourceId" => [String.t()],
+        "resourceType" => [String.t()]
+      }
+
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_not_found_exception() :: %{
-    "message" => [String.t()],
-    "resourceId" => [String.t()],
-    "resourceType" => [String.t()]
-  }
+
+      resource_not_found_exception() :: %{
+        "message" => [String.t()],
+        "resourceId" => [String.t()],
+        "resourceType" => [String.t()]
+      }
+
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_experiment_request() :: %{
 
-  }
+      delete_experiment_request() :: %{}
+
   """
-  @type delete_experiment_request() :: %{String.t() => any()}
+  @type delete_experiment_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_experiment_request() :: %{
 
-  }
+      get_experiment_request() :: %{}
+
   """
-  @type get_experiment_request() :: %{String.t() => any()}
+  @type get_experiment_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  project() :: %{
-    "activeExperimentCount" => [float()],
-    "activeLaunchCount" => [float()],
-    "appConfigResource" => project_app_config_resource(),
-    "arn" => String.t(),
-    "createdTime" => [non_neg_integer()],
-    "dataDelivery" => project_data_delivery(),
-    "description" => String.t(),
-    "experimentCount" => [float()],
-    "featureCount" => [float()],
-    "lastUpdatedTime" => [non_neg_integer()],
-    "launchCount" => [float()],
-    "name" => String.t(),
-    "status" => String.t(),
-    "tags" => map()
-  }
+
+      project() :: %{
+        "activeExperimentCount" => [float()],
+        "activeLaunchCount" => [float()],
+        "appConfigResource" => project_app_config_resource(),
+        "arn" => String.t(),
+        "createdTime" => [non_neg_integer()],
+        "dataDelivery" => project_data_delivery(),
+        "description" => String.t(),
+        "experimentCount" => [float()],
+        "featureCount" => [float()],
+        "lastUpdatedTime" => [non_neg_integer()],
+        "launchCount" => [float()],
+        "name" => String.t(),
+        "status" => String.t(),
+        "tags" => map()
+      }
+
   """
   @type project() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  launch_group_config() :: %{
-    "description" => String.t(),
-    "feature" => String.t(),
-    "name" => String.t(),
-    "variation" => String.t()
-  }
+
+      launch_group_config() :: %{
+        "description" => String.t(),
+        "feature" => String.t(),
+        "name" => String.t(),
+        "variation" => String.t()
+      }
+
   """
   @type launch_group_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  metric_monitor() :: %{
-    "metricDefinition" => metric_definition()
-  }
+
+      metric_monitor() :: %{
+        "metricDefinition" => metric_definition()
+      }
+
   """
   @type metric_monitor() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  service_quota_exceeded_exception() :: %{
-    "message" => [String.t()],
-    "quotaCode" => [String.t()],
-    "resourceId" => [String.t()],
-    "resourceType" => [String.t()],
-    "serviceCode" => [String.t()]
-  }
+
+      service_quota_exceeded_exception() :: %{
+        "message" => [String.t()],
+        "quotaCode" => [String.t()],
+        "resourceId" => [String.t()],
+        "resourceType" => [String.t()],
+        "serviceCode" => [String.t()]
+      }
+
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_feature_response() :: %{
-    required("feature") => feature()
-  }
+
+      update_feature_response() :: %{
+        required("feature") => feature()
+      }
+
   """
   @type update_feature_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  metric_goal_config() :: %{
-    "desiredChange" => String.t(),
-    "metricDefinition" => metric_definition_config()
-  }
+
+      metric_goal_config() :: %{
+        "desiredChange" => String.t(),
+        "metricDefinition" => metric_definition_config()
+      }
+
   """
   @type metric_goal_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_projects_response() :: %{
-    optional("nextToken") => String.t(),
-    optional("projects") => list(project_summary()())
-  }
+
+      list_projects_response() :: %{
+        optional("nextToken") => String.t(),
+        optional("projects") => list(project_summary()())
+      }
+
   """
   @type list_projects_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_project_response() :: %{
-    required("project") => project()
-  }
+
+      get_project_response() :: %{
+        required("project") => project()
+      }
+
   """
   @type get_project_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_response() :: %{
-    optional("tags") => map()
-  }
+
+      list_tags_for_resource_response() :: %{
+        optional("tags") => map()
+      }
+
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  feature_summary() :: %{
-    "arn" => String.t(),
-    "createdTime" => [non_neg_integer()],
-    "defaultVariation" => String.t(),
-    "evaluationRules" => list(evaluation_rule()()),
-    "evaluationStrategy" => String.t(),
-    "lastUpdatedTime" => [non_neg_integer()],
-    "name" => String.t(),
-    "project" => String.t(),
-    "status" => String.t(),
-    "tags" => map()
-  }
+
+      feature_summary() :: %{
+        "arn" => String.t(),
+        "createdTime" => [non_neg_integer()],
+        "defaultVariation" => String.t(),
+        "evaluationRules" => list(evaluation_rule()()),
+        "evaluationStrategy" => String.t(),
+        "lastUpdatedTime" => [non_neg_integer()],
+        "name" => String.t(),
+        "project" => String.t(),
+        "status" => String.t(),
+        "tags" => map()
+      }
+
   """
   @type feature_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  validation_exception_field() :: %{
-    "message" => [String.t()],
-    "name" => [String.t()]
-  }
+
+      validation_exception_field() :: %{
+        "message" => [String.t()],
+        "name" => [String.t()]
+      }
+
   """
   @type validation_exception_field() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  service_unavailable_exception() :: %{
-    "message" => [String.t()]
-  }
+
+      service_unavailable_exception() :: %{
+        "message" => [String.t()]
+      }
+
   """
   @type service_unavailable_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  experiment_report() :: %{
-    "content" => String.t(),
-    "metricName" => String.t(),
-    "reportName" => String.t(),
-    "treatmentName" => String.t()
-  }
+
+      experiment_report() :: %{
+        "content" => String.t(),
+        "metricName" => String.t(),
+        "reportName" => String.t(),
+        "treatmentName" => String.t()
+      }
+
   """
   @type experiment_report() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_evaluate_feature_response() :: %{
-    optional("results") => list(evaluation_result()())
-  }
+
+      batch_evaluate_feature_response() :: %{
+        optional("results") => list(evaluation_result()())
+      }
+
   """
   @type batch_evaluate_feature_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_segment_response() :: %{
-    required("segment") => segment()
-  }
+
+      get_segment_response() :: %{
+        required("segment") => segment()
+      }
+
   """
   @type get_segment_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ref_resource() :: %{
-    "arn" => [String.t()],
-    "endTime" => [String.t()],
-    "lastUpdatedOn" => [String.t()],
-    "name" => [String.t()],
-    "startTime" => [String.t()],
-    "status" => [String.t()],
-    "type" => [String.t()]
-  }
+
+      ref_resource() :: %{
+        "arn" => [String.t()],
+        "endTime" => [String.t()],
+        "lastUpdatedOn" => [String.t()],
+        "name" => [String.t()],
+        "startTime" => [String.t()],
+        "status" => [String.t()],
+        "type" => [String.t()]
+      }
+
   """
   @type ref_resource() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  scheduled_splits_launch_config() :: %{
-    "steps" => list(scheduled_split_config()())
-  }
+
+      scheduled_splits_launch_config() :: %{
+        "steps" => list(scheduled_split_config()())
+      }
+
   """
   @type scheduled_splits_launch_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_segment_request() :: %{
-    optional("description") => String.t(),
-    optional("tags") => map(),
-    required("name") => String.t(),
-    required("pattern") => String.t()
-  }
+
+      create_segment_request() :: %{
+        optional("description") => String.t(),
+        optional("tags") => map(),
+        required("name") => String.t(),
+        required("pattern") => String.t()
+      }
+
   """
   @type create_segment_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cloud_watch_logs_destination_config() :: %{
-    "logGroup" => String.t()
-  }
+
+      cloud_watch_logs_destination_config() :: %{
+        "logGroup" => String.t()
+      }
+
   """
   @type cloud_watch_logs_destination_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  s3_destination() :: %{
-    "bucket" => String.t(),
-    "prefix" => String.t()
-  }
+
+      s3_destination() :: %{
+        "bucket" => String.t(),
+        "prefix" => String.t()
+      }
+
   """
   @type s3_destination() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_experiment_request() :: %{
-    optional("description") => String.t(),
-    optional("metricGoals") => list(metric_goal_config()()),
-    optional("onlineAbConfig") => online_ab_config(),
-    optional("randomizationSalt") => String.t(),
-    optional("removeSegment") => [boolean()],
-    optional("samplingRate") => float(),
-    optional("segment") => String.t(),
-    optional("treatments") => list(treatment_config()())
-  }
+
+      update_experiment_request() :: %{
+        optional("description") => String.t(),
+        optional("metricGoals") => list(metric_goal_config()()),
+        optional("onlineAbConfig") => online_ab_config(),
+        optional("randomizationSalt") => String.t(),
+        optional("removeSegment") => [boolean()],
+        optional("samplingRate") => float(),
+        optional("segment") => String.t(),
+        optional("treatments") => list(treatment_config()())
+      }
+
   """
   @type update_experiment_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_experiment_request() :: %{
-    optional("description") => String.t(),
-    optional("onlineAbConfig") => online_ab_config(),
-    optional("randomizationSalt") => String.t(),
-    optional("samplingRate") => float(),
-    optional("segment") => String.t(),
-    optional("tags") => map(),
-    required("metricGoals") => list(metric_goal_config()()),
-    required("name") => String.t(),
-    required("treatments") => list(treatment_config()())
-  }
+
+      create_experiment_request() :: %{
+        optional("description") => String.t(),
+        optional("onlineAbConfig") => online_ab_config(),
+        optional("randomizationSalt") => String.t(),
+        optional("samplingRate") => float(),
+        optional("segment") => String.t(),
+        optional("tags") => map(),
+        required("metricGoals") => list(metric_goal_config()()),
+        required("name") => String.t(),
+        required("treatments") => list(treatment_config()())
+      }
+
   """
   @type create_experiment_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_segment_response() :: %{
 
-  }
+      delete_segment_response() :: %{}
+
   """
-  @type delete_segment_response() :: %{String.t() => any()}
+  @type delete_segment_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  experiment_results_data() :: %{
-    "metricName" => String.t(),
-    "resultStat" => String.t(),
-    "treatmentName" => String.t(),
-    "values" => list([float()]())
-  }
+
+      experiment_results_data() :: %{
+        "metricName" => String.t(),
+        "resultStat" => String.t(),
+        "treatmentName" => String.t(),
+        "values" => list([float()]())
+      }
+
   """
   @type experiment_results_data() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  experiment_schedule() :: %{
-    "analysisCompleteTime" => [non_neg_integer()]
-  }
+
+      experiment_schedule() :: %{
+        "analysisCompleteTime" => [non_neg_integer()]
+      }
+
   """
   @type experiment_schedule() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  evaluation_rule() :: %{
-    "name" => String.t(),
-    "type" => String.t()
-  }
+
+      evaluation_rule() :: %{
+        "name" => String.t(),
+        "type" => String.t()
+      }
+
   """
   @type evaluation_rule() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  experiment_execution() :: %{
-    "endedTime" => [non_neg_integer()],
-    "startedTime" => [non_neg_integer()]
-  }
+
+      experiment_execution() :: %{
+        "endedTime" => [non_neg_integer()],
+        "startedTime" => [non_neg_integer()]
+      }
+
   """
   @type experiment_execution() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stop_experiment_request() :: %{
-    optional("desiredState") => String.t(),
-    optional("reason") => String.t()
-  }
+
+      stop_experiment_request() :: %{
+        optional("desiredState") => String.t(),
+        optional("reason") => String.t()
+      }
+
   """
   @type stop_experiment_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  internal_server_exception() :: %{
-    "message" => [String.t()]
-  }
+
+      internal_server_exception() :: %{
+        "message" => [String.t()]
+      }
+
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_project_response() :: %{
 
-  }
+      delete_project_response() :: %{}
+
   """
-  @type delete_project_response() :: %{String.t() => any()}
+  @type delete_project_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  update_project_request() :: %{
-    optional("appConfigResource") => project_app_config_resource_config(),
-    optional("description") => String.t()
-  }
+
+      update_project_request() :: %{
+        optional("appConfigResource") => project_app_config_resource_config(),
+        optional("description") => String.t()
+      }
+
   """
   @type update_project_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  event() :: %{
-    "data" => String.t(),
-    "timestamp" => [non_neg_integer()],
-    "type" => String.t()
-  }
+
+      event() :: %{
+        "data" => String.t(),
+        "timestamp" => [non_neg_integer()],
+        "type" => String.t()
+      }
+
   """
   @type event() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  online_ab_config() :: %{
-    "controlTreatmentName" => String.t(),
-    "treatmentWeights" => map()
-  }
+
+      online_ab_config() :: %{
+        "controlTreatmentName" => String.t(),
+        "treatmentWeights" => map()
+      }
+
   """
   @type online_ab_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  treatment() :: %{
-    "description" => String.t(),
-    "featureVariations" => map(),
-    "name" => String.t()
-  }
+
+      treatment() :: %{
+        "description" => String.t(),
+        "featureVariations" => map(),
+        "name" => String.t()
+      }
+
   """
   @type treatment() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_experiment_response() :: %{
-    optional("startedTime") => [non_neg_integer()]
-  }
+
+      start_experiment_response() :: %{
+        optional("startedTime") => [non_neg_integer()]
+      }
+
   """
   @type start_experiment_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_launch_response() :: %{
-    required("launch") => launch()
-  }
+
+      update_launch_response() :: %{
+        required("launch") => launch()
+      }
+
   """
   @type update_launch_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  access_denied_exception() :: %{
-    "message" => [String.t()]
-  }
+
+      access_denied_exception() :: %{
+        "message" => [String.t()]
+      }
+
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  project_data_delivery() :: %{
-    "cloudWatchLogs" => cloud_watch_logs_destination(),
-    "s3Destination" => s3_destination()
-  }
+
+      project_data_delivery() :: %{
+        "cloudWatchLogs" => cloud_watch_logs_destination(),
+        "s3Destination" => s3_destination()
+      }
+
   """
   @type project_data_delivery() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_response() :: %{
 
-  }
+      tag_resource_response() :: %{}
+
   """
-  @type tag_resource_response() :: %{String.t() => any()}
+  @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  validation_exception() :: %{
-    "fieldList" => list(validation_exception_field()()),
-    "message" => [String.t()],
-    "reason" => String.t()
-  }
+
+      validation_exception() :: %{
+        "fieldList" => list(validation_exception_field()()),
+        "message" => [String.t()],
+        "reason" => String.t()
+      }
+
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_request() :: %{
 
-  }
+      list_tags_for_resource_request() :: %{}
+
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  batch_evaluate_feature_request() :: %{
-    required("requests") => list(evaluation_request()())
-  }
+
+      batch_evaluate_feature_request() :: %{
+        required("requests") => list(evaluation_request()())
+      }
+
   """
   @type batch_evaluate_feature_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_experiments_request() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t(),
-    optional("status") => String.t()
-  }
+
+      list_experiments_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("status") => String.t()
+      }
+
   """
   @type list_experiments_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  throttling_exception() :: %{
-    "message" => [String.t()],
-    "quotaCode" => [String.t()],
-    "serviceCode" => [String.t()]
-  }
+
+      throttling_exception() :: %{
+        "message" => [String.t()],
+        "quotaCode" => [String.t()],
+        "serviceCode" => [String.t()]
+      }
+
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_project_request() :: %{
-    optional("appConfigResource") => project_app_config_resource_config(),
-    optional("dataDelivery") => project_data_delivery_config(),
-    optional("description") => String.t(),
-    optional("tags") => map(),
-    required("name") => String.t()
-  }
+
+      create_project_request() :: %{
+        optional("appConfigResource") => project_app_config_resource_config(),
+        optional("dataDelivery") => project_data_delivery_config(),
+        optional("description") => String.t(),
+        optional("tags") => map(),
+        required("name") => String.t()
+      }
+
   """
   @type create_project_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_experiment_request() :: %{
-    required("analysisCompleteTime") => [non_neg_integer()]
-  }
+
+      start_experiment_request() :: %{
+        required("analysisCompleteTime") => [non_neg_integer()]
+      }
+
   """
   @type start_experiment_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_projects_request() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t()
-  }
+
+      list_projects_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
   """
   @type list_projects_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_segments_request() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t()
-  }
+
+      list_segments_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
   """
   @type list_segments_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_segment_references_request() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t(),
-    required("type") => String.t()
-  }
+
+      list_segment_references_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        required("type") => String.t()
+      }
+
   """
   @type list_segment_references_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  metric_goal() :: %{
-    "desiredChange" => String.t(),
-    "metricDefinition" => metric_definition()
-  }
+
+      metric_goal() :: %{
+        "desiredChange" => String.t(),
+        "metricDefinition" => metric_definition()
+      }
+
   """
   @type metric_goal() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  launch_execution() :: %{
-    "endedTime" => [non_neg_integer()],
-    "startedTime" => [non_neg_integer()]
-  }
+
+      launch_execution() :: %{
+        "endedTime" => [non_neg_integer()],
+        "startedTime" => [non_neg_integer()]
+      }
+
   """
   @type launch_execution() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_segment_request() :: %{
 
-  }
+      delete_segment_request() :: %{}
+
   """
-  @type delete_segment_request() :: %{String.t() => any()}
+  @type delete_segment_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  metric_monitor_config() :: %{
-    "metricDefinition" => metric_definition_config()
-  }
+
+      metric_monitor_config() :: %{
+        "metricDefinition" => metric_definition_config()
+      }
+
   """
   @type metric_monitor_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  project_app_config_resource_config() :: %{
-    "applicationId" => String.t(),
-    "environmentId" => String.t()
-  }
+
+      project_app_config_resource_config() :: %{
+        "applicationId" => String.t(),
+        "environmentId" => String.t()
+      }
+
   """
   @type project_app_config_resource_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  evaluation_result() :: %{
-    "details" => String.t(),
-    "entityId" => String.t(),
-    "feature" => String.t(),
-    "project" => String.t(),
-    "reason" => [String.t()],
-    "value" => list(),
-    "variation" => [String.t()]
-  }
+
+      evaluation_result() :: %{
+        "details" => String.t(),
+        "entityId" => String.t(),
+        "feature" => String.t(),
+        "project" => String.t(),
+        "reason" => [String.t()],
+        "value" => list(),
+        "variation" => [String.t()]
+      }
+
   """
   @type evaluation_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stop_experiment_response() :: %{
-    optional("endedTime") => [non_neg_integer()]
-  }
+
+      stop_experiment_response() :: %{
+        optional("endedTime") => [non_neg_integer()]
+      }
+
   """
   @type stop_experiment_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stop_launch_request() :: %{
-    optional("desiredState") => String.t(),
-    optional("reason") => String.t()
-  }
+
+      stop_launch_request() :: %{
+        optional("desiredState") => String.t(),
+        optional("reason") => String.t()
+      }
+
   """
   @type stop_launch_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_feature_response() :: %{
 
-  }
+      delete_feature_response() :: %{}
+
   """
-  @type delete_feature_response() :: %{String.t() => any()}
+  @type delete_feature_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  start_launch_response() :: %{
-    required("launch") => launch()
-  }
+
+      start_launch_response() :: %{
+        required("launch") => launch()
+      }
+
   """
   @type start_launch_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_feature_response() :: %{
-    required("feature") => feature()
-  }
+
+      get_feature_response() :: %{
+        required("feature") => feature()
+      }
+
   """
   @type get_feature_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_launch_request() :: %{
 
-  }
+      start_launch_request() :: %{}
+
   """
-  @type start_launch_request() :: %{String.t() => any()}
+  @type start_launch_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  launch() :: %{
-    "arn" => String.t(),
-    "createdTime" => [non_neg_integer()],
-    "description" => String.t(),
-    "execution" => launch_execution(),
-    "groups" => list(launch_group()()),
-    "lastUpdatedTime" => [non_neg_integer()],
-    "metricMonitors" => list(metric_monitor()()),
-    "name" => String.t(),
-    "project" => String.t(),
-    "randomizationSalt" => String.t(),
-    "scheduledSplitsDefinition" => scheduled_splits_launch_definition(),
-    "status" => String.t(),
-    "statusReason" => String.t(),
-    "tags" => map(),
-    "type" => String.t()
-  }
+
+      launch() :: %{
+        "arn" => String.t(),
+        "createdTime" => [non_neg_integer()],
+        "description" => String.t(),
+        "execution" => launch_execution(),
+        "groups" => list(launch_group()()),
+        "lastUpdatedTime" => [non_neg_integer()],
+        "metricMonitors" => list(metric_monitor()()),
+        "name" => String.t(),
+        "project" => String.t(),
+        "randomizationSalt" => String.t(),
+        "scheduledSplitsDefinition" => scheduled_splits_launch_definition(),
+        "status" => String.t(),
+        "statusReason" => String.t(),
+        "tags" => map(),
+        "type" => String.t()
+      }
+
   """
   @type launch() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_experiment_results_response() :: %{
-    optional("details") => [String.t()],
-    optional("reports") => list(experiment_report()()),
-    optional("resultsData") => list(experiment_results_data()()),
-    optional("timestamps") => list([non_neg_integer()]())
-  }
+
+      get_experiment_results_response() :: %{
+        optional("details") => [String.t()],
+        optional("reports") => list(experiment_report()()),
+        optional("resultsData") => list(experiment_results_data()()),
+        optional("timestamps") => list([non_neg_integer()]())
+      }
+
   """
   @type get_experiment_results_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  scheduled_split() :: %{
-    "groupWeights" => map(),
-    "segmentOverrides" => list(segment_override()()),
-    "startTime" => [non_neg_integer()]
-  }
+
+      scheduled_split() :: %{
+        "groupWeights" => map(),
+        "segmentOverrides" => list(segment_override()()),
+        "startTime" => [non_neg_integer()]
+      }
+
   """
   @type scheduled_split() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  experiment() :: %{
-    "arn" => String.t(),
-    "createdTime" => [non_neg_integer()],
-    "description" => String.t(),
-    "execution" => experiment_execution(),
-    "lastUpdatedTime" => [non_neg_integer()],
-    "metricGoals" => list(metric_goal()()),
-    "name" => String.t(),
-    "onlineAbDefinition" => online_ab_definition(),
-    "project" => String.t(),
-    "randomizationSalt" => String.t(),
-    "samplingRate" => float(),
-    "schedule" => experiment_schedule(),
-    "segment" => String.t(),
-    "status" => String.t(),
-    "statusReason" => String.t(),
-    "tags" => map(),
-    "treatments" => list(treatment()()),
-    "type" => String.t()
-  }
+
+      experiment() :: %{
+        "arn" => String.t(),
+        "createdTime" => [non_neg_integer()],
+        "description" => String.t(),
+        "execution" => experiment_execution(),
+        "lastUpdatedTime" => [non_neg_integer()],
+        "metricGoals" => list(metric_goal()()),
+        "name" => String.t(),
+        "onlineAbDefinition" => online_ab_definition(),
+        "project" => String.t(),
+        "randomizationSalt" => String.t(),
+        "samplingRate" => float(),
+        "schedule" => experiment_schedule(),
+        "segment" => String.t(),
+        "status" => String.t(),
+        "statusReason" => String.t(),
+        "tags" => map(),
+        "treatments" => list(treatment()()),
+        "type" => String.t()
+      }
+
   """
   @type experiment() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_project_request() :: %{
 
-  }
+      delete_project_request() :: %{}
+
   """
-  @type delete_project_request() :: %{String.t() => any()}
+  @type delete_project_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  stop_launch_response() :: %{
-    optional("endedTime") => [non_neg_integer()]
-  }
+
+      stop_launch_response() :: %{
+        optional("endedTime") => [non_neg_integer()]
+      }
+
   """
   @type stop_launch_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_experiment_response() :: %{
-    required("experiment") => experiment()
-  }
+
+      update_experiment_response() :: %{
+        required("experiment") => experiment()
+      }
+
   """
   @type update_experiment_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_launch_request() :: %{
 
-  }
+      get_launch_request() :: %{}
+
   """
-  @type get_launch_request() :: %{String.t() => any()}
+  @type get_launch_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  s3_destination_config() :: %{
-    "bucket" => String.t(),
-    "prefix" => String.t()
-  }
+
+      s3_destination_config() :: %{
+        "bucket" => String.t(),
+        "prefix" => String.t()
+      }
+
   """
   @type s3_destination_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_experiment_results_request() :: %{
-    optional("baseStat") => String.t(),
-    optional("endTime") => [non_neg_integer()],
-    optional("period") => float(),
-    optional("reportNames") => list(String.t()()),
-    optional("resultStats") => list(String.t()()),
-    optional("startTime") => [non_neg_integer()],
-    required("metricNames") => list(String.t()()),
-    required("treatmentNames") => list(String.t()())
-  }
+
+      get_experiment_results_request() :: %{
+        optional("baseStat") => String.t(),
+        optional("endTime") => [non_neg_integer()],
+        optional("period") => float(),
+        optional("reportNames") => list(String.t()()),
+        optional("resultStats") => list(String.t()()),
+        optional("startTime") => [non_neg_integer()],
+        required("metricNames") => list(String.t()()),
+        required("treatmentNames") => list(String.t()())
+      }
+
   """
   @type get_experiment_results_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_feature_request() :: %{
 
-  }
+      delete_feature_request() :: %{}
+
   """
-  @type delete_feature_request() :: %{String.t() => any()}
+  @type delete_feature_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  delete_launch_request() :: %{
 
-  }
+      delete_launch_request() :: %{}
+
   """
-  @type delete_launch_request() :: %{String.t() => any()}
+  @type delete_launch_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_feature_request() :: %{
 
-  }
+      get_feature_request() :: %{}
+
   """
-  @type get_feature_request() :: %{String.t() => any()}
+  @type get_feature_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_launch_response() :: %{
-    required("launch") => launch()
-  }
+
+      create_launch_response() :: %{
+        required("launch") => launch()
+      }
+
   """
   @type create_launch_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_launch_request() :: %{
-    optional("description") => String.t(),
-    optional("groups") => list(launch_group_config()()),
-    optional("metricMonitors") => list(metric_monitor_config()()),
-    optional("randomizationSalt") => String.t(),
-    optional("scheduledSplitsConfig") => scheduled_splits_launch_config()
-  }
+
+      update_launch_request() :: %{
+        optional("description") => String.t(),
+        optional("groups") => list(launch_group_config()()),
+        optional("metricMonitors") => list(metric_monitor_config()()),
+        optional("randomizationSalt") => String.t(),
+        optional("scheduledSplitsConfig") => scheduled_splits_launch_config()
+      }
+
   """
   @type update_launch_request() :: %{String.t() => any()}
+
+  @type batch_evaluate_feature_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
+  @type create_experiment_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_feature_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_launch_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_project_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+
+  @type create_segment_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+
+  @type delete_experiment_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_feature_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_launch_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_project_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_segment_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type evaluate_feature_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
+  @type get_experiment_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
+  @type get_experiment_results_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type get_feature_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
+  @type get_launch_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
+  @type get_project_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
+  @type get_segment_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
+  @type list_experiments_errors() ::
+          validation_exception() | access_denied_exception() | resource_not_found_exception()
+
+  @type list_features_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
+  @type list_launches_errors() ::
+          throttling_exception() | validation_exception() | access_denied_exception()
+
+  @type list_projects_errors() ::
+          throttling_exception() | validation_exception() | access_denied_exception()
+
+  @type list_segment_references_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
+  @type list_segments_errors() ::
+          throttling_exception() | validation_exception() | access_denied_exception()
+
+  @type list_tags_for_resource_errors() ::
+          validation_exception() | resource_not_found_exception() | conflict_exception()
+
+  @type put_project_events_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
+  @type start_experiment_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type start_launch_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type stop_experiment_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type stop_launch_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
+  @type tag_resource_errors() ::
+          validation_exception() | resource_not_found_exception() | conflict_exception()
+
+  @type test_segment_pattern_errors() ::
+          throttling_exception() | validation_exception() | access_denied_exception()
+
+  @type untag_resource_errors() ::
+          validation_exception() | resource_not_found_exception() | conflict_exception()
+
+  @type update_experiment_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_feature_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_launch_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_project_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_project_data_delivery_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   def metadata do
     %{
@@ -1485,10 +1930,7 @@ defmodule AWS.Evidently do
   @spec batch_evaluate_feature(map(), String.t(), batch_evaluate_feature_request(), list()) ::
           {:ok, batch_evaluate_feature_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, batch_evaluate_feature_errors()}
   def batch_evaluate_feature(%Client{} = client, project, input, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}/evaluations"
     headers = []
@@ -1532,11 +1974,7 @@ defmodule AWS.Evidently do
   @spec create_experiment(map(), String.t(), create_experiment_request(), list()) ::
           {:ok, create_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_experiment_errors()}
   def create_experiment(%Client{} = client, project, input, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}/experiments"
     headers = []
@@ -1570,11 +2008,7 @@ defmodule AWS.Evidently do
   @spec create_feature(map(), String.t(), create_feature_request(), list()) ::
           {:ok, create_feature_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_feature_errors()}
   def create_feature(%Client{} = client, project, input, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}/features"
     headers = []
@@ -1616,11 +2050,7 @@ defmodule AWS.Evidently do
   @spec create_launch(map(), String.t(), create_launch_request(), list()) ::
           {:ok, create_launch_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_launch_errors()}
   def create_launch(%Client{} = client, project, input, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}/launches"
     headers = []
@@ -1654,10 +2084,7 @@ defmodule AWS.Evidently do
   @spec create_project(map(), create_project_request(), list()) ::
           {:ok, create_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_project_errors()}
   def create_project(%Client{} = client, input, options \\ []) do
     url_path = "/projects"
     headers = []
@@ -1709,10 +2136,7 @@ defmodule AWS.Evidently do
   @spec create_segment(map(), create_segment_request(), list()) ::
           {:ok, create_segment_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_segment_errors()}
   def create_segment(%Client{} = client, input, options \\ []) do
     url_path = "/segments"
     headers = []
@@ -1744,12 +2168,7 @@ defmodule AWS.Evidently do
   @spec delete_experiment(map(), String.t(), String.t(), delete_experiment_request(), list()) ::
           {:ok, delete_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_experiment_errors()}
   def delete_experiment(%Client{} = client, experiment, project, input, options \\ []) do
     url_path =
       "/projects/#{AWS.Util.encode_uri(project)}/experiments/#{AWS.Util.encode_uri(experiment)}"
@@ -1778,11 +2197,7 @@ defmodule AWS.Evidently do
   @spec delete_feature(map(), String.t(), String.t(), delete_feature_request(), list()) ::
           {:ok, delete_feature_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_feature_errors()}
   def delete_feature(%Client{} = client, feature, project, input, options \\ []) do
     url_path =
       "/projects/#{AWS.Util.encode_uri(project)}/features/#{AWS.Util.encode_uri(feature)}"
@@ -1816,11 +2231,7 @@ defmodule AWS.Evidently do
   @spec delete_launch(map(), String.t(), String.t(), delete_launch_request(), list()) ::
           {:ok, delete_launch_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_launch_errors()}
   def delete_launch(%Client{} = client, launch, project, input, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}/launches/#{AWS.Util.encode_uri(launch)}"
     headers = []
@@ -1851,11 +2262,7 @@ defmodule AWS.Evidently do
   @spec delete_project(map(), String.t(), delete_project_request(), list()) ::
           {:ok, delete_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_project_errors()}
   def delete_project(%Client{} = client, project, input, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}"
     headers = []
@@ -1886,11 +2293,7 @@ defmodule AWS.Evidently do
   @spec delete_segment(map(), String.t(), delete_segment_request(), list()) ::
           {:ok, delete_segment_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_segment_errors()}
   def delete_segment(%Client{} = client, segment, input, options \\ []) do
     url_path = "/segments/#{AWS.Util.encode_uri(segment)}"
     headers = []
@@ -1958,10 +2361,7 @@ defmodule AWS.Evidently do
   @spec evaluate_feature(map(), String.t(), String.t(), evaluate_feature_request(), list()) ::
           {:ok, evaluate_feature_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, evaluate_feature_errors()}
   def evaluate_feature(%Client{} = client, feature, project, input, options \\ []) do
     url_path =
       "/projects/#{AWS.Util.encode_uri(project)}/evaluations/#{AWS.Util.encode_uri(feature)}"
@@ -1994,10 +2394,7 @@ defmodule AWS.Evidently do
   @spec get_experiment(map(), String.t(), String.t(), list()) ::
           {:ok, get_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_experiment_errors()}
   def get_experiment(%Client{} = client, experiment, project, options \\ []) do
     url_path =
       "/projects/#{AWS.Util.encode_uri(project)}/experiments/#{AWS.Util.encode_uri(experiment)}"
@@ -2036,11 +2433,7 @@ defmodule AWS.Evidently do
         ) ::
           {:ok, get_experiment_results_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_experiment_results_errors()}
   def get_experiment_results(%Client{} = client, experiment, project, input, options \\ []) do
     url_path =
       "/projects/#{AWS.Util.encode_uri(project)}/experiments/#{AWS.Util.encode_uri(experiment)}/results"
@@ -2073,10 +2466,7 @@ defmodule AWS.Evidently do
   @spec get_feature(map(), String.t(), String.t(), list()) ::
           {:ok, get_feature_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_feature_errors()}
   def get_feature(%Client{} = client, feature, project, options \\ []) do
     url_path =
       "/projects/#{AWS.Util.encode_uri(project)}/features/#{AWS.Util.encode_uri(feature)}"
@@ -2099,10 +2489,7 @@ defmodule AWS.Evidently do
   @spec get_launch(map(), String.t(), String.t(), list()) ::
           {:ok, get_launch_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_launch_errors()}
   def get_launch(%Client{} = client, launch, project, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}/launches/#{AWS.Util.encode_uri(launch)}"
     headers = []
@@ -2123,10 +2510,7 @@ defmodule AWS.Evidently do
   @spec get_project(map(), String.t(), list()) ::
           {:ok, get_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_project_errors()}
   def get_project(%Client{} = client, project, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}"
     headers = []
@@ -2146,10 +2530,7 @@ defmodule AWS.Evidently do
   @spec get_segment(map(), String.t(), list()) ::
           {:ok, get_segment_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_segment_errors()}
   def get_segment(%Client{} = client, segment, options \\ []) do
     url_path = "/segments/#{AWS.Util.encode_uri(segment)}"
     headers = []
@@ -2174,9 +2555,7 @@ defmodule AWS.Evidently do
         ) ::
           {:ok, list_experiments_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_experiments_errors()}
   def list_experiments(
         %Client{} = client,
         project,
@@ -2221,10 +2600,7 @@ defmodule AWS.Evidently do
   @spec list_features(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_features_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_features_errors()}
   def list_features(
         %Client{} = client,
         project,
@@ -2268,9 +2644,7 @@ defmodule AWS.Evidently do
         ) ::
           {:ok, list_launches_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_launches_errors()}
   def list_launches(
         %Client{} = client,
         project,
@@ -2317,9 +2691,7 @@ defmodule AWS.Evidently do
   @spec list_projects(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_projects_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_projects_errors()}
   def list_projects(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/projects"
     headers = []
@@ -2358,10 +2730,7 @@ defmodule AWS.Evidently do
         ) ::
           {:ok, list_segment_references_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_segment_references_errors()}
   def list_segment_references(
         %Client{} = client,
         segment,
@@ -2407,9 +2776,7 @@ defmodule AWS.Evidently do
   @spec list_segments(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_segments_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_segments_errors()}
   def list_segments(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/segments"
     headers = []
@@ -2440,9 +2807,7 @@ defmodule AWS.Evidently do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -2462,10 +2827,7 @@ defmodule AWS.Evidently do
   @spec put_project_events(map(), String.t(), put_project_events_request(), list()) ::
           {:ok, put_project_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, put_project_events_errors()}
   def put_project_events(%Client{} = client, project, input, options \\ []) do
     url_path = "/events/projects/#{AWS.Util.encode_uri(project)}"
     headers = []
@@ -2496,12 +2858,7 @@ defmodule AWS.Evidently do
   @spec start_experiment(map(), String.t(), String.t(), start_experiment_request(), list()) ::
           {:ok, start_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, start_experiment_errors()}
   def start_experiment(%Client{} = client, experiment, project, input, options \\ []) do
     url_path =
       "/projects/#{AWS.Util.encode_uri(project)}/experiments/#{AWS.Util.encode_uri(experiment)}/start"
@@ -2534,12 +2891,7 @@ defmodule AWS.Evidently do
   @spec start_launch(map(), String.t(), String.t(), start_launch_request(), list()) ::
           {:ok, start_launch_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, start_launch_errors()}
   def start_launch(%Client{} = client, launch, project, input, options \\ []) do
     url_path =
       "/projects/#{AWS.Util.encode_uri(project)}/launches/#{AWS.Util.encode_uri(launch)}/start"
@@ -2571,12 +2923,7 @@ defmodule AWS.Evidently do
   @spec stop_experiment(map(), String.t(), String.t(), stop_experiment_request(), list()) ::
           {:ok, stop_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, stop_experiment_errors()}
   def stop_experiment(%Client{} = client, experiment, project, input, options \\ []) do
     url_path =
       "/projects/#{AWS.Util.encode_uri(project)}/experiments/#{AWS.Util.encode_uri(experiment)}/cancel"
@@ -2613,10 +2960,7 @@ defmodule AWS.Evidently do
   @spec stop_launch(map(), String.t(), String.t(), stop_launch_request(), list()) ::
           {:ok, stop_launch_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, stop_launch_errors()}
   def stop_launch(%Client{} = client, launch, project, input, options \\ []) do
     url_path =
       "/projects/#{AWS.Util.encode_uri(project)}/launches/#{AWS.Util.encode_uri(launch)}/cancel"
@@ -2668,9 +3012,7 @@ defmodule AWS.Evidently do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -2701,9 +3043,7 @@ defmodule AWS.Evidently do
   @spec test_segment_pattern(map(), test_segment_pattern_request(), list()) ::
           {:ok, test_segment_pattern_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, test_segment_pattern_errors()}
   def test_segment_pattern(%Client{} = client, input, options \\ []) do
     url_path = "/test-segment-pattern"
     headers = []
@@ -2730,9 +3070,7 @@ defmodule AWS.Evidently do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -2767,10 +3105,7 @@ defmodule AWS.Evidently do
   @spec update_experiment(map(), String.t(), String.t(), update_experiment_request(), list()) ::
           {:ok, update_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_experiment_errors()}
   def update_experiment(%Client{} = client, experiment, project, input, options \\ []) do
     url_path =
       "/projects/#{AWS.Util.encode_uri(project)}/experiments/#{AWS.Util.encode_uri(experiment)}"
@@ -2803,11 +3138,7 @@ defmodule AWS.Evidently do
   @spec update_feature(map(), String.t(), String.t(), update_feature_request(), list()) ::
           {:ok, update_feature_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_feature_errors()}
   def update_feature(%Client{} = client, feature, project, input, options \\ []) do
     url_path =
       "/projects/#{AWS.Util.encode_uri(project)}/features/#{AWS.Util.encode_uri(feature)}"
@@ -2839,10 +3170,7 @@ defmodule AWS.Evidently do
   @spec update_launch(map(), String.t(), String.t(), update_launch_request(), list()) ::
           {:ok, update_launch_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_launch_errors()}
   def update_launch(%Client{} = client, launch, project, input, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}/launches/#{AWS.Util.encode_uri(launch)}"
     headers = []
@@ -2877,11 +3205,7 @@ defmodule AWS.Evidently do
   @spec update_project(map(), String.t(), update_project_request(), list()) ::
           {:ok, update_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_project_errors()}
   def update_project(%Client{} = client, project, input, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}"
     headers = []
@@ -2923,11 +3247,7 @@ defmodule AWS.Evidently do
         ) ::
           {:ok, update_project_data_delivery_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_project_data_delivery_errors()}
   def update_project_data_delivery(%Client{} = client, project, input, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}/data-delivery"
     headers = []

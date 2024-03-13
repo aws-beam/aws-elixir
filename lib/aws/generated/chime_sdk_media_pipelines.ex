@@ -17,1509 +17,2056 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @typedoc """
 
   ## Example:
-  create_media_capture_pipeline_response() :: %{
-    "MediaCapturePipeline" => media_capture_pipeline()
-  }
+
+      create_media_capture_pipeline_response() :: %{
+        "MediaCapturePipeline" => media_capture_pipeline()
+      }
+
   """
   @type create_media_capture_pipeline_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  kinesis_data_stream_sink_configuration() :: %{
-    "InsightsTarget" => String.t()
-  }
+
+      kinesis_data_stream_sink_configuration() :: %{
+        "InsightsTarget" => String.t()
+      }
+
   """
   @type kinesis_data_stream_sink_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  recording_stream_configuration() :: %{
-    "StreamArn" => String.t()
-  }
+
+      recording_stream_configuration() :: %{
+        "StreamArn" => String.t()
+      }
+
   """
   @type recording_stream_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_request() :: %{
-    required("ResourceARN") => String.t(),
-    required("Tags") => list(tag()())
-  }
+
+      tag_resource_request() :: %{
+        required("ResourceARN") => String.t(),
+        required("Tags") => list(tag()())
+      }
+
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_media_insights_pipeline_configuration_response() :: %{
-    "MediaInsightsPipelineConfiguration" => media_insights_pipeline_configuration()
-  }
+
+      update_media_insights_pipeline_configuration_response() :: %{
+        "MediaInsightsPipelineConfiguration" => media_insights_pipeline_configuration()
+      }
+
   """
   @type update_media_insights_pipeline_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  data_channel_concatenation_configuration() :: %{
-    "State" => list(any())
-  }
+
+      data_channel_concatenation_configuration() :: %{
+        "State" => list(any())
+      }
+
   """
   @type data_channel_concatenation_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_voice_tone_analysis_task_request() :: %{
-    optional("ClientRequestToken") => String.t(),
-    optional("KinesisVideoStreamSourceTaskConfiguration") => kinesis_video_stream_source_task_configuration(),
-    required("LanguageCode") => list(any())
-  }
+
+      start_voice_tone_analysis_task_request() :: %{
+        optional("ClientRequestToken") => String.t(),
+        optional("KinesisVideoStreamSourceTaskConfiguration") => kinesis_video_stream_source_task_configuration(),
+        required("LanguageCode") => list(any())
+      }
+
   """
   @type start_voice_tone_analysis_task_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  video_concatenation_configuration() :: %{
-    "State" => list(any())
-  }
+
+      video_concatenation_configuration() :: %{
+        "State" => list(any())
+      }
+
   """
   @type video_concatenation_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_speaker_search_task_response() :: %{
-    "SpeakerSearchTask" => speaker_search_task()
-  }
+
+      start_speaker_search_task_response() :: %{
+        "SpeakerSearchTask" => speaker_search_task()
+      }
+
   """
   @type start_speaker_search_task_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_media_pipeline_kinesis_video_stream_pool_request() :: %{
 
-  }
+      delete_media_pipeline_kinesis_video_stream_pool_request() :: %{}
+
   """
-  @type delete_media_pipeline_kinesis_video_stream_pool_request() :: %{String.t() => any()}
+  @type delete_media_pipeline_kinesis_video_stream_pool_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_media_concatenation_pipeline_request() :: %{
-    optional("ClientRequestToken") => String.t(),
-    optional("Tags") => list(tag()()),
-    required("Sinks") => list(concatenation_sink()()),
-    required("Sources") => list(concatenation_source()())
-  }
+
+      create_media_concatenation_pipeline_request() :: %{
+        optional("ClientRequestToken") => String.t(),
+        optional("Tags") => list(tag()()),
+        required("Sinks") => list(concatenation_sink()()),
+        required("Sources") => list(concatenation_source()())
+      }
+
   """
   @type create_media_concatenation_pipeline_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_media_capture_pipeline_response() :: %{
-    "MediaCapturePipeline" => media_capture_pipeline()
-  }
+
+      get_media_capture_pipeline_response() :: %{
+        "MediaCapturePipeline" => media_capture_pipeline()
+      }
+
   """
   @type get_media_capture_pipeline_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_response() :: %{
 
-  }
+      untag_resource_response() :: %{}
+
   """
-  @type untag_resource_response() :: %{String.t() => any()}
+  @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  video_artifacts_configuration() :: %{
-    "MuxType" => list(any()),
-    "State" => list(any())
-  }
+
+      video_artifacts_configuration() :: %{
+        "MuxType" => list(any()),
+        "State" => list(any())
+      }
+
   """
   @type video_artifacts_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  service_failure_exception() :: %{
-    "Code" => list(any()),
-    "Message" => String.t(),
-    "RequestId" => String.t()
-  }
+
+      service_failure_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t(),
+        "RequestId" => String.t()
+      }
+
   """
   @type service_failure_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  meeting_events_concatenation_configuration() :: %{
-    "State" => list(any())
-  }
+
+      meeting_events_concatenation_configuration() :: %{
+        "State" => list(any())
+      }
+
   """
   @type meeting_events_concatenation_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  chime_sdk_meeting_live_connector_configuration() :: %{
-    "Arn" => String.t(),
-    "CompositedVideo" => composited_video_artifacts_configuration(),
-    "MuxType" => list(any()),
-    "SourceConfiguration" => source_configuration()
-  }
+
+      chime_sdk_meeting_live_connector_configuration() :: %{
+        "Arn" => String.t(),
+        "CompositedVideo" => composited_video_artifacts_configuration(),
+        "MuxType" => list(any()),
+        "SourceConfiguration" => source_configuration()
+      }
+
   """
   @type chime_sdk_meeting_live_connector_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  forbidden_exception() :: %{
-    "Code" => list(any()),
-    "Message" => String.t(),
-    "RequestId" => String.t()
-  }
+
+      forbidden_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t(),
+        "RequestId" => String.t()
+      }
+
   """
   @type forbidden_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_media_pipeline_kinesis_video_stream_pool_request() :: %{
-    optional("ClientRequestToken") => String.t(),
-    optional("Tags") => list(tag()()),
-    required("PoolName") => String.t(),
-    required("StreamConfiguration") => kinesis_video_stream_configuration()
-  }
+
+      create_media_pipeline_kinesis_video_stream_pool_request() :: %{
+        optional("ClientRequestToken") => String.t(),
+        optional("Tags") => list(tag()()),
+        required("PoolName") => String.t(),
+        required("StreamConfiguration") => kinesis_video_stream_configuration()
+      }
+
   """
   @type create_media_pipeline_kinesis_video_stream_pool_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_media_capture_pipeline_request() :: %{
 
-  }
+      get_media_capture_pipeline_request() :: %{}
+
   """
-  @type get_media_capture_pipeline_request() :: %{String.t() => any()}
+  @type get_media_capture_pipeline_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  delete_media_pipeline_request() :: %{
 
-  }
+      delete_media_pipeline_request() :: %{}
+
   """
-  @type delete_media_pipeline_request() :: %{String.t() => any()}
+  @type delete_media_pipeline_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_media_pipeline_kinesis_video_stream_pools_response() :: %{
-    "KinesisVideoStreamPools" => list(kinesis_video_stream_pool_summary()()),
-    "NextToken" => String.t()
-  }
+
+      list_media_pipeline_kinesis_video_stream_pools_response() :: %{
+        "KinesisVideoStreamPools" => list(kinesis_video_stream_pool_summary()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_media_pipeline_kinesis_video_stream_pools_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_media_insights_pipeline_configuration_request() :: %{
 
-  }
+      get_media_insights_pipeline_configuration_request() :: %{}
+
   """
-  @type get_media_insights_pipeline_configuration_request() :: %{String.t() => any()}
+  @type get_media_insights_pipeline_configuration_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_media_pipeline_request() :: %{
 
-  }
+      get_media_pipeline_request() :: %{}
+
   """
-  @type get_media_pipeline_request() :: %{String.t() => any()}
+  @type get_media_pipeline_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  sqs_queue_sink_configuration() :: %{
-    "InsightsTarget" => String.t()
-  }
+
+      sqs_queue_sink_configuration() :: %{
+        "InsightsTarget" => String.t()
+      }
+
   """
   @type sqs_queue_sink_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  selected_video_streams() :: %{
-    "AttendeeIds" => list(String.t()()),
-    "ExternalUserIds" => list(String.t()())
-  }
+
+      selected_video_streams() :: %{
+        "AttendeeIds" => list(String.t()()),
+        "ExternalUserIds" => list(String.t()())
+      }
+
   """
   @type selected_video_streams() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  live_connector_r_t_m_p_configuration() :: %{
-    "AudioChannels" => list(any()),
-    "AudioSampleRate" => String.t(),
-    "Url" => String.t()
-  }
+
+      live_connector_r_t_m_p_configuration() :: %{
+        "AudioChannels" => list(any()),
+        "AudioSampleRate" => String.t(),
+        "Url" => String.t()
+      }
+
   """
   @type live_connector_r_t_m_p_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  kinesis_video_stream_source_task_configuration() :: %{
-    "ChannelId" => integer(),
-    "FragmentNumber" => String.t(),
-    "StreamArn" => String.t()
-  }
+
+      kinesis_video_stream_source_task_configuration() :: %{
+        "ChannelId" => integer(),
+        "FragmentNumber" => String.t(),
+        "StreamArn" => String.t()
+      }
+
   """
   @type kinesis_video_stream_source_task_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  s3_recording_sink_configuration() :: %{
-    "Destination" => String.t(),
-    "RecordingFileFormat" => list(any())
-  }
+
+      s3_recording_sink_configuration() :: %{
+        "Destination" => String.t(),
+        "RecordingFileFormat" => list(any())
+      }
+
   """
   @type s3_recording_sink_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  unauthorized_client_exception() :: %{
-    "Code" => list(any()),
-    "Message" => String.t(),
-    "RequestId" => String.t()
-  }
+
+      unauthorized_client_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t(),
+        "RequestId" => String.t()
+      }
+
   """
   @type unauthorized_client_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  audio_concatenation_configuration() :: %{
-    "State" => list(any())
-  }
+
+      audio_concatenation_configuration() :: %{
+        "State" => list(any())
+      }
+
   """
   @type audio_concatenation_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  composited_video_concatenation_configuration() :: %{
-    "State" => list(any())
-  }
+
+      composited_video_concatenation_configuration() :: %{
+        "State" => list(any())
+      }
+
   """
   @type composited_video_concatenation_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  speaker_search_task() :: %{
-    "CreatedTimestamp" => non_neg_integer(),
-    "SpeakerSearchTaskId" => String.t(),
-    "SpeakerSearchTaskStatus" => list(any()),
-    "UpdatedTimestamp" => non_neg_integer()
-  }
+
+      speaker_search_task() :: %{
+        "CreatedTimestamp" => non_neg_integer(),
+        "SpeakerSearchTaskId" => String.t(),
+        "SpeakerSearchTaskStatus" => list(any()),
+        "UpdatedTimestamp" => non_neg_integer()
+      }
+
   """
   @type speaker_search_task() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  media_insights_pipeline_element_status() :: %{
-    "Status" => list(any()),
-    "Type" => list(any())
-  }
+
+      media_insights_pipeline_element_status() :: %{
+        "Status" => list(any()),
+        "Type" => list(any())
+      }
+
   """
   @type media_insights_pipeline_element_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_media_pipelines_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      list_media_pipelines_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_media_pipelines_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  concatenation_sink() :: %{
-    "S3BucketSinkConfiguration" => s3_bucket_sink_configuration(),
-    "Type" => list(any())
-  }
+
+      concatenation_sink() :: %{
+        "S3BucketSinkConfiguration" => s3_bucket_sink_configuration(),
+        "Type" => list(any())
+      }
+
   """
   @type concatenation_sink() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_speaker_search_task_response() :: %{
-    "SpeakerSearchTask" => speaker_search_task()
-  }
+
+      get_speaker_search_task_response() :: %{
+        "SpeakerSearchTask" => speaker_search_task()
+      }
+
   """
   @type get_speaker_search_task_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stop_speaker_search_task_request() :: %{
 
-  }
+      stop_speaker_search_task_request() :: %{}
+
   """
-  @type stop_speaker_search_task_request() :: %{String.t() => any()}
+  @type stop_speaker_search_task_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  content_artifacts_configuration() :: %{
-    "MuxType" => list(any()),
-    "State" => list(any())
-  }
+
+      content_artifacts_configuration() :: %{
+        "MuxType" => list(any()),
+        "State" => list(any())
+      }
+
   """
   @type content_artifacts_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  throttled_client_exception() :: %{
-    "Code" => list(any()),
-    "Message" => String.t(),
-    "RequestId" => String.t()
-  }
+
+      throttled_client_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t(),
+        "RequestId" => String.t()
+      }
+
   """
   @type throttled_client_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  vertical_layout_configuration() :: %{
-    "TileAspectRatio" => String.t(),
-    "TileCount" => integer(),
-    "TileOrder" => list(any()),
-    "TilePosition" => list(any())
-  }
+
+      vertical_layout_configuration() :: %{
+        "TileAspectRatio" => String.t(),
+        "TileCount" => integer(),
+        "TileOrder" => list(any()),
+        "TilePosition" => list(any())
+      }
+
   """
   @type vertical_layout_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_media_insights_pipeline_configurations_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      list_media_insights_pipeline_configurations_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_media_insights_pipeline_configurations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_media_capture_pipelines_response() :: %{
-    "MediaCapturePipelines" => list(media_capture_pipeline_summary()()),
-    "NextToken" => String.t()
-  }
+
+      list_media_capture_pipelines_response() :: %{
+        "MediaCapturePipelines" => list(media_capture_pipeline_summary()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_media_capture_pipelines_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  fragment_selector() :: %{
-    "FragmentSelectorType" => list(any()),
-    "TimestampRange" => timestamp_range()
-  }
+
+      fragment_selector() :: %{
+        "FragmentSelectorType" => list(any()),
+        "TimestampRange" => timestamp_range()
+      }
+
   """
   @type fragment_selector() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_media_pipeline_kinesis_video_stream_pool_response() :: %{
-    "KinesisVideoStreamPoolConfiguration" => kinesis_video_stream_pool_configuration()
-  }
+
+      create_media_pipeline_kinesis_video_stream_pool_response() :: %{
+        "KinesisVideoStreamPoolConfiguration" => kinesis_video_stream_pool_configuration()
+      }
+
   """
   @type create_media_pipeline_kinesis_video_stream_pool_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  sentiment_configuration() :: %{
-    "RuleName" => String.t(),
-    "SentimentType" => list(any()),
-    "TimePeriod" => integer()
-  }
+
+      sentiment_configuration() :: %{
+        "RuleName" => String.t(),
+        "SentimentType" => list(any()),
+        "TimePeriod" => integer()
+      }
+
   """
   @type sentiment_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_request() :: %{
-    required("ResourceARN") => String.t(),
-    required("TagKeys") => list(String.t()())
-  }
+
+      untag_resource_request() :: %{
+        required("ResourceARN") => String.t(),
+        required("TagKeys") => list(String.t()())
+      }
+
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  live_connector_sink_configuration() :: %{
-    "RTMPConfiguration" => live_connector_r_t_m_p_configuration(),
-    "SinkType" => list(any())
-  }
+
+      live_connector_sink_configuration() :: %{
+        "RTMPConfiguration" => live_connector_r_t_m_p_configuration(),
+        "SinkType" => list(any())
+      }
+
   """
   @type live_connector_sink_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  sns_topic_sink_configuration() :: %{
-    "InsightsTarget" => String.t()
-  }
+
+      sns_topic_sink_configuration() :: %{
+        "InsightsTarget" => String.t()
+      }
+
   """
   @type sns_topic_sink_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  presenter_only_configuration() :: %{
-    "PresenterPosition" => list(any())
-  }
+
+      presenter_only_configuration() :: %{
+        "PresenterPosition" => list(any())
+      }
+
   """
   @type presenter_only_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_voice_tone_analysis_task_response() :: %{
-    "VoiceToneAnalysisTask" => voice_tone_analysis_task()
-  }
+
+      get_voice_tone_analysis_task_response() :: %{
+        "VoiceToneAnalysisTask" => voice_tone_analysis_task()
+      }
+
   """
   @type get_voice_tone_analysis_task_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_media_capture_pipeline_request() :: %{
 
-  }
+      delete_media_capture_pipeline_request() :: %{}
+
   """
-  @type delete_media_capture_pipeline_request() :: %{String.t() => any()}
+  @type delete_media_capture_pipeline_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_media_insights_pipeline_configuration_response() :: %{
-    "MediaInsightsPipelineConfiguration" => media_insights_pipeline_configuration()
-  }
+
+      get_media_insights_pipeline_configuration_response() :: %{
+        "MediaInsightsPipelineConfiguration" => media_insights_pipeline_configuration()
+      }
+
   """
   @type get_media_insights_pipeline_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  kinesis_video_stream_configuration_update() :: %{
-    "DataRetentionInHours" => integer()
-  }
+
+      kinesis_video_stream_configuration_update() :: %{
+        "DataRetentionInHours" => integer()
+      }
+
   """
   @type kinesis_video_stream_configuration_update() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_voice_tone_analysis_task_response() :: %{
-    "VoiceToneAnalysisTask" => voice_tone_analysis_task()
-  }
+
+      start_voice_tone_analysis_task_response() :: %{
+        "VoiceToneAnalysisTask" => voice_tone_analysis_task()
+      }
+
   """
   @type start_voice_tone_analysis_task_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_media_concatenation_pipeline_response() :: %{
-    "MediaConcatenationPipeline" => media_concatenation_pipeline()
-  }
+
+      create_media_concatenation_pipeline_response() :: %{
+        "MediaConcatenationPipeline" => media_concatenation_pipeline()
+      }
+
   """
   @type create_media_concatenation_pipeline_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  live_connector_source_configuration() :: %{
-    "ChimeSdkMeetingLiveConnectorConfiguration" => chime_sdk_meeting_live_connector_configuration(),
-    "SourceType" => list(any())
-  }
+
+      live_connector_source_configuration() :: %{
+        "ChimeSdkMeetingLiveConnectorConfiguration" => chime_sdk_meeting_live_connector_configuration(),
+        "SourceType" => list(any())
+      }
+
   """
   @type live_connector_source_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  media_insights_pipeline_configuration() :: %{
-    "CreatedTimestamp" => non_neg_integer(),
-    "Elements" => list(media_insights_pipeline_configuration_element()()),
-    "MediaInsightsPipelineConfigurationArn" => String.t(),
-    "MediaInsightsPipelineConfigurationId" => String.t(),
-    "MediaInsightsPipelineConfigurationName" => String.t(),
-    "RealTimeAlertConfiguration" => real_time_alert_configuration(),
-    "ResourceAccessRoleArn" => String.t(),
-    "UpdatedTimestamp" => non_neg_integer()
-  }
+
+      media_insights_pipeline_configuration() :: %{
+        "CreatedTimestamp" => non_neg_integer(),
+        "Elements" => list(media_insights_pipeline_configuration_element()()),
+        "MediaInsightsPipelineConfigurationArn" => String.t(),
+        "MediaInsightsPipelineConfigurationId" => String.t(),
+        "MediaInsightsPipelineConfigurationName" => String.t(),
+        "RealTimeAlertConfiguration" => real_time_alert_configuration(),
+        "ResourceAccessRoleArn" => String.t(),
+        "UpdatedTimestamp" => non_neg_integer()
+      }
+
   """
   @type media_insights_pipeline_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  horizontal_layout_configuration() :: %{
-    "TileAspectRatio" => String.t(),
-    "TileCount" => integer(),
-    "TileOrder" => list(any()),
-    "TilePosition" => list(any())
-  }
+
+      horizontal_layout_configuration() :: %{
+        "TileAspectRatio" => String.t(),
+        "TileCount" => integer(),
+        "TileOrder" => list(any()),
+        "TilePosition" => list(any())
+      }
+
   """
   @type horizontal_layout_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  issue_detection_configuration() :: %{
-    "RuleName" => String.t()
-  }
+
+      issue_detection_configuration() :: %{
+        "RuleName" => String.t()
+      }
+
   """
   @type issue_detection_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  media_capture_pipeline() :: %{
-    "ChimeSdkMeetingConfiguration" => chime_sdk_meeting_configuration(),
-    "CreatedTimestamp" => non_neg_integer(),
-    "MediaPipelineArn" => String.t(),
-    "MediaPipelineId" => String.t(),
-    "SinkArn" => String.t(),
-    "SinkType" => list(any()),
-    "SourceArn" => String.t(),
-    "SourceType" => list(any()),
-    "Status" => list(any()),
-    "UpdatedTimestamp" => non_neg_integer()
-  }
+
+      media_capture_pipeline() :: %{
+        "ChimeSdkMeetingConfiguration" => chime_sdk_meeting_configuration(),
+        "CreatedTimestamp" => non_neg_integer(),
+        "MediaPipelineArn" => String.t(),
+        "MediaPipelineId" => String.t(),
+        "SinkArn" => String.t(),
+        "SinkType" => list(any()),
+        "SourceArn" => String.t(),
+        "SourceType" => list(any()),
+        "Status" => list(any()),
+        "UpdatedTimestamp" => non_neg_integer()
+      }
+
   """
   @type media_capture_pipeline() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  conflict_exception() :: %{
-    "Code" => list(any()),
-    "Message" => String.t(),
-    "RequestId" => String.t()
-  }
+
+      conflict_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t(),
+        "RequestId" => String.t()
+      }
+
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  media_concatenation_pipeline() :: %{
-    "CreatedTimestamp" => non_neg_integer(),
-    "MediaPipelineArn" => String.t(),
-    "MediaPipelineId" => String.t(),
-    "Sinks" => list(concatenation_sink()()),
-    "Sources" => list(concatenation_source()()),
-    "Status" => list(any()),
-    "UpdatedTimestamp" => non_neg_integer()
-  }
+
+      media_concatenation_pipeline() :: %{
+        "CreatedTimestamp" => non_neg_integer(),
+        "MediaPipelineArn" => String.t(),
+        "MediaPipelineId" => String.t(),
+        "Sinks" => list(concatenation_sink()()),
+        "Sources" => list(concatenation_source()()),
+        "Status" => list(any()),
+        "UpdatedTimestamp" => non_neg_integer()
+      }
+
   """
   @type media_concatenation_pipeline() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  kinesis_video_stream_configuration() :: %{
-    "DataRetentionInHours" => integer(),
-    "Region" => String.t()
-  }
+
+      kinesis_video_stream_configuration() :: %{
+        "DataRetentionInHours" => integer(),
+        "Region" => String.t()
+      }
+
   """
   @type kinesis_video_stream_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  amazon_transcribe_call_analytics_processor_configuration() :: %{
-    "CallAnalyticsStreamCategories" => list(String.t()()),
-    "ContentIdentificationType" => list(any()),
-    "ContentRedactionType" => list(any()),
-    "EnablePartialResultsStabilization" => boolean(),
-    "FilterPartialResults" => boolean(),
-    "LanguageCode" => list(any()),
-    "LanguageModelName" => String.t(),
-    "PartialResultsStability" => list(any()),
-    "PiiEntityTypes" => String.t(),
-    "PostCallAnalyticsSettings" => post_call_analytics_settings(),
-    "VocabularyFilterMethod" => list(any()),
-    "VocabularyFilterName" => String.t(),
-    "VocabularyName" => String.t()
-  }
+
+      amazon_transcribe_call_analytics_processor_configuration() :: %{
+        "CallAnalyticsStreamCategories" => list(String.t()()),
+        "ContentIdentificationType" => list(any()),
+        "ContentRedactionType" => list(any()),
+        "EnablePartialResultsStabilization" => boolean(),
+        "FilterPartialResults" => boolean(),
+        "LanguageCode" => list(any()),
+        "LanguageModelName" => String.t(),
+        "PartialResultsStability" => list(any()),
+        "PiiEntityTypes" => String.t(),
+        "PostCallAnalyticsSettings" => post_call_analytics_settings(),
+        "VocabularyFilterMethod" => list(any()),
+        "VocabularyFilterName" => String.t(),
+        "VocabularyName" => String.t()
+      }
+
   """
   @type amazon_transcribe_call_analytics_processor_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag() :: %{
-    "Key" => String.t(),
-    "Value" => String.t()
-  }
+
+      tag() :: %{
+        "Key" => String.t(),
+        "Value" => String.t()
+      }
+
   """
   @type tag() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  kinesis_video_stream_pool_summary() :: %{
-    "PoolArn" => String.t(),
-    "PoolId" => String.t(),
-    "PoolName" => String.t()
-  }
+
+      kinesis_video_stream_pool_summary() :: %{
+        "PoolArn" => String.t(),
+        "PoolId" => String.t(),
+        "PoolName" => String.t()
+      }
+
   """
   @type kinesis_video_stream_pool_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_speaker_search_task_request() :: %{
-    optional("ClientRequestToken") => String.t(),
-    optional("KinesisVideoStreamSourceTaskConfiguration") => kinesis_video_stream_source_task_configuration(),
-    required("VoiceProfileDomainArn") => String.t()
-  }
+
+      start_speaker_search_task_request() :: %{
+        optional("ClientRequestToken") => String.t(),
+        optional("KinesisVideoStreamSourceTaskConfiguration") => kinesis_video_stream_source_task_configuration(),
+        required("VoiceProfileDomainArn") => String.t()
+      }
+
   """
   @type start_speaker_search_task_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_limit_exceeded_exception() :: %{
-    "Code" => list(any()),
-    "Message" => String.t(),
-    "RequestId" => String.t()
-  }
+
+      resource_limit_exceeded_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t(),
+        "RequestId" => String.t()
+      }
+
   """
   @type resource_limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_media_pipeline_kinesis_video_stream_pools_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      list_media_pipeline_kinesis_video_stream_pools_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_media_pipeline_kinesis_video_stream_pools_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  composited_video_artifacts_configuration() :: %{
-    "GridViewConfiguration" => grid_view_configuration(),
-    "Layout" => list(any()),
-    "Resolution" => list(any())
-  }
+
+      composited_video_artifacts_configuration() :: %{
+        "GridViewConfiguration" => grid_view_configuration(),
+        "Layout" => list(any()),
+        "Resolution" => list(any())
+      }
+
   """
   @type composited_video_artifacts_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  channel_definition() :: %{
-    "ChannelId" => integer(),
-    "ParticipantRole" => list(any())
-  }
+
+      channel_definition() :: %{
+        "ChannelId" => integer(),
+        "ParticipantRole" => list(any())
+      }
+
   """
   @type channel_definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_media_insights_pipeline_configuration_request() :: %{
-    optional("RealTimeAlertConfiguration") => real_time_alert_configuration(),
-    required("Elements") => list(media_insights_pipeline_configuration_element()()),
-    required("ResourceAccessRoleArn") => String.t()
-  }
+
+      update_media_insights_pipeline_configuration_request() :: %{
+        optional("RealTimeAlertConfiguration") => real_time_alert_configuration(),
+        required("Elements") => list(media_insights_pipeline_configuration_element()()),
+        required("ResourceAccessRoleArn") => String.t()
+      }
+
   """
   @type update_media_insights_pipeline_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  real_time_alert_rule() :: %{
-    "IssueDetectionConfiguration" => issue_detection_configuration(),
-    "KeywordMatchConfiguration" => keyword_match_configuration(),
-    "SentimentConfiguration" => sentiment_configuration(),
-    "Type" => list(any())
-  }
+
+      real_time_alert_rule() :: %{
+        "IssueDetectionConfiguration" => issue_detection_configuration(),
+        "KeywordMatchConfiguration" => keyword_match_configuration(),
+        "SentimentConfiguration" => sentiment_configuration(),
+        "Type" => list(any())
+      }
+
   """
   @type real_time_alert_rule() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_media_insights_pipeline_configuration_request() :: %{
 
-  }
+      delete_media_insights_pipeline_configuration_request() :: %{}
+
   """
-  @type delete_media_insights_pipeline_configuration_request() :: %{String.t() => any()}
+  @type delete_media_insights_pipeline_configuration_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  not_found_exception() :: %{
-    "Code" => list(any()),
-    "Message" => String.t(),
-    "RequestId" => String.t()
-  }
+
+      not_found_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t(),
+        "RequestId" => String.t()
+      }
+
   """
   @type not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_media_pipeline_kinesis_video_stream_pool_response() :: %{
-    "KinesisVideoStreamPoolConfiguration" => kinesis_video_stream_pool_configuration()
-  }
+
+      get_media_pipeline_kinesis_video_stream_pool_response() :: %{
+        "KinesisVideoStreamPoolConfiguration" => kinesis_video_stream_pool_configuration()
+      }
+
   """
   @type get_media_pipeline_kinesis_video_stream_pool_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  media_live_connector_pipeline() :: %{
-    "CreatedTimestamp" => non_neg_integer(),
-    "MediaPipelineArn" => String.t(),
-    "MediaPipelineId" => String.t(),
-    "Sinks" => list(live_connector_sink_configuration()()),
-    "Sources" => list(live_connector_source_configuration()()),
-    "Status" => list(any()),
-    "UpdatedTimestamp" => non_neg_integer()
-  }
+
+      media_live_connector_pipeline() :: %{
+        "CreatedTimestamp" => non_neg_integer(),
+        "MediaPipelineArn" => String.t(),
+        "MediaPipelineId" => String.t(),
+        "Sinks" => list(live_connector_sink_configuration()()),
+        "Sources" => list(live_connector_source_configuration()()),
+        "Status" => list(any()),
+        "UpdatedTimestamp" => non_neg_integer()
+      }
+
   """
   @type media_live_connector_pipeline() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_media_pipelines_response() :: %{
-    "MediaPipelines" => list(media_pipeline_summary()()),
-    "NextToken" => String.t()
-  }
+
+      list_media_pipelines_response() :: %{
+        "MediaPipelines" => list(media_pipeline_summary()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_media_pipelines_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  media_insights_pipeline_configuration_element() :: %{
-    "AmazonTranscribeCallAnalyticsProcessorConfiguration" => amazon_transcribe_call_analytics_processor_configuration(),
-    "AmazonTranscribeProcessorConfiguration" => amazon_transcribe_processor_configuration(),
-    "KinesisDataStreamSinkConfiguration" => kinesis_data_stream_sink_configuration(),
-    "LambdaFunctionSinkConfiguration" => lambda_function_sink_configuration(),
-    "S3RecordingSinkConfiguration" => s3_recording_sink_configuration(),
-    "SnsTopicSinkConfiguration" => sns_topic_sink_configuration(),
-    "SqsQueueSinkConfiguration" => sqs_queue_sink_configuration(),
-    "Type" => list(any()),
-    "VoiceAnalyticsProcessorConfiguration" => voice_analytics_processor_configuration(),
-    "VoiceEnhancementSinkConfiguration" => voice_enhancement_sink_configuration()
-  }
+
+      media_insights_pipeline_configuration_element() :: %{
+        "AmazonTranscribeCallAnalyticsProcessorConfiguration" => amazon_transcribe_call_analytics_processor_configuration(),
+        "AmazonTranscribeProcessorConfiguration" => amazon_transcribe_processor_configuration(),
+        "KinesisDataStreamSinkConfiguration" => kinesis_data_stream_sink_configuration(),
+        "LambdaFunctionSinkConfiguration" => lambda_function_sink_configuration(),
+        "S3RecordingSinkConfiguration" => s3_recording_sink_configuration(),
+        "SnsTopicSinkConfiguration" => sns_topic_sink_configuration(),
+        "SqsQueueSinkConfiguration" => sqs_queue_sink_configuration(),
+        "Type" => list(any()),
+        "VoiceAnalyticsProcessorConfiguration" => voice_analytics_processor_configuration(),
+        "VoiceEnhancementSinkConfiguration" => voice_enhancement_sink_configuration()
+      }
+
   """
   @type media_insights_pipeline_configuration_element() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  audio_artifacts_configuration() :: %{
-    "MuxType" => list(any())
-  }
+
+      audio_artifacts_configuration() :: %{
+        "MuxType" => list(any())
+      }
+
   """
   @type audio_artifacts_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  media_stream_sink() :: %{
-    "MediaStreamType" => list(any()),
-    "ReservedStreamCapacity" => integer(),
-    "SinkArn" => String.t(),
-    "SinkType" => list(any())
-  }
+
+      media_stream_sink() :: %{
+        "MediaStreamType" => list(any()),
+        "ReservedStreamCapacity" => integer(),
+        "SinkArn" => String.t(),
+        "SinkType" => list(any())
+      }
+
   """
   @type media_stream_sink() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_media_capture_pipelines_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      list_media_capture_pipelines_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_media_capture_pipelines_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  voice_analytics_processor_configuration() :: %{
-    "SpeakerSearchStatus" => list(any()),
-    "VoiceToneAnalysisStatus" => list(any())
-  }
+
+      voice_analytics_processor_configuration() :: %{
+        "SpeakerSearchStatus" => list(any()),
+        "VoiceToneAnalysisStatus" => list(any())
+      }
+
   """
   @type voice_analytics_processor_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_media_live_connector_pipeline_request() :: %{
-    optional("ClientRequestToken") => String.t(),
-    optional("Tags") => list(tag()()),
-    required("Sinks") => list(live_connector_sink_configuration()()),
-    required("Sources") => list(live_connector_source_configuration()())
-  }
+
+      create_media_live_connector_pipeline_request() :: %{
+        optional("ClientRequestToken") => String.t(),
+        optional("Tags") => list(tag()()),
+        required("Sinks") => list(live_connector_sink_configuration()()),
+        required("Sources") => list(live_connector_source_configuration()())
+      }
+
   """
   @type create_media_live_connector_pipeline_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  media_capture_pipeline_source_configuration() :: %{
-    "ChimeSdkMeetingConfiguration" => chime_sdk_meeting_concatenation_configuration(),
-    "MediaPipelineArn" => String.t()
-  }
+
+      media_capture_pipeline_source_configuration() :: %{
+        "ChimeSdkMeetingConfiguration" => chime_sdk_meeting_concatenation_configuration(),
+        "MediaPipelineArn" => String.t()
+      }
+
   """
   @type media_capture_pipeline_source_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  post_call_analytics_settings() :: %{
-    "ContentRedactionOutput" => list(any()),
-    "DataAccessRoleArn" => String.t(),
-    "OutputEncryptionKMSKeyId" => String.t(),
-    "OutputLocation" => String.t()
-  }
+
+      post_call_analytics_settings() :: %{
+        "ContentRedactionOutput" => list(any()),
+        "DataAccessRoleArn" => String.t(),
+        "OutputEncryptionKMSKeyId" => String.t(),
+        "OutputLocation" => String.t()
+      }
+
   """
   @type post_call_analytics_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  lambda_function_sink_configuration() :: %{
-    "InsightsTarget" => String.t()
-  }
+
+      lambda_function_sink_configuration() :: %{
+        "InsightsTarget" => String.t()
+      }
+
   """
   @type lambda_function_sink_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_response() :: %{
-    "Tags" => list(tag()())
-  }
+
+      list_tags_for_resource_response() :: %{
+        "Tags" => list(tag()())
+      }
+
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  source_configuration() :: %{
-    "SelectedVideoStreams" => selected_video_streams()
-  }
+
+      source_configuration() :: %{
+        "SelectedVideoStreams" => selected_video_streams()
+      }
+
   """
   @type source_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  service_unavailable_exception() :: %{
-    "Code" => list(any()),
-    "Message" => String.t(),
-    "RequestId" => String.t()
-  }
+
+      service_unavailable_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t(),
+        "RequestId" => String.t()
+      }
+
   """
   @type service_unavailable_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  voice_tone_analysis_task() :: %{
-    "CreatedTimestamp" => non_neg_integer(),
-    "UpdatedTimestamp" => non_neg_integer(),
-    "VoiceToneAnalysisTaskId" => String.t(),
-    "VoiceToneAnalysisTaskStatus" => list(any())
-  }
+
+      voice_tone_analysis_task() :: %{
+        "CreatedTimestamp" => non_neg_integer(),
+        "UpdatedTimestamp" => non_neg_integer(),
+        "VoiceToneAnalysisTaskId" => String.t(),
+        "VoiceToneAnalysisTaskStatus" => list(any())
+      }
+
   """
   @type voice_tone_analysis_task() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  video_attribute() :: %{
-    "BorderColor" => list(any()),
-    "BorderThickness" => integer(),
-    "CornerRadius" => integer(),
-    "HighlightColor" => list(any())
-  }
+
+      video_attribute() :: %{
+        "BorderColor" => list(any()),
+        "BorderThickness" => integer(),
+        "CornerRadius" => integer(),
+        "HighlightColor" => list(any())
+      }
+
   """
   @type video_attribute() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  chime_sdk_meeting_configuration() :: %{
-    "ArtifactsConfiguration" => artifacts_configuration(),
-    "SourceConfiguration" => source_configuration()
-  }
+
+      chime_sdk_meeting_configuration() :: %{
+        "ArtifactsConfiguration" => artifacts_configuration(),
+        "SourceConfiguration" => source_configuration()
+      }
+
   """
   @type chime_sdk_meeting_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  media_pipeline_summary() :: %{
-    "MediaPipelineArn" => String.t(),
-    "MediaPipelineId" => String.t()
-  }
+
+      media_pipeline_summary() :: %{
+        "MediaPipelineArn" => String.t(),
+        "MediaPipelineId" => String.t()
+      }
+
   """
   @type media_pipeline_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  media_capture_pipeline_summary() :: %{
-    "MediaPipelineArn" => String.t(),
-    "MediaPipelineId" => String.t()
-  }
+
+      media_capture_pipeline_summary() :: %{
+        "MediaPipelineArn" => String.t(),
+        "MediaPipelineId" => String.t()
+      }
+
   """
   @type media_capture_pipeline_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  kinesis_video_stream_source_runtime_configuration() :: %{
-    "MediaEncoding" => list(any()),
-    "MediaSampleRate" => integer(),
-    "Streams" => list(stream_configuration()())
-  }
+
+      kinesis_video_stream_source_runtime_configuration() :: %{
+        "MediaEncoding" => list(any()),
+        "MediaSampleRate" => integer(),
+        "Streams" => list(stream_configuration()())
+      }
+
   """
   @type kinesis_video_stream_source_runtime_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  media_insights_pipeline() :: %{
-    "CreatedTimestamp" => non_neg_integer(),
-    "ElementStatuses" => list(media_insights_pipeline_element_status()()),
-    "KinesisVideoStreamRecordingSourceRuntimeConfiguration" => kinesis_video_stream_recording_source_runtime_configuration(),
-    "KinesisVideoStreamSourceRuntimeConfiguration" => kinesis_video_stream_source_runtime_configuration(),
-    "MediaInsightsPipelineConfigurationArn" => String.t(),
-    "MediaInsightsRuntimeMetadata" => map(),
-    "MediaPipelineArn" => String.t(),
-    "MediaPipelineId" => String.t(),
-    "S3RecordingSinkRuntimeConfiguration" => s3_recording_sink_runtime_configuration(),
-    "Status" => list(any())
-  }
+
+      media_insights_pipeline() :: %{
+        "CreatedTimestamp" => non_neg_integer(),
+        "ElementStatuses" => list(media_insights_pipeline_element_status()()),
+        "KinesisVideoStreamRecordingSourceRuntimeConfiguration" => kinesis_video_stream_recording_source_runtime_configuration(),
+        "KinesisVideoStreamSourceRuntimeConfiguration" => kinesis_video_stream_source_runtime_configuration(),
+        "MediaInsightsPipelineConfigurationArn" => String.t(),
+        "MediaInsightsRuntimeMetadata" => map(),
+        "MediaPipelineArn" => String.t(),
+        "MediaPipelineId" => String.t(),
+        "S3RecordingSinkRuntimeConfiguration" => s3_recording_sink_runtime_configuration(),
+        "Status" => list(any())
+      }
+
   """
   @type media_insights_pipeline() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  concatenation_source() :: %{
-    "MediaCapturePipelineSourceConfiguration" => media_capture_pipeline_source_configuration(),
-    "Type" => list(any())
-  }
+
+      concatenation_source() :: %{
+        "MediaCapturePipelineSourceConfiguration" => media_capture_pipeline_source_configuration(),
+        "Type" => list(any())
+      }
+
   """
   @type concatenation_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  media_stream_pipeline() :: %{
-    "CreatedTimestamp" => non_neg_integer(),
-    "MediaPipelineArn" => String.t(),
-    "MediaPipelineId" => String.t(),
-    "Sinks" => list(media_stream_sink()()),
-    "Sources" => list(media_stream_source()()),
-    "Status" => list(any()),
-    "UpdatedTimestamp" => non_neg_integer()
-  }
+
+      media_stream_pipeline() :: %{
+        "CreatedTimestamp" => non_neg_integer(),
+        "MediaPipelineArn" => String.t(),
+        "MediaPipelineId" => String.t(),
+        "Sinks" => list(media_stream_sink()()),
+        "Sources" => list(media_stream_source()()),
+        "Status" => list(any()),
+        "UpdatedTimestamp" => non_neg_integer()
+      }
+
   """
   @type media_stream_pipeline() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  media_stream_source() :: %{
-    "SourceArn" => String.t(),
-    "SourceType" => list(any())
-  }
+
+      media_stream_source() :: %{
+        "SourceArn" => String.t(),
+        "SourceType" => list(any())
+      }
+
   """
   @type media_stream_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_media_pipeline_kinesis_video_stream_pool_response() :: %{
-    "KinesisVideoStreamPoolConfiguration" => kinesis_video_stream_pool_configuration()
-  }
+
+      update_media_pipeline_kinesis_video_stream_pool_response() :: %{
+        "KinesisVideoStreamPoolConfiguration" => kinesis_video_stream_pool_configuration()
+      }
+
   """
   @type update_media_pipeline_kinesis_video_stream_pool_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stop_voice_tone_analysis_task_request() :: %{
 
-  }
+      stop_voice_tone_analysis_task_request() :: %{}
+
   """
-  @type stop_voice_tone_analysis_task_request() :: %{String.t() => any()}
+  @type stop_voice_tone_analysis_task_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  s3_recording_sink_runtime_configuration() :: %{
-    "Destination" => String.t(),
-    "RecordingFileFormat" => list(any())
-  }
+
+      s3_recording_sink_runtime_configuration() :: %{
+        "Destination" => String.t(),
+        "RecordingFileFormat" => list(any())
+      }
+
   """
   @type s3_recording_sink_runtime_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  media_insights_pipeline_configuration_summary() :: %{
-    "MediaInsightsPipelineConfigurationArn" => String.t(),
-    "MediaInsightsPipelineConfigurationId" => String.t(),
-    "MediaInsightsPipelineConfigurationName" => String.t()
-  }
+
+      media_insights_pipeline_configuration_summary() :: %{
+        "MediaInsightsPipelineConfigurationArn" => String.t(),
+        "MediaInsightsPipelineConfigurationId" => String.t(),
+        "MediaInsightsPipelineConfigurationName" => String.t()
+      }
+
   """
   @type media_insights_pipeline_configuration_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_media_insights_pipeline_configurations_response() :: %{
-    "MediaInsightsPipelineConfigurations" => list(media_insights_pipeline_configuration_summary()()),
-    "NextToken" => String.t()
-  }
+
+      list_media_insights_pipeline_configurations_response() :: %{
+        "MediaInsightsPipelineConfigurations" => list(media_insights_pipeline_configuration_summary()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_media_insights_pipeline_configurations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  timestamp_range() :: %{
-    "EndTimestamp" => non_neg_integer(),
-    "StartTimestamp" => non_neg_integer()
-  }
+
+      timestamp_range() :: %{
+        "EndTimestamp" => non_neg_integer(),
+        "StartTimestamp" => non_neg_integer()
+      }
+
   """
   @type timestamp_range() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  content_concatenation_configuration() :: %{
-    "State" => list(any())
-  }
+
+      content_concatenation_configuration() :: %{
+        "State" => list(any())
+      }
+
   """
   @type content_concatenation_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_media_pipeline_kinesis_video_stream_pool_request() :: %{
 
-  }
+      get_media_pipeline_kinesis_video_stream_pool_request() :: %{}
+
   """
-  @type get_media_pipeline_kinesis_video_stream_pool_request() :: %{String.t() => any()}
+  @type get_media_pipeline_kinesis_video_stream_pool_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  tag_resource_response() :: %{
 
-  }
+      tag_resource_response() :: %{}
+
   """
-  @type tag_resource_response() :: %{String.t() => any()}
+  @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_media_capture_pipeline_request() :: %{
-    optional("ChimeSdkMeetingConfiguration") => chime_sdk_meeting_configuration(),
-    optional("ClientRequestToken") => String.t(),
-    optional("Tags") => list(tag()()),
-    required("SinkArn") => String.t(),
-    required("SinkType") => list(any()),
-    required("SourceArn") => String.t(),
-    required("SourceType") => list(any())
-  }
+
+      create_media_capture_pipeline_request() :: %{
+        optional("ChimeSdkMeetingConfiguration") => chime_sdk_meeting_configuration(),
+        optional("ClientRequestToken") => String.t(),
+        optional("Tags") => list(tag()()),
+        required("SinkArn") => String.t(),
+        required("SinkType") => list(any()),
+        required("SourceArn") => String.t(),
+        required("SourceType") => list(any())
+      }
+
   """
   @type create_media_capture_pipeline_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_media_live_connector_pipeline_response() :: %{
-    "MediaLiveConnectorPipeline" => media_live_connector_pipeline()
-  }
+
+      create_media_live_connector_pipeline_response() :: %{
+        "MediaLiveConnectorPipeline" => media_live_connector_pipeline()
+      }
+
   """
   @type create_media_live_connector_pipeline_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_media_insights_pipeline_request() :: %{
-    optional("ClientRequestToken") => String.t(),
-    optional("KinesisVideoStreamRecordingSourceRuntimeConfiguration") => kinesis_video_stream_recording_source_runtime_configuration(),
-    optional("KinesisVideoStreamSourceRuntimeConfiguration") => kinesis_video_stream_source_runtime_configuration(),
-    optional("MediaInsightsRuntimeMetadata") => map(),
-    optional("S3RecordingSinkRuntimeConfiguration") => s3_recording_sink_runtime_configuration(),
-    optional("Tags") => list(tag()()),
-    required("MediaInsightsPipelineConfigurationArn") => String.t()
-  }
+
+      create_media_insights_pipeline_request() :: %{
+        optional("ClientRequestToken") => String.t(),
+        optional("KinesisVideoStreamRecordingSourceRuntimeConfiguration") => kinesis_video_stream_recording_source_runtime_configuration(),
+        optional("KinesisVideoStreamSourceRuntimeConfiguration") => kinesis_video_stream_source_runtime_configuration(),
+        optional("MediaInsightsRuntimeMetadata") => map(),
+        optional("S3RecordingSinkRuntimeConfiguration") => s3_recording_sink_runtime_configuration(),
+        optional("Tags") => list(tag()()),
+        required("MediaInsightsPipelineConfigurationArn") => String.t()
+      }
+
   """
   @type create_media_insights_pipeline_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_media_pipeline_response() :: %{
-    "MediaPipeline" => media_pipeline()
-  }
+
+      get_media_pipeline_response() :: %{
+        "MediaPipeline" => media_pipeline()
+      }
+
   """
   @type get_media_pipeline_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_request() :: %{
-    required("ResourceARN") => String.t()
-  }
+
+      list_tags_for_resource_request() :: %{
+        required("ResourceARN") => String.t()
+      }
+
   """
   @type list_tags_for_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  kinesis_video_stream_recording_source_runtime_configuration() :: %{
-    "FragmentSelector" => fragment_selector(),
-    "Streams" => list(recording_stream_configuration()())
-  }
+
+      kinesis_video_stream_recording_source_runtime_configuration() :: %{
+        "FragmentSelector" => fragment_selector(),
+        "Streams" => list(recording_stream_configuration()())
+      }
+
   """
   @type kinesis_video_stream_recording_source_runtime_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  voice_enhancement_sink_configuration() :: %{
-    "Disabled" => boolean()
-  }
+
+      voice_enhancement_sink_configuration() :: %{
+        "Disabled" => boolean()
+      }
+
   """
   @type voice_enhancement_sink_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  artifacts_concatenation_configuration() :: %{
-    "Audio" => audio_concatenation_configuration(),
-    "CompositedVideo" => composited_video_concatenation_configuration(),
-    "Content" => content_concatenation_configuration(),
-    "DataChannel" => data_channel_concatenation_configuration(),
-    "MeetingEvents" => meeting_events_concatenation_configuration(),
-    "TranscriptionMessages" => transcription_messages_concatenation_configuration(),
-    "Video" => video_concatenation_configuration()
-  }
+
+      artifacts_concatenation_configuration() :: %{
+        "Audio" => audio_concatenation_configuration(),
+        "CompositedVideo" => composited_video_concatenation_configuration(),
+        "Content" => content_concatenation_configuration(),
+        "DataChannel" => data_channel_concatenation_configuration(),
+        "MeetingEvents" => meeting_events_concatenation_configuration(),
+        "TranscriptionMessages" => transcription_messages_concatenation_configuration(),
+        "Video" => video_concatenation_configuration()
+      }
+
   """
   @type artifacts_concatenation_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_media_insights_pipeline_configuration_response() :: %{
-    "MediaInsightsPipelineConfiguration" => media_insights_pipeline_configuration()
-  }
+
+      create_media_insights_pipeline_configuration_response() :: %{
+        "MediaInsightsPipelineConfiguration" => media_insights_pipeline_configuration()
+      }
+
   """
   @type create_media_insights_pipeline_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  media_pipeline() :: %{
-    "MediaCapturePipeline" => media_capture_pipeline(),
-    "MediaConcatenationPipeline" => media_concatenation_pipeline(),
-    "MediaInsightsPipeline" => media_insights_pipeline(),
-    "MediaLiveConnectorPipeline" => media_live_connector_pipeline(),
-    "MediaStreamPipeline" => media_stream_pipeline()
-  }
+
+      media_pipeline() :: %{
+        "MediaCapturePipeline" => media_capture_pipeline(),
+        "MediaConcatenationPipeline" => media_concatenation_pipeline(),
+        "MediaInsightsPipeline" => media_insights_pipeline(),
+        "MediaLiveConnectorPipeline" => media_live_connector_pipeline(),
+        "MediaStreamPipeline" => media_stream_pipeline()
+      }
+
   """
   @type media_pipeline() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  active_speaker_only_configuration() :: %{
-    "ActiveSpeakerPosition" => list(any())
-  }
+
+      active_speaker_only_configuration() :: %{
+        "ActiveSpeakerPosition" => list(any())
+      }
+
   """
   @type active_speaker_only_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_media_insights_pipeline_status_request() :: %{
-    required("UpdateStatus") => list(any())
-  }
+
+      update_media_insights_pipeline_status_request() :: %{
+        required("UpdateStatus") => list(any())
+      }
+
   """
   @type update_media_insights_pipeline_status_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_media_stream_pipeline_request() :: %{
-    optional("ClientRequestToken") => String.t(),
-    optional("Tags") => list(tag()()),
-    required("Sinks") => list(media_stream_sink()()),
-    required("Sources") => list(media_stream_source()())
-  }
+
+      create_media_stream_pipeline_request() :: %{
+        optional("ClientRequestToken") => String.t(),
+        optional("Tags") => list(tag()()),
+        required("Sinks") => list(media_stream_sink()()),
+        required("Sources") => list(media_stream_source()())
+      }
+
   """
   @type create_media_stream_pipeline_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  keyword_match_configuration() :: %{
-    "Keywords" => list(String.t()()),
-    "Negate" => boolean(),
-    "RuleName" => String.t()
-  }
+
+      keyword_match_configuration() :: %{
+        "Keywords" => list(String.t()()),
+        "Negate" => boolean(),
+        "RuleName" => String.t()
+      }
+
   """
   @type keyword_match_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  bad_request_exception() :: %{
-    "Code" => list(any()),
-    "Message" => String.t(),
-    "RequestId" => String.t()
-  }
+
+      bad_request_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t(),
+        "RequestId" => String.t()
+      }
+
   """
   @type bad_request_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  grid_view_configuration() :: %{
-    "ActiveSpeakerOnlyConfiguration" => active_speaker_only_configuration(),
-    "CanvasOrientation" => list(any()),
-    "ContentShareLayout" => list(any()),
-    "HorizontalLayoutConfiguration" => horizontal_layout_configuration(),
-    "PresenterOnlyConfiguration" => presenter_only_configuration(),
-    "VerticalLayoutConfiguration" => vertical_layout_configuration(),
-    "VideoAttribute" => video_attribute()
-  }
+
+      grid_view_configuration() :: %{
+        "ActiveSpeakerOnlyConfiguration" => active_speaker_only_configuration(),
+        "CanvasOrientation" => list(any()),
+        "ContentShareLayout" => list(any()),
+        "HorizontalLayoutConfiguration" => horizontal_layout_configuration(),
+        "PresenterOnlyConfiguration" => presenter_only_configuration(),
+        "VerticalLayoutConfiguration" => vertical_layout_configuration(),
+        "VideoAttribute" => video_attribute()
+      }
+
   """
   @type grid_view_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_voice_tone_analysis_task_request() :: %{
 
-  }
+      get_voice_tone_analysis_task_request() :: %{}
+
   """
-  @type get_voice_tone_analysis_task_request() :: %{String.t() => any()}
+  @type get_voice_tone_analysis_task_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  real_time_alert_configuration() :: %{
-    "Disabled" => boolean(),
-    "Rules" => list(real_time_alert_rule()())
-  }
+
+      real_time_alert_configuration() :: %{
+        "Disabled" => boolean(),
+        "Rules" => list(real_time_alert_rule()())
+      }
+
   """
   @type real_time_alert_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_media_stream_pipeline_response() :: %{
-    "MediaStreamPipeline" => media_stream_pipeline()
-  }
+
+      create_media_stream_pipeline_response() :: %{
+        "MediaStreamPipeline" => media_stream_pipeline()
+      }
+
   """
   @type create_media_stream_pipeline_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_speaker_search_task_request() :: %{
 
-  }
+      get_speaker_search_task_request() :: %{}
+
   """
-  @type get_speaker_search_task_request() :: %{String.t() => any()}
+  @type get_speaker_search_task_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_media_insights_pipeline_configuration_request() :: %{
-    optional("ClientRequestToken") => String.t(),
-    optional("RealTimeAlertConfiguration") => real_time_alert_configuration(),
-    optional("Tags") => list(tag()()),
-    required("Elements") => list(media_insights_pipeline_configuration_element()()),
-    required("MediaInsightsPipelineConfigurationName") => String.t(),
-    required("ResourceAccessRoleArn") => String.t()
-  }
+
+      create_media_insights_pipeline_configuration_request() :: %{
+        optional("ClientRequestToken") => String.t(),
+        optional("RealTimeAlertConfiguration") => real_time_alert_configuration(),
+        optional("Tags") => list(tag()()),
+        required("Elements") => list(media_insights_pipeline_configuration_element()()),
+        required("MediaInsightsPipelineConfigurationName") => String.t(),
+        required("ResourceAccessRoleArn") => String.t()
+      }
+
   """
   @type create_media_insights_pipeline_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  transcription_messages_concatenation_configuration() :: %{
-    "State" => list(any())
-  }
+
+      transcription_messages_concatenation_configuration() :: %{
+        "State" => list(any())
+      }
+
   """
   @type transcription_messages_concatenation_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  amazon_transcribe_processor_configuration() :: %{
-    "ContentIdentificationType" => list(any()),
-    "ContentRedactionType" => list(any()),
-    "EnablePartialResultsStabilization" => boolean(),
-    "FilterPartialResults" => boolean(),
-    "IdentifyLanguage" => boolean(),
-    "LanguageCode" => list(any()),
-    "LanguageModelName" => String.t(),
-    "LanguageOptions" => String.t(),
-    "PartialResultsStability" => list(any()),
-    "PiiEntityTypes" => String.t(),
-    "PreferredLanguage" => list(any()),
-    "ShowSpeakerLabel" => boolean(),
-    "VocabularyFilterMethod" => list(any()),
-    "VocabularyFilterName" => String.t(),
-    "VocabularyFilterNames" => String.t(),
-    "VocabularyName" => String.t(),
-    "VocabularyNames" => String.t()
-  }
+
+      amazon_transcribe_processor_configuration() :: %{
+        "ContentIdentificationType" => list(any()),
+        "ContentRedactionType" => list(any()),
+        "EnablePartialResultsStabilization" => boolean(),
+        "FilterPartialResults" => boolean(),
+        "IdentifyLanguage" => boolean(),
+        "LanguageCode" => list(any()),
+        "LanguageModelName" => String.t(),
+        "LanguageOptions" => String.t(),
+        "PartialResultsStability" => list(any()),
+        "PiiEntityTypes" => String.t(),
+        "PreferredLanguage" => list(any()),
+        "ShowSpeakerLabel" => boolean(),
+        "VocabularyFilterMethod" => list(any()),
+        "VocabularyFilterName" => String.t(),
+        "VocabularyFilterNames" => String.t(),
+        "VocabularyName" => String.t(),
+        "VocabularyNames" => String.t()
+      }
+
   """
   @type amazon_transcribe_processor_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  s3_bucket_sink_configuration() :: %{
-    "Destination" => String.t()
-  }
+
+      s3_bucket_sink_configuration() :: %{
+        "Destination" => String.t()
+      }
+
   """
   @type s3_bucket_sink_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  artifacts_configuration() :: %{
-    "Audio" => audio_artifacts_configuration(),
-    "CompositedVideo" => composited_video_artifacts_configuration(),
-    "Content" => content_artifacts_configuration(),
-    "Video" => video_artifacts_configuration()
-  }
+
+      artifacts_configuration() :: %{
+        "Audio" => audio_artifacts_configuration(),
+        "CompositedVideo" => composited_video_artifacts_configuration(),
+        "Content" => content_artifacts_configuration(),
+        "Video" => video_artifacts_configuration()
+      }
+
   """
   @type artifacts_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_media_insights_pipeline_response() :: %{
-    "MediaInsightsPipeline" => media_insights_pipeline()
-  }
+
+      create_media_insights_pipeline_response() :: %{
+        "MediaInsightsPipeline" => media_insights_pipeline()
+      }
+
   """
   @type create_media_insights_pipeline_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  chime_sdk_meeting_concatenation_configuration() :: %{
-    "ArtifactsConfiguration" => artifacts_concatenation_configuration()
-  }
+
+      chime_sdk_meeting_concatenation_configuration() :: %{
+        "ArtifactsConfiguration" => artifacts_concatenation_configuration()
+      }
+
   """
   @type chime_sdk_meeting_concatenation_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_media_pipeline_kinesis_video_stream_pool_request() :: %{
-    optional("StreamConfiguration") => kinesis_video_stream_configuration_update()
-  }
+
+      update_media_pipeline_kinesis_video_stream_pool_request() :: %{
+        optional("StreamConfiguration") => kinesis_video_stream_configuration_update()
+      }
+
   """
   @type update_media_pipeline_kinesis_video_stream_pool_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  kinesis_video_stream_pool_configuration() :: %{
-    "CreatedTimestamp" => non_neg_integer(),
-    "PoolArn" => String.t(),
-    "PoolId" => String.t(),
-    "PoolName" => String.t(),
-    "PoolSize" => integer(),
-    "PoolStatus" => list(any()),
-    "StreamConfiguration" => kinesis_video_stream_configuration(),
-    "UpdatedTimestamp" => non_neg_integer()
-  }
+
+      kinesis_video_stream_pool_configuration() :: %{
+        "CreatedTimestamp" => non_neg_integer(),
+        "PoolArn" => String.t(),
+        "PoolId" => String.t(),
+        "PoolName" => String.t(),
+        "PoolSize" => integer(),
+        "PoolStatus" => list(any()),
+        "StreamConfiguration" => kinesis_video_stream_configuration(),
+        "UpdatedTimestamp" => non_neg_integer()
+      }
+
   """
   @type kinesis_video_stream_pool_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stream_configuration() :: %{
-    "FragmentNumber" => String.t(),
-    "StreamArn" => String.t(),
-    "StreamChannelDefinition" => stream_channel_definition()
-  }
+
+      stream_configuration() :: %{
+        "FragmentNumber" => String.t(),
+        "StreamArn" => String.t(),
+        "StreamChannelDefinition" => stream_channel_definition()
+      }
+
   """
   @type stream_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stream_channel_definition() :: %{
-    "ChannelDefinitions" => list(channel_definition()()),
-    "NumberOfChannels" => integer()
-  }
+
+      stream_channel_definition() :: %{
+        "ChannelDefinitions" => list(channel_definition()()),
+        "NumberOfChannels" => integer()
+      }
+
   """
   @type stream_channel_definition() :: %{String.t() => any()}
+
+  @type create_media_capture_pipeline_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | resource_limit_exceeded_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type create_media_concatenation_pipeline_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | resource_limit_exceeded_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type create_media_insights_pipeline_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | resource_limit_exceeded_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type create_media_insights_pipeline_configuration_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | resource_limit_exceeded_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type create_media_live_connector_pipeline_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | resource_limit_exceeded_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type create_media_pipeline_kinesis_video_stream_pool_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | resource_limit_exceeded_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type create_media_stream_pipeline_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | resource_limit_exceeded_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type delete_media_capture_pipeline_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type delete_media_insights_pipeline_configuration_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type delete_media_pipeline_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type delete_media_pipeline_kinesis_video_stream_pool_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type get_media_capture_pipeline_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type get_media_insights_pipeline_configuration_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type get_media_pipeline_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type get_media_pipeline_kinesis_video_stream_pool_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type get_speaker_search_task_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type get_voice_tone_analysis_task_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type list_media_capture_pipelines_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | resource_limit_exceeded_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type list_media_insights_pipeline_configurations_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | resource_limit_exceeded_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type list_media_pipeline_kinesis_video_stream_pools_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | resource_limit_exceeded_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type list_media_pipelines_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | resource_limit_exceeded_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type list_tags_for_resource_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type start_speaker_search_task_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type start_voice_tone_analysis_task_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type stop_speaker_search_task_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type stop_voice_tone_analysis_task_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type tag_resource_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type untag_resource_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type update_media_insights_pipeline_configuration_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type update_media_insights_pipeline_status_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type update_media_pipeline_kinesis_video_stream_pool_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
 
   def metadata do
     %{
@@ -1542,13 +2089,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @spec create_media_capture_pipeline(map(), create_media_capture_pipeline_request(), list()) ::
           {:ok, create_media_capture_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, resource_limit_exceeded_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, create_media_capture_pipeline_errors()}
   def create_media_capture_pipeline(%Client{} = client, input, options \\ []) do
     url_path = "/sdk-media-capture-pipelines"
     headers = []
@@ -1579,13 +2120,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
         ) ::
           {:ok, create_media_concatenation_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, resource_limit_exceeded_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, create_media_concatenation_pipeline_errors()}
   def create_media_concatenation_pipeline(%Client{} = client, input, options \\ []) do
     url_path = "/sdk-media-concatenation-pipelines"
     headers = []
@@ -1612,14 +2147,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @spec create_media_insights_pipeline(map(), create_media_insights_pipeline_request(), list()) ::
           {:ok, create_media_insights_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, resource_limit_exceeded_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, create_media_insights_pipeline_errors()}
   def create_media_insights_pipeline(%Client{} = client, input, options \\ []) do
     url_path = "/media-insights-pipelines"
     headers = []
@@ -1651,14 +2179,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
         ) ::
           {:ok, create_media_insights_pipeline_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, resource_limit_exceeded_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, create_media_insights_pipeline_configuration_errors()}
   def create_media_insights_pipeline_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/media-insights-pipeline-configurations"
     headers = []
@@ -1689,13 +2210,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
         ) ::
           {:ok, create_media_live_connector_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, resource_limit_exceeded_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, create_media_live_connector_pipeline_errors()}
   def create_media_live_connector_pipeline(%Client{} = client, input, options \\ []) do
     url_path = "/sdk-media-live-connector-pipelines"
     headers = []
@@ -1726,14 +2241,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
         ) ::
           {:ok, create_media_pipeline_kinesis_video_stream_pool_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, resource_limit_exceeded_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, create_media_pipeline_kinesis_video_stream_pool_errors()}
   def create_media_pipeline_kinesis_video_stream_pool(%Client{} = client, input, options \\ []) do
     url_path = "/media-pipeline-kinesis-video-stream-pools"
     headers = []
@@ -1760,14 +2268,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @spec create_media_stream_pipeline(map(), create_media_stream_pipeline_request(), list()) ::
           {:ok, create_media_stream_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, resource_limit_exceeded_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, create_media_stream_pipeline_errors()}
   def create_media_stream_pipeline(%Client{} = client, input, options \\ []) do
     url_path = "/sdk-media-stream-pipelines"
     headers = []
@@ -1799,13 +2300,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, delete_media_capture_pipeline_errors()}
   def delete_media_capture_pipeline(%Client{} = client, media_pipeline_id, input, options \\ []) do
     url_path = "/sdk-media-capture-pipelines/#{AWS.Util.encode_uri(media_pipeline_id)}"
     headers = []
@@ -1837,14 +2332,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, delete_media_insights_pipeline_configuration_errors()}
   def delete_media_insights_pipeline_configuration(
         %Client{} = client,
         identifier,
@@ -1876,14 +2364,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @spec delete_media_pipeline(map(), String.t(), delete_media_pipeline_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, delete_media_pipeline_errors()}
   def delete_media_pipeline(%Client{} = client, media_pipeline_id, input, options \\ []) do
     url_path = "/sdk-media-pipelines/#{AWS.Util.encode_uri(media_pipeline_id)}"
     headers = []
@@ -1915,14 +2396,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, delete_media_pipeline_kinesis_video_stream_pool_errors()}
   def delete_media_pipeline_kinesis_video_stream_pool(
         %Client{} = client,
         identifier,
@@ -1954,13 +2428,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @spec get_media_capture_pipeline(map(), String.t(), list()) ::
           {:ok, get_media_capture_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, get_media_capture_pipeline_errors()}
   def get_media_capture_pipeline(%Client{} = client, media_pipeline_id, options \\ []) do
     url_path = "/sdk-media-capture-pipelines/#{AWS.Util.encode_uri(media_pipeline_id)}"
     headers = []
@@ -1977,13 +2445,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @spec get_media_insights_pipeline_configuration(map(), String.t(), list()) ::
           {:ok, get_media_insights_pipeline_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, get_media_insights_pipeline_configuration_errors()}
   def get_media_insights_pipeline_configuration(%Client{} = client, identifier, options \\ []) do
     url_path = "/media-insights-pipeline-configurations/#{AWS.Util.encode_uri(identifier)}"
     headers = []
@@ -2000,13 +2462,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @spec get_media_pipeline(map(), String.t(), list()) ::
           {:ok, get_media_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, get_media_pipeline_errors()}
   def get_media_pipeline(%Client{} = client, media_pipeline_id, options \\ []) do
     url_path = "/sdk-media-pipelines/#{AWS.Util.encode_uri(media_pipeline_id)}"
     headers = []
@@ -2023,13 +2479,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @spec get_media_pipeline_kinesis_video_stream_pool(map(), String.t(), list()) ::
           {:ok, get_media_pipeline_kinesis_video_stream_pool_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, get_media_pipeline_kinesis_video_stream_pool_errors()}
   def get_media_pipeline_kinesis_video_stream_pool(%Client{} = client, identifier, options \\ []) do
     url_path = "/media-pipeline-kinesis-video-stream-pools/#{AWS.Util.encode_uri(identifier)}"
     headers = []
@@ -2046,13 +2496,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @spec get_speaker_search_task(map(), String.t(), String.t(), list()) ::
           {:ok, get_speaker_search_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, get_speaker_search_task_errors()}
   def get_speaker_search_task(
         %Client{} = client,
         identifier,
@@ -2076,13 +2520,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @spec get_voice_tone_analysis_task(map(), String.t(), String.t(), list()) ::
           {:ok, get_voice_tone_analysis_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, get_voice_tone_analysis_task_errors()}
   def get_voice_tone_analysis_task(
         %Client{} = client,
         identifier,
@@ -2106,13 +2544,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @spec list_media_capture_pipelines(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_media_capture_pipelines_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, resource_limit_exceeded_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, list_media_capture_pipelines_errors()}
   def list_media_capture_pipelines(
         %Client{} = client,
         max_results \\ nil,
@@ -2153,13 +2585,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
         ) ::
           {:ok, list_media_insights_pipeline_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, resource_limit_exceeded_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, list_media_insights_pipeline_configurations_errors()}
   def list_media_insights_pipeline_configurations(
         %Client{} = client,
         max_results \\ nil,
@@ -2200,13 +2626,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
         ) ::
           {:ok, list_media_pipeline_kinesis_video_stream_pools_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, resource_limit_exceeded_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, list_media_pipeline_kinesis_video_stream_pools_errors()}
   def list_media_pipeline_kinesis_video_stream_pools(
         %Client{} = client,
         max_results \\ nil,
@@ -2242,13 +2662,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @spec list_media_pipelines(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_media_pipelines_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, resource_limit_exceeded_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, list_media_pipelines_errors()}
   def list_media_pipelines(
         %Client{} = client,
         max_results \\ nil,
@@ -2284,13 +2698,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags"
     headers = []
@@ -2320,14 +2728,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @spec start_speaker_search_task(map(), String.t(), start_speaker_search_task_request(), list()) ::
           {:ok, start_speaker_search_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, start_speaker_search_task_errors()}
   def start_speaker_search_task(%Client{} = client, identifier, input, options \\ []) do
     url_path =
       "/media-insights-pipelines/#{AWS.Util.encode_uri(identifier)}/speaker-search-tasks?operation=start"
@@ -2371,14 +2772,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
         ) ::
           {:ok, start_voice_tone_analysis_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, start_voice_tone_analysis_task_errors()}
   def start_voice_tone_analysis_task(%Client{} = client, identifier, input, options \\ []) do
     url_path =
       "/media-insights-pipelines/#{AWS.Util.encode_uri(identifier)}/voice-tone-analysis-tasks?operation=start"
@@ -2413,14 +2807,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, stop_speaker_search_task_errors()}
   def stop_speaker_search_task(
         %Client{} = client,
         identifier,
@@ -2461,14 +2848,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, stop_voice_tone_analysis_task_errors()}
   def stop_voice_tone_analysis_task(
         %Client{} = client,
         identifier,
@@ -2505,13 +2885,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tags?operation=tag-resource"
     headers = []
@@ -2538,13 +2912,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tags?operation=untag-resource"
     headers = []
@@ -2576,14 +2944,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
         ) ::
           {:ok, update_media_insights_pipeline_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, update_media_insights_pipeline_configuration_errors()}
   def update_media_insights_pipeline_configuration(
         %Client{} = client,
         identifier,
@@ -2610,14 +2971,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, update_media_insights_pipeline_status_errors()}
   def update_media_insights_pipeline_status(%Client{} = client, identifier, input, options \\ []) do
     url_path = "/media-insights-pipeline-status/#{AWS.Util.encode_uri(identifier)}"
     headers = []
@@ -2639,14 +2993,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
         ) ::
           {:ok, update_media_pipeline_kinesis_video_stream_pool_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, forbidden_exception()}
-          | {:error, not_found_exception()}
-          | {:error, service_failure_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttled_client_exception()}
-          | {:error, unauthorized_client_exception()}
+          | {:error, update_media_pipeline_kinesis_video_stream_pool_errors()}
   def update_media_pipeline_kinesis_video_stream_pool(
         %Client{} = client,
         identifier,

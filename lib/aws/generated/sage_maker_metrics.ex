@@ -19,41 +19,49 @@ defmodule AWS.SageMakerMetrics do
   @typedoc """
 
   ## Example:
-  batch_put_metrics_error() :: %{
-    "Code" => list(any()),
-    "MetricIndex" => integer()
-  }
+
+      batch_put_metrics_error() :: %{
+        "Code" => list(any()),
+        "MetricIndex" => integer()
+      }
+
   """
   @type batch_put_metrics_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_put_metrics_request() :: %{
-    required("MetricData") => list(raw_metric_data()()),
-    required("TrialComponentName") => String.t()
-  }
+
+      batch_put_metrics_request() :: %{
+        required("MetricData") => list(raw_metric_data()()),
+        required("TrialComponentName") => String.t()
+      }
+
   """
   @type batch_put_metrics_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_put_metrics_response() :: %{
-    "Errors" => list(batch_put_metrics_error()())
-  }
+
+      batch_put_metrics_response() :: %{
+        "Errors" => list(batch_put_metrics_error()())
+      }
+
   """
   @type batch_put_metrics_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  raw_metric_data() :: %{
-    "MetricName" => String.t(),
-    "Step" => integer(),
-    "Timestamp" => non_neg_integer(),
-    "Value" => float()
-  }
+
+      raw_metric_data() :: %{
+        "MetricName" => String.t(),
+        "Step" => integer(),
+        "Timestamp" => non_neg_integer(),
+        "Value" => float()
+      }
+
   """
   @type raw_metric_data() :: %{String.t() => any()}
 

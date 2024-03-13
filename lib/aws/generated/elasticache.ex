@@ -29,3223 +29,4360 @@ defmodule AWS.ElastiCache do
   @typedoc """
 
   ## Example:
-  cache_parameter_group_name_message() :: %{
-    "CacheParameterGroupName" => String.t()
-  }
+      
+      cache_parameter_group_name_message() :: %{
+        "CacheParameterGroupName" => String.t()
+      }
+      
   """
   @type cache_parameter_group_name_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_user_state_fault() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_user_state_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_user_state_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_apply_update_action_message() :: %{
-    optional("CacheClusterIds") => list(String.t()()),
-    optional("ReplicationGroupIds") => list(String.t()()),
-    required("ServiceUpdateName") => String.t()
-  }
+      
+      batch_apply_update_action_message() :: %{
+        optional("CacheClusterIds") => list(String.t()()),
+        optional("ReplicationGroupIds") => list(String.t()()),
+        required("ServiceUpdateName") => String.t()
+      }
+      
   """
   @type batch_apply_update_action_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_update_actions_message() :: %{
-    optional("CacheClusterIds") => list(String.t()()),
-    optional("Engine") => String.t(),
-    optional("Marker") => String.t(),
-    optional("MaxRecords") => integer(),
-    optional("ReplicationGroupIds") => list(String.t()()),
-    optional("ServiceUpdateName") => String.t(),
-    optional("ServiceUpdateStatus") => list(list(any())()),
-    optional("ServiceUpdateTimeRange") => time_range_filter(),
-    optional("ShowNodeLevelUpdateStatus") => boolean(),
-    optional("UpdateActionStatus") => list(list(any())())
-  }
+      
+      describe_update_actions_message() :: %{
+        optional("CacheClusterIds") => list(String.t()()),
+        optional("Engine") => String.t(),
+        optional("Marker") => String.t(),
+        optional("MaxRecords") => integer(),
+        optional("ReplicationGroupIds") => list(String.t()()),
+        optional("ServiceUpdateName") => String.t(),
+        optional("ServiceUpdateStatus") => list(list(any())()),
+        optional("ServiceUpdateTimeRange") => time_range_filter(),
+        optional("ShowNodeLevelUpdateStatus") => boolean(),
+        optional("UpdateActionStatus") => list(list(any())())
+      }
+      
   """
   @type describe_update_actions_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  unprocessed_update_action() :: %{
-    "CacheClusterId" => String.t(),
-    "ErrorMessage" => String.t(),
-    "ErrorType" => String.t(),
-    "ReplicationGroupId" => String.t(),
-    "ServiceUpdateName" => String.t()
-  }
+      
+      unprocessed_update_action() :: %{
+        "CacheClusterId" => String.t(),
+        "ErrorMessage" => String.t(),
+        "ErrorType" => String.t(),
+        "ReplicationGroupId" => String.t(),
+        "ServiceUpdateName" => String.t()
+      }
+      
   """
   @type unprocessed_update_action() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  node_quota_for_customer_exceeded_fault() :: %{
-    "message" => String.t()
-  }
+      
+      node_quota_for_customer_exceeded_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type node_quota_for_customer_exceeded_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  reserved_cache_node() :: %{
-    "CacheNodeCount" => integer(),
-    "CacheNodeType" => String.t(),
-    "Duration" => integer(),
-    "FixedPrice" => float(),
-    "OfferingType" => String.t(),
-    "ProductDescription" => String.t(),
-    "RecurringCharges" => list(recurring_charge()()),
-    "ReservationARN" => String.t(),
-    "ReservedCacheNodeId" => String.t(),
-    "ReservedCacheNodesOfferingId" => String.t(),
-    "StartTime" => non_neg_integer(),
-    "State" => String.t(),
-    "UsagePrice" => float()
-  }
+      
+      reserved_cache_node() :: %{
+        "CacheNodeCount" => integer(),
+        "CacheNodeType" => String.t(),
+        "Duration" => integer(),
+        "FixedPrice" => float(),
+        "OfferingType" => String.t(),
+        "ProductDescription" => String.t(),
+        "RecurringCharges" => list(recurring_charge()()),
+        "ReservationARN" => String.t(),
+        "ReservedCacheNodeId" => String.t(),
+        "ReservedCacheNodesOfferingId" => String.t(),
+        "StartTime" => non_neg_integer(),
+        "State" => String.t(),
+        "UsagePrice" => float()
+      }
+      
   """
   @type reserved_cache_node() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  snapshot_quota_exceeded_fault() :: %{
-    "message" => String.t()
-  }
+      
+      snapshot_quota_exceeded_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type snapshot_quota_exceeded_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  snapshot_not_found_fault() :: %{
-    "message" => String.t()
-  }
+      
+      snapshot_not_found_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type snapshot_not_found_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  reserved_cache_nodes_offering_not_found_fault() :: %{
-    "message" => String.t()
-  }
+      
+      reserved_cache_nodes_offering_not_found_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type reserved_cache_nodes_offering_not_found_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disassociate_global_replication_group_result() :: %{
-    "GlobalReplicationGroup" => global_replication_group()
-  }
+      
+      disassociate_global_replication_group_result() :: %{
+        "GlobalReplicationGroup" => global_replication_group()
+      }
+      
   """
   @type disassociate_global_replication_group_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_cache_engine_versions_message() :: %{
-    optional("CacheParameterGroupFamily") => String.t(),
-    optional("DefaultOnly") => boolean(),
-    optional("Engine") => String.t(),
-    optional("EngineVersion") => String.t(),
-    optional("Marker") => String.t(),
-    optional("MaxRecords") => integer()
-  }
+      
+      describe_cache_engine_versions_message() :: %{
+        optional("CacheParameterGroupFamily") => String.t(),
+        optional("DefaultOnly") => boolean(),
+        optional("Engine") => String.t(),
+        optional("EngineVersion") => String.t(),
+        optional("Marker") => String.t(),
+        optional("MaxRecords") => integer()
+      }
+      
   """
   @type describe_cache_engine_versions_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  data_storage() :: %{
-    "Maximum" => integer(),
-    "Unit" => list(any())
-  }
+      
+      data_storage() :: %{
+        "Maximum" => integer(),
+        "Unit" => list(any())
+      }
+      
   """
   @type data_storage() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  e_c_p_u_per_second() :: %{
-    "Maximum" => integer()
-  }
+      
+      e_c_p_u_per_second() :: %{
+        "Maximum" => integer()
+      }
+      
   """
   @type e_c_p_u_per_second() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cache_parameter_group_not_found_fault() :: %{
-    "message" => String.t()
-  }
+      
+      cache_parameter_group_not_found_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type cache_parameter_group_not_found_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cache_security_group_message() :: %{
-    "CacheSecurityGroups" => list(cache_security_group()()),
-    "Marker" => String.t()
-  }
+      
+      cache_security_group_message() :: %{
+        "CacheSecurityGroups" => list(cache_security_group()()),
+        "Marker" => String.t()
+      }
+      
   """
   @type cache_security_group_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cache_usage_limits() :: %{
-    "DataStorage" => data_storage(),
-    "ECPUPerSecond" => e_c_p_u_per_second()
-  }
+      
+      cache_usage_limits() :: %{
+        "DataStorage" => data_storage(),
+        "ECPUPerSecond" => e_c_p_u_per_second()
+      }
+      
   """
   @type cache_usage_limits() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_user_groups_message() :: %{
-    optional("Marker") => String.t(),
-    optional("MaxRecords") => integer(),
-    optional("UserGroupId") => String.t()
-  }
+      
+      describe_user_groups_message() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxRecords") => integer(),
+        optional("UserGroupId") => String.t()
+      }
+      
   """
   @type describe_user_groups_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_user_groups_result() :: %{
-    "Marker" => String.t(),
-    "UserGroups" => list(user_group()())
-  }
+      
+      describe_user_groups_result() :: %{
+        "Marker" => String.t(),
+        "UserGroups" => list(user_group()())
+      }
+      
   """
   @type describe_user_groups_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cache_node_type_specific_parameter() :: %{
-    "AllowedValues" => String.t(),
-    "CacheNodeTypeSpecificValues" => list(cache_node_type_specific_value()()),
-    "ChangeType" => list(any()),
-    "DataType" => String.t(),
-    "Description" => String.t(),
-    "IsModifiable" => boolean(),
-    "MinimumEngineVersion" => String.t(),
-    "ParameterName" => String.t(),
-    "Source" => String.t()
-  }
+      
+      cache_node_type_specific_parameter() :: %{
+        "AllowedValues" => String.t(),
+        "CacheNodeTypeSpecificValues" => list(cache_node_type_specific_value()()),
+        "ChangeType" => list(any()),
+        "DataType" => String.t(),
+        "Description" => String.t(),
+        "IsModifiable" => boolean(),
+        "MinimumEngineVersion" => String.t(),
+        "ParameterName" => String.t(),
+        "Source" => String.t()
+      }
+      
   """
   @type cache_node_type_specific_parameter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_global_replication_groups_result() :: %{
-    "GlobalReplicationGroups" => list(global_replication_group()()),
-    "Marker" => String.t()
-  }
+      
+      describe_global_replication_groups_result() :: %{
+        "GlobalReplicationGroups" => list(global_replication_group()()),
+        "Marker" => String.t()
+      }
+      
   """
   @type describe_global_replication_groups_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  serverless_cache() :: %{
-    "ARN" => String.t(),
-    "CacheUsageLimits" => cache_usage_limits(),
-    "CreateTime" => non_neg_integer(),
-    "DailySnapshotTime" => String.t(),
-    "Description" => String.t(),
-    "Endpoint" => endpoint(),
-    "Engine" => String.t(),
-    "FullEngineVersion" => String.t(),
-    "KmsKeyId" => String.t(),
-    "MajorEngineVersion" => String.t(),
-    "ReaderEndpoint" => endpoint(),
-    "SecurityGroupIds" => list(String.t()()),
-    "ServerlessCacheName" => String.t(),
-    "SnapshotRetentionLimit" => integer(),
-    "Status" => String.t(),
-    "SubnetIds" => list(String.t()()),
-    "UserGroupId" => String.t()
-  }
+      
+      serverless_cache() :: %{
+        "ARN" => String.t(),
+        "CacheUsageLimits" => cache_usage_limits(),
+        "CreateTime" => non_neg_integer(),
+        "DailySnapshotTime" => String.t(),
+        "Description" => String.t(),
+        "Endpoint" => endpoint(),
+        "Engine" => String.t(),
+        "FullEngineVersion" => String.t(),
+        "KmsKeyId" => String.t(),
+        "MajorEngineVersion" => String.t(),
+        "ReaderEndpoint" => endpoint(),
+        "SecurityGroupIds" => list(String.t()()),
+        "ServerlessCacheName" => String.t(),
+        "SnapshotRetentionLimit" => integer(),
+        "Status" => String.t(),
+        "SubnetIds" => list(String.t()()),
+        "UserGroupId" => String.t()
+      }
+      
   """
   @type serverless_cache() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cache_parameter_groups_message() :: %{
-    "CacheParameterGroups" => list(cache_parameter_group()()),
-    "Marker" => String.t()
-  }
+      
+      cache_parameter_groups_message() :: %{
+        "CacheParameterGroups" => list(cache_parameter_group()()),
+        "Marker" => String.t()
+      }
+      
   """
   @type cache_parameter_groups_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cache_subnet_group_quota_exceeded_fault() :: %{
-    "message" => String.t()
-  }
+      
+      cache_subnet_group_quota_exceeded_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type cache_subnet_group_quota_exceeded_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  availability_zone() :: %{
-    "Name" => String.t()
-  }
+      
+      availability_zone() :: %{
+        "Name" => String.t()
+      }
+      
   """
   @type availability_zone() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  modify_replication_group_result() :: %{
-    "ReplicationGroup" => replication_group()
-  }
+      
+      modify_replication_group_result() :: %{
+        "ReplicationGroup" => replication_group()
+      }
+      
   """
   @type modify_replication_group_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  allowed_node_type_modifications_message() :: %{
-    "ScaleDownModifications" => list(String.t()()),
-    "ScaleUpModifications" => list(String.t()())
-  }
+      
+      allowed_node_type_modifications_message() :: %{
+        "ScaleDownModifications" => list(String.t()()),
+        "ScaleUpModifications" => list(String.t()())
+      }
+      
   """
   @type allowed_node_type_modifications_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  modify_replication_group_shard_configuration_message() :: %{
-    optional("NodeGroupsToRemove") => list(String.t()()),
-    optional("NodeGroupsToRetain") => list(String.t()()),
-    optional("ReshardingConfiguration") => list(resharding_configuration()()),
-    required("ApplyImmediately") => boolean(),
-    required("NodeGroupCount") => integer(),
-    required("ReplicationGroupId") => String.t()
-  }
+      
+      modify_replication_group_shard_configuration_message() :: %{
+        optional("NodeGroupsToRemove") => list(String.t()()),
+        optional("NodeGroupsToRetain") => list(String.t()()),
+        optional("ReshardingConfiguration") => list(resharding_configuration()()),
+        required("ApplyImmediately") => boolean(),
+        required("NodeGroupCount") => integer(),
+        required("ReplicationGroupId") => String.t()
+      }
+      
   """
   @type modify_replication_group_shard_configuration_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  modify_user_group_message() :: %{
-    optional("UserIdsToAdd") => list(String.t()()),
-    optional("UserIdsToRemove") => list(String.t()()),
-    required("UserGroupId") => String.t()
-  }
+      
+      modify_user_group_message() :: %{
+        optional("UserIdsToAdd") => list(String.t()()),
+        optional("UserIdsToRemove") => list(String.t()()),
+        required("UserGroupId") => String.t()
+      }
+      
   """
   @type modify_user_group_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  global_node_group() :: %{
-    "GlobalNodeGroupId" => String.t(),
-    "Slots" => String.t()
-  }
+      
+      global_node_group() :: %{
+        "GlobalNodeGroupId" => String.t(),
+        "Slots" => String.t()
+      }
+      
   """
   @type global_node_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_cache_cluster_state_fault() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_cache_cluster_state_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_cache_cluster_state_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_replication_group_result() :: %{
-    "ReplicationGroup" => replication_group()
-  }
+      
+      delete_replication_group_result() :: %{
+        "ReplicationGroup" => replication_group()
+      }
+      
   """
   @type delete_replication_group_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  reset_cache_parameter_group_message() :: %{
-    optional("ParameterNameValues") => list(parameter_name_value()()),
-    optional("ResetAllParameters") => boolean(),
-    required("CacheParameterGroupName") => String.t()
-  }
+      
+      reset_cache_parameter_group_message() :: %{
+        optional("ParameterNameValues") => list(parameter_name_value()()),
+        optional("ResetAllParameters") => boolean(),
+        required("CacheParameterGroupName") => String.t()
+      }
+      
   """
   @type reset_cache_parameter_group_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  log_delivery_configuration_request() :: %{
-    "DestinationDetails" => destination_details(),
-    "DestinationType" => list(any()),
-    "Enabled" => boolean(),
-    "LogFormat" => list(any()),
-    "LogType" => list(any())
-  }
+      
+      log_delivery_configuration_request() :: %{
+        "DestinationDetails" => destination_details(),
+        "DestinationType" => list(any()),
+        "Enabled" => boolean(),
+        "LogFormat" => list(any()),
+        "LogType" => list(any())
+      }
+      
   """
   @type log_delivery_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  node_snapshot() :: %{
-    "CacheClusterId" => String.t(),
-    "CacheNodeCreateTime" => non_neg_integer(),
-    "CacheNodeId" => String.t(),
-    "CacheSize" => String.t(),
-    "NodeGroupConfiguration" => node_group_configuration(),
-    "NodeGroupId" => String.t(),
-    "SnapshotCreateTime" => non_neg_integer()
-  }
+      
+      node_snapshot() :: %{
+        "CacheClusterId" => String.t(),
+        "CacheNodeCreateTime" => non_neg_integer(),
+        "CacheNodeId" => String.t(),
+        "CacheSize" => String.t(),
+        "NodeGroupConfiguration" => node_group_configuration(),
+        "NodeGroupId" => String.t(),
+        "SnapshotCreateTime" => non_neg_integer()
+      }
+      
   """
   @type node_snapshot() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  user_group() :: %{
-    optional("ARN") => String.t(),
-    optional("Engine") => String.t(),
-    optional("MinimumEngineVersion") => String.t(),
-    optional("PendingChanges") => user_group_pending_changes(),
-    optional("ReplicationGroups") => list(String.t()()),
-    optional("ServerlessCaches") => list(String.t()()),
-    optional("Status") => String.t(),
-    optional("UserGroupId") => String.t(),
-    optional("UserIds") => list(String.t()())
-  }
+      
+      user_group() :: %{
+        optional("ARN") => String.t(),
+        optional("Engine") => String.t(),
+        optional("MinimumEngineVersion") => String.t(),
+        optional("PendingChanges") => user_group_pending_changes(),
+        optional("ReplicationGroups") => list(String.t()()),
+        optional("ServerlessCaches") => list(String.t()()),
+        optional("Status") => String.t(),
+        optional("UserGroupId") => String.t(),
+        optional("UserIds") => list(String.t()())
+      }
+      
   """
   @type user_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  service_update_not_found_fault() :: %{
-    "message" => String.t()
-  }
+      
+      service_update_not_found_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type service_update_not_found_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  engine_defaults() :: %{
-    "CacheNodeTypeSpecificParameters" => list(cache_node_type_specific_parameter()()),
-    "CacheParameterGroupFamily" => String.t(),
-    "Marker" => String.t(),
-    "Parameters" => list(parameter()())
-  }
+      
+      engine_defaults() :: %{
+        "CacheNodeTypeSpecificParameters" => list(cache_node_type_specific_parameter()()),
+        "CacheParameterGroupFamily" => String.t(),
+        "Marker" => String.t(),
+        "Parameters" => list(parameter()())
+      }
+      
   """
   @type engine_defaults() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  revoke_cache_security_group_ingress_result() :: %{
-    "CacheSecurityGroup" => cache_security_group()
-  }
+      
+      revoke_cache_security_group_ingress_result() :: %{
+        "CacheSecurityGroup" => cache_security_group()
+      }
+      
   """
   @type revoke_cache_security_group_ingress_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_user_group_message() :: %{
-    required("UserGroupId") => String.t()
-  }
+      
+      delete_user_group_message() :: %{
+        required("UserGroupId") => String.t()
+      }
+      
   """
   @type delete_user_group_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  serverless_cache_already_exists_fault() :: %{
-    "message" => String.t()
-  }
+      
+      serverless_cache_already_exists_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type serverless_cache_already_exists_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cache_parameter_group_details() :: %{
-    "CacheNodeTypeSpecificParameters" => list(cache_node_type_specific_parameter()()),
-    "Marker" => String.t(),
-    "Parameters" => list(parameter()())
-  }
+      
+      cache_parameter_group_details() :: %{
+        "CacheNodeTypeSpecificParameters" => list(cache_node_type_specific_parameter()()),
+        "Marker" => String.t(),
+        "Parameters" => list(parameter()())
+      }
+      
   """
   @type cache_parameter_group_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_global_replication_groups_message() :: %{
-    optional("GlobalReplicationGroupId") => String.t(),
-    optional("Marker") => String.t(),
-    optional("MaxRecords") => integer(),
-    optional("ShowMemberInfo") => boolean()
-  }
+      
+      describe_global_replication_groups_message() :: %{
+        optional("GlobalReplicationGroupId") => String.t(),
+        optional("Marker") => String.t(),
+        optional("MaxRecords") => integer(),
+        optional("ShowMemberInfo") => boolean()
+      }
+      
   """
   @type describe_global_replication_groups_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  security_group_membership() :: %{
-    "SecurityGroupId" => String.t(),
-    "Status" => String.t()
-  }
+      
+      security_group_membership() :: %{
+        "SecurityGroupId" => String.t(),
+        "Status" => String.t()
+      }
+      
   """
   @type security_group_membership() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ec2_security_group() :: %{
-    "EC2SecurityGroupName" => String.t(),
-    "EC2SecurityGroupOwnerId" => String.t(),
-    "Status" => String.t()
-  }
+      
+      ec2_security_group() :: %{
+        "EC2SecurityGroupName" => String.t(),
+        "EC2SecurityGroupOwnerId" => String.t(),
+        "Status" => String.t()
+      }
+      
   """
   @type ec2_security_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_replication_group_message() :: %{
-    optional("FinalSnapshotIdentifier") => String.t(),
-    optional("RetainPrimaryCluster") => boolean(),
-    required("ReplicationGroupId") => String.t()
-  }
+      
+      delete_replication_group_message() :: %{
+        optional("FinalSnapshotIdentifier") => String.t(),
+        optional("RetainPrimaryCluster") => boolean(),
+        required("ReplicationGroupId") => String.t()
+      }
+      
   """
   @type delete_replication_group_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  recurring_charge() :: %{
-    "RecurringChargeAmount" => float(),
-    "RecurringChargeFrequency" => String.t()
-  }
+      
+      recurring_charge() :: %{
+        "RecurringChargeAmount" => float(),
+        "RecurringChargeFrequency" => String.t()
+      }
+      
   """
   @type recurring_charge() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  reserved_cache_nodes_offering() :: %{
-    "CacheNodeType" => String.t(),
-    "Duration" => integer(),
-    "FixedPrice" => float(),
-    "OfferingType" => String.t(),
-    "ProductDescription" => String.t(),
-    "RecurringCharges" => list(recurring_charge()()),
-    "ReservedCacheNodesOfferingId" => String.t(),
-    "UsagePrice" => float()
-  }
+      
+      reserved_cache_nodes_offering() :: %{
+        "CacheNodeType" => String.t(),
+        "Duration" => integer(),
+        "FixedPrice" => float(),
+        "OfferingType" => String.t(),
+        "ProductDescription" => String.t(),
+        "RecurringCharges" => list(recurring_charge()()),
+        "ReservedCacheNodesOfferingId" => String.t(),
+        "UsagePrice" => float()
+      }
+      
   """
   @type reserved_cache_nodes_offering() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_serverless_cache_snapshot_request() :: %{
-    optional("KmsKeyId") => String.t(),
-    optional("Tags") => list(tag()()),
-    required("ServerlessCacheName") => String.t(),
-    required("ServerlessCacheSnapshotName") => String.t()
-  }
+      
+      create_serverless_cache_snapshot_request() :: %{
+        optional("KmsKeyId") => String.t(),
+        optional("Tags") => list(tag()()),
+        required("ServerlessCacheName") => String.t(),
+        required("ServerlessCacheSnapshotName") => String.t()
+      }
+      
   """
   @type create_serverless_cache_snapshot_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  increase_node_groups_in_global_replication_group_message() :: %{
-    optional("RegionalConfigurations") => list(regional_configuration()()),
-    required("ApplyImmediately") => boolean(),
-    required("GlobalReplicationGroupId") => String.t(),
-    required("NodeGroupCount") => integer()
-  }
+      
+      increase_node_groups_in_global_replication_group_message() :: %{
+        optional("RegionalConfigurations") => list(regional_configuration()()),
+        required("ApplyImmediately") => boolean(),
+        required("GlobalReplicationGroupId") => String.t(),
+        required("NodeGroupCount") => integer()
+      }
+      
   """
   @type increase_node_groups_in_global_replication_group_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_serverless_caches_response() :: %{
-    "NextToken" => String.t(),
-    "ServerlessCaches" => list(serverless_cache()())
-  }
+      
+      describe_serverless_caches_response() :: %{
+        "NextToken" => String.t(),
+        "ServerlessCaches" => list(serverless_cache()())
+      }
+      
   """
   @type describe_serverless_caches_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_kms_key_fault() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_kms_key_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_kms_key_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  user_not_found_fault() :: %{
-    "message" => String.t()
-  }
+      
+      user_not_found_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type user_not_found_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  complete_migration_message() :: %{
-    optional("Force") => boolean(),
-    required("ReplicationGroupId") => String.t()
-  }
+      
+      complete_migration_message() :: %{
+        optional("Force") => boolean(),
+        required("ReplicationGroupId") => String.t()
+      }
+      
   """
   @type complete_migration_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_user_group_message() :: %{
-    optional("Tags") => list(tag()()),
-    optional("UserIds") => list(String.t()()),
-    required("Engine") => String.t(),
-    required("UserGroupId") => String.t()
-  }
+      
+      create_user_group_message() :: %{
+        optional("Tags") => list(tag()()),
+        optional("UserIds") => list(String.t()()),
+        required("Engine") => String.t(),
+        required("UserGroupId") => String.t()
+      }
+      
   """
   @type create_user_group_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  subnet() :: %{
-    "SubnetAvailabilityZone" => availability_zone(),
-    "SubnetIdentifier" => String.t(),
-    "SubnetOutpost" => subnet_outpost(),
-    "SupportedNetworkTypes" => list(list(any())())
-  }
+      
+      subnet() :: %{
+        "SubnetAvailabilityZone" => availability_zone(),
+        "SubnetIdentifier" => String.t(),
+        "SubnetOutpost" => subnet_outpost(),
+        "SupportedNetworkTypes" => list(list(any())())
+      }
+      
   """
   @type subnet() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_subnet() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_subnet() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_subnet() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cache_parameter_group() :: %{
-    "ARN" => String.t(),
-    "CacheParameterGroupFamily" => String.t(),
-    "CacheParameterGroupName" => String.t(),
-    "Description" => String.t(),
-    "IsGlobal" => boolean()
-  }
+      
+      cache_parameter_group() :: %{
+        "ARN" => String.t(),
+        "CacheParameterGroupFamily" => String.t(),
+        "CacheParameterGroupName" => String.t(),
+        "Description" => String.t(),
+        "IsGlobal" => boolean()
+      }
+      
   """
   @type cache_parameter_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  parameter_name_value() :: %{
-    "ParameterName" => String.t(),
-    "ParameterValue" => String.t()
-  }
+      
+      parameter_name_value() :: %{
+        "ParameterName" => String.t(),
+        "ParameterValue" => String.t()
+      }
+      
   """
   @type parameter_name_value() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_message() :: %{
-    required("ResourceName") => String.t()
-  }
+      
+      list_tags_for_resource_message() :: %{
+        required("ResourceName") => String.t()
+      }
+      
   """
   @type list_tags_for_resource_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cache_parameter_group_status() :: %{
-    "CacheNodeIdsToReboot" => list(String.t()()),
-    "CacheParameterGroupName" => String.t(),
-    "ParameterApplyStatus" => String.t()
-  }
+      
+      cache_parameter_group_status() :: %{
+        "CacheNodeIdsToReboot" => list(String.t()()),
+        "CacheParameterGroupName" => String.t(),
+        "ParameterApplyStatus" => String.t()
+      }
+      
   """
   @type cache_parameter_group_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  user_group_pending_changes() :: %{
-    "UserIdsToAdd" => list(String.t()()),
-    "UserIdsToRemove" => list(String.t()())
-  }
+      
+      user_group_pending_changes() :: %{
+        "UserIdsToAdd" => list(String.t()()),
+        "UserIdsToRemove" => list(String.t()())
+      }
+      
   """
   @type user_group_pending_changes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  global_replication_group_info() :: %{
-    "GlobalReplicationGroupId" => String.t(),
-    "GlobalReplicationGroupMemberRole" => String.t()
-  }
+      
+      global_replication_group_info() :: %{
+        "GlobalReplicationGroupId" => String.t(),
+        "GlobalReplicationGroupMemberRole" => String.t()
+      }
+      
   """
   @type global_replication_group_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resharding_status() :: %{
-    "SlotMigration" => slot_migration()
-  }
+      
+      resharding_status() :: %{
+        "SlotMigration" => slot_migration()
+      }
+      
   """
   @type resharding_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_serverless_cache_snapshots_response() :: %{
-    "NextToken" => String.t(),
-    "ServerlessCacheSnapshots" => list(serverless_cache_snapshot()())
-  }
+      
+      describe_serverless_cache_snapshots_response() :: %{
+        "NextToken" => String.t(),
+        "ServerlessCacheSnapshots" => list(serverless_cache_snapshot()())
+      }
+      
   """
   @type describe_serverless_cache_snapshots_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  rebalance_slots_in_global_replication_group_result() :: %{
-    "GlobalReplicationGroup" => global_replication_group()
-  }
+      
+      rebalance_slots_in_global_replication_group_result() :: %{
+        "GlobalReplicationGroup" => global_replication_group()
+      }
+      
   """
   @type rebalance_slots_in_global_replication_group_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  decrease_replica_count_result() :: %{
-    "ReplicationGroup" => replication_group()
-  }
+      
+      decrease_replica_count_result() :: %{
+        "ReplicationGroup" => replication_group()
+      }
+      
   """
   @type decrease_replica_count_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cache_parameter_group_already_exists_fault() :: %{
-    "message" => String.t()
-  }
+      
+      cache_parameter_group_already_exists_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type cache_parameter_group_already_exists_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_cache_parameter_group_message() :: %{
-    required("CacheParameterGroupName") => String.t()
-  }
+      
+      delete_cache_parameter_group_message() :: %{
+        required("CacheParameterGroupName") => String.t()
+      }
+      
   """
   @type delete_cache_parameter_group_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  node_group() :: %{
-    "NodeGroupId" => String.t(),
-    "NodeGroupMembers" => list(node_group_member()()),
-    "PrimaryEndpoint" => endpoint(),
-    "ReaderEndpoint" => endpoint(),
-    "Slots" => String.t(),
-    "Status" => String.t()
-  }
+      
+      node_group() :: %{
+        "NodeGroupId" => String.t(),
+        "NodeGroupMembers" => list(node_group_member()()),
+        "PrimaryEndpoint" => endpoint(),
+        "ReaderEndpoint" => endpoint(),
+        "Slots" => String.t(),
+        "Status" => String.t()
+      }
+      
   """
   @type node_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_engine_default_parameters_message() :: %{
-    optional("Marker") => String.t(),
-    optional("MaxRecords") => integer(),
-    required("CacheParameterGroupFamily") => String.t()
-  }
+      
+      describe_engine_default_parameters_message() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxRecords") => integer(),
+        required("CacheParameterGroupFamily") => String.t()
+      }
+      
   """
   @type describe_engine_default_parameters_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_allowed_node_type_modifications_message() :: %{
-    optional("CacheClusterId") => String.t(),
-    optional("ReplicationGroupId") => String.t()
-  }
+      
+      list_allowed_node_type_modifications_message() :: %{
+        optional("CacheClusterId") => String.t(),
+        optional("ReplicationGroupId") => String.t()
+      }
+      
   """
   @type list_allowed_node_type_modifications_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  decrease_node_groups_in_global_replication_group_result() :: %{
-    "GlobalReplicationGroup" => global_replication_group()
-  }
+      
+      decrease_node_groups_in_global_replication_group_result() :: %{
+        "GlobalReplicationGroup" => global_replication_group()
+      }
+      
   """
   @type decrease_node_groups_in_global_replication_group_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cloud_watch_logs_destination_details() :: %{
-    "LogGroup" => String.t()
-  }
+      
+      cloud_watch_logs_destination_details() :: %{
+        "LogGroup" => String.t()
+      }
+      
   """
   @type cloud_watch_logs_destination_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  revoke_cache_security_group_ingress_message() :: %{
-    required("CacheSecurityGroupName") => String.t(),
-    required("EC2SecurityGroupName") => String.t(),
-    required("EC2SecurityGroupOwnerId") => String.t()
-  }
+      
+      revoke_cache_security_group_ingress_message() :: %{
+        required("CacheSecurityGroupName") => String.t(),
+        required("EC2SecurityGroupName") => String.t(),
+        required("EC2SecurityGroupOwnerId") => String.t()
+      }
+      
   """
   @type revoke_cache_security_group_ingress_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  copy_serverless_cache_snapshot_response() :: %{
-    "ServerlessCacheSnapshot" => serverless_cache_snapshot()
-  }
+      
+      copy_serverless_cache_snapshot_response() :: %{
+        "ServerlessCacheSnapshot" => serverless_cache_snapshot()
+      }
+      
   """
   @type copy_serverless_cache_snapshot_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  reserved_cache_node_not_found_fault() :: %{
-    "message" => String.t()
-  }
+      
+      reserved_cache_node_not_found_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type reserved_cache_node_not_found_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_action_results_message() :: %{
-    optional("ProcessedUpdateActions") => list(processed_update_action()()),
-    optional("UnprocessedUpdateActions") => list(unprocessed_update_action()())
-  }
+      
+      update_action_results_message() :: %{
+        optional("ProcessedUpdateActions") => list(processed_update_action()()),
+        optional("UnprocessedUpdateActions") => list(unprocessed_update_action()())
+      }
+      
   """
   @type update_action_results_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cache_cluster_not_found_fault() :: %{
-    "message" => String.t()
-  }
+      
+      cache_cluster_not_found_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type cache_cluster_not_found_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_not_found_fault() :: %{
-    "message" => String.t()
-  }
+      
+      tag_not_found_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type tag_not_found_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_cache_cluster_message() :: %{
-    optional("AZMode") => list(any()),
-    optional("AuthToken") => String.t(),
-    optional("AutoMinorVersionUpgrade") => boolean(),
-    optional("CacheNodeType") => String.t(),
-    optional("CacheParameterGroupName") => String.t(),
-    optional("CacheSecurityGroupNames") => list(String.t()()),
-    optional("CacheSubnetGroupName") => String.t(),
-    optional("Engine") => String.t(),
-    optional("EngineVersion") => String.t(),
-    optional("IpDiscovery") => list(any()),
-    optional("LogDeliveryConfigurations") => list(log_delivery_configuration_request()()),
-    optional("NetworkType") => list(any()),
-    optional("NotificationTopicArn") => String.t(),
-    optional("NumCacheNodes") => integer(),
-    optional("OutpostMode") => list(any()),
-    optional("Port") => integer(),
-    optional("PreferredAvailabilityZone") => String.t(),
-    optional("PreferredAvailabilityZones") => list(String.t()()),
-    optional("PreferredMaintenanceWindow") => String.t(),
-    optional("PreferredOutpostArn") => String.t(),
-    optional("PreferredOutpostArns") => list(String.t()()),
-    optional("ReplicationGroupId") => String.t(),
-    optional("SecurityGroupIds") => list(String.t()()),
-    optional("SnapshotArns") => list(String.t()()),
-    optional("SnapshotName") => String.t(),
-    optional("SnapshotRetentionLimit") => integer(),
-    optional("SnapshotWindow") => String.t(),
-    optional("Tags") => list(tag()()),
-    optional("TransitEncryptionEnabled") => boolean(),
-    required("CacheClusterId") => String.t()
-  }
+      
+      create_cache_cluster_message() :: %{
+        optional("AZMode") => list(any()),
+        optional("AuthToken") => String.t(),
+        optional("AutoMinorVersionUpgrade") => boolean(),
+        optional("CacheNodeType") => String.t(),
+        optional("CacheParameterGroupName") => String.t(),
+        optional("CacheSecurityGroupNames") => list(String.t()()),
+        optional("CacheSubnetGroupName") => String.t(),
+        optional("Engine") => String.t(),
+        optional("EngineVersion") => String.t(),
+        optional("IpDiscovery") => list(any()),
+        optional("LogDeliveryConfigurations") => list(log_delivery_configuration_request()()),
+        optional("NetworkType") => list(any()),
+        optional("NotificationTopicArn") => String.t(),
+        optional("NumCacheNodes") => integer(),
+        optional("OutpostMode") => list(any()),
+        optional("Port") => integer(),
+        optional("PreferredAvailabilityZone") => String.t(),
+        optional("PreferredAvailabilityZones") => list(String.t()()),
+        optional("PreferredMaintenanceWindow") => String.t(),
+        optional("PreferredOutpostArn") => String.t(),
+        optional("PreferredOutpostArns") => list(String.t()()),
+        optional("ReplicationGroupId") => String.t(),
+        optional("SecurityGroupIds") => list(String.t()()),
+        optional("SnapshotArns") => list(String.t()()),
+        optional("SnapshotName") => String.t(),
+        optional("SnapshotRetentionLimit") => integer(),
+        optional("SnapshotWindow") => String.t(),
+        optional("Tags") => list(tag()()),
+        optional("TransitEncryptionEnabled") => boolean(),
+        required("CacheClusterId") => String.t()
+      }
+      
   """
   @type create_cache_cluster_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_cache_subnet_group_result() :: %{
-    "CacheSubnetGroup" => cache_subnet_group()
-  }
+      
+      create_cache_subnet_group_result() :: %{
+        "CacheSubnetGroup" => cache_subnet_group()
+      }
+      
   """
   @type create_cache_subnet_group_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cache_security_group_membership() :: %{
-    "CacheSecurityGroupName" => String.t(),
-    "Status" => String.t()
-  }
+      
+      cache_security_group_membership() :: %{
+        "CacheSecurityGroupName" => String.t(),
+        "Status" => String.t()
+      }
+      
   """
   @type cache_security_group_membership() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_cache_parameter_group_state_fault() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_cache_parameter_group_state_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_cache_parameter_group_state_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  test_failover_result() :: %{
-    "ReplicationGroup" => replication_group()
-  }
+      
+      test_failover_result() :: %{
+        "ReplicationGroup" => replication_group()
+      }
+      
   """
   @type test_failover_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_parameter_combination_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_parameter_combination_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_parameter_combination_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  serverless_cache_not_found_fault() :: %{
-    "message" => String.t()
-  }
+      
+      serverless_cache_not_found_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type serverless_cache_not_found_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  reserved_cache_node_already_exists_fault() :: %{
-    "message" => String.t()
-  }
+      
+      reserved_cache_node_already_exists_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type reserved_cache_node_already_exists_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  reserved_cache_nodes_offering_message() :: %{
-    "Marker" => String.t(),
-    "ReservedCacheNodesOfferings" => list(reserved_cache_nodes_offering()())
-  }
+      
+      reserved_cache_nodes_offering_message() :: %{
+        "Marker" => String.t(),
+        "ReservedCacheNodesOfferings" => list(reserved_cache_nodes_offering()())
+      }
+      
   """
   @type reserved_cache_nodes_offering_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_vpc_network_state_fault() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_vpc_network_state_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_vpc_network_state_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_quota_per_resource_exceeded() :: %{
-    "message" => String.t()
-  }
+      
+      tag_quota_per_resource_exceeded() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type tag_quota_per_resource_exceeded() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_user_group_state_fault() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_user_group_state_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_user_group_state_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  serverless_cache_snapshot() :: %{
-    "ARN" => String.t(),
-    "BytesUsedForCache" => String.t(),
-    "CreateTime" => non_neg_integer(),
-    "ExpiryTime" => non_neg_integer(),
-    "KmsKeyId" => String.t(),
-    "ServerlessCacheConfiguration" => serverless_cache_configuration(),
-    "ServerlessCacheSnapshotName" => String.t(),
-    "SnapshotType" => String.t(),
-    "Status" => String.t()
-  }
+      
+      serverless_cache_snapshot() :: %{
+        "ARN" => String.t(),
+        "BytesUsedForCache" => String.t(),
+        "CreateTime" => non_neg_integer(),
+        "ExpiryTime" => non_neg_integer(),
+        "KmsKeyId" => String.t(),
+        "ServerlessCacheConfiguration" => serverless_cache_configuration(),
+        "ServerlessCacheSnapshotName" => String.t(),
+        "SnapshotType" => String.t(),
+        "Status" => String.t()
+      }
+      
   """
   @type serverless_cache_snapshot() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  subnet_not_allowed_fault() :: %{
-    "message" => String.t()
-  }
+      
+      subnet_not_allowed_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type subnet_not_allowed_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cache_cluster_already_exists_fault() :: %{
-    "message" => String.t()
-  }
+      
+      cache_cluster_already_exists_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type cache_cluster_already_exists_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_serverless_cache_response() :: %{
-    "ServerlessCache" => serverless_cache()
-  }
+      
+      create_serverless_cache_response() :: %{
+        "ServerlessCache" => serverless_cache()
+      }
+      
   """
   @type create_serverless_cache_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  decrease_replica_count_message() :: %{
-    optional("NewReplicaCount") => integer(),
-    optional("ReplicaConfiguration") => list(configure_shard()()),
-    optional("ReplicasToRemove") => list(String.t()()),
-    required("ApplyImmediately") => boolean(),
-    required("ReplicationGroupId") => String.t()
-  }
+      
+      decrease_replica_count_message() :: %{
+        optional("NewReplicaCount") => integer(),
+        optional("ReplicaConfiguration") => list(configure_shard()()),
+        optional("ReplicasToRemove") => list(String.t()()),
+        required("ApplyImmediately") => boolean(),
+        required("ReplicationGroupId") => String.t()
+      }
+      
   """
   @type decrease_replica_count_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  modify_cache_subnet_group_result() :: %{
-    "CacheSubnetGroup" => cache_subnet_group()
-  }
+      
+      modify_cache_subnet_group_result() :: %{
+        "CacheSubnetGroup" => cache_subnet_group()
+      }
+      
   """
   @type modify_cache_subnet_group_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  failover_global_replication_group_result() :: %{
-    "GlobalReplicationGroup" => global_replication_group()
-  }
+      
+      failover_global_replication_group_result() :: %{
+        "GlobalReplicationGroup" => global_replication_group()
+      }
+      
   """
   @type failover_global_replication_group_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  modify_global_replication_group_result() :: %{
-    "GlobalReplicationGroup" => global_replication_group()
-  }
+      
+      modify_global_replication_group_result() :: %{
+        "GlobalReplicationGroup" => global_replication_group()
+      }
+      
   """
   @type modify_global_replication_group_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cache_engine_version() :: %{
-    "CacheEngineDescription" => String.t(),
-    "CacheEngineVersionDescription" => String.t(),
-    "CacheParameterGroupFamily" => String.t(),
-    "Engine" => String.t(),
-    "EngineVersion" => String.t()
-  }
+      
+      cache_engine_version() :: %{
+        "CacheEngineDescription" => String.t(),
+        "CacheEngineVersionDescription" => String.t(),
+        "CacheParameterGroupFamily" => String.t(),
+        "Engine" => String.t(),
+        "EngineVersion" => String.t()
+      }
+      
   """
   @type cache_engine_version() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_service_updates_message() :: %{
-    optional("Marker") => String.t(),
-    optional("MaxRecords") => integer(),
-    optional("ServiceUpdateName") => String.t(),
-    optional("ServiceUpdateStatus") => list(list(any())())
-  }
+      
+      describe_service_updates_message() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxRecords") => integer(),
+        optional("ServiceUpdateName") => String.t(),
+        optional("ServiceUpdateStatus") => list(list(any())())
+      }
+      
   """
   @type describe_service_updates_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  modify_global_replication_group_message() :: %{
-    optional("AutomaticFailoverEnabled") => boolean(),
-    optional("CacheNodeType") => String.t(),
-    optional("CacheParameterGroupName") => String.t(),
-    optional("EngineVersion") => String.t(),
-    optional("GlobalReplicationGroupDescription") => String.t(),
-    required("ApplyImmediately") => boolean(),
-    required("GlobalReplicationGroupId") => String.t()
-  }
+      
+      modify_global_replication_group_message() :: %{
+        optional("AutomaticFailoverEnabled") => boolean(),
+        optional("CacheNodeType") => String.t(),
+        optional("CacheParameterGroupName") => String.t(),
+        optional("EngineVersion") => String.t(),
+        optional("GlobalReplicationGroupDescription") => String.t(),
+        required("ApplyImmediately") => boolean(),
+        required("GlobalReplicationGroupId") => String.t()
+      }
+      
   """
   @type modify_global_replication_group_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_cache_parameters_message() :: %{
-    optional("Marker") => String.t(),
-    optional("MaxRecords") => integer(),
-    optional("Source") => String.t(),
-    required("CacheParameterGroupName") => String.t()
-  }
+      
+      describe_cache_parameters_message() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxRecords") => integer(),
+        optional("Source") => String.t(),
+        required("CacheParameterGroupName") => String.t()
+      }
+      
   """
   @type describe_cache_parameters_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  serverless_cache_snapshot_already_exists_fault() :: %{
-    "message" => String.t()
-  }
+      
+      serverless_cache_snapshot_already_exists_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type serverless_cache_snapshot_already_exists_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  replication_group_not_under_migration_fault() :: %{
-    "message" => String.t()
-  }
+      
+      replication_group_not_under_migration_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type replication_group_not_under_migration_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_global_replication_group_result() :: %{
-    "GlobalReplicationGroup" => global_replication_group()
-  }
+      
+      create_global_replication_group_result() :: %{
+        "GlobalReplicationGroup" => global_replication_group()
+      }
+      
   """
   @type create_global_replication_group_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  increase_replica_count_message() :: %{
-    optional("NewReplicaCount") => integer(),
-    optional("ReplicaConfiguration") => list(configure_shard()()),
-    required("ApplyImmediately") => boolean(),
-    required("ReplicationGroupId") => String.t()
-  }
+      
+      increase_replica_count_message() :: %{
+        optional("NewReplicaCount") => integer(),
+        optional("ReplicaConfiguration") => list(configure_shard()()),
+        required("ApplyImmediately") => boolean(),
+        required("ReplicationGroupId") => String.t()
+      }
+      
   """
   @type increase_replica_count_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_global_replication_group_state_fault() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_global_replication_group_state_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_global_replication_group_state_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cache_subnet_group_in_use() :: %{
-    "message" => String.t()
-  }
+      
+      cache_subnet_group_in_use() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type cache_subnet_group_in_use() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  test_migration_message() :: %{
-    required("CustomerNodeEndpointList") => list(customer_node_endpoint()()),
-    required("ReplicationGroupId") => String.t()
-  }
+      
+      test_migration_message() :: %{
+        required("CustomerNodeEndpointList") => list(customer_node_endpoint()()),
+        required("ReplicationGroupId") => String.t()
+      }
+      
   """
   @type test_migration_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  pending_modified_values() :: %{
-    "AuthTokenStatus" => list(any()),
-    "CacheNodeIdsToRemove" => list(String.t()()),
-    "CacheNodeType" => String.t(),
-    "EngineVersion" => String.t(),
-    "LogDeliveryConfigurations" => list(pending_log_delivery_configuration()()),
-    "NumCacheNodes" => integer(),
-    "TransitEncryptionEnabled" => boolean(),
-    "TransitEncryptionMode" => list(any())
-  }
+      
+      pending_modified_values() :: %{
+        "AuthTokenStatus" => list(any()),
+        "CacheNodeIdsToRemove" => list(String.t()()),
+        "CacheNodeType" => String.t(),
+        "EngineVersion" => String.t(),
+        "LogDeliveryConfigurations" => list(pending_log_delivery_configuration()()),
+        "NumCacheNodes" => integer(),
+        "TransitEncryptionEnabled" => boolean(),
+        "TransitEncryptionMode" => list(any())
+      }
+      
   """
   @type pending_modified_values() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  test_failover_message() :: %{
-    required("NodeGroupId") => String.t(),
-    required("ReplicationGroupId") => String.t()
-  }
+      
+      test_failover_message() :: %{
+        required("NodeGroupId") => String.t(),
+        required("ReplicationGroupId") => String.t()
+      }
+      
   """
   @type test_failover_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  authorization_not_found_fault() :: %{
-    "message" => String.t()
-  }
+      
+      authorization_not_found_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type authorization_not_found_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cache_node() :: %{
-    "CacheNodeCreateTime" => non_neg_integer(),
-    "CacheNodeId" => String.t(),
-    "CacheNodeStatus" => String.t(),
-    "CustomerAvailabilityZone" => String.t(),
-    "CustomerOutpostArn" => String.t(),
-    "Endpoint" => endpoint(),
-    "ParameterGroupStatus" => String.t(),
-    "SourceCacheNodeId" => String.t()
-  }
+      
+      cache_node() :: %{
+        "CacheNodeCreateTime" => non_neg_integer(),
+        "CacheNodeId" => String.t(),
+        "CacheNodeStatus" => String.t(),
+        "CustomerAvailabilityZone" => String.t(),
+        "CustomerOutpostArn" => String.t(),
+        "Endpoint" => endpoint(),
+        "ParameterGroupStatus" => String.t(),
+        "SourceCacheNodeId" => String.t()
+      }
+      
   """
   @type cache_node() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  increase_replica_count_result() :: %{
-    "ReplicationGroup" => replication_group()
-  }
+      
+      increase_replica_count_result() :: %{
+        "ReplicationGroup" => replication_group()
+      }
+      
   """
   @type increase_replica_count_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  reboot_cache_cluster_result() :: %{
-    "CacheCluster" => cache_cluster()
-  }
+      
+      reboot_cache_cluster_result() :: %{
+        "CacheCluster" => cache_cluster()
+      }
+      
   """
   @type reboot_cache_cluster_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_snapshots_message() :: %{
-    optional("CacheClusterId") => String.t(),
-    optional("Marker") => String.t(),
-    optional("MaxRecords") => integer(),
-    optional("ReplicationGroupId") => String.t(),
-    optional("ShowNodeGroupConfig") => boolean(),
-    optional("SnapshotName") => String.t(),
-    optional("SnapshotSource") => String.t()
-  }
+      
+      describe_snapshots_message() :: %{
+        optional("CacheClusterId") => String.t(),
+        optional("Marker") => String.t(),
+        optional("MaxRecords") => integer(),
+        optional("ReplicationGroupId") => String.t(),
+        optional("ShowNodeGroupConfig") => boolean(),
+        optional("SnapshotName") => String.t(),
+        optional("SnapshotSource") => String.t()
+      }
+      
   """
   @type describe_snapshots_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_cache_parameter_groups_message() :: %{
-    optional("CacheParameterGroupName") => String.t(),
-    optional("Marker") => String.t(),
-    optional("MaxRecords") => integer()
-  }
+      
+      describe_cache_parameter_groups_message() :: %{
+        optional("CacheParameterGroupName") => String.t(),
+        optional("Marker") => String.t(),
+        optional("MaxRecords") => integer()
+      }
+      
   """
   @type describe_cache_parameter_groups_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cache_security_group_not_found_fault() :: %{
-    "message" => String.t()
-  }
+      
+      cache_security_group_not_found_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type cache_security_group_not_found_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cache_security_group() :: %{
-    "ARN" => String.t(),
-    "CacheSecurityGroupName" => String.t(),
-    "Description" => String.t(),
-    "EC2SecurityGroups" => list(ec2_security_group()()),
-    "OwnerId" => String.t()
-  }
+      
+      cache_security_group() :: %{
+        "ARN" => String.t(),
+        "CacheSecurityGroupName" => String.t(),
+        "Description" => String.t(),
+        "EC2SecurityGroups" => list(ec2_security_group()()),
+        "OwnerId" => String.t()
+      }
+      
   """
   @type cache_security_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  node_group_member_update_status() :: %{
-    "CacheClusterId" => String.t(),
-    "CacheNodeId" => String.t(),
-    "NodeDeletionDate" => non_neg_integer(),
-    "NodeUpdateEndDate" => non_neg_integer(),
-    "NodeUpdateInitiatedBy" => list(any()),
-    "NodeUpdateInitiatedDate" => non_neg_integer(),
-    "NodeUpdateStartDate" => non_neg_integer(),
-    "NodeUpdateStatus" => list(any()),
-    "NodeUpdateStatusModifiedDate" => non_neg_integer()
-  }
+      
+      node_group_member_update_status() :: %{
+        "CacheClusterId" => String.t(),
+        "CacheNodeId" => String.t(),
+        "NodeDeletionDate" => non_neg_integer(),
+        "NodeUpdateEndDate" => non_neg_integer(),
+        "NodeUpdateInitiatedBy" => list(any()),
+        "NodeUpdateInitiatedDate" => non_neg_integer(),
+        "NodeUpdateStartDate" => non_neg_integer(),
+        "NodeUpdateStatus" => list(any()),
+        "NodeUpdateStatusModifiedDate" => non_neg_integer()
+      }
+      
   """
   @type node_group_member_update_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  node_group_configuration() :: %{
-    "NodeGroupId" => String.t(),
-    "PrimaryAvailabilityZone" => String.t(),
-    "PrimaryOutpostArn" => String.t(),
-    "ReplicaAvailabilityZones" => list(String.t()()),
-    "ReplicaCount" => integer(),
-    "ReplicaOutpostArns" => list(String.t()()),
-    "Slots" => String.t()
-  }
+      
+      node_group_configuration() :: %{
+        "NodeGroupId" => String.t(),
+        "PrimaryAvailabilityZone" => String.t(),
+        "PrimaryOutpostArn" => String.t(),
+        "ReplicaAvailabilityZones" => list(String.t()()),
+        "ReplicaCount" => integer(),
+        "ReplicaOutpostArns" => list(String.t()()),
+        "Slots" => String.t()
+      }
+      
   """
   @type node_group_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  subnet_outpost() :: %{
-    "SubnetOutpostArn" => String.t()
-  }
+      
+      subnet_outpost() :: %{
+        "SubnetOutpostArn" => String.t()
+      }
+      
   """
   @type subnet_outpost() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_user_message() :: %{
-    required("UserId") => String.t()
-  }
+      
+      delete_user_message() :: %{
+        required("UserId") => String.t()
+      }
+      
   """
   @type delete_user_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag() :: %{
-    "Key" => String.t(),
-    "Value" => String.t()
-  }
+      
+      tag() :: %{
+        "Key" => String.t(),
+        "Value" => String.t()
+      }
+      
   """
   @type tag() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  reserved_cache_node_message() :: %{
-    "Marker" => String.t(),
-    "ReservedCacheNodes" => list(reserved_cache_node()())
-  }
+      
+      reserved_cache_node_message() :: %{
+        "Marker" => String.t(),
+        "ReservedCacheNodes" => list(reserved_cache_node()())
+      }
+      
   """
   @type reserved_cache_node_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  authorization_already_exists_fault() :: %{
-    "message" => String.t()
-  }
+      
+      authorization_already_exists_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type authorization_already_exists_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  export_serverless_cache_snapshot_request() :: %{
-    required("S3BucketName") => String.t(),
-    required("ServerlessCacheSnapshotName") => String.t()
-  }
+      
+      export_serverless_cache_snapshot_request() :: %{
+        required("S3BucketName") => String.t(),
+        required("ServerlessCacheSnapshotName") => String.t()
+      }
+      
   """
   @type export_serverless_cache_snapshot_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  failover_global_replication_group_message() :: %{
-    required("GlobalReplicationGroupId") => String.t(),
-    required("PrimaryRegion") => String.t(),
-    required("PrimaryReplicationGroupId") => String.t()
-  }
+      
+      failover_global_replication_group_message() :: %{
+        required("GlobalReplicationGroupId") => String.t(),
+        required("PrimaryRegion") => String.t(),
+        required("PrimaryReplicationGroupId") => String.t()
+      }
+      
   """
   @type failover_global_replication_group_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_reserved_cache_nodes_offerings_message() :: %{
-    optional("CacheNodeType") => String.t(),
-    optional("Duration") => String.t(),
-    optional("Marker") => String.t(),
-    optional("MaxRecords") => integer(),
-    optional("OfferingType") => String.t(),
-    optional("ProductDescription") => String.t(),
-    optional("ReservedCacheNodesOfferingId") => String.t()
-  }
+      
+      describe_reserved_cache_nodes_offerings_message() :: %{
+        optional("CacheNodeType") => String.t(),
+        optional("Duration") => String.t(),
+        optional("Marker") => String.t(),
+        optional("MaxRecords") => integer(),
+        optional("OfferingType") => String.t(),
+        optional("ProductDescription") => String.t(),
+        optional("ReservedCacheNodesOfferingId") => String.t()
+      }
+      
   """
   @type describe_reserved_cache_nodes_offerings_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  no_operation_fault() :: %{
-    "message" => String.t()
-  }
+      
+      no_operation_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type no_operation_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  modify_replication_group_shard_configuration_result() :: %{
-    "ReplicationGroup" => replication_group()
-  }
+      
+      modify_replication_group_shard_configuration_result() :: %{
+        "ReplicationGroup" => replication_group()
+      }
+      
   """
   @type modify_replication_group_shard_configuration_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_snapshot_state_fault() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_snapshot_state_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_snapshot_state_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  test_failover_not_available_fault() :: %{
-    "message" => String.t()
-  }
+      
+      test_failover_not_available_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type test_failover_not_available_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_stop_update_action_message() :: %{
-    optional("CacheClusterIds") => list(String.t()()),
-    optional("ReplicationGroupIds") => list(String.t()()),
-    required("ServiceUpdateName") => String.t()
-  }
+      
+      batch_stop_update_action_message() :: %{
+        optional("CacheClusterIds") => list(String.t()()),
+        optional("ReplicationGroupIds") => list(String.t()()),
+        required("ServiceUpdateName") => String.t()
+      }
+      
   """
   @type batch_stop_update_action_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_parameter_value_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_parameter_value_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_parameter_value_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  modify_replication_group_message() :: %{
-    optional("ApplyImmediately") => boolean(),
-    optional("AuthToken") => String.t(),
-    optional("AuthTokenUpdateStrategy") => list(any()),
-    optional("AutoMinorVersionUpgrade") => boolean(),
-    optional("AutomaticFailoverEnabled") => boolean(),
-    optional("CacheNodeType") => String.t(),
-    optional("CacheParameterGroupName") => String.t(),
-    optional("CacheSecurityGroupNames") => list(String.t()()),
-    optional("ClusterMode") => list(any()),
-    optional("EngineVersion") => String.t(),
-    optional("IpDiscovery") => list(any()),
-    optional("LogDeliveryConfigurations") => list(log_delivery_configuration_request()()),
-    optional("MultiAZEnabled") => boolean(),
-    optional("NodeGroupId") => String.t(),
-    optional("NotificationTopicArn") => String.t(),
-    optional("NotificationTopicStatus") => String.t(),
-    optional("PreferredMaintenanceWindow") => String.t(),
-    optional("PrimaryClusterId") => String.t(),
-    optional("RemoveUserGroups") => boolean(),
-    optional("ReplicationGroupDescription") => String.t(),
-    optional("SecurityGroupIds") => list(String.t()()),
-    optional("SnapshotRetentionLimit") => integer(),
-    optional("SnapshotWindow") => String.t(),
-    optional("SnapshottingClusterId") => String.t(),
-    optional("TransitEncryptionEnabled") => boolean(),
-    optional("TransitEncryptionMode") => list(any()),
-    optional("UserGroupIdsToAdd") => list(String.t()()),
-    optional("UserGroupIdsToRemove") => list(String.t()()),
-    required("ReplicationGroupId") => String.t()
-  }
+      
+      modify_replication_group_message() :: %{
+        optional("ApplyImmediately") => boolean(),
+        optional("AuthToken") => String.t(),
+        optional("AuthTokenUpdateStrategy") => list(any()),
+        optional("AutoMinorVersionUpgrade") => boolean(),
+        optional("AutomaticFailoverEnabled") => boolean(),
+        optional("CacheNodeType") => String.t(),
+        optional("CacheParameterGroupName") => String.t(),
+        optional("CacheSecurityGroupNames") => list(String.t()()),
+        optional("ClusterMode") => list(any()),
+        optional("EngineVersion") => String.t(),
+        optional("IpDiscovery") => list(any()),
+        optional("LogDeliveryConfigurations") => list(log_delivery_configuration_request()()),
+        optional("MultiAZEnabled") => boolean(),
+        optional("NodeGroupId") => String.t(),
+        optional("NotificationTopicArn") => String.t(),
+        optional("NotificationTopicStatus") => String.t(),
+        optional("PreferredMaintenanceWindow") => String.t(),
+        optional("PrimaryClusterId") => String.t(),
+        optional("RemoveUserGroups") => boolean(),
+        optional("ReplicationGroupDescription") => String.t(),
+        optional("SecurityGroupIds") => list(String.t()()),
+        optional("SnapshotRetentionLimit") => integer(),
+        optional("SnapshotWindow") => String.t(),
+        optional("SnapshottingClusterId") => String.t(),
+        optional("TransitEncryptionEnabled") => boolean(),
+        optional("TransitEncryptionMode") => list(any()),
+        optional("UserGroupIdsToAdd") => list(String.t()()),
+        optional("UserGroupIdsToRemove") => list(String.t()()),
+        required("ReplicationGroupId") => String.t()
+      }
+      
   """
   @type modify_replication_group_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  user_group_quota_exceeded_fault() :: %{
-    "message" => String.t()
-  }
+      
+      user_group_quota_exceeded_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type user_group_quota_exceeded_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  log_delivery_configuration() :: %{
-    "DestinationDetails" => destination_details(),
-    "DestinationType" => list(any()),
-    "LogFormat" => list(any()),
-    "LogType" => list(any()),
-    "Message" => String.t(),
-    "Status" => list(any())
-  }
+      
+      log_delivery_configuration() :: %{
+        "DestinationDetails" => destination_details(),
+        "DestinationType" => list(any()),
+        "LogFormat" => list(any()),
+        "LogType" => list(any()),
+        "Message" => String.t(),
+        "Status" => list(any())
+      }
+      
   """
   @type log_delivery_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  service_updates_message() :: %{
-    "Marker" => String.t(),
-    "ServiceUpdates" => list(service_update()())
-  }
+      
+      service_updates_message() :: %{
+        "Marker" => String.t(),
+        "ServiceUpdates" => list(service_update()())
+      }
+      
   """
   @type service_updates_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  copy_snapshot_message() :: %{
-    optional("KmsKeyId") => String.t(),
-    optional("Tags") => list(tag()()),
-    optional("TargetBucket") => String.t(),
-    required("SourceSnapshotName") => String.t(),
-    required("TargetSnapshotName") => String.t()
-  }
+      
+      copy_snapshot_message() :: %{
+        optional("KmsKeyId") => String.t(),
+        optional("Tags") => list(tag()()),
+        optional("TargetBucket") => String.t(),
+        required("SourceSnapshotName") => String.t(),
+        required("TargetSnapshotName") => String.t()
+      }
+      
   """
   @type copy_snapshot_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  modify_cache_cluster_result() :: %{
-    "CacheCluster" => cache_cluster()
-  }
+      
+      modify_cache_cluster_result() :: %{
+        "CacheCluster" => cache_cluster()
+      }
+      
   """
   @type modify_cache_cluster_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  pending_log_delivery_configuration() :: %{
-    "DestinationDetails" => destination_details(),
-    "DestinationType" => list(any()),
-    "LogFormat" => list(any()),
-    "LogType" => list(any())
-  }
+      
+      pending_log_delivery_configuration() :: %{
+        "DestinationDetails" => destination_details(),
+        "DestinationType" => list(any()),
+        "LogFormat" => list(any()),
+        "LogType" => list(any())
+      }
+      
   """
   @type pending_log_delivery_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  parameter() :: %{
-    "AllowedValues" => String.t(),
-    "ChangeType" => list(any()),
-    "DataType" => String.t(),
-    "Description" => String.t(),
-    "IsModifiable" => boolean(),
-    "MinimumEngineVersion" => String.t(),
-    "ParameterName" => String.t(),
-    "ParameterValue" => String.t(),
-    "Source" => String.t()
-  }
+      
+      parameter() :: %{
+        "AllowedValues" => String.t(),
+        "ChangeType" => list(any()),
+        "DataType" => String.t(),
+        "Description" => String.t(),
+        "IsModifiable" => boolean(),
+        "MinimumEngineVersion" => String.t(),
+        "ParameterName" => String.t(),
+        "ParameterValue" => String.t(),
+        "Source" => String.t()
+      }
+      
   """
   @type parameter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  copy_serverless_cache_snapshot_request() :: %{
-    optional("KmsKeyId") => String.t(),
-    optional("Tags") => list(tag()()),
-    required("SourceServerlessCacheSnapshotName") => String.t(),
-    required("TargetServerlessCacheSnapshotName") => String.t()
-  }
+      
+      copy_serverless_cache_snapshot_request() :: %{
+        optional("KmsKeyId") => String.t(),
+        optional("Tags") => list(tag()()),
+        required("SourceServerlessCacheSnapshotName") => String.t(),
+        required("TargetServerlessCacheSnapshotName") => String.t()
+      }
+      
   """
   @type copy_serverless_cache_snapshot_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  reboot_cache_cluster_message() :: %{
-    required("CacheClusterId") => String.t(),
-    required("CacheNodeIdsToReboot") => list(String.t()())
-  }
+      
+      reboot_cache_cluster_message() :: %{
+        required("CacheClusterId") => String.t(),
+        required("CacheNodeIdsToReboot") => list(String.t()())
+      }
+      
   """
   @type reboot_cache_cluster_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_arn_fault() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_arn_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_arn_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  authentication() :: %{
-    "PasswordCount" => integer(),
-    "Type" => list(any())
-  }
+      
+      authentication() :: %{
+        "PasswordCount" => integer(),
+        "Type" => list(any())
+      }
+      
   """
   @type authentication() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_snapshot_message() :: %{
-    required("SnapshotName") => String.t()
-  }
+      
+      delete_snapshot_message() :: %{
+        required("SnapshotName") => String.t()
+      }
+      
   """
   @type delete_snapshot_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  serverless_cache_configuration() :: %{
-    "Engine" => String.t(),
-    "MajorEngineVersion" => String.t(),
-    "ServerlessCacheName" => String.t()
-  }
+      
+      serverless_cache_configuration() :: %{
+        "Engine" => String.t(),
+        "MajorEngineVersion" => String.t(),
+        "ServerlessCacheName" => String.t()
+      }
+      
   """
   @type serverless_cache_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cache_cluster() :: %{
-    "Engine" => String.t(),
-    "ClientDownloadLandingPage" => String.t(),
-    "NetworkType" => list(any()),
-    "ReplicationGroupId" => String.t(),
-    "CacheClusterCreateTime" => non_neg_integer(),
-    "PreferredMaintenanceWindow" => String.t(),
-    "CacheParameterGroup" => cache_parameter_group_status(),
-    "ARN" => String.t(),
-    "AuthTokenEnabled" => boolean(),
-    "CacheClusterStatus" => String.t(),
-    "CacheClusterId" => String.t(),
-    "PendingModifiedValues" => pending_modified_values(),
-    "ReplicationGroupLogDeliveryEnabled" => boolean(),
-    "SnapshotRetentionLimit" => integer(),
-    "PreferredAvailabilityZone" => String.t(),
-    "SnapshotWindow" => String.t(),
-    "AtRestEncryptionEnabled" => boolean(),
-    "ConfigurationEndpoint" => endpoint(),
-    "AuthTokenLastModifiedDate" => non_neg_integer(),
-    "AutoMinorVersionUpgrade" => boolean(),
-    "TransitEncryptionMode" => list(any()),
-    "IpDiscovery" => list(any()),
-    "LogDeliveryConfigurations" => list(log_delivery_configuration()()),
-    "TransitEncryptionEnabled" => boolean(),
-    "NotificationConfiguration" => notification_configuration(),
-    "CacheSubnetGroupName" => String.t(),
-    "CacheNodes" => list(cache_node()()),
-    "PreferredOutpostArn" => String.t(),
-    "EngineVersion" => String.t(),
-    "CacheSecurityGroups" => list(cache_security_group_membership()()),
-    "SecurityGroups" => list(security_group_membership()()),
-    "CacheNodeType" => String.t(),
-    "NumCacheNodes" => integer()
-  }
+      
+      cache_cluster() :: %{
+        "Engine" => String.t(),
+        "ClientDownloadLandingPage" => String.t(),
+        "NetworkType" => list(any()),
+        "ReplicationGroupId" => String.t(),
+        "CacheClusterCreateTime" => non_neg_integer(),
+        "PreferredMaintenanceWindow" => String.t(),
+        "CacheParameterGroup" => cache_parameter_group_status(),
+        "ARN" => String.t(),
+        "AuthTokenEnabled" => boolean(),
+        "CacheClusterStatus" => String.t(),
+        "CacheClusterId" => String.t(),
+        "PendingModifiedValues" => pending_modified_values(),
+        "ReplicationGroupLogDeliveryEnabled" => boolean(),
+        "SnapshotRetentionLimit" => integer(),
+        "PreferredAvailabilityZone" => String.t(),
+        "SnapshotWindow" => String.t(),
+        "AtRestEncryptionEnabled" => boolean(),
+        "ConfigurationEndpoint" => endpoint(),
+        "AuthTokenLastModifiedDate" => non_neg_integer(),
+        "AutoMinorVersionUpgrade" => boolean(),
+        "TransitEncryptionMode" => list(any()),
+        "IpDiscovery" => list(any()),
+        "LogDeliveryConfigurations" => list(log_delivery_configuration()()),
+        "TransitEncryptionEnabled" => boolean(),
+        "NotificationConfiguration" => notification_configuration(),
+        "CacheSubnetGroupName" => String.t(),
+        "CacheNodes" => list(cache_node()()),
+        "PreferredOutpostArn" => String.t(),
+        "EngineVersion" => String.t(),
+        "CacheSecurityGroups" => list(cache_security_group_membership()()),
+        "SecurityGroups" => list(security_group_membership()()),
+        "CacheNodeType" => String.t(),
+        "NumCacheNodes" => integer()
+      }
+      
   """
   @type cache_cluster() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_user_message() :: %{
-    optional("AuthenticationMode") => authentication_mode(),
-    optional("NoPasswordRequired") => boolean(),
-    optional("Passwords") => list(String.t()()),
-    optional("Tags") => list(tag()()),
-    required("AccessString") => String.t(),
-    required("Engine") => String.t(),
-    required("UserId") => String.t(),
-    required("UserName") => String.t()
-  }
+      
+      create_user_message() :: %{
+        optional("AuthenticationMode") => authentication_mode(),
+        optional("NoPasswordRequired") => boolean(),
+        optional("Passwords") => list(String.t()()),
+        optional("Tags") => list(tag()()),
+        required("AccessString") => String.t(),
+        required("Engine") => String.t(),
+        required("UserId") => String.t(),
+        required("UserName") => String.t()
+      }
+      
   """
   @type create_user_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cache_subnet_group() :: %{
-    "ARN" => String.t(),
-    "CacheSubnetGroupDescription" => String.t(),
-    "CacheSubnetGroupName" => String.t(),
-    "Subnets" => list(subnet()()),
-    "SupportedNetworkTypes" => list(list(any())()),
-    "VpcId" => String.t()
-  }
+      
+      cache_subnet_group() :: %{
+        "ARN" => String.t(),
+        "CacheSubnetGroupDescription" => String.t(),
+        "CacheSubnetGroupName" => String.t(),
+        "Subnets" => list(subnet()()),
+        "SupportedNetworkTypes" => list(list(any())()),
+        "VpcId" => String.t()
+      }
+      
   """
   @type cache_subnet_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_cache_subnet_groups_message() :: %{
-    optional("CacheSubnetGroupName") => String.t(),
-    optional("Marker") => String.t(),
-    optional("MaxRecords") => integer()
-  }
+      
+      describe_cache_subnet_groups_message() :: %{
+        optional("CacheSubnetGroupName") => String.t(),
+        optional("Marker") => String.t(),
+        optional("MaxRecords") => integer()
+      }
+      
   """
   @type describe_cache_subnet_groups_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_serverless_cache_state_fault() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_serverless_cache_state_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_serverless_cache_state_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  node_group_not_found_fault() :: %{
-    "message" => String.t()
-  }
+      
+      node_group_not_found_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type node_group_not_found_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  reserved_cache_node_quota_exceeded_fault() :: %{
-    "message" => String.t()
-  }
+      
+      reserved_cache_node_quota_exceeded_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type reserved_cache_node_quota_exceeded_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  node_group_member() :: %{
-    "CacheClusterId" => String.t(),
-    "CacheNodeId" => String.t(),
-    "CurrentRole" => String.t(),
-    "PreferredAvailabilityZone" => String.t(),
-    "PreferredOutpostArn" => String.t(),
-    "ReadEndpoint" => endpoint()
-  }
+      
+      node_group_member() :: %{
+        "CacheClusterId" => String.t(),
+        "CacheNodeId" => String.t(),
+        "CurrentRole" => String.t(),
+        "PreferredAvailabilityZone" => String.t(),
+        "PreferredOutpostArn" => String.t(),
+        "ReadEndpoint" => endpoint()
+      }
+      
   """
   @type node_group_member() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  api_call_rate_for_customer_exceeded_fault() :: %{
-    "message" => String.t()
-  }
+      
+      api_call_rate_for_customer_exceeded_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type api_call_rate_for_customer_exceeded_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  replication_group_already_exists_fault() :: %{
-    "message" => String.t()
-  }
+      
+      replication_group_already_exists_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type replication_group_already_exists_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_replication_groups_message() :: %{
-    optional("Marker") => String.t(),
-    optional("MaxRecords") => integer(),
-    optional("ReplicationGroupId") => String.t()
-  }
+      
+      describe_replication_groups_message() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxRecords") => integer(),
+        optional("ReplicationGroupId") => String.t()
+      }
+      
   """
   @type describe_replication_groups_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_replication_group_result() :: %{
-    "ReplicationGroup" => replication_group()
-  }
+      
+      create_replication_group_result() :: %{
+        "ReplicationGroup" => replication_group()
+      }
+      
   """
   @type create_replication_group_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  destination_details() :: %{
-    "CloudWatchLogsDetails" => cloud_watch_logs_destination_details(),
-    "KinesisFirehoseDetails" => kinesis_firehose_destination_details()
-  }
+      
+      destination_details() :: %{
+        "CloudWatchLogsDetails" => cloud_watch_logs_destination_details(),
+        "KinesisFirehoseDetails" => kinesis_firehose_destination_details()
+      }
+      
   """
   @type destination_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  purchase_reserved_cache_nodes_offering_result() :: %{
-    "ReservedCacheNode" => reserved_cache_node()
-  }
+      
+      purchase_reserved_cache_nodes_offering_result() :: %{
+        "ReservedCacheNode" => reserved_cache_node()
+      }
+      
   """
   @type purchase_reserved_cache_nodes_offering_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  filter() :: %{
-    "Name" => String.t(),
-    "Values" => list(String.t()())
-  }
+      
+      filter() :: %{
+        "Name" => String.t(),
+        "Values" => list(String.t()())
+      }
+      
   """
   @type filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  replication_group() :: %{
-    "ARN" => String.t(),
-    "AtRestEncryptionEnabled" => boolean(),
-    "AuthTokenEnabled" => boolean(),
-    "AuthTokenLastModifiedDate" => non_neg_integer(),
-    "AutoMinorVersionUpgrade" => boolean(),
-    "AutomaticFailover" => list(any()),
-    "CacheNodeType" => String.t(),
-    "ClusterEnabled" => boolean(),
-    "ClusterMode" => list(any()),
-    "ConfigurationEndpoint" => endpoint(),
-    "DataTiering" => list(any()),
-    "Description" => String.t(),
-    "GlobalReplicationGroupInfo" => global_replication_group_info(),
-    "IpDiscovery" => list(any()),
-    "KmsKeyId" => String.t(),
-    "LogDeliveryConfigurations" => list(log_delivery_configuration()()),
-    "MemberClusters" => list(String.t()()),
-    "MemberClustersOutpostArns" => list(String.t()()),
-    "MultiAZ" => list(any()),
-    "NetworkType" => list(any()),
-    "NodeGroups" => list(node_group()()),
-    "PendingModifiedValues" => replication_group_pending_modified_values(),
-    "ReplicationGroupCreateTime" => non_neg_integer(),
-    "ReplicationGroupId" => String.t(),
-    "SnapshotRetentionLimit" => integer(),
-    "SnapshotWindow" => String.t(),
-    "SnapshottingClusterId" => String.t(),
-    "Status" => String.t(),
-    "TransitEncryptionEnabled" => boolean(),
-    "TransitEncryptionMode" => list(any()),
-    "UserGroupIds" => list(String.t()())
-  }
+      
+      replication_group() :: %{
+        "ARN" => String.t(),
+        "AtRestEncryptionEnabled" => boolean(),
+        "AuthTokenEnabled" => boolean(),
+        "AuthTokenLastModifiedDate" => non_neg_integer(),
+        "AutoMinorVersionUpgrade" => boolean(),
+        "AutomaticFailover" => list(any()),
+        "CacheNodeType" => String.t(),
+        "ClusterEnabled" => boolean(),
+        "ClusterMode" => list(any()),
+        "ConfigurationEndpoint" => endpoint(),
+        "DataTiering" => list(any()),
+        "Description" => String.t(),
+        "GlobalReplicationGroupInfo" => global_replication_group_info(),
+        "IpDiscovery" => list(any()),
+        "KmsKeyId" => String.t(),
+        "LogDeliveryConfigurations" => list(log_delivery_configuration()()),
+        "MemberClusters" => list(String.t()()),
+        "MemberClustersOutpostArns" => list(String.t()()),
+        "MultiAZ" => list(any()),
+        "NetworkType" => list(any()),
+        "NodeGroups" => list(node_group()()),
+        "PendingModifiedValues" => replication_group_pending_modified_values(),
+        "ReplicationGroupCreateTime" => non_neg_integer(),
+        "ReplicationGroupId" => String.t(),
+        "SnapshotRetentionLimit" => integer(),
+        "SnapshotWindow" => String.t(),
+        "SnapshottingClusterId" => String.t(),
+        "Status" => String.t(),
+        "TransitEncryptionEnabled" => boolean(),
+        "TransitEncryptionMode" => list(any()),
+        "UserGroupIds" => list(String.t()())
+      }
+      
   """
   @type replication_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_serverless_cache_request() :: %{
-    optional("FinalSnapshotName") => String.t(),
-    required("ServerlessCacheName") => String.t()
-  }
+      
+      delete_serverless_cache_request() :: %{
+        optional("FinalSnapshotName") => String.t(),
+        required("ServerlessCacheName") => String.t()
+      }
+      
   """
   @type delete_serverless_cache_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  modify_user_message() :: %{
-    optional("AccessString") => String.t(),
-    optional("AppendAccessString") => String.t(),
-    optional("AuthenticationMode") => authentication_mode(),
-    optional("NoPasswordRequired") => boolean(),
-    optional("Passwords") => list(String.t()()),
-    required("UserId") => String.t()
-  }
+      
+      modify_user_message() :: %{
+        optional("AccessString") => String.t(),
+        optional("AppendAccessString") => String.t(),
+        optional("AuthenticationMode") => authentication_mode(),
+        optional("NoPasswordRequired") => boolean(),
+        optional("Passwords") => list(String.t()()),
+        required("UserId") => String.t()
+      }
+      
   """
   @type modify_user_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  replication_group_not_found_fault() :: %{
-    "message" => String.t()
-  }
+      
+      replication_group_not_found_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type replication_group_not_found_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_snapshot_message() :: %{
-    optional("CacheClusterId") => String.t(),
-    optional("KmsKeyId") => String.t(),
-    optional("ReplicationGroupId") => String.t(),
-    optional("Tags") => list(tag()()),
-    required("SnapshotName") => String.t()
-  }
+      
+      create_snapshot_message() :: %{
+        optional("CacheClusterId") => String.t(),
+        optional("KmsKeyId") => String.t(),
+        optional("ReplicationGroupId") => String.t(),
+        optional("Tags") => list(tag()()),
+        required("SnapshotName") => String.t()
+      }
+      
   """
   @type create_snapshot_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cluster_quota_for_customer_exceeded_fault() :: %{
-    "message" => String.t()
-  }
+      
+      cluster_quota_for_customer_exceeded_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type cluster_quota_for_customer_exceeded_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  user_already_exists_fault() :: %{
-    "message" => String.t()
-  }
+      
+      user_already_exists_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type user_already_exists_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  notification_configuration() :: %{
-    "TopicArn" => String.t(),
-    "TopicStatus" => String.t()
-  }
+      
+      notification_configuration() :: %{
+        "TopicArn" => String.t(),
+        "TopicStatus" => String.t()
+      }
+      
   """
   @type notification_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  modify_cache_parameter_group_message() :: %{
-    required("CacheParameterGroupName") => String.t(),
-    required("ParameterNameValues") => list(parameter_name_value()())
-  }
+      
+      modify_cache_parameter_group_message() :: %{
+        required("CacheParameterGroupName") => String.t(),
+        required("ParameterNameValues") => list(parameter_name_value()())
+      }
+      
   """
   @type modify_cache_parameter_group_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_cache_security_group_state_fault() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_cache_security_group_state_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_cache_security_group_state_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  endpoint() :: %{
-    "Address" => String.t(),
-    "Port" => integer()
-  }
+      
+      endpoint() :: %{
+        "Address" => String.t(),
+        "Port" => integer()
+      }
+      
   """
   @type endpoint() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  modify_cache_subnet_group_message() :: %{
-    optional("CacheSubnetGroupDescription") => String.t(),
-    optional("SubnetIds") => list(String.t()()),
-    required("CacheSubnetGroupName") => String.t()
-  }
+      
+      modify_cache_subnet_group_message() :: %{
+        optional("CacheSubnetGroupDescription") => String.t(),
+        optional("SubnetIds") => list(String.t()()),
+        required("CacheSubnetGroupName") => String.t()
+      }
+      
   """
   @type modify_cache_subnet_group_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  copy_snapshot_result() :: %{
-    "Snapshot" => snapshot()
-  }
+      
+      copy_snapshot_result() :: %{
+        "Snapshot" => snapshot()
+      }
+      
   """
   @type copy_snapshot_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  replication_group_pending_modified_values() :: %{
-    "AuthTokenStatus" => list(any()),
-    "AutomaticFailoverStatus" => list(any()),
-    "ClusterMode" => list(any()),
-    "LogDeliveryConfigurations" => list(pending_log_delivery_configuration()()),
-    "PrimaryClusterId" => String.t(),
-    "Resharding" => resharding_status(),
-    "TransitEncryptionEnabled" => boolean(),
-    "TransitEncryptionMode" => list(any()),
-    "UserGroups" => user_groups_update_status()
-  }
+      
+      replication_group_pending_modified_values() :: %{
+        "AuthTokenStatus" => list(any()),
+        "AutomaticFailoverStatus" => list(any()),
+        "ClusterMode" => list(any()),
+        "LogDeliveryConfigurations" => list(pending_log_delivery_configuration()()),
+        "PrimaryClusterId" => String.t(),
+        "Resharding" => resharding_status(),
+        "TransitEncryptionEnabled" => boolean(),
+        "TransitEncryptionMode" => list(any()),
+        "UserGroups" => user_groups_update_status()
+      }
+      
   """
   @type replication_group_pending_modified_values() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cache_security_group_quota_exceeded_fault() :: %{
-    "message" => String.t()
-  }
+      
+      cache_security_group_quota_exceeded_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type cache_security_group_quota_exceeded_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  events_message() :: %{
-    "Events" => list(event()()),
-    "Marker" => String.t()
-  }
+      
+      events_message() :: %{
+        "Events" => list(event()()),
+        "Marker" => String.t()
+      }
+      
   """
   @type events_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resharding_configuration() :: %{
-    "NodeGroupId" => String.t(),
-    "PreferredAvailabilityZones" => list(String.t()())
-  }
+      
+      resharding_configuration() :: %{
+        "NodeGroupId" => String.t(),
+        "PreferredAvailabilityZones" => list(String.t()())
+      }
+      
   """
   @type resharding_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  user_quota_exceeded_fault() :: %{
-    "message" => String.t()
-  }
+      
+      user_quota_exceeded_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type user_quota_exceeded_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  purchase_reserved_cache_nodes_offering_message() :: %{
-    optional("CacheNodeCount") => integer(),
-    optional("ReservedCacheNodeId") => String.t(),
-    optional("Tags") => list(tag()()),
-    required("ReservedCacheNodesOfferingId") => String.t()
-  }
+      
+      purchase_reserved_cache_nodes_offering_message() :: %{
+        optional("CacheNodeCount") => integer(),
+        optional("ReservedCacheNodeId") => String.t(),
+        optional("Tags") => list(tag()()),
+        required("ReservedCacheNodesOfferingId") => String.t()
+      }
+      
   """
   @type purchase_reserved_cache_nodes_offering_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_serverless_caches_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("ServerlessCacheName") => String.t()
-  }
+      
+      describe_serverless_caches_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("ServerlessCacheName") => String.t()
+      }
+      
   """
   @type describe_serverless_caches_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cache_parameter_group_quota_exceeded_fault() :: %{
-    "message" => String.t()
-  }
+      
+      cache_parameter_group_quota_exceeded_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type cache_parameter_group_quota_exceeded_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  processed_update_action() :: %{
-    "CacheClusterId" => String.t(),
-    "ReplicationGroupId" => String.t(),
-    "ServiceUpdateName" => String.t(),
-    "UpdateActionStatus" => list(any())
-  }
+      
+      processed_update_action() :: %{
+        "CacheClusterId" => String.t(),
+        "ReplicationGroupId" => String.t(),
+        "ServiceUpdateName" => String.t(),
+        "UpdateActionStatus" => list(any())
+      }
+      
   """
   @type processed_update_action() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_engine_default_parameters_result() :: %{
-    "EngineDefaults" => engine_defaults()
-  }
+      
+      describe_engine_default_parameters_result() :: %{
+        "EngineDefaults" => engine_defaults()
+      }
+      
   """
   @type describe_engine_default_parameters_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  test_migration_response() :: %{
-    "ReplicationGroup" => replication_group()
-  }
+      
+      test_migration_response() :: %{
+        "ReplicationGroup" => replication_group()
+      }
+      
   """
   @type test_migration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_snapshot_result() :: %{
-    "Snapshot" => snapshot()
-  }
+      
+      delete_snapshot_result() :: %{
+        "Snapshot" => snapshot()
+      }
+      
   """
   @type delete_snapshot_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_migration_response() :: %{
-    "ReplicationGroup" => replication_group()
-  }
+      
+      start_migration_response() :: %{
+        "ReplicationGroup" => replication_group()
+      }
+      
   """
   @type start_migration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  duplicate_user_name_fault() :: %{
-    "message" => String.t()
-  }
+      
+      duplicate_user_name_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type duplicate_user_name_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  event() :: %{
-    "Date" => non_neg_integer(),
-    "Message" => String.t(),
-    "SourceIdentifier" => String.t(),
-    "SourceType" => list(any())
-  }
+      
+      event() :: %{
+        "Date" => non_neg_integer(),
+        "Message" => String.t(),
+        "SourceIdentifier" => String.t(),
+        "SourceType" => list(any())
+      }
+      
   """
   @type event() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cache_subnet_group_message() :: %{
-    "CacheSubnetGroups" => list(cache_subnet_group()()),
-    "Marker" => String.t()
-  }
+      
+      cache_subnet_group_message() :: %{
+        "CacheSubnetGroups" => list(cache_subnet_group()()),
+        "Marker" => String.t()
+      }
+      
   """
   @type cache_subnet_group_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_global_replication_group_message() :: %{
-    optional("GlobalReplicationGroupDescription") => String.t(),
-    required("GlobalReplicationGroupIdSuffix") => String.t(),
-    required("PrimaryReplicationGroupId") => String.t()
-  }
+      
+      create_global_replication_group_message() :: %{
+        optional("GlobalReplicationGroupDescription") => String.t(),
+        required("GlobalReplicationGroupIdSuffix") => String.t(),
+        required("PrimaryReplicationGroupId") => String.t()
+      }
+      
   """
   @type create_global_replication_group_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_users_result() :: %{
-    "Marker" => String.t(),
-    "Users" => list(user()())
-  }
+      
+      describe_users_result() :: %{
+        "Marker" => String.t(),
+        "Users" => list(user()())
+      }
+      
   """
   @type describe_users_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  configure_shard() :: %{
-    "NewReplicaCount" => integer(),
-    "NodeGroupId" => String.t(),
-    "PreferredAvailabilityZones" => list(String.t()()),
-    "PreferredOutpostArns" => list(String.t()())
-  }
+      
+      configure_shard() :: %{
+        "NewReplicaCount" => integer(),
+        "NodeGroupId" => String.t(),
+        "PreferredAvailabilityZones" => list(String.t()()),
+        "PreferredOutpostArns" => list(String.t()())
+      }
+      
   """
   @type configure_shard() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_cache_security_groups_message() :: %{
-    optional("CacheSecurityGroupName") => String.t(),
-    optional("Marker") => String.t(),
-    optional("MaxRecords") => integer()
-  }
+      
+      describe_cache_security_groups_message() :: %{
+        optional("CacheSecurityGroupName") => String.t(),
+        optional("Marker") => String.t(),
+        optional("MaxRecords") => integer()
+      }
+      
   """
   @type describe_cache_security_groups_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_global_replication_group_message() :: %{
-    required("GlobalReplicationGroupId") => String.t(),
-    required("RetainPrimaryReplicationGroup") => boolean()
-  }
+      
+      delete_global_replication_group_message() :: %{
+        required("GlobalReplicationGroupId") => String.t(),
+        required("RetainPrimaryReplicationGroup") => boolean()
+      }
+      
   """
   @type delete_global_replication_group_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_action() :: %{
-    "CacheClusterId" => String.t(),
-    "CacheNodeUpdateStatus" => list(cache_node_update_status()()),
-    "Engine" => String.t(),
-    "EstimatedUpdateTime" => String.t(),
-    "NodeGroupUpdateStatus" => list(node_group_update_status()()),
-    "NodesUpdated" => String.t(),
-    "ReplicationGroupId" => String.t(),
-    "ServiceUpdateName" => String.t(),
-    "ServiceUpdateRecommendedApplyByDate" => non_neg_integer(),
-    "ServiceUpdateReleaseDate" => non_neg_integer(),
-    "ServiceUpdateSeverity" => list(any()),
-    "ServiceUpdateStatus" => list(any()),
-    "ServiceUpdateType" => list(any()),
-    "SlaMet" => list(any()),
-    "UpdateActionAvailableDate" => non_neg_integer(),
-    "UpdateActionStatus" => list(any()),
-    "UpdateActionStatusModifiedDate" => non_neg_integer()
-  }
+      
+      update_action() :: %{
+        "CacheClusterId" => String.t(),
+        "CacheNodeUpdateStatus" => list(cache_node_update_status()()),
+        "Engine" => String.t(),
+        "EstimatedUpdateTime" => String.t(),
+        "NodeGroupUpdateStatus" => list(node_group_update_status()()),
+        "NodesUpdated" => String.t(),
+        "ReplicationGroupId" => String.t(),
+        "ServiceUpdateName" => String.t(),
+        "ServiceUpdateRecommendedApplyByDate" => non_neg_integer(),
+        "ServiceUpdateReleaseDate" => non_neg_integer(),
+        "ServiceUpdateSeverity" => list(any()),
+        "ServiceUpdateStatus" => list(any()),
+        "ServiceUpdateType" => list(any()),
+        "SlaMet" => list(any()),
+        "UpdateActionAvailableDate" => non_neg_integer(),
+        "UpdateActionStatus" => list(any()),
+        "UpdateActionStatusModifiedDate" => non_neg_integer()
+      }
+      
   """
   @type update_action() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  node_group_update_status() :: %{
-    "NodeGroupId" => String.t(),
-    "NodeGroupMemberUpdateStatus" => list(node_group_member_update_status()())
-  }
+      
+      node_group_update_status() :: %{
+        "NodeGroupId" => String.t(),
+        "NodeGroupMemberUpdateStatus" => list(node_group_member_update_status()())
+      }
+      
   """
   @type node_group_update_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_actions_message() :: %{
-    "Marker" => String.t(),
-    "UpdateActions" => list(update_action()())
-  }
+      
+      update_actions_message() :: %{
+        "Marker" => String.t(),
+        "UpdateActions" => list(update_action()())
+      }
+      
   """
   @type update_actions_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_cache_cluster_message() :: %{
-    optional("FinalSnapshotIdentifier") => String.t(),
-    required("CacheClusterId") => String.t()
-  }
+      
+      delete_cache_cluster_message() :: %{
+        optional("FinalSnapshotIdentifier") => String.t(),
+        required("CacheClusterId") => String.t()
+      }
+      
   """
   @type delete_cache_cluster_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  snapshot() :: %{
-    "ARN" => String.t(),
-    "AutoMinorVersionUpgrade" => boolean(),
-    "AutomaticFailover" => list(any()),
-    "CacheClusterCreateTime" => non_neg_integer(),
-    "CacheClusterId" => String.t(),
-    "CacheNodeType" => String.t(),
-    "CacheParameterGroupName" => String.t(),
-    "CacheSubnetGroupName" => String.t(),
-    "DataTiering" => list(any()),
-    "Engine" => String.t(),
-    "EngineVersion" => String.t(),
-    "KmsKeyId" => String.t(),
-    "NodeSnapshots" => list(node_snapshot()()),
-    "NumCacheNodes" => integer(),
-    "NumNodeGroups" => integer(),
-    "Port" => integer(),
-    "PreferredAvailabilityZone" => String.t(),
-    "PreferredMaintenanceWindow" => String.t(),
-    "PreferredOutpostArn" => String.t(),
-    "ReplicationGroupDescription" => String.t(),
-    "ReplicationGroupId" => String.t(),
-    "SnapshotName" => String.t(),
-    "SnapshotRetentionLimit" => integer(),
-    "SnapshotSource" => String.t(),
-    "SnapshotStatus" => String.t(),
-    "SnapshotWindow" => String.t(),
-    "TopicArn" => String.t(),
-    "VpcId" => String.t()
-  }
+      
+      snapshot() :: %{
+        "ARN" => String.t(),
+        "AutoMinorVersionUpgrade" => boolean(),
+        "AutomaticFailover" => list(any()),
+        "CacheClusterCreateTime" => non_neg_integer(),
+        "CacheClusterId" => String.t(),
+        "CacheNodeType" => String.t(),
+        "CacheParameterGroupName" => String.t(),
+        "CacheSubnetGroupName" => String.t(),
+        "DataTiering" => list(any()),
+        "Engine" => String.t(),
+        "EngineVersion" => String.t(),
+        "KmsKeyId" => String.t(),
+        "NodeSnapshots" => list(node_snapshot()()),
+        "NumCacheNodes" => integer(),
+        "NumNodeGroups" => integer(),
+        "Port" => integer(),
+        "PreferredAvailabilityZone" => String.t(),
+        "PreferredMaintenanceWindow" => String.t(),
+        "PreferredOutpostArn" => String.t(),
+        "ReplicationGroupDescription" => String.t(),
+        "ReplicationGroupId" => String.t(),
+        "SnapshotName" => String.t(),
+        "SnapshotRetentionLimit" => integer(),
+        "SnapshotSource" => String.t(),
+        "SnapshotStatus" => String.t(),
+        "SnapshotWindow" => String.t(),
+        "TopicArn" => String.t(),
+        "VpcId" => String.t()
+      }
+      
   """
   @type snapshot() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_reserved_cache_nodes_message() :: %{
-    optional("CacheNodeType") => String.t(),
-    optional("Duration") => String.t(),
-    optional("Marker") => String.t(),
-    optional("MaxRecords") => integer(),
-    optional("OfferingType") => String.t(),
-    optional("ProductDescription") => String.t(),
-    optional("ReservedCacheNodeId") => String.t(),
-    optional("ReservedCacheNodesOfferingId") => String.t()
-  }
+      
+      describe_reserved_cache_nodes_message() :: %{
+        optional("CacheNodeType") => String.t(),
+        optional("Duration") => String.t(),
+        optional("Marker") => String.t(),
+        optional("MaxRecords") => integer(),
+        optional("OfferingType") => String.t(),
+        optional("ProductDescription") => String.t(),
+        optional("ReservedCacheNodeId") => String.t(),
+        optional("ReservedCacheNodesOfferingId") => String.t()
+      }
+      
   """
   @type describe_reserved_cache_nodes_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  global_replication_group() :: %{
-    "ARN" => String.t(),
-    "AtRestEncryptionEnabled" => boolean(),
-    "AuthTokenEnabled" => boolean(),
-    "CacheNodeType" => String.t(),
-    "ClusterEnabled" => boolean(),
-    "Engine" => String.t(),
-    "EngineVersion" => String.t(),
-    "GlobalNodeGroups" => list(global_node_group()()),
-    "GlobalReplicationGroupDescription" => String.t(),
-    "GlobalReplicationGroupId" => String.t(),
-    "Members" => list(global_replication_group_member()()),
-    "Status" => String.t(),
-    "TransitEncryptionEnabled" => boolean()
-  }
+      
+      global_replication_group() :: %{
+        "ARN" => String.t(),
+        "AtRestEncryptionEnabled" => boolean(),
+        "AuthTokenEnabled" => boolean(),
+        "CacheNodeType" => String.t(),
+        "ClusterEnabled" => boolean(),
+        "Engine" => String.t(),
+        "EngineVersion" => String.t(),
+        "GlobalNodeGroups" => list(global_node_group()()),
+        "GlobalReplicationGroupDescription" => String.t(),
+        "GlobalReplicationGroupId" => String.t(),
+        "Members" => list(global_replication_group_member()()),
+        "Status" => String.t(),
+        "TransitEncryptionEnabled" => boolean()
+      }
+      
   """
   @type global_replication_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_list_message() :: %{
-    "TagList" => list(tag()())
-  }
+      
+      tag_list_message() :: %{
+        "TagList" => list(tag()())
+      }
+      
   """
   @type tag_list_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  subnet_in_use() :: %{
-    "message" => String.t()
-  }
+      
+      subnet_in_use() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type subnet_in_use() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_cache_subnet_group_message() :: %{
-    optional("Tags") => list(tag()()),
-    required("CacheSubnetGroupDescription") => String.t(),
-    required("CacheSubnetGroupName") => String.t(),
-    required("SubnetIds") => list(String.t()())
-  }
+      
+      create_cache_subnet_group_message() :: %{
+        optional("Tags") => list(tag()()),
+        required("CacheSubnetGroupDescription") => String.t(),
+        required("CacheSubnetGroupName") => String.t(),
+        required("SubnetIds") => list(String.t()())
+      }
+      
   """
   @type create_cache_subnet_group_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  service_linked_role_not_found_fault() :: %{
-    "message" => String.t()
-  }
+      
+      service_linked_role_not_found_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type service_linked_role_not_found_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  default_user_associated_to_user_group_fault() :: %{
-    "message" => String.t()
-  }
+      
+      default_user_associated_to_user_group_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type default_user_associated_to_user_group_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cache_subnet_group_not_found_fault() :: %{
-    "message" => String.t()
-  }
+      
+      cache_subnet_group_not_found_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type cache_subnet_group_not_found_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  add_tags_to_resource_message() :: %{
-    required("ResourceName") => String.t(),
-    required("Tags") => list(tag()())
-  }
+      
+      add_tags_to_resource_message() :: %{
+        required("ResourceName") => String.t(),
+        required("Tags") => list(tag()())
+      }
+      
   """
   @type add_tags_to_resource_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_cache_subnet_group_message() :: %{
-    required("CacheSubnetGroupName") => String.t()
-  }
+      
+      delete_cache_subnet_group_message() :: %{
+        required("CacheSubnetGroupName") => String.t()
+      }
+      
   """
   @type delete_cache_subnet_group_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  serverless_cache_snapshot_not_found_fault() :: %{
-    "message" => String.t()
-  }
+      
+      serverless_cache_snapshot_not_found_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type serverless_cache_snapshot_not_found_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_cache_security_group_message() :: %{
-    optional("Tags") => list(tag()()),
-    required("CacheSecurityGroupName") => String.t(),
-    required("Description") => String.t()
-  }
+      
+      create_cache_security_group_message() :: %{
+        optional("Tags") => list(tag()()),
+        required("CacheSecurityGroupName") => String.t(),
+        required("Description") => String.t()
+      }
+      
   """
   @type create_cache_security_group_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_replication_group_message() :: %{
-    optional("ServerlessCacheSnapshotName") => String.t(),
-    optional("SecurityGroupIds") => list(String.t()()),
-    optional("UserGroupIds") => list(String.t()()),
-    optional("PrimaryClusterId") => String.t(),
-    optional("CacheSubnetGroupName") => String.t(),
-    optional("SnapshotRetentionLimit") => integer(),
-    optional("NetworkType") => list(any()),
-    optional("GlobalReplicationGroupId") => String.t(),
-    required("ReplicationGroupId") => String.t(),
-    optional("AuthToken") => String.t(),
-    optional("ReplicasPerNodeGroup") => integer(),
-    optional("PreferredCacheClusterAZs") => list(String.t()()),
-    optional("Engine") => String.t(),
-    optional("IpDiscovery") => list(any()),
-    optional("NumCacheClusters") => integer(),
-    optional("NumNodeGroups") => integer(),
-    optional("CacheParameterGroupName") => String.t(),
-    optional("NotificationTopicArn") => String.t(),
-    optional("TransitEncryptionEnabled") => boolean(),
-    optional("SnapshotWindow") => String.t(),
-    optional("AutoMinorVersionUpgrade") => boolean(),
-    optional("SnapshotArns") => list(String.t()()),
-    optional("LogDeliveryConfigurations") => list(log_delivery_configuration_request()()),
-    optional("EngineVersion") => String.t(),
-    optional("SnapshotName") => String.t(),
-    optional("ClusterMode") => list(any()),
-    optional("NodeGroupConfiguration") => list(node_group_configuration()()),
-    optional("CacheSecurityGroupNames") => list(String.t()()),
-    optional("DataTieringEnabled") => boolean(),
-    optional("Port") => integer(),
-    optional("AtRestEncryptionEnabled") => boolean(),
-    required("ReplicationGroupDescription") => String.t(),
-    optional("AutomaticFailoverEnabled") => boolean(),
-    optional("MultiAZEnabled") => boolean(),
-    optional("TransitEncryptionMode") => list(any()),
-    optional("KmsKeyId") => String.t(),
-    optional("PreferredMaintenanceWindow") => String.t(),
-    optional("CacheNodeType") => String.t(),
-    optional("Tags") => list(tag()())
-  }
+      
+      create_replication_group_message() :: %{
+        optional("ServerlessCacheSnapshotName") => String.t(),
+        optional("SecurityGroupIds") => list(String.t()()),
+        optional("UserGroupIds") => list(String.t()()),
+        optional("PrimaryClusterId") => String.t(),
+        optional("CacheSubnetGroupName") => String.t(),
+        optional("SnapshotRetentionLimit") => integer(),
+        optional("NetworkType") => list(any()),
+        optional("GlobalReplicationGroupId") => String.t(),
+        required("ReplicationGroupId") => String.t(),
+        optional("AuthToken") => String.t(),
+        optional("ReplicasPerNodeGroup") => integer(),
+        optional("PreferredCacheClusterAZs") => list(String.t()()),
+        optional("Engine") => String.t(),
+        optional("IpDiscovery") => list(any()),
+        optional("NumCacheClusters") => integer(),
+        optional("NumNodeGroups") => integer(),
+        optional("CacheParameterGroupName") => String.t(),
+        optional("NotificationTopicArn") => String.t(),
+        optional("TransitEncryptionEnabled") => boolean(),
+        optional("SnapshotWindow") => String.t(),
+        optional("AutoMinorVersionUpgrade") => boolean(),
+        optional("SnapshotArns") => list(String.t()()),
+        optional("LogDeliveryConfigurations") => list(log_delivery_configuration_request()()),
+        optional("EngineVersion") => String.t(),
+        optional("SnapshotName") => String.t(),
+        optional("ClusterMode") => list(any()),
+        optional("NodeGroupConfiguration") => list(node_group_configuration()()),
+        optional("CacheSecurityGroupNames") => list(String.t()()),
+        optional("DataTieringEnabled") => boolean(),
+        optional("Port") => integer(),
+        optional("AtRestEncryptionEnabled") => boolean(),
+        required("ReplicationGroupDescription") => String.t(),
+        optional("AutomaticFailoverEnabled") => boolean(),
+        optional("MultiAZEnabled") => boolean(),
+        optional("TransitEncryptionMode") => list(any()),
+        optional("KmsKeyId") => String.t(),
+        optional("PreferredMaintenanceWindow") => String.t(),
+        optional("CacheNodeType") => String.t(),
+        optional("Tags") => list(tag()())
+      }
+      
   """
   @type create_replication_group_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_serverless_cache_snapshot_state_fault() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_serverless_cache_snapshot_state_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_serverless_cache_snapshot_state_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_events_message() :: %{
-    optional("Duration") => integer(),
-    optional("EndTime") => non_neg_integer(),
-    optional("Marker") => String.t(),
-    optional("MaxRecords") => integer(),
-    optional("SourceIdentifier") => String.t(),
-    optional("SourceType") => list(any()),
-    optional("StartTime") => non_neg_integer()
-  }
+      
+      describe_events_message() :: %{
+        optional("Duration") => integer(),
+        optional("EndTime") => non_neg_integer(),
+        optional("Marker") => String.t(),
+        optional("MaxRecords") => integer(),
+        optional("SourceIdentifier") => String.t(),
+        optional("SourceType") => list(any()),
+        optional("StartTime") => non_neg_integer()
+      }
+      
   """
   @type describe_events_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_cache_security_group_result() :: %{
-    "CacheSecurityGroup" => cache_security_group()
-  }
+      
+      create_cache_security_group_result() :: %{
+        "CacheSecurityGroup" => cache_security_group()
+      }
+      
   """
   @type create_cache_security_group_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  snapshot_already_exists_fault() :: %{
-    "message" => String.t()
-  }
+      
+      snapshot_already_exists_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type snapshot_already_exists_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cache_cluster_message() :: %{
-    "CacheClusters" => list(cache_cluster()()),
-    "Marker" => String.t()
-  }
+      
+      cache_cluster_message() :: %{
+        "CacheClusters" => list(cache_cluster()()),
+        "Marker" => String.t()
+      }
+      
   """
   @type cache_cluster_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_snapshot_result() :: %{
-    "Snapshot" => snapshot()
-  }
+      
+      create_snapshot_result() :: %{
+        "Snapshot" => snapshot()
+      }
+      
   """
   @type create_snapshot_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  customer_node_endpoint() :: %{
-    "Address" => String.t(),
-    "Port" => integer()
-  }
+      
+      customer_node_endpoint() :: %{
+        "Address" => String.t(),
+        "Port" => integer()
+      }
+      
   """
   @type customer_node_endpoint() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  complete_migration_response() :: %{
-    "ReplicationGroup" => replication_group()
-  }
+      
+      complete_migration_response() :: %{
+        "ReplicationGroup" => replication_group()
+      }
+      
   """
   @type complete_migration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_serverless_cache_snapshots_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("ServerlessCacheName") => String.t(),
-    optional("ServerlessCacheSnapshotName") => String.t(),
-    optional("SnapshotType") => String.t()
-  }
+      
+      describe_serverless_cache_snapshots_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("ServerlessCacheName") => String.t(),
+        optional("ServerlessCacheSnapshotName") => String.t(),
+        optional("SnapshotType") => String.t()
+      }
+      
   """
   @type describe_serverless_cache_snapshots_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  time_range_filter() :: %{
-    "EndTime" => non_neg_integer(),
-    "StartTime" => non_neg_integer()
-  }
+      
+      time_range_filter() :: %{
+        "EndTime" => non_neg_integer(),
+        "StartTime" => non_neg_integer()
+      }
+      
   """
   @type time_range_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_snapshots_list_message() :: %{
-    "Marker" => String.t(),
-    "Snapshots" => list(snapshot()())
-  }
+      
+      describe_snapshots_list_message() :: %{
+        "Marker" => String.t(),
+        "Snapshots" => list(snapshot()())
+      }
+      
   """
   @type describe_snapshots_list_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_users_message() :: %{
-    optional("Engine") => String.t(),
-    optional("Filters") => list(filter()()),
-    optional("Marker") => String.t(),
-    optional("MaxRecords") => integer(),
-    optional("UserId") => String.t()
-  }
+      
+      describe_users_message() :: %{
+        optional("Engine") => String.t(),
+        optional("Filters") => list(filter()()),
+        optional("Marker") => String.t(),
+        optional("MaxRecords") => integer(),
+        optional("UserId") => String.t()
+      }
+      
   """
   @type describe_users_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  authorize_cache_security_group_ingress_message() :: %{
-    required("CacheSecurityGroupName") => String.t(),
-    required("EC2SecurityGroupName") => String.t(),
-    required("EC2SecurityGroupOwnerId") => String.t()
-  }
+      
+      authorize_cache_security_group_ingress_message() :: %{
+        required("CacheSecurityGroupName") => String.t(),
+        required("EC2SecurityGroupName") => String.t(),
+        required("EC2SecurityGroupOwnerId") => String.t()
+      }
+      
   """
   @type authorize_cache_security_group_ingress_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  modify_serverless_cache_response() :: %{
-    "ServerlessCache" => serverless_cache()
-  }
+      
+      modify_serverless_cache_response() :: %{
+        "ServerlessCache" => serverless_cache()
+      }
+      
   """
   @type modify_serverless_cache_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  user() :: %{
-    optional("ARN") => String.t(),
-    optional("AccessString") => String.t(),
-    optional("Authentication") => authentication(),
-    optional("Engine") => String.t(),
-    optional("MinimumEngineVersion") => String.t(),
-    optional("Status") => String.t(),
-    optional("UserGroupIds") => list(String.t()()),
-    optional("UserId") => String.t(),
-    optional("UserName") => String.t()
-  }
+      
+      user() :: %{
+        optional("ARN") => String.t(),
+        optional("AccessString") => String.t(),
+        optional("Authentication") => authentication(),
+        optional("Engine") => String.t(),
+        optional("MinimumEngineVersion") => String.t(),
+        optional("Status") => String.t(),
+        optional("UserGroupIds") => list(String.t()()),
+        optional("UserId") => String.t(),
+        optional("UserName") => String.t()
+      }
+      
   """
   @type user() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_cache_parameter_group_message() :: %{
-    optional("Tags") => list(tag()()),
-    required("CacheParameterGroupFamily") => String.t(),
-    required("CacheParameterGroupName") => String.t(),
-    required("Description") => String.t()
-  }
+      
+      create_cache_parameter_group_message() :: %{
+        optional("Tags") => list(tag()()),
+        required("CacheParameterGroupFamily") => String.t(),
+        required("CacheParameterGroupName") => String.t(),
+        required("Description") => String.t()
+      }
+      
   """
   @type create_cache_parameter_group_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  service_update() :: %{
-    "AutoUpdateAfterRecommendedApplyByDate" => boolean(),
-    "Engine" => String.t(),
-    "EngineVersion" => String.t(),
-    "EstimatedUpdateTime" => String.t(),
-    "ServiceUpdateDescription" => String.t(),
-    "ServiceUpdateEndDate" => non_neg_integer(),
-    "ServiceUpdateName" => String.t(),
-    "ServiceUpdateRecommendedApplyByDate" => non_neg_integer(),
-    "ServiceUpdateReleaseDate" => non_neg_integer(),
-    "ServiceUpdateSeverity" => list(any()),
-    "ServiceUpdateStatus" => list(any()),
-    "ServiceUpdateType" => list(any())
-  }
+      
+      service_update() :: %{
+        "AutoUpdateAfterRecommendedApplyByDate" => boolean(),
+        "Engine" => String.t(),
+        "EngineVersion" => String.t(),
+        "EstimatedUpdateTime" => String.t(),
+        "ServiceUpdateDescription" => String.t(),
+        "ServiceUpdateEndDate" => non_neg_integer(),
+        "ServiceUpdateName" => String.t(),
+        "ServiceUpdateRecommendedApplyByDate" => non_neg_integer(),
+        "ServiceUpdateReleaseDate" => non_neg_integer(),
+        "ServiceUpdateSeverity" => list(any()),
+        "ServiceUpdateStatus" => list(any()),
+        "ServiceUpdateType" => list(any())
+      }
+      
   """
   @type service_update() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  authorize_cache_security_group_ingress_result() :: %{
-    "CacheSecurityGroup" => cache_security_group()
-  }
+      
+      authorize_cache_security_group_ingress_result() :: %{
+        "CacheSecurityGroup" => cache_security_group()
+      }
+      
   """
   @type authorize_cache_security_group_ingress_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_serverless_cache_request() :: %{
-    optional("CacheUsageLimits") => cache_usage_limits(),
-    optional("DailySnapshotTime") => String.t(),
-    optional("Description") => String.t(),
-    optional("KmsKeyId") => String.t(),
-    optional("MajorEngineVersion") => String.t(),
-    optional("SecurityGroupIds") => list(String.t()()),
-    optional("SnapshotArnsToRestore") => list(String.t()()),
-    optional("SnapshotRetentionLimit") => integer(),
-    optional("SubnetIds") => list(String.t()()),
-    optional("Tags") => list(tag()()),
-    optional("UserGroupId") => String.t(),
-    required("Engine") => String.t(),
-    required("ServerlessCacheName") => String.t()
-  }
+      
+      create_serverless_cache_request() :: %{
+        optional("CacheUsageLimits") => cache_usage_limits(),
+        optional("DailySnapshotTime") => String.t(),
+        optional("Description") => String.t(),
+        optional("KmsKeyId") => String.t(),
+        optional("MajorEngineVersion") => String.t(),
+        optional("SecurityGroupIds") => list(String.t()()),
+        optional("SnapshotArnsToRestore") => list(String.t()()),
+        optional("SnapshotRetentionLimit") => integer(),
+        optional("SubnetIds") => list(String.t()()),
+        optional("Tags") => list(tag()()),
+        optional("UserGroupId") => String.t(),
+        required("Engine") => String.t(),
+        required("ServerlessCacheName") => String.t()
+      }
+      
   """
   @type create_serverless_cache_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  default_user_required() :: %{
-    "message" => String.t()
-  }
+      
+      default_user_required() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type default_user_required() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_serverless_cache_snapshot_response() :: %{
-    "ServerlessCacheSnapshot" => serverless_cache_snapshot()
-  }
+      
+      create_serverless_cache_snapshot_response() :: %{
+        "ServerlessCacheSnapshot" => serverless_cache_snapshot()
+      }
+      
   """
   @type create_serverless_cache_snapshot_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_replication_group_state_fault() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_replication_group_state_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_replication_group_state_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_cache_parameter_group_result() :: %{
-    "CacheParameterGroup" => cache_parameter_group()
-  }
+      
+      create_cache_parameter_group_result() :: %{
+        "CacheParameterGroup" => cache_parameter_group()
+      }
+      
   """
   @type create_cache_parameter_group_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  global_replication_group_not_found_fault() :: %{
-    "message" => String.t()
-  }
+      
+      global_replication_group_not_found_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type global_replication_group_not_found_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  user_group_not_found_fault() :: %{
-    "message" => String.t()
-  }
+      
+      user_group_not_found_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type user_group_not_found_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cache_engine_version_message() :: %{
-    "CacheEngineVersions" => list(cache_engine_version()()),
-    "Marker" => String.t()
-  }
+      
+      cache_engine_version_message() :: %{
+        "CacheEngineVersions" => list(cache_engine_version()()),
+        "Marker" => String.t()
+      }
+      
   """
   @type cache_engine_version_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  authentication_mode() :: %{
-    "Passwords" => list(String.t()()),
-    "Type" => list(any())
-  }
+      
+      authentication_mode() :: %{
+        "Passwords" => list(String.t()()),
+        "Type" => list(any())
+      }
+      
   """
   @type authentication_mode() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  insufficient_cache_cluster_capacity_fault() :: %{
-    "message" => String.t()
-  }
+      
+      insufficient_cache_cluster_capacity_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type insufficient_cache_cluster_capacity_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  modify_serverless_cache_request() :: %{
-    optional("CacheUsageLimits") => cache_usage_limits(),
-    optional("DailySnapshotTime") => String.t(),
-    optional("Description") => String.t(),
-    optional("RemoveUserGroup") => boolean(),
-    optional("SecurityGroupIds") => list(String.t()()),
-    optional("SnapshotRetentionLimit") => integer(),
-    optional("UserGroupId") => String.t(),
-    required("ServerlessCacheName") => String.t()
-  }
+      
+      modify_serverless_cache_request() :: %{
+        optional("CacheUsageLimits") => cache_usage_limits(),
+        optional("DailySnapshotTime") => String.t(),
+        optional("Description") => String.t(),
+        optional("RemoveUserGroup") => boolean(),
+        optional("SecurityGroupIds") => list(String.t()()),
+        optional("SnapshotRetentionLimit") => integer(),
+        optional("UserGroupId") => String.t(),
+        required("ServerlessCacheName") => String.t()
+      }
+      
   """
   @type modify_serverless_cache_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_cache_clusters_message() :: %{
-    optional("CacheClusterId") => String.t(),
-    optional("Marker") => String.t(),
-    optional("MaxRecords") => integer(),
-    optional("ShowCacheClustersNotInReplicationGroups") => boolean(),
-    optional("ShowCacheNodeInfo") => boolean()
-  }
+      
+      describe_cache_clusters_message() :: %{
+        optional("CacheClusterId") => String.t(),
+        optional("Marker") => String.t(),
+        optional("MaxRecords") => integer(),
+        optional("ShowCacheClustersNotInReplicationGroups") => boolean(),
+        optional("ShowCacheNodeInfo") => boolean()
+      }
+      
   """
   @type describe_cache_clusters_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  remove_tags_from_resource_message() :: %{
-    required("ResourceName") => String.t(),
-    required("TagKeys") => list(String.t()())
-  }
+      
+      remove_tags_from_resource_message() :: %{
+        required("ResourceName") => String.t(),
+        required("TagKeys") => list(String.t()())
+      }
+      
   """
   @type remove_tags_from_resource_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cache_node_update_status() :: %{
-    "CacheNodeId" => String.t(),
-    "NodeDeletionDate" => non_neg_integer(),
-    "NodeUpdateEndDate" => non_neg_integer(),
-    "NodeUpdateInitiatedBy" => list(any()),
-    "NodeUpdateInitiatedDate" => non_neg_integer(),
-    "NodeUpdateStartDate" => non_neg_integer(),
-    "NodeUpdateStatus" => list(any()),
-    "NodeUpdateStatusModifiedDate" => non_neg_integer()
-  }
+      
+      cache_node_update_status() :: %{
+        "CacheNodeId" => String.t(),
+        "NodeDeletionDate" => non_neg_integer(),
+        "NodeUpdateEndDate" => non_neg_integer(),
+        "NodeUpdateInitiatedBy" => list(any()),
+        "NodeUpdateInitiatedDate" => non_neg_integer(),
+        "NodeUpdateStartDate" => non_neg_integer(),
+        "NodeUpdateStatus" => list(any()),
+        "NodeUpdateStatusModifiedDate" => non_neg_integer()
+      }
+      
   """
   @type cache_node_update_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_serverless_cache_snapshot_response() :: %{
-    "ServerlessCacheSnapshot" => serverless_cache_snapshot()
-  }
+      
+      delete_serverless_cache_snapshot_response() :: %{
+        "ServerlessCacheSnapshot" => serverless_cache_snapshot()
+      }
+      
   """
   @type delete_serverless_cache_snapshot_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  replication_group_already_under_migration_fault() :: %{
-    "message" => String.t()
-  }
+      
+      replication_group_already_under_migration_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type replication_group_already_under_migration_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_cache_security_group_message() :: %{
-    required("CacheSecurityGroupName") => String.t()
-  }
+      
+      delete_cache_security_group_message() :: %{
+        required("CacheSecurityGroupName") => String.t()
+      }
+      
   """
   @type delete_cache_security_group_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  export_serverless_cache_snapshot_response() :: %{
-    "ServerlessCacheSnapshot" => serverless_cache_snapshot()
-  }
+      
+      export_serverless_cache_snapshot_response() :: %{
+        "ServerlessCacheSnapshot" => serverless_cache_snapshot()
+      }
+      
   """
   @type export_serverless_cache_snapshot_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  rebalance_slots_in_global_replication_group_message() :: %{
-    required("ApplyImmediately") => boolean(),
-    required("GlobalReplicationGroupId") => String.t()
-  }
+      
+      rebalance_slots_in_global_replication_group_message() :: %{
+        required("ApplyImmediately") => boolean(),
+        required("GlobalReplicationGroupId") => String.t()
+      }
+      
   """
   @type rebalance_slots_in_global_replication_group_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  decrease_node_groups_in_global_replication_group_message() :: %{
-    optional("GlobalNodeGroupsToRemove") => list(String.t()()),
-    optional("GlobalNodeGroupsToRetain") => list(String.t()()),
-    required("ApplyImmediately") => boolean(),
-    required("GlobalReplicationGroupId") => String.t(),
-    required("NodeGroupCount") => integer()
-  }
+      
+      decrease_node_groups_in_global_replication_group_message() :: %{
+        optional("GlobalNodeGroupsToRemove") => list(String.t()()),
+        optional("GlobalNodeGroupsToRetain") => list(String.t()()),
+        required("ApplyImmediately") => boolean(),
+        required("GlobalReplicationGroupId") => String.t(),
+        required("NodeGroupCount") => integer()
+      }
+      
   """
   @type decrease_node_groups_in_global_replication_group_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cache_security_group_already_exists_fault() :: %{
-    "message" => String.t()
-  }
+      
+      cache_security_group_already_exists_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type cache_security_group_already_exists_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  snapshot_feature_not_supported_fault() :: %{
-    "message" => String.t()
-  }
+      
+      snapshot_feature_not_supported_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type snapshot_feature_not_supported_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_global_replication_group_result() :: %{
-    "GlobalReplicationGroup" => global_replication_group()
-  }
+      
+      delete_global_replication_group_result() :: %{
+        "GlobalReplicationGroup" => global_replication_group()
+      }
+      
   """
   @type delete_global_replication_group_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_credentials_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_credentials_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_credentials_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  serverless_cache_snapshot_quota_exceeded_fault() :: %{
-    "message" => String.t()
-  }
+      
+      serverless_cache_snapshot_quota_exceeded_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type serverless_cache_snapshot_quota_exceeded_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  user_groups_update_status() :: %{
-    "UserGroupIdsToAdd" => list(String.t()()),
-    "UserGroupIdsToRemove" => list(String.t()())
-  }
+      
+      user_groups_update_status() :: %{
+        "UserGroupIdsToAdd" => list(String.t()()),
+        "UserGroupIdsToRemove" => list(String.t()())
+      }
+      
   """
   @type user_groups_update_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  global_replication_group_member() :: %{
-    "AutomaticFailover" => list(any()),
-    "ReplicationGroupId" => String.t(),
-    "ReplicationGroupRegion" => String.t(),
-    "Role" => String.t(),
-    "Status" => String.t()
-  }
+      
+      global_replication_group_member() :: %{
+        "AutomaticFailover" => list(any()),
+        "ReplicationGroupId" => String.t(),
+        "ReplicationGroupRegion" => String.t(),
+        "Role" => String.t(),
+        "Status" => String.t()
+      }
+      
   """
   @type global_replication_group_member() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_serverless_cache_snapshot_request() :: %{
-    required("ServerlessCacheSnapshotName") => String.t()
-  }
+      
+      delete_serverless_cache_snapshot_request() :: %{
+        required("ServerlessCacheSnapshotName") => String.t()
+      }
+      
   """
   @type delete_serverless_cache_snapshot_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cache_node_type_specific_value() :: %{
-    "CacheNodeType" => String.t(),
-    "Value" => String.t()
-  }
+      
+      cache_node_type_specific_value() :: %{
+        "CacheNodeType" => String.t(),
+        "Value" => String.t()
+      }
+      
   """
   @type cache_node_type_specific_value() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_migration_message() :: %{
-    required("CustomerNodeEndpointList") => list(customer_node_endpoint()()),
-    required("ReplicationGroupId") => String.t()
-  }
+      
+      start_migration_message() :: %{
+        required("CustomerNodeEndpointList") => list(customer_node_endpoint()()),
+        required("ReplicationGroupId") => String.t()
+      }
+      
   """
   @type start_migration_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  node_groups_per_replication_group_quota_exceeded_fault() :: %{
-    "message" => String.t()
-  }
+      
+      node_groups_per_replication_group_quota_exceeded_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type node_groups_per_replication_group_quota_exceeded_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  slot_migration() :: %{
-    "ProgressPercentage" => float()
-  }
+      
+      slot_migration() :: %{
+        "ProgressPercentage" => float()
+      }
+      
   """
   @type slot_migration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_cache_cluster_result() :: %{
-    "CacheCluster" => cache_cluster()
-  }
+      
+      create_cache_cluster_result() :: %{
+        "CacheCluster" => cache_cluster()
+      }
+      
   """
   @type create_cache_cluster_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  global_replication_group_already_exists_fault() :: %{
-    "message" => String.t()
-  }
+      
+      global_replication_group_already_exists_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type global_replication_group_already_exists_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  replication_group_message() :: %{
-    "Marker" => String.t(),
-    "ReplicationGroups" => list(replication_group()())
-  }
+      
+      replication_group_message() :: %{
+        "Marker" => String.t(),
+        "ReplicationGroups" => list(replication_group()())
+      }
+      
   """
   @type replication_group_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disassociate_global_replication_group_message() :: %{
-    required("GlobalReplicationGroupId") => String.t(),
-    required("ReplicationGroupId") => String.t(),
-    required("ReplicationGroupRegion") => String.t()
-  }
+      
+      disassociate_global_replication_group_message() :: %{
+        required("GlobalReplicationGroupId") => String.t(),
+        required("ReplicationGroupId") => String.t(),
+        required("ReplicationGroupRegion") => String.t()
+      }
+      
   """
   @type disassociate_global_replication_group_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  user_group_already_exists_fault() :: %{
-    "message" => String.t()
-  }
+      
+      user_group_already_exists_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type user_group_already_exists_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  serverless_cache_quota_for_customer_exceeded_fault() :: %{
-    "message" => String.t()
-  }
+      
+      serverless_cache_quota_for_customer_exceeded_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type serverless_cache_quota_for_customer_exceeded_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_cache_cluster_result() :: %{
-    "CacheCluster" => cache_cluster()
-  }
+      
+      delete_cache_cluster_result() :: %{
+        "CacheCluster" => cache_cluster()
+      }
+      
   """
   @type delete_cache_cluster_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  modify_cache_cluster_message() :: %{
-    optional("AZMode") => list(any()),
-    optional("ApplyImmediately") => boolean(),
-    optional("AuthToken") => String.t(),
-    optional("AuthTokenUpdateStrategy") => list(any()),
-    optional("AutoMinorVersionUpgrade") => boolean(),
-    optional("CacheNodeIdsToRemove") => list(String.t()()),
-    optional("CacheNodeType") => String.t(),
-    optional("CacheParameterGroupName") => String.t(),
-    optional("CacheSecurityGroupNames") => list(String.t()()),
-    optional("EngineVersion") => String.t(),
-    optional("IpDiscovery") => list(any()),
-    optional("LogDeliveryConfigurations") => list(log_delivery_configuration_request()()),
-    optional("NewAvailabilityZones") => list(String.t()()),
-    optional("NotificationTopicArn") => String.t(),
-    optional("NotificationTopicStatus") => String.t(),
-    optional("NumCacheNodes") => integer(),
-    optional("PreferredMaintenanceWindow") => String.t(),
-    optional("SecurityGroupIds") => list(String.t()()),
-    optional("SnapshotRetentionLimit") => integer(),
-    optional("SnapshotWindow") => String.t(),
-    required("CacheClusterId") => String.t()
-  }
+      
+      modify_cache_cluster_message() :: %{
+        optional("AZMode") => list(any()),
+        optional("ApplyImmediately") => boolean(),
+        optional("AuthToken") => String.t(),
+        optional("AuthTokenUpdateStrategy") => list(any()),
+        optional("AutoMinorVersionUpgrade") => boolean(),
+        optional("CacheNodeIdsToRemove") => list(String.t()()),
+        optional("CacheNodeType") => String.t(),
+        optional("CacheParameterGroupName") => String.t(),
+        optional("CacheSecurityGroupNames") => list(String.t()()),
+        optional("EngineVersion") => String.t(),
+        optional("IpDiscovery") => list(any()),
+        optional("LogDeliveryConfigurations") => list(log_delivery_configuration_request()()),
+        optional("NewAvailabilityZones") => list(String.t()()),
+        optional("NotificationTopicArn") => String.t(),
+        optional("NotificationTopicStatus") => String.t(),
+        optional("NumCacheNodes") => integer(),
+        optional("PreferredMaintenanceWindow") => String.t(),
+        optional("SecurityGroupIds") => list(String.t()()),
+        optional("SnapshotRetentionLimit") => integer(),
+        optional("SnapshotWindow") => String.t(),
+        required("CacheClusterId") => String.t()
+      }
+      
   """
   @type modify_cache_cluster_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  kinesis_firehose_destination_details() :: %{
-    "DeliveryStream" => String.t()
-  }
+      
+      kinesis_firehose_destination_details() :: %{
+        "DeliveryStream" => String.t()
+      }
+      
   """
   @type kinesis_firehose_destination_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  increase_node_groups_in_global_replication_group_result() :: %{
-    "GlobalReplicationGroup" => global_replication_group()
-  }
+      
+      increase_node_groups_in_global_replication_group_result() :: %{
+        "GlobalReplicationGroup" => global_replication_group()
+      }
+      
   """
   @type increase_node_groups_in_global_replication_group_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cache_subnet_group_already_exists_fault() :: %{
-    "message" => String.t()
-  }
+      
+      cache_subnet_group_already_exists_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type cache_subnet_group_already_exists_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cache_subnet_quota_exceeded_fault() :: %{
-    "message" => String.t()
-  }
+      
+      cache_subnet_quota_exceeded_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type cache_subnet_quota_exceeded_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  regional_configuration() :: %{
-    "ReplicationGroupId" => String.t(),
-    "ReplicationGroupRegion" => String.t(),
-    "ReshardingConfiguration" => list(resharding_configuration()())
-  }
+      
+      regional_configuration() :: %{
+        "ReplicationGroupId" => String.t(),
+        "ReplicationGroupRegion" => String.t(),
+        "ReshardingConfiguration" => list(resharding_configuration()())
+      }
+      
   """
   @type regional_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  node_quota_for_cluster_exceeded_fault() :: %{
-    "message" => String.t()
-  }
+      
+      node_quota_for_cluster_exceeded_fault() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type node_quota_for_cluster_exceeded_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_serverless_cache_response() :: %{
-    "ServerlessCache" => serverless_cache()
-  }
+      
+      delete_serverless_cache_response() :: %{
+        "ServerlessCache" => serverless_cache()
+      }
+      
   """
   @type delete_serverless_cache_response() :: %{String.t() => any()}
+
+  @type add_tags_to_resource_errors() ::
+          user_group_not_found_fault()
+          | invalid_replication_group_state_fault()
+          | invalid_serverless_cache_snapshot_state_fault()
+          | serverless_cache_snapshot_not_found_fault()
+          | cache_subnet_group_not_found_fault()
+          | replication_group_not_found_fault()
+          | invalid_serverless_cache_state_fault()
+          | invalid_arn_fault()
+          | cache_security_group_not_found_fault()
+          | tag_quota_per_resource_exceeded()
+          | serverless_cache_not_found_fault()
+          | cache_cluster_not_found_fault()
+          | reserved_cache_node_not_found_fault()
+          | user_not_found_fault()
+          | cache_parameter_group_not_found_fault()
+          | snapshot_not_found_fault()
+
+  @type authorize_cache_security_group_ingress_errors() ::
+          invalid_cache_security_group_state_fault()
+          | invalid_parameter_value_exception()
+          | authorization_already_exists_fault()
+          | cache_security_group_not_found_fault()
+          | invalid_parameter_combination_exception()
+
+  @type batch_apply_update_action_errors() ::
+          invalid_parameter_value_exception() | service_update_not_found_fault()
+
+  @type batch_stop_update_action_errors() ::
+          invalid_parameter_value_exception() | service_update_not_found_fault()
+
+  @type complete_migration_errors() ::
+          invalid_replication_group_state_fault()
+          | replication_group_not_found_fault()
+          | replication_group_not_under_migration_fault()
+
+  @type copy_serverless_cache_snapshot_errors() ::
+          serverless_cache_snapshot_quota_exceeded_fault()
+          | invalid_serverless_cache_snapshot_state_fault()
+          | serverless_cache_snapshot_not_found_fault()
+          | service_linked_role_not_found_fault()
+          | invalid_parameter_value_exception()
+          | serverless_cache_snapshot_already_exists_fault()
+          | tag_quota_per_resource_exceeded()
+          | invalid_parameter_combination_exception()
+
+  @type copy_snapshot_errors() ::
+          snapshot_already_exists_fault()
+          | invalid_parameter_value_exception()
+          | invalid_snapshot_state_fault()
+          | tag_quota_per_resource_exceeded()
+          | invalid_parameter_combination_exception()
+          | snapshot_not_found_fault()
+          | snapshot_quota_exceeded_fault()
+
+  @type create_cache_cluster_errors() ::
+          node_quota_for_cluster_exceeded_fault()
+          | insufficient_cache_cluster_capacity_fault()
+          | invalid_replication_group_state_fault()
+          | cache_subnet_group_not_found_fault()
+          | cluster_quota_for_customer_exceeded_fault()
+          | replication_group_not_found_fault()
+          | invalid_parameter_value_exception()
+          | cache_security_group_not_found_fault()
+          | cache_cluster_already_exists_fault()
+          | tag_quota_per_resource_exceeded()
+          | invalid_vpc_network_state_fault()
+          | invalid_parameter_combination_exception()
+          | cache_parameter_group_not_found_fault()
+          | node_quota_for_customer_exceeded_fault()
+
+  @type create_cache_parameter_group_errors() ::
+          cache_parameter_group_quota_exceeded_fault()
+          | invalid_parameter_value_exception()
+          | tag_quota_per_resource_exceeded()
+          | invalid_parameter_combination_exception()
+          | invalid_cache_parameter_group_state_fault()
+          | cache_parameter_group_already_exists_fault()
+
+  @type create_cache_security_group_errors() ::
+          cache_security_group_already_exists_fault()
+          | cache_security_group_quota_exceeded_fault()
+          | invalid_parameter_value_exception()
+          | tag_quota_per_resource_exceeded()
+          | invalid_parameter_combination_exception()
+
+  @type create_cache_subnet_group_errors() ::
+          cache_subnet_quota_exceeded_fault()
+          | cache_subnet_group_already_exists_fault()
+          | subnet_not_allowed_fault()
+          | tag_quota_per_resource_exceeded()
+          | invalid_subnet()
+          | cache_subnet_group_quota_exceeded_fault()
+
+  @type create_global_replication_group_errors() ::
+          global_replication_group_already_exists_fault()
+          | invalid_replication_group_state_fault()
+          | service_linked_role_not_found_fault()
+          | replication_group_not_found_fault()
+          | invalid_parameter_value_exception()
+
+  @type create_replication_group_errors() ::
+          node_quota_for_cluster_exceeded_fault()
+          | node_groups_per_replication_group_quota_exceeded_fault()
+          | insufficient_cache_cluster_capacity_fault()
+          | user_group_not_found_fault()
+          | global_replication_group_not_found_fault()
+          | cache_subnet_group_not_found_fault()
+          | cluster_quota_for_customer_exceeded_fault()
+          | replication_group_already_exists_fault()
+          | invalid_parameter_value_exception()
+          | cache_security_group_not_found_fault()
+          | invalid_global_replication_group_state_fault()
+          | invalid_user_group_state_fault()
+          | tag_quota_per_resource_exceeded()
+          | invalid_vpc_network_state_fault()
+          | invalid_parameter_combination_exception()
+          | cache_cluster_not_found_fault()
+          | invalid_cache_cluster_state_fault()
+          | cache_parameter_group_not_found_fault()
+          | node_quota_for_customer_exceeded_fault()
+
+  @type create_serverless_cache_errors() ::
+          serverless_cache_quota_for_customer_exceeded_fault()
+          | invalid_credentials_exception()
+          | user_group_not_found_fault()
+          | service_linked_role_not_found_fault()
+          | invalid_serverless_cache_state_fault()
+          | invalid_parameter_value_exception()
+          | invalid_user_group_state_fault()
+          | tag_quota_per_resource_exceeded()
+          | serverless_cache_not_found_fault()
+          | invalid_parameter_combination_exception()
+          | serverless_cache_already_exists_fault()
+
+  @type create_serverless_cache_snapshot_errors() ::
+          serverless_cache_snapshot_quota_exceeded_fault()
+          | service_linked_role_not_found_fault()
+          | invalid_serverless_cache_state_fault()
+          | invalid_parameter_value_exception()
+          | serverless_cache_snapshot_already_exists_fault()
+          | tag_quota_per_resource_exceeded()
+          | serverless_cache_not_found_fault()
+          | invalid_parameter_combination_exception()
+
+  @type create_snapshot_errors() ::
+          snapshot_feature_not_supported_fault()
+          | invalid_replication_group_state_fault()
+          | snapshot_already_exists_fault()
+          | replication_group_not_found_fault()
+          | invalid_parameter_value_exception()
+          | tag_quota_per_resource_exceeded()
+          | invalid_parameter_combination_exception()
+          | cache_cluster_not_found_fault()
+          | invalid_cache_cluster_state_fault()
+          | snapshot_quota_exceeded_fault()
+
+  @type create_user_errors() ::
+          service_linked_role_not_found_fault()
+          | duplicate_user_name_fault()
+          | user_quota_exceeded_fault()
+          | user_already_exists_fault()
+          | invalid_parameter_value_exception()
+          | tag_quota_per_resource_exceeded()
+          | invalid_parameter_combination_exception()
+
+  @type create_user_group_errors() ::
+          user_group_already_exists_fault()
+          | default_user_required()
+          | service_linked_role_not_found_fault()
+          | duplicate_user_name_fault()
+          | user_group_quota_exceeded_fault()
+          | invalid_parameter_value_exception()
+          | tag_quota_per_resource_exceeded()
+          | user_not_found_fault()
+
+  @type decrease_node_groups_in_global_replication_group_errors() ::
+          global_replication_group_not_found_fault()
+          | invalid_parameter_value_exception()
+          | invalid_global_replication_group_state_fault()
+          | invalid_parameter_combination_exception()
+
+  @type decrease_replica_count_errors() ::
+          node_groups_per_replication_group_quota_exceeded_fault()
+          | insufficient_cache_cluster_capacity_fault()
+          | invalid_replication_group_state_fault()
+          | service_linked_role_not_found_fault()
+          | cluster_quota_for_customer_exceeded_fault()
+          | replication_group_not_found_fault()
+          | invalid_parameter_value_exception()
+          | no_operation_fault()
+          | invalid_vpc_network_state_fault()
+          | invalid_parameter_combination_exception()
+          | invalid_cache_cluster_state_fault()
+          | node_quota_for_customer_exceeded_fault()
+
+  @type delete_cache_cluster_errors() ::
+          snapshot_feature_not_supported_fault()
+          | snapshot_already_exists_fault()
+          | invalid_parameter_value_exception()
+          | invalid_parameter_combination_exception()
+          | cache_cluster_not_found_fault()
+          | invalid_cache_cluster_state_fault()
+          | snapshot_quota_exceeded_fault()
+
+  @type delete_cache_parameter_group_errors() ::
+          invalid_parameter_value_exception()
+          | invalid_parameter_combination_exception()
+          | invalid_cache_parameter_group_state_fault()
+          | cache_parameter_group_not_found_fault()
+
+  @type delete_cache_security_group_errors() ::
+          invalid_cache_security_group_state_fault()
+          | invalid_parameter_value_exception()
+          | cache_security_group_not_found_fault()
+          | invalid_parameter_combination_exception()
+
+  @type delete_cache_subnet_group_errors() ::
+          cache_subnet_group_not_found_fault() | cache_subnet_group_in_use()
+
+  @type delete_global_replication_group_errors() ::
+          global_replication_group_not_found_fault()
+          | invalid_parameter_value_exception()
+          | invalid_global_replication_group_state_fault()
+
+  @type delete_replication_group_errors() ::
+          snapshot_feature_not_supported_fault()
+          | invalid_replication_group_state_fault()
+          | snapshot_already_exists_fault()
+          | replication_group_not_found_fault()
+          | invalid_parameter_value_exception()
+          | invalid_parameter_combination_exception()
+          | snapshot_quota_exceeded_fault()
+
+  @type delete_serverless_cache_errors() ::
+          invalid_credentials_exception()
+          | service_linked_role_not_found_fault()
+          | invalid_serverless_cache_state_fault()
+          | invalid_parameter_value_exception()
+          | serverless_cache_snapshot_already_exists_fault()
+          | serverless_cache_not_found_fault()
+          | invalid_parameter_combination_exception()
+
+  @type delete_serverless_cache_snapshot_errors() ::
+          invalid_serverless_cache_snapshot_state_fault()
+          | serverless_cache_snapshot_not_found_fault()
+          | service_linked_role_not_found_fault()
+          | invalid_parameter_value_exception()
+
+  @type delete_snapshot_errors() ::
+          invalid_parameter_value_exception()
+          | invalid_snapshot_state_fault()
+          | invalid_parameter_combination_exception()
+          | snapshot_not_found_fault()
+
+  @type delete_user_errors() ::
+          default_user_associated_to_user_group_fault()
+          | service_linked_role_not_found_fault()
+          | invalid_parameter_value_exception()
+          | user_not_found_fault()
+          | invalid_user_state_fault()
+
+  @type delete_user_group_errors() ::
+          user_group_not_found_fault()
+          | service_linked_role_not_found_fault()
+          | invalid_parameter_value_exception()
+          | invalid_user_group_state_fault()
+
+  @type describe_cache_clusters_errors() ::
+          invalid_parameter_value_exception()
+          | invalid_parameter_combination_exception()
+          | cache_cluster_not_found_fault()
+
+  @type describe_cache_parameter_groups_errors() ::
+          invalid_parameter_value_exception()
+          | invalid_parameter_combination_exception()
+          | cache_parameter_group_not_found_fault()
+
+  @type describe_cache_parameters_errors() ::
+          invalid_parameter_value_exception()
+          | invalid_parameter_combination_exception()
+          | cache_parameter_group_not_found_fault()
+
+  @type describe_cache_security_groups_errors() ::
+          invalid_parameter_value_exception()
+          | cache_security_group_not_found_fault()
+          | invalid_parameter_combination_exception()
+
+  @type describe_cache_subnet_groups_errors() :: cache_subnet_group_not_found_fault()
+
+  @type describe_engine_default_parameters_errors() ::
+          invalid_parameter_value_exception() | invalid_parameter_combination_exception()
+
+  @type describe_events_errors() ::
+          invalid_parameter_value_exception() | invalid_parameter_combination_exception()
+
+  @type describe_global_replication_groups_errors() ::
+          global_replication_group_not_found_fault()
+          | invalid_parameter_value_exception()
+          | invalid_parameter_combination_exception()
+
+  @type describe_replication_groups_errors() ::
+          replication_group_not_found_fault()
+          | invalid_parameter_value_exception()
+          | invalid_parameter_combination_exception()
+
+  @type describe_reserved_cache_nodes_errors() ::
+          invalid_parameter_value_exception()
+          | invalid_parameter_combination_exception()
+          | reserved_cache_node_not_found_fault()
+
+  @type describe_reserved_cache_nodes_offerings_errors() ::
+          invalid_parameter_value_exception()
+          | invalid_parameter_combination_exception()
+          | reserved_cache_nodes_offering_not_found_fault()
+
+  @type describe_serverless_cache_snapshots_errors() ::
+          serverless_cache_snapshot_not_found_fault()
+          | invalid_parameter_value_exception()
+          | serverless_cache_not_found_fault()
+          | invalid_parameter_combination_exception()
+
+  @type describe_serverless_caches_errors() ::
+          invalid_parameter_value_exception()
+          | serverless_cache_not_found_fault()
+          | invalid_parameter_combination_exception()
+
+  @type describe_service_updates_errors() ::
+          invalid_parameter_value_exception()
+          | invalid_parameter_combination_exception()
+          | service_update_not_found_fault()
+
+  @type describe_snapshots_errors() ::
+          invalid_parameter_value_exception()
+          | invalid_parameter_combination_exception()
+          | cache_cluster_not_found_fault()
+          | snapshot_not_found_fault()
+
+  @type describe_update_actions_errors() ::
+          invalid_parameter_value_exception() | invalid_parameter_combination_exception()
+
+  @type describe_user_groups_errors() ::
+          user_group_not_found_fault()
+          | service_linked_role_not_found_fault()
+          | invalid_parameter_combination_exception()
+
+  @type describe_users_errors() ::
+          service_linked_role_not_found_fault()
+          | invalid_parameter_combination_exception()
+          | user_not_found_fault()
+
+  @type disassociate_global_replication_group_errors() ::
+          global_replication_group_not_found_fault()
+          | invalid_parameter_value_exception()
+          | invalid_global_replication_group_state_fault()
+          | invalid_parameter_combination_exception()
+
+  @type export_serverless_cache_snapshot_errors() ::
+          invalid_serverless_cache_snapshot_state_fault()
+          | serverless_cache_snapshot_not_found_fault()
+          | service_linked_role_not_found_fault()
+          | invalid_parameter_value_exception()
+
+  @type failover_global_replication_group_errors() ::
+          global_replication_group_not_found_fault()
+          | invalid_parameter_value_exception()
+          | invalid_global_replication_group_state_fault()
+          | invalid_parameter_combination_exception()
+
+  @type increase_node_groups_in_global_replication_group_errors() ::
+          global_replication_group_not_found_fault()
+          | invalid_parameter_value_exception()
+          | invalid_global_replication_group_state_fault()
+
+  @type increase_replica_count_errors() ::
+          node_groups_per_replication_group_quota_exceeded_fault()
+          | insufficient_cache_cluster_capacity_fault()
+          | invalid_replication_group_state_fault()
+          | cluster_quota_for_customer_exceeded_fault()
+          | replication_group_not_found_fault()
+          | invalid_parameter_value_exception()
+          | no_operation_fault()
+          | invalid_vpc_network_state_fault()
+          | invalid_parameter_combination_exception()
+          | invalid_kms_key_fault()
+          | invalid_cache_cluster_state_fault()
+          | node_quota_for_customer_exceeded_fault()
+
+  @type list_allowed_node_type_modifications_errors() ::
+          replication_group_not_found_fault()
+          | invalid_parameter_value_exception()
+          | invalid_parameter_combination_exception()
+          | cache_cluster_not_found_fault()
+
+  @type list_tags_for_resource_errors() ::
+          user_group_not_found_fault()
+          | invalid_replication_group_state_fault()
+          | invalid_serverless_cache_snapshot_state_fault()
+          | serverless_cache_snapshot_not_found_fault()
+          | cache_subnet_group_not_found_fault()
+          | replication_group_not_found_fault()
+          | invalid_serverless_cache_state_fault()
+          | invalid_arn_fault()
+          | cache_security_group_not_found_fault()
+          | serverless_cache_not_found_fault()
+          | cache_cluster_not_found_fault()
+          | reserved_cache_node_not_found_fault()
+          | user_not_found_fault()
+          | cache_parameter_group_not_found_fault()
+          | snapshot_not_found_fault()
+
+  @type modify_cache_cluster_errors() ::
+          node_quota_for_cluster_exceeded_fault()
+          | insufficient_cache_cluster_capacity_fault()
+          | invalid_cache_security_group_state_fault()
+          | invalid_parameter_value_exception()
+          | cache_security_group_not_found_fault()
+          | invalid_vpc_network_state_fault()
+          | invalid_parameter_combination_exception()
+          | cache_cluster_not_found_fault()
+          | invalid_cache_cluster_state_fault()
+          | cache_parameter_group_not_found_fault()
+          | node_quota_for_customer_exceeded_fault()
+
+  @type modify_cache_parameter_group_errors() ::
+          invalid_parameter_value_exception()
+          | invalid_global_replication_group_state_fault()
+          | invalid_parameter_combination_exception()
+          | invalid_cache_parameter_group_state_fault()
+          | cache_parameter_group_not_found_fault()
+
+  @type modify_cache_subnet_group_errors() ::
+          cache_subnet_quota_exceeded_fault()
+          | cache_subnet_group_not_found_fault()
+          | subnet_in_use()
+          | subnet_not_allowed_fault()
+          | invalid_subnet()
+
+  @type modify_global_replication_group_errors() ::
+          global_replication_group_not_found_fault()
+          | invalid_parameter_value_exception()
+          | invalid_global_replication_group_state_fault()
+
+  @type modify_replication_group_errors() ::
+          node_quota_for_cluster_exceeded_fault()
+          | insufficient_cache_cluster_capacity_fault()
+          | user_group_not_found_fault()
+          | invalid_replication_group_state_fault()
+          | invalid_cache_security_group_state_fault()
+          | replication_group_not_found_fault()
+          | invalid_parameter_value_exception()
+          | cache_security_group_not_found_fault()
+          | invalid_user_group_state_fault()
+          | invalid_vpc_network_state_fault()
+          | invalid_parameter_combination_exception()
+          | cache_cluster_not_found_fault()
+          | invalid_kms_key_fault()
+          | invalid_cache_cluster_state_fault()
+          | cache_parameter_group_not_found_fault()
+          | node_quota_for_customer_exceeded_fault()
+
+  @type modify_replication_group_shard_configuration_errors() ::
+          node_groups_per_replication_group_quota_exceeded_fault()
+          | insufficient_cache_cluster_capacity_fault()
+          | invalid_replication_group_state_fault()
+          | replication_group_not_found_fault()
+          | invalid_parameter_value_exception()
+          | invalid_vpc_network_state_fault()
+          | invalid_parameter_combination_exception()
+          | invalid_kms_key_fault()
+          | invalid_cache_cluster_state_fault()
+          | node_quota_for_customer_exceeded_fault()
+
+  @type modify_serverless_cache_errors() ::
+          invalid_credentials_exception()
+          | user_group_not_found_fault()
+          | service_linked_role_not_found_fault()
+          | invalid_serverless_cache_state_fault()
+          | invalid_parameter_value_exception()
+          | invalid_user_group_state_fault()
+          | serverless_cache_not_found_fault()
+          | invalid_parameter_combination_exception()
+
+  @type modify_user_errors() ::
+          service_linked_role_not_found_fault()
+          | invalid_parameter_value_exception()
+          | invalid_parameter_combination_exception()
+          | user_not_found_fault()
+          | invalid_user_state_fault()
+
+  @type modify_user_group_errors() ::
+          user_group_not_found_fault()
+          | default_user_required()
+          | service_linked_role_not_found_fault()
+          | duplicate_user_name_fault()
+          | invalid_parameter_value_exception()
+          | invalid_user_group_state_fault()
+          | invalid_parameter_combination_exception()
+          | user_not_found_fault()
+
+  @type purchase_reserved_cache_nodes_offering_errors() ::
+          reserved_cache_node_quota_exceeded_fault()
+          | invalid_parameter_value_exception()
+          | tag_quota_per_resource_exceeded()
+          | reserved_cache_node_already_exists_fault()
+          | invalid_parameter_combination_exception()
+          | reserved_cache_nodes_offering_not_found_fault()
+
+  @type rebalance_slots_in_global_replication_group_errors() ::
+          global_replication_group_not_found_fault()
+          | invalid_parameter_value_exception()
+          | invalid_global_replication_group_state_fault()
+
+  @type reboot_cache_cluster_errors() ::
+          cache_cluster_not_found_fault() | invalid_cache_cluster_state_fault()
+
+  @type remove_tags_from_resource_errors() ::
+          user_group_not_found_fault()
+          | invalid_replication_group_state_fault()
+          | invalid_serverless_cache_snapshot_state_fault()
+          | serverless_cache_snapshot_not_found_fault()
+          | cache_subnet_group_not_found_fault()
+          | replication_group_not_found_fault()
+          | invalid_serverless_cache_state_fault()
+          | invalid_arn_fault()
+          | cache_security_group_not_found_fault()
+          | serverless_cache_not_found_fault()
+          | tag_not_found_fault()
+          | cache_cluster_not_found_fault()
+          | reserved_cache_node_not_found_fault()
+          | user_not_found_fault()
+          | cache_parameter_group_not_found_fault()
+          | snapshot_not_found_fault()
+
+  @type reset_cache_parameter_group_errors() ::
+          invalid_parameter_value_exception()
+          | invalid_global_replication_group_state_fault()
+          | invalid_parameter_combination_exception()
+          | invalid_cache_parameter_group_state_fault()
+          | cache_parameter_group_not_found_fault()
+
+  @type revoke_cache_security_group_ingress_errors() ::
+          invalid_cache_security_group_state_fault()
+          | invalid_parameter_value_exception()
+          | cache_security_group_not_found_fault()
+          | authorization_not_found_fault()
+          | invalid_parameter_combination_exception()
+
+  @type start_migration_errors() ::
+          replication_group_already_under_migration_fault()
+          | invalid_replication_group_state_fault()
+          | replication_group_not_found_fault()
+          | invalid_parameter_value_exception()
+
+  @type test_failover_errors() ::
+          invalid_replication_group_state_fault()
+          | replication_group_not_found_fault()
+          | api_call_rate_for_customer_exceeded_fault()
+          | node_group_not_found_fault()
+          | invalid_parameter_value_exception()
+          | test_failover_not_available_fault()
+          | invalid_parameter_combination_exception()
+          | invalid_kms_key_fault()
+          | invalid_cache_cluster_state_fault()
+
+  @type test_migration_errors() ::
+          replication_group_already_under_migration_fault()
+          | invalid_replication_group_state_fault()
+          | replication_group_not_found_fault()
+          | invalid_parameter_value_exception()
 
   def metadata do
     %{
@@ -3291,22 +4428,7 @@ defmodule AWS.ElastiCache do
   @spec add_tags_to_resource(map(), add_tags_to_resource_message(), list()) ::
           {:ok, tag_list_message(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cache_cluster_not_found_fault()}
-          | {:error, cache_parameter_group_not_found_fault()}
-          | {:error, cache_security_group_not_found_fault()}
-          | {:error, cache_subnet_group_not_found_fault()}
-          | {:error, invalid_arn_fault()}
-          | {:error, invalid_replication_group_state_fault()}
-          | {:error, invalid_serverless_cache_snapshot_state_fault()}
-          | {:error, invalid_serverless_cache_state_fault()}
-          | {:error, replication_group_not_found_fault()}
-          | {:error, reserved_cache_node_not_found_fault()}
-          | {:error, serverless_cache_not_found_fault()}
-          | {:error, serverless_cache_snapshot_not_found_fault()}
-          | {:error, snapshot_not_found_fault()}
-          | {:error, tag_quota_per_resource_exceeded()}
-          | {:error, user_group_not_found_fault()}
-          | {:error, user_not_found_fault()}
+          | {:error, add_tags_to_resource_errors()}
   def add_tags_to_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3332,11 +4454,7 @@ defmodule AWS.ElastiCache do
         ) ::
           {:ok, authorize_cache_security_group_ingress_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, authorization_already_exists_fault()}
-          | {:error, cache_security_group_not_found_fault()}
-          | {:error, invalid_cache_security_group_state_fault()}
-          | {:error, invalid_parameter_combination_exception()}
-          | {:error, invalid_parameter_value_exception()}
+          | {:error, authorize_cache_security_group_ingress_errors()}
   def authorize_cache_security_group_ingress(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3352,8 +4470,7 @@ defmodule AWS.ElastiCache do
   @spec batch_apply_update_action(map(), batch_apply_update_action_message(), list()) ::
           {:ok, update_action_results_message(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_value_exception()}
-          | {:error, service_update_not_found_fault()}
+          | {:error, batch_apply_update_action_errors()}
   def batch_apply_update_action(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3370,8 +4487,7 @@ defmodule AWS.ElastiCache do
   @spec batch_stop_update_action(map(), batch_stop_update_action_message(), list()) ::
           {:ok, update_action_results_message(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_value_exception()}
-          | {:error, service_update_not_found_fault()}
+          | {:error, batch_stop_update_action_errors()}
   def batch_stop_update_action(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3384,9 +4500,7 @@ defmodule AWS.ElastiCache do
   @spec complete_migration(map(), complete_migration_message(), list()) ::
           {:ok, complete_migration_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_replication_group_state_fault()}
-          | {:error, replication_group_not_found_fault()}
-          | {:error, replication_group_not_under_migration_fault()}
+          | {:error, complete_migration_errors()}
   def complete_migration(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3401,14 +4515,7 @@ defmodule AWS.ElastiCache do
   @spec copy_serverless_cache_snapshot(map(), copy_serverless_cache_snapshot_request(), list()) ::
           {:ok, copy_serverless_cache_snapshot_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_combination_exception()}
-          | {:error, invalid_parameter_value_exception()}
-          | {:error, invalid_serverless_cache_snapshot_state_fault()}
-          | {:error, serverless_cache_snapshot_already_exists_fault()}
-          | {:error, serverless_cache_snapshot_not_found_fault()}
-          | {:error, serverless_cache_snapshot_quota_exceeded_fault()}
-          | {:error, service_linked_role_not_found_fault()}
-          | {:error, tag_quota_per_resource_exceeded()}
+          | {:error, copy_serverless_cache_snapshot_errors()}
   def copy_serverless_cache_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3518,13 +4625,7 @@ defmodule AWS.ElastiCache do
   @spec copy_snapshot(map(), copy_snapshot_message(), list()) ::
           {:ok, copy_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_combination_exception()}
-          | {:error, invalid_parameter_value_exception()}
-          | {:error, invalid_snapshot_state_fault()}
-          | {:error, snapshot_already_exists_fault()}
-          | {:error, snapshot_not_found_fault()}
-          | {:error, snapshot_quota_exceeded_fault()}
-          | {:error, tag_quota_per_resource_exceeded()}
+          | {:error, copy_snapshot_errors()}
   def copy_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3542,20 +4643,7 @@ defmodule AWS.ElastiCache do
   @spec create_cache_cluster(map(), create_cache_cluster_message(), list()) ::
           {:ok, create_cache_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cache_cluster_already_exists_fault()}
-          | {:error, cache_parameter_group_not_found_fault()}
-          | {:error, cache_security_group_not_found_fault()}
-          | {:error, cache_subnet_group_not_found_fault()}
-          | {:error, cluster_quota_for_customer_exceeded_fault()}
-          | {:error, insufficient_cache_cluster_capacity_fault()}
-          | {:error, invalid_parameter_combination_exception()}
-          | {:error, invalid_parameter_value_exception()}
-          | {:error, invalid_replication_group_state_fault()}
-          | {:error, invalid_vpc_network_state_fault()}
-          | {:error, node_quota_for_cluster_exceeded_fault()}
-          | {:error, node_quota_for_customer_exceeded_fault()}
-          | {:error, replication_group_not_found_fault()}
-          | {:error, tag_quota_per_resource_exceeded()}
+          | {:error, create_cache_cluster_errors()}
   def create_cache_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3590,12 +4678,7 @@ defmodule AWS.ElastiCache do
   @spec create_cache_parameter_group(map(), create_cache_parameter_group_message(), list()) ::
           {:ok, create_cache_parameter_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cache_parameter_group_already_exists_fault()}
-          | {:error, cache_parameter_group_quota_exceeded_fault()}
-          | {:error, invalid_cache_parameter_group_state_fault()}
-          | {:error, invalid_parameter_combination_exception()}
-          | {:error, invalid_parameter_value_exception()}
-          | {:error, tag_quota_per_resource_exceeded()}
+          | {:error, create_cache_parameter_group_errors()}
   def create_cache_parameter_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3618,11 +4701,7 @@ defmodule AWS.ElastiCache do
   @spec create_cache_security_group(map(), create_cache_security_group_message(), list()) ::
           {:ok, create_cache_security_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cache_security_group_already_exists_fault()}
-          | {:error, cache_security_group_quota_exceeded_fault()}
-          | {:error, invalid_parameter_combination_exception()}
-          | {:error, invalid_parameter_value_exception()}
-          | {:error, tag_quota_per_resource_exceeded()}
+          | {:error, create_cache_security_group_errors()}
   def create_cache_security_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3639,12 +4718,7 @@ defmodule AWS.ElastiCache do
   @spec create_cache_subnet_group(map(), create_cache_subnet_group_message(), list()) ::
           {:ok, create_cache_subnet_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cache_subnet_group_already_exists_fault()}
-          | {:error, cache_subnet_group_quota_exceeded_fault()}
-          | {:error, cache_subnet_quota_exceeded_fault()}
-          | {:error, invalid_subnet()}
-          | {:error, subnet_not_allowed_fault()}
-          | {:error, tag_quota_per_resource_exceeded()}
+          | {:error, create_cache_subnet_group_errors()}
   def create_cache_subnet_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3673,11 +4747,7 @@ defmodule AWS.ElastiCache do
   @spec create_global_replication_group(map(), create_global_replication_group_message(), list()) ::
           {:ok, create_global_replication_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, global_replication_group_already_exists_fault()}
-          | {:error, invalid_parameter_value_exception()}
-          | {:error, invalid_replication_group_state_fault()}
-          | {:error, replication_group_not_found_fault()}
-          | {:error, service_linked_role_not_found_fault()}
+          | {:error, create_global_replication_group_errors()}
   def create_global_replication_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3741,25 +4811,7 @@ defmodule AWS.ElastiCache do
   @spec create_replication_group(map(), create_replication_group_message(), list()) ::
           {:ok, create_replication_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cache_cluster_not_found_fault()}
-          | {:error, cache_parameter_group_not_found_fault()}
-          | {:error, cache_security_group_not_found_fault()}
-          | {:error, cache_subnet_group_not_found_fault()}
-          | {:error, cluster_quota_for_customer_exceeded_fault()}
-          | {:error, global_replication_group_not_found_fault()}
-          | {:error, insufficient_cache_cluster_capacity_fault()}
-          | {:error, invalid_cache_cluster_state_fault()}
-          | {:error, invalid_global_replication_group_state_fault()}
-          | {:error, invalid_parameter_combination_exception()}
-          | {:error, invalid_parameter_value_exception()}
-          | {:error, invalid_user_group_state_fault()}
-          | {:error, invalid_vpc_network_state_fault()}
-          | {:error, node_groups_per_replication_group_quota_exceeded_fault()}
-          | {:error, node_quota_for_cluster_exceeded_fault()}
-          | {:error, node_quota_for_customer_exceeded_fault()}
-          | {:error, replication_group_already_exists_fault()}
-          | {:error, tag_quota_per_resource_exceeded()}
-          | {:error, user_group_not_found_fault()}
+          | {:error, create_replication_group_errors()}
   def create_replication_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3772,17 +4824,7 @@ defmodule AWS.ElastiCache do
   @spec create_serverless_cache(map(), create_serverless_cache_request(), list()) ::
           {:ok, create_serverless_cache_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_credentials_exception()}
-          | {:error, invalid_parameter_combination_exception()}
-          | {:error, invalid_parameter_value_exception()}
-          | {:error, invalid_serverless_cache_state_fault()}
-          | {:error, invalid_user_group_state_fault()}
-          | {:error, serverless_cache_already_exists_fault()}
-          | {:error, serverless_cache_not_found_fault()}
-          | {:error, serverless_cache_quota_for_customer_exceeded_fault()}
-          | {:error, service_linked_role_not_found_fault()}
-          | {:error, tag_quota_per_resource_exceeded()}
-          | {:error, user_group_not_found_fault()}
+          | {:error, create_serverless_cache_errors()}
   def create_serverless_cache(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3802,14 +4844,7 @@ defmodule AWS.ElastiCache do
         ) ::
           {:ok, create_serverless_cache_snapshot_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_combination_exception()}
-          | {:error, invalid_parameter_value_exception()}
-          | {:error, invalid_serverless_cache_state_fault()}
-          | {:error, serverless_cache_not_found_fault()}
-          | {:error, serverless_cache_snapshot_already_exists_fault()}
-          | {:error, serverless_cache_snapshot_quota_exceeded_fault()}
-          | {:error, service_linked_role_not_found_fault()}
-          | {:error, tag_quota_per_resource_exceeded()}
+          | {:error, create_serverless_cache_snapshot_errors()}
   def create_serverless_cache_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3825,16 +4860,7 @@ defmodule AWS.ElastiCache do
   @spec create_snapshot(map(), create_snapshot_message(), list()) ::
           {:ok, create_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cache_cluster_not_found_fault()}
-          | {:error, invalid_cache_cluster_state_fault()}
-          | {:error, invalid_parameter_combination_exception()}
-          | {:error, invalid_parameter_value_exception()}
-          | {:error, invalid_replication_group_state_fault()}
-          | {:error, replication_group_not_found_fault()}
-          | {:error, snapshot_already_exists_fault()}
-          | {:error, snapshot_feature_not_supported_fault()}
-          | {:error, snapshot_quota_exceeded_fault()}
-          | {:error, tag_quota_per_resource_exceeded()}
+          | {:error, create_snapshot_errors()}
   def create_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3850,13 +4876,7 @@ defmodule AWS.ElastiCache do
   @spec create_user(map(), create_user_message(), list()) ::
           {:ok, user(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, duplicate_user_name_fault()}
-          | {:error, invalid_parameter_combination_exception()}
-          | {:error, invalid_parameter_value_exception()}
-          | {:error, service_linked_role_not_found_fault()}
-          | {:error, tag_quota_per_resource_exceeded()}
-          | {:error, user_already_exists_fault()}
-          | {:error, user_quota_exceeded_fault()}
+          | {:error, create_user_errors()}
   def create_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3872,14 +4892,7 @@ defmodule AWS.ElastiCache do
   @spec create_user_group(map(), create_user_group_message(), list()) ::
           {:ok, user_group(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, default_user_required()}
-          | {:error, duplicate_user_name_fault()}
-          | {:error, invalid_parameter_value_exception()}
-          | {:error, service_linked_role_not_found_fault()}
-          | {:error, tag_quota_per_resource_exceeded()}
-          | {:error, user_group_already_exists_fault()}
-          | {:error, user_group_quota_exceeded_fault()}
-          | {:error, user_not_found_fault()}
+          | {:error, create_user_group_errors()}
   def create_user_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3896,10 +4909,7 @@ defmodule AWS.ElastiCache do
         ) ::
           {:ok, decrease_node_groups_in_global_replication_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, global_replication_group_not_found_fault()}
-          | {:error, invalid_global_replication_group_state_fault()}
-          | {:error, invalid_parameter_combination_exception()}
-          | {:error, invalid_parameter_value_exception()}
+          | {:error, decrease_node_groups_in_global_replication_group_errors()}
   def decrease_node_groups_in_global_replication_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3924,18 +4934,7 @@ defmodule AWS.ElastiCache do
   @spec decrease_replica_count(map(), decrease_replica_count_message(), list()) ::
           {:ok, decrease_replica_count_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cluster_quota_for_customer_exceeded_fault()}
-          | {:error, insufficient_cache_cluster_capacity_fault()}
-          | {:error, invalid_cache_cluster_state_fault()}
-          | {:error, invalid_parameter_combination_exception()}
-          | {:error, invalid_parameter_value_exception()}
-          | {:error, invalid_replication_group_state_fault()}
-          | {:error, invalid_vpc_network_state_fault()}
-          | {:error, node_groups_per_replication_group_quota_exceeded_fault()}
-          | {:error, node_quota_for_customer_exceeded_fault()}
-          | {:error, no_operation_fault()}
-          | {:error, replication_group_not_found_fault()}
-          | {:error, service_linked_role_not_found_fault()}
+          | {:error, decrease_replica_count_errors()}
   def decrease_replica_count(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3978,13 +4977,7 @@ defmodule AWS.ElastiCache do
   @spec delete_cache_cluster(map(), delete_cache_cluster_message(), list()) ::
           {:ok, delete_cache_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cache_cluster_not_found_fault()}
-          | {:error, invalid_cache_cluster_state_fault()}
-          | {:error, invalid_parameter_combination_exception()}
-          | {:error, invalid_parameter_value_exception()}
-          | {:error, snapshot_already_exists_fault()}
-          | {:error, snapshot_feature_not_supported_fault()}
-          | {:error, snapshot_quota_exceeded_fault()}
+          | {:error, delete_cache_cluster_errors()}
   def delete_cache_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4001,10 +4994,7 @@ defmodule AWS.ElastiCache do
   @spec delete_cache_parameter_group(map(), delete_cache_parameter_group_message(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cache_parameter_group_not_found_fault()}
-          | {:error, invalid_cache_parameter_group_state_fault()}
-          | {:error, invalid_parameter_combination_exception()}
-          | {:error, invalid_parameter_value_exception()}
+          | {:error, delete_cache_parameter_group_errors()}
   def delete_cache_parameter_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4020,10 +5010,7 @@ defmodule AWS.ElastiCache do
   @spec delete_cache_security_group(map(), delete_cache_security_group_message(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cache_security_group_not_found_fault()}
-          | {:error, invalid_cache_security_group_state_fault()}
-          | {:error, invalid_parameter_combination_exception()}
-          | {:error, invalid_parameter_value_exception()}
+          | {:error, delete_cache_security_group_errors()}
   def delete_cache_security_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4040,8 +5027,7 @@ defmodule AWS.ElastiCache do
   @spec delete_cache_subnet_group(map(), delete_cache_subnet_group_message(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cache_subnet_group_in_use()}
-          | {:error, cache_subnet_group_not_found_fault()}
+          | {:error, delete_cache_subnet_group_errors()}
   def delete_cache_subnet_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4076,9 +5062,7 @@ defmodule AWS.ElastiCache do
   @spec delete_global_replication_group(map(), delete_global_replication_group_message(), list()) ::
           {:ok, delete_global_replication_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, global_replication_group_not_found_fault()}
-          | {:error, invalid_global_replication_group_state_fault()}
-          | {:error, invalid_parameter_value_exception()}
+          | {:error, delete_global_replication_group_errors()}
   def delete_global_replication_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4105,13 +5089,7 @@ defmodule AWS.ElastiCache do
   @spec delete_replication_group(map(), delete_replication_group_message(), list()) ::
           {:ok, delete_replication_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_combination_exception()}
-          | {:error, invalid_parameter_value_exception()}
-          | {:error, invalid_replication_group_state_fault()}
-          | {:error, replication_group_not_found_fault()}
-          | {:error, snapshot_already_exists_fault()}
-          | {:error, snapshot_feature_not_supported_fault()}
-          | {:error, snapshot_quota_exceeded_fault()}
+          | {:error, delete_replication_group_errors()}
   def delete_replication_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4124,13 +5102,7 @@ defmodule AWS.ElastiCache do
   @spec delete_serverless_cache(map(), delete_serverless_cache_request(), list()) ::
           {:ok, delete_serverless_cache_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_credentials_exception()}
-          | {:error, invalid_parameter_combination_exception()}
-          | {:error, invalid_parameter_value_exception()}
-          | {:error, invalid_serverless_cache_state_fault()}
-          | {:error, serverless_cache_not_found_fault()}
-          | {:error, serverless_cache_snapshot_already_exists_fault()}
-          | {:error, service_linked_role_not_found_fault()}
+          | {:error, delete_serverless_cache_errors()}
   def delete_serverless_cache(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4149,10 +5121,7 @@ defmodule AWS.ElastiCache do
         ) ::
           {:ok, delete_serverless_cache_snapshot_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_value_exception()}
-          | {:error, invalid_serverless_cache_snapshot_state_fault()}
-          | {:error, serverless_cache_snapshot_not_found_fault()}
-          | {:error, service_linked_role_not_found_fault()}
+          | {:error, delete_serverless_cache_snapshot_errors()}
   def delete_serverless_cache_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4172,10 +5141,7 @@ defmodule AWS.ElastiCache do
   @spec delete_snapshot(map(), delete_snapshot_message(), list()) ::
           {:ok, delete_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_combination_exception()}
-          | {:error, invalid_parameter_value_exception()}
-          | {:error, invalid_snapshot_state_fault()}
-          | {:error, snapshot_not_found_fault()}
+          | {:error, delete_snapshot_errors()}
   def delete_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4193,11 +5159,7 @@ defmodule AWS.ElastiCache do
   @spec delete_user(map(), delete_user_message(), list()) ::
           {:ok, user(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, default_user_associated_to_user_group_fault()}
-          | {:error, invalid_parameter_value_exception()}
-          | {:error, invalid_user_state_fault()}
-          | {:error, service_linked_role_not_found_fault()}
-          | {:error, user_not_found_fault()}
+          | {:error, delete_user_errors()}
   def delete_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4214,10 +5176,7 @@ defmodule AWS.ElastiCache do
   @spec delete_user_group(map(), delete_user_group_message(), list()) ::
           {:ok, user_group(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_value_exception()}
-          | {:error, invalid_user_group_state_fault()}
-          | {:error, service_linked_role_not_found_fault()}
-          | {:error, user_group_not_found_fault()}
+          | {:error, delete_user_group_errors()}
   def delete_user_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4256,9 +5215,7 @@ defmodule AWS.ElastiCache do
   @spec describe_cache_clusters(map(), describe_cache_clusters_message(), list()) ::
           {:ok, cache_cluster_message(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cache_cluster_not_found_fault()}
-          | {:error, invalid_parameter_combination_exception()}
-          | {:error, invalid_parameter_value_exception()}
+          | {:error, describe_cache_clusters_errors()}
   def describe_cache_clusters(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4286,9 +5243,7 @@ defmodule AWS.ElastiCache do
   @spec describe_cache_parameter_groups(map(), describe_cache_parameter_groups_message(), list()) ::
           {:ok, cache_parameter_groups_message(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cache_parameter_group_not_found_fault()}
-          | {:error, invalid_parameter_combination_exception()}
-          | {:error, invalid_parameter_value_exception()}
+          | {:error, describe_cache_parameter_groups_errors()}
   def describe_cache_parameter_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4301,9 +5256,7 @@ defmodule AWS.ElastiCache do
   @spec describe_cache_parameters(map(), describe_cache_parameters_message(), list()) ::
           {:ok, cache_parameter_group_details(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cache_parameter_group_not_found_fault()}
-          | {:error, invalid_parameter_combination_exception()}
-          | {:error, invalid_parameter_value_exception()}
+          | {:error, describe_cache_parameters_errors()}
   def describe_cache_parameters(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4321,9 +5274,7 @@ defmodule AWS.ElastiCache do
   @spec describe_cache_security_groups(map(), describe_cache_security_groups_message(), list()) ::
           {:ok, cache_security_group_message(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cache_security_group_not_found_fault()}
-          | {:error, invalid_parameter_combination_exception()}
-          | {:error, invalid_parameter_value_exception()}
+          | {:error, describe_cache_security_groups_errors()}
   def describe_cache_security_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4343,7 +5294,7 @@ defmodule AWS.ElastiCache do
   @spec describe_cache_subnet_groups(map(), describe_cache_subnet_groups_message(), list()) ::
           {:ok, cache_subnet_group_message(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cache_subnet_group_not_found_fault()}
+          | {:error, describe_cache_subnet_groups_errors()}
   def describe_cache_subnet_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4362,8 +5313,7 @@ defmodule AWS.ElastiCache do
         ) ::
           {:ok, describe_engine_default_parameters_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_combination_exception()}
-          | {:error, invalid_parameter_value_exception()}
+          | {:error, describe_engine_default_parameters_errors()}
   def describe_engine_default_parameters(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4385,8 +5335,7 @@ defmodule AWS.ElastiCache do
   @spec describe_events(map(), describe_events_message(), list()) ::
           {:ok, events_message(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_combination_exception()}
-          | {:error, invalid_parameter_value_exception()}
+          | {:error, describe_events_errors()}
   def describe_events(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4406,9 +5355,7 @@ defmodule AWS.ElastiCache do
         ) ::
           {:ok, describe_global_replication_groups_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, global_replication_group_not_found_fault()}
-          | {:error, invalid_parameter_combination_exception()}
-          | {:error, invalid_parameter_value_exception()}
+          | {:error, describe_global_replication_groups_errors()}
   def describe_global_replication_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4427,9 +5374,7 @@ defmodule AWS.ElastiCache do
   @spec describe_replication_groups(map(), describe_replication_groups_message(), list()) ::
           {:ok, replication_group_message(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_combination_exception()}
-          | {:error, invalid_parameter_value_exception()}
-          | {:error, replication_group_not_found_fault()}
+          | {:error, describe_replication_groups_errors()}
   def describe_replication_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4444,9 +5389,7 @@ defmodule AWS.ElastiCache do
   @spec describe_reserved_cache_nodes(map(), describe_reserved_cache_nodes_message(), list()) ::
           {:ok, reserved_cache_node_message(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_combination_exception()}
-          | {:error, invalid_parameter_value_exception()}
-          | {:error, reserved_cache_node_not_found_fault()}
+          | {:error, describe_reserved_cache_nodes_errors()}
   def describe_reserved_cache_nodes(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4463,9 +5406,7 @@ defmodule AWS.ElastiCache do
         ) ::
           {:ok, reserved_cache_nodes_offering_message(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_combination_exception()}
-          | {:error, invalid_parameter_value_exception()}
-          | {:error, reserved_cache_nodes_offering_not_found_fault()}
+          | {:error, describe_reserved_cache_nodes_offerings_errors()}
   def describe_reserved_cache_nodes_offerings(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4487,10 +5428,7 @@ defmodule AWS.ElastiCache do
         ) ::
           {:ok, describe_serverless_cache_snapshots_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_combination_exception()}
-          | {:error, invalid_parameter_value_exception()}
-          | {:error, serverless_cache_not_found_fault()}
-          | {:error, serverless_cache_snapshot_not_found_fault()}
+          | {:error, describe_serverless_cache_snapshots_errors()}
   def describe_serverless_cache_snapshots(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4507,9 +5445,7 @@ defmodule AWS.ElastiCache do
   @spec describe_serverless_caches(map(), describe_serverless_caches_request(), list()) ::
           {:ok, describe_serverless_caches_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_combination_exception()}
-          | {:error, invalid_parameter_value_exception()}
-          | {:error, serverless_cache_not_found_fault()}
+          | {:error, describe_serverless_caches_errors()}
   def describe_serverless_caches(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4522,9 +5458,7 @@ defmodule AWS.ElastiCache do
   @spec describe_service_updates(map(), describe_service_updates_message(), list()) ::
           {:ok, service_updates_message(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_combination_exception()}
-          | {:error, invalid_parameter_value_exception()}
-          | {:error, service_update_not_found_fault()}
+          | {:error, describe_service_updates_errors()}
   def describe_service_updates(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4545,10 +5479,7 @@ defmodule AWS.ElastiCache do
   @spec describe_snapshots(map(), describe_snapshots_message(), list()) ::
           {:ok, describe_snapshots_list_message(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cache_cluster_not_found_fault()}
-          | {:error, invalid_parameter_combination_exception()}
-          | {:error, invalid_parameter_value_exception()}
-          | {:error, snapshot_not_found_fault()}
+          | {:error, describe_snapshots_errors()}
   def describe_snapshots(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4561,8 +5492,7 @@ defmodule AWS.ElastiCache do
   @spec describe_update_actions(map(), describe_update_actions_message(), list()) ::
           {:ok, update_actions_message(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_combination_exception()}
-          | {:error, invalid_parameter_value_exception()}
+          | {:error, describe_update_actions_errors()}
   def describe_update_actions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4575,9 +5505,7 @@ defmodule AWS.ElastiCache do
   @spec describe_user_groups(map(), describe_user_groups_message(), list()) ::
           {:ok, describe_user_groups_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_combination_exception()}
-          | {:error, service_linked_role_not_found_fault()}
-          | {:error, user_group_not_found_fault()}
+          | {:error, describe_user_groups_errors()}
   def describe_user_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4590,9 +5518,7 @@ defmodule AWS.ElastiCache do
   @spec describe_users(map(), describe_users_message(), list()) ::
           {:ok, describe_users_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_combination_exception()}
-          | {:error, service_linked_role_not_found_fault()}
-          | {:error, user_not_found_fault()}
+          | {:error, describe_users_errors()}
   def describe_users(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4614,10 +5540,7 @@ defmodule AWS.ElastiCache do
         ) ::
           {:ok, disassociate_global_replication_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, global_replication_group_not_found_fault()}
-          | {:error, invalid_global_replication_group_state_fault()}
-          | {:error, invalid_parameter_combination_exception()}
-          | {:error, invalid_parameter_value_exception()}
+          | {:error, disassociate_global_replication_group_errors()}
   def disassociate_global_replication_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4637,10 +5560,7 @@ defmodule AWS.ElastiCache do
         ) ::
           {:ok, export_serverless_cache_snapshot_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_value_exception()}
-          | {:error, invalid_serverless_cache_snapshot_state_fault()}
-          | {:error, serverless_cache_snapshot_not_found_fault()}
-          | {:error, service_linked_role_not_found_fault()}
+          | {:error, export_serverless_cache_snapshot_errors()}
   def export_serverless_cache_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4660,10 +5580,7 @@ defmodule AWS.ElastiCache do
         ) ::
           {:ok, failover_global_replication_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, global_replication_group_not_found_fault()}
-          | {:error, invalid_global_replication_group_state_fault()}
-          | {:error, invalid_parameter_combination_exception()}
-          | {:error, invalid_parameter_value_exception()}
+          | {:error, failover_global_replication_group_errors()}
   def failover_global_replication_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4680,9 +5597,7 @@ defmodule AWS.ElastiCache do
         ) ::
           {:ok, increase_node_groups_in_global_replication_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, global_replication_group_not_found_fault()}
-          | {:error, invalid_global_replication_group_state_fault()}
-          | {:error, invalid_parameter_value_exception()}
+          | {:error, increase_node_groups_in_global_replication_group_errors()}
   def increase_node_groups_in_global_replication_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4707,18 +5622,7 @@ defmodule AWS.ElastiCache do
   @spec increase_replica_count(map(), increase_replica_count_message(), list()) ::
           {:ok, increase_replica_count_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cluster_quota_for_customer_exceeded_fault()}
-          | {:error, insufficient_cache_cluster_capacity_fault()}
-          | {:error, invalid_cache_cluster_state_fault()}
-          | {:error, invalid_kms_key_fault()}
-          | {:error, invalid_parameter_combination_exception()}
-          | {:error, invalid_parameter_value_exception()}
-          | {:error, invalid_replication_group_state_fault()}
-          | {:error, invalid_vpc_network_state_fault()}
-          | {:error, node_groups_per_replication_group_quota_exceeded_fault()}
-          | {:error, node_quota_for_customer_exceeded_fault()}
-          | {:error, no_operation_fault()}
-          | {:error, replication_group_not_found_fault()}
+          | {:error, increase_replica_count_errors()}
   def increase_replica_count(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4742,10 +5646,7 @@ defmodule AWS.ElastiCache do
         ) ::
           {:ok, allowed_node_type_modifications_message(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cache_cluster_not_found_fault()}
-          | {:error, invalid_parameter_combination_exception()}
-          | {:error, invalid_parameter_value_exception()}
-          | {:error, replication_group_not_found_fault()}
+          | {:error, list_allowed_node_type_modifications_errors()}
   def list_allowed_node_type_modifications(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4771,21 +5672,7 @@ defmodule AWS.ElastiCache do
   @spec list_tags_for_resource(map(), list_tags_for_resource_message(), list()) ::
           {:ok, tag_list_message(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cache_cluster_not_found_fault()}
-          | {:error, cache_parameter_group_not_found_fault()}
-          | {:error, cache_security_group_not_found_fault()}
-          | {:error, cache_subnet_group_not_found_fault()}
-          | {:error, invalid_arn_fault()}
-          | {:error, invalid_replication_group_state_fault()}
-          | {:error, invalid_serverless_cache_snapshot_state_fault()}
-          | {:error, invalid_serverless_cache_state_fault()}
-          | {:error, replication_group_not_found_fault()}
-          | {:error, reserved_cache_node_not_found_fault()}
-          | {:error, serverless_cache_not_found_fault()}
-          | {:error, serverless_cache_snapshot_not_found_fault()}
-          | {:error, snapshot_not_found_fault()}
-          | {:error, user_group_not_found_fault()}
-          | {:error, user_not_found_fault()}
+          | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4802,17 +5689,7 @@ defmodule AWS.ElastiCache do
   @spec modify_cache_cluster(map(), modify_cache_cluster_message(), list()) ::
           {:ok, modify_cache_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cache_cluster_not_found_fault()}
-          | {:error, cache_parameter_group_not_found_fault()}
-          | {:error, cache_security_group_not_found_fault()}
-          | {:error, insufficient_cache_cluster_capacity_fault()}
-          | {:error, invalid_cache_cluster_state_fault()}
-          | {:error, invalid_cache_security_group_state_fault()}
-          | {:error, invalid_parameter_combination_exception()}
-          | {:error, invalid_parameter_value_exception()}
-          | {:error, invalid_vpc_network_state_fault()}
-          | {:error, node_quota_for_cluster_exceeded_fault()}
-          | {:error, node_quota_for_customer_exceeded_fault()}
+          | {:error, modify_cache_cluster_errors()}
   def modify_cache_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4828,11 +5705,7 @@ defmodule AWS.ElastiCache do
   @spec modify_cache_parameter_group(map(), modify_cache_parameter_group_message(), list()) ::
           {:ok, cache_parameter_group_name_message(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cache_parameter_group_not_found_fault()}
-          | {:error, invalid_cache_parameter_group_state_fault()}
-          | {:error, invalid_global_replication_group_state_fault()}
-          | {:error, invalid_parameter_combination_exception()}
-          | {:error, invalid_parameter_value_exception()}
+          | {:error, modify_cache_parameter_group_errors()}
   def modify_cache_parameter_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4845,11 +5718,7 @@ defmodule AWS.ElastiCache do
   @spec modify_cache_subnet_group(map(), modify_cache_subnet_group_message(), list()) ::
           {:ok, modify_cache_subnet_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cache_subnet_group_not_found_fault()}
-          | {:error, cache_subnet_quota_exceeded_fault()}
-          | {:error, invalid_subnet()}
-          | {:error, subnet_in_use()}
-          | {:error, subnet_not_allowed_fault()}
+          | {:error, modify_cache_subnet_group_errors()}
   def modify_cache_subnet_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4862,9 +5731,7 @@ defmodule AWS.ElastiCache do
   @spec modify_global_replication_group(map(), modify_global_replication_group_message(), list()) ::
           {:ok, modify_global_replication_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, global_replication_group_not_found_fault()}
-          | {:error, invalid_global_replication_group_state_fault()}
-          | {:error, invalid_parameter_value_exception()}
+          | {:error, modify_global_replication_group_errors()}
   def modify_global_replication_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4893,22 +5760,7 @@ defmodule AWS.ElastiCache do
   @spec modify_replication_group(map(), modify_replication_group_message(), list()) ::
           {:ok, modify_replication_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cache_cluster_not_found_fault()}
-          | {:error, cache_parameter_group_not_found_fault()}
-          | {:error, cache_security_group_not_found_fault()}
-          | {:error, insufficient_cache_cluster_capacity_fault()}
-          | {:error, invalid_cache_cluster_state_fault()}
-          | {:error, invalid_cache_security_group_state_fault()}
-          | {:error, invalid_kms_key_fault()}
-          | {:error, invalid_parameter_combination_exception()}
-          | {:error, invalid_parameter_value_exception()}
-          | {:error, invalid_replication_group_state_fault()}
-          | {:error, invalid_user_group_state_fault()}
-          | {:error, invalid_vpc_network_state_fault()}
-          | {:error, node_quota_for_cluster_exceeded_fault()}
-          | {:error, node_quota_for_customer_exceeded_fault()}
-          | {:error, replication_group_not_found_fault()}
-          | {:error, user_group_not_found_fault()}
+          | {:error, modify_replication_group_errors()}
   def modify_replication_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4927,16 +5779,7 @@ defmodule AWS.ElastiCache do
         ) ::
           {:ok, modify_replication_group_shard_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, insufficient_cache_cluster_capacity_fault()}
-          | {:error, invalid_cache_cluster_state_fault()}
-          | {:error, invalid_kms_key_fault()}
-          | {:error, invalid_parameter_combination_exception()}
-          | {:error, invalid_parameter_value_exception()}
-          | {:error, invalid_replication_group_state_fault()}
-          | {:error, invalid_vpc_network_state_fault()}
-          | {:error, node_groups_per_replication_group_quota_exceeded_fault()}
-          | {:error, node_quota_for_customer_exceeded_fault()}
-          | {:error, replication_group_not_found_fault()}
+          | {:error, modify_replication_group_shard_configuration_errors()}
   def modify_replication_group_shard_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4949,14 +5792,7 @@ defmodule AWS.ElastiCache do
   @spec modify_serverless_cache(map(), modify_serverless_cache_request(), list()) ::
           {:ok, modify_serverless_cache_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_credentials_exception()}
-          | {:error, invalid_parameter_combination_exception()}
-          | {:error, invalid_parameter_value_exception()}
-          | {:error, invalid_serverless_cache_state_fault()}
-          | {:error, invalid_user_group_state_fault()}
-          | {:error, serverless_cache_not_found_fault()}
-          | {:error, service_linked_role_not_found_fault()}
-          | {:error, user_group_not_found_fault()}
+          | {:error, modify_serverless_cache_errors()}
   def modify_serverless_cache(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4969,11 +5805,7 @@ defmodule AWS.ElastiCache do
   @spec modify_user(map(), modify_user_message(), list()) ::
           {:ok, user(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_combination_exception()}
-          | {:error, invalid_parameter_value_exception()}
-          | {:error, invalid_user_state_fault()}
-          | {:error, service_linked_role_not_found_fault()}
-          | {:error, user_not_found_fault()}
+          | {:error, modify_user_errors()}
   def modify_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4986,14 +5818,7 @@ defmodule AWS.ElastiCache do
   @spec modify_user_group(map(), modify_user_group_message(), list()) ::
           {:ok, user_group(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, default_user_required()}
-          | {:error, duplicate_user_name_fault()}
-          | {:error, invalid_parameter_combination_exception()}
-          | {:error, invalid_parameter_value_exception()}
-          | {:error, invalid_user_group_state_fault()}
-          | {:error, service_linked_role_not_found_fault()}
-          | {:error, user_group_not_found_fault()}
-          | {:error, user_not_found_fault()}
+          | {:error, modify_user_group_errors()}
   def modify_user_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5017,12 +5842,7 @@ defmodule AWS.ElastiCache do
         ) ::
           {:ok, purchase_reserved_cache_nodes_offering_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_combination_exception()}
-          | {:error, invalid_parameter_value_exception()}
-          | {:error, reserved_cache_node_already_exists_fault()}
-          | {:error, reserved_cache_node_quota_exceeded_fault()}
-          | {:error, reserved_cache_nodes_offering_not_found_fault()}
-          | {:error, tag_quota_per_resource_exceeded()}
+          | {:error, purchase_reserved_cache_nodes_offering_errors()}
   def purchase_reserved_cache_nodes_offering(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5040,9 +5860,7 @@ defmodule AWS.ElastiCache do
         ) ::
           {:ok, rebalance_slots_in_global_replication_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, global_replication_group_not_found_fault()}
-          | {:error, invalid_global_replication_group_state_fault()}
-          | {:error, invalid_parameter_value_exception()}
+          | {:error, rebalance_slots_in_global_replication_group_errors()}
   def rebalance_slots_in_global_replication_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5077,8 +5895,7 @@ defmodule AWS.ElastiCache do
   @spec reboot_cache_cluster(map(), reboot_cache_cluster_message(), list()) ::
           {:ok, reboot_cache_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cache_cluster_not_found_fault()}
-          | {:error, invalid_cache_cluster_state_fault()}
+          | {:error, reboot_cache_cluster_errors()}
   def reboot_cache_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5100,22 +5917,7 @@ defmodule AWS.ElastiCache do
   @spec remove_tags_from_resource(map(), remove_tags_from_resource_message(), list()) ::
           {:ok, tag_list_message(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cache_cluster_not_found_fault()}
-          | {:error, cache_parameter_group_not_found_fault()}
-          | {:error, cache_security_group_not_found_fault()}
-          | {:error, cache_subnet_group_not_found_fault()}
-          | {:error, invalid_arn_fault()}
-          | {:error, invalid_replication_group_state_fault()}
-          | {:error, invalid_serverless_cache_snapshot_state_fault()}
-          | {:error, invalid_serverless_cache_state_fault()}
-          | {:error, replication_group_not_found_fault()}
-          | {:error, reserved_cache_node_not_found_fault()}
-          | {:error, serverless_cache_not_found_fault()}
-          | {:error, serverless_cache_snapshot_not_found_fault()}
-          | {:error, snapshot_not_found_fault()}
-          | {:error, tag_not_found_fault()}
-          | {:error, user_group_not_found_fault()}
-          | {:error, user_not_found_fault()}
+          | {:error, remove_tags_from_resource_errors()}
   def remove_tags_from_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5134,11 +5936,7 @@ defmodule AWS.ElastiCache do
   @spec reset_cache_parameter_group(map(), reset_cache_parameter_group_message(), list()) ::
           {:ok, cache_parameter_group_name_message(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cache_parameter_group_not_found_fault()}
-          | {:error, invalid_cache_parameter_group_state_fault()}
-          | {:error, invalid_global_replication_group_state_fault()}
-          | {:error, invalid_parameter_combination_exception()}
-          | {:error, invalid_parameter_value_exception()}
+          | {:error, reset_cache_parameter_group_errors()}
   def reset_cache_parameter_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5158,11 +5956,7 @@ defmodule AWS.ElastiCache do
         ) ::
           {:ok, revoke_cache_security_group_ingress_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, authorization_not_found_fault()}
-          | {:error, cache_security_group_not_found_fault()}
-          | {:error, invalid_cache_security_group_state_fault()}
-          | {:error, invalid_parameter_combination_exception()}
-          | {:error, invalid_parameter_value_exception()}
+          | {:error, revoke_cache_security_group_ingress_errors()}
   def revoke_cache_security_group_ingress(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5175,10 +5969,7 @@ defmodule AWS.ElastiCache do
   @spec start_migration(map(), start_migration_message(), list()) ::
           {:ok, start_migration_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_value_exception()}
-          | {:error, invalid_replication_group_state_fault()}
-          | {:error, replication_group_already_under_migration_fault()}
-          | {:error, replication_group_not_found_fault()}
+          | {:error, start_migration_errors()}
   def start_migration(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5283,15 +6074,7 @@ defmodule AWS.ElastiCache do
   @spec test_failover(map(), test_failover_message(), list()) ::
           {:ok, test_failover_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, api_call_rate_for_customer_exceeded_fault()}
-          | {:error, invalid_cache_cluster_state_fault()}
-          | {:error, invalid_kms_key_fault()}
-          | {:error, invalid_parameter_combination_exception()}
-          | {:error, invalid_parameter_value_exception()}
-          | {:error, invalid_replication_group_state_fault()}
-          | {:error, node_group_not_found_fault()}
-          | {:error, replication_group_not_found_fault()}
-          | {:error, test_failover_not_available_fault()}
+          | {:error, test_failover_errors()}
   def test_failover(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5304,10 +6087,7 @@ defmodule AWS.ElastiCache do
   @spec test_migration(map(), test_migration_message(), list()) ::
           {:ok, test_migration_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_value_exception()}
-          | {:error, invalid_replication_group_state_fault()}
-          | {:error, replication_group_already_under_migration_fault()}
-          | {:error, replication_group_not_found_fault()}
+          | {:error, test_migration_errors()}
   def test_migration(%Client{} = client, input, options \\ []) do
     meta = metadata()
 

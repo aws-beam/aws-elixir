@@ -28,91 +28,110 @@ defmodule AWS.FreeTier do
   @typedoc """
 
   ## Example:
-  dimension_values() :: %{
-    "Key" => list(any()),
-    "MatchOptions" => list(list(any())()),
-    "Values" => list(String.t()())
-  }
+      
+      dimension_values() :: %{
+        "Key" => list(any()),
+        "MatchOptions" => list(list(any())()),
+        "Values" => list(String.t()())
+      }
+      
   """
   @type dimension_values() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  expression() :: %{
-    "And" => list(expression()()),
-    "Dimensions" => dimension_values(),
-    "Not" => expression(),
-    "Or" => list(expression()())
-  }
+      
+      expression() :: %{
+        "And" => list(expression()()),
+        "Dimensions" => dimension_values(),
+        "Not" => expression(),
+        "Or" => list(expression()())
+      }
+      
   """
   @type expression() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  free_tier_usage() :: %{
-    "actualUsageAmount" => float(),
-    "description" => String.t(),
-    "forecastedUsageAmount" => float(),
-    "freeTierType" => String.t(),
-    "limit" => float(),
-    "operation" => String.t(),
-    "region" => String.t(),
-    "service" => String.t(),
-    "unit" => String.t(),
-    "usageType" => String.t()
-  }
+      
+      free_tier_usage() :: %{
+        "actualUsageAmount" => float(),
+        "description" => String.t(),
+        "forecastedUsageAmount" => float(),
+        "freeTierType" => String.t(),
+        "limit" => float(),
+        "operation" => String.t(),
+        "region" => String.t(),
+        "service" => String.t(),
+        "unit" => String.t(),
+        "usageType" => String.t()
+      }
+      
   """
   @type free_tier_usage() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_free_tier_usage_request() :: %{
-    optional("filter") => expression(),
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t()
-  }
+      
+      get_free_tier_usage_request() :: %{
+        optional("filter") => expression(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+      
   """
   @type get_free_tier_usage_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_free_tier_usage_response() :: %{
-    "freeTierUsages" => list(free_tier_usage()()),
-    "nextToken" => String.t()
-  }
+      
+      get_free_tier_usage_response() :: %{
+        "freeTierUsages" => list(free_tier_usage()()),
+        "nextToken" => String.t()
+      }
+      
   """
   @type get_free_tier_usage_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  internal_server_exception() :: %{
-    "message" => String.t()
-  }
+      
+      internal_server_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  throttling_exception() :: %{
-    "message" => String.t()
-  }
+      
+      throttling_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  validation_exception() :: %{
-    "message" => String.t()
-  }
+      
+      validation_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type validation_exception() :: %{String.t() => any()}
+
+  @type get_free_tier_usage_errors() ::
+          validation_exception() | throttling_exception() | internal_server_exception()
 
   def metadata do
     %{
@@ -135,9 +154,7 @@ defmodule AWS.FreeTier do
   @spec get_free_tier_usage(map(), get_free_tier_usage_request(), list()) ::
           {:ok, get_free_tier_usage_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_free_tier_usage_errors()}
   def get_free_tier_usage(%Client{} = client, input, options \\ []) do
     meta = metadata()
 

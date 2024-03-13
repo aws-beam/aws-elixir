@@ -228,918 +228,1234 @@ defmodule AWS.IVSRealTime do
   @typedoc """
 
   ## Example:
-  video() :: %{
-    "bitrate" => integer(),
-    "framerate" => float(),
-    "height" => integer(),
-    "width" => integer()
-  }
+
+      video() :: %{
+        "bitrate" => integer(),
+        "framerate" => float(),
+        "height" => integer(),
+        "width" => integer()
+      }
+
   """
   @type video() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_stage_request() :: %{
-    optional("name") => String.t(),
-    required("arn") => String.t()
-  }
+
+      update_stage_request() :: %{
+        optional("name") => String.t(),
+        required("arn") => String.t()
+      }
+
   """
   @type update_stage_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_composition_response() :: %{
-    "composition" => composition()
-  }
+
+      get_composition_response() :: %{
+        "composition" => composition()
+      }
+
   """
   @type get_composition_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stage() :: %{
-    "activeSessionId" => String.t(),
-    "arn" => String.t(),
-    "name" => String.t(),
-    "tags" => map()
-  }
+
+      stage() :: %{
+        "activeSessionId" => String.t(),
+        "arn" => String.t(),
+        "name" => String.t(),
+        "tags" => map()
+      }
+
   """
   @type stage() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_request() :: %{
-    required("tags") => map()
-  }
+
+      tag_resource_request() :: %{
+        required("tags") => map()
+      }
+
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_stages_request() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t()
-  }
+
+      list_stages_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
   """
   @type list_stages_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  composition() :: %{
-    "arn" => String.t(),
-    "destinations" => list(destination()()),
-    "endTime" => non_neg_integer(),
-    "layout" => layout_configuration(),
-    "stageArn" => String.t(),
-    "startTime" => non_neg_integer(),
-    "state" => String.t(),
-    "tags" => map()
-  }
+
+      composition() :: %{
+        "arn" => String.t(),
+        "destinations" => list(destination()()),
+        "endTime" => non_neg_integer(),
+        "layout" => layout_configuration(),
+        "stageArn" => String.t(),
+        "startTime" => non_neg_integer(),
+        "state" => String.t(),
+        "tags" => map()
+      }
+
   """
   @type composition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_storage_configuration_response() :: %{
-    "storageConfiguration" => storage_configuration()
-  }
+
+      get_storage_configuration_response() :: %{
+        "storageConfiguration" => storage_configuration()
+      }
+
   """
   @type get_storage_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_stage_response() :: %{
-    optional("participantTokens") => list(participant_token()()),
-    optional("stage") => stage()
-  }
+
+      create_stage_response() :: %{
+        optional("participantTokens") => list(participant_token()()),
+        optional("stage") => stage()
+      }
+
   """
   @type create_stage_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  recording_configuration() :: %{
-    "format" => String.t()
-  }
+
+      recording_configuration() :: %{
+        "format" => String.t()
+      }
+
   """
   @type recording_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  participant() :: %{
-    "attributes" => map(),
-    "browserName" => String.t(),
-    "browserVersion" => String.t(),
-    "firstJoinTime" => non_neg_integer(),
-    "ispName" => String.t(),
-    "osName" => String.t(),
-    "osVersion" => String.t(),
-    "participantId" => String.t(),
-    "published" => boolean(),
-    "sdkVersion" => String.t(),
-    "state" => String.t(),
-    "userId" => String.t()
-  }
+
+      participant() :: %{
+        "attributes" => map(),
+        "browserName" => String.t(),
+        "browserVersion" => String.t(),
+        "firstJoinTime" => non_neg_integer(),
+        "ispName" => String.t(),
+        "osName" => String.t(),
+        "osVersion" => String.t(),
+        "participantId" => String.t(),
+        "published" => boolean(),
+        "sdkVersion" => String.t(),
+        "state" => String.t(),
+        "userId" => String.t()
+      }
+
   """
   @type participant() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_stage_response() :: %{
-    optional("stage") => stage()
-  }
+
+      get_stage_response() :: %{
+        optional("stage") => stage()
+      }
+
   """
   @type get_stage_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stop_composition_request() :: %{
-    required("arn") => String.t()
-  }
+
+      stop_composition_request() :: %{
+        required("arn") => String.t()
+      }
+
   """
   @type stop_composition_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_response() :: %{
 
-  }
+      untag_resource_response() :: %{}
+
   """
-  @type untag_resource_response() :: %{String.t() => any()}
+  @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_compositions_response() :: %{
-    "compositions" => list(composition_summary()()),
-    "nextToken" => String.t()
-  }
+
+      list_compositions_response() :: %{
+        "compositions" => list(composition_summary()()),
+        "nextToken" => String.t()
+      }
+
   """
   @type list_compositions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_encoder_configuration_request() :: %{
-    required("arn") => String.t()
-  }
+
+      delete_encoder_configuration_request() :: %{
+        required("arn") => String.t()
+      }
+
   """
   @type delete_encoder_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_storage_configuration_request() :: %{
-    required("arn") => String.t()
-  }
+
+      get_storage_configuration_request() :: %{
+        required("arn") => String.t()
+      }
+
   """
   @type get_storage_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_compositions_request() :: %{
-    optional("filterByEncoderConfigurationArn") => String.t(),
-    optional("filterByStageArn") => String.t(),
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t()
-  }
+
+      list_compositions_request() :: %{
+        optional("filterByEncoderConfigurationArn") => String.t(),
+        optional("filterByStageArn") => String.t(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
   """
   @type list_compositions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  participant_summary() :: %{
-    "firstJoinTime" => non_neg_integer(),
-    "participantId" => String.t(),
-    "published" => boolean(),
-    "state" => String.t(),
-    "userId" => String.t()
-  }
+
+      participant_summary() :: %{
+        "firstJoinTime" => non_neg_integer(),
+        "participantId" => String.t(),
+        "published" => boolean(),
+        "state" => String.t(),
+        "userId" => String.t()
+      }
+
   """
   @type participant_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disconnect_participant_response() :: %{
 
-  }
+      disconnect_participant_response() :: %{}
+
   """
-  @type disconnect_participant_response() :: %{String.t() => any()}
+  @type disconnect_participant_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_stage_session_request() :: %{
-    required("sessionId") => String.t(),
-    required("stageArn") => String.t()
-  }
+
+      get_stage_session_request() :: %{
+        required("sessionId") => String.t(),
+        required("stageArn") => String.t()
+      }
+
   """
   @type get_stage_session_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_stage_session_response() :: %{
-    "stageSession" => stage_session()
-  }
+
+      get_stage_session_response() :: %{
+        "stageSession" => stage_session()
+      }
+
   """
   @type get_stage_session_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_stage_response() :: %{
-    optional("stage") => stage()
-  }
+
+      update_stage_response() :: %{
+        optional("stage") => stage()
+      }
+
   """
   @type update_stage_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  participant_token_configuration() :: %{
-    "attributes" => map(),
-    "capabilities" => list(String.t()()),
-    "duration" => integer(),
-    "userId" => String.t()
-  }
+
+      participant_token_configuration() :: %{
+        "attributes" => map(),
+        "capabilities" => list(String.t()()),
+        "duration" => integer(),
+        "userId" => String.t()
+      }
+
   """
   @type participant_token_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  storage_configuration_summary() :: %{
-    "arn" => String.t(),
-    "name" => String.t(),
-    "s3" => s3_storage_configuration(),
-    "tags" => map()
-  }
+
+      storage_configuration_summary() :: %{
+        "arn" => String.t(),
+        "name" => String.t(),
+        "s3" => s3_storage_configuration(),
+        "tags" => map()
+      }
+
   """
   @type storage_configuration_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_request() :: %{
-    required("tagKeys") => list(String.t()())
-  }
+
+      untag_resource_request() :: %{
+        required("tagKeys") => list(String.t()())
+      }
+
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_encoder_configurations_request() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t()
-  }
+
+      list_encoder_configurations_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
   """
   @type list_encoder_configurations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_stage_request() :: %{
-    required("arn") => String.t()
-  }
+
+      get_stage_request() :: %{
+        required("arn") => String.t()
+      }
+
   """
   @type get_stage_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_composition_response() :: %{
-    "composition" => composition()
-  }
+
+      start_composition_response() :: %{
+        "composition" => composition()
+      }
+
   """
   @type start_composition_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_composition_request() :: %{
-    optional("idempotencyToken") => String.t(),
-    optional("layout") => layout_configuration(),
-    optional("tags") => map(),
-    required("destinations") => list(destination_configuration()()),
-    required("stageArn") => String.t()
-  }
+
+      start_composition_request() :: %{
+        optional("idempotencyToken") => String.t(),
+        optional("layout") => layout_configuration(),
+        optional("tags") => map(),
+        required("destinations") => list(destination_configuration()()),
+        required("stageArn") => String.t()
+      }
+
   """
   @type start_composition_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_stage_request() :: %{
-    required("arn") => String.t()
-  }
+
+      delete_stage_request() :: %{
+        required("arn") => String.t()
+      }
+
   """
   @type delete_stage_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_composition_request() :: %{
-    required("arn") => String.t()
-  }
+
+      get_composition_request() :: %{
+        required("arn") => String.t()
+      }
+
   """
   @type get_composition_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_encoder_configuration_response() :: %{
-    "encoderConfiguration" => encoder_configuration()
-  }
+
+      get_encoder_configuration_response() :: %{
+        "encoderConfiguration" => encoder_configuration()
+      }
+
   """
   @type get_encoder_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_storage_configurations_request() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t()
-  }
+
+      list_storage_configurations_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
   """
   @type list_storage_configurations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disconnect_participant_request() :: %{
-    optional("reason") => String.t(),
-    required("participantId") => String.t(),
-    required("stageArn") => String.t()
-  }
+
+      disconnect_participant_request() :: %{
+        optional("reason") => String.t(),
+        required("participantId") => String.t(),
+        required("stageArn") => String.t()
+      }
+
   """
   @type disconnect_participant_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_storage_configurations_response() :: %{
-    "nextToken" => String.t(),
-    "storageConfigurations" => list(storage_configuration_summary()())
-  }
+
+      list_storage_configurations_response() :: %{
+        "nextToken" => String.t(),
+        "storageConfigurations" => list(storage_configuration_summary()())
+      }
+
   """
   @type list_storage_configurations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  conflict_exception() :: %{
-    "exceptionMessage" => String.t()
-  }
+
+      conflict_exception() :: %{
+        "exceptionMessage" => String.t()
+      }
+
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_not_found_exception() :: %{
-    "exceptionMessage" => String.t()
-  }
+
+      resource_not_found_exception() :: %{
+        "exceptionMessage" => String.t()
+      }
+
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_participants_response() :: %{
-    "nextToken" => String.t(),
-    "participants" => list(participant_summary()())
-  }
+
+      list_participants_response() :: %{
+        "nextToken" => String.t(),
+        "participants" => list(participant_summary()())
+      }
+
   """
   @type list_participants_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  channel_destination_configuration() :: %{
-    "channelArn" => String.t(),
-    "encoderConfigurationArn" => String.t()
-  }
+
+      channel_destination_configuration() :: %{
+        "channelArn" => String.t(),
+        "encoderConfigurationArn" => String.t()
+      }
+
   """
   @type channel_destination_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_participant_response() :: %{
-    "participant" => participant()
-  }
+
+      get_participant_response() :: %{
+        "participant" => participant()
+      }
+
   """
   @type get_participant_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_participants_request() :: %{
-    optional("filterByPublished") => boolean(),
-    optional("filterByState") => String.t(),
-    optional("filterByUserId") => String.t(),
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t(),
-    required("sessionId") => String.t(),
-    required("stageArn") => String.t()
-  }
+
+      list_participants_request() :: %{
+        optional("filterByPublished") => boolean(),
+        optional("filterByState") => String.t(),
+        optional("filterByUserId") => String.t(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        required("sessionId") => String.t(),
+        required("stageArn") => String.t()
+      }
+
   """
   @type list_participants_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  service_quota_exceeded_exception() :: %{
-    "exceptionMessage" => String.t()
-  }
+
+      service_quota_exceeded_exception() :: %{
+        "exceptionMessage" => String.t()
+      }
+
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_stage_sessions_request() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t(),
-    required("stageArn") => String.t()
-  }
+
+      list_stage_sessions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        required("stageArn") => String.t()
+      }
+
   """
   @type list_stage_sessions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_storage_configuration_response() :: %{
-    "storageConfiguration" => storage_configuration()
-  }
+
+      create_storage_configuration_response() :: %{
+        "storageConfiguration" => storage_configuration()
+      }
+
   """
   @type create_storage_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_participant_token_response() :: %{
-    optional("participantToken") => participant_token()
-  }
+
+      create_participant_token_response() :: %{
+        optional("participantToken") => participant_token()
+      }
+
   """
   @type create_participant_token_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  s3_destination_configuration() :: %{
-    "encoderConfigurationArns" => list(String.t()()),
-    "recordingConfiguration" => recording_configuration(),
-    "storageConfigurationArn" => String.t()
-  }
+
+      s3_destination_configuration() :: %{
+        "encoderConfigurationArns" => list(String.t()()),
+        "recordingConfiguration" => recording_configuration(),
+        "storageConfigurationArn" => String.t()
+      }
+
   """
   @type s3_destination_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  destination_summary() :: %{
-    "endTime" => non_neg_integer(),
-    "id" => String.t(),
-    "startTime" => non_neg_integer(),
-    "state" => String.t()
-  }
+
+      destination_summary() :: %{
+        "endTime" => non_neg_integer(),
+        "id" => String.t(),
+        "startTime" => non_neg_integer(),
+        "state" => String.t()
+      }
+
   """
   @type destination_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  storage_configuration() :: %{
-    "arn" => String.t(),
-    "name" => String.t(),
-    "s3" => s3_storage_configuration(),
-    "tags" => map()
-  }
+
+      storage_configuration() :: %{
+        "arn" => String.t(),
+        "name" => String.t(),
+        "s3" => s3_storage_configuration(),
+        "tags" => map()
+      }
+
   """
   @type storage_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_stage_sessions_response() :: %{
-    "nextToken" => String.t(),
-    "stageSessions" => list(stage_session_summary()())
-  }
+
+      list_stage_sessions_response() :: %{
+        "nextToken" => String.t(),
+        "stageSessions" => list(stage_session_summary()())
+      }
+
   """
   @type list_stage_sessions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_response() :: %{
-    required("tags") => map()
-  }
+
+      list_tags_for_resource_response() :: %{
+        required("tags") => map()
+      }
+
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  encoder_configuration() :: %{
-    "arn" => String.t(),
-    "name" => String.t(),
-    "tags" => map(),
-    "video" => video()
-  }
+
+      encoder_configuration() :: %{
+        "arn" => String.t(),
+        "name" => String.t(),
+        "tags" => map(),
+        "video" => video()
+      }
+
   """
   @type encoder_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  encoder_configuration_summary() :: %{
-    "arn" => String.t(),
-    "name" => String.t(),
-    "tags" => map()
-  }
+
+      encoder_configuration_summary() :: %{
+        "arn" => String.t(),
+        "name" => String.t(),
+        "tags" => map()
+      }
+
   """
   @type encoder_configuration_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stage_session_summary() :: %{
-    "endTime" => non_neg_integer(),
-    "sessionId" => String.t(),
-    "startTime" => non_neg_integer()
-  }
+
+      stage_session_summary() :: %{
+        "endTime" => non_neg_integer(),
+        "sessionId" => String.t(),
+        "startTime" => non_neg_integer()
+      }
+
   """
   @type stage_session_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_stage_response() :: %{
 
-  }
+      delete_stage_response() :: %{}
+
   """
-  @type delete_stage_response() :: %{String.t() => any()}
+  @type delete_stage_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_stage_request() :: %{
-    optional("name") => String.t(),
-    optional("participantTokenConfigurations") => list(participant_token_configuration()()),
-    optional("tags") => map()
-  }
+
+      create_stage_request() :: %{
+        optional("name") => String.t(),
+        optional("participantTokenConfigurations") => list(participant_token_configuration()()),
+        optional("tags") => map()
+      }
+
   """
   @type create_stage_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  s3_detail() :: %{
-    "recordingPrefix" => String.t()
-  }
+
+      s3_detail() :: %{
+        "recordingPrefix" => String.t()
+      }
+
   """
   @type s3_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  internal_server_exception() :: %{
-    "exceptionMessage" => String.t()
-  }
+
+      internal_server_exception() :: %{
+        "exceptionMessage" => String.t()
+      }
+
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_participant_token_request() :: %{
-    optional("attributes") => map(),
-    optional("capabilities") => list(String.t()()),
-    optional("duration") => integer(),
-    optional("userId") => String.t(),
-    required("stageArn") => String.t()
-  }
+
+      create_participant_token_request() :: %{
+        optional("attributes") => map(),
+        optional("capabilities") => list(String.t()()),
+        optional("duration") => integer(),
+        optional("userId") => String.t(),
+        required("stageArn") => String.t()
+      }
+
   """
   @type create_participant_token_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_stages_response() :: %{
-    optional("nextToken") => String.t(),
-    required("stages") => list(stage_summary()())
-  }
+
+      list_stages_response() :: %{
+        optional("nextToken") => String.t(),
+        required("stages") => list(stage_summary()())
+      }
+
   """
   @type list_stages_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  event() :: %{
-    "errorCode" => String.t(),
-    "eventTime" => non_neg_integer(),
-    "name" => String.t(),
-    "participantId" => String.t(),
-    "remoteParticipantId" => String.t()
-  }
+
+      event() :: %{
+        "errorCode" => String.t(),
+        "eventTime" => non_neg_integer(),
+        "name" => String.t(),
+        "participantId" => String.t(),
+        "remoteParticipantId" => String.t()
+      }
+
   """
   @type event() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_encoder_configurations_response() :: %{
-    "encoderConfigurations" => list(encoder_configuration_summary()()),
-    "nextToken" => String.t()
-  }
+
+      list_encoder_configurations_response() :: %{
+        "encoderConfigurations" => list(encoder_configuration_summary()()),
+        "nextToken" => String.t()
+      }
+
   """
   @type list_encoder_configurations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_participant_request() :: %{
-    required("participantId") => String.t(),
-    required("sessionId") => String.t(),
-    required("stageArn") => String.t()
-  }
+
+      get_participant_request() :: %{
+        required("participantId") => String.t(),
+        required("sessionId") => String.t(),
+        required("stageArn") => String.t()
+      }
+
   """
   @type get_participant_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  access_denied_exception() :: %{
-    "exceptionMessage" => String.t()
-  }
+
+      access_denied_exception() :: %{
+        "exceptionMessage" => String.t()
+      }
+
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_response() :: %{
 
-  }
+      tag_resource_response() :: %{}
+
   """
-  @type tag_resource_response() :: %{String.t() => any()}
+  @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  delete_storage_configuration_response() :: %{
 
-  }
+      delete_storage_configuration_response() :: %{}
+
   """
-  @type delete_storage_configuration_response() :: %{String.t() => any()}
+  @type delete_storage_configuration_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_participant_events_request() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t(),
-    required("participantId") => String.t(),
-    required("sessionId") => String.t(),
-    required("stageArn") => String.t()
-  }
+
+      list_participant_events_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        required("participantId") => String.t(),
+        required("sessionId") => String.t(),
+        required("stageArn") => String.t()
+      }
+
   """
   @type list_participant_events_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  grid_configuration() :: %{
-    "featuredParticipantAttribute" => String.t()
-  }
+
+      grid_configuration() :: %{
+        "featuredParticipantAttribute" => String.t()
+      }
+
   """
   @type grid_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  validation_exception() :: %{
-    "exceptionMessage" => String.t()
-  }
+
+      validation_exception() :: %{
+        "exceptionMessage" => String.t()
+      }
+
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_request() :: %{
 
-  }
+      list_tags_for_resource_request() :: %{}
+
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  destination() :: %{
-    "configuration" => destination_configuration(),
-    "detail" => destination_detail(),
-    "endTime" => non_neg_integer(),
-    "id" => String.t(),
-    "startTime" => non_neg_integer(),
-    "state" => String.t()
-  }
+
+      destination() :: %{
+        "configuration" => destination_configuration(),
+        "detail" => destination_detail(),
+        "endTime" => non_neg_integer(),
+        "id" => String.t(),
+        "startTime" => non_neg_integer(),
+        "state" => String.t()
+      }
+
   """
   @type destination() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  participant_token() :: %{
-    "attributes" => map(),
-    "capabilities" => list(String.t()()),
-    "duration" => integer(),
-    "expirationTime" => non_neg_integer(),
-    "participantId" => String.t(),
-    "token" => String.t(),
-    "userId" => String.t()
-  }
+
+      participant_token() :: %{
+        "attributes" => map(),
+        "capabilities" => list(String.t()()),
+        "duration" => integer(),
+        "expirationTime" => non_neg_integer(),
+        "participantId" => String.t(),
+        "token" => String.t(),
+        "userId" => String.t()
+      }
+
   """
   @type participant_token() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stop_composition_response() :: %{
 
-  }
+      stop_composition_response() :: %{}
+
   """
-  @type stop_composition_response() :: %{String.t() => any()}
+  @type stop_composition_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_storage_configuration_request() :: %{
-    optional("name") => String.t(),
-    optional("tags") => map(),
-    required("s3") => s3_storage_configuration()
-  }
+
+      create_storage_configuration_request() :: %{
+        optional("name") => String.t(),
+        optional("tags") => map(),
+        required("s3") => s3_storage_configuration()
+      }
+
   """
   @type create_storage_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  destination_detail() :: %{
-    "s3" => s3_detail()
-  }
+
+      destination_detail() :: %{
+        "s3" => s3_detail()
+      }
+
   """
   @type destination_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_encoder_configuration_request() :: %{
-    required("arn") => String.t()
-  }
+
+      get_encoder_configuration_request() :: %{
+        required("arn") => String.t()
+      }
+
   """
   @type get_encoder_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_encoder_configuration_request() :: %{
-    optional("name") => String.t(),
-    optional("tags") => map(),
-    optional("video") => video()
-  }
+
+      create_encoder_configuration_request() :: %{
+        optional("name") => String.t(),
+        optional("tags") => map(),
+        optional("video") => video()
+      }
+
   """
   @type create_encoder_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  s3_storage_configuration() :: %{
-    "bucketName" => String.t()
-  }
+
+      s3_storage_configuration() :: %{
+        "bucketName" => String.t()
+      }
+
   """
   @type s3_storage_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stage_session() :: %{
-    "endTime" => non_neg_integer(),
-    "sessionId" => String.t(),
-    "startTime" => non_neg_integer()
-  }
+
+      stage_session() :: %{
+        "endTime" => non_neg_integer(),
+        "sessionId" => String.t(),
+        "startTime" => non_neg_integer()
+      }
+
   """
   @type stage_session() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stage_summary() :: %{
-    "activeSessionId" => String.t(),
-    "arn" => String.t(),
-    "name" => String.t(),
-    "tags" => map()
-  }
+
+      stage_summary() :: %{
+        "activeSessionId" => String.t(),
+        "arn" => String.t(),
+        "name" => String.t(),
+        "tags" => map()
+      }
+
   """
   @type stage_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_storage_configuration_request() :: %{
-    required("arn") => String.t()
-  }
+
+      delete_storage_configuration_request() :: %{
+        required("arn") => String.t()
+      }
+
   """
   @type delete_storage_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  composition_summary() :: %{
-    "arn" => String.t(),
-    "destinations" => list(destination_summary()()),
-    "endTime" => non_neg_integer(),
-    "stageArn" => String.t(),
-    "startTime" => non_neg_integer(),
-    "state" => String.t(),
-    "tags" => map()
-  }
+
+      composition_summary() :: %{
+        "arn" => String.t(),
+        "destinations" => list(destination_summary()()),
+        "endTime" => non_neg_integer(),
+        "stageArn" => String.t(),
+        "startTime" => non_neg_integer(),
+        "state" => String.t(),
+        "tags" => map()
+      }
+
   """
   @type composition_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_encoder_configuration_response() :: %{
 
-  }
+      delete_encoder_configuration_response() :: %{}
+
   """
-  @type delete_encoder_configuration_response() :: %{String.t() => any()}
+  @type delete_encoder_configuration_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_encoder_configuration_response() :: %{
-    "encoderConfiguration" => encoder_configuration()
-  }
+
+      create_encoder_configuration_response() :: %{
+        "encoderConfiguration" => encoder_configuration()
+      }
+
   """
   @type create_encoder_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  layout_configuration() :: %{
-    "grid" => grid_configuration()
-  }
+
+      layout_configuration() :: %{
+        "grid" => grid_configuration()
+      }
+
   """
   @type layout_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  pending_verification() :: %{
-    "exceptionMessage" => String.t()
-  }
+
+      pending_verification() :: %{
+        "exceptionMessage" => String.t()
+      }
+
   """
   @type pending_verification() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  destination_configuration() :: %{
-    "channel" => channel_destination_configuration(),
-    "name" => String.t(),
-    "s3" => s3_destination_configuration()
-  }
+
+      destination_configuration() :: %{
+        "channel" => channel_destination_configuration(),
+        "name" => String.t(),
+        "s3" => s3_destination_configuration()
+      }
+
   """
   @type destination_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_participant_events_response() :: %{
-    "events" => list(event()()),
-    "nextToken" => String.t()
-  }
+
+      list_participant_events_response() :: %{
+        "events" => list(event()()),
+        "nextToken" => String.t()
+      }
+
   """
   @type list_participant_events_response() :: %{String.t() => any()}
+
+  @type create_encoder_configuration_errors() ::
+          pending_verification()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_participant_token_errors() ::
+          pending_verification()
+          | validation_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+
+  @type create_stage_errors() ::
+          pending_verification()
+          | validation_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
+
+  @type create_storage_configuration_errors() ::
+          pending_verification()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_encoder_configuration_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_stage_errors() ::
+          pending_verification()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_storage_configuration_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type disconnect_participant_errors() ::
+          pending_verification()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
+  @type get_composition_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type get_encoder_configuration_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type get_participant_errors() ::
+          validation_exception() | access_denied_exception() | resource_not_found_exception()
+
+  @type get_stage_errors() ::
+          validation_exception() | access_denied_exception() | resource_not_found_exception()
+
+  @type get_stage_session_errors() ::
+          validation_exception() | access_denied_exception() | resource_not_found_exception()
+
+  @type get_storage_configuration_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type list_compositions_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+
+  @type list_encoder_configurations_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+
+  @type list_participant_events_errors() :: validation_exception() | access_denied_exception()
+
+  @type list_participants_errors() :: validation_exception() | access_denied_exception()
+
+  @type list_stage_sessions_errors() :: validation_exception() | access_denied_exception()
+
+  @type list_stages_errors() ::
+          validation_exception() | access_denied_exception() | conflict_exception()
+
+  @type list_storage_configurations_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+
+  @type list_tags_for_resource_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
+
+  @type start_composition_errors() ::
+          pending_verification()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type stop_composition_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type tag_resource_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
+
+  @type untag_resource_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
+
+  @type update_stage_errors() ::
+          pending_verification()
+          | validation_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
 
   def metadata do
     %{
@@ -1162,13 +1478,7 @@ defmodule AWS.IVSRealTime do
   @spec create_encoder_configuration(map(), create_encoder_configuration_request(), list()) ::
           {:ok, create_encoder_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, pending_verification()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_encoder_configuration_errors()}
   def create_encoder_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/CreateEncoderConfiguration"
     headers = []
@@ -1202,11 +1512,7 @@ defmodule AWS.IVSRealTime do
   @spec create_participant_token(map(), create_participant_token_request(), list()) ::
           {:ok, create_participant_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, pending_verification()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_participant_token_errors()}
   def create_participant_token(%Client{} = client, input, options \\ []) do
     url_path = "/CreateParticipantToken"
     headers = []
@@ -1233,10 +1539,7 @@ defmodule AWS.IVSRealTime do
   @spec create_stage(map(), create_stage_request(), list()) ::
           {:ok, create_stage_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, pending_verification()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_stage_errors()}
   def create_stage(%Client{} = client, input, options \\ []) do
     url_path = "/CreateStage"
     headers = []
@@ -1268,13 +1571,7 @@ defmodule AWS.IVSRealTime do
   @spec create_storage_configuration(map(), create_storage_configuration_request(), list()) ::
           {:ok, create_storage_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, pending_verification()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_storage_configuration_errors()}
   def create_storage_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/CreateStorageConfiguration"
     headers = []
@@ -1304,12 +1601,7 @@ defmodule AWS.IVSRealTime do
   @spec delete_encoder_configuration(map(), delete_encoder_configuration_request(), list()) ::
           {:ok, delete_encoder_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_encoder_configuration_errors()}
   def delete_encoder_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteEncoderConfiguration"
     headers = []
@@ -1336,11 +1628,7 @@ defmodule AWS.IVSRealTime do
   @spec delete_stage(map(), delete_stage_request(), list()) ::
           {:ok, delete_stage_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, pending_verification()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_stage_errors()}
   def delete_stage(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteStage"
     headers = []
@@ -1373,12 +1661,7 @@ defmodule AWS.IVSRealTime do
   @spec delete_storage_configuration(map(), delete_storage_configuration_request(), list()) ::
           {:ok, delete_storage_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_storage_configuration_errors()}
   def delete_storage_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteStorageConfiguration"
     headers = []
@@ -1407,10 +1690,7 @@ defmodule AWS.IVSRealTime do
   @spec disconnect_participant(map(), disconnect_participant_request(), list()) ::
           {:ok, disconnect_participant_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, pending_verification()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, disconnect_participant_errors()}
   def disconnect_participant(%Client{} = client, input, options \\ []) do
     url_path = "/DisconnectParticipant"
     headers = []
@@ -1437,12 +1717,7 @@ defmodule AWS.IVSRealTime do
   @spec get_composition(map(), get_composition_request(), list()) ::
           {:ok, get_composition_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_composition_errors()}
   def get_composition(%Client{} = client, input, options \\ []) do
     url_path = "/GetComposition"
     headers = []
@@ -1469,12 +1744,7 @@ defmodule AWS.IVSRealTime do
   @spec get_encoder_configuration(map(), get_encoder_configuration_request(), list()) ::
           {:ok, get_encoder_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_encoder_configuration_errors()}
   def get_encoder_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/GetEncoderConfiguration"
     headers = []
@@ -1501,9 +1771,7 @@ defmodule AWS.IVSRealTime do
   @spec get_participant(map(), get_participant_request(), list()) ::
           {:ok, get_participant_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_participant_errors()}
   def get_participant(%Client{} = client, input, options \\ []) do
     url_path = "/GetParticipant"
     headers = []
@@ -1530,9 +1798,7 @@ defmodule AWS.IVSRealTime do
   @spec get_stage(map(), get_stage_request(), list()) ::
           {:ok, get_stage_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_stage_errors()}
   def get_stage(%Client{} = client, input, options \\ []) do
     url_path = "/GetStage"
     headers = []
@@ -1559,9 +1825,7 @@ defmodule AWS.IVSRealTime do
   @spec get_stage_session(map(), get_stage_session_request(), list()) ::
           {:ok, get_stage_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_stage_session_errors()}
   def get_stage_session(%Client{} = client, input, options \\ []) do
     url_path = "/GetStageSession"
     headers = []
@@ -1588,12 +1852,7 @@ defmodule AWS.IVSRealTime do
   @spec get_storage_configuration(map(), get_storage_configuration_request(), list()) ::
           {:ok, get_storage_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_storage_configuration_errors()}
   def get_storage_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/GetStorageConfiguration"
     headers = []
@@ -1622,11 +1881,7 @@ defmodule AWS.IVSRealTime do
   @spec list_compositions(map(), list_compositions_request(), list()) ::
           {:ok, list_compositions_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_compositions_errors()}
   def list_compositions(%Client{} = client, input, options \\ []) do
     url_path = "/ListCompositions"
     headers = []
@@ -1655,11 +1910,7 @@ defmodule AWS.IVSRealTime do
   @spec list_encoder_configurations(map(), list_encoder_configurations_request(), list()) ::
           {:ok, list_encoder_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_encoder_configurations_errors()}
   def list_encoder_configurations(%Client{} = client, input, options \\ []) do
     url_path = "/ListEncoderConfigurations"
     headers = []
@@ -1687,8 +1938,7 @@ defmodule AWS.IVSRealTime do
   @spec list_participant_events(map(), list_participant_events_request(), list()) ::
           {:ok, list_participant_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_participant_events_errors()}
   def list_participant_events(%Client{} = client, input, options \\ []) do
     url_path = "/ListParticipantEvents"
     headers = []
@@ -1715,8 +1965,7 @@ defmodule AWS.IVSRealTime do
   @spec list_participants(map(), list_participants_request(), list()) ::
           {:ok, list_participants_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_participants_errors()}
   def list_participants(%Client{} = client, input, options \\ []) do
     url_path = "/ListParticipants"
     headers = []
@@ -1743,8 +1992,7 @@ defmodule AWS.IVSRealTime do
   @spec list_stage_sessions(map(), list_stage_sessions_request(), list()) ::
           {:ok, list_stage_sessions_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_stage_sessions_errors()}
   def list_stage_sessions(%Client{} = client, input, options \\ []) do
     url_path = "/ListStageSessions"
     headers = []
@@ -1773,9 +2021,7 @@ defmodule AWS.IVSRealTime do
   @spec list_stages(map(), list_stages_request(), list()) ::
           {:ok, list_stages_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_stages_errors()}
   def list_stages(%Client{} = client, input, options \\ []) do
     url_path = "/ListStages"
     headers = []
@@ -1803,11 +2049,7 @@ defmodule AWS.IVSRealTime do
   @spec list_storage_configurations(map(), list_storage_configurations_request(), list()) ::
           {:ok, list_storage_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_storage_configurations_errors()}
   def list_storage_configurations(%Client{} = client, input, options \\ []) do
     url_path = "/ListStorageConfigurations"
     headers = []
@@ -1834,9 +2076,7 @@ defmodule AWS.IVSRealTime do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -1875,13 +2115,7 @@ defmodule AWS.IVSRealTime do
   @spec start_composition(map(), start_composition_request(), list()) ::
           {:ok, start_composition_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, pending_verification()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, validation_exception()}
+          | {:error, start_composition_errors()}
   def start_composition(%Client{} = client, input, options \\ []) do
     url_path = "/StartComposition"
     headers = []
@@ -1911,12 +2145,7 @@ defmodule AWS.IVSRealTime do
   @spec stop_composition(map(), stop_composition_request(), list()) ::
           {:ok, stop_composition_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, validation_exception()}
+          | {:error, stop_composition_errors()}
   def stop_composition(%Client{} = client, input, options \\ []) do
     url_path = "/StopComposition"
     headers = []
@@ -1943,9 +2172,7 @@ defmodule AWS.IVSRealTime do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -1972,9 +2199,7 @@ defmodule AWS.IVSRealTime do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -2006,11 +2231,7 @@ defmodule AWS.IVSRealTime do
   @spec update_stage(map(), update_stage_request(), list()) ::
           {:ok, update_stage_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, pending_verification()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_stage_errors()}
   def update_stage(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateStage"
     headers = []

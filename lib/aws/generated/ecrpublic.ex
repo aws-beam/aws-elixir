@@ -26,892 +26,1212 @@ defmodule AWS.ECRPUBLIC do
   @typedoc """
 
   ## Example:
-  get_repository_policy_request() :: %{
-    optional("registryId") => String.t(),
-    required("repositoryName") => String.t()
-  }
+      
+      get_repository_policy_request() :: %{
+        optional("registryId") => String.t(),
+        required("repositoryName") => String.t()
+      }
+      
   """
   @type get_repository_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  upload_not_found_exception() :: %{
-    "message" => String.t()
-  }
+      
+      upload_not_found_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type upload_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_repository_response() :: %{
-    "catalogData" => repository_catalog_data(),
-    "repository" => repository()
-  }
+      
+      create_repository_response() :: %{
+        "catalogData" => repository_catalog_data(),
+        "repository" => repository()
+      }
+      
   """
   @type create_repository_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  image_digest_does_not_match_exception() :: %{
-    "message" => String.t()
-  }
+      
+      image_digest_does_not_match_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type image_digest_does_not_match_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_request() :: %{
-    required("resourceArn") => String.t(),
-    required("tags") => list(tag()())
-  }
+      
+      tag_resource_request() :: %{
+        required("resourceArn") => String.t(),
+        required("tags") => list(tag()())
+      }
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  image_already_exists_exception() :: %{
-    "message" => String.t()
-  }
+      
+      image_already_exists_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type image_already_exists_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  layer_failure() :: %{
-    "failureCode" => list(any()),
-    "failureReason" => String.t(),
-    "layerDigest" => String.t()
-  }
+      
+      layer_failure() :: %{
+        "failureCode" => list(any()),
+        "failureReason" => String.t(),
+        "layerDigest" => String.t()
+      }
+      
   """
   @type layer_failure() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_response() :: %{
-
-  }
+      
+      untag_resource_response() :: %{}
+      
   """
-  @type untag_resource_response() :: %{String.t() => any()}
+  @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  image_not_found_exception() :: %{
-    "message" => String.t()
-  }
+      
+      image_not_found_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type image_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  registry_not_found_exception() :: %{
-    "message" => String.t()
-  }
+      
+      registry_not_found_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type registry_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_images_request() :: %{
-    optional("imageIds") => list(image_identifier()()),
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t(),
-    optional("registryId") => String.t(),
-    required("repositoryName") => String.t()
-  }
+      
+      describe_images_request() :: %{
+        optional("imageIds") => list(image_identifier()()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("registryId") => String.t(),
+        required("repositoryName") => String.t()
+      }
+      
   """
   @type describe_images_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  set_repository_policy_response() :: %{
-    "policyText" => String.t(),
-    "registryId" => String.t(),
-    "repositoryName" => String.t()
-  }
+      
+      set_repository_policy_response() :: %{
+        "policyText" => String.t(),
+        "registryId" => String.t(),
+        "repositoryName" => String.t()
+      }
+      
   """
   @type set_repository_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  initiate_layer_upload_request() :: %{
-    optional("registryId") => String.t(),
-    required("repositoryName") => String.t()
-  }
+      
+      initiate_layer_upload_request() :: %{
+        optional("registryId") => String.t(),
+        required("repositoryName") => String.t()
+      }
+      
   """
   @type initiate_layer_upload_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_registries_request() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t()
-  }
+      
+      describe_registries_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+      
   """
   @type describe_registries_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_repository_catalog_data_response() :: %{
-    "catalogData" => repository_catalog_data()
-  }
+      
+      get_repository_catalog_data_response() :: %{
+        "catalogData" => repository_catalog_data()
+      }
+      
   """
   @type get_repository_catalog_data_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_check_layer_availability_response() :: %{
-    "failures" => list(layer_failure()()),
-    "layers" => list(layer()())
-  }
+      
+      batch_check_layer_availability_response() :: %{
+        "failures" => list(layer_failure()()),
+        "layers" => list(layer()())
+      }
+      
   """
   @type batch_check_layer_availability_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  layers_not_found_exception() :: %{
-    "message" => String.t()
-  }
+      
+      layers_not_found_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type layers_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_repository_policy_request() :: %{
-    optional("registryId") => String.t(),
-    required("repositoryName") => String.t()
-  }
+      
+      delete_repository_policy_request() :: %{
+        optional("registryId") => String.t(),
+        required("repositoryName") => String.t()
+      }
+      
   """
   @type delete_repository_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  repository_not_empty_exception() :: %{
-    "message" => String.t()
-  }
+      
+      repository_not_empty_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type repository_not_empty_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_tag_parameter_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_tag_parameter_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_tag_parameter_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_repository_catalog_data_request() :: %{
-    optional("registryId") => String.t(),
-    required("repositoryName") => String.t()
-  }
+      
+      get_repository_catalog_data_request() :: %{
+        optional("registryId") => String.t(),
+        required("repositoryName") => String.t()
+      }
+      
   """
   @type get_repository_catalog_data_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  repository_already_exists_exception() :: %{
-    "message" => String.t()
-  }
+      
+      repository_already_exists_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type repository_already_exists_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_request() :: %{
-    required("resourceArn") => String.t(),
-    required("tagKeys") => list(String.t()())
-  }
+      
+      untag_resource_request() :: %{
+        required("resourceArn") => String.t(),
+        required("tagKeys") => list(String.t()())
+      }
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  repository_policy_not_found_exception() :: %{
-    "message" => String.t()
-  }
+      
+      repository_policy_not_found_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type repository_policy_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_repository_policy_response() :: %{
-    "policyText" => String.t(),
-    "registryId" => String.t(),
-    "repositoryName" => String.t()
-  }
+      
+      get_repository_policy_response() :: %{
+        "policyText" => String.t(),
+        "registryId" => String.t(),
+        "repositoryName" => String.t()
+      }
+      
   """
   @type get_repository_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  layer_already_exists_exception() :: %{
-    "message" => String.t()
-  }
+      
+      layer_already_exists_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type layer_already_exists_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_images_response() :: %{
-    "imageDetails" => list(image_detail()()),
-    "nextToken" => String.t()
-  }
+      
+      describe_images_response() :: %{
+        "imageDetails" => list(image_detail()()),
+        "nextToken" => String.t()
+      }
+      
   """
   @type describe_images_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_repositories_request() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t(),
-    optional("registryId") => String.t(),
-    optional("repositoryNames") => list(String.t()())
-  }
+      
+      describe_repositories_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("registryId") => String.t(),
+        optional("repositoryNames") => list(String.t()())
+      }
+      
   """
   @type describe_repositories_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_image_request() :: %{
-    optional("imageDigest") => String.t(),
-    optional("imageManifestMediaType") => String.t(),
-    optional("imageTag") => String.t(),
-    optional("registryId") => String.t(),
-    required("imageManifest") => String.t(),
-    required("repositoryName") => String.t()
-  }
+      
+      put_image_request() :: %{
+        optional("imageDigest") => String.t(),
+        optional("imageManifestMediaType") => String.t(),
+        optional("imageTag") => String.t(),
+        optional("registryId") => String.t(),
+        required("imageManifest") => String.t(),
+        required("repositoryName") => String.t()
+      }
+      
   """
   @type put_image_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  complete_layer_upload_request() :: %{
-    optional("registryId") => String.t(),
-    required("layerDigests") => list(String.t()()),
-    required("repositoryName") => String.t(),
-    required("uploadId") => String.t()
-  }
+      
+      complete_layer_upload_request() :: %{
+        optional("registryId") => String.t(),
+        required("layerDigests") => list(String.t()()),
+        required("repositoryName") => String.t(),
+        required("uploadId") => String.t()
+      }
+      
   """
   @type complete_layer_upload_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  set_repository_policy_request() :: %{
-    optional("force") => boolean(),
-    optional("registryId") => String.t(),
-    required("policyText") => String.t(),
-    required("repositoryName") => String.t()
-  }
+      
+      set_repository_policy_request() :: %{
+        optional("force") => boolean(),
+        optional("registryId") => String.t(),
+        required("policyText") => String.t(),
+        required("repositoryName") => String.t()
+      }
+      
   """
   @type set_repository_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  registry_alias() :: %{
-    "defaultRegistryAlias" => boolean(),
-    "name" => String.t(),
-    "primaryRegistryAlias" => boolean(),
-    "status" => list(any())
-  }
+      
+      registry_alias() :: %{
+        "defaultRegistryAlias" => boolean(),
+        "name" => String.t(),
+        "primaryRegistryAlias" => boolean(),
+        "status" => list(any())
+      }
+      
   """
   @type registry_alias() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  unsupported_command_exception() :: %{
-    "message" => String.t()
-  }
+      
+      unsupported_command_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type unsupported_command_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_delete_image_request() :: %{
-    optional("registryId") => String.t(),
-    required("imageIds") => list(image_identifier()()),
-    required("repositoryName") => String.t()
-  }
+      
+      batch_delete_image_request() :: %{
+        optional("registryId") => String.t(),
+        required("imageIds") => list(image_identifier()()),
+        required("repositoryName") => String.t()
+      }
+      
   """
   @type batch_delete_image_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  complete_layer_upload_response() :: %{
-    "layerDigest" => String.t(),
-    "registryId" => String.t(),
-    "repositoryName" => String.t(),
-    "uploadId" => String.t()
-  }
+      
+      complete_layer_upload_response() :: %{
+        "layerDigest" => String.t(),
+        "registryId" => String.t(),
+        "repositoryName" => String.t(),
+        "uploadId" => String.t()
+      }
+      
   """
   @type complete_layer_upload_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  image_failure() :: %{
-    "failureCode" => list(any()),
-    "failureReason" => String.t(),
-    "imageId" => image_identifier()
-  }
+      
+      image_failure() :: %{
+        "failureCode" => list(any()),
+        "failureReason" => String.t(),
+        "imageId" => image_identifier()
+      }
+      
   """
   @type image_failure() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_layer_part_exception() :: %{
-    "lastValidByteReceived" => float(),
-    "message" => String.t(),
-    "registryId" => String.t(),
-    "repositoryName" => String.t(),
-    "uploadId" => String.t()
-  }
+      
+      invalid_layer_part_exception() :: %{
+        "lastValidByteReceived" => float(),
+        "message" => String.t(),
+        "registryId" => String.t(),
+        "repositoryName" => String.t(),
+        "uploadId" => String.t()
+      }
+      
   """
   @type invalid_layer_part_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  image_tag_already_exists_exception() :: %{
-    "message" => String.t()
-  }
+      
+      image_tag_already_exists_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type image_tag_already_exists_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_image_response() :: %{
-    "image" => image()
-  }
+      
+      put_image_response() :: %{
+        "image" => image()
+      }
+      
   """
   @type put_image_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag() :: %{
-    "Key" => String.t(),
-    "Value" => String.t()
-  }
+      
+      tag() :: %{
+        "Key" => String.t(),
+        "Value" => String.t()
+      }
+      
   """
   @type tag() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_repository_catalog_data_response() :: %{
-    "catalogData" => repository_catalog_data()
-  }
+      
+      put_repository_catalog_data_response() :: %{
+        "catalogData" => repository_catalog_data()
+      }
+      
   """
   @type put_repository_catalog_data_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  repository() :: %{
-    "createdAt" => non_neg_integer(),
-    "registryId" => String.t(),
-    "repositoryArn" => String.t(),
-    "repositoryName" => String.t(),
-    "repositoryUri" => String.t()
-  }
+      
+      repository() :: %{
+        "createdAt" => non_neg_integer(),
+        "registryId" => String.t(),
+        "repositoryArn" => String.t(),
+        "repositoryName" => String.t(),
+        "repositoryUri" => String.t()
+      }
+      
   """
   @type repository() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_repository_request() :: %{
-    optional("force") => boolean(),
-    optional("registryId") => String.t(),
-    required("repositoryName") => String.t()
-  }
+      
+      delete_repository_request() :: %{
+        optional("force") => boolean(),
+        optional("registryId") => String.t(),
+        required("repositoryName") => String.t()
+      }
+      
   """
   @type delete_repository_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  layer() :: %{
-    "layerAvailability" => list(any()),
-    "layerDigest" => String.t(),
-    "layerSize" => float(),
-    "mediaType" => String.t()
-  }
+      
+      layer() :: %{
+        "layerAvailability" => list(any()),
+        "layerDigest" => String.t(),
+        "layerSize" => float(),
+        "mediaType" => String.t()
+      }
+      
   """
   @type layer() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  layer_part_too_small_exception() :: %{
-    "message" => String.t()
-  }
+      
+      layer_part_too_small_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type layer_part_too_small_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  registry_catalog_data() :: %{
-    "displayName" => String.t()
-  }
+      
+      registry_catalog_data() :: %{
+        "displayName" => String.t()
+      }
+      
   """
   @type registry_catalog_data() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  referenced_images_not_found_exception() :: %{
-    "message" => String.t()
-  }
+      
+      referenced_images_not_found_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type referenced_images_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  repository_catalog_data() :: %{
-    "aboutText" => String.t(),
-    "architectures" => list(String.t()()),
-    "description" => String.t(),
-    "logoUrl" => String.t(),
-    "marketplaceCertified" => boolean(),
-    "operatingSystems" => list(String.t()()),
-    "usageText" => String.t()
-  }
+      
+      repository_catalog_data() :: %{
+        "aboutText" => String.t(),
+        "architectures" => list(String.t()()),
+        "description" => String.t(),
+        "logoUrl" => String.t(),
+        "marketplaceCertified" => boolean(),
+        "operatingSystems" => list(String.t()()),
+        "usageText" => String.t()
+      }
+      
   """
   @type repository_catalog_data() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_response() :: %{
-    "tags" => list(tag()())
-  }
+      
+      list_tags_for_resource_response() :: %{
+        "tags" => list(tag()())
+      }
+      
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_image_tags_request() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t(),
-    optional("registryId") => String.t(),
-    required("repositoryName") => String.t()
-  }
+      
+      describe_image_tags_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("registryId") => String.t(),
+        required("repositoryName") => String.t()
+      }
+      
   """
   @type describe_image_tags_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_authorization_token_response() :: %{
-    "authorizationData" => authorization_data()
-  }
+      
+      get_authorization_token_response() :: %{
+        "authorizationData" => authorization_data()
+      }
+      
   """
   @type get_authorization_token_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_authorization_token_request() :: %{
-
-  }
+      
+      get_authorization_token_request() :: %{}
+      
   """
-  @type get_authorization_token_request() :: %{String.t() => any()}
+  @type get_authorization_token_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  describe_registries_response() :: %{
-    "nextToken" => String.t(),
-    "registries" => list(registry()())
-  }
+      
+      describe_registries_response() :: %{
+        "nextToken" => String.t(),
+        "registries" => list(registry()())
+      }
+      
   """
   @type describe_registries_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  repository_catalog_data_input() :: %{
-    "aboutText" => String.t(),
-    "architectures" => list(String.t()()),
-    "description" => String.t(),
-    "logoImageBlob" => binary(),
-    "operatingSystems" => list(String.t()()),
-    "usageText" => String.t()
-  }
+      
+      repository_catalog_data_input() :: %{
+        "aboutText" => String.t(),
+        "architectures" => list(String.t()()),
+        "description" => String.t(),
+        "logoImageBlob" => binary(),
+        "operatingSystems" => list(String.t()()),
+        "usageText" => String.t()
+      }
+      
   """
   @type repository_catalog_data_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  upload_layer_part_response() :: %{
-    "lastByteReceived" => float(),
-    "registryId" => String.t(),
-    "repositoryName" => String.t(),
-    "uploadId" => String.t()
-  }
+      
+      upload_layer_part_response() :: %{
+        "lastByteReceived" => float(),
+        "registryId" => String.t(),
+        "repositoryName" => String.t(),
+        "uploadId" => String.t()
+      }
+      
   """
   @type upload_layer_part_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_registry_catalog_data_request() :: %{
-    optional("displayName") => String.t()
-  }
+      
+      put_registry_catalog_data_request() :: %{
+        optional("displayName") => String.t()
+      }
+      
   """
   @type put_registry_catalog_data_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_repository_request() :: %{
-    optional("catalogData") => repository_catalog_data_input(),
-    optional("tags") => list(tag()()),
-    required("repositoryName") => String.t()
-  }
+      
+      create_repository_request() :: %{
+        optional("catalogData") => repository_catalog_data_input(),
+        optional("tags") => list(tag()()),
+        required("repositoryName") => String.t()
+      }
+      
   """
   @type create_repository_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_registry_catalog_data_request() :: %{
-
-  }
+      
+      get_registry_catalog_data_request() :: %{}
+      
   """
-  @type get_registry_catalog_data_request() :: %{String.t() => any()}
+  @type get_registry_catalog_data_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  image() :: %{
-    "imageId" => image_identifier(),
-    "imageManifest" => String.t(),
-    "imageManifestMediaType" => String.t(),
-    "registryId" => String.t(),
-    "repositoryName" => String.t()
-  }
+      
+      image() :: %{
+        "imageId" => image_identifier(),
+        "imageManifest" => String.t(),
+        "imageManifestMediaType" => String.t(),
+        "registryId" => String.t(),
+        "repositoryName" => String.t()
+      }
+      
   """
   @type image() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_repository_policy_response() :: %{
-    "policyText" => String.t(),
-    "registryId" => String.t(),
-    "repositoryName" => String.t()
-  }
+      
+      delete_repository_policy_response() :: %{
+        "policyText" => String.t(),
+        "registryId" => String.t(),
+        "repositoryName" => String.t()
+      }
+      
   """
   @type delete_repository_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_registry_catalog_data_response() :: %{
-    "registryCatalogData" => registry_catalog_data()
-  }
+      
+      get_registry_catalog_data_response() :: %{
+        "registryCatalogData" => registry_catalog_data()
+      }
+      
   """
   @type get_registry_catalog_data_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_delete_image_response() :: %{
-    "failures" => list(image_failure()()),
-    "imageIds" => list(image_identifier()())
-  }
+      
+      batch_delete_image_response() :: %{
+        "failures" => list(image_failure()()),
+        "imageIds" => list(image_identifier()())
+      }
+      
   """
   @type batch_delete_image_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_parameter_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_parameter_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_parameter_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_response() :: %{
-
-  }
+      
+      tag_resource_response() :: %{}
+      
   """
-  @type tag_resource_response() :: %{String.t() => any()}
+  @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  invalid_layer_exception() :: %{
-    "message" => String.t()
-  }
+      
+      invalid_layer_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type invalid_layer_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  referenced_image_detail() :: %{
-    "artifactMediaType" => String.t(),
-    "imageDigest" => String.t(),
-    "imageManifestMediaType" => String.t(),
-    "imagePushedAt" => non_neg_integer(),
-    "imageSizeInBytes" => float()
-  }
+      
+      referenced_image_detail() :: %{
+        "artifactMediaType" => String.t(),
+        "imageDigest" => String.t(),
+        "imageManifestMediaType" => String.t(),
+        "imagePushedAt" => non_neg_integer(),
+        "imageSizeInBytes" => float()
+      }
+      
   """
   @type referenced_image_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  image_tag_detail() :: %{
-    "createdAt" => non_neg_integer(),
-    "imageDetail" => referenced_image_detail(),
-    "imageTag" => String.t()
-  }
+      
+      image_tag_detail() :: %{
+        "createdAt" => non_neg_integer(),
+        "imageDetail" => referenced_image_detail(),
+        "imageTag" => String.t()
+      }
+      
   """
   @type image_tag_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_request() :: %{
-    required("resourceArn") => String.t()
-  }
+      
+      list_tags_for_resource_request() :: %{
+        required("resourceArn") => String.t()
+      }
+      
   """
   @type list_tags_for_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_check_layer_availability_request() :: %{
-    optional("registryId") => String.t(),
-    required("layerDigests") => list(String.t()()),
-    required("repositoryName") => String.t()
-  }
+      
+      batch_check_layer_availability_request() :: %{
+        optional("registryId") => String.t(),
+        required("layerDigests") => list(String.t()()),
+        required("repositoryName") => String.t()
+      }
+      
   """
   @type batch_check_layer_availability_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  repository_catalog_data_not_found_exception() :: %{
-    "message" => String.t()
-  }
+      
+      repository_catalog_data_not_found_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type repository_catalog_data_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  server_exception() :: %{
-    "message" => String.t()
-  }
+      
+      server_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  image_identifier() :: %{
-    "imageDigest" => String.t(),
-    "imageTag" => String.t()
-  }
+      
+      image_identifier() :: %{
+        "imageDigest" => String.t(),
+        "imageTag" => String.t()
+      }
+      
   """
   @type image_identifier() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  repository_not_found_exception() :: %{
-    "message" => String.t()
-  }
+      
+      repository_not_found_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type repository_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  registry() :: %{
-    "aliases" => list(registry_alias()()),
-    "registryArn" => String.t(),
-    "registryId" => String.t(),
-    "registryUri" => String.t(),
-    "verified" => boolean()
-  }
+      
+      registry() :: %{
+        "aliases" => list(registry_alias()()),
+        "registryArn" => String.t(),
+        "registryId" => String.t(),
+        "registryUri" => String.t(),
+        "verified" => boolean()
+      }
+      
   """
   @type registry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_repository_response() :: %{
-    "repository" => repository()
-  }
+      
+      delete_repository_response() :: %{
+        "repository" => repository()
+      }
+      
   """
   @type delete_repository_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  limit_exceeded_exception() :: %{
-    "message" => String.t()
-  }
+      
+      limit_exceeded_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_repositories_response() :: %{
-    "nextToken" => String.t(),
-    "repositories" => list(repository()())
-  }
+      
+      describe_repositories_response() :: %{
+        "nextToken" => String.t(),
+        "repositories" => list(repository()())
+      }
+      
   """
   @type describe_repositories_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_registry_catalog_data_response() :: %{
-    "registryCatalogData" => registry_catalog_data()
-  }
+      
+      put_registry_catalog_data_response() :: %{
+        "registryCatalogData" => registry_catalog_data()
+      }
+      
   """
   @type put_registry_catalog_data_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_image_tags_response() :: %{
-    "imageTagDetails" => list(image_tag_detail()()),
-    "nextToken" => String.t()
-  }
+      
+      describe_image_tags_response() :: %{
+        "imageTagDetails" => list(image_tag_detail()()),
+        "nextToken" => String.t()
+      }
+      
   """
   @type describe_image_tags_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  authorization_data() :: %{
-    "authorizationToken" => String.t(),
-    "expiresAt" => non_neg_integer()
-  }
+      
+      authorization_data() :: %{
+        "authorizationToken" => String.t(),
+        "expiresAt" => non_neg_integer()
+      }
+      
   """
   @type authorization_data() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  image_detail() :: %{
-    "artifactMediaType" => String.t(),
-    "imageDigest" => String.t(),
-    "imageManifestMediaType" => String.t(),
-    "imagePushedAt" => non_neg_integer(),
-    "imageSizeInBytes" => float(),
-    "imageTags" => list(String.t()()),
-    "registryId" => String.t(),
-    "repositoryName" => String.t()
-  }
+      
+      image_detail() :: %{
+        "artifactMediaType" => String.t(),
+        "imageDigest" => String.t(),
+        "imageManifestMediaType" => String.t(),
+        "imagePushedAt" => non_neg_integer(),
+        "imageSizeInBytes" => float(),
+        "imageTags" => list(String.t()()),
+        "registryId" => String.t(),
+        "repositoryName" => String.t()
+      }
+      
   """
   @type image_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  empty_upload_exception() :: %{
-    "message" => String.t()
-  }
+      
+      empty_upload_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type empty_upload_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  initiate_layer_upload_response() :: %{
-    "partSize" => float(),
-    "uploadId" => String.t()
-  }
+      
+      initiate_layer_upload_response() :: %{
+        "partSize" => float(),
+        "uploadId" => String.t()
+      }
+      
   """
   @type initiate_layer_upload_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_repository_catalog_data_request() :: %{
-    optional("registryId") => String.t(),
-    required("catalogData") => repository_catalog_data_input(),
-    required("repositoryName") => String.t()
-  }
+      
+      put_repository_catalog_data_request() :: %{
+        optional("registryId") => String.t(),
+        required("catalogData") => repository_catalog_data_input(),
+        required("repositoryName") => String.t()
+      }
+      
   """
   @type put_repository_catalog_data_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_tags_exception() :: %{
-    "message" => String.t()
-  }
+      
+      too_many_tags_exception() :: %{
+        "message" => String.t()
+      }
+      
   """
   @type too_many_tags_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  upload_layer_part_request() :: %{
-    optional("registryId") => String.t(),
-    required("layerPartBlob") => binary(),
-    required("partFirstByte") => float(),
-    required("partLastByte") => float(),
-    required("repositoryName") => String.t(),
-    required("uploadId") => String.t()
-  }
+      
+      upload_layer_part_request() :: %{
+        optional("registryId") => String.t(),
+        required("layerPartBlob") => binary(),
+        required("partFirstByte") => float(),
+        required("partLastByte") => float(),
+        required("repositoryName") => String.t(),
+        required("uploadId") => String.t()
+      }
+      
   """
   @type upload_layer_part_request() :: %{String.t() => any()}
+
+  @type batch_check_layer_availability_errors() ::
+          repository_not_found_exception()
+          | server_exception()
+          | invalid_parameter_exception()
+          | unsupported_command_exception()
+          | registry_not_found_exception()
+
+  @type batch_delete_image_errors() ::
+          repository_not_found_exception()
+          | server_exception()
+          | invalid_parameter_exception()
+          | unsupported_command_exception()
+
+  @type complete_layer_upload_errors() ::
+          empty_upload_exception()
+          | repository_not_found_exception()
+          | server_exception()
+          | invalid_layer_exception()
+          | invalid_parameter_exception()
+          | layer_part_too_small_exception()
+          | unsupported_command_exception()
+          | layer_already_exists_exception()
+          | registry_not_found_exception()
+          | upload_not_found_exception()
+
+  @type create_repository_errors() ::
+          too_many_tags_exception()
+          | limit_exceeded_exception()
+          | server_exception()
+          | invalid_parameter_exception()
+          | unsupported_command_exception()
+          | repository_already_exists_exception()
+          | invalid_tag_parameter_exception()
+
+  @type delete_repository_errors() ::
+          repository_not_found_exception()
+          | server_exception()
+          | invalid_parameter_exception()
+          | unsupported_command_exception()
+          | repository_not_empty_exception()
+
+  @type delete_repository_policy_errors() ::
+          repository_not_found_exception()
+          | server_exception()
+          | invalid_parameter_exception()
+          | unsupported_command_exception()
+          | repository_policy_not_found_exception()
+
+  @type describe_image_tags_errors() ::
+          repository_not_found_exception()
+          | server_exception()
+          | invalid_parameter_exception()
+          | unsupported_command_exception()
+
+  @type describe_images_errors() ::
+          repository_not_found_exception()
+          | server_exception()
+          | invalid_parameter_exception()
+          | unsupported_command_exception()
+          | image_not_found_exception()
+
+  @type describe_registries_errors() ::
+          server_exception() | invalid_parameter_exception() | unsupported_command_exception()
+
+  @type describe_repositories_errors() ::
+          repository_not_found_exception()
+          | server_exception()
+          | invalid_parameter_exception()
+          | unsupported_command_exception()
+
+  @type get_authorization_token_errors() ::
+          server_exception() | invalid_parameter_exception() | unsupported_command_exception()
+
+  @type get_registry_catalog_data_errors() :: server_exception() | unsupported_command_exception()
+
+  @type get_repository_catalog_data_errors() ::
+          repository_not_found_exception()
+          | server_exception()
+          | repository_catalog_data_not_found_exception()
+          | invalid_parameter_exception()
+          | unsupported_command_exception()
+
+  @type get_repository_policy_errors() ::
+          repository_not_found_exception()
+          | server_exception()
+          | invalid_parameter_exception()
+          | unsupported_command_exception()
+          | repository_policy_not_found_exception()
+
+  @type initiate_layer_upload_errors() ::
+          repository_not_found_exception()
+          | server_exception()
+          | invalid_parameter_exception()
+          | unsupported_command_exception()
+          | registry_not_found_exception()
+
+  @type list_tags_for_resource_errors() ::
+          repository_not_found_exception()
+          | server_exception()
+          | invalid_parameter_exception()
+          | unsupported_command_exception()
+
+  @type put_image_errors() ::
+          limit_exceeded_exception()
+          | repository_not_found_exception()
+          | server_exception()
+          | invalid_parameter_exception()
+          | referenced_images_not_found_exception()
+          | image_tag_already_exists_exception()
+          | unsupported_command_exception()
+          | layers_not_found_exception()
+          | registry_not_found_exception()
+          | image_already_exists_exception()
+          | image_digest_does_not_match_exception()
+
+  @type put_registry_catalog_data_errors() ::
+          server_exception() | invalid_parameter_exception() | unsupported_command_exception()
+
+  @type put_repository_catalog_data_errors() ::
+          repository_not_found_exception()
+          | server_exception()
+          | invalid_parameter_exception()
+          | unsupported_command_exception()
+
+  @type set_repository_policy_errors() ::
+          repository_not_found_exception()
+          | server_exception()
+          | invalid_parameter_exception()
+          | unsupported_command_exception()
+
+  @type tag_resource_errors() ::
+          too_many_tags_exception()
+          | repository_not_found_exception()
+          | server_exception()
+          | invalid_parameter_exception()
+          | unsupported_command_exception()
+          | invalid_tag_parameter_exception()
+
+  @type untag_resource_errors() ::
+          too_many_tags_exception()
+          | repository_not_found_exception()
+          | server_exception()
+          | invalid_parameter_exception()
+          | unsupported_command_exception()
+          | invalid_tag_parameter_exception()
+
+  @type upload_layer_part_errors() ::
+          limit_exceeded_exception()
+          | repository_not_found_exception()
+          | server_exception()
+          | invalid_parameter_exception()
+          | invalid_layer_part_exception()
+          | unsupported_command_exception()
+          | registry_not_found_exception()
+          | upload_not_found_exception()
 
   def metadata do
     %{
@@ -945,11 +1265,7 @@ defmodule AWS.ECRPUBLIC do
   @spec batch_check_layer_availability(map(), batch_check_layer_availability_request(), list()) ::
           {:ok, batch_check_layer_availability_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, registry_not_found_exception()}
-          | {:error, repository_not_found_exception()}
-          | {:error, server_exception()}
-          | {:error, unsupported_command_exception()}
+          | {:error, batch_check_layer_availability_errors()}
   def batch_check_layer_availability(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -975,10 +1291,7 @@ defmodule AWS.ECRPUBLIC do
   @spec batch_delete_image(map(), batch_delete_image_request(), list()) ::
           {:ok, batch_delete_image_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, repository_not_found_exception()}
-          | {:error, server_exception()}
-          | {:error, unsupported_command_exception()}
+          | {:error, batch_delete_image_errors()}
   def batch_delete_image(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1004,16 +1317,7 @@ defmodule AWS.ECRPUBLIC do
   @spec complete_layer_upload(map(), complete_layer_upload_request(), list()) ::
           {:ok, complete_layer_upload_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, empty_upload_exception()}
-          | {:error, invalid_layer_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, layer_already_exists_exception()}
-          | {:error, layer_part_too_small_exception()}
-          | {:error, registry_not_found_exception()}
-          | {:error, repository_not_found_exception()}
-          | {:error, server_exception()}
-          | {:error, unsupported_command_exception()}
-          | {:error, upload_not_found_exception()}
+          | {:error, complete_layer_upload_errors()}
   def complete_layer_upload(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1029,13 +1333,7 @@ defmodule AWS.ECRPUBLIC do
   @spec create_repository(map(), create_repository_request(), list()) ::
           {:ok, create_repository_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, invalid_tag_parameter_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, repository_already_exists_exception()}
-          | {:error, server_exception()}
-          | {:error, too_many_tags_exception()}
-          | {:error, unsupported_command_exception()}
+          | {:error, create_repository_errors()}
   def create_repository(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1052,11 +1350,7 @@ defmodule AWS.ECRPUBLIC do
   @spec delete_repository(map(), delete_repository_request(), list()) ::
           {:ok, delete_repository_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, repository_not_empty_exception()}
-          | {:error, repository_not_found_exception()}
-          | {:error, server_exception()}
-          | {:error, unsupported_command_exception()}
+          | {:error, delete_repository_errors()}
   def delete_repository(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1069,11 +1363,7 @@ defmodule AWS.ECRPUBLIC do
   @spec delete_repository_policy(map(), delete_repository_policy_request(), list()) ::
           {:ok, delete_repository_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, repository_not_found_exception()}
-          | {:error, repository_policy_not_found_exception()}
-          | {:error, server_exception()}
-          | {:error, unsupported_command_exception()}
+          | {:error, delete_repository_policy_errors()}
   def delete_repository_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1086,10 +1376,7 @@ defmodule AWS.ECRPUBLIC do
   @spec describe_image_tags(map(), describe_image_tags_request(), list()) ::
           {:ok, describe_image_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, repository_not_found_exception()}
-          | {:error, server_exception()}
-          | {:error, unsupported_command_exception()}
+          | {:error, describe_image_tags_errors()}
   def describe_image_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1110,11 +1397,7 @@ defmodule AWS.ECRPUBLIC do
   @spec describe_images(map(), describe_images_request(), list()) ::
           {:ok, describe_images_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, image_not_found_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, repository_not_found_exception()}
-          | {:error, server_exception()}
-          | {:error, unsupported_command_exception()}
+          | {:error, describe_images_errors()}
   def describe_images(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1127,9 +1410,7 @@ defmodule AWS.ECRPUBLIC do
   @spec describe_registries(map(), describe_registries_request(), list()) ::
           {:ok, describe_registries_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, server_exception()}
-          | {:error, unsupported_command_exception()}
+          | {:error, describe_registries_errors()}
   def describe_registries(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1142,10 +1423,7 @@ defmodule AWS.ECRPUBLIC do
   @spec describe_repositories(map(), describe_repositories_request(), list()) ::
           {:ok, describe_repositories_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, repository_not_found_exception()}
-          | {:error, server_exception()}
-          | {:error, unsupported_command_exception()}
+          | {:error, describe_repositories_errors()}
   def describe_repositories(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1166,9 +1444,7 @@ defmodule AWS.ECRPUBLIC do
   @spec get_authorization_token(map(), get_authorization_token_request(), list()) ::
           {:ok, get_authorization_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, server_exception()}
-          | {:error, unsupported_command_exception()}
+          | {:error, get_authorization_token_errors()}
   def get_authorization_token(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1181,8 +1457,7 @@ defmodule AWS.ECRPUBLIC do
   @spec get_registry_catalog_data(map(), get_registry_catalog_data_request(), list()) ::
           {:ok, get_registry_catalog_data_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, server_exception()}
-          | {:error, unsupported_command_exception()}
+          | {:error, get_registry_catalog_data_errors()}
   def get_registry_catalog_data(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1198,11 +1473,7 @@ defmodule AWS.ECRPUBLIC do
   @spec get_repository_catalog_data(map(), get_repository_catalog_data_request(), list()) ::
           {:ok, get_repository_catalog_data_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, repository_catalog_data_not_found_exception()}
-          | {:error, repository_not_found_exception()}
-          | {:error, server_exception()}
-          | {:error, unsupported_command_exception()}
+          | {:error, get_repository_catalog_data_errors()}
   def get_repository_catalog_data(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1215,11 +1486,7 @@ defmodule AWS.ECRPUBLIC do
   @spec get_repository_policy(map(), get_repository_policy_request(), list()) ::
           {:ok, get_repository_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, repository_not_found_exception()}
-          | {:error, repository_policy_not_found_exception()}
-          | {:error, server_exception()}
-          | {:error, unsupported_command_exception()}
+          | {:error, get_repository_policy_errors()}
   def get_repository_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1242,11 +1509,7 @@ defmodule AWS.ECRPUBLIC do
   @spec initiate_layer_upload(map(), initiate_layer_upload_request(), list()) ::
           {:ok, initiate_layer_upload_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, registry_not_found_exception()}
-          | {:error, repository_not_found_exception()}
-          | {:error, server_exception()}
-          | {:error, unsupported_command_exception()}
+          | {:error, initiate_layer_upload_errors()}
   def initiate_layer_upload(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1259,10 +1522,7 @@ defmodule AWS.ECRPUBLIC do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, repository_not_found_exception()}
-          | {:error, server_exception()}
-          | {:error, unsupported_command_exception()}
+          | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1286,17 +1546,7 @@ defmodule AWS.ECRPUBLIC do
   @spec put_image(map(), put_image_request(), list()) ::
           {:ok, put_image_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, image_already_exists_exception()}
-          | {:error, image_digest_does_not_match_exception()}
-          | {:error, image_tag_already_exists_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, layers_not_found_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, referenced_images_not_found_exception()}
-          | {:error, registry_not_found_exception()}
-          | {:error, repository_not_found_exception()}
-          | {:error, server_exception()}
-          | {:error, unsupported_command_exception()}
+          | {:error, put_image_errors()}
   def put_image(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1309,9 +1559,7 @@ defmodule AWS.ECRPUBLIC do
   @spec put_registry_catalog_data(map(), put_registry_catalog_data_request(), list()) ::
           {:ok, put_registry_catalog_data_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, server_exception()}
-          | {:error, unsupported_command_exception()}
+          | {:error, put_registry_catalog_data_errors()}
   def put_registry_catalog_data(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1324,10 +1572,7 @@ defmodule AWS.ECRPUBLIC do
   @spec put_repository_catalog_data(map(), put_repository_catalog_data_request(), list()) ::
           {:ok, put_repository_catalog_data_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, repository_not_found_exception()}
-          | {:error, server_exception()}
-          | {:error, unsupported_command_exception()}
+          | {:error, put_repository_catalog_data_errors()}
   def put_repository_catalog_data(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1344,10 +1589,7 @@ defmodule AWS.ECRPUBLIC do
   @spec set_repository_policy(map(), set_repository_policy_request(), list()) ::
           {:ok, set_repository_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, repository_not_found_exception()}
-          | {:error, server_exception()}
-          | {:error, unsupported_command_exception()}
+          | {:error, set_repository_policy_errors()}
   def set_repository_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1366,12 +1608,7 @@ defmodule AWS.ECRPUBLIC do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, invalid_tag_parameter_exception()}
-          | {:error, repository_not_found_exception()}
-          | {:error, server_exception()}
-          | {:error, too_many_tags_exception()}
-          | {:error, unsupported_command_exception()}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1384,12 +1621,7 @@ defmodule AWS.ECRPUBLIC do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_parameter_exception()}
-          | {:error, invalid_tag_parameter_exception()}
-          | {:error, repository_not_found_exception()}
-          | {:error, server_exception()}
-          | {:error, too_many_tags_exception()}
-          | {:error, unsupported_command_exception()}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1412,14 +1644,7 @@ defmodule AWS.ECRPUBLIC do
   @spec upload_layer_part(map(), upload_layer_part_request(), list()) ::
           {:ok, upload_layer_part_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_layer_part_exception()}
-          | {:error, invalid_parameter_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, registry_not_found_exception()}
-          | {:error, repository_not_found_exception()}
-          | {:error, server_exception()}
-          | {:error, unsupported_command_exception()}
-          | {:error, upload_not_found_exception()}
+          | {:error, upload_layer_part_errors()}
   def upload_layer_part(%Client{} = client, input, options \\ []) do
     meta = metadata()
 

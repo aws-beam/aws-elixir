@@ -22,1223 +22,1644 @@ defmodule AWS.M2 do
   @typedoc """
 
   ## Example:
-  record_length() :: %{
-    "max" => integer(),
-    "min" => integer()
-  }
+
+      record_length() :: %{
+        "max" => integer(),
+        "min" => integer()
+      }
+
   """
   @type record_length() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  alternate_key() :: %{
-    "allowDuplicates" => boolean(),
-    "length" => integer(),
-    "name" => [String.t()],
-    "offset" => integer()
-  }
+
+      alternate_key() :: %{
+        "allowDuplicates" => boolean(),
+        "length" => integer(),
+        "name" => [String.t()],
+        "offset" => integer()
+      }
+
   """
   @type alternate_key() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_batch_job_executions_request() :: %{
-    optional("executionIds") => list(String.t()()),
-    optional("jobName") => String.t(),
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t(),
-    optional("startedAfter") => non_neg_integer(),
-    optional("startedBefore") => non_neg_integer(),
-    optional("status") => String.t()
-  }
+
+      list_batch_job_executions_request() :: %{
+        optional("executionIds") => list(String.t()()),
+        optional("jobName") => String.t(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("startedAfter") => non_neg_integer(),
+        optional("startedBefore") => non_neg_integer(),
+        optional("status") => String.t()
+      }
+
   """
   @type list_batch_job_executions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_environment_response() :: %{
-    required("environmentId") => String.t()
-  }
+
+      update_environment_response() :: %{
+        required("environmentId") => String.t()
+      }
+
   """
   @type update_environment_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_request() :: %{
-    required("tags") => map()
-  }
+
+      tag_resource_request() :: %{
+        required("tags") => map()
+      }
+
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_deployments_request() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t()
-  }
+
+      list_deployments_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
   """
   @type list_deployments_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  pending_maintenance() :: %{
-    "engineVersion" => [String.t()],
-    "schedule" => maintenance_schedule()
-  }
+
+      pending_maintenance() :: %{
+        "engineVersion" => [String.t()],
+        "schedule" => maintenance_schedule()
+      }
+
   """
   @type pending_maintenance() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  deployment_summary() :: %{
-    "applicationId" => String.t(),
-    "applicationVersion" => integer(),
-    "creationTime" => non_neg_integer(),
-    "deploymentId" => String.t(),
-    "environmentId" => String.t(),
-    "status" => String.t(),
-    "statusReason" => [String.t()]
-  }
+
+      deployment_summary() :: %{
+        "applicationId" => String.t(),
+        "applicationVersion" => integer(),
+        "creationTime" => non_neg_integer(),
+        "deploymentId" => String.t(),
+        "environmentId" => String.t(),
+        "status" => String.t(),
+        "statusReason" => [String.t()]
+      }
+
   """
   @type deployment_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  file_batch_job_identifier() :: %{
-    "fileName" => [String.t()],
-    "folderPath" => [String.t()]
-  }
+
+      file_batch_job_identifier() :: %{
+        "fileName" => [String.t()],
+        "folderPath" => [String.t()]
+      }
+
   """
   @type file_batch_job_identifier() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_data_sets_response() :: %{
-    "dataSets" => list(data_set_summary()()),
-    "nextToken" => String.t()
-  }
+
+      list_data_sets_response() :: %{
+        "dataSets" => list(data_set_summary()()),
+        "nextToken" => String.t()
+      }
+
   """
   @type list_data_sets_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_data_set_import_task_response() :: %{
-    required("taskId") => String.t()
-  }
+
+      create_data_set_import_task_response() :: %{
+        required("taskId") => String.t()
+      }
+
   """
   @type create_data_set_import_task_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_response() :: %{
 
-  }
+      untag_resource_response() :: %{}
+
   """
-  @type untag_resource_response() :: %{String.t() => any()}
+  @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_batch_job_execution_request() :: %{
 
-  }
+      get_batch_job_execution_request() :: %{}
+
   """
-  @type get_batch_job_execution_request() :: %{String.t() => any()}
+  @type get_batch_job_execution_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  delete_application_from_environment_request() :: %{
 
-  }
+      delete_application_from_environment_request() :: %{}
+
   """
-  @type delete_application_from_environment_request() :: %{String.t() => any()}
+  @type delete_application_from_environment_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  data_set() :: %{
-    "datasetName" => [String.t()],
-    "datasetOrg" => list(),
-    "recordLength" => record_length(),
-    "relativePath" => [String.t()],
-    "storageType" => [String.t()]
-  }
+
+      data_set() :: %{
+        "datasetName" => [String.t()],
+        "datasetOrg" => list(),
+        "recordLength" => record_length(),
+        "relativePath" => [String.t()],
+        "storageType" => [String.t()]
+      }
+
   """
   @type data_set() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_deployments_response() :: %{
-    "deployments" => list(deployment_summary()()),
-    "nextToken" => String.t()
-  }
+
+      list_deployments_response() :: %{
+        "deployments" => list(deployment_summary()()),
+        "nextToken" => String.t()
+      }
+
   """
   @type list_deployments_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  vsam_attributes() :: %{
-    "alternateKeys" => list(alternate_key()()),
-    "compressed" => boolean(),
-    "encoding" => [String.t()],
-    "format" => [String.t()],
-    "primaryKey" => primary_key()
-  }
+
+      vsam_attributes() :: %{
+        "alternateKeys" => list(alternate_key()()),
+        "compressed" => boolean(),
+        "encoding" => [String.t()],
+        "format" => [String.t()],
+        "primaryKey" => primary_key()
+      }
+
   """
   @type vsam_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  deployed_version_summary() :: %{
-    "applicationVersion" => integer(),
-    "status" => String.t(),
-    "statusReason" => [String.t()]
-  }
+
+      deployed_version_summary() :: %{
+        "applicationVersion" => integer(),
+        "status" => String.t(),
+        "statusReason" => [String.t()]
+      }
+
   """
   @type deployed_version_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  environment_summary() :: %{
-    "creationTime" => non_neg_integer(),
-    "engineType" => String.t(),
-    "engineVersion" => String.t(),
-    "environmentArn" => String.t(),
-    "environmentId" => String.t(),
-    "instanceType" => String.t(),
-    "name" => String.t(),
-    "status" => String.t()
-  }
+
+      environment_summary() :: %{
+        "creationTime" => non_neg_integer(),
+        "engineType" => String.t(),
+        "engineVersion" => String.t(),
+        "environmentArn" => String.t(),
+        "environmentId" => String.t(),
+        "instanceType" => String.t(),
+        "name" => String.t(),
+        "status" => String.t()
+      }
+
   """
   @type environment_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_environment_request() :: %{
 
-  }
+      get_environment_request() :: %{}
+
   """
-  @type get_environment_request() :: %{String.t() => any()}
+  @type get_environment_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_deployment_request() :: %{
-    "applicationVersion" => integer(),
-    "clientToken" => [String.t()],
-    "environmentId" => String.t()
-  }
+
+      create_deployment_request() :: %{
+        "applicationVersion" => integer(),
+        "clientToken" => [String.t()],
+        "environmentId" => String.t()
+      }
+
   """
   @type create_deployment_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  vsam_detail_attributes() :: %{
-    "alternateKeys" => list(alternate_key()()),
-    "cacheAtStartup" => boolean(),
-    "compressed" => boolean(),
-    "encoding" => String.t(),
-    "primaryKey" => primary_key(),
-    "recordFormat" => String.t()
-  }
+
+      vsam_detail_attributes() :: %{
+        "alternateKeys" => list(alternate_key()()),
+        "cacheAtStartup" => boolean(),
+        "compressed" => boolean(),
+        "encoding" => String.t(),
+        "primaryKey" => primary_key(),
+        "recordFormat" => String.t()
+      }
+
   """
   @type vsam_detail_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_data_sets_request() :: %{
-    optional("maxResults") => integer(),
-    optional("nameFilter") => String.t(),
-    optional("nextToken") => String.t(),
-    optional("prefix") => String.t()
-  }
+
+      list_data_sets_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nameFilter") => String.t(),
+        optional("nextToken") => String.t(),
+        optional("prefix") => String.t()
+      }
+
   """
   @type list_data_sets_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_data_set_details_response() :: %{
-    "blocksize" => integer(),
-    "creationTime" => non_neg_integer(),
-    "dataSetName" => String.t(),
-    "dataSetOrg" => list(),
-    "fileSize" => [float()],
-    "lastReferencedTime" => non_neg_integer(),
-    "lastUpdatedTime" => non_neg_integer(),
-    "location" => String.t(),
-    "recordLength" => integer()
-  }
+
+      get_data_set_details_response() :: %{
+        "blocksize" => integer(),
+        "creationTime" => non_neg_integer(),
+        "dataSetName" => String.t(),
+        "dataSetOrg" => list(),
+        "fileSize" => [float()],
+        "lastReferencedTime" => non_neg_integer(),
+        "lastUpdatedTime" => non_neg_integer(),
+        "location" => String.t(),
+        "recordLength" => integer()
+      }
+
   """
   @type get_data_set_details_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_data_set_details_request() :: %{
 
-  }
+      get_data_set_details_request() :: %{}
+
   """
-  @type get_data_set_details_request() :: %{String.t() => any()}
+  @type get_data_set_details_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  application_version_summary() :: %{
-    "applicationVersion" => integer(),
-    "creationTime" => non_neg_integer(),
-    "status" => String.t(),
-    "statusReason" => [String.t()]
-  }
+
+      application_version_summary() :: %{
+        "applicationVersion" => integer(),
+        "creationTime" => non_neg_integer(),
+        "status" => String.t(),
+        "statusReason" => [String.t()]
+      }
+
   """
   @type application_version_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_deployment_response() :: %{
-    required("deploymentId") => String.t()
-  }
+
+      create_deployment_response() :: %{
+        required("deploymentId") => String.t()
+      }
+
   """
   @type create_deployment_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_environment_response() :: %{
-    optional("actualCapacity") => integer(),
-    optional("description") => String.t(),
-    optional("highAvailabilityConfig") => high_availability_config(),
-    optional("kmsKeyId") => [String.t()],
-    optional("loadBalancerArn") => [String.t()],
-    optional("pendingMaintenance") => pending_maintenance(),
-    optional("preferredMaintenanceWindow") => String.t(),
-    optional("publiclyAccessible") => boolean(),
-    optional("statusReason") => [String.t()],
-    optional("storageConfigurations") => list(list()()),
-    optional("tags") => map(),
-    required("creationTime") => non_neg_integer(),
-    required("engineType") => String.t(),
-    required("engineVersion") => String.t(),
-    required("environmentArn") => String.t(),
-    required("environmentId") => String.t(),
-    required("instanceType") => String.t(),
-    required("name") => String.t(),
-    required("securityGroupIds") => list(String.t()()),
-    required("status") => String.t(),
-    required("subnetIds") => list(String.t()()),
-    required("vpcId") => String.t()
-  }
+
+      get_environment_response() :: %{
+        optional("actualCapacity") => integer(),
+        optional("description") => String.t(),
+        optional("highAvailabilityConfig") => high_availability_config(),
+        optional("kmsKeyId") => [String.t()],
+        optional("loadBalancerArn") => [String.t()],
+        optional("pendingMaintenance") => pending_maintenance(),
+        optional("preferredMaintenanceWindow") => String.t(),
+        optional("publiclyAccessible") => boolean(),
+        optional("statusReason") => [String.t()],
+        optional("storageConfigurations") => list(list()()),
+        optional("tags") => map(),
+        required("creationTime") => non_neg_integer(),
+        required("engineType") => String.t(),
+        required("engineVersion") => String.t(),
+        required("environmentArn") => String.t(),
+        required("environmentId") => String.t(),
+        required("instanceType") => String.t(),
+        required("name") => String.t(),
+        required("securityGroupIds") => list(String.t()()),
+        required("status") => String.t(),
+        required("subnetIds") => list(String.t()()),
+        required("vpcId") => String.t()
+      }
+
   """
   @type get_environment_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_request() :: %{
-    required("tagKeys") => list(String.t()())
-  }
+
+      untag_resource_request() :: %{
+        required("tagKeys") => list(String.t()())
+      }
+
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  gdg_detail_attributes() :: %{
-    "limit" => integer(),
-    "rollDisposition" => String.t()
-  }
+
+      gdg_detail_attributes() :: %{
+        "limit" => integer(),
+        "rollDisposition" => String.t()
+      }
+
   """
   @type gdg_detail_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  script_batch_job_identifier() :: %{
-    "scriptName" => [String.t()]
-  }
+
+      script_batch_job_identifier() :: %{
+        "scriptName" => [String.t()]
+      }
+
   """
   @type script_batch_job_identifier() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  engine_versions_summary() :: %{
-    "engineType" => [String.t()],
-    "engineVersion" => [String.t()]
-  }
+
+      engine_versions_summary() :: %{
+        "engineType" => [String.t()],
+        "engineVersion" => [String.t()]
+      }
+
   """
   @type engine_versions_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  ps_attributes() :: %{
-    "encoding" => [String.t()],
-    "format" => [String.t()]
-  }
+
+      ps_attributes() :: %{
+        "encoding" => [String.t()],
+        "format" => [String.t()]
+      }
+
   """
   @type ps_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cancel_batch_job_execution_request() :: %{
 
-  }
+      cancel_batch_job_execution_request() :: %{}
+
   """
-  @type cancel_batch_job_execution_request() :: %{String.t() => any()}
+  @type cancel_batch_job_execution_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  high_availability_config() :: %{
-    "desiredCapacity" => integer()
-  }
+
+      high_availability_config() :: %{
+        "desiredCapacity" => integer()
+      }
+
   """
   @type high_availability_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  conflict_exception() :: %{
-    "message" => [String.t()],
-    "resourceId" => [String.t()],
-    "resourceType" => [String.t()]
-  }
+
+      conflict_exception() :: %{
+        "message" => [String.t()],
+        "resourceId" => [String.t()],
+        "resourceType" => [String.t()]
+      }
+
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_not_found_exception() :: %{
-    "message" => [String.t()],
-    "resourceId" => [String.t()],
-    "resourceType" => [String.t()]
-  }
+
+      resource_not_found_exception() :: %{
+        "message" => [String.t()],
+        "resourceId" => [String.t()],
+        "resourceType" => [String.t()]
+      }
+
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  script_batch_job_definition() :: %{
-    "scriptName" => [String.t()]
-  }
+
+      script_batch_job_definition() :: %{
+        "scriptName" => [String.t()]
+      }
+
   """
   @type script_batch_job_definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_application_version_request() :: %{
 
-  }
+      get_application_version_request() :: %{}
+
   """
-  @type get_application_version_request() :: %{String.t() => any()}
+  @type get_application_version_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  service_quota_exceeded_exception() :: %{
-    "message" => [String.t()],
-    "quotaCode" => [String.t()],
-    "resourceId" => [String.t()],
-    "resourceType" => [String.t()],
-    "serviceCode" => [String.t()]
-  }
+
+      service_quota_exceeded_exception() :: %{
+        "message" => [String.t()],
+        "quotaCode" => [String.t()],
+        "resourceId" => [String.t()],
+        "resourceType" => [String.t()],
+        "serviceCode" => [String.t()]
+      }
+
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_deployment_request() :: %{
 
-  }
+      get_deployment_request() :: %{}
+
   """
-  @type get_deployment_request() :: %{String.t() => any()}
+  @type get_deployment_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  stop_application_request() :: %{
-    optional("forceStop") => boolean()
-  }
+
+      stop_application_request() :: %{
+        optional("forceStop") => boolean()
+      }
+
   """
   @type stop_application_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  data_set_summary() :: %{
-    "creationTime" => non_neg_integer(),
-    "dataSetName" => String.t(),
-    "dataSetOrg" => String.t(),
-    "format" => String.t(),
-    "lastReferencedTime" => non_neg_integer(),
-    "lastUpdatedTime" => non_neg_integer()
-  }
+
+      data_set_summary() :: %{
+        "creationTime" => non_neg_integer(),
+        "dataSetName" => String.t(),
+        "dataSetOrg" => String.t(),
+        "format" => String.t(),
+        "lastReferencedTime" => non_neg_integer(),
+        "lastUpdatedTime" => non_neg_integer()
+      }
+
   """
   @type data_set_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  po_attributes() :: %{
-    "encoding" => [String.t()],
-    "format" => [String.t()],
-    "memberFileExtensions" => list(String.t()())
-  }
+
+      po_attributes() :: %{
+        "encoding" => [String.t()],
+        "format" => [String.t()],
+        "memberFileExtensions" => list(String.t()())
+      }
+
   """
   @type po_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_response() :: %{
-    required("tags") => map()
-  }
+
+      list_tags_for_resource_response() :: %{
+        required("tags") => map()
+      }
+
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_application_request() :: %{
-    optional("clientToken") => [String.t()],
-    optional("description") => String.t(),
-    optional("kmsKeyId") => [String.t()],
-    optional("roleArn") => String.t(),
-    optional("tags") => map(),
-    required("definition") => list(),
-    required("engineType") => String.t(),
-    required("name") => String.t()
-  }
+
+      create_application_request() :: %{
+        optional("clientToken") => [String.t()],
+        optional("description") => String.t(),
+        optional("kmsKeyId") => [String.t()],
+        optional("roleArn") => String.t(),
+        optional("tags") => map(),
+        required("definition") => list(),
+        required("engineType") => String.t(),
+        required("name") => String.t()
+      }
+
   """
   @type create_application_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_environments_request() :: %{
-    optional("engineType") => String.t(),
-    optional("maxResults") => integer(),
-    optional("names") => list(String.t()()),
-    optional("nextToken") => String.t()
-  }
+
+      list_environments_request() :: %{
+        optional("engineType") => String.t(),
+        optional("maxResults") => integer(),
+        optional("names") => list(String.t()()),
+        optional("nextToken") => String.t()
+      }
+
   """
   @type list_environments_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  data_set_import_summary() :: %{
-    "failed" => integer(),
-    "inProgress" => integer(),
-    "pending" => integer(),
-    "succeeded" => integer(),
-    "total" => integer()
-  }
+
+      data_set_import_summary() :: %{
+        "failed" => integer(),
+        "inProgress" => integer(),
+        "pending" => integer(),
+        "succeeded" => integer(),
+        "total" => integer()
+      }
+
   """
   @type data_set_import_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  validation_exception_field() :: %{
-    "message" => [String.t()],
-    "name" => [String.t()]
-  }
+
+      validation_exception_field() :: %{
+        "message" => [String.t()],
+        "name" => [String.t()]
+      }
+
   """
   @type validation_exception_field() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  log_group_summary() :: %{
-    "logGroupName" => String.t(),
-    "logType" => String.t()
-  }
+
+      log_group_summary() :: %{
+        "logGroupName" => String.t(),
+        "logType" => String.t()
+      }
+
   """
   @type log_group_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  service_unavailable_exception() :: %{
-    "message" => [String.t()]
-  }
+
+      service_unavailable_exception() :: %{
+        "message" => [String.t()]
+      }
+
   """
   @type service_unavailable_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_application_response() :: %{
-    required("applicationArn") => String.t(),
-    required("applicationId") => String.t(),
-    required("applicationVersion") => integer()
-  }
+
+      create_application_response() :: %{
+        required("applicationArn") => String.t(),
+        required("applicationId") => String.t(),
+        required("applicationVersion") => integer()
+      }
+
   """
   @type create_application_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  execution_timeout_exception() :: %{
-    "message" => [String.t()]
-  }
+
+      execution_timeout_exception() :: %{
+        "message" => [String.t()]
+      }
+
   """
   @type execution_timeout_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_data_set_import_history_request() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t()
-  }
+
+      list_data_set_import_history_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
   """
   @type list_data_set_import_history_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_data_set_import_task_request() :: %{
-    optional("clientToken") => [String.t()],
-    required("importConfig") => list()
-  }
+
+      create_data_set_import_task_request() :: %{
+        optional("clientToken") => [String.t()],
+        required("importConfig") => list()
+      }
+
   """
   @type create_data_set_import_task_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  efs_storage_configuration() :: %{
-    "fileSystemId" => String.t(),
-    "mountPoint" => String.t()
-  }
+
+      efs_storage_configuration() :: %{
+        "fileSystemId" => String.t(),
+        "mountPoint" => String.t()
+      }
+
   """
   @type efs_storage_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_application_response() :: %{
 
-  }
+      delete_application_response() :: %{}
+
   """
-  @type delete_application_response() :: %{String.t() => any()}
+  @type delete_application_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  start_application_response() :: %{
 
-  }
+      start_application_response() :: %{}
+
   """
-  @type start_application_response() :: %{String.t() => any()}
+  @type start_application_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_environment_response() :: %{
-    required("environmentId") => String.t()
-  }
+
+      create_environment_response() :: %{
+        required("environmentId") => String.t()
+      }
+
   """
   @type create_environment_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  po_detail_attributes() :: %{
-    "encoding" => [String.t()],
-    "format" => [String.t()]
-  }
+
+      po_detail_attributes() :: %{
+        "encoding" => [String.t()],
+        "format" => [String.t()]
+      }
+
   """
   @type po_detail_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_application_request() :: %{
-    optional("definition") => list(),
-    optional("description") => String.t(),
-    required("currentApplicationVersion") => integer()
-  }
+
+      update_application_request() :: %{
+        optional("definition") => list(),
+        optional("description") => String.t(),
+        required("currentApplicationVersion") => integer()
+      }
+
   """
   @type update_application_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_application_response() :: %{
-    required("applicationVersion") => integer()
-  }
+
+      update_application_response() :: %{
+        required("applicationVersion") => integer()
+      }
+
   """
   @type update_application_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_signed_bluinsights_url_response() :: %{
-    "signedBiUrl" => [String.t()]
-  }
+
+      get_signed_bluinsights_url_response() :: %{
+        "signedBiUrl" => [String.t()]
+      }
+
   """
   @type get_signed_bluinsights_url_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  internal_server_exception() :: %{
-    "message" => [String.t()],
-    "retryAfterSeconds" => integer()
-  }
+
+      internal_server_exception() :: %{
+        "message" => [String.t()],
+        "retryAfterSeconds" => integer()
+      }
+
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_environment_request() :: %{
 
-  }
+      delete_environment_request() :: %{}
+
   """
-  @type delete_environment_request() :: %{String.t() => any()}
+  @type delete_environment_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  start_application_request() :: %{
 
-  }
+      start_application_request() :: %{}
+
   """
-  @type start_application_request() :: %{String.t() => any()}
+  @type start_application_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_application_response() :: %{
-    optional("deployedVersion") => deployed_version_summary(),
-    optional("description") => String.t(),
-    optional("environmentId") => String.t(),
-    optional("kmsKeyId") => [String.t()],
-    optional("lastStartTime") => non_neg_integer(),
-    optional("listenerArns") => list(String.t()()),
-    optional("listenerPorts") => list(integer()()),
-    optional("loadBalancerDnsName") => String.t(),
-    optional("logGroups") => list(log_group_summary()()),
-    optional("roleArn") => String.t(),
-    optional("statusReason") => [String.t()],
-    optional("tags") => map(),
-    optional("targetGroupArns") => list(String.t()()),
-    required("applicationArn") => String.t(),
-    required("applicationId") => String.t(),
-    required("creationTime") => non_neg_integer(),
-    required("engineType") => String.t(),
-    required("latestVersion") => application_version_summary(),
-    required("name") => String.t(),
-    required("status") => String.t()
-  }
+
+      get_application_response() :: %{
+        optional("deployedVersion") => deployed_version_summary(),
+        optional("description") => String.t(),
+        optional("environmentId") => String.t(),
+        optional("kmsKeyId") => [String.t()],
+        optional("lastStartTime") => non_neg_integer(),
+        optional("listenerArns") => list(String.t()()),
+        optional("listenerPorts") => list(integer()()),
+        optional("loadBalancerDnsName") => String.t(),
+        optional("logGroups") => list(log_group_summary()()),
+        optional("roleArn") => String.t(),
+        optional("statusReason") => [String.t()],
+        optional("tags") => map(),
+        optional("targetGroupArns") => list(String.t()()),
+        required("applicationArn") => String.t(),
+        required("applicationId") => String.t(),
+        required("creationTime") => non_neg_integer(),
+        required("engineType") => String.t(),
+        required("latestVersion") => application_version_summary(),
+        required("name") => String.t(),
+        required("status") => String.t()
+      }
+
   """
   @type get_application_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_applications_request() :: %{
-    optional("environmentId") => String.t(),
-    optional("maxResults") => integer(),
-    optional("names") => list(String.t()()),
-    optional("nextToken") => String.t()
-  }
+
+      list_applications_request() :: %{
+        optional("environmentId") => String.t(),
+        optional("maxResults") => integer(),
+        optional("names") => list(String.t()()),
+        optional("nextToken") => String.t()
+      }
+
   """
   @type list_applications_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  s3_batch_job_identifier() :: %{
-    "bucket" => [String.t()],
-    "identifier" => list(),
-    "keyPrefix" => [String.t()]
-  }
+
+      s3_batch_job_identifier() :: %{
+        "bucket" => [String.t()],
+        "identifier" => list(),
+        "keyPrefix" => [String.t()]
+      }
+
   """
   @type s3_batch_job_identifier() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stop_application_response() :: %{
 
-  }
+      stop_application_response() :: %{}
+
   """
-  @type stop_application_response() :: %{String.t() => any()}
+  @type stop_application_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  access_denied_exception() :: %{
-    "message" => [String.t()]
-  }
+
+      access_denied_exception() :: %{
+        "message" => [String.t()]
+      }
+
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  file_batch_job_definition() :: %{
-    "fileName" => [String.t()],
-    "folderPath" => [String.t()]
-  }
+
+      file_batch_job_definition() :: %{
+        "fileName" => [String.t()],
+        "folderPath" => [String.t()]
+      }
+
   """
   @type file_batch_job_definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_batch_job_execution_response() :: %{
-    optional("batchJobIdentifier") => list(),
-    optional("endTime") => non_neg_integer(),
-    optional("jobId") => String.t(),
-    optional("jobName") => String.t(),
-    optional("jobType") => String.t(),
-    optional("jobUser") => String.t(),
-    optional("returnCode") => [String.t()],
-    optional("statusReason") => [String.t()],
-    required("applicationId") => String.t(),
-    required("executionId") => String.t(),
-    required("startTime") => non_neg_integer(),
-    required("status") => String.t()
-  }
+
+      get_batch_job_execution_response() :: %{
+        optional("batchJobIdentifier") => list(),
+        optional("endTime") => non_neg_integer(),
+        optional("jobId") => String.t(),
+        optional("jobName") => String.t(),
+        optional("jobType") => String.t(),
+        optional("jobUser") => String.t(),
+        optional("returnCode") => [String.t()],
+        optional("statusReason") => [String.t()],
+        required("applicationId") => String.t(),
+        required("executionId") => String.t(),
+        required("startTime") => non_neg_integer(),
+        required("status") => String.t()
+      }
+
   """
   @type get_batch_job_execution_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_response() :: %{
 
-  }
+      tag_resource_response() :: %{}
+
   """
-  @type tag_resource_response() :: %{String.t() => any()}
+  @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_batch_job_definitions_response() :: %{
-    "batchJobDefinitions" => list(list()()),
-    "nextToken" => String.t()
-  }
+
+      list_batch_job_definitions_response() :: %{
+        "batchJobDefinitions" => list(list()()),
+        "nextToken" => String.t()
+      }
+
   """
   @type list_batch_job_definitions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  fsx_storage_configuration() :: %{
-    "fileSystemId" => String.t(),
-    "mountPoint" => String.t()
-  }
+
+      fsx_storage_configuration() :: %{
+        "fileSystemId" => String.t(),
+        "mountPoint" => String.t()
+      }
+
   """
   @type fsx_storage_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  validation_exception() :: %{
-    "fieldList" => list(validation_exception_field()()),
-    "message" => [String.t()],
-    "reason" => String.t()
-  }
+
+      validation_exception() :: %{
+        "fieldList" => list(validation_exception_field()()),
+        "message" => [String.t()],
+        "reason" => String.t()
+      }
+
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_request() :: %{
 
-  }
+      list_tags_for_resource_request() :: %{}
+
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  data_set_import_item() :: %{
-    "dataSet" => data_set(),
-    "externalLocation" => list()
-  }
+
+      data_set_import_item() :: %{
+        "dataSet" => data_set(),
+        "externalLocation" => list()
+      }
+
   """
   @type data_set_import_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  gdg_attributes() :: %{
-    "limit" => integer(),
-    "rollDisposition" => [String.t()]
-  }
+
+      gdg_attributes() :: %{
+        "limit" => integer(),
+        "rollDisposition" => [String.t()]
+      }
+
   """
   @type gdg_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_deployment_response() :: %{
-    optional("statusReason") => [String.t()],
-    required("applicationId") => String.t(),
-    required("applicationVersion") => integer(),
-    required("creationTime") => non_neg_integer(),
-    required("deploymentId") => String.t(),
-    required("environmentId") => String.t(),
-    required("status") => String.t()
-  }
+
+      get_deployment_response() :: %{
+        optional("statusReason") => [String.t()],
+        required("applicationId") => String.t(),
+        required("applicationVersion") => integer(),
+        required("creationTime") => non_neg_integer(),
+        required("deploymentId") => String.t(),
+        required("environmentId") => String.t(),
+        required("status") => String.t()
+      }
+
   """
   @type get_deployment_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  throttling_exception() :: %{
-    "message" => [String.t()],
-    "quotaCode" => [String.t()],
-    "retryAfterSeconds" => integer(),
-    "serviceCode" => [String.t()]
-  }
+
+      throttling_exception() :: %{
+        "message" => [String.t()],
+        "quotaCode" => [String.t()],
+        "retryAfterSeconds" => integer(),
+        "serviceCode" => [String.t()]
+      }
+
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_batch_job_executions_response() :: %{
-    optional("nextToken") => String.t(),
-    required("batchJobExecutions") => list(batch_job_execution_summary()())
-  }
+
+      list_batch_job_executions_response() :: %{
+        optional("nextToken") => String.t(),
+        required("batchJobExecutions") => list(batch_job_execution_summary()())
+      }
+
   """
   @type list_batch_job_executions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_application_versions_request() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t()
-  }
+
+      list_application_versions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
   """
   @type list_application_versions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_engine_versions_response() :: %{
-    optional("nextToken") => String.t(),
-    required("engineVersions") => list(engine_versions_summary()())
-  }
+
+      list_engine_versions_response() :: %{
+        optional("nextToken") => String.t(),
+        required("engineVersions") => list(engine_versions_summary()())
+      }
+
   """
   @type list_engine_versions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_environments_response() :: %{
-    "environments" => list(environment_summary()()),
-    "nextToken" => String.t()
-  }
+
+      list_environments_response() :: %{
+        "environments" => list(environment_summary()()),
+        "nextToken" => String.t()
+      }
+
   """
   @type list_environments_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  maintenance_schedule() :: %{
-    "endTime" => non_neg_integer(),
-    "startTime" => non_neg_integer()
-  }
+
+      maintenance_schedule() :: %{
+        "endTime" => non_neg_integer(),
+        "startTime" => non_neg_integer()
+      }
+
   """
   @type maintenance_schedule() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_application_version_response() :: %{
-    optional("description") => String.t(),
-    optional("statusReason") => [String.t()],
-    required("applicationVersion") => integer(),
-    required("creationTime") => non_neg_integer(),
-    required("definitionContent") => String.t(),
-    required("name") => String.t(),
-    required("status") => String.t()
-  }
+
+      get_application_version_response() :: %{
+        optional("description") => String.t(),
+        optional("statusReason") => [String.t()],
+        required("applicationVersion") => integer(),
+        required("creationTime") => non_neg_integer(),
+        required("definitionContent") => String.t(),
+        required("name") => String.t(),
+        required("status") => String.t()
+      }
+
   """
   @type get_application_version_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  application_summary() :: %{
-    "applicationArn" => String.t(),
-    "applicationId" => String.t(),
-    "applicationVersion" => integer(),
-    "creationTime" => non_neg_integer(),
-    "deploymentStatus" => String.t(),
-    "description" => String.t(),
-    "engineType" => String.t(),
-    "environmentId" => String.t(),
-    "lastStartTime" => non_neg_integer(),
-    "name" => String.t(),
-    "roleArn" => String.t(),
-    "status" => String.t(),
-    "versionStatus" => String.t()
-  }
+
+      application_summary() :: %{
+        "applicationArn" => String.t(),
+        "applicationId" => String.t(),
+        "applicationVersion" => integer(),
+        "creationTime" => non_neg_integer(),
+        "deploymentStatus" => String.t(),
+        "description" => String.t(),
+        "engineType" => String.t(),
+        "environmentId" => String.t(),
+        "lastStartTime" => non_neg_integer(),
+        "name" => String.t(),
+        "roleArn" => String.t(),
+        "status" => String.t(),
+        "versionStatus" => String.t()
+      }
+
   """
   @type application_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_applications_response() :: %{
-    "applications" => list(application_summary()()),
-    "nextToken" => String.t()
-  }
+
+      list_applications_response() :: %{
+        "applications" => list(application_summary()()),
+        "nextToken" => String.t()
+      }
+
   """
   @type list_applications_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_application_versions_response() :: %{
-    "applicationVersions" => list(application_version_summary()()),
-    "nextToken" => String.t()
-  }
+
+      list_application_versions_response() :: %{
+        "applicationVersions" => list(application_version_summary()()),
+        "nextToken" => String.t()
+      }
+
   """
   @type list_application_versions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_environment_request() :: %{
-    optional("clientToken") => [String.t()],
-    optional("description") => String.t(),
-    optional("engineVersion") => String.t(),
-    optional("highAvailabilityConfig") => high_availability_config(),
-    optional("kmsKeyId") => [String.t()],
-    optional("preferredMaintenanceWindow") => String.t(),
-    optional("publiclyAccessible") => boolean(),
-    optional("securityGroupIds") => list(String.t()()),
-    optional("storageConfigurations") => list(list()()),
-    optional("subnetIds") => list(String.t()()),
-    optional("tags") => map(),
-    required("engineType") => String.t(),
-    required("instanceType") => String.t(),
-    required("name") => String.t()
-  }
+
+      create_environment_request() :: %{
+        optional("clientToken") => [String.t()],
+        optional("description") => String.t(),
+        optional("engineVersion") => String.t(),
+        optional("highAvailabilityConfig") => high_availability_config(),
+        optional("kmsKeyId") => [String.t()],
+        optional("preferredMaintenanceWindow") => String.t(),
+        optional("publiclyAccessible") => boolean(),
+        optional("securityGroupIds") => list(String.t()()),
+        optional("storageConfigurations") => list(list()()),
+        optional("subnetIds") => list(String.t()()),
+        optional("tags") => map(),
+        required("engineType") => String.t(),
+        required("instanceType") => String.t(),
+        required("name") => String.t()
+      }
+
   """
   @type create_environment_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cancel_batch_job_execution_response() :: %{
 
-  }
+      cancel_batch_job_execution_response() :: %{}
+
   """
-  @type cancel_batch_job_execution_response() :: %{String.t() => any()}
+  @type cancel_batch_job_execution_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  update_environment_request() :: %{
-    optional("applyDuringMaintenanceWindow") => boolean(),
-    optional("desiredCapacity") => integer(),
-    optional("engineVersion") => String.t(),
-    optional("forceUpdate") => boolean(),
-    optional("instanceType") => String.t(),
-    optional("preferredMaintenanceWindow") => [String.t()]
-  }
+
+      update_environment_request() :: %{
+        optional("applyDuringMaintenanceWindow") => boolean(),
+        optional("desiredCapacity") => integer(),
+        optional("engineVersion") => String.t(),
+        optional("forceUpdate") => boolean(),
+        optional("instanceType") => String.t(),
+        optional("preferredMaintenanceWindow") => [String.t()]
+      }
+
   """
   @type update_environment_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_batch_job_response() :: %{
-    required("executionId") => String.t()
-  }
+
+      start_batch_job_response() :: %{
+        required("executionId") => String.t()
+      }
+
   """
   @type start_batch_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_data_set_import_history_response() :: %{
-    "dataSetImportTasks" => list(data_set_import_task()()),
-    "nextToken" => String.t()
-  }
+
+      list_data_set_import_history_response() :: %{
+        "dataSetImportTasks" => list(data_set_import_task()()),
+        "nextToken" => String.t()
+      }
+
   """
   @type list_data_set_import_history_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_application_from_environment_response() :: %{
 
-  }
+      delete_application_from_environment_response() :: %{}
+
   """
-  @type delete_application_from_environment_response() :: %{String.t() => any()}
+  @type delete_application_from_environment_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  start_batch_job_request() :: %{
-    optional("jobParams") => map(),
-    required("batchJobIdentifier") => list()
-  }
+
+      start_batch_job_request() :: %{
+        optional("jobParams") => map(),
+        required("batchJobIdentifier") => list()
+      }
+
   """
   @type start_batch_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_data_set_import_task_request() :: %{
 
-  }
+      get_data_set_import_task_request() :: %{}
+
   """
-  @type get_data_set_import_task_request() :: %{String.t() => any()}
+  @type get_data_set_import_task_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_engine_versions_request() :: %{
-    optional("engineType") => String.t(),
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t()
-  }
+
+      list_engine_versions_request() :: %{
+        optional("engineType") => String.t(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
   """
   @type list_engine_versions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  primary_key() :: %{
-    "length" => integer(),
-    "name" => [String.t()],
-    "offset" => integer()
-  }
+
+      primary_key() :: %{
+        "length" => integer(),
+        "name" => [String.t()],
+        "offset" => integer()
+      }
+
   """
   @type primary_key() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_application_request() :: %{
 
-  }
+      get_application_request() :: %{}
+
   """
-  @type get_application_request() :: %{String.t() => any()}
+  @type get_application_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  ps_detail_attributes() :: %{
-    "encoding" => [String.t()],
-    "format" => [String.t()]
-  }
+
+      ps_detail_attributes() :: %{
+        "encoding" => [String.t()],
+        "format" => [String.t()]
+      }
+
   """
   @type ps_detail_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_batch_job_definitions_request() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t(),
-    optional("prefix") => [String.t()]
-  }
+
+      list_batch_job_definitions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("prefix") => [String.t()]
+      }
+
   """
   @type list_batch_job_definitions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_environment_response() :: %{
 
-  }
+      delete_environment_response() :: %{}
+
   """
-  @type delete_environment_response() :: %{String.t() => any()}
+  @type delete_environment_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  batch_job_execution_summary() :: %{
-    "applicationId" => String.t(),
-    "batchJobIdentifier" => list(),
-    "endTime" => non_neg_integer(),
-    "executionId" => String.t(),
-    "jobId" => String.t(),
-    "jobName" => String.t(),
-    "jobType" => String.t(),
-    "returnCode" => [String.t()],
-    "startTime" => non_neg_integer(),
-    "status" => String.t()
-  }
+
+      batch_job_execution_summary() :: %{
+        "applicationId" => String.t(),
+        "batchJobIdentifier" => list(),
+        "endTime" => non_neg_integer(),
+        "executionId" => String.t(),
+        "jobId" => String.t(),
+        "jobName" => String.t(),
+        "jobType" => String.t(),
+        "returnCode" => [String.t()],
+        "startTime" => non_neg_integer(),
+        "status" => String.t()
+      }
+
   """
   @type batch_job_execution_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_application_request() :: %{
 
-  }
+      delete_application_request() :: %{}
+
   """
-  @type delete_application_request() :: %{String.t() => any()}
+  @type delete_application_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_data_set_import_task_response() :: %{
-    optional("summary") => data_set_import_summary(),
-    required("status") => String.t(),
-    required("taskId") => String.t()
-  }
+
+      get_data_set_import_task_response() :: %{
+        optional("summary") => data_set_import_summary(),
+        required("status") => String.t(),
+        required("taskId") => String.t()
+      }
+
   """
   @type get_data_set_import_task_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  data_set_import_task() :: %{
-    "status" => String.t(),
-    "statusReason" => [String.t()],
-    "summary" => data_set_import_summary(),
-    "taskId" => String.t()
-  }
+
+      data_set_import_task() :: %{
+        "status" => String.t(),
+        "statusReason" => [String.t()],
+        "summary" => data_set_import_summary(),
+        "taskId" => String.t()
+      }
+
   """
   @type data_set_import_task() :: %{String.t() => any()}
+
+  @type cancel_batch_job_execution_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_application_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+
+  @type create_data_set_import_task_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_deployment_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_environment_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+
+  @type delete_application_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | conflict_exception()
+
+  @type delete_application_from_environment_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_environment_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | conflict_exception()
+
+  @type get_application_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_application_version_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_batch_job_execution_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_data_set_details_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | execution_timeout_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type get_data_set_import_task_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_deployment_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_environment_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_signed_bluinsights_url_errors() ::
+          throttling_exception() | access_denied_exception() | internal_server_exception()
+
+  @type list_application_versions_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_applications_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_batch_job_definitions_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_batch_job_executions_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_data_set_import_history_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_data_sets_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | execution_timeout_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type list_deployments_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_engine_versions_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_environments_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_tags_for_resource_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type start_application_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type start_batch_job_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type stop_application_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type tag_resource_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+
+  @type untag_resource_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type update_application_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_environment_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   def metadata do
     %{
@@ -1267,12 +1688,7 @@ defmodule AWS.M2 do
         ) ::
           {:ok, cancel_batch_job_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, cancel_batch_job_execution_errors()}
   def cancel_batch_job_execution(
         %Client{} = client,
         application_id,
@@ -1310,12 +1726,7 @@ defmodule AWS.M2 do
   @spec create_application(map(), create_application_request(), list()) ::
           {:ok, create_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_application_errors()}
   def create_application(%Client{} = client, input, options \\ []) do
     url_path = "/applications"
     headers = []
@@ -1347,13 +1758,7 @@ defmodule AWS.M2 do
         ) ::
           {:ok, create_data_set_import_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_data_set_import_task_errors()}
   def create_data_set_import_task(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/dataset-import-task"
     headers = []
@@ -1381,13 +1786,7 @@ defmodule AWS.M2 do
   @spec create_deployment(map(), String.t(), create_deployment_request(), list()) ::
           {:ok, create_deployment_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_deployment_errors()}
   def create_deployment(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/deployments"
     headers = []
@@ -1414,12 +1813,7 @@ defmodule AWS.M2 do
   @spec create_environment(map(), create_environment_request(), list()) ::
           {:ok, create_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_environment_errors()}
   def create_environment(%Client{} = client, input, options \\ []) do
     url_path = "/environments"
     headers = []
@@ -1448,11 +1842,7 @@ defmodule AWS.M2 do
   @spec delete_application(map(), String.t(), delete_application_request(), list()) ::
           {:ok, delete_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_application_errors()}
   def delete_application(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"
     headers = []
@@ -1493,12 +1883,7 @@ defmodule AWS.M2 do
         ) ::
           {:ok, delete_application_from_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_application_from_environment_errors()}
   def delete_application_from_environment(
         %Client{} = client,
         application_id,
@@ -1538,11 +1923,7 @@ defmodule AWS.M2 do
   @spec delete_environment(map(), String.t(), delete_environment_request(), list()) ::
           {:ok, delete_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_environment_errors()}
   def delete_environment(%Client{} = client, environment_id, input, options \\ []) do
     url_path = "/environments/#{AWS.Util.encode_uri(environment_id)}"
     headers = []
@@ -1569,11 +1950,7 @@ defmodule AWS.M2 do
   @spec get_application(map(), String.t(), list()) ::
           {:ok, get_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_application_errors()}
   def get_application(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"
     headers = []
@@ -1590,11 +1967,7 @@ defmodule AWS.M2 do
   @spec get_application_version(map(), String.t(), String.t(), list()) ::
           {:ok, get_application_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_application_version_errors()}
   def get_application_version(
         %Client{} = client,
         application_id,
@@ -1618,11 +1991,7 @@ defmodule AWS.M2 do
   @spec get_batch_job_execution(map(), String.t(), String.t(), list()) ::
           {:ok, get_batch_job_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_batch_job_execution_errors()}
   def get_batch_job_execution(%Client{} = client, application_id, execution_id, options \\ []) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/batch-job-executions/#{AWS.Util.encode_uri(execution_id)}"
@@ -1641,14 +2010,7 @@ defmodule AWS.M2 do
   @spec get_data_set_details(map(), String.t(), String.t(), list()) ::
           {:ok, get_data_set_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, execution_timeout_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_data_set_details_errors()}
   def get_data_set_details(%Client{} = client, application_id, data_set_name, options \\ []) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/datasets/#{AWS.Util.encode_uri(data_set_name)}"
@@ -1668,11 +2030,7 @@ defmodule AWS.M2 do
   @spec get_data_set_import_task(map(), String.t(), String.t(), list()) ::
           {:ok, get_data_set_import_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_data_set_import_task_errors()}
   def get_data_set_import_task(%Client{} = client, application_id, task_id, options \\ []) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/dataset-import-tasks/#{AWS.Util.encode_uri(task_id)}"
@@ -1691,11 +2049,7 @@ defmodule AWS.M2 do
   @spec get_deployment(map(), String.t(), String.t(), list()) ::
           {:ok, get_deployment_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_deployment_errors()}
   def get_deployment(%Client{} = client, application_id, deployment_id, options \\ []) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/deployments/#{AWS.Util.encode_uri(deployment_id)}"
@@ -1714,11 +2068,7 @@ defmodule AWS.M2 do
   @spec get_environment(map(), String.t(), list()) ::
           {:ok, get_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_environment_errors()}
   def get_environment(%Client{} = client, environment_id, options \\ []) do
     url_path = "/environments/#{AWS.Util.encode_uri(environment_id)}"
     headers = []
@@ -1735,9 +2085,7 @@ defmodule AWS.M2 do
   @spec get_signed_bluinsights_url(map(), list()) ::
           {:ok, get_signed_bluinsights_url_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
+          | {:error, get_signed_bluinsights_url_errors()}
   def get_signed_bluinsights_url(%Client{} = client, options \\ []) do
     url_path = "/signed-bi-url"
     headers = []
@@ -1754,11 +2102,7 @@ defmodule AWS.M2 do
   @spec list_application_versions(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_application_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_application_versions_errors()}
   def list_application_versions(
         %Client{} = client,
         application_id,
@@ -1807,10 +2151,7 @@ defmodule AWS.M2 do
         ) ::
           {:ok, list_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_applications_errors()}
   def list_applications(
         %Client{} = client,
         environment_id \\ nil,
@@ -1874,11 +2215,7 @@ defmodule AWS.M2 do
         ) ::
           {:ok, list_batch_job_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_batch_job_definitions_errors()}
   def list_batch_job_definitions(
         %Client{} = client,
         application_id,
@@ -1935,11 +2272,7 @@ defmodule AWS.M2 do
         ) ::
           {:ok, list_batch_job_executions_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_batch_job_executions_errors()}
   def list_batch_job_executions(
         %Client{} = client,
         application_id,
@@ -2022,11 +2355,7 @@ defmodule AWS.M2 do
         ) ::
           {:ok, list_data_set_import_history_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_data_set_import_history_errors()}
   def list_data_set_import_history(
         %Client{} = client,
         application_id,
@@ -2078,14 +2407,7 @@ defmodule AWS.M2 do
         ) ::
           {:ok, list_data_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, execution_timeout_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_unavailable_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_data_sets_errors()}
   def list_data_sets(
         %Client{} = client,
         application_id,
@@ -2143,11 +2465,7 @@ defmodule AWS.M2 do
   @spec list_deployments(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_deployments_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_deployments_errors()}
   def list_deployments(
         %Client{} = client,
         application_id,
@@ -2184,10 +2502,7 @@ defmodule AWS.M2 do
   @spec list_engine_versions(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_engine_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_engine_versions_errors()}
   def list_engine_versions(
         %Client{} = client,
         engine_type \\ nil,
@@ -2238,10 +2553,7 @@ defmodule AWS.M2 do
         ) ::
           {:ok, list_environments_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_environments_errors()}
   def list_environments(
         %Client{} = client,
         engine_type \\ nil,
@@ -2293,11 +2605,7 @@ defmodule AWS.M2 do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -2314,12 +2622,7 @@ defmodule AWS.M2 do
   @spec start_application(map(), String.t(), start_application_request(), list()) ::
           {:ok, start_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, start_application_errors()}
   def start_application(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/start"
     headers = []
@@ -2349,12 +2652,7 @@ defmodule AWS.M2 do
   @spec start_batch_job(map(), String.t(), start_batch_job_request(), list()) ::
           {:ok, start_batch_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, start_batch_job_errors()}
   def start_batch_job(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/batch-job"
     headers = []
@@ -2381,12 +2679,7 @@ defmodule AWS.M2 do
   @spec stop_application(map(), String.t(), stop_application_request(), list()) ::
           {:ok, stop_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, stop_application_errors()}
   def stop_application(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/stop"
     headers = []
@@ -2413,12 +2706,7 @@ defmodule AWS.M2 do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -2445,11 +2733,7 @@ defmodule AWS.M2 do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -2481,12 +2765,7 @@ defmodule AWS.M2 do
   @spec update_application(map(), String.t(), update_application_request(), list()) ::
           {:ok, update_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_application_errors()}
   def update_application(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"
     headers = []
@@ -2513,13 +2792,7 @@ defmodule AWS.M2 do
   @spec update_environment(map(), String.t(), update_environment_request(), list()) ::
           {:ok, update_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_environment_errors()}
   def update_environment(%Client{} = client, environment_id, input, options \\ []) do
     url_path = "/environments/#{AWS.Util.encode_uri(environment_id)}"
     headers = []

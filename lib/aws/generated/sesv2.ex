@@ -21,2970 +21,3766 @@ defmodule AWS.SESv2 do
   @typedoc """
 
   ## Example:
-  create_custom_verification_email_template_response() :: %{
 
-  }
+      create_custom_verification_email_template_response() :: %{}
+
   """
-  @type create_custom_verification_email_template_response() :: %{String.t() => any()}
+  @type create_custom_verification_email_template_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  put_configuration_set_tracking_options_response() :: %{
 
-  }
+      put_configuration_set_tracking_options_response() :: %{}
+
   """
-  @type put_configuration_set_tracking_options_response() :: %{String.t() => any()}
+  @type put_configuration_set_tracking_options_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  tracking_options() :: %{
-    "CustomRedirectDomain" => String.t()
-  }
+
+      tracking_options() :: %{
+        "CustomRedirectDomain" => String.t()
+      }
+
   """
   @type tracking_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_import_job_response() :: %{
-    "JobId" => String.t()
-  }
+
+      create_import_job_response() :: %{
+        "JobId" => String.t()
+      }
+
   """
   @type create_import_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_email_identity_response() :: %{
-    "ConfigurationSetName" => String.t(),
-    "DkimAttributes" => dkim_attributes(),
-    "FeedbackForwardingStatus" => boolean(),
-    "IdentityType" => list(any()),
-    "MailFromAttributes" => mail_from_attributes(),
-    "Policies" => map(),
-    "Tags" => list(tag()()),
-    "VerificationInfo" => verification_info(),
-    "VerificationStatus" => list(any()),
-    "VerifiedForSendingStatus" => boolean()
-  }
+
+      get_email_identity_response() :: %{
+        "ConfigurationSetName" => String.t(),
+        "DkimAttributes" => dkim_attributes(),
+        "FeedbackForwardingStatus" => boolean(),
+        "IdentityType" => list(any()),
+        "MailFromAttributes" => mail_from_attributes(),
+        "Policies" => map(),
+        "Tags" => list(tag()()),
+        "VerificationInfo" => verification_info(),
+        "VerificationStatus" => list(any()),
+        "VerifiedForSendingStatus" => boolean()
+      }
+
   """
   @type get_email_identity_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  dkim_signing_attributes() :: %{
-    "DomainSigningPrivateKey" => String.t(),
-    "DomainSigningSelector" => String.t(),
-    "NextSigningKeyLength" => list(any())
-  }
+
+      dkim_signing_attributes() :: %{
+        "DomainSigningPrivateKey" => String.t(),
+        "DomainSigningSelector" => String.t(),
+        "NextSigningKeyLength" => list(any())
+      }
+
   """
   @type dkim_signing_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  dashboard_options() :: %{
-    "EngagementMetrics" => list(any())
-  }
+
+      dashboard_options() :: %{
+        "EngagementMetrics" => list(any())
+      }
+
   """
   @type dashboard_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_email_identity_dkim_attributes_response() :: %{
 
-  }
+      put_email_identity_dkim_attributes_response() :: %{}
+
   """
-  @type put_email_identity_dkim_attributes_response() :: %{String.t() => any()}
+  @type put_email_identity_dkim_attributes_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  delete_configuration_set_response() :: %{
 
-  }
+      delete_configuration_set_response() :: %{}
+
   """
-  @type delete_configuration_set_response() :: %{String.t() => any()}
+  @type delete_configuration_set_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  put_account_suppression_attributes_response() :: %{
 
-  }
+      put_account_suppression_attributes_response() :: %{}
+
   """
-  @type put_account_suppression_attributes_response() :: %{String.t() => any()}
+  @type put_account_suppression_attributes_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  update_email_identity_policy_response() :: %{
 
-  }
+      update_email_identity_policy_response() :: %{}
+
   """
-  @type update_email_identity_policy_response() :: %{String.t() => any()}
+  @type update_email_identity_policy_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_deliverability_test_reports_request() :: %{
-    optional("NextToken") => String.t(),
-    optional("PageSize") => integer()
-  }
+
+      list_deliverability_test_reports_request() :: %{
+        optional("NextToken") => String.t(),
+        optional("PageSize") => integer()
+      }
+
   """
   @type list_deliverability_test_reports_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_suppressed_destination_request() :: %{
 
-  }
+      get_suppressed_destination_request() :: %{}
+
   """
-  @type get_suppressed_destination_request() :: %{String.t() => any()}
+  @type get_suppressed_destination_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_export_jobs_request() :: %{
-    optional("ExportSourceType") => list(any()),
-    optional("JobStatus") => list(any()),
-    optional("NextToken") => String.t(),
-    optional("PageSize") => integer()
-  }
+
+      list_export_jobs_request() :: %{
+        optional("ExportSourceType") => list(any()),
+        optional("JobStatus") => list(any()),
+        optional("NextToken") => String.t(),
+        optional("PageSize") => integer()
+      }
+
   """
   @type list_export_jobs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_request() :: %{
-    required("ResourceArn") => String.t(),
-    required("Tags") => list(tag()())
-  }
+
+      tag_resource_request() :: %{
+        required("ResourceArn") => String.t(),
+        required("Tags") => list(tag()())
+      }
+
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_import_job_request() :: %{
-    required("ImportDataSource") => import_data_source(),
-    required("ImportDestination") => import_destination()
-  }
+
+      create_import_job_request() :: %{
+        required("ImportDataSource") => import_data_source(),
+        required("ImportDestination") => import_destination()
+      }
+
   """
   @type create_import_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  suppression_attributes() :: %{
-    "SuppressedReasons" => list(list(any())())
-  }
+
+      suppression_attributes() :: %{
+        "SuppressedReasons" => list(list(any())())
+      }
+
   """
   @type suppression_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_account_sending_attributes_request() :: %{
-    optional("SendingEnabled") => boolean()
-  }
+
+      put_account_sending_attributes_request() :: %{
+        optional("SendingEnabled") => boolean()
+      }
+
   """
   @type put_account_sending_attributes_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_account_response() :: %{
-    "DedicatedIpAutoWarmupEnabled" => boolean(),
-    "Details" => account_details(),
-    "EnforcementStatus" => String.t(),
-    "ProductionAccessEnabled" => boolean(),
-    "SendQuota" => send_quota(),
-    "SendingEnabled" => boolean(),
-    "SuppressionAttributes" => suppression_attributes(),
-    "VdmAttributes" => vdm_attributes()
-  }
+
+      get_account_response() :: %{
+        "DedicatedIpAutoWarmupEnabled" => boolean(),
+        "Details" => account_details(),
+        "EnforcementStatus" => String.t(),
+        "ProductionAccessEnabled" => boolean(),
+        "SendQuota" => send_quota(),
+        "SendingEnabled" => boolean(),
+        "SuppressionAttributes" => suppression_attributes(),
+        "VdmAttributes" => vdm_attributes()
+      }
+
   """
   @type get_account_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_contact_request() :: %{
 
-  }
+      delete_contact_request() :: %{}
+
   """
-  @type delete_contact_request() :: %{String.t() => any()}
+  @type delete_contact_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_deliverability_test_report_request() :: %{
 
-  }
+      get_deliverability_test_report_request() :: %{}
+
   """
-  @type get_deliverability_test_report_request() :: %{String.t() => any()}
+  @type get_deliverability_test_report_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_contact_list_response() :: %{
-    "ContactListName" => String.t(),
-    "CreatedTimestamp" => non_neg_integer(),
-    "Description" => String.t(),
-    "LastUpdatedTimestamp" => non_neg_integer(),
-    "Tags" => list(tag()()),
-    "Topics" => list(topic()())
-  }
+
+      get_contact_list_response() :: %{
+        "ContactListName" => String.t(),
+        "CreatedTimestamp" => non_neg_integer(),
+        "Description" => String.t(),
+        "LastUpdatedTimestamp" => non_neg_integer(),
+        "Tags" => list(tag()()),
+        "Topics" => list(topic()())
+      }
+
   """
   @type get_contact_list_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  volume_statistics() :: %{
-    "InboxRawCount" => float(),
-    "ProjectedInbox" => float(),
-    "ProjectedSpam" => float(),
-    "SpamRawCount" => float()
-  }
+
+      volume_statistics() :: %{
+        "InboxRawCount" => float(),
+        "ProjectedInbox" => float(),
+        "ProjectedSpam" => float(),
+        "SpamRawCount" => float()
+      }
+
   """
   @type volume_statistics() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_contact_list_response() :: %{
 
-  }
+      delete_contact_list_response() :: %{}
+
   """
-  @type delete_contact_list_response() :: %{String.t() => any()}
+  @type delete_contact_list_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_email_identities_response() :: %{
-    "EmailIdentities" => list(identity_info()()),
-    "NextToken" => String.t()
-  }
+
+      list_email_identities_response() :: %{
+        "EmailIdentities" => list(identity_info()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_email_identities_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_email_template_request() :: %{
-    required("TemplateContent") => email_template_content()
-  }
+
+      update_email_template_request() :: %{
+        required("TemplateContent") => email_template_content()
+      }
+
   """
   @type update_email_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_dedicated_ip_pool_response() :: %{
 
-  }
+      create_dedicated_ip_pool_response() :: %{}
+
   """
-  @type create_dedicated_ip_pool_response() :: %{String.t() => any()}
+  @type create_dedicated_ip_pool_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  put_configuration_set_reputation_options_response() :: %{
 
-  }
+      put_configuration_set_reputation_options_response() :: %{}
+
   """
-  @type put_configuration_set_reputation_options_response() :: %{String.t() => any()}
+  @type put_configuration_set_reputation_options_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  cancel_export_job_response() :: %{
 
-  }
+      cancel_export_job_response() :: %{}
+
   """
-  @type cancel_export_job_response() :: %{String.t() => any()}
+  @type cancel_export_job_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_email_identity_policy_request() :: %{
-    required("Policy") => String.t()
-  }
+
+      create_email_identity_policy_request() :: %{
+        required("Policy") => String.t()
+      }
+
   """
   @type create_email_identity_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_contacts_filter() :: %{
-    "FilteredStatus" => list(any()),
-    "TopicFilter" => topic_filter()
-  }
+
+      list_contacts_filter() :: %{
+        "FilteredStatus" => list(any()),
+        "TopicFilter" => topic_filter()
+      }
+
   """
   @type list_contacts_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_response() :: %{
 
-  }
+      untag_resource_response() :: %{}
+
   """
-  @type untag_resource_response() :: %{String.t() => any()}
+  @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  put_email_identity_feedback_attributes_request() :: %{
-    optional("EmailForwardingEnabled") => boolean()
-  }
+
+      put_email_identity_feedback_attributes_request() :: %{
+        optional("EmailForwardingEnabled") => boolean()
+      }
+
   """
   @type put_email_identity_feedback_attributes_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  isp_placement() :: %{
-    "IspName" => String.t(),
-    "PlacementStatistics" => placement_statistics()
-  }
+
+      isp_placement() :: %{
+        "IspName" => String.t(),
+        "PlacementStatistics" => placement_statistics()
+      }
+
   """
   @type isp_placement() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  event_details() :: %{
-    "Bounce" => bounce(),
-    "Complaint" => complaint()
-  }
+
+      event_details() :: %{
+        "Bounce" => bounce(),
+        "Complaint" => complaint()
+      }
+
   """
   @type event_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  email_template_content() :: %{
-    "Html" => String.t(),
-    "Subject" => String.t(),
-    "Text" => String.t()
-  }
+
+      email_template_content() :: %{
+        "Html" => String.t(),
+        "Subject" => String.t(),
+        "Text" => String.t()
+      }
+
   """
   @type email_template_content() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_contact_lists_request() :: %{
-    optional("NextToken") => String.t(),
-    optional("PageSize") => integer()
-  }
+
+      list_contact_lists_request() :: %{
+        optional("NextToken") => String.t(),
+        optional("PageSize") => integer()
+      }
+
   """
   @type list_contact_lists_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  contact_list_destination() :: %{
-    "ContactListImportAction" => list(any()),
-    "ContactListName" => String.t()
-  }
+
+      contact_list_destination() :: %{
+        "ContactListImportAction" => list(any()),
+        "ContactListName" => String.t()
+      }
+
   """
   @type contact_list_destination() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_configuration_set_vdm_options_request() :: %{
-    optional("VdmOptions") => vdm_options()
-  }
+
+      put_configuration_set_vdm_options_request() :: %{
+        optional("VdmOptions") => vdm_options()
+      }
+
   """
   @type put_configuration_set_vdm_options_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_deliverability_test_reports_response() :: %{
-    "DeliverabilityTestReports" => list(deliverability_test_report()()),
-    "NextToken" => String.t()
-  }
+
+      list_deliverability_test_reports_response() :: %{
+        "DeliverabilityTestReports" => list(deliverability_test_report()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_deliverability_test_reports_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  kinesis_firehose_destination() :: %{
-    "DeliveryStreamArn" => String.t(),
-    "IamRoleArn" => String.t()
-  }
+
+      kinesis_firehose_destination() :: %{
+        "DeliveryStreamArn" => String.t(),
+        "IamRoleArn" => String.t()
+      }
+
   """
   @type kinesis_firehose_destination() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  vdm_options() :: %{
-    "DashboardOptions" => dashboard_options(),
-    "GuardianOptions" => guardian_options()
-  }
+
+      vdm_options() :: %{
+        "DashboardOptions" => dashboard_options(),
+        "GuardianOptions" => guardian_options()
+      }
+
   """
   @type vdm_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  already_exists_exception() :: %{
-    "message" => String.t()
-  }
+
+      already_exists_exception() :: %{
+        "message" => String.t()
+      }
+
   """
   @type already_exists_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_account_dedicated_ip_warmup_attributes_response() :: %{
 
-  }
+      put_account_dedicated_ip_warmup_attributes_response() :: %{}
+
   """
-  @type put_account_dedicated_ip_warmup_attributes_response() :: %{String.t() => any()}
+  @type put_account_dedicated_ip_warmup_attributes_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  update_contact_list_response() :: %{
 
-  }
+      update_contact_list_response() :: %{}
+
   """
-  @type update_contact_list_response() :: %{String.t() => any()}
+  @type update_contact_list_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  verification_info() :: %{
-    "ErrorType" => list(any()),
-    "LastCheckedTimestamp" => non_neg_integer(),
-    "LastSuccessTimestamp" => non_neg_integer(),
-    "SOARecord" => s_o_a_record()
-  }
+
+      verification_info() :: %{
+        "ErrorType" => list(any()),
+        "LastCheckedTimestamp" => non_neg_integer(),
+        "LastSuccessTimestamp" => non_neg_integer(),
+        "SOARecord" => s_o_a_record()
+      }
+
   """
   @type verification_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_export_job_response() :: %{
-    "JobId" => String.t()
-  }
+
+      create_export_job_response() :: %{
+        "JobId" => String.t()
+      }
+
   """
   @type create_export_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  message_insights_data_source() :: %{
-    "EndDate" => non_neg_integer(),
-    "Exclude" => message_insights_filters(),
-    "Include" => message_insights_filters(),
-    "MaxResults" => integer(),
-    "StartDate" => non_neg_integer()
-  }
+
+      message_insights_data_source() :: %{
+        "EndDate" => non_neg_integer(),
+        "Exclude" => message_insights_filters(),
+        "Include" => message_insights_filters(),
+        "MaxResults" => integer(),
+        "StartDate" => non_neg_integer()
+      }
+
   """
   @type message_insights_data_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  suppressed_destination_summary() :: %{
-    "EmailAddress" => String.t(),
-    "LastUpdateTime" => non_neg_integer(),
-    "Reason" => list(any())
-  }
+
+      suppressed_destination_summary() :: %{
+        "EmailAddress" => String.t(),
+        "LastUpdateTime" => non_neg_integer(),
+        "Reason" => list(any())
+      }
+
   """
   @type suppressed_destination_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_email_identity_policy_response() :: %{
 
-  }
+      delete_email_identity_policy_response() :: %{}
+
   """
-  @type delete_email_identity_policy_response() :: %{String.t() => any()}
+  @type delete_email_identity_policy_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  send_quota() :: %{
-    "Max24HourSend" => float(),
-    "MaxSendRate" => float(),
-    "SentLast24Hours" => float()
-  }
+
+      send_quota() :: %{
+        "Max24HourSend" => float(),
+        "MaxSendRate" => float(),
+        "SentLast24Hours" => float()
+      }
+
   """
   @type send_quota() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_custom_verification_email_template_response() :: %{
-    "FailureRedirectionURL" => String.t(),
-    "FromEmailAddress" => String.t(),
-    "SuccessRedirectionURL" => String.t(),
-    "TemplateContent" => String.t(),
-    "TemplateName" => String.t(),
-    "TemplateSubject" => String.t()
-  }
+
+      get_custom_verification_email_template_response() :: %{
+        "FailureRedirectionURL" => String.t(),
+        "FromEmailAddress" => String.t(),
+        "SuccessRedirectionURL" => String.t(),
+        "TemplateContent" => String.t(),
+        "TemplateName" => String.t(),
+        "TemplateSubject" => String.t()
+      }
+
   """
   @type get_custom_verification_email_template_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  dkim_attributes() :: %{
-    "CurrentSigningKeyLength" => list(any()),
-    "LastKeyGenerationTimestamp" => non_neg_integer(),
-    "NextSigningKeyLength" => list(any()),
-    "SigningAttributesOrigin" => list(any()),
-    "SigningEnabled" => boolean(),
-    "Status" => list(any()),
-    "Tokens" => list(String.t()())
-  }
+
+      dkim_attributes() :: %{
+        "CurrentSigningKeyLength" => list(any()),
+        "LastKeyGenerationTimestamp" => non_neg_integer(),
+        "NextSigningKeyLength" => list(any()),
+        "SigningAttributesOrigin" => list(any()),
+        "SigningEnabled" => boolean(),
+        "Status" => list(any()),
+        "Tokens" => list(String.t()())
+      }
+
   """
   @type dkim_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_email_identity_policies_response() :: %{
-    "Policies" => map()
-  }
+
+      get_email_identity_policies_response() :: %{
+        "Policies" => map()
+      }
+
   """
   @type get_email_identity_policies_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_dedicated_ip_pool_scaling_attributes_request() :: %{
-    required("ScalingMode") => list(any())
-  }
+
+      put_dedicated_ip_pool_scaling_attributes_request() :: %{
+        required("ScalingMode") => list(any())
+      }
+
   """
   @type put_dedicated_ip_pool_scaling_attributes_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_email_identity_response() :: %{
-    "DkimAttributes" => dkim_attributes(),
-    "IdentityType" => list(any()),
-    "VerifiedForSendingStatus" => boolean()
-  }
+
+      create_email_identity_response() :: %{
+        "DkimAttributes" => dkim_attributes(),
+        "IdentityType" => list(any()),
+        "VerifiedForSendingStatus" => boolean()
+      }
+
   """
   @type create_email_identity_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_email_templates_request() :: %{
-    optional("NextToken") => String.t(),
-    optional("PageSize") => integer()
-  }
+
+      list_email_templates_request() :: %{
+        optional("NextToken") => String.t(),
+        optional("PageSize") => integer()
+      }
+
   """
   @type list_email_templates_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  test_render_email_template_request() :: %{
-    required("TemplateData") => String.t()
-  }
+
+      test_render_email_template_request() :: %{
+        required("TemplateData") => String.t()
+      }
+
   """
   @type test_render_email_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  sending_paused_exception() :: %{
-    "message" => String.t()
-  }
+
+      sending_paused_exception() :: %{
+        "message" => String.t()
+      }
+
   """
   @type sending_paused_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_deliverability_dashboard_option_request() :: %{
-    optional("SubscribedDomains") => list(domain_deliverability_tracking_option()()),
-    required("DashboardEnabled") => boolean()
-  }
+
+      put_deliverability_dashboard_option_request() :: %{
+        optional("SubscribedDomains") => list(domain_deliverability_tracking_option()()),
+        required("DashboardEnabled") => boolean()
+      }
+
   """
   @type put_deliverability_dashboard_option_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_account_details_request() :: %{
-    optional("AdditionalContactEmailAddresses") => list(String.t()()),
-    optional("ContactLanguage") => list(any()),
-    optional("ProductionAccessEnabled") => boolean(),
-    required("MailType") => list(any()),
-    required("UseCaseDescription") => String.t(),
-    required("WebsiteURL") => String.t()
-  }
+
+      put_account_details_request() :: %{
+        optional("AdditionalContactEmailAddresses") => list(String.t()()),
+        optional("ContactLanguage") => list(any()),
+        optional("ProductionAccessEnabled") => boolean(),
+        required("MailType") => list(any()),
+        required("UseCaseDescription") => String.t(),
+        required("WebsiteURL") => String.t()
+      }
+
   """
   @type put_account_details_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  send_bulk_email_response() :: %{
-    "BulkEmailEntryResults" => list(bulk_email_entry_result()())
-  }
+
+      send_bulk_email_response() :: %{
+        "BulkEmailEntryResults" => list(bulk_email_entry_result()())
+      }
+
   """
   @type send_bulk_email_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_custom_verification_email_template_request() :: %{
 
-  }
+      get_custom_verification_email_template_request() :: %{}
+
   """
-  @type get_custom_verification_email_template_request() :: %{String.t() => any()}
+  @type get_custom_verification_email_template_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  put_configuration_set_delivery_options_response() :: %{
 
-  }
+      put_configuration_set_delivery_options_response() :: %{}
+
   """
-  @type put_configuration_set_delivery_options_response() :: %{String.t() => any()}
+  @type put_configuration_set_delivery_options_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  account_suspended_exception() :: %{
-    "message" => String.t()
-  }
+
+      account_suspended_exception() :: %{
+        "message" => String.t()
+      }
+
   """
   @type account_suspended_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  email_content() :: %{
-    "Raw" => raw_message(),
-    "Simple" => message(),
-    "Template" => template()
-  }
+
+      email_content() :: %{
+        "Raw" => raw_message(),
+        "Simple" => message(),
+        "Template" => template()
+      }
+
   """
   @type email_content() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_deliverability_dashboard_options_response() :: %{
-    "AccountStatus" => list(any()),
-    "ActiveSubscribedDomains" => list(domain_deliverability_tracking_option()()),
-    "DashboardEnabled" => boolean(),
-    "PendingExpirationSubscribedDomains" => list(domain_deliverability_tracking_option()()),
-    "SubscriptionExpiryDate" => non_neg_integer()
-  }
+
+      get_deliverability_dashboard_options_response() :: %{
+        "AccountStatus" => list(any()),
+        "ActiveSubscribedDomains" => list(domain_deliverability_tracking_option()()),
+        "DashboardEnabled" => boolean(),
+        "PendingExpirationSubscribedDomains" => list(domain_deliverability_tracking_option()()),
+        "SubscriptionExpiryDate" => non_neg_integer()
+      }
+
   """
   @type get_deliverability_dashboard_options_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_domain_deliverability_campaign_request() :: %{
 
-  }
+      get_domain_deliverability_campaign_request() :: %{}
+
   """
-  @type get_domain_deliverability_campaign_request() :: %{String.t() => any()}
+  @type get_domain_deliverability_campaign_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  delete_configuration_set_event_destination_response() :: %{
 
-  }
+      delete_configuration_set_event_destination_response() :: %{}
+
   """
-  @type delete_configuration_set_event_destination_response() :: %{String.t() => any()}
+  @type delete_configuration_set_event_destination_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  put_account_vdm_attributes_response() :: %{
 
-  }
+      put_account_vdm_attributes_response() :: %{}
+
   """
-  @type put_account_vdm_attributes_response() :: %{String.t() => any()}
+  @type put_account_vdm_attributes_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  delete_email_identity_request() :: %{
 
-  }
+      delete_email_identity_request() :: %{}
+
   """
-  @type delete_email_identity_request() :: %{String.t() => any()}
+  @type delete_email_identity_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  s_o_a_record() :: %{
-    "AdminEmail" => String.t(),
-    "PrimaryNameServer" => String.t(),
-    "SerialNumber" => float()
-  }
+
+      s_o_a_record() :: %{
+        "AdminEmail" => String.t(),
+        "PrimaryNameServer" => String.t(),
+        "SerialNumber" => float()
+      }
+
   """
   @type s_o_a_record() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  internal_service_error_exception() :: %{
-    "message" => String.t()
-  }
+
+      internal_service_error_exception() :: %{
+        "message" => String.t()
+      }
+
   """
   @type internal_service_error_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cloud_watch_dimension_configuration() :: %{
-    "DefaultDimensionValue" => String.t(),
-    "DimensionName" => String.t(),
-    "DimensionValueSource" => list(any())
-  }
+
+      cloud_watch_dimension_configuration() :: %{
+        "DefaultDimensionValue" => String.t(),
+        "DimensionName" => String.t(),
+        "DimensionValueSource" => list(any())
+      }
+
   """
   @type cloud_watch_dimension_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_custom_verification_email_template_response() :: %{
 
-  }
+      delete_custom_verification_email_template_response() :: %{}
+
   """
-  @type delete_custom_verification_email_template_response() :: %{String.t() => any()}
+  @type delete_custom_verification_email_template_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  put_suppressed_destination_request() :: %{
-    required("EmailAddress") => String.t(),
-    required("Reason") => list(any())
-  }
+
+      put_suppressed_destination_request() :: %{
+        required("EmailAddress") => String.t(),
+        required("Reason") => list(any())
+      }
+
   """
   @type put_suppressed_destination_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_request() :: %{
-    required("ResourceArn") => String.t(),
-    required("TagKeys") => list(String.t()())
-  }
+
+      untag_resource_request() :: %{
+        required("ResourceArn") => String.t(),
+        required("TagKeys") => list(String.t()())
+      }
+
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_requests_exception() :: %{
-    "message" => String.t()
-  }
+
+      too_many_requests_exception() :: %{
+        "message" => String.t()
+      }
+
   """
   @type too_many_requests_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_deliverability_test_report_response() :: %{
-    "DeliverabilityTestStatus" => list(any()),
-    "ReportId" => String.t()
-  }
+
+      create_deliverability_test_report_response() :: %{
+        "DeliverabilityTestStatus" => list(any()),
+        "ReportId" => String.t()
+      }
+
   """
   @type create_deliverability_test_report_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  event_destination_definition() :: %{
-    "CloudWatchDestination" => cloud_watch_destination(),
-    "Enabled" => boolean(),
-    "KinesisFirehoseDestination" => kinesis_firehose_destination(),
-    "MatchingEventTypes" => list(list(any())()),
-    "PinpointDestination" => pinpoint_destination(),
-    "SnsDestination" => sns_destination()
-  }
+
+      event_destination_definition() :: %{
+        "CloudWatchDestination" => cloud_watch_destination(),
+        "Enabled" => boolean(),
+        "KinesisFirehoseDestination" => kinesis_firehose_destination(),
+        "MatchingEventTypes" => list(list(any())()),
+        "PinpointDestination" => pinpoint_destination(),
+        "SnsDestination" => sns_destination()
+      }
+
   """
   @type event_destination_definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_suppressed_destinations_response() :: %{
-    "NextToken" => String.t(),
-    "SuppressedDestinationSummaries" => list(suppressed_destination_summary()())
-  }
+
+      list_suppressed_destinations_response() :: %{
+        "NextToken" => String.t(),
+        "SuppressedDestinationSummaries" => list(suppressed_destination_summary()())
+      }
+
   """
   @type list_suppressed_destinations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_domain_deliverability_campaigns_response() :: %{
-    "DomainDeliverabilityCampaigns" => list(domain_deliverability_campaign()()),
-    "NextToken" => String.t()
-  }
+
+      list_domain_deliverability_campaigns_response() :: %{
+        "DomainDeliverabilityCampaigns" => list(domain_deliverability_campaign()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_domain_deliverability_campaigns_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_configuration_set_request() :: %{
 
-  }
+      delete_configuration_set_request() :: %{}
+
   """
-  @type delete_configuration_set_request() :: %{String.t() => any()}
+  @type delete_configuration_set_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  put_account_suppression_attributes_request() :: %{
-    optional("SuppressedReasons") => list(list(any())())
-  }
+
+      put_account_suppression_attributes_request() :: %{
+        optional("SuppressedReasons") => list(list(any())())
+      }
+
   """
   @type put_account_suppression_attributes_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  send_email_response() :: %{
-    "MessageId" => String.t()
-  }
+
+      send_email_response() :: %{
+        "MessageId" => String.t()
+      }
+
   """
   @type send_email_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_suppressed_destinations_request() :: %{
-    optional("EndDate") => non_neg_integer(),
-    optional("NextToken") => String.t(),
-    optional("PageSize") => integer(),
-    optional("Reasons") => list(list(any())()),
-    optional("StartDate") => non_neg_integer()
-  }
+
+      list_suppressed_destinations_request() :: %{
+        optional("EndDate") => non_neg_integer(),
+        optional("NextToken") => String.t(),
+        optional("PageSize") => integer(),
+        optional("Reasons") => list(list(any())()),
+        optional("StartDate") => non_neg_integer()
+      }
+
   """
   @type list_suppressed_destinations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_dedicated_ip_pool_request() :: %{
 
-  }
+      delete_dedicated_ip_pool_request() :: %{}
+
   """
-  @type delete_dedicated_ip_pool_request() :: %{String.t() => any()}
+  @type delete_dedicated_ip_pool_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  delete_email_template_request() :: %{
 
-  }
+      delete_email_template_request() :: %{}
+
   """
-  @type delete_email_template_request() :: %{String.t() => any()}
+  @type delete_email_template_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  cloud_watch_destination() :: %{
-    "DimensionConfigurations" => list(cloud_watch_dimension_configuration()())
-  }
+
+      cloud_watch_destination() :: %{
+        "DimensionConfigurations" => list(cloud_watch_dimension_configuration()())
+      }
+
   """
   @type cloud_watch_destination() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  blacklist_entry() :: %{
-    "Description" => String.t(),
-    "ListingTime" => non_neg_integer(),
-    "RblName" => String.t()
-  }
+
+      blacklist_entry() :: %{
+        "Description" => String.t(),
+        "ListingTime" => non_neg_integer(),
+        "RblName" => String.t()
+      }
+
   """
   @type blacklist_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_configuration_set_suppression_options_request() :: %{
-    optional("SuppressedReasons") => list(list(any())())
-  }
+
+      put_configuration_set_suppression_options_request() :: %{
+        optional("SuppressedReasons") => list(list(any())())
+      }
+
   """
   @type put_configuration_set_suppression_options_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  mail_from_domain_not_verified_exception() :: %{
-    "message" => String.t()
-  }
+
+      mail_from_domain_not_verified_exception() :: %{
+        "message" => String.t()
+      }
+
   """
   @type mail_from_domain_not_verified_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  overall_volume() :: %{
-    "DomainIspPlacements" => list(domain_isp_placement()()),
-    "ReadRatePercent" => float(),
-    "VolumeStatistics" => volume_statistics()
-  }
+
+      overall_volume() :: %{
+        "DomainIspPlacements" => list(domain_isp_placement()()),
+        "ReadRatePercent" => float(),
+        "VolumeStatistics" => volume_statistics()
+      }
+
   """
   @type overall_volume() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_dedicated_ip_pool_request() :: %{
 
-  }
+      get_dedicated_ip_pool_request() :: %{}
+
   """
-  @type get_dedicated_ip_pool_request() :: %{String.t() => any()}
+  @type get_dedicated_ip_pool_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  domain_isp_placement() :: %{
-    "InboxPercentage" => float(),
-    "InboxRawCount" => float(),
-    "IspName" => String.t(),
-    "SpamPercentage" => float(),
-    "SpamRawCount" => float()
-  }
+
+      domain_isp_placement() :: %{
+        "InboxPercentage" => float(),
+        "InboxRawCount" => float(),
+        "IspName" => String.t(),
+        "SpamPercentage" => float(),
+        "SpamRawCount" => float()
+      }
+
   """
   @type domain_isp_placement() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_email_template_request() :: %{
-    required("TemplateContent") => email_template_content(),
-    required("TemplateName") => String.t()
-  }
+
+      create_email_template_request() :: %{
+        required("TemplateContent") => email_template_content(),
+        required("TemplateName") => String.t()
+      }
+
   """
   @type create_email_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_contact_response() :: %{
 
-  }
+      create_contact_response() :: %{}
+
   """
-  @type create_contact_response() :: %{String.t() => any()}
+  @type create_contact_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  dedicated_ip() :: %{
-    "Ip" => String.t(),
-    "PoolName" => String.t(),
-    "WarmupPercentage" => integer(),
-    "WarmupStatus" => list(any())
-  }
+
+      dedicated_ip() :: %{
+        "Ip" => String.t(),
+        "PoolName" => String.t(),
+        "WarmupPercentage" => integer(),
+        "WarmupStatus" => list(any())
+      }
+
   """
   @type dedicated_ip() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_email_identity_policy_response() :: %{
 
-  }
+      create_email_identity_policy_response() :: %{}
+
   """
-  @type create_email_identity_policy_response() :: %{String.t() => any()}
+  @type create_email_identity_policy_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  email_insights() :: %{
-    "Destination" => String.t(),
-    "Events" => list(insights_event()()),
-    "Isp" => String.t()
-  }
+
+      email_insights() :: %{
+        "Destination" => String.t(),
+        "Events" => list(insights_event()()),
+        "Isp" => String.t()
+      }
+
   """
   @type email_insights() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_blacklist_reports_request() :: %{
-    required("BlacklistItemNames") => list(String.t()())
-  }
+
+      get_blacklist_reports_request() :: %{
+        required("BlacklistItemNames") => list(String.t()())
+      }
+
   """
   @type get_blacklist_reports_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_email_identity_configuration_set_attributes_response() :: %{
 
-  }
+      put_email_identity_configuration_set_attributes_response() :: %{}
+
   """
-  @type put_email_identity_configuration_set_attributes_response() :: %{String.t() => any()}
+  @type put_email_identity_configuration_set_attributes_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  message_insights_filters() :: %{
-    "Destination" => list(String.t()()),
-    "FromEmailAddress" => list(String.t()()),
-    "Isp" => list(String.t()()),
-    "LastDeliveryEvent" => list(list(any())()),
-    "LastEngagementEvent" => list(list(any())()),
-    "Subject" => list(String.t()())
-  }
+
+      message_insights_filters() :: %{
+        "Destination" => list(String.t()()),
+        "FromEmailAddress" => list(String.t()()),
+        "Isp" => list(String.t()()),
+        "LastDeliveryEvent" => list(list(any())()),
+        "LastEngagementEvent" => list(list(any())()),
+        "Subject" => list(String.t()())
+      }
+
   """
   @type message_insights_filters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  mail_from_attributes() :: %{
-    "BehaviorOnMxFailure" => list(any()),
-    "MailFromDomain" => String.t(),
-    "MailFromDomainStatus" => list(any())
-  }
+
+      mail_from_attributes() :: %{
+        "BehaviorOnMxFailure" => list(any()),
+        "MailFromDomain" => String.t(),
+        "MailFromDomainStatus" => list(any())
+      }
+
   """
   @type mail_from_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_configuration_set_response() :: %{
 
-  }
+      create_configuration_set_response() :: %{}
+
   """
-  @type create_configuration_set_response() :: %{String.t() => any()}
+  @type create_configuration_set_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_custom_verification_email_templates_request() :: %{
-    optional("NextToken") => String.t(),
-    optional("PageSize") => integer()
-  }
+
+      list_custom_verification_email_templates_request() :: %{
+        optional("NextToken") => String.t(),
+        optional("PageSize") => integer()
+      }
+
   """
   @type list_custom_verification_email_templates_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  reputation_options() :: %{
-    "LastFreshStart" => non_neg_integer(),
-    "ReputationMetricsEnabled" => boolean()
-  }
+
+      reputation_options() :: %{
+        "LastFreshStart" => non_neg_integer(),
+        "ReputationMetricsEnabled" => boolean()
+      }
+
   """
   @type reputation_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_deliverability_dashboard_option_response() :: %{
 
-  }
+      put_deliverability_dashboard_option_response() :: %{}
+
   """
-  @type put_deliverability_dashboard_option_response() :: %{String.t() => any()}
+  @type put_deliverability_dashboard_option_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_import_jobs_request() :: %{
-    optional("ImportDestinationType") => list(any()),
-    optional("NextToken") => String.t(),
-    optional("PageSize") => integer()
-  }
+
+      list_import_jobs_request() :: %{
+        optional("ImportDestinationType") => list(any()),
+        optional("NextToken") => String.t(),
+        optional("PageSize") => integer()
+      }
+
   """
   @type list_import_jobs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_suppressed_destination_response() :: %{
 
-  }
+      delete_suppressed_destination_response() :: %{}
+
   """
-  @type delete_suppressed_destination_response() :: %{String.t() => any()}
+  @type delete_suppressed_destination_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_email_identity_request() :: %{
-    optional("ConfigurationSetName") => String.t(),
-    optional("DkimSigningAttributes") => dkim_signing_attributes(),
-    optional("Tags") => list(tag()()),
-    required("EmailIdentity") => String.t()
-  }
+
+      create_email_identity_request() :: %{
+        optional("ConfigurationSetName") => String.t(),
+        optional("DkimSigningAttributes") => dkim_signing_attributes(),
+        optional("Tags") => list(tag()()),
+        required("EmailIdentity") => String.t()
+      }
+
   """
   @type create_email_identity_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  inbox_placement_tracking_option() :: %{
-    "Global" => boolean(),
-    "TrackedIsps" => list(String.t()())
-  }
+
+      inbox_placement_tracking_option() :: %{
+        "Global" => boolean(),
+        "TrackedIsps" => list(String.t()())
+      }
+
   """
   @type inbox_placement_tracking_option() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_configuration_set_suppression_options_response() :: %{
 
-  }
+      put_configuration_set_suppression_options_response() :: %{}
+
   """
-  @type put_configuration_set_suppression_options_response() :: %{String.t() => any()}
+  @type put_configuration_set_suppression_options_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  conflict_exception() :: %{
-    "message" => String.t()
-  }
+
+      conflict_exception() :: %{
+        "message" => String.t()
+      }
+
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_export_job_request() :: %{
 
-  }
+      get_export_job_request() :: %{}
+
   """
-  @type get_export_job_request() :: %{String.t() => any()}
+  @type get_export_job_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  message_header() :: %{
-    "Name" => String.t(),
-    "Value" => String.t()
-  }
+
+      message_header() :: %{
+        "Name" => String.t(),
+        "Value" => String.t()
+      }
+
   """
   @type message_header() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_get_metric_data_query() :: %{
-    "Dimensions" => map(),
-    "EndDate" => non_neg_integer(),
-    "Id" => String.t(),
-    "Metric" => list(any()),
-    "Namespace" => list(any()),
-    "StartDate" => non_neg_integer()
-  }
+
+      batch_get_metric_data_query() :: %{
+        "Dimensions" => map(),
+        "EndDate" => non_neg_integer(),
+        "Id" => String.t(),
+        "Metric" => list(any()),
+        "Namespace" => list(any()),
+        "StartDate" => non_neg_integer()
+      }
+
   """
   @type batch_get_metric_data_query() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_message_insights_request() :: %{
 
-  }
+      get_message_insights_request() :: %{}
+
   """
-  @type get_message_insights_request() :: %{String.t() => any()}
+  @type get_message_insights_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  delete_suppressed_destination_request() :: %{
 
-  }
+      delete_suppressed_destination_request() :: %{}
+
   """
-  @type delete_suppressed_destination_request() :: %{String.t() => any()}
+  @type delete_suppressed_destination_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  export_data_source() :: %{
-    "MessageInsightsDataSource" => message_insights_data_source(),
-    "MetricsDataSource" => metrics_data_source()
-  }
+
+      export_data_source() :: %{
+        "MessageInsightsDataSource" => message_insights_data_source(),
+        "MetricsDataSource" => metrics_data_source()
+      }
+
   """
   @type export_data_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  metric_data_error() :: %{
-    "Code" => list(any()),
-    "Id" => String.t(),
-    "Message" => String.t()
-  }
+
+      metric_data_error() :: %{
+        "Code" => list(any()),
+        "Id" => String.t(),
+        "Message" => String.t()
+      }
+
   """
   @type metric_data_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag() :: %{
-    "Key" => String.t(),
-    "Value" => String.t()
-  }
+
+      tag() :: %{
+        "Key" => String.t(),
+        "Value" => String.t()
+      }
+
   """
   @type tag() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_export_job_response() :: %{
-    "CompletedTimestamp" => non_neg_integer(),
-    "CreatedTimestamp" => non_neg_integer(),
-    "ExportDataSource" => export_data_source(),
-    "ExportDestination" => export_destination(),
-    "ExportSourceType" => list(any()),
-    "FailureInfo" => failure_info(),
-    "JobId" => String.t(),
-    "JobStatus" => list(any()),
-    "Statistics" => export_statistics()
-  }
+
+      get_export_job_response() :: %{
+        "CompletedTimestamp" => non_neg_integer(),
+        "CreatedTimestamp" => non_neg_integer(),
+        "ExportDataSource" => export_data_source(),
+        "ExportDestination" => export_destination(),
+        "ExportSourceType" => list(any()),
+        "FailureInfo" => failure_info(),
+        "JobId" => String.t(),
+        "JobStatus" => list(any()),
+        "Statistics" => export_statistics()
+      }
+
   """
   @type get_export_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  event_destination() :: %{
-    "CloudWatchDestination" => cloud_watch_destination(),
-    "Enabled" => boolean(),
-    "KinesisFirehoseDestination" => kinesis_firehose_destination(),
-    "MatchingEventTypes" => list(list(any())()),
-    "Name" => String.t(),
-    "PinpointDestination" => pinpoint_destination(),
-    "SnsDestination" => sns_destination()
-  }
+
+      event_destination() :: %{
+        "CloudWatchDestination" => cloud_watch_destination(),
+        "Enabled" => boolean(),
+        "KinesisFirehoseDestination" => kinesis_firehose_destination(),
+        "MatchingEventTypes" => list(list(any())()),
+        "Name" => String.t(),
+        "PinpointDestination" => pinpoint_destination(),
+        "SnsDestination" => sns_destination()
+      }
+
   """
   @type event_destination() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_contact_response() :: %{
 
-  }
+      update_contact_response() :: %{}
+
   """
-  @type update_contact_response() :: %{String.t() => any()}
+  @type update_contact_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  guardian_attributes() :: %{
-    "OptimizedSharedDelivery" => list(any())
-  }
+
+      guardian_attributes() :: %{
+        "OptimizedSharedDelivery" => list(any())
+      }
+
   """
   @type guardian_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_configuration_set_event_destination_request() :: %{
-    required("EventDestination") => event_destination_definition()
-  }
+
+      update_configuration_set_event_destination_request() :: %{
+        required("EventDestination") => event_destination_definition()
+      }
+
   """
   @type update_configuration_set_event_destination_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  message_tag() :: %{
-    "Name" => String.t(),
-    "Value" => String.t()
-  }
+
+      message_tag() :: %{
+        "Name" => String.t(),
+        "Value" => String.t()
+      }
+
   """
   @type message_tag() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_domain_deliverability_campaigns_request() :: %{
-    optional("NextToken") => String.t(),
-    optional("PageSize") => integer(),
-    required("EndDate") => non_neg_integer(),
-    required("StartDate") => non_neg_integer()
-  }
+
+      list_domain_deliverability_campaigns_request() :: %{
+        optional("NextToken") => String.t(),
+        optional("PageSize") => integer(),
+        required("EndDate") => non_neg_integer(),
+        required("StartDate") => non_neg_integer()
+      }
+
   """
   @type list_domain_deliverability_campaigns_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  suppression_list_destination() :: %{
-    "SuppressionListImportAction" => list(any())
-  }
+
+      suppression_list_destination() :: %{
+        "SuppressionListImportAction" => list(any())
+      }
+
   """
   @type suppression_list_destination() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_configuration_set_event_destinations_request() :: %{
 
-  }
+      get_configuration_set_event_destinations_request() :: %{}
+
   """
-  @type get_configuration_set_event_destinations_request() :: %{String.t() => any()}
+  @type get_configuration_set_event_destinations_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  put_configuration_set_vdm_options_response() :: %{
 
-  }
+      put_configuration_set_vdm_options_response() :: %{}
+
   """
-  @type put_configuration_set_vdm_options_response() :: %{String.t() => any()}
+  @type put_configuration_set_vdm_options_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_domain_statistics_report_request() :: %{
-    required("EndDate") => non_neg_integer(),
-    required("StartDate") => non_neg_integer()
-  }
+
+      get_domain_statistics_report_request() :: %{
+        required("EndDate") => non_neg_integer(),
+        required("StartDate") => non_neg_integer()
+      }
+
   """
   @type get_domain_statistics_report_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  recommendation() :: %{
-    "CreatedTimestamp" => non_neg_integer(),
-    "Description" => String.t(),
-    "Impact" => list(any()),
-    "LastUpdatedTimestamp" => non_neg_integer(),
-    "ResourceArn" => String.t(),
-    "Status" => list(any()),
-    "Type" => list(any())
-  }
+
+      recommendation() :: %{
+        "CreatedTimestamp" => non_neg_integer(),
+        "Description" => String.t(),
+        "Impact" => list(any()),
+        "LastUpdatedTimestamp" => non_neg_integer(),
+        "ResourceArn" => String.t(),
+        "Status" => list(any()),
+        "Type" => list(any())
+      }
+
   """
   @type recommendation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_account_dedicated_ip_warmup_attributes_request() :: %{
-    optional("AutoWarmupEnabled") => boolean()
-  }
+
+      put_account_dedicated_ip_warmup_attributes_request() :: %{
+        optional("AutoWarmupEnabled") => boolean()
+      }
+
   """
   @type put_account_dedicated_ip_warmup_attributes_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_import_job_request() :: %{
 
-  }
+      get_import_job_request() :: %{}
+
   """
-  @type get_import_job_request() :: %{String.t() => any()}
+  @type get_import_job_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  put_dedicated_ip_in_pool_response() :: %{
 
-  }
+      put_dedicated_ip_in_pool_response() :: %{}
+
   """
-  @type put_dedicated_ip_in_pool_response() :: %{String.t() => any()}
+  @type put_dedicated_ip_in_pool_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  invalid_next_token_exception() :: %{
-    "message" => String.t()
-  }
+
+      invalid_next_token_exception() :: %{
+        "message" => String.t()
+      }
+
   """
   @type invalid_next_token_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  topic() :: %{
-    "DefaultSubscriptionStatus" => list(any()),
-    "Description" => String.t(),
-    "DisplayName" => String.t(),
-    "TopicName" => String.t()
-  }
+
+      topic() :: %{
+        "DefaultSubscriptionStatus" => list(any()),
+        "Description" => String.t(),
+        "DisplayName" => String.t(),
+        "TopicName" => String.t()
+      }
+
   """
   @type topic() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_email_template_response() :: %{
 
-  }
+      delete_email_template_response() :: %{}
+
   """
-  @type delete_email_template_response() :: %{String.t() => any()}
+  @type delete_email_template_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  account_details() :: %{
-    "AdditionalContactEmailAddresses" => list(String.t()()),
-    "ContactLanguage" => list(any()),
-    "MailType" => list(any()),
-    "ReviewDetails" => review_details(),
-    "UseCaseDescription" => String.t(),
-    "WebsiteURL" => String.t()
-  }
+
+      account_details() :: %{
+        "AdditionalContactEmailAddresses" => list(String.t()()),
+        "ContactLanguage" => list(any()),
+        "MailType" => list(any()),
+        "ReviewDetails" => review_details(),
+        "UseCaseDescription" => String.t(),
+        "WebsiteURL" => String.t()
+      }
+
   """
   @type account_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  not_found_exception() :: %{
-    "message" => String.t()
-  }
+
+      not_found_exception() :: %{
+        "message" => String.t()
+      }
+
   """
   @type not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  send_custom_verification_email_response() :: %{
-    "MessageId" => String.t()
-  }
+
+      send_custom_verification_email_response() :: %{
+        "MessageId" => String.t()
+      }
+
   """
   @type send_custom_verification_email_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  placement_statistics() :: %{
-    "DkimPercentage" => float(),
-    "InboxPercentage" => float(),
-    "MissingPercentage" => float(),
-    "SpamPercentage" => float(),
-    "SpfPercentage" => float()
-  }
+
+      placement_statistics() :: %{
+        "DkimPercentage" => float(),
+        "InboxPercentage" => float(),
+        "MissingPercentage" => float(),
+        "SpamPercentage" => float(),
+        "SpfPercentage" => float()
+      }
+
   """
   @type placement_statistics() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  identity_info() :: %{
-    "IdentityName" => String.t(),
-    "IdentityType" => list(any()),
-    "SendingEnabled" => boolean(),
-    "VerificationStatus" => list(any())
-  }
+
+      identity_info() :: %{
+        "IdentityName" => String.t(),
+        "IdentityType" => list(any()),
+        "SendingEnabled" => boolean(),
+        "VerificationStatus" => list(any())
+      }
+
   """
   @type identity_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  metrics_data_source() :: %{
-    "Dimensions" => map(),
-    "EndDate" => non_neg_integer(),
-    "Metrics" => list(export_metric()()),
-    "Namespace" => list(any()),
-    "StartDate" => non_neg_integer()
-  }
+
+      metrics_data_source() :: %{
+        "Dimensions" => map(),
+        "EndDate" => non_neg_integer(),
+        "Metrics" => list(export_metric()()),
+        "Namespace" => list(any()),
+        "StartDate" => non_neg_integer()
+      }
+
   """
   @type metrics_data_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_management_options() :: %{
-    "ContactListName" => String.t(),
-    "TopicName" => String.t()
-  }
+
+      list_management_options() :: %{
+        "ContactListName" => String.t(),
+        "TopicName" => String.t()
+      }
+
   """
   @type list_management_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_custom_verification_email_template_request() :: %{
-    required("FailureRedirectionURL") => String.t(),
-    required("FromEmailAddress") => String.t(),
-    required("SuccessRedirectionURL") => String.t(),
-    required("TemplateContent") => String.t(),
-    required("TemplateName") => String.t(),
-    required("TemplateSubject") => String.t()
-  }
+
+      create_custom_verification_email_template_request() :: %{
+        required("FailureRedirectionURL") => String.t(),
+        required("FromEmailAddress") => String.t(),
+        required("SuccessRedirectionURL") => String.t(),
+        required("TemplateContent") => String.t(),
+        required("TemplateName") => String.t(),
+        required("TemplateSubject") => String.t()
+      }
+
   """
   @type create_custom_verification_email_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_get_metric_data_request() :: %{
-    required("Queries") => list(batch_get_metric_data_query()())
-  }
+
+      batch_get_metric_data_request() :: %{
+        required("Queries") => list(batch_get_metric_data_query()())
+      }
+
   """
   @type batch_get_metric_data_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_response() :: %{
-    "Tags" => list(tag()())
-  }
+
+      list_tags_for_resource_response() :: %{
+        "Tags" => list(tag()())
+      }
+
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_configuration_sets_response() :: %{
-    "ConfigurationSets" => list(String.t()()),
-    "NextToken" => String.t()
-  }
+
+      list_configuration_sets_response() :: %{
+        "ConfigurationSets" => list(String.t()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_configuration_sets_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_dedicated_ip_pools_request() :: %{
-    optional("NextToken") => String.t(),
-    optional("PageSize") => integer()
-  }
+
+      list_dedicated_ip_pools_request() :: %{
+        optional("NextToken") => String.t(),
+        optional("PageSize") => integer()
+      }
+
   """
   @type list_dedicated_ip_pools_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_custom_verification_email_template_request() :: %{
-    required("FailureRedirectionURL") => String.t(),
-    required("FromEmailAddress") => String.t(),
-    required("SuccessRedirectionURL") => String.t(),
-    required("TemplateContent") => String.t(),
-    required("TemplateSubject") => String.t()
-  }
+
+      update_custom_verification_email_template_request() :: %{
+        required("FailureRedirectionURL") => String.t(),
+        required("FromEmailAddress") => String.t(),
+        required("SuccessRedirectionURL") => String.t(),
+        required("TemplateContent") => String.t(),
+        required("TemplateSubject") => String.t()
+      }
+
   """
   @type update_custom_verification_email_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_configuration_set_event_destinations_response() :: %{
-    "EventDestinations" => list(event_destination()())
-  }
+
+      get_configuration_set_event_destinations_response() :: %{
+        "EventDestinations" => list(event_destination()())
+      }
+
   """
   @type get_configuration_set_event_destinations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_domain_deliverability_campaign_response() :: %{
-    "DomainDeliverabilityCampaign" => domain_deliverability_campaign()
-  }
+
+      get_domain_deliverability_campaign_response() :: %{
+        "DomainDeliverabilityCampaign" => domain_deliverability_campaign()
+      }
+
   """
   @type get_domain_deliverability_campaign_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_configuration_sets_request() :: %{
-    optional("NextToken") => String.t(),
-    optional("PageSize") => integer()
-  }
+
+      list_configuration_sets_request() :: %{
+        optional("NextToken") => String.t(),
+        optional("PageSize") => integer()
+      }
+
   """
   @type list_configuration_sets_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  bounce() :: %{
-    "BounceSubType" => String.t(),
-    "BounceType" => list(any()),
-    "DiagnosticCode" => String.t()
-  }
+
+      bounce() :: %{
+        "BounceSubType" => String.t(),
+        "BounceType" => list(any()),
+        "DiagnosticCode" => String.t()
+      }
+
   """
   @type bounce() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_dedicated_ips_request() :: %{
-    optional("NextToken") => String.t(),
-    optional("PageSize") => integer(),
-    optional("PoolName") => String.t()
-  }
+
+      get_dedicated_ips_request() :: %{
+        optional("NextToken") => String.t(),
+        optional("PageSize") => integer(),
+        optional("PoolName") => String.t()
+      }
+
   """
   @type get_dedicated_ips_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  raw_message() :: %{
-    "Data" => binary()
-  }
+
+      raw_message() :: %{
+        "Data" => binary()
+      }
+
   """
   @type raw_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_dedicated_ip_in_pool_request() :: %{
-    required("DestinationPoolName") => String.t()
-  }
+
+      put_dedicated_ip_in_pool_request() :: %{
+        required("DestinationPoolName") => String.t()
+      }
+
   """
   @type put_dedicated_ip_in_pool_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_message_insights_response() :: %{
-    "EmailTags" => list(message_tag()()),
-    "FromEmailAddress" => String.t(),
-    "Insights" => list(email_insights()()),
-    "MessageId" => String.t(),
-    "Subject" => String.t()
-  }
+
+      get_message_insights_response() :: %{
+        "EmailTags" => list(message_tag()()),
+        "FromEmailAddress" => String.t(),
+        "Insights" => list(email_insights()()),
+        "MessageId" => String.t(),
+        "Subject" => String.t()
+      }
+
   """
   @type get_message_insights_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_custom_verification_email_templates_response() :: %{
-    "CustomVerificationEmailTemplates" => list(custom_verification_email_template_metadata()()),
-    "NextToken" => String.t()
-  }
+
+      list_custom_verification_email_templates_response() :: %{
+        "CustomVerificationEmailTemplates" => list(custom_verification_email_template_metadata()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_custom_verification_email_templates_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_email_identity_dkim_attributes_request() :: %{
-    optional("SigningEnabled") => boolean()
-  }
+
+      put_email_identity_dkim_attributes_request() :: %{
+        optional("SigningEnabled") => boolean()
+      }
+
   """
   @type put_email_identity_dkim_attributes_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_custom_verification_email_template_request() :: %{
 
-  }
+      delete_custom_verification_email_template_request() :: %{}
+
   """
-  @type delete_custom_verification_email_template_request() :: %{String.t() => any()}
+  @type delete_custom_verification_email_template_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  dashboard_attributes() :: %{
-    "EngagementMetrics" => list(any())
-  }
+
+      dashboard_attributes() :: %{
+        "EngagementMetrics" => list(any())
+      }
+
   """
   @type dashboard_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_configuration_set_sending_options_response() :: %{
 
-  }
+      put_configuration_set_sending_options_response() :: %{}
+
   """
-  @type put_configuration_set_sending_options_response() :: %{String.t() => any()}
+  @type put_configuration_set_sending_options_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  replacement_email_content() :: %{
-    "ReplacementTemplate" => replacement_template()
-  }
+
+      replacement_email_content() :: %{
+        "ReplacementTemplate" => replacement_template()
+      }
+
   """
   @type replacement_email_content() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_contact_list_request() :: %{
-    optional("Description") => String.t(),
-    optional("Tags") => list(tag()()),
-    optional("Topics") => list(topic()()),
-    required("ContactListName") => String.t()
-  }
+
+      create_contact_list_request() :: %{
+        optional("Description") => String.t(),
+        optional("Tags") => list(tag()()),
+        optional("Topics") => list(topic()()),
+        required("ContactListName") => String.t()
+      }
+
   """
   @type create_contact_list_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  contact() :: %{
-    "EmailAddress" => String.t(),
-    "LastUpdatedTimestamp" => non_neg_integer(),
-    "TopicDefaultPreferences" => list(topic_preference()()),
-    "TopicPreferences" => list(topic_preference()()),
-    "UnsubscribeAll" => boolean()
-  }
+
+      contact() :: %{
+        "EmailAddress" => String.t(),
+        "LastUpdatedTimestamp" => non_neg_integer(),
+        "TopicDefaultPreferences" => list(topic_preference()()),
+        "TopicPreferences" => list(topic_preference()()),
+        "UnsubscribeAll" => boolean()
+      }
+
   """
   @type contact() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  export_job_summary() :: %{
-    "CompletedTimestamp" => non_neg_integer(),
-    "CreatedTimestamp" => non_neg_integer(),
-    "ExportSourceType" => list(any()),
-    "JobId" => String.t(),
-    "JobStatus" => list(any())
-  }
+
+      export_job_summary() :: %{
+        "CompletedTimestamp" => non_neg_integer(),
+        "CreatedTimestamp" => non_neg_integer(),
+        "ExportSourceType" => list(any()),
+        "JobId" => String.t(),
+        "JobStatus" => list(any())
+      }
+
   """
   @type export_job_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_suppressed_destination_response() :: %{
-    "SuppressedDestination" => suppressed_destination()
-  }
+
+      get_suppressed_destination_response() :: %{
+        "SuppressedDestination" => suppressed_destination()
+      }
+
   """
   @type get_suppressed_destination_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  vdm_attributes() :: %{
-    "DashboardAttributes" => dashboard_attributes(),
-    "GuardianAttributes" => guardian_attributes(),
-    "VdmEnabled" => list(any())
-  }
+
+      vdm_attributes() :: %{
+        "DashboardAttributes" => dashboard_attributes(),
+        "GuardianAttributes" => guardian_attributes(),
+        "VdmEnabled" => list(any())
+      }
+
   """
   @type vdm_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  export_statistics() :: %{
-    "ExportedRecordsCount" => integer(),
-    "ProcessedRecordsCount" => integer()
-  }
+
+      export_statistics() :: %{
+        "ExportedRecordsCount" => integer(),
+        "ProcessedRecordsCount" => integer()
+      }
+
   """
   @type export_statistics() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  send_bulk_email_request() :: %{
-    optional("ConfigurationSetName") => String.t(),
-    optional("DefaultEmailTags") => list(message_tag()()),
-    optional("FeedbackForwardingEmailAddress") => String.t(),
-    optional("FeedbackForwardingEmailAddressIdentityArn") => String.t(),
-    optional("FromEmailAddress") => String.t(),
-    optional("FromEmailAddressIdentityArn") => String.t(),
-    optional("ReplyToAddresses") => list(String.t()()),
-    required("BulkEmailEntries") => list(bulk_email_entry()()),
-    required("DefaultContent") => bulk_email_content()
-  }
+
+      send_bulk_email_request() :: %{
+        optional("ConfigurationSetName") => String.t(),
+        optional("DefaultEmailTags") => list(message_tag()()),
+        optional("FeedbackForwardingEmailAddress") => String.t(),
+        optional("FeedbackForwardingEmailAddressIdentityArn") => String.t(),
+        optional("FromEmailAddress") => String.t(),
+        optional("FromEmailAddressIdentityArn") => String.t(),
+        optional("ReplyToAddresses") => list(String.t()()),
+        required("BulkEmailEntries") => list(bulk_email_entry()()),
+        required("DefaultContent") => bulk_email_content()
+      }
+
   """
   @type send_bulk_email_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_dedicated_ip_pool_response() :: %{
 
-  }
+      delete_dedicated_ip_pool_response() :: %{}
+
   """
-  @type delete_dedicated_ip_pool_response() :: %{String.t() => any()}
+  @type delete_dedicated_ip_pool_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  suppressed_destination() :: %{
-    "Attributes" => suppressed_destination_attributes(),
-    "EmailAddress" => String.t(),
-    "LastUpdateTime" => non_neg_integer(),
-    "Reason" => list(any())
-  }
+
+      suppressed_destination() :: %{
+        "Attributes" => suppressed_destination_attributes(),
+        "EmailAddress" => String.t(),
+        "LastUpdateTime" => non_neg_integer(),
+        "Reason" => list(any())
+      }
+
   """
   @type suppressed_destination() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  insights_event() :: %{
-    "Details" => event_details(),
-    "Timestamp" => non_neg_integer(),
-    "Type" => list(any())
-  }
+
+      insights_event() :: %{
+        "Details" => event_details(),
+        "Timestamp" => non_neg_integer(),
+        "Type" => list(any())
+      }
+
   """
   @type insights_event() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_export_job_request() :: %{
-    required("ExportDataSource") => export_data_source(),
-    required("ExportDestination") => export_destination()
-  }
+
+      create_export_job_request() :: %{
+        required("ExportDataSource") => export_data_source(),
+        required("ExportDestination") => export_destination()
+      }
+
   """
   @type create_export_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_configuration_set_tracking_options_request() :: %{
-    optional("CustomRedirectDomain") => String.t()
-  }
+
+      put_configuration_set_tracking_options_request() :: %{
+        optional("CustomRedirectDomain") => String.t()
+      }
+
   """
   @type put_configuration_set_tracking_options_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_dedicated_ip_pool_request() :: %{
-    optional("ScalingMode") => list(any()),
-    optional("Tags") => list(tag()()),
-    required("PoolName") => String.t()
-  }
+
+      create_dedicated_ip_pool_request() :: %{
+        optional("ScalingMode") => list(any()),
+        optional("Tags") => list(tag()()),
+        required("PoolName") => String.t()
+      }
+
   """
   @type create_dedicated_ip_pool_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  send_custom_verification_email_request() :: %{
-    optional("ConfigurationSetName") => String.t(),
-    required("EmailAddress") => String.t(),
-    required("TemplateName") => String.t()
-  }
+
+      send_custom_verification_email_request() :: %{
+        optional("ConfigurationSetName") => String.t(),
+        required("EmailAddress") => String.t(),
+        required("TemplateName") => String.t()
+      }
+
   """
   @type send_custom_verification_email_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_dedicated_ip_response() :: %{
-    "DedicatedIp" => dedicated_ip()
-  }
+
+      get_dedicated_ip_response() :: %{
+        "DedicatedIp" => dedicated_ip()
+      }
+
   """
   @type get_dedicated_ip_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_email_identity_dkim_signing_attributes_request() :: %{
-    optional("SigningAttributes") => dkim_signing_attributes(),
-    required("SigningAttributesOrigin") => list(any())
-  }
+
+      put_email_identity_dkim_signing_attributes_request() :: %{
+        optional("SigningAttributes") => dkim_signing_attributes(),
+        required("SigningAttributesOrigin") => list(any())
+      }
+
   """
   @type put_email_identity_dkim_signing_attributes_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_import_jobs_response() :: %{
-    "ImportJobs" => list(import_job_summary()()),
-    "NextToken" => String.t()
-  }
+
+      list_import_jobs_response() :: %{
+        "ImportJobs" => list(import_job_summary()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_import_jobs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_get_metric_data_response() :: %{
-    "Errors" => list(metric_data_error()()),
-    "Results" => list(metric_data_result()())
-  }
+
+      batch_get_metric_data_response() :: %{
+        "Errors" => list(metric_data_error()()),
+        "Results" => list(metric_data_result()())
+      }
+
   """
   @type batch_get_metric_data_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_custom_verification_email_template_response() :: %{
 
-  }
+      update_custom_verification_email_template_response() :: %{}
+
   """
-  @type update_custom_verification_email_template_response() :: %{String.t() => any()}
+  @type update_custom_verification_email_template_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  delete_configuration_set_event_destination_request() :: %{
 
-  }
+      delete_configuration_set_event_destination_request() :: %{}
+
   """
-  @type delete_configuration_set_event_destination_request() :: %{String.t() => any()}
+  @type delete_configuration_set_event_destination_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  put_dedicated_ip_pool_scaling_attributes_response() :: %{
 
-  }
+      put_dedicated_ip_pool_scaling_attributes_response() :: %{}
+
   """
-  @type put_dedicated_ip_pool_scaling_attributes_response() :: %{String.t() => any()}
+  @type put_dedicated_ip_pool_scaling_attributes_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_contact_request() :: %{
 
-  }
+      get_contact_request() :: %{}
+
   """
-  @type get_contact_request() :: %{String.t() => any()}
+  @type get_contact_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_configuration_set_event_destination_response() :: %{
 
-  }
+      create_configuration_set_event_destination_response() :: %{}
+
   """
-  @type create_configuration_set_event_destination_response() :: %{String.t() => any()}
+  @type create_configuration_set_event_destination_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  import_destination() :: %{
-    "ContactListDestination" => contact_list_destination(),
-    "SuppressionListDestination" => suppression_list_destination()
-  }
+
+      import_destination() :: %{
+        "ContactListDestination" => contact_list_destination(),
+        "SuppressionListDestination" => suppression_list_destination()
+      }
+
   """
   @type import_destination() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_contacts_request() :: %{
-    optional("Filter") => list_contacts_filter(),
-    optional("NextToken") => String.t(),
-    optional("PageSize") => integer()
-  }
+
+      list_contacts_request() :: %{
+        optional("Filter") => list_contacts_filter(),
+        optional("NextToken") => String.t(),
+        optional("PageSize") => integer()
+      }
+
   """
   @type list_contacts_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  bulk_email_content() :: %{
-    "Template" => template()
-  }
+
+      bulk_email_content() :: %{
+        "Template" => template()
+      }
+
   """
   @type bulk_email_content() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_contact_response() :: %{
 
-  }
+      delete_contact_response() :: %{}
+
   """
-  @type delete_contact_response() :: %{String.t() => any()}
+  @type delete_contact_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  put_configuration_set_delivery_options_request() :: %{
-    optional("SendingPoolName") => String.t(),
-    optional("TlsPolicy") => list(any())
-  }
+
+      put_configuration_set_delivery_options_request() :: %{
+        optional("SendingPoolName") => String.t(),
+        optional("TlsPolicy") => list(any())
+      }
+
   """
   @type put_configuration_set_delivery_options_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_email_identity_mail_from_attributes_request() :: %{
-    optional("BehaviorOnMxFailure") => list(any()),
-    optional("MailFromDomain") => String.t()
-  }
+
+      put_email_identity_mail_from_attributes_request() :: %{
+        optional("BehaviorOnMxFailure") => list(any()),
+        optional("MailFromDomain") => String.t()
+      }
+
   """
   @type put_email_identity_mail_from_attributes_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  dedicated_ip_pool() :: %{
-    "PoolName" => String.t(),
-    "ScalingMode" => list(any())
-  }
+
+      dedicated_ip_pool() :: %{
+        "PoolName" => String.t(),
+        "ScalingMode" => list(any())
+      }
+
   """
   @type dedicated_ip_pool() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_email_identity_response() :: %{
 
-  }
+      delete_email_identity_response() :: %{}
+
   """
-  @type delete_email_identity_response() :: %{String.t() => any()}
+  @type delete_email_identity_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_import_job_response() :: %{
-    "CompletedTimestamp" => non_neg_integer(),
-    "CreatedTimestamp" => non_neg_integer(),
-    "FailedRecordsCount" => integer(),
-    "FailureInfo" => failure_info(),
-    "ImportDataSource" => import_data_source(),
-    "ImportDestination" => import_destination(),
-    "JobId" => String.t(),
-    "JobStatus" => list(any()),
-    "ProcessedRecordsCount" => integer()
-  }
+
+      get_import_job_response() :: %{
+        "CompletedTimestamp" => non_neg_integer(),
+        "CreatedTimestamp" => non_neg_integer(),
+        "FailedRecordsCount" => integer(),
+        "FailureInfo" => failure_info(),
+        "ImportDataSource" => import_data_source(),
+        "ImportDestination" => import_destination(),
+        "JobId" => String.t(),
+        "JobStatus" => list(any()),
+        "ProcessedRecordsCount" => integer()
+      }
+
   """
   @type get_import_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_deliverability_test_report_request() :: %{
-    optional("ReportName") => String.t(),
-    optional("Tags") => list(tag()()),
-    required("Content") => email_content(),
-    required("FromEmailAddress") => String.t()
-  }
+
+      create_deliverability_test_report_request() :: %{
+        optional("ReportName") => String.t(),
+        optional("Tags") => list(tag()()),
+        required("Content") => email_content(),
+        required("FromEmailAddress") => String.t()
+      }
+
   """
   @type create_deliverability_test_report_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  topic_preference() :: %{
-    "SubscriptionStatus" => list(any()),
-    "TopicName" => String.t()
-  }
+
+      topic_preference() :: %{
+        "SubscriptionStatus" => list(any()),
+        "TopicName" => String.t()
+      }
+
   """
   @type topic_preference() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_contacts_response() :: %{
-    "Contacts" => list(contact()()),
-    "NextToken" => String.t()
-  }
+
+      list_contacts_response() :: %{
+        "Contacts" => list(contact()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_contacts_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_contact_list_response() :: %{
 
-  }
+      create_contact_list_response() :: %{}
+
   """
-  @type create_contact_list_response() :: %{String.t() => any()}
+  @type create_contact_list_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  suppression_options() :: %{
-    "SuppressedReasons" => list(list(any())())
-  }
+
+      suppression_options() :: %{
+        "SuppressedReasons" => list(list(any())())
+      }
+
   """
   @type suppression_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  daily_volume() :: %{
-    "DomainIspPlacements" => list(domain_isp_placement()()),
-    "StartDate" => non_neg_integer(),
-    "VolumeStatistics" => volume_statistics()
-  }
+
+      daily_volume() :: %{
+        "DomainIspPlacements" => list(domain_isp_placement()()),
+        "StartDate" => non_neg_integer(),
+        "VolumeStatistics" => volume_statistics()
+      }
+
   """
   @type daily_volume() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_response() :: %{
 
-  }
+      tag_resource_response() :: %{}
+
   """
-  @type tag_resource_response() :: %{String.t() => any()}
+  @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  import_job_summary() :: %{
-    "CreatedTimestamp" => non_neg_integer(),
-    "FailedRecordsCount" => integer(),
-    "ImportDestination" => import_destination(),
-    "JobId" => String.t(),
-    "JobStatus" => list(any()),
-    "ProcessedRecordsCount" => integer()
-  }
+
+      import_job_summary() :: %{
+        "CreatedTimestamp" => non_neg_integer(),
+        "FailedRecordsCount" => integer(),
+        "ImportDestination" => import_destination(),
+        "JobId" => String.t(),
+        "JobStatus" => list(any()),
+        "ProcessedRecordsCount" => integer()
+      }
+
   """
   @type import_job_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  sending_options() :: %{
-    "SendingEnabled" => boolean()
-  }
+
+      sending_options() :: %{
+        "SendingEnabled" => boolean()
+      }
+
   """
   @type sending_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_email_identity_policy_request() :: %{
 
-  }
+      delete_email_identity_policy_request() :: %{}
+
   """
-  @type delete_email_identity_policy_request() :: %{String.t() => any()}
+  @type delete_email_identity_policy_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  concurrent_modification_exception() :: %{
-    "message" => String.t()
-  }
+
+      concurrent_modification_exception() :: %{
+        "message" => String.t()
+      }
+
   """
   @type concurrent_modification_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_email_templates_response() :: %{
-    "NextToken" => String.t(),
-    "TemplatesMetadata" => list(email_template_metadata()())
-  }
+
+      list_email_templates_response() :: %{
+        "NextToken" => String.t(),
+        "TemplatesMetadata" => list(email_template_metadata()())
+      }
+
   """
   @type list_email_templates_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_blacklist_reports_response() :: %{
-    "BlacklistReport" => map()
-  }
+
+      get_blacklist_reports_response() :: %{
+        "BlacklistReport" => map()
+      }
+
   """
   @type get_blacklist_reports_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_contact_request() :: %{
-    optional("AttributesData") => String.t(),
-    optional("TopicPreferences") => list(topic_preference()()),
-    optional("UnsubscribeAll") => boolean()
-  }
+
+      update_contact_request() :: %{
+        optional("AttributesData") => String.t(),
+        optional("TopicPreferences") => list(topic_preference()()),
+        optional("UnsubscribeAll") => boolean()
+      }
+
   """
   @type update_contact_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_email_identity_dkim_signing_attributes_response() :: %{
-    "DkimStatus" => list(any()),
-    "DkimTokens" => list(String.t()())
-  }
+
+      put_email_identity_dkim_signing_attributes_response() :: %{
+        "DkimStatus" => list(any()),
+        "DkimTokens" => list(String.t()())
+      }
+
   """
   @type put_email_identity_dkim_signing_attributes_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cancel_export_job_request() :: %{
 
-  }
+      cancel_export_job_request() :: %{}
+
   """
-  @type cancel_export_job_request() :: %{String.t() => any()}
+  @type cancel_export_job_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_request() :: %{
-    required("ResourceArn") => String.t()
-  }
+
+      list_tags_for_resource_request() :: %{
+        required("ResourceArn") => String.t()
+      }
+
   """
   @type list_tags_for_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  destination() :: %{
-    "BccAddresses" => list(String.t()()),
-    "CcAddresses" => list(String.t()()),
-    "ToAddresses" => list(String.t()())
-  }
+
+      destination() :: %{
+        "BccAddresses" => list(String.t()()),
+        "CcAddresses" => list(String.t()()),
+        "ToAddresses" => list(String.t()())
+      }
+
   """
   @type destination() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  body() :: %{
-    "Html" => content(),
-    "Text" => content()
-  }
+
+      body() :: %{
+        "Html" => content(),
+        "Text" => content()
+      }
+
   """
   @type body() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_deliverability_dashboard_options_request() :: %{
 
-  }
+      get_deliverability_dashboard_options_request() :: %{}
+
   """
-  @type get_deliverability_dashboard_options_request() :: %{String.t() => any()}
+  @type get_deliverability_dashboard_options_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_domain_statistics_report_response() :: %{
-    "DailyVolumes" => list(daily_volume()()),
-    "OverallVolume" => overall_volume()
-  }
+
+      get_domain_statistics_report_response() :: %{
+        "DailyVolumes" => list(daily_volume()()),
+        "OverallVolume" => overall_volume()
+      }
+
   """
   @type get_domain_statistics_report_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_account_sending_attributes_response() :: %{
 
-  }
+      put_account_sending_attributes_response() :: %{}
+
   """
-  @type put_account_sending_attributes_response() :: %{String.t() => any()}
+  @type put_account_sending_attributes_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_email_identity_policies_request() :: %{
 
-  }
+      get_email_identity_policies_request() :: %{}
+
   """
-  @type get_email_identity_policies_request() :: %{String.t() => any()}
+  @type get_email_identity_policies_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  message_rejected() :: %{
-    "message" => String.t()
-  }
+
+      message_rejected() :: %{
+        "message" => String.t()
+      }
+
   """
   @type message_rejected() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_contact_request() :: %{
-    optional("AttributesData") => String.t(),
-    optional("TopicPreferences") => list(topic_preference()()),
-    optional("UnsubscribeAll") => boolean(),
-    required("EmailAddress") => String.t()
-  }
+
+      create_contact_request() :: %{
+        optional("AttributesData") => String.t(),
+        optional("TopicPreferences") => list(topic_preference()()),
+        optional("UnsubscribeAll") => boolean(),
+        required("EmailAddress") => String.t()
+      }
+
   """
   @type create_contact_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  contact_list() :: %{
-    "ContactListName" => String.t(),
-    "LastUpdatedTimestamp" => non_neg_integer()
-  }
+
+      contact_list() :: %{
+        "ContactListName" => String.t(),
+        "LastUpdatedTimestamp" => non_neg_integer()
+      }
+
   """
   @type contact_list() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  guardian_options() :: %{
-    "OptimizedSharedDelivery" => list(any())
-  }
+
+      guardian_options() :: %{
+        "OptimizedSharedDelivery" => list(any())
+      }
+
   """
   @type guardian_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_dedicated_ip_pools_response() :: %{
-    "DedicatedIpPools" => list(String.t()()),
-    "NextToken" => String.t()
-  }
+
+      list_dedicated_ip_pools_response() :: %{
+        "DedicatedIpPools" => list(String.t()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_dedicated_ip_pools_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_configuration_set_request() :: %{
 
-  }
+      get_configuration_set_request() :: %{}
+
   """
-  @type get_configuration_set_request() :: %{String.t() => any()}
+  @type get_configuration_set_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  put_email_identity_mail_from_attributes_response() :: %{
 
-  }
+      put_email_identity_mail_from_attributes_response() :: %{}
+
   """
-  @type put_email_identity_mail_from_attributes_response() :: %{String.t() => any()}
+  @type put_email_identity_mail_from_attributes_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_configuration_set_event_destination_request() :: %{
-    required("EventDestination") => event_destination_definition(),
-    required("EventDestinationName") => String.t()
-  }
+
+      create_configuration_set_event_destination_request() :: %{
+        required("EventDestination") => event_destination_definition(),
+        required("EventDestinationName") => String.t()
+      }
+
   """
   @type create_configuration_set_event_destination_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  domain_deliverability_tracking_option() :: %{
-    "Domain" => String.t(),
-    "InboxPlacementTrackingOption" => inbox_placement_tracking_option(),
-    "SubscriptionStartDate" => non_neg_integer()
-  }
+
+      domain_deliverability_tracking_option() :: %{
+        "Domain" => String.t(),
+        "InboxPlacementTrackingOption" => inbox_placement_tracking_option(),
+        "SubscriptionStartDate" => non_neg_integer()
+      }
+
   """
   @type domain_deliverability_tracking_option() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_contact_list_request() :: %{
 
-  }
+      delete_contact_list_request() :: %{}
+
   """
-  @type delete_contact_list_request() :: %{String.t() => any()}
+  @type delete_contact_list_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  put_configuration_set_sending_options_request() :: %{
-    optional("SendingEnabled") => boolean()
-  }
+
+      put_configuration_set_sending_options_request() :: %{
+        optional("SendingEnabled") => boolean()
+      }
+
   """
   @type put_configuration_set_sending_options_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_dedicated_ip_pool_response() :: %{
-    "DedicatedIpPool" => dedicated_ip_pool()
-  }
+
+      get_dedicated_ip_pool_response() :: %{
+        "DedicatedIpPool" => dedicated_ip_pool()
+      }
+
   """
   @type get_dedicated_ip_pool_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  bulk_email_entry_result() :: %{
-    "Error" => String.t(),
-    "MessageId" => String.t(),
-    "Status" => list(any())
-  }
+
+      bulk_email_entry_result() :: %{
+        "Error" => String.t(),
+        "MessageId" => String.t(),
+        "Status" => list(any())
+      }
+
   """
   @type bulk_email_entry_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  limit_exceeded_exception() :: %{
-    "message" => String.t()
-  }
+
+      limit_exceeded_exception() :: %{
+        "message" => String.t()
+      }
+
   """
   @type limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delivery_options() :: %{
-    "SendingPoolName" => String.t(),
-    "TlsPolicy" => list(any())
-  }
+
+      delivery_options() :: %{
+        "SendingPoolName" => String.t(),
+        "TlsPolicy" => list(any())
+      }
+
   """
   @type delivery_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_configuration_set_event_destination_response() :: %{
 
-  }
+      update_configuration_set_event_destination_response() :: %{}
+
   """
-  @type update_configuration_set_event_destination_response() :: %{String.t() => any()}
+  @type update_configuration_set_event_destination_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  bad_request_exception() :: %{
-    "message" => String.t()
-  }
+
+      bad_request_exception() :: %{
+        "message" => String.t()
+      }
+
   """
   @type bad_request_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_email_template_response() :: %{
-    "TemplateContent" => email_template_content(),
-    "TemplateName" => String.t()
-  }
+
+      get_email_template_response() :: %{
+        "TemplateContent" => email_template_content(),
+        "TemplateName" => String.t()
+      }
+
   """
   @type get_email_template_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  content() :: %{
-    "Charset" => String.t(),
-    "Data" => String.t()
-  }
+
+      content() :: %{
+        "Charset" => String.t(),
+        "Data" => String.t()
+      }
+
   """
   @type content() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_email_identity_policy_request() :: %{
-    required("Policy") => String.t()
-  }
+
+      update_email_identity_policy_request() :: %{
+        required("Policy") => String.t()
+      }
+
   """
   @type update_email_identity_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_suppressed_destination_response() :: %{
 
-  }
+      put_suppressed_destination_response() :: %{}
+
   """
-  @type put_suppressed_destination_response() :: %{String.t() => any()}
+  @type put_suppressed_destination_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_email_template_request() :: %{
 
-  }
+      get_email_template_request() :: %{}
+
   """
-  @type get_email_template_request() :: %{String.t() => any()}
+  @type get_email_template_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  put_account_vdm_attributes_request() :: %{
-    required("VdmAttributes") => vdm_attributes()
-  }
+
+      put_account_vdm_attributes_request() :: %{
+        required("VdmAttributes") => vdm_attributes()
+      }
+
   """
   @type put_account_vdm_attributes_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_configuration_set_response() :: %{
-    "ConfigurationSetName" => String.t(),
-    "DeliveryOptions" => delivery_options(),
-    "ReputationOptions" => reputation_options(),
-    "SendingOptions" => sending_options(),
-    "SuppressionOptions" => suppression_options(),
-    "Tags" => list(tag()()),
-    "TrackingOptions" => tracking_options(),
-    "VdmOptions" => vdm_options()
-  }
+
+      get_configuration_set_response() :: %{
+        "ConfigurationSetName" => String.t(),
+        "DeliveryOptions" => delivery_options(),
+        "ReputationOptions" => reputation_options(),
+        "SendingOptions" => sending_options(),
+        "SuppressionOptions" => suppression_options(),
+        "Tags" => list(tag()()),
+        "TrackingOptions" => tracking_options(),
+        "VdmOptions" => vdm_options()
+      }
+
   """
   @type get_configuration_set_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_email_template_response() :: %{
 
-  }
+      update_email_template_response() :: %{}
+
   """
-  @type update_email_template_response() :: %{String.t() => any()}
+  @type update_email_template_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  suppressed_destination_attributes() :: %{
-    "FeedbackId" => String.t(),
-    "MessageId" => String.t()
-  }
+
+      suppressed_destination_attributes() :: %{
+        "FeedbackId" => String.t(),
+        "MessageId" => String.t()
+      }
+
   """
   @type suppressed_destination_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  template() :: %{
-    "Headers" => list(message_header()()),
-    "TemplateArn" => String.t(),
-    "TemplateData" => String.t(),
-    "TemplateName" => String.t()
-  }
+
+      template() :: %{
+        "Headers" => list(message_header()()),
+        "TemplateArn" => String.t(),
+        "TemplateData" => String.t(),
+        "TemplateName" => String.t()
+      }
+
   """
   @type template() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  send_email_request() :: %{
-    optional("ConfigurationSetName") => String.t(),
-    optional("Destination") => destination(),
-    optional("EmailTags") => list(message_tag()()),
-    optional("FeedbackForwardingEmailAddress") => String.t(),
-    optional("FeedbackForwardingEmailAddressIdentityArn") => String.t(),
-    optional("FromEmailAddress") => String.t(),
-    optional("FromEmailAddressIdentityArn") => String.t(),
-    optional("ListManagementOptions") => list_management_options(),
-    optional("ReplyToAddresses") => list(String.t()()),
-    required("Content") => email_content()
-  }
+
+      send_email_request() :: %{
+        optional("ConfigurationSetName") => String.t(),
+        optional("Destination") => destination(),
+        optional("EmailTags") => list(message_tag()()),
+        optional("FeedbackForwardingEmailAddress") => String.t(),
+        optional("FeedbackForwardingEmailAddressIdentityArn") => String.t(),
+        optional("FromEmailAddress") => String.t(),
+        optional("FromEmailAddressIdentityArn") => String.t(),
+        optional("ListManagementOptions") => list_management_options(),
+        optional("ReplyToAddresses") => list(String.t()()),
+        required("Content") => email_content()
+      }
+
   """
   @type send_email_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_contact_list_request() :: %{
 
-  }
+      get_contact_list_request() :: %{}
+
   """
-  @type get_contact_list_request() :: %{String.t() => any()}
+  @type get_contact_list_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  put_account_details_response() :: %{
 
-  }
+      put_account_details_response() :: %{}
+
   """
-  @type put_account_details_response() :: %{String.t() => any()}
+  @type put_account_details_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  review_details() :: %{
-    "CaseId" => String.t(),
-    "Status" => list(any())
-  }
+
+      review_details() :: %{
+        "CaseId" => String.t(),
+        "Status" => list(any())
+      }
+
   """
   @type review_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_dedicated_ip_warmup_attributes_response() :: %{
 
-  }
+      put_dedicated_ip_warmup_attributes_response() :: %{}
+
   """
-  @type put_dedicated_ip_warmup_attributes_response() :: %{String.t() => any()}
+  @type put_dedicated_ip_warmup_attributes_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_export_jobs_response() :: %{
-    "ExportJobs" => list(export_job_summary()()),
-    "NextToken" => String.t()
-  }
+
+      list_export_jobs_response() :: %{
+        "ExportJobs" => list(export_job_summary()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_export_jobs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  failure_info() :: %{
-    "ErrorMessage" => String.t(),
-    "FailedRecordsS3Url" => String.t()
-  }
+
+      failure_info() :: %{
+        "ErrorMessage" => String.t(),
+        "FailedRecordsS3Url" => String.t()
+      }
+
   """
   @type failure_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  import_data_source() :: %{
-    "DataFormat" => list(any()),
-    "S3Url" => String.t()
-  }
+
+      import_data_source() :: %{
+        "DataFormat" => list(any()),
+        "S3Url" => String.t()
+      }
+
   """
   @type import_data_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_dedicated_ip_warmup_attributes_request() :: %{
-    required("WarmupPercentage") => integer()
-  }
+
+      put_dedicated_ip_warmup_attributes_request() :: %{
+        required("WarmupPercentage") => integer()
+      }
+
   """
   @type put_dedicated_ip_warmup_attributes_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  domain_deliverability_campaign() :: %{
-    "CampaignId" => String.t(),
-    "DeleteRate" => float(),
-    "Esps" => list(String.t()()),
-    "FirstSeenDateTime" => non_neg_integer(),
-    "FromAddress" => String.t(),
-    "ImageUrl" => String.t(),
-    "InboxCount" => float(),
-    "LastSeenDateTime" => non_neg_integer(),
-    "ProjectedVolume" => float(),
-    "ReadDeleteRate" => float(),
-    "ReadRate" => float(),
-    "SendingIps" => list(String.t()()),
-    "SpamCount" => float(),
-    "Subject" => String.t()
-  }
+
+      domain_deliverability_campaign() :: %{
+        "CampaignId" => String.t(),
+        "DeleteRate" => float(),
+        "Esps" => list(String.t()()),
+        "FirstSeenDateTime" => non_neg_integer(),
+        "FromAddress" => String.t(),
+        "ImageUrl" => String.t(),
+        "InboxCount" => float(),
+        "LastSeenDateTime" => non_neg_integer(),
+        "ProjectedVolume" => float(),
+        "ReadDeleteRate" => float(),
+        "ReadRate" => float(),
+        "SendingIps" => list(String.t()()),
+        "SpamCount" => float(),
+        "Subject" => String.t()
+      }
+
   """
   @type domain_deliverability_campaign() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  replacement_template() :: %{
-    "ReplacementTemplateData" => String.t()
-  }
+
+      replacement_template() :: %{
+        "ReplacementTemplateData" => String.t()
+      }
+
   """
   @type replacement_template() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_recommendations_response() :: %{
-    "NextToken" => String.t(),
-    "Recommendations" => list(recommendation()())
-  }
+
+      list_recommendations_response() :: %{
+        "NextToken" => String.t(),
+        "Recommendations" => list(recommendation()())
+      }
+
   """
   @type list_recommendations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_email_identity_configuration_set_attributes_request() :: %{
-    optional("ConfigurationSetName") => String.t()
-  }
+
+      put_email_identity_configuration_set_attributes_request() :: %{
+        optional("ConfigurationSetName") => String.t()
+      }
+
   """
   @type put_email_identity_configuration_set_attributes_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_account_request() :: %{
 
-  }
+      get_account_request() :: %{}
+
   """
-  @type get_account_request() :: %{String.t() => any()}
+  @type get_account_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_dedicated_ip_request() :: %{
 
-  }
+      get_dedicated_ip_request() :: %{}
+
   """
-  @type get_dedicated_ip_request() :: %{String.t() => any()}
+  @type get_dedicated_ip_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  export_destination() :: %{
-    "DataFormat" => list(any()),
-    "S3Url" => String.t()
-  }
+
+      export_destination() :: %{
+        "DataFormat" => list(any()),
+        "S3Url" => String.t()
+      }
+
   """
   @type export_destination() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_contact_response() :: %{
-    "AttributesData" => String.t(),
-    "ContactListName" => String.t(),
-    "CreatedTimestamp" => non_neg_integer(),
-    "EmailAddress" => String.t(),
-    "LastUpdatedTimestamp" => non_neg_integer(),
-    "TopicDefaultPreferences" => list(topic_preference()()),
-    "TopicPreferences" => list(topic_preference()()),
-    "UnsubscribeAll" => boolean()
-  }
+
+      get_contact_response() :: %{
+        "AttributesData" => String.t(),
+        "ContactListName" => String.t(),
+        "CreatedTimestamp" => non_neg_integer(),
+        "EmailAddress" => String.t(),
+        "LastUpdatedTimestamp" => non_neg_integer(),
+        "TopicDefaultPreferences" => list(topic_preference()()),
+        "TopicPreferences" => list(topic_preference()()),
+        "UnsubscribeAll" => boolean()
+      }
+
   """
   @type get_contact_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_email_identities_request() :: %{
-    optional("NextToken") => String.t(),
-    optional("PageSize") => integer()
-  }
+
+      list_email_identities_request() :: %{
+        optional("NextToken") => String.t(),
+        optional("PageSize") => integer()
+      }
+
   """
   @type list_email_identities_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  complaint() :: %{
-    "ComplaintFeedbackType" => String.t(),
-    "ComplaintSubType" => String.t()
-  }
+
+      complaint() :: %{
+        "ComplaintFeedbackType" => String.t(),
+        "ComplaintSubType" => String.t()
+      }
+
   """
   @type complaint() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_configuration_set_reputation_options_request() :: %{
-    optional("ReputationMetricsEnabled") => boolean()
-  }
+
+      put_configuration_set_reputation_options_request() :: %{
+        optional("ReputationMetricsEnabled") => boolean()
+      }
+
   """
   @type put_configuration_set_reputation_options_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  bulk_email_entry() :: %{
-    optional("ReplacementEmailContent") => replacement_email_content(),
-    optional("ReplacementTags") => list(message_tag()()),
-    required("Destination") => destination()
-  }
+
+      bulk_email_entry() :: %{
+        optional("ReplacementEmailContent") => replacement_email_content(),
+        optional("ReplacementTags") => list(message_tag()()),
+        required("Destination") => destination()
+      }
+
   """
   @type bulk_email_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_configuration_set_request() :: %{
-    optional("DeliveryOptions") => delivery_options(),
-    optional("ReputationOptions") => reputation_options(),
-    optional("SendingOptions") => sending_options(),
-    optional("SuppressionOptions") => suppression_options(),
-    optional("Tags") => list(tag()()),
-    optional("TrackingOptions") => tracking_options(),
-    optional("VdmOptions") => vdm_options(),
-    required("ConfigurationSetName") => String.t()
-  }
+
+      create_configuration_set_request() :: %{
+        optional("DeliveryOptions") => delivery_options(),
+        optional("ReputationOptions") => reputation_options(),
+        optional("SendingOptions") => sending_options(),
+        optional("SuppressionOptions") => suppression_options(),
+        optional("Tags") => list(tag()()),
+        optional("TrackingOptions") => tracking_options(),
+        optional("VdmOptions") => vdm_options(),
+        required("ConfigurationSetName") => String.t()
+      }
+
   """
   @type create_configuration_set_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  email_template_metadata() :: %{
-    "CreatedTimestamp" => non_neg_integer(),
-    "TemplateName" => String.t()
-  }
+
+      email_template_metadata() :: %{
+        "CreatedTimestamp" => non_neg_integer(),
+        "TemplateName" => String.t()
+      }
+
   """
   @type email_template_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  export_metric() :: %{
-    "Aggregation" => list(any()),
-    "Name" => list(any())
-  }
+
+      export_metric() :: %{
+        "Aggregation" => list(any()),
+        "Name" => list(any())
+      }
+
   """
   @type export_metric() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  sns_destination() :: %{
-    "TopicArn" => String.t()
-  }
+
+      sns_destination() :: %{
+        "TopicArn" => String.t()
+      }
+
   """
   @type sns_destination() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  test_render_email_template_response() :: %{
-    "RenderedTemplate" => String.t()
-  }
+
+      test_render_email_template_response() :: %{
+        "RenderedTemplate" => String.t()
+      }
+
   """
   @type test_render_email_template_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_email_template_response() :: %{
 
-  }
+      create_email_template_response() :: %{}
+
   """
-  @type create_email_template_response() :: %{String.t() => any()}
+  @type create_email_template_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  update_contact_list_request() :: %{
-    optional("Description") => String.t(),
-    optional("Topics") => list(topic()())
-  }
+
+      update_contact_list_request() :: %{
+        optional("Description") => String.t(),
+        optional("Topics") => list(topic()())
+      }
+
   """
   @type update_contact_list_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  metric_data_result() :: %{
-    "Id" => String.t(),
-    "Timestamps" => list(non_neg_integer()()),
-    "Values" => list(float()())
-  }
+
+      metric_data_result() :: %{
+        "Id" => String.t(),
+        "Timestamps" => list(non_neg_integer()()),
+        "Values" => list(float()())
+      }
+
   """
   @type metric_data_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  pinpoint_destination() :: %{
-    "ApplicationArn" => String.t()
-  }
+
+      pinpoint_destination() :: %{
+        "ApplicationArn" => String.t()
+      }
+
   """
   @type pinpoint_destination() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_email_identity_feedback_attributes_response() :: %{
 
-  }
+      put_email_identity_feedback_attributes_response() :: %{}
+
   """
-  @type put_email_identity_feedback_attributes_response() :: %{String.t() => any()}
+  @type put_email_identity_feedback_attributes_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  deliverability_test_report() :: %{
-    "CreateDate" => non_neg_integer(),
-    "DeliverabilityTestStatus" => list(any()),
-    "FromEmailAddress" => String.t(),
-    "ReportId" => String.t(),
-    "ReportName" => String.t(),
-    "Subject" => String.t()
-  }
+
+      deliverability_test_report() :: %{
+        "CreateDate" => non_neg_integer(),
+        "DeliverabilityTestStatus" => list(any()),
+        "FromEmailAddress" => String.t(),
+        "ReportId" => String.t(),
+        "ReportName" => String.t(),
+        "Subject" => String.t()
+      }
+
   """
   @type deliverability_test_report() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_deliverability_test_report_response() :: %{
-    "DeliverabilityTestReport" => deliverability_test_report(),
-    "IspPlacements" => list(isp_placement()()),
-    "Message" => String.t(),
-    "OverallPlacement" => placement_statistics(),
-    "Tags" => list(tag()())
-  }
+
+      get_deliverability_test_report_response() :: %{
+        "DeliverabilityTestReport" => deliverability_test_report(),
+        "IspPlacements" => list(isp_placement()()),
+        "Message" => String.t(),
+        "OverallPlacement" => placement_statistics(),
+        "Tags" => list(tag()())
+      }
+
   """
   @type get_deliverability_test_report_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_recommendations_request() :: %{
-    optional("Filter") => map(),
-    optional("NextToken") => String.t(),
-    optional("PageSize") => integer()
-  }
+
+      list_recommendations_request() :: %{
+        optional("Filter") => map(),
+        optional("NextToken") => String.t(),
+        optional("PageSize") => integer()
+      }
+
   """
   @type list_recommendations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  custom_verification_email_template_metadata() :: %{
-    "FailureRedirectionURL" => String.t(),
-    "FromEmailAddress" => String.t(),
-    "SuccessRedirectionURL" => String.t(),
-    "TemplateName" => String.t(),
-    "TemplateSubject" => String.t()
-  }
+
+      custom_verification_email_template_metadata() :: %{
+        "FailureRedirectionURL" => String.t(),
+        "FromEmailAddress" => String.t(),
+        "SuccessRedirectionURL" => String.t(),
+        "TemplateName" => String.t(),
+        "TemplateSubject" => String.t()
+      }
+
   """
   @type custom_verification_email_template_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  topic_filter() :: %{
-    "TopicName" => String.t(),
-    "UseDefaultIfPreferenceUnavailable" => boolean()
-  }
+
+      topic_filter() :: %{
+        "TopicName" => String.t(),
+        "UseDefaultIfPreferenceUnavailable" => boolean()
+      }
+
   """
   @type topic_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_email_identity_request() :: %{
 
-  }
+      get_email_identity_request() :: %{}
+
   """
-  @type get_email_identity_request() :: %{String.t() => any()}
+  @type get_email_identity_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_dedicated_ips_response() :: %{
-    "DedicatedIps" => list(dedicated_ip()()),
-    "NextToken" => String.t()
-  }
+
+      get_dedicated_ips_response() :: %{
+        "DedicatedIps" => list(dedicated_ip()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type get_dedicated_ips_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_contact_lists_response() :: %{
-    "ContactLists" => list(contact_list()()),
-    "NextToken" => String.t()
-  }
+
+      list_contact_lists_response() :: %{
+        "ContactLists" => list(contact_list()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_contact_lists_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  message() :: %{
-    "Body" => body(),
-    "Headers" => list(message_header()()),
-    "Subject" => content()
-  }
+
+      message() :: %{
+        "Body" => body(),
+        "Headers" => list(message_header()()),
+        "Subject" => content()
+      }
+
   """
   @type message() :: %{String.t() => any()}
+
+  @type batch_get_metric_data_errors() ::
+          bad_request_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | internal_service_error_exception()
+
+  @type cancel_export_job_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type create_configuration_set_errors() ::
+          bad_request_exception()
+          | limit_exceeded_exception()
+          | concurrent_modification_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | already_exists_exception()
+
+  @type create_configuration_set_event_destination_errors() ::
+          bad_request_exception()
+          | limit_exceeded_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | already_exists_exception()
+
+  @type create_contact_errors() ::
+          bad_request_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | already_exists_exception()
+
+  @type create_contact_list_errors() ::
+          bad_request_exception()
+          | limit_exceeded_exception()
+          | too_many_requests_exception()
+          | already_exists_exception()
+
+  @type create_custom_verification_email_template_errors() ::
+          bad_request_exception()
+          | limit_exceeded_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | already_exists_exception()
+
+  @type create_dedicated_ip_pool_errors() ::
+          bad_request_exception()
+          | limit_exceeded_exception()
+          | concurrent_modification_exception()
+          | too_many_requests_exception()
+          | already_exists_exception()
+
+  @type create_deliverability_test_report_errors() ::
+          bad_request_exception()
+          | limit_exceeded_exception()
+          | message_rejected()
+          | concurrent_modification_exception()
+          | not_found_exception()
+          | mail_from_domain_not_verified_exception()
+          | too_many_requests_exception()
+          | account_suspended_exception()
+          | sending_paused_exception()
+
+  @type create_email_identity_errors() ::
+          bad_request_exception()
+          | limit_exceeded_exception()
+          | concurrent_modification_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | already_exists_exception()
+
+  @type create_email_identity_policy_errors() ::
+          bad_request_exception()
+          | limit_exceeded_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | already_exists_exception()
+
+  @type create_email_template_errors() ::
+          bad_request_exception()
+          | limit_exceeded_exception()
+          | too_many_requests_exception()
+          | already_exists_exception()
+
+  @type create_export_job_errors() ::
+          bad_request_exception()
+          | limit_exceeded_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+
+  @type create_import_job_errors() ::
+          bad_request_exception() | limit_exceeded_exception() | too_many_requests_exception()
+
+  @type delete_configuration_set_errors() ::
+          bad_request_exception()
+          | concurrent_modification_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+
+  @type delete_configuration_set_event_destination_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type delete_contact_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type delete_contact_list_errors() ::
+          bad_request_exception()
+          | concurrent_modification_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+
+  @type delete_custom_verification_email_template_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type delete_dedicated_ip_pool_errors() ::
+          bad_request_exception()
+          | concurrent_modification_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+
+  @type delete_email_identity_errors() ::
+          bad_request_exception()
+          | concurrent_modification_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+
+  @type delete_email_identity_policy_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type delete_email_template_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type delete_suppressed_destination_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type get_account_errors() :: bad_request_exception() | too_many_requests_exception()
+
+  @type get_blacklist_reports_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type get_configuration_set_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type get_configuration_set_event_destinations_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type get_contact_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type get_contact_list_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type get_custom_verification_email_template_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type get_dedicated_ip_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type get_dedicated_ip_pool_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type get_dedicated_ips_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type get_deliverability_dashboard_options_errors() ::
+          bad_request_exception() | limit_exceeded_exception() | too_many_requests_exception()
+
+  @type get_deliverability_test_report_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type get_domain_deliverability_campaign_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type get_domain_statistics_report_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type get_email_identity_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type get_email_identity_policies_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type get_email_template_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type get_export_job_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type get_import_job_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type get_message_insights_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type get_suppressed_destination_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type list_configuration_sets_errors() ::
+          bad_request_exception() | too_many_requests_exception()
+
+  @type list_contact_lists_errors() :: bad_request_exception() | too_many_requests_exception()
+
+  @type list_contacts_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type list_custom_verification_email_templates_errors() ::
+          bad_request_exception() | too_many_requests_exception()
+
+  @type list_dedicated_ip_pools_errors() ::
+          bad_request_exception() | too_many_requests_exception()
+
+  @type list_deliverability_test_reports_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type list_domain_deliverability_campaigns_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type list_email_identities_errors() :: bad_request_exception() | too_many_requests_exception()
+
+  @type list_email_templates_errors() :: bad_request_exception() | too_many_requests_exception()
+
+  @type list_export_jobs_errors() :: bad_request_exception() | too_many_requests_exception()
+
+  @type list_import_jobs_errors() :: bad_request_exception() | too_many_requests_exception()
+
+  @type list_recommendations_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type list_suppressed_destinations_errors() ::
+          bad_request_exception() | invalid_next_token_exception() | too_many_requests_exception()
+
+  @type list_tags_for_resource_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type put_account_dedicated_ip_warmup_attributes_errors() ::
+          bad_request_exception() | too_many_requests_exception()
+
+  @type put_account_details_errors() ::
+          bad_request_exception() | conflict_exception() | too_many_requests_exception()
+
+  @type put_account_sending_attributes_errors() ::
+          bad_request_exception() | too_many_requests_exception()
+
+  @type put_account_suppression_attributes_errors() ::
+          bad_request_exception() | too_many_requests_exception()
+
+  @type put_account_vdm_attributes_errors() ::
+          bad_request_exception() | too_many_requests_exception()
+
+  @type put_configuration_set_delivery_options_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type put_configuration_set_reputation_options_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type put_configuration_set_sending_options_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type put_configuration_set_suppression_options_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type put_configuration_set_tracking_options_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type put_configuration_set_vdm_options_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type put_dedicated_ip_in_pool_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type put_dedicated_ip_pool_scaling_attributes_errors() ::
+          bad_request_exception()
+          | concurrent_modification_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+
+  @type put_dedicated_ip_warmup_attributes_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type put_deliverability_dashboard_option_errors() ::
+          bad_request_exception()
+          | limit_exceeded_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | already_exists_exception()
+
+  @type put_email_identity_configuration_set_attributes_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type put_email_identity_dkim_attributes_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type put_email_identity_dkim_signing_attributes_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type put_email_identity_feedback_attributes_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type put_email_identity_mail_from_attributes_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type put_suppressed_destination_errors() ::
+          bad_request_exception() | too_many_requests_exception()
+
+  @type send_bulk_email_errors() ::
+          bad_request_exception()
+          | limit_exceeded_exception()
+          | message_rejected()
+          | not_found_exception()
+          | mail_from_domain_not_verified_exception()
+          | too_many_requests_exception()
+          | account_suspended_exception()
+          | sending_paused_exception()
+
+  @type send_custom_verification_email_errors() ::
+          bad_request_exception()
+          | limit_exceeded_exception()
+          | message_rejected()
+          | not_found_exception()
+          | mail_from_domain_not_verified_exception()
+          | too_many_requests_exception()
+          | sending_paused_exception()
+
+  @type send_email_errors() ::
+          bad_request_exception()
+          | limit_exceeded_exception()
+          | message_rejected()
+          | not_found_exception()
+          | mail_from_domain_not_verified_exception()
+          | too_many_requests_exception()
+          | account_suspended_exception()
+          | sending_paused_exception()
+
+  @type tag_resource_errors() ::
+          bad_request_exception()
+          | concurrent_modification_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+
+  @type test_render_email_template_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type untag_resource_errors() ::
+          bad_request_exception()
+          | concurrent_modification_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+
+  @type update_configuration_set_event_destination_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type update_contact_errors() ::
+          bad_request_exception()
+          | concurrent_modification_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+
+  @type update_contact_list_errors() ::
+          bad_request_exception()
+          | concurrent_modification_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+
+  @type update_custom_verification_email_template_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type update_email_identity_policy_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type update_email_template_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
 
   def metadata do
     %{
@@ -3010,10 +3806,7 @@ defmodule AWS.SESv2 do
   @spec batch_get_metric_data(map(), batch_get_metric_data_request(), list()) ::
           {:ok, batch_get_metric_data_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, internal_service_error_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, batch_get_metric_data_errors()}
   def batch_get_metric_data(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/metrics/batch"
     headers = []
@@ -3040,9 +3833,7 @@ defmodule AWS.SESv2 do
   @spec cancel_export_job(map(), String.t(), cancel_export_job_request(), list()) ::
           {:ok, cancel_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, cancel_export_job_errors()}
   def cancel_export_job(%Client{} = client, job_id, input, options \\ []) do
     url_path = "/v2/email/export-jobs/#{AWS.Util.encode_uri(job_id)}/cancel"
     headers = []
@@ -3068,12 +3859,7 @@ defmodule AWS.SESv2 do
   @spec create_configuration_set(map(), create_configuration_set_request(), list()) ::
           {:ok, create_configuration_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, already_exists_exception()}
-          | {:error, bad_request_exception()}
-          | {:error, concurrent_modification_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, create_configuration_set_errors()}
   def create_configuration_set(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/configuration-sets"
     headers = []
@@ -3116,11 +3902,7 @@ defmodule AWS.SESv2 do
         ) ::
           {:ok, create_configuration_set_event_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, already_exists_exception()}
-          | {:error, bad_request_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, create_configuration_set_event_destination_errors()}
   def create_configuration_set_event_destination(
         %Client{} = client,
         configuration_set_name,
@@ -3156,10 +3938,7 @@ defmodule AWS.SESv2 do
   @spec create_contact(map(), String.t(), create_contact_request(), list()) ::
           {:ok, create_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, already_exists_exception()}
-          | {:error, bad_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, create_contact_errors()}
   def create_contact(%Client{} = client, contact_list_name, input, options \\ []) do
     url_path = "/v2/email/contact-lists/#{AWS.Util.encode_uri(contact_list_name)}/contacts"
     headers = []
@@ -3186,10 +3965,7 @@ defmodule AWS.SESv2 do
   @spec create_contact_list(map(), create_contact_list_request(), list()) ::
           {:ok, create_contact_list_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, already_exists_exception()}
-          | {:error, bad_request_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, create_contact_list_errors()}
   def create_contact_list(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/contact-lists"
     headers = []
@@ -3227,11 +4003,7 @@ defmodule AWS.SESv2 do
         ) ::
           {:ok, create_custom_verification_email_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, already_exists_exception()}
-          | {:error, bad_request_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, create_custom_verification_email_template_errors()}
   def create_custom_verification_email_template(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/custom-verification-email-templates"
     headers = []
@@ -3265,11 +4037,7 @@ defmodule AWS.SESv2 do
   @spec create_dedicated_ip_pool(map(), create_dedicated_ip_pool_request(), list()) ::
           {:ok, create_dedicated_ip_pool_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, already_exists_exception()}
-          | {:error, bad_request_exception()}
-          | {:error, concurrent_modification_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, create_dedicated_ip_pool_errors()}
   def create_dedicated_ip_pool(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/dedicated-ip-pools"
     headers = []
@@ -3312,15 +4080,7 @@ defmodule AWS.SESv2 do
         ) ::
           {:ok, create_deliverability_test_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, account_suspended_exception()}
-          | {:error, bad_request_exception()}
-          | {:error, concurrent_modification_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, mail_from_domain_not_verified_exception()}
-          | {:error, message_rejected()}
-          | {:error, not_found_exception()}
-          | {:error, sending_paused_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, create_deliverability_test_report_errors()}
   def create_deliverability_test_report(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/deliverability-dashboard/test"
     headers = []
@@ -3390,12 +4150,7 @@ defmodule AWS.SESv2 do
   @spec create_email_identity(map(), create_email_identity_request(), list()) ::
           {:ok, create_email_identity_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, already_exists_exception()}
-          | {:error, bad_request_exception()}
-          | {:error, concurrent_modification_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, create_email_identity_errors()}
   def create_email_identity(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/identities"
     headers = []
@@ -3441,11 +4196,7 @@ defmodule AWS.SESv2 do
         ) ::
           {:ok, create_email_identity_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, already_exists_exception()}
-          | {:error, bad_request_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, create_email_identity_policy_errors()}
   def create_email_identity_policy(
         %Client{} = client,
         email_identity,
@@ -3486,10 +4237,7 @@ defmodule AWS.SESv2 do
   @spec create_email_template(map(), create_email_template_request(), list()) ::
           {:ok, create_email_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, already_exists_exception()}
-          | {:error, bad_request_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, create_email_template_errors()}
   def create_email_template(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/templates"
     headers = []
@@ -3518,10 +4266,7 @@ defmodule AWS.SESv2 do
   @spec create_export_job(map(), create_export_job_request(), list()) ::
           {:ok, create_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, create_export_job_errors()}
   def create_export_job(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/export-jobs"
     headers = []
@@ -3548,9 +4293,7 @@ defmodule AWS.SESv2 do
   @spec create_import_job(map(), create_import_job_request(), list()) ::
           {:ok, create_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, create_import_job_errors()}
   def create_import_job(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/import-jobs"
     headers = []
@@ -3584,10 +4327,7 @@ defmodule AWS.SESv2 do
   @spec delete_configuration_set(map(), String.t(), delete_configuration_set_request(), list()) ::
           {:ok, delete_configuration_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, concurrent_modification_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, delete_configuration_set_errors()}
   def delete_configuration_set(%Client{} = client, configuration_set_name, input, options \\ []) do
     url_path = "/v2/email/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}"
     headers = []
@@ -3628,9 +4368,7 @@ defmodule AWS.SESv2 do
         ) ::
           {:ok, delete_configuration_set_event_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, delete_configuration_set_event_destination_errors()}
   def delete_configuration_set_event_destination(
         %Client{} = client,
         configuration_set_name,
@@ -3665,9 +4403,7 @@ defmodule AWS.SESv2 do
   @spec delete_contact(map(), String.t(), String.t(), delete_contact_request(), list()) ::
           {:ok, delete_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, delete_contact_errors()}
   def delete_contact(%Client{} = client, contact_list_name, email_address, input, options \\ []) do
     url_path =
       "/v2/email/contact-lists/#{AWS.Util.encode_uri(contact_list_name)}/contacts/#{AWS.Util.encode_uri(email_address)}"
@@ -3696,10 +4432,7 @@ defmodule AWS.SESv2 do
   @spec delete_contact_list(map(), String.t(), delete_contact_list_request(), list()) ::
           {:ok, delete_contact_list_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, concurrent_modification_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, delete_contact_list_errors()}
   def delete_contact_list(%Client{} = client, contact_list_name, input, options \\ []) do
     url_path = "/v2/email/contact-lists/#{AWS.Util.encode_uri(contact_list_name)}"
     headers = []
@@ -3738,9 +4471,7 @@ defmodule AWS.SESv2 do
         ) ::
           {:ok, delete_custom_verification_email_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, delete_custom_verification_email_template_errors()}
   def delete_custom_verification_email_template(
         %Client{} = client,
         template_name,
@@ -3774,10 +4505,7 @@ defmodule AWS.SESv2 do
   @spec delete_dedicated_ip_pool(map(), String.t(), delete_dedicated_ip_pool_request(), list()) ::
           {:ok, delete_dedicated_ip_pool_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, concurrent_modification_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, delete_dedicated_ip_pool_errors()}
   def delete_dedicated_ip_pool(%Client{} = client, pool_name, input, options \\ []) do
     url_path = "/v2/email/dedicated-ip-pools/#{AWS.Util.encode_uri(pool_name)}"
     headers = []
@@ -3807,10 +4535,7 @@ defmodule AWS.SESv2 do
   @spec delete_email_identity(map(), String.t(), delete_email_identity_request(), list()) ::
           {:ok, delete_email_identity_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, concurrent_modification_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, delete_email_identity_errors()}
   def delete_email_identity(%Client{} = client, email_identity, input, options \\ []) do
     url_path = "/v2/email/identities/#{AWS.Util.encode_uri(email_identity)}"
     headers = []
@@ -3859,9 +4584,7 @@ defmodule AWS.SESv2 do
         ) ::
           {:ok, delete_email_identity_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, delete_email_identity_policy_errors()}
   def delete_email_identity_policy(
         %Client{} = client,
         email_identity,
@@ -3898,9 +4621,7 @@ defmodule AWS.SESv2 do
   @spec delete_email_template(map(), String.t(), delete_email_template_request(), list()) ::
           {:ok, delete_email_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, delete_email_template_errors()}
   def delete_email_template(%Client{} = client, template_name, input, options \\ []) do
     url_path = "/v2/email/templates/#{AWS.Util.encode_uri(template_name)}"
     headers = []
@@ -3932,9 +4653,7 @@ defmodule AWS.SESv2 do
         ) ::
           {:ok, delete_suppressed_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, delete_suppressed_destination_errors()}
   def delete_suppressed_destination(%Client{} = client, email_address, input, options \\ []) do
     url_path = "/v2/email/suppression/addresses/#{AWS.Util.encode_uri(email_address)}"
     headers = []
@@ -3963,8 +4682,7 @@ defmodule AWS.SESv2 do
   @spec get_account(map(), list()) ::
           {:ok, get_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, get_account_errors()}
   def get_account(%Client{} = client, options \\ []) do
     url_path = "/v2/email/account"
     headers = []
@@ -3981,9 +4699,7 @@ defmodule AWS.SESv2 do
   @spec get_blacklist_reports(map(), String.t(), list()) ::
           {:ok, get_blacklist_reports_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, get_blacklist_reports_errors()}
   def get_blacklist_reports(%Client{} = client, blacklist_item_names, options \\ []) do
     url_path = "/v2/email/deliverability-dashboard/blacklist-report"
     headers = []
@@ -4017,9 +4733,7 @@ defmodule AWS.SESv2 do
   @spec get_configuration_set(map(), String.t(), list()) ::
           {:ok, get_configuration_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, get_configuration_set_errors()}
   def get_configuration_set(%Client{} = client, configuration_set_name, options \\ []) do
     url_path = "/v2/email/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}"
     headers = []
@@ -4045,9 +4759,7 @@ defmodule AWS.SESv2 do
   @spec get_configuration_set_event_destinations(map(), String.t(), list()) ::
           {:ok, get_configuration_set_event_destinations_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, get_configuration_set_event_destinations_errors()}
   def get_configuration_set_event_destinations(
         %Client{} = client,
         configuration_set_name,
@@ -4070,9 +4782,7 @@ defmodule AWS.SESv2 do
   @spec get_contact(map(), String.t(), String.t(), list()) ::
           {:ok, get_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, get_contact_errors()}
   def get_contact(%Client{} = client, contact_list_name, email_address, options \\ []) do
     url_path =
       "/v2/email/contact-lists/#{AWS.Util.encode_uri(contact_list_name)}/contacts/#{AWS.Util.encode_uri(email_address)}"
@@ -4094,9 +4804,7 @@ defmodule AWS.SESv2 do
   @spec get_contact_list(map(), String.t(), list()) ::
           {:ok, get_contact_list_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, get_contact_list_errors()}
   def get_contact_list(%Client{} = client, contact_list_name, options \\ []) do
     url_path = "/v2/email/contact-lists/#{AWS.Util.encode_uri(contact_list_name)}"
     headers = []
@@ -4121,9 +4829,7 @@ defmodule AWS.SESv2 do
   @spec get_custom_verification_email_template(map(), String.t(), list()) ::
           {:ok, get_custom_verification_email_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, get_custom_verification_email_template_errors()}
   def get_custom_verification_email_template(%Client{} = client, template_name, options \\ []) do
     url_path =
       "/v2/email/custom-verification-email-templates/#{AWS.Util.encode_uri(template_name)}"
@@ -4146,9 +4852,7 @@ defmodule AWS.SESv2 do
   @spec get_dedicated_ip(map(), String.t(), list()) ::
           {:ok, get_dedicated_ip_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, get_dedicated_ip_errors()}
   def get_dedicated_ip(%Client{} = client, ip, options \\ []) do
     url_path = "/v2/email/dedicated-ips/#{AWS.Util.encode_uri(ip)}"
     headers = []
@@ -4165,9 +4869,7 @@ defmodule AWS.SESv2 do
   @spec get_dedicated_ip_pool(map(), String.t(), list()) ::
           {:ok, get_dedicated_ip_pool_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, get_dedicated_ip_pool_errors()}
   def get_dedicated_ip_pool(%Client{} = client, pool_name, options \\ []) do
     url_path = "/v2/email/dedicated-ip-pools/#{AWS.Util.encode_uri(pool_name)}"
     headers = []
@@ -4186,9 +4888,7 @@ defmodule AWS.SESv2 do
   @spec get_dedicated_ips(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, get_dedicated_ips_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, get_dedicated_ips_errors()}
   def get_dedicated_ips(
         %Client{} = client,
         next_token \\ nil,
@@ -4247,9 +4947,7 @@ defmodule AWS.SESv2 do
   @spec get_deliverability_dashboard_options(map(), list()) ::
           {:ok, get_deliverability_dashboard_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, get_deliverability_dashboard_options_errors()}
   def get_deliverability_dashboard_options(%Client{} = client, options \\ []) do
     url_path = "/v2/email/deliverability-dashboard"
     headers = []
@@ -4266,9 +4964,7 @@ defmodule AWS.SESv2 do
   @spec get_deliverability_test_report(map(), String.t(), list()) ::
           {:ok, get_deliverability_test_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, get_deliverability_test_report_errors()}
   def get_deliverability_test_report(%Client{} = client, report_id, options \\ []) do
     url_path = "/v2/email/deliverability-dashboard/test-reports/#{AWS.Util.encode_uri(report_id)}"
     headers = []
@@ -4289,9 +4985,7 @@ defmodule AWS.SESv2 do
   @spec get_domain_deliverability_campaign(map(), String.t(), list()) ::
           {:ok, get_domain_deliverability_campaign_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, get_domain_deliverability_campaign_errors()}
   def get_domain_deliverability_campaign(%Client{} = client, campaign_id, options \\ []) do
     url_path = "/v2/email/deliverability-dashboard/campaigns/#{AWS.Util.encode_uri(campaign_id)}"
     headers = []
@@ -4310,9 +5004,7 @@ defmodule AWS.SESv2 do
   @spec get_domain_statistics_report(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_domain_statistics_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, get_domain_statistics_report_errors()}
   def get_domain_statistics_report(
         %Client{} = client,
         domain,
@@ -4355,9 +5047,7 @@ defmodule AWS.SESv2 do
   @spec get_email_identity(map(), String.t(), list()) ::
           {:ok, get_email_identity_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, get_email_identity_errors()}
   def get_email_identity(%Client{} = client, email_identity, options \\ []) do
     url_path = "/v2/email/identities/#{AWS.Util.encode_uri(email_identity)}"
     headers = []
@@ -4390,9 +5080,7 @@ defmodule AWS.SESv2 do
   @spec get_email_identity_policies(map(), String.t(), list()) ::
           {:ok, get_email_identity_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, get_email_identity_policies_errors()}
   def get_email_identity_policies(%Client{} = client, email_identity, options \\ []) do
     url_path = "/v2/email/identities/#{AWS.Util.encode_uri(email_identity)}/policies"
     headers = []
@@ -4413,9 +5101,7 @@ defmodule AWS.SESv2 do
   @spec get_email_template(map(), String.t(), list()) ::
           {:ok, get_email_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, get_email_template_errors()}
   def get_email_template(%Client{} = client, template_name, options \\ []) do
     url_path = "/v2/email/templates/#{AWS.Util.encode_uri(template_name)}"
     headers = []
@@ -4432,9 +5118,7 @@ defmodule AWS.SESv2 do
   @spec get_export_job(map(), String.t(), list()) ::
           {:ok, get_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, get_export_job_errors()}
   def get_export_job(%Client{} = client, job_id, options \\ []) do
     url_path = "/v2/email/export-jobs/#{AWS.Util.encode_uri(job_id)}"
     headers = []
@@ -4451,9 +5135,7 @@ defmodule AWS.SESv2 do
   @spec get_import_job(map(), String.t(), list()) ::
           {:ok, get_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, get_import_job_errors()}
   def get_import_job(%Client{} = client, job_id, options \\ []) do
     url_path = "/v2/email/import-jobs/#{AWS.Util.encode_uri(job_id)}"
     headers = []
@@ -4474,9 +5156,7 @@ defmodule AWS.SESv2 do
   @spec get_message_insights(map(), String.t(), list()) ::
           {:ok, get_message_insights_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, get_message_insights_errors()}
   def get_message_insights(%Client{} = client, message_id, options \\ []) do
     url_path = "/v2/email/insights/#{AWS.Util.encode_uri(message_id)}"
     headers = []
@@ -4495,9 +5175,7 @@ defmodule AWS.SESv2 do
   @spec get_suppressed_destination(map(), String.t(), list()) ::
           {:ok, get_suppressed_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, get_suppressed_destination_errors()}
   def get_suppressed_destination(%Client{} = client, email_address, options \\ []) do
     url_path = "/v2/email/suppression/addresses/#{AWS.Util.encode_uri(email_address)}"
     headers = []
@@ -4522,8 +5200,7 @@ defmodule AWS.SESv2 do
   @spec list_configuration_sets(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_configuration_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, list_configuration_sets_errors()}
   def list_configuration_sets(
         %Client{} = client,
         next_token \\ nil,
@@ -4559,8 +5236,7 @@ defmodule AWS.SESv2 do
   @spec list_contact_lists(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_contact_lists_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, list_contact_lists_errors()}
   def list_contact_lists(%Client{} = client, next_token \\ nil, page_size \\ nil, options \\ []) do
     url_path = "/v2/email/contact-lists"
     headers = []
@@ -4591,9 +5267,7 @@ defmodule AWS.SESv2 do
   @spec list_contacts(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_contacts_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, list_contacts_errors()}
   def list_contacts(
         %Client{} = client,
         contact_list_name,
@@ -4644,8 +5318,7 @@ defmodule AWS.SESv2 do
         ) ::
           {:ok, list_custom_verification_email_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, list_custom_verification_email_templates_errors()}
   def list_custom_verification_email_templates(
         %Client{} = client,
         next_token \\ nil,
@@ -4683,8 +5356,7 @@ defmodule AWS.SESv2 do
   @spec list_dedicated_ip_pools(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_dedicated_ip_pools_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, list_dedicated_ip_pools_errors()}
   def list_dedicated_ip_pools(
         %Client{} = client,
         next_token \\ nil,
@@ -4726,9 +5398,7 @@ defmodule AWS.SESv2 do
   @spec list_deliverability_test_reports(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_deliverability_test_reports_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, list_deliverability_test_reports_errors()}
   def list_deliverability_test_reports(
         %Client{} = client,
         next_token \\ nil,
@@ -4777,9 +5447,7 @@ defmodule AWS.SESv2 do
         ) ::
           {:ok, list_domain_deliverability_campaigns_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, list_domain_deliverability_campaigns_errors()}
   def list_domain_deliverability_campaigns(
         %Client{} = client,
         subscribed_domain,
@@ -4841,8 +5509,7 @@ defmodule AWS.SESv2 do
   @spec list_email_identities(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_email_identities_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, list_email_identities_errors()}
   def list_email_identities(
         %Client{} = client,
         next_token \\ nil,
@@ -4882,8 +5549,7 @@ defmodule AWS.SESv2 do
   @spec list_email_templates(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_email_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, list_email_templates_errors()}
   def list_email_templates(%Client{} = client, next_token \\ nil, page_size \\ nil, options \\ []) do
     url_path = "/v2/email/templates"
     headers = []
@@ -4914,8 +5580,7 @@ defmodule AWS.SESv2 do
   @spec list_export_jobs(map(), list_export_jobs_request(), list()) ::
           {:ok, list_export_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, list_export_jobs_errors()}
   def list_export_jobs(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/list-export-jobs"
     headers = []
@@ -4942,8 +5607,7 @@ defmodule AWS.SESv2 do
   @spec list_import_jobs(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_import_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, list_import_jobs_errors()}
   def list_import_jobs(%Client{} = client, next_token \\ nil, page_size \\ nil, options \\ []) do
     url_path = "/v2/email/import-jobs"
     headers = []
@@ -4977,9 +5641,7 @@ defmodule AWS.SESv2 do
   @spec list_recommendations(map(), list_recommendations_request(), list()) ::
           {:ok, list_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, list_recommendations_errors()}
   def list_recommendations(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/vdm/recommendations"
     headers = []
@@ -5015,9 +5677,7 @@ defmodule AWS.SESv2 do
         ) ::
           {:ok, list_suppressed_destinations_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, invalid_next_token_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, list_suppressed_destinations_errors()}
   def list_suppressed_destinations(
         %Client{} = client,
         end_date \\ nil,
@@ -5086,9 +5746,7 @@ defmodule AWS.SESv2 do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/v2/email/tags"
     headers = []
@@ -5116,8 +5774,7 @@ defmodule AWS.SESv2 do
         ) ::
           {:ok, put_account_dedicated_ip_warmup_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, put_account_dedicated_ip_warmup_attributes_errors()}
   def put_account_dedicated_ip_warmup_attributes(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/account/dedicated-ips/warmup"
     headers = []
@@ -5134,9 +5791,7 @@ defmodule AWS.SESv2 do
   @spec put_account_details(map(), put_account_details_request(), list()) ::
           {:ok, put_account_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, conflict_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, put_account_details_errors()}
   def put_account_details(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/account/details"
     headers = []
@@ -5163,8 +5818,7 @@ defmodule AWS.SESv2 do
   @spec put_account_sending_attributes(map(), put_account_sending_attributes_request(), list()) ::
           {:ok, put_account_sending_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, put_account_sending_attributes_errors()}
   def put_account_sending_attributes(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/account/sending"
     headers = []
@@ -5185,8 +5839,7 @@ defmodule AWS.SESv2 do
         ) ::
           {:ok, put_account_suppression_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, put_account_suppression_attributes_errors()}
   def put_account_suppression_attributes(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/account/suppression"
     headers = []
@@ -5205,8 +5858,7 @@ defmodule AWS.SESv2 do
   @spec put_account_vdm_attributes(map(), put_account_vdm_attributes_request(), list()) ::
           {:ok, put_account_vdm_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, put_account_vdm_attributes_errors()}
   def put_account_vdm_attributes(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/account/vdm"
     headers = []
@@ -5231,9 +5883,7 @@ defmodule AWS.SESv2 do
         ) ::
           {:ok, put_configuration_set_delivery_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, put_configuration_set_delivery_options_errors()}
   def put_configuration_set_delivery_options(
         %Client{} = client,
         configuration_set_name,
@@ -5264,9 +5914,7 @@ defmodule AWS.SESv2 do
         ) ::
           {:ok, put_configuration_set_reputation_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, put_configuration_set_reputation_options_errors()}
   def put_configuration_set_reputation_options(
         %Client{} = client,
         configuration_set_name,
@@ -5297,9 +5945,7 @@ defmodule AWS.SESv2 do
         ) ::
           {:ok, put_configuration_set_sending_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, put_configuration_set_sending_options_errors()}
   def put_configuration_set_sending_options(
         %Client{} = client,
         configuration_set_name,
@@ -5328,9 +5974,7 @@ defmodule AWS.SESv2 do
         ) ::
           {:ok, put_configuration_set_suppression_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, put_configuration_set_suppression_options_errors()}
   def put_configuration_set_suppression_options(
         %Client{} = client,
         configuration_set_name,
@@ -5361,9 +6005,7 @@ defmodule AWS.SESv2 do
         ) ::
           {:ok, put_configuration_set_tracking_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, put_configuration_set_tracking_options_errors()}
   def put_configuration_set_tracking_options(
         %Client{} = client,
         configuration_set_name,
@@ -5394,9 +6036,7 @@ defmodule AWS.SESv2 do
         ) ::
           {:ok, put_configuration_set_vdm_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, put_configuration_set_vdm_options_errors()}
   def put_configuration_set_vdm_options(
         %Client{} = client,
         configuration_set_name,
@@ -5427,9 +6067,7 @@ defmodule AWS.SESv2 do
   @spec put_dedicated_ip_in_pool(map(), String.t(), put_dedicated_ip_in_pool_request(), list()) ::
           {:ok, put_dedicated_ip_in_pool_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, put_dedicated_ip_in_pool_errors()}
   def put_dedicated_ip_in_pool(%Client{} = client, ip, input, options \\ []) do
     url_path = "/v2/email/dedicated-ips/#{AWS.Util.encode_uri(ip)}/pool"
     headers = []
@@ -5453,10 +6091,7 @@ defmodule AWS.SESv2 do
         ) ::
           {:ok, put_dedicated_ip_pool_scaling_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, concurrent_modification_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, put_dedicated_ip_pool_scaling_attributes_errors()}
   def put_dedicated_ip_pool_scaling_attributes(
         %Client{} = client,
         pool_name,
@@ -5480,9 +6115,7 @@ defmodule AWS.SESv2 do
         ) ::
           {:ok, put_dedicated_ip_warmup_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, put_dedicated_ip_warmup_attributes_errors()}
   def put_dedicated_ip_warmup_attributes(%Client{} = client, ip, input, options \\ []) do
     url_path = "/v2/email/dedicated-ips/#{AWS.Util.encode_uri(ip)}/warmup"
     headers = []
@@ -5516,11 +6149,7 @@ defmodule AWS.SESv2 do
         ) ::
           {:ok, put_deliverability_dashboard_option_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, already_exists_exception()}
-          | {:error, bad_request_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, put_deliverability_dashboard_option_errors()}
   def put_deliverability_dashboard_option(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/deliverability-dashboard"
     headers = []
@@ -5542,9 +6171,7 @@ defmodule AWS.SESv2 do
         ) ::
           {:ok, put_email_identity_configuration_set_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, put_email_identity_configuration_set_attributes_errors()}
   def put_email_identity_configuration_set_attributes(
         %Client{} = client,
         email_identity,
@@ -5571,9 +6198,7 @@ defmodule AWS.SESv2 do
         ) ::
           {:ok, put_email_identity_dkim_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, put_email_identity_dkim_attributes_errors()}
   def put_email_identity_dkim_attributes(%Client{} = client, email_identity, input, options \\ []) do
     url_path = "/v2/email/identities/#{AWS.Util.encode_uri(email_identity)}/dkim"
     headers = []
@@ -5617,9 +6242,7 @@ defmodule AWS.SESv2 do
         ) ::
           {:ok, put_email_identity_dkim_signing_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, put_email_identity_dkim_signing_attributes_errors()}
   def put_email_identity_dkim_signing_attributes(
         %Client{} = client,
         email_identity,
@@ -5664,9 +6287,7 @@ defmodule AWS.SESv2 do
         ) ::
           {:ok, put_email_identity_feedback_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, put_email_identity_feedback_attributes_errors()}
   def put_email_identity_feedback_attributes(
         %Client{} = client,
         email_identity,
@@ -5694,9 +6315,7 @@ defmodule AWS.SESv2 do
         ) ::
           {:ok, put_email_identity_mail_from_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, put_email_identity_mail_from_attributes_errors()}
   def put_email_identity_mail_from_attributes(
         %Client{} = client,
         email_identity,
@@ -5718,8 +6337,7 @@ defmodule AWS.SESv2 do
   @spec put_suppressed_destination(map(), put_suppressed_destination_request(), list()) ::
           {:ok, put_suppressed_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, put_suppressed_destination_errors()}
   def put_suppressed_destination(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/suppression/addresses"
     headers = []
@@ -5736,14 +6354,7 @@ defmodule AWS.SESv2 do
   @spec send_bulk_email(map(), send_bulk_email_request(), list()) ::
           {:ok, send_bulk_email_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, account_suspended_exception()}
-          | {:error, bad_request_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, mail_from_domain_not_verified_exception()}
-          | {:error, message_rejected()}
-          | {:error, not_found_exception()}
-          | {:error, sending_paused_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, send_bulk_email_errors()}
   def send_bulk_email(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/outbound-bulk-emails"
     headers = []
@@ -5786,13 +6397,7 @@ defmodule AWS.SESv2 do
   @spec send_custom_verification_email(map(), send_custom_verification_email_request(), list()) ::
           {:ok, send_custom_verification_email_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, mail_from_domain_not_verified_exception()}
-          | {:error, message_rejected()}
-          | {:error, not_found_exception()}
-          | {:error, sending_paused_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, send_custom_verification_email_errors()}
   def send_custom_verification_email(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/outbound-custom-verification-emails"
     headers = []
@@ -5843,14 +6448,7 @@ defmodule AWS.SESv2 do
   @spec send_email(map(), send_email_request(), list()) ::
           {:ok, send_email_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, account_suspended_exception()}
-          | {:error, bad_request_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, mail_from_domain_not_verified_exception()}
-          | {:error, message_rejected()}
-          | {:error, not_found_exception()}
-          | {:error, sending_paused_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, send_email_errors()}
   def send_email(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/outbound-emails"
     headers = []
@@ -5891,10 +6489,7 @@ defmodule AWS.SESv2 do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, concurrent_modification_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/tags"
     headers = []
@@ -5930,9 +6525,7 @@ defmodule AWS.SESv2 do
         ) ::
           {:ok, test_render_email_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, test_render_email_template_errors()}
   def test_render_email_template(%Client{} = client, template_name, input, options \\ []) do
     url_path = "/v2/email/templates/#{AWS.Util.encode_uri(template_name)}/render"
     headers = []
@@ -5959,10 +6552,7 @@ defmodule AWS.SESv2 do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, concurrent_modification_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/tags"
     headers = []
@@ -6009,9 +6599,7 @@ defmodule AWS.SESv2 do
         ) ::
           {:ok, update_configuration_set_event_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, update_configuration_set_event_destination_errors()}
   def update_configuration_set_event_destination(
         %Client{} = client,
         configuration_set_name,
@@ -6040,10 +6628,7 @@ defmodule AWS.SESv2 do
   @spec update_contact(map(), String.t(), String.t(), update_contact_request(), list()) ::
           {:ok, update_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, concurrent_modification_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, update_contact_errors()}
   def update_contact(%Client{} = client, contact_list_name, email_address, input, options \\ []) do
     url_path =
       "/v2/email/contact-lists/#{AWS.Util.encode_uri(contact_list_name)}/contacts/#{AWS.Util.encode_uri(email_address)}"
@@ -6064,10 +6649,7 @@ defmodule AWS.SESv2 do
   @spec update_contact_list(map(), String.t(), update_contact_list_request(), list()) ::
           {:ok, update_contact_list_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, concurrent_modification_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, update_contact_list_errors()}
   def update_contact_list(%Client{} = client, contact_list_name, input, options \\ []) do
     url_path = "/v2/email/contact-lists/#{AWS.Util.encode_uri(contact_list_name)}"
     headers = []
@@ -6096,9 +6678,7 @@ defmodule AWS.SESv2 do
         ) ::
           {:ok, update_custom_verification_email_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, update_custom_verification_email_template_errors()}
   def update_custom_verification_email_template(
         %Client{} = client,
         template_name,
@@ -6144,9 +6724,7 @@ defmodule AWS.SESv2 do
         ) ::
           {:ok, update_email_identity_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, update_email_identity_policy_errors()}
   def update_email_identity_policy(
         %Client{} = client,
         email_identity,
@@ -6177,9 +6755,7 @@ defmodule AWS.SESv2 do
   @spec update_email_template(map(), String.t(), update_email_template_request(), list()) ::
           {:ok, update_email_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, bad_request_exception()}
-          | {:error, not_found_exception()}
-          | {:error, too_many_requests_exception()}
+          | {:error, update_email_template_errors()}
   def update_email_template(%Client{} = client, template_name, input, options \\ []) do
     url_path = "/v2/email/templates/#{AWS.Util.encode_uri(template_name)}"
     headers = []

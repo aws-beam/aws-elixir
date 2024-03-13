@@ -23,2691 +23,3884 @@ defmodule AWS.CloudDirectory do
   @typedoc """
 
   ## Example:
-  incompatible_schema_exception() :: %{
-    "Message" => String.t()
-  }
+
+      incompatible_schema_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type incompatible_schema_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_facet_request() :: %{
-    required("Name") => String.t(),
-    required("SchemaArn") => String.t()
-  }
+
+      get_facet_request() :: %{
+        required("Name") => String.t(),
+        required("SchemaArn") => String.t()
+      }
+
   """
   @type get_facet_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  object_attribute_range() :: %{
-    "AttributeKey" => attribute_key(),
-    "Range" => typed_attribute_value_range()
-  }
+
+      object_attribute_range() :: %{
+        "AttributeKey" => attribute_key(),
+        "Range" => typed_attribute_value_range()
+      }
+
   """
   @type object_attribute_range() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_get_link_attributes() :: %{
-    "AttributeNames" => list(String.t()()),
-    "TypedLinkSpecifier" => typed_link_specifier()
-  }
+
+      batch_get_link_attributes() :: %{
+        "AttributeNames" => list(String.t()()),
+        "TypedLinkSpecifier" => typed_link_specifier()
+      }
+
   """
   @type batch_get_link_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_list_policy_attachments() :: %{
-    "MaxResults" => integer(),
-    "NextToken" => String.t(),
-    "PolicyReference" => object_reference()
-  }
+
+      batch_list_policy_attachments() :: %{
+        "MaxResults" => integer(),
+        "NextToken" => String.t(),
+        "PolicyReference" => object_reference()
+      }
+
   """
   @type batch_list_policy_attachments() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_object_request() :: %{
-    required("DirectoryArn") => String.t(),
-    required("ObjectReference") => object_reference()
-  }
+
+      delete_object_request() :: %{
+        required("DirectoryArn") => String.t(),
+        required("ObjectReference") => object_reference()
+      }
+
   """
   @type delete_object_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  policy_to_path() :: %{
-    "Path" => String.t(),
-    "Policies" => list(policy_attachment()())
-  }
+
+      policy_to_path() :: %{
+        "Path" => String.t(),
+        "Policies" => list(policy_attachment()())
+      }
+
   """
   @type policy_to_path() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_incoming_typed_links_response() :: %{
-    "LinkSpecifiers" => list(typed_link_specifier()()),
-    "NextToken" => String.t()
-  }
+
+      list_incoming_typed_links_response() :: %{
+        "LinkSpecifiers" => list(typed_link_specifier()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_incoming_typed_links_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_object_attributes_response() :: %{
-    "Attributes" => list(attribute_key_and_value()())
-  }
+
+      get_object_attributes_response() :: %{
+        "Attributes" => list(attribute_key_and_value()())
+      }
+
   """
   @type get_object_attributes_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_attach_object() :: %{
-    "ChildReference" => object_reference(),
-    "LinkName" => String.t(),
-    "ParentReference" => object_reference()
-  }
+
+      batch_attach_object() :: %{
+        "ChildReference" => object_reference(),
+        "LinkName" => String.t(),
+        "ParentReference" => object_reference()
+      }
+
   """
   @type batch_attach_object() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_list_index() :: %{
-    "IndexReference" => object_reference(),
-    "MaxResults" => integer(),
-    "NextToken" => String.t(),
-    "RangesOnIndexedValues" => list(object_attribute_range()())
-  }
+
+      batch_list_index() :: %{
+        "IndexReference" => object_reference(),
+        "MaxResults" => integer(),
+        "NextToken" => String.t(),
+        "RangesOnIndexedValues" => list(object_attribute_range()())
+      }
+
   """
   @type batch_list_index() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_detach_object_response() :: %{
-    "detachedObjectIdentifier" => String.t()
-  }
+
+      batch_detach_object_response() :: %{
+        "detachedObjectIdentifier" => String.t()
+      }
+
   """
   @type batch_detach_object_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_directory_request() :: %{
-    required("Name") => String.t(),
-    required("SchemaArn") => String.t()
-  }
+
+      create_directory_request() :: %{
+        required("Name") => String.t(),
+        required("SchemaArn") => String.t()
+      }
+
   """
   @type create_directory_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_lookup_policy() :: %{
-    "MaxResults" => integer(),
-    "NextToken" => String.t(),
-    "ObjectReference" => object_reference()
-  }
+
+      batch_lookup_policy() :: %{
+        "MaxResults" => integer(),
+        "NextToken" => String.t(),
+        "ObjectReference" => object_reference()
+      }
+
   """
   @type batch_lookup_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_request() :: %{
-    required("ResourceArn") => String.t(),
-    required("Tags") => list(tag()())
-  }
+
+      tag_resource_request() :: %{
+        required("ResourceArn") => String.t(),
+        required("Tags") => list(tag()())
+      }
+
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_object_policies_response() :: %{
-    "AttachedPolicyIds" => list(String.t()()),
-    "NextToken" => String.t()
-  }
+
+      list_object_policies_response() :: %{
+        "AttachedPolicyIds" => list(String.t()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_object_policies_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_published_schema_arns_response() :: %{
-    "NextToken" => String.t(),
-    "SchemaArns" => list(String.t()())
-  }
+
+      list_published_schema_arns_response() :: %{
+        "NextToken" => String.t(),
+        "SchemaArns" => list(String.t()())
+      }
+
   """
   @type list_published_schema_arns_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_attach_to_index_response() :: %{
-    "AttachedObjectIdentifier" => String.t()
-  }
+
+      batch_attach_to_index_response() :: %{
+        "AttachedObjectIdentifier" => String.t()
+      }
+
   """
   @type batch_attach_to_index_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_schema_request() :: %{
-    required("Name") => String.t()
-  }
+
+      create_schema_request() :: %{
+        required("Name") => String.t()
+      }
+
   """
   @type create_schema_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_get_object_attributes() :: %{
-    "AttributeNames" => list(String.t()()),
-    "ObjectReference" => object_reference(),
-    "SchemaFacet" => schema_facet()
-  }
+
+      batch_get_object_attributes() :: %{
+        "AttributeNames" => list(String.t()()),
+        "ObjectReference" => object_reference(),
+        "SchemaFacet" => schema_facet()
+      }
+
   """
   @type batch_get_object_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  typed_link_specifier() :: %{
-    "IdentityAttributeValues" => list(attribute_name_and_value()()),
-    "SourceObjectReference" => object_reference(),
-    "TargetObjectReference" => object_reference(),
-    "TypedLinkFacet" => typed_link_schema_and_facet_name()
-  }
+
+      typed_link_specifier() :: %{
+        "IdentityAttributeValues" => list(attribute_name_and_value()()),
+        "SourceObjectReference" => object_reference(),
+        "TargetObjectReference" => object_reference(),
+        "TypedLinkFacet" => typed_link_schema_and_facet_name()
+      }
+
   """
   @type typed_link_specifier() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_list_incoming_typed_links() :: %{
-    "FilterAttributeRanges" => list(typed_link_attribute_range()()),
-    "FilterTypedLink" => typed_link_schema_and_facet_name(),
-    "MaxResults" => integer(),
-    "NextToken" => String.t(),
-    "ObjectReference" => object_reference()
-  }
+
+      batch_list_incoming_typed_links() :: %{
+        "FilterAttributeRanges" => list(typed_link_attribute_range()()),
+        "FilterTypedLink" => typed_link_schema_and_facet_name(),
+        "MaxResults" => integer(),
+        "NextToken" => String.t(),
+        "ObjectReference" => object_reference()
+      }
+
   """
   @type batch_list_incoming_typed_links() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_remove_facet_from_object() :: %{
-    "ObjectReference" => object_reference(),
-    "SchemaFacet" => schema_facet()
-  }
+
+      batch_remove_facet_from_object() :: %{
+        "ObjectReference" => object_reference(),
+        "SchemaFacet" => schema_facet()
+      }
+
   """
   @type batch_remove_facet_from_object() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_applied_schema_version_response() :: %{
-    "AppliedSchemaArn" => String.t()
-  }
+
+      get_applied_schema_version_response() :: %{
+        "AppliedSchemaArn" => String.t()
+      }
+
   """
   @type get_applied_schema_version_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  not_index_exception() :: %{
-    "Message" => String.t()
-  }
+
+      not_index_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type not_index_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_typed_link_facet_response() :: %{
 
-  }
+      create_typed_link_facet_response() :: %{}
+
   """
-  @type create_typed_link_facet_response() :: %{String.t() => any()}
+  @type create_typed_link_facet_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  batch_list_attached_indices() :: %{
-    "MaxResults" => integer(),
-    "NextToken" => String.t(),
-    "TargetReference" => object_reference()
-  }
+
+      batch_list_attached_indices() :: %{
+        "MaxResults" => integer(),
+        "NextToken" => String.t(),
+        "TargetReference" => object_reference()
+      }
+
   """
   @type batch_list_attached_indices() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disable_directory_response() :: %{
-    "DirectoryArn" => String.t()
-  }
+
+      disable_directory_response() :: %{
+        "DirectoryArn" => String.t()
+      }
+
   """
   @type disable_directory_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_schema_as_json_response() :: %{
-    "Document" => String.t(),
-    "Name" => String.t()
-  }
+
+      get_schema_as_json_response() :: %{
+        "Document" => String.t(),
+        "Name" => String.t()
+      }
+
   """
   @type get_schema_as_json_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  retryable_conflict_exception() :: %{
-    "Message" => String.t()
-  }
+
+      retryable_conflict_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type retryable_conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_directory_response() :: %{
-    "AppliedSchemaArn" => String.t(),
-    "DirectoryArn" => String.t(),
-    "Name" => String.t(),
-    "ObjectIdentifier" => String.t()
-  }
+
+      create_directory_response() :: %{
+        "AppliedSchemaArn" => String.t(),
+        "DirectoryArn" => String.t(),
+        "Name" => String.t(),
+        "ObjectIdentifier" => String.t()
+      }
+
   """
   @type create_directory_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_applied_schema_version_request() :: %{
-    required("SchemaArn") => String.t()
-  }
+
+      get_applied_schema_version_request() :: %{
+        required("SchemaArn") => String.t()
+      }
+
   """
   @type get_applied_schema_version_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_response() :: %{
 
-  }
+      untag_resource_response() :: %{}
+
   """
-  @type untag_resource_response() :: %{String.t() => any()}
+  @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  delete_schema_request() :: %{
-    required("SchemaArn") => String.t()
-  }
+
+      delete_schema_request() :: %{
+        required("SchemaArn") => String.t()
+      }
+
   """
   @type delete_schema_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  schema_facet() :: %{
-    "FacetName" => String.t(),
-    "SchemaArn" => String.t()
-  }
+
+      schema_facet() :: %{
+        "FacetName" => String.t(),
+        "SchemaArn" => String.t()
+      }
+
   """
   @type schema_facet() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_list_object_attributes() :: %{
-    "FacetFilter" => schema_facet(),
-    "MaxResults" => integer(),
-    "NextToken" => String.t(),
-    "ObjectReference" => object_reference()
-  }
+
+      batch_list_object_attributes() :: %{
+        "FacetFilter" => schema_facet(),
+        "MaxResults" => integer(),
+        "NextToken" => String.t(),
+        "ObjectReference" => object_reference()
+      }
+
   """
   @type batch_list_object_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_object_response() :: %{
 
-  }
+      delete_object_response() :: %{}
+
   """
-  @type delete_object_response() :: %{String.t() => any()}
+  @type delete_object_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  object_reference() :: %{
-    "Selector" => String.t()
-  }
+
+      object_reference() :: %{
+        "Selector" => String.t()
+      }
+
   """
   @type object_reference() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_write_operation_response() :: %{
-    "AddFacetToObject" => batch_add_facet_to_object_response(),
-    "AttachObject" => batch_attach_object_response(),
-    "AttachPolicy" => batch_attach_policy_response(),
-    "AttachToIndex" => batch_attach_to_index_response(),
-    "AttachTypedLink" => batch_attach_typed_link_response(),
-    "CreateIndex" => batch_create_index_response(),
-    "CreateObject" => batch_create_object_response(),
-    "DeleteObject" => batch_delete_object_response(),
-    "DetachFromIndex" => batch_detach_from_index_response(),
-    "DetachObject" => batch_detach_object_response(),
-    "DetachPolicy" => batch_detach_policy_response(),
-    "DetachTypedLink" => batch_detach_typed_link_response(),
-    "RemoveFacetFromObject" => batch_remove_facet_from_object_response(),
-    "UpdateLinkAttributes" => batch_update_link_attributes_response(),
-    "UpdateObjectAttributes" => batch_update_object_attributes_response()
-  }
+
+      batch_write_operation_response() :: %{
+        "AddFacetToObject" => batch_add_facet_to_object_response(),
+        "AttachObject" => batch_attach_object_response(),
+        "AttachPolicy" => batch_attach_policy_response(),
+        "AttachToIndex" => batch_attach_to_index_response(),
+        "AttachTypedLink" => batch_attach_typed_link_response(),
+        "CreateIndex" => batch_create_index_response(),
+        "CreateObject" => batch_create_object_response(),
+        "DeleteObject" => batch_delete_object_response(),
+        "DetachFromIndex" => batch_detach_from_index_response(),
+        "DetachObject" => batch_detach_object_response(),
+        "DetachPolicy" => batch_detach_policy_response(),
+        "DetachTypedLink" => batch_detach_typed_link_response(),
+        "RemoveFacetFromObject" => batch_remove_facet_from_object_response(),
+        "UpdateLinkAttributes" => batch_update_link_attributes_response(),
+        "UpdateObjectAttributes" => batch_update_object_attributes_response()
+      }
+
   """
   @type batch_write_operation_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_write_request() :: %{
-    required("DirectoryArn") => String.t(),
-    required("Operations") => list(batch_write_operation()())
-  }
+
+      batch_write_request() :: %{
+        required("DirectoryArn") => String.t(),
+        required("Operations") => list(batch_write_operation()())
+      }
+
   """
   @type batch_write_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  enable_directory_request() :: %{
-    required("DirectoryArn") => String.t()
-  }
+
+      enable_directory_request() :: %{
+        required("DirectoryArn") => String.t()
+      }
+
   """
   @type enable_directory_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_list_policy_attachments_response() :: %{
-    "NextToken" => String.t(),
-    "ObjectIdentifiers" => list(String.t()())
-  }
+
+      batch_list_policy_attachments_response() :: %{
+        "NextToken" => String.t(),
+        "ObjectIdentifiers" => list(String.t()())
+      }
+
   """
   @type batch_list_policy_attachments_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_facet_update_exception() :: %{
-    "Message" => String.t()
-  }
+
+      invalid_facet_update_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type invalid_facet_update_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_list_incoming_typed_links_response() :: %{
-    "LinkSpecifiers" => list(typed_link_specifier()()),
-    "NextToken" => String.t()
-  }
+
+      batch_list_incoming_typed_links_response() :: %{
+        "LinkSpecifiers" => list(typed_link_specifier()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type batch_list_incoming_typed_links_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  facet_not_found_exception() :: %{
-    "Message" => String.t()
-  }
+
+      facet_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type facet_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_attached_indices_request() :: %{
-    optional("ConsistencyLevel") => list(any()),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("DirectoryArn") => String.t(),
-    required("TargetReference") => object_reference()
-  }
+
+      list_attached_indices_request() :: %{
+        optional("ConsistencyLevel") => list(any()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("DirectoryArn") => String.t(),
+        required("TargetReference") => object_reference()
+      }
+
   """
   @type list_attached_indices_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_delete_object_response() :: %{
 
-  }
+      batch_delete_object_response() :: %{}
+
   """
-  @type batch_delete_object_response() :: %{String.t() => any()}
+  @type batch_delete_object_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  directory_deleted_exception() :: %{
-    "Message" => String.t()
-  }
+
+      directory_deleted_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type directory_deleted_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  lookup_policy_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("DirectoryArn") => String.t(),
-    required("ObjectReference") => object_reference()
-  }
+
+      lookup_policy_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("DirectoryArn") => String.t(),
+        required("ObjectReference") => object_reference()
+      }
+
   """
   @type lookup_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_read_operation_response() :: %{
-    "ExceptionResponse" => batch_read_exception(),
-    "SuccessfulResponse" => batch_read_successful_response()
-  }
+
+      batch_read_operation_response() :: %{
+        "ExceptionResponse" => batch_read_exception(),
+        "SuccessfulResponse" => batch_read_successful_response()
+      }
+
   """
   @type batch_read_operation_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_typed_link_facet_names_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("SchemaArn") => String.t()
-  }
+
+      list_typed_link_facet_names_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("SchemaArn") => String.t()
+      }
+
   """
   @type list_typed_link_facet_names_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_object_children_response() :: %{
-    "Children" => map(),
-    "NextToken" => String.t()
-  }
+
+      list_object_children_response() :: %{
+        "Children" => map(),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_object_children_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_read_successful_response() :: %{
-    "GetLinkAttributes" => batch_get_link_attributes_response(),
-    "GetObjectAttributes" => batch_get_object_attributes_response(),
-    "GetObjectInformation" => batch_get_object_information_response(),
-    "ListAttachedIndices" => batch_list_attached_indices_response(),
-    "ListIncomingTypedLinks" => batch_list_incoming_typed_links_response(),
-    "ListIndex" => batch_list_index_response(),
-    "ListObjectAttributes" => batch_list_object_attributes_response(),
-    "ListObjectChildren" => batch_list_object_children_response(),
-    "ListObjectParentPaths" => batch_list_object_parent_paths_response(),
-    "ListObjectParents" => batch_list_object_parents_response(),
-    "ListObjectPolicies" => batch_list_object_policies_response(),
-    "ListOutgoingTypedLinks" => batch_list_outgoing_typed_links_response(),
-    "ListPolicyAttachments" => batch_list_policy_attachments_response(),
-    "LookupPolicy" => batch_lookup_policy_response()
-  }
+
+      batch_read_successful_response() :: %{
+        "GetLinkAttributes" => batch_get_link_attributes_response(),
+        "GetObjectAttributes" => batch_get_object_attributes_response(),
+        "GetObjectInformation" => batch_get_object_information_response(),
+        "ListAttachedIndices" => batch_list_attached_indices_response(),
+        "ListIncomingTypedLinks" => batch_list_incoming_typed_links_response(),
+        "ListIndex" => batch_list_index_response(),
+        "ListObjectAttributes" => batch_list_object_attributes_response(),
+        "ListObjectChildren" => batch_list_object_children_response(),
+        "ListObjectParentPaths" => batch_list_object_parent_paths_response(),
+        "ListObjectParents" => batch_list_object_parents_response(),
+        "ListObjectPolicies" => batch_list_object_policies_response(),
+        "ListOutgoingTypedLinks" => batch_list_outgoing_typed_links_response(),
+        "ListPolicyAttachments" => batch_list_policy_attachments_response(),
+        "LookupPolicy" => batch_lookup_policy_response()
+      }
+
   """
   @type batch_read_successful_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  typed_link_schema_and_facet_name() :: %{
-    "SchemaArn" => String.t(),
-    "TypedLinkName" => String.t()
-  }
+
+      typed_link_schema_and_facet_name() :: %{
+        "SchemaArn" => String.t(),
+        "TypedLinkName" => String.t()
+      }
+
   """
   @type typed_link_schema_and_facet_name() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  typed_attribute_value_range() :: %{
-    "EndMode" => list(any()),
-    "EndValue" => list(),
-    "StartMode" => list(any()),
-    "StartValue" => list()
-  }
+
+      typed_attribute_value_range() :: %{
+        "EndMode" => list(any()),
+        "EndValue" => list(),
+        "StartMode" => list(any()),
+        "StartValue" => list()
+      }
+
   """
   @type typed_attribute_value_range() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_object_attributes_request() :: %{
-    optional("ConsistencyLevel") => list(any()),
-    optional("FacetFilter") => schema_facet(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("DirectoryArn") => String.t(),
-    required("ObjectReference") => object_reference()
-  }
+
+      list_object_attributes_request() :: %{
+        optional("ConsistencyLevel") => list(any()),
+        optional("FacetFilter") => schema_facet(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("DirectoryArn") => String.t(),
+        required("ObjectReference") => object_reference()
+      }
+
   """
   @type list_object_attributes_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_update_link_attributes_response() :: %{
 
-  }
+      batch_update_link_attributes_response() :: %{}
+
   """
-  @type batch_update_link_attributes_response() :: %{String.t() => any()}
+  @type batch_update_link_attributes_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  detach_policy_request() :: %{
-    required("DirectoryArn") => String.t(),
-    required("ObjectReference") => object_reference(),
-    required("PolicyReference") => object_reference()
-  }
+
+      detach_policy_request() :: %{
+        required("DirectoryArn") => String.t(),
+        required("ObjectReference") => object_reference(),
+        required("PolicyReference") => object_reference()
+      }
+
   """
   @type detach_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  publish_schema_response() :: %{
-    "PublishedSchemaArn" => String.t()
-  }
+
+      publish_schema_response() :: %{
+        "PublishedSchemaArn" => String.t()
+      }
+
   """
   @type publish_schema_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  directory() :: %{
-    "CreationDateTime" => non_neg_integer(),
-    "DirectoryArn" => String.t(),
-    "Name" => String.t(),
-    "State" => list(any())
-  }
+
+      directory() :: %{
+        "CreationDateTime" => non_neg_integer(),
+        "DirectoryArn" => String.t(),
+        "Name" => String.t(),
+        "State" => list(any())
+      }
+
   """
   @type directory() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  link_attribute_action() :: %{
-    "AttributeActionType" => list(any()),
-    "AttributeUpdateValue" => list()
-  }
+
+      link_attribute_action() :: %{
+        "AttributeActionType" => list(any()),
+        "AttributeUpdateValue" => list()
+      }
+
   """
   @type link_attribute_action() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_schema_response() :: %{
-    "SchemaArn" => String.t()
-  }
+
+      update_schema_response() :: %{
+        "SchemaArn" => String.t()
+      }
+
   """
   @type update_schema_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  enable_directory_response() :: %{
-    "DirectoryArn" => String.t()
-  }
+
+      enable_directory_response() :: %{
+        "DirectoryArn" => String.t()
+      }
+
   """
   @type enable_directory_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_object_policies_request() :: %{
-    optional("ConsistencyLevel") => list(any()),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("DirectoryArn") => String.t(),
-    required("ObjectReference") => object_reference()
-  }
+
+      list_object_policies_request() :: %{
+        optional("ConsistencyLevel") => list(any()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("DirectoryArn") => String.t(),
+        required("ObjectReference") => object_reference()
+      }
+
   """
   @type list_object_policies_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  internal_service_exception() :: %{
-    "Message" => String.t()
-  }
+
+      internal_service_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type internal_service_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_detach_policy_response() :: %{
 
-  }
+      batch_detach_policy_response() :: %{}
+
   """
-  @type batch_detach_policy_response() :: %{String.t() => any()}
+  @type batch_detach_policy_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  facet_attribute() :: %{
-    "AttributeDefinition" => facet_attribute_definition(),
-    "AttributeReference" => facet_attribute_reference(),
-    "Name" => String.t(),
-    "RequiredBehavior" => list(any())
-  }
+
+      facet_attribute() :: %{
+        "AttributeDefinition" => facet_attribute_definition(),
+        "AttributeReference" => facet_attribute_reference(),
+        "Name" => String.t(),
+        "RequiredBehavior" => list(any())
+      }
+
   """
   @type facet_attribute() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_typed_link_facet_attributes_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("Name") => String.t(),
-    required("SchemaArn") => String.t()
-  }
+
+      list_typed_link_facet_attributes_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("Name") => String.t(),
+        required("SchemaArn") => String.t()
+      }
+
   """
   @type list_typed_link_facet_attributes_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_link_attributes_request() :: %{
-    optional("ConsistencyLevel") => list(any()),
-    required("AttributeNames") => list(String.t()()),
-    required("DirectoryArn") => String.t(),
-    required("TypedLinkSpecifier") => typed_link_specifier()
-  }
+
+      get_link_attributes_request() :: %{
+        optional("ConsistencyLevel") => list(any()),
+        required("AttributeNames") => list(String.t()()),
+        required("DirectoryArn") => String.t(),
+        required("TypedLinkSpecifier") => typed_link_specifier()
+      }
+
   """
   @type get_link_attributes_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_development_schema_arns_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      list_development_schema_arns_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_development_schema_arns_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_schema_response() :: %{
-    "SchemaArn" => String.t()
-  }
+
+      create_schema_response() :: %{
+        "SchemaArn" => String.t()
+      }
+
   """
   @type create_schema_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  disable_directory_request() :: %{
-    required("DirectoryArn") => String.t()
-  }
+
+      disable_directory_request() :: %{
+        required("DirectoryArn") => String.t()
+      }
+
   """
   @type disable_directory_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_request() :: %{
-    required("ResourceArn") => String.t(),
-    required("TagKeys") => list(String.t()())
-  }
+
+      untag_resource_request() :: %{
+        required("ResourceArn") => String.t(),
+        required("TagKeys") => list(String.t()())
+      }
+
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  apply_schema_request() :: %{
-    required("DirectoryArn") => String.t(),
-    required("PublishedSchemaArn") => String.t()
-  }
+
+      apply_schema_request() :: %{
+        required("DirectoryArn") => String.t(),
+        required("PublishedSchemaArn") => String.t()
+      }
+
   """
   @type apply_schema_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_attach_policy_response() :: %{
 
-  }
+      batch_attach_policy_response() :: %{}
+
   """
-  @type batch_attach_policy_response() :: %{String.t() => any()}
+  @type batch_attach_policy_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  schema_already_exists_exception() :: %{
-    "Message" => String.t()
-  }
+
+      schema_already_exists_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type schema_already_exists_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  apply_schema_response() :: %{
-    "AppliedSchemaArn" => String.t(),
-    "DirectoryArn" => String.t()
-  }
+
+      apply_schema_response() :: %{
+        "AppliedSchemaArn" => String.t(),
+        "DirectoryArn" => String.t()
+      }
+
   """
   @type apply_schema_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  schema_already_published_exception() :: %{
-    "Message" => String.t()
-  }
+
+      schema_already_published_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type schema_already_published_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_create_index_response() :: %{
-    "ObjectIdentifier" => String.t()
-  }
+
+      batch_create_index_response() :: %{
+        "ObjectIdentifier" => String.t()
+      }
+
   """
   @type batch_create_index_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_facet_attributes_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("Name") => String.t(),
-    required("SchemaArn") => String.t()
-  }
+
+      list_facet_attributes_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("Name") => String.t(),
+        required("SchemaArn") => String.t()
+      }
+
   """
   @type list_facet_attributes_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_add_facet_to_object_response() :: %{
 
-  }
+      batch_add_facet_to_object_response() :: %{}
+
   """
-  @type batch_add_facet_to_object_response() :: %{String.t() => any()}
+  @type batch_add_facet_to_object_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  batch_remove_facet_from_object_response() :: %{
 
-  }
+      batch_remove_facet_from_object_response() :: %{}
+
   """
-  @type batch_remove_facet_from_object_response() :: %{String.t() => any()}
+  @type batch_remove_facet_from_object_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  batch_get_object_information() :: %{
-    "ObjectReference" => object_reference()
-  }
+
+      batch_get_object_information() :: %{
+        "ObjectReference" => object_reference()
+      }
+
   """
   @type batch_get_object_information() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_arn_exception() :: %{
-    "Message" => String.t()
-  }
+
+      invalid_arn_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type invalid_arn_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_list_object_policies_response() :: %{
-    "AttachedPolicyIds" => list(String.t()()),
-    "NextToken" => String.t()
-  }
+
+      batch_list_object_policies_response() :: %{
+        "AttachedPolicyIds" => list(String.t()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type batch_list_object_policies_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  upgrade_published_schema_request() :: %{
-    optional("DryRun") => boolean(),
-    required("DevelopmentSchemaArn") => String.t(),
-    required("MinorVersion") => String.t(),
-    required("PublishedSchemaArn") => String.t()
-  }
+
+      upgrade_published_schema_request() :: %{
+        optional("DryRun") => boolean(),
+        required("DevelopmentSchemaArn") => String.t(),
+        required("MinorVersion") => String.t(),
+        required("PublishedSchemaArn") => String.t()
+      }
+
   """
   @type upgrade_published_schema_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_object_attributes_request() :: %{
-    required("AttributeUpdates") => list(object_attribute_update()()),
-    required("DirectoryArn") => String.t(),
-    required("ObjectReference") => object_reference()
-  }
+
+      update_object_attributes_request() :: %{
+        required("AttributeUpdates") => list(object_attribute_update()()),
+        required("DirectoryArn") => String.t(),
+        required("ObjectReference") => object_reference()
+      }
+
   """
   @type update_object_attributes_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_object_parent_paths_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("DirectoryArn") => String.t(),
-    required("ObjectReference") => object_reference()
-  }
+
+      list_object_parent_paths_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("DirectoryArn") => String.t(),
+        required("ObjectReference") => object_reference()
+      }
+
   """
   @type list_object_parent_paths_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_typed_link_facet_attributes_response() :: %{
-    "Attributes" => list(typed_link_attribute_definition()()),
-    "NextToken" => String.t()
-  }
+
+      list_typed_link_facet_attributes_response() :: %{
+        "Attributes" => list(typed_link_attribute_definition()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_typed_link_facet_attributes_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  not_node_exception() :: %{
-    "Message" => String.t()
-  }
+
+      not_node_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type not_node_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_list_object_parent_paths_response() :: %{
-    "NextToken" => String.t(),
-    "PathToObjectIdentifiersList" => list(path_to_object_identifiers()())
-  }
+
+      batch_list_object_parent_paths_response() :: %{
+        "NextToken" => String.t(),
+        "PathToObjectIdentifiersList" => list(path_to_object_identifiers()())
+      }
+
   """
   @type batch_list_object_parent_paths_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  index_attachment() :: %{
-    "IndexedAttributes" => list(attribute_key_and_value()()),
-    "ObjectIdentifier" => String.t()
-  }
+
+      index_attachment() :: %{
+        "IndexedAttributes" => list(attribute_key_and_value()()),
+        "ObjectIdentifier" => String.t()
+      }
+
   """
   @type index_attachment() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_list_object_parents_response() :: %{
-    "NextToken" => String.t(),
-    "ParentLinks" => list(object_identifier_and_link_name_tuple()())
-  }
+
+      batch_list_object_parents_response() :: %{
+        "NextToken" => String.t(),
+        "ParentLinks" => list(object_identifier_and_link_name_tuple()())
+      }
+
   """
   @type batch_list_object_parents_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_write_response() :: %{
-    "Responses" => list(batch_write_operation_response()())
-  }
+
+      batch_write_response() :: %{
+        "Responses" => list(batch_write_operation_response()())
+      }
+
   """
   @type batch_write_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_list_object_parent_paths() :: %{
-    "MaxResults" => integer(),
-    "NextToken" => String.t(),
-    "ObjectReference" => object_reference()
-  }
+
+      batch_list_object_parent_paths() :: %{
+        "MaxResults" => integer(),
+        "NextToken" => String.t(),
+        "ObjectReference" => object_reference()
+      }
+
   """
   @type batch_list_object_parent_paths() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_facet_response() :: %{
 
-  }
+      create_facet_response() :: %{}
+
   """
-  @type create_facet_response() :: %{String.t() => any()}
+  @type create_facet_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  put_schema_from_json_response() :: %{
-    "Arn" => String.t()
-  }
+
+      put_schema_from_json_response() :: %{
+        "Arn" => String.t()
+      }
+
   """
   @type put_schema_from_json_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_object_parents_response() :: %{
-    "NextToken" => String.t(),
-    "ParentLinks" => list(object_identifier_and_link_name_tuple()()),
-    "Parents" => map()
-  }
+
+      list_object_parents_response() :: %{
+        "NextToken" => String.t(),
+        "ParentLinks" => list(object_identifier_and_link_name_tuple()()),
+        "Parents" => map()
+      }
+
   """
   @type list_object_parents_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_directory_response() :: %{
-    "Directory" => directory()
-  }
+
+      get_directory_response() :: %{
+        "Directory" => directory()
+      }
+
   """
   @type get_directory_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  attribute_name_and_value() :: %{
-    "AttributeName" => String.t(),
-    "Value" => list()
-  }
+
+      attribute_name_and_value() :: %{
+        "AttributeName" => String.t(),
+        "Value" => list()
+      }
+
   """
   @type attribute_name_and_value() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  attach_object_request() :: %{
-    required("ChildReference") => object_reference(),
-    required("DirectoryArn") => String.t(),
-    required("LinkName") => String.t(),
-    required("ParentReference") => object_reference()
-  }
+
+      attach_object_request() :: %{
+        required("ChildReference") => object_reference(),
+        required("DirectoryArn") => String.t(),
+        required("LinkName") => String.t(),
+        required("ParentReference") => object_reference()
+      }
+
   """
   @type attach_object_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_read_exception() :: %{
-    "Message" => String.t(),
-    "Type" => list(any())
-  }
+
+      batch_read_exception() :: %{
+        "Message" => String.t(),
+        "Type" => list(any())
+      }
+
   """
   @type batch_read_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_object_children_request() :: %{
-    optional("ConsistencyLevel") => list(any()),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("DirectoryArn") => String.t(),
-    required("ObjectReference") => object_reference()
-  }
+
+      list_object_children_request() :: %{
+        optional("ConsistencyLevel") => list(any()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("DirectoryArn") => String.t(),
+        required("ObjectReference") => object_reference()
+      }
+
   """
   @type list_object_children_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  typed_link_attribute_definition() :: %{
-    "DefaultValue" => list(),
-    "IsImmutable" => boolean(),
-    "Name" => String.t(),
-    "RequiredBehavior" => list(any()),
-    "Rules" => map(),
-    "Type" => list(any())
-  }
+
+      typed_link_attribute_definition() :: %{
+        "DefaultValue" => list(),
+        "IsImmutable" => boolean(),
+        "Name" => String.t(),
+        "RequiredBehavior" => list(any()),
+        "Rules" => map(),
+        "Type" => list(any())
+      }
+
   """
   @type typed_link_attribute_definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_facet_names_response() :: %{
-    "FacetNames" => list(String.t()()),
-    "NextToken" => String.t()
-  }
+
+      list_facet_names_response() :: %{
+        "FacetNames" => list(String.t()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_facet_names_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  facet_attribute_update() :: %{
-    "Action" => list(any()),
-    "Attribute" => facet_attribute()
-  }
+
+      facet_attribute_update() :: %{
+        "Action" => list(any()),
+        "Attribute" => facet_attribute()
+      }
+
   """
   @type facet_attribute_update() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_not_found_exception() :: %{
-    "Message" => String.t()
-  }
+
+      resource_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_applied_schema_arns_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("SchemaArn") => String.t(),
-    required("DirectoryArn") => String.t()
-  }
+
+      list_applied_schema_arns_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("SchemaArn") => String.t(),
+        required("DirectoryArn") => String.t()
+      }
+
   """
   @type list_applied_schema_arns_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  detach_object_response() :: %{
-    "DetachedObjectIdentifier" => String.t()
-  }
+
+      detach_object_response() :: %{
+        "DetachedObjectIdentifier" => String.t()
+      }
+
   """
   @type detach_object_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_link_attributes_response() :: %{
 
-  }
+      update_link_attributes_response() :: %{}
+
   """
-  @type update_link_attributes_response() :: %{String.t() => any()}
+  @type update_link_attributes_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  add_facet_to_object_response() :: %{
 
-  }
+      add_facet_to_object_response() :: %{}
+
   """
-  @type add_facet_to_object_response() :: %{String.t() => any()}
+  @type add_facet_to_object_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  batch_lookup_policy_response() :: %{
-    "NextToken" => String.t(),
-    "PolicyToPathList" => list(policy_to_path()())
-  }
+
+      batch_lookup_policy_response() :: %{
+        "NextToken" => String.t(),
+        "PolicyToPathList" => list(policy_to_path()())
+      }
+
   """
   @type batch_lookup_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag() :: %{
-    "Key" => String.t(),
-    "Value" => String.t()
-  }
+
+      tag() :: %{
+        "Key" => String.t(),
+        "Value" => String.t()
+      }
+
   """
   @type tag() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_detach_policy() :: %{
-    "ObjectReference" => object_reference(),
-    "PolicyReference" => object_reference()
-  }
+
+      batch_detach_policy() :: %{
+        "ObjectReference" => object_reference(),
+        "PolicyReference" => object_reference()
+      }
+
   """
   @type batch_detach_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  directory_already_exists_exception() :: %{
-    "Message" => String.t()
-  }
+
+      directory_already_exists_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type directory_already_exists_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  attach_policy_response() :: %{
 
-  }
+      attach_policy_response() :: %{}
+
   """
-  @type attach_policy_response() :: %{String.t() => any()}
+  @type attach_policy_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  batch_update_link_attributes() :: %{
-    "AttributeUpdates" => list(link_attribute_update()()),
-    "TypedLinkSpecifier" => typed_link_specifier()
-  }
+
+      batch_update_link_attributes() :: %{
+        "AttributeUpdates" => list(link_attribute_update()()),
+        "TypedLinkSpecifier" => typed_link_specifier()
+      }
+
   """
   @type batch_update_link_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_create_object_response() :: %{
-    "ObjectIdentifier" => String.t()
-  }
+
+      batch_create_object_response() :: %{
+        "ObjectIdentifier" => String.t()
+      }
+
   """
   @type batch_create_object_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  attach_policy_request() :: %{
-    required("DirectoryArn") => String.t(),
-    required("ObjectReference") => object_reference(),
-    required("PolicyReference") => object_reference()
-  }
+
+      attach_policy_request() :: %{
+        required("DirectoryArn") => String.t(),
+        required("ObjectReference") => object_reference(),
+        required("PolicyReference") => object_reference()
+      }
+
   """
   @type attach_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  facet_attribute_reference() :: %{
-    "TargetAttributeName" => String.t(),
-    "TargetFacetName" => String.t()
-  }
+
+      facet_attribute_reference() :: %{
+        "TargetAttributeName" => String.t(),
+        "TargetFacetName" => String.t()
+      }
+
   """
   @type facet_attribute_reference() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_schema_doc_exception() :: %{
-    "Message" => String.t()
-  }
+
+      invalid_schema_doc_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type invalid_schema_doc_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_next_token_exception() :: %{
-    "Message" => String.t()
-  }
+
+      invalid_next_token_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type invalid_next_token_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_directory_response() :: %{
-    "DirectoryArn" => String.t()
-  }
+
+      delete_directory_response() :: %{
+        "DirectoryArn" => String.t()
+      }
+
   """
   @type delete_directory_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_typed_link_facet_information_request() :: %{
-    required("Name") => String.t(),
-    required("SchemaArn") => String.t()
-  }
+
+      get_typed_link_facet_information_request() :: %{
+        required("Name") => String.t(),
+        required("SchemaArn") => String.t()
+      }
+
   """
   @type get_typed_link_facet_information_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  attach_to_index_request() :: %{
-    required("DirectoryArn") => String.t(),
-    required("IndexReference") => object_reference(),
-    required("TargetReference") => object_reference()
-  }
+
+      attach_to_index_request() :: %{
+        required("DirectoryArn") => String.t(),
+        required("IndexReference") => object_reference(),
+        required("TargetReference") => object_reference()
+      }
+
   """
   @type attach_to_index_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_get_object_information_response() :: %{
-    "ObjectIdentifier" => String.t(),
-    "SchemaFacets" => list(schema_facet()())
-  }
+
+      batch_get_object_information_response() :: %{
+        "ObjectIdentifier" => String.t(),
+        "SchemaFacets" => list(schema_facet()())
+      }
+
   """
   @type batch_get_object_information_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  detach_from_index_response() :: %{
-    "DetachedObjectIdentifier" => String.t()
-  }
+
+      detach_from_index_response() :: %{
+        "DetachedObjectIdentifier" => String.t()
+      }
+
   """
   @type detach_from_index_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  detach_from_index_request() :: %{
-    required("DirectoryArn") => String.t(),
-    required("IndexReference") => object_reference(),
-    required("TargetReference") => object_reference()
-  }
+
+      detach_from_index_request() :: %{
+        required("DirectoryArn") => String.t(),
+        required("IndexReference") => object_reference(),
+        required("TargetReference") => object_reference()
+      }
+
   """
   @type detach_from_index_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  facet_in_use_exception() :: %{
-    "Message" => String.t()
-  }
+
+      facet_in_use_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type facet_in_use_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_schema_response() :: %{
-    "SchemaArn" => String.t()
-  }
+
+      delete_schema_response() :: %{
+        "SchemaArn" => String.t()
+      }
+
   """
   @type delete_schema_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_detach_object() :: %{
-    "BatchReferenceName" => String.t(),
-    "LinkName" => String.t(),
-    "ParentReference" => object_reference()
-  }
+
+      batch_detach_object() :: %{
+        "BatchReferenceName" => String.t(),
+        "LinkName" => String.t(),
+        "ParentReference" => object_reference()
+      }
+
   """
   @type batch_detach_object() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_facet_names_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("SchemaArn") => String.t()
-  }
+
+      list_facet_names_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("SchemaArn") => String.t()
+      }
+
   """
   @type list_facet_names_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_list_attached_indices_response() :: %{
-    "IndexAttachments" => list(index_attachment()()),
-    "NextToken" => String.t()
-  }
+
+      batch_list_attached_indices_response() :: %{
+        "IndexAttachments" => list(index_attachment()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type batch_list_attached_indices_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_facet_request() :: %{
-    required("Name") => String.t(),
-    required("SchemaArn") => String.t()
-  }
+
+      delete_facet_request() :: %{
+        required("Name") => String.t(),
+        required("SchemaArn") => String.t()
+      }
+
   """
   @type delete_facet_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_policy_attachments_request() :: %{
-    optional("ConsistencyLevel") => list(any()),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("DirectoryArn") => String.t(),
-    required("PolicyReference") => object_reference()
-  }
+
+      list_policy_attachments_request() :: %{
+        optional("ConsistencyLevel") => list(any()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("DirectoryArn") => String.t(),
+        required("PolicyReference") => object_reference()
+      }
+
   """
   @type list_policy_attachments_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_create_object() :: %{
-    "BatchReferenceName" => String.t(),
-    "LinkName" => String.t(),
-    "ObjectAttributeList" => list(attribute_key_and_value()()),
-    "ParentReference" => object_reference(),
-    "SchemaFacet" => list(schema_facet()())
-  }
+
+      batch_create_object() :: %{
+        "BatchReferenceName" => String.t(),
+        "LinkName" => String.t(),
+        "ObjectAttributeList" => list(attribute_key_and_value()()),
+        "ParentReference" => object_reference(),
+        "SchemaFacet" => list(schema_facet()())
+      }
+
   """
   @type batch_create_object() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_read_operation() :: %{
-    "GetLinkAttributes" => batch_get_link_attributes(),
-    "GetObjectAttributes" => batch_get_object_attributes(),
-    "GetObjectInformation" => batch_get_object_information(),
-    "ListAttachedIndices" => batch_list_attached_indices(),
-    "ListIncomingTypedLinks" => batch_list_incoming_typed_links(),
-    "ListIndex" => batch_list_index(),
-    "ListObjectAttributes" => batch_list_object_attributes(),
-    "ListObjectChildren" => batch_list_object_children(),
-    "ListObjectParentPaths" => batch_list_object_parent_paths(),
-    "ListObjectParents" => batch_list_object_parents(),
-    "ListObjectPolicies" => batch_list_object_policies(),
-    "ListOutgoingTypedLinks" => batch_list_outgoing_typed_links(),
-    "ListPolicyAttachments" => batch_list_policy_attachments(),
-    "LookupPolicy" => batch_lookup_policy()
-  }
+
+      batch_read_operation() :: %{
+        "GetLinkAttributes" => batch_get_link_attributes(),
+        "GetObjectAttributes" => batch_get_object_attributes(),
+        "GetObjectInformation" => batch_get_object_information(),
+        "ListAttachedIndices" => batch_list_attached_indices(),
+        "ListIncomingTypedLinks" => batch_list_incoming_typed_links(),
+        "ListIndex" => batch_list_index(),
+        "ListObjectAttributes" => batch_list_object_attributes(),
+        "ListObjectChildren" => batch_list_object_children(),
+        "ListObjectParentPaths" => batch_list_object_parent_paths(),
+        "ListObjectParents" => batch_list_object_parents(),
+        "ListObjectPolicies" => batch_list_object_policies(),
+        "ListOutgoingTypedLinks" => batch_list_outgoing_typed_links(),
+        "ListPolicyAttachments" => batch_list_policy_attachments(),
+        "LookupPolicy" => batch_lookup_policy()
+      }
+
   """
   @type batch_read_operation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_incoming_typed_links_request() :: %{
-    optional("ConsistencyLevel") => list(any()),
-    optional("FilterAttributeRanges") => list(typed_link_attribute_range()()),
-    optional("FilterTypedLink") => typed_link_schema_and_facet_name(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("DirectoryArn") => String.t(),
-    required("ObjectReference") => object_reference()
-  }
+
+      list_incoming_typed_links_request() :: %{
+        optional("ConsistencyLevel") => list(any()),
+        optional("FilterAttributeRanges") => list(typed_link_attribute_range()()),
+        optional("FilterTypedLink") => typed_link_schema_and_facet_name(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("DirectoryArn") => String.t(),
+        required("ObjectReference") => object_reference()
+      }
+
   """
   @type list_incoming_typed_links_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_facet_attributes_response() :: %{
-    "Attributes" => list(facet_attribute()()),
-    "NextToken" => String.t()
-  }
+
+      list_facet_attributes_response() :: %{
+        "Attributes" => list(facet_attribute()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_facet_attributes_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_response() :: %{
-    "NextToken" => String.t(),
-    "Tags" => list(tag()())
-  }
+
+      list_tags_for_resource_response() :: %{
+        "NextToken" => String.t(),
+        "Tags" => list(tag()())
+      }
+
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  object_attribute_update() :: %{
-    "ObjectAttributeAction" => object_attribute_action(),
-    "ObjectAttributeKey" => attribute_key()
-  }
+
+      object_attribute_update() :: %{
+        "ObjectAttributeAction" => object_attribute_action(),
+        "ObjectAttributeKey" => attribute_key()
+      }
+
   """
   @type object_attribute_update() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  upgrade_published_schema_response() :: %{
-    "UpgradedSchemaArn" => String.t()
-  }
+
+      upgrade_published_schema_response() :: %{
+        "UpgradedSchemaArn" => String.t()
+      }
+
   """
   @type upgrade_published_schema_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_facet_response() :: %{
 
-  }
+      update_facet_response() :: %{}
+
   """
-  @type update_facet_response() :: %{String.t() => any()}
+  @type update_facet_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_outgoing_typed_links_request() :: %{
-    optional("ConsistencyLevel") => list(any()),
-    optional("FilterAttributeRanges") => list(typed_link_attribute_range()()),
-    optional("FilterTypedLink") => typed_link_schema_and_facet_name(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("DirectoryArn") => String.t(),
-    required("ObjectReference") => object_reference()
-  }
+
+      list_outgoing_typed_links_request() :: %{
+        optional("ConsistencyLevel") => list(any()),
+        optional("FilterAttributeRanges") => list(typed_link_attribute_range()()),
+        optional("FilterTypedLink") => typed_link_schema_and_facet_name(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("DirectoryArn") => String.t(),
+        required("ObjectReference") => object_reference()
+      }
+
   """
   @type list_outgoing_typed_links_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_update_object_attributes_response() :: %{
-    "ObjectIdentifier" => String.t()
-  }
+
+      batch_update_object_attributes_response() :: %{
+        "ObjectIdentifier" => String.t()
+      }
+
   """
   @type batch_update_object_attributes_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_list_index_response() :: %{
-    "IndexAttachments" => list(index_attachment()()),
-    "NextToken" => String.t()
-  }
+
+      batch_list_index_response() :: %{
+        "IndexAttachments" => list(index_attachment()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type batch_list_index_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_outgoing_typed_links_response() :: %{
-    "NextToken" => String.t(),
-    "TypedLinkSpecifiers" => list(typed_link_specifier()())
-  }
+
+      list_outgoing_typed_links_response() :: %{
+        "NextToken" => String.t(),
+        "TypedLinkSpecifiers" => list(typed_link_specifier()())
+      }
+
   """
   @type list_outgoing_typed_links_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  attach_to_index_response() :: %{
-    "AttachedObjectIdentifier" => String.t()
-  }
+
+      attach_to_index_response() :: %{
+        "AttachedObjectIdentifier" => String.t()
+      }
+
   """
   @type attach_to_index_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  indexed_attribute_missing_exception() :: %{
-    "Message" => String.t()
-  }
+
+      indexed_attribute_missing_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type indexed_attribute_missing_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_link_attributes_request() :: %{
-    required("AttributeUpdates") => list(link_attribute_update()()),
-    required("DirectoryArn") => String.t(),
-    required("TypedLinkSpecifier") => typed_link_specifier()
-  }
+
+      update_link_attributes_request() :: %{
+        required("AttributeUpdates") => list(link_attribute_update()()),
+        required("DirectoryArn") => String.t(),
+        required("TypedLinkSpecifier") => typed_link_specifier()
+      }
+
   """
   @type update_link_attributes_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  object_attribute_action() :: %{
-    "ObjectAttributeActionType" => list(any()),
-    "ObjectAttributeUpdateValue" => list()
-  }
+
+      object_attribute_action() :: %{
+        "ObjectAttributeActionType" => list(any()),
+        "ObjectAttributeUpdateValue" => list()
+      }
+
   """
   @type object_attribute_action() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  rule() :: %{
-    "Parameters" => map(),
-    "Type" => list(any())
-  }
+
+      rule() :: %{
+        "Parameters" => map(),
+        "Type" => list(any())
+      }
+
   """
   @type rule() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  attach_typed_link_request() :: %{
-    required("Attributes") => list(attribute_name_and_value()()),
-    required("DirectoryArn") => String.t(),
-    required("SourceObjectReference") => object_reference(),
-    required("TargetObjectReference") => object_reference(),
-    required("TypedLinkFacet") => typed_link_schema_and_facet_name()
-  }
+
+      attach_typed_link_request() :: %{
+        required("Attributes") => list(attribute_name_and_value()()),
+        required("DirectoryArn") => String.t(),
+        required("SourceObjectReference") => object_reference(),
+        required("TargetObjectReference") => object_reference(),
+        required("TypedLinkFacet") => typed_link_schema_and_facet_name()
+      }
+
   """
   @type attach_typed_link_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_applied_schema_arns_response() :: %{
-    "NextToken" => String.t(),
-    "SchemaArns" => list(String.t()())
-  }
+
+      list_applied_schema_arns_response() :: %{
+        "NextToken" => String.t(),
+        "SchemaArns" => list(String.t()())
+      }
+
   """
   @type list_applied_schema_arns_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_write_operation() :: %{
-    "AddFacetToObject" => batch_add_facet_to_object(),
-    "AttachObject" => batch_attach_object(),
-    "AttachPolicy" => batch_attach_policy(),
-    "AttachToIndex" => batch_attach_to_index(),
-    "AttachTypedLink" => batch_attach_typed_link(),
-    "CreateIndex" => batch_create_index(),
-    "CreateObject" => batch_create_object(),
-    "DeleteObject" => batch_delete_object(),
-    "DetachFromIndex" => batch_detach_from_index(),
-    "DetachObject" => batch_detach_object(),
-    "DetachPolicy" => batch_detach_policy(),
-    "DetachTypedLink" => batch_detach_typed_link(),
-    "RemoveFacetFromObject" => batch_remove_facet_from_object(),
-    "UpdateLinkAttributes" => batch_update_link_attributes(),
-    "UpdateObjectAttributes" => batch_update_object_attributes()
-  }
+
+      batch_write_operation() :: %{
+        "AddFacetToObject" => batch_add_facet_to_object(),
+        "AttachObject" => batch_attach_object(),
+        "AttachPolicy" => batch_attach_policy(),
+        "AttachToIndex" => batch_attach_to_index(),
+        "AttachTypedLink" => batch_attach_typed_link(),
+        "CreateIndex" => batch_create_index(),
+        "CreateObject" => batch_create_object(),
+        "DeleteObject" => batch_delete_object(),
+        "DetachFromIndex" => batch_detach_from_index(),
+        "DetachObject" => batch_detach_object(),
+        "DetachPolicy" => batch_detach_policy(),
+        "DetachTypedLink" => batch_detach_typed_link(),
+        "RemoveFacetFromObject" => batch_remove_facet_from_object(),
+        "UpdateLinkAttributes" => batch_update_link_attributes(),
+        "UpdateObjectAttributes" => batch_update_object_attributes()
+      }
+
   """
   @type batch_write_operation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_attach_typed_link() :: %{
-    "Attributes" => list(attribute_name_and_value()()),
-    "SourceObjectReference" => object_reference(),
-    "TargetObjectReference" => object_reference(),
-    "TypedLinkFacet" => typed_link_schema_and_facet_name()
-  }
+
+      batch_attach_typed_link() :: %{
+        "Attributes" => list(attribute_name_and_value()()),
+        "SourceObjectReference" => object_reference(),
+        "TargetObjectReference" => object_reference(),
+        "TypedLinkFacet" => typed_link_schema_and_facet_name()
+      }
+
   """
   @type batch_attach_typed_link() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  unsupported_index_type_exception() :: %{
-    "Message" => String.t()
-  }
+
+      unsupported_index_type_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type unsupported_index_type_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_index_request() :: %{
-    optional("ConsistencyLevel") => list(any()),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("RangesOnIndexedValues") => list(object_attribute_range()()),
-    required("DirectoryArn") => String.t(),
-    required("IndexReference") => object_reference()
-  }
+
+      list_index_request() :: %{
+        optional("ConsistencyLevel") => list(any()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("RangesOnIndexedValues") => list(object_attribute_range()()),
+        required("DirectoryArn") => String.t(),
+        required("IndexReference") => object_reference()
+      }
+
   """
   @type list_index_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  link_attribute_update() :: %{
-    "AttributeAction" => link_attribute_action(),
-    "AttributeKey" => attribute_key()
-  }
+
+      link_attribute_update() :: %{
+        "AttributeAction" => link_attribute_action(),
+        "AttributeKey" => attribute_key()
+      }
+
   """
   @type link_attribute_update() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  link_name_already_in_use_exception() :: %{
-    "Message" => String.t()
-  }
+
+      link_name_already_in_use_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type link_name_already_in_use_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  policy_attachment() :: %{
-    "ObjectIdentifier" => String.t(),
-    "PolicyId" => String.t(),
-    "PolicyType" => String.t()
-  }
+
+      policy_attachment() :: %{
+        "ObjectIdentifier" => String.t(),
+        "PolicyId" => String.t(),
+        "PolicyType" => String.t()
+      }
+
   """
   @type policy_attachment() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  attach_typed_link_response() :: %{
-    "TypedLinkSpecifier" => typed_link_specifier()
-  }
+
+      attach_typed_link_response() :: %{
+        "TypedLinkSpecifier" => typed_link_specifier()
+      }
+
   """
   @type attach_typed_link_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_update_object_attributes() :: %{
-    "AttributeUpdates" => list(object_attribute_update()()),
-    "ObjectReference" => object_reference()
-  }
+
+      batch_update_object_attributes() :: %{
+        "AttributeUpdates" => list(object_attribute_update()()),
+        "ObjectReference" => object_reference()
+      }
+
   """
   @type batch_update_object_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_object_attributes_response() :: %{
-    "Attributes" => list(attribute_key_and_value()()),
-    "NextToken" => String.t()
-  }
+
+      list_object_attributes_response() :: %{
+        "Attributes" => list(attribute_key_and_value()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_object_attributes_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_typed_link_facet_response() :: %{
 
-  }
+      update_typed_link_facet_response() :: %{}
+
   """
-  @type update_typed_link_facet_response() :: %{String.t() => any()}
+  @type update_typed_link_facet_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  batch_list_object_attributes_response() :: %{
-    "Attributes" => list(attribute_key_and_value()()),
-    "NextToken" => String.t()
-  }
+
+      batch_list_object_attributes_response() :: %{
+        "Attributes" => list(attribute_key_and_value()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type batch_list_object_attributes_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  publish_schema_request() :: %{
-    optional("MinorVersion") => String.t(),
-    optional("Name") => String.t(),
-    required("DevelopmentSchemaArn") => String.t(),
-    required("Version") => String.t()
-  }
+
+      publish_schema_request() :: %{
+        optional("MinorVersion") => String.t(),
+        optional("Name") => String.t(),
+        required("DevelopmentSchemaArn") => String.t(),
+        required("Version") => String.t()
+      }
+
   """
   @type publish_schema_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_object_information_response() :: %{
-    "ObjectIdentifier" => String.t(),
-    "SchemaFacets" => list(schema_facet()())
-  }
+
+      get_object_information_response() :: %{
+        "ObjectIdentifier" => String.t(),
+        "SchemaFacets" => list(schema_facet()())
+      }
+
   """
   @type get_object_information_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_read_response() :: %{
-    "Responses" => list(batch_read_operation_response()())
-  }
+
+      batch_read_response() :: %{
+        "Responses" => list(batch_read_operation_response()())
+      }
+
   """
   @type batch_read_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  path_to_object_identifiers() :: %{
-    "ObjectIdentifiers" => list(String.t()()),
-    "Path" => String.t()
-  }
+
+      path_to_object_identifiers() :: %{
+        "ObjectIdentifiers" => list(String.t()()),
+        "Path" => String.t()
+      }
+
   """
   @type path_to_object_identifiers() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_attach_policy() :: %{
-    "ObjectReference" => object_reference(),
-    "PolicyReference" => object_reference()
-  }
+
+      batch_attach_policy() :: %{
+        "ObjectReference" => object_reference(),
+        "PolicyReference" => object_reference()
+      }
+
   """
   @type batch_attach_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_object_parent_paths_response() :: %{
-    "NextToken" => String.t(),
-    "PathToObjectIdentifiersList" => list(path_to_object_identifiers()())
-  }
+
+      list_object_parent_paths_response() :: %{
+        "NextToken" => String.t(),
+        "PathToObjectIdentifiersList" => list(path_to_object_identifiers()())
+      }
+
   """
   @type list_object_parent_paths_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_list_object_parents() :: %{
-    "MaxResults" => integer(),
-    "NextToken" => String.t(),
-    "ObjectReference" => object_reference()
-  }
+
+      batch_list_object_parents() :: %{
+        "MaxResults" => integer(),
+        "NextToken" => String.t(),
+        "ObjectReference" => object_reference()
+      }
+
   """
   @type batch_list_object_parents() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_schema_from_json_request() :: %{
-    required("Document") => String.t(),
-    required("SchemaArn") => String.t()
-  }
+
+      put_schema_from_json_request() :: %{
+        required("Document") => String.t(),
+        required("SchemaArn") => String.t()
+      }
+
   """
   @type put_schema_from_json_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_attach_to_index() :: %{
-    "IndexReference" => object_reference(),
-    "TargetReference" => object_reference()
-  }
+
+      batch_attach_to_index() :: %{
+        "IndexReference" => object_reference(),
+        "TargetReference" => object_reference()
+      }
+
   """
   @type batch_attach_to_index() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_typed_link_facet_request() :: %{
-    required("Name") => String.t(),
-    required("SchemaArn") => String.t()
-  }
+
+      delete_typed_link_facet_request() :: %{
+        required("Name") => String.t(),
+        required("SchemaArn") => String.t()
+      }
+
   """
   @type delete_typed_link_facet_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_facet_request() :: %{
-    optional("Attributes") => list(facet_attribute()()),
-    optional("FacetStyle") => list(any()),
-    optional("ObjectType") => list(any()),
-    required("Name") => String.t(),
-    required("SchemaArn") => String.t()
-  }
+
+      create_facet_request() :: %{
+        optional("Attributes") => list(facet_attribute()()),
+        optional("FacetStyle") => list(any()),
+        optional("ObjectType") => list(any()),
+        required("Name") => String.t(),
+        required("SchemaArn") => String.t()
+      }
+
   """
   @type create_facet_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_directories_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("state") => list(any())
-  }
+
+      list_directories_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("state") => list(any())
+      }
+
   """
   @type list_directories_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cannot_list_parent_of_root_exception() :: %{
-    "Message" => String.t()
-  }
+
+      cannot_list_parent_of_root_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type cannot_list_parent_of_root_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  upgrade_applied_schema_request() :: %{
-    optional("DryRun") => boolean(),
-    required("DirectoryArn") => String.t(),
-    required("PublishedSchemaArn") => String.t()
-  }
+
+      upgrade_applied_schema_request() :: %{
+        optional("DryRun") => boolean(),
+        required("DirectoryArn") => String.t(),
+        required("PublishedSchemaArn") => String.t()
+      }
+
   """
   @type upgrade_applied_schema_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_index_request() :: %{
-    optional("LinkName") => String.t(),
-    optional("ParentReference") => object_reference(),
-    required("DirectoryArn") => String.t(),
-    required("IsUnique") => boolean(),
-    required("OrderedIndexedAttributeList") => list(attribute_key()())
-  }
+
+      create_index_request() :: %{
+        optional("LinkName") => String.t(),
+        optional("ParentReference") => object_reference(),
+        required("DirectoryArn") => String.t(),
+        required("IsUnique") => boolean(),
+        required("OrderedIndexedAttributeList") => list(attribute_key()())
+      }
+
   """
   @type create_index_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_typed_link_facet_request() :: %{
-    required("AttributeUpdates") => list(typed_link_facet_attribute_update()()),
-    required("IdentityAttributeOrder") => list(String.t()()),
-    required("Name") => String.t(),
-    required("SchemaArn") => String.t()
-  }
+
+      update_typed_link_facet_request() :: %{
+        required("AttributeUpdates") => list(typed_link_facet_attribute_update()()),
+        required("IdentityAttributeOrder") => list(String.t()()),
+        required("Name") => String.t(),
+        required("SchemaArn") => String.t()
+      }
+
   """
   @type update_typed_link_facet_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_attach_typed_link_response() :: %{
-    "TypedLinkSpecifier" => typed_link_specifier()
-  }
+
+      batch_attach_typed_link_response() :: %{
+        "TypedLinkSpecifier" => typed_link_specifier()
+      }
+
   """
   @type batch_attach_typed_link_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_object_information_request() :: %{
-    optional("ConsistencyLevel") => list(any()),
-    required("DirectoryArn") => String.t(),
-    required("ObjectReference") => object_reference()
-  }
+
+      get_object_information_request() :: %{
+        optional("ConsistencyLevel") => list(any()),
+        required("DirectoryArn") => String.t(),
+        required("ObjectReference") => object_reference()
+      }
+
   """
   @type get_object_information_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  object_identifier_and_link_name_tuple() :: %{
-    "LinkName" => String.t(),
-    "ObjectIdentifier" => String.t()
-  }
+
+      object_identifier_and_link_name_tuple() :: %{
+        "LinkName" => String.t(),
+        "ObjectIdentifier" => String.t()
+      }
+
   """
   @type object_identifier_and_link_name_tuple() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  detach_object_request() :: %{
-    required("DirectoryArn") => String.t(),
-    required("LinkName") => String.t(),
-    required("ParentReference") => object_reference()
-  }
+
+      detach_object_request() :: %{
+        required("DirectoryArn") => String.t(),
+        required("LinkName") => String.t(),
+        required("ParentReference") => object_reference()
+      }
+
   """
   @type detach_object_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_object_attributes_response() :: %{
-    "ObjectIdentifier" => String.t()
-  }
+
+      update_object_attributes_response() :: %{
+        "ObjectIdentifier" => String.t()
+      }
+
   """
   @type update_object_attributes_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  access_denied_exception() :: %{
-    "Message" => String.t()
-  }
+
+      access_denied_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_typed_link_facet_names_response() :: %{
-    "FacetNames" => list(String.t()()),
-    "NextToken" => String.t()
-  }
+
+      list_typed_link_facet_names_response() :: %{
+        "FacetNames" => list(String.t()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_typed_link_facet_names_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  still_contains_links_exception() :: %{
-    "Message" => String.t()
-  }
+
+      still_contains_links_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type still_contains_links_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_directory_request() :: %{
-    required("DirectoryArn") => String.t()
-  }
+
+      delete_directory_request() :: %{
+        required("DirectoryArn") => String.t()
+      }
+
   """
   @type delete_directory_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_response() :: %{
 
-  }
+      tag_resource_response() :: %{}
+
   """
-  @type tag_resource_response() :: %{String.t() => any()}
+  @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  facet_already_exists_exception() :: %{
-    "Message" => String.t()
-  }
+
+      facet_already_exists_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type facet_already_exists_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  detach_policy_response() :: %{
 
-  }
+      detach_policy_response() :: %{}
+
   """
-  @type detach_policy_response() :: %{String.t() => any()}
+  @type detach_policy_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_development_schema_arns_response() :: %{
-    "NextToken" => String.t(),
-    "SchemaArns" => list(String.t()())
-  }
+
+      list_development_schema_arns_response() :: %{
+        "NextToken" => String.t(),
+        "SchemaArns" => list(String.t()())
+      }
+
   """
   @type list_development_schema_arns_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_managed_schema_arns_response() :: %{
-    "NextToken" => String.t(),
-    "SchemaArns" => list(String.t()())
-  }
+
+      list_managed_schema_arns_response() :: %{
+        "NextToken" => String.t(),
+        "SchemaArns" => list(String.t()())
+      }
+
   """
   @type list_managed_schema_arns_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_facet_response() :: %{
 
-  }
+      delete_facet_response() :: %{}
+
   """
-  @type delete_facet_response() :: %{String.t() => any()}
+  @type delete_facet_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_link_attributes_response() :: %{
-    "Attributes" => list(attribute_key_and_value()())
-  }
+
+      get_link_attributes_response() :: %{
+        "Attributes" => list(attribute_key_and_value()())
+      }
+
   """
   @type get_link_attributes_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_list_object_children() :: %{
-    "MaxResults" => integer(),
-    "NextToken" => String.t(),
-    "ObjectReference" => object_reference()
-  }
+
+      batch_list_object_children() :: %{
+        "MaxResults" => integer(),
+        "NextToken" => String.t(),
+        "ObjectReference" => object_reference()
+      }
+
   """
   @type batch_list_object_children() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_attached_indices_response() :: %{
-    "IndexAttachments" => list(index_attachment()()),
-    "NextToken" => String.t()
-  }
+
+      list_attached_indices_response() :: %{
+        "IndexAttachments" => list(index_attachment()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_attached_indices_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  attribute_key_and_value() :: %{
-    "Key" => attribute_key(),
-    "Value" => list()
-  }
+
+      attribute_key_and_value() :: %{
+        "Key" => attribute_key(),
+        "Value" => list()
+      }
+
   """
   @type attribute_key_and_value() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_detach_typed_link() :: %{
-    "TypedLinkSpecifier" => typed_link_specifier()
-  }
+
+      batch_detach_typed_link() :: %{
+        "TypedLinkSpecifier" => typed_link_specifier()
+      }
+
   """
   @type batch_detach_typed_link() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  directory_not_disabled_exception() :: %{
-    "Message" => String.t()
-  }
+
+      directory_not_disabled_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type directory_not_disabled_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_create_index() :: %{
-    "BatchReferenceName" => String.t(),
-    "IsUnique" => boolean(),
-    "LinkName" => String.t(),
-    "OrderedIndexedAttributeList" => list(attribute_key()()),
-    "ParentReference" => object_reference()
-  }
+
+      batch_create_index() :: %{
+        "BatchReferenceName" => String.t(),
+        "IsUnique" => boolean(),
+        "LinkName" => String.t(),
+        "OrderedIndexedAttributeList" => list(attribute_key()()),
+        "ParentReference" => object_reference()
+      }
+
   """
   @type batch_create_index() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  validation_exception() :: %{
-    "Message" => String.t()
-  }
+
+      validation_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("ResourceArn") => String.t()
-  }
+
+      list_tags_for_resource_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("ResourceArn") => String.t()
+      }
+
   """
   @type list_tags_for_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_facet_request() :: %{
-    optional("AttributeUpdates") => list(facet_attribute_update()()),
-    optional("ObjectType") => list(any()),
-    required("Name") => String.t(),
-    required("SchemaArn") => String.t()
-  }
+
+      update_facet_request() :: %{
+        optional("AttributeUpdates") => list(facet_attribute_update()()),
+        optional("ObjectType") => list(any()),
+        required("Name") => String.t(),
+        required("SchemaArn") => String.t()
+      }
+
   """
   @type update_facet_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  facet() :: %{
-    "FacetStyle" => list(any()),
-    "Name" => String.t(),
-    "ObjectType" => list(any())
-  }
+
+      facet() :: %{
+        "FacetStyle" => list(any()),
+        "Name" => String.t(),
+        "ObjectType" => list(any())
+      }
+
   """
   @type facet() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_detach_typed_link_response() :: %{
 
-  }
+      batch_detach_typed_link_response() :: %{}
+
   """
-  @type batch_detach_typed_link_response() :: %{String.t() => any()}
+  @type batch_detach_typed_link_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_typed_link_facet_request() :: %{
-    required("Facet") => typed_link_facet(),
-    required("SchemaArn") => String.t()
-  }
+
+      create_typed_link_facet_request() :: %{
+        required("Facet") => typed_link_facet(),
+        required("SchemaArn") => String.t()
+      }
+
   """
   @type create_typed_link_facet_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  facet_validation_exception() :: %{
-    "Message" => String.t()
-  }
+
+      facet_validation_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type facet_validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_list_object_policies() :: %{
-    "MaxResults" => integer(),
-    "NextToken" => String.t(),
-    "ObjectReference" => object_reference()
-  }
+
+      batch_list_object_policies() :: %{
+        "MaxResults" => integer(),
+        "NextToken" => String.t(),
+        "ObjectReference" => object_reference()
+      }
+
   """
   @type batch_list_object_policies() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  typed_link_facet() :: %{
-    "Attributes" => list(typed_link_attribute_definition()()),
-    "IdentityAttributeOrder" => list(String.t()()),
-    "Name" => String.t()
-  }
+
+      typed_link_facet() :: %{
+        "Attributes" => list(typed_link_attribute_definition()()),
+        "IdentityAttributeOrder" => list(String.t()()),
+        "Name" => String.t()
+      }
+
   """
   @type typed_link_facet() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_rule_exception() :: %{
-    "Message" => String.t()
-  }
+
+      invalid_rule_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type invalid_rule_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_attach_object_response() :: %{
-    "attachedObjectIdentifier" => String.t()
-  }
+
+      batch_attach_object_response() :: %{
+        "attachedObjectIdentifier" => String.t()
+      }
+
   """
   @type batch_attach_object_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_list_object_children_response() :: %{
-    "Children" => map(),
-    "NextToken" => String.t()
-  }
+
+      batch_list_object_children_response() :: %{
+        "Children" => map(),
+        "NextToken" => String.t()
+      }
+
   """
   @type batch_list_object_children_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_detach_from_index_response() :: %{
-    "DetachedObjectIdentifier" => String.t()
-  }
+
+      batch_detach_from_index_response() :: %{
+        "DetachedObjectIdentifier" => String.t()
+      }
+
   """
   @type batch_detach_from_index_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_published_schema_arns_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("SchemaArn") => String.t()
-  }
+
+      list_published_schema_arns_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("SchemaArn") => String.t()
+      }
+
   """
   @type list_published_schema_arns_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_policy_attachments_response() :: %{
-    "NextToken" => String.t(),
-    "ObjectIdentifiers" => list(String.t()())
-  }
+
+      list_policy_attachments_response() :: %{
+        "NextToken" => String.t(),
+        "ObjectIdentifiers" => list(String.t()())
+      }
+
   """
   @type list_policy_attachments_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_get_object_attributes_response() :: %{
-    "Attributes" => list(attribute_key_and_value()())
-  }
+
+      batch_get_object_attributes_response() :: %{
+        "Attributes" => list(attribute_key_and_value()())
+      }
+
   """
   @type batch_get_object_attributes_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  object_not_detached_exception() :: %{
-    "Message" => String.t()
-  }
+
+      object_not_detached_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type object_not_detached_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  limit_exceeded_exception() :: %{
-    "Message" => String.t()
-  }
+
+      limit_exceeded_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_list_outgoing_typed_links_response() :: %{
-    "NextToken" => String.t(),
-    "TypedLinkSpecifiers" => list(typed_link_specifier()())
-  }
+
+      batch_list_outgoing_typed_links_response() :: %{
+        "NextToken" => String.t(),
+        "TypedLinkSpecifiers" => list(typed_link_specifier()())
+      }
+
   """
   @type batch_list_outgoing_typed_links_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  attach_object_response() :: %{
-    "AttachedObjectIdentifier" => String.t()
-  }
+
+      attach_object_response() :: %{
+        "AttachedObjectIdentifier" => String.t()
+      }
+
   """
   @type attach_object_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  not_policy_exception() :: %{
-    "Message" => String.t()
-  }
+
+      not_policy_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type not_policy_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_detach_from_index() :: %{
-    "IndexReference" => object_reference(),
-    "TargetReference" => object_reference()
-  }
+
+      batch_detach_from_index() :: %{
+        "IndexReference" => object_reference(),
+        "TargetReference" => object_reference()
+      }
+
   """
   @type batch_detach_from_index() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  remove_facet_from_object_response() :: %{
 
-  }
+      remove_facet_from_object_response() :: %{}
+
   """
-  @type remove_facet_from_object_response() :: %{String.t() => any()}
+  @type remove_facet_from_object_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  directory_not_enabled_exception() :: %{
-    "Message" => String.t()
-  }
+
+      directory_not_enabled_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type directory_not_enabled_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_index_response() :: %{
-    "IndexAttachments" => list(index_attachment()()),
-    "NextToken" => String.t()
-  }
+
+      list_index_response() :: %{
+        "IndexAttachments" => list(index_attachment()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_index_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_object_parents_request() :: %{
-    optional("ConsistencyLevel") => list(any()),
-    optional("IncludeAllLinksToEachParent") => boolean(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("DirectoryArn") => String.t(),
-    required("ObjectReference") => object_reference()
-  }
+
+      list_object_parents_request() :: %{
+        optional("ConsistencyLevel") => list(any()),
+        optional("IncludeAllLinksToEachParent") => boolean(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("DirectoryArn") => String.t(),
+        required("ObjectReference") => object_reference()
+      }
+
   """
   @type list_object_parents_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  detach_typed_link_request() :: %{
-    required("DirectoryArn") => String.t(),
-    required("TypedLinkSpecifier") => typed_link_specifier()
-  }
+
+      detach_typed_link_request() :: %{
+        required("DirectoryArn") => String.t(),
+        required("TypedLinkSpecifier") => typed_link_specifier()
+      }
+
   """
   @type detach_typed_link_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_directories_response() :: %{
-    "Directories" => list(directory()()),
-    "NextToken" => String.t()
-  }
+
+      list_directories_response() :: %{
+        "Directories" => list(directory()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_directories_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_index_response() :: %{
-    "ObjectIdentifier" => String.t()
-  }
+
+      create_index_response() :: %{
+        "ObjectIdentifier" => String.t()
+      }
+
   """
   @type create_index_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  upgrade_applied_schema_response() :: %{
-    "DirectoryArn" => String.t(),
-    "UpgradedSchemaArn" => String.t()
-  }
+
+      upgrade_applied_schema_response() :: %{
+        "DirectoryArn" => String.t(),
+        "UpgradedSchemaArn" => String.t()
+      }
+
   """
   @type upgrade_applied_schema_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_object_request() :: %{
-    optional("LinkName") => String.t(),
-    optional("ObjectAttributeList") => list(attribute_key_and_value()()),
-    optional("ParentReference") => object_reference(),
-    required("DirectoryArn") => String.t(),
-    required("SchemaFacets") => list(schema_facet()())
-  }
+
+      create_object_request() :: %{
+        optional("LinkName") => String.t(),
+        optional("ObjectAttributeList") => list(attribute_key_and_value()()),
+        optional("ParentReference") => object_reference(),
+        required("DirectoryArn") => String.t(),
+        required("SchemaFacets") => list(schema_facet()())
+      }
+
   """
   @type create_object_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_object_response() :: %{
-    "ObjectIdentifier" => String.t()
-  }
+
+      create_object_response() :: %{
+        "ObjectIdentifier" => String.t()
+      }
+
   """
   @type create_object_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  add_facet_to_object_request() :: %{
-    optional("ObjectAttributeList") => list(attribute_key_and_value()()),
-    required("DirectoryArn") => String.t(),
-    required("ObjectReference") => object_reference(),
-    required("SchemaFacet") => schema_facet()
-  }
+
+      add_facet_to_object_request() :: %{
+        optional("ObjectAttributeList") => list(attribute_key_and_value()()),
+        required("DirectoryArn") => String.t(),
+        required("ObjectReference") => object_reference(),
+        required("SchemaFacet") => schema_facet()
+      }
+
   """
   @type add_facet_to_object_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_list_outgoing_typed_links() :: %{
-    "FilterAttributeRanges" => list(typed_link_attribute_range()()),
-    "FilterTypedLink" => typed_link_schema_and_facet_name(),
-    "MaxResults" => integer(),
-    "NextToken" => String.t(),
-    "ObjectReference" => object_reference()
-  }
+
+      batch_list_outgoing_typed_links() :: %{
+        "FilterAttributeRanges" => list(typed_link_attribute_range()()),
+        "FilterTypedLink" => typed_link_schema_and_facet_name(),
+        "MaxResults" => integer(),
+        "NextToken" => String.t(),
+        "ObjectReference" => object_reference()
+      }
+
   """
   @type batch_list_outgoing_typed_links() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_delete_object() :: %{
-    "ObjectReference" => object_reference()
-  }
+
+      batch_delete_object() :: %{
+        "ObjectReference" => object_reference()
+      }
+
   """
   @type batch_delete_object() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  attribute_key() :: %{
-    "FacetName" => String.t(),
-    "Name" => String.t(),
-    "SchemaArn" => String.t()
-  }
+
+      attribute_key() :: %{
+        "FacetName" => String.t(),
+        "Name" => String.t(),
+        "SchemaArn" => String.t()
+      }
+
   """
   @type attribute_key() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  typed_link_facet_attribute_update() :: %{
-    "Action" => list(any()),
-    "Attribute" => typed_link_attribute_definition()
-  }
+
+      typed_link_facet_attribute_update() :: %{
+        "Action" => list(any()),
+        "Attribute" => typed_link_attribute_definition()
+      }
+
   """
   @type typed_link_facet_attribute_update() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  lookup_policy_response() :: %{
-    "NextToken" => String.t(),
-    "PolicyToPathList" => list(policy_to_path()())
-  }
+
+      lookup_policy_response() :: %{
+        "NextToken" => String.t(),
+        "PolicyToPathList" => list(policy_to_path()())
+      }
+
   """
   @type lookup_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_attachment_exception() :: %{
-    "Message" => String.t()
-  }
+
+      invalid_attachment_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type invalid_attachment_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  facet_attribute_definition() :: %{
-    "DefaultValue" => list(),
-    "IsImmutable" => boolean(),
-    "Rules" => map(),
-    "Type" => list(any())
-  }
+
+      facet_attribute_definition() :: %{
+        "DefaultValue" => list(),
+        "IsImmutable" => boolean(),
+        "Rules" => map(),
+        "Type" => list(any())
+      }
+
   """
   @type facet_attribute_definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  remove_facet_from_object_request() :: %{
-    required("DirectoryArn") => String.t(),
-    required("ObjectReference") => object_reference(),
-    required("SchemaFacet") => schema_facet()
-  }
+
+      remove_facet_from_object_request() :: %{
+        required("DirectoryArn") => String.t(),
+        required("ObjectReference") => object_reference(),
+        required("SchemaFacet") => schema_facet()
+      }
+
   """
   @type remove_facet_from_object_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_read_request() :: %{
-    optional("ConsistencyLevel") => list(any()),
-    required("DirectoryArn") => String.t(),
-    required("Operations") => list(batch_read_operation()())
-  }
+
+      batch_read_request() :: %{
+        optional("ConsistencyLevel") => list(any()),
+        required("DirectoryArn") => String.t(),
+        required("Operations") => list(batch_read_operation()())
+      }
+
   """
   @type batch_read_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_typed_link_facet_response() :: %{
 
-  }
+      delete_typed_link_facet_response() :: %{}
+
   """
-  @type delete_typed_link_facet_response() :: %{String.t() => any()}
+  @type delete_typed_link_facet_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  object_already_detached_exception() :: %{
-    "Message" => String.t()
-  }
+
+      object_already_detached_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type object_already_detached_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_schema_as_json_request() :: %{
-    required("SchemaArn") => String.t()
-  }
+
+      get_schema_as_json_request() :: %{
+        required("SchemaArn") => String.t()
+      }
+
   """
   @type get_schema_as_json_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  typed_link_attribute_range() :: %{
-    "AttributeName" => String.t(),
-    "Range" => typed_attribute_value_range()
-  }
+
+      typed_link_attribute_range() :: %{
+        "AttributeName" => String.t(),
+        "Range" => typed_attribute_value_range()
+      }
+
   """
   @type typed_link_attribute_range() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_directory_request() :: %{
-    required("DirectoryArn") => String.t()
-  }
+
+      get_directory_request() :: %{
+        required("DirectoryArn") => String.t()
+      }
+
   """
   @type get_directory_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_facet_response() :: %{
-    "Facet" => facet()
-  }
+
+      get_facet_response() :: %{
+        "Facet" => facet()
+      }
+
   """
   @type get_facet_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_managed_schema_arns_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("SchemaArn") => String.t()
-  }
+
+      list_managed_schema_arns_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("SchemaArn") => String.t()
+      }
+
   """
   @type list_managed_schema_arns_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_write_exception() :: %{
-    "Index" => integer(),
-    "Message" => String.t(),
-    "Type" => list(any())
-  }
+
+      batch_write_exception() :: %{
+        "Index" => integer(),
+        "Message" => String.t(),
+        "Type" => list(any())
+      }
+
   """
   @type batch_write_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_object_attributes_request() :: %{
-    optional("ConsistencyLevel") => list(any()),
-    required("AttributeNames") => list(String.t()()),
-    required("DirectoryArn") => String.t(),
-    required("ObjectReference") => object_reference(),
-    required("SchemaFacet") => schema_facet()
-  }
+
+      get_object_attributes_request() :: %{
+        optional("ConsistencyLevel") => list(any()),
+        required("AttributeNames") => list(String.t()()),
+        required("DirectoryArn") => String.t(),
+        required("ObjectReference") => object_reference(),
+        required("SchemaFacet") => schema_facet()
+      }
+
   """
   @type get_object_attributes_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_get_link_attributes_response() :: %{
-    "Attributes" => list(attribute_key_and_value()())
-  }
+
+      batch_get_link_attributes_response() :: %{
+        "Attributes" => list(attribute_key_and_value()())
+      }
+
   """
   @type batch_get_link_attributes_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_typed_link_facet_information_response() :: %{
-    "IdentityAttributeOrder" => list(String.t()())
-  }
+
+      get_typed_link_facet_information_response() :: %{
+        "IdentityAttributeOrder" => list(String.t()())
+      }
+
   """
   @type get_typed_link_facet_information_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_schema_request() :: %{
-    required("Name") => String.t(),
-    required("SchemaArn") => String.t()
-  }
+
+      update_schema_request() :: %{
+        required("Name") => String.t(),
+        required("SchemaArn") => String.t()
+      }
+
   """
   @type update_schema_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_tagging_request_exception() :: %{
-    "Message" => String.t()
-  }
+
+      invalid_tagging_request_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type invalid_tagging_request_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_add_facet_to_object() :: %{
-    "ObjectAttributeList" => list(attribute_key_and_value()()),
-    "ObjectReference" => object_reference(),
-    "SchemaFacet" => schema_facet()
-  }
+
+      batch_add_facet_to_object() :: %{
+        "ObjectAttributeList" => list(attribute_key_and_value()()),
+        "ObjectReference" => object_reference(),
+        "SchemaFacet" => schema_facet()
+      }
+
   """
   @type batch_add_facet_to_object() :: %{String.t() => any()}
+
+  @type add_facet_to_object_errors() ::
+          directory_not_enabled_exception()
+          | limit_exceeded_exception()
+          | facet_validation_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | invalid_arn_exception()
+          | internal_service_exception()
+          | retryable_conflict_exception()
+
+  @type apply_schema_errors() ::
+          invalid_attachment_exception()
+          | limit_exceeded_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | invalid_arn_exception()
+          | schema_already_exists_exception()
+          | internal_service_exception()
+          | retryable_conflict_exception()
+
+  @type attach_object_errors() ::
+          invalid_attachment_exception()
+          | directory_not_enabled_exception()
+          | limit_exceeded_exception()
+          | facet_validation_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | link_name_already_in_use_exception()
+          | resource_not_found_exception()
+          | invalid_arn_exception()
+          | internal_service_exception()
+          | retryable_conflict_exception()
+
+  @type attach_policy_errors() ::
+          directory_not_enabled_exception()
+          | not_policy_exception()
+          | limit_exceeded_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | invalid_arn_exception()
+          | internal_service_exception()
+          | retryable_conflict_exception()
+
+  @type attach_to_index_errors() ::
+          invalid_attachment_exception()
+          | directory_not_enabled_exception()
+          | limit_exceeded_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | link_name_already_in_use_exception()
+          | indexed_attribute_missing_exception()
+          | resource_not_found_exception()
+          | invalid_arn_exception()
+          | internal_service_exception()
+          | retryable_conflict_exception()
+          | not_index_exception()
+
+  @type attach_typed_link_errors() ::
+          invalid_attachment_exception()
+          | directory_not_enabled_exception()
+          | limit_exceeded_exception()
+          | facet_validation_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | invalid_arn_exception()
+          | internal_service_exception()
+          | retryable_conflict_exception()
+
+  @type batch_read_errors() ::
+          directory_not_enabled_exception()
+          | limit_exceeded_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | invalid_arn_exception()
+          | internal_service_exception()
+          | retryable_conflict_exception()
+
+  @type batch_write_errors() ::
+          batch_write_exception()
+          | directory_not_enabled_exception()
+          | limit_exceeded_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | invalid_arn_exception()
+          | internal_service_exception()
+          | retryable_conflict_exception()
+
+  @type create_directory_errors() ::
+          limit_exceeded_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | directory_already_exists_exception()
+          | resource_not_found_exception()
+          | invalid_arn_exception()
+          | internal_service_exception()
+          | retryable_conflict_exception()
+
+  @type create_facet_errors() ::
+          limit_exceeded_exception()
+          | invalid_rule_exception()
+          | facet_validation_exception()
+          | validation_exception()
+          | facet_already_exists_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | invalid_arn_exception()
+          | internal_service_exception()
+          | retryable_conflict_exception()
+
+  @type create_index_errors() ::
+          directory_not_enabled_exception()
+          | limit_exceeded_exception()
+          | facet_validation_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | link_name_already_in_use_exception()
+          | unsupported_index_type_exception()
+          | resource_not_found_exception()
+          | invalid_arn_exception()
+          | internal_service_exception()
+          | retryable_conflict_exception()
+
+  @type create_object_errors() ::
+          directory_not_enabled_exception()
+          | limit_exceeded_exception()
+          | facet_validation_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | link_name_already_in_use_exception()
+          | unsupported_index_type_exception()
+          | resource_not_found_exception()
+          | invalid_arn_exception()
+          | internal_service_exception()
+          | retryable_conflict_exception()
+
+  @type create_schema_errors() ::
+          limit_exceeded_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | invalid_arn_exception()
+          | schema_already_exists_exception()
+          | internal_service_exception()
+          | retryable_conflict_exception()
+
+  @type create_typed_link_facet_errors() ::
+          limit_exceeded_exception()
+          | invalid_rule_exception()
+          | facet_validation_exception()
+          | validation_exception()
+          | facet_already_exists_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | invalid_arn_exception()
+          | internal_service_exception()
+          | retryable_conflict_exception()
+
+  @type delete_directory_errors() ::
+          limit_exceeded_exception()
+          | validation_exception()
+          | directory_not_disabled_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | invalid_arn_exception()
+          | internal_service_exception()
+          | directory_deleted_exception()
+          | retryable_conflict_exception()
+
+  @type delete_facet_errors() ::
+          limit_exceeded_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | facet_in_use_exception()
+          | resource_not_found_exception()
+          | invalid_arn_exception()
+          | internal_service_exception()
+          | facet_not_found_exception()
+          | retryable_conflict_exception()
+
+  @type delete_object_errors() ::
+          directory_not_enabled_exception()
+          | limit_exceeded_exception()
+          | object_not_detached_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | invalid_arn_exception()
+          | internal_service_exception()
+          | retryable_conflict_exception()
+
+  @type delete_schema_errors() ::
+          limit_exceeded_exception()
+          | validation_exception()
+          | still_contains_links_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | invalid_arn_exception()
+          | internal_service_exception()
+          | retryable_conflict_exception()
+
+  @type delete_typed_link_facet_errors() ::
+          limit_exceeded_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | invalid_arn_exception()
+          | internal_service_exception()
+          | facet_not_found_exception()
+          | retryable_conflict_exception()
+
+  @type detach_from_index_errors() ::
+          object_already_detached_exception()
+          | directory_not_enabled_exception()
+          | limit_exceeded_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | invalid_arn_exception()
+          | internal_service_exception()
+          | retryable_conflict_exception()
+          | not_index_exception()
+
+  @type detach_object_errors() ::
+          directory_not_enabled_exception()
+          | limit_exceeded_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | not_node_exception()
+          | invalid_arn_exception()
+          | internal_service_exception()
+          | retryable_conflict_exception()
+
+  @type detach_policy_errors() ::
+          directory_not_enabled_exception()
+          | not_policy_exception()
+          | limit_exceeded_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | invalid_arn_exception()
+          | internal_service_exception()
+          | retryable_conflict_exception()
+
+  @type detach_typed_link_errors() ::
+          directory_not_enabled_exception()
+          | limit_exceeded_exception()
+          | facet_validation_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | invalid_arn_exception()
+          | internal_service_exception()
+          | retryable_conflict_exception()
+
+  @type disable_directory_errors() ::
+          limit_exceeded_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | invalid_arn_exception()
+          | internal_service_exception()
+          | directory_deleted_exception()
+          | retryable_conflict_exception()
+
+  @type enable_directory_errors() ::
+          limit_exceeded_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | invalid_arn_exception()
+          | internal_service_exception()
+          | directory_deleted_exception()
+          | retryable_conflict_exception()
+
+  @type get_applied_schema_version_errors() ::
+          limit_exceeded_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | invalid_arn_exception()
+          | internal_service_exception()
+          | retryable_conflict_exception()
+
+  @type get_directory_errors() ::
+          limit_exceeded_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | invalid_arn_exception()
+          | internal_service_exception()
+          | retryable_conflict_exception()
+
+  @type get_facet_errors() ::
+          limit_exceeded_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | invalid_arn_exception()
+          | internal_service_exception()
+          | facet_not_found_exception()
+          | retryable_conflict_exception()
+
+  @type get_link_attributes_errors() ::
+          directory_not_enabled_exception()
+          | limit_exceeded_exception()
+          | facet_validation_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | invalid_arn_exception()
+          | internal_service_exception()
+          | retryable_conflict_exception()
+
+  @type get_object_attributes_errors() ::
+          directory_not_enabled_exception()
+          | limit_exceeded_exception()
+          | facet_validation_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | invalid_arn_exception()
+          | internal_service_exception()
+          | retryable_conflict_exception()
+
+  @type get_object_information_errors() ::
+          directory_not_enabled_exception()
+          | limit_exceeded_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | invalid_arn_exception()
+          | internal_service_exception()
+          | retryable_conflict_exception()
+
+  @type get_schema_as_json_errors() ::
+          limit_exceeded_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | invalid_arn_exception()
+          | internal_service_exception()
+          | retryable_conflict_exception()
+
+  @type get_typed_link_facet_information_errors() ::
+          limit_exceeded_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | invalid_next_token_exception()
+          | resource_not_found_exception()
+          | invalid_arn_exception()
+          | internal_service_exception()
+          | facet_not_found_exception()
+          | retryable_conflict_exception()
+
+  @type list_applied_schema_arns_errors() ::
+          limit_exceeded_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | invalid_next_token_exception()
+          | resource_not_found_exception()
+          | invalid_arn_exception()
+          | internal_service_exception()
+          | retryable_conflict_exception()
+
+  @type list_attached_indices_errors() ::
+          directory_not_enabled_exception()
+          | limit_exceeded_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | invalid_arn_exception()
+          | internal_service_exception()
+          | retryable_conflict_exception()
+
+  @type list_development_schema_arns_errors() ::
+          limit_exceeded_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | invalid_next_token_exception()
+          | resource_not_found_exception()
+          | invalid_arn_exception()
+          | internal_service_exception()
+          | retryable_conflict_exception()
+
+  @type list_directories_errors() ::
+          limit_exceeded_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | invalid_next_token_exception()
+          | invalid_arn_exception()
+          | internal_service_exception()
+          | retryable_conflict_exception()
+
+  @type list_facet_attributes_errors() ::
+          limit_exceeded_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | invalid_next_token_exception()
+          | resource_not_found_exception()
+          | invalid_arn_exception()
+          | internal_service_exception()
+          | facet_not_found_exception()
+          | retryable_conflict_exception()
+
+  @type list_facet_names_errors() ::
+          limit_exceeded_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | invalid_next_token_exception()
+          | resource_not_found_exception()
+          | invalid_arn_exception()
+          | internal_service_exception()
+          | retryable_conflict_exception()
+
+  @type list_incoming_typed_links_errors() ::
+          directory_not_enabled_exception()
+          | limit_exceeded_exception()
+          | facet_validation_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | invalid_next_token_exception()
+          | resource_not_found_exception()
+          | invalid_arn_exception()
+          | internal_service_exception()
+          | retryable_conflict_exception()
+
+  @type list_index_errors() ::
+          directory_not_enabled_exception()
+          | limit_exceeded_exception()
+          | facet_validation_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | invalid_next_token_exception()
+          | resource_not_found_exception()
+          | invalid_arn_exception()
+          | internal_service_exception()
+          | retryable_conflict_exception()
+          | not_index_exception()
+
+  @type list_managed_schema_arns_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | invalid_next_token_exception()
+          | resource_not_found_exception()
+          | invalid_arn_exception()
+          | internal_service_exception()
+
+  @type list_object_attributes_errors() ::
+          directory_not_enabled_exception()
+          | limit_exceeded_exception()
+          | facet_validation_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | invalid_next_token_exception()
+          | resource_not_found_exception()
+          | invalid_arn_exception()
+          | internal_service_exception()
+          | retryable_conflict_exception()
+
+  @type list_object_children_errors() ::
+          directory_not_enabled_exception()
+          | limit_exceeded_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | invalid_next_token_exception()
+          | resource_not_found_exception()
+          | not_node_exception()
+          | invalid_arn_exception()
+          | internal_service_exception()
+          | retryable_conflict_exception()
+
+  @type list_object_parent_paths_errors() ::
+          directory_not_enabled_exception()
+          | limit_exceeded_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | invalid_next_token_exception()
+          | resource_not_found_exception()
+          | invalid_arn_exception()
+          | internal_service_exception()
+          | retryable_conflict_exception()
+
+  @type list_object_parents_errors() ::
+          directory_not_enabled_exception()
+          | limit_exceeded_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | cannot_list_parent_of_root_exception()
+          | invalid_next_token_exception()
+          | resource_not_found_exception()
+          | invalid_arn_exception()
+          | internal_service_exception()
+          | retryable_conflict_exception()
+
+  @type list_object_policies_errors() ::
+          directory_not_enabled_exception()
+          | limit_exceeded_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | invalid_next_token_exception()
+          | resource_not_found_exception()
+          | invalid_arn_exception()
+          | internal_service_exception()
+          | retryable_conflict_exception()
+
+  @type list_outgoing_typed_links_errors() ::
+          directory_not_enabled_exception()
+          | limit_exceeded_exception()
+          | facet_validation_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | invalid_next_token_exception()
+          | resource_not_found_exception()
+          | invalid_arn_exception()
+          | internal_service_exception()
+          | retryable_conflict_exception()
+
+  @type list_policy_attachments_errors() ::
+          directory_not_enabled_exception()
+          | not_policy_exception()
+          | limit_exceeded_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | invalid_next_token_exception()
+          | resource_not_found_exception()
+          | invalid_arn_exception()
+          | internal_service_exception()
+          | retryable_conflict_exception()
+
+  @type list_published_schema_arns_errors() ::
+          limit_exceeded_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | invalid_next_token_exception()
+          | resource_not_found_exception()
+          | invalid_arn_exception()
+          | internal_service_exception()
+          | retryable_conflict_exception()
+
+  @type list_tags_for_resource_errors() ::
+          invalid_tagging_request_exception()
+          | limit_exceeded_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | invalid_arn_exception()
+          | internal_service_exception()
+          | retryable_conflict_exception()
+
+  @type list_typed_link_facet_attributes_errors() ::
+          limit_exceeded_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | invalid_next_token_exception()
+          | resource_not_found_exception()
+          | invalid_arn_exception()
+          | internal_service_exception()
+          | facet_not_found_exception()
+          | retryable_conflict_exception()
+
+  @type list_typed_link_facet_names_errors() ::
+          limit_exceeded_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | invalid_next_token_exception()
+          | resource_not_found_exception()
+          | invalid_arn_exception()
+          | internal_service_exception()
+          | retryable_conflict_exception()
+
+  @type lookup_policy_errors() ::
+          directory_not_enabled_exception()
+          | limit_exceeded_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | invalid_next_token_exception()
+          | resource_not_found_exception()
+          | invalid_arn_exception()
+          | internal_service_exception()
+          | retryable_conflict_exception()
+
+  @type publish_schema_errors() ::
+          limit_exceeded_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | invalid_arn_exception()
+          | schema_already_published_exception()
+          | internal_service_exception()
+          | retryable_conflict_exception()
+
+  @type put_schema_from_json_errors() ::
+          limit_exceeded_exception()
+          | invalid_rule_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | invalid_schema_doc_exception()
+          | invalid_arn_exception()
+          | internal_service_exception()
+          | retryable_conflict_exception()
+
+  @type remove_facet_from_object_errors() ::
+          directory_not_enabled_exception()
+          | limit_exceeded_exception()
+          | facet_validation_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | invalid_arn_exception()
+          | internal_service_exception()
+          | retryable_conflict_exception()
+
+  @type tag_resource_errors() ::
+          invalid_tagging_request_exception()
+          | limit_exceeded_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | invalid_arn_exception()
+          | internal_service_exception()
+          | retryable_conflict_exception()
+
+  @type untag_resource_errors() ::
+          invalid_tagging_request_exception()
+          | limit_exceeded_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | invalid_arn_exception()
+          | internal_service_exception()
+          | retryable_conflict_exception()
+
+  @type update_facet_errors() ::
+          limit_exceeded_exception()
+          | invalid_rule_exception()
+          | facet_validation_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | invalid_arn_exception()
+          | internal_service_exception()
+          | facet_not_found_exception()
+          | invalid_facet_update_exception()
+          | retryable_conflict_exception()
+
+  @type update_link_attributes_errors() ::
+          directory_not_enabled_exception()
+          | limit_exceeded_exception()
+          | facet_validation_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | invalid_arn_exception()
+          | internal_service_exception()
+          | retryable_conflict_exception()
+
+  @type update_object_attributes_errors() ::
+          directory_not_enabled_exception()
+          | limit_exceeded_exception()
+          | facet_validation_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | link_name_already_in_use_exception()
+          | resource_not_found_exception()
+          | invalid_arn_exception()
+          | internal_service_exception()
+          | retryable_conflict_exception()
+
+  @type update_schema_errors() ::
+          limit_exceeded_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | invalid_arn_exception()
+          | internal_service_exception()
+          | retryable_conflict_exception()
+
+  @type update_typed_link_facet_errors() ::
+          limit_exceeded_exception()
+          | invalid_rule_exception()
+          | facet_validation_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | invalid_arn_exception()
+          | internal_service_exception()
+          | facet_not_found_exception()
+          | invalid_facet_update_exception()
+          | retryable_conflict_exception()
+
+  @type upgrade_applied_schema_errors() ::
+          invalid_attachment_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | invalid_arn_exception()
+          | schema_already_exists_exception()
+          | internal_service_exception()
+          | retryable_conflict_exception()
+          | incompatible_schema_exception()
+
+  @type upgrade_published_schema_errors() ::
+          invalid_attachment_exception()
+          | limit_exceeded_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | invalid_arn_exception()
+          | internal_service_exception()
+          | retryable_conflict_exception()
+          | incompatible_schema_exception()
 
   def metadata do
     %{
@@ -2732,15 +3925,7 @@ defmodule AWS.CloudDirectory do
   @spec add_facet_to_object(map(), add_facet_to_object_request(), list()) ::
           {:ok, add_facet_to_object_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, directory_not_enabled_exception()}
-          | {:error, facet_validation_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_arn_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, retryable_conflict_exception()}
-          | {:error, validation_exception()}
+          | {:error, add_facet_to_object_errors()}
   def add_facet_to_object(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/object/facets"
 
@@ -2765,15 +3950,7 @@ defmodule AWS.CloudDirectory do
   @spec apply_schema(map(), apply_schema_request(), list()) ::
           {:ok, apply_schema_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_arn_exception()}
-          | {:error, invalid_attachment_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, retryable_conflict_exception()}
-          | {:error, schema_already_exists_exception()}
-          | {:error, validation_exception()}
+          | {:error, apply_schema_errors()}
   def apply_schema(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/schema/apply"
 
@@ -2805,17 +3982,7 @@ defmodule AWS.CloudDirectory do
   @spec attach_object(map(), attach_object_request(), list()) ::
           {:ok, attach_object_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, directory_not_enabled_exception()}
-          | {:error, facet_validation_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_arn_exception()}
-          | {:error, invalid_attachment_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, link_name_already_in_use_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, retryable_conflict_exception()}
-          | {:error, validation_exception()}
+          | {:error, attach_object_errors()}
   def attach_object(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/object/attach"
 
@@ -2841,15 +4008,7 @@ defmodule AWS.CloudDirectory do
   @spec attach_policy(map(), attach_policy_request(), list()) ::
           {:ok, attach_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, directory_not_enabled_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_arn_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, not_policy_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, retryable_conflict_exception()}
-          | {:error, validation_exception()}
+          | {:error, attach_policy_errors()}
   def attach_policy(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/policy/attach"
 
@@ -2872,18 +4031,7 @@ defmodule AWS.CloudDirectory do
   @spec attach_to_index(map(), attach_to_index_request(), list()) ::
           {:ok, attach_to_index_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, directory_not_enabled_exception()}
-          | {:error, indexed_attribute_missing_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_arn_exception()}
-          | {:error, invalid_attachment_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, link_name_already_in_use_exception()}
-          | {:error, not_index_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, retryable_conflict_exception()}
-          | {:error, validation_exception()}
+          | {:error, attach_to_index_errors()}
   def attach_to_index(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/index/attach"
 
@@ -2908,16 +4056,7 @@ defmodule AWS.CloudDirectory do
   @spec attach_typed_link(map(), attach_typed_link_request(), list()) ::
           {:ok, attach_typed_link_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, directory_not_enabled_exception()}
-          | {:error, facet_validation_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_arn_exception()}
-          | {:error, invalid_attachment_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, retryable_conflict_exception()}
-          | {:error, validation_exception()}
+          | {:error, attach_typed_link_errors()}
   def attach_typed_link(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/typedlink/attach"
 
@@ -2940,13 +4079,7 @@ defmodule AWS.CloudDirectory do
   @spec batch_read(map(), batch_read_request(), list()) ::
           {:ok, batch_read_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, directory_not_enabled_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_arn_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, retryable_conflict_exception()}
-          | {:error, validation_exception()}
+          | {:error, batch_read_errors()}
   def batch_read(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/batchread"
 
@@ -2983,14 +4116,7 @@ defmodule AWS.CloudDirectory do
   @spec batch_write(map(), batch_write_request(), list()) ::
           {:ok, batch_write_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, batch_write_exception()}
-          | {:error, directory_not_enabled_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_arn_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, retryable_conflict_exception()}
-          | {:error, validation_exception()}
+          | {:error, batch_write_errors()}
   def batch_write(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/batchwrite"
 
@@ -3020,14 +4146,7 @@ defmodule AWS.CloudDirectory do
   @spec create_directory(map(), create_directory_request(), list()) ::
           {:ok, create_directory_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, directory_already_exists_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_arn_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, retryable_conflict_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_directory_errors()}
   def create_directory(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/directory/create"
 
@@ -3053,16 +4172,7 @@ defmodule AWS.CloudDirectory do
   @spec create_facet(map(), create_facet_request(), list()) ::
           {:ok, create_facet_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, facet_already_exists_exception()}
-          | {:error, facet_validation_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_arn_exception()}
-          | {:error, invalid_rule_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, retryable_conflict_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_facet_errors()}
   def create_facet(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/facet/create"
 
@@ -3088,17 +4198,7 @@ defmodule AWS.CloudDirectory do
   @spec create_index(map(), create_index_request(), list()) ::
           {:ok, create_index_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, directory_not_enabled_exception()}
-          | {:error, facet_validation_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_arn_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, link_name_already_in_use_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, retryable_conflict_exception()}
-          | {:error, unsupported_index_type_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_index_errors()}
   def create_index(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/index"
 
@@ -3127,17 +4227,7 @@ defmodule AWS.CloudDirectory do
   @spec create_object(map(), create_object_request(), list()) ::
           {:ok, create_object_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, directory_not_enabled_exception()}
-          | {:error, facet_validation_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_arn_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, link_name_already_in_use_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, retryable_conflict_exception()}
-          | {:error, unsupported_index_type_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_object_errors()}
   def create_object(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/object"
 
@@ -3181,13 +4271,7 @@ defmodule AWS.CloudDirectory do
   @spec create_schema(map(), create_schema_request(), list()) ::
           {:ok, create_schema_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_arn_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, retryable_conflict_exception()}
-          | {:error, schema_already_exists_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_schema_errors()}
   def create_schema(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/schema/create"
     headers = []
@@ -3206,16 +4290,7 @@ defmodule AWS.CloudDirectory do
   @spec create_typed_link_facet(map(), create_typed_link_facet_request(), list()) ::
           {:ok, create_typed_link_facet_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, facet_already_exists_exception()}
-          | {:error, facet_validation_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_arn_exception()}
-          | {:error, invalid_rule_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, retryable_conflict_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_typed_link_facet_errors()}
   def create_typed_link_facet(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/typedlink/facet/create"
 
@@ -3243,15 +4318,7 @@ defmodule AWS.CloudDirectory do
   @spec delete_directory(map(), delete_directory_request(), list()) ::
           {:ok, delete_directory_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, directory_deleted_exception()}
-          | {:error, directory_not_disabled_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_arn_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, retryable_conflict_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_directory_errors()}
   def delete_directory(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/directory"
 
@@ -3279,15 +4346,7 @@ defmodule AWS.CloudDirectory do
   @spec delete_facet(map(), delete_facet_request(), list()) ::
           {:ok, delete_facet_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, facet_in_use_exception()}
-          | {:error, facet_not_found_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_arn_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, retryable_conflict_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_facet_errors()}
   def delete_facet(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/facet/delete"
 
@@ -3315,15 +4374,7 @@ defmodule AWS.CloudDirectory do
   @spec delete_object(map(), delete_object_request(), list()) ::
           {:ok, delete_object_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, directory_not_enabled_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_arn_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, object_not_detached_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, retryable_conflict_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_object_errors()}
   def delete_object(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/object/delete"
 
@@ -3348,14 +4399,7 @@ defmodule AWS.CloudDirectory do
   @spec delete_schema(map(), delete_schema_request(), list()) ::
           {:ok, delete_schema_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_arn_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, retryable_conflict_exception()}
-          | {:error, still_contains_links_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_schema_errors()}
   def delete_schema(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/schema"
 
@@ -3380,14 +4424,7 @@ defmodule AWS.CloudDirectory do
   @spec delete_typed_link_facet(map(), delete_typed_link_facet_request(), list()) ::
           {:ok, delete_typed_link_facet_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, facet_not_found_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_arn_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, retryable_conflict_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_typed_link_facet_errors()}
   def delete_typed_link_facet(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/typedlink/facet/delete"
 
@@ -3410,16 +4447,7 @@ defmodule AWS.CloudDirectory do
   @spec detach_from_index(map(), detach_from_index_request(), list()) ::
           {:ok, detach_from_index_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, directory_not_enabled_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_arn_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, not_index_exception()}
-          | {:error, object_already_detached_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, retryable_conflict_exception()}
-          | {:error, validation_exception()}
+          | {:error, detach_from_index_errors()}
   def detach_from_index(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/index/detach"
 
@@ -3445,15 +4473,7 @@ defmodule AWS.CloudDirectory do
   @spec detach_object(map(), detach_object_request(), list()) ::
           {:ok, detach_object_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, directory_not_enabled_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_arn_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, not_node_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, retryable_conflict_exception()}
-          | {:error, validation_exception()}
+          | {:error, detach_object_errors()}
   def detach_object(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/object/detach"
 
@@ -3476,15 +4496,7 @@ defmodule AWS.CloudDirectory do
   @spec detach_policy(map(), detach_policy_request(), list()) ::
           {:ok, detach_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, directory_not_enabled_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_arn_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, not_policy_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, retryable_conflict_exception()}
-          | {:error, validation_exception()}
+          | {:error, detach_policy_errors()}
   def detach_policy(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/policy/detach"
 
@@ -3509,15 +4521,7 @@ defmodule AWS.CloudDirectory do
   @spec detach_typed_link(map(), detach_typed_link_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, directory_not_enabled_exception()}
-          | {:error, facet_validation_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_arn_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, retryable_conflict_exception()}
-          | {:error, validation_exception()}
+          | {:error, detach_typed_link_errors()}
   def detach_typed_link(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/typedlink/detach"
 
@@ -3543,14 +4547,7 @@ defmodule AWS.CloudDirectory do
   @spec disable_directory(map(), disable_directory_request(), list()) ::
           {:ok, disable_directory_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, directory_deleted_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_arn_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, retryable_conflict_exception()}
-          | {:error, validation_exception()}
+          | {:error, disable_directory_errors()}
   def disable_directory(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/directory/disable"
 
@@ -3576,14 +4573,7 @@ defmodule AWS.CloudDirectory do
   @spec enable_directory(map(), enable_directory_request(), list()) ::
           {:ok, enable_directory_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, directory_deleted_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_arn_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, retryable_conflict_exception()}
-          | {:error, validation_exception()}
+          | {:error, enable_directory_errors()}
   def enable_directory(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/directory/enable"
 
@@ -3606,13 +4596,7 @@ defmodule AWS.CloudDirectory do
   @spec get_applied_schema_version(map(), get_applied_schema_version_request(), list()) ::
           {:ok, get_applied_schema_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_arn_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, retryable_conflict_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_applied_schema_version_errors()}
   def get_applied_schema_version(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/schema/getappliedschema"
     headers = []
@@ -3639,12 +4623,7 @@ defmodule AWS.CloudDirectory do
   @spec get_directory(map(), get_directory_request(), list()) ::
           {:ok, get_directory_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_arn_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, retryable_conflict_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_directory_errors()}
   def get_directory(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/directory/get"
 
@@ -3681,14 +4660,7 @@ defmodule AWS.CloudDirectory do
   @spec get_facet(map(), get_facet_request(), list()) ::
           {:ok, get_facet_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, facet_not_found_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_arn_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, retryable_conflict_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_facet_errors()}
   def get_facet(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/facet"
 
@@ -3721,15 +4693,7 @@ defmodule AWS.CloudDirectory do
   @spec get_link_attributes(map(), get_link_attributes_request(), list()) ::
           {:ok, get_link_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, directory_not_enabled_exception()}
-          | {:error, facet_validation_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_arn_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, retryable_conflict_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_link_attributes_errors()}
   def get_link_attributes(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/typedlink/attributes/get"
 
@@ -3762,15 +4726,7 @@ defmodule AWS.CloudDirectory do
   @spec get_object_attributes(map(), get_object_attributes_request(), list()) ::
           {:ok, get_object_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, directory_not_enabled_exception()}
-          | {:error, facet_validation_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_arn_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, retryable_conflict_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_object_attributes_errors()}
   def get_object_attributes(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/object/attributes/get"
 
@@ -3804,14 +4760,7 @@ defmodule AWS.CloudDirectory do
   @spec get_object_information(map(), get_object_information_request(), list()) ::
           {:ok, get_object_information_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, directory_not_enabled_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_arn_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, retryable_conflict_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_object_information_errors()}
   def get_object_information(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/object/information"
 
@@ -3848,13 +4797,7 @@ defmodule AWS.CloudDirectory do
   @spec get_schema_as_json(map(), get_schema_as_json_request(), list()) ::
           {:ok, get_schema_as_json_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_arn_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, retryable_conflict_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_schema_as_json_errors()}
   def get_schema_as_json(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/schema/json"
 
@@ -3893,15 +4836,7 @@ defmodule AWS.CloudDirectory do
         ) ::
           {:ok, get_typed_link_facet_information_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, facet_not_found_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_arn_exception()}
-          | {:error, invalid_next_token_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, retryable_conflict_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_typed_link_facet_information_errors()}
   def get_typed_link_facet_information(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/typedlink/facet/get"
 
@@ -3936,14 +4871,7 @@ defmodule AWS.CloudDirectory do
   @spec list_applied_schema_arns(map(), list_applied_schema_arns_request(), list()) ::
           {:ok, list_applied_schema_arns_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_arn_exception()}
-          | {:error, invalid_next_token_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, retryable_conflict_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_applied_schema_arns_errors()}
   def list_applied_schema_arns(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/schema/applied"
     headers = []
@@ -3970,14 +4898,7 @@ defmodule AWS.CloudDirectory do
   @spec list_attached_indices(map(), list_attached_indices_request(), list()) ::
           {:ok, list_attached_indices_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, directory_not_enabled_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_arn_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, retryable_conflict_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_attached_indices_errors()}
   def list_attached_indices(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/object/indices"
 
@@ -4012,14 +4933,7 @@ defmodule AWS.CloudDirectory do
   @spec list_development_schema_arns(map(), list_development_schema_arns_request(), list()) ::
           {:ok, list_development_schema_arns_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_arn_exception()}
-          | {:error, invalid_next_token_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, retryable_conflict_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_development_schema_arns_errors()}
   def list_development_schema_arns(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/schema/development"
     headers = []
@@ -4046,13 +4960,7 @@ defmodule AWS.CloudDirectory do
   @spec list_directories(map(), list_directories_request(), list()) ::
           {:ok, list_directories_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_arn_exception()}
-          | {:error, invalid_next_token_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, retryable_conflict_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_directories_errors()}
   def list_directories(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/directory/list"
     headers = []
@@ -4079,15 +4987,7 @@ defmodule AWS.CloudDirectory do
   @spec list_facet_attributes(map(), list_facet_attributes_request(), list()) ::
           {:ok, list_facet_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, facet_not_found_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_arn_exception()}
-          | {:error, invalid_next_token_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, retryable_conflict_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_facet_attributes_errors()}
   def list_facet_attributes(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/facet/attributes"
 
@@ -4120,14 +5020,7 @@ defmodule AWS.CloudDirectory do
   @spec list_facet_names(map(), list_facet_names_request(), list()) ::
           {:ok, list_facet_names_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_arn_exception()}
-          | {:error, invalid_next_token_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, retryable_conflict_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_facet_names_errors()}
   def list_facet_names(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/facet/list"
 
@@ -4164,16 +5057,7 @@ defmodule AWS.CloudDirectory do
   @spec list_incoming_typed_links(map(), list_incoming_typed_links_request(), list()) ::
           {:ok, list_incoming_typed_links_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, directory_not_enabled_exception()}
-          | {:error, facet_validation_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_arn_exception()}
-          | {:error, invalid_next_token_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, retryable_conflict_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_incoming_typed_links_errors()}
   def list_incoming_typed_links(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/typedlink/incoming"
 
@@ -4206,17 +5090,7 @@ defmodule AWS.CloudDirectory do
   @spec list_index(map(), list_index_request(), list()) ::
           {:ok, list_index_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, directory_not_enabled_exception()}
-          | {:error, facet_validation_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_arn_exception()}
-          | {:error, invalid_next_token_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, not_index_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, retryable_conflict_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_index_errors()}
   def list_index(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/index/targets"
 
@@ -4253,12 +5127,7 @@ defmodule AWS.CloudDirectory do
   @spec list_managed_schema_arns(map(), list_managed_schema_arns_request(), list()) ::
           {:ok, list_managed_schema_arns_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_arn_exception()}
-          | {:error, invalid_next_token_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_managed_schema_arns_errors()}
   def list_managed_schema_arns(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/schema/managed"
     headers = []
@@ -4285,16 +5154,7 @@ defmodule AWS.CloudDirectory do
   @spec list_object_attributes(map(), list_object_attributes_request(), list()) ::
           {:ok, list_object_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, directory_not_enabled_exception()}
-          | {:error, facet_validation_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_arn_exception()}
-          | {:error, invalid_next_token_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, retryable_conflict_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_object_attributes_errors()}
   def list_object_attributes(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/object/attributes"
 
@@ -4329,16 +5189,7 @@ defmodule AWS.CloudDirectory do
   @spec list_object_children(map(), list_object_children_request(), list()) ::
           {:ok, list_object_children_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, directory_not_enabled_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_arn_exception()}
-          | {:error, invalid_next_token_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, not_node_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, retryable_conflict_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_object_children_errors()}
   def list_object_children(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/object/children"
 
@@ -4388,15 +5239,7 @@ defmodule AWS.CloudDirectory do
   @spec list_object_parent_paths(map(), list_object_parent_paths_request(), list()) ::
           {:ok, list_object_parent_paths_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, directory_not_enabled_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_arn_exception()}
-          | {:error, invalid_next_token_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, retryable_conflict_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_object_parent_paths_errors()}
   def list_object_parent_paths(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/object/parentpaths"
 
@@ -4430,16 +5273,7 @@ defmodule AWS.CloudDirectory do
   @spec list_object_parents(map(), list_object_parents_request(), list()) ::
           {:ok, list_object_parents_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, cannot_list_parent_of_root_exception()}
-          | {:error, directory_not_enabled_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_arn_exception()}
-          | {:error, invalid_next_token_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, retryable_conflict_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_object_parents_errors()}
   def list_object_parents(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/object/parent"
 
@@ -4473,15 +5307,7 @@ defmodule AWS.CloudDirectory do
   @spec list_object_policies(map(), list_object_policies_request(), list()) ::
           {:ok, list_object_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, directory_not_enabled_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_arn_exception()}
-          | {:error, invalid_next_token_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, retryable_conflict_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_object_policies_errors()}
   def list_object_policies(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/object/policy"
 
@@ -4519,16 +5345,7 @@ defmodule AWS.CloudDirectory do
   @spec list_outgoing_typed_links(map(), list_outgoing_typed_links_request(), list()) ::
           {:ok, list_outgoing_typed_links_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, directory_not_enabled_exception()}
-          | {:error, facet_validation_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_arn_exception()}
-          | {:error, invalid_next_token_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, retryable_conflict_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_outgoing_typed_links_errors()}
   def list_outgoing_typed_links(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/typedlink/outgoing"
 
@@ -4561,16 +5378,7 @@ defmodule AWS.CloudDirectory do
   @spec list_policy_attachments(map(), list_policy_attachments_request(), list()) ::
           {:ok, list_policy_attachments_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, directory_not_enabled_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_arn_exception()}
-          | {:error, invalid_next_token_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, not_policy_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, retryable_conflict_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_policy_attachments_errors()}
   def list_policy_attachments(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/policy/attachment"
 
@@ -4607,14 +5415,7 @@ defmodule AWS.CloudDirectory do
   @spec list_published_schema_arns(map(), list_published_schema_arns_request(), list()) ::
           {:ok, list_published_schema_arns_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_arn_exception()}
-          | {:error, invalid_next_token_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, retryable_conflict_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_published_schema_arns_errors()}
   def list_published_schema_arns(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/schema/published"
     headers = []
@@ -4646,14 +5447,7 @@ defmodule AWS.CloudDirectory do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_arn_exception()}
-          | {:error, invalid_tagging_request_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, retryable_conflict_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/tags"
     headers = []
@@ -4687,15 +5481,7 @@ defmodule AWS.CloudDirectory do
         ) ::
           {:ok, list_typed_link_facet_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, facet_not_found_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_arn_exception()}
-          | {:error, invalid_next_token_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, retryable_conflict_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_typed_link_facet_attributes_errors()}
   def list_typed_link_facet_attributes(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/typedlink/facet/attributes"
 
@@ -4730,14 +5516,7 @@ defmodule AWS.CloudDirectory do
   @spec list_typed_link_facet_names(map(), list_typed_link_facet_names_request(), list()) ::
           {:ok, list_typed_link_facet_names_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_arn_exception()}
-          | {:error, invalid_next_token_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, retryable_conflict_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_typed_link_facet_names_errors()}
   def list_typed_link_facet_names(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/typedlink/facet/list"
 
@@ -4781,15 +5560,7 @@ defmodule AWS.CloudDirectory do
   @spec lookup_policy(map(), lookup_policy_request(), list()) ::
           {:ok, lookup_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, directory_not_enabled_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_arn_exception()}
-          | {:error, invalid_next_token_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, retryable_conflict_exception()}
-          | {:error, validation_exception()}
+          | {:error, lookup_policy_errors()}
   def lookup_policy(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/policy/lookup"
 
@@ -4823,14 +5594,7 @@ defmodule AWS.CloudDirectory do
   @spec publish_schema(map(), publish_schema_request(), list()) ::
           {:ok, publish_schema_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_arn_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, retryable_conflict_exception()}
-          | {:error, schema_already_published_exception()}
-          | {:error, validation_exception()}
+          | {:error, publish_schema_errors()}
   def publish_schema(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/schema/publish"
 
@@ -4856,14 +5620,7 @@ defmodule AWS.CloudDirectory do
   @spec put_schema_from_json(map(), put_schema_from_json_request(), list()) ::
           {:ok, put_schema_from_json_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_arn_exception()}
-          | {:error, invalid_rule_exception()}
-          | {:error, invalid_schema_doc_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, retryable_conflict_exception()}
-          | {:error, validation_exception()}
+          | {:error, put_schema_from_json_errors()}
   def put_schema_from_json(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/schema/json"
 
@@ -4886,15 +5643,7 @@ defmodule AWS.CloudDirectory do
   @spec remove_facet_from_object(map(), remove_facet_from_object_request(), list()) ::
           {:ok, remove_facet_from_object_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, directory_not_enabled_exception()}
-          | {:error, facet_validation_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_arn_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, retryable_conflict_exception()}
-          | {:error, validation_exception()}
+          | {:error, remove_facet_from_object_errors()}
   def remove_facet_from_object(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/object/facets/delete"
 
@@ -4917,14 +5666,7 @@ defmodule AWS.CloudDirectory do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_arn_exception()}
-          | {:error, invalid_tagging_request_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, retryable_conflict_exception()}
-          | {:error, validation_exception()}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/tags/add"
     headers = []
@@ -4941,14 +5683,7 @@ defmodule AWS.CloudDirectory do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_arn_exception()}
-          | {:error, invalid_tagging_request_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, retryable_conflict_exception()}
-          | {:error, validation_exception()}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/tags/remove"
     headers = []
@@ -4975,17 +5710,7 @@ defmodule AWS.CloudDirectory do
   @spec update_facet(map(), update_facet_request(), list()) ::
           {:ok, update_facet_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, facet_not_found_exception()}
-          | {:error, facet_validation_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_arn_exception()}
-          | {:error, invalid_facet_update_exception()}
-          | {:error, invalid_rule_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, retryable_conflict_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_facet_errors()}
   def update_facet(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/facet"
 
@@ -5011,15 +5736,7 @@ defmodule AWS.CloudDirectory do
   @spec update_link_attributes(map(), update_link_attributes_request(), list()) ::
           {:ok, update_link_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, directory_not_enabled_exception()}
-          | {:error, facet_validation_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_arn_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, retryable_conflict_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_link_attributes_errors()}
   def update_link_attributes(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/typedlink/attributes/update"
 
@@ -5052,16 +5769,7 @@ defmodule AWS.CloudDirectory do
   @spec update_object_attributes(map(), update_object_attributes_request(), list()) ::
           {:ok, update_object_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, directory_not_enabled_exception()}
-          | {:error, facet_validation_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_arn_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, link_name_already_in_use_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, retryable_conflict_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_object_attributes_errors()}
   def update_object_attributes(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/object/update"
 
@@ -5087,13 +5795,7 @@ defmodule AWS.CloudDirectory do
   @spec update_schema(map(), update_schema_request(), list()) ::
           {:ok, update_schema_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_arn_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, retryable_conflict_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_schema_errors()}
   def update_schema(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/schema/update"
 
@@ -5118,17 +5820,7 @@ defmodule AWS.CloudDirectory do
   @spec update_typed_link_facet(map(), update_typed_link_facet_request(), list()) ::
           {:ok, update_typed_link_facet_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, facet_not_found_exception()}
-          | {:error, facet_validation_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_arn_exception()}
-          | {:error, invalid_facet_update_exception()}
-          | {:error, invalid_rule_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, retryable_conflict_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_typed_link_facet_errors()}
   def update_typed_link_facet(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/typedlink/facet"
 
@@ -5157,15 +5849,7 @@ defmodule AWS.CloudDirectory do
   @spec upgrade_applied_schema(map(), upgrade_applied_schema_request(), list()) ::
           {:ok, upgrade_applied_schema_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, incompatible_schema_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_arn_exception()}
-          | {:error, invalid_attachment_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, retryable_conflict_exception()}
-          | {:error, schema_already_exists_exception()}
-          | {:error, validation_exception()}
+          | {:error, upgrade_applied_schema_errors()}
   def upgrade_applied_schema(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/schema/upgradeapplied"
     headers = []
@@ -5183,15 +5867,7 @@ defmodule AWS.CloudDirectory do
   @spec upgrade_published_schema(map(), upgrade_published_schema_request(), list()) ::
           {:ok, upgrade_published_schema_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, incompatible_schema_exception()}
-          | {:error, internal_service_exception()}
-          | {:error, invalid_arn_exception()}
-          | {:error, invalid_attachment_exception()}
-          | {:error, limit_exceeded_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, retryable_conflict_exception()}
-          | {:error, validation_exception()}
+          | {:error, upgrade_published_schema_errors()}
   def upgrade_published_schema(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/schema/upgradepublished"
     headers = []

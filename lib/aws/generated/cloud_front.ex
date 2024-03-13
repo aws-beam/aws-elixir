@@ -20,4409 +20,5237 @@ defmodule AWS.CloudFront do
   @typedoc """
 
   ## Example:
-  response_headers_policy_in_use() :: %{
-    "Message" => String.t()
-  }
+
+      response_headers_policy_in_use() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type response_headers_policy_in_use() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalidation_summary() :: %{
-    "CreateTime" => non_neg_integer(),
-    "Id" => String.t(),
-    "Status" => String.t()
-  }
+
+      invalidation_summary() :: %{
+        "CreateTime" => non_neg_integer(),
+        "Id" => String.t(),
+        "Status" => String.t()
+      }
+
   """
   @type invalidation_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_origin_access_controls() :: %{
-    "Message" => String.t()
-  }
+
+      too_many_origin_access_controls() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type too_many_origin_access_controls() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  realtime_metrics_subscription_config() :: %{
-    "RealtimeMetricsSubscriptionStatus" => list(any())
-  }
+
+      realtime_metrics_subscription_config() :: %{
+        "RealtimeMetricsSubscriptionStatus" => list(any())
+      }
+
   """
   @type realtime_metrics_subscription_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  key_value_store_association() :: %{
-    "KeyValueStoreARN" => String.t()
-  }
+
+      key_value_store_association() :: %{
+        "KeyValueStoreARN" => String.t()
+      }
+
   """
   @type key_value_store_association() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  signer() :: %{
-    "AwsAccountNumber" => String.t(),
-    "KeyPairIds" => key_pair_ids()
-  }
+
+      signer() :: %{
+        "AwsAccountNumber" => String.t(),
+        "KeyPairIds" => key_pair_ids()
+      }
+
   """
   @type signer() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_cache_policy_request() :: %{
-    optional("IfMatch") => String.t(),
-    required("CachePolicyConfig") => cache_policy_config()
-  }
+
+      update_cache_policy_request() :: %{
+        optional("IfMatch") => String.t(),
+        required("CachePolicyConfig") => cache_policy_config()
+      }
+
   """
   @type update_cache_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_response_headers_policies_result() :: %{
-    "ResponseHeadersPolicyList" => response_headers_policy_list()
-  }
+
+      list_response_headers_policies_result() :: %{
+        "ResponseHeadersPolicyList" => response_headers_policy_list()
+      }
+
   """
   @type list_response_headers_policies_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cloud_front_origin_access_identity_already_exists() :: %{
-    "Message" => String.t()
-  }
+
+      cloud_front_origin_access_identity_already_exists() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type cloud_front_origin_access_identity_already_exists() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_realtime_log_configs_request() :: %{
-    optional("Marker") => String.t(),
-    optional("MaxItems") => [integer()]
-  }
+
+      list_realtime_log_configs_request() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxItems") => [integer()]
+      }
+
   """
   @type list_realtime_log_configs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_origin_groups_per_distribution() :: %{
-    "Message" => String.t()
-  }
+
+      too_many_origin_groups_per_distribution() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type too_many_origin_groups_per_distribution() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  end_point() :: %{
-    "KinesisStreamConfig" => kinesis_stream_config(),
-    "StreamType" => String.t()
-  }
+
+      end_point() :: %{
+        "KinesisStreamConfig" => kinesis_stream_config(),
+        "StreamType" => String.t()
+      }
+
   """
   @type end_point() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_response_headers_policy_result() :: %{
-    "ETag" => String.t(),
-    "ResponseHeadersPolicy" => response_headers_policy()
-  }
+
+      update_response_headers_policy_result() :: %{
+        "ETag" => String.t(),
+        "ResponseHeadersPolicy" => response_headers_policy()
+      }
+
   """
   @type update_response_headers_policy_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  streaming_distribution_not_disabled() :: %{
-    "Message" => String.t()
-  }
+
+      streaming_distribution_not_disabled() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type streaming_distribution_not_disabled() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_realtime_log_config_request() :: %{
-    optional("ARN") => String.t(),
-    optional("Name") => String.t()
-  }
+
+      delete_realtime_log_config_request() :: %{
+        optional("ARN") => String.t(),
+        optional("Name") => String.t()
+      }
+
   """
   @type delete_realtime_log_config_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_origin_request_policies_result() :: %{
-    "OriginRequestPolicyList" => origin_request_policy_list()
-  }
+
+      list_origin_request_policies_result() :: %{
+        "OriginRequestPolicyList" => origin_request_policy_list()
+      }
+
   """
   @type list_origin_request_policies_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cannot_change_immutable_public_key_fields() :: %{
-    "Message" => String.t()
-  }
+
+      cannot_change_immutable_public_key_fields() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type cannot_change_immutable_public_key_fields() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_function_associations() :: %{
-    "Message" => String.t()
-  }
+
+      too_many_function_associations() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type too_many_function_associations() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_origin_access_identity() :: %{
-    "Message" => String.t()
-  }
+
+      invalid_origin_access_identity() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type invalid_origin_access_identity() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  forwarded_values() :: %{
-    "Cookies" => cookie_preference(),
-    "Headers" => headers(),
-    "QueryString" => boolean(),
-    "QueryStringCacheKeys" => query_string_cache_keys()
-  }
+
+      forwarded_values() :: %{
+        "Cookies" => cookie_preference(),
+        "Headers" => headers(),
+        "QueryString" => boolean(),
+        "QueryStringCacheKeys" => query_string_cache_keys()
+      }
+
   """
   @type forwarded_values() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  distribution_not_disabled() :: %{
-    "Message" => String.t()
-  }
+
+      distribution_not_disabled() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type distribution_not_disabled() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_request() :: %{
-    required("Resource") => String.t(),
-    required("Tags") => tags()
-  }
+
+      tag_resource_request() :: %{
+        required("Resource") => String.t(),
+        required("Tags") => tags()
+      }
+
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  realtime_log_configs() :: %{
-    "IsTruncated" => boolean(),
-    "Items" => list(realtime_log_config()()),
-    "Marker" => String.t(),
-    "MaxItems" => integer(),
-    "NextMarker" => String.t()
-  }
+
+      realtime_log_configs() :: %{
+        "IsTruncated" => boolean(),
+        "Items" => list(realtime_log_config()()),
+        "Marker" => String.t(),
+        "MaxItems" => integer(),
+        "NextMarker" => String.t()
+      }
+
   """
   @type realtime_log_configs() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  no_such_continuous_deployment_policy() :: %{
-    "Message" => String.t()
-  }
+
+      no_such_continuous_deployment_policy() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type no_such_continuous_deployment_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_continuous_deployment_policy_request() :: %{
 
-  }
+      get_continuous_deployment_policy_request() :: %{}
+
   """
-  @type get_continuous_deployment_policy_request() :: %{String.t() => any()}
+  @type get_continuous_deployment_policy_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  update_key_group_result() :: %{
-    "ETag" => String.t(),
-    "KeyGroup" => key_group()
-  }
+
+      update_key_group_result() :: %{
+        "ETag" => String.t(),
+        "KeyGroup" => key_group()
+      }
+
   """
   @type update_key_group_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_custom_headers_in_response_headers_policy() :: %{
-    "Message" => String.t()
-  }
+
+      too_many_custom_headers_in_response_headers_policy() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type too_many_custom_headers_in_response_headers_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_response_headers_policies() :: %{
-    "Message" => String.t()
-  }
+
+      too_many_response_headers_policies() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type too_many_response_headers_policies() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_cookies_in_cache_policy() :: %{
-    "Message" => String.t()
-  }
+
+      too_many_cookies_in_cache_policy() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type too_many_cookies_in_cache_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_invalidations_in_progress() :: %{
-    "Message" => String.t()
-  }
+
+      too_many_invalidations_in_progress() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type too_many_invalidations_in_progress() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  status_codes() :: %{
-    "Items" => list(integer()()),
-    "Quantity" => integer()
-  }
+
+      status_codes() :: %{
+        "Items" => list(integer()()),
+        "Quantity" => integer()
+      }
+
   """
   @type status_codes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_streaming_distribution_config_request() :: %{
 
-  }
+      get_streaming_distribution_config_request() :: %{}
+
   """
-  @type get_streaming_distribution_config_request() :: %{String.t() => any()}
+  @type get_streaming_distribution_config_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  lambda_function_associations() :: %{
-    "Items" => list(lambda_function_association()()),
-    "Quantity" => integer()
-  }
+
+      lambda_function_associations() :: %{
+        "Items" => list(lambda_function_association()()),
+        "Quantity" => integer()
+      }
+
   """
   @type lambda_function_associations() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_continuous_deployment_policies() :: %{
-    "Message" => String.t()
-  }
+
+      too_many_continuous_deployment_policies() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type too_many_continuous_deployment_policies() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_long_c_s_p_in_response_headers_policy() :: %{
-    "Message" => String.t()
-  }
+
+      too_long_c_s_p_in_response_headers_policy() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type too_long_c_s_p_in_response_headers_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  field_level_encryption_summary() :: %{
-    "Comment" => String.t(),
-    "ContentTypeProfileConfig" => content_type_profile_config(),
-    "Id" => String.t(),
-    "LastModifiedTime" => non_neg_integer(),
-    "QueryArgProfileConfig" => query_arg_profile_config()
-  }
+
+      field_level_encryption_summary() :: %{
+        "Comment" => String.t(),
+        "ContentTypeProfileConfig" => content_type_profile_config(),
+        "Id" => String.t(),
+        "LastModifiedTime" => non_neg_integer(),
+        "QueryArgProfileConfig" => query_arg_profile_config()
+      }
+
   """
   @type field_level_encryption_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  query_arg_profile_empty() :: %{
-    "Message" => String.t()
-  }
+
+      query_arg_profile_empty() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type query_arg_profile_empty() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_origin_request_policy_request() :: %{
 
-  }
+      get_origin_request_policy_request() :: %{}
+
   """
-  @type get_origin_request_policy_request() :: %{String.t() => any()}
+  @type get_origin_request_policy_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  distribution_config_with_tags() :: %{
-    "DistributionConfig" => distribution_config(),
-    "Tags" => tags()
-  }
+
+      distribution_config_with_tags() :: %{
+        "DistributionConfig" => distribution_config(),
+        "Tags" => tags()
+      }
+
   """
   @type distribution_config_with_tags() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  copy_distribution_result() :: %{
-    "Distribution" => distribution(),
-    "ETag" => String.t(),
-    "Location" => String.t()
-  }
+
+      copy_distribution_result() :: %{
+        "Distribution" => distribution(),
+        "ETag" => String.t(),
+        "Location" => String.t()
+      }
+
   """
   @type copy_distribution_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_origin_request_policy_request() :: %{
-    optional("IfMatch") => String.t()
-  }
+
+      delete_origin_request_policy_request() :: %{
+        optional("IfMatch") => String.t()
+      }
+
   """
   @type delete_origin_request_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_cloud_front_origin_access_identity_request() :: %{
 
-  }
+      get_cloud_front_origin_access_identity_request() :: %{}
+
   """
-  @type get_cloud_front_origin_access_identity_request() :: %{String.t() => any()}
+  @type get_cloud_front_origin_access_identity_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  illegal_origin_access_configuration() :: %{
-    "Message" => String.t()
-  }
+
+      illegal_origin_access_configuration() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type illegal_origin_access_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_field_level_encryption_profile_request() :: %{
 
-  }
+      get_field_level_encryption_profile_request() :: %{}
+
   """
-  @type get_field_level_encryption_profile_request() :: %{String.t() => any()}
+  @type get_field_level_encryption_profile_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  invalid_if_match_version() :: %{
-    "Message" => String.t()
-  }
+
+      invalid_if_match_version() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type invalid_if_match_version() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_origin_request_policy_result() :: %{
-    "ETag" => String.t(),
-    "OriginRequestPolicy" => origin_request_policy()
-  }
+
+      update_origin_request_policy_result() :: %{
+        "ETag" => String.t(),
+        "OriginRequestPolicy" => origin_request_policy()
+      }
+
   """
   @type update_origin_request_policy_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_field_level_encryption_profile_request() :: %{
-    required("FieldLevelEncryptionProfileConfig") => field_level_encryption_profile_config()
-  }
+
+      create_field_level_encryption_profile_request() :: %{
+        required("FieldLevelEncryptionProfileConfig") => field_level_encryption_profile_config()
+      }
+
   """
   @type create_field_level_encryption_profile_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_distributions_associated_to_cache_policy() :: %{
-    "Message" => String.t()
-  }
+
+      too_many_distributions_associated_to_cache_policy() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type too_many_distributions_associated_to_cache_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  trusted_key_group_does_not_exist() :: %{
-    "Message" => String.t()
-  }
+
+      trusted_key_group_does_not_exist() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type trusted_key_group_does_not_exist() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  continuous_deployment_policy_list() :: %{
-    "Items" => list(continuous_deployment_policy_summary()()),
-    "MaxItems" => integer(),
-    "NextMarker" => String.t(),
-    "Quantity" => integer()
-  }
+
+      continuous_deployment_policy_list() :: %{
+        "Items" => list(continuous_deployment_policy_summary()()),
+        "MaxItems" => integer(),
+        "NextMarker" => String.t(),
+        "Quantity" => integer()
+      }
+
   """
   @type continuous_deployment_policy_list() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_realtime_log_config_result() :: %{
-    "RealtimeLogConfig" => realtime_log_config()
-  }
+
+      create_realtime_log_config_result() :: %{
+        "RealtimeLogConfig" => realtime_log_config()
+      }
+
   """
   @type create_realtime_log_config_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  encryption_entities() :: %{
-    "Items" => list(encryption_entity()()),
-    "Quantity" => integer()
-  }
+
+      encryption_entities() :: %{
+        "Items" => list(encryption_entity()()),
+        "Quantity" => integer()
+      }
+
   """
   @type encryption_entities() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_cloud_front_origin_access_identity_config_result() :: %{
-    "CloudFrontOriginAccessIdentityConfig" => cloud_front_origin_access_identity_config(),
-    "ETag" => String.t()
-  }
+
+      get_cloud_front_origin_access_identity_config_result() :: %{
+        "CloudFrontOriginAccessIdentityConfig" => cloud_front_origin_access_identity_config(),
+        "ETag" => String.t()
+      }
+
   """
   @type get_cloud_front_origin_access_identity_config_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_origin_request_policies_request() :: %{
-    optional("Marker") => String.t(),
-    optional("MaxItems") => [integer()],
-    optional("Type") => list(any())
-  }
+
+      list_origin_request_policies_request() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxItems") => [integer()],
+        optional("Type") => list(any())
+      }
+
   """
   @type list_origin_request_policies_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_query_string_parameters() :: %{
-    "Message" => String.t()
-  }
+
+      invalid_query_string_parameters() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type invalid_query_string_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_monitoring_subscription_result() :: %{
-    "MonitoringSubscription" => monitoring_subscription()
-  }
+
+      get_monitoring_subscription_result() :: %{
+        "MonitoringSubscription" => monitoring_subscription()
+      }
+
   """
   @type get_monitoring_subscription_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_functions() :: %{
-    "Message" => String.t()
-  }
+
+      too_many_functions() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type too_many_functions() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_distributions_associated_to_origin_request_policy() :: %{
-    "Message" => String.t()
-  }
+
+      too_many_distributions_associated_to_origin_request_policy() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type too_many_distributions_associated_to_origin_request_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_function_result() :: %{
-    "ContentType" => String.t(),
-    "ETag" => String.t(),
-    "FunctionCode" => binary()
-  }
+
+      get_function_result() :: %{
+        "ContentType" => String.t(),
+        "ETag" => String.t(),
+        "FunctionCode" => binary()
+      }
+
   """
   @type get_function_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_distributions_associated_to_key_group() :: %{
-    "Message" => String.t()
-  }
+
+      too_many_distributions_associated_to_key_group() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type too_many_distributions_associated_to_key_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_tagging() :: %{
-    "Message" => String.t()
-  }
+
+      invalid_tagging() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type invalid_tagging() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_continuous_deployment_policy_config_request() :: %{
 
-  }
+      get_continuous_deployment_policy_config_request() :: %{}
+
   """
-  @type get_continuous_deployment_policy_config_request() :: %{String.t() => any()}
+  @type get_continuous_deployment_policy_config_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  origin_request_policy_config() :: %{
-    "Comment" => String.t(),
-    "CookiesConfig" => origin_request_policy_cookies_config(),
-    "HeadersConfig" => origin_request_policy_headers_config(),
-    "Name" => String.t(),
-    "QueryStringsConfig" => origin_request_policy_query_strings_config()
-  }
+
+      origin_request_policy_config() :: %{
+        "Comment" => String.t(),
+        "CookiesConfig" => origin_request_policy_cookies_config(),
+        "HeadersConfig" => origin_request_policy_headers_config(),
+        "Name" => String.t(),
+        "QueryStringsConfig" => origin_request_policy_query_strings_config()
+      }
+
   """
   @type origin_request_policy_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_key_value_stores_result() :: %{
-    "KeyValueStoreList" => key_value_store_list()
-  }
+
+      list_key_value_stores_result() :: %{
+        "KeyValueStoreList" => key_value_store_list()
+      }
+
   """
   @type list_key_value_stores_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_continuous_deployment_policy_result() :: %{
-    "ContinuousDeploymentPolicy" => continuous_deployment_policy(),
-    "ETag" => String.t()
-  }
+
+      update_continuous_deployment_policy_result() :: %{
+        "ContinuousDeploymentPolicy" => continuous_deployment_policy(),
+        "ETag" => String.t()
+      }
+
   """
   @type update_continuous_deployment_policy_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_protocol_settings() :: %{
-    "Message" => String.t()
-  }
+
+      invalid_protocol_settings() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type invalid_protocol_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  field_level_encryption_list() :: %{
-    "Items" => list(field_level_encryption_summary()()),
-    "MaxItems" => integer(),
-    "NextMarker" => String.t(),
-    "Quantity" => integer()
-  }
+
+      field_level_encryption_list() :: %{
+        "Items" => list(field_level_encryption_summary()()),
+        "MaxItems" => integer(),
+        "NextMarker" => String.t(),
+        "Quantity" => integer()
+      }
+
   """
   @type field_level_encryption_list() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_response_headers_policy_request() :: %{
 
-  }
+      get_response_headers_policy_request() :: %{}
+
   """
-  @type get_response_headers_policy_request() :: %{String.t() => any()}
+  @type get_response_headers_policy_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_distributions_by_web_acl_id_result() :: %{
-    "DistributionList" => distribution_list()
-  }
+
+      list_distributions_by_web_acl_id_result() :: %{
+        "DistributionList" => distribution_list()
+      }
+
   """
   @type list_distributions_by_web_acl_id_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  public_key_already_exists() :: %{
-    "Message" => String.t()
-  }
+
+      public_key_already_exists() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type public_key_already_exists() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  continuous_deployment_single_weight_config() :: %{
-    "SessionStickinessConfig" => session_stickiness_config(),
-    "Weight" => float()
-  }
+
+      continuous_deployment_single_weight_config() :: %{
+        "SessionStickinessConfig" => session_stickiness_config(),
+        "Weight" => float()
+      }
+
   """
   @type continuous_deployment_single_weight_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  response_headers_policy_strict_transport_security() :: %{
-    "AccessControlMaxAgeSec" => integer(),
-    "IncludeSubdomains" => boolean(),
-    "Override" => boolean(),
-    "Preload" => boolean()
-  }
+
+      response_headers_policy_strict_transport_security() :: %{
+        "AccessControlMaxAgeSec" => integer(),
+        "IncludeSubdomains" => boolean(),
+        "Override" => boolean(),
+        "Preload" => boolean()
+      }
+
   """
   @type response_headers_policy_strict_transport_security() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_streaming_distribution_config_result() :: %{
-    "ETag" => String.t(),
-    "StreamingDistributionConfig" => streaming_distribution_config()
-  }
+
+      get_streaming_distribution_config_result() :: %{
+        "ETag" => String.t(),
+        "StreamingDistributionConfig" => streaming_distribution_config()
+      }
+
   """
   @type get_streaming_distribution_config_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  entity_not_found() :: %{
-    "Message" => String.t()
-  }
+
+      entity_not_found() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type entity_not_found() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_field_level_encryption_config_request() :: %{
-    optional("IfMatch") => String.t(),
-    required("FieldLevelEncryptionConfig") => field_level_encryption_config()
-  }
+
+      update_field_level_encryption_config_request() :: %{
+        optional("IfMatch") => String.t(),
+        required("FieldLevelEncryptionConfig") => field_level_encryption_config()
+      }
+
   """
   @type update_field_level_encryption_config_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_monitoring_subscription_result() :: %{
 
-  }
+      delete_monitoring_subscription_result() :: %{}
+
   """
-  @type delete_monitoring_subscription_result() :: %{String.t() => any()}
+  @type delete_monitoring_subscription_result() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_invalidations_request() :: %{
-    optional("Marker") => String.t(),
-    optional("MaxItems") => [integer()]
-  }
+
+      list_invalidations_request() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxItems") => [integer()]
+      }
+
   """
   @type list_invalidations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_in_use() :: %{
-    "Message" => String.t()
-  }
+
+      resource_in_use() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type resource_in_use() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_cache_policy_result() :: %{
-    "CachePolicy" => cache_policy(),
-    "ETag" => String.t()
-  }
+
+      update_cache_policy_result() :: %{
+        "CachePolicy" => cache_policy(),
+        "ETag" => String.t()
+      }
+
   """
   @type update_cache_policy_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  conflicting_alias() :: %{
-    "AccountId" => String.t(),
-    "Alias" => String.t(),
-    "DistributionId" => String.t()
-  }
+
+      conflicting_alias() :: %{
+        "AccountId" => String.t(),
+        "Alias" => String.t(),
+        "DistributionId" => String.t()
+      }
+
   """
   @type conflicting_alias() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_distributions_by_cache_policy_id_request() :: %{
-    optional("Marker") => String.t(),
-    optional("MaxItems") => [integer()]
-  }
+
+      list_distributions_by_cache_policy_id_request() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxItems") => [integer()]
+      }
+
   """
   @type list_distributions_by_cache_policy_id_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_field_level_encryption_content_type_profiles() :: %{
-    "Message" => String.t()
-  }
+
+      too_many_field_level_encryption_content_type_profiles() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type too_many_field_level_encryption_content_type_profiles() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  continuous_deployment_policy_already_exists() :: %{
-    "Message" => String.t()
-  }
+
+      continuous_deployment_policy_already_exists() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type continuous_deployment_policy_already_exists() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cache_policy_config() :: %{
-    "Comment" => String.t(),
-    "DefaultTTL" => float(),
-    "MaxTTL" => float(),
-    "MinTTL" => float(),
-    "Name" => String.t(),
-    "ParametersInCacheKeyAndForwardedToOrigin" => parameters_in_cache_key_and_forwarded_to_origin()
-  }
+
+      cache_policy_config() :: %{
+        "Comment" => String.t(),
+        "DefaultTTL" => float(),
+        "MaxTTL" => float(),
+        "MinTTL" => float(),
+        "Name" => String.t(),
+        "ParametersInCacheKeyAndForwardedToOrigin" => parameters_in_cache_key_and_forwarded_to_origin()
+      }
+
   """
   @type cache_policy_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  trusted_key_groups() :: %{
-    "Enabled" => boolean(),
-    "Items" => list(String.t()()),
-    "Quantity" => integer()
-  }
+
+      trusted_key_groups() :: %{
+        "Enabled" => boolean(),
+        "Items" => list(String.t()()),
+        "Quantity" => integer()
+      }
+
   """
   @type trusted_key_groups() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_cloud_front_origin_access_identity_request() :: %{
-    optional("IfMatch") => String.t(),
-    required("CloudFrontOriginAccessIdentityConfig") => cloud_front_origin_access_identity_config()
-  }
+
+      update_cloud_front_origin_access_identity_request() :: %{
+        optional("IfMatch") => String.t(),
+        required("CloudFrontOriginAccessIdentityConfig") => cloud_front_origin_access_identity_config()
+      }
+
   """
   @type update_cloud_front_origin_access_identity_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cloud_front_origin_access_identity_summary() :: %{
-    "Comment" => String.t(),
-    "Id" => String.t(),
-    "S3CanonicalUserId" => String.t()
-  }
+
+      cloud_front_origin_access_identity_summary() :: %{
+        "Comment" => String.t(),
+        "Id" => String.t(),
+        "S3CanonicalUserId" => String.t()
+      }
+
   """
   @type cloud_front_origin_access_identity_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  origin_access_control_list() :: %{
-    "IsTruncated" => boolean(),
-    "Items" => list(origin_access_control_summary()()),
-    "Marker" => String.t(),
-    "MaxItems" => integer(),
-    "NextMarker" => String.t(),
-    "Quantity" => integer()
-  }
+
+      origin_access_control_list() :: %{
+        "IsTruncated" => boolean(),
+        "Items" => list(origin_access_control_summary()()),
+        "Marker" => String.t(),
+        "MaxItems" => integer(),
+        "NextMarker" => String.t(),
+        "Quantity" => integer()
+      }
+
   """
   @type origin_access_control_list() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  geo_restriction() :: %{
-    "Items" => list(String.t()()),
-    "Quantity" => integer(),
-    "RestrictionType" => list(any())
-  }
+
+      geo_restriction() :: %{
+        "Items" => list(String.t()()),
+        "Quantity" => integer(),
+        "RestrictionType" => list(any())
+      }
+
   """
   @type geo_restriction() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  response_headers_policy_content_type_options() :: %{
-    "Override" => boolean()
-  }
+
+      response_headers_policy_content_type_options() :: %{
+        "Override" => boolean()
+      }
+
   """
   @type response_headers_policy_content_type_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_origin_access_control_request() :: %{
-    required("OriginAccessControlConfig") => origin_access_control_config()
-  }
+
+      create_origin_access_control_request() :: %{
+        required("OriginAccessControlConfig") => origin_access_control_config()
+      }
+
   """
   @type create_origin_access_control_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_origin_request_policy_config_request() :: %{
 
-  }
+      get_origin_request_policy_config_request() :: %{}
+
   """
-  @type get_origin_request_policy_config_request() :: %{String.t() => any()}
+  @type get_origin_request_policy_config_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  copy_distribution_request() :: %{
-    optional("Enabled") => boolean(),
-    optional("IfMatch") => String.t(),
-    optional("Staging") => boolean(),
-    required("CallerReference") => String.t()
-  }
+
+      copy_distribution_request() :: %{
+        optional("Enabled") => boolean(),
+        optional("IfMatch") => String.t(),
+        optional("Staging") => boolean(),
+        required("CallerReference") => String.t()
+      }
+
   """
   @type copy_distribution_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  test_result() :: %{
-    "ComputeUtilization" => String.t(),
-    "FunctionErrorMessage" => String.t(),
-    "FunctionExecutionLogs" => list(String.t()()),
-    "FunctionOutput" => String.t(),
-    "FunctionSummary" => function_summary()
-  }
+
+      test_result() :: %{
+        "ComputeUtilization" => String.t(),
+        "FunctionErrorMessage" => String.t(),
+        "FunctionExecutionLogs" => list(String.t()()),
+        "FunctionOutput" => String.t(),
+        "FunctionSummary" => function_summary()
+      }
+
   """
   @type test_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_cloud_front_origin_access_identity_result() :: %{
-    "CloudFrontOriginAccessIdentity" => cloud_front_origin_access_identity(),
-    "ETag" => String.t()
-  }
+
+      update_cloud_front_origin_access_identity_result() :: %{
+        "CloudFrontOriginAccessIdentity" => cloud_front_origin_access_identity(),
+        "ETag" => String.t()
+      }
+
   """
   @type update_cloud_front_origin_access_identity_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  origin_group_member() :: %{
-    "OriginId" => String.t()
-  }
+
+      origin_group_member() :: %{
+        "OriginId" => String.t()
+      }
+
   """
   @type origin_group_member() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  distribution_summary() :: %{
-    "ARN" => String.t(),
-    "AliasICPRecordals" => list(alias_i_c_p_recordal()()),
-    "Aliases" => aliases(),
-    "CacheBehaviors" => cache_behaviors(),
-    "Comment" => String.t(),
-    "CustomErrorResponses" => custom_error_responses(),
-    "DefaultCacheBehavior" => default_cache_behavior(),
-    "DomainName" => String.t(),
-    "Enabled" => boolean(),
-    "HttpVersion" => list(any()),
-    "Id" => String.t(),
-    "IsIPV6Enabled" => boolean(),
-    "LastModifiedTime" => non_neg_integer(),
-    "OriginGroups" => origin_groups(),
-    "Origins" => origins(),
-    "PriceClass" => list(any()),
-    "Restrictions" => restrictions(),
-    "Staging" => boolean(),
-    "Status" => String.t(),
-    "ViewerCertificate" => viewer_certificate(),
-    "WebACLId" => String.t()
-  }
+
+      distribution_summary() :: %{
+        "ARN" => String.t(),
+        "AliasICPRecordals" => list(alias_i_c_p_recordal()()),
+        "Aliases" => aliases(),
+        "CacheBehaviors" => cache_behaviors(),
+        "Comment" => String.t(),
+        "CustomErrorResponses" => custom_error_responses(),
+        "DefaultCacheBehavior" => default_cache_behavior(),
+        "DomainName" => String.t(),
+        "Enabled" => boolean(),
+        "HttpVersion" => list(any()),
+        "Id" => String.t(),
+        "IsIPV6Enabled" => boolean(),
+        "LastModifiedTime" => non_neg_integer(),
+        "OriginGroups" => origin_groups(),
+        "Origins" => origins(),
+        "PriceClass" => list(any()),
+        "Restrictions" => restrictions(),
+        "Staging" => boolean(),
+        "Status" => String.t(),
+        "ViewerCertificate" => viewer_certificate(),
+        "WebACLId" => String.t()
+      }
+
   """
   @type distribution_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_cloud_front_origin_access_identities_request() :: %{
-    optional("Marker") => String.t(),
-    optional("MaxItems") => [integer()]
-  }
+
+      list_cloud_front_origin_access_identities_request() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxItems") => [integer()]
+      }
+
   """
   @type list_cloud_front_origin_access_identities_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  alias_i_c_p_recordal() :: %{
-    "CNAME" => String.t(),
-    "ICPRecordalStatus" => list(any())
-  }
+
+      alias_i_c_p_recordal() :: %{
+        "CNAME" => String.t(),
+        "ICPRecordalStatus" => list(any())
+      }
+
   """
   @type alias_i_c_p_recordal() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_cloud_front_origin_access_identities_result() :: %{
-    "CloudFrontOriginAccessIdentityList" => cloud_front_origin_access_identity_list()
-  }
+
+      list_cloud_front_origin_access_identities_result() :: %{
+        "CloudFrontOriginAccessIdentityList" => cloud_front_origin_access_identity_list()
+      }
+
   """
   @type list_cloud_front_origin_access_identities_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  session_stickiness_config() :: %{
-    "IdleTTL" => integer(),
-    "MaximumTTL" => integer()
-  }
+
+      session_stickiness_config() :: %{
+        "IdleTTL" => integer(),
+        "MaximumTTL" => integer()
+      }
+
   """
   @type session_stickiness_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_public_keys_result() :: %{
-    "PublicKeyList" => public_key_list()
-  }
+
+      list_public_keys_result() :: %{
+        "PublicKeyList" => public_key_list()
+      }
+
   """
   @type list_public_keys_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_field_level_encryption_configs_result() :: %{
-    "FieldLevelEncryptionList" => field_level_encryption_list()
-  }
+
+      list_field_level_encryption_configs_result() :: %{
+        "FieldLevelEncryptionList" => field_level_encryption_list()
+      }
+
   """
   @type list_field_level_encryption_configs_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  field_level_encryption_config_in_use() :: %{
-    "Message" => String.t()
-  }
+
+      field_level_encryption_config_in_use() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type field_level_encryption_config_in_use() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  default_cache_behavior() :: %{
-    "AllowedMethods" => allowed_methods(),
-    "CachePolicyId" => String.t(),
-    "Compress" => boolean(),
-    "DefaultTTL" => float(),
-    "FieldLevelEncryptionId" => String.t(),
-    "ForwardedValues" => forwarded_values(),
-    "FunctionAssociations" => function_associations(),
-    "LambdaFunctionAssociations" => lambda_function_associations(),
-    "MaxTTL" => float(),
-    "MinTTL" => float(),
-    "OriginRequestPolicyId" => String.t(),
-    "RealtimeLogConfigArn" => String.t(),
-    "ResponseHeadersPolicyId" => String.t(),
-    "SmoothStreaming" => boolean(),
-    "TargetOriginId" => String.t(),
-    "TrustedKeyGroups" => trusted_key_groups(),
-    "TrustedSigners" => trusted_signers(),
-    "ViewerProtocolPolicy" => list(any())
-  }
+
+      default_cache_behavior() :: %{
+        "AllowedMethods" => allowed_methods(),
+        "CachePolicyId" => String.t(),
+        "Compress" => boolean(),
+        "DefaultTTL" => float(),
+        "FieldLevelEncryptionId" => String.t(),
+        "ForwardedValues" => forwarded_values(),
+        "FunctionAssociations" => function_associations(),
+        "LambdaFunctionAssociations" => lambda_function_associations(),
+        "MaxTTL" => float(),
+        "MinTTL" => float(),
+        "OriginRequestPolicyId" => String.t(),
+        "RealtimeLogConfigArn" => String.t(),
+        "ResponseHeadersPolicyId" => String.t(),
+        "SmoothStreaming" => boolean(),
+        "TargetOriginId" => String.t(),
+        "TrustedKeyGroups" => trusted_key_groups(),
+        "TrustedSigners" => trusted_signers(),
+        "ViewerProtocolPolicy" => list(any())
+      }
+
   """
   @type default_cache_behavior() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  field_level_encryption_profile() :: %{
-    "FieldLevelEncryptionProfileConfig" => field_level_encryption_profile_config(),
-    "Id" => String.t(),
-    "LastModifiedTime" => non_neg_integer()
-  }
+
+      field_level_encryption_profile() :: %{
+        "FieldLevelEncryptionProfileConfig" => field_level_encryption_profile_config(),
+        "Id" => String.t(),
+        "LastModifiedTime" => non_neg_integer()
+      }
+
   """
   @type field_level_encryption_profile() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  illegal_update() :: %{
-    "Message" => String.t()
-  }
+
+      illegal_update() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type illegal_update() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_key_value_store_result() :: %{
-    "ETag" => String.t(),
-    "KeyValueStore" => key_value_store(),
-    "Location" => String.t()
-  }
+
+      create_key_value_store_result() :: %{
+        "ETag" => String.t(),
+        "KeyValueStore" => key_value_store(),
+        "Location" => String.t()
+      }
+
   """
   @type create_key_value_store_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  continuous_deployment_policy_summary() :: %{
-    "ContinuousDeploymentPolicy" => continuous_deployment_policy()
-  }
+
+      continuous_deployment_policy_summary() :: %{
+        "ContinuousDeploymentPolicy" => continuous_deployment_policy()
+      }
+
   """
   @type continuous_deployment_policy_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_functions_result() :: %{
-    "FunctionList" => function_list()
-  }
+
+      list_functions_result() :: %{
+        "FunctionList" => function_list()
+      }
+
   """
   @type list_functions_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cloud_front_origin_access_identity_in_use() :: %{
-    "Message" => String.t()
-  }
+
+      cloud_front_origin_access_identity_in_use() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type cloud_front_origin_access_identity_in_use() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_function_result() :: %{
-    "ETag" => String.t(),
-    "FunctionSummary" => function_summary()
-  }
+
+      describe_function_result() :: %{
+        "ETag" => String.t(),
+        "FunctionSummary" => function_summary()
+      }
+
   """
   @type describe_function_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  key_group_config() :: %{
-    "Comment" => String.t(),
-    "Items" => list(String.t()()),
-    "Name" => String.t()
-  }
+
+      key_group_config() :: %{
+        "Comment" => String.t(),
+        "Items" => list(String.t()()),
+        "Name" => String.t()
+      }
+
   """
   @type key_group_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  s3_origin() :: %{
-    "DomainName" => String.t(),
-    "OriginAccessIdentity" => String.t()
-  }
+
+      s3_origin() :: %{
+        "DomainName" => String.t(),
+        "OriginAccessIdentity" => String.t()
+      }
+
   """
   @type s3_origin() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  response_headers_policy() :: %{
-    "Id" => String.t(),
-    "LastModifiedTime" => non_neg_integer(),
-    "ResponseHeadersPolicyConfig" => response_headers_policy_config()
-  }
+
+      response_headers_policy() :: %{
+        "Id" => String.t(),
+        "LastModifiedTime" => non_neg_integer(),
+        "ResponseHeadersPolicyConfig" => response_headers_policy_config()
+      }
+
   """
   @type response_headers_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_t_t_l_order() :: %{
-    "Message" => String.t()
-  }
+
+      invalid_t_t_l_order() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type invalid_t_t_l_order() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  field_level_encryption_profile_already_exists() :: %{
-    "Message" => String.t()
-  }
+
+      field_level_encryption_profile_already_exists() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type field_level_encryption_profile_already_exists() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  test_function_result() :: %{
-    "TestResult" => test_result()
-  }
+
+      test_function_result() :: %{
+        "TestResult" => test_result()
+      }
+
   """
   @type test_function_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  monitoring_subscription() :: %{
-    "RealtimeMetricsSubscriptionConfig" => realtime_metrics_subscription_config()
-  }
+
+      monitoring_subscription() :: %{
+        "RealtimeMetricsSubscriptionConfig" => realtime_metrics_subscription_config()
+      }
+
   """
   @type monitoring_subscription() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_public_key_config_request() :: %{
 
-  }
+      get_public_key_config_request() :: %{}
+
   """
-  @type get_public_key_config_request() :: %{String.t() => any()}
+  @type get_public_key_config_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_invalidation_result() :: %{
-    "Invalidation" => invalidation()
-  }
+
+      get_invalidation_result() :: %{
+        "Invalidation" => invalidation()
+      }
+
   """
   @type get_invalidation_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  access_denied() :: %{
-    "Message" => String.t()
-  }
+
+      access_denied() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type access_denied() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  streaming_logging_config() :: %{
-    "Bucket" => String.t(),
-    "Enabled" => boolean(),
-    "Prefix" => String.t()
-  }
+
+      streaming_logging_config() :: %{
+        "Bucket" => String.t(),
+        "Enabled" => boolean(),
+        "Prefix" => String.t()
+      }
+
   """
   @type streaming_logging_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_invalidation_request() :: %{
-    required("InvalidationBatch") => invalidation_batch()
-  }
+
+      create_invalidation_request() :: %{
+        required("InvalidationBatch") => invalidation_batch()
+      }
+
   """
   @type create_invalidation_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  query_string_cache_keys() :: %{
-    "Items" => list(String.t()()),
-    "Quantity" => integer()
-  }
+
+      query_string_cache_keys() :: %{
+        "Items" => list(String.t()()),
+        "Quantity" => integer()
+      }
+
   """
   @type query_string_cache_keys() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_streaming_distribution_request() :: %{
-    required("StreamingDistributionConfig") => streaming_distribution_config()
-  }
+
+      create_streaming_distribution_request() :: %{
+        required("StreamingDistributionConfig") => streaming_distribution_config()
+      }
+
   """
   @type create_streaming_distribution_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  origin_access_control_summary() :: %{
-    "Description" => String.t(),
-    "Id" => String.t(),
-    "Name" => String.t(),
-    "OriginAccessControlOriginType" => list(any()),
-    "SigningBehavior" => list(any()),
-    "SigningProtocol" => list(any())
-  }
+
+      origin_access_control_summary() :: %{
+        "Description" => String.t(),
+        "Id" => String.t(),
+        "Name" => String.t(),
+        "OriginAccessControlOriginType" => list(any()),
+        "SigningBehavior" => list(any()),
+        "SigningProtocol" => list(any())
+      }
+
   """
   @type origin_access_control_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_key_group_config_request() :: %{
 
-  }
+      get_key_group_config_request() :: %{}
+
   """
-  @type get_key_group_config_request() :: %{String.t() => any()}
+  @type get_key_group_config_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  too_many_cookie_names_in_white_list() :: %{
-    "Message" => String.t()
-  }
+
+      too_many_cookie_names_in_white_list() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type too_many_cookie_names_in_white_list() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_distribution_request() :: %{
-    required("DistributionConfig") => distribution_config()
-  }
+
+      create_distribution_request() :: %{
+        required("DistributionConfig") => distribution_config()
+      }
+
   """
   @type create_distribution_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_continuous_deployment_policy_request() :: %{
-    required("ContinuousDeploymentPolicyConfig") => continuous_deployment_policy_config()
-  }
+
+      create_continuous_deployment_policy_request() :: %{
+        required("ContinuousDeploymentPolicyConfig") => continuous_deployment_policy_config()
+      }
+
   """
   @type create_continuous_deployment_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  logging_config() :: %{
-    "Bucket" => String.t(),
-    "Enabled" => boolean(),
-    "IncludeCookies" => boolean(),
-    "Prefix" => String.t()
-  }
+
+      logging_config() :: %{
+        "Bucket" => String.t(),
+        "Enabled" => boolean(),
+        "IncludeCookies" => boolean(),
+        "Prefix" => String.t()
+      }
+
   """
   @type logging_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_argument() :: %{
-    "Message" => String.t()
-  }
+
+      invalid_argument() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type invalid_argument() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  response_headers_policy_referrer_policy() :: %{
-    "Override" => boolean(),
-    "ReferrerPolicy" => list(any())
-  }
+
+      response_headers_policy_referrer_policy() :: %{
+        "Override" => boolean(),
+        "ReferrerPolicy" => list(any())
+      }
+
   """
   @type response_headers_policy_referrer_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_request() :: %{
-    required("Resource") => String.t(),
-    required("TagKeys") => tag_keys()
-  }
+
+      untag_resource_request() :: %{
+        required("Resource") => String.t(),
+        required("TagKeys") => tag_keys()
+      }
+
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_streaming_distribution_result() :: %{
-    "ETag" => String.t(),
-    "Location" => String.t(),
-    "StreamingDistribution" => streaming_distribution()
-  }
+
+      create_streaming_distribution_result() :: %{
+        "ETag" => String.t(),
+        "Location" => String.t(),
+        "StreamingDistribution" => streaming_distribution()
+      }
+
   """
   @type create_streaming_distribution_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_web_acl_id() :: %{
-    "Message" => String.t()
-  }
+
+      invalid_web_acl_id() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type invalid_web_acl_id() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_cookies_in_origin_request_policy() :: %{
-    "Message" => String.t()
-  }
+
+      too_many_cookies_in_origin_request_policy() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type too_many_cookies_in_origin_request_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_cache_policy_result() :: %{
-    "CachePolicy" => cache_policy(),
-    "ETag" => String.t()
-  }
+
+      get_cache_policy_result() :: %{
+        "CachePolicy" => cache_policy(),
+        "ETag" => String.t()
+      }
+
   """
   @type get_cache_policy_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_continuous_deployment_policy_result() :: %{
-    "ContinuousDeploymentPolicy" => continuous_deployment_policy(),
-    "ETag" => String.t(),
-    "Location" => String.t()
-  }
+
+      create_continuous_deployment_policy_result() :: %{
+        "ContinuousDeploymentPolicy" => continuous_deployment_policy(),
+        "ETag" => String.t(),
+        "Location" => String.t()
+      }
+
   """
   @type create_continuous_deployment_policy_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  key_group() :: %{
-    "Id" => String.t(),
-    "KeyGroupConfig" => key_group_config(),
-    "LastModifiedTime" => non_neg_integer()
-  }
+
+      key_group() :: %{
+        "Id" => String.t(),
+        "KeyGroupConfig" => key_group_config(),
+        "LastModifiedTime" => non_neg_integer()
+      }
+
   """
   @type key_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_distributions_by_key_group_request() :: %{
-    optional("Marker") => String.t(),
-    optional("MaxItems") => [integer()]
-  }
+
+      list_distributions_by_key_group_request() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxItems") => [integer()]
+      }
+
   """
   @type list_distributions_by_key_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_public_key_request() :: %{
-    optional("IfMatch") => String.t(),
-    required("PublicKeyConfig") => public_key_config()
-  }
+
+      update_public_key_request() :: %{
+        optional("IfMatch") => String.t(),
+        required("PublicKeyConfig") => public_key_config()
+      }
+
   """
   @type update_public_key_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  content_type_profile() :: %{
-    "ContentType" => String.t(),
-    "Format" => list(any()),
-    "ProfileId" => String.t()
-  }
+
+      content_type_profile() :: %{
+        "ContentType" => String.t(),
+        "Format" => list(any()),
+        "ProfileId" => String.t()
+      }
+
   """
   @type content_type_profile() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_key_group_result() :: %{
-    "ETag" => String.t(),
-    "KeyGroup" => key_group()
-  }
+
+      get_key_group_result() :: %{
+        "ETag" => String.t(),
+        "KeyGroup" => key_group()
+      }
+
   """
   @type get_key_group_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  origin_request_policy_headers_config() :: %{
-    "HeaderBehavior" => list(any()),
-    "Headers" => headers()
-  }
+
+      origin_request_policy_headers_config() :: %{
+        "HeaderBehavior" => list(any()),
+        "Headers" => headers()
+      }
+
   """
   @type origin_request_policy_headers_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  batch_too_large() :: %{
-    "Message" => String.t()
-  }
+
+      batch_too_large() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type batch_too_large() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  query_arg_profiles() :: %{
-    "Items" => list(query_arg_profile()()),
-    "Quantity" => integer()
-  }
+
+      query_arg_profiles() :: %{
+        "Items" => list(query_arg_profile()()),
+        "Quantity" => integer()
+      }
+
   """
   @type query_arg_profiles() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_continuous_deployment_policy_request() :: %{
-    optional("IfMatch") => String.t(),
-    required("ContinuousDeploymentPolicyConfig") => continuous_deployment_policy_config()
-  }
+
+      update_continuous_deployment_policy_request() :: %{
+        optional("IfMatch") => String.t(),
+        required("ContinuousDeploymentPolicyConfig") => continuous_deployment_policy_config()
+      }
+
   """
   @type update_continuous_deployment_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  response_headers_policy_access_control_allow_origins() :: %{
-    "Items" => list(String.t()()),
-    "Quantity" => integer()
-  }
+
+      response_headers_policy_access_control_allow_origins() :: %{
+        "Items" => list(String.t()()),
+        "Quantity" => integer()
+      }
+
   """
   @type response_headers_policy_access_control_allow_origins() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  function_association() :: %{
-    "EventType" => list(any()),
-    "FunctionARN" => String.t()
-  }
+
+      function_association() :: %{
+        "EventType" => list(any()),
+        "FunctionARN" => String.t()
+      }
+
   """
   @type function_association() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  key_group_already_exists() :: %{
-    "Message" => String.t()
-  }
+
+      key_group_already_exists() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type key_group_already_exists() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_realtime_log_config_request() :: %{
-    optional("ARN") => String.t(),
-    optional("Name") => String.t()
-  }
+
+      get_realtime_log_config_request() :: %{
+        optional("ARN") => String.t(),
+        optional("Name") => String.t()
+      }
+
   """
   @type get_realtime_log_config_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  key_group_list() :: %{
-    "Items" => list(key_group_summary()()),
-    "MaxItems" => integer(),
-    "NextMarker" => String.t(),
-    "Quantity" => integer()
-  }
+
+      key_group_list() :: %{
+        "Items" => list(key_group_summary()()),
+        "MaxItems" => integer(),
+        "NextMarker" => String.t(),
+        "Quantity" => integer()
+      }
+
   """
   @type key_group_list() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  continuous_deployment_policy() :: %{
-    "ContinuousDeploymentPolicyConfig" => continuous_deployment_policy_config(),
-    "Id" => String.t(),
-    "LastModifiedTime" => non_neg_integer()
-  }
+
+      continuous_deployment_policy() :: %{
+        "ContinuousDeploymentPolicyConfig" => continuous_deployment_policy_config(),
+        "Id" => String.t(),
+        "LastModifiedTime" => non_neg_integer()
+      }
+
   """
   @type continuous_deployment_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  origin_shield() :: %{
-    "Enabled" => boolean(),
-    "OriginShieldRegion" => String.t()
-  }
+
+      origin_shield() :: %{
+        "Enabled" => boolean(),
+        "OriginShieldRegion" => String.t()
+      }
+
   """
   @type origin_shield() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  entity_already_exists() :: %{
-    "Message" => String.t()
-  }
+
+      entity_already_exists() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type entity_already_exists() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  content_type_profiles() :: %{
-    "Items" => list(content_type_profile()()),
-    "Quantity" => integer()
-  }
+
+      content_type_profiles() :: %{
+        "Items" => list(content_type_profile()()),
+        "Quantity" => integer()
+      }
+
   """
   @type content_type_profiles() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  response_headers_policy_frame_options() :: %{
-    "FrameOption" => list(any()),
-    "Override" => boolean()
-  }
+
+      response_headers_policy_frame_options() :: %{
+        "FrameOption" => list(any()),
+        "Override" => boolean()
+      }
+
   """
   @type response_headers_policy_frame_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_field_level_encryption_profiles_result() :: %{
-    "FieldLevelEncryptionProfileList" => field_level_encryption_profile_list()
-  }
+
+      list_field_level_encryption_profiles_result() :: %{
+        "FieldLevelEncryptionProfileList" => field_level_encryption_profile_list()
+      }
+
   """
   @type list_field_level_encryption_profiles_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  entity_size_limit_exceeded() :: %{
-    "Message" => String.t()
-  }
+
+      entity_size_limit_exceeded() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type entity_size_limit_exceeded() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  field_level_encryption_profile_in_use() :: %{
-    "Message" => String.t()
-  }
+
+      field_level_encryption_profile_in_use() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type field_level_encryption_profile_in_use() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  no_such_field_level_encryption_config() :: %{
-    "Message" => String.t()
-  }
+
+      no_such_field_level_encryption_config() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type no_such_field_level_encryption_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cache_policy_list() :: %{
-    "Items" => list(cache_policy_summary()()),
-    "MaxItems" => integer(),
-    "NextMarker" => String.t(),
-    "Quantity" => integer()
-  }
+
+      cache_policy_list() :: %{
+        "Items" => list(cache_policy_summary()()),
+        "MaxItems" => integer(),
+        "NextMarker" => String.t(),
+        "Quantity" => integer()
+      }
+
   """
   @type cache_policy_list() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_public_keys_request() :: %{
-    optional("Marker") => String.t(),
-    optional("MaxItems") => [integer()]
-  }
+
+      list_public_keys_request() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxItems") => [integer()]
+      }
+
   """
   @type list_public_keys_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_distribution_config_result() :: %{
-    "DistributionConfig" => distribution_config(),
-    "ETag" => String.t()
-  }
+
+      get_distribution_config_result() :: %{
+        "DistributionConfig" => distribution_config(),
+        "ETag" => String.t()
+      }
+
   """
   @type get_distribution_config_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_key_value_stores_request() :: %{
-    optional("Marker") => String.t(),
-    optional("MaxItems") => [integer()],
-    optional("Status") => String.t()
-  }
+
+      list_key_value_stores_request() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxItems") => [integer()],
+        optional("Status") => String.t()
+      }
+
   """
   @type list_key_value_stores_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  streaming_distribution() :: %{
-    "ARN" => String.t(),
-    "ActiveTrustedSigners" => active_trusted_signers(),
-    "DomainName" => String.t(),
-    "Id" => String.t(),
-    "LastModifiedTime" => non_neg_integer(),
-    "Status" => String.t(),
-    "StreamingDistributionConfig" => streaming_distribution_config()
-  }
+
+      streaming_distribution() :: %{
+        "ARN" => String.t(),
+        "ActiveTrustedSigners" => active_trusted_signers(),
+        "DomainName" => String.t(),
+        "Id" => String.t(),
+        "LastModifiedTime" => non_neg_integer(),
+        "Status" => String.t(),
+        "StreamingDistributionConfig" => streaming_distribution_config()
+      }
+
   """
   @type streaming_distribution() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  origins() :: %{
-    "Items" => list(origin()()),
-    "Quantity" => integer()
-  }
+
+      origins() :: %{
+        "Items" => list(origin()()),
+        "Quantity" => integer()
+      }
+
   """
   @type origins() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  no_such_cloud_front_origin_access_identity() :: %{
-    "Message" => String.t()
-  }
+
+      no_such_cloud_front_origin_access_identity() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type no_such_cloud_front_origin_access_identity() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_field_level_encryption_config_request() :: %{
-    optional("IfMatch") => String.t()
-  }
+
+      delete_field_level_encryption_config_request() :: %{
+        optional("IfMatch") => String.t()
+      }
+
   """
   @type delete_field_level_encryption_config_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  function_size_limit_exceeded() :: %{
-    "Message" => String.t()
-  }
+
+      function_size_limit_exceeded() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type function_size_limit_exceeded() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cached_methods() :: %{
-    "Items" => list(list(any())()),
-    "Quantity" => integer()
-  }
+
+      cached_methods() :: %{
+        "Items" => list(list(any())()),
+        "Quantity" => integer()
+      }
+
   """
   @type cached_methods() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_origin_access_control() :: %{
-    "Message" => String.t()
-  }
+
+      invalid_origin_access_control() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type invalid_origin_access_control() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_key_value_store_result() :: %{
-    "ETag" => String.t(),
-    "KeyValueStore" => key_value_store()
-  }
+
+      describe_key_value_store_result() :: %{
+        "ETag" => String.t(),
+        "KeyValueStore" => key_value_store()
+      }
+
   """
   @type describe_key_value_store_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_origin() :: %{
-    "Message" => String.t()
-  }
+
+      invalid_origin() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type invalid_origin() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cache_behaviors() :: %{
-    "Items" => list(cache_behavior()()),
-    "Quantity" => integer()
-  }
+
+      cache_behaviors() :: %{
+        "Items" => list(cache_behavior()()),
+        "Quantity" => integer()
+      }
+
   """
   @type cache_behaviors() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  custom_headers() :: %{
-    "Items" => list(origin_custom_header()()),
-    "Quantity" => integer()
-  }
+
+      custom_headers() :: %{
+        "Items" => list(origin_custom_header()()),
+        "Quantity" => integer()
+      }
+
   """
   @type custom_headers() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  field_level_encryption_config_already_exists() :: %{
-    "Message" => String.t()
-  }
+
+      field_level_encryption_config_already_exists() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type field_level_encryption_config_already_exists() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_realtime_log_config_request() :: %{
-    required("EndPoints") => list(end_point()()),
-    required("Fields") => list(String.t()()),
-    required("Name") => String.t(),
-    required("SamplingRate") => float()
-  }
+
+      create_realtime_log_config_request() :: %{
+        required("EndPoints") => list(end_point()()),
+        required("Fields") => list(String.t()()),
+        required("Name") => String.t(),
+        required("SamplingRate") => float()
+      }
+
   """
   @type create_realtime_log_config_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  unsupported_operation() :: %{
-    "Message" => String.t()
-  }
+
+      unsupported_operation() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type unsupported_operation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_headers_in_cache_policy() :: %{
-    "Message" => String.t()
-  }
+
+      too_many_headers_in_cache_policy() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type too_many_headers_in_cache_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  function_associations() :: %{
-    "Items" => list(function_association()()),
-    "Quantity" => integer()
-  }
+
+      function_associations() :: %{
+        "Items" => list(function_association()()),
+        "Quantity" => integer()
+      }
+
   """
   @type function_associations() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_certificates() :: %{
-    "Message" => String.t()
-  }
+
+      too_many_certificates() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type too_many_certificates() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_conflicting_aliases_request() :: %{
-    optional("Marker") => String.t(),
-    optional("MaxItems") => integer(),
-    required("Alias") => String.t(),
-    required("DistributionId") => String.t()
-  }
+
+      list_conflicting_aliases_request() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxItems") => integer(),
+        required("Alias") => String.t(),
+        required("DistributionId") => String.t()
+      }
+
   """
   @type list_conflicting_aliases_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_streaming_distribution_with_tags_request() :: %{
-    required("StreamingDistributionConfigWithTags") => streaming_distribution_config_with_tags()
-  }
+
+      create_streaming_distribution_with_tags_request() :: %{
+        required("StreamingDistributionConfigWithTags") => streaming_distribution_config_with_tags()
+      }
+
   """
   @type create_streaming_distribution_with_tags_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  traffic_config() :: %{
-    "SingleHeaderConfig" => continuous_deployment_single_header_config(),
-    "SingleWeightConfig" => continuous_deployment_single_weight_config(),
-    "Type" => list(any())
-  }
+
+      traffic_config() :: %{
+        "SingleHeaderConfig" => continuous_deployment_single_header_config(),
+        "SingleWeightConfig" => continuous_deployment_single_weight_config(),
+        "Type" => list(any())
+      }
+
   """
   @type traffic_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cache_policy_cookies_config() :: %{
-    "CookieBehavior" => list(any()),
-    "Cookies" => cookie_names()
-  }
+
+      cache_policy_cookies_config() :: %{
+        "CookieBehavior" => list(any()),
+        "Cookies" => cookie_names()
+      }
+
   """
   @type cache_policy_cookies_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_cloud_front_origin_access_identity_request() :: %{
-    optional("IfMatch") => String.t()
-  }
+
+      delete_cloud_front_origin_access_identity_request() :: %{
+        optional("IfMatch") => String.t()
+      }
+
   """
   @type delete_cloud_front_origin_access_identity_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  lambda_function_association() :: %{
-    "EventType" => list(any()),
-    "IncludeBody" => boolean(),
-    "LambdaFunctionARN" => String.t()
-  }
+
+      lambda_function_association() :: %{
+        "EventType" => list(any()),
+        "IncludeBody" => boolean(),
+        "LambdaFunctionARN" => String.t()
+      }
+
   """
   @type lambda_function_association() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_key_value_store_request() :: %{
 
-  }
+      describe_key_value_store_request() :: %{}
+
   """
-  @type describe_key_value_store_request() :: %{String.t() => any()}
+  @type describe_key_value_store_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_distribution_config_request() :: %{
 
-  }
+      get_distribution_config_request() :: %{}
+
   """
-  @type get_distribution_config_request() :: %{String.t() => any()}
+  @type get_distribution_config_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  delete_public_key_request() :: %{
-    optional("IfMatch") => String.t()
-  }
+
+      delete_public_key_request() :: %{
+        optional("IfMatch") => String.t()
+      }
+
   """
   @type delete_public_key_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  distribution_config() :: %{
-    "Aliases" => aliases(),
-    "CacheBehaviors" => cache_behaviors(),
-    "CallerReference" => String.t(),
-    "Comment" => String.t(),
-    "ContinuousDeploymentPolicyId" => String.t(),
-    "CustomErrorResponses" => custom_error_responses(),
-    "DefaultCacheBehavior" => default_cache_behavior(),
-    "DefaultRootObject" => String.t(),
-    "Enabled" => boolean(),
-    "HttpVersion" => list(any()),
-    "IsIPV6Enabled" => boolean(),
-    "Logging" => logging_config(),
-    "OriginGroups" => origin_groups(),
-    "Origins" => origins(),
-    "PriceClass" => list(any()),
-    "Restrictions" => restrictions(),
-    "Staging" => boolean(),
-    "ViewerCertificate" => viewer_certificate(),
-    "WebACLId" => String.t()
-  }
+
+      distribution_config() :: %{
+        "Aliases" => aliases(),
+        "CacheBehaviors" => cache_behaviors(),
+        "CallerReference" => String.t(),
+        "Comment" => String.t(),
+        "ContinuousDeploymentPolicyId" => String.t(),
+        "CustomErrorResponses" => custom_error_responses(),
+        "DefaultCacheBehavior" => default_cache_behavior(),
+        "DefaultRootObject" => String.t(),
+        "Enabled" => boolean(),
+        "HttpVersion" => list(any()),
+        "IsIPV6Enabled" => boolean(),
+        "Logging" => logging_config(),
+        "OriginGroups" => origin_groups(),
+        "Origins" => origins(),
+        "PriceClass" => list(any()),
+        "Restrictions" => restrictions(),
+        "Staging" => boolean(),
+        "ViewerCertificate" => viewer_certificate(),
+        "WebACLId" => String.t()
+      }
+
   """
   @type distribution_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_continuous_deployment_policy_result() :: %{
-    "ContinuousDeploymentPolicy" => continuous_deployment_policy(),
-    "ETag" => String.t()
-  }
+
+      get_continuous_deployment_policy_result() :: %{
+        "ContinuousDeploymentPolicy" => continuous_deployment_policy(),
+        "ETag" => String.t()
+      }
+
   """
   @type get_continuous_deployment_policy_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_required_protocol() :: %{
-    "Message" => String.t()
-  }
+
+      invalid_required_protocol() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type invalid_required_protocol() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_function_request() :: %{
-    optional("Stage") => list(any())
-  }
+
+      get_function_request() :: %{
+        optional("Stage") => list(any())
+      }
+
   """
   @type get_function_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  origin_request_policy_cookies_config() :: %{
-    "CookieBehavior" => list(any()),
-    "Cookies" => cookie_names()
-  }
+
+      origin_request_policy_cookies_config() :: %{
+        "CookieBehavior" => list(any()),
+        "Cookies" => cookie_names()
+      }
+
   """
   @type origin_request_policy_cookies_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_key_value_store_result() :: %{
-    "ETag" => String.t(),
-    "KeyValueStore" => key_value_store()
-  }
+
+      update_key_value_store_result() :: %{
+        "ETag" => String.t(),
+        "KeyValueStore" => key_value_store()
+      }
+
   """
   @type update_key_value_store_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_key_groups_result() :: %{
-    "KeyGroupList" => key_group_list()
-  }
+
+      list_key_groups_result() :: %{
+        "KeyGroupList" => key_group_list()
+      }
+
   """
   @type list_key_groups_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_key_group_request() :: %{
-    required("KeyGroupConfig") => key_group_config()
-  }
+
+      create_key_group_request() :: %{
+        required("KeyGroupConfig") => key_group_config()
+      }
+
   """
   @type create_key_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_response_headers_policy_request() :: %{
-    optional("IfMatch") => String.t()
-  }
+
+      delete_response_headers_policy_request() :: %{
+        optional("IfMatch") => String.t()
+      }
+
   """
   @type delete_response_headers_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  origin_access_control_in_use() :: %{
-    "Message" => String.t()
-  }
+
+      origin_access_control_in_use() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type origin_access_control_in_use() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  precondition_failed() :: %{
-    "Message" => String.t()
-  }
+
+      precondition_failed() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type precondition_failed() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  public_key_list() :: %{
-    "Items" => list(public_key_summary()()),
-    "MaxItems" => integer(),
-    "NextMarker" => String.t(),
-    "Quantity" => integer()
-  }
+
+      public_key_list() :: %{
+        "Items" => list(public_key_summary()()),
+        "MaxItems" => integer(),
+        "NextMarker" => String.t(),
+        "Quantity" => integer()
+      }
+
   """
   @type public_key_list() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_response_headers_policy_request() :: %{
-    optional("IfMatch") => String.t(),
-    required("ResponseHeadersPolicyConfig") => response_headers_policy_config()
-  }
+
+      update_response_headers_policy_request() :: %{
+        optional("IfMatch") => String.t(),
+        required("ResponseHeadersPolicyConfig") => response_headers_policy_config()
+      }
+
   """
   @type update_response_headers_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  response_headers_policy_custom_headers_config() :: %{
-    "Items" => list(response_headers_policy_custom_header()()),
-    "Quantity" => integer()
-  }
+
+      response_headers_policy_custom_headers_config() :: %{
+        "Items" => list(response_headers_policy_custom_header()()),
+        "Quantity" => integer()
+      }
+
   """
   @type response_headers_policy_custom_headers_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_cache_policy_config_request() :: %{
 
-  }
+      get_cache_policy_config_request() :: %{}
+
   """
-  @type get_cache_policy_config_request() :: %{String.t() => any()}
+  @type get_cache_policy_config_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_key_groups_request() :: %{
-    optional("Marker") => String.t(),
-    optional("MaxItems") => [integer()]
-  }
+
+      list_key_groups_request() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxItems") => [integer()]
+      }
+
   """
   @type list_key_groups_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_distribution_cnames() :: %{
-    "Message" => String.t()
-  }
+
+      too_many_distribution_cnames() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type too_many_distribution_cnames() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  no_such_origin_request_policy() :: %{
-    "Message" => String.t()
-  }
+
+      no_such_origin_request_policy() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type no_such_origin_request_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  no_such_distribution() :: %{
-    "Message" => String.t()
-  }
+
+      no_such_distribution() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type no_such_distribution() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag() :: %{
-    "Key" => String.t(),
-    "Value" => String.t()
-  }
+
+      tag() :: %{
+        "Key" => String.t(),
+        "Value" => String.t()
+      }
+
   """
   @type tag() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_field_level_encryption_profile_config_request() :: %{
 
-  }
+      get_field_level_encryption_profile_config_request() :: %{}
+
   """
-  @type get_field_level_encryption_profile_config_request() :: %{String.t() => any()}
+  @type get_field_level_encryption_profile_config_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  cache_policy_summary() :: %{
-    "CachePolicy" => cache_policy(),
-    "Type" => list(any())
-  }
+
+      cache_policy_summary() :: %{
+        "CachePolicy" => cache_policy(),
+        "Type" => list(any())
+      }
+
   """
   @type cache_policy_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  query_arg_profile() :: %{
-    "ProfileId" => String.t(),
-    "QueryArg" => String.t()
-  }
+
+      query_arg_profile() :: %{
+        "ProfileId" => String.t(),
+        "QueryArg" => String.t()
+      }
+
   """
   @type query_arg_profile() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  response_headers_policy_access_control_expose_headers() :: %{
-    "Items" => list(String.t()()),
-    "Quantity" => integer()
-  }
+
+      response_headers_policy_access_control_expose_headers() :: %{
+        "Items" => list(String.t()()),
+        "Quantity" => integer()
+      }
+
   """
   @type response_headers_policy_access_control_expose_headers() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  s3_origin_config() :: %{
-    "OriginAccessIdentity" => String.t()
-  }
+
+      s3_origin_config() :: %{
+        "OriginAccessIdentity" => String.t()
+      }
+
   """
   @type s3_origin_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_distribution_request() :: %{
-    optional("IfMatch") => String.t(),
-    required("DistributionConfig") => distribution_config()
-  }
+
+      update_distribution_request() :: %{
+        optional("IfMatch") => String.t(),
+        required("DistributionConfig") => distribution_config()
+      }
+
   """
   @type update_distribution_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_trusted_signers() :: %{
-    "Message" => String.t()
-  }
+
+      too_many_trusted_signers() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type too_many_trusted_signers() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_function_request() :: %{
-    required("IfMatch") => String.t()
-  }
+
+      delete_function_request() :: %{
+        required("IfMatch") => String.t()
+      }
+
   """
   @type delete_function_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  publish_function_result() :: %{
-    "FunctionSummary" => function_summary()
-  }
+
+      publish_function_result() :: %{
+        "FunctionSummary" => function_summary()
+      }
+
   """
   @type publish_function_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_query_strings_in_origin_request_policy() :: %{
-    "Message" => String.t()
-  }
+
+      too_many_query_strings_in_origin_request_policy() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type too_many_query_strings_in_origin_request_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_cache_policies() :: %{
-    "Message" => String.t()
-  }
+
+      too_many_cache_policies() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type too_many_cache_policies() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  response_headers_policy_remove_headers_config() :: %{
-    "Items" => list(response_headers_policy_remove_header()()),
-    "Quantity" => integer()
-  }
+
+      response_headers_policy_remove_headers_config() :: %{
+        "Items" => list(response_headers_policy_remove_header()()),
+        "Quantity" => integer()
+      }
+
   """
   @type response_headers_policy_remove_headers_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_error_code() :: %{
-    "Message" => String.t()
-  }
+
+      invalid_error_code() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type invalid_error_code() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_distributions_result() :: %{
-    "DistributionList" => distribution_list()
-  }
+
+      list_distributions_result() :: %{
+        "DistributionList" => distribution_list()
+      }
+
   """
   @type list_distributions_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_response_headers_policies_request() :: %{
-    optional("Marker") => String.t(),
-    optional("MaxItems") => [integer()],
-    optional("Type") => list(any())
-  }
+
+      list_response_headers_policies_request() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxItems") => [integer()],
+        optional("Type") => list(any())
+      }
+
   """
   @type list_response_headers_policies_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  field_level_encryption() :: %{
-    "FieldLevelEncryptionConfig" => field_level_encryption_config(),
-    "Id" => String.t(),
-    "LastModifiedTime" => non_neg_integer()
-  }
+
+      field_level_encryption() :: %{
+        "FieldLevelEncryptionConfig" => field_level_encryption_config(),
+        "Id" => String.t(),
+        "LastModifiedTime" => non_neg_integer()
+      }
+
   """
   @type field_level_encryption() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_geo_restriction_parameter() :: %{
-    "Message" => String.t()
-  }
+
+      invalid_geo_restriction_parameter() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type invalid_geo_restriction_parameter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  key_value_store_associations() :: %{
-    "Items" => list(key_value_store_association()()),
-    "Quantity" => integer()
-  }
+
+      key_value_store_associations() :: %{
+        "Items" => list(key_value_store_association()()),
+        "Quantity" => integer()
+      }
+
   """
   @type key_value_store_associations() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  origin_access_control() :: %{
-    "Id" => String.t(),
-    "OriginAccessControlConfig" => origin_access_control_config()
-  }
+
+      origin_access_control() :: %{
+        "Id" => String.t(),
+        "OriginAccessControlConfig" => origin_access_control_config()
+      }
+
   """
   @type origin_access_control() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  origin_request_policy_already_exists() :: %{
-    "Message" => String.t()
-  }
+
+      origin_request_policy_already_exists() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type origin_request_policy_already_exists() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  origin_request_policy() :: %{
-    "Id" => String.t(),
-    "LastModifiedTime" => non_neg_integer(),
-    "OriginRequestPolicyConfig" => origin_request_policy_config()
-  }
+
+      origin_request_policy() :: %{
+        "Id" => String.t(),
+        "LastModifiedTime" => non_neg_integer(),
+        "OriginRequestPolicyConfig" => origin_request_policy_config()
+      }
+
   """
   @type origin_request_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  response_headers_policy_already_exists() :: %{
-    "Message" => String.t()
-  }
+
+      response_headers_policy_already_exists() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type response_headers_policy_already_exists() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  continuous_deployment_policy_in_use() :: %{
-    "Message" => String.t()
-  }
+
+      continuous_deployment_policy_in_use() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type continuous_deployment_policy_in_use() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  response_headers_policy_list() :: %{
-    "Items" => list(response_headers_policy_summary()()),
-    "MaxItems" => integer(),
-    "NextMarker" => String.t(),
-    "Quantity" => integer()
-  }
+
+      response_headers_policy_list() :: %{
+        "Items" => list(response_headers_policy_summary()()),
+        "MaxItems" => integer(),
+        "NextMarker" => String.t(),
+        "Quantity" => integer()
+      }
+
   """
   @type response_headers_policy_list() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_origin_access_control_request() :: %{
-    optional("IfMatch") => String.t(),
-    required("OriginAccessControlConfig") => origin_access_control_config()
-  }
+
+      update_origin_access_control_request() :: %{
+        optional("IfMatch") => String.t(),
+        required("OriginAccessControlConfig") => origin_access_control_config()
+      }
+
   """
   @type update_origin_access_control_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_realtime_log_config_result() :: %{
-    "RealtimeLogConfig" => realtime_log_config()
-  }
+
+      update_realtime_log_config_result() :: %{
+        "RealtimeLogConfig" => realtime_log_config()
+      }
+
   """
   @type update_realtime_log_config_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_distributions_with_function_associations() :: %{
-    "Message" => String.t()
-  }
+
+      too_many_distributions_with_function_associations() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type too_many_distributions_with_function_associations() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  missing_body() :: %{
-    "Message" => String.t()
-  }
+
+      missing_body() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type missing_body() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cookie_names() :: %{
-    "Items" => list(String.t()()),
-    "Quantity" => integer()
-  }
+
+      cookie_names() :: %{
+        "Items" => list(String.t()()),
+        "Quantity" => integer()
+      }
+
   """
   @type cookie_names() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_query_strings_in_cache_policy() :: %{
-    "Message" => String.t()
-  }
+
+      too_many_query_strings_in_cache_policy() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type too_many_query_strings_in_cache_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  inconsistent_quantities() :: %{
-    "Message" => String.t()
-  }
+
+      inconsistent_quantities() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type inconsistent_quantities() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_headers_for_s3_origin() :: %{
-    "Message" => String.t()
-  }
+
+      invalid_headers_for_s3_origin() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type invalid_headers_for_s3_origin() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_distributions_by_cache_policy_id_result() :: %{
-    "DistributionIdList" => distribution_id_list()
-  }
+
+      list_distributions_by_cache_policy_id_result() :: %{
+        "DistributionIdList" => distribution_id_list()
+      }
+
   """
   @type list_distributions_by_cache_policy_id_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  field_patterns() :: %{
-    "Items" => list(String.t()()),
-    "Quantity" => integer()
-  }
+
+      field_patterns() :: %{
+        "Items" => list(String.t()()),
+        "Quantity" => integer()
+      }
+
   """
   @type field_patterns() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  monitoring_subscription_already_exists() :: %{
-    "Message" => String.t()
-  }
+
+      monitoring_subscription_already_exists() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type monitoring_subscription_already_exists() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_lambda_function_association() :: %{
-    "Message" => String.t()
-  }
+
+      invalid_lambda_function_association() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type invalid_lambda_function_association() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tags() :: %{
-    "Items" => list(tag()())
-  }
+
+      tags() :: %{
+        "Items" => list(tag()())
+      }
+
   """
   @type tags() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  distribution() :: %{
-    "ARN" => String.t(),
-    "ActiveTrustedKeyGroups" => active_trusted_key_groups(),
-    "ActiveTrustedSigners" => active_trusted_signers(),
-    "AliasICPRecordals" => list(alias_i_c_p_recordal()()),
-    "DistributionConfig" => distribution_config(),
-    "DomainName" => String.t(),
-    "Id" => String.t(),
-    "InProgressInvalidationBatches" => integer(),
-    "LastModifiedTime" => non_neg_integer(),
-    "Status" => String.t()
-  }
+
+      distribution() :: %{
+        "ARN" => String.t(),
+        "ActiveTrustedKeyGroups" => active_trusted_key_groups(),
+        "ActiveTrustedSigners" => active_trusted_signers(),
+        "AliasICPRecordals" => list(alias_i_c_p_recordal()()),
+        "DistributionConfig" => distribution_config(),
+        "DomainName" => String.t(),
+        "Id" => String.t(),
+        "InProgressInvalidationBatches" => integer(),
+        "LastModifiedTime" => non_neg_integer(),
+        "Status" => String.t()
+      }
+
   """
   @type distribution() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_cache_policy_request() :: %{
-    required("CachePolicyConfig") => cache_policy_config()
-  }
+
+      create_cache_policy_request() :: %{
+        required("CachePolicyConfig") => cache_policy_config()
+      }
+
   """
   @type create_cache_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  origin_request_policy_query_strings_config() :: %{
-    "QueryStringBehavior" => list(any()),
-    "QueryStrings" => query_string_names()
-  }
+
+      origin_request_policy_query_strings_config() :: %{
+        "QueryStringBehavior" => list(any()),
+        "QueryStrings" => query_string_names()
+      }
+
   """
   @type origin_request_policy_query_strings_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_origin_keepalive_timeout() :: %{
-    "Message" => String.t()
-  }
+
+      invalid_origin_keepalive_timeout() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type invalid_origin_keepalive_timeout() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_continuous_deployment_policies_result() :: %{
-    "ContinuousDeploymentPolicyList" => continuous_deployment_policy_list()
-  }
+
+      list_continuous_deployment_policies_result() :: %{
+        "ContinuousDeploymentPolicyList" => continuous_deployment_policy_list()
+      }
+
   """
   @type list_continuous_deployment_policies_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  kinesis_stream_config() :: %{
-    "RoleARN" => String.t(),
-    "StreamARN" => String.t()
-  }
+
+      kinesis_stream_config() :: %{
+        "RoleARN" => String.t(),
+        "StreamARN" => String.t()
+      }
+
   """
   @type kinesis_stream_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_forward_cookies() :: %{
-    "Message" => String.t()
-  }
+
+      invalid_forward_cookies() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type invalid_forward_cookies() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_key_group_result() :: %{
-    "ETag" => String.t(),
-    "KeyGroup" => key_group(),
-    "Location" => String.t()
-  }
+
+      create_key_group_result() :: %{
+        "ETag" => String.t(),
+        "KeyGroup" => key_group(),
+        "Location" => String.t()
+      }
+
   """
   @type create_key_group_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_key_group_request() :: %{
-    optional("IfMatch") => String.t()
-  }
+
+      delete_key_group_request() :: %{
+        optional("IfMatch") => String.t()
+      }
+
   """
   @type delete_key_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_field_level_encryption_config_result() :: %{
-    "ETag" => String.t(),
-    "FieldLevelEncryption" => field_level_encryption(),
-    "Location" => String.t()
-  }
+
+      create_field_level_encryption_config_result() :: %{
+        "ETag" => String.t(),
+        "FieldLevelEncryption" => field_level_encryption(),
+        "Location" => String.t()
+      }
+
   """
   @type create_field_level_encryption_config_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  realtime_log_config_already_exists() :: %{
-    "Message" => String.t()
-  }
+
+      realtime_log_config_already_exists() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type realtime_log_config_already_exists() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  no_such_cache_policy() :: %{
-    "Message" => String.t()
-  }
+
+      no_such_cache_policy() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type no_such_cache_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  aliases() :: %{
-    "Items" => list(String.t()()),
-    "Quantity" => integer()
-  }
+
+      aliases() :: %{
+        "Items" => list(String.t()()),
+        "Quantity" => integer()
+      }
+
   """
   @type aliases() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  associate_alias_request() :: %{
-    required("Alias") => String.t()
-  }
+
+      associate_alias_request() :: %{
+        required("Alias") => String.t()
+      }
+
   """
   @type associate_alias_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  origin_groups() :: %{
-    "Items" => list(origin_group()()),
-    "Quantity" => integer()
-  }
+
+      origin_groups() :: %{
+        "Items" => list(origin_group()()),
+        "Quantity" => integer()
+      }
+
   """
   @type origin_groups() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  encryption_entity() :: %{
-    "FieldPatterns" => field_patterns(),
-    "ProviderId" => String.t(),
-    "PublicKeyId" => String.t()
-  }
+
+      encryption_entity() :: %{
+        "FieldPatterns" => field_patterns(),
+        "ProviderId" => String.t(),
+        "PublicKeyId" => String.t()
+      }
+
   """
   @type encryption_entity() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalidation_batch() :: %{
-    "CallerReference" => String.t(),
-    "Paths" => paths()
-  }
+
+      invalidation_batch() :: %{
+        "CallerReference" => String.t(),
+        "Paths" => paths()
+      }
+
   """
   @type invalidation_batch() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_streaming_distributions_request() :: %{
-    optional("Marker") => String.t(),
-    optional("MaxItems") => [integer()]
-  }
+
+      list_streaming_distributions_request() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxItems") => [integer()]
+      }
+
   """
   @type list_streaming_distributions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  trusted_signer_does_not_exist() :: %{
-    "Message" => String.t()
-  }
+
+      trusted_signer_does_not_exist() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type trusted_signer_does_not_exist() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_cloud_front_origin_access_identity_request() :: %{
-    required("CloudFrontOriginAccessIdentityConfig") => cloud_front_origin_access_identity_config()
-  }
+
+      create_cloud_front_origin_access_identity_request() :: %{
+        required("CloudFrontOriginAccessIdentityConfig") => cloud_front_origin_access_identity_config()
+      }
+
   """
   @type create_cloud_front_origin_access_identity_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  no_such_streaming_distribution() :: %{
-    "Message" => String.t()
-  }
+
+      no_such_streaming_distribution() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type no_such_streaming_distribution() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_origin_read_timeout() :: %{
-    "Message" => String.t()
-  }
+
+      invalid_origin_read_timeout() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type invalid_origin_read_timeout() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_invalidation_request() :: %{
 
-  }
+      get_invalidation_request() :: %{}
+
   """
-  @type get_invalidation_request() :: %{String.t() => any()}
+  @type get_invalidation_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  continuous_deployment_policy_config() :: %{
-    "Enabled" => boolean(),
-    "StagingDistributionDnsNames" => staging_distribution_dns_names(),
-    "TrafficConfig" => traffic_config()
-  }
+
+      continuous_deployment_policy_config() :: %{
+        "Enabled" => boolean(),
+        "StagingDistributionDnsNames" => staging_distribution_dns_names(),
+        "TrafficConfig" => traffic_config()
+      }
+
   """
   @type continuous_deployment_policy_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_origin_request_policy_config_result() :: %{
-    "ETag" => String.t(),
-    "OriginRequestPolicyConfig" => origin_request_policy_config()
-  }
+
+      get_origin_request_policy_config_result() :: %{
+        "ETag" => String.t(),
+        "OriginRequestPolicyConfig" => origin_request_policy_config()
+      }
+
   """
   @type get_origin_request_policy_config_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_response_headers_policy_result() :: %{
-    "ETag" => String.t(),
-    "Location" => String.t(),
-    "ResponseHeadersPolicy" => response_headers_policy()
-  }
+
+      create_response_headers_policy_result() :: %{
+        "ETag" => String.t(),
+        "Location" => String.t(),
+        "ResponseHeadersPolicy" => response_headers_policy()
+      }
+
   """
   @type create_response_headers_policy_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_key_value_store_request() :: %{
-    required("Comment") => String.t(),
-    required("IfMatch") => String.t()
-  }
+
+      update_key_value_store_request() :: %{
+        required("Comment") => String.t(),
+        required("IfMatch") => String.t()
+      }
+
   """
   @type update_key_value_store_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_domain_name_for_origin_access_control() :: %{
-    "Message" => String.t()
-  }
+
+      invalid_domain_name_for_origin_access_control() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type invalid_domain_name_for_origin_access_control() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  response_headers_policy_content_security_policy() :: %{
-    "ContentSecurityPolicy" => String.t(),
-    "Override" => boolean()
-  }
+
+      response_headers_policy_content_security_policy() :: %{
+        "ContentSecurityPolicy" => String.t(),
+        "Override" => boolean()
+      }
+
   """
   @type response_headers_policy_content_security_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  public_key() :: %{
-    "CreatedTime" => non_neg_integer(),
-    "Id" => String.t(),
-    "PublicKeyConfig" => public_key_config()
-  }
+
+      public_key() :: %{
+        "CreatedTime" => non_neg_integer(),
+        "Id" => String.t(),
+        "PublicKeyConfig" => public_key_config()
+      }
+
   """
   @type public_key() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_field_level_encryption_profile_request() :: %{
-    optional("IfMatch") => String.t(),
-    required("FieldLevelEncryptionProfileConfig") => field_level_encryption_profile_config()
-  }
+
+      update_field_level_encryption_profile_request() :: %{
+        optional("IfMatch") => String.t(),
+        required("FieldLevelEncryptionProfileConfig") => field_level_encryption_profile_config()
+      }
+
   """
   @type update_field_level_encryption_profile_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  field_level_encryption_profile_summary() :: %{
-    "Comment" => String.t(),
-    "EncryptionEntities" => encryption_entities(),
-    "Id" => String.t(),
-    "LastModifiedTime" => non_neg_integer(),
-    "Name" => String.t()
-  }
+
+      field_level_encryption_profile_summary() :: %{
+        "Comment" => String.t(),
+        "EncryptionEntities" => encryption_entities(),
+        "Id" => String.t(),
+        "LastModifiedTime" => non_neg_integer(),
+        "Name" => String.t()
+      }
+
   """
   @type field_level_encryption_profile_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  function_summary() :: %{
-    "FunctionConfig" => function_config(),
-    "FunctionMetadata" => function_metadata(),
-    "Name" => String.t(),
-    "Status" => String.t()
-  }
+
+      function_summary() :: %{
+        "FunctionConfig" => function_config(),
+        "FunctionMetadata" => function_metadata(),
+        "Name" => String.t(),
+        "Status" => String.t()
+      }
+
   """
   @type function_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_key_groups_associated_to_distribution() :: %{
-    "Message" => String.t()
-  }
+
+      too_many_key_groups_associated_to_distribution() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type too_many_key_groups_associated_to_distribution() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_cache_policy_result() :: %{
-    "CachePolicy" => cache_policy(),
-    "ETag" => String.t(),
-    "Location" => String.t()
-  }
+
+      create_cache_policy_result() :: %{
+        "CachePolicy" => cache_policy(),
+        "ETag" => String.t(),
+        "Location" => String.t()
+      }
+
   """
   @type create_cache_policy_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_key_value_store_request() :: %{
-    optional("Comment") => String.t(),
-    optional("ImportSource") => import_source(),
-    required("Name") => String.t()
-  }
+
+      create_key_value_store_request() :: %{
+        optional("Comment") => String.t(),
+        optional("ImportSource") => import_source(),
+        required("Name") => String.t()
+      }
+
   """
   @type create_key_value_store_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  origin_custom_header() :: %{
-    "HeaderName" => String.t(),
-    "HeaderValue" => String.t()
-  }
+
+      origin_custom_header() :: %{
+        "HeaderName" => String.t(),
+        "HeaderValue" => String.t()
+      }
+
   """
   @type origin_custom_header() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_field_level_encryption_profiles_request() :: %{
-    optional("Marker") => String.t(),
-    optional("MaxItems") => [integer()]
-  }
+
+      list_field_level_encryption_profiles_request() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxItems") => [integer()]
+      }
+
   """
   @type list_field_level_encryption_profiles_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cache_policy_already_exists() :: %{
-    "Message" => String.t()
-  }
+
+      cache_policy_already_exists() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type cache_policy_already_exists() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_headers_in_forwarded_values() :: %{
-    "Message" => String.t()
-  }
+
+      too_many_headers_in_forwarded_values() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type too_many_headers_in_forwarded_values() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  response_headers_policy_remove_header() :: %{
-    "Header" => String.t()
-  }
+
+      response_headers_policy_remove_header() :: %{
+        "Header" => String.t()
+      }
+
   """
   @type response_headers_policy_remove_header() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_field_level_encryption_request() :: %{
 
-  }
+      get_field_level_encryption_request() :: %{}
+
   """
-  @type get_field_level_encryption_request() :: %{String.t() => any()}
+  @type get_field_level_encryption_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  invalid_minimum_protocol_version() :: %{
-    "Message" => String.t()
-  }
+
+      invalid_minimum_protocol_version() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type invalid_minimum_protocol_version() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  key_value_store_list() :: %{
-    "Items" => list(key_value_store()()),
-    "MaxItems" => integer(),
-    "NextMarker" => String.t(),
-    "Quantity" => integer()
-  }
+
+      key_value_store_list() :: %{
+        "Items" => list(key_value_store()()),
+        "MaxItems" => integer(),
+        "NextMarker" => String.t(),
+        "Quantity" => integer()
+      }
+
   """
   @type key_value_store_list() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_cloud_front_origin_access_identity_result() :: %{
-    "CloudFrontOriginAccessIdentity" => cloud_front_origin_access_identity(),
-    "ETag" => String.t()
-  }
+
+      get_cloud_front_origin_access_identity_result() :: %{
+        "CloudFrontOriginAccessIdentity" => cloud_front_origin_access_identity(),
+        "ETag" => String.t()
+      }
+
   """
   @type get_cloud_front_origin_access_identity_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  query_string_names() :: %{
-    "Items" => list(String.t()()),
-    "Quantity" => integer()
-  }
+
+      query_string_names() :: %{
+        "Items" => list(String.t()()),
+        "Quantity" => integer()
+      }
+
   """
   @type query_string_names() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_field_level_encryption_result() :: %{
-    "ETag" => String.t(),
-    "FieldLevelEncryption" => field_level_encryption()
-  }
+
+      get_field_level_encryption_result() :: %{
+        "ETag" => String.t(),
+        "FieldLevelEncryption" => field_level_encryption()
+      }
+
   """
   @type get_field_level_encryption_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_streaming_distribution_request() :: %{
-    optional("IfMatch") => String.t(),
-    required("StreamingDistributionConfig") => streaming_distribution_config()
-  }
+
+      update_streaming_distribution_request() :: %{
+        optional("IfMatch") => String.t(),
+        required("StreamingDistributionConfig") => streaming_distribution_config()
+      }
+
   """
   @type update_streaming_distribution_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_streaming_distributions() :: %{
-    "Message" => String.t()
-  }
+
+      too_many_streaming_distributions() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type too_many_streaming_distributions() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  no_such_origin_access_control() :: %{
-    "Message" => String.t()
-  }
+
+      no_such_origin_access_control() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type no_such_origin_access_control() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cannot_delete_entity_while_in_use() :: %{
-    "Message" => String.t()
-  }
+
+      cannot_delete_entity_while_in_use() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type cannot_delete_entity_while_in_use() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  conflicting_aliases_list() :: %{
-    "Items" => list(conflicting_alias()()),
-    "MaxItems" => integer(),
-    "NextMarker" => String.t(),
-    "Quantity" => integer()
-  }
+
+      conflicting_aliases_list() :: %{
+        "Items" => list(conflicting_alias()()),
+        "MaxItems" => integer(),
+        "NextMarker" => String.t(),
+        "Quantity" => integer()
+      }
+
   """
   @type conflicting_aliases_list() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_field_level_encryption_profiles() :: %{
-    "Message" => String.t()
-  }
+
+      too_many_field_level_encryption_profiles() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type too_many_field_level_encryption_profiles() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_field_level_encryption_configs_request() :: %{
-    optional("Marker") => String.t(),
-    optional("MaxItems") => [integer()]
-  }
+
+      list_field_level_encryption_configs_request() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxItems") => [integer()]
+      }
+
   """
   @type list_field_level_encryption_configs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_public_key_result() :: %{
-    "ETag" => String.t(),
-    "PublicKey" => public_key()
-  }
+
+      update_public_key_result() :: %{
+        "ETag" => String.t(),
+        "PublicKey" => public_key()
+      }
+
   """
   @type update_public_key_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_field_level_encryption_config_request() :: %{
 
-  }
+      get_field_level_encryption_config_request() :: %{}
+
   """
-  @type get_field_level_encryption_config_request() :: %{String.t() => any()}
+  @type get_field_level_encryption_config_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  too_many_field_level_encryption_configs() :: %{
-    "Message" => String.t()
-  }
+
+      too_many_field_level_encryption_configs() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type too_many_field_level_encryption_configs() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_key_value_store_request() :: %{
-    required("IfMatch") => String.t()
-  }
+
+      delete_key_value_store_request() :: %{
+        required("IfMatch") => String.t()
+      }
+
   """
   @type delete_key_value_store_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_origin_custom_headers() :: %{
-    "Message" => String.t()
-  }
+
+      too_many_origin_custom_headers() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type too_many_origin_custom_headers() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_function_result() :: %{
-    "ETag" => String.t(),
-    "FunctionSummary" => function_summary(),
-    "Location" => String.t()
-  }
+
+      create_function_result() :: %{
+        "ETag" => String.t(),
+        "FunctionSummary" => function_summary(),
+        "Location" => String.t()
+      }
+
   """
   @type create_function_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  distribution_already_exists() :: %{
-    "Message" => String.t()
-  }
+
+      distribution_already_exists() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type distribution_already_exists() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  field_level_encryption_config() :: %{
-    "CallerReference" => String.t(),
-    "Comment" => String.t(),
-    "ContentTypeProfileConfig" => content_type_profile_config(),
-    "QueryArgProfileConfig" => query_arg_profile_config()
-  }
+
+      field_level_encryption_config() :: %{
+        "CallerReference" => String.t(),
+        "Comment" => String.t(),
+        "ContentTypeProfileConfig" => content_type_profile_config(),
+        "QueryArgProfileConfig" => query_arg_profile_config()
+      }
+
   """
   @type field_level_encryption_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_cache_policies_result() :: %{
-    "CachePolicyList" => cache_policy_list()
-  }
+
+      list_cache_policies_result() :: %{
+        "CachePolicyList" => cache_policy_list()
+      }
+
   """
   @type list_cache_policies_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  active_trusted_signers() :: %{
-    "Enabled" => boolean(),
-    "Items" => list(signer()()),
-    "Quantity" => integer()
-  }
+
+      active_trusted_signers() :: %{
+        "Enabled" => boolean(),
+        "Items" => list(signer()()),
+        "Quantity" => integer()
+      }
+
   """
   @type active_trusted_signers() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cloud_front_origin_access_identity() :: %{
-    "CloudFrontOriginAccessIdentityConfig" => cloud_front_origin_access_identity_config(),
-    "Id" => String.t(),
-    "S3CanonicalUserId" => String.t()
-  }
+
+      cloud_front_origin_access_identity() :: %{
+        "CloudFrontOriginAccessIdentityConfig" => cloud_front_origin_access_identity_config(),
+        "Id" => String.t(),
+        "S3CanonicalUserId" => String.t()
+      }
+
   """
   @type cloud_front_origin_access_identity() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_functions_request() :: %{
-    optional("Marker") => String.t(),
-    optional("MaxItems") => [integer()],
-    optional("Stage") => list(any())
-  }
+
+      list_functions_request() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxItems") => [integer()],
+        optional("Stage") => list(any())
+      }
+
   """
   @type list_functions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_origins() :: %{
-    "Message" => String.t()
-  }
+
+      too_many_origins() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type too_many_origins() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_distributions_with_single_function_arn() :: %{
-    "Message" => String.t()
-  }
+
+      too_many_distributions_with_single_function_arn() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type too_many_distributions_with_single_function_arn() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_distributions_with_lambda_associations() :: %{
-    "Message" => String.t()
-  }
+
+      too_many_distributions_with_lambda_associations() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type too_many_distributions_with_lambda_associations() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  no_such_resource() :: %{
-    "Message" => String.t()
-  }
+
+      no_such_resource() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type no_such_resource() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  distribution_list() :: %{
-    "IsTruncated" => boolean(),
-    "Items" => list(distribution_summary()()),
-    "Marker" => String.t(),
-    "MaxItems" => integer(),
-    "NextMarker" => String.t(),
-    "Quantity" => integer()
-  }
+
+      distribution_list() :: %{
+        "IsTruncated" => boolean(),
+        "Items" => list(distribution_summary()()),
+        "Marker" => String.t(),
+        "MaxItems" => integer(),
+        "NextMarker" => String.t(),
+        "Quantity" => integer()
+      }
+
   """
   @type distribution_list() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  response_headers_policy_config() :: %{
-    "Comment" => String.t(),
-    "CorsConfig" => response_headers_policy_cors_config(),
-    "CustomHeadersConfig" => response_headers_policy_custom_headers_config(),
-    "Name" => String.t(),
-    "RemoveHeadersConfig" => response_headers_policy_remove_headers_config(),
-    "SecurityHeadersConfig" => response_headers_policy_security_headers_config(),
-    "ServerTimingHeadersConfig" => response_headers_policy_server_timing_headers_config()
-  }
+
+      response_headers_policy_config() :: %{
+        "Comment" => String.t(),
+        "CorsConfig" => response_headers_policy_cors_config(),
+        "CustomHeadersConfig" => response_headers_policy_custom_headers_config(),
+        "Name" => String.t(),
+        "RemoveHeadersConfig" => response_headers_policy_remove_headers_config(),
+        "SecurityHeadersConfig" => response_headers_policy_security_headers_config(),
+        "ServerTimingHeadersConfig" => response_headers_policy_server_timing_headers_config()
+      }
+
   """
   @type response_headers_policy_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_cache_policy_request() :: %{
-    optional("IfMatch") => String.t()
-  }
+
+      delete_cache_policy_request() :: %{
+        optional("IfMatch") => String.t()
+      }
+
   """
   @type delete_cache_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_result() :: %{
-    "Tags" => tags()
-  }
+
+      list_tags_for_resource_result() :: %{
+        "Tags" => tags()
+      }
+
   """
   @type list_tags_for_resource_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_response_headers_policy_config_request() :: %{
 
-  }
+      get_response_headers_policy_config_request() :: %{}
+
   """
-  @type get_response_headers_policy_config_request() :: %{String.t() => any()}
+  @type get_response_headers_policy_config_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  too_many_field_level_encryption_encryption_entities() :: %{
-    "Message" => String.t()
-  }
+
+      too_many_field_level_encryption_encryption_entities() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type too_many_field_level_encryption_encryption_entities() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_lambda_function_associations() :: %{
-    "Message" => String.t()
-  }
+
+      too_many_lambda_function_associations() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type too_many_lambda_function_associations() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_streaming_distribution_cnames() :: %{
-    "Message" => String.t()
-  }
+
+      too_many_streaming_distribution_cnames() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type too_many_streaming_distribution_cnames() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  function_config() :: %{
-    "Comment" => String.t(),
-    "KeyValueStoreAssociations" => key_value_store_associations(),
-    "Runtime" => list(any())
-  }
+
+      function_config() :: %{
+        "Comment" => String.t(),
+        "KeyValueStoreAssociations" => key_value_store_associations(),
+        "Runtime" => list(any())
+      }
+
   """
   @type function_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_streaming_distributions_result() :: %{
-    "StreamingDistributionList" => streaming_distribution_list()
-  }
+
+      list_streaming_distributions_result() :: %{
+        "StreamingDistributionList" => streaming_distribution_list()
+      }
+
   """
   @type list_streaming_distributions_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  origin_request_policy_summary() :: %{
-    "OriginRequestPolicy" => origin_request_policy(),
-    "Type" => list(any())
-  }
+
+      origin_request_policy_summary() :: %{
+        "OriginRequestPolicy" => origin_request_policy(),
+        "Type" => list(any())
+      }
+
   """
   @type origin_request_policy_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_keys() :: %{
-    "Items" => list(String.t()())
-  }
+
+      tag_keys() :: %{
+        "Items" => list(String.t()())
+      }
+
   """
   @type tag_keys() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_realtime_log_configs() :: %{
-    "Message" => String.t()
-  }
+
+      too_many_realtime_log_configs() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type too_many_realtime_log_configs() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cache_policy_in_use() :: %{
-    "Message" => String.t()
-  }
+
+      cache_policy_in_use() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type cache_policy_in_use() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  origin_group() :: %{
-    "FailoverCriteria" => origin_group_failover_criteria(),
-    "Id" => String.t(),
-    "Members" => origin_group_members()
-  }
+
+      origin_group() :: %{
+        "FailoverCriteria" => origin_group_failover_criteria(),
+        "Id" => String.t(),
+        "Members" => origin_group_members()
+      }
+
   """
   @type origin_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_key_group_request() :: %{
 
-  }
+      get_key_group_request() :: %{}
+
   """
-  @type get_key_group_request() :: %{String.t() => any()}
+  @type get_key_group_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_public_key_request() :: %{
 
-  }
+      get_public_key_request() :: %{}
+
   """
-  @type get_public_key_request() :: %{String.t() => any()}
+  @type get_public_key_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_distribution_result() :: %{
-    "Distribution" => distribution(),
-    "ETag" => String.t(),
-    "Location" => String.t()
-  }
+
+      create_distribution_result() :: %{
+        "Distribution" => distribution(),
+        "ETag" => String.t(),
+        "Location" => String.t()
+      }
+
   """
   @type create_distribution_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  custom_error_response() :: %{
-    "ErrorCachingMinTTL" => float(),
-    "ErrorCode" => integer(),
-    "ResponseCode" => String.t(),
-    "ResponsePagePath" => String.t()
-  }
+
+      custom_error_response() :: %{
+        "ErrorCachingMinTTL" => float(),
+        "ErrorCode" => integer(),
+        "ResponseCode" => String.t(),
+        "ResponsePagePath" => String.t()
+      }
+
   """
   @type custom_error_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_distributions_associated_to_response_headers_policy() :: %{
-    "Message" => String.t()
-  }
+
+      too_many_distributions_associated_to_response_headers_policy() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type too_many_distributions_associated_to_response_headers_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  test_function_request() :: %{
-    optional("Stage") => list(any()),
-    required("EventObject") => binary(),
-    required("IfMatch") => String.t()
-  }
+
+      test_function_request() :: %{
+        optional("Stage") => list(any()),
+        required("EventObject") => binary(),
+        required("IfMatch") => String.t()
+      }
+
   """
   @type test_function_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_monitoring_subscription_result() :: %{
-    "MonitoringSubscription" => monitoring_subscription()
-  }
+
+      create_monitoring_subscription_result() :: %{
+        "MonitoringSubscription" => monitoring_subscription()
+      }
+
   """
   @type create_monitoring_subscription_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  response_headers_policy_custom_header() :: %{
-    "Header" => String.t(),
-    "Override" => boolean(),
-    "Value" => String.t()
-  }
+
+      response_headers_policy_custom_header() :: %{
+        "Header" => String.t(),
+        "Override" => boolean(),
+        "Value" => String.t()
+      }
+
   """
   @type response_headers_policy_custom_header() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  no_such_function_exists() :: %{
-    "Message" => String.t()
-  }
+
+      no_such_function_exists() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type no_such_function_exists() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_field_level_encryption_profile_config_result() :: %{
-    "ETag" => String.t(),
-    "FieldLevelEncryptionProfileConfig" => field_level_encryption_profile_config()
-  }
+
+      get_field_level_encryption_profile_config_result() :: %{
+        "ETag" => String.t(),
+        "FieldLevelEncryptionProfileConfig" => field_level_encryption_profile_config()
+      }
+
   """
   @type get_field_level_encryption_profile_config_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  origin_ssl_protocols() :: %{
-    "Items" => list(list(any())()),
-    "Quantity" => integer()
-  }
+
+      origin_ssl_protocols() :: %{
+        "Items" => list(list(any())()),
+        "Quantity" => integer()
+      }
+
   """
   @type origin_ssl_protocols() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_cloud_front_origin_access_identities() :: %{
-    "Message" => String.t()
-  }
+
+      too_many_cloud_front_origin_access_identities() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type too_many_cloud_front_origin_access_identities() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  field_level_encryption_profile_config() :: %{
-    "CallerReference" => String.t(),
-    "Comment" => String.t(),
-    "EncryptionEntities" => encryption_entities(),
-    "Name" => String.t()
-  }
+
+      field_level_encryption_profile_config() :: %{
+        "CallerReference" => String.t(),
+        "Comment" => String.t(),
+        "EncryptionEntities" => encryption_entities(),
+        "Name" => String.t()
+      }
+
   """
   @type field_level_encryption_profile_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_origin_access_controls_result() :: %{
-    "OriginAccessControlList" => origin_access_control_list()
-  }
+
+      list_origin_access_controls_result() :: %{
+        "OriginAccessControlList" => origin_access_control_list()
+      }
+
   """
   @type list_origin_access_controls_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_distributions_by_web_acl_id_request() :: %{
-    optional("Marker") => String.t(),
-    optional("MaxItems") => [integer()]
-  }
+
+      list_distributions_by_web_acl_id_request() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxItems") => [integer()]
+      }
+
   """
   @type list_distributions_by_web_acl_id_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_distributions_by_response_headers_policy_id_result() :: %{
-    "DistributionIdList" => distribution_id_list()
-  }
+
+      list_distributions_by_response_headers_policy_id_result() :: %{
+        "DistributionIdList" => distribution_id_list()
+      }
+
   """
   @type list_distributions_by_response_headers_policy_id_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_monitoring_subscription_request() :: %{
 
-  }
+      get_monitoring_subscription_request() :: %{}
+
   """
-  @type get_monitoring_subscription_request() :: %{String.t() => any()}
+  @type get_monitoring_subscription_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  origin() :: %{
-    "ConnectionAttempts" => integer(),
-    "ConnectionTimeout" => integer(),
-    "CustomHeaders" => custom_headers(),
-    "CustomOriginConfig" => custom_origin_config(),
-    "DomainName" => String.t(),
-    "Id" => String.t(),
-    "OriginAccessControlId" => String.t(),
-    "OriginPath" => String.t(),
-    "OriginShield" => origin_shield(),
-    "S3OriginConfig" => s3_origin_config()
-  }
+
+      origin() :: %{
+        "ConnectionAttempts" => integer(),
+        "ConnectionTimeout" => integer(),
+        "CustomHeaders" => custom_headers(),
+        "CustomOriginConfig" => custom_origin_config(),
+        "DomainName" => String.t(),
+        "Id" => String.t(),
+        "OriginAccessControlId" => String.t(),
+        "OriginPath" => String.t(),
+        "OriginShield" => origin_shield(),
+        "S3OriginConfig" => s3_origin_config()
+      }
+
   """
   @type origin() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_field_level_encryption_profile_result() :: %{
-    "ETag" => String.t(),
-    "FieldLevelEncryptionProfile" => field_level_encryption_profile(),
-    "Location" => String.t()
-  }
+
+      create_field_level_encryption_profile_result() :: %{
+        "ETag" => String.t(),
+        "FieldLevelEncryptionProfile" => field_level_encryption_profile(),
+        "Location" => String.t()
+      }
+
   """
   @type create_field_level_encryption_profile_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_public_keys_in_key_group() :: %{
-    "Message" => String.t()
-  }
+
+      too_many_public_keys_in_key_group() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type too_many_public_keys_in_key_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  continuous_deployment_single_header_config() :: %{
-    "Header" => String.t(),
-    "Value" => String.t()
-  }
+
+      continuous_deployment_single_header_config() :: %{
+        "Header" => String.t(),
+        "Value" => String.t()
+      }
+
   """
   @type continuous_deployment_single_header_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_distributions_request() :: %{
-    optional("Marker") => String.t(),
-    optional("MaxItems") => [integer()]
-  }
+
+      list_distributions_request() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxItems") => [integer()]
+      }
+
   """
   @type list_distributions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_realtime_log_config_request() :: %{
-    optional("ARN") => String.t(),
-    optional("EndPoints") => list(end_point()()),
-    optional("Fields") => list(String.t()()),
-    optional("Name") => String.t(),
-    optional("SamplingRate") => float()
-  }
+
+      update_realtime_log_config_request() :: %{
+        optional("ARN") => String.t(),
+        optional("EndPoints") => list(end_point()()),
+        optional("Fields") => list(String.t()()),
+        optional("Name") => String.t(),
+        optional("SamplingRate") => float()
+      }
+
   """
   @type update_realtime_log_config_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_distribution_result() :: %{
-    "Distribution" => distribution(),
-    "ETag" => String.t()
-  }
+
+      get_distribution_result() :: %{
+        "Distribution" => distribution(),
+        "ETag" => String.t()
+      }
+
   """
   @type get_distribution_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_cache_behaviors() :: %{
-    "Message" => String.t()
-  }
+
+      too_many_cache_behaviors() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type too_many_cache_behaviors() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_origin_access_control_request() :: %{
 
-  }
+      get_origin_access_control_request() :: %{}
+
   """
-  @type get_origin_access_control_request() :: %{String.t() => any()}
+  @type get_origin_access_control_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_invalidations_result() :: %{
-    "InvalidationList" => invalidation_list()
-  }
+
+      list_invalidations_result() :: %{
+        "InvalidationList" => invalidation_list()
+      }
+
   """
   @type list_invalidations_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  function_list() :: %{
-    "Items" => list(function_summary()()),
-    "MaxItems" => integer(),
-    "NextMarker" => String.t(),
-    "Quantity" => integer()
-  }
+
+      function_list() :: %{
+        "Items" => list(function_summary()()),
+        "MaxItems" => integer(),
+        "NextMarker" => String.t(),
+        "Quantity" => integer()
+      }
+
   """
   @type function_list() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_cloud_front_origin_access_identity_config_request() :: %{
 
-  }
+      get_cloud_front_origin_access_identity_config_request() :: %{}
+
   """
-  @type get_cloud_front_origin_access_identity_config_request() :: %{String.t() => any()}
+  @type get_cloud_front_origin_access_identity_config_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  response_headers_policy_server_timing_headers_config() :: %{
-    "Enabled" => boolean(),
-    "SamplingRate" => float()
-  }
+
+      response_headers_policy_server_timing_headers_config() :: %{
+        "Enabled" => boolean(),
+        "SamplingRate" => float()
+      }
+
   """
   @type response_headers_policy_server_timing_headers_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  headers() :: %{
-    "Items" => list(String.t()()),
-    "Quantity" => integer()
-  }
+
+      headers() :: %{
+        "Items" => list(String.t()()),
+        "Quantity" => integer()
+      }
+
   """
   @type headers() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  realtime_log_config_in_use() :: %{
-    "Message" => String.t()
-  }
+
+      realtime_log_config_in_use() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type realtime_log_config_in_use() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  streaming_distribution_summary() :: %{
-    "ARN" => String.t(),
-    "Aliases" => aliases(),
-    "Comment" => String.t(),
-    "DomainName" => String.t(),
-    "Enabled" => boolean(),
-    "Id" => String.t(),
-    "LastModifiedTime" => non_neg_integer(),
-    "PriceClass" => list(any()),
-    "S3Origin" => s3_origin(),
-    "Status" => String.t(),
-    "TrustedSigners" => trusted_signers()
-  }
+
+      streaming_distribution_summary() :: %{
+        "ARN" => String.t(),
+        "Aliases" => aliases(),
+        "Comment" => String.t(),
+        "DomainName" => String.t(),
+        "Enabled" => boolean(),
+        "Id" => String.t(),
+        "LastModifiedTime" => non_neg_integer(),
+        "PriceClass" => list(any()),
+        "S3Origin" => s3_origin(),
+        "Status" => String.t(),
+        "TrustedSigners" => trusted_signers()
+      }
+
   """
   @type streaming_distribution_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_distributions_by_realtime_log_config_request() :: %{
-    optional("Marker") => String.t(),
-    optional("MaxItems") => [integer()],
-    optional("RealtimeLogConfigArn") => String.t(),
-    optional("RealtimeLogConfigName") => String.t()
-  }
+
+      list_distributions_by_realtime_log_config_request() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxItems") => [integer()],
+        optional("RealtimeLogConfigArn") => String.t(),
+        optional("RealtimeLogConfigName") => String.t()
+      }
+
   """
   @type list_distributions_by_realtime_log_config_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  response_headers_policy_cors_config() :: %{
-    "AccessControlAllowCredentials" => boolean(),
-    "AccessControlAllowHeaders" => response_headers_policy_access_control_allow_headers(),
-    "AccessControlAllowMethods" => response_headers_policy_access_control_allow_methods(),
-    "AccessControlAllowOrigins" => response_headers_policy_access_control_allow_origins(),
-    "AccessControlExposeHeaders" => response_headers_policy_access_control_expose_headers(),
-    "AccessControlMaxAgeSec" => integer(),
-    "OriginOverride" => boolean()
-  }
+
+      response_headers_policy_cors_config() :: %{
+        "AccessControlAllowCredentials" => boolean(),
+        "AccessControlAllowHeaders" => response_headers_policy_access_control_allow_headers(),
+        "AccessControlAllowMethods" => response_headers_policy_access_control_allow_methods(),
+        "AccessControlAllowOrigins" => response_headers_policy_access_control_allow_origins(),
+        "AccessControlExposeHeaders" => response_headers_policy_access_control_expose_headers(),
+        "AccessControlMaxAgeSec" => integer(),
+        "OriginOverride" => boolean()
+      }
+
   """
   @type response_headers_policy_cors_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  origin_group_failover_criteria() :: %{
-    "StatusCodes" => status_codes()
-  }
+
+      origin_group_failover_criteria() :: %{
+        "StatusCodes" => status_codes()
+      }
+
   """
   @type origin_group_failover_criteria() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_key_groups() :: %{
-    "Message" => String.t()
-  }
+
+      too_many_key_groups() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type too_many_key_groups() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_request() :: %{
-    required("Resource") => String.t()
-  }
+
+      list_tags_for_resource_request() :: %{
+        required("Resource") => String.t()
+      }
+
   """
   @type list_tags_for_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_public_key_config_result() :: %{
-    "ETag" => String.t(),
-    "PublicKeyConfig" => public_key_config()
-  }
+
+      get_public_key_config_result() :: %{
+        "ETag" => String.t(),
+        "PublicKeyConfig" => public_key_config()
+      }
+
   """
   @type get_public_key_config_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  test_function_failed() :: %{
-    "Message" => String.t()
-  }
+
+      test_function_failed() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type test_function_failed() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_response_headers_policy_config_result() :: %{
-    "ETag" => String.t(),
-    "ResponseHeadersPolicyConfig" => response_headers_policy_config()
-  }
+
+      get_response_headers_policy_config_result() :: %{
+        "ETag" => String.t(),
+        "ResponseHeadersPolicyConfig" => response_headers_policy_config()
+      }
+
   """
   @type get_response_headers_policy_config_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  function_already_exists() :: %{
-    "Message" => String.t()
-  }
+
+      function_already_exists() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type function_already_exists() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  origin_group_members() :: %{
-    "Items" => list(origin_group_member()()),
-    "Quantity" => integer()
-  }
+
+      origin_group_members() :: %{
+        "Items" => list(origin_group_member()()),
+        "Quantity" => integer()
+      }
+
   """
   @type origin_group_members() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  streaming_distribution_already_exists() :: %{
-    "Message" => String.t()
-  }
+
+      streaming_distribution_already_exists() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type streaming_distribution_already_exists() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_default_root_object() :: %{
-    "Message" => String.t()
-  }
+
+      invalid_default_root_object() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type invalid_default_root_object() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_origin_request_policy_result() :: %{
-    "ETag" => String.t(),
-    "Location" => String.t(),
-    "OriginRequestPolicy" => origin_request_policy()
-  }
+
+      create_origin_request_policy_result() :: %{
+        "ETag" => String.t(),
+        "Location" => String.t(),
+        "OriginRequestPolicy" => origin_request_policy()
+      }
+
   """
   @type create_origin_request_policy_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_distributions_by_origin_request_policy_id_request() :: %{
-    optional("Marker") => String.t(),
-    optional("MaxItems") => [integer()]
-  }
+
+      list_distributions_by_origin_request_policy_id_request() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxItems") => [integer()]
+      }
+
   """
   @type list_distributions_by_origin_request_policy_id_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cname_already_exists() :: %{
-    "Message" => String.t()
-  }
+
+      cname_already_exists() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type cname_already_exists() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  field_level_encryption_profile_size_exceeded() :: %{
-    "Message" => String.t()
-  }
+
+      field_level_encryption_profile_size_exceeded() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type field_level_encryption_profile_size_exceeded() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_response_headers_policy_request() :: %{
-    required("ResponseHeadersPolicyConfig") => response_headers_policy_config()
-  }
+
+      create_response_headers_policy_request() :: %{
+        required("ResponseHeadersPolicyConfig") => response_headers_policy_config()
+      }
+
   """
   @type create_response_headers_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_field_level_encryption_field_patterns() :: %{
-    "Message" => String.t()
-  }
+
+      too_many_field_level_encryption_field_patterns() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type too_many_field_level_encryption_field_patterns() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_continuous_deployment_policy_config_result() :: %{
-    "ContinuousDeploymentPolicyConfig" => continuous_deployment_policy_config(),
-    "ETag" => String.t()
-  }
+
+      get_continuous_deployment_policy_config_result() :: %{
+        "ContinuousDeploymentPolicyConfig" => continuous_deployment_policy_config(),
+        "ETag" => String.t()
+      }
+
   """
   @type get_continuous_deployment_policy_config_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  origin_request_policy_list() :: %{
-    "Items" => list(origin_request_policy_summary()()),
-    "MaxItems" => integer(),
-    "NextMarker" => String.t(),
-    "Quantity" => integer()
-  }
+
+      origin_request_policy_list() :: %{
+        "Items" => list(origin_request_policy_summary()()),
+        "MaxItems" => integer(),
+        "NextMarker" => String.t(),
+        "Quantity" => integer()
+      }
+
   """
   @type origin_request_policy_list() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  key_value_store() :: %{
-    "ARN" => String.t(),
-    "Comment" => String.t(),
-    "Id" => String.t(),
-    "LastModifiedTime" => non_neg_integer(),
-    "Name" => String.t(),
-    "Status" => String.t()
-  }
+
+      key_value_store() :: %{
+        "ARN" => String.t(),
+        "Comment" => String.t(),
+        "Id" => String.t(),
+        "LastModifiedTime" => non_neg_integer(),
+        "Name" => String.t(),
+        "Status" => String.t()
+      }
+
   """
   @type key_value_store() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_remove_headers_in_response_headers_policy() :: %{
-    "Message" => String.t()
-  }
+
+      too_many_remove_headers_in_response_headers_policy() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type too_many_remove_headers_in_response_headers_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_origin_request_policies() :: %{
-    "Message" => String.t()
-  }
+
+      too_many_origin_request_policies() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type too_many_origin_request_policies() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_origin_access_control_result() :: %{
-    "ETag" => String.t(),
-    "OriginAccessControl" => origin_access_control()
-  }
+
+      get_origin_access_control_result() :: %{
+        "ETag" => String.t(),
+        "OriginAccessControl" => origin_access_control()
+      }
+
   """
   @type get_origin_access_control_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_origin_access_control_request() :: %{
-    optional("IfMatch") => String.t()
-  }
+
+      delete_origin_access_control_request() :: %{
+        optional("IfMatch") => String.t()
+      }
+
   """
   @type delete_origin_access_control_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_continuous_deployment_policy_request() :: %{
-    optional("IfMatch") => String.t()
-  }
+
+      delete_continuous_deployment_policy_request() :: %{
+        optional("IfMatch") => String.t()
+      }
+
   """
   @type delete_continuous_deployment_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_cloud_front_origin_access_identity_result() :: %{
-    "CloudFrontOriginAccessIdentity" => cloud_front_origin_access_identity(),
-    "ETag" => String.t(),
-    "Location" => String.t()
-  }
+
+      create_cloud_front_origin_access_identity_result() :: %{
+        "CloudFrontOriginAccessIdentity" => cloud_front_origin_access_identity(),
+        "ETag" => String.t(),
+        "Location" => String.t()
+      }
+
   """
   @type create_cloud_front_origin_access_identity_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_response_headers_policy_result() :: %{
-    "ETag" => String.t(),
-    "ResponseHeadersPolicy" => response_headers_policy()
-  }
+
+      get_response_headers_policy_result() :: %{
+        "ETag" => String.t(),
+        "ResponseHeadersPolicy" => response_headers_policy()
+      }
+
   """
   @type get_response_headers_policy_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_distributions_by_key_group_result() :: %{
-    "DistributionIdList" => distribution_id_list()
-  }
+
+      list_distributions_by_key_group_result() :: %{
+        "DistributionIdList" => distribution_id_list()
+      }
+
   """
   @type list_distributions_by_key_group_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_cache_policies_request() :: %{
-    optional("Marker") => String.t(),
-    optional("MaxItems") => [integer()],
-    optional("Type") => list(any())
-  }
+
+      list_cache_policies_request() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxItems") => [integer()],
+        optional("Type") => list(any())
+      }
+
   """
   @type list_cache_policies_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  no_such_invalidation() :: %{
-    "Message" => String.t()
-  }
+
+      no_such_invalidation() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type no_such_invalidation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_query_string_parameters() :: %{
-    "Message" => String.t()
-  }
+
+      too_many_query_string_parameters() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type too_many_query_string_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  illegal_delete() :: %{
-    "Message" => String.t()
-  }
+
+      illegal_delete() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type illegal_delete() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_viewer_certificate() :: %{
-    "Message" => String.t()
-  }
+
+      invalid_viewer_certificate() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type invalid_viewer_certificate() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_distribution_result() :: %{
-    "Distribution" => distribution(),
-    "ETag" => String.t()
-  }
+
+      update_distribution_result() :: %{
+        "Distribution" => distribution(),
+        "ETag" => String.t()
+      }
+
   """
   @type update_distribution_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_conflicting_aliases_result() :: %{
-    "ConflictingAliasesList" => conflicting_aliases_list()
-  }
+
+      list_conflicting_aliases_result() :: %{
+        "ConflictingAliasesList" => conflicting_aliases_list()
+      }
+
   """
   @type list_conflicting_aliases_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_distribution_with_staging_config_request() :: %{
-    optional("IfMatch") => String.t(),
-    optional("StagingDistributionId") => String.t()
-  }
+
+      update_distribution_with_staging_config_request() :: %{
+        optional("IfMatch") => String.t(),
+        optional("StagingDistributionId") => String.t()
+      }
+
   """
   @type update_distribution_with_staging_config_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  paths() :: %{
-    "Items" => list(String.t()()),
-    "Quantity" => integer()
-  }
+
+      paths() :: %{
+        "Items" => list(String.t()()),
+        "Quantity" => integer()
+      }
+
   """
   @type paths() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_relative_path() :: %{
-    "Message" => String.t()
-  }
+
+      invalid_relative_path() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type invalid_relative_path() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_field_level_encryption_config_request() :: %{
-    required("FieldLevelEncryptionConfig") => field_level_encryption_config()
-  }
+
+      create_field_level_encryption_config_request() :: %{
+        required("FieldLevelEncryptionConfig") => field_level_encryption_config()
+      }
+
   """
   @type create_field_level_encryption_config_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_origin_access_control_result() :: %{
-    "ETag" => String.t(),
-    "Location" => String.t(),
-    "OriginAccessControl" => origin_access_control()
-  }
+
+      create_origin_access_control_result() :: %{
+        "ETag" => String.t(),
+        "Location" => String.t(),
+        "OriginAccessControl" => origin_access_control()
+      }
+
   """
   @type create_origin_access_control_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_streaming_distribution_request() :: %{
-    optional("IfMatch") => String.t()
-  }
+
+      delete_streaming_distribution_request() :: %{
+        optional("IfMatch") => String.t()
+      }
+
   """
   @type delete_streaming_distribution_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  no_such_response_headers_policy() :: %{
-    "Message" => String.t()
-  }
+
+      no_such_response_headers_policy() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type no_such_response_headers_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cloud_front_origin_access_identity_config() :: %{
-    "CallerReference" => String.t(),
-    "Comment" => String.t()
-  }
+
+      cloud_front_origin_access_identity_config() :: %{
+        "CallerReference" => String.t(),
+        "Comment" => String.t()
+      }
+
   """
   @type cloud_front_origin_access_identity_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  k_g_key_pair_ids() :: %{
-    "KeyGroupId" => String.t(),
-    "KeyPairIds" => key_pair_ids()
-  }
+
+      k_g_key_pair_ids() :: %{
+        "KeyGroupId" => String.t(),
+        "KeyPairIds" => key_pair_ids()
+      }
+
   """
   @type k_g_key_pair_ids() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalidation_list() :: %{
-    "IsTruncated" => boolean(),
-    "Items" => list(invalidation_summary()()),
-    "Marker" => String.t(),
-    "MaxItems" => integer(),
-    "NextMarker" => String.t(),
-    "Quantity" => integer()
-  }
+
+      invalidation_list() :: %{
+        "IsTruncated" => boolean(),
+        "Items" => list(invalidation_summary()()),
+        "Marker" => String.t(),
+        "MaxItems" => integer(),
+        "NextMarker" => String.t(),
+        "Quantity" => integer()
+      }
+
   """
   @type invalidation_list() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_public_key_result() :: %{
-    "ETag" => String.t(),
-    "Location" => String.t(),
-    "PublicKey" => public_key()
-  }
+
+      create_public_key_result() :: %{
+        "ETag" => String.t(),
+        "Location" => String.t(),
+        "PublicKey" => public_key()
+      }
+
   """
   @type create_public_key_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  response_headers_policy_access_control_allow_methods() :: %{
-    "Items" => list(list(any())()),
-    "Quantity" => integer()
-  }
+
+      response_headers_policy_access_control_allow_methods() :: %{
+        "Items" => list(list(any())()),
+        "Quantity" => integer()
+      }
+
   """
   @type response_headers_policy_access_control_allow_methods() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  response_headers_policy_security_headers_config() :: %{
-    "ContentSecurityPolicy" => response_headers_policy_content_security_policy(),
-    "ContentTypeOptions" => response_headers_policy_content_type_options(),
-    "FrameOptions" => response_headers_policy_frame_options(),
-    "ReferrerPolicy" => response_headers_policy_referrer_policy(),
-    "StrictTransportSecurity" => response_headers_policy_strict_transport_security(),
-    "XSSProtection" => response_headers_policy_x_s_s_protection()
-  }
+
+      response_headers_policy_security_headers_config() :: %{
+        "ContentSecurityPolicy" => response_headers_policy_content_security_policy(),
+        "ContentTypeOptions" => response_headers_policy_content_type_options(),
+        "FrameOptions" => response_headers_policy_frame_options(),
+        "ReferrerPolicy" => response_headers_policy_referrer_policy(),
+        "StrictTransportSecurity" => response_headers_policy_strict_transport_security(),
+        "XSSProtection" => response_headers_policy_x_s_s_protection()
+      }
+
   """
   @type response_headers_policy_security_headers_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  realtime_log_config_owner_mismatch() :: %{
-    "Message" => String.t()
-  }
+
+      realtime_log_config_owner_mismatch() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type realtime_log_config_owner_mismatch() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_distribution_with_tags_result() :: %{
-    "Distribution" => distribution(),
-    "ETag" => String.t(),
-    "Location" => String.t()
-  }
+
+      create_distribution_with_tags_result() :: %{
+        "Distribution" => distribution(),
+        "ETag" => String.t(),
+        "Location" => String.t()
+      }
+
   """
   @type create_distribution_with_tags_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_origin_request_policy_request() :: %{
-    optional("IfMatch") => String.t(),
-    required("OriginRequestPolicyConfig") => origin_request_policy_config()
-  }
+
+      update_origin_request_policy_request() :: %{
+        optional("IfMatch") => String.t(),
+        required("OriginRequestPolicyConfig") => origin_request_policy_config()
+      }
+
   """
   @type update_origin_request_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  origin_access_control_already_exists() :: %{
-    "Message" => String.t()
-  }
+
+      origin_access_control_already_exists() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type origin_access_control_already_exists() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_distribution_request() :: %{
 
-  }
+      get_distribution_request() :: %{}
+
   """
-  @type get_distribution_request() :: %{String.t() => any()}
+  @type get_distribution_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  streaming_distribution_config_with_tags() :: %{
-    "StreamingDistributionConfig" => streaming_distribution_config(),
-    "Tags" => tags()
-  }
+
+      streaming_distribution_config_with_tags() :: %{
+        "StreamingDistributionConfig" => streaming_distribution_config(),
+        "Tags" => tags()
+      }
+
   """
   @type streaming_distribution_config_with_tags() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_field_level_encryption_profile_request() :: %{
-    optional("IfMatch") => String.t()
-  }
+
+      delete_field_level_encryption_profile_request() :: %{
+        optional("IfMatch") => String.t()
+      }
+
   """
   @type delete_field_level_encryption_profile_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_function_request() :: %{
-    required("FunctionCode") => binary(),
-    required("FunctionConfig") => function_config(),
-    required("IfMatch") => String.t()
-  }
+
+      update_function_request() :: %{
+        required("FunctionCode") => binary(),
+        required("FunctionConfig") => function_config(),
+        required("IfMatch") => String.t()
+      }
+
   """
   @type update_function_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_origin_access_control_result() :: %{
-    "ETag" => String.t(),
-    "OriginAccessControl" => origin_access_control()
-  }
+
+      update_origin_access_control_result() :: %{
+        "ETag" => String.t(),
+        "OriginAccessControl" => origin_access_control()
+      }
+
   """
   @type update_origin_access_control_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  import_source() :: %{
-    "SourceARN" => String.t(),
-    "SourceType" => list(any())
-  }
+
+      import_source() :: %{
+        "SourceARN" => String.t(),
+        "SourceType" => list(any())
+      }
+
   """
   @type import_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_distribution_request() :: %{
-    optional("IfMatch") => String.t()
-  }
+
+      delete_distribution_request() :: %{
+        optional("IfMatch") => String.t()
+      }
+
   """
   @type delete_distribution_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  field_level_encryption_profile_list() :: %{
-    "Items" => list(field_level_encryption_profile_summary()()),
-    "MaxItems" => integer(),
-    "NextMarker" => String.t(),
-    "Quantity" => integer()
-  }
+
+      field_level_encryption_profile_list() :: %{
+        "Items" => list(field_level_encryption_profile_summary()()),
+        "MaxItems" => integer(),
+        "NextMarker" => String.t(),
+        "Quantity" => integer()
+      }
+
   """
   @type field_level_encryption_profile_list() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_distributions_by_realtime_log_config_result() :: %{
-    "DistributionList" => distribution_list()
-  }
+
+      list_distributions_by_realtime_log_config_result() :: %{
+        "DistributionList" => distribution_list()
+      }
+
   """
   @type list_distributions_by_realtime_log_config_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  no_such_origin() :: %{
-    "Message" => String.t()
-  }
+
+      no_such_origin() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type no_such_origin() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  query_arg_profile_config() :: %{
-    "ForwardWhenQueryArgProfileIsUnknown" => boolean(),
-    "QueryArgProfiles" => query_arg_profiles()
-  }
+
+      query_arg_profile_config() :: %{
+        "ForwardWhenQueryArgProfileIsUnknown" => boolean(),
+        "QueryArgProfiles" => query_arg_profiles()
+      }
+
   """
   @type query_arg_profile_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_field_level_encryption_config_result() :: %{
-    "ETag" => String.t(),
-    "FieldLevelEncryptionConfig" => field_level_encryption_config()
-  }
+
+      get_field_level_encryption_config_result() :: %{
+        "ETag" => String.t(),
+        "FieldLevelEncryptionConfig" => field_level_encryption_config()
+      }
+
   """
   @type get_field_level_encryption_config_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_monitoring_subscription_request() :: %{
 
-  }
+      delete_monitoring_subscription_request() :: %{}
+
   """
-  @type delete_monitoring_subscription_request() :: %{String.t() => any()}
+  @type delete_monitoring_subscription_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  no_such_monitoring_subscription() :: %{
-    "Message" => String.t()
-  }
+
+      no_such_monitoring_subscription() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type no_such_monitoring_subscription() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_function_request() :: %{
-    required("FunctionCode") => binary(),
-    required("FunctionConfig") => function_config(),
-    required("Name") => String.t()
-  }
+
+      create_function_request() :: %{
+        required("FunctionCode") => binary(),
+        required("FunctionConfig") => function_config(),
+        required("Name") => String.t()
+      }
+
   """
   @type create_function_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  allowed_methods() :: %{
-    "CachedMethods" => cached_methods(),
-    "Items" => list(list(any())()),
-    "Quantity" => integer()
-  }
+
+      allowed_methods() :: %{
+        "CachedMethods" => cached_methods(),
+        "Items" => list(list(any())()),
+        "Quantity" => integer()
+      }
+
   """
   @type allowed_methods() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_origin_access_controls_request() :: %{
-    optional("Marker") => String.t(),
-    optional("MaxItems") => [integer()]
-  }
+
+      list_origin_access_controls_request() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxItems") => [integer()]
+      }
+
   """
   @type list_origin_access_controls_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  public_key_summary() :: %{
-    "Comment" => String.t(),
-    "CreatedTime" => non_neg_integer(),
-    "EncodedKey" => String.t(),
-    "Id" => String.t(),
-    "Name" => String.t()
-  }
+
+      public_key_summary() :: %{
+        "Comment" => String.t(),
+        "CreatedTime" => non_neg_integer(),
+        "EncodedKey" => String.t(),
+        "Id" => String.t(),
+        "Name" => String.t()
+      }
+
   """
   @type public_key_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  illegal_field_level_encryption_config_association_with_cache_behavior() :: %{
-    "Message" => String.t()
-  }
+
+      illegal_field_level_encryption_config_association_with_cache_behavior() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type illegal_field_level_encryption_config_association_with_cache_behavior() :: %{
           String.t() => any()
@@ -4431,662 +5259,784 @@ defmodule AWS.CloudFront do
   @typedoc """
 
   ## Example:
-  cloud_front_origin_access_identity_list() :: %{
-    "IsTruncated" => boolean(),
-    "Items" => list(cloud_front_origin_access_identity_summary()()),
-    "Marker" => String.t(),
-    "MaxItems" => integer(),
-    "NextMarker" => String.t(),
-    "Quantity" => integer()
-  }
+
+      cloud_front_origin_access_identity_list() :: %{
+        "IsTruncated" => boolean(),
+        "Items" => list(cloud_front_origin_access_identity_summary()()),
+        "Marker" => String.t(),
+        "MaxItems" => integer(),
+        "NextMarker" => String.t(),
+        "Quantity" => integer()
+      }
+
   """
   @type cloud_front_origin_access_identity_list() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_distributions_by_origin_request_policy_id_result() :: %{
-    "DistributionIdList" => distribution_id_list()
-  }
+
+      list_distributions_by_origin_request_policy_id_result() :: %{
+        "DistributionIdList" => distribution_id_list()
+      }
+
   """
   @type list_distributions_by_origin_request_policy_id_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_public_keys() :: %{
-    "Message" => String.t()
-  }
+
+      too_many_public_keys() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type too_many_public_keys() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_cache_policy_config_result() :: %{
-    "CachePolicyConfig" => cache_policy_config(),
-    "ETag" => String.t()
-  }
+
+      get_cache_policy_config_result() :: %{
+        "CachePolicyConfig" => cache_policy_config(),
+        "ETag" => String.t()
+      }
+
   """
   @type get_cache_policy_config_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cache_policy() :: %{
-    "CachePolicyConfig" => cache_policy_config(),
-    "Id" => String.t(),
-    "LastModifiedTime" => non_neg_integer()
-  }
+
+      cache_policy() :: %{
+        "CachePolicyConfig" => cache_policy_config(),
+        "Id" => String.t(),
+        "LastModifiedTime" => non_neg_integer()
+      }
+
   """
   @type cache_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  public_key_config() :: %{
-    "CallerReference" => String.t(),
-    "Comment" => String.t(),
-    "EncodedKey" => String.t(),
-    "Name" => String.t()
-  }
+
+      public_key_config() :: %{
+        "CallerReference" => String.t(),
+        "Comment" => String.t(),
+        "EncodedKey" => String.t(),
+        "Name" => String.t()
+      }
+
   """
   @type public_key_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_streaming_distribution_result() :: %{
-    "ETag" => String.t(),
-    "StreamingDistribution" => streaming_distribution()
-  }
+
+      get_streaming_distribution_result() :: %{
+        "ETag" => String.t(),
+        "StreamingDistribution" => streaming_distribution()
+      }
+
   """
   @type get_streaming_distribution_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_distribution_with_tags_request() :: %{
-    required("DistributionConfigWithTags") => distribution_config_with_tags()
-  }
+
+      create_distribution_with_tags_request() :: %{
+        required("DistributionConfigWithTags") => distribution_config_with_tags()
+      }
+
   """
   @type create_distribution_with_tags_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_streaming_distribution_result() :: %{
-    "ETag" => String.t(),
-    "StreamingDistribution" => streaming_distribution()
-  }
+
+      update_streaming_distribution_result() :: %{
+        "ETag" => String.t(),
+        "StreamingDistribution" => streaming_distribution()
+      }
+
   """
   @type update_streaming_distribution_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_continuous_deployment_policies_request() :: %{
-    optional("Marker") => String.t(),
-    optional("MaxItems") => [integer()]
-  }
+
+      list_continuous_deployment_policies_request() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxItems") => [integer()]
+      }
+
   """
   @type list_continuous_deployment_policies_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  response_headers_policy_x_s_s_protection() :: %{
-    "ModeBlock" => boolean(),
-    "Override" => boolean(),
-    "Protection" => boolean(),
-    "ReportUri" => String.t()
-  }
+
+      response_headers_policy_x_s_s_protection() :: %{
+        "ModeBlock" => boolean(),
+        "Override" => boolean(),
+        "Protection" => boolean(),
+        "ReportUri" => String.t()
+      }
+
   """
   @type response_headers_policy_x_s_s_protection() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  custom_error_responses() :: %{
-    "Items" => list(custom_error_response()()),
-    "Quantity" => integer()
-  }
+
+      custom_error_responses() :: %{
+        "Items" => list(custom_error_response()()),
+        "Quantity" => integer()
+      }
+
   """
   @type custom_error_responses() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  no_such_field_level_encryption_profile() :: %{
-    "Message" => String.t()
-  }
+
+      no_such_field_level_encryption_profile() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type no_such_field_level_encryption_profile() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_invalidation_result() :: %{
-    "Invalidation" => invalidation(),
-    "Location" => String.t()
-  }
+
+      create_invalidation_result() :: %{
+        "Invalidation" => invalidation(),
+        "Location" => String.t()
+      }
+
   """
   @type create_invalidation_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_key_group_config_result() :: %{
-    "ETag" => String.t(),
-    "KeyGroupConfig" => key_group_config()
-  }
+
+      get_key_group_config_result() :: %{
+        "ETag" => String.t(),
+        "KeyGroupConfig" => key_group_config()
+      }
+
   """
   @type get_key_group_config_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_function_association() :: %{
-    "Message" => String.t()
-  }
+
+      invalid_function_association() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type invalid_function_association() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cache_behavior() :: %{
-    "AllowedMethods" => allowed_methods(),
-    "CachePolicyId" => String.t(),
-    "Compress" => boolean(),
-    "DefaultTTL" => float(),
-    "FieldLevelEncryptionId" => String.t(),
-    "ForwardedValues" => forwarded_values(),
-    "FunctionAssociations" => function_associations(),
-    "LambdaFunctionAssociations" => lambda_function_associations(),
-    "MaxTTL" => float(),
-    "MinTTL" => float(),
-    "OriginRequestPolicyId" => String.t(),
-    "PathPattern" => String.t(),
-    "RealtimeLogConfigArn" => String.t(),
-    "ResponseHeadersPolicyId" => String.t(),
-    "SmoothStreaming" => boolean(),
-    "TargetOriginId" => String.t(),
-    "TrustedKeyGroups" => trusted_key_groups(),
-    "TrustedSigners" => trusted_signers(),
-    "ViewerProtocolPolicy" => list(any())
-  }
+
+      cache_behavior() :: %{
+        "AllowedMethods" => allowed_methods(),
+        "CachePolicyId" => String.t(),
+        "Compress" => boolean(),
+        "DefaultTTL" => float(),
+        "FieldLevelEncryptionId" => String.t(),
+        "ForwardedValues" => forwarded_values(),
+        "FunctionAssociations" => function_associations(),
+        "LambdaFunctionAssociations" => lambda_function_associations(),
+        "MaxTTL" => float(),
+        "MinTTL" => float(),
+        "OriginRequestPolicyId" => String.t(),
+        "PathPattern" => String.t(),
+        "RealtimeLogConfigArn" => String.t(),
+        "ResponseHeadersPolicyId" => String.t(),
+        "SmoothStreaming" => boolean(),
+        "TargetOriginId" => String.t(),
+        "TrustedKeyGroups" => trusted_key_groups(),
+        "TrustedSigners" => trusted_signers(),
+        "ViewerProtocolPolicy" => list(any())
+      }
+
   """
   @type cache_behavior() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_field_level_encryption_config_result() :: %{
-    "ETag" => String.t(),
-    "FieldLevelEncryption" => field_level_encryption()
-  }
+
+      update_field_level_encryption_config_result() :: %{
+        "ETag" => String.t(),
+        "FieldLevelEncryption" => field_level_encryption()
+      }
+
   """
   @type update_field_level_encryption_config_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  parameters_in_cache_key_and_forwarded_to_origin() :: %{
-    "CookiesConfig" => cache_policy_cookies_config(),
-    "EnableAcceptEncodingBrotli" => boolean(),
-    "EnableAcceptEncodingGzip" => boolean(),
-    "HeadersConfig" => cache_policy_headers_config(),
-    "QueryStringsConfig" => cache_policy_query_strings_config()
-  }
+
+      parameters_in_cache_key_and_forwarded_to_origin() :: %{
+        "CookiesConfig" => cache_policy_cookies_config(),
+        "EnableAcceptEncodingBrotli" => boolean(),
+        "EnableAcceptEncodingGzip" => boolean(),
+        "HeadersConfig" => cache_policy_headers_config(),
+        "QueryStringsConfig" => cache_policy_query_strings_config()
+      }
+
   """
   @type parameters_in_cache_key_and_forwarded_to_origin() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_realtime_log_configs_result() :: %{
-    "RealtimeLogConfigs" => realtime_log_configs()
-  }
+
+      list_realtime_log_configs_result() :: %{
+        "RealtimeLogConfigs" => realtime_log_configs()
+      }
+
   """
   @type list_realtime_log_configs_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cache_policy_headers_config() :: %{
-    "HeaderBehavior" => list(any()),
-    "Headers" => headers()
-  }
+
+      cache_policy_headers_config() :: %{
+        "HeaderBehavior" => list(any()),
+        "Headers" => headers()
+      }
+
   """
   @type cache_policy_headers_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_origin_request_policy_request() :: %{
-    required("OriginRequestPolicyConfig") => origin_request_policy_config()
-  }
+
+      create_origin_request_policy_request() :: %{
+        required("OriginRequestPolicyConfig") => origin_request_policy_config()
+      }
+
   """
   @type create_origin_request_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  public_key_in_use() :: %{
-    "Message" => String.t()
-  }
+
+      public_key_in_use() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type public_key_in_use() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  function_in_use() :: %{
-    "Message" => String.t()
-  }
+
+      function_in_use() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type function_in_use() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_headers_in_origin_request_policy() :: %{
-    "Message" => String.t()
-  }
+
+      too_many_headers_in_origin_request_policy() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type too_many_headers_in_origin_request_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  viewer_certificate() :: %{
-    "ACMCertificateArn" => String.t(),
-    "Certificate" => String.t(),
-    "CertificateSource" => list(any()),
-    "CloudFrontDefaultCertificate" => boolean(),
-    "IAMCertificateId" => String.t(),
-    "MinimumProtocolVersion" => list(any()),
-    "SSLSupportMethod" => list(any())
-  }
+
+      viewer_certificate() :: %{
+        "ACMCertificateArn" => String.t(),
+        "Certificate" => String.t(),
+        "CertificateSource" => list(any()),
+        "CloudFrontDefaultCertificate" => boolean(),
+        "IAMCertificateId" => String.t(),
+        "MinimumProtocolVersion" => list(any()),
+        "SSLSupportMethod" => list(any())
+      }
+
   """
   @type viewer_certificate() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cache_policy_query_strings_config() :: %{
-    "QueryStringBehavior" => list(any()),
-    "QueryStrings" => query_string_names()
-  }
+
+      cache_policy_query_strings_config() :: %{
+        "QueryStringBehavior" => list(any()),
+        "QueryStrings" => query_string_names()
+      }
+
   """
   @type cache_policy_query_strings_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_distributions_by_response_headers_policy_id_request() :: %{
-    optional("Marker") => String.t(),
-    optional("MaxItems") => [integer()]
-  }
+
+      list_distributions_by_response_headers_policy_id_request() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxItems") => [integer()]
+      }
+
   """
   @type list_distributions_by_response_headers_policy_id_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  origin_access_control_config() :: %{
-    "Description" => String.t(),
-    "Name" => String.t(),
-    "OriginAccessControlOriginType" => list(any()),
-    "SigningBehavior" => list(any()),
-    "SigningProtocol" => list(any())
-  }
+
+      origin_access_control_config() :: %{
+        "Description" => String.t(),
+        "Name" => String.t(),
+        "OriginAccessControlOriginType" => list(any()),
+        "SigningBehavior" => list(any()),
+        "SigningProtocol" => list(any())
+      }
+
   """
   @type origin_access_control_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  no_such_realtime_log_config() :: %{
-    "Message" => String.t()
-  }
+
+      no_such_realtime_log_config() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type no_such_realtime_log_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_public_key_result() :: %{
-    "ETag" => String.t(),
-    "PublicKey" => public_key()
-  }
+
+      get_public_key_result() :: %{
+        "ETag" => String.t(),
+        "PublicKey" => public_key()
+      }
+
   """
   @type get_public_key_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  publish_function_request() :: %{
-    required("IfMatch") => String.t()
-  }
+
+      publish_function_request() :: %{
+        required("IfMatch") => String.t()
+      }
+
   """
   @type publish_function_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  trusted_signers() :: %{
-    "Enabled" => boolean(),
-    "Items" => list(String.t()()),
-    "Quantity" => integer()
-  }
+
+      trusted_signers() :: %{
+        "Enabled" => boolean(),
+        "Items" => list(String.t()()),
+        "Quantity" => integer()
+      }
+
   """
   @type trusted_signers() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  streaming_distribution_list() :: %{
-    "IsTruncated" => boolean(),
-    "Items" => list(streaming_distribution_summary()()),
-    "Marker" => String.t(),
-    "MaxItems" => integer(),
-    "NextMarker" => String.t(),
-    "Quantity" => integer()
-  }
+
+      streaming_distribution_list() :: %{
+        "IsTruncated" => boolean(),
+        "Items" => list(streaming_distribution_summary()()),
+        "Marker" => String.t(),
+        "MaxItems" => integer(),
+        "NextMarker" => String.t(),
+        "Quantity" => integer()
+      }
+
   """
   @type streaming_distribution_list() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_function_request() :: %{
-    optional("Stage") => list(any())
-  }
+
+      describe_function_request() :: %{
+        optional("Stage") => list(any())
+      }
+
   """
   @type describe_function_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  staging_distribution_dns_names() :: %{
-    "Items" => list(String.t()()),
-    "Quantity" => integer()
-  }
+
+      staging_distribution_dns_names() :: %{
+        "Items" => list(String.t()()),
+        "Quantity" => integer()
+      }
+
   """
   @type staging_distribution_dns_names() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  response_headers_policy_summary() :: %{
-    "ResponseHeadersPolicy" => response_headers_policy(),
-    "Type" => list(any())
-  }
+
+      response_headers_policy_summary() :: %{
+        "ResponseHeadersPolicy" => response_headers_policy(),
+        "Type" => list(any())
+      }
+
   """
   @type response_headers_policy_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_origin_request_policy_result() :: %{
-    "ETag" => String.t(),
-    "OriginRequestPolicy" => origin_request_policy()
-  }
+
+      get_origin_request_policy_result() :: %{
+        "ETag" => String.t(),
+        "OriginRequestPolicy" => origin_request_policy()
+      }
+
   """
   @type get_origin_request_policy_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  no_such_public_key() :: %{
-    "Message" => String.t()
-  }
+
+      no_such_public_key() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type no_such_public_key() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  entity_limit_exceeded() :: %{
-    "Message" => String.t()
-  }
+
+      entity_limit_exceeded() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type entity_limit_exceeded() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_public_key_request() :: %{
-    required("PublicKeyConfig") => public_key_config()
-  }
+
+      create_public_key_request() :: %{
+        required("PublicKeyConfig") => public_key_config()
+      }
+
   """
   @type create_public_key_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_distributions() :: %{
-    "Message" => String.t()
-  }
+
+      too_many_distributions() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type too_many_distributions() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  function_metadata() :: %{
-    "CreatedTime" => non_neg_integer(),
-    "FunctionARN" => String.t(),
-    "LastModifiedTime" => non_neg_integer(),
-    "Stage" => list(any())
-  }
+
+      function_metadata() :: %{
+        "CreatedTime" => non_neg_integer(),
+        "FunctionARN" => String.t(),
+        "LastModifiedTime" => non_neg_integer(),
+        "Stage" => list(any())
+      }
+
   """
   @type function_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_origin_access_control_config_result() :: %{
-    "ETag" => String.t(),
-    "OriginAccessControlConfig" => origin_access_control_config()
-  }
+
+      get_origin_access_control_config_result() :: %{
+        "ETag" => String.t(),
+        "OriginAccessControlConfig" => origin_access_control_config()
+      }
+
   """
   @type get_origin_access_control_config_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  restrictions() :: %{
-    "GeoRestriction" => geo_restriction()
-  }
+
+      restrictions() :: %{
+        "GeoRestriction" => geo_restriction()
+      }
+
   """
   @type restrictions() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  key_pair_ids() :: %{
-    "Items" => list(String.t()()),
-    "Quantity" => integer()
-  }
+
+      key_pair_ids() :: %{
+        "Items" => list(String.t()()),
+        "Quantity" => integer()
+      }
+
   """
   @type key_pair_ids() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_cache_policy_request() :: %{
 
-  }
+      get_cache_policy_request() :: %{}
+
   """
-  @type get_cache_policy_request() :: %{String.t() => any()}
+  @type get_cache_policy_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  invalid_response_code() :: %{
-    "Message" => String.t()
-  }
+
+      invalid_response_code() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type invalid_response_code() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalidation() :: %{
-    "CreateTime" => non_neg_integer(),
-    "Id" => String.t(),
-    "InvalidationBatch" => invalidation_batch(),
-    "Status" => String.t()
-  }
+
+      invalidation() :: %{
+        "CreateTime" => non_neg_integer(),
+        "Id" => String.t(),
+        "InvalidationBatch" => invalidation_batch(),
+        "Status" => String.t()
+      }
+
   """
   @type invalidation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cookie_preference() :: %{
-    "Forward" => list(any()),
-    "WhitelistedNames" => cookie_names()
-  }
+
+      cookie_preference() :: %{
+        "Forward" => list(any()),
+        "WhitelistedNames" => cookie_names()
+      }
+
   """
   @type cookie_preference() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_key_group_request() :: %{
-    optional("IfMatch") => String.t(),
-    required("KeyGroupConfig") => key_group_config()
-  }
+
+      update_key_group_request() :: %{
+        optional("IfMatch") => String.t(),
+        required("KeyGroupConfig") => key_group_config()
+      }
+
   """
   @type update_key_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  streaming_distribution_config() :: %{
-    "Aliases" => aliases(),
-    "CallerReference" => String.t(),
-    "Comment" => String.t(),
-    "Enabled" => boolean(),
-    "Logging" => streaming_logging_config(),
-    "PriceClass" => list(any()),
-    "S3Origin" => s3_origin(),
-    "TrustedSigners" => trusted_signers()
-  }
+
+      streaming_distribution_config() :: %{
+        "Aliases" => aliases(),
+        "CallerReference" => String.t(),
+        "Comment" => String.t(),
+        "Enabled" => boolean(),
+        "Logging" => streaming_logging_config(),
+        "PriceClass" => list(any()),
+        "S3Origin" => s3_origin(),
+        "TrustedSigners" => trusted_signers()
+      }
+
   """
   @type streaming_distribution_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_field_level_encryption_query_arg_profiles() :: %{
-    "Message" => String.t()
-  }
+
+      too_many_field_level_encryption_query_arg_profiles() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type too_many_field_level_encryption_query_arg_profiles() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  active_trusted_key_groups() :: %{
-    "Enabled" => boolean(),
-    "Items" => list(k_g_key_pair_ids()()),
-    "Quantity" => integer()
-  }
+
+      active_trusted_key_groups() :: %{
+        "Enabled" => boolean(),
+        "Items" => list(k_g_key_pair_ids()()),
+        "Quantity" => integer()
+      }
+
   """
   @type active_trusted_key_groups() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  realtime_log_config() :: %{
-    "ARN" => String.t(),
-    "EndPoints" => list(end_point()()),
-    "Fields" => list(String.t()()),
-    "Name" => String.t(),
-    "SamplingRate" => float()
-  }
+
+      realtime_log_config() :: %{
+        "ARN" => String.t(),
+        "EndPoints" => list(end_point()()),
+        "Fields" => list(String.t()()),
+        "Name" => String.t(),
+        "SamplingRate" => float()
+      }
+
   """
   @type realtime_log_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_origin_access_control_config_request() :: %{
 
-  }
+      get_origin_access_control_config_request() :: %{}
+
   """
-  @type get_origin_access_control_config_request() :: %{String.t() => any()}
+  @type get_origin_access_control_config_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  distribution_id_list() :: %{
-    "IsTruncated" => boolean(),
-    "Items" => list(String.t()()),
-    "Marker" => String.t(),
-    "MaxItems" => integer(),
-    "NextMarker" => String.t(),
-    "Quantity" => integer()
-  }
+
+      distribution_id_list() :: %{
+        "IsTruncated" => boolean(),
+        "Items" => list(String.t()()),
+        "Marker" => String.t(),
+        "MaxItems" => integer(),
+        "NextMarker" => String.t(),
+        "Quantity" => integer()
+      }
+
   """
   @type distribution_id_list() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_location_code() :: %{
-    "Message" => String.t()
-  }
+
+      invalid_location_code() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type invalid_location_code() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  staging_distribution_in_use() :: %{
-    "Message" => String.t()
-  }
+
+      staging_distribution_in_use() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type staging_distribution_in_use() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  origin_request_policy_in_use() :: %{
-    "Message" => String.t()
-  }
+
+      origin_request_policy_in_use() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type origin_request_policy_in_use() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  key_group_summary() :: %{
-    "KeyGroup" => key_group()
-  }
+
+      key_group_summary() :: %{
+        "KeyGroup" => key_group()
+      }
+
   """
   @type key_group_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_monitoring_subscription_request() :: %{
-    required("MonitoringSubscription") => monitoring_subscription()
-  }
+
+      create_monitoring_subscription_request() :: %{
+        required("MonitoringSubscription") => monitoring_subscription()
+      }
+
   """
   @type create_monitoring_subscription_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_distributions_associated_to_field_level_encryption_config() :: %{
-    "Message" => String.t()
-  }
+
+      too_many_distributions_associated_to_field_level_encryption_config() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type too_many_distributions_associated_to_field_level_encryption_config() :: %{
           String.t() => any()
@@ -5095,114 +6045,1034 @@ defmodule AWS.CloudFront do
   @typedoc """
 
   ## Example:
-  content_type_profile_config() :: %{
-    "ContentTypeProfiles" => content_type_profiles(),
-    "ForwardWhenContentTypeIsUnknown" => boolean()
-  }
+
+      content_type_profile_config() :: %{
+        "ContentTypeProfiles" => content_type_profiles(),
+        "ForwardWhenContentTypeIsUnknown" => boolean()
+      }
+
   """
   @type content_type_profile_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  response_headers_policy_access_control_allow_headers() :: %{
-    "Items" => list(String.t()()),
-    "Quantity" => integer()
-  }
+
+      response_headers_policy_access_control_allow_headers() :: %{
+        "Items" => list(String.t()()),
+        "Quantity" => integer()
+      }
+
   """
   @type response_headers_policy_access_control_allow_headers() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  custom_origin_config() :: %{
-    "HTTPPort" => integer(),
-    "HTTPSPort" => integer(),
-    "OriginKeepaliveTimeout" => integer(),
-    "OriginProtocolPolicy" => list(any()),
-    "OriginReadTimeout" => integer(),
-    "OriginSslProtocols" => origin_ssl_protocols()
-  }
+
+      custom_origin_config() :: %{
+        "HTTPPort" => integer(),
+        "HTTPSPort" => integer(),
+        "OriginKeepaliveTimeout" => integer(),
+        "OriginProtocolPolicy" => list(any()),
+        "OriginReadTimeout" => integer(),
+        "OriginSslProtocols" => origin_ssl_protocols()
+      }
+
   """
   @type custom_origin_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_streaming_distribution_with_tags_result() :: %{
-    "ETag" => String.t(),
-    "Location" => String.t(),
-    "StreamingDistribution" => streaming_distribution()
-  }
+
+      create_streaming_distribution_with_tags_result() :: %{
+        "ETag" => String.t(),
+        "Location" => String.t(),
+        "StreamingDistribution" => streaming_distribution()
+      }
+
   """
   @type create_streaming_distribution_with_tags_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_field_level_encryption_profile_result() :: %{
-    "ETag" => String.t(),
-    "FieldLevelEncryptionProfile" => field_level_encryption_profile()
-  }
+
+      get_field_level_encryption_profile_result() :: %{
+        "ETag" => String.t(),
+        "FieldLevelEncryptionProfile" => field_level_encryption_profile()
+      }
+
   """
   @type get_field_level_encryption_profile_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_streaming_distribution_request() :: %{
 
-  }
+      get_streaming_distribution_request() :: %{}
+
   """
-  @type get_streaming_distribution_request() :: %{String.t() => any()}
+  @type get_streaming_distribution_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_realtime_log_config_result() :: %{
-    "RealtimeLogConfig" => realtime_log_config()
-  }
+
+      get_realtime_log_config_result() :: %{
+        "RealtimeLogConfig" => realtime_log_config()
+      }
+
   """
   @type get_realtime_log_config_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_distribution_with_staging_config_result() :: %{
-    "Distribution" => distribution(),
-    "ETag" => String.t()
-  }
+
+      update_distribution_with_staging_config_result() :: %{
+        "Distribution" => distribution(),
+        "ETag" => String.t()
+      }
+
   """
   @type update_distribution_with_staging_config_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_field_level_encryption_profile_result() :: %{
-    "ETag" => String.t(),
-    "FieldLevelEncryptionProfile" => field_level_encryption_profile()
-  }
+
+      update_field_level_encryption_profile_result() :: %{
+        "ETag" => String.t(),
+        "FieldLevelEncryptionProfile" => field_level_encryption_profile()
+      }
+
   """
   @type update_field_level_encryption_profile_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_distributions_associated_to_origin_access_control() :: %{
-    "Message" => String.t()
-  }
+
+      too_many_distributions_associated_to_origin_access_control() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type too_many_distributions_associated_to_origin_access_control() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_function_result() :: %{
-    "ETag" => String.t(),
-    "FunctionSummary" => function_summary()
-  }
+
+      update_function_result() :: %{
+        "ETag" => String.t(),
+        "FunctionSummary" => function_summary()
+      }
+
   """
   @type update_function_result() :: %{String.t() => any()}
+
+  @type associate_alias_errors() ::
+          no_such_distribution()
+          | too_many_distribution_cnames()
+          | invalid_argument()
+          | access_denied()
+          | illegal_update()
+
+  @type copy_distribution_errors() ::
+          too_many_distributions_associated_to_origin_access_control()
+          | too_many_distributions_associated_to_field_level_encryption_config()
+          | invalid_location_code()
+          | invalid_response_code()
+          | too_many_distributions()
+          | no_such_realtime_log_config()
+          | invalid_function_association()
+          | illegal_field_level_encryption_config_association_with_cache_behavior()
+          | no_such_origin()
+          | realtime_log_config_owner_mismatch()
+          | no_such_response_headers_policy()
+          | invalid_relative_path()
+          | invalid_viewer_certificate()
+          | too_many_query_string_parameters()
+          | cname_already_exists()
+          | invalid_default_root_object()
+          | too_many_cache_behaviors()
+          | too_many_distributions_associated_to_response_headers_policy()
+          | too_many_lambda_function_associations()
+          | too_many_distributions_with_lambda_associations()
+          | too_many_distributions_with_single_function_arn()
+          | too_many_origins()
+          | distribution_already_exists()
+          | too_many_origin_custom_headers()
+          | invalid_minimum_protocol_version()
+          | too_many_headers_in_forwarded_values()
+          | too_many_key_groups_associated_to_distribution()
+          | invalid_origin_read_timeout()
+          | trusted_signer_does_not_exist()
+          | no_such_cache_policy()
+          | invalid_forward_cookies()
+          | invalid_origin_keepalive_timeout()
+          | invalid_lambda_function_association()
+          | invalid_headers_for_s3_origin()
+          | inconsistent_quantities()
+          | missing_body()
+          | too_many_distributions_with_function_associations()
+          | invalid_geo_restriction_parameter()
+          | invalid_error_code()
+          | too_many_trusted_signers()
+          | no_such_distribution()
+          | no_such_origin_request_policy()
+          | too_many_distribution_cnames()
+          | precondition_failed()
+          | invalid_required_protocol()
+          | too_many_certificates()
+          | invalid_origin()
+          | invalid_origin_access_control()
+          | no_such_field_level_encryption_config()
+          | invalid_web_acl_id()
+          | invalid_argument()
+          | too_many_cookie_names_in_white_list()
+          | access_denied()
+          | invalid_t_t_l_order()
+          | invalid_protocol_settings()
+          | too_many_distributions_associated_to_key_group()
+          | too_many_distributions_associated_to_origin_request_policy()
+          | invalid_query_string_parameters()
+          | trusted_key_group_does_not_exist()
+          | too_many_distributions_associated_to_cache_policy()
+          | invalid_if_match_version()
+          | invalid_origin_access_identity()
+          | too_many_function_associations()
+          | too_many_origin_groups_per_distribution()
+
+  @type create_cache_policy_errors() ::
+          cache_policy_already_exists()
+          | inconsistent_quantities()
+          | too_many_query_strings_in_cache_policy()
+          | too_many_cache_policies()
+          | too_many_headers_in_cache_policy()
+          | invalid_argument()
+          | access_denied()
+          | too_many_cookies_in_cache_policy()
+
+  @type create_cloud_front_origin_access_identity_errors() ::
+          too_many_cloud_front_origin_access_identities()
+          | inconsistent_quantities()
+          | missing_body()
+          | invalid_argument()
+          | cloud_front_origin_access_identity_already_exists()
+
+  @type create_continuous_deployment_policy_errors() ::
+          staging_distribution_in_use()
+          | inconsistent_quantities()
+          | invalid_argument()
+          | access_denied()
+          | continuous_deployment_policy_already_exists()
+          | too_many_continuous_deployment_policies()
+
+  @type create_distribution_errors() ::
+          too_many_distributions_associated_to_origin_access_control()
+          | too_many_distributions_associated_to_field_level_encryption_config()
+          | invalid_location_code()
+          | invalid_response_code()
+          | too_many_distributions()
+          | no_such_realtime_log_config()
+          | invalid_function_association()
+          | illegal_field_level_encryption_config_association_with_cache_behavior()
+          | no_such_origin()
+          | realtime_log_config_owner_mismatch()
+          | no_such_response_headers_policy()
+          | invalid_relative_path()
+          | invalid_viewer_certificate()
+          | too_many_query_string_parameters()
+          | cname_already_exists()
+          | invalid_default_root_object()
+          | too_many_cache_behaviors()
+          | too_many_distributions_associated_to_response_headers_policy()
+          | too_many_lambda_function_associations()
+          | too_many_distributions_with_lambda_associations()
+          | too_many_distributions_with_single_function_arn()
+          | too_many_origins()
+          | distribution_already_exists()
+          | too_many_origin_custom_headers()
+          | invalid_minimum_protocol_version()
+          | too_many_headers_in_forwarded_values()
+          | too_many_key_groups_associated_to_distribution()
+          | invalid_domain_name_for_origin_access_control()
+          | invalid_origin_read_timeout()
+          | trusted_signer_does_not_exist()
+          | no_such_cache_policy()
+          | invalid_forward_cookies()
+          | invalid_origin_keepalive_timeout()
+          | invalid_lambda_function_association()
+          | invalid_headers_for_s3_origin()
+          | inconsistent_quantities()
+          | missing_body()
+          | too_many_distributions_with_function_associations()
+          | continuous_deployment_policy_in_use()
+          | invalid_geo_restriction_parameter()
+          | invalid_error_code()
+          | too_many_trusted_signers()
+          | no_such_origin_request_policy()
+          | too_many_distribution_cnames()
+          | invalid_required_protocol()
+          | too_many_certificates()
+          | invalid_origin()
+          | invalid_origin_access_control()
+          | no_such_field_level_encryption_config()
+          | invalid_web_acl_id()
+          | invalid_argument()
+          | too_many_cookie_names_in_white_list()
+          | access_denied()
+          | invalid_t_t_l_order()
+          | invalid_protocol_settings()
+          | too_many_distributions_associated_to_key_group()
+          | too_many_distributions_associated_to_origin_request_policy()
+          | invalid_query_string_parameters()
+          | trusted_key_group_does_not_exist()
+          | too_many_distributions_associated_to_cache_policy()
+          | illegal_origin_access_configuration()
+          | no_such_continuous_deployment_policy()
+          | invalid_origin_access_identity()
+          | too_many_function_associations()
+          | too_many_origin_groups_per_distribution()
+
+  @type create_distribution_with_tags_errors() ::
+          too_many_distributions_associated_to_origin_access_control()
+          | too_many_distributions_associated_to_field_level_encryption_config()
+          | invalid_location_code()
+          | invalid_response_code()
+          | too_many_distributions()
+          | no_such_realtime_log_config()
+          | invalid_function_association()
+          | illegal_field_level_encryption_config_association_with_cache_behavior()
+          | no_such_origin()
+          | realtime_log_config_owner_mismatch()
+          | no_such_response_headers_policy()
+          | invalid_relative_path()
+          | invalid_viewer_certificate()
+          | too_many_query_string_parameters()
+          | cname_already_exists()
+          | invalid_default_root_object()
+          | too_many_cache_behaviors()
+          | too_many_distributions_associated_to_response_headers_policy()
+          | too_many_lambda_function_associations()
+          | too_many_distributions_with_lambda_associations()
+          | too_many_distributions_with_single_function_arn()
+          | too_many_origins()
+          | distribution_already_exists()
+          | too_many_origin_custom_headers()
+          | invalid_minimum_protocol_version()
+          | too_many_headers_in_forwarded_values()
+          | too_many_key_groups_associated_to_distribution()
+          | invalid_domain_name_for_origin_access_control()
+          | invalid_origin_read_timeout()
+          | trusted_signer_does_not_exist()
+          | no_such_cache_policy()
+          | invalid_forward_cookies()
+          | invalid_origin_keepalive_timeout()
+          | invalid_lambda_function_association()
+          | invalid_headers_for_s3_origin()
+          | inconsistent_quantities()
+          | missing_body()
+          | too_many_distributions_with_function_associations()
+          | continuous_deployment_policy_in_use()
+          | invalid_geo_restriction_parameter()
+          | invalid_error_code()
+          | too_many_trusted_signers()
+          | no_such_origin_request_policy()
+          | too_many_distribution_cnames()
+          | invalid_required_protocol()
+          | too_many_certificates()
+          | invalid_origin()
+          | invalid_origin_access_control()
+          | no_such_field_level_encryption_config()
+          | invalid_web_acl_id()
+          | invalid_argument()
+          | too_many_cookie_names_in_white_list()
+          | access_denied()
+          | invalid_t_t_l_order()
+          | invalid_protocol_settings()
+          | invalid_tagging()
+          | too_many_distributions_associated_to_key_group()
+          | too_many_distributions_associated_to_origin_request_policy()
+          | invalid_query_string_parameters()
+          | trusted_key_group_does_not_exist()
+          | too_many_distributions_associated_to_cache_policy()
+          | illegal_origin_access_configuration()
+          | no_such_continuous_deployment_policy()
+          | invalid_origin_access_identity()
+          | too_many_function_associations()
+          | too_many_origin_groups_per_distribution()
+
+  @type create_field_level_encryption_config_errors() ::
+          too_many_field_level_encryption_query_arg_profiles()
+          | no_such_field_level_encryption_profile()
+          | too_many_field_level_encryption_configs()
+          | inconsistent_quantities()
+          | field_level_encryption_config_already_exists()
+          | invalid_argument()
+          | too_many_field_level_encryption_content_type_profiles()
+          | query_arg_profile_empty()
+
+  @type create_field_level_encryption_profile_errors() ::
+          no_such_public_key()
+          | too_many_field_level_encryption_field_patterns()
+          | field_level_encryption_profile_size_exceeded()
+          | too_many_field_level_encryption_encryption_entities()
+          | too_many_field_level_encryption_profiles()
+          | inconsistent_quantities()
+          | invalid_argument()
+          | field_level_encryption_profile_already_exists()
+
+  @type create_function_errors() ::
+          function_already_exists()
+          | unsupported_operation()
+          | function_size_limit_exceeded()
+          | invalid_argument()
+          | too_many_functions()
+
+  @type create_invalidation_errors() ::
+          inconsistent_quantities()
+          | missing_body()
+          | no_such_distribution()
+          | batch_too_large()
+          | invalid_argument()
+          | access_denied()
+          | too_many_invalidations_in_progress()
+
+  @type create_key_group_errors() ::
+          too_many_key_groups()
+          | too_many_public_keys_in_key_group()
+          | key_group_already_exists()
+          | invalid_argument()
+
+  @type create_key_value_store_errors() ::
+          entity_limit_exceeded()
+          | entity_size_limit_exceeded()
+          | entity_already_exists()
+          | invalid_argument()
+          | access_denied()
+
+  @type create_monitoring_subscription_errors() ::
+          monitoring_subscription_already_exists()
+          | no_such_distribution()
+          | unsupported_operation()
+          | access_denied()
+
+  @type create_origin_access_control_errors() ::
+          origin_access_control_already_exists()
+          | invalid_argument()
+          | too_many_origin_access_controls()
+
+  @type create_origin_request_policy_errors() ::
+          too_many_headers_in_origin_request_policy()
+          | too_many_origin_request_policies()
+          | inconsistent_quantities()
+          | origin_request_policy_already_exists()
+          | too_many_query_strings_in_origin_request_policy()
+          | too_many_cookies_in_origin_request_policy()
+          | invalid_argument()
+          | access_denied()
+
+  @type create_public_key_errors() ::
+          too_many_public_keys() | invalid_argument() | public_key_already_exists()
+
+  @type create_realtime_log_config_errors() ::
+          too_many_realtime_log_configs()
+          | realtime_log_config_already_exists()
+          | invalid_argument()
+          | access_denied()
+
+  @type create_response_headers_policy_errors() ::
+          too_many_remove_headers_in_response_headers_policy()
+          | inconsistent_quantities()
+          | response_headers_policy_already_exists()
+          | invalid_argument()
+          | access_denied()
+          | too_long_c_s_p_in_response_headers_policy()
+          | too_many_response_headers_policies()
+          | too_many_custom_headers_in_response_headers_policy()
+
+  @type create_streaming_distribution_errors() ::
+          cname_already_exists()
+          | streaming_distribution_already_exists()
+          | too_many_streaming_distribution_cnames()
+          | too_many_streaming_distributions()
+          | trusted_signer_does_not_exist()
+          | inconsistent_quantities()
+          | missing_body()
+          | too_many_trusted_signers()
+          | invalid_origin()
+          | invalid_origin_access_control()
+          | invalid_argument()
+          | access_denied()
+          | invalid_origin_access_identity()
+
+  @type create_streaming_distribution_with_tags_errors() ::
+          cname_already_exists()
+          | streaming_distribution_already_exists()
+          | too_many_streaming_distribution_cnames()
+          | too_many_streaming_distributions()
+          | trusted_signer_does_not_exist()
+          | inconsistent_quantities()
+          | missing_body()
+          | too_many_trusted_signers()
+          | invalid_origin()
+          | invalid_origin_access_control()
+          | invalid_argument()
+          | access_denied()
+          | invalid_tagging()
+          | invalid_origin_access_identity()
+
+  @type delete_cache_policy_errors() ::
+          illegal_delete()
+          | cache_policy_in_use()
+          | no_such_cache_policy()
+          | precondition_failed()
+          | access_denied()
+          | invalid_if_match_version()
+
+  @type delete_cloud_front_origin_access_identity_errors() ::
+          precondition_failed()
+          | no_such_cloud_front_origin_access_identity()
+          | access_denied()
+          | cloud_front_origin_access_identity_in_use()
+          | invalid_if_match_version()
+
+  @type delete_continuous_deployment_policy_errors() ::
+          continuous_deployment_policy_in_use()
+          | precondition_failed()
+          | invalid_argument()
+          | access_denied()
+          | invalid_if_match_version()
+          | no_such_continuous_deployment_policy()
+
+  @type delete_distribution_errors() ::
+          no_such_distribution()
+          | precondition_failed()
+          | access_denied()
+          | invalid_if_match_version()
+          | distribution_not_disabled()
+
+  @type delete_field_level_encryption_config_errors() ::
+          precondition_failed()
+          | no_such_field_level_encryption_config()
+          | access_denied()
+          | field_level_encryption_config_in_use()
+          | invalid_if_match_version()
+
+  @type delete_field_level_encryption_profile_errors() ::
+          no_such_field_level_encryption_profile()
+          | precondition_failed()
+          | field_level_encryption_profile_in_use()
+          | access_denied()
+          | invalid_if_match_version()
+
+  @type delete_function_errors() ::
+          function_in_use()
+          | no_such_function_exists()
+          | precondition_failed()
+          | unsupported_operation()
+          | invalid_if_match_version()
+
+  @type delete_key_group_errors() ::
+          no_such_resource()
+          | precondition_failed()
+          | resource_in_use()
+          | invalid_if_match_version()
+
+  @type delete_key_value_store_errors() ::
+          cannot_delete_entity_while_in_use()
+          | precondition_failed()
+          | access_denied()
+          | entity_not_found()
+          | invalid_if_match_version()
+
+  @type delete_monitoring_subscription_errors() ::
+          no_such_monitoring_subscription()
+          | no_such_distribution()
+          | unsupported_operation()
+          | access_denied()
+
+  @type delete_origin_access_control_errors() ::
+          no_such_origin_access_control()
+          | precondition_failed()
+          | origin_access_control_in_use()
+          | access_denied()
+          | invalid_if_match_version()
+
+  @type delete_origin_request_policy_errors() ::
+          origin_request_policy_in_use()
+          | illegal_delete()
+          | no_such_origin_request_policy()
+          | precondition_failed()
+          | access_denied()
+          | invalid_if_match_version()
+
+  @type delete_public_key_errors() ::
+          no_such_public_key()
+          | public_key_in_use()
+          | precondition_failed()
+          | access_denied()
+          | invalid_if_match_version()
+
+  @type delete_realtime_log_config_errors() ::
+          no_such_realtime_log_config()
+          | realtime_log_config_in_use()
+          | invalid_argument()
+          | access_denied()
+
+  @type delete_response_headers_policy_errors() ::
+          no_such_response_headers_policy()
+          | illegal_delete()
+          | precondition_failed()
+          | access_denied()
+          | invalid_if_match_version()
+          | response_headers_policy_in_use()
+
+  @type delete_streaming_distribution_errors() ::
+          no_such_streaming_distribution()
+          | precondition_failed()
+          | access_denied()
+          | invalid_if_match_version()
+          | streaming_distribution_not_disabled()
+
+  @type describe_function_errors() :: no_such_function_exists() | unsupported_operation()
+
+  @type describe_key_value_store_errors() ::
+          invalid_argument() | access_denied() | entity_not_found()
+
+  @type get_cache_policy_errors() :: no_such_cache_policy() | access_denied()
+
+  @type get_cache_policy_config_errors() :: no_such_cache_policy() | access_denied()
+
+  @type get_cloud_front_origin_access_identity_errors() ::
+          no_such_cloud_front_origin_access_identity() | access_denied()
+
+  @type get_cloud_front_origin_access_identity_config_errors() ::
+          no_such_cloud_front_origin_access_identity() | access_denied()
+
+  @type get_continuous_deployment_policy_errors() ::
+          access_denied() | no_such_continuous_deployment_policy()
+
+  @type get_continuous_deployment_policy_config_errors() ::
+          access_denied() | no_such_continuous_deployment_policy()
+
+  @type get_distribution_errors() :: no_such_distribution() | access_denied()
+
+  @type get_distribution_config_errors() :: no_such_distribution() | access_denied()
+
+  @type get_field_level_encryption_errors() ::
+          no_such_field_level_encryption_config() | access_denied()
+
+  @type get_field_level_encryption_config_errors() ::
+          no_such_field_level_encryption_config() | access_denied()
+
+  @type get_field_level_encryption_profile_errors() ::
+          no_such_field_level_encryption_profile() | access_denied()
+
+  @type get_field_level_encryption_profile_config_errors() ::
+          no_such_field_level_encryption_profile() | access_denied()
+
+  @type get_function_errors() :: no_such_function_exists() | unsupported_operation()
+
+  @type get_invalidation_errors() ::
+          no_such_invalidation() | no_such_distribution() | access_denied()
+
+  @type get_key_group_errors() :: no_such_resource()
+
+  @type get_key_group_config_errors() :: no_such_resource()
+
+  @type get_monitoring_subscription_errors() ::
+          no_such_monitoring_subscription()
+          | no_such_distribution()
+          | unsupported_operation()
+          | access_denied()
+
+  @type get_origin_access_control_errors() :: no_such_origin_access_control() | access_denied()
+
+  @type get_origin_access_control_config_errors() ::
+          no_such_origin_access_control() | access_denied()
+
+  @type get_origin_request_policy_errors() :: no_such_origin_request_policy() | access_denied()
+
+  @type get_origin_request_policy_config_errors() ::
+          no_such_origin_request_policy() | access_denied()
+
+  @type get_public_key_errors() :: no_such_public_key() | access_denied()
+
+  @type get_public_key_config_errors() :: no_such_public_key() | access_denied()
+
+  @type get_realtime_log_config_errors() ::
+          no_such_realtime_log_config() | invalid_argument() | access_denied()
+
+  @type get_response_headers_policy_errors() ::
+          no_such_response_headers_policy() | access_denied()
+
+  @type get_response_headers_policy_config_errors() ::
+          no_such_response_headers_policy() | access_denied()
+
+  @type get_streaming_distribution_errors() :: no_such_streaming_distribution() | access_denied()
+
+  @type get_streaming_distribution_config_errors() ::
+          no_such_streaming_distribution() | access_denied()
+
+  @type list_cache_policies_errors() ::
+          no_such_cache_policy() | invalid_argument() | access_denied()
+
+  @type list_cloud_front_origin_access_identities_errors() :: invalid_argument()
+
+  @type list_conflicting_aliases_errors() :: no_such_distribution() | invalid_argument()
+
+  @type list_continuous_deployment_policies_errors() ::
+          invalid_argument() | access_denied() | no_such_continuous_deployment_policy()
+
+  @type list_distributions_errors() :: invalid_argument()
+
+  @type list_distributions_by_cache_policy_id_errors() ::
+          no_such_cache_policy() | invalid_argument() | access_denied()
+
+  @type list_distributions_by_key_group_errors() :: no_such_resource() | invalid_argument()
+
+  @type list_distributions_by_origin_request_policy_id_errors() ::
+          no_such_origin_request_policy() | invalid_argument() | access_denied()
+
+  @type list_distributions_by_realtime_log_config_errors() :: invalid_argument()
+
+  @type list_distributions_by_response_headers_policy_id_errors() ::
+          no_such_response_headers_policy() | invalid_argument() | access_denied()
+
+  @type list_distributions_by_web_acl_id_errors() :: invalid_web_acl_id() | invalid_argument()
+
+  @type list_field_level_encryption_configs_errors() :: invalid_argument()
+
+  @type list_field_level_encryption_profiles_errors() :: invalid_argument()
+
+  @type list_functions_errors() :: unsupported_operation() | invalid_argument()
+
+  @type list_invalidations_errors() ::
+          no_such_distribution() | invalid_argument() | access_denied()
+
+  @type list_key_groups_errors() :: invalid_argument()
+
+  @type list_key_value_stores_errors() :: invalid_argument() | access_denied()
+
+  @type list_origin_access_controls_errors() :: invalid_argument()
+
+  @type list_origin_request_policies_errors() ::
+          no_such_origin_request_policy() | invalid_argument() | access_denied()
+
+  @type list_public_keys_errors() :: invalid_argument()
+
+  @type list_realtime_log_configs_errors() ::
+          no_such_realtime_log_config() | invalid_argument() | access_denied()
+
+  @type list_response_headers_policies_errors() ::
+          no_such_response_headers_policy() | invalid_argument() | access_denied()
+
+  @type list_streaming_distributions_errors() :: invalid_argument()
+
+  @type list_tags_for_resource_errors() ::
+          no_such_resource() | invalid_argument() | access_denied() | invalid_tagging()
+
+  @type publish_function_errors() ::
+          no_such_function_exists()
+          | precondition_failed()
+          | unsupported_operation()
+          | invalid_argument()
+          | invalid_if_match_version()
+
+  @type tag_resource_errors() ::
+          no_such_resource() | invalid_argument() | access_denied() | invalid_tagging()
+
+  @type test_function_errors() ::
+          test_function_failed()
+          | no_such_function_exists()
+          | unsupported_operation()
+          | invalid_argument()
+          | invalid_if_match_version()
+
+  @type untag_resource_errors() ::
+          no_such_resource() | invalid_argument() | access_denied() | invalid_tagging()
+
+  @type update_cache_policy_errors() ::
+          cache_policy_already_exists()
+          | no_such_cache_policy()
+          | inconsistent_quantities()
+          | too_many_query_strings_in_cache_policy()
+          | precondition_failed()
+          | too_many_headers_in_cache_policy()
+          | invalid_argument()
+          | access_denied()
+          | illegal_update()
+          | invalid_if_match_version()
+          | too_many_cookies_in_cache_policy()
+
+  @type update_cloud_front_origin_access_identity_errors() ::
+          inconsistent_quantities()
+          | missing_body()
+          | precondition_failed()
+          | no_such_cloud_front_origin_access_identity()
+          | invalid_argument()
+          | access_denied()
+          | illegal_update()
+          | invalid_if_match_version()
+
+  @type update_continuous_deployment_policy_errors() ::
+          staging_distribution_in_use()
+          | inconsistent_quantities()
+          | precondition_failed()
+          | invalid_argument()
+          | access_denied()
+          | invalid_if_match_version()
+          | no_such_continuous_deployment_policy()
+
+  @type update_distribution_errors() ::
+          too_many_distributions_associated_to_origin_access_control()
+          | too_many_distributions_associated_to_field_level_encryption_config()
+          | staging_distribution_in_use()
+          | invalid_location_code()
+          | invalid_response_code()
+          | no_such_realtime_log_config()
+          | invalid_function_association()
+          | illegal_field_level_encryption_config_association_with_cache_behavior()
+          | no_such_origin()
+          | realtime_log_config_owner_mismatch()
+          | no_such_response_headers_policy()
+          | invalid_relative_path()
+          | invalid_viewer_certificate()
+          | too_many_query_string_parameters()
+          | cname_already_exists()
+          | invalid_default_root_object()
+          | too_many_cache_behaviors()
+          | too_many_distributions_associated_to_response_headers_policy()
+          | too_many_lambda_function_associations()
+          | too_many_distributions_with_lambda_associations()
+          | too_many_distributions_with_single_function_arn()
+          | too_many_origins()
+          | too_many_origin_custom_headers()
+          | invalid_minimum_protocol_version()
+          | too_many_headers_in_forwarded_values()
+          | too_many_key_groups_associated_to_distribution()
+          | invalid_domain_name_for_origin_access_control()
+          | invalid_origin_read_timeout()
+          | trusted_signer_does_not_exist()
+          | no_such_cache_policy()
+          | invalid_forward_cookies()
+          | invalid_origin_keepalive_timeout()
+          | invalid_lambda_function_association()
+          | invalid_headers_for_s3_origin()
+          | inconsistent_quantities()
+          | missing_body()
+          | too_many_distributions_with_function_associations()
+          | continuous_deployment_policy_in_use()
+          | invalid_geo_restriction_parameter()
+          | invalid_error_code()
+          | too_many_trusted_signers()
+          | no_such_distribution()
+          | no_such_origin_request_policy()
+          | too_many_distribution_cnames()
+          | precondition_failed()
+          | invalid_required_protocol()
+          | too_many_certificates()
+          | invalid_origin_access_control()
+          | no_such_field_level_encryption_config()
+          | invalid_web_acl_id()
+          | invalid_argument()
+          | too_many_cookie_names_in_white_list()
+          | access_denied()
+          | invalid_t_t_l_order()
+          | illegal_update()
+          | too_many_distributions_associated_to_key_group()
+          | too_many_distributions_associated_to_origin_request_policy()
+          | invalid_query_string_parameters()
+          | trusted_key_group_does_not_exist()
+          | too_many_distributions_associated_to_cache_policy()
+          | invalid_if_match_version()
+          | illegal_origin_access_configuration()
+          | no_such_continuous_deployment_policy()
+          | invalid_origin_access_identity()
+          | too_many_function_associations()
+          | too_many_origin_groups_per_distribution()
+
+  @type update_distribution_with_staging_config_errors() ::
+          too_many_distributions_associated_to_origin_access_control()
+          | too_many_distributions_associated_to_field_level_encryption_config()
+          | invalid_location_code()
+          | invalid_response_code()
+          | no_such_realtime_log_config()
+          | invalid_function_association()
+          | illegal_field_level_encryption_config_association_with_cache_behavior()
+          | no_such_origin()
+          | realtime_log_config_owner_mismatch()
+          | no_such_response_headers_policy()
+          | invalid_relative_path()
+          | invalid_viewer_certificate()
+          | too_many_query_string_parameters()
+          | cname_already_exists()
+          | invalid_default_root_object()
+          | too_many_cache_behaviors()
+          | too_many_distributions_associated_to_response_headers_policy()
+          | too_many_lambda_function_associations()
+          | too_many_distributions_with_lambda_associations()
+          | too_many_distributions_with_single_function_arn()
+          | too_many_origins()
+          | too_many_origin_custom_headers()
+          | invalid_minimum_protocol_version()
+          | too_many_headers_in_forwarded_values()
+          | too_many_key_groups_associated_to_distribution()
+          | invalid_origin_read_timeout()
+          | trusted_signer_does_not_exist()
+          | no_such_cache_policy()
+          | invalid_forward_cookies()
+          | invalid_origin_keepalive_timeout()
+          | invalid_lambda_function_association()
+          | invalid_headers_for_s3_origin()
+          | inconsistent_quantities()
+          | missing_body()
+          | too_many_distributions_with_function_associations()
+          | invalid_geo_restriction_parameter()
+          | invalid_error_code()
+          | too_many_trusted_signers()
+          | no_such_distribution()
+          | no_such_origin_request_policy()
+          | too_many_distribution_cnames()
+          | precondition_failed()
+          | invalid_required_protocol()
+          | too_many_certificates()
+          | invalid_origin_access_control()
+          | no_such_field_level_encryption_config()
+          | invalid_web_acl_id()
+          | invalid_argument()
+          | too_many_cookie_names_in_white_list()
+          | access_denied()
+          | invalid_t_t_l_order()
+          | illegal_update()
+          | too_many_distributions_associated_to_key_group()
+          | too_many_distributions_associated_to_origin_request_policy()
+          | invalid_query_string_parameters()
+          | trusted_key_group_does_not_exist()
+          | too_many_distributions_associated_to_cache_policy()
+          | invalid_if_match_version()
+          | invalid_origin_access_identity()
+          | too_many_function_associations()
+          | too_many_origin_groups_per_distribution()
+
+  @type update_field_level_encryption_config_errors() ::
+          too_many_field_level_encryption_query_arg_profiles()
+          | no_such_field_level_encryption_profile()
+          | inconsistent_quantities()
+          | precondition_failed()
+          | no_such_field_level_encryption_config()
+          | invalid_argument()
+          | access_denied()
+          | illegal_update()
+          | too_many_field_level_encryption_content_type_profiles()
+          | invalid_if_match_version()
+          | query_arg_profile_empty()
+
+  @type update_field_level_encryption_profile_errors() ::
+          no_such_public_key()
+          | no_such_field_level_encryption_profile()
+          | too_many_field_level_encryption_field_patterns()
+          | field_level_encryption_profile_size_exceeded()
+          | too_many_field_level_encryption_encryption_entities()
+          | inconsistent_quantities()
+          | precondition_failed()
+          | invalid_argument()
+          | access_denied()
+          | field_level_encryption_profile_already_exists()
+          | illegal_update()
+          | invalid_if_match_version()
+
+  @type update_function_errors() ::
+          no_such_function_exists()
+          | precondition_failed()
+          | unsupported_operation()
+          | function_size_limit_exceeded()
+          | invalid_argument()
+          | invalid_if_match_version()
+
+  @type update_key_group_errors() ::
+          too_many_public_keys_in_key_group()
+          | no_such_resource()
+          | precondition_failed()
+          | key_group_already_exists()
+          | invalid_argument()
+          | invalid_if_match_version()
+
+  @type update_key_value_store_errors() ::
+          precondition_failed()
+          | invalid_argument()
+          | access_denied()
+          | entity_not_found()
+          | invalid_if_match_version()
+
+  @type update_origin_access_control_errors() ::
+          origin_access_control_already_exists()
+          | no_such_origin_access_control()
+          | precondition_failed()
+          | invalid_argument()
+          | access_denied()
+          | illegal_update()
+          | invalid_if_match_version()
+
+  @type update_origin_request_policy_errors() ::
+          too_many_headers_in_origin_request_policy()
+          | inconsistent_quantities()
+          | origin_request_policy_already_exists()
+          | too_many_query_strings_in_origin_request_policy()
+          | no_such_origin_request_policy()
+          | precondition_failed()
+          | too_many_cookies_in_origin_request_policy()
+          | invalid_argument()
+          | access_denied()
+          | illegal_update()
+          | invalid_if_match_version()
+
+  @type update_public_key_errors() ::
+          no_such_public_key()
+          | precondition_failed()
+          | invalid_argument()
+          | access_denied()
+          | illegal_update()
+          | invalid_if_match_version()
+          | cannot_change_immutable_public_key_fields()
+
+  @type update_realtime_log_config_errors() ::
+          no_such_realtime_log_config() | invalid_argument() | access_denied()
+
+  @type update_response_headers_policy_errors() ::
+          no_such_response_headers_policy()
+          | too_many_remove_headers_in_response_headers_policy()
+          | inconsistent_quantities()
+          | response_headers_policy_already_exists()
+          | precondition_failed()
+          | invalid_argument()
+          | access_denied()
+          | illegal_update()
+          | invalid_if_match_version()
+          | too_long_c_s_p_in_response_headers_policy()
+          | too_many_custom_headers_in_response_headers_policy()
+
+  @type update_streaming_distribution_errors() ::
+          cname_already_exists()
+          | too_many_streaming_distribution_cnames()
+          | no_such_streaming_distribution()
+          | trusted_signer_does_not_exist()
+          | inconsistent_quantities()
+          | missing_body()
+          | too_many_trusted_signers()
+          | precondition_failed()
+          | invalid_origin_access_control()
+          | invalid_argument()
+          | access_denied()
+          | illegal_update()
+          | invalid_if_match_version()
+          | invalid_origin_access_identity()
 
   def metadata do
     %{
@@ -5244,11 +7114,7 @@ defmodule AWS.CloudFront do
   @spec associate_alias(map(), String.t(), associate_alias_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, illegal_update()}
-          | {:error, invalid_argument()}
-          | {:error, no_such_distribution()}
-          | {:error, too_many_distribution_cnames()}
+          | {:error, associate_alias_errors()}
   def associate_alias(%Client{} = client, target_distribution_id, input, options \\ []) do
     url_path =
       "/2020-05-31/distribution/#{AWS.Util.encode_uri(target_distribution_id)}/associate-alias"
@@ -5295,70 +7161,7 @@ defmodule AWS.CloudFront do
   @spec copy_distribution(map(), String.t(), copy_distribution_request(), list()) ::
           {:ok, copy_distribution_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, cname_already_exists()}
-          | {:error, distribution_already_exists()}
-          | {:error, illegal_field_level_encryption_config_association_with_cache_behavior()}
-          | {:error, inconsistent_quantities()}
-          | {:error, invalid_argument()}
-          | {:error, invalid_default_root_object()}
-          | {:error, invalid_error_code()}
-          | {:error, invalid_forward_cookies()}
-          | {:error, invalid_function_association()}
-          | {:error, invalid_geo_restriction_parameter()}
-          | {:error, invalid_headers_for_s3_origin()}
-          | {:error, invalid_if_match_version()}
-          | {:error, invalid_lambda_function_association()}
-          | {:error, invalid_location_code()}
-          | {:error, invalid_minimum_protocol_version()}
-          | {:error, invalid_origin()}
-          | {:error, invalid_origin_access_control()}
-          | {:error, invalid_origin_access_identity()}
-          | {:error, invalid_origin_keepalive_timeout()}
-          | {:error, invalid_origin_read_timeout()}
-          | {:error, invalid_protocol_settings()}
-          | {:error, invalid_query_string_parameters()}
-          | {:error, invalid_relative_path()}
-          | {:error, invalid_required_protocol()}
-          | {:error, invalid_response_code()}
-          | {:error, invalid_t_t_l_order()}
-          | {:error, invalid_viewer_certificate()}
-          | {:error, invalid_web_acl_id()}
-          | {:error, missing_body()}
-          | {:error, no_such_cache_policy()}
-          | {:error, no_such_distribution()}
-          | {:error, no_such_field_level_encryption_config()}
-          | {:error, no_such_origin()}
-          | {:error, no_such_origin_request_policy()}
-          | {:error, no_such_realtime_log_config()}
-          | {:error, no_such_response_headers_policy()}
-          | {:error, precondition_failed()}
-          | {:error, realtime_log_config_owner_mismatch()}
-          | {:error, too_many_cache_behaviors()}
-          | {:error, too_many_certificates()}
-          | {:error, too_many_cookie_names_in_white_list()}
-          | {:error, too_many_distribution_cnames()}
-          | {:error, too_many_distributions()}
-          | {:error, too_many_distributions_associated_to_cache_policy()}
-          | {:error, too_many_distributions_associated_to_field_level_encryption_config()}
-          | {:error, too_many_distributions_associated_to_key_group()}
-          | {:error, too_many_distributions_associated_to_origin_access_control()}
-          | {:error, too_many_distributions_associated_to_origin_request_policy()}
-          | {:error, too_many_distributions_associated_to_response_headers_policy()}
-          | {:error, too_many_distributions_with_function_associations()}
-          | {:error, too_many_distributions_with_lambda_associations()}
-          | {:error, too_many_distributions_with_single_function_arn()}
-          | {:error, too_many_function_associations()}
-          | {:error, too_many_headers_in_forwarded_values()}
-          | {:error, too_many_key_groups_associated_to_distribution()}
-          | {:error, too_many_lambda_function_associations()}
-          | {:error, too_many_origin_custom_headers()}
-          | {:error, too_many_origin_groups_per_distribution()}
-          | {:error, too_many_origins()}
-          | {:error, too_many_query_string_parameters()}
-          | {:error, too_many_trusted_signers()}
-          | {:error, trusted_key_group_does_not_exist()}
-          | {:error, trusted_signer_does_not_exist()}
+          | {:error, copy_distribution_errors()}
   def copy_distribution(%Client{} = client, primary_distribution_id, input, options \\ []) do
     url_path = "/2020-05-31/distribution/#{AWS.Util.encode_uri(primary_distribution_id)}/copy"
 
@@ -5428,14 +7231,7 @@ defmodule AWS.CloudFront do
   @spec create_cache_policy(map(), create_cache_policy_request(), list()) ::
           {:ok, create_cache_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, cache_policy_already_exists()}
-          | {:error, inconsistent_quantities()}
-          | {:error, invalid_argument()}
-          | {:error, too_many_cache_policies()}
-          | {:error, too_many_cookies_in_cache_policy()}
-          | {:error, too_many_headers_in_cache_policy()}
-          | {:error, too_many_query_strings_in_cache_policy()}
+          | {:error, create_cache_policy_errors()}
   def create_cache_policy(%Client{} = client, input, options \\ []) do
     url_path = "/2020-05-31/cache-policy"
     headers = []
@@ -5482,11 +7278,7 @@ defmodule AWS.CloudFront do
         ) ::
           {:ok, create_cloud_front_origin_access_identity_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, cloud_front_origin_access_identity_already_exists()}
-          | {:error, inconsistent_quantities()}
-          | {:error, invalid_argument()}
-          | {:error, missing_body()}
-          | {:error, too_many_cloud_front_origin_access_identities()}
+          | {:error, create_cloud_front_origin_access_identity_errors()}
   def create_cloud_front_origin_access_identity(%Client{} = client, input, options \\ []) do
     url_path = "/2020-05-31/origin-access-identity/cloudfront"
     headers = []
@@ -5537,12 +7329,7 @@ defmodule AWS.CloudFront do
         ) ::
           {:ok, create_continuous_deployment_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, continuous_deployment_policy_already_exists()}
-          | {:error, inconsistent_quantities()}
-          | {:error, invalid_argument()}
-          | {:error, staging_distribution_in_use()}
-          | {:error, too_many_continuous_deployment_policies()}
+          | {:error, create_continuous_deployment_policy_errors()}
   def create_continuous_deployment_policy(%Client{} = client, input, options \\ []) do
     url_path = "/2020-05-31/continuous-deployment-policy"
     headers = []
@@ -5576,71 +7363,7 @@ defmodule AWS.CloudFront do
   @spec create_distribution(map(), create_distribution_request(), list()) ::
           {:ok, create_distribution_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, cname_already_exists()}
-          | {:error, continuous_deployment_policy_in_use()}
-          | {:error, distribution_already_exists()}
-          | {:error, illegal_field_level_encryption_config_association_with_cache_behavior()}
-          | {:error, illegal_origin_access_configuration()}
-          | {:error, inconsistent_quantities()}
-          | {:error, invalid_argument()}
-          | {:error, invalid_default_root_object()}
-          | {:error, invalid_domain_name_for_origin_access_control()}
-          | {:error, invalid_error_code()}
-          | {:error, invalid_forward_cookies()}
-          | {:error, invalid_function_association()}
-          | {:error, invalid_geo_restriction_parameter()}
-          | {:error, invalid_headers_for_s3_origin()}
-          | {:error, invalid_lambda_function_association()}
-          | {:error, invalid_location_code()}
-          | {:error, invalid_minimum_protocol_version()}
-          | {:error, invalid_origin()}
-          | {:error, invalid_origin_access_control()}
-          | {:error, invalid_origin_access_identity()}
-          | {:error, invalid_origin_keepalive_timeout()}
-          | {:error, invalid_origin_read_timeout()}
-          | {:error, invalid_protocol_settings()}
-          | {:error, invalid_query_string_parameters()}
-          | {:error, invalid_relative_path()}
-          | {:error, invalid_required_protocol()}
-          | {:error, invalid_response_code()}
-          | {:error, invalid_t_t_l_order()}
-          | {:error, invalid_viewer_certificate()}
-          | {:error, invalid_web_acl_id()}
-          | {:error, missing_body()}
-          | {:error, no_such_cache_policy()}
-          | {:error, no_such_continuous_deployment_policy()}
-          | {:error, no_such_field_level_encryption_config()}
-          | {:error, no_such_origin()}
-          | {:error, no_such_origin_request_policy()}
-          | {:error, no_such_realtime_log_config()}
-          | {:error, no_such_response_headers_policy()}
-          | {:error, realtime_log_config_owner_mismatch()}
-          | {:error, too_many_cache_behaviors()}
-          | {:error, too_many_certificates()}
-          | {:error, too_many_cookie_names_in_white_list()}
-          | {:error, too_many_distribution_cnames()}
-          | {:error, too_many_distributions()}
-          | {:error, too_many_distributions_associated_to_cache_policy()}
-          | {:error, too_many_distributions_associated_to_field_level_encryption_config()}
-          | {:error, too_many_distributions_associated_to_key_group()}
-          | {:error, too_many_distributions_associated_to_origin_access_control()}
-          | {:error, too_many_distributions_associated_to_origin_request_policy()}
-          | {:error, too_many_distributions_associated_to_response_headers_policy()}
-          | {:error, too_many_distributions_with_function_associations()}
-          | {:error, too_many_distributions_with_lambda_associations()}
-          | {:error, too_many_distributions_with_single_function_arn()}
-          | {:error, too_many_function_associations()}
-          | {:error, too_many_headers_in_forwarded_values()}
-          | {:error, too_many_key_groups_associated_to_distribution()}
-          | {:error, too_many_lambda_function_associations()}
-          | {:error, too_many_origin_custom_headers()}
-          | {:error, too_many_origin_groups_per_distribution()}
-          | {:error, too_many_origins()}
-          | {:error, too_many_query_string_parameters()}
-          | {:error, too_many_trusted_signers()}
-          | {:error, trusted_key_group_does_not_exist()}
-          | {:error, trusted_signer_does_not_exist()}
+          | {:error, create_distribution_errors()}
   def create_distribution(%Client{} = client, input, options \\ []) do
     url_path = "/2020-05-31/distribution"
     headers = []
@@ -5685,72 +7408,7 @@ defmodule AWS.CloudFront do
   @spec create_distribution_with_tags(map(), create_distribution_with_tags_request(), list()) ::
           {:ok, create_distribution_with_tags_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, cname_already_exists()}
-          | {:error, continuous_deployment_policy_in_use()}
-          | {:error, distribution_already_exists()}
-          | {:error, illegal_field_level_encryption_config_association_with_cache_behavior()}
-          | {:error, illegal_origin_access_configuration()}
-          | {:error, inconsistent_quantities()}
-          | {:error, invalid_argument()}
-          | {:error, invalid_default_root_object()}
-          | {:error, invalid_domain_name_for_origin_access_control()}
-          | {:error, invalid_error_code()}
-          | {:error, invalid_forward_cookies()}
-          | {:error, invalid_function_association()}
-          | {:error, invalid_geo_restriction_parameter()}
-          | {:error, invalid_headers_for_s3_origin()}
-          | {:error, invalid_lambda_function_association()}
-          | {:error, invalid_location_code()}
-          | {:error, invalid_minimum_protocol_version()}
-          | {:error, invalid_origin()}
-          | {:error, invalid_origin_access_control()}
-          | {:error, invalid_origin_access_identity()}
-          | {:error, invalid_origin_keepalive_timeout()}
-          | {:error, invalid_origin_read_timeout()}
-          | {:error, invalid_protocol_settings()}
-          | {:error, invalid_query_string_parameters()}
-          | {:error, invalid_relative_path()}
-          | {:error, invalid_required_protocol()}
-          | {:error, invalid_response_code()}
-          | {:error, invalid_tagging()}
-          | {:error, invalid_t_t_l_order()}
-          | {:error, invalid_viewer_certificate()}
-          | {:error, invalid_web_acl_id()}
-          | {:error, missing_body()}
-          | {:error, no_such_cache_policy()}
-          | {:error, no_such_continuous_deployment_policy()}
-          | {:error, no_such_field_level_encryption_config()}
-          | {:error, no_such_origin()}
-          | {:error, no_such_origin_request_policy()}
-          | {:error, no_such_realtime_log_config()}
-          | {:error, no_such_response_headers_policy()}
-          | {:error, realtime_log_config_owner_mismatch()}
-          | {:error, too_many_cache_behaviors()}
-          | {:error, too_many_certificates()}
-          | {:error, too_many_cookie_names_in_white_list()}
-          | {:error, too_many_distribution_cnames()}
-          | {:error, too_many_distributions()}
-          | {:error, too_many_distributions_associated_to_cache_policy()}
-          | {:error, too_many_distributions_associated_to_field_level_encryption_config()}
-          | {:error, too_many_distributions_associated_to_key_group()}
-          | {:error, too_many_distributions_associated_to_origin_access_control()}
-          | {:error, too_many_distributions_associated_to_origin_request_policy()}
-          | {:error, too_many_distributions_associated_to_response_headers_policy()}
-          | {:error, too_many_distributions_with_function_associations()}
-          | {:error, too_many_distributions_with_lambda_associations()}
-          | {:error, too_many_distributions_with_single_function_arn()}
-          | {:error, too_many_function_associations()}
-          | {:error, too_many_headers_in_forwarded_values()}
-          | {:error, too_many_key_groups_associated_to_distribution()}
-          | {:error, too_many_lambda_function_associations()}
-          | {:error, too_many_origin_custom_headers()}
-          | {:error, too_many_origin_groups_per_distribution()}
-          | {:error, too_many_origins()}
-          | {:error, too_many_query_string_parameters()}
-          | {:error, too_many_trusted_signers()}
-          | {:error, trusted_key_group_does_not_exist()}
-          | {:error, trusted_signer_does_not_exist()}
+          | {:error, create_distribution_with_tags_errors()}
   def create_distribution_with_tags(%Client{} = client, input, options \\ []) do
     url_path = "/2020-05-31/distribution?WithTags"
     headers = []
@@ -5788,14 +7446,7 @@ defmodule AWS.CloudFront do
         ) ::
           {:ok, create_field_level_encryption_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, field_level_encryption_config_already_exists()}
-          | {:error, inconsistent_quantities()}
-          | {:error, invalid_argument()}
-          | {:error, no_such_field_level_encryption_profile()}
-          | {:error, query_arg_profile_empty()}
-          | {:error, too_many_field_level_encryption_configs()}
-          | {:error, too_many_field_level_encryption_content_type_profiles()}
-          | {:error, too_many_field_level_encryption_query_arg_profiles()}
+          | {:error, create_field_level_encryption_config_errors()}
   def create_field_level_encryption_config(%Client{} = client, input, options \\ []) do
     url_path = "/2020-05-31/field-level-encryption"
     headers = []
@@ -5833,14 +7484,7 @@ defmodule AWS.CloudFront do
         ) ::
           {:ok, create_field_level_encryption_profile_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, field_level_encryption_profile_already_exists()}
-          | {:error, field_level_encryption_profile_size_exceeded()}
-          | {:error, inconsistent_quantities()}
-          | {:error, invalid_argument()}
-          | {:error, no_such_public_key()}
-          | {:error, too_many_field_level_encryption_encryption_entities()}
-          | {:error, too_many_field_level_encryption_field_patterns()}
-          | {:error, too_many_field_level_encryption_profiles()}
+          | {:error, create_field_level_encryption_profile_errors()}
   def create_field_level_encryption_profile(%Client{} = client, input, options \\ []) do
     url_path = "/2020-05-31/field-level-encryption-profile"
     headers = []
@@ -5889,11 +7533,7 @@ defmodule AWS.CloudFront do
   @spec create_function(map(), create_function_request(), list()) ::
           {:ok, create_function_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, function_already_exists()}
-          | {:error, function_size_limit_exceeded()}
-          | {:error, invalid_argument()}
-          | {:error, too_many_functions()}
-          | {:error, unsupported_operation()}
+          | {:error, create_function_errors()}
   def create_function(%Client{} = client, input, options \\ []) do
     url_path = "/2020-05-31/function"
     headers = []
@@ -5927,13 +7567,7 @@ defmodule AWS.CloudFront do
   @spec create_invalidation(map(), String.t(), create_invalidation_request(), list()) ::
           {:ok, create_invalidation_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, batch_too_large()}
-          | {:error, inconsistent_quantities()}
-          | {:error, invalid_argument()}
-          | {:error, missing_body()}
-          | {:error, no_such_distribution()}
-          | {:error, too_many_invalidations_in_progress()}
+          | {:error, create_invalidation_errors()}
   def create_invalidation(%Client{} = client, distribution_id, input, options \\ []) do
     url_path = "/2020-05-31/distribution/#{AWS.Util.encode_uri(distribution_id)}/invalidation"
     headers = []
@@ -5983,10 +7617,7 @@ defmodule AWS.CloudFront do
   @spec create_key_group(map(), create_key_group_request(), list()) ::
           {:ok, create_key_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_argument()}
-          | {:error, key_group_already_exists()}
-          | {:error, too_many_key_groups()}
-          | {:error, too_many_public_keys_in_key_group()}
+          | {:error, create_key_group_errors()}
   def create_key_group(%Client{} = client, input, options \\ []) do
     url_path = "/2020-05-31/key-group"
     headers = []
@@ -6024,11 +7655,7 @@ defmodule AWS.CloudFront do
   @spec create_key_value_store(map(), create_key_value_store_request(), list()) ::
           {:ok, create_key_value_store_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, entity_already_exists()}
-          | {:error, entity_limit_exceeded()}
-          | {:error, entity_size_limit_exceeded()}
-          | {:error, invalid_argument()}
+          | {:error, create_key_value_store_errors()}
   def create_key_value_store(%Client{} = client, input, options \\ []) do
     url_path = "/2020-05-31/key-value-store"
     headers = []
@@ -6074,10 +7701,7 @@ defmodule AWS.CloudFront do
         ) ::
           {:ok, create_monitoring_subscription_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, monitoring_subscription_already_exists()}
-          | {:error, no_such_distribution()}
-          | {:error, unsupported_operation()}
+          | {:error, create_monitoring_subscription_errors()}
   def create_monitoring_subscription(%Client{} = client, distribution_id, input, options \\ []) do
     url_path =
       "/2020-05-31/distributions/#{AWS.Util.encode_uri(distribution_id)}/monitoring-subscription"
@@ -6120,9 +7744,7 @@ defmodule AWS.CloudFront do
   @spec create_origin_access_control(map(), create_origin_access_control_request(), list()) ::
           {:ok, create_origin_access_control_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_argument()}
-          | {:error, origin_access_control_already_exists()}
-          | {:error, too_many_origin_access_controls()}
+          | {:error, create_origin_access_control_errors()}
   def create_origin_access_control(%Client{} = client, input, options \\ []) do
     url_path = "/2020-05-31/origin-access-control"
     headers = []
@@ -6189,14 +7811,7 @@ defmodule AWS.CloudFront do
   @spec create_origin_request_policy(map(), create_origin_request_policy_request(), list()) ::
           {:ok, create_origin_request_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, inconsistent_quantities()}
-          | {:error, invalid_argument()}
-          | {:error, origin_request_policy_already_exists()}
-          | {:error, too_many_cookies_in_origin_request_policy()}
-          | {:error, too_many_headers_in_origin_request_policy()}
-          | {:error, too_many_origin_request_policies()}
-          | {:error, too_many_query_strings_in_origin_request_policy()}
+          | {:error, create_origin_request_policy_errors()}
   def create_origin_request_policy(%Client{} = client, input, options \\ []) do
     url_path = "/2020-05-31/origin-request-policy"
     headers = []
@@ -6231,9 +7846,7 @@ defmodule AWS.CloudFront do
   @spec create_public_key(map(), create_public_key_request(), list()) ::
           {:ok, create_public_key_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_argument()}
-          | {:error, public_key_already_exists()}
-          | {:error, too_many_public_keys()}
+          | {:error, create_public_key_errors()}
   def create_public_key(%Client{} = client, input, options \\ []) do
     url_path = "/2020-05-31/public-key"
     headers = []
@@ -6276,10 +7889,7 @@ defmodule AWS.CloudFront do
   @spec create_realtime_log_config(map(), create_realtime_log_config_request(), list()) ::
           {:ok, create_realtime_log_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, invalid_argument()}
-          | {:error, realtime_log_config_already_exists()}
-          | {:error, too_many_realtime_log_configs()}
+          | {:error, create_realtime_log_config_errors()}
   def create_realtime_log_config(%Client{} = client, input, options \\ []) do
     url_path = "/2020-05-31/realtime-log-config"
     headers = []
@@ -6325,14 +7935,7 @@ defmodule AWS.CloudFront do
   @spec create_response_headers_policy(map(), create_response_headers_policy_request(), list()) ::
           {:ok, create_response_headers_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, inconsistent_quantities()}
-          | {:error, invalid_argument()}
-          | {:error, response_headers_policy_already_exists()}
-          | {:error, too_long_c_s_p_in_response_headers_policy()}
-          | {:error, too_many_custom_headers_in_response_headers_policy()}
-          | {:error, too_many_remove_headers_in_response_headers_policy()}
-          | {:error, too_many_response_headers_policies()}
+          | {:error, create_response_headers_policy_errors()}
   def create_response_headers_policy(%Client{} = client, input, options \\ []) do
     url_path = "/2020-05-31/response-headers-policy"
     headers = []
@@ -6371,19 +7974,7 @@ defmodule AWS.CloudFront do
   @spec create_streaming_distribution(map(), create_streaming_distribution_request(), list()) ::
           {:ok, create_streaming_distribution_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, cname_already_exists()}
-          | {:error, inconsistent_quantities()}
-          | {:error, invalid_argument()}
-          | {:error, invalid_origin()}
-          | {:error, invalid_origin_access_control()}
-          | {:error, invalid_origin_access_identity()}
-          | {:error, missing_body()}
-          | {:error, streaming_distribution_already_exists()}
-          | {:error, too_many_streaming_distribution_cnames()}
-          | {:error, too_many_streaming_distributions()}
-          | {:error, too_many_trusted_signers()}
-          | {:error, trusted_signer_does_not_exist()}
+          | {:error, create_streaming_distribution_errors()}
   def create_streaming_distribution(%Client{} = client, input, options \\ []) do
     url_path = "/2020-05-31/streaming-distribution"
     headers = []
@@ -6426,20 +8017,7 @@ defmodule AWS.CloudFront do
         ) ::
           {:ok, create_streaming_distribution_with_tags_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, cname_already_exists()}
-          | {:error, inconsistent_quantities()}
-          | {:error, invalid_argument()}
-          | {:error, invalid_origin()}
-          | {:error, invalid_origin_access_control()}
-          | {:error, invalid_origin_access_identity()}
-          | {:error, invalid_tagging()}
-          | {:error, missing_body()}
-          | {:error, streaming_distribution_already_exists()}
-          | {:error, too_many_streaming_distribution_cnames()}
-          | {:error, too_many_streaming_distributions()}
-          | {:error, too_many_trusted_signers()}
-          | {:error, trusted_signer_does_not_exist()}
+          | {:error, create_streaming_distribution_with_tags_errors()}
   def create_streaming_distribution_with_tags(%Client{} = client, input, options \\ []) do
     url_path = "/2020-05-31/streaming-distribution?WithTags"
     headers = []
@@ -6484,12 +8062,7 @@ defmodule AWS.CloudFront do
   @spec delete_cache_policy(map(), String.t(), delete_cache_policy_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, cache_policy_in_use()}
-          | {:error, illegal_delete()}
-          | {:error, invalid_if_match_version()}
-          | {:error, no_such_cache_policy()}
-          | {:error, precondition_failed()}
+          | {:error, delete_cache_policy_errors()}
   def delete_cache_policy(%Client{} = client, id, input, options \\ []) do
     url_path = "/2020-05-31/cache-policy/#{AWS.Util.encode_uri(id)}"
 
@@ -6527,11 +8100,7 @@ defmodule AWS.CloudFront do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, cloud_front_origin_access_identity_in_use()}
-          | {:error, invalid_if_match_version()}
-          | {:error, no_such_cloud_front_origin_access_identity()}
-          | {:error, precondition_failed()}
+          | {:error, delete_cloud_front_origin_access_identity_errors()}
   def delete_cloud_front_origin_access_identity(%Client{} = client, id, input, options \\ []) do
     url_path = "/2020-05-31/origin-access-identity/cloudfront/#{AWS.Util.encode_uri(id)}"
 
@@ -6574,12 +8143,7 @@ defmodule AWS.CloudFront do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, continuous_deployment_policy_in_use()}
-          | {:error, invalid_argument()}
-          | {:error, invalid_if_match_version()}
-          | {:error, no_such_continuous_deployment_policy()}
-          | {:error, precondition_failed()}
+          | {:error, delete_continuous_deployment_policy_errors()}
   def delete_continuous_deployment_policy(%Client{} = client, id, input, options \\ []) do
     url_path = "/2020-05-31/continuous-deployment-policy/#{AWS.Util.encode_uri(id)}"
 
@@ -6612,11 +8176,7 @@ defmodule AWS.CloudFront do
   @spec delete_distribution(map(), String.t(), delete_distribution_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, distribution_not_disabled()}
-          | {:error, invalid_if_match_version()}
-          | {:error, no_such_distribution()}
-          | {:error, precondition_failed()}
+          | {:error, delete_distribution_errors()}
   def delete_distribution(%Client{} = client, id, input, options \\ []) do
     url_path = "/2020-05-31/distribution/#{AWS.Util.encode_uri(id)}"
 
@@ -6654,11 +8214,7 @@ defmodule AWS.CloudFront do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, field_level_encryption_config_in_use()}
-          | {:error, invalid_if_match_version()}
-          | {:error, no_such_field_level_encryption_config()}
-          | {:error, precondition_failed()}
+          | {:error, delete_field_level_encryption_config_errors()}
   def delete_field_level_encryption_config(%Client{} = client, id, input, options \\ []) do
     url_path = "/2020-05-31/field-level-encryption/#{AWS.Util.encode_uri(id)}"
 
@@ -6696,11 +8252,7 @@ defmodule AWS.CloudFront do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, field_level_encryption_profile_in_use()}
-          | {:error, invalid_if_match_version()}
-          | {:error, no_such_field_level_encryption_profile()}
-          | {:error, precondition_failed()}
+          | {:error, delete_field_level_encryption_profile_errors()}
   def delete_field_level_encryption_profile(%Client{} = client, id, input, options \\ []) do
     url_path = "/2020-05-31/field-level-encryption-profile/#{AWS.Util.encode_uri(id)}"
 
@@ -6743,11 +8295,7 @@ defmodule AWS.CloudFront do
   @spec delete_function(map(), String.t(), delete_function_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, function_in_use()}
-          | {:error, invalid_if_match_version()}
-          | {:error, no_such_function_exists()}
-          | {:error, precondition_failed()}
-          | {:error, unsupported_operation()}
+          | {:error, delete_function_errors()}
   def delete_function(%Client{} = client, name, input, options \\ []) do
     url_path = "/2020-05-31/function/#{AWS.Util.encode_uri(name)}"
 
@@ -6791,10 +8339,7 @@ defmodule AWS.CloudFront do
   @spec delete_key_group(map(), String.t(), delete_key_group_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_if_match_version()}
-          | {:error, no_such_resource()}
-          | {:error, precondition_failed()}
-          | {:error, resource_in_use()}
+          | {:error, delete_key_group_errors()}
   def delete_key_group(%Client{} = client, id, input, options \\ []) do
     url_path = "/2020-05-31/key-group/#{AWS.Util.encode_uri(id)}"
 
@@ -6827,11 +8372,7 @@ defmodule AWS.CloudFront do
   @spec delete_key_value_store(map(), String.t(), delete_key_value_store_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, cannot_delete_entity_while_in_use()}
-          | {:error, entity_not_found()}
-          | {:error, invalid_if_match_version()}
-          | {:error, precondition_failed()}
+          | {:error, delete_key_value_store_errors()}
   def delete_key_value_store(%Client{} = client, name, input, options \\ []) do
     url_path = "/2020-05-31/key-value-store/#{AWS.Util.encode_uri(name)}"
 
@@ -6870,10 +8411,7 @@ defmodule AWS.CloudFront do
         ) ::
           {:ok, delete_monitoring_subscription_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, no_such_distribution()}
-          | {:error, no_such_monitoring_subscription()}
-          | {:error, unsupported_operation()}
+          | {:error, delete_monitoring_subscription_errors()}
   def delete_monitoring_subscription(%Client{} = client, distribution_id, input, options \\ []) do
     url_path =
       "/2020-05-31/distributions/#{AWS.Util.encode_uri(distribution_id)}/monitoring-subscription"
@@ -6912,11 +8450,7 @@ defmodule AWS.CloudFront do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, invalid_if_match_version()}
-          | {:error, no_such_origin_access_control()}
-          | {:error, origin_access_control_in_use()}
-          | {:error, precondition_failed()}
+          | {:error, delete_origin_access_control_errors()}
   def delete_origin_access_control(%Client{} = client, id, input, options \\ []) do
     url_path = "/2020-05-31/origin-access-control/#{AWS.Util.encode_uri(id)}"
 
@@ -6964,12 +8498,7 @@ defmodule AWS.CloudFront do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, illegal_delete()}
-          | {:error, invalid_if_match_version()}
-          | {:error, no_such_origin_request_policy()}
-          | {:error, origin_request_policy_in_use()}
-          | {:error, precondition_failed()}
+          | {:error, delete_origin_request_policy_errors()}
   def delete_origin_request_policy(%Client{} = client, id, input, options \\ []) do
     url_path = "/2020-05-31/origin-request-policy/#{AWS.Util.encode_uri(id)}"
 
@@ -7002,11 +8531,7 @@ defmodule AWS.CloudFront do
   @spec delete_public_key(map(), String.t(), delete_public_key_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, invalid_if_match_version()}
-          | {:error, no_such_public_key()}
-          | {:error, precondition_failed()}
-          | {:error, public_key_in_use()}
+          | {:error, delete_public_key_errors()}
   def delete_public_key(%Client{} = client, id, input, options \\ []) do
     url_path = "/2020-05-31/public-key/#{AWS.Util.encode_uri(id)}"
 
@@ -7051,10 +8576,7 @@ defmodule AWS.CloudFront do
   @spec delete_realtime_log_config(map(), delete_realtime_log_config_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, invalid_argument()}
-          | {:error, no_such_realtime_log_config()}
-          | {:error, realtime_log_config_in_use()}
+          | {:error, delete_realtime_log_config_errors()}
   def delete_realtime_log_config(%Client{} = client, input, options \\ []) do
     url_path = "/2020-05-31/delete-realtime-log-config"
     headers = []
@@ -7097,12 +8619,7 @@ defmodule AWS.CloudFront do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, illegal_delete()}
-          | {:error, invalid_if_match_version()}
-          | {:error, no_such_response_headers_policy()}
-          | {:error, precondition_failed()}
-          | {:error, response_headers_policy_in_use()}
+          | {:error, delete_response_headers_policy_errors()}
   def delete_response_headers_policy(%Client{} = client, id, input, options \\ []) do
     url_path = "/2020-05-31/response-headers-policy/#{AWS.Util.encode_uri(id)}"
 
@@ -7207,11 +8724,7 @@ defmodule AWS.CloudFront do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, invalid_if_match_version()}
-          | {:error, no_such_streaming_distribution()}
-          | {:error, precondition_failed()}
-          | {:error, streaming_distribution_not_disabled()}
+          | {:error, delete_streaming_distribution_errors()}
   def delete_streaming_distribution(%Client{} = client, id, input, options \\ []) do
     url_path = "/2020-05-31/streaming-distribution/#{AWS.Util.encode_uri(id)}"
 
@@ -7253,8 +8766,7 @@ defmodule AWS.CloudFront do
   @spec describe_function(map(), String.t(), String.t() | nil, list()) ::
           {:ok, describe_function_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, no_such_function_exists()}
-          | {:error, unsupported_operation()}
+          | {:error, describe_function_errors()}
   def describe_function(%Client{} = client, name, stage \\ nil, options \\ []) do
     url_path = "/2020-05-31/function/#{AWS.Util.encode_uri(name)}/describe"
     headers = []
@@ -7285,9 +8797,7 @@ defmodule AWS.CloudFront do
   @spec describe_key_value_store(map(), String.t(), list()) ::
           {:ok, describe_key_value_store_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, entity_not_found()}
-          | {:error, invalid_argument()}
+          | {:error, describe_key_value_store_errors()}
   def describe_key_value_store(%Client{} = client, name, options \\ []) do
     url_path = "/2020-05-31/key-value-store/#{AWS.Util.encode_uri(name)}"
     headers = []
@@ -7325,8 +8835,7 @@ defmodule AWS.CloudFront do
   @spec get_cache_policy(map(), String.t(), list()) ::
           {:ok, get_cache_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, no_such_cache_policy()}
+          | {:error, get_cache_policy_errors()}
   def get_cache_policy(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/cache-policy/#{AWS.Util.encode_uri(id)}"
     headers = []
@@ -7359,8 +8868,7 @@ defmodule AWS.CloudFront do
   @spec get_cache_policy_config(map(), String.t(), list()) ::
           {:ok, get_cache_policy_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, no_such_cache_policy()}
+          | {:error, get_cache_policy_config_errors()}
   def get_cache_policy_config(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/cache-policy/#{AWS.Util.encode_uri(id)}/config"
     headers = []
@@ -7384,8 +8892,7 @@ defmodule AWS.CloudFront do
   @spec get_cloud_front_origin_access_identity(map(), String.t(), list()) ::
           {:ok, get_cloud_front_origin_access_identity_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, no_such_cloud_front_origin_access_identity()}
+          | {:error, get_cloud_front_origin_access_identity_errors()}
   def get_cloud_front_origin_access_identity(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/origin-access-identity/cloudfront/#{AWS.Util.encode_uri(id)}"
     headers = []
@@ -7409,8 +8916,7 @@ defmodule AWS.CloudFront do
   @spec get_cloud_front_origin_access_identity_config(map(), String.t(), list()) ::
           {:ok, get_cloud_front_origin_access_identity_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, no_such_cloud_front_origin_access_identity()}
+          | {:error, get_cloud_front_origin_access_identity_config_errors()}
   def get_cloud_front_origin_access_identity_config(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/origin-access-identity/cloudfront/#{AWS.Util.encode_uri(id)}/config"
     headers = []
@@ -7436,8 +8942,7 @@ defmodule AWS.CloudFront do
   @spec get_continuous_deployment_policy(map(), String.t(), list()) ::
           {:ok, get_continuous_deployment_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, no_such_continuous_deployment_policy()}
+          | {:error, get_continuous_deployment_policy_errors()}
   def get_continuous_deployment_policy(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/continuous-deployment-policy/#{AWS.Util.encode_uri(id)}"
     headers = []
@@ -7461,8 +8966,7 @@ defmodule AWS.CloudFront do
   @spec get_continuous_deployment_policy_config(map(), String.t(), list()) ::
           {:ok, get_continuous_deployment_policy_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, no_such_continuous_deployment_policy()}
+          | {:error, get_continuous_deployment_policy_config_errors()}
   def get_continuous_deployment_policy_config(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/continuous-deployment-policy/#{AWS.Util.encode_uri(id)}/config"
     headers = []
@@ -7486,8 +8990,7 @@ defmodule AWS.CloudFront do
   @spec get_distribution(map(), String.t(), list()) ::
           {:ok, get_distribution_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, no_such_distribution()}
+          | {:error, get_distribution_errors()}
   def get_distribution(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/distribution/#{AWS.Util.encode_uri(id)}"
     headers = []
@@ -7511,8 +9014,7 @@ defmodule AWS.CloudFront do
   @spec get_distribution_config(map(), String.t(), list()) ::
           {:ok, get_distribution_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, no_such_distribution()}
+          | {:error, get_distribution_config_errors()}
   def get_distribution_config(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/distribution/#{AWS.Util.encode_uri(id)}/config"
     headers = []
@@ -7536,8 +9038,7 @@ defmodule AWS.CloudFront do
   @spec get_field_level_encryption(map(), String.t(), list()) ::
           {:ok, get_field_level_encryption_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, no_such_field_level_encryption_config()}
+          | {:error, get_field_level_encryption_errors()}
   def get_field_level_encryption(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/field-level-encryption/#{AWS.Util.encode_uri(id)}"
     headers = []
@@ -7561,8 +9062,7 @@ defmodule AWS.CloudFront do
   @spec get_field_level_encryption_config(map(), String.t(), list()) ::
           {:ok, get_field_level_encryption_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, no_such_field_level_encryption_config()}
+          | {:error, get_field_level_encryption_config_errors()}
   def get_field_level_encryption_config(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/field-level-encryption/#{AWS.Util.encode_uri(id)}/config"
     headers = []
@@ -7586,8 +9086,7 @@ defmodule AWS.CloudFront do
   @spec get_field_level_encryption_profile(map(), String.t(), list()) ::
           {:ok, get_field_level_encryption_profile_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, no_such_field_level_encryption_profile()}
+          | {:error, get_field_level_encryption_profile_errors()}
   def get_field_level_encryption_profile(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/field-level-encryption-profile/#{AWS.Util.encode_uri(id)}"
     headers = []
@@ -7611,8 +9110,7 @@ defmodule AWS.CloudFront do
   @spec get_field_level_encryption_profile_config(map(), String.t(), list()) ::
           {:ok, get_field_level_encryption_profile_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, no_such_field_level_encryption_profile()}
+          | {:error, get_field_level_encryption_profile_config_errors()}
   def get_field_level_encryption_profile_config(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/field-level-encryption-profile/#{AWS.Util.encode_uri(id)}/config"
     headers = []
@@ -7643,8 +9141,7 @@ defmodule AWS.CloudFront do
   @spec get_function(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_function_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, no_such_function_exists()}
-          | {:error, unsupported_operation()}
+          | {:error, get_function_errors()}
   def get_function(%Client{} = client, name, stage \\ nil, options \\ []) do
     url_path = "/2020-05-31/function/#{AWS.Util.encode_uri(name)}"
     headers = []
@@ -7675,9 +9172,7 @@ defmodule AWS.CloudFront do
   @spec get_invalidation(map(), String.t(), String.t(), list()) ::
           {:ok, get_invalidation_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, no_such_distribution()}
-          | {:error, no_such_invalidation()}
+          | {:error, get_invalidation_errors()}
   def get_invalidation(%Client{} = client, distribution_id, id, options \\ []) do
     url_path =
       "/2020-05-31/distribution/#{AWS.Util.encode_uri(distribution_id)}/invalidation/#{AWS.Util.encode_uri(id)}"
@@ -7705,7 +9200,7 @@ defmodule AWS.CloudFront do
   @spec get_key_group(map(), String.t(), list()) ::
           {:ok, get_key_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, no_such_resource()}
+          | {:error, get_key_group_errors()}
   def get_key_group(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/key-group/#{AWS.Util.encode_uri(id)}"
     headers = []
@@ -7738,7 +9233,7 @@ defmodule AWS.CloudFront do
   @spec get_key_group_config(map(), String.t(), list()) ::
           {:ok, get_key_group_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, no_such_resource()}
+          | {:error, get_key_group_config_errors()}
   def get_key_group_config(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/key-group/#{AWS.Util.encode_uri(id)}/config"
     headers = []
@@ -7763,10 +9258,7 @@ defmodule AWS.CloudFront do
   @spec get_monitoring_subscription(map(), String.t(), list()) ::
           {:ok, get_monitoring_subscription_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, no_such_distribution()}
-          | {:error, no_such_monitoring_subscription()}
-          | {:error, unsupported_operation()}
+          | {:error, get_monitoring_subscription_errors()}
   def get_monitoring_subscription(%Client{} = client, distribution_id, options \\ []) do
     url_path =
       "/2020-05-31/distributions/#{AWS.Util.encode_uri(distribution_id)}/monitoring-subscription"
@@ -7785,8 +9277,7 @@ defmodule AWS.CloudFront do
   @spec get_origin_access_control(map(), String.t(), list()) ::
           {:ok, get_origin_access_control_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, no_such_origin_access_control()}
+          | {:error, get_origin_access_control_errors()}
   def get_origin_access_control(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/origin-access-control/#{AWS.Util.encode_uri(id)}"
     headers = []
@@ -7810,8 +9301,7 @@ defmodule AWS.CloudFront do
   @spec get_origin_access_control_config(map(), String.t(), list()) ::
           {:ok, get_origin_access_control_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, no_such_origin_access_control()}
+          | {:error, get_origin_access_control_config_errors()}
   def get_origin_access_control_config(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/origin-access-control/#{AWS.Util.encode_uri(id)}/config"
     headers = []
@@ -7850,8 +9340,7 @@ defmodule AWS.CloudFront do
   @spec get_origin_request_policy(map(), String.t(), list()) ::
           {:ok, get_origin_request_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, no_such_origin_request_policy()}
+          | {:error, get_origin_request_policy_errors()}
   def get_origin_request_policy(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/origin-request-policy/#{AWS.Util.encode_uri(id)}"
     headers = []
@@ -7883,8 +9372,7 @@ defmodule AWS.CloudFront do
   @spec get_origin_request_policy_config(map(), String.t(), list()) ::
           {:ok, get_origin_request_policy_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, no_such_origin_request_policy()}
+          | {:error, get_origin_request_policy_config_errors()}
   def get_origin_request_policy_config(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/origin-request-policy/#{AWS.Util.encode_uri(id)}/config"
     headers = []
@@ -7908,8 +9396,7 @@ defmodule AWS.CloudFront do
   @spec get_public_key(map(), String.t(), list()) ::
           {:ok, get_public_key_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, no_such_public_key()}
+          | {:error, get_public_key_errors()}
   def get_public_key(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/public-key/#{AWS.Util.encode_uri(id)}"
     headers = []
@@ -7933,8 +9420,7 @@ defmodule AWS.CloudFront do
   @spec get_public_key_config(map(), String.t(), list()) ::
           {:ok, get_public_key_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, no_such_public_key()}
+          | {:error, get_public_key_config_errors()}
   def get_public_key_config(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/public-key/#{AWS.Util.encode_uri(id)}/config"
     headers = []
@@ -7964,9 +9450,7 @@ defmodule AWS.CloudFront do
   @spec get_realtime_log_config(map(), get_realtime_log_config_request(), list()) ::
           {:ok, get_realtime_log_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, invalid_argument()}
-          | {:error, no_such_realtime_log_config()}
+          | {:error, get_realtime_log_config_errors()}
   def get_realtime_log_config(%Client{} = client, input, options \\ []) do
     url_path = "/2020-05-31/get-realtime-log-config"
     headers = []
@@ -8004,8 +9488,7 @@ defmodule AWS.CloudFront do
   @spec get_response_headers_policy(map(), String.t(), list()) ::
           {:ok, get_response_headers_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, no_such_response_headers_policy()}
+          | {:error, get_response_headers_policy_errors()}
   def get_response_headers_policy(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/response-headers-policy/#{AWS.Util.encode_uri(id)}"
     headers = []
@@ -8036,8 +9519,7 @@ defmodule AWS.CloudFront do
   @spec get_response_headers_policy_config(map(), String.t(), list()) ::
           {:ok, get_response_headers_policy_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, no_such_response_headers_policy()}
+          | {:error, get_response_headers_policy_config_errors()}
   def get_response_headers_policy_config(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/response-headers-policy/#{AWS.Util.encode_uri(id)}/config"
     headers = []
@@ -8062,8 +9544,7 @@ defmodule AWS.CloudFront do
   @spec get_streaming_distribution(map(), String.t(), list()) ::
           {:ok, get_streaming_distribution_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, no_such_streaming_distribution()}
+          | {:error, get_streaming_distribution_errors()}
   def get_streaming_distribution(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/streaming-distribution/#{AWS.Util.encode_uri(id)}"
     headers = []
@@ -8087,8 +9568,7 @@ defmodule AWS.CloudFront do
   @spec get_streaming_distribution_config(map(), String.t(), list()) ::
           {:ok, get_streaming_distribution_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, no_such_streaming_distribution()}
+          | {:error, get_streaming_distribution_config_errors()}
   def get_streaming_distribution_config(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/streaming-distribution/#{AWS.Util.encode_uri(id)}/config"
     headers = []
@@ -8125,9 +9605,7 @@ defmodule AWS.CloudFront do
   @spec list_cache_policies(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_cache_policies_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, invalid_argument()}
-          | {:error, no_such_cache_policy()}
+          | {:error, list_cache_policies_errors()}
   def list_cache_policies(
         %Client{} = client,
         marker \\ nil,
@@ -8176,7 +9654,7 @@ defmodule AWS.CloudFront do
         ) ::
           {:ok, list_cloud_front_origin_access_identities_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_argument()}
+          | {:error, list_cloud_front_origin_access_identities_errors()}
   def list_cloud_front_origin_access_identities(
         %Client{} = client,
         marker \\ nil,
@@ -8255,8 +9733,7 @@ defmodule AWS.CloudFront do
         ) ::
           {:ok, list_conflicting_aliases_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_argument()}
-          | {:error, no_such_distribution()}
+          | {:error, list_conflicting_aliases_errors()}
   def list_conflicting_aliases(
         %Client{} = client,
         alias,
@@ -8318,9 +9795,7 @@ defmodule AWS.CloudFront do
   @spec list_continuous_deployment_policies(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_continuous_deployment_policies_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, invalid_argument()}
-          | {:error, no_such_continuous_deployment_policy()}
+          | {:error, list_continuous_deployment_policies_errors()}
   def list_continuous_deployment_policies(
         %Client{} = client,
         marker \\ nil,
@@ -8356,7 +9831,7 @@ defmodule AWS.CloudFront do
   @spec list_distributions(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_distributions_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_argument()}
+          | {:error, list_distributions_errors()}
   def list_distributions(%Client{} = client, marker \\ nil, max_items \\ nil, options \\ []) do
     url_path = "/2020-05-31/distribution"
     headers = []
@@ -8404,9 +9879,7 @@ defmodule AWS.CloudFront do
         ) ::
           {:ok, list_distributions_by_cache_policy_id_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, invalid_argument()}
-          | {:error, no_such_cache_policy()}
+          | {:error, list_distributions_by_cache_policy_id_errors()}
   def list_distributions_by_cache_policy_id(
         %Client{} = client,
         cache_policy_id,
@@ -8460,8 +9933,7 @@ defmodule AWS.CloudFront do
         ) ::
           {:ok, list_distributions_by_key_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_argument()}
-          | {:error, no_such_resource()}
+          | {:error, list_distributions_by_key_group_errors()}
   def list_distributions_by_key_group(
         %Client{} = client,
         key_group_id,
@@ -8515,9 +9987,7 @@ defmodule AWS.CloudFront do
         ) ::
           {:ok, list_distributions_by_origin_request_policy_id_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, invalid_argument()}
-          | {:error, no_such_origin_request_policy()}
+          | {:error, list_distributions_by_origin_request_policy_id_errors()}
   def list_distributions_by_origin_request_policy_id(
         %Client{} = client,
         origin_request_policy_id,
@@ -8577,7 +10047,7 @@ defmodule AWS.CloudFront do
         ) ::
           {:ok, list_distributions_by_realtime_log_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_argument()}
+          | {:error, list_distributions_by_realtime_log_config_errors()}
   def list_distributions_by_realtime_log_config(%Client{} = client, input, options \\ []) do
     url_path = "/2020-05-31/distributionsByRealtimeLogConfig"
     headers = []
@@ -8621,9 +10091,7 @@ defmodule AWS.CloudFront do
         ) ::
           {:ok, list_distributions_by_response_headers_policy_id_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, invalid_argument()}
-          | {:error, no_such_response_headers_policy()}
+          | {:error, list_distributions_by_response_headers_policy_id_errors()}
   def list_distributions_by_response_headers_policy_id(
         %Client{} = client,
         response_headers_policy_id,
@@ -8668,8 +10136,7 @@ defmodule AWS.CloudFront do
         ) ::
           {:ok, list_distributions_by_web_acl_id_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_argument()}
-          | {:error, invalid_web_acl_id()}
+          | {:error, list_distributions_by_web_acl_id_errors()}
   def list_distributions_by_web_acl_id(
         %Client{} = client,
         web_acl_id,
@@ -8708,7 +10175,7 @@ defmodule AWS.CloudFront do
   @spec list_field_level_encryption_configs(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_field_level_encryption_configs_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_argument()}
+          | {:error, list_field_level_encryption_configs_errors()}
   def list_field_level_encryption_configs(
         %Client{} = client,
         marker \\ nil,
@@ -8746,7 +10213,7 @@ defmodule AWS.CloudFront do
   @spec list_field_level_encryption_profiles(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_field_level_encryption_profiles_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_argument()}
+          | {:error, list_field_level_encryption_profiles_errors()}
   def list_field_level_encryption_profiles(
         %Client{} = client,
         marker \\ nil,
@@ -8794,8 +10261,7 @@ defmodule AWS.CloudFront do
   @spec list_functions(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_functions_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_argument()}
-          | {:error, unsupported_operation()}
+          | {:error, list_functions_errors()}
   def list_functions(
         %Client{} = client,
         marker \\ nil,
@@ -8839,9 +10305,7 @@ defmodule AWS.CloudFront do
   @spec list_invalidations(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_invalidations_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, invalid_argument()}
-          | {:error, no_such_distribution()}
+          | {:error, list_invalidations_errors()}
   def list_invalidations(
         %Client{} = client,
         distribution_id,
@@ -8887,7 +10351,7 @@ defmodule AWS.CloudFront do
   @spec list_key_groups(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_key_groups_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_argument()}
+          | {:error, list_key_groups_errors()}
   def list_key_groups(%Client{} = client, marker \\ nil, max_items \\ nil, options \\ []) do
     url_path = "/2020-05-31/key-group"
     headers = []
@@ -8918,8 +10382,7 @@ defmodule AWS.CloudFront do
   @spec list_key_value_stores(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_key_value_stores_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, invalid_argument()}
+          | {:error, list_key_value_stores_errors()}
   def list_key_value_stores(
         %Client{} = client,
         marker \\ nil,
@@ -8973,7 +10436,7 @@ defmodule AWS.CloudFront do
   @spec list_origin_access_controls(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_origin_access_controls_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_argument()}
+          | {:error, list_origin_access_controls_errors()}
   def list_origin_access_controls(
         %Client{} = client,
         marker \\ nil,
@@ -9028,9 +10491,7 @@ defmodule AWS.CloudFront do
         ) ::
           {:ok, list_origin_request_policies_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, invalid_argument()}
-          | {:error, no_such_origin_request_policy()}
+          | {:error, list_origin_request_policies_errors()}
   def list_origin_request_policies(
         %Client{} = client,
         marker \\ nil,
@@ -9074,7 +10535,7 @@ defmodule AWS.CloudFront do
   @spec list_public_keys(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_public_keys_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_argument()}
+          | {:error, list_public_keys_errors()}
   def list_public_keys(%Client{} = client, marker \\ nil, max_items \\ nil, options \\ []) do
     url_path = "/2020-05-31/public-key"
     headers = []
@@ -9114,9 +10575,7 @@ defmodule AWS.CloudFront do
   @spec list_realtime_log_configs(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_realtime_log_configs_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, invalid_argument()}
-          | {:error, no_such_realtime_log_config()}
+          | {:error, list_realtime_log_configs_errors()}
   def list_realtime_log_configs(
         %Client{} = client,
         marker \\ nil,
@@ -9171,9 +10630,7 @@ defmodule AWS.CloudFront do
         ) ::
           {:ok, list_response_headers_policies_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, invalid_argument()}
-          | {:error, no_such_response_headers_policy()}
+          | {:error, list_response_headers_policies_errors()}
   def list_response_headers_policies(
         %Client{} = client,
         marker \\ nil,
@@ -9217,7 +10674,7 @@ defmodule AWS.CloudFront do
   @spec list_streaming_distributions(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_streaming_distributions_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_argument()}
+          | {:error, list_streaming_distributions_errors()}
   def list_streaming_distributions(
         %Client{} = client,
         marker \\ nil,
@@ -9253,10 +10710,7 @@ defmodule AWS.CloudFront do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, invalid_argument()}
-          | {:error, invalid_tagging()}
-          | {:error, no_such_resource()}
+          | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource, options \\ []) do
     url_path = "/2020-05-31/tagging"
     headers = []
@@ -9295,11 +10749,7 @@ defmodule AWS.CloudFront do
   @spec publish_function(map(), String.t(), publish_function_request(), list()) ::
           {:ok, publish_function_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_argument()}
-          | {:error, invalid_if_match_version()}
-          | {:error, no_such_function_exists()}
-          | {:error, precondition_failed()}
-          | {:error, unsupported_operation()}
+          | {:error, publish_function_errors()}
   def publish_function(%Client{} = client, name, input, options \\ []) do
     url_path = "/2020-05-31/function/#{AWS.Util.encode_uri(name)}/publish"
 
@@ -9332,10 +10782,7 @@ defmodule AWS.CloudFront do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, invalid_argument()}
-          | {:error, invalid_tagging()}
-          | {:error, no_such_resource()}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/2020-05-31/tagging?Operation=Tag"
     headers = []
@@ -9383,11 +10830,7 @@ defmodule AWS.CloudFront do
   @spec test_function(map(), String.t(), test_function_request(), list()) ::
           {:ok, test_function_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_argument()}
-          | {:error, invalid_if_match_version()}
-          | {:error, no_such_function_exists()}
-          | {:error, test_function_failed()}
-          | {:error, unsupported_operation()}
+          | {:error, test_function_errors()}
   def test_function(%Client{} = client, name, input, options \\ []) do
     url_path = "/2020-05-31/function/#{AWS.Util.encode_uri(name)}/test"
 
@@ -9420,10 +10863,7 @@ defmodule AWS.CloudFront do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, invalid_argument()}
-          | {:error, invalid_tagging()}
-          | {:error, no_such_resource()}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/2020-05-31/tagging?Operation=Untag"
     headers = []
@@ -9473,17 +10913,7 @@ defmodule AWS.CloudFront do
   @spec update_cache_policy(map(), String.t(), update_cache_policy_request(), list()) ::
           {:ok, update_cache_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, cache_policy_already_exists()}
-          | {:error, illegal_update()}
-          | {:error, inconsistent_quantities()}
-          | {:error, invalid_argument()}
-          | {:error, invalid_if_match_version()}
-          | {:error, no_such_cache_policy()}
-          | {:error, precondition_failed()}
-          | {:error, too_many_cookies_in_cache_policy()}
-          | {:error, too_many_headers_in_cache_policy()}
-          | {:error, too_many_query_strings_in_cache_policy()}
+          | {:error, update_cache_policy_errors()}
   def update_cache_policy(%Client{} = client, id, input, options \\ []) do
     url_path = "/2020-05-31/cache-policy/#{AWS.Util.encode_uri(id)}"
 
@@ -9518,14 +10948,7 @@ defmodule AWS.CloudFront do
         ) ::
           {:ok, update_cloud_front_origin_access_identity_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, illegal_update()}
-          | {:error, inconsistent_quantities()}
-          | {:error, invalid_argument()}
-          | {:error, invalid_if_match_version()}
-          | {:error, missing_body()}
-          | {:error, no_such_cloud_front_origin_access_identity()}
-          | {:error, precondition_failed()}
+          | {:error, update_cloud_front_origin_access_identity_errors()}
   def update_cloud_front_origin_access_identity(%Client{} = client, id, input, options \\ []) do
     url_path = "/2020-05-31/origin-access-identity/cloudfront/#{AWS.Util.encode_uri(id)}/config"
 
@@ -9585,13 +11008,7 @@ defmodule AWS.CloudFront do
         ) ::
           {:ok, update_continuous_deployment_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, inconsistent_quantities()}
-          | {:error, invalid_argument()}
-          | {:error, invalid_if_match_version()}
-          | {:error, no_such_continuous_deployment_policy()}
-          | {:error, precondition_failed()}
-          | {:error, staging_distribution_in_use()}
+          | {:error, update_continuous_deployment_policy_errors()}
   def update_continuous_deployment_policy(%Client{} = client, id, input, options \\ []) do
     url_path = "/2020-05-31/continuous-deployment-policy/#{AWS.Util.encode_uri(id)}"
 
@@ -9653,72 +11070,7 @@ defmodule AWS.CloudFront do
   @spec update_distribution(map(), String.t(), update_distribution_request(), list()) ::
           {:ok, update_distribution_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, cname_already_exists()}
-          | {:error, continuous_deployment_policy_in_use()}
-          | {:error, illegal_field_level_encryption_config_association_with_cache_behavior()}
-          | {:error, illegal_origin_access_configuration()}
-          | {:error, illegal_update()}
-          | {:error, inconsistent_quantities()}
-          | {:error, invalid_argument()}
-          | {:error, invalid_default_root_object()}
-          | {:error, invalid_domain_name_for_origin_access_control()}
-          | {:error, invalid_error_code()}
-          | {:error, invalid_forward_cookies()}
-          | {:error, invalid_function_association()}
-          | {:error, invalid_geo_restriction_parameter()}
-          | {:error, invalid_headers_for_s3_origin()}
-          | {:error, invalid_if_match_version()}
-          | {:error, invalid_lambda_function_association()}
-          | {:error, invalid_location_code()}
-          | {:error, invalid_minimum_protocol_version()}
-          | {:error, invalid_origin_access_control()}
-          | {:error, invalid_origin_access_identity()}
-          | {:error, invalid_origin_keepalive_timeout()}
-          | {:error, invalid_origin_read_timeout()}
-          | {:error, invalid_query_string_parameters()}
-          | {:error, invalid_relative_path()}
-          | {:error, invalid_required_protocol()}
-          | {:error, invalid_response_code()}
-          | {:error, invalid_t_t_l_order()}
-          | {:error, invalid_viewer_certificate()}
-          | {:error, invalid_web_acl_id()}
-          | {:error, missing_body()}
-          | {:error, no_such_cache_policy()}
-          | {:error, no_such_continuous_deployment_policy()}
-          | {:error, no_such_distribution()}
-          | {:error, no_such_field_level_encryption_config()}
-          | {:error, no_such_origin()}
-          | {:error, no_such_origin_request_policy()}
-          | {:error, no_such_realtime_log_config()}
-          | {:error, no_such_response_headers_policy()}
-          | {:error, precondition_failed()}
-          | {:error, realtime_log_config_owner_mismatch()}
-          | {:error, staging_distribution_in_use()}
-          | {:error, too_many_cache_behaviors()}
-          | {:error, too_many_certificates()}
-          | {:error, too_many_cookie_names_in_white_list()}
-          | {:error, too_many_distribution_cnames()}
-          | {:error, too_many_distributions_associated_to_cache_policy()}
-          | {:error, too_many_distributions_associated_to_field_level_encryption_config()}
-          | {:error, too_many_distributions_associated_to_key_group()}
-          | {:error, too_many_distributions_associated_to_origin_access_control()}
-          | {:error, too_many_distributions_associated_to_origin_request_policy()}
-          | {:error, too_many_distributions_associated_to_response_headers_policy()}
-          | {:error, too_many_distributions_with_function_associations()}
-          | {:error, too_many_distributions_with_lambda_associations()}
-          | {:error, too_many_distributions_with_single_function_arn()}
-          | {:error, too_many_function_associations()}
-          | {:error, too_many_headers_in_forwarded_values()}
-          | {:error, too_many_key_groups_associated_to_distribution()}
-          | {:error, too_many_lambda_function_associations()}
-          | {:error, too_many_origin_custom_headers()}
-          | {:error, too_many_origin_groups_per_distribution()}
-          | {:error, too_many_origins()}
-          | {:error, too_many_query_string_parameters()}
-          | {:error, too_many_trusted_signers()}
-          | {:error, trusted_key_group_does_not_exist()}
-          | {:error, trusted_signer_does_not_exist()}
+          | {:error, update_distribution_errors()}
   def update_distribution(%Client{} = client, id, input, options \\ []) do
     url_path = "/2020-05-31/distribution/#{AWS.Util.encode_uri(id)}/config"
 
@@ -9782,67 +11134,7 @@ defmodule AWS.CloudFront do
         ) ::
           {:ok, update_distribution_with_staging_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, cname_already_exists()}
-          | {:error, illegal_field_level_encryption_config_association_with_cache_behavior()}
-          | {:error, illegal_update()}
-          | {:error, inconsistent_quantities()}
-          | {:error, invalid_argument()}
-          | {:error, invalid_default_root_object()}
-          | {:error, invalid_error_code()}
-          | {:error, invalid_forward_cookies()}
-          | {:error, invalid_function_association()}
-          | {:error, invalid_geo_restriction_parameter()}
-          | {:error, invalid_headers_for_s3_origin()}
-          | {:error, invalid_if_match_version()}
-          | {:error, invalid_lambda_function_association()}
-          | {:error, invalid_location_code()}
-          | {:error, invalid_minimum_protocol_version()}
-          | {:error, invalid_origin_access_control()}
-          | {:error, invalid_origin_access_identity()}
-          | {:error, invalid_origin_keepalive_timeout()}
-          | {:error, invalid_origin_read_timeout()}
-          | {:error, invalid_query_string_parameters()}
-          | {:error, invalid_relative_path()}
-          | {:error, invalid_required_protocol()}
-          | {:error, invalid_response_code()}
-          | {:error, invalid_t_t_l_order()}
-          | {:error, invalid_viewer_certificate()}
-          | {:error, invalid_web_acl_id()}
-          | {:error, missing_body()}
-          | {:error, no_such_cache_policy()}
-          | {:error, no_such_distribution()}
-          | {:error, no_such_field_level_encryption_config()}
-          | {:error, no_such_origin()}
-          | {:error, no_such_origin_request_policy()}
-          | {:error, no_such_realtime_log_config()}
-          | {:error, no_such_response_headers_policy()}
-          | {:error, precondition_failed()}
-          | {:error, realtime_log_config_owner_mismatch()}
-          | {:error, too_many_cache_behaviors()}
-          | {:error, too_many_certificates()}
-          | {:error, too_many_cookie_names_in_white_list()}
-          | {:error, too_many_distribution_cnames()}
-          | {:error, too_many_distributions_associated_to_cache_policy()}
-          | {:error, too_many_distributions_associated_to_field_level_encryption_config()}
-          | {:error, too_many_distributions_associated_to_key_group()}
-          | {:error, too_many_distributions_associated_to_origin_access_control()}
-          | {:error, too_many_distributions_associated_to_origin_request_policy()}
-          | {:error, too_many_distributions_associated_to_response_headers_policy()}
-          | {:error, too_many_distributions_with_function_associations()}
-          | {:error, too_many_distributions_with_lambda_associations()}
-          | {:error, too_many_distributions_with_single_function_arn()}
-          | {:error, too_many_function_associations()}
-          | {:error, too_many_headers_in_forwarded_values()}
-          | {:error, too_many_key_groups_associated_to_distribution()}
-          | {:error, too_many_lambda_function_associations()}
-          | {:error, too_many_origin_custom_headers()}
-          | {:error, too_many_origin_groups_per_distribution()}
-          | {:error, too_many_origins()}
-          | {:error, too_many_query_string_parameters()}
-          | {:error, too_many_trusted_signers()}
-          | {:error, trusted_key_group_does_not_exist()}
-          | {:error, trusted_signer_does_not_exist()}
+          | {:error, update_distribution_with_staging_config_errors()}
   def update_distribution_with_staging_config(%Client{} = client, id, input, options \\ []) do
     url_path = "/2020-05-31/distribution/#{AWS.Util.encode_uri(id)}/promote-staging-config"
 
@@ -9881,17 +11173,7 @@ defmodule AWS.CloudFront do
         ) ::
           {:ok, update_field_level_encryption_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, illegal_update()}
-          | {:error, inconsistent_quantities()}
-          | {:error, invalid_argument()}
-          | {:error, invalid_if_match_version()}
-          | {:error, no_such_field_level_encryption_config()}
-          | {:error, no_such_field_level_encryption_profile()}
-          | {:error, precondition_failed()}
-          | {:error, query_arg_profile_empty()}
-          | {:error, too_many_field_level_encryption_content_type_profiles()}
-          | {:error, too_many_field_level_encryption_query_arg_profiles()}
+          | {:error, update_field_level_encryption_config_errors()}
   def update_field_level_encryption_config(%Client{} = client, id, input, options \\ []) do
     url_path = "/2020-05-31/field-level-encryption/#{AWS.Util.encode_uri(id)}/config"
 
@@ -9926,18 +11208,7 @@ defmodule AWS.CloudFront do
         ) ::
           {:ok, update_field_level_encryption_profile_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, field_level_encryption_profile_already_exists()}
-          | {:error, field_level_encryption_profile_size_exceeded()}
-          | {:error, illegal_update()}
-          | {:error, inconsistent_quantities()}
-          | {:error, invalid_argument()}
-          | {:error, invalid_if_match_version()}
-          | {:error, no_such_field_level_encryption_profile()}
-          | {:error, no_such_public_key()}
-          | {:error, precondition_failed()}
-          | {:error, too_many_field_level_encryption_encryption_entities()}
-          | {:error, too_many_field_level_encryption_field_patterns()}
+          | {:error, update_field_level_encryption_profile_errors()}
   def update_field_level_encryption_profile(%Client{} = client, id, input, options \\ []) do
     url_path = "/2020-05-31/field-level-encryption-profile/#{AWS.Util.encode_uri(id)}/config"
 
@@ -9975,12 +11246,7 @@ defmodule AWS.CloudFront do
   @spec update_function(map(), String.t(), update_function_request(), list()) ::
           {:ok, update_function_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, function_size_limit_exceeded()}
-          | {:error, invalid_argument()}
-          | {:error, invalid_if_match_version()}
-          | {:error, no_such_function_exists()}
-          | {:error, precondition_failed()}
-          | {:error, unsupported_operation()}
+          | {:error, update_function_errors()}
   def update_function(%Client{} = client, name, input, options \\ []) do
     url_path = "/2020-05-31/function/#{AWS.Util.encode_uri(name)}"
 
@@ -10028,12 +11294,7 @@ defmodule AWS.CloudFront do
   @spec update_key_group(map(), String.t(), update_key_group_request(), list()) ::
           {:ok, update_key_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, invalid_argument()}
-          | {:error, invalid_if_match_version()}
-          | {:error, key_group_already_exists()}
-          | {:error, no_such_resource()}
-          | {:error, precondition_failed()}
-          | {:error, too_many_public_keys_in_key_group()}
+          | {:error, update_key_group_errors()}
   def update_key_group(%Client{} = client, id, input, options \\ []) do
     url_path = "/2020-05-31/key-group/#{AWS.Util.encode_uri(id)}"
 
@@ -10063,11 +11324,7 @@ defmodule AWS.CloudFront do
   @spec update_key_value_store(map(), String.t(), update_key_value_store_request(), list()) ::
           {:ok, update_key_value_store_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, entity_not_found()}
-          | {:error, invalid_argument()}
-          | {:error, invalid_if_match_version()}
-          | {:error, precondition_failed()}
+          | {:error, update_key_value_store_errors()}
   def update_key_value_store(%Client{} = client, name, input, options \\ []) do
     url_path = "/2020-05-31/key-value-store/#{AWS.Util.encode_uri(name)}"
 
@@ -10102,13 +11359,7 @@ defmodule AWS.CloudFront do
         ) ::
           {:ok, update_origin_access_control_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, illegal_update()}
-          | {:error, invalid_argument()}
-          | {:error, invalid_if_match_version()}
-          | {:error, no_such_origin_access_control()}
-          | {:error, origin_access_control_already_exists()}
-          | {:error, precondition_failed()}
+          | {:error, update_origin_access_control_errors()}
   def update_origin_access_control(%Client{} = client, id, input, options \\ []) do
     url_path = "/2020-05-31/origin-access-control/#{AWS.Util.encode_uri(id)}/config"
 
@@ -10162,17 +11413,7 @@ defmodule AWS.CloudFront do
         ) ::
           {:ok, update_origin_request_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, illegal_update()}
-          | {:error, inconsistent_quantities()}
-          | {:error, invalid_argument()}
-          | {:error, invalid_if_match_version()}
-          | {:error, no_such_origin_request_policy()}
-          | {:error, origin_request_policy_already_exists()}
-          | {:error, precondition_failed()}
-          | {:error, too_many_cookies_in_origin_request_policy()}
-          | {:error, too_many_headers_in_origin_request_policy()}
-          | {:error, too_many_query_strings_in_origin_request_policy()}
+          | {:error, update_origin_request_policy_errors()}
   def update_origin_request_policy(%Client{} = client, id, input, options \\ []) do
     url_path = "/2020-05-31/origin-request-policy/#{AWS.Util.encode_uri(id)}"
 
@@ -10205,13 +11446,7 @@ defmodule AWS.CloudFront do
   @spec update_public_key(map(), String.t(), update_public_key_request(), list()) ::
           {:ok, update_public_key_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, cannot_change_immutable_public_key_fields()}
-          | {:error, illegal_update()}
-          | {:error, invalid_argument()}
-          | {:error, invalid_if_match_version()}
-          | {:error, no_such_public_key()}
-          | {:error, precondition_failed()}
+          | {:error, update_public_key_errors()}
   def update_public_key(%Client{} = client, id, input, options \\ []) do
     url_path = "/2020-05-31/public-key/#{AWS.Util.encode_uri(id)}/config"
 
@@ -10263,9 +11498,7 @@ defmodule AWS.CloudFront do
   @spec update_realtime_log_config(map(), update_realtime_log_config_request(), list()) ::
           {:ok, update_realtime_log_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, invalid_argument()}
-          | {:error, no_such_realtime_log_config()}
+          | {:error, update_realtime_log_config_errors()}
   def update_realtime_log_config(%Client{} = client, input, options \\ []) do
     url_path = "/2020-05-31/realtime-log-config"
     headers = []
@@ -10306,17 +11539,7 @@ defmodule AWS.CloudFront do
         ) ::
           {:ok, update_response_headers_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, illegal_update()}
-          | {:error, inconsistent_quantities()}
-          | {:error, invalid_argument()}
-          | {:error, invalid_if_match_version()}
-          | {:error, no_such_response_headers_policy()}
-          | {:error, precondition_failed()}
-          | {:error, response_headers_policy_already_exists()}
-          | {:error, too_long_c_s_p_in_response_headers_policy()}
-          | {:error, too_many_custom_headers_in_response_headers_policy()}
-          | {:error, too_many_remove_headers_in_response_headers_policy()}
+          | {:error, update_response_headers_policy_errors()}
   def update_response_headers_policy(%Client{} = client, id, input, options \\ []) do
     url_path = "/2020-05-31/response-headers-policy/#{AWS.Util.encode_uri(id)}"
 
@@ -10351,20 +11574,7 @@ defmodule AWS.CloudFront do
         ) ::
           {:ok, update_streaming_distribution_result(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied()}
-          | {:error, cname_already_exists()}
-          | {:error, illegal_update()}
-          | {:error, inconsistent_quantities()}
-          | {:error, invalid_argument()}
-          | {:error, invalid_if_match_version()}
-          | {:error, invalid_origin_access_control()}
-          | {:error, invalid_origin_access_identity()}
-          | {:error, missing_body()}
-          | {:error, no_such_streaming_distribution()}
-          | {:error, precondition_failed()}
-          | {:error, too_many_streaming_distribution_cnames()}
-          | {:error, too_many_trusted_signers()}
-          | {:error, trusted_signer_does_not_exist()}
+          | {:error, update_streaming_distribution_errors()}
   def update_streaming_distribution(%Client{} = client, id, input, options \\ []) do
     url_path = "/2020-05-31/streaming-distribution/#{AWS.Util.encode_uri(id)}/config"
 

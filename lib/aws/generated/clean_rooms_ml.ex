@@ -28,765 +28,980 @@ defmodule AWS.CleanRoomsML do
   @typedoc """
 
   ## Example:
-  update_configured_audience_model_response() :: %{
-    "configuredAudienceModelArn" => String.t()
-  }
+
+      update_configured_audience_model_response() :: %{
+        "configuredAudienceModelArn" => String.t()
+      }
+
   """
   @type update_configured_audience_model_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_audience_model_response() :: %{
-    "audienceModelArn" => String.t()
-  }
+
+      create_audience_model_response() :: %{
+        "audienceModelArn" => String.t()
+      }
+
   """
   @type create_audience_model_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_request() :: %{
-    required("tags") => map()
-  }
+
+      tag_resource_request() :: %{
+        required("tags") => map()
+      }
+
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  audience_quality_metrics() :: %{
-    "relevanceMetrics" => list(relevance_metric()())
-  }
+
+      audience_quality_metrics() :: %{
+        "relevanceMetrics" => list(relevance_metric()())
+      }
+
   """
   @type audience_quality_metrics() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_audience_generation_job_response() :: %{
-    "audienceGenerationJobArn" => String.t()
-  }
+
+      start_audience_generation_job_response() :: %{
+        "audienceGenerationJobArn" => String.t()
+      }
+
   """
   @type start_audience_generation_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_audience_generation_job_response() :: %{
-    "audienceGenerationJobArn" => String.t(),
-    "collaborationId" => String.t(),
-    "configuredAudienceModelArn" => String.t(),
-    "createTime" => [non_neg_integer()],
-    "description" => String.t(),
-    "includeSeedInOutput" => [boolean()],
-    "metrics" => audience_quality_metrics(),
-    "name" => String.t(),
-    "seedAudience" => audience_generation_job_data_source(),
-    "startedBy" => String.t(),
-    "status" => list(any()),
-    "statusDetails" => status_details(),
-    "tags" => map(),
-    "updateTime" => [non_neg_integer()]
-  }
+
+      get_audience_generation_job_response() :: %{
+        "audienceGenerationJobArn" => String.t(),
+        "collaborationId" => String.t(),
+        "configuredAudienceModelArn" => String.t(),
+        "createTime" => [non_neg_integer()],
+        "description" => String.t(),
+        "includeSeedInOutput" => [boolean()],
+        "metrics" => audience_quality_metrics(),
+        "name" => String.t(),
+        "seedAudience" => audience_generation_job_data_source(),
+        "startedBy" => String.t(),
+        "status" => list(any()),
+        "statusDetails" => status_details(),
+        "tags" => map(),
+        "updateTime" => [non_neg_integer()]
+      }
+
   """
   @type get_audience_generation_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_training_dataset_response() :: %{
-    "createTime" => [non_neg_integer()],
-    "description" => String.t(),
-    "name" => String.t(),
-    "roleArn" => String.t(),
-    "status" => list(any()),
-    "tags" => map(),
-    "trainingData" => list(dataset()()),
-    "trainingDatasetArn" => String.t(),
-    "updateTime" => [non_neg_integer()]
-  }
+
+      get_training_dataset_response() :: %{
+        "createTime" => [non_neg_integer()],
+        "description" => String.t(),
+        "name" => String.t(),
+        "roleArn" => String.t(),
+        "status" => list(any()),
+        "tags" => map(),
+        "trainingData" => list(dataset()()),
+        "trainingDatasetArn" => String.t(),
+        "updateTime" => [non_neg_integer()]
+      }
+
   """
   @type get_training_dataset_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_configured_audience_model_response() :: %{
-    "configuredAudienceModelArn" => String.t()
-  }
+
+      create_configured_audience_model_response() :: %{
+        "configuredAudienceModelArn" => String.t()
+      }
+
   """
   @type create_configured_audience_model_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_response() :: %{
 
-  }
+      untag_resource_response() :: %{}
+
   """
-  @type untag_resource_response() :: %{String.t() => any()}
+  @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_configured_audience_models_request() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t()
-  }
+
+      list_configured_audience_models_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
   """
   @type list_configured_audience_models_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_training_datasets_request() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t()
-  }
+
+      list_training_datasets_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
   """
   @type list_training_datasets_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_training_dataset_request() :: %{
 
-  }
+      get_training_dataset_request() :: %{}
+
   """
-  @type get_training_dataset_request() :: %{String.t() => any()}
+  @type get_training_dataset_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  relevance_metric() :: %{
-    "audienceSize" => audience_size(),
-    "score" => [float()]
-  }
+
+      relevance_metric() :: %{
+        "audienceSize" => audience_size(),
+        "score" => [float()]
+      }
+
   """
   @type relevance_metric() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_configured_audience_model_request() :: %{
-    optional("audienceSizeConfig") => audience_size_config(),
-    optional("childResourceTagOnCreatePolicy") => list(any()),
-    optional("description") => String.t(),
-    optional("minMatchingSeedSize") => integer(),
-    optional("tags") => map(),
-    required("audienceModelArn") => String.t(),
-    required("name") => String.t(),
-    required("outputConfig") => configured_audience_model_output_config(),
-    required("sharedAudienceMetrics") => list(list(any())())
-  }
+
+      create_configured_audience_model_request() :: %{
+        optional("audienceSizeConfig") => audience_size_config(),
+        optional("childResourceTagOnCreatePolicy") => list(any()),
+        optional("description") => String.t(),
+        optional("minMatchingSeedSize") => integer(),
+        optional("tags") => map(),
+        required("audienceModelArn") => String.t(),
+        required("name") => String.t(),
+        required("outputConfig") => configured_audience_model_output_config(),
+        required("sharedAudienceMetrics") => list(list(any())())
+      }
+
   """
   @type create_configured_audience_model_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_configured_audience_model_request() :: %{
 
-  }
+      delete_configured_audience_model_request() :: %{}
+
   """
-  @type delete_configured_audience_model_request() :: %{String.t() => any()}
+  @type delete_configured_audience_model_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  untag_resource_request() :: %{
-    required("tagKeys") => list(String.t()())
-  }
+
+      untag_resource_request() :: %{
+        required("tagKeys") => list(String.t()())
+      }
+
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  status_details() :: %{
-    "message" => [String.t()],
-    "statusCode" => [String.t()]
-  }
+
+      status_details() :: %{
+        "message" => [String.t()],
+        "statusCode" => [String.t()]
+      }
+
   """
   @type status_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_audience_export_job_request() :: %{
-    optional("description") => String.t(),
-    required("audienceGenerationJobArn") => String.t(),
-    required("audienceSize") => audience_size(),
-    required("name") => String.t()
-  }
+
+      start_audience_export_job_request() :: %{
+        optional("description") => String.t(),
+        required("audienceGenerationJobArn") => String.t(),
+        required("audienceSize") => audience_size(),
+        required("name") => String.t()
+      }
+
   """
   @type start_audience_export_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_training_dataset_request() :: %{
 
-  }
+      delete_training_dataset_request() :: %{}
+
   """
-  @type delete_training_dataset_request() :: %{String.t() => any()}
+  @type delete_training_dataset_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_audience_models_request() :: %{
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t()
-  }
+
+      list_audience_models_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
   """
   @type list_audience_models_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  dataset() :: %{
-    "inputConfig" => dataset_input_config(),
-    "type" => list(any())
-  }
+
+      dataset() :: %{
+        "inputConfig" => dataset_input_config(),
+        "type" => list(any())
+      }
+
   """
   @type dataset() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  audience_size() :: %{
-    "type" => list(any()),
-    "value" => integer()
-  }
+
+      audience_size() :: %{
+        "type" => list(any()),
+        "value" => integer()
+      }
+
   """
   @type audience_size() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_audience_generation_job_request() :: %{
-    optional("collaborationId") => String.t(),
-    optional("description") => String.t(),
-    optional("includeSeedInOutput") => [boolean()],
-    optional("tags") => map(),
-    required("configuredAudienceModelArn") => String.t(),
-    required("name") => String.t(),
-    required("seedAudience") => audience_generation_job_data_source()
-  }
+
+      start_audience_generation_job_request() :: %{
+        optional("collaborationId") => String.t(),
+        optional("description") => String.t(),
+        optional("includeSeedInOutput") => [boolean()],
+        optional("tags") => map(),
+        required("configuredAudienceModelArn") => String.t(),
+        required("name") => String.t(),
+        required("seedAudience") => audience_generation_job_data_source()
+      }
+
   """
   @type start_audience_generation_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  audience_generation_job_summary() :: %{
-    "audienceGenerationJobArn" => String.t(),
-    "collaborationId" => String.t(),
-    "configuredAudienceModelArn" => String.t(),
-    "createTime" => [non_neg_integer()],
-    "description" => String.t(),
-    "name" => String.t(),
-    "startedBy" => String.t(),
-    "status" => list(any()),
-    "updateTime" => [non_neg_integer()]
-  }
+
+      audience_generation_job_summary() :: %{
+        "audienceGenerationJobArn" => String.t(),
+        "collaborationId" => String.t(),
+        "configuredAudienceModelArn" => String.t(),
+        "createTime" => [non_neg_integer()],
+        "description" => String.t(),
+        "name" => String.t(),
+        "startedBy" => String.t(),
+        "status" => list(any()),
+        "updateTime" => [non_neg_integer()]
+      }
+
   """
   @type audience_generation_job_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  conflict_exception() :: %{
-    "message" => [String.t()]
-  }
+
+      conflict_exception() :: %{
+        "message" => [String.t()]
+      }
+
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_not_found_exception() :: %{
-    "message" => [String.t()]
-  }
+
+      resource_not_found_exception() :: %{
+        "message" => [String.t()]
+      }
+
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_audience_model_request() :: %{
 
-  }
+      get_audience_model_request() :: %{}
+
   """
-  @type get_audience_model_request() :: %{String.t() => any()}
+  @type get_audience_model_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  configured_audience_model_output_config() :: %{
-    "destination" => audience_destination(),
-    "roleArn" => String.t()
-  }
+
+      configured_audience_model_output_config() :: %{
+        "destination" => audience_destination(),
+        "roleArn" => String.t()
+      }
+
   """
   @type configured_audience_model_output_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  service_quota_exceeded_exception() :: %{
-    "message" => [String.t()]
-  }
+
+      service_quota_exceeded_exception() :: %{
+        "message" => [String.t()]
+      }
+
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_configured_audience_model_response() :: %{
-    "audienceModelArn" => String.t(),
-    "audienceSizeConfig" => audience_size_config(),
-    "childResourceTagOnCreatePolicy" => list(any()),
-    "configuredAudienceModelArn" => String.t(),
-    "createTime" => [non_neg_integer()],
-    "description" => String.t(),
-    "minMatchingSeedSize" => integer(),
-    "name" => String.t(),
-    "outputConfig" => configured_audience_model_output_config(),
-    "sharedAudienceMetrics" => list(list(any())()),
-    "status" => list(any()),
-    "tags" => map(),
-    "updateTime" => [non_neg_integer()]
-  }
+
+      get_configured_audience_model_response() :: %{
+        "audienceModelArn" => String.t(),
+        "audienceSizeConfig" => audience_size_config(),
+        "childResourceTagOnCreatePolicy" => list(any()),
+        "configuredAudienceModelArn" => String.t(),
+        "createTime" => [non_neg_integer()],
+        "description" => String.t(),
+        "minMatchingSeedSize" => integer(),
+        "name" => String.t(),
+        "outputConfig" => configured_audience_model_output_config(),
+        "sharedAudienceMetrics" => list(list(any())()),
+        "status" => list(any()),
+        "tags" => map(),
+        "updateTime" => [non_neg_integer()]
+      }
+
   """
   @type get_configured_audience_model_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  audience_model_summary() :: %{
-    "audienceModelArn" => String.t(),
-    "createTime" => [non_neg_integer()],
-    "description" => String.t(),
-    "name" => String.t(),
-    "status" => list(any()),
-    "trainingDatasetArn" => String.t(),
-    "updateTime" => [non_neg_integer()]
-  }
+
+      audience_model_summary() :: %{
+        "audienceModelArn" => String.t(),
+        "createTime" => [non_neg_integer()],
+        "description" => String.t(),
+        "name" => String.t(),
+        "status" => list(any()),
+        "trainingDatasetArn" => String.t(),
+        "updateTime" => [non_neg_integer()]
+      }
+
   """
   @type audience_model_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_audience_generation_job_request() :: %{
 
-  }
+      delete_audience_generation_job_request() :: %{}
+
   """
-  @type delete_audience_generation_job_request() :: %{String.t() => any()}
+  @type delete_audience_generation_job_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_training_datasets_response() :: %{
-    "nextToken" => String.t(),
-    "trainingDatasets" => list(training_dataset_summary()())
-  }
+
+      list_training_datasets_response() :: %{
+        "nextToken" => String.t(),
+        "trainingDatasets" => list(training_dataset_summary()())
+      }
+
   """
   @type list_training_datasets_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_response() :: %{
-    "tags" => map()
-  }
+
+      list_tags_for_resource_response() :: %{
+        "tags" => map()
+      }
+
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  audience_export_job_summary() :: %{
-    "audienceGenerationJobArn" => String.t(),
-    "audienceSize" => audience_size(),
-    "createTime" => [non_neg_integer()],
-    "description" => String.t(),
-    "name" => String.t(),
-    "outputLocation" => String.t(),
-    "status" => list(any()),
-    "statusDetails" => status_details(),
-    "updateTime" => [non_neg_integer()]
-  }
+
+      audience_export_job_summary() :: %{
+        "audienceGenerationJobArn" => String.t(),
+        "audienceSize" => audience_size(),
+        "createTime" => [non_neg_integer()],
+        "description" => String.t(),
+        "name" => String.t(),
+        "outputLocation" => String.t(),
+        "status" => list(any()),
+        "statusDetails" => status_details(),
+        "updateTime" => [non_neg_integer()]
+      }
+
   """
   @type audience_export_job_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_audience_model_request() :: %{
 
-  }
+      delete_audience_model_request() :: %{}
+
   """
-  @type delete_audience_model_request() :: %{String.t() => any()}
+  @type delete_audience_model_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_training_dataset_response() :: %{
-    "trainingDatasetArn" => String.t()
-  }
+
+      create_training_dataset_response() :: %{
+        "trainingDatasetArn" => String.t()
+      }
+
   """
   @type create_training_dataset_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_audience_model_request() :: %{
-    optional("description") => String.t(),
-    optional("kmsKeyArn") => String.t(),
-    optional("tags") => map(),
-    optional("trainingDataEndTime") => [non_neg_integer()],
-    optional("trainingDataStartTime") => [non_neg_integer()],
-    required("name") => String.t(),
-    required("trainingDatasetArn") => String.t()
-  }
+
+      create_audience_model_request() :: %{
+        optional("description") => String.t(),
+        optional("kmsKeyArn") => String.t(),
+        optional("tags") => map(),
+        optional("trainingDataEndTime") => [non_neg_integer()],
+        optional("trainingDataStartTime") => [non_neg_integer()],
+        required("name") => String.t(),
+        required("trainingDatasetArn") => String.t()
+      }
+
   """
   @type create_audience_model_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_configured_audience_models_response() :: %{
-    "configuredAudienceModels" => list(configured_audience_model_summary()()),
-    "nextToken" => String.t()
-  }
+
+      list_configured_audience_models_response() :: %{
+        "configuredAudienceModels" => list(configured_audience_model_summary()()),
+        "nextToken" => String.t()
+      }
+
   """
   @type list_configured_audience_models_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  s3_config_map() :: %{
-    "s3Uri" => String.t()
-  }
+
+      s3_config_map() :: %{
+        "s3Uri" => String.t()
+      }
+
   """
   @type s3_config_map() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  access_denied_exception() :: %{
-    "message" => [String.t()]
-  }
+
+      access_denied_exception() :: %{
+        "message" => [String.t()]
+      }
+
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_audience_export_jobs_response() :: %{
-    "audienceExportJobs" => list(audience_export_job_summary()()),
-    "nextToken" => String.t()
-  }
+
+      list_audience_export_jobs_response() :: %{
+        "audienceExportJobs" => list(audience_export_job_summary()()),
+        "nextToken" => String.t()
+      }
+
   """
   @type list_audience_export_jobs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_response() :: %{
 
-  }
+      tag_resource_response() :: %{}
+
   """
-  @type tag_resource_response() :: %{String.t() => any()}
+  @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_configured_audience_model_request() :: %{
 
-  }
+      get_configured_audience_model_request() :: %{}
+
   """
-  @type get_configured_audience_model_request() :: %{String.t() => any()}
+  @type get_configured_audience_model_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  validation_exception() :: %{
-    "message" => [String.t()]
-  }
+
+      validation_exception() :: %{
+        "message" => [String.t()]
+      }
+
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_request() :: %{
 
-  }
+      list_tags_for_resource_request() :: %{}
+
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  configured_audience_model_summary() :: %{
-    "audienceModelArn" => String.t(),
-    "configuredAudienceModelArn" => String.t(),
-    "createTime" => [non_neg_integer()],
-    "description" => String.t(),
-    "name" => String.t(),
-    "outputConfig" => configured_audience_model_output_config(),
-    "status" => list(any()),
-    "updateTime" => [non_neg_integer()]
-  }
+
+      configured_audience_model_summary() :: %{
+        "audienceModelArn" => String.t(),
+        "configuredAudienceModelArn" => String.t(),
+        "createTime" => [non_neg_integer()],
+        "description" => String.t(),
+        "name" => String.t(),
+        "outputConfig" => configured_audience_model_output_config(),
+        "status" => list(any()),
+        "updateTime" => [non_neg_integer()]
+      }
+
   """
   @type configured_audience_model_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_configured_audience_model_policy_response() :: %{
-    "configuredAudienceModelArn" => String.t(),
-    "configuredAudienceModelPolicy" => String.t(),
-    "policyHash" => String.t()
-  }
+
+      get_configured_audience_model_policy_response() :: %{
+        "configuredAudienceModelArn" => String.t(),
+        "configuredAudienceModelPolicy" => String.t(),
+        "policyHash" => String.t()
+      }
+
   """
   @type get_configured_audience_model_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  glue_data_source() :: %{
-    "catalogId" => String.t(),
-    "databaseName" => String.t(),
-    "tableName" => String.t()
-  }
+
+      glue_data_source() :: %{
+        "catalogId" => String.t(),
+        "databaseName" => String.t(),
+        "tableName" => String.t()
+      }
+
   """
   @type glue_data_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_configured_audience_model_policy_response() :: %{
-    "configuredAudienceModelPolicy" => String.t(),
-    "policyHash" => String.t()
-  }
+
+      put_configured_audience_model_policy_response() :: %{
+        "configuredAudienceModelPolicy" => String.t(),
+        "policyHash" => String.t()
+      }
+
   """
   @type put_configured_audience_model_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_training_dataset_request() :: %{
-    optional("description") => String.t(),
-    optional("tags") => map(),
-    required("name") => String.t(),
-    required("roleArn") => String.t(),
-    required("trainingData") => list(dataset()())
-  }
+
+      create_training_dataset_request() :: %{
+        optional("description") => String.t(),
+        optional("tags") => map(),
+        required("name") => String.t(),
+        required("roleArn") => String.t(),
+        required("trainingData") => list(dataset()())
+      }
+
   """
   @type create_training_dataset_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  training_dataset_summary() :: %{
-    "createTime" => [non_neg_integer()],
-    "description" => String.t(),
-    "name" => String.t(),
-    "status" => list(any()),
-    "trainingDatasetArn" => String.t(),
-    "updateTime" => [non_neg_integer()]
-  }
+
+      training_dataset_summary() :: %{
+        "createTime" => [non_neg_integer()],
+        "description" => String.t(),
+        "name" => String.t(),
+        "status" => list(any()),
+        "trainingDatasetArn" => String.t(),
+        "updateTime" => [non_neg_integer()]
+      }
+
   """
   @type training_dataset_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  column_schema() :: %{
-    "columnName" => String.t(),
-    "columnTypes" => list(list(any())())
-  }
+
+      column_schema() :: %{
+        "columnName" => String.t(),
+        "columnTypes" => list(list(any())())
+      }
+
   """
   @type column_schema() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_audience_model_response() :: %{
-    "audienceModelArn" => String.t(),
-    "createTime" => [non_neg_integer()],
-    "description" => String.t(),
-    "kmsKeyArn" => String.t(),
-    "metrics" => list(audience_model_metric()()),
-    "name" => String.t(),
-    "status" => list(any()),
-    "statusDetails" => status_details(),
-    "tags" => map(),
-    "trainingDataEndTime" => [non_neg_integer()],
-    "trainingDataStartTime" => [non_neg_integer()],
-    "trainingDatasetArn" => String.t(),
-    "updateTime" => [non_neg_integer()]
-  }
+
+      get_audience_model_response() :: %{
+        "audienceModelArn" => String.t(),
+        "createTime" => [non_neg_integer()],
+        "description" => String.t(),
+        "kmsKeyArn" => String.t(),
+        "metrics" => list(audience_model_metric()()),
+        "name" => String.t(),
+        "status" => list(any()),
+        "statusDetails" => status_details(),
+        "tags" => map(),
+        "trainingDataEndTime" => [non_neg_integer()],
+        "trainingDataStartTime" => [non_neg_integer()],
+        "trainingDatasetArn" => String.t(),
+        "updateTime" => [non_neg_integer()]
+      }
+
   """
   @type get_audience_model_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  audience_model_metric() :: %{
-    "forTopKItemPredictions" => [integer()],
-    "type" => list(any()),
-    "value" => [float()]
-  }
+
+      audience_model_metric() :: %{
+        "forTopKItemPredictions" => [integer()],
+        "type" => list(any()),
+        "value" => [float()]
+      }
+
   """
   @type audience_model_metric() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  dataset_input_config() :: %{
-    "dataSource" => data_source(),
-    "schema" => list(column_schema()())
-  }
+
+      dataset_input_config() :: %{
+        "dataSource" => data_source(),
+        "schema" => list(column_schema()())
+      }
+
   """
   @type dataset_input_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  put_configured_audience_model_policy_request() :: %{
-    optional("policyExistenceCondition") => list(any()),
-    optional("previousPolicyHash") => String.t(),
-    required("configuredAudienceModelPolicy") => String.t()
-  }
+
+      put_configured_audience_model_policy_request() :: %{
+        optional("policyExistenceCondition") => list(any()),
+        optional("previousPolicyHash") => String.t(),
+        required("configuredAudienceModelPolicy") => String.t()
+      }
+
   """
   @type put_configured_audience_model_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  data_source() :: %{
-    "glueDataSource" => glue_data_source()
-  }
+
+      data_source() :: %{
+        "glueDataSource" => glue_data_source()
+      }
+
   """
   @type data_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  audience_size_config() :: %{
-    "audienceSizeBins" => list(integer()()),
-    "audienceSizeType" => list(any())
-  }
+
+      audience_size_config() :: %{
+        "audienceSizeBins" => list(integer()()),
+        "audienceSizeType" => list(any())
+      }
+
   """
   @type audience_size_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  audience_destination() :: %{
-    "s3Destination" => s3_config_map()
-  }
+
+      audience_destination() :: %{
+        "s3Destination" => s3_config_map()
+      }
+
   """
   @type audience_destination() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  audience_generation_job_data_source() :: %{
-    "dataSource" => s3_config_map(),
-    "roleArn" => String.t()
-  }
+
+      audience_generation_job_data_source() :: %{
+        "dataSource" => s3_config_map(),
+        "roleArn" => String.t()
+      }
+
   """
   @type audience_generation_job_data_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_audience_generation_jobs_request() :: %{
-    optional("collaborationId") => String.t(),
-    optional("configuredAudienceModelArn") => String.t(),
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t()
-  }
+
+      list_audience_generation_jobs_request() :: %{
+        optional("collaborationId") => String.t(),
+        optional("configuredAudienceModelArn") => String.t(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
   """
   @type list_audience_generation_jobs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_audience_generation_jobs_response() :: %{
-    "audienceGenerationJobs" => list(audience_generation_job_summary()()),
-    "nextToken" => String.t()
-  }
+
+      list_audience_generation_jobs_response() :: %{
+        "audienceGenerationJobs" => list(audience_generation_job_summary()()),
+        "nextToken" => String.t()
+      }
+
   """
   @type list_audience_generation_jobs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_audience_models_response() :: %{
-    "audienceModels" => list(audience_model_summary()()),
-    "nextToken" => String.t()
-  }
+
+      list_audience_models_response() :: %{
+        "audienceModels" => list(audience_model_summary()()),
+        "nextToken" => String.t()
+      }
+
   """
   @type list_audience_models_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_audience_export_jobs_request() :: %{
-    optional("audienceGenerationJobArn") => String.t(),
-    optional("maxResults") => integer(),
-    optional("nextToken") => String.t()
-  }
+
+      list_audience_export_jobs_request() :: %{
+        optional("audienceGenerationJobArn") => String.t(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
   """
   @type list_audience_export_jobs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_configured_audience_model_policy_request() :: %{
 
-  }
+      delete_configured_audience_model_policy_request() :: %{}
+
   """
-  @type delete_configured_audience_model_policy_request() :: %{String.t() => any()}
+  @type delete_configured_audience_model_policy_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_configured_audience_model_policy_request() :: %{
 
-  }
+      get_configured_audience_model_policy_request() :: %{}
+
   """
-  @type get_configured_audience_model_policy_request() :: %{String.t() => any()}
+  @type get_configured_audience_model_policy_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  update_configured_audience_model_request() :: %{
-    optional("audienceModelArn") => String.t(),
-    optional("audienceSizeConfig") => audience_size_config(),
-    optional("description") => String.t(),
-    optional("minMatchingSeedSize") => integer(),
-    optional("outputConfig") => configured_audience_model_output_config(),
-    optional("sharedAudienceMetrics") => list(list(any())())
-  }
+
+      update_configured_audience_model_request() :: %{
+        optional("audienceModelArn") => String.t(),
+        optional("audienceSizeConfig") => audience_size_config(),
+        optional("description") => String.t(),
+        optional("minMatchingSeedSize") => integer(),
+        optional("outputConfig") => configured_audience_model_output_config(),
+        optional("sharedAudienceMetrics") => list(list(any())())
+      }
+
   """
   @type update_configured_audience_model_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_audience_generation_job_request() :: %{
 
-  }
+      get_audience_generation_job_request() :: %{}
+
   """
-  @type get_audience_generation_job_request() :: %{String.t() => any()}
+  @type get_audience_generation_job_request() :: %{}
+
+  @type create_audience_model_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_configured_audience_model_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_training_dataset_errors() ::
+          validation_exception() | access_denied_exception() | conflict_exception()
+
+  @type delete_audience_generation_job_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_audience_model_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_configured_audience_model_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_configured_audience_model_policy_errors() ::
+          validation_exception() | access_denied_exception() | resource_not_found_exception()
+
+  @type delete_training_dataset_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type get_audience_generation_job_errors() ::
+          validation_exception() | access_denied_exception() | resource_not_found_exception()
+
+  @type get_audience_model_errors() ::
+          validation_exception() | access_denied_exception() | resource_not_found_exception()
+
+  @type get_configured_audience_model_errors() ::
+          validation_exception() | access_denied_exception() | resource_not_found_exception()
+
+  @type get_configured_audience_model_policy_errors() ::
+          validation_exception() | access_denied_exception() | resource_not_found_exception()
+
+  @type get_training_dataset_errors() ::
+          validation_exception() | access_denied_exception() | resource_not_found_exception()
+
+  @type list_audience_export_jobs_errors() :: validation_exception() | access_denied_exception()
+
+  @type list_audience_generation_jobs_errors() ::
+          validation_exception() | access_denied_exception()
+
+  @type list_audience_models_errors() :: validation_exception() | access_denied_exception()
+
+  @type list_configured_audience_models_errors() ::
+          validation_exception() | access_denied_exception()
+
+  @type list_tags_for_resource_errors() ::
+          validation_exception() | access_denied_exception() | resource_not_found_exception()
+
+  @type list_training_datasets_errors() :: validation_exception() | access_denied_exception()
+
+  @type put_configured_audience_model_policy_errors() ::
+          validation_exception() | access_denied_exception() | resource_not_found_exception()
+
+  @type start_audience_export_job_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type start_audience_generation_job_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type tag_resource_errors() ::
+          validation_exception() | access_denied_exception() | resource_not_found_exception()
+
+  @type untag_resource_errors() ::
+          validation_exception() | access_denied_exception() | resource_not_found_exception()
+
+  @type update_configured_audience_model_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   def metadata do
     %{
@@ -814,11 +1029,7 @@ defmodule AWS.CleanRoomsML do
   @spec create_audience_model(map(), create_audience_model_request(), list()) ::
           {:ok, create_audience_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_audience_model_errors()}
   def create_audience_model(%Client{} = client, input, options \\ []) do
     url_path = "/audience-model"
     headers = []
@@ -849,11 +1060,7 @@ defmodule AWS.CleanRoomsML do
         ) ::
           {:ok, create_configured_audience_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_configured_audience_model_errors()}
   def create_configured_audience_model(%Client{} = client, input, options \\ []) do
     url_path = "/configured-audience-model"
     headers = []
@@ -884,9 +1091,7 @@ defmodule AWS.CleanRoomsML do
   @spec create_training_dataset(map(), create_training_dataset_request(), list()) ::
           {:ok, create_training_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_training_dataset_errors()}
   def create_training_dataset(%Client{} = client, input, options \\ []) do
     url_path = "/training-dataset"
     headers = []
@@ -919,10 +1124,7 @@ defmodule AWS.CleanRoomsML do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_audience_generation_job_errors()}
   def delete_audience_generation_job(
         %Client{} = client,
         audience_generation_job_arn,
@@ -957,10 +1159,7 @@ defmodule AWS.CleanRoomsML do
   @spec delete_audience_model(map(), String.t(), delete_audience_model_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_audience_model_errors()}
   def delete_audience_model(%Client{} = client, audience_model_arn, input, options \\ []) do
     url_path = "/audience-model/#{AWS.Util.encode_uri(audience_model_arn)}"
     headers = []
@@ -996,10 +1195,7 @@ defmodule AWS.CleanRoomsML do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_configured_audience_model_errors()}
   def delete_configured_audience_model(
         %Client{} = client,
         configured_audience_model_arn,
@@ -1036,9 +1232,7 @@ defmodule AWS.CleanRoomsML do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_configured_audience_model_policy_errors()}
   def delete_configured_audience_model_policy(
         %Client{} = client,
         configured_audience_model_arn,
@@ -1077,10 +1271,7 @@ defmodule AWS.CleanRoomsML do
   @spec delete_training_dataset(map(), String.t(), delete_training_dataset_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_training_dataset_errors()}
   def delete_training_dataset(%Client{} = client, training_dataset_arn, input, options \\ []) do
     url_path = "/training-dataset/#{AWS.Util.encode_uri(training_dataset_arn)}"
     headers = []
@@ -1107,9 +1298,7 @@ defmodule AWS.CleanRoomsML do
   @spec get_audience_generation_job(map(), String.t(), list()) ::
           {:ok, get_audience_generation_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_audience_generation_job_errors()}
   def get_audience_generation_job(%Client{} = client, audience_generation_job_arn, options \\ []) do
     url_path = "/audience-generation-job/#{AWS.Util.encode_uri(audience_generation_job_arn)}"
     headers = []
@@ -1126,9 +1315,7 @@ defmodule AWS.CleanRoomsML do
   @spec get_audience_model(map(), String.t(), list()) ::
           {:ok, get_audience_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_audience_model_errors()}
   def get_audience_model(%Client{} = client, audience_model_arn, options \\ []) do
     url_path = "/audience-model/#{AWS.Util.encode_uri(audience_model_arn)}"
     headers = []
@@ -1145,9 +1332,7 @@ defmodule AWS.CleanRoomsML do
   @spec get_configured_audience_model(map(), String.t(), list()) ::
           {:ok, get_configured_audience_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_configured_audience_model_errors()}
   def get_configured_audience_model(
         %Client{} = client,
         configured_audience_model_arn,
@@ -1168,9 +1353,7 @@ defmodule AWS.CleanRoomsML do
   @spec get_configured_audience_model_policy(map(), String.t(), list()) ::
           {:ok, get_configured_audience_model_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_configured_audience_model_policy_errors()}
   def get_configured_audience_model_policy(
         %Client{} = client,
         configured_audience_model_arn,
@@ -1193,9 +1376,7 @@ defmodule AWS.CleanRoomsML do
   @spec get_training_dataset(map(), String.t(), list()) ::
           {:ok, get_training_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_training_dataset_errors()}
   def get_training_dataset(%Client{} = client, training_dataset_arn, options \\ []) do
     url_path = "/training-dataset/#{AWS.Util.encode_uri(training_dataset_arn)}"
     headers = []
@@ -1218,8 +1399,7 @@ defmodule AWS.CleanRoomsML do
         ) ::
           {:ok, list_audience_export_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_audience_export_jobs_errors()}
   def list_audience_export_jobs(
         %Client{} = client,
         audience_generation_job_arn \\ nil,
@@ -1270,8 +1450,7 @@ defmodule AWS.CleanRoomsML do
         ) ::
           {:ok, list_audience_generation_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_audience_generation_jobs_errors()}
   def list_audience_generation_jobs(
         %Client{} = client,
         collaboration_id \\ nil,
@@ -1323,8 +1502,7 @@ defmodule AWS.CleanRoomsML do
   @spec list_audience_models(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_audience_models_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_audience_models_errors()}
   def list_audience_models(
         %Client{} = client,
         max_results \\ nil,
@@ -1360,8 +1538,7 @@ defmodule AWS.CleanRoomsML do
   @spec list_configured_audience_models(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_configured_audience_models_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_configured_audience_models_errors()}
   def list_configured_audience_models(
         %Client{} = client,
         max_results \\ nil,
@@ -1397,9 +1574,7 @@ defmodule AWS.CleanRoomsML do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -1416,8 +1591,7 @@ defmodule AWS.CleanRoomsML do
   @spec list_training_datasets(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_training_datasets_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_training_datasets_errors()}
   def list_training_datasets(
         %Client{} = client,
         max_results \\ nil,
@@ -1458,9 +1632,7 @@ defmodule AWS.CleanRoomsML do
         ) ::
           {:ok, put_configured_audience_model_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, put_configured_audience_model_policy_errors()}
   def put_configured_audience_model_policy(
         %Client{} = client,
         configured_audience_model_arn,
@@ -1484,11 +1656,7 @@ defmodule AWS.CleanRoomsML do
   @spec start_audience_export_job(map(), start_audience_export_job_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, validation_exception()}
+          | {:error, start_audience_export_job_errors()}
   def start_audience_export_job(%Client{} = client, input, options \\ []) do
     url_path = "/audience-export-job"
     headers = []
@@ -1515,11 +1683,7 @@ defmodule AWS.CleanRoomsML do
   @spec start_audience_generation_job(map(), start_audience_generation_job_request(), list()) ::
           {:ok, start_audience_generation_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, service_quota_exceeded_exception()}
-          | {:error, validation_exception()}
+          | {:error, start_audience_generation_job_errors()}
   def start_audience_generation_job(%Client{} = client, input, options \\ []) do
     url_path = "/audience-generation-job"
     headers = []
@@ -1546,9 +1710,7 @@ defmodule AWS.CleanRoomsML do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -1575,9 +1737,7 @@ defmodule AWS.CleanRoomsML do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -1617,10 +1777,7 @@ defmodule AWS.CleanRoomsML do
         ) ::
           {:ok, update_configured_audience_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_configured_audience_model_errors()}
   def update_configured_audience_model(
         %Client{} = client,
         configured_audience_model_arn,

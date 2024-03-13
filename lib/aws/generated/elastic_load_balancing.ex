@@ -46,1052 +46,1358 @@ defmodule AWS.ElasticLoadBalancing do
   @typedoc """
 
   ## Example:
-  policy_type_not_found_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      policy_type_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type policy_type_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  source_security_group() :: %{
-    "GroupName" => String.t(),
-    "OwnerAlias" => String.t()
-  }
+      
+      source_security_group() :: %{
+        "GroupName" => String.t(),
+        "OwnerAlias" => String.t()
+      }
+      
   """
   @type source_security_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  attach_load_balancer_to_subnets_output() :: %{
-    "Subnets" => list(String.t()())
-  }
+      
+      attach_load_balancer_to_subnets_output() :: %{
+        "Subnets" => list(String.t()())
+      }
+      
   """
   @type attach_load_balancer_to_subnets_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  backend_server_description() :: %{
-    "InstancePort" => integer(),
-    "PolicyNames" => list(String.t()())
-  }
+      
+      backend_server_description() :: %{
+        "InstancePort" => integer(),
+        "PolicyNames" => list(String.t()())
+      }
+      
   """
   @type backend_server_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  policy_description() :: %{
-    "PolicyAttributeDescriptions" => list(policy_attribute_description()()),
-    "PolicyName" => String.t(),
-    "PolicyTypeName" => String.t()
-  }
+      
+      policy_description() :: %{
+        "PolicyAttributeDescriptions" => list(policy_attribute_description()()),
+        "PolicyName" => String.t(),
+        "PolicyTypeName" => String.t()
+      }
+      
   """
   @type policy_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_load_balancer_policy_types_output() :: %{
-    "PolicyTypeDescriptions" => list(policy_type_description()())
-  }
+      
+      describe_load_balancer_policy_types_output() :: %{
+        "PolicyTypeDescriptions" => list(policy_type_description()())
+      }
+      
   """
   @type describe_load_balancer_policy_types_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  policy_attribute() :: %{
-    "AttributeName" => String.t(),
-    "AttributeValue" => String.t()
-  }
+      
+      policy_attribute() :: %{
+        "AttributeName" => String.t(),
+        "AttributeValue" => String.t()
+      }
+      
   """
   @type policy_attribute() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  apply_security_groups_to_load_balancer_output() :: %{
-    "SecurityGroups" => list(String.t()())
-  }
+      
+      apply_security_groups_to_load_balancer_output() :: %{
+        "SecurityGroups" => list(String.t()())
+      }
+      
   """
   @type apply_security_groups_to_load_balancer_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  connection_settings() :: %{
-    "IdleTimeout" => integer()
-  }
+      
+      connection_settings() :: %{
+        "IdleTimeout" => integer()
+      }
+      
   """
   @type connection_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_load_balancer_policies_input() :: %{
-    optional("LoadBalancerName") => String.t(),
-    optional("PolicyNames") => list(String.t()())
-  }
+      
+      describe_load_balancer_policies_input() :: %{
+        optional("LoadBalancerName") => String.t(),
+        optional("PolicyNames") => list(String.t()())
+      }
+      
   """
   @type describe_load_balancer_policies_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  dependency_throttle_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      dependency_throttle_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type dependency_throttle_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  listener() :: %{
-    "InstancePort" => integer(),
-    "InstanceProtocol" => String.t(),
-    "LoadBalancerPort" => integer(),
-    "Protocol" => String.t(),
-    "SSLCertificateId" => String.t()
-  }
+      
+      listener() :: %{
+        "InstancePort" => integer(),
+        "InstanceProtocol" => String.t(),
+        "LoadBalancerPort" => integer(),
+        "Protocol" => String.t(),
+        "SSLCertificateId" => String.t()
+      }
+      
   """
   @type listener() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_access_point_output() :: %{
-
-  }
+      
+      delete_access_point_output() :: %{}
+      
   """
-  @type delete_access_point_output() :: %{String.t() => any()}
+  @type delete_access_point_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  describe_access_points_output() :: %{
-    "LoadBalancerDescriptions" => list(load_balancer_description()()),
-    "NextMarker" => String.t()
-  }
+      
+      describe_access_points_output() :: %{
+        "LoadBalancerDescriptions" => list(load_balancer_description()()),
+        "NextMarker" => String.t()
+      }
+      
   """
   @type describe_access_points_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  set_load_balancer_listener_ssl_certificate_input() :: %{
-    required("LoadBalancerName") => String.t(),
-    required("LoadBalancerPort") => integer(),
-    required("SSLCertificateId") => String.t()
-  }
+      
+      set_load_balancer_listener_ssl_certificate_input() :: %{
+        required("LoadBalancerName") => String.t(),
+        required("LoadBalancerPort") => integer(),
+        required("SSLCertificateId") => String.t()
+      }
+      
   """
   @type set_load_balancer_listener_ssl_certificate_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  duplicate_access_point_name_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      duplicate_access_point_name_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type duplicate_access_point_name_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  attach_load_balancer_to_subnets_input() :: %{
-    required("LoadBalancerName") => String.t(),
-    required("Subnets") => list(String.t()())
-  }
+      
+      attach_load_balancer_to_subnets_input() :: %{
+        required("LoadBalancerName") => String.t(),
+        required("Subnets") => list(String.t()())
+      }
+      
   """
   @type attach_load_balancer_to_subnets_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  add_tags_output() :: %{
-
-  }
+      
+      add_tags_output() :: %{}
+      
   """
-  @type add_tags_output() :: %{String.t() => any()}
+  @type add_tags_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  load_balancer_description() :: %{
-    "AvailabilityZones" => list(String.t()()),
-    "BackendServerDescriptions" => list(backend_server_description()()),
-    "CanonicalHostedZoneName" => String.t(),
-    "CanonicalHostedZoneNameID" => String.t(),
-    "CreatedTime" => non_neg_integer(),
-    "DNSName" => String.t(),
-    "HealthCheck" => health_check(),
-    "Instances" => list(instance()()),
-    "ListenerDescriptions" => list(listener_description()()),
-    "LoadBalancerName" => String.t(),
-    "Policies" => policies(),
-    "Scheme" => String.t(),
-    "SecurityGroups" => list(String.t()()),
-    "SourceSecurityGroup" => source_security_group(),
-    "Subnets" => list(String.t()()),
-    "VPCId" => String.t()
-  }
+      
+      load_balancer_description() :: %{
+        "AvailabilityZones" => list(String.t()()),
+        "BackendServerDescriptions" => list(backend_server_description()()),
+        "CanonicalHostedZoneName" => String.t(),
+        "CanonicalHostedZoneNameID" => String.t(),
+        "CreatedTime" => non_neg_integer(),
+        "DNSName" => String.t(),
+        "HealthCheck" => health_check(),
+        "Instances" => list(instance()()),
+        "ListenerDescriptions" => list(listener_description()()),
+        "LoadBalancerName" => String.t(),
+        "Policies" => policies(),
+        "Scheme" => String.t(),
+        "SecurityGroups" => list(String.t()()),
+        "SourceSecurityGroup" => source_security_group(),
+        "Subnets" => list(String.t()()),
+        "VPCId" => String.t()
+      }
+      
   """
   @type load_balancer_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  app_cookie_stickiness_policy() :: %{
-    "CookieName" => String.t(),
-    "PolicyName" => String.t()
-  }
+      
+      app_cookie_stickiness_policy() :: %{
+        "CookieName" => String.t(),
+        "PolicyName" => String.t()
+      }
+      
   """
   @type app_cookie_stickiness_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  add_availability_zones_input() :: %{
-    required("AvailabilityZones") => list(String.t()()),
-    required("LoadBalancerName") => String.t()
-  }
+      
+      add_availability_zones_input() :: %{
+        required("AvailabilityZones") => list(String.t()()),
+        required("LoadBalancerName") => String.t()
+      }
+      
   """
   @type add_availability_zones_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  add_tags_input() :: %{
-    required("LoadBalancerNames") => list(String.t()()),
-    required("Tags") => list(tag()())
-  }
+      
+      add_tags_input() :: %{
+        required("LoadBalancerNames") => list(String.t()()),
+        required("Tags") => list(tag()())
+      }
+      
   """
   @type add_tags_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  limit() :: %{
-    "Max" => String.t(),
-    "Name" => String.t()
-  }
+      
+      limit() :: %{
+        "Max" => String.t(),
+        "Name" => String.t()
+      }
+      
   """
   @type limit() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_configuration_request_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      invalid_configuration_request_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type invalid_configuration_request_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  subnet_not_found_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      subnet_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type subnet_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_lb_cookie_stickiness_policy_input() :: %{
-    optional("CookieExpirationPeriod") => float(),
-    required("LoadBalancerName") => String.t(),
-    required("PolicyName") => String.t()
-  }
+      
+      create_lb_cookie_stickiness_policy_input() :: %{
+        optional("CookieExpirationPeriod") => float(),
+        required("LoadBalancerName") => String.t(),
+        required("PolicyName") => String.t()
+      }
+      
   """
   @type create_lb_cookie_stickiness_policy_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_load_balancer_policy_input() :: %{
-    required("LoadBalancerName") => String.t(),
-    required("PolicyName") => String.t()
-  }
+      
+      delete_load_balancer_policy_input() :: %{
+        required("LoadBalancerName") => String.t(),
+        required("PolicyName") => String.t()
+      }
+      
   """
   @type delete_load_balancer_policy_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_end_point_state_input() :: %{
-    optional("Instances") => list(instance()()),
-    required("LoadBalancerName") => String.t()
-  }
+      
+      describe_end_point_state_input() :: %{
+        optional("Instances") => list(instance()()),
+        required("LoadBalancerName") => String.t()
+      }
+      
   """
   @type describe_end_point_state_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  remove_tags_output() :: %{
-
-  }
+      
+      remove_tags_output() :: %{}
+      
   """
-  @type remove_tags_output() :: %{String.t() => any()}
+  @type remove_tags_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_lb_cookie_stickiness_policy_output() :: %{
-
-  }
+      
+      create_lb_cookie_stickiness_policy_output() :: %{}
+      
   """
-  @type create_lb_cookie_stickiness_policy_output() :: %{String.t() => any()}
+  @type create_lb_cookie_stickiness_policy_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  policy_not_found_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      policy_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type policy_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  policy_attribute_description() :: %{
-    "AttributeName" => String.t(),
-    "AttributeValue" => String.t()
-  }
+      
+      policy_attribute_description() :: %{
+        "AttributeName" => String.t(),
+        "AttributeValue" => String.t()
+      }
+      
   """
   @type policy_attribute_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_key_only() :: %{
-    "Key" => String.t()
-  }
+      
+      tag_key_only() :: %{
+        "Key" => String.t()
+      }
+      
   """
   @type tag_key_only() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  duplicate_listener_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      duplicate_listener_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type duplicate_listener_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  lb_cookie_stickiness_policy() :: %{
-    "CookieExpirationPeriod" => float(),
-    "PolicyName" => String.t()
-  }
+      
+      lb_cookie_stickiness_policy() :: %{
+        "CookieExpirationPeriod" => float(),
+        "PolicyName" => String.t()
+      }
+      
   """
   @type lb_cookie_stickiness_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  load_balancer_attributes() :: %{
-    "AccessLog" => access_log(),
-    "AdditionalAttributes" => list(additional_attribute()()),
-    "ConnectionDraining" => connection_draining(),
-    "ConnectionSettings" => connection_settings(),
-    "CrossZoneLoadBalancing" => cross_zone_load_balancing()
-  }
+      
+      load_balancer_attributes() :: %{
+        "AccessLog" => access_log(),
+        "AdditionalAttributes" => list(additional_attribute()()),
+        "ConnectionDraining" => connection_draining(),
+        "ConnectionSettings" => connection_settings(),
+        "CrossZoneLoadBalancing" => cross_zone_load_balancing()
+      }
+      
   """
   @type load_balancer_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_end_point_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      invalid_end_point_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type invalid_end_point_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_tags_input() :: %{
-    required("LoadBalancerNames") => list(String.t()())
-  }
+      
+      describe_tags_input() :: %{
+        required("LoadBalancerNames") => list(String.t()())
+      }
+      
   """
   @type describe_tags_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  detach_load_balancer_from_subnets_output() :: %{
-    "Subnets" => list(String.t()())
-  }
+      
+      detach_load_balancer_from_subnets_output() :: %{
+        "Subnets" => list(String.t()())
+      }
+      
   """
   @type detach_load_balancer_from_subnets_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  certificate_not_found_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      certificate_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type certificate_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag() :: %{
-    "Key" => String.t(),
-    "Value" => String.t()
-  }
+      
+      tag() :: %{
+        "Key" => String.t(),
+        "Value" => String.t()
+      }
+      
   """
   @type tag() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_access_point_input() :: %{
-    required("LoadBalancerName") => String.t()
-  }
+      
+      delete_access_point_input() :: %{
+        required("LoadBalancerName") => String.t()
+      }
+      
   """
   @type delete_access_point_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_description() :: %{
-    "LoadBalancerName" => String.t(),
-    "Tags" => list(tag()())
-  }
+      
+      tag_description() :: %{
+        "LoadBalancerName" => String.t(),
+        "Tags" => list(tag()())
+      }
+      
   """
   @type tag_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  deregister_end_points_output() :: %{
-    "Instances" => list(instance()())
-  }
+      
+      deregister_end_points_output() :: %{
+        "Instances" => list(instance()())
+      }
+      
   """
   @type deregister_end_points_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  connection_draining() :: %{
-    "Enabled" => boolean(),
-    "Timeout" => integer()
-  }
+      
+      connection_draining() :: %{
+        "Enabled" => boolean(),
+        "Timeout" => integer()
+      }
+      
   """
   @type connection_draining() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  remove_availability_zones_input() :: %{
-    required("AvailabilityZones") => list(String.t()()),
-    required("LoadBalancerName") => String.t()
-  }
+      
+      remove_availability_zones_input() :: %{
+        required("AvailabilityZones") => list(String.t()()),
+        required("LoadBalancerName") => String.t()
+      }
+      
   """
   @type remove_availability_zones_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  add_availability_zones_output() :: %{
-    "AvailabilityZones" => list(String.t()())
-  }
+      
+      add_availability_zones_output() :: %{
+        "AvailabilityZones" => list(String.t()())
+      }
+      
   """
   @type add_availability_zones_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_tags_output() :: %{
-    "TagDescriptions" => list(tag_description()())
-  }
+      
+      describe_tags_output() :: %{
+        "TagDescriptions" => list(tag_description()())
+      }
+      
   """
   @type describe_tags_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  set_load_balancer_listener_ssl_certificate_output() :: %{
-
-  }
+      
+      set_load_balancer_listener_ssl_certificate_output() :: %{}
+      
   """
-  @type set_load_balancer_listener_ssl_certificate_output() :: %{String.t() => any()}
+  @type set_load_balancer_listener_ssl_certificate_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  access_point_not_found_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      access_point_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type access_point_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_load_balancer_listener_output() :: %{
-
-  }
+      
+      create_load_balancer_listener_output() :: %{}
+      
   """
-  @type create_load_balancer_listener_output() :: %{String.t() => any()}
+  @type create_load_balancer_listener_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_access_point_input() :: %{
-    optional("AvailabilityZones") => list(String.t()()),
-    optional("Scheme") => String.t(),
-    optional("SecurityGroups") => list(String.t()()),
-    optional("Subnets") => list(String.t()()),
-    optional("Tags") => list(tag()()),
-    required("Listeners") => list(listener()()),
-    required("LoadBalancerName") => String.t()
-  }
+      
+      create_access_point_input() :: %{
+        optional("AvailabilityZones") => list(String.t()()),
+        optional("Scheme") => String.t(),
+        optional("SecurityGroups") => list(String.t()()),
+        optional("Subnets") => list(String.t()()),
+        optional("Tags") => list(tag()()),
+        required("Listeners") => list(listener()()),
+        required("LoadBalancerName") => String.t()
+      }
+      
   """
   @type create_access_point_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  apply_security_groups_to_load_balancer_input() :: %{
-    required("LoadBalancerName") => String.t(),
-    required("SecurityGroups") => list(String.t()())
-  }
+      
+      apply_security_groups_to_load_balancer_input() :: %{
+        required("LoadBalancerName") => String.t(),
+        required("SecurityGroups") => list(String.t()())
+      }
+      
   """
   @type apply_security_groups_to_load_balancer_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  configure_health_check_input() :: %{
-    required("HealthCheck") => health_check(),
-    required("LoadBalancerName") => String.t()
-  }
+      
+      configure_health_check_input() :: %{
+        required("HealthCheck") => health_check(),
+        required("LoadBalancerName") => String.t()
+      }
+      
   """
   @type configure_health_check_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  health_check() :: %{
-    "HealthyThreshold" => integer(),
-    "Interval" => integer(),
-    "Target" => String.t(),
-    "Timeout" => integer(),
-    "UnhealthyThreshold" => integer()
-  }
+      
+      health_check() :: %{
+        "HealthyThreshold" => integer(),
+        "Interval" => integer(),
+        "Target" => String.t(),
+        "Timeout" => integer(),
+        "UnhealthyThreshold" => integer()
+      }
+      
   """
   @type health_check() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  operation_not_permitted_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      operation_not_permitted_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type operation_not_permitted_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  instance_state() :: %{
-    "Description" => String.t(),
-    "InstanceId" => String.t(),
-    "ReasonCode" => String.t(),
-    "State" => String.t()
-  }
+      
+      instance_state() :: %{
+        "Description" => String.t(),
+        "InstanceId" => String.t(),
+        "ReasonCode" => String.t(),
+        "State" => String.t()
+      }
+      
   """
   @type instance_state() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_access_points_input() :: %{
-    optional("LoadBalancerNames") => list(String.t()()),
-    optional("Marker") => String.t(),
-    optional("PageSize") => integer()
-  }
+      
+      describe_access_points_input() :: %{
+        optional("LoadBalancerNames") => list(String.t()()),
+        optional("Marker") => String.t(),
+        optional("PageSize") => integer()
+      }
+      
   """
   @type describe_access_points_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_account_limits_output() :: %{
-    "Limits" => list(limit()()),
-    "NextMarker" => String.t()
-  }
+      
+      describe_account_limits_output() :: %{
+        "Limits" => list(limit()()),
+        "NextMarker" => String.t()
+      }
+      
   """
   @type describe_account_limits_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  policy_attribute_type_description() :: %{
-    "AttributeName" => String.t(),
-    "AttributeType" => String.t(),
-    "Cardinality" => String.t(),
-    "DefaultValue" => String.t(),
-    "Description" => String.t()
-  }
+      
+      policy_attribute_type_description() :: %{
+        "AttributeName" => String.t(),
+        "AttributeType" => String.t(),
+        "Cardinality" => String.t(),
+        "DefaultValue" => String.t(),
+        "Description" => String.t()
+      }
+      
   """
   @type policy_attribute_type_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  policies() :: %{
-    "AppCookieStickinessPolicies" => list(app_cookie_stickiness_policy()()),
-    "LBCookieStickinessPolicies" => list(lb_cookie_stickiness_policy()()),
-    "OtherPolicies" => list(String.t()())
-  }
+      
+      policies() :: %{
+        "AppCookieStickinessPolicies" => list(app_cookie_stickiness_policy()()),
+        "LBCookieStickinessPolicies" => list(lb_cookie_stickiness_policy()()),
+        "OtherPolicies" => list(String.t()())
+      }
+      
   """
   @type policies() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_load_balancer_policy_types_input() :: %{
-    optional("PolicyTypeNames") => list(String.t()())
-  }
+      
+      describe_load_balancer_policy_types_input() :: %{
+        optional("PolicyTypeNames") => list(String.t()())
+      }
+      
   """
   @type describe_load_balancer_policy_types_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_load_balancer_listener_input() :: %{
-    required("Listeners") => list(listener()()),
-    required("LoadBalancerName") => String.t()
-  }
+      
+      create_load_balancer_listener_input() :: %{
+        required("Listeners") => list(listener()()),
+        required("LoadBalancerName") => String.t()
+      }
+      
   """
   @type create_load_balancer_listener_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_load_balancer_attributes_output() :: %{
-    "LoadBalancerAttributes" => load_balancer_attributes()
-  }
+      
+      describe_load_balancer_attributes_output() :: %{
+        "LoadBalancerAttributes" => load_balancer_attributes()
+      }
+      
   """
   @type describe_load_balancer_attributes_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  modify_load_balancer_attributes_output() :: %{
-    "LoadBalancerAttributes" => load_balancer_attributes(),
-    "LoadBalancerName" => String.t()
-  }
+      
+      modify_load_balancer_attributes_output() :: %{
+        "LoadBalancerAttributes" => load_balancer_attributes(),
+        "LoadBalancerName" => String.t()
+      }
+      
   """
   @type modify_load_balancer_attributes_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_security_group_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      invalid_security_group_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type invalid_security_group_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_app_cookie_stickiness_policy_output() :: %{
-
-  }
+      
+      create_app_cookie_stickiness_policy_output() :: %{}
+      
   """
-  @type create_app_cookie_stickiness_policy_output() :: %{String.t() => any()}
+  @type create_app_cookie_stickiness_policy_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  duplicate_policy_name_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      duplicate_policy_name_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type duplicate_policy_name_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_access_points_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      too_many_access_points_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type too_many_access_points_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  instance() :: %{
-    "InstanceId" => String.t()
-  }
+      
+      instance() :: %{
+        "InstanceId" => String.t()
+      }
+      
   """
   @type instance() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  detach_load_balancer_from_subnets_input() :: %{
-    required("LoadBalancerName") => String.t(),
-    required("Subnets") => list(String.t()())
-  }
+      
+      detach_load_balancer_from_subnets_input() :: %{
+        required("LoadBalancerName") => String.t(),
+        required("Subnets") => list(String.t()())
+      }
+      
   """
   @type detach_load_balancer_from_subnets_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_app_cookie_stickiness_policy_input() :: %{
-    required("CookieName") => String.t(),
-    required("LoadBalancerName") => String.t(),
-    required("PolicyName") => String.t()
-  }
+      
+      create_app_cookie_stickiness_policy_input() :: %{
+        required("CookieName") => String.t(),
+        required("LoadBalancerName") => String.t(),
+        required("PolicyName") => String.t()
+      }
+      
   """
   @type create_app_cookie_stickiness_policy_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_load_balancer_listener_input() :: %{
-    required("LoadBalancerName") => String.t(),
-    required("LoadBalancerPorts") => list(integer()())
-  }
+      
+      delete_load_balancer_listener_input() :: %{
+        required("LoadBalancerName") => String.t(),
+        required("LoadBalancerPorts") => list(integer()())
+      }
+      
   """
   @type delete_load_balancer_listener_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  modify_load_balancer_attributes_input() :: %{
-    required("LoadBalancerAttributes") => load_balancer_attributes(),
-    required("LoadBalancerName") => String.t()
-  }
+      
+      modify_load_balancer_attributes_input() :: %{
+        required("LoadBalancerAttributes") => load_balancer_attributes(),
+        required("LoadBalancerName") => String.t()
+      }
+      
   """
   @type modify_load_balancer_attributes_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  register_end_points_input() :: %{
-    required("Instances") => list(instance()()),
-    required("LoadBalancerName") => String.t()
-  }
+      
+      register_end_points_input() :: %{
+        required("Instances") => list(instance()()),
+        required("LoadBalancerName") => String.t()
+      }
+      
   """
   @type register_end_points_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  additional_attribute() :: %{
-    "Key" => String.t(),
-    "Value" => String.t()
-  }
+      
+      additional_attribute() :: %{
+        "Key" => String.t(),
+        "Value" => String.t()
+      }
+      
   """
   @type additional_attribute() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  configure_health_check_output() :: %{
-    "HealthCheck" => health_check()
-  }
+      
+      configure_health_check_output() :: %{
+        "HealthCheck" => health_check()
+      }
+      
   """
   @type configure_health_check_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  set_load_balancer_policies_of_listener_output() :: %{
-
-  }
+      
+      set_load_balancer_policies_of_listener_output() :: %{}
+      
   """
-  @type set_load_balancer_policies_of_listener_output() :: %{String.t() => any()}
+  @type set_load_balancer_policies_of_listener_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  duplicate_tag_keys_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      duplicate_tag_keys_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type duplicate_tag_keys_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_load_balancer_attributes_input() :: %{
-    required("LoadBalancerName") => String.t()
-  }
+      
+      describe_load_balancer_attributes_input() :: %{
+        required("LoadBalancerName") => String.t()
+      }
+      
   """
   @type describe_load_balancer_attributes_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  remove_availability_zones_output() :: %{
-    "AvailabilityZones" => list(String.t()())
-  }
+      
+      remove_availability_zones_output() :: %{
+        "AvailabilityZones" => list(String.t()())
+      }
+      
   """
   @type remove_availability_zones_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  deregister_end_points_input() :: %{
-    required("Instances") => list(instance()()),
-    required("LoadBalancerName") => String.t()
-  }
+      
+      deregister_end_points_input() :: %{
+        required("Instances") => list(instance()()),
+        required("LoadBalancerName") => String.t()
+      }
+      
   """
   @type deregister_end_points_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_access_point_output() :: %{
-    "DNSName" => String.t()
-  }
+      
+      create_access_point_output() :: %{
+        "DNSName" => String.t()
+      }
+      
   """
   @type create_access_point_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_load_balancer_policy_output() :: %{
-
-  }
+      
+      delete_load_balancer_policy_output() :: %{}
+      
   """
-  @type delete_load_balancer_policy_output() :: %{String.t() => any()}
+  @type delete_load_balancer_policy_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  describe_account_limits_input() :: %{
-    optional("Marker") => String.t(),
-    optional("PageSize") => integer()
-  }
+      
+      describe_account_limits_input() :: %{
+        optional("Marker") => String.t(),
+        optional("PageSize") => integer()
+      }
+      
   """
   @type describe_account_limits_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_load_balancer_policy_output() :: %{
-
-  }
+      
+      create_load_balancer_policy_output() :: %{}
+      
   """
-  @type create_load_balancer_policy_output() :: %{String.t() => any()}
+  @type create_load_balancer_policy_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  invalid_subnet_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      invalid_subnet_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type invalid_subnet_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_policies_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      too_many_policies_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type too_many_policies_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  remove_tags_input() :: %{
-    required("LoadBalancerNames") => list(String.t()()),
-    required("Tags") => list(tag_key_only()())
-  }
+      
+      remove_tags_input() :: %{
+        required("LoadBalancerNames") => list(String.t()()),
+        required("Tags") => list(tag_key_only()())
+      }
+      
   """
   @type remove_tags_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  access_log() :: %{
-    "EmitInterval" => integer(),
-    "Enabled" => boolean(),
-    "S3BucketName" => String.t(),
-    "S3BucketPrefix" => String.t()
-  }
+      
+      access_log() :: %{
+        "EmitInterval" => integer(),
+        "Enabled" => boolean(),
+        "S3BucketName" => String.t(),
+        "S3BucketPrefix" => String.t()
+      }
+      
   """
   @type access_log() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  listener_not_found_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      listener_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type listener_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  set_load_balancer_policies_for_backend_server_output() :: %{
-
-  }
+      
+      set_load_balancer_policies_for_backend_server_output() :: %{}
+      
   """
-  @type set_load_balancer_policies_for_backend_server_output() :: %{String.t() => any()}
+  @type set_load_balancer_policies_for_backend_server_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  set_load_balancer_policies_for_backend_server_input() :: %{
-    required("InstancePort") => integer(),
-    required("LoadBalancerName") => String.t(),
-    required("PolicyNames") => list(String.t()())
-  }
+      
+      set_load_balancer_policies_for_backend_server_input() :: %{
+        required("InstancePort") => integer(),
+        required("LoadBalancerName") => String.t(),
+        required("PolicyNames") => list(String.t()())
+      }
+      
   """
   @type set_load_balancer_policies_for_backend_server_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  policy_type_description() :: %{
-    "Description" => String.t(),
-    "PolicyAttributeTypeDescriptions" => list(policy_attribute_type_description()()),
-    "PolicyTypeName" => String.t()
-  }
+      
+      policy_type_description() :: %{
+        "Description" => String.t(),
+        "PolicyAttributeTypeDescriptions" => list(policy_attribute_type_description()()),
+        "PolicyTypeName" => String.t()
+      }
+      
   """
   @type policy_type_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_load_balancer_policies_output() :: %{
-    "PolicyDescriptions" => list(policy_description()())
-  }
+      
+      describe_load_balancer_policies_output() :: %{
+        "PolicyDescriptions" => list(policy_description()())
+      }
+      
   """
   @type describe_load_balancer_policies_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_end_point_state_output() :: %{
-    "InstanceStates" => list(instance_state()())
-  }
+      
+      describe_end_point_state_output() :: %{
+        "InstanceStates" => list(instance_state()())
+      }
+      
   """
   @type describe_end_point_state_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_scheme_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      invalid_scheme_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type invalid_scheme_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_load_balancer_policy_input() :: %{
-    optional("PolicyAttributes") => list(policy_attribute()()),
-    required("LoadBalancerName") => String.t(),
-    required("PolicyName") => String.t(),
-    required("PolicyTypeName") => String.t()
-  }
+      
+      create_load_balancer_policy_input() :: %{
+        optional("PolicyAttributes") => list(policy_attribute()()),
+        required("LoadBalancerName") => String.t(),
+        required("PolicyName") => String.t(),
+        required("PolicyTypeName") => String.t()
+      }
+      
   """
   @type create_load_balancer_policy_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  load_balancer_attribute_not_found_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      load_balancer_attribute_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type load_balancer_attribute_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_load_balancer_listener_output() :: %{
-
-  }
+      
+      delete_load_balancer_listener_output() :: %{}
+      
   """
-  @type delete_load_balancer_listener_output() :: %{String.t() => any()}
+  @type delete_load_balancer_listener_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  cross_zone_load_balancing() :: %{
-    "Enabled" => boolean()
-  }
+      
+      cross_zone_load_balancing() :: %{
+        "Enabled" => boolean()
+      }
+      
   """
   @type cross_zone_load_balancing() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  register_end_points_output() :: %{
-    "Instances" => list(instance()())
-  }
+      
+      register_end_points_output() :: %{
+        "Instances" => list(instance()())
+      }
+      
   """
   @type register_end_points_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  too_many_tags_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      too_many_tags_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type too_many_tags_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  unsupported_protocol_exception() :: %{
-    "Message" => String.t()
-  }
+      
+      unsupported_protocol_exception() :: %{
+        "Message" => String.t()
+      }
+      
   """
   @type unsupported_protocol_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  set_load_balancer_policies_of_listener_input() :: %{
-    required("LoadBalancerName") => String.t(),
-    required("LoadBalancerPort") => integer(),
-    required("PolicyNames") => list(String.t()())
-  }
+      
+      set_load_balancer_policies_of_listener_input() :: %{
+        required("LoadBalancerName") => String.t(),
+        required("LoadBalancerPort") => integer(),
+        required("PolicyNames") => list(String.t()())
+      }
+      
   """
   @type set_load_balancer_policies_of_listener_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  listener_description() :: %{
-    "Listener" => listener(),
-    "PolicyNames" => list(String.t()())
-  }
+      
+      listener_description() :: %{
+        "Listener" => listener(),
+        "PolicyNames" => list(String.t()())
+      }
+      
   """
   @type listener_description() :: %{String.t() => any()}
+
+  @type add_tags_errors() ::
+          too_many_tags_exception()
+          | duplicate_tag_keys_exception()
+          | access_point_not_found_exception()
+
+  @type apply_security_groups_to_load_balancer_errors() ::
+          invalid_security_group_exception()
+          | access_point_not_found_exception()
+          | invalid_configuration_request_exception()
+
+  @type attach_load_balancer_to_subnets_errors() ::
+          invalid_subnet_exception()
+          | access_point_not_found_exception()
+          | subnet_not_found_exception()
+          | invalid_configuration_request_exception()
+
+  @type configure_health_check_errors() :: access_point_not_found_exception()
+
+  @type create_app_cookie_stickiness_policy_errors() ::
+          too_many_policies_exception()
+          | duplicate_policy_name_exception()
+          | access_point_not_found_exception()
+          | invalid_configuration_request_exception()
+
+  @type create_lb_cookie_stickiness_policy_errors() ::
+          too_many_policies_exception()
+          | duplicate_policy_name_exception()
+          | access_point_not_found_exception()
+          | invalid_configuration_request_exception()
+
+  @type create_load_balancer_errors() ::
+          unsupported_protocol_exception()
+          | too_many_tags_exception()
+          | invalid_scheme_exception()
+          | invalid_subnet_exception()
+          | duplicate_tag_keys_exception()
+          | too_many_access_points_exception()
+          | invalid_security_group_exception()
+          | operation_not_permitted_exception()
+          | certificate_not_found_exception()
+          | subnet_not_found_exception()
+          | invalid_configuration_request_exception()
+          | duplicate_access_point_name_exception()
+
+  @type create_load_balancer_listeners_errors() ::
+          unsupported_protocol_exception()
+          | access_point_not_found_exception()
+          | certificate_not_found_exception()
+          | duplicate_listener_exception()
+          | invalid_configuration_request_exception()
+
+  @type create_load_balancer_policy_errors() ::
+          too_many_policies_exception()
+          | duplicate_policy_name_exception()
+          | access_point_not_found_exception()
+          | invalid_configuration_request_exception()
+          | policy_type_not_found_exception()
+
+  @type delete_load_balancer_listeners_errors() :: access_point_not_found_exception()
+
+  @type delete_load_balancer_policy_errors() ::
+          access_point_not_found_exception() | invalid_configuration_request_exception()
+
+  @type deregister_instances_from_load_balancer_errors() ::
+          access_point_not_found_exception() | invalid_end_point_exception()
+
+  @type describe_instance_health_errors() ::
+          access_point_not_found_exception() | invalid_end_point_exception()
+
+  @type describe_load_balancer_attributes_errors() ::
+          load_balancer_attribute_not_found_exception() | access_point_not_found_exception()
+
+  @type describe_load_balancer_policies_errors() ::
+          access_point_not_found_exception() | policy_not_found_exception()
+
+  @type describe_load_balancer_policy_types_errors() :: policy_type_not_found_exception()
+
+  @type describe_load_balancers_errors() ::
+          access_point_not_found_exception() | dependency_throttle_exception()
+
+  @type describe_tags_errors() :: access_point_not_found_exception()
+
+  @type detach_load_balancer_from_subnets_errors() ::
+          access_point_not_found_exception() | invalid_configuration_request_exception()
+
+  @type disable_availability_zones_for_load_balancer_errors() ::
+          access_point_not_found_exception() | invalid_configuration_request_exception()
+
+  @type enable_availability_zones_for_load_balancer_errors() :: access_point_not_found_exception()
+
+  @type modify_load_balancer_attributes_errors() ::
+          load_balancer_attribute_not_found_exception()
+          | access_point_not_found_exception()
+          | invalid_configuration_request_exception()
+
+  @type register_instances_with_load_balancer_errors() ::
+          access_point_not_found_exception() | invalid_end_point_exception()
+
+  @type remove_tags_errors() :: access_point_not_found_exception()
+
+  @type set_load_balancer_listener_ssl_certificate_errors() ::
+          unsupported_protocol_exception()
+          | listener_not_found_exception()
+          | access_point_not_found_exception()
+          | certificate_not_found_exception()
+          | invalid_configuration_request_exception()
+
+  @type set_load_balancer_policies_for_backend_server_errors() ::
+          access_point_not_found_exception()
+          | policy_not_found_exception()
+          | invalid_configuration_request_exception()
+
+  @type set_load_balancer_policies_of_listener_errors() ::
+          listener_not_found_exception()
+          | access_point_not_found_exception()
+          | policy_not_found_exception()
+          | invalid_configuration_request_exception()
 
   def metadata do
     %{
@@ -1123,9 +1429,7 @@ defmodule AWS.ElasticLoadBalancing do
   @spec add_tags(map(), add_tags_input(), list()) ::
           {:ok, add_tags_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_point_not_found_exception()}
-          | {:error, duplicate_tag_keys_exception()}
-          | {:error, too_many_tags_exception()}
+          | {:error, add_tags_errors()}
   def add_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1149,9 +1453,7 @@ defmodule AWS.ElasticLoadBalancing do
         ) ::
           {:ok, apply_security_groups_to_load_balancer_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_point_not_found_exception()}
-          | {:error, invalid_configuration_request_exception()}
-          | {:error, invalid_security_group_exception()}
+          | {:error, apply_security_groups_to_load_balancer_errors()}
   def apply_security_groups_to_load_balancer(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1169,10 +1471,7 @@ defmodule AWS.ElasticLoadBalancing do
   @spec attach_load_balancer_to_subnets(map(), attach_load_balancer_to_subnets_input(), list()) ::
           {:ok, attach_load_balancer_to_subnets_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_point_not_found_exception()}
-          | {:error, invalid_configuration_request_exception()}
-          | {:error, invalid_subnet_exception()}
-          | {:error, subnet_not_found_exception()}
+          | {:error, attach_load_balancer_to_subnets_errors()}
   def attach_load_balancer_to_subnets(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1189,7 +1488,7 @@ defmodule AWS.ElasticLoadBalancing do
   @spec configure_health_check(map(), configure_health_check_input(), list()) ::
           {:ok, configure_health_check_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_point_not_found_exception()}
+          | {:error, configure_health_check_errors()}
   def configure_health_check(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1224,10 +1523,7 @@ defmodule AWS.ElasticLoadBalancing do
         ) ::
           {:ok, create_app_cookie_stickiness_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_point_not_found_exception()}
-          | {:error, duplicate_policy_name_exception()}
-          | {:error, invalid_configuration_request_exception()}
-          | {:error, too_many_policies_exception()}
+          | {:error, create_app_cookie_stickiness_policy_errors()}
   def create_app_cookie_stickiness_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1261,10 +1557,7 @@ defmodule AWS.ElasticLoadBalancing do
         ) ::
           {:ok, create_lb_cookie_stickiness_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_point_not_found_exception()}
-          | {:error, duplicate_policy_name_exception()}
-          | {:error, invalid_configuration_request_exception()}
-          | {:error, too_many_policies_exception()}
+          | {:error, create_lb_cookie_stickiness_policy_errors()}
   def create_lb_cookie_stickiness_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1292,18 +1585,7 @@ defmodule AWS.ElasticLoadBalancing do
   @spec create_load_balancer(map(), create_access_point_input(), list()) ::
           {:ok, create_access_point_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, certificate_not_found_exception()}
-          | {:error, duplicate_access_point_name_exception()}
-          | {:error, duplicate_tag_keys_exception()}
-          | {:error, invalid_configuration_request_exception()}
-          | {:error, invalid_scheme_exception()}
-          | {:error, invalid_security_group_exception()}
-          | {:error, invalid_subnet_exception()}
-          | {:error, operation_not_permitted_exception()}
-          | {:error, subnet_not_found_exception()}
-          | {:error, too_many_access_points_exception()}
-          | {:error, too_many_tags_exception()}
-          | {:error, unsupported_protocol_exception()}
+          | {:error, create_load_balancer_errors()}
   def create_load_balancer(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1323,11 +1605,7 @@ defmodule AWS.ElasticLoadBalancing do
   @spec create_load_balancer_listeners(map(), create_load_balancer_listener_input(), list()) ::
           {:ok, create_load_balancer_listener_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_point_not_found_exception()}
-          | {:error, certificate_not_found_exception()}
-          | {:error, duplicate_listener_exception()}
-          | {:error, invalid_configuration_request_exception()}
-          | {:error, unsupported_protocol_exception()}
+          | {:error, create_load_balancer_listeners_errors()}
   def create_load_balancer_listeners(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1343,11 +1621,7 @@ defmodule AWS.ElasticLoadBalancing do
   @spec create_load_balancer_policy(map(), create_load_balancer_policy_input(), list()) ::
           {:ok, create_load_balancer_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_point_not_found_exception()}
-          | {:error, duplicate_policy_name_exception()}
-          | {:error, invalid_configuration_request_exception()}
-          | {:error, policy_type_not_found_exception()}
-          | {:error, too_many_policies_exception()}
+          | {:error, create_load_balancer_policy_errors()}
   def create_load_balancer_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1381,7 +1655,7 @@ defmodule AWS.ElasticLoadBalancing do
   @spec delete_load_balancer_listeners(map(), delete_load_balancer_listener_input(), list()) ::
           {:ok, delete_load_balancer_listener_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_point_not_found_exception()}
+          | {:error, delete_load_balancer_listeners_errors()}
   def delete_load_balancer_listeners(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1396,8 +1670,7 @@ defmodule AWS.ElasticLoadBalancing do
   @spec delete_load_balancer_policy(map(), delete_load_balancer_policy_input(), list()) ::
           {:ok, delete_load_balancer_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_point_not_found_exception()}
-          | {:error, invalid_configuration_request_exception()}
+          | {:error, delete_load_balancer_policy_errors()}
   def delete_load_balancer_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1419,8 +1692,7 @@ defmodule AWS.ElasticLoadBalancing do
   @spec deregister_instances_from_load_balancer(map(), deregister_end_points_input(), list()) ::
           {:ok, deregister_end_points_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_point_not_found_exception()}
-          | {:error, invalid_end_point_exception()}
+          | {:error, deregister_instances_from_load_balancer_errors()}
   def deregister_instances_from_load_balancer(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1455,8 +1727,7 @@ defmodule AWS.ElasticLoadBalancing do
   @spec describe_instance_health(map(), describe_end_point_state_input(), list()) ::
           {:ok, describe_end_point_state_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_point_not_found_exception()}
-          | {:error, invalid_end_point_exception()}
+          | {:error, describe_instance_health_errors()}
   def describe_instance_health(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1473,8 +1744,7 @@ defmodule AWS.ElasticLoadBalancing do
         ) ::
           {:ok, describe_load_balancer_attributes_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_point_not_found_exception()}
-          | {:error, load_balancer_attribute_not_found_exception()}
+          | {:error, describe_load_balancer_attributes_errors()}
   def describe_load_balancer_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1495,8 +1765,7 @@ defmodule AWS.ElasticLoadBalancing do
   @spec describe_load_balancer_policies(map(), describe_load_balancer_policies_input(), list()) ::
           {:ok, describe_load_balancer_policies_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_point_not_found_exception()}
-          | {:error, policy_not_found_exception()}
+          | {:error, describe_load_balancer_policies_errors()}
   def describe_load_balancer_policies(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1525,7 +1794,7 @@ defmodule AWS.ElasticLoadBalancing do
         ) ::
           {:ok, describe_load_balancer_policy_types_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, policy_type_not_found_exception()}
+          | {:error, describe_load_balancer_policy_types_errors()}
   def describe_load_balancer_policy_types(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1541,8 +1810,7 @@ defmodule AWS.ElasticLoadBalancing do
   @spec describe_load_balancers(map(), describe_access_points_input(), list()) ::
           {:ok, describe_access_points_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_point_not_found_exception()}
-          | {:error, dependency_throttle_exception()}
+          | {:error, describe_load_balancers_errors()}
   def describe_load_balancers(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1555,7 +1823,7 @@ defmodule AWS.ElasticLoadBalancing do
   @spec describe_tags(map(), describe_tags_input(), list()) ::
           {:ok, describe_tags_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_point_not_found_exception()}
+          | {:error, describe_tags_errors()}
   def describe_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1577,8 +1845,7 @@ defmodule AWS.ElasticLoadBalancing do
         ) ::
           {:ok, detach_load_balancer_from_subnets_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_point_not_found_exception()}
-          | {:error, invalid_configuration_request_exception()}
+          | {:error, detach_load_balancer_from_subnets_errors()}
   def detach_load_balancer_from_subnets(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1610,8 +1877,7 @@ defmodule AWS.ElasticLoadBalancing do
         ) ::
           {:ok, remove_availability_zones_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_point_not_found_exception()}
-          | {:error, invalid_configuration_request_exception()}
+          | {:error, disable_availability_zones_for_load_balancer_errors()}
   def disable_availability_zones_for_load_balancer(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1633,7 +1899,7 @@ defmodule AWS.ElasticLoadBalancing do
   @spec enable_availability_zones_for_load_balancer(map(), add_availability_zones_input(), list()) ::
           {:ok, add_availability_zones_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_point_not_found_exception()}
+          | {:error, enable_availability_zones_for_load_balancer_errors()}
   def enable_availability_zones_for_load_balancer(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1671,9 +1937,7 @@ defmodule AWS.ElasticLoadBalancing do
   @spec modify_load_balancer_attributes(map(), modify_load_balancer_attributes_input(), list()) ::
           {:ok, modify_load_balancer_attributes_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_point_not_found_exception()}
-          | {:error, invalid_configuration_request_exception()}
-          | {:error, load_balancer_attribute_not_found_exception()}
+          | {:error, modify_load_balancer_attributes_errors()}
   def modify_load_balancer_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1711,8 +1975,7 @@ defmodule AWS.ElasticLoadBalancing do
   @spec register_instances_with_load_balancer(map(), register_end_points_input(), list()) ::
           {:ok, register_end_points_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_point_not_found_exception()}
-          | {:error, invalid_end_point_exception()}
+          | {:error, register_instances_with_load_balancer_errors()}
   def register_instances_with_load_balancer(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1725,7 +1988,7 @@ defmodule AWS.ElasticLoadBalancing do
   @spec remove_tags(map(), remove_tags_input(), list()) ::
           {:ok, remove_tags_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_point_not_found_exception()}
+          | {:error, remove_tags_errors()}
   def remove_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1749,11 +2012,7 @@ defmodule AWS.ElasticLoadBalancing do
         ) ::
           {:ok, set_load_balancer_listener_ssl_certificate_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_point_not_found_exception()}
-          | {:error, certificate_not_found_exception()}
-          | {:error, invalid_configuration_request_exception()}
-          | {:error, listener_not_found_exception()}
-          | {:error, unsupported_protocol_exception()}
+          | {:error, set_load_balancer_listener_ssl_certificate_errors()}
   def set_load_balancer_listener_ssl_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1790,9 +2049,7 @@ defmodule AWS.ElasticLoadBalancing do
         ) ::
           {:ok, set_load_balancer_policies_for_backend_server_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_point_not_found_exception()}
-          | {:error, invalid_configuration_request_exception()}
-          | {:error, policy_not_found_exception()}
+          | {:error, set_load_balancer_policies_for_backend_server_errors()}
   def set_load_balancer_policies_for_backend_server(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1820,10 +2077,7 @@ defmodule AWS.ElasticLoadBalancing do
         ) ::
           {:ok, set_load_balancer_policies_of_listener_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_point_not_found_exception()}
-          | {:error, invalid_configuration_request_exception()}
-          | {:error, listener_not_found_exception()}
-          | {:error, policy_not_found_exception()}
+          | {:error, set_load_balancer_policies_of_listener_errors()}
   def set_load_balancer_policies_of_listener(%Client{} = client, input, options \\ []) do
     meta = metadata()
 

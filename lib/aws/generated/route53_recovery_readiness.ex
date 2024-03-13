@@ -12,835 +12,1176 @@ defmodule AWS.Route53RecoveryReadiness do
   @typedoc """
 
   ## Example:
-  readiness_check_summary() :: %{
-    "Readiness" => list(any()),
-    "ReadinessCheckName" => String.t()
-  }
+
+      readiness_check_summary() :: %{
+        "Readiness" => list(any()),
+        "ReadinessCheckName" => String.t()
+      }
+
   """
   @type readiness_check_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_request() :: %{
-    required("Tags") => map()
-  }
+
+      tag_resource_request() :: %{
+        required("Tags") => map()
+      }
+
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_resource_set_request() :: %{
-    optional("Tags") => map(),
-    required("ResourceSetName") => String.t(),
-    required("ResourceSetType") => String.t(),
-    required("Resources") => list(resource()())
-  }
+
+      create_resource_set_request() :: %{
+        optional("Tags") => map(),
+        required("ResourceSetName") => String.t(),
+        required("ResourceSetType") => String.t(),
+        required("Resources") => list(resource()())
+      }
+
   """
   @type create_resource_set_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_recovery_group_response() :: %{
-    "Cells" => list(String.t()()),
-    "RecoveryGroupArn" => String.t(),
-    "RecoveryGroupName" => String.t(),
-    "Tags" => map()
-  }
+
+      get_recovery_group_response() :: %{
+        "Cells" => list(String.t()()),
+        "RecoveryGroupArn" => String.t(),
+        "RecoveryGroupName" => String.t(),
+        "Tags" => map()
+      }
+
   """
   @type get_recovery_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_cell_response() :: %{
-    "CellArn" => String.t(),
-    "CellName" => String.t(),
-    "Cells" => list(String.t()()),
-    "ParentReadinessScopes" => list(String.t()()),
-    "Tags" => map()
-  }
+
+      create_cell_response() :: %{
+        "CellArn" => String.t(),
+        "CellName" => String.t(),
+        "Cells" => list(String.t()()),
+        "ParentReadinessScopes" => list(String.t()()),
+        "Tags" => map()
+      }
+
   """
   @type create_cell_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_cell_request() :: %{
 
-  }
+      delete_cell_request() :: %{}
+
   """
-  @type delete_cell_request() :: %{String.t() => any()}
+  @type delete_cell_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_recovery_group_request() :: %{
 
-  }
+      get_recovery_group_request() :: %{}
+
   """
-  @type get_recovery_group_request() :: %{String.t() => any()}
+  @type get_recovery_group_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_readiness_checks_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      list_readiness_checks_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_readiness_checks_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  dns_target_resource() :: %{
-    "DomainName" => String.t(),
-    "HostedZoneArn" => String.t(),
-    "RecordSetId" => String.t(),
-    "RecordType" => String.t(),
-    "TargetResource" => target_resource()
-  }
+
+      dns_target_resource() :: %{
+        "DomainName" => String.t(),
+        "HostedZoneArn" => String.t(),
+        "RecordSetId" => String.t(),
+        "RecordType" => String.t(),
+        "TargetResource" => target_resource()
+      }
+
   """
   @type dns_target_resource() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  r53_resource_record() :: %{
-    "DomainName" => String.t(),
-    "RecordSetId" => String.t()
-  }
+
+      r53_resource_record() :: %{
+        "DomainName" => String.t(),
+        "RecordSetId" => String.t()
+      }
+
   """
   @type r53_resource_record() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_cells_response() :: %{
-    "Cells" => list(cell_output()()),
-    "NextToken" => String.t()
-  }
+
+      list_cells_response() :: %{
+        "Cells" => list(cell_output()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_cells_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_resource_set_request() :: %{
 
-  }
+      delete_resource_set_request() :: %{}
+
   """
-  @type delete_resource_set_request() :: %{String.t() => any()}
+  @type delete_resource_set_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  create_cross_account_authorization_response() :: %{
-    "CrossAccountAuthorization" => String.t()
-  }
+
+      create_cross_account_authorization_response() :: %{
+        "CrossAccountAuthorization" => String.t()
+      }
+
   """
   @type create_cross_account_authorization_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  recovery_group_output() :: %{
-    "Cells" => list(String.t()()),
-    "RecoveryGroupArn" => String.t(),
-    "RecoveryGroupName" => String.t(),
-    "Tags" => map()
-  }
+
+      recovery_group_output() :: %{
+        "Cells" => list(String.t()()),
+        "RecoveryGroupArn" => String.t(),
+        "RecoveryGroupName" => String.t(),
+        "Tags" => map()
+      }
+
   """
   @type recovery_group_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_resource_sets_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      list_resource_sets_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_resource_sets_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_set_output() :: %{
-    "ResourceSetArn" => String.t(),
-    "ResourceSetName" => String.t(),
-    "ResourceSetType" => String.t(),
-    "Resources" => list(resource()()),
-    "Tags" => map()
-  }
+
+      resource_set_output() :: %{
+        "ResourceSetArn" => String.t(),
+        "ResourceSetName" => String.t(),
+        "ResourceSetType" => String.t(),
+        "Resources" => list(resource()()),
+        "Tags" => map()
+      }
+
   """
   @type resource_set_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_cross_account_authorization_request() :: %{
-    required("CrossAccountAuthorization") => String.t()
-  }
+
+      create_cross_account_authorization_request() :: %{
+        required("CrossAccountAuthorization") => String.t()
+      }
+
   """
   @type create_cross_account_authorization_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_recovery_group_readiness_summary_response() :: %{
-    "NextToken" => String.t(),
-    "Readiness" => list(any()),
-    "ReadinessChecks" => list(readiness_check_summary()())
-  }
+
+      get_recovery_group_readiness_summary_response() :: %{
+        "NextToken" => String.t(),
+        "Readiness" => list(any()),
+        "ReadinessChecks" => list(readiness_check_summary()())
+      }
+
   """
   @type get_recovery_group_readiness_summary_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_request() :: %{
-    required("TagKeys") => list(String.t()())
-  }
+
+      untag_resource_request() :: %{
+        required("TagKeys") => list(String.t()())
+      }
+
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_recovery_group_response() :: %{
-    "Cells" => list(String.t()()),
-    "RecoveryGroupArn" => String.t(),
-    "RecoveryGroupName" => String.t(),
-    "Tags" => map()
-  }
+
+      update_recovery_group_response() :: %{
+        "Cells" => list(String.t()()),
+        "RecoveryGroupArn" => String.t(),
+        "RecoveryGroupName" => String.t(),
+        "Tags" => map()
+      }
+
   """
   @type update_recovery_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_rules_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("ResourceType") => String.t()
-  }
+
+      list_rules_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("ResourceType") => String.t()
+      }
+
   """
   @type list_rules_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_cell_request() :: %{
 
-  }
+      get_cell_request() :: %{}
+
   """
-  @type get_cell_request() :: %{String.t() => any()}
+  @type get_cell_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  update_readiness_check_response() :: %{
-    "ReadinessCheckArn" => String.t(),
-    "ReadinessCheckName" => String.t(),
-    "ResourceSet" => String.t(),
-    "Tags" => map()
-  }
+
+      update_readiness_check_response() :: %{
+        "ReadinessCheckArn" => String.t(),
+        "ReadinessCheckName" => String.t(),
+        "ResourceSet" => String.t(),
+        "Tags" => map()
+      }
+
   """
   @type update_readiness_check_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  target_resource() :: %{
-    "NLBResource" => n_lb_resource(),
-    "R53Resource" => r53_resource_record()
-  }
+
+      target_resource() :: %{
+        "NLBResource" => n_lb_resource(),
+        "R53Resource" => r53_resource_record()
+      }
+
   """
   @type target_resource() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_recovery_group_readiness_summary_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      get_recovery_group_readiness_summary_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type get_recovery_group_readiness_summary_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_cell_readiness_summary_response() :: %{
-    "NextToken" => String.t(),
-    "Readiness" => list(any()),
-    "ReadinessChecks" => list(readiness_check_summary()())
-  }
+
+      get_cell_readiness_summary_response() :: %{
+        "NextToken" => String.t(),
+        "Readiness" => list(any()),
+        "ReadinessChecks" => list(readiness_check_summary()())
+      }
+
   """
   @type get_cell_readiness_summary_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_cells_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      list_cells_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_cells_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resources_response() :: %{
-    "Tags" => map()
-  }
+
+      list_tags_for_resources_response() :: %{
+        "Tags" => map()
+      }
+
   """
   @type list_tags_for_resources_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_cross_account_authorization_request() :: %{
 
-  }
+      delete_cross_account_authorization_request() :: %{}
+
   """
-  @type delete_cross_account_authorization_request() :: %{String.t() => any()}
+  @type delete_cross_account_authorization_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_readiness_checks_response() :: %{
-    "NextToken" => String.t(),
-    "ReadinessChecks" => list(readiness_check_output()())
-  }
+
+      list_readiness_checks_response() :: %{
+        "NextToken" => String.t(),
+        "ReadinessChecks" => list(readiness_check_output()())
+      }
+
   """
   @type list_readiness_checks_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_readiness_check_request() :: %{
-    optional("Tags") => map(),
-    required("ReadinessCheckName") => String.t(),
-    required("ResourceSetName") => String.t()
-  }
+
+      create_readiness_check_request() :: %{
+        optional("Tags") => map(),
+        required("ReadinessCheckName") => String.t(),
+        required("ResourceSetName") => String.t()
+      }
+
   """
   @type create_readiness_check_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  conflict_exception() :: %{
-    "Message" => String.t()
-  }
+
+      conflict_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_not_found_exception() :: %{
-    "Message" => String.t()
-  }
+
+      resource_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_readiness_check_request() :: %{
-    required("ResourceSetName") => String.t()
-  }
+
+      update_readiness_check_request() :: %{
+        required("ResourceSetName") => String.t()
+      }
+
   """
   @type update_readiness_check_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_readiness_check_status_response() :: %{
-    "Messages" => list(message()()),
-    "NextToken" => String.t(),
-    "Readiness" => list(any()),
-    "Resources" => list(resource_result()())
-  }
+
+      get_readiness_check_status_response() :: %{
+        "Messages" => list(message()()),
+        "NextToken" => String.t(),
+        "Readiness" => list(any()),
+        "Resources" => list(resource_result()())
+      }
+
   """
   @type get_readiness_check_status_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_recovery_group_request() :: %{
-    required("Cells") => list(String.t()())
-  }
+
+      update_recovery_group_request() :: %{
+        required("Cells") => list(String.t()())
+      }
+
   """
   @type update_recovery_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  recommendation() :: %{
-    "RecommendationText" => String.t()
-  }
+
+      recommendation() :: %{
+        "RecommendationText" => String.t()
+      }
+
   """
   @type recommendation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_architecture_recommendations_response() :: %{
-    "LastAuditTimestamp" => non_neg_integer(),
-    "NextToken" => String.t(),
-    "Recommendations" => list(recommendation()())
-  }
+
+      get_architecture_recommendations_response() :: %{
+        "LastAuditTimestamp" => non_neg_integer(),
+        "NextToken" => String.t(),
+        "Recommendations" => list(recommendation()())
+      }
+
   """
   @type get_architecture_recommendations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_readiness_check_status_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      get_readiness_check_status_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type get_readiness_check_status_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_readiness_check_response() :: %{
-    "ReadinessCheckArn" => String.t(),
-    "ReadinessCheckName" => String.t(),
-    "ResourceSet" => String.t(),
-    "Tags" => map()
-  }
+
+      create_readiness_check_response() :: %{
+        "ReadinessCheckArn" => String.t(),
+        "ReadinessCheckName" => String.t(),
+        "ResourceSet" => String.t(),
+        "Tags" => map()
+      }
+
   """
   @type create_readiness_check_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_cross_account_authorizations_response() :: %{
-    "CrossAccountAuthorizations" => list(String.t()()),
-    "NextToken" => String.t()
-  }
+
+      list_cross_account_authorizations_response() :: %{
+        "CrossAccountAuthorizations" => list(String.t()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_cross_account_authorizations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_resource_set_request() :: %{
 
-  }
+      get_resource_set_request() :: %{}
+
   """
-  @type get_resource_set_request() :: %{String.t() => any()}
+  @type get_resource_set_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  update_cell_response() :: %{
-    "CellArn" => String.t(),
-    "CellName" => String.t(),
-    "Cells" => list(String.t()()),
-    "ParentReadinessScopes" => list(String.t()()),
-    "Tags" => map()
-  }
+
+      update_cell_response() :: %{
+        "CellArn" => String.t(),
+        "CellName" => String.t(),
+        "Cells" => list(String.t()()),
+        "ParentReadinessScopes" => list(String.t()()),
+        "Tags" => map()
+      }
+
   """
   @type update_cell_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_readiness_check_response() :: %{
-    "ReadinessCheckArn" => String.t(),
-    "ReadinessCheckName" => String.t(),
-    "ResourceSet" => String.t(),
-    "Tags" => map()
-  }
+
+      get_readiness_check_response() :: %{
+        "ReadinessCheckArn" => String.t(),
+        "ReadinessCheckName" => String.t(),
+        "ResourceSet" => String.t(),
+        "Tags" => map()
+      }
+
   """
   @type get_readiness_check_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_resource_set_response() :: %{
-    "ResourceSetArn" => String.t(),
-    "ResourceSetName" => String.t(),
-    "ResourceSetType" => String.t(),
-    "Resources" => list(resource()()),
-    "Tags" => map()
-  }
+
+      create_resource_set_response() :: %{
+        "ResourceSetArn" => String.t(),
+        "ResourceSetName" => String.t(),
+        "ResourceSetType" => String.t(),
+        "Resources" => list(resource()()),
+        "Tags" => map()
+      }
+
   """
   @type create_resource_set_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  readiness_check_output() :: %{
-    "ReadinessCheckArn" => String.t(),
-    "ReadinessCheckName" => String.t(),
-    "ResourceSet" => String.t(),
-    "Tags" => map()
-  }
+
+      readiness_check_output() :: %{
+        "ReadinessCheckArn" => String.t(),
+        "ReadinessCheckName" => String.t(),
+        "ResourceSet" => String.t(),
+        "Tags" => map()
+      }
+
   """
   @type readiness_check_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_recovery_groups_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      list_recovery_groups_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_recovery_groups_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_architecture_recommendations_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      get_architecture_recommendations_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type get_architecture_recommendations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_resource_set_response() :: %{
-    "ResourceSetArn" => String.t(),
-    "ResourceSetName" => String.t(),
-    "ResourceSetType" => String.t(),
-    "Resources" => list(resource()()),
-    "Tags" => map()
-  }
+
+      get_resource_set_response() :: %{
+        "ResourceSetArn" => String.t(),
+        "ResourceSetName" => String.t(),
+        "ResourceSetType" => String.t(),
+        "Resources" => list(resource()()),
+        "Tags" => map()
+      }
+
   """
   @type get_resource_set_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_resource_sets_response() :: %{
-    "NextToken" => String.t(),
-    "ResourceSets" => list(resource_set_output()())
-  }
+
+      list_resource_sets_response() :: %{
+        "NextToken" => String.t(),
+        "ResourceSets" => list(resource_set_output()())
+      }
+
   """
   @type list_resource_sets_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  internal_server_exception() :: %{
-    "Message" => String.t()
-  }
+
+      internal_server_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_cross_account_authorization_response() :: %{
 
-  }
+      delete_cross_account_authorization_response() :: %{}
+
   """
-  @type delete_cross_account_authorization_response() :: %{String.t() => any()}
+  @type delete_cross_account_authorization_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_cell_readiness_summary_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      get_cell_readiness_summary_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type get_cell_readiness_summary_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_readiness_check_resource_status_response() :: %{
-    "NextToken" => String.t(),
-    "Readiness" => list(any()),
-    "Rules" => list(rule_result()())
-  }
+
+      get_readiness_check_resource_status_response() :: %{
+        "NextToken" => String.t(),
+        "Readiness" => list(any()),
+        "Rules" => list(rule_result()())
+      }
+
   """
   @type get_readiness_check_resource_status_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_cell_response() :: %{
-    "CellArn" => String.t(),
-    "CellName" => String.t(),
-    "Cells" => list(String.t()()),
-    "ParentReadinessScopes" => list(String.t()()),
-    "Tags" => map()
-  }
+
+      get_cell_response() :: %{
+        "CellArn" => String.t(),
+        "CellName" => String.t(),
+        "Cells" => list(String.t()()),
+        "ParentReadinessScopes" => list(String.t()()),
+        "Tags" => map()
+      }
+
   """
   @type get_cell_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  access_denied_exception() :: %{
-    "Message" => String.t()
-  }
+
+      access_denied_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_rules_response() :: %{
-    "NextToken" => String.t(),
-    "Rules" => list(list_rules_output()())
-  }
+
+      list_rules_response() :: %{
+        "NextToken" => String.t(),
+        "Rules" => list(list_rules_output()())
+      }
+
   """
   @type list_rules_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_response() :: %{
 
-  }
+      tag_resource_response() :: %{}
+
   """
-  @type tag_resource_response() :: %{String.t() => any()}
+  @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-  update_resource_set_request() :: %{
-    required("ResourceSetType") => String.t(),
-    required("Resources") => list(resource()())
-  }
+
+      update_resource_set_request() :: %{
+        required("ResourceSetType") => String.t(),
+        required("Resources") => list(resource()())
+      }
+
   """
   @type update_resource_set_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_recovery_group_response() :: %{
-    "Cells" => list(String.t()()),
-    "RecoveryGroupArn" => String.t(),
-    "RecoveryGroupName" => String.t(),
-    "Tags" => map()
-  }
+
+      create_recovery_group_response() :: %{
+        "Cells" => list(String.t()()),
+        "RecoveryGroupArn" => String.t(),
+        "RecoveryGroupName" => String.t(),
+        "Tags" => map()
+      }
+
   """
   @type create_recovery_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  rule_result() :: %{
-    "LastCheckedTimestamp" => non_neg_integer(),
-    "Messages" => list(message()()),
-    "Readiness" => list(any()),
-    "RuleId" => String.t()
-  }
+
+      rule_result() :: %{
+        "LastCheckedTimestamp" => non_neg_integer(),
+        "Messages" => list(message()()),
+        "Readiness" => list(any()),
+        "RuleId" => String.t()
+      }
+
   """
   @type rule_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resources_request() :: %{
 
-  }
+      list_tags_for_resources_request() :: %{}
+
   """
-  @type list_tags_for_resources_request() :: %{String.t() => any()}
+  @type list_tags_for_resources_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  get_readiness_check_resource_status_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      get_readiness_check_resource_status_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type get_readiness_check_resource_status_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_rules_output() :: %{
-    "ResourceType" => String.t(),
-    "RuleDescription" => String.t(),
-    "RuleId" => String.t()
-  }
+
+      list_rules_output() :: %{
+        "ResourceType" => String.t(),
+        "RuleDescription" => String.t(),
+        "RuleId" => String.t()
+      }
+
   """
   @type list_rules_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  validation_exception() :: %{
-    "Message" => String.t()
-  }
+
+      validation_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_readiness_check_request() :: %{
 
-  }
+      delete_readiness_check_request() :: %{}
+
   """
-  @type delete_readiness_check_request() :: %{String.t() => any()}
+  @type delete_readiness_check_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  n_lb_resource() :: %{
-    "Arn" => String.t()
-  }
+
+      n_lb_resource() :: %{
+        "Arn" => String.t()
+      }
+
   """
   @type n_lb_resource() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  throttling_exception() :: %{
-    "Message" => String.t()
-  }
+
+      throttling_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  cell_output() :: %{
-    "CellArn" => String.t(),
-    "CellName" => String.t(),
-    "Cells" => list(String.t()()),
-    "ParentReadinessScopes" => list(String.t()()),
-    "Tags" => map()
-  }
+
+      cell_output() :: %{
+        "CellArn" => String.t(),
+        "CellName" => String.t(),
+        "Cells" => list(String.t()()),
+        "ParentReadinessScopes" => list(String.t()()),
+        "Tags" => map()
+      }
+
   """
   @type cell_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_recovery_group_request() :: %{
-    optional("Cells") => list(String.t()()),
-    optional("Tags") => map(),
-    required("RecoveryGroupName") => String.t()
-  }
+
+      create_recovery_group_request() :: %{
+        optional("Cells") => list(String.t()()),
+        optional("Tags") => map(),
+        required("RecoveryGroupName") => String.t()
+      }
+
   """
   @type create_recovery_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_cell_request() :: %{
-    optional("Cells") => list(String.t()()),
-    optional("Tags") => map(),
-    required("CellName") => String.t()
-  }
+
+      create_cell_request() :: %{
+        optional("Cells") => list(String.t()()),
+        optional("Tags") => map(),
+        required("CellName") => String.t()
+      }
+
   """
   @type create_cell_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_cell_request() :: %{
-    required("Cells") => list(String.t()())
-  }
+
+      update_cell_request() :: %{
+        required("Cells") => list(String.t()())
+      }
+
   """
   @type update_cell_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_cross_account_authorizations_request() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      list_cross_account_authorizations_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_cross_account_authorizations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_result() :: %{
-    "ComponentId" => String.t(),
-    "LastCheckedTimestamp" => non_neg_integer(),
-    "Readiness" => list(any()),
-    "ResourceArn" => String.t()
-  }
+
+      resource_result() :: %{
+        "ComponentId" => String.t(),
+        "LastCheckedTimestamp" => non_neg_integer(),
+        "Readiness" => list(any()),
+        "ResourceArn" => String.t()
+      }
+
   """
   @type resource_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_resource_set_response() :: %{
-    "ResourceSetArn" => String.t(),
-    "ResourceSetName" => String.t(),
-    "ResourceSetType" => String.t(),
-    "Resources" => list(resource()()),
-    "Tags" => map()
-  }
+
+      update_resource_set_response() :: %{
+        "ResourceSetArn" => String.t(),
+        "ResourceSetName" => String.t(),
+        "ResourceSetType" => String.t(),
+        "Resources" => list(resource()()),
+        "Tags" => map()
+      }
+
   """
   @type update_resource_set_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_readiness_check_request() :: %{
 
-  }
+      get_readiness_check_request() :: %{}
+
   """
-  @type get_readiness_check_request() :: %{String.t() => any()}
+  @type get_readiness_check_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  delete_recovery_group_request() :: %{
 
-  }
+      delete_recovery_group_request() :: %{}
+
   """
-  @type delete_recovery_group_request() :: %{String.t() => any()}
+  @type delete_recovery_group_request() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_recovery_groups_response() :: %{
-    "NextToken" => String.t(),
-    "RecoveryGroups" => list(recovery_group_output()())
-  }
+
+      list_recovery_groups_response() :: %{
+        "NextToken" => String.t(),
+        "RecoveryGroups" => list(recovery_group_output()())
+      }
+
   """
   @type list_recovery_groups_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  message() :: %{
-    "MessageText" => String.t()
-  }
+
+      message() :: %{
+        "MessageText" => String.t()
+      }
+
   """
   @type message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource() :: %{
-    "ComponentId" => String.t(),
-    "DnsTargetResource" => dns_target_resource(),
-    "ReadinessScopes" => list(String.t()()),
-    "ResourceArn" => String.t()
-  }
+
+      resource() :: %{
+        "ComponentId" => String.t(),
+        "DnsTargetResource" => dns_target_resource(),
+        "ReadinessScopes" => list(String.t()()),
+        "ResourceArn" => String.t()
+      }
+
   """
   @type resource() :: %{String.t() => any()}
+
+  @type create_cell_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | conflict_exception()
+
+  @type create_cross_account_authorization_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | conflict_exception()
+
+  @type create_readiness_check_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | conflict_exception()
+
+  @type create_recovery_group_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | conflict_exception()
+
+  @type create_resource_set_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | conflict_exception()
+
+  @type delete_cell_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type delete_cross_account_authorization_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type delete_readiness_check_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type delete_recovery_group_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type delete_resource_set_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_architecture_recommendations_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_cell_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_cell_readiness_summary_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_readiness_check_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_readiness_check_resource_status_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_readiness_check_status_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_recovery_group_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_recovery_group_readiness_summary_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_resource_set_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_cells_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_cross_account_authorizations_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_readiness_checks_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_recovery_groups_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_resource_sets_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_rules_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_tags_for_resources_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
+
+  @type tag_resource_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
+
+  @type untag_resource_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
+
+  @type update_cell_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type update_readiness_check_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type update_recovery_group_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type update_resource_set_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
 
   def metadata do
     %{
@@ -863,11 +1204,7 @@ defmodule AWS.Route53RecoveryReadiness do
   @spec create_cell(map(), create_cell_request(), list()) ::
           {:ok, create_cell_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_cell_errors()}
   def create_cell(%Client{} = client, input, options \\ []) do
     url_path = "/cells"
     headers = []
@@ -902,11 +1239,7 @@ defmodule AWS.Route53RecoveryReadiness do
         ) ::
           {:ok, create_cross_account_authorization_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_cross_account_authorization_errors()}
   def create_cross_account_authorization(%Client{} = client, input, options \\ []) do
     url_path = "/crossaccountauthorizations"
     headers = []
@@ -938,11 +1271,7 @@ defmodule AWS.Route53RecoveryReadiness do
   @spec create_readiness_check(map(), create_readiness_check_request(), list()) ::
           {:ok, create_readiness_check_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_readiness_check_errors()}
   def create_readiness_check(%Client{} = client, input, options \\ []) do
     url_path = "/readinesschecks"
     headers = []
@@ -972,11 +1301,7 @@ defmodule AWS.Route53RecoveryReadiness do
   @spec create_recovery_group(map(), create_recovery_group_request(), list()) ::
           {:ok, create_recovery_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_recovery_group_errors()}
   def create_recovery_group(%Client{} = client, input, options \\ []) do
     url_path = "/recoverygroups"
     headers = []
@@ -1007,11 +1332,7 @@ defmodule AWS.Route53RecoveryReadiness do
   @spec create_resource_set(map(), create_resource_set_request(), list()) ::
           {:ok, create_resource_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, conflict_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, create_resource_set_errors()}
   def create_resource_set(%Client{} = client, input, options \\ []) do
     url_path = "/resourcesets"
     headers = []
@@ -1040,11 +1361,7 @@ defmodule AWS.Route53RecoveryReadiness do
   @spec delete_cell(map(), String.t(), delete_cell_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_cell_errors()}
   def delete_cell(%Client{} = client, cell_name, input, options \\ []) do
     url_path = "/cells/#{AWS.Util.encode_uri(cell_name)}"
     headers = []
@@ -1076,10 +1393,7 @@ defmodule AWS.Route53RecoveryReadiness do
         ) ::
           {:ok, delete_cross_account_authorization_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_cross_account_authorization_errors()}
   def delete_cross_account_authorization(
         %Client{} = client,
         cross_account_authorization,
@@ -1111,11 +1425,7 @@ defmodule AWS.Route53RecoveryReadiness do
   @spec delete_readiness_check(map(), String.t(), delete_readiness_check_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_readiness_check_errors()}
   def delete_readiness_check(%Client{} = client, readiness_check_name, input, options \\ []) do
     url_path = "/readinesschecks/#{AWS.Util.encode_uri(readiness_check_name)}"
     headers = []
@@ -1142,11 +1452,7 @@ defmodule AWS.Route53RecoveryReadiness do
   @spec delete_recovery_group(map(), String.t(), delete_recovery_group_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_recovery_group_errors()}
   def delete_recovery_group(%Client{} = client, recovery_group_name, input, options \\ []) do
     url_path = "/recoverygroups/#{AWS.Util.encode_uri(recovery_group_name)}"
     headers = []
@@ -1173,11 +1479,7 @@ defmodule AWS.Route53RecoveryReadiness do
   @spec delete_resource_set(map(), String.t(), delete_resource_set_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, delete_resource_set_errors()}
   def delete_resource_set(%Client{} = client, resource_set_name, input, options \\ []) do
     url_path = "/resourcesets/#{AWS.Util.encode_uri(resource_set_name)}"
     headers = []
@@ -1211,11 +1513,7 @@ defmodule AWS.Route53RecoveryReadiness do
         ) ::
           {:ok, get_architecture_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_architecture_recommendations_errors()}
   def get_architecture_recommendations(
         %Client{} = client,
         recovery_group_name,
@@ -1256,11 +1554,7 @@ defmodule AWS.Route53RecoveryReadiness do
   @spec get_cell(map(), String.t(), list()) ::
           {:ok, get_cell_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_cell_errors()}
   def get_cell(%Client{} = client, cell_name, options \\ []) do
     url_path = "/cells/#{AWS.Util.encode_uri(cell_name)}"
     headers = []
@@ -1280,11 +1574,7 @@ defmodule AWS.Route53RecoveryReadiness do
   @spec get_cell_readiness_summary(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, get_cell_readiness_summary_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_cell_readiness_summary_errors()}
   def get_cell_readiness_summary(
         %Client{} = client,
         cell_name,
@@ -1321,11 +1611,7 @@ defmodule AWS.Route53RecoveryReadiness do
   @spec get_readiness_check(map(), String.t(), list()) ::
           {:ok, get_readiness_check_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_readiness_check_errors()}
   def get_readiness_check(%Client{} = client, readiness_check_name, options \\ []) do
     url_path = "/readinesschecks/#{AWS.Util.encode_uri(readiness_check_name)}"
     headers = []
@@ -1353,11 +1639,7 @@ defmodule AWS.Route53RecoveryReadiness do
         ) ::
           {:ok, get_readiness_check_resource_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_readiness_check_resource_status_errors()}
   def get_readiness_check_resource_status(
         %Client{} = client,
         readiness_check_name,
@@ -1401,11 +1683,7 @@ defmodule AWS.Route53RecoveryReadiness do
   @spec get_readiness_check_status(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, get_readiness_check_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_readiness_check_status_errors()}
   def get_readiness_check_status(
         %Client{} = client,
         readiness_check_name,
@@ -1443,11 +1721,7 @@ defmodule AWS.Route53RecoveryReadiness do
   @spec get_recovery_group(map(), String.t(), list()) ::
           {:ok, get_recovery_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_recovery_group_errors()}
   def get_recovery_group(%Client{} = client, recovery_group_name, options \\ []) do
     url_path = "/recoverygroups/#{AWS.Util.encode_uri(recovery_group_name)}"
     headers = []
@@ -1473,11 +1747,7 @@ defmodule AWS.Route53RecoveryReadiness do
         ) ::
           {:ok, get_recovery_group_readiness_summary_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_recovery_group_readiness_summary_errors()}
   def get_recovery_group_readiness_summary(
         %Client{} = client,
         recovery_group_name,
@@ -1515,11 +1785,7 @@ defmodule AWS.Route53RecoveryReadiness do
   @spec get_resource_set(map(), String.t(), list()) ::
           {:ok, get_resource_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, get_resource_set_errors()}
   def get_resource_set(%Client{} = client, resource_set_name, options \\ []) do
     url_path = "/resourcesets/#{AWS.Util.encode_uri(resource_set_name)}"
     headers = []
@@ -1536,10 +1802,7 @@ defmodule AWS.Route53RecoveryReadiness do
   @spec list_cells(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_cells_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_cells_errors()}
   def list_cells(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/cells"
     headers = []
@@ -1571,10 +1834,7 @@ defmodule AWS.Route53RecoveryReadiness do
   @spec list_cross_account_authorizations(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_cross_account_authorizations_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_cross_account_authorizations_errors()}
   def list_cross_account_authorizations(
         %Client{} = client,
         max_results \\ nil,
@@ -1610,10 +1870,7 @@ defmodule AWS.Route53RecoveryReadiness do
   @spec list_readiness_checks(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_readiness_checks_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_readiness_checks_errors()}
   def list_readiness_checks(
         %Client{} = client,
         max_results \\ nil,
@@ -1649,10 +1906,7 @@ defmodule AWS.Route53RecoveryReadiness do
   @spec list_recovery_groups(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_recovery_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_recovery_groups_errors()}
   def list_recovery_groups(
         %Client{} = client,
         max_results \\ nil,
@@ -1688,10 +1942,7 @@ defmodule AWS.Route53RecoveryReadiness do
   @spec list_resource_sets(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_resource_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_resource_sets_errors()}
   def list_resource_sets(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/resourcesets"
     headers = []
@@ -1723,10 +1974,7 @@ defmodule AWS.Route53RecoveryReadiness do
   @spec list_rules(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_rules_errors()}
   def list_rules(
         %Client{} = client,
         max_results \\ nil,
@@ -1770,9 +2018,7 @@ defmodule AWS.Route53RecoveryReadiness do
   @spec list_tags_for_resources(map(), String.t(), list()) ::
           {:ok, list_tags_for_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, list_tags_for_resources_errors()}
   def list_tags_for_resources(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -1789,9 +2035,7 @@ defmodule AWS.Route53RecoveryReadiness do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -1818,9 +2062,7 @@ defmodule AWS.Route53RecoveryReadiness do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, validation_exception()}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -1853,11 +2095,7 @@ defmodule AWS.Route53RecoveryReadiness do
   @spec update_cell(map(), String.t(), update_cell_request(), list()) ::
           {:ok, update_cell_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_cell_errors()}
   def update_cell(%Client{} = client, cell_name, input, options \\ []) do
     url_path = "/cells/#{AWS.Util.encode_uri(cell_name)}"
     headers = []
@@ -1874,11 +2112,7 @@ defmodule AWS.Route53RecoveryReadiness do
   @spec update_readiness_check(map(), String.t(), update_readiness_check_request(), list()) ::
           {:ok, update_readiness_check_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_readiness_check_errors()}
   def update_readiness_check(%Client{} = client, readiness_check_name, input, options \\ []) do
     url_path = "/readinesschecks/#{AWS.Util.encode_uri(readiness_check_name)}"
     headers = []
@@ -1895,11 +2129,7 @@ defmodule AWS.Route53RecoveryReadiness do
   @spec update_recovery_group(map(), String.t(), update_recovery_group_request(), list()) ::
           {:ok, update_recovery_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_recovery_group_errors()}
   def update_recovery_group(%Client{} = client, recovery_group_name, input, options \\ []) do
     url_path = "/recoverygroups/#{AWS.Util.encode_uri(recovery_group_name)}"
     headers = []
@@ -1916,11 +2146,7 @@ defmodule AWS.Route53RecoveryReadiness do
   @spec update_resource_set(map(), String.t(), update_resource_set_request(), list()) ::
           {:ok, update_resource_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, internal_server_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, throttling_exception()}
-          | {:error, validation_exception()}
+          | {:error, update_resource_set_errors()}
   def update_resource_set(%Client{} = client, resource_set_name, input, options \\ []) do
     url_path = "/resourcesets/#{AWS.Util.encode_uri(resource_set_name)}"
     headers = []

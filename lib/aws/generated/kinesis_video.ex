@@ -8,1028 +8,1407 @@ defmodule AWS.KinesisVideo do
   @typedoc """
 
   ## Example:
-  update_signaling_channel_output() :: %{
 
-  }
+      update_signaling_channel_output() :: %{}
+
   """
-  @type update_signaling_channel_output() :: %{String.t() => any()}
+  @type update_signaling_channel_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  update_stream_input() :: %{
-    optional("DeviceName") => String.t(),
-    optional("MediaType") => String.t(),
-    optional("StreamARN") => String.t(),
-    optional("StreamName") => String.t(),
-    required("CurrentVersion") => String.t()
-  }
+
+      update_stream_input() :: %{
+        optional("DeviceName") => String.t(),
+        optional("MediaType") => String.t(),
+        optional("StreamARN") => String.t(),
+        optional("StreamName") => String.t(),
+        required("CurrentVersion") => String.t()
+      }
+
   """
   @type update_stream_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_signaling_channel_input() :: %{
-    optional("ChannelType") => list(any()),
-    optional("SingleMasterConfiguration") => single_master_configuration(),
-    optional("Tags") => list(tag()()),
-    required("ChannelName") => String.t()
-  }
+
+      create_signaling_channel_input() :: %{
+        optional("ChannelType") => list(any()),
+        optional("SingleMasterConfiguration") => single_master_configuration(),
+        optional("Tags") => list(tag()()),
+        required("ChannelName") => String.t()
+      }
+
   """
   @type create_signaling_channel_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  media_source_config() :: %{
-    "MediaUriSecretArn" => String.t(),
-    "MediaUriType" => list(any())
-  }
+
+      media_source_config() :: %{
+        "MediaUriSecretArn" => String.t(),
+        "MediaUriType" => list(any())
+      }
+
   """
   @type media_source_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_stream_output() :: %{
 
-  }
+      update_stream_output() :: %{}
+
   """
-  @type update_stream_output() :: %{String.t() => any()}
+  @type update_stream_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  resource_in_use_exception() :: %{
-    "Message" => String.t()
-  }
+
+      resource_in_use_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type resource_in_use_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_image_generation_configuration_output() :: %{
-    "ImageGenerationConfiguration" => image_generation_configuration()
-  }
+
+      describe_image_generation_configuration_output() :: %{
+        "ImageGenerationConfiguration" => image_generation_configuration()
+      }
+
   """
   @type describe_image_generation_configuration_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_signaling_channel_output() :: %{
-    "ChannelARN" => String.t()
-  }
+
+      create_signaling_channel_output() :: %{
+        "ChannelARN" => String.t()
+      }
+
   """
   @type create_signaling_channel_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_stream_output() :: %{
-    "NextToken" => String.t(),
-    "Tags" => map()
-  }
+
+      list_tags_for_stream_output() :: %{
+        "NextToken" => String.t(),
+        "Tags" => map()
+      }
+
   """
   @type list_tags_for_stream_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  version_mismatch_exception() :: %{
-    "Message" => String.t()
-  }
+
+      version_mismatch_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type version_mismatch_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_signaling_channel_input() :: %{
-    optional("CurrentVersion") => String.t(),
-    required("ChannelARN") => String.t()
-  }
+
+      delete_signaling_channel_input() :: %{
+        optional("CurrentVersion") => String.t(),
+        required("ChannelARN") => String.t()
+      }
+
   """
   @type delete_signaling_channel_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  no_data_retention_exception() :: %{
-    "Message" => String.t()
-  }
+
+      no_data_retention_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type no_data_retention_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_edge_configuration_update_output() :: %{
-    "CreationTime" => non_neg_integer(),
-    "EdgeConfig" => edge_config(),
-    "FailedStatusDetails" => String.t(),
-    "LastUpdatedTime" => non_neg_integer(),
-    "StreamARN" => String.t(),
-    "StreamName" => String.t(),
-    "SyncStatus" => list(any())
-  }
+
+      start_edge_configuration_update_output() :: %{
+        "CreationTime" => non_neg_integer(),
+        "EdgeConfig" => edge_config(),
+        "FailedStatusDetails" => String.t(),
+        "LastUpdatedTime" => non_neg_integer(),
+        "StreamARN" => String.t(),
+        "StreamName" => String.t(),
+        "SyncStatus" => list(any())
+      }
+
   """
   @type start_edge_configuration_update_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_edge_configuration_output() :: %{
 
-  }
+      delete_edge_configuration_output() :: %{}
+
   """
-  @type delete_edge_configuration_output() :: %{String.t() => any()}
+  @type delete_edge_configuration_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_signaling_channels_output() :: %{
-    "ChannelInfoList" => list(channel_info()()),
-    "NextToken" => String.t()
-  }
+
+      list_signaling_channels_output() :: %{
+        "ChannelInfoList" => list(channel_info()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_signaling_channels_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_stream_input() :: %{
-    optional("CurrentVersion") => String.t(),
-    required("StreamARN") => String.t()
-  }
+
+      delete_stream_input() :: %{
+        optional("CurrentVersion") => String.t(),
+        required("StreamARN") => String.t()
+      }
+
   """
   @type delete_stream_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_data_retention_output() :: %{
 
-  }
+      update_data_retention_output() :: %{}
+
   """
-  @type update_data_retention_output() :: %{String.t() => any()}
+  @type update_data_retention_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  channel_name_condition() :: %{
-    "ComparisonOperator" => list(any()),
-    "ComparisonValue" => String.t()
-  }
+
+      channel_name_condition() :: %{
+        "ComparisonOperator" => list(any()),
+        "ComparisonValue" => String.t()
+      }
+
   """
   @type channel_name_condition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  last_uploader_status() :: %{
-    "JobStatusDetails" => String.t(),
-    "LastCollectedTime" => non_neg_integer(),
-    "LastUpdatedTime" => non_neg_integer(),
-    "UploaderStatus" => list(any())
-  }
+
+      last_uploader_status() :: %{
+        "JobStatusDetails" => String.t(),
+        "LastCollectedTime" => non_neg_integer(),
+        "LastUpdatedTime" => non_neg_integer(),
+        "UploaderStatus" => list(any())
+      }
+
   """
   @type last_uploader_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_output() :: %{
-    "NextToken" => String.t(),
-    "Tags" => map()
-  }
+
+      list_tags_for_resource_output() :: %{
+        "NextToken" => String.t(),
+        "Tags" => map()
+      }
+
   """
   @type list_tags_for_resource_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_signaling_channel_endpoint_output() :: %{
-    "ResourceEndpointList" => list(resource_endpoint_list_item()())
-  }
+
+      get_signaling_channel_endpoint_output() :: %{
+        "ResourceEndpointList" => list(resource_endpoint_list_item()())
+      }
+
   """
   @type get_signaling_channel_endpoint_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_media_storage_configuration_output() :: %{
-    "MediaStorageConfiguration" => media_storage_configuration()
-  }
+
+      describe_media_storage_configuration_output() :: %{
+        "MediaStorageConfiguration" => media_storage_configuration()
+      }
+
   """
   @type describe_media_storage_configuration_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  local_size_config() :: %{
-    "MaxLocalMediaSizeInMB" => integer(),
-    "StrategyOnFullSize" => list(any())
-  }
+
+      local_size_config() :: %{
+        "MaxLocalMediaSizeInMB" => integer(),
+        "StrategyOnFullSize" => list(any())
+      }
+
   """
   @type local_size_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_stream_input() :: %{
-    optional("StreamARN") => String.t(),
-    optional("StreamName") => String.t(),
-    required("Tags") => map()
-  }
+
+      tag_stream_input() :: %{
+        optional("StreamARN") => String.t(),
+        optional("StreamName") => String.t(),
+        required("Tags") => map()
+      }
+
   """
   @type tag_stream_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  start_edge_configuration_update_input() :: %{
-    optional("StreamARN") => String.t(),
-    optional("StreamName") => String.t(),
-    required("EdgeConfig") => edge_config()
-  }
+
+      start_edge_configuration_update_input() :: %{
+        optional("StreamARN") => String.t(),
+        optional("StreamName") => String.t(),
+        required("EdgeConfig") => edge_config()
+      }
+
   """
   @type start_edge_configuration_update_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_streams_output() :: %{
-    "NextToken" => String.t(),
-    "StreamInfoList" => list(stream_info()())
-  }
+
+      list_streams_output() :: %{
+        "NextToken" => String.t(),
+        "StreamInfoList" => list(stream_info()())
+      }
+
   """
   @type list_streams_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  notification_destination_config() :: %{
-    "Uri" => String.t()
-  }
+
+      notification_destination_config() :: %{
+        "Uri" => String.t()
+      }
+
   """
   @type notification_destination_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_edge_configuration_output() :: %{
-    "CreationTime" => non_neg_integer(),
-    "EdgeAgentStatus" => edge_agent_status(),
-    "EdgeConfig" => edge_config(),
-    "FailedStatusDetails" => String.t(),
-    "LastUpdatedTime" => non_neg_integer(),
-    "StreamARN" => String.t(),
-    "StreamName" => String.t(),
-    "SyncStatus" => list(any())
-  }
+
+      describe_edge_configuration_output() :: %{
+        "CreationTime" => non_neg_integer(),
+        "EdgeAgentStatus" => edge_agent_status(),
+        "EdgeConfig" => edge_config(),
+        "FailedStatusDetails" => String.t(),
+        "LastUpdatedTime" => non_neg_integer(),
+        "StreamARN" => String.t(),
+        "StreamName" => String.t(),
+        "SyncStatus" => list(any())
+      }
+
   """
   @type describe_edge_configuration_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stream_name_condition() :: %{
-    "ComparisonOperator" => list(any()),
-    "ComparisonValue" => String.t()
-  }
+
+      stream_name_condition() :: %{
+        "ComparisonOperator" => list(any()),
+        "ComparisonValue" => String.t()
+      }
+
   """
   @type stream_name_condition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_media_storage_configuration_input() :: %{
-    optional("ChannelARN") => String.t(),
-    optional("ChannelName") => String.t()
-  }
+
+      describe_media_storage_configuration_input() :: %{
+        optional("ChannelARN") => String.t(),
+        optional("ChannelName") => String.t()
+      }
+
   """
   @type describe_media_storage_configuration_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_device_exception() :: %{
-    "Message" => String.t()
-  }
+
+      invalid_device_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type invalid_device_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  channel_info() :: %{
-    "ChannelARN" => String.t(),
-    "ChannelName" => String.t(),
-    "ChannelStatus" => list(any()),
-    "ChannelType" => list(any()),
-    "CreationTime" => non_neg_integer(),
-    "SingleMasterConfiguration" => single_master_configuration(),
-    "Version" => String.t()
-  }
+
+      channel_info() :: %{
+        "ChannelARN" => String.t(),
+        "ChannelName" => String.t(),
+        "ChannelStatus" => list(any()),
+        "ChannelType" => list(any()),
+        "CreationTime" => non_neg_integer(),
+        "SingleMasterConfiguration" => single_master_configuration(),
+        "Version" => String.t()
+      }
+
   """
   @type channel_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_mapped_resource_configuration_output() :: %{
-    "MappedResourceConfigurationList" => list(mapped_resource_configuration_list_item()()),
-    "NextToken" => String.t()
-  }
+
+      describe_mapped_resource_configuration_output() :: %{
+        "MappedResourceConfigurationList" => list(mapped_resource_configuration_list_item()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type describe_mapped_resource_configuration_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_not_found_exception() :: %{
-    "Message" => String.t()
-  }
+
+      resource_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag() :: %{
-    "Key" => String.t(),
-    "Value" => String.t()
-  }
+
+      tag() :: %{
+        "Key" => String.t(),
+        "Value" => String.t()
+      }
+
   """
   @type tag() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_media_storage_configuration_input() :: %{
-    required("ChannelARN") => String.t(),
-    required("MediaStorageConfiguration") => media_storage_configuration()
-  }
+
+      update_media_storage_configuration_input() :: %{
+        required("ChannelARN") => String.t(),
+        required("MediaStorageConfiguration") => media_storage_configuration()
+      }
+
   """
   @type update_media_storage_configuration_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_image_generation_configuration_output() :: %{
 
-  }
+      update_image_generation_configuration_output() :: %{}
+
   """
-  @type update_image_generation_configuration_output() :: %{String.t() => any()}
+  @type update_image_generation_configuration_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  tags_per_resource_exceeded_limit_exception() :: %{
-    "Message" => String.t()
-  }
+
+      tags_per_resource_exceeded_limit_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type tags_per_resource_exceeded_limit_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  account_stream_limit_exceeded_exception() :: %{
-    "Message" => String.t()
-  }
+
+      account_stream_limit_exceeded_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type account_stream_limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_notification_configuration_output() :: %{
-    "NotificationConfiguration" => notification_configuration()
-  }
+
+      describe_notification_configuration_output() :: %{
+        "NotificationConfiguration" => notification_configuration()
+      }
+
   """
   @type describe_notification_configuration_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  mapped_resource_configuration_list_item() :: %{
-    "ARN" => String.t(),
-    "Type" => String.t()
-  }
+
+      mapped_resource_configuration_list_item() :: %{
+        "ARN" => String.t(),
+        "Type" => String.t()
+      }
+
   """
   @type mapped_resource_configuration_list_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_image_generation_configuration_input() :: %{
-    optional("ImageGenerationConfiguration") => image_generation_configuration(),
-    optional("StreamARN") => String.t(),
-    optional("StreamName") => String.t()
-  }
+
+      update_image_generation_configuration_input() :: %{
+        optional("ImageGenerationConfiguration") => image_generation_configuration(),
+        optional("StreamARN") => String.t(),
+        optional("StreamName") => String.t()
+      }
+
   """
   @type update_image_generation_configuration_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  single_master_channel_endpoint_configuration() :: %{
-    "Protocols" => list(list(any())()),
-    "Role" => list(any())
-  }
+
+      single_master_channel_endpoint_configuration() :: %{
+        "Protocols" => list(list(any())()),
+        "Role" => list(any())
+      }
+
   """
   @type single_master_channel_endpoint_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_edge_configuration_input() :: %{
-    optional("StreamARN") => String.t(),
-    optional("StreamName") => String.t()
-  }
+
+      describe_edge_configuration_input() :: %{
+        optional("StreamARN") => String.t(),
+        optional("StreamName") => String.t()
+      }
+
   """
   @type describe_edge_configuration_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_notification_configuration_input() :: %{
-    optional("StreamARN") => String.t(),
-    optional("StreamName") => String.t()
-  }
+
+      describe_notification_configuration_input() :: %{
+        optional("StreamARN") => String.t(),
+        optional("StreamName") => String.t()
+      }
+
   """
   @type describe_notification_configuration_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  client_limit_exceeded_exception() :: %{
-    "Message" => String.t()
-  }
+
+      client_limit_exceeded_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type client_limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  uploader_config() :: %{
-    "ScheduleConfig" => schedule_config()
-  }
+
+      uploader_config() :: %{
+        "ScheduleConfig" => schedule_config()
+      }
+
   """
   @type uploader_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_input() :: %{
-    required("ResourceARN") => String.t(),
-    required("Tags") => list(tag()())
-  }
+
+      tag_resource_input() :: %{
+        required("ResourceARN") => String.t(),
+        required("Tags") => list(tag()())
+      }
+
   """
   @type tag_resource_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_signaling_channel_output() :: %{
-    "ChannelInfo" => channel_info()
-  }
+
+      describe_signaling_channel_output() :: %{
+        "ChannelInfo" => channel_info()
+      }
+
   """
   @type describe_signaling_channel_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stream_edge_configuration_not_found_exception() :: %{
-    "Message" => String.t()
-  }
+
+      stream_edge_configuration_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type stream_edge_configuration_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_stream_output() :: %{
 
-  }
+      untag_stream_output() :: %{}
+
   """
-  @type untag_stream_output() :: %{String.t() => any()}
+  @type untag_stream_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  notification_configuration() :: %{
-    "DestinationConfig" => notification_destination_config(),
-    "Status" => list(any())
-  }
+
+      notification_configuration() :: %{
+        "DestinationConfig" => notification_destination_config(),
+        "Status" => list(any())
+      }
+
   """
   @type notification_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_edge_agent_configurations_output() :: %{
-    "EdgeConfigs" => list(list_edge_agent_configurations_edge_config()()),
-    "NextToken" => String.t()
-  }
+
+      list_edge_agent_configurations_output() :: %{
+        "EdgeConfigs" => list(list_edge_agent_configurations_edge_config()()),
+        "NextToken" => String.t()
+      }
+
   """
   @type list_edge_agent_configurations_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  tag_resource_output() :: %{
 
-  }
+      tag_resource_output() :: %{}
+
   """
-  @type tag_resource_output() :: %{String.t() => any()}
+  @type tag_resource_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  update_signaling_channel_input() :: %{
-    optional("SingleMasterConfiguration") => single_master_configuration(),
-    required("ChannelARN") => String.t(),
-    required("CurrentVersion") => String.t()
-  }
+
+      update_signaling_channel_input() :: %{
+        optional("SingleMasterConfiguration") => single_master_configuration(),
+        required("ChannelARN") => String.t(),
+        required("CurrentVersion") => String.t()
+      }
+
   """
   @type update_signaling_channel_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  schedule_config() :: %{
-    "DurationInSeconds" => integer(),
-    "ScheduleExpression" => String.t()
-  }
+
+      schedule_config() :: %{
+        "DurationInSeconds" => integer(),
+        "ScheduleExpression" => String.t()
+      }
+
   """
   @type schedule_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_media_storage_configuration_output() :: %{
 
-  }
+      update_media_storage_configuration_output() :: %{}
+
   """
-  @type update_media_storage_configuration_output() :: %{String.t() => any()}
+  @type update_media_storage_configuration_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  tag_stream_output() :: %{
 
-  }
+      tag_stream_output() :: %{}
+
   """
-  @type tag_stream_output() :: %{String.t() => any()}
+  @type tag_stream_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  device_stream_limit_exceeded_exception() :: %{
-    "Message" => String.t()
-  }
+
+      device_stream_limit_exceeded_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type device_stream_limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  account_channel_limit_exceeded_exception() :: %{
-    "Message" => String.t()
-  }
+
+      account_channel_limit_exceeded_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type account_channel_limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_signaling_channel_endpoint_input() :: %{
-    optional("SingleMasterChannelEndpointConfiguration") => single_master_channel_endpoint_configuration(),
-    required("ChannelARN") => String.t()
-  }
+
+      get_signaling_channel_endpoint_input() :: %{
+        optional("SingleMasterChannelEndpointConfiguration") => single_master_channel_endpoint_configuration(),
+        required("ChannelARN") => String.t()
+      }
+
   """
   @type get_signaling_channel_endpoint_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  single_master_configuration() :: %{
-    "MessageTtlSeconds" => integer()
-  }
+
+      single_master_configuration() :: %{
+        "MessageTtlSeconds" => integer()
+      }
+
   """
   @type single_master_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_streams_input() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("StreamNameCondition") => stream_name_condition()
-  }
+
+      list_streams_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("StreamNameCondition") => stream_name_condition()
+      }
+
   """
   @type list_streams_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  not_authorized_exception() :: %{
-    "Message" => String.t()
-  }
+
+      not_authorized_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type not_authorized_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  deletion_config() :: %{
-    "DeleteAfterUpload" => boolean(),
-    "EdgeRetentionInHours" => integer(),
-    "LocalSizeConfig" => local_size_config()
-  }
+
+      deletion_config() :: %{
+        "DeleteAfterUpload" => boolean(),
+        "EdgeRetentionInHours" => integer(),
+        "LocalSizeConfig" => local_size_config()
+      }
+
   """
   @type deletion_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_edge_configuration_input() :: %{
-    optional("StreamARN") => String.t(),
-    optional("StreamName") => String.t()
-  }
+
+      delete_edge_configuration_input() :: %{
+        optional("StreamARN") => String.t(),
+        optional("StreamName") => String.t()
+      }
+
   """
   @type delete_edge_configuration_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_stream_output() :: %{
-    "StreamInfo" => stream_info()
-  }
+
+      describe_stream_output() :: %{
+        "StreamInfo" => stream_info()
+      }
+
   """
   @type describe_stream_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  image_generation_configuration() :: %{
-    "DestinationConfig" => image_generation_destination_config(),
-    "Format" => list(any()),
-    "FormatConfig" => map(),
-    "HeightPixels" => integer(),
-    "ImageSelectorType" => list(any()),
-    "SamplingInterval" => integer(),
-    "Status" => list(any()),
-    "WidthPixels" => integer()
-  }
+
+      image_generation_configuration() :: %{
+        "DestinationConfig" => image_generation_destination_config(),
+        "Format" => list(any()),
+        "FormatConfig" => map(),
+        "HeightPixels" => integer(),
+        "ImageSelectorType" => list(any()),
+        "SamplingInterval" => integer(),
+        "Status" => list(any()),
+        "WidthPixels" => integer()
+      }
+
   """
   @type image_generation_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  access_denied_exception() :: %{
-    "Message" => String.t()
-  }
+
+      access_denied_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_input() :: %{
-    required("ResourceARN") => String.t(),
-    required("TagKeyList") => list(String.t()())
-  }
+
+      untag_resource_input() :: %{
+        required("ResourceARN") => String.t(),
+        required("TagKeyList") => list(String.t()())
+      }
+
   """
   @type untag_resource_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_stream_input() :: %{
-    optional("NextToken") => String.t(),
-    optional("StreamARN") => String.t(),
-    optional("StreamName") => String.t()
-  }
+
+      list_tags_for_stream_input() :: %{
+        optional("NextToken") => String.t(),
+        optional("StreamARN") => String.t(),
+        optional("StreamName") => String.t()
+      }
+
   """
   @type list_tags_for_stream_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_edge_agent_configurations_edge_config() :: %{
-    "CreationTime" => non_neg_integer(),
-    "EdgeConfig" => edge_config(),
-    "FailedStatusDetails" => String.t(),
-    "LastUpdatedTime" => non_neg_integer(),
-    "StreamARN" => String.t(),
-    "StreamName" => String.t(),
-    "SyncStatus" => list(any())
-  }
+
+      list_edge_agent_configurations_edge_config() :: %{
+        "CreationTime" => non_neg_integer(),
+        "EdgeConfig" => edge_config(),
+        "FailedStatusDetails" => String.t(),
+        "LastUpdatedTime" => non_neg_integer(),
+        "StreamARN" => String.t(),
+        "StreamName" => String.t(),
+        "SyncStatus" => list(any())
+      }
+
   """
   @type list_edge_agent_configurations_edge_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_argument_exception() :: %{
-    "Message" => String.t()
-  }
+
+      invalid_argument_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type invalid_argument_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_data_endpoint_output() :: %{
-    "DataEndpoint" => String.t()
-  }
+
+      get_data_endpoint_output() :: %{
+        "DataEndpoint" => String.t()
+      }
+
   """
   @type get_data_endpoint_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_signaling_channel_output() :: %{
 
-  }
+      delete_signaling_channel_output() :: %{}
+
   """
-  @type delete_signaling_channel_output() :: %{String.t() => any()}
+  @type delete_signaling_channel_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_edge_agent_configurations_input() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    required("HubDeviceArn") => String.t()
-  }
+
+      list_edge_agent_configurations_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("HubDeviceArn") => String.t()
+      }
+
   """
   @type list_edge_agent_configurations_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  list_tags_for_resource_input() :: %{
-    optional("NextToken") => String.t(),
-    required("ResourceARN") => String.t()
-  }
+
+      list_tags_for_resource_input() :: %{
+        optional("NextToken") => String.t(),
+        required("ResourceARN") => String.t()
+      }
+
   """
   @type list_tags_for_resource_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_resource_output() :: %{
 
-  }
+      untag_resource_output() :: %{}
+
   """
-  @type untag_resource_output() :: %{String.t() => any()}
+  @type untag_resource_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  list_signaling_channels_input() :: %{
-    optional("ChannelNameCondition") => channel_name_condition(),
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t()
-  }
+
+      list_signaling_channels_input() :: %{
+        optional("ChannelNameCondition") => channel_name_condition(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
   """
   @type list_signaling_channels_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  invalid_resource_format_exception() :: %{
-    "Message" => String.t()
-  }
+
+      invalid_resource_format_exception() :: %{
+        "Message" => String.t()
+      }
+
   """
   @type invalid_resource_format_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_signaling_channel_input() :: %{
-    optional("ChannelARN") => String.t(),
-    optional("ChannelName") => String.t()
-  }
+
+      describe_signaling_channel_input() :: %{
+        optional("ChannelARN") => String.t(),
+        optional("ChannelName") => String.t()
+      }
+
   """
   @type describe_signaling_channel_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_notification_configuration_output() :: %{
 
-  }
+      update_notification_configuration_output() :: %{}
+
   """
-  @type update_notification_configuration_output() :: %{String.t() => any()}
+  @type update_notification_configuration_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  edge_config() :: %{
-    "DeletionConfig" => deletion_config(),
-    "HubDeviceArn" => String.t(),
-    "RecorderConfig" => recorder_config(),
-    "UploaderConfig" => uploader_config()
-  }
+
+      edge_config() :: %{
+        "DeletionConfig" => deletion_config(),
+        "HubDeviceArn" => String.t(),
+        "RecorderConfig" => recorder_config(),
+        "UploaderConfig" => uploader_config()
+      }
+
   """
   @type edge_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_stream_input() :: %{
-    optional("DataRetentionInHours") => integer(),
-    optional("DeviceName") => String.t(),
-    optional("KmsKeyId") => String.t(),
-    optional("MediaType") => String.t(),
-    optional("Tags") => map(),
-    required("StreamName") => String.t()
-  }
+
+      create_stream_input() :: %{
+        optional("DataRetentionInHours") => integer(),
+        optional("DeviceName") => String.t(),
+        optional("KmsKeyId") => String.t(),
+        optional("MediaType") => String.t(),
+        optional("Tags") => map(),
+        required("StreamName") => String.t()
+      }
+
   """
   @type create_stream_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  edge_agent_status() :: %{
-    "LastRecorderStatus" => last_recorder_status(),
-    "LastUploaderStatus" => last_uploader_status()
-  }
+
+      edge_agent_status() :: %{
+        "LastRecorderStatus" => last_recorder_status(),
+        "LastUploaderStatus" => last_uploader_status()
+      }
+
   """
   @type edge_agent_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  resource_endpoint_list_item() :: %{
-    "Protocol" => list(any()),
-    "ResourceEndpoint" => String.t()
-  }
+
+      resource_endpoint_list_item() :: %{
+        "Protocol" => list(any()),
+        "ResourceEndpoint" => String.t()
+      }
+
   """
   @type resource_endpoint_list_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_notification_configuration_input() :: %{
-    optional("NotificationConfiguration") => notification_configuration(),
-    optional("StreamARN") => String.t(),
-    optional("StreamName") => String.t()
-  }
+
+      update_notification_configuration_input() :: %{
+        optional("NotificationConfiguration") => notification_configuration(),
+        optional("StreamARN") => String.t(),
+        optional("StreamName") => String.t()
+      }
+
   """
   @type update_notification_configuration_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  stream_info() :: %{
-    "CreationTime" => non_neg_integer(),
-    "DataRetentionInHours" => integer(),
-    "DeviceName" => String.t(),
-    "KmsKeyId" => String.t(),
-    "MediaType" => String.t(),
-    "Status" => list(any()),
-    "StreamARN" => String.t(),
-    "StreamName" => String.t(),
-    "Version" => String.t()
-  }
+
+      stream_info() :: %{
+        "CreationTime" => non_neg_integer(),
+        "DataRetentionInHours" => integer(),
+        "DeviceName" => String.t(),
+        "KmsKeyId" => String.t(),
+        "MediaType" => String.t(),
+        "Status" => list(any()),
+        "StreamARN" => String.t(),
+        "StreamName" => String.t(),
+        "Version" => String.t()
+      }
+
   """
   @type stream_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  get_data_endpoint_input() :: %{
-    optional("StreamARN") => String.t(),
-    optional("StreamName") => String.t(),
-    required("APIName") => list(any())
-  }
+
+      get_data_endpoint_input() :: %{
+        optional("StreamARN") => String.t(),
+        optional("StreamName") => String.t(),
+        required("APIName") => list(any())
+      }
+
   """
   @type get_data_endpoint_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  last_recorder_status() :: %{
-    "JobStatusDetails" => String.t(),
-    "LastCollectedTime" => non_neg_integer(),
-    "LastUpdatedTime" => non_neg_integer(),
-    "RecorderStatus" => list(any())
-  }
+
+      last_recorder_status() :: %{
+        "JobStatusDetails" => String.t(),
+        "LastCollectedTime" => non_neg_integer(),
+        "LastUpdatedTime" => non_neg_integer(),
+        "RecorderStatus" => list(any())
+      }
+
   """
   @type last_recorder_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_stream_input() :: %{
-    optional("StreamARN") => String.t(),
-    optional("StreamName") => String.t()
-  }
+
+      describe_stream_input() :: %{
+        optional("StreamARN") => String.t(),
+        optional("StreamName") => String.t()
+      }
+
   """
   @type describe_stream_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  create_stream_output() :: %{
-    "StreamARN" => String.t()
-  }
+
+      create_stream_output() :: %{
+        "StreamARN" => String.t()
+      }
+
   """
   @type create_stream_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  recorder_config() :: %{
-    "MediaSourceConfig" => media_source_config(),
-    "ScheduleConfig" => schedule_config()
-  }
+
+      recorder_config() :: %{
+        "MediaSourceConfig" => media_source_config(),
+        "ScheduleConfig" => schedule_config()
+      }
+
   """
   @type recorder_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  image_generation_destination_config() :: %{
-    "DestinationRegion" => String.t(),
-    "Uri" => String.t()
-  }
+
+      image_generation_destination_config() :: %{
+        "DestinationRegion" => String.t(),
+        "Uri" => String.t()
+      }
+
   """
   @type image_generation_destination_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  update_data_retention_input() :: %{
-    optional("StreamARN") => String.t(),
-    optional("StreamName") => String.t(),
-    required("CurrentVersion") => String.t(),
-    required("DataRetentionChangeInHours") => integer(),
-    required("Operation") => list(any())
-  }
+
+      update_data_retention_input() :: %{
+        optional("StreamARN") => String.t(),
+        optional("StreamName") => String.t(),
+        required("CurrentVersion") => String.t(),
+        required("DataRetentionChangeInHours") => integer(),
+        required("Operation") => list(any())
+      }
+
   """
   @type update_data_retention_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_image_generation_configuration_input() :: %{
-    optional("StreamARN") => String.t(),
-    optional("StreamName") => String.t()
-  }
+
+      describe_image_generation_configuration_input() :: %{
+        optional("StreamARN") => String.t(),
+        optional("StreamName") => String.t()
+      }
+
   """
   @type describe_image_generation_configuration_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  describe_mapped_resource_configuration_input() :: %{
-    optional("MaxResults") => integer(),
-    optional("NextToken") => String.t(),
-    optional("StreamARN") => String.t(),
-    optional("StreamName") => String.t()
-  }
+
+      describe_mapped_resource_configuration_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("StreamARN") => String.t(),
+        optional("StreamName") => String.t()
+      }
+
   """
   @type describe_mapped_resource_configuration_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  untag_stream_input() :: %{
-    optional("StreamARN") => String.t(),
-    optional("StreamName") => String.t(),
-    required("TagKeyList") => list(String.t()())
-  }
+
+      untag_stream_input() :: %{
+        optional("StreamARN") => String.t(),
+        optional("StreamName") => String.t(),
+        required("TagKeyList") => list(String.t()())
+      }
+
   """
   @type untag_stream_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-  delete_stream_output() :: %{
 
-  }
+      delete_stream_output() :: %{}
+
   """
-  @type delete_stream_output() :: %{String.t() => any()}
+  @type delete_stream_output() :: %{}
 
   @typedoc """
 
   ## Example:
-  media_storage_configuration() :: %{
-    "Status" => list(any()),
-    "StreamARN" => String.t()
-  }
+
+      media_storage_configuration() :: %{
+        "Status" => list(any()),
+        "StreamARN" => String.t()
+      }
+
   """
   @type media_storage_configuration() :: %{String.t() => any()}
+
+  @type create_signaling_channel_errors() ::
+          invalid_argument_exception()
+          | access_denied_exception()
+          | account_channel_limit_exceeded_exception()
+          | client_limit_exceeded_exception()
+          | tags_per_resource_exceeded_limit_exception()
+          | resource_in_use_exception()
+
+  @type create_stream_errors() ::
+          invalid_argument_exception()
+          | device_stream_limit_exceeded_exception()
+          | client_limit_exceeded_exception()
+          | account_stream_limit_exceeded_exception()
+          | tags_per_resource_exceeded_limit_exception()
+          | invalid_device_exception()
+          | resource_in_use_exception()
+
+  @type delete_edge_configuration_errors() ::
+          invalid_argument_exception()
+          | access_denied_exception()
+          | stream_edge_configuration_not_found_exception()
+          | client_limit_exceeded_exception()
+          | resource_not_found_exception()
+
+  @type delete_signaling_channel_errors() ::
+          invalid_argument_exception()
+          | access_denied_exception()
+          | client_limit_exceeded_exception()
+          | resource_not_found_exception()
+          | version_mismatch_exception()
+          | resource_in_use_exception()
+
+  @type delete_stream_errors() ::
+          invalid_argument_exception()
+          | not_authorized_exception()
+          | client_limit_exceeded_exception()
+          | resource_not_found_exception()
+          | version_mismatch_exception()
+          | resource_in_use_exception()
+
+  @type describe_edge_configuration_errors() ::
+          invalid_argument_exception()
+          | access_denied_exception()
+          | stream_edge_configuration_not_found_exception()
+          | client_limit_exceeded_exception()
+          | resource_not_found_exception()
+
+  @type describe_image_generation_configuration_errors() ::
+          invalid_argument_exception()
+          | access_denied_exception()
+          | client_limit_exceeded_exception()
+          | resource_not_found_exception()
+
+  @type describe_mapped_resource_configuration_errors() ::
+          invalid_argument_exception()
+          | access_denied_exception()
+          | client_limit_exceeded_exception()
+          | resource_not_found_exception()
+
+  @type describe_media_storage_configuration_errors() ::
+          invalid_argument_exception()
+          | access_denied_exception()
+          | client_limit_exceeded_exception()
+          | resource_not_found_exception()
+
+  @type describe_notification_configuration_errors() ::
+          invalid_argument_exception()
+          | access_denied_exception()
+          | client_limit_exceeded_exception()
+          | resource_not_found_exception()
+
+  @type describe_signaling_channel_errors() ::
+          invalid_argument_exception()
+          | access_denied_exception()
+          | client_limit_exceeded_exception()
+          | resource_not_found_exception()
+
+  @type describe_stream_errors() ::
+          invalid_argument_exception()
+          | not_authorized_exception()
+          | client_limit_exceeded_exception()
+          | resource_not_found_exception()
+
+  @type get_data_endpoint_errors() ::
+          invalid_argument_exception()
+          | not_authorized_exception()
+          | client_limit_exceeded_exception()
+          | resource_not_found_exception()
+
+  @type get_signaling_channel_endpoint_errors() ::
+          invalid_argument_exception()
+          | access_denied_exception()
+          | client_limit_exceeded_exception()
+          | resource_not_found_exception()
+          | resource_in_use_exception()
+
+  @type list_edge_agent_configurations_errors() ::
+          invalid_argument_exception()
+          | not_authorized_exception()
+          | client_limit_exceeded_exception()
+
+  @type list_signaling_channels_errors() ::
+          invalid_argument_exception()
+          | access_denied_exception()
+          | client_limit_exceeded_exception()
+
+  @type list_streams_errors() :: invalid_argument_exception() | client_limit_exceeded_exception()
+
+  @type list_tags_for_resource_errors() ::
+          invalid_argument_exception()
+          | access_denied_exception()
+          | client_limit_exceeded_exception()
+          | resource_not_found_exception()
+
+  @type list_tags_for_stream_errors() ::
+          invalid_resource_format_exception()
+          | invalid_argument_exception()
+          | not_authorized_exception()
+          | client_limit_exceeded_exception()
+          | resource_not_found_exception()
+
+  @type start_edge_configuration_update_errors() ::
+          invalid_argument_exception()
+          | access_denied_exception()
+          | client_limit_exceeded_exception()
+          | resource_not_found_exception()
+          | no_data_retention_exception()
+          | resource_in_use_exception()
+
+  @type tag_resource_errors() ::
+          invalid_argument_exception()
+          | access_denied_exception()
+          | client_limit_exceeded_exception()
+          | tags_per_resource_exceeded_limit_exception()
+          | resource_not_found_exception()
+
+  @type tag_stream_errors() ::
+          invalid_resource_format_exception()
+          | invalid_argument_exception()
+          | not_authorized_exception()
+          | client_limit_exceeded_exception()
+          | tags_per_resource_exceeded_limit_exception()
+          | resource_not_found_exception()
+
+  @type untag_resource_errors() ::
+          invalid_argument_exception()
+          | access_denied_exception()
+          | client_limit_exceeded_exception()
+          | resource_not_found_exception()
+
+  @type untag_stream_errors() ::
+          invalid_resource_format_exception()
+          | invalid_argument_exception()
+          | not_authorized_exception()
+          | client_limit_exceeded_exception()
+          | resource_not_found_exception()
+
+  @type update_data_retention_errors() ::
+          invalid_argument_exception()
+          | not_authorized_exception()
+          | client_limit_exceeded_exception()
+          | resource_not_found_exception()
+          | version_mismatch_exception()
+          | resource_in_use_exception()
+
+  @type update_image_generation_configuration_errors() ::
+          invalid_argument_exception()
+          | access_denied_exception()
+          | client_limit_exceeded_exception()
+          | resource_not_found_exception()
+          | no_data_retention_exception()
+          | resource_in_use_exception()
+
+  @type update_media_storage_configuration_errors() ::
+          invalid_argument_exception()
+          | access_denied_exception()
+          | client_limit_exceeded_exception()
+          | resource_not_found_exception()
+          | no_data_retention_exception()
+          | resource_in_use_exception()
+
+  @type update_notification_configuration_errors() ::
+          invalid_argument_exception()
+          | access_denied_exception()
+          | client_limit_exceeded_exception()
+          | resource_not_found_exception()
+          | no_data_retention_exception()
+          | resource_in_use_exception()
+
+  @type update_signaling_channel_errors() ::
+          invalid_argument_exception()
+          | access_denied_exception()
+          | client_limit_exceeded_exception()
+          | resource_not_found_exception()
+          | version_mismatch_exception()
+          | resource_in_use_exception()
+
+  @type update_stream_errors() ::
+          invalid_argument_exception()
+          | not_authorized_exception()
+          | client_limit_exceeded_exception()
+          | resource_not_found_exception()
+          | version_mismatch_exception()
+          | resource_in_use_exception()
 
   def metadata do
     %{
@@ -1054,12 +1433,7 @@ defmodule AWS.KinesisVideo do
   @spec create_signaling_channel(map(), create_signaling_channel_input(), list()) ::
           {:ok, create_signaling_channel_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, account_channel_limit_exceeded_exception()}
-          | {:error, client_limit_exceeded_exception()}
-          | {:error, invalid_argument_exception()}
-          | {:error, resource_in_use_exception()}
-          | {:error, tags_per_resource_exceeded_limit_exception()}
+          | {:error, create_signaling_channel_errors()}
   def create_signaling_channel(%Client{} = client, input, options \\ []) do
     url_path = "/createSignalingChannel"
     headers = []
@@ -1097,13 +1471,7 @@ defmodule AWS.KinesisVideo do
   @spec create_stream(map(), create_stream_input(), list()) ::
           {:ok, create_stream_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, account_stream_limit_exceeded_exception()}
-          | {:error, client_limit_exceeded_exception()}
-          | {:error, device_stream_limit_exceeded_exception()}
-          | {:error, invalid_argument_exception()}
-          | {:error, invalid_device_exception()}
-          | {:error, resource_in_use_exception()}
-          | {:error, tags_per_resource_exceeded_limit_exception()}
+          | {:error, create_stream_errors()}
   def create_stream(%Client{} = client, input, options \\ []) do
     url_path = "/createStream"
     headers = []
@@ -1140,11 +1508,7 @@ defmodule AWS.KinesisVideo do
   @spec delete_edge_configuration(map(), delete_edge_configuration_input(), list()) ::
           {:ok, delete_edge_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, client_limit_exceeded_exception()}
-          | {:error, invalid_argument_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, stream_edge_configuration_not_found_exception()}
+          | {:error, delete_edge_configuration_errors()}
   def delete_edge_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/deleteEdgeConfiguration"
     headers = []
@@ -1176,12 +1540,7 @@ defmodule AWS.KinesisVideo do
   @spec delete_signaling_channel(map(), delete_signaling_channel_input(), list()) ::
           {:ok, delete_signaling_channel_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, client_limit_exceeded_exception()}
-          | {:error, invalid_argument_exception()}
-          | {:error, resource_in_use_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, version_mismatch_exception()}
+          | {:error, delete_signaling_channel_errors()}
   def delete_signaling_channel(%Client{} = client, input, options \\ []) do
     url_path = "/deleteSignalingChannel"
     headers = []
@@ -1221,12 +1580,7 @@ defmodule AWS.KinesisVideo do
   @spec delete_stream(map(), delete_stream_input(), list()) ::
           {:ok, delete_stream_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, client_limit_exceeded_exception()}
-          | {:error, invalid_argument_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_in_use_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, version_mismatch_exception()}
+          | {:error, delete_stream_errors()}
   def delete_stream(%Client{} = client, input, options \\ []) do
     url_path = "/deleteStream"
     headers = []
@@ -1260,11 +1614,7 @@ defmodule AWS.KinesisVideo do
   @spec describe_edge_configuration(map(), describe_edge_configuration_input(), list()) ::
           {:ok, describe_edge_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, client_limit_exceeded_exception()}
-          | {:error, invalid_argument_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, stream_edge_configuration_not_found_exception()}
+          | {:error, describe_edge_configuration_errors()}
   def describe_edge_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/describeEdgeConfiguration"
     headers = []
@@ -1295,10 +1645,7 @@ defmodule AWS.KinesisVideo do
         ) ::
           {:ok, describe_image_generation_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, client_limit_exceeded_exception()}
-          | {:error, invalid_argument_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, describe_image_generation_configuration_errors()}
   def describe_image_generation_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/describeImageGenerationConfiguration"
     headers = []
@@ -1332,10 +1679,7 @@ defmodule AWS.KinesisVideo do
         ) ::
           {:ok, describe_mapped_resource_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, client_limit_exceeded_exception()}
-          | {:error, invalid_argument_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, describe_mapped_resource_configuration_errors()}
   def describe_mapped_resource_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/describeMappedResourceConfiguration"
     headers = []
@@ -1369,10 +1713,7 @@ defmodule AWS.KinesisVideo do
         ) ::
           {:ok, describe_media_storage_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, client_limit_exceeded_exception()}
-          | {:error, invalid_argument_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, describe_media_storage_configuration_errors()}
   def describe_media_storage_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/describeMediaStorageConfiguration"
     headers = []
@@ -1403,10 +1744,7 @@ defmodule AWS.KinesisVideo do
         ) ::
           {:ok, describe_notification_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, client_limit_exceeded_exception()}
-          | {:error, invalid_argument_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, describe_notification_configuration_errors()}
   def describe_notification_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/describeNotificationConfiguration"
     headers = []
@@ -1438,10 +1776,7 @@ defmodule AWS.KinesisVideo do
   @spec describe_signaling_channel(map(), describe_signaling_channel_input(), list()) ::
           {:ok, describe_signaling_channel_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, client_limit_exceeded_exception()}
-          | {:error, invalid_argument_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, describe_signaling_channel_errors()}
   def describe_signaling_channel(%Client{} = client, input, options \\ []) do
     url_path = "/describeSignalingChannel"
     headers = []
@@ -1471,10 +1806,7 @@ defmodule AWS.KinesisVideo do
   @spec describe_stream(map(), describe_stream_input(), list()) ::
           {:ok, describe_stream_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, client_limit_exceeded_exception()}
-          | {:error, invalid_argument_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, describe_stream_errors()}
   def describe_stream(%Client{} = client, input, options \\ []) do
     url_path = "/describeStream"
     headers = []
@@ -1512,10 +1844,7 @@ defmodule AWS.KinesisVideo do
   @spec get_data_endpoint(map(), get_data_endpoint_input(), list()) ::
           {:ok, get_data_endpoint_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, client_limit_exceeded_exception()}
-          | {:error, invalid_argument_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, get_data_endpoint_errors()}
   def get_data_endpoint(%Client{} = client, input, options \\ []) do
     url_path = "/getDataEndpoint"
     headers = []
@@ -1557,11 +1886,7 @@ defmodule AWS.KinesisVideo do
   @spec get_signaling_channel_endpoint(map(), get_signaling_channel_endpoint_input(), list()) ::
           {:ok, get_signaling_channel_endpoint_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, client_limit_exceeded_exception()}
-          | {:error, invalid_argument_exception()}
-          | {:error, resource_in_use_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, get_signaling_channel_endpoint_errors()}
   def get_signaling_channel_endpoint(%Client{} = client, input, options \\ []) do
     url_path = "/getSignalingChannelEndpoint"
     headers = []
@@ -1591,9 +1916,7 @@ defmodule AWS.KinesisVideo do
   @spec list_edge_agent_configurations(map(), list_edge_agent_configurations_input(), list()) ::
           {:ok, list_edge_agent_configurations_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, client_limit_exceeded_exception()}
-          | {:error, invalid_argument_exception()}
-          | {:error, not_authorized_exception()}
+          | {:error, list_edge_agent_configurations_errors()}
   def list_edge_agent_configurations(%Client{} = client, input, options \\ []) do
     url_path = "/listEdgeAgentConfigurations"
     headers = []
@@ -1625,9 +1948,7 @@ defmodule AWS.KinesisVideo do
   @spec list_signaling_channels(map(), list_signaling_channels_input(), list()) ::
           {:ok, list_signaling_channels_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, client_limit_exceeded_exception()}
-          | {:error, invalid_argument_exception()}
+          | {:error, list_signaling_channels_errors()}
   def list_signaling_channels(%Client{} = client, input, options \\ []) do
     url_path = "/listSignalingChannels"
     headers = []
@@ -1659,8 +1980,7 @@ defmodule AWS.KinesisVideo do
   @spec list_streams(map(), list_streams_input(), list()) ::
           {:ok, list_streams_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, client_limit_exceeded_exception()}
-          | {:error, invalid_argument_exception()}
+          | {:error, list_streams_errors()}
   def list_streams(%Client{} = client, input, options \\ []) do
     url_path = "/listStreams"
     headers = []
@@ -1687,10 +2007,7 @@ defmodule AWS.KinesisVideo do
   @spec list_tags_for_resource(map(), list_tags_for_resource_input(), list()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, client_limit_exceeded_exception()}
-          | {:error, invalid_argument_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     url_path = "/ListTagsForResource"
     headers = []
@@ -1720,11 +2037,7 @@ defmodule AWS.KinesisVideo do
   @spec list_tags_for_stream(map(), list_tags_for_stream_input(), list()) ::
           {:ok, list_tags_for_stream_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, client_limit_exceeded_exception()}
-          | {:error, invalid_argument_exception()}
-          | {:error, invalid_resource_format_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, list_tags_for_stream_errors()}
   def list_tags_for_stream(%Client{} = client, input, options \\ []) do
     url_path = "/listTagsForStream"
     headers = []
@@ -1776,12 +2089,7 @@ defmodule AWS.KinesisVideo do
   @spec start_edge_configuration_update(map(), start_edge_configuration_update_input(), list()) ::
           {:ok, start_edge_configuration_update_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, client_limit_exceeded_exception()}
-          | {:error, invalid_argument_exception()}
-          | {:error, no_data_retention_exception()}
-          | {:error, resource_in_use_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, start_edge_configuration_update_errors()}
   def start_edge_configuration_update(%Client{} = client, input, options \\ []) do
     url_path = "/startEdgeConfigurationUpdate"
     headers = []
@@ -1817,11 +2125,7 @@ defmodule AWS.KinesisVideo do
   @spec tag_resource(map(), tag_resource_input(), list()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, client_limit_exceeded_exception()}
-          | {:error, invalid_argument_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, tags_per_resource_exceeded_limit_exception()}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/TagResource"
     headers = []
@@ -1864,12 +2168,7 @@ defmodule AWS.KinesisVideo do
   @spec tag_stream(map(), tag_stream_input(), list()) ::
           {:ok, tag_stream_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, client_limit_exceeded_exception()}
-          | {:error, invalid_argument_exception()}
-          | {:error, invalid_resource_format_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, tags_per_resource_exceeded_limit_exception()}
+          | {:error, tag_stream_errors()}
   def tag_stream(%Client{} = client, input, options \\ []) do
     url_path = "/tagStream"
     headers = []
@@ -1901,10 +2200,7 @@ defmodule AWS.KinesisVideo do
   @spec untag_resource(map(), untag_resource_input(), list()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, client_limit_exceeded_exception()}
-          | {:error, invalid_argument_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/UntagResource"
     headers = []
@@ -1939,11 +2235,7 @@ defmodule AWS.KinesisVideo do
   @spec untag_stream(map(), untag_stream_input(), list()) ::
           {:ok, untag_stream_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, client_limit_exceeded_exception()}
-          | {:error, invalid_argument_exception()}
-          | {:error, invalid_resource_format_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, untag_stream_errors()}
   def untag_stream(%Client{} = client, input, options \\ []) do
     url_path = "/untagStream"
     headers = []
@@ -1993,12 +2285,7 @@ defmodule AWS.KinesisVideo do
   @spec update_data_retention(map(), update_data_retention_input(), list()) ::
           {:ok, update_data_retention_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, client_limit_exceeded_exception()}
-          | {:error, invalid_argument_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_in_use_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, version_mismatch_exception()}
+          | {:error, update_data_retention_errors()}
   def update_data_retention(%Client{} = client, input, options \\ []) do
     url_path = "/updateDataRetention"
     headers = []
@@ -2029,12 +2316,7 @@ defmodule AWS.KinesisVideo do
         ) ::
           {:ok, update_image_generation_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, client_limit_exceeded_exception()}
-          | {:error, invalid_argument_exception()}
-          | {:error, no_data_retention_exception()}
-          | {:error, resource_in_use_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, update_image_generation_configuration_errors()}
   def update_image_generation_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/updateImageGenerationConfiguration"
     headers = []
@@ -2084,12 +2366,7 @@ defmodule AWS.KinesisVideo do
         ) ::
           {:ok, update_media_storage_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, client_limit_exceeded_exception()}
-          | {:error, invalid_argument_exception()}
-          | {:error, no_data_retention_exception()}
-          | {:error, resource_in_use_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, update_media_storage_configuration_errors()}
   def update_media_storage_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/updateMediaStorageConfiguration"
     headers = []
@@ -2120,12 +2397,7 @@ defmodule AWS.KinesisVideo do
         ) ::
           {:ok, update_notification_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, client_limit_exceeded_exception()}
-          | {:error, invalid_argument_exception()}
-          | {:error, no_data_retention_exception()}
-          | {:error, resource_in_use_exception()}
-          | {:error, resource_not_found_exception()}
+          | {:error, update_notification_configuration_errors()}
   def update_notification_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/updateNotificationConfiguration"
     headers = []
@@ -2161,12 +2433,7 @@ defmodule AWS.KinesisVideo do
   @spec update_signaling_channel(map(), update_signaling_channel_input(), list()) ::
           {:ok, update_signaling_channel_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, access_denied_exception()}
-          | {:error, client_limit_exceeded_exception()}
-          | {:error, invalid_argument_exception()}
-          | {:error, resource_in_use_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, version_mismatch_exception()}
+          | {:error, update_signaling_channel_errors()}
   def update_signaling_channel(%Client{} = client, input, options \\ []) do
     url_path = "/updateSignalingChannel"
     headers = []
@@ -2207,12 +2474,7 @@ defmodule AWS.KinesisVideo do
   @spec update_stream(map(), update_stream_input(), list()) ::
           {:ok, update_stream_output(), any()}
           | {:error, {:unexpected_response, any()}}
-          | {:error, client_limit_exceeded_exception()}
-          | {:error, invalid_argument_exception()}
-          | {:error, not_authorized_exception()}
-          | {:error, resource_in_use_exception()}
-          | {:error, resource_not_found_exception()}
-          | {:error, version_mismatch_exception()}
+          | {:error, update_stream_errors()}
   def update_stream(%Client{} = client, input, options \\ []) do
     url_path = "/updateStream"
     headers = []

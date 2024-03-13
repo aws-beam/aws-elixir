@@ -115,7 +115,7 @@ defmodule AWS.SSM do
   to and are interpreted strictly as a string of characters.
 
   For more information about using tags with Amazon Elastic Compute Cloud (Amazon
-  EC2) instances, see [Tagging your Amazon EC2 resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html)
+  EC2) instances, see [Tag your Amazon EC2 resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html)
   in the *Amazon EC2 User Guide*.
   """
   def add_tags_to_resource(%Client{} = client, input, options \\ []) do
@@ -176,9 +176,10 @@ defmodule AWS.SSM do
   ID when installing SSM Agent on machines in your hybrid environment. For more
   information about
   requirements for managing on-premises machines using Systems Manager, see
-  [Setting up Amazon Web Services Systems Manager for hybrid
+  [Setting up Amazon Web Services Systems Manager for hybrid and multicloud
   environments](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-managedinstances.html)
-  in the *Amazon Web Services Systems Manager User Guide*.
+  in the
+  *Amazon Web Services Systems Manager User Guide*.
 
   Amazon Elastic Compute Cloud (Amazon EC2) instances, edge devices, and
   on-premises servers and VMs that are
@@ -556,7 +557,7 @@ defmodule AWS.SSM do
   `Parameter` - The resource policy is used to share a parameter with other
   accounts using Resource Access Manager (RAM). For more information about
   cross-account sharing of parameters, see [Working with shared
-  parameters](systems-manager/latest/userguide/parameter-store-shared-parameters.html)
+  parameters](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-shared-parameters.html)
   in the *Amazon Web Services Systems Manager User Guide*.
   """
   def delete_resource_policy(%Client{} = client, input, options \\ []) do
@@ -710,7 +711,7 @@ defmodule AWS.SSM do
   end
 
   @doc """
-  All associations for the managed node(s).
+  All associations for the managed nodes.
   """
   def describe_effective_instance_associations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -732,7 +733,7 @@ defmodule AWS.SSM do
   end
 
   @doc """
-  The status of the associations for the managed node(s).
+  The status of the associations for the managed nodes.
   """
   def describe_instance_associations_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -915,8 +916,7 @@ defmodule AWS.SSM do
   Manager OpsCenter to view, investigate, and
   remediate operational issues impacting the performance and health of their
   Amazon Web Services resources. For
-  more information, see
-  [OpsCenter](https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html)
+  more information, see [Amazon Web Services Systems Manager OpsCenter](https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html)
   in the
   *Amazon Web Services Systems Manager User Guide*.
   """
@@ -1288,8 +1288,7 @@ defmodule AWS.SSM do
   Manager OpsCenter to view, investigate, and
   remediate operational issues impacting the performance and health of their
   Amazon Web Services resources. For
-  more information, see
-  [OpsCenter](https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html)
+  more information, see [Amazon Web Services Systems Manager OpsCenter](https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html)
   in the
   *Amazon Web Services Systems Manager User Guide*.
   """
@@ -1788,7 +1787,7 @@ defmodule AWS.SSM do
   InstalledTime: The time the association, patch, or custom compliance item was
   applied to
   the resource. Specify the time by using the following format:
-  yyyy-MM-dd'T'HH:mm:ss'Z'
+  `yyyy-MM-dd'T'HH:mm:ss'Z'`
   """
   def put_compliance_items(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1840,19 +1839,18 @@ defmodule AWS.SSM do
 
   To share a parameter, it must be in the advanced parameter tier. For information
   about
-  parameter tiers, see [Managing parameter tiers](https://docs.aws.amazon.com/parameter-store- advanced-parameters.html).
-  For information about
-  changing an existing standard parameter to an advanced parameter, see [Changing a standard parameter to an advanced
-  parameter](https://docs.aws.amazon.com/parameter-store-advanced-parameters.html#parameter-
-  store-advanced-parameters-enabling).
+  parameter tiers, see [Managing parameter
+  tiers](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
+  For information about changing an existing standard parameter to an
+  advanced parameter, see [Changing a standard parameter to an advanced parameter](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html#parameter-store-advanced-parameters-enabling).
 
   To share a `SecureString` parameter, it must be encrypted with a customer
   managed key, and you must share the key separately through Key Management
   Service. Amazon Web Services managed keys cannot be shared. Parameters encrypted
   with the default Amazon Web Services managed key can be updated to use a
-  customer managed key instead. For KMS key definitions, see [KMS concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-mgmt)
-  in
-  the *Key Management Service Developer Guide*.
+  customer managed key instead. For KMS key definitions, see [KMS concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html)
+  in the
+  *Key Management Service Developer Guide*.
 
   While you can share a parameter using the Systems Manager `PutResourcePolicy`
   operation,
@@ -2328,8 +2326,7 @@ defmodule AWS.SSM do
   Manager OpsCenter to view, investigate, and
   remediate operational issues impacting the performance and health of their
   Amazon Web Services resources. For
-  more information, see
-  [OpsCenter](https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html)
+  more information, see [Amazon Web Services Systems Manager OpsCenter](https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html)
   in the
   *Amazon Web Services Systems Manager User Guide*.
   """

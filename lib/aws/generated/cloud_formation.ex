@@ -489,10 +489,8 @@ defmodule AWS.CloudFormation do
   order.
 
   For more information
-  about a stack's event history, go to
-  [Stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/concept-stack.html)
-  in the
-  *CloudFormation User Guide*.
+  about a stack's event history, see [CloudFormation stack creation events](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stack-resource-configuration-complete.html)
+  in the *CloudFormation User Guide*.
 
   You can list events for stacks that have failed to create or have been deleted
   by specifying the unique stack
@@ -611,6 +609,10 @@ defmodule AWS.CloudFormation do
   Returns the description for the specified stack; if no stack name was specified,
   then it returns the description
   for all the stacks created.
+
+  For more information about a stack's event history, see [CloudFormation stack creation
+  events](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stack-resource-configuration-complete.html)
+  in the *CloudFormation User Guide*.
 
   If the stack doesn't exist, a `ValidationError` is returned.
   """

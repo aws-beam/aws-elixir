@@ -5,33 +5,11 @@ defmodule AWS.EC2 do
   @moduledoc """
   Amazon Elastic Compute Cloud
 
-  Amazon Elastic Compute Cloud (Amazon EC2) provides secure and resizable
-  computing capacity in the Amazon Web Services Cloud.
+  You can access the features of Amazon Elastic Compute Cloud (Amazon EC2)
+  programmatically.
 
-  Using Amazon EC2 eliminates the need to invest in hardware up front, so you can
-  develop and deploy applications
-  faster. Amazon Virtual Private Cloud (Amazon VPC) enables you to provision a
-  logically isolated section of the
-  Amazon Web Services Cloud where you can launch Amazon Web Services resources in
-  a virtual network that you've defined. Amazon Elastic Block Store
-  (Amazon EBS) provides block level storage volumes for use with EC2 instances.
-  EBS volumes are highly available
-  and reliable storage volumes that can be attached to any running instance and
-  used like a hard drive.
-
-  To learn more, see the following resources:
-
-    *
-  Amazon EC2: [Amazon EC2 product page](http://aws.amazon.com/ec2), [Amazon EC2 documentation](https://docs.aws.amazon.com/ec2/index.html)
-
-    *
-  Amazon EBS: [Amazon EBS product page](http://aws.amazon.com/ebs), [Amazon EBS documentation](https://docs.aws.amazon.com/ebs/index.html)
-
-    *
-  Amazon VPC: [Amazon VPC product page](http://aws.amazon.com/vpc), [Amazon VPC documentation](https://docs.aws.amazon.com/vpc/index.html)
-
-    *
-  VPN: [VPN product page](http://aws.amazon.com/vpn), [VPN documentation](https://docs.aws.amazon.com/vpn/index.html)
+  For more information,
+  see the [Amazon EC2 Developer Guide](https://docs.aws.amazon.com/ec2/latest/devguide).
   """
 
   alias AWS.Client
@@ -724,12 +702,12 @@ defmodule AWS.EC2 do
 
   Encrypted EBS volumes must be attached to instances that support Amazon EBS
   encryption. For
-  more information, see [Amazon EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
-  in the *Amazon Elastic Compute Cloud User Guide*.
+  more information, see [Amazon EBS encryption](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html)
+  in the *Amazon EBS User Guide*.
 
   After you attach an EBS volume, you must make it available. For more
   information, see
-  [Make an EBS volume available for use](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-using-volumes.html).
+  [Make an EBS volume available for use](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-using-volumes.html).
 
   If a volume has an Amazon Web Services Marketplace product code:
 
@@ -750,9 +728,9 @@ defmodule AWS.EC2 do
   Linux
   instance.
 
-  For more information, see [Attach an Amazon EBS volume to an instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html)
+  For more information, see [Attach an Amazon EBS volume to an instance](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-attaching-volume.html)
   in the
-  *Amazon Elastic Compute Cloud User Guide*.
+  *Amazon EBS User Guide*.
   """
   def attach_volume(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -792,34 +770,33 @@ defmodule AWS.EC2 do
   end
 
   @doc """
-  Adds the specified outbound (egress) rules to a security group for use with a
-  VPC.
+  Adds the specified outbound (egress) rules to a security group.
 
   An outbound rule permits instances to send traffic to the specified IPv4 or IPv6
-  CIDR
-  address ranges, or to the instances that are associated with the specified
-  source
-  security groups. When specifying an outbound rule for your security group in a
-  VPC, the
-  `IpPermissions` must include a destination for the traffic.
+  address ranges, the IP address ranges specified by a prefix list, or the
+  instances
+  that are associated with a source security group. For more information, see
+  [Security group rules](https://docs.aws.amazon.com/vpc/latest/userguide/security-group-rules.html).
 
-  You specify a protocol for each rule (for example, TCP).
-  For the TCP and UDP protocols, you must also specify the destination port or
-  port range.
-  For the ICMP protocol, you must also specify the ICMP type and code.
-  You can use -1 for the type or code to mean all types or all codes.
+  You must specify exactly one of the following destinations: an IPv4 or IPv6
+  address range,
+  a prefix list, or a security group. You must specify a protocol for each rule
+  (for example, TCP).
+  If the protocol is TCP or UDP, you must also specify a port or port range. If
+  the protocol is
+  ICMP or ICMPv6, you must also specify the ICMP type and code.
 
-  Rule changes are propagated to affected instances as quickly as possible.
-  However, a small delay might occur.
+  Rule changes are propagated to instances associated with the security group as
+  quickly
+  as possible. However, a small delay might occur.
 
-  For information about VPC security group quotas, see [Amazon VPC quotas](https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html).
+  For examples of rules that you can add to security groups for specific access
+  scenarios,
+  see [Security group rules for different use cases](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html)
+  in the *Amazon EC2 User Guide*.
 
-  If you want to reference a security group across VPCs attached to a transit
-  gateway using the
-  [security group referencing
-  feature](https://docs.aws.amazon.com/vpc/latest/tgw/tgw-transit-gateways.html#create-tgw),
-  note that you can only reference security groups
-  for ingress rules. You cannot reference a security group for egress rules.
+  For information about security group quotas, see [Amazon VPC quotas](https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html)
+  in the *Amazon VPC User Guide*.
   """
   def authorize_security_group_egress(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -831,22 +808,31 @@ defmodule AWS.EC2 do
   Adds the specified inbound (ingress) rules to a security group.
 
   An inbound rule permits instances to receive traffic from the specified IPv4 or
-  IPv6 CIDR
-  address range, or from the instances that are associated with the specified
-  destination security
-  groups. When specifying an inbound rule for your security group in a VPC, the
-  `IpPermissions` must include a source for the traffic.
+  IPv6
+  address range, the IP address ranges that are specified by a prefix list, or the
+  instances
+  that are associated with a destination security group. For more information, see
+  [Security group rules](https://docs.aws.amazon.com/vpc/latest/userguide/security-group-rules.html).
 
-  You specify a protocol for each rule (for example, TCP).
-  For TCP and UDP, you must also specify the destination port or port range.
-  For ICMP/ICMPv6, you must also specify the ICMP/ICMPv6 type and code.
-  You can use -1 to mean all types or all codes.
+  You must specify exactly one of the following sources: an IPv4 or IPv6 address
+  range,
+  a prefix list, or a security group. You must specify a protocol for each rule
+  (for example, TCP).
+  If the protocol is TCP or UDP, you must also specify a port or port range. If
+  the protocol is
+  ICMP or ICMPv6, you must also specify the ICMP/ICMPv6 type and code.
 
-  Rule changes are propagated to instances within the security group as quickly as
-  possible.
-  However, a small delay might occur.
+  Rule changes are propagated to instances associated with the security group as
+  quickly
+  as possible. However, a small delay might occur.
 
-  For more information about VPC security group quotas, see [Amazon VPC quotas](https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html).
+  For examples of rules that you can add to security groups for specific access
+  scenarios,
+  see [Security group rules for different use cases](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html)
+  in the *Amazon EC2 User Guide*.
+
+  For more information about security group quotas, see [Amazon VPC quotas](https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html)
+  in the *Amazon VPC User Guide*.
   """
   def authorize_security_group_ingress(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -858,12 +844,10 @@ defmodule AWS.EC2 do
   Bundles an Amazon instance store-backed Windows instance.
 
   During bundling, only the root device volume (C:\) is bundled. Data on other
-  instance
-  store volumes is not preserved.
+  instance store volumes is not preserved.
 
   This action is not applicable for Linux/Unix instances or Windows instances that
-  are
-  backed by Amazon EBS.
+  are backed by Amazon EBS.
   """
   def bundle_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -960,9 +944,12 @@ defmodule AWS.EC2 do
   Removes your Amazon Web Services account from the launch permissions for the
   specified AMI.
 
-  For more information, see [ Cancel having an AMI shared with your Amazon Web Services
+  For more
+  information, see [
+  Cancel having an AMI shared with your Amazon Web Services
   account](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cancel-sharing-an-AMI.html)
-  in the *Amazon EC2 User Guide*.
+  in the
+  *Amazon EC2 User Guide*.
   """
   def cancel_image_launch_permission(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1051,29 +1038,28 @@ defmodule AWS.EC2 do
 
   You can copy an AMI from one Region to another, or from a
   Region to an Outpost. You can't copy an AMI from an Outpost to a Region, from
-  one Outpost to
-  another, or within the same Outpost. To copy an AMI to another partition, see
+  one Outpost
+  to another, or within the same Outpost. To copy an AMI to another partition, see
   [CreateStoreImageTask](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateStoreImageTask.html).   To copy an AMI from one Region to another, specify the source Region using the
-  **SourceRegion** parameter, and specify the destination Region using its
-  endpoint. Copies of encrypted backing snapshots for the AMI are encrypted.
-  Copies of
-  unencrypted backing snapshots remain unencrypted, unless you set `Encrypted`
-  during
-  the copy operation. You cannot create an unencrypted copy of an encrypted
-  backing
-  snapshot.
+  **SourceRegion** parameter, and specify the
+  destination Region using its endpoint. Copies of encrypted backing snapshots for
+  the AMI are encrypted. Copies of unencrypted backing snapshots remain
+  unencrypted,
+  unless you set `Encrypted` during the copy operation. You cannot
+  create an unencrypted copy of an encrypted backing snapshot.
 
   To copy an AMI from a Region to an Outpost, specify the source Region using the
-  **SourceRegion** parameter, and specify the ARN of the destination
-  Outpost using **DestinationOutpostArn**. Backing snapshots copied
-  to an Outpost are encrypted by default using the default encryption key for the
-  Region, or a
-  different key that you specify in the request using **KmsKeyId**.
-  Outposts do not support unencrypted snapshots. For more information, [ Amazon
-  EBS local
-  snapshots on
-  Outposts](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#ami)
-  in the *Amazon EC2 User Guide*.
+  **SourceRegion** parameter, and specify the
+  ARN of the destination Outpost using **DestinationOutpostArn**.
+  Backing snapshots copied to an Outpost are encrypted by default using the
+  default
+  encryption key for the Region, or a different key that you specify in the
+  request using
+  **KmsKeyId**. Outposts do not support unencrypted
+  snapshots. For more information, [
+  Amazon EBS local snapshots on
+  Outposts](https://docs.aws.amazon.com/ebs/latest/userguide/snapshots-outposts.html#ami)
+  in the *Amazon EBS User Guide*.
 
   For more information about the prerequisites and limits when copying an AMI, see
   [Copy an AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html) in
@@ -1115,16 +1101,16 @@ defmodule AWS.EC2 do
   **KmsKeyId**. Outposts do not support unencrypted
   snapshots. For more information, [
   Amazon EBS local snapshots on
-  Outposts](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#ami)
-  in the *Amazon Elastic Compute Cloud User Guide*.
+  Outposts](https://docs.aws.amazon.com/ebs/latest/userguide/snapshots-outposts.html#ami)
+  in the *Amazon EBS User Guide*.
 
   Snapshots created by copying another snapshot have an arbitrary volume ID that
   should not
   be used for any purpose.
 
-  For more information, see [Copy an Amazon EBS snapshot](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-copy-snapshot.html)
+  For more information, see [Copy an Amazon EBS snapshot](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-copy-snapshot.html)
   in the
-  *Amazon Elastic Compute Cloud User Guide*.
+  *Amazon EBS User Guide*.
   """
   def copy_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1307,42 +1293,45 @@ defmodule AWS.EC2 do
   end
 
   @doc """
-  Creates a set of DHCP options for your VPC.
+  Creates a custom set of DHCP options.
 
-  After creating the set, you must
-  associate it with the VPC, causing all existing and new instances that you
-  launch in
-  the VPC to use this set of DHCP options. The following are the individual DHCP
-  options you can specify. For more information about the options, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
+  After you create a DHCP option set, you associate
+  it with a VPC. After you associate a DHCP option set with a VPC, all existing
+  and newly
+  launched instances in the VPC use this set of DHCP options.
 
-    *
-
-  `domain-name-servers` - The IP addresses of up to four domain name
-  servers, or AmazonProvidedDNS. The default DHCP option set specifies
-  AmazonProvidedDNS. If specifying more than one domain name server, specify the
-  IP addresses in a single parameter, separated by commas. To have your instance
-  receive a custom DNS hostname as specified in `domain-name`, you must
-  set `domain-name-servers` to a custom DNS server.
+  The following are the individual DHCP options you can specify. For more
+  information, see
+  [DHCP options sets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html)
+  in the *Amazon VPC User Guide*.
 
     *
 
-  `domain-name` - If you're using AmazonProvidedDNS in
-  `us-east-1`, specify `ec2.internal`. If you're using
-  AmazonProvidedDNS in another Region, specify
-  `region.compute.internal` (for example,
-  `ap-northeast-1.compute.internal`). Otherwise, specify a domain
-  name (for example, `ExampleCompany.com`). This value is used to complete
-  unqualified DNS hostnames. **Important**: Some
-  Linux operating systems accept multiple domain names separated by spaces.
+  `domain-name` - If you're using AmazonProvidedDNS in `us-east-1`,
+  specify `ec2.internal`. If you're using AmazonProvidedDNS in any other Region,
+  specify `region.compute.internal`. Otherwise, specify a custom domain name.
+  This value is used to complete unqualified DNS hostnames.
+
+  Some Linux operating systems accept multiple domain names separated by spaces.
   However, Windows and other Linux operating systems treat the value as a single
-  domain, which results in unexpected behavior. If your DHCP options set is
-  associated with a VPC that has instances with multiple operating systems,
-  specify only one domain name.
+  domain, which results in unexpected behavior. If your DHCP option set is
+  associated with a VPC that has instances running operating systems that treat
+  the value as a single domain, specify only one domain name.
 
     *
 
-  `ntp-servers` - The IP addresses of up to four Network Time Protocol (NTP)
-  servers.
+  `domain-name-servers` - The IP addresses of up to four DNS servers,
+  or AmazonProvidedDNS. To specify multiple domain name servers in a single
+  parameter,
+  separate the IP addresses using commas. To have your instances receive custom
+  DNS
+  hostnames as specified in `domain-name`, you must specify a custom DNS
+  server.
+
+    *
+
+  `ntp-servers` - The IP addresses of up to eight Network Time Protocol (NTP)
+  servers (four IPv4 addresses and four IPv6 addresses).
 
     *
 
@@ -1352,20 +1341,21 @@ defmodule AWS.EC2 do
     *
 
   `netbios-node-type` - The NetBIOS node type (1, 2, 4, or 8). We recommend that
-  you specify 2 (broadcast and multicast are not currently supported). For more
-  information
-  about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt). 
+  you specify 2. Broadcast and multicast are not supported. For more information
+  about
+  NetBIOS node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
 
-  Your VPC automatically starts out with a set of DHCP options that includes only
-  a DNS
-  server that we provide (AmazonProvidedDNS). If you create a set of options, and
-  if your
-  VPC has an internet gateway, make sure to set the `domain-name-servers`
-  option either to `AmazonProvidedDNS` or to a domain name server of your
-  choice. For more information, see [DHCP options
-  sets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html) in
-  the
-  *Amazon VPC User Guide*.
+    *
+
+  `ipv6-preferred-lease-time` - A value (in seconds, minutes, hours, or years) for
+  how frequently a running instance with an IPv6 assigned to it goes through
+  DHCPv6 lease renewal.
+  Acceptable values are between 140 and 2147483647 seconds (approximately 68
+  years). If no value is entered, the default lease time is 140 seconds. If you
+  use long-term addressing for EC2 instances, you can increase the lease time and
+  avoid frequent
+  lease renewal requests. Lease renewal typically occurs when half of the lease
+  time has elapsed.
   """
   def create_dhcp_options(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1453,17 +1443,14 @@ defmodule AWS.EC2 do
   end
 
   @doc """
-  Creates an Amazon EBS-backed AMI from an Amazon EBS-backed instance that is
-  either running or
-  stopped.
+  Creates an Amazon EBS-backed AMI from an Amazon EBS-backed instance
+  that is either running or stopped.
 
   If you customized your instance with instance store volumes or Amazon EBS
-  volumes in addition
-  to the root device volume, the new AMI contains block device mapping information
-  for those
-  volumes. When you launch an instance from this new AMI, the instance
-  automatically launches
-  with those additional volumes.
+  volumes in addition to the root device volume, the
+  new AMI contains block device mapping information for those volumes. When you
+  launch an instance from this new AMI,
+  the instance automatically launches with those additional volumes.
 
   For more information, see [Create an Amazon EBS-backed Linux AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html)
   in the *Amazon Elastic Compute Cloud User Guide*.
@@ -2026,9 +2013,9 @@ defmodule AWS.EC2 do
 
   @doc """
   Starts a task that restores an AMI from an Amazon S3 object that was previously
-  created by
-  using
+  created by using
   [CreateStoreImageTask](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateStoreImageTask.html). 
+
   To use this API, you must have the required permissions. For more information,
   see [Permissions for storing and restoring AMIs using Amazon
   S3](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html#ami-s3-permissions)
@@ -2185,9 +2172,9 @@ defmodule AWS.EC2 do
   resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html)
   in the *Amazon Elastic Compute Cloud User Guide*.
 
-  For more information, see [Amazon Elastic Block Store](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html) and
-  [Amazon EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
-  in the *Amazon Elastic Compute Cloud User Guide*.
+  For more information, see [Amazon Elastic Block Store](https://docs.aws.amazon.com/ebs/latest/userguide/what-is-ebs.html) and
+  [Amazon EBS encryption](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html)
+  in the *Amazon EBS User Guide*.
   """
   def create_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2645,16 +2632,16 @@ defmodule AWS.EC2 do
   instances that
   support Amazon EBS encryption. Volumes that are created from encrypted snapshots
   are also automatically
-  encrypted. For more information, see [Amazon EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
-  in the *Amazon Elastic Compute Cloud User Guide*.
+  encrypted. For more information, see [Amazon EBS encryption](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html)
+  in the *Amazon EBS User Guide*.
 
   You can tag your volumes during creation. For more information, see [Tag your Amazon EC2
   resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html)
   in the *Amazon Elastic Compute Cloud User Guide*.
 
-  For more information, see [Create an Amazon EBS volume](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-volume.html)
+  For more information, see [Create an Amazon EBS volume](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-creating-volume.html)
   in the
-  *Amazon Elastic Compute Cloud User Guide*.
+  *Amazon EBS User Guide*.
   """
   def create_volume(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3399,9 +3386,9 @@ defmodule AWS.EC2 do
   registered AMI.
   You must first de-register the AMI before you can delete the snapshot.
 
-  For more information, see [Delete an Amazon EBS snapshot](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-deleting-snapshot.html)
+  For more information, see [Delete an Amazon EBS snapshot](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-deleting-snapshot.html)
   in the
-  *Amazon Elastic Compute Cloud User Guide*.
+  *Amazon EBS User Guide*.
   """
   def delete_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3652,9 +3639,9 @@ defmodule AWS.EC2 do
 
   The volume can remain in the `deleting` state for several minutes.
 
-  For more information, see [Delete an Amazon EBS volume](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-deleting-volume.html)
+  For more information, see [Delete an Amazon EBS volume](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-deleting-volume.html)
   in the
-  *Amazon Elastic Compute Cloud User Guide*.
+  *Amazon EBS User Guide*.
   """
   def delete_volume(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3851,28 +3838,27 @@ defmodule AWS.EC2 do
   @doc """
   Deregisters the specified AMI.
 
-  After you deregister an AMI, it can't be used to launch new
-  instances.
+  After you deregister an AMI, it can't be used to
+  launch new instances.
 
   If you deregister an AMI that matches a Recycle Bin retention rule, the AMI is
-  retained in
-  the Recycle Bin for the specified retention period. For more information, see
+  retained
+  in the Recycle Bin for the specified retention period. For more information, see
   [Recycle Bin](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html) in
   the *Amazon EC2 User Guide*.
 
   When you deregister an AMI, it doesn't affect any instances that you've already
-  launched
-  from the AMI. You'll continue to incur usage costs for those instances until you
-  terminate
-  them.
+  launched from the AMI. You'll continue to incur usage costs for those instances
+  until
+  you terminate them.
 
   When you deregister an Amazon EBS-backed AMI, it doesn't affect the snapshot
-  that was created
-  for the root volume of the instance during the AMI creation process. When you
-  deregister an
-  instance store-backed AMI, it doesn't affect the files that you uploaded to
-  Amazon S3 when you
-  created the AMI.
+  that was
+  created for the root volume of the instance during the AMI creation process.
+  When you
+  deregister an instance store-backed AMI, it doesn't affect the files that you
+  uploaded
+  to Amazon S3 when you created the AMI.
   """
   def deregister_image(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3964,6 +3950,10 @@ defmodule AWS.EC2 do
 
   `vpc-max-security-groups-per-interface`: The maximum number of security groups
   that you can assign to a network interface.
+
+  The order of the elements in the response, including those within nested
+  structures, might vary. Applications should not assume the elements appear in a
+  particular order.
   """
   def describe_account_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4058,6 +4048,10 @@ defmodule AWS.EC2 do
   Zones, see
   [Regions and zones](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html)
   in the *Amazon Elastic Compute Cloud User Guide*.
+
+  The order of the elements in the response, including those within nested
+  structures, might vary. Applications should not assume the elements appear in a
+  particular order.
   """
   def describe_availability_zones(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4088,16 +4082,13 @@ defmodule AWS.EC2 do
   Describes the specified bundle tasks or all of your bundle tasks.
 
   Completed bundle tasks are listed for only a limited time. If your bundle task
-  is no
-  longer in the list, you can still register an AMI from it. Just use
+  is no longer in the list, you can still register an AMI from it. Just use
   `RegisterImage` with the Amazon S3 bucket name and image manifest name you
-  provided
-  to the bundle task.
+  provided to the bundle task.
 
   The order of the elements in the response, including those within nested
-  structures,
-  might vary. Applications should not assume the elements appear in a particular
-  order.
+  structures, might vary. Applications should not assume the elements appear in a
+  particular order.
   """
   def describe_bundle_tasks(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4559,13 +4550,11 @@ defmodule AWS.EC2 do
   @doc """
   Describes the specified attribute of the specified AMI.
 
-  You can specify only one attribute
-  at a time.
+  You can specify only one attribute at a time.
 
   The order of the elements in the response, including those within nested
-  structures,
-  might vary. Applications should not assume the elements appear in a particular
-  order.
+  structures, might vary. Applications should not assume the elements appear in a
+  particular order.
   """
   def describe_image_attribute(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4575,14 +4564,11 @@ defmodule AWS.EC2 do
 
   @doc """
   Describes the specified images (AMIs, AKIs, and ARIs) available to you or all of
-  the
-  images available to you.
+  the images available to you.
 
   The images available to you include public images, private images that you own,
-  and
-  private images owned by other Amazon Web Services accounts for which you have
-  explicit launch
-  permissions.
+  and private images owned by other
+  Amazon Web Services accounts for which you have explicit launch permissions.
 
   Recently deregistered images appear in the returned results for a short interval
   and then
@@ -4593,9 +4579,8 @@ defmodule AWS.EC2 do
   cannot be found.
 
   The order of the elements in the response, including those within nested
-  structures,
-  might vary. Applications should not assume the elements appear in a particular
-  order.
+  structures, might vary. Applications should not assume the elements appear in a
+  particular order.
   """
   def describe_images(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5319,6 +5304,11 @@ defmodule AWS.EC2 do
   For information about enabling and disabling Regions for your account, see
   [Managing Amazon Web Services Regions](https://docs.aws.amazon.com/general/latest/gr/rande-manage.html) in the
   *Amazon Web Services General Reference*.
+
+  The order of the elements in the response, including those within nested
+  structures,
+  might vary. Applications should not assume the elements appear in a particular
+  order.
   """
   def describe_regions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5479,9 +5469,8 @@ defmodule AWS.EC2 do
   end
 
   @doc """
-  Describes the VPCs on the other side of a VPC peering connection or the VPCs
-  attached to a transit gateway that are referencing the security groups you've
-  specified in this request.
+  Describes the VPCs on the other side of a VPC peering connection that are
+  referencing the security groups you've specified in this request.
   """
   def describe_security_group_references(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5513,8 +5502,8 @@ defmodule AWS.EC2 do
   You can specify only one
   attribute at a time.
 
-  For more information about EBS snapshots, see [Amazon EBS snapshots](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html)
-  in the *Amazon Elastic Compute Cloud User Guide*.
+  For more information about EBS snapshots, see [Amazon EBS snapshots](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-snapshots.html)
+  in the *Amazon EBS User Guide*.
   """
   def describe_snapshot_attribute(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5596,8 +5585,8 @@ defmodule AWS.EC2 do
   `DescribeFastSnapshotRestores`.
 
   For more information about EBS snapshots, see [Amazon EBS
-  snapshots](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html)
-  in the *Amazon Elastic Compute Cloud User Guide*.
+  snapshots](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-snapshots.html)
+  in the *Amazon EBS User Guide*.
   """
   def describe_snapshots(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5710,13 +5699,10 @@ defmodule AWS.EC2 do
   @doc """
   Describes the stale security group rules for security groups in a specified VPC.
 
-  Rules are stale when they reference a deleted security group in the same VPC,
-  peered VPC, or in separate VPCs attached to a transit gateway (with [security group referencing
-  support](https://docs.aws.amazon.com/vpc/latest/tgw/tgw-transit-gateways.html#create-tgw)
-  enabled). Rules can also be stale if they reference a security group in a peer
+  Rules are stale when they reference a deleted security group in the same VPC or
+  peered VPC. Rules can also be stale if they reference a security group in a peer
   VPC for which the VPC peering connection has
-  been deleted or if they reference a security group in a VPC that has been
-  detached from a transit gateway.
+  been deleted.
   """
   def describe_stale_security_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5775,6 +5761,10 @@ defmodule AWS.EC2 do
   For more information about tags, see [Tag your Amazon EC2 resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html)
   in the
   *Amazon Elastic Compute Cloud User Guide*.
+
+  The order of the elements in the response, including those within nested
+  structures, might vary. Applications should not assume the elements appear in a
+  particular order.
   """
   def describe_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5991,8 +5981,8 @@ defmodule AWS.EC2 do
   You can specify only one
   attribute at a time.
 
-  For more information about EBS volumes, see [Amazon EBS volumes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumes.html) in
-  the *Amazon Elastic Compute Cloud User Guide*.
+  For more information about EBS volumes, see [Amazon EBS volumes](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volumes.html) in
+  the *Amazon EBS User Guide*.
   """
   def describe_volume_attribute(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6027,9 +6017,8 @@ defmodule AWS.EC2 do
   your
   volume at the time. We recommend that you retry the request. For more
   information about volume
-  status, see [Monitor the status of your volumes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-volume-status.html)
-  in the
-  *Amazon Elastic Compute Cloud User Guide*.
+  status, see [Monitor the status of your volumes](https://docs.aws.amazon.com/ebs/latest/userguide/monitoring-volume-status.html)
+  in the *Amazon EBS User Guide*.
 
   *Events*: Reflect the cause of a volume status and might require you to
   take action. For example, if your volume returns an `impaired` status, then the
@@ -6052,6 +6041,10 @@ defmodule AWS.EC2 do
   volume state.
   Therefore, volume status does not indicate volumes in the `error` state (for
   example, when a volume is incapable of accepting I/O.)
+
+  The order of the elements in the response, including those within nested
+  structures, might vary. Applications should not assume the elements appear in a
+  particular order.
   """
   def describe_volume_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6066,8 +6059,12 @@ defmodule AWS.EC2 do
   output to make the list
   more manageable. For more information, see
   [Pagination](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination).   For more information about EBS volumes, see [Amazon EBS
-  volumes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumes.html) in
-  the *Amazon Elastic Compute Cloud User Guide*.
+  volumes](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volumes.html) in
+  the *Amazon EBS User Guide*.
+
+  The order of the elements in the response, including those within nested
+  structures, might vary. Applications should not assume the elements appear in a
+  particular order.
   """
   def describe_volumes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6088,8 +6085,8 @@ defmodule AWS.EC2 do
   EBS
   volume. For information about CloudWatch Events, see the [Amazon CloudWatch Events User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/).
   For more information, see
-  [Monitor the progress of volume modifications](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-volume-modifications.html)
-  in the *Amazon Elastic Compute Cloud User Guide*.
+  [Monitor the progress of volume modifications](https://docs.aws.amazon.com/ebs/latest/userguide/monitoring-volume-modifications.html)
+  in the *Amazon EBS User Guide*.
   """
   def describe_volumes_modifications(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6335,9 +6332,9 @@ defmodule AWS.EC2 do
   exception with the `Unable to detach volume attached to ECS tasks` error
   message.
 
-  For more information, see [Detach an Amazon EBS volume](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html)
+  For more information, see [Detach an Amazon EBS volume](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-detaching-volume.html)
   in the
-  *Amazon Elastic Compute Cloud User Guide*.
+  *Amazon EBS User Guide*.
   """
   def detach_volume(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6404,9 +6401,9 @@ defmodule AWS.EC2 do
   Disabling encryption by default does not change the encryption status of your
   existing volumes.
 
-  For more information, see [Amazon EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
+  For more information, see [Amazon EBS encryption](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html)
   in the
-  *Amazon Elastic Compute Cloud User Guide*.
+  *Amazon EBS User Guide*.
   """
   def disable_ebs_encryption_by_default(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6416,18 +6413,15 @@ defmodule AWS.EC2 do
 
   @doc """
   Discontinue Windows fast launch for a Windows AMI, and clean up existing
-  pre-provisioned
-  snapshots.
+  pre-provisioned snapshots.
 
   After you disable Windows fast launch, the AMI uses the standard launch process
-  for
-  each new instance. Amazon EC2 must remove all pre-provisioned snapshots before
-  you can enable
-  Windows fast launch again.
+  for each
+  new instance. Amazon EC2 must remove all pre-provisioned snapshots before you
+  can enable Windows fast launch again.
 
   You can only change these settings for Windows AMIs that you own or that have
-  been
-  shared with you.
+  been shared with you.
   """
   def disable_fast_launch(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6491,10 +6485,10 @@ defmodule AWS.EC2 do
   `block-new-sharing`. When the API has completed the configuration, the response
   will be `unblocked`.
 
-  For more information, see [Block
-  public access to your
+  For more information, see [Block public access to your
   AMIs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sharingamis-intro.html#block-public-access-to-amis)
-  in the *Amazon EC2 User Guide*.
+  in
+  the *Amazon EC2 User Guide*.
   """
   def disable_image_block_public_access(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6558,8 +6552,8 @@ defmodule AWS.EC2 do
 
   For more information, see [
   Block public access for
-  snapshots](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-public-access-snapshots.html)
-  in the *Amazon Elastic Compute Cloud User Guide* .
+  snapshots](https://docs.aws.amazon.com/ebs/latest/userguide/block-public-access-snapshots.html)
+  in the *Amazon EBS User Guide* .
   """
   def disable_snapshot_block_public_access(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6881,9 +6875,9 @@ defmodule AWS.EC2 do
   After you enable encryption by default, the EBS volumes that you create are
   always encrypted, either using the default KMS key or the KMS key that you
   specified
-  when you created each volume. For more information, see [Amazon EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
+  when you created each volume. For more information, see [Amazon EBS encryption](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html)
   in the
-  *Amazon Elastic Compute Cloud User Guide*.
+  *Amazon EBS User Guide*.
 
   You can specify the default KMS key for encryption by default using
   `ModifyEbsDefaultKmsKeyId`
@@ -6895,7 +6889,7 @@ defmodule AWS.EC2 do
   After you enable encryption by default, you can no longer launch instances
   using instance types that do not support encryption. For more information, see
   [Supported instance
-  types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances).
+  types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption-requirements.html#ebs-encryption_supported_instances).
   """
   def enable_ebs_encryption_by_default(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6905,21 +6899,20 @@ defmodule AWS.EC2 do
 
   @doc """
   When you enable Windows fast launch for a Windows AMI, images are
-  pre-provisioned, using
-  snapshots to launch instances up to 65% faster.
+  pre-provisioned,
+  using snapshots to launch instances up to 65% faster.
 
-  To create the optimized Windows image, Amazon EC2
-  launches an instance and runs through Sysprep steps, rebooting as required. Then
-  it creates a
-  set of reserved snapshots that are used for subsequent launches. The reserved
-  snapshots are
-  automatically replenished as they are used, depending on your settings for
-  launch
-  frequency.
+  To create the optimized Windows
+  image, Amazon EC2 launches an instance and runs through Sysprep steps, rebooting
+  as required.
+  Then it creates a set of reserved snapshots that are used for subsequent
+  launches. The
+  reserved snapshots are automatically replenished as they are used, depending on
+  your
+  settings for launch frequency.
 
   You can only change these settings for Windows AMIs that you own or that have
-  been
-  shared with you.
+  been shared with you.
   """
   def enable_fast_launch(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6937,8 +6930,8 @@ defmodule AWS.EC2 do
   `DescribeFastSnapshotRestores`.
   To disable fast snapshot restores, use `DisableFastSnapshotRestores`.
 
-  For more information, see [Amazon EBS fast snapshot restore](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-fast-snapshot-restore.html)
-  in the *Amazon Elastic Compute Cloud User Guide*.
+  For more information, see [Amazon EBS fast snapshot restore](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-fast-snapshot-restore.html)
+  in the *Amazon EBS User Guide*.
   """
   def enable_fast_snapshot_restores(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6998,8 +6991,7 @@ defmodule AWS.EC2 do
   Enables deprecation of the specified AMI at the specified date and time.
 
   For more information, see [Deprecate an AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-deprecate.html) in
-  the
-  *Amazon EC2 User Guide*.
+  the *Amazon EC2 User Guide*.
   """
   def enable_image_deprecation(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7077,8 +7069,8 @@ defmodule AWS.EC2 do
 
   For more information, see [
   Block public access for
-  snapshots](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-public-access-snapshots.html)
-  in the *Amazon Elastic Compute Cloud User Guide*.
+  snapshots](https://docs.aws.amazon.com/ebs/latest/userguide/block-public-access-snapshots.html)
+  in the *Amazon EBS User Guide*.
   """
   def enable_snapshot_block_public_access(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7361,8 +7353,8 @@ defmodule AWS.EC2 do
   `ModifyEbsDefaultKmsKeyId` or
   `ResetEbsDefaultKmsKeyId`.
 
-  For more information, see [Amazon EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
-  in the *Amazon Elastic Compute Cloud User Guide*.
+  For more information, see [Amazon EBS encryption](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html)
+  in the *Amazon EBS User Guide*.
   """
   def get_ebs_default_kms_key_id(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7375,8 +7367,8 @@ defmodule AWS.EC2 do
   current
   Region.
 
-  For more information, see [Amazon EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
-  in the *Amazon Elastic Compute Cloud User Guide*.
+  For more information, see [Amazon EBS encryption](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html)
+  in the *Amazon EBS User Guide*.
   """
   def get_ebs_encryption_by_default(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7748,8 +7740,8 @@ defmodule AWS.EC2 do
 
   For more information, see [
   Block public access for
-  snapshots](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-public-access-snapshots.html)
-  in the *Amazon Elastic Compute Cloud User Guide*.
+  snapshots](https://docs.aws.amazon.com/ebs/latest/userguide/block-public-access-snapshots.html)
+  in the *Amazon EBS User Guide*.
   """
   def get_snapshot_block_public_access_state(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8064,8 +8056,8 @@ defmodule AWS.EC2 do
   @doc """
   Lists one or more AMIs that are currently in the Recycle Bin.
 
-  For more information, see
-  [Recycle Bin](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html) in
+  For more information,
+  see [Recycle Bin](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html) in
   the *Amazon EC2 User Guide*.
   """
   def list_images_in_recycle_bin(%Client{} = client, input, options \\ []) do
@@ -8236,8 +8228,8 @@ defmodule AWS.EC2 do
   with
   encryption by default, your instances will fail to launch.
 
-  For more information, see [Amazon EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
-  in the *Amazon Elastic Compute Cloud User Guide*.
+  For more information, see [Amazon EBS encryption](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html)
+  in the *Amazon EBS User Guide*.
   """
   def modify_ebs_default_kms_key_id(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8418,18 +8410,18 @@ defmodule AWS.EC2 do
   @doc """
   Modifies the specified attribute of the specified AMI.
 
-  You can specify only one attribute
-  at a time.
+  You can specify only one attribute at a time.
 
   To specify the attribute, you can use the `Attribute` parameter, or one of the
-  following parameters: `Description`, `ImdsSupport`, or
-  `LaunchPermission`.
+  following parameters:
+  `Description`, `ImdsSupport`, or `LaunchPermission`.
 
   Images with an Amazon Web Services Marketplace product code cannot be made
   public.
 
   To enable the SriovNetSupport enhanced networking attribute of an image, enable
-  SriovNetSupport on an instance and create an AMI from the instance.
+  SriovNetSupport on an instance
+  and create an AMI from the instance.
   """
   def modify_image_attribute(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8771,9 +8763,9 @@ defmodule AWS.EC2 do
   public. Snapshots encrypted with your default KMS key cannot be shared with
   other accounts.
 
-  For more information about modifying snapshot permissions, see [Share a snapshot](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modifying-snapshot-permissions.html)
+  For more information about modifying snapshot permissions, see [Share a snapshot](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-modifying-snapshot-permissions.html)
   in the
-  *Amazon Elastic Compute Cloud User Guide*.
+  *Amazon EBS User Guide*.
   """
   def modify_snapshot_attribute(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8788,8 +8780,8 @@ defmodule AWS.EC2 do
   snapshot that includes all of the blocks of data that were written to the volume
   at the
   time the snapshot was created, and moved from the standard tier to the archive
-  tier. For more information, see [Archive Amazon EBS snapshots](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-archive.html)
-  in the *Amazon Elastic Compute Cloud User Guide*.
+  tier. For more information, see [Archive Amazon EBS snapshots](https://docs.aws.amazon.com/ebs/latest/userguide/snapshot-archive.html)
+  in the *Amazon EBS User Guide*.
   """
   def modify_snapshot_tier(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9036,17 +9028,13 @@ defmodule AWS.EC2 do
   type, you might be able to apply these changes without stopping the instance or
   detaching the
   volume from it. For more information about modifying EBS volumes, see [Amazon EBS Elastic
-  Volumes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modify-volume.html)
-  (Linux instances)
-  or [Amazon EBS Elastic Volumes](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-modify-volume.html)
-  (Windows instances).
+  Volumes](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-modify-volume.html)
+  in the *Amazon EBS User Guide*.
 
   When you complete a resize operation on your volume, you need to extend the
   volume's
   file-system size to take advantage of the new storage capacity. For more
-  information, see [Extend a Linux file system](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html#recognize-expanded-volume-linux)
-  or
-  [Extend a Windows file system](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-expand-volume.html#recognize-expanded-volume-windows).
+  information, see [Extend the file system](https://docs.aws.amazon.com/ebs/latest/userguide/recognize-expanded-volume-linux.html).
 
   You can use CloudWatch Events to check the status of a modification to an EBS
   volume. For
@@ -9054,7 +9042,7 @@ defmodule AWS.EC2 do
   also track the status of a
   modification using `DescribeVolumesModifications`. For information
   about tracking status changes using either method, see [Monitor the progress of volume
-  modifications](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-volume-modifications.html).
+  modifications](https://docs.aws.amazon.com/ebs/latest/userguide/monitoring-volume-modifications.html).
 
   With previous-generation instance types, resizing an EBS volume might require
   detaching and
@@ -9582,31 +9570,30 @@ defmodule AWS.EC2 do
   RegisterImage.
 
   If needed, you can deregister an AMI at any time. Any modifications you make to
-  an AMI
-  backed by an instance store volume invalidates its registration. If you make
-  changes to an
-  image, deregister the previous image and register the new image.
+  an AMI backed by an instance store volume invalidates its registration.
+  If you make changes to an image, deregister the previous image and register the
+  new image.
 
   ## Register a snapshot of a root device volume
 
-  You can use `RegisterImage` to create an Amazon EBS-backed Linux AMI from a
-  snapshot
-  of a root device volume. You specify the snapshot using a block device mapping.
-  You can't set
-  the encryption state of the volume using the block device mapping. If the
-  snapshot is
-  encrypted, or encryption by default is enabled, the root volume of an instance
-  launched from
-  the AMI is encrypted.
+  You can use `RegisterImage` to create an Amazon EBS-backed Linux AMI from
+  a snapshot of a root device volume. You specify the snapshot using a block
+  device mapping.
+  You can't set the encryption state of the volume using the block device mapping.
+  If the
+  snapshot is encrypted, or encryption by default is enabled, the root volume of
+  an instance
+  launched from the AMI is encrypted.
 
   For more information, see [Create a Linux AMI from a snapshot](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html#creating-launching-ami-from-snapshot)
-  and [Use encryption with Amazon EBS-backed AMIs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIEncryption.html) in
-  the *Amazon Elastic Compute Cloud User Guide*.
+  and [Use encryption with Amazon EBS-backed AMIs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIEncryption.html)
+  in the *Amazon Elastic Compute Cloud User Guide*.
 
   ## Amazon Web Services Marketplace product codes
 
   If any snapshots have Amazon Web Services Marketplace product codes, they are
-  copied to the new AMI.
+  copied to the new
+  AMI.
 
   Windows and some Linux distributions, such as Red Hat Enterprise Linux (RHEL)
   and SUSE
@@ -10067,8 +10054,8 @@ defmodule AWS.EC2 do
   you can continue to encrypt by a
   customer managed KMS key by specifying it when you create the volume. For more
   information, see
-  [Amazon EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
-  in the *Amazon Elastic Compute Cloud User Guide*.
+  [Amazon EBS encryption](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html)
+  in the *Amazon EBS User Guide*.
   """
   def reset_ebs_default_kms_key_id(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10132,9 +10119,9 @@ defmodule AWS.EC2 do
   @doc """
   Resets permission settings for the specified snapshot.
 
-  For more information about modifying snapshot permissions, see [Share a snapshot](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modifying-snapshot-permissions.html)
+  For more information about modifying snapshot permissions, see [Share a snapshot](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-modifying-snapshot-permissions.html)
   in the
-  *Amazon Elastic Compute Cloud User Guide*.
+  *Amazon EBS User Guide*.
   """
   def reset_snapshot_attribute(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10183,8 +10170,8 @@ defmodule AWS.EC2 do
   Restores a snapshot from the Recycle Bin.
 
   For more information, see [Restore snapshots from the Recycle
-  Bin](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin-working-with-snaps.html#recycle-bin-restore-snaps)
-  in the *Amazon Elastic Compute Cloud User Guide*.
+  Bin](https://docs.aws.amazon.com/ebs/latest/userguide/recycle-bin-working-with-snaps.html#recycle-bin-restore-snaps)
+  in the *Amazon EBS User Guide*.
   """
   def restore_snapshot_from_recycle_bin(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10199,11 +10186,11 @@ defmodule AWS.EC2 do
 
   For more information see [
   Restore an archived
-  snapshot](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-snapshot-archiving.html#restore-archived-snapshot)
+  snapshot](https://docs.aws.amazon.com/ebs/latest/userguide/working-with-snapshot-archiving.html#restore-archived-snapshot)
   and [
   modify the restore period or restore type for a temporarily restored
-  snapshot](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-snapshot-archiving.html#modify-temp-restore-period)
-  in the *Amazon Elastic Compute Cloud User Guide*.
+  snapshot](https://docs.aws.amazon.com/ebs/latest/userguide/working-with-snapshot-archiving.html#modify-temp-restore-period)
+  in the *Amazon EBS User Guide*.
   """
   def restore_snapshot_tier(%Client{} = client, input, options \\ []) do
     meta = metadata()

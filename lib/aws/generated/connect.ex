@@ -1371,6 +1371,25 @@ defmodule AWS.Connect do
 
   @doc """
   Deletes a quick connect.
+
+  After calling
+  [DeleteUser](https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteUser.html), it's important to
+  call `DeleteQuickConnect` to delete any records related to the deleted users.
+  This
+  will help you:
+
+    
+  Avoid dangling resources that impact your service quotas.
+
+    
+  Remove deleted users so they don't appear to agents as transfer options.
+
+    
+  Avoid the disruption of other Amazon Connect processes, such as instance
+  replication
+  and syncing if you're using [Amazon Connect
+  Global
+  Resiliency](https://docs.aws.amazon.com/connect/latest/adminguide/setup-connect-global-resiliency.html).
   """
   def delete_quick_connect(
         %Client{} = client,
@@ -1594,6 +1613,23 @@ defmodule AWS.Connect do
   Instance](https://docs.aws.amazon.com/connect/latest/adminguide/delete-users.html)
   in the *Amazon Connect Administrator
   Guide*.
+
+  After calling DeleteUser, call
+  [DeleteQuickConnect](https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteQuickConnect.html) to
+  delete any records related to the deleted users. This will help you:
+
+    
+  Avoid dangling resources that impact your service quotas.
+
+    
+  Remove deleted users so they don't appear to agents as transfer options.
+
+    
+  Avoid the disruption of other Amazon Connect processes, such as instance
+  replication
+  and syncing if you're using [Amazon Connect
+  Global
+  Resiliency](https://docs.aws.amazon.com/connect/latest/adminguide/setup-connect-global-resiliency.html).
   """
   def delete_user(%Client{} = client, instance_id, user_id, input, options \\ []) do
     url_path = "/users/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(user_id)}"
@@ -3227,7 +3263,8 @@ defmodule AWS.Connect do
   This API is in preview release for Amazon Connect and is subject to change.
 
   For the specified `referenceTypes`, returns a list of references associated with
-  the contact.
+  the contact. *References* are links to documents that are related to a
+  contact, such as emails, attachments, or URLs.
   """
   def list_contact_references(
         %Client{} = client,
@@ -5480,8 +5517,8 @@ defmodule AWS.Connect do
   @doc """
   Ends the specified contact.
 
-  This call does not work for voice contacts that use the
-  following initiation methods:
+  Use this API to stop queued callbacks. It does not work for
+  voice contacts that use the following initiation methods:
 
     *
   DISCONNECT
@@ -5492,8 +5529,7 @@ defmodule AWS.Connect do
     *
   QUEUE_TRANSFER
 
-  Chat and task contacts, however, can be terminated in any state, regardless of
-  initiation
+  Chat and task contacts can be terminated in any state, regardless of initiation
   method.
   """
   def stop_contact(%Client{} = client, input, options \\ []) do

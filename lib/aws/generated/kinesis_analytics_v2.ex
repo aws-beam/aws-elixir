@@ -3,10 +3,13 @@
 
 defmodule AWS.KinesisAnalyticsV2 do
   @moduledoc """
-  Amazon Kinesis Data Analytics is a fully managed service that you can use to
-  process and analyze streaming data using Java, SQL, or Scala.
 
-  The service
+  Amazon Managed Service for Apache Flink was previously known as Amazon Kinesis
+  Data Analytics for Apache Flink.
+
+  Amazon Managed Service for Apache Flink is a fully managed service that you can
+  use to process and analyze streaming data using Java, Python, SQL, or Scala. The
+  service
   enables you to quickly author and run Java, SQL, or Scala code against streaming
   sources to perform time
   series analytics, feed real-time dashboards, and create real-time metrics.
@@ -141,15 +144,15 @@ defmodule AWS.KinesisAnalyticsV2 do
   Applications can use VPCs to store
   and access resources securely.
 
-  Note the following about VPC configurations for Kinesis Data Analytics
+  Note the following about VPC configurations for Managed Service for Apache Flink
   applications:
 
     *
   VPC configurations are not supported for SQL applications.
 
     *
-  When a VPC is added to a Kinesis Data Analytics application, the application can
-  no longer be accessed from the
+  When a VPC is added to a Managed Service for Apache Flink application, the
+  application can no longer be accessed from the
   Internet directly. To enable Internet access to the application, add an Internet
   gateway to your VPC.
   """
@@ -160,10 +163,10 @@ defmodule AWS.KinesisAnalyticsV2 do
   end
 
   @doc """
-  Creates a Kinesis Data Analytics application.
+  Creates a Managed Service for Apache Flink application.
 
   For information about creating a
-  Kinesis Data Analytics application, see [Creating an Application](https://docs.aws.amazon.com/kinesisanalytics/latest/java/getting-started.html).
+  Managed Service for Apache Flink application, see [Creating an Application](https://docs.aws.amazon.com/kinesisanalytics/latest/java/getting-started.html).
   """
   def create_application(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -211,7 +214,8 @@ defmodule AWS.KinesisAnalyticsV2 do
   @doc """
   Deletes the specified application.
 
-  Kinesis Data Analytics halts application execution and deletes the application.
+  Managed Service for Apache Flink halts application execution and deletes the
+  application.
   """
   def delete_application(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -220,7 +224,7 @@ defmodule AWS.KinesisAnalyticsV2 do
   end
 
   @doc """
-  Deletes an Amazon CloudWatch log stream from an Kinesis Data Analytics
+  Deletes an Amazon CloudWatch log stream from an SQL-based Kinesis Data Analytics
   application.
   """
   def delete_application_cloud_watch_logging_option(%Client{} = client, input, options \\ []) do
@@ -281,7 +285,7 @@ defmodule AWS.KinesisAnalyticsV2 do
   end
 
   @doc """
-  Removes a VPC configuration from a Kinesis Data Analytics application.
+  Removes a VPC configuration from a Managed Service for Apache Flink application.
   """
   def delete_application_vpc_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -290,7 +294,8 @@ defmodule AWS.KinesisAnalyticsV2 do
   end
 
   @doc """
-  Returns information about a specific Kinesis Data Analytics application.
+  Returns information about a specific Managed Service for Apache Flink
+  application.
 
   If you want to retrieve a list of all applications in your account,
   use the `ListApplications` operation.
@@ -316,8 +321,7 @@ defmodule AWS.KinesisAnalyticsV2 do
   To see a list of all the versions of an application, invoke the
   `ListApplicationVersions` operation.
 
-  This operation is supported only for Amazon Kinesis Data Analytics for Apache
-  Flink.
+  This operation is supported only for Managed Service for Apache Flink.
   """
   def describe_application_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -365,8 +369,7 @@ defmodule AWS.KinesisAnalyticsV2 do
   To get the complete description of a specific application version, invoke the
   `DescribeApplicationVersion` operation.
 
-  This operation is supported only for Amazon Kinesis Data Analytics for Apache
-  Flink.
+  This operation is supported only for Managed Service for Apache Flink.
   """
   def list_application_versions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -375,7 +378,7 @@ defmodule AWS.KinesisAnalyticsV2 do
   end
 
   @doc """
-  Returns a list of Kinesis Data Analytics applications in your account.
+  Returns a list of Managed Service for Apache Flink applications in your account.
 
   For each
   application, the response includes the application name, Amazon Resource Name
@@ -414,10 +417,11 @@ defmodule AWS.KinesisAnalyticsV2 do
 
   When you rollback an application, it loads state data from the last successful
   snapshot.
-  If the application has no snapshots, Kinesis Data Analytics rejects the rollback
-  request.
+  If the application has no snapshots, Managed Service for Apache Flink rejects
+  the rollback request.
 
-  This action is not supported for Kinesis Data Analytics for SQL applications.
+  This action is not supported for Managed Service for Apache Flink for SQL
+  applications.
   """
   def rollback_application(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -426,7 +430,7 @@ defmodule AWS.KinesisAnalyticsV2 do
   end
 
   @doc """
-  Starts the specified Kinesis Data Analytics application.
+  Starts the specified Managed Service for Apache Flink application.
 
   After creating an application, you must exclusively call this operation to
   start your application.
@@ -446,8 +450,8 @@ defmodule AWS.KinesisAnalyticsV2 do
 
   You can use the `DescribeApplication` operation to find the application status.
 
-  Kinesis Data Analytics takes a snapshot when the application is stopped, unless
-  `Force` is set
+  Managed Service for Apache Flink takes a snapshot when the application is
+  stopped, unless `Force` is set
   to `true`.
   """
   def stop_application(%Client{} = client, input, options \\ []) do
@@ -457,7 +461,8 @@ defmodule AWS.KinesisAnalyticsV2 do
   end
 
   @doc """
-  Adds one or more key-value tags to a Kinesis Data Analytics application.
+  Adds one or more key-value tags to a Managed Service for Apache Flink
+  application.
 
   Note that the maximum number of application
   tags includes system tags. The maximum number of user-defined application tags
@@ -471,7 +476,7 @@ defmodule AWS.KinesisAnalyticsV2 do
   end
 
   @doc """
-  Removes one or more tags from a Kinesis Data Analytics application.
+  Removes one or more tags from a Managed Service for Apache Flink application.
 
   For more information, see
   [Using Tagging](https://docs.aws.amazon.com/kinesisanalytics/latest/java/how-tagging.html).
@@ -483,18 +488,14 @@ defmodule AWS.KinesisAnalyticsV2 do
   end
 
   @doc """
-  Updates an existing Kinesis Data Analytics application.
+  Updates an existing Managed Service for Apache Flink application.
 
   Using this operation, you
   can update application code, input configuration, and output configuration.
 
-  Kinesis Data Analytics updates the `ApplicationVersionId` each time you update
+  Managed Service for Apache Flink updates the `ApplicationVersionId` each time
+  you update
   your application.
-
-  You cannot update the `RuntimeEnvironment` of an existing application. If you
-  need to update an application's `RuntimeEnvironment`, you must delete the
-  application
-  and create it again.
   """
   def update_application(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -503,7 +504,8 @@ defmodule AWS.KinesisAnalyticsV2 do
   end
 
   @doc """
-  Updates the maintenance configuration of the Kinesis Data Analytics application.
+  Updates the maintenance configuration of the Managed Service for Apache Flink
+  application.
 
   You can invoke this operation on an application that is in one of the two
   following
@@ -525,11 +527,10 @@ defmodule AWS.KinesisAnalyticsV2 do
   To see the current maintenance configuration of your application, invoke the
   `DescribeApplication` operation.
 
-  For information about application maintenance, see [Kinesis Data Analytics for Apache Flink
+  For information about application maintenance, see [Managed Service for Apache Flink for Apache Flink
   Maintenance](https://docs.aws.amazon.com/kinesisanalytics/latest/java/maintenance.html).
 
-  This operation is supported only for Amazon Kinesis Data Analytics for Apache
-  Flink.
+  This operation is supported only for Managed Service for Apache Flink.
   """
   def update_application_maintenance_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()

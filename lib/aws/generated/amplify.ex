@@ -57,6 +57,14 @@ defmodule AWS.Amplify do
 
   @doc """
   Creates a new backend environment for an Amplify app.
+
+  This API is available only to Amplify Gen 1 applications where the
+  backend is created using Amplify Studio or the Amplify
+  command line interface (CLI). This API isn’t available to applications created
+  using the
+  Amplify Gen 2 public preview. When you deploy an application with
+  Amplify Gen 2, you provision the app's backend infrastructure using Typescript
+  code.
   """
   def create_backend_environment(%Client{} = client, app_id, input, options \\ []) do
     url_path = "/apps/#{AWS.Util.encode_uri(app_id)}/backendenvironments"
@@ -208,6 +216,14 @@ defmodule AWS.Amplify do
 
   @doc """
   Deletes a backend environment for an Amplify app.
+
+  This API is available only to Amplify Gen 1 applications where the
+  backend was created using Amplify Studio or the Amplify
+  command line interface (CLI). This API isn’t available to applications created
+  using the
+  Amplify Gen 2 public preview. When you deploy an application with
+  Amplify Gen 2, you provision the app's backend infrastructure using Typescript
+  code.
   """
   def delete_backend_environment(
         %Client{} = client,
@@ -382,6 +398,14 @@ defmodule AWS.Amplify do
 
   @doc """
   Returns a backend environment for an Amplify app.
+
+  This API is available only to Amplify Gen 1 applications where the
+  backend was created using Amplify Studio or the Amplify
+  command line interface (CLI). This API isn’t available to applications created
+  using the
+  Amplify Gen 2 public preview. When you deploy an application with
+  Amplify Gen 2, you provision the app's backend infrastructure using Typescript
+  code.
   """
   def get_backend_environment(%Client{} = client, app_id, environment_name, options \\ []) do
     url_path =
@@ -515,6 +539,14 @@ defmodule AWS.Amplify do
 
   @doc """
   Lists the backend environments for an Amplify app.
+
+  This API is available only to Amplify Gen 1 applications where the
+  backend was created using Amplify Studio or the Amplify
+  command line interface (CLI). This API isn’t available to applications created
+  using the
+  Amplify Gen 2 public preview. When you deploy an application with
+  Amplify Gen 2, you provision the app's backend infrastructure using Typescript
+  code.
   """
   def list_backend_environments(
         %Client{} = client,

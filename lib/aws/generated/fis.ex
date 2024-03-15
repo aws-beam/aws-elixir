@@ -3,11 +3,11 @@
 
 defmodule AWS.Fis do
   @moduledoc """
-  Fault Injection Simulator is a managed service that enables you to perform fault
+  Fault Injection Service is a managed service that enables you to perform fault
   injection
   experiments on your Amazon Web Services workloads.
 
-  For more information, see the [Fault Injection Simulator User Guide](https://docs.aws.amazon.com/fis/latest/userguide/).
+  For more information, see the [Fault Injection Service User Guide](https://docs.aws.amazon.com/fis/latest/userguide/).
   """
 
   alias AWS.Client
@@ -53,7 +53,7 @@ defmodule AWS.Fis do
   stopped. You can define a stop condition as a CloudWatch alarm.
 
   For more information, see [experiment templates](https://docs.aws.amazon.com/fis/latest/userguide/experiment-templates.html)
-  in the *Fault Injection Simulator User Guide*.
+  in the *Fault Injection Service User Guide*.
   """
   def create_experiment_template(%Client{} = client, input, options \\ []) do
     url_path = "/experimentTemplates"
@@ -82,7 +82,7 @@ defmodule AWS.Fis do
   is required when `accountTargeting` of `experimentOptions` is set to
   `multi-account`.
   For more information, see [experiment options](https://docs.aws.amazon.com/fis/latest/userguide/experiment-options.html)
-  in the *Fault Injection Simulator User Guide*.
+  in the *Fault Injection Service User Guide*.
   """
   def create_target_account_configuration(
         %Client{} = client,
@@ -388,7 +388,13 @@ defmodule AWS.Fis do
   @doc """
   Lists your experiments.
   """
-  def list_experiments(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_experiments(
+        %Client{} = client,
+        experiment_template_id \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
     url_path = "/experiments"
     headers = []
     query_params = []
@@ -403,6 +409,13 @@ defmodule AWS.Fis do
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(experiment_template_id) do
+        [{"experimentTemplateId", experiment_template_id} | query_params]
       else
         query_params
       end

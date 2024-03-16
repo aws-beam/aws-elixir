@@ -3,7 +3,7 @@
 
 defmodule AWS.WorkSpacesThinClient do
   @moduledoc """
-  Amazon WorkSpaces Thin Client is a affordable device built to work with Amazon
+  Amazon WorkSpaces Thin Client is an affordable device built to work with Amazon
   Web Services End User
   Computing (EUC) virtual desktops to provide users with a complete cloud desktop
   solution.

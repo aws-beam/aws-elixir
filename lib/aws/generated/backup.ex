@@ -2046,6 +2046,7 @@ defmodule AWS.Backup do
   def list_recovery_points_by_resource(
         %Client{} = client,
         resource_arn,
+        managed_by_aws_backup_only \\ nil,
         max_results \\ nil,
         next_token \\ nil,
         options \\ []
@@ -2064,6 +2065,13 @@ defmodule AWS.Backup do
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(managed_by_aws_backup_only) do
+        [{"managedByAWSBackupOnly", managed_by_aws_backup_only} | query_params]
       else
         query_params
       end
@@ -2667,7 +2675,8 @@ defmodule AWS.Backup do
   Attempts to cancel a job to create a one-time backup of a resource.
 
   This action is not supported for the following services:
-  Amazon FSx for Windows File Server, Amazon FSx for Lustre, FSx for ONTAP
+  Amazon FSx for Windows File Server, Amazon FSx for Lustre, Amazon FSx for NetApp
+  ONTAP
   , Amazon FSx for OpenZFS, Amazon DocumentDB (with MongoDB compatibility), Amazon
   RDS, Amazon Aurora,
   and Amazon Neptune.

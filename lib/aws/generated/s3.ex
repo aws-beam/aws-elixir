@@ -201,7 +201,8 @@ defmodule AWS.S3 do
   the SDKs that don't use exceptions, they return an error).
 
   Note that if `CompleteMultipartUpload` fails, applications should be prepared
-  to retry the failed requests. For more information, see [Amazon S3 Error Best Practices](https://docs.aws.amazon.com/AmazonS3/latest/dev/ErrorBestPractices.html).
+  to retry any failed requests (including 500 error responses). For more
+  information, see [Amazon S3 Error Best Practices](https://docs.aws.amazon.com/AmazonS3/latest/dev/ErrorBestPractices.html).
 
   You can't use `Content-Type: application/x-www-form-urlencoded` for the
   CompleteMultipartUpload requests. Also, if you don't provide a
@@ -426,7 +427,11 @@ defmodule AWS.S3 do
   Both the
   Region that you want to copy the object from and the Region that you want to
   copy the
-  object to must be enabled for your account.
+  object to must be enabled for your account. For more information about how to
+  enable a Region for your account, see [Enable or disable a Region for standalone
+  accounts](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-regions.html#manage-acct-regions-enable-standalone)
+  in the
+  *Amazon Web Services Account Management Guide*.
 
   Amazon S3 transfer acceleration does not support cross-Region copies. If you
   request a
@@ -477,7 +482,7 @@ defmodule AWS.S3 do
       
   If the destination bucket is a general purpose bucket, you must have
 
-  `s3:PubObject`
+  `s3:PutObject`
   **
   permission to write the object copy to the destination bucket.
 
@@ -540,7 +545,7 @@ defmodule AWS.S3 do
   embedded in the `200 OK` response. For example, in a cross-region copy, you
   may encounter throttling and receive a `200 OK` response.
   For more information, see [Resolve the Error 200 response when copying objects to Amazon
-  S3](repost.aws/knowledge-center/s3-resolve-200-internalerror).
+  S3](https://repost.aws/knowledge-center/s3-resolve-200-internalerror).
   The `200 OK` status code means the copy was accepted, but
   it doesn't mean the copy is complete. Another example is
   when you disconnect from Amazon S3 before the copy is complete, Amazon S3 might
@@ -566,8 +571,9 @@ defmodule AWS.S3 do
   specify for
   the destination object. The request can also result in a data retrieval charge
   for the
-  source if the source storage class bills for data retrieval. For pricing
-  information, see
+  source if the source storage class bills for data retrieval. If the copy source
+  is in a different region, the data transfer is billed to the copy source
+  account. For pricing information, see
   [Amazon S3 pricing](http://aws.amazon.com/s3/pricing/). 
 
   ### HTTP Host header syntax
@@ -753,15 +759,26 @@ defmodule AWS.S3 do
   `x-amz-object-ownership` header, then the
   `s3:PutBucketOwnershipControls` permission is required.
 
-  If your `CreateBucket` request sets `BucketOwnerEnforced` for
-  Amazon S3 Object Ownership and specifies a bucket ACL that provides access to an
-  external
-  Amazon Web Services account, your request fails with a `400` error and returns
-  the
-  `InvalidBucketAcLWithObjectOwnership` error code. For more information,
-  see [Setting Object Ownership on an existing bucket
-  ](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-ownership-existing-bucket.html)
-  in the *Amazon S3 User Guide*.
+  To set an ACL on a bucket as part of a
+  `CreateBucket` request, you must explicitly set S3
+  Object Ownership for the bucket to a different value than the
+  default, `BucketOwnerEnforced`. Additionally, if your
+  desired bucket ACL grants public access, you must first create the
+  bucket (without the bucket ACL) and then explicitly disable Block
+  Public Access on the bucket before using `PutBucketAcl`
+  to set the ACL. If you try to create a bucket with a public ACL,
+  the request will fail.
+
+  For the majority of modern use cases in S3, we recommend
+  that you keep all Block Public Access settings enabled and keep
+  ACLs disabled. If you would like to share data with users outside
+  of your account, you can use bucket policies as needed. For more
+  information, see [Controlling ownership of objects and disabling ACLs for your bucket
+  ](https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html)
+  and [Blocking public access to your Amazon S3 storage
+  ](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-block-public-access.html)
+  in
+  the *Amazon S3 User Guide*.
 
       
 
@@ -2166,15 +2183,25 @@ defmodule AWS.S3 do
   The behavior depends on the bucket's versioning state:
 
     *
-  If versioning is enabled, the operation removes the null version (if there is
-  one) of an object and inserts a delete marker,
-  which becomes the latest version of the object. If there isn't a null version,
-  Amazon S3 does
-  not remove any objects but will still respond that the command was successful.
+  If bucket versioning is not enabled, the operation permanently deletes the
+  object.
 
     *
-  If versioning is suspended or not enabled, the operation permanently deletes the
-  object.
+  If bucket versioning is enabled, the operation inserts a delete marker, which
+  becomes the current version of the object. To permanently delete an object in a
+  versioned bucket, you must include the object’s `versionId` in the request. For
+  more information about versioning-enabled buckets, see [Deleting object versions from a versioning-enabled
+  bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/DeletingObjectVersions.html).
+
+    *
+  If bucket versioning is suspended, the operation removes the object that has a
+  null `versionId`, if there is one, and inserts a delete marker that becomes the
+  current version of the object. If there isn't an object with a null `versionId`,
+  and all versions of the object have a `versionId`, Amazon S3 does not remove the
+  object and only inserts a delete marker. To permanently delete an object that
+  has a `versionId`, you must include the object’s `versionId` in the request. For
+  more information about versioning-suspended buckets, see [Deleting objects from versioning-suspended
+  buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/DeletingObjectsfromVersioningSuspendedBuckets.html).
 
     
 
@@ -2245,7 +2272,7 @@ defmodule AWS.S3 do
 
 
   `s3:DeleteObjectVersion`
-  ** - To delete a specific version of an object from a versiong-enabled bucket,
+  ** - To delete a specific version of an object from a versioning-enabled bucket,
   you must have the `s3:DeleteObjectVersion` permission.
 
     
@@ -3081,16 +3108,19 @@ defmodule AWS.S3 do
   This operation is not supported by directory buckets.
 
   Bucket lifecycle configuration now supports specifying a lifecycle rule using an
-  object key name prefix, one or more object tags, or a combination of both.
-  Accordingly,
+  object key name prefix, one or more object tags, object size, or any combination
+  of these. Accordingly, this section describes the latest API. The previous
+  version of the API supported filtering based only on an object key name prefix,
+  which is supported for backward compatibility.
+  For the related API description, see
+  [GetBucketLifecycle](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLifecycle.html). Accordingly,
   this section describes the latest API. The response describes the new filter
   element
   that you can use to specify a filter to select a subset of objects to which the
   rule
   applies. If you are using a previous version of the lifecycle configuration, it
   still
-  works. For the earlier action, see
-  [GetBucketLifecycle](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLifecycle.html). 
+  works. For the earlier action,
 
   Returns the lifecycle configuration information set on the bucket. For
   information about
@@ -5020,7 +5050,7 @@ defmodule AWS.S3 do
   ```
 
   or `404 Not Found` code. A message body is not included, so
-  you cannot determine the exception beyond these error codes.
+  you cannot determine the exception beyond these HTTP response codes.
 
   **Directory buckets ** - You must make requests for this API operation to the
   Zonal endpoint. These endpoints support virtual-hosted-style requests in the
@@ -7431,12 +7461,11 @@ defmodule AWS.S3 do
   lifecycle](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html).
 
   Bucket lifecycle configuration now supports specifying a lifecycle rule using an
-  object key name prefix, one or more object tags, or a combination of both.
-  Accordingly,
-  this section describes the latest API. The previous version of the API supported
-  filtering based only on an object key name prefix, which is supported for
-  backward
-  compatibility. For the related API description, see
+  object key name prefix, one or more object tags, object size, or any combination
+  of these. Accordingly, this section describes the latest API. The previous
+  version of the API supported filtering based only on an object key name prefix,
+  which is supported for backward compatibility.
+  For the related API description, see
   [PutBucketLifecycle](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycle.html). 
 
   ## Definitions
@@ -7450,9 +7479,9 @@ defmodule AWS.S3 do
   Each rule consists of the following:
 
     
-  A filter identifying a subset of objects to which the rule applies. The
-  filter can be based on a key name prefix, object tags, or a combination of
-  both.
+  A filter identifying a subset of objects to which the rule applies. The filter
+  can be based on a key name prefix, object tags, object size, or any combination
+  of these.
 
     
   A status indicating whether the rule is in effect.
@@ -9173,10 +9202,6 @@ defmodule AWS.S3 do
 
     *
 
-  `select` - Perform a select query on an archived object
-
-    *
-
   `restore an archive` - Restore an archived object
 
   For more information about the `S3` structure in the request body, see the
@@ -9198,59 +9223,6 @@ defmodule AWS.S3 do
   [Protecting Data Using Server-Side Encryption](https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html)
   in the
   *Amazon S3 User Guide*
-
-  Define the SQL expression for the `SELECT` type of restoration for your query
-  in the request body's `SelectParameters` structure. You can use expressions like
-  the following examples.
-
-    *
-  The following expression returns all records from the specified object.
-
-  `SELECT * FROM Object`
-
-    *
-  Assuming that you are not using any headers for data stored in the object, you
-  can
-  specify columns with positional headers.
-
-  `SELECT s._1, s._2 FROM Object s WHERE s._3 > 100`
-
-    *
-  If you have headers and you set the `fileHeaderInfo` in the
-  `CSV` structure in the request body to `USE`, you can
-  specify headers in the query. (If you set the `fileHeaderInfo` field to
-  `IGNORE`, the first row is skipped for the query.) You cannot mix
-  ordinal positions with header column names.
-
-  `SELECT s.Id, s.FirstName, s.SSN FROM S3Object s`
-
-  When making a select request, you can also do the following:
-
-    *
-  To expedite your queries, specify the `Expedited` tier. For more
-  information about tiers, see "Restoring Archives," later in this topic.
-
-    *
-  Specify details about the data serialization format of both the input object
-  that
-  is being queried and the serialization of the CSV-encoded query results.
-
-  The following are additional important facts about the select feature:
-
-    *
-  The output results are new Amazon S3 objects. Unlike archive retrievals, they
-  are
-  stored until explicitly deleted-manually or through a lifecycle configuration.
-
-    *
-  You can issue more than one select request on the same Amazon S3 object. Amazon
-  S3 doesn't
-  duplicate requests, so avoid issuing duplicate requests.
-
-    *
-  Amazon S3 accepts a select request even if the object has already been restored.
-  A
-  select request doesn’t return error response `409`.
 
   ## Definitions
 
@@ -9402,8 +9374,7 @@ defmodule AWS.S3 do
 
       
 
-  *Cause: Object restore is already in progress. (This error
-  does not apply to SELECT type requests.)*
+  *Cause: Object restore is already in progress.*
 
       
 
@@ -9995,7 +9966,7 @@ defmodule AWS.S3 do
 
       
   If the destination bucket is a general purpose bucket, you must have the 
-  `s3:PubObject`
+  `s3:PutObject`
   ** permission to write the object copy to the destination bucket.
 
   For information about permissions required to use the multipart upload API, see

@@ -142,8 +142,8 @@ defmodule AWS.TimestreamQuery do
   stored
   by Timestream for later running.
 
-  Timestream only supports using this operation with the
-  `PrepareQueryRequest$ValidateOnly` set to `true`.
+  Timestream only supports using this operation with
+  `ValidateOnly` set to `true`.
   """
   def prepare_query(%Client{} = client, input, options \\ []) do
     meta = metadata()

@@ -582,6 +582,7 @@ defmodule AWS.MediaTailor do
   def get_channel_schedule(
         %Client{} = client,
         channel_name,
+        audience \\ nil,
         duration_minutes \\ nil,
         max_results \\ nil,
         next_token \\ nil,
@@ -608,6 +609,13 @@ defmodule AWS.MediaTailor do
     query_params =
       if !is_nil(duration_minutes) do
         [{"durationMinutes", duration_minutes} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(audience) do
+        [{"audience", audience} | query_params]
       else
         query_params
       end

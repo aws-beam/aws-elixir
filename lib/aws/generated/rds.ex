@@ -2425,6 +2425,19 @@ defmodule AWS.RDS do
   end
 
   @doc """
+  Modifies a zero-ETL integration with Amazon Redshift.
+
+  Currently, you can only modify integrations that have Aurora MySQL source DB
+  clusters. Integrations with Aurora PostgreSQL and RDS sources currently don't
+  support modifying the integration.
+  """
+  def modify_integration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyIntegration", input, options)
+  end
+
+  @doc """
   Modifies an existing option group.
   """
   def modify_option_group(%Client{} = client, input, options \\ []) do

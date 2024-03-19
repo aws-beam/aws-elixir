@@ -75,8 +75,9 @@ defmodule AWS.CloudFormation do
   Region, use [
   `SetTypeConfiguration`
   ](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_SetTypeConfiguration.html)
-  to specify configuration properties for the extension. For more information, see
-  [Configuring extensions at the account level](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-register.html#registry-set-configuration)
+  to specify configuration properties for the extension. For more
+  information, see [Configuring extensions at the account
+  level](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-register.html#registry-set-configuration)
   in the *CloudFormation User Guide*.
   """
   def activate_type(%Client{} = client, input, options \\ []) do
@@ -1030,6 +1031,15 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
+  Returns summary information about deployment targets for a stack set.
+  """
+  def list_stack_set_auto_deployment_targets(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListStackSetAutoDeploymentTargets", input, options)
+  end
+
+  @doc """
   Returns summary information about the results of a stack set operation.
   """
   def list_stack_set_operation_results(%Client{} = client, input, options \\ []) do
@@ -1206,8 +1216,8 @@ defmodule AWS.CloudFormation do
   Once you have registered a private extension in your account and Region, use [
   `SetTypeConfiguration`
   ](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_SetTypeConfiguration.html)
-  to specify
-  configuration properties for the extension. For more information, see
+
+  to specify configuration properties for the extension. For more information, see
   [Configuring extensions at the account
   level](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-register.html#registry-set-configuration)
   in the *CloudFormation User Guide*.
@@ -1379,8 +1389,8 @@ defmodule AWS.CloudFormation do
   `TypeVersionArn` into [
   `DescribeType`
   ](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html)
-  to monitor the current test
-  status and test status description for the extension.
+  to monitor the
+  current test status and test status description for the extension.
 
   An extension must have a test status of `PASSED` before it can be published. For
   more information,
@@ -1452,16 +1462,17 @@ defmodule AWS.CloudFormation do
   delete a parameter itself, use [
   `UpdateStackSet`
   ](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStackSet.html)
-  to update the stack set
-  template. If you add a parameter to a template, before you can override the
-  parameter value specified in the stack
-  set you must first use [
+  to update the
+  stack set template. If you add a parameter to a template, before you can
+  override the parameter value specified in
+  the stack set you must first use [
   `UpdateStackSet`
   ](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStackSet.html)
-  to update all stack
-  instances with the updated template and parameter value specified in the stack
-  set. Once a stack instance has been
-  updated with the new parameter, you can then override the parameter value using
+  to update all
+  stack instances with the updated template and parameter value specified in the
+  stack set. Once a stack instance has
+  been updated with the new parameter, you can then override the parameter value
+  using
   `UpdateStackInstances`.
   """
   def update_stack_instances(%Client{} = client, input, options \\ []) do

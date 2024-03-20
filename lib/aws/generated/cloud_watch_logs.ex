@@ -168,7 +168,7 @@ defmodule AWS.CloudWatchLogs do
   services.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html)
 
   A delivery destination can represent a log group in CloudWatch Logs, an Amazon
-  S3 bucket, or a delivery stream in Kinesis Data Firehose.
+  S3 bucket, or a delivery stream in Firehose.
 
   To configure logs delivery between a supported Amazon Web Services service and a
   destination, you must do the following:
@@ -604,7 +604,7 @@ defmodule AWS.CloudWatchLogs do
 
   A delivery source represents an Amazon Web Services resource that sends logs to
   an logs delivery destination.
-  The destination can be CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.
+  The destination can be CloudWatch Logs, Amazon S3, or Firehose.
   Only some Amazon Web Services services support being configured as a delivery
   source. These services are listed
   in [Enable logging from Amazon Web Services services.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html)
@@ -886,7 +886,7 @@ defmodule AWS.CloudWatchLogs do
 
   A delivery source represents an Amazon Web Services resource that sends logs to
   an logs delivery destination.
-  The destination can be CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.
+  The destination can be CloudWatch Logs, Amazon S3, or Firehose.
   Only some Amazon Web Services services support being configured as a delivery
   source. These services are listed
   in [Enable logging from Amazon Web Services services.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html)
@@ -1155,8 +1155,7 @@ defmodule AWS.CloudWatchLogs do
   CloudWatch Logs to other Amazon Web Services services.
   Account-level subscription filter policies apply to both existing log groups and
   log groups that are created later in
-  this account. Supported destinations are Kinesis Data Streams, Kinesis Data
-  Firehose, and
+  this account. Supported destinations are Kinesis Data Streams, Firehose, and
   Lambda. When log events are sent to the receiving service, they are Base64
   encoded and
   compressed with the GZIP format.
@@ -1168,8 +1167,8 @@ defmodule AWS.CloudWatchLogs do
   policy, for same-account delivery.
 
     *
-  An Kinesis Data Firehose data stream in the same account as the subscription
-  policy, for same-account delivery.
+  An Firehose data stream in the same account as the subscription policy, for
+  same-account delivery.
 
     *
   A Lambda function in the same account as the subscription policy, for
@@ -1179,8 +1178,8 @@ defmodule AWS.CloudWatchLogs do
   A logical destination in a different account created with
   [PutDestination](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDestination.html),
   for cross-account
-  delivery. Kinesis Data Streams and Kinesis Data Firehose are supported as
-  logical destinations.
+  delivery. Kinesis Data Streams and Firehose are supported as logical
+  destinations.
 
   Each account can have one account-level subscription filter policy.
   If you are updating an existing filter, you must specify the correct name in
@@ -1247,7 +1246,7 @@ defmodule AWS.CloudWatchLogs do
   A delivery destination is an Amazon Web Services resource that represents an
   Amazon Web Services service that logs can be sent to. CloudWatch Logs, Amazon
   S3, and
-  Kinesis Data Firehose are supported as logs delivery destinations.
+  Firehose are supported as logs delivery destinations.
 
   To configure logs delivery between a supported Amazon Web Services service and a
   destination, you must do the following:
@@ -1354,7 +1353,7 @@ defmodule AWS.CloudWatchLogs do
   A delivery source represents an Amazon Web Services resource that sends logs to
   an
   logs delivery destination. The destination can be CloudWatch Logs, Amazon S3, or
-  Kinesis Data Firehose.
+  Firehose.
 
   To configure logs delivery between a delivery destination and an Amazon Web
   Services service that is supported as a delivery source, you must do the
@@ -1654,8 +1653,7 @@ defmodule AWS.CloudWatchLogs do
   A logical destination created with
   [PutDestination](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDestination.html)
   that belongs to a different account, for cross-account delivery.
-  We currently support Kinesis Data Streams and Kinesis Data Firehose as logical
-  destinations.
+  We currently support Kinesis Data Streams and Firehose as logical destinations.
 
     *
   An Amazon Kinesis Data Firehose delivery stream that belongs to the same account

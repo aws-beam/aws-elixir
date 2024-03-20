@@ -5103,6 +5103,16 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+  Describes the specified EC2 Mac Dedicated Host or all of your EC2 Mac Dedicated
+  Hosts.
+  """
+  def describe_mac_hosts(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeMacHosts", input, options)
+  end
+
+  @doc """
   Describes your managed prefix lists and any Amazon Web Services-managed prefix
   lists.
 

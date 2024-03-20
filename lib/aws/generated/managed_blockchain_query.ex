@@ -177,6 +177,31 @@ defmodule AWS.ManagedBlockchainQuery do
   end
 
   @doc """
+  Lists all the transaction events for an address on the blockchain.
+
+  This operation is only supported on the Bitcoin networks.
+  """
+  def list_filtered_transaction_events(%Client{} = client, input, options \\ []) do
+    url_path = "/list-filtered-transaction-events"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   This action returns the following for a given blockchain network:
 
     *
@@ -213,10 +238,7 @@ defmodule AWS.ManagedBlockchainQuery do
   end
 
   @doc """
-  An array of `TransactionEvent` objects.
-
-  Each object contains details
-  about the transaction event.
+  Lists all the transaction events for a transaction
 
   This action will return transaction details for all transactions
   that are *confirmed* on the blockchain, even if they have not reached
@@ -243,8 +265,7 @@ defmodule AWS.ManagedBlockchainQuery do
   end
 
   @doc """
-  Lists all of the transactions on a given wallet address or to a specific
-  contract.
+  Lists all the transaction events for a transaction.
   """
   def list_transactions(%Client{} = client, input, options \\ []) do
     url_path = "/list-transactions"

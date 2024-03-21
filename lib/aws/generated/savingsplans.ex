@@ -3,14 +3,15 @@
 
 defmodule AWS.Savingsplans do
   @moduledoc """
-  Savings Plans are a pricing model that offer significant savings on AWS usage
-  (for
-  example, on Amazon EC2 instances).
+  Savings Plans are a pricing model that offer significant savings on Amazon Web
+  Services usage (for example, on Amazon EC2 instances).
 
-  You commit to a consistent amount of usage, in USD
-  per hour, for a term of 1 or 3 years, and receive a lower price for that usage.
-  For
-  more information, see the [AWS Savings Plans User Guide](https://docs.aws.amazon.com/savingsplans/latest/userguide/).
+  You commit to a consistent
+  amount of usage per hour, in the specified currency, for a term of one or three
+  years, and
+  receive a lower price for that usage. For more information, see the [Amazon Web Services
+  Savings Plans User
+  Guide](https://docs.aws.amazon.com/savingsplans/latest/userguide/).
   """
 
   alias AWS.Client
@@ -78,7 +79,7 @@ defmodule AWS.Savingsplans do
   end
 
   @doc """
-  Describes the specified Savings Plans rates.
+  Describes the rates for the specified Savings Plan.
   """
   def describe_savings_plan_rates(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeSavingsPlanRates"
@@ -124,7 +125,7 @@ defmodule AWS.Savingsplans do
   end
 
   @doc """
-  Describes the specified Savings Plans offering rates.
+  Describes the offering rates for the specified Savings Plans.
   """
   def describe_savings_plans_offering_rates(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeSavingsPlansOfferingRates"
@@ -147,7 +148,7 @@ defmodule AWS.Savingsplans do
   end
 
   @doc """
-  Describes the specified Savings Plans offerings.
+  Describes the offerings for the specified Savings Plans.
   """
   def describe_savings_plans_offerings(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeSavingsPlansOfferings"
@@ -174,6 +175,29 @@ defmodule AWS.Savingsplans do
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     url_path = "/ListTagsForResource"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Returns the specified Savings Plan.
+  """
+  def return_savings_plan(%Client{} = client, input, options \\ []) do
+    url_path = "/ReturnSavingsPlan"
     headers = []
     query_params = []
 

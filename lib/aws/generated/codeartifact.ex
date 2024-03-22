@@ -16,10 +16,7 @@ defmodule AWS.Codeartifact do
   the point of
   view of a package manager client.
 
-  ## CodeArtifact Components
-
-  Use the information in this guide to help you work with the following
-  CodeArtifact components:
+  ## CodeArtifact concepts
 
     *
 
@@ -35,7 +32,10 @@ defmodule AWS.Codeartifact do
   `mvn`
   ## ), Python CLIs (
   `pip`
-  ** and `twine`), and NuGet CLIs (`nuget` and `dotnet`).
+  ##  and `twine`), NuGet CLIs (`nuget` and `dotnet`), and
+  the Swift package manager (
+  `swift`
+  **).
 
     *
 
@@ -67,8 +67,9 @@ defmodule AWS.Codeartifact do
   **Package**: A *package* is a bundle of software and the metadata required to
   resolve dependencies and install the software. CodeArtifact supports
   [npm](https://docs.aws.amazon.com/codeartifact/latest/ug/using-npm.html), [PyPI](https://docs.aws.amazon.com/codeartifact/latest/ug/using-python.html),
-  [Maven](https://docs.aws.amazon.com/codeartifact/latest/ug/using-maven), and [NuGet](https://docs.aws.amazon.com/codeartifact/latest/ug/using-nuget) package
-  formats.
+  [Maven](https://docs.aws.amazon.com/codeartifact/latest/ug/using-maven), [NuGet](https://docs.aws.amazon.com/codeartifact/latest/ug/using-nuget),
+  [Swift](https://docs.aws.amazon.com/codeartifact/latest/ug/using-swift), and [generic](https://docs.aws.amazon.com/codeartifact/latest/ug/using-generic)
+  package formats.
 
   In CodeArtifact, a package consists of:
 
@@ -85,6 +86,19 @@ defmodule AWS.Codeartifact do
 
       *
   Package-level metadata (for example, npm tags)
+
+    *
+
+  **Package group**: A group of packages that match a specified definition.
+  Package
+  groups can be used to apply configuration to multiple packages that match a
+  defined pattern using
+  package format, package namespace, and package name. You can use package groups
+  to more conveniently
+  configure package origin controls for multiple packages. Package origin controls
+  are used to block or allow ingestion or publishing
+  of new package versions, which protects users from malicious actions known as
+  dependency substitution attacks.
 
     *
 
@@ -112,7 +126,7 @@ defmodule AWS.Codeartifact do
   version, such as an npm
   `.tgz` file or Maven POM and JAR files.
 
-  CodeArtifact supports these operations:
+  ## CodeArtifact supported API operations
 
     *
 
@@ -126,7 +140,11 @@ defmodule AWS.Codeartifact do
 
     *
 
-  `CreateDomain`: Creates a domain
+  `CreateDomain`: Creates a domain.
+
+    *
+
+  `CreatePackageGroup`: Creates a package group.
 
     *
 
@@ -145,6 +163,11 @@ defmodule AWS.Codeartifact do
     *
 
   `DeletePackage`: Deletes a package and all associated package versions.
+
+    *
+
+  `DeletePackageGroup`: Deletes a package group. Does not delete packages or
+  package versions that are associated with a package group.
 
     *
 
@@ -174,6 +197,12 @@ defmodule AWS.Codeartifact do
 
     *
 
+  `DescribePackageGroup`: Returns a
+  [PackageGroup](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageGroup.html)
+  object that contains details about a package group.
+
+    *
+
   `DescribePackageVersion`: Returns a
   [PackageVersionDescription](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionDescription.html)
   object that contains details about a package version.
@@ -193,6 +222,11 @@ defmodule AWS.Codeartifact do
 
   `DisassociateExternalConnection`: Removes an existing external connection from a
   repository.
+
+    *
+
+  `GetAssociatedPackageGroup`: Returns the most closely associated package group
+  to the specified package.
 
     *
 
@@ -225,6 +259,10 @@ defmodule AWS.Codeartifact do
 
       *
 
+  `generic`
+
+      *
+
   `maven`
 
       *
@@ -239,10 +277,24 @@ defmodule AWS.Codeartifact do
 
   `pypi`
 
+      *
+
+  `swift`
+
     *
 
   `GetRepositoryPermissionsPolicy`: Returns the resource policy that is set on a
   repository.
+
+    *
+
+  `ListAllowedRepositoriesForGroup`: Lists the allowed repositories for a package
+  group that has origin configuration set to `ALLOW_SPECIFIC_REPOSITORIES`.
+
+    *
+
+  `ListAssociatedPackages`: Returns a list of packages associated with the
+  requested package group.
 
     *
 
@@ -252,6 +304,10 @@ defmodule AWS.Codeartifact do
     *
 
   `ListPackages`: Lists the packages in a repository.
+
+    *
+
+  `ListPackageGroups`: Returns a list of package groups in the requested domain.
 
     *
 
@@ -279,6 +335,11 @@ defmodule AWS.Codeartifact do
 
     *
 
+  `ListSubPackageGroups`: Returns a list of direct children of the specified
+  package group.
+
+    *
+
   `PublishPackageVersion`: Creates a new package version containing one or more
   assets.
 
@@ -296,6 +357,16 @@ defmodule AWS.Codeartifact do
 
   `PutRepositoryPermissionsPolicy`: Sets the resource policy on a repository
   that specifies permissions to access it.
+
+    *
+
+  `UpdatePackageGroup`: Updates a package group. This API cannot be used to update
+  a package group's origin configuration or pattern.
+
+    *
+
+  `UpdatePackageGroupOriginConfiguration`: Updates the package origin
+  configuration for a package group.
 
     *
 
@@ -443,6 +514,40 @@ defmodule AWS.Codeartifact do
 
   @doc """
 
+  Creates a package group.
+
+  For more information about creating package groups, including example CLI
+  commands, see [Create a package group](https://docs.aws.amazon.com/codeartifact/latest/ug/create-package-group.html)
+  in the *CodeArtifact User Guide*.
+  """
+  def create_package_group(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/package-group"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"domain", "domain"},
+        {"domainOwner", "domain-owner"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+
   Creates a repository.
   """
   def create_repository(%Client{} = client, input, options \\ []) do
@@ -557,6 +662,44 @@ defmodule AWS.Codeartifact do
         {"namespace", "namespace"},
         {"package", "package"},
         {"repository", "repository"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes a package group.
+
+  Deleting a package group does not delete packages or package versions associated
+  with the package group.
+  When a package group is deleted, the direct child package groups will become
+  children of the package
+  group's direct parent package group. Therefore, if any of the child groups are
+  inheriting any settings
+  from the parent, those settings could change.
+  """
+  def delete_package_group(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/package-group"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"domain", "domain"},
+        {"domainOwner", "domain-owner"},
+        {"packageGroup", "package-group"}
       ]
       |> Request.build_params(input)
 
@@ -787,6 +930,49 @@ defmodule AWS.Codeartifact do
   end
 
   @doc """
+  Returns a
+  [PackageGroupDescription](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageGroupDescription.html)
+  object that
+  contains information about the requested package group.
+  """
+  def describe_package_group(
+        %Client{} = client,
+        domain,
+        domain_owner \\ nil,
+        package_group,
+        options \\ []
+      ) do
+    url_path = "/v1/package-group"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(package_group) do
+        [{"package-group", package_group} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(domain_owner) do
+        [{"domain-owner", domain_owner} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(domain) do
+        [{"domain", domain} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
 
   Returns a
   [PackageVersionDescription](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionDescription.html)
@@ -981,6 +1167,73 @@ defmodule AWS.Codeartifact do
       options,
       200
     )
+  end
+
+  @doc """
+  Returns the most closely associated package group to the specified package.
+
+  This API does not require that the package exist
+  in any repository in the domain. As such, `GetAssociatedPackageGroup` can be
+  used to see which package group's origin configuration
+  applies to a package before that package is in a repository. This can be helpful
+  to check if public packages are blocked without ingesting them.
+
+  For information package group association and matching, see
+  [Package group definition syntax and matching
+  behavior](https://docs.aws.amazon.com/codeartifact/latest/ug/package-group-definition-syntax-matching-behavior.html)
+  in the *CodeArtifact User Guide*.
+  """
+  def get_associated_package_group(
+        %Client{} = client,
+        domain,
+        domain_owner \\ nil,
+        format,
+        namespace \\ nil,
+        package,
+        options \\ []
+      ) do
+    url_path = "/v1/get-associated-package-group"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(package) do
+        [{"package", package} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(namespace) do
+        [{"namespace", namespace} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(format) do
+        [{"format", format} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(domain_owner) do
+        [{"domain-owner", domain_owner} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(domain) do
+        [{"domain", domain} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1270,6 +1523,10 @@ defmodule AWS.Codeartifact do
 
     *
 
+  `generic`
+
+    *
+
   `maven`
 
     *
@@ -1283,6 +1540,10 @@ defmodule AWS.Codeartifact do
     *
 
   `pypi`
+
+    *
+
+  `swift`
   """
   def get_repository_endpoint(
         %Client{} = client,
@@ -1371,6 +1632,144 @@ defmodule AWS.Codeartifact do
   end
 
   @doc """
+  Lists the repositories in the added repositories list of the specified
+  restriction type for a package group.
+
+  For more information about restriction types
+  and added repository lists, see [Package group origin controls](https://docs.aws.amazon.com/codeartifact/latest/ug/package-group-origin-controls.html)
+  in the *CodeArtifact User Guide*.
+  """
+  def list_allowed_repositories_for_group(
+        %Client{} = client,
+        domain,
+        domain_owner \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        origin_restriction_type,
+        package_group,
+        options \\ []
+      ) do
+    url_path = "/v1/package-group-allowed-repositories"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(package_group) do
+        [{"package-group", package_group} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(origin_restriction_type) do
+        [{"originRestrictionType", origin_restriction_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(domain_owner) do
+        [{"domain-owner", domain_owner} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(domain) do
+        [{"domain", domain} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns a list of packages associated with the requested package group.
+
+  For information package group association and matching, see
+  [Package group definition syntax and matching
+  behavior](https://docs.aws.amazon.com/codeartifact/latest/ug/package-group-definition-syntax-matching-behavior.html)
+  in the *CodeArtifact User Guide*.
+  """
+  def list_associated_packages(
+        %Client{} = client,
+        domain,
+        domain_owner \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        package_group,
+        preview \\ nil,
+        options \\ []
+      ) do
+    url_path = "/v1/list-associated-packages"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(preview) do
+        [{"preview", preview} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(package_group) do
+        [{"package-group", package_group} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(domain_owner) do
+        [{"domain-owner", domain_owner} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(domain) do
+        [{"domain", domain} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Returns a list of
   [DomainSummary](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionDescription.html)
   objects for all domains owned by the Amazon Web Services account that makes
@@ -1383,6 +1782,38 @@ defmodule AWS.Codeartifact do
     url_path = "/v1/domains"
     headers = []
     query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Returns a list of package groups in the requested domain.
+  """
+  def list_package_groups(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/package-groups"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"domain", "domain"},
+        {"domainOwner", "domain-owner"},
+        {"maxResults", "max-results"},
+        {"nextToken", "next-token"},
+        {"prefix", "prefix"}
+      ]
+      |> Request.build_params(input)
 
     meta = metadata()
 
@@ -1651,6 +2082,43 @@ defmodule AWS.Codeartifact do
   end
 
   @doc """
+  Returns a list of direct children of the specified package group.
+
+  For information package group hierarchy, see
+  [Package group definition syntax and matching
+  behavior](https://docs.aws.amazon.com/codeartifact/latest/ug/package-group-definition-syntax-matching-behavior.html)
+  in the *CodeArtifact User Guide*.
+  """
+  def list_sub_package_groups(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/package-groups/sub-groups"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"domain", "domain"},
+        {"domainOwner", "domain-owner"},
+        {"maxResults", "max-results"},
+        {"nextToken", "next-token"},
+        {"packageGroup", "package-group"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Gets information about Amazon Web Services tags for a specified Amazon Resource
   Name (ARN) in CodeArtifact.
   """
@@ -1886,6 +2354,58 @@ defmodule AWS.Codeartifact do
       options,
       200
     )
+  end
+
+  @doc """
+  Updates a package group.
+
+  This API cannot be used to update a package group's origin configuration or
+  pattern. To update a
+  package group's origin configuration, use
+  [UpdatePackageGroupOriginConfiguration](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_UpdatePackageGroupOriginConfiguration.html).
+  """
+  def update_package_group(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/package-group"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"domain", "domain"},
+        {"domainOwner", "domain-owner"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+  end
+
+  @doc """
+  Updates the package origin configuration for a package group.
+
+  The package origin configuration determines how new versions of a package can be
+  added to a repository. You can allow or block direct
+  publishing of new package versions, or ingestion and retaining of new package
+  versions from an external connection or upstream source.
+  For more information about package group origin controls and configuration, see
+  [Package group origin controls](https://docs.aws.amazon.com/codeartifact/latest/ug/package-group-origin-controls.html)
+  in the *CodeArtifact User Guide*.
+  """
+  def update_package_group_origin_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/package-group-origin-configuration"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"domain", "domain"},
+        {"domainOwner", "domain-owner"},
+        {"packageGroup", "package-group"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """

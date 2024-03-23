@@ -400,7 +400,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
-  Deletes an existing Amazon Kendra index.
+  Deletes an Amazon Kendra index.
 
   An exception is not thrown if the index is
   already being deleted. While the index is being deleted, the `Status` field
@@ -458,7 +458,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
-  Deletes an existing Amazon Kendra thesaurus.
+  Deletes an Amazon Kendra thesaurus.
   """
   def delete_thesaurus(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -528,7 +528,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
-  Gets information about an existing Amazon Kendra index.
+  Gets information about an Amazon Kendra index.
   """
   def describe_index(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -589,7 +589,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
-  Gets information about an existing Amazon Kendra thesaurus.
+  Gets information about an Amazon Kendra thesaurus.
   """
   def describe_thesaurus(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1038,7 +1038,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
-  Updates an existing Amazon Kendra data source connector.
+  Updates an Amazon Kendra data source connector.
   """
   def update_data_source(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1077,7 +1077,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
-  Updates an existing Amazon Kendra index.
+  Updates an Amazon Kendra index.
   """
   def update_index(%Client{} = client, input, options \\ []) do
     meta = metadata()

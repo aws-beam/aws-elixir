@@ -194,11 +194,96 @@ defmodule AWS.Client do
     %{client | http_client: http_client}
   end
 
+  @doc """
+  Makes a HTTP request using the specified client.
+
+  `opts` may contain the keyword `:enable_retries?` that enables request retries on known
+  errors such as 500s.
+  The keyword `:retry_opts` can further supply the arguments: `:max_retries`, `:base_sleep_time` &
+  `:cap_sleep_time` that control the retry mechanism. This uses exponential backoff with jitter to
+  sleep in between retry attempts. Default values are:
+  `retry_opts: [max_retries: 10, base_sleep_time: 5, cap_sleep_time: 5_000]`
+
+  See "FullJitter" at: https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/
+
+  ### Examples
+
+      iex> AWS.Client.request(client, :post, url, payload, headers, options)
+      {:ok, %{status_code: 200, body: body}}
+
+      iex> AWS.Client.request(client, :post, url, payload, headers, enable_retries?: true)
+      {:ok, %{status_code: 200, body: body}}
+  """
   def request(client, method, url, body, headers, opts \\ []) do
+    # Pop off all retry-related options from opts, so they aren't passed to the HTTP client.
+    {enable_retries?, opts} = Keyword.pop(opts, :enable_retries?, false)
+    {retry_num, opts} = Keyword.pop(opts, :retry_num, 0)
+    {retry_opts, opts} = Keyword.pop(opts, :retry_opts, [])
+    # Defaults for retry_opts
+    retry_opts =
+      Keyword.merge([max_retries: 10, base_sleep_time: 5, cap_sleep_time: 5_000], retry_opts)
+
+    # HTTP Client options
     {mod, options} = Map.fetch!(client, :http_client)
     options = Keyword.merge(options, opts)
-    apply(mod, :request, [method, url, body, headers, options])
+
+    resp = apply(mod, :request, [method, url, body, headers, options])
+
+    retriable?(resp)
+    |> case do
+      :ok ->
+        resp
+
+      :retry ->
+        if enable_retries? and should_retry?(retry_num, retry_opts) do
+          updated_opts =
+            Keyword.merge(opts,
+              retry_num: retry_num + 1,
+              enable_retries?: enable_retries?,
+              retry_opts: retry_opts
+            )
+
+          request(client, method, url, body, headers, updated_opts)
+        else
+          resp
+        end
+
+      :error ->
+        resp
+    end
   end
+
+  def should_retry?(retry_num, retry_opts) do
+    max_retries = Keyword.fetch!(retry_opts, :max_retries)
+
+    if retry_num >= max_retries do
+      # The max-limit of retries has been reached. Give up.
+      false
+    else
+      # Sleep and retry
+      base_sleep_time = Keyword.fetch!(retry_opts, :base_sleep_time)
+      cap_sleep_time = Keyword.fetch!(retry_opts, :cap_sleep_time)
+
+      # This equivalent to "FullJitter" in https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/
+      max_sleep_time =
+        min(cap_sleep_time, base_sleep_time * :math.pow(2, retry_num))
+        |> round()
+
+      Enum.random(0..max_sleep_time)
+      |> Process.sleep()
+
+      true
+    end
+  end
+
+  defp retriable?({:ok, %{status_code: status}}) when status >= 500, do: :retry
+  # These are Hackney specific:
+  defp retriable?({:error, :closed}), do: :retry
+  defp retriable?({:error, :connect_timeout}), do: :retry
+  defp retriable?({:error, :checkout_timeout}), do: :retry
+  defp retriable?({:error, _}), do: :error
+  defp retriable?({:ok, _}), do: :ok
+  defp retriable?({:ok, _, _}), do: :ok
 
   def encode!(_client, payload, :query), do: AWS.Util.encode_query(payload)
 

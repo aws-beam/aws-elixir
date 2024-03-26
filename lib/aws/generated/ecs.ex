@@ -105,13 +105,9 @@ defmodule AWS.ECS do
   existing
   service, see the `UpdateService` action.
 
-  Starting April 15, 2023, Amazon Web Services will not onboard new customers to
-  Amazon Elastic Inference (EI), and will help current customers migrate their
-  workloads to options that offer better price and performance. After April 15,
-  2023, new customers will not be able to launch instances with Amazon EI
-  accelerators in Amazon SageMaker, Amazon ECS, or Amazon EC2. However, customers
-  who have used Amazon EI at least once during the past 30-day period are
-  considered current customers and will be able to continue using the service.
+  The following change began on March 21, 2024. When the task definition revision
+  is not specified, Amazon ECS resolves the task definition revision before it
+  authorizes the task definition.
 
   In addition to maintaining the desired count of tasks in your service, you can
   optionally run your service behind one or more load balancers. The load
@@ -220,9 +216,18 @@ defmodule AWS.ECS do
   in the *Amazon Elastic Container Service Developer Guide*.
 
   When the service scheduler launches new tasks, it determines task placement. For
-  information about task placement and task placement strategies, see [Amazon ECS task
+  information
+  about task placement and task placement strategies, see [Amazon ECS task
   placement](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement.html)
-  in the *Amazon Elastic Container Service Developer Guide*.
+  in the *Amazon Elastic Container Service Developer Guide*
+
+  Starting April 15, 2023, Amazon Web Services will not onboard new customers to
+  Amazon Elastic Inference (EI), and will help current customers migrate their
+  workloads to options that offer better price and performance. After April 15,
+  2023, new customers will not be able to launch instances with Amazon EI
+  accelerators in Amazon SageMaker, Amazon ECS, or Amazon EC2. However, customers
+  who have used Amazon EI at least once during the past 30-day period are
+  considered current customers and will be able to continue using the service.
   """
   def create_service(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -237,6 +242,10 @@ defmodule AWS.ECS do
   uses the `EXTERNAL` deployment controller type. For more information, see
   [Amazon ECS deployment types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html)
   in the *Amazon Elastic Container Service Developer Guide*.
+
+  The following change began on March 21, 2024. When the task definition revision
+  is not specified, Amazon ECS resolves the task definition revision before it
+  authorizes the task definition.
 
   For information about the maximum number of task sets and otther quotas, see
   [Amazon ECS service
@@ -865,6 +874,10 @@ defmodule AWS.ECS do
   @doc """
   Starts a new task using the specified task definition.
 
+  The following change began on March 21, 2024. When the task definition revision
+  is not specified, Amazon ECS resolves the task definition revision before it
+  authorizes the task definition.
+
   You can allow Amazon ECS to place tasks for you, or you can customize how Amazon
   ECS places
   tasks using placement constraints and placement strategies. For more
@@ -922,6 +935,10 @@ defmodule AWS.ECS do
   @doc """
   Starts a new task from the specified task definition on the specified container
   instance or instances.
+
+  The following change began on March 21, 2024. When the task definition revision
+  is not specified, Amazon ECS resolves the task definition revision before it
+  authorizes the task definition.
 
   Starting April 15, 2023, Amazon Web Services will not onboard new customers to
   Amazon Elastic Inference (EI), and will help current customers migrate their
@@ -1168,6 +1185,10 @@ defmodule AWS.ECS do
 
   @doc """
   Modifies the parameters of a service.
+
+  The following change began on March 21, 2024. When the task definition revision
+  is not specified, Amazon ECS resolves the task definition revision before it
+  authorizes the task definition.
 
   For services using the rolling update (`ECS`) you can update the desired
   count, deployment configuration, network configuration, load balancers, service

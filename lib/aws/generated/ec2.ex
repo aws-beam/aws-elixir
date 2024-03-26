@@ -7459,6 +7459,21 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+  Gets the default instance metadata service (IMDS) settings that are set at the
+  account
+  level in the specified Amazon Web Services Region.
+
+  For more information, see [Order of precedence for instance metadata options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-options.html#instance-metadata-options-order-of-precedence)
+  in the
+  *Amazon EC2 User Guide*.
+  """
+  def get_instance_metadata_defaults(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetInstanceMetadataDefaults", input, options)
+  end
+
+  @doc """
   Returns a list of instance types with the specified instance attributes.
 
   You can
@@ -8547,6 +8562,24 @@ defmodule AWS.EC2 do
     meta = metadata()
 
     Request.request_post(client, meta, "ModifyInstanceMaintenanceOptions", input, options)
+  end
+
+  @doc """
+  Modifies the default instance metadata service (IMDS) settings at the account
+  level in
+  the specified Amazon Web Services Region.
+
+  To remove a parameter's account-level default setting, specify
+  `no-preference`. At instance launch, the value will come from the
+  AMI, or from the launch parameter if specified. For more information, see [Order of precedence for instance metadata
+  options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-options.html#instance-metadata-options-order-of-precedence)
+  in the
+  *Amazon EC2 User Guide*.
+  """
+  def modify_instance_metadata_defaults(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyInstanceMetadataDefaults", input, options)
   end
 
   @doc """

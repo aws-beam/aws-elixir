@@ -524,6 +524,16 @@ defmodule AWS.CostExplorer do
   end
 
   @doc """
+
+  Retrieves a list of your historical cost allocation tag backfill requests.
+  """
+  def list_cost_allocation_tag_backfill_history(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListCostAllocationTagBackfillHistory", input, options)
+  end
+
+  @doc """
   Get a list of cost allocation tags.
 
   All inputs in the API are optional and serve as
@@ -594,6 +604,21 @@ defmodule AWS.CostExplorer do
     meta = metadata()
 
     Request.request_post(client, meta, "ProvideAnomalyFeedback", input, options)
+  end
+
+  @doc """
+
+  Request a cost allocation tag backfill.
+
+  This will backfill the activation status (either `active` or `inactive`) for all
+  tag keys from `para:BackfillFrom` up to the when this request is made.
+
+  You can request a backfill once every 24 hours.
+  """
+  def start_cost_allocation_tag_backfill(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartCostAllocationTagBackfill", input, options)
   end
 
   @doc """

@@ -300,6 +300,38 @@ defmodule AWS.Finspace do
   end
 
   @doc """
+  Deletes the specified nodes from a cluster.
+  """
+  def delete_kx_cluster_node(
+        %Client{} = client,
+        cluster_name,
+        environment_id,
+        node_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/clusters/#{AWS.Util.encode_uri(cluster_name)}/nodes/#{AWS.Util.encode_uri(node_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Deletes the specified database and all of its associated data.
 
   This action is irreversible. You must copy any data out of the database before

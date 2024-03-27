@@ -117,11 +117,6 @@ defmodule AWS.BedrockAgentRuntime do
 
   The response cites up to five sources but only selects the ones that are
   relevant to the query.
-
-  The `numberOfResults` field is currently unsupported for `RetrieveAndGenerate`.
-  Don't include it in the
-  [vectorSearchConfiguration](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_KnowledgeBaseVectorSearchConfiguration.html)
-  object.
   """
   def retrieve_and_generate(%Client{} = client, input, options \\ []) do
     url_path = "/retrieveAndGenerate"

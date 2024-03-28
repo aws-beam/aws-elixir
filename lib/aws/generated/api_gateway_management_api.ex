@@ -137,12 +137,12 @@ defmodule AWS.ApiGatewayManagementApi do
   @doc """
   Delete the connection with the provided id.
   """
-  @spec delete_connection(map(), String.t(), delete_connection_request(), list()) ::
+  @spec delete_connection(map(), String.t(), String.t(), delete_connection_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_connection_errors()}
-  def delete_connection(%Client{} = client, connection_id, input, options \\ []) do
-    url_path = "/@connections/#{AWS.Util.encode_uri(connection_id)}"
+  def delete_connection(%Client{} = client, connection_id, stage, input, options \\ []) do
+    url_path = "/#{stage}/@connections/#{AWS.Util.encode_uri(connection_id)}"
     headers = []
     query_params = []
 
@@ -164,12 +164,12 @@ defmodule AWS.ApiGatewayManagementApi do
   @doc """
   Get information about the connection with the provided id.
   """
-  @spec get_connection(map(), String.t(), list()) ::
+  @spec get_connection(map(), String.t(), String.t(), list()) ::
           {:ok, get_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_connection_errors()}
-  def get_connection(%Client{} = client, connection_id, options \\ []) do
-    url_path = "/@connections/#{AWS.Util.encode_uri(connection_id)}"
+  def get_connection(%Client{} = client, stage, connection_id, options \\ []) do
+    url_path = "/#{stage}/@connections/#{AWS.Util.encode_uri(connection_id)}"
     headers = []
     query_params = []
 
@@ -181,12 +181,12 @@ defmodule AWS.ApiGatewayManagementApi do
   @doc """
   Sends the provided data to the specified connection.
   """
-  @spec post_to_connection(map(), String.t(), post_to_connection_request(), list()) ::
+  @spec post_to_connection(map(), String.t(), String.t(), post_to_connection_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, post_to_connection_errors()}
-  def post_to_connection(%Client{} = client, connection_id, input, options \\ []) do
-    url_path = "/@connections/#{AWS.Util.encode_uri(connection_id)}"
+  def post_to_connection(%Client{} = client, connection_id, stage, input, options \\ []) do
+    url_path = "/#{stage}/@connections/#{AWS.Util.encode_uri(connection_id)}"
     headers = []
     query_params = []
 

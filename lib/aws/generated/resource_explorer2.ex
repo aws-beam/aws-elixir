@@ -48,6 +48,848 @@ defmodule AWS.ResourceExplorer2 do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+
+      create_index_output() :: %{
+        optional("Arn") => [String.t()],
+        optional("CreatedAt") => [non_neg_integer()],
+        optional("State") => String.t()
+      }
+
+  """
+  @type create_index_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_property() :: %{
+        "Data" => [any()],
+        "LastReportedAt" => [non_neg_integer()],
+        "Name" => [String.t()]
+      }
+
+  """
+  @type resource_property() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_view_output() :: %{
+        optional("Errors") => list(batch_get_view_error()()),
+        optional("Views") => list(view()())
+      }
+
+  """
+  @type batch_get_view_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unauthorized_exception() :: %{
+        "Message" => [String.t()]
+      }
+
+  """
+  @type unauthorized_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_view_output() :: %{
+        optional("View") => view()
+      }
+
+  """
+  @type create_view_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_indexes_for_members_input() :: %{
+        optional("MaxResults") => [integer()],
+        optional("NextToken") => [String.t()],
+        required("AccountIdList") => list(String.t()())
+      }
+
+  """
+  @type list_indexes_for_members_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      included_property() :: %{
+        "Name" => [String.t()]
+      }
+
+  """
+  @type included_property() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_input() :: %{
+        optional("MaxResults") => [integer()],
+        optional("NextToken") => [String.t()],
+        optional("ViewArn") => [String.t()],
+        required("QueryString") => String.t()
+      }
+
+  """
+  @type search_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      view() :: %{
+        "Filters" => search_filter(),
+        "IncludedProperties" => list(included_property()()),
+        "LastUpdatedAt" => [non_neg_integer()],
+        "Owner" => [String.t()],
+        "Scope" => [String.t()],
+        "ViewArn" => [String.t()]
+      }
+
+  """
+  @type view() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_default_view_input() :: %{
+        required("ViewArn") => [String.t()]
+      }
+
+  """
+  @type associate_default_view_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_view_input() :: %{
+        required("ViewArn") => [String.t()]
+      }
+
+  """
+  @type delete_view_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_views_output() :: %{
+        optional("NextToken") => [String.t()],
+        optional("Views") => list([String.t()]())
+      }
+
+  """
+  @type list_views_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_view_output() :: %{
+        optional("ViewArn") => [String.t()]
+      }
+
+  """
+  @type delete_view_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_output() :: %{
+        optional("Tags") => map()
+      }
+
+  """
+  @type list_tags_for_resource_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_count() :: %{
+        "Complete" => [boolean()],
+        "TotalResources" => [float()]
+      }
+
+  """
+  @type resource_count() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_view_input() :: %{
+        optional("ViewArns") => list([String.t()]())
+      }
+
+  """
+  @type batch_get_view_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_supported_resource_types_input() :: %{
+        optional("MaxResults") => [integer()],
+        optional("NextToken") => [String.t()]
+      }
+
+  """
+  @type list_supported_resource_types_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_index_output() :: %{
+        optional("Arn") => [String.t()],
+        optional("CreatedAt") => [non_neg_integer()],
+        optional("LastUpdatedAt") => [non_neg_integer()],
+        optional("ReplicatingFrom") => list([String.t()]()),
+        optional("ReplicatingTo") => list([String.t()]()),
+        optional("State") => String.t(),
+        optional("Tags") => map(),
+        optional("Type") => String.t()
+      }
+
+  """
+  @type get_index_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_output() :: %{
+        optional("Count") => resource_count(),
+        optional("NextToken") => [String.t()],
+        optional("Resources") => list(resource()()),
+        optional("ViewArn") => [String.t()]
+      }
+
+  """
+  @type search_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_filter() :: %{
+        "FilterString" => [String.t()]
+      }
+
+  """
+  @type search_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      index() :: %{
+        "Arn" => [String.t()],
+        "Region" => [String.t()],
+        "Type" => String.t()
+      }
+
+  """
+  @type index() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "Message" => [String.t()]
+      }
+
+  """
+  @type conflict_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "Message" => [String.t()]
+      }
+
+  """
+  @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_indexes_for_members_output() :: %{
+        "Indexes" => list(member_index()()),
+        "NextToken" => [String.t()]
+      }
+
+  """
+  @type list_indexes_for_members_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_view_error() :: %{
+        "ErrorMessage" => [String.t()],
+        "ViewArn" => [String.t()]
+      }
+
+  """
+  @type batch_get_view_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_view_input() :: %{
+        optional("Filters") => search_filter(),
+        optional("IncludedProperties") => list(included_property()()),
+        required("ViewArn") => [String.t()]
+      }
+
+  """
+  @type update_view_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "Message" => [String.t()],
+        "Name" => [String.t()],
+        "Value" => [String.t()]
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_indexes_input() :: %{
+        optional("MaxResults") => [integer()],
+        optional("NextToken") => [String.t()],
+        optional("Regions") => list([String.t()]()),
+        optional("Type") => String.t()
+      }
+
+  """
+  @type list_indexes_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_views_input() :: %{
+        optional("MaxResults") => [integer()],
+        optional("NextToken") => [String.t()]
+      }
+
+  """
+  @type list_views_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception_field() :: %{
+        "Name" => [String.t()],
+        "ValidationIssue" => [String.t()]
+      }
+
+  """
+  @type validation_exception_field() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      org_configuration() :: %{
+        "AWSServiceAccessStatus" => String.t(),
+        "ServiceLinkedRole" => [String.t()]
+      }
+
+  """
+  @type org_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_input() :: %{
+        optional("Tags") => map()
+      }
+
+  """
+  @type tag_resource_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_default_view_output() :: %{
+        optional("ViewArn") => [String.t()]
+      }
+
+  """
+  @type associate_default_view_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_output() :: %{}
+
+  """
+  @type tag_resource_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "Message" => [String.t()]
+      }
+
+  """
+  @type internal_server_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_index_output() :: %{
+        optional("Arn") => [String.t()],
+        optional("LastUpdatedAt") => [non_neg_integer()],
+        optional("State") => String.t()
+      }
+
+  """
+  @type delete_index_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "Message" => [String.t()]
+      }
+
+  """
+  @type access_denied_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_index_type_input() :: %{
+        required("Arn") => [String.t()],
+        required("Type") => String.t()
+      }
+
+  """
+  @type update_index_type_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_input() :: %{
+        required("tagKeys") => list([String.t()]())
+      }
+
+  """
+  @type untag_resource_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_view_input() :: %{
+        optional("ClientToken") => [String.t()],
+        optional("Filters") => search_filter(),
+        optional("IncludedProperties") => list(included_property()()),
+        optional("Scope") => [String.t()],
+        optional("Tags") => map(),
+        required("ViewName") => String.t()
+      }
+
+  """
+  @type create_view_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_view_input() :: %{
+        required("ViewArn") => [String.t()]
+      }
+
+  """
+  @type get_view_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "FieldList" => list(validation_exception_field()()),
+        "Message" => [String.t()]
+      }
+
+  """
+  @type validation_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_input() :: %{}
+
+  """
+  @type list_tags_for_resource_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_index_input() :: %{
+        required("Arn") => [String.t()]
+      }
+
+  """
+  @type delete_index_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      supported_resource_type() :: %{
+        "ResourceType" => [String.t()],
+        "Service" => [String.t()]
+      }
+
+  """
+  @type supported_resource_type() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_output() :: %{}
+
+  """
+  @type untag_resource_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_view_output() :: %{
+        optional("View") => view()
+      }
+
+  """
+  @type update_view_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "Message" => [String.t()]
+      }
+
+  """
+  @type throttling_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_account_level_service_configuration_output() :: %{
+        "OrgConfiguration" => org_configuration()
+      }
+
+  """
+  @type get_account_level_service_configuration_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_indexes_output() :: %{
+        optional("Indexes") => list(index()()),
+        optional("NextToken") => [String.t()]
+      }
+
+  """
+  @type list_indexes_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_view_output() :: %{
+        optional("Tags") => map(),
+        optional("View") => view()
+      }
+
+  """
+  @type get_view_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_supported_resource_types_output() :: %{
+        optional("NextToken") => [String.t()],
+        optional("ResourceTypes") => list(supported_resource_type()())
+      }
+
+  """
+  @type list_supported_resource_types_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_index_input() :: %{
+        optional("ClientToken") => [String.t()],
+        optional("Tags") => map()
+      }
+
+  """
+  @type create_index_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_index_type_output() :: %{
+        optional("Arn") => [String.t()],
+        optional("LastUpdatedAt") => [non_neg_integer()],
+        optional("State") => String.t(),
+        optional("Type") => String.t()
+      }
+
+  """
+  @type update_index_type_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      member_index() :: %{
+        "AccountId" => [String.t()],
+        "Arn" => [String.t()],
+        "Region" => [String.t()],
+        "Type" => String.t()
+      }
+
+  """
+  @type member_index() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_default_view_output() :: %{
+        optional("ViewArn") => [String.t()]
+      }
+
+  """
+  @type get_default_view_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource() :: %{
+        "Arn" => [String.t()],
+        "LastReportedAt" => [non_neg_integer()],
+        "OwningAccountId" => [String.t()],
+        "Properties" => list(resource_property()()),
+        "Region" => [String.t()],
+        "ResourceType" => [String.t()],
+        "Service" => [String.t()]
+      }
+
+  """
+  @type resource() :: %{String.t() => any()}
+
+  @type associate_default_view_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type batch_get_view_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | unauthorized_exception()
+
+  @type create_index_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | conflict_exception()
+
+  @type create_view_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+          | unauthorized_exception()
+
+  @type delete_index_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type delete_view_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | unauthorized_exception()
+
+  @type disassociate_default_view_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_account_level_service_configuration_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_default_view_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_index_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_view_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | unauthorized_exception()
+
+  @type list_indexes_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_indexes_for_members_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_supported_resource_types_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_tags_for_resource_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | unauthorized_exception()
+
+  @type list_views_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type search_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | unauthorized_exception()
+
+  @type tag_resource_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | unauthorized_exception()
+
+  @type untag_resource_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | unauthorized_exception()
+
+  @type update_index_type_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_view_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | unauthorized_exception()
+
   def metadata do
     %{
       api_version: "2022-07-28",
@@ -77,6 +919,10 @@ defmodule AWS.ResourceExplorer2 do
   configured, then users must explicitly specify a view with every `Search`
   operation performed in that Region.
   """
+  @spec associate_default_view(map(), associate_default_view_input(), list()) ::
+          {:ok, associate_default_view_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, associate_default_view_errors()}
   def associate_default_view(%Client{} = client, input, options \\ []) do
     url_path = "/AssociateDefaultView"
     headers = []
@@ -100,6 +946,10 @@ defmodule AWS.ResourceExplorer2 do
   @doc """
   Retrieves details about a list of views.
   """
+  @spec batch_get_view(map(), batch_get_view_input(), list()) ::
+          {:ok, batch_get_view_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, batch_get_view_errors()}
   def batch_get_view(%Client{} = client, input, options \\ []) do
     url_path = "/BatchGetView"
     headers = []
@@ -188,6 +1038,10 @@ defmodule AWS.ResourceExplorer2 do
   same service-linked role for all additional indexes you create
   afterwards.
   """
+  @spec create_index(map(), create_index_input(), list()) ::
+          {:ok, create_index_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_index_errors()}
   def create_index(%Client{} = client, input, options \\ []) do
     url_path = "/CreateIndex"
     headers = []
@@ -223,6 +1077,10 @@ defmodule AWS.ResourceExplorer2 do
   this view can `Search` using views you create with this
   operation.
   """
+  @spec create_view(map(), create_view_input(), list()) ::
+          {:ok, create_view_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_view_errors()}
   def create_view(%Client{} = client, input, options \\ []) do
     url_path = "/CreateView"
     headers = []
@@ -263,6 +1121,10 @@ defmodule AWS.ResourceExplorer2 do
   using
   Resource Explorer until another aggregator index is configured.
   """
+  @spec delete_index(map(), delete_index_input(), list()) ::
+          {:ok, delete_index_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_index_errors()}
   def delete_index(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteIndex"
     headers = []
@@ -292,6 +1154,10 @@ defmodule AWS.ResourceExplorer2 do
   until you configure a new default by calling the `AssociateDefaultView`
   operation.
   """
+  @spec delete_view(map(), delete_view_input(), list()) ::
+          {:ok, delete_view_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_view_errors()}
   def delete_view(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteView"
     headers = []
@@ -324,6 +1190,10 @@ defmodule AWS.ResourceExplorer2 do
   configured, then users must explicitly specify a view with every `Search`
   operation performed in that Region.
   """
+  @spec disassociate_default_view(map(), %{}, list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, disassociate_default_view_errors()}
   def disassociate_default_view(%Client{} = client, input, options \\ []) do
     url_path = "/DisassociateDefaultView"
     headers = []
@@ -354,6 +1224,10 @@ defmodule AWS.ResourceExplorer2 do
   API
   call.
   """
+  @spec get_account_level_service_configuration(map(), %{}, list()) ::
+          {:ok, get_account_level_service_configuration_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_account_level_service_configuration_errors()}
   def get_account_level_service_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/GetAccountLevelServiceConfiguration"
     headers = []
@@ -380,6 +1254,10 @@ defmodule AWS.ResourceExplorer2 do
 
   You can then call `GetView` to retrieve the details of that view.
   """
+  @spec get_default_view(map(), %{}, list()) ::
+          {:ok, get_default_view_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_default_view_errors()}
   def get_default_view(%Client{} = client, input, options \\ []) do
     url_path = "/GetDefaultView"
     headers = []
@@ -405,6 +1283,10 @@ defmodule AWS.ResourceExplorer2 do
   Amazon Web Services Region in which you invoked
   the operation.
   """
+  @spec get_index(map(), %{}, list()) ::
+          {:ok, get_index_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_index_errors()}
   def get_index(%Client{} = client, input, options \\ []) do
     url_path = "/GetIndex"
     headers = []
@@ -428,6 +1310,10 @@ defmodule AWS.ResourceExplorer2 do
   @doc """
   Retrieves details of the specified view.
   """
+  @spec get_view(map(), get_view_input(), list()) ::
+          {:ok, get_view_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_view_errors()}
   def get_view(%Client{} = client, input, options \\ []) do
     url_path = "/GetView"
     headers = []
@@ -453,6 +1339,10 @@ defmodule AWS.ResourceExplorer2 do
   currently collecting
   resource information for Amazon Web Services Resource Explorer.
   """
+  @spec list_indexes(map(), list_indexes_input(), list()) ::
+          {:ok, list_indexes_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_indexes_errors()}
   def list_indexes(%Client{} = client, input, options \\ []) do
     url_path = "/ListIndexes"
     headers = []
@@ -481,6 +1371,10 @@ defmodule AWS.ResourceExplorer2 do
   Only the management account or a
   delegated administrator with service access enabled can invoke this API call.
   """
+  @spec list_indexes_for_members(map(), list_indexes_for_members_input(), list()) ::
+          {:ok, list_indexes_for_members_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_indexes_for_members_errors()}
   def list_indexes_for_members(%Client{} = client, input, options \\ []) do
     url_path = "/ListIndexesForMembers"
     headers = []
@@ -505,6 +1399,10 @@ defmodule AWS.ResourceExplorer2 do
   Retrieves a list of all resource types currently supported by Amazon Web
   Services Resource Explorer.
   """
+  @spec list_supported_resource_types(map(), list_supported_resource_types_input(), list()) ::
+          {:ok, list_supported_resource_types_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_supported_resource_types_errors()}
   def list_supported_resource_types(%Client{} = client, input, options \\ []) do
     url_path = "/ListSupportedResourceTypes"
     headers = []
@@ -528,6 +1426,10 @@ defmodule AWS.ResourceExplorer2 do
   @doc """
   Lists the tags that are attached to the specified resource.
   """
+  @spec list_tags_for_resource(map(), String.t(), list()) ::
+          {:ok, list_tags_for_resource_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -551,6 +1453,10 @@ defmodule AWS.ResourceExplorer2 do
   *only*
   when there are no more results to display.
   """
+  @spec list_views(map(), list_views_input(), list()) ::
+          {:ok, list_views_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_views_errors()}
   def list_views(%Client{} = client, input, options \\ []) do
     url_path = "/ListViews"
     headers = []
@@ -592,6 +1498,10 @@ defmodule AWS.ResourceExplorer2 do
   be
   there, see [Troubleshooting Resource Explorer search](https://docs.aws.amazon.com/resource-explorer/latest/userguide/troubleshooting_search.html).
   """
+  @spec search(map(), search_input(), list()) ::
+          {:ok, search_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, search_errors()}
   def search(%Client{} = client, input, options \\ []) do
     url_path = "/Search"
     headers = []
@@ -616,6 +1526,10 @@ defmodule AWS.ResourceExplorer2 do
   Adds one or more tag key and value pairs to an Amazon Web Services Resource
   Explorer view or index.
   """
+  @spec tag_resource(map(), String.t(), tag_resource_input(), list()) ::
+          {:ok, tag_resource_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -640,6 +1554,10 @@ defmodule AWS.ResourceExplorer2 do
   Removes one or more tag key and value pairs from an Amazon Web Services Resource
   Explorer view or index.
   """
+  @spec untag_resource(map(), String.t(), untag_resource_input(), list()) ::
+          {:ok, untag_resource_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -734,6 +1652,10 @@ defmodule AWS.ResourceExplorer2 do
   24 hours before you can promote another index to be the new
   aggregator index for the account.
   """
+  @spec update_index_type(map(), update_index_type_input(), list()) ::
+          {:ok, update_index_type_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_index_type_errors()}
   def update_index_type(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateIndexType"
     headers = []
@@ -760,6 +1682,10 @@ defmodule AWS.ResourceExplorer2 do
   You can change the filter string and the list
   of included properties. You can't change the name of the view.
   """
+  @spec update_view(map(), update_view_input(), list()) ::
+          {:ok, update_view_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_view_errors()}
   def update_view(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateView"
     headers = []

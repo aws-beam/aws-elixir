@@ -20,6 +20,2147 @@ defmodule AWS.WorkSpacesWeb do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+
+      create_ip_access_settings_request() :: %{
+        optional("additionalEncryptionContext") => map(),
+        optional("clientToken") => String.t(),
+        optional("customerManagedKey") => String.t(),
+        optional("description") => String.t(),
+        optional("displayName") => String.t(),
+        optional("tags") => list(tag()()),
+        required("ipRules") => list(ip_rule()())
+      }
+
+  """
+  @type create_ip_access_settings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ip_rule() :: %{
+        "description" => String.t(),
+        "ipRange" => String.t()
+      }
+
+  """
+  @type ip_rule() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_browser_settings_response() :: %{
+        "browserSettingsArn" => String.t()
+      }
+
+  """
+  @type create_browser_settings_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_trust_store_certificate_request() :: %{
+        required("thumbprint") => String.t()
+      }
+
+  """
+  @type get_trust_store_certificate_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_ip_access_settings_response() :: %{
+        "ipAccessSettingsArn" => String.t()
+      }
+
+  """
+  @type create_ip_access_settings_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ip_access_settings_summary() :: %{
+        "creationDate" => non_neg_integer(),
+        "description" => String.t(),
+        "displayName" => String.t(),
+        "ipAccessSettingsArn" => String.t()
+      }
+
+  """
+  @type ip_access_settings_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_user_settings_response() :: %{
+        "portalArn" => String.t(),
+        "userSettingsArn" => String.t()
+      }
+
+  """
+  @type associate_user_settings_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cookie_synchronization_configuration() :: %{
+        "allowlist" => list(cookie_specification()()),
+        "blocklist" => list(cookie_specification()())
+      }
+
+  """
+  @type cookie_synchronization_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        optional("clientToken") => String.t(),
+        required("tags") => list(tag()())
+      }
+
+  """
+  @type tag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      trust_store_summary() :: %{
+        "trustStoreArn" => String.t()
+      }
+
+  """
+  @type trust_store_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_ip_access_settings_response() :: %{
+        "ipAccessSettings" => list(ip_access_settings_summary()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_ip_access_settings_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_portal_request() :: %{}
+
+  """
+  @type get_portal_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_network_settings_request() :: %{}
+
+  """
+  @type get_network_settings_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_user_access_logging_settings_response() :: %{
+        "userAccessLoggingSettingsArn" => String.t()
+      }
+
+  """
+  @type create_user_access_logging_settings_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_identity_providers_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_identity_providers_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_portal_service_provider_metadata_request() :: %{}
+
+  """
+  @type get_portal_service_provider_metadata_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_trust_store_certificates_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_trust_store_certificates_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_identity_provider_response() :: %{
+        "identityProvider" => identity_provider()
+      }
+
+  """
+  @type update_identity_provider_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_identity_provider_response() :: %{
+        "identityProvider" => identity_provider()
+      }
+
+  """
+  @type get_identity_provider_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_browser_settings_request() :: %{
+        optional("browserPolicy") => String.t(),
+        optional("clientToken") => String.t()
+      }
+
+  """
+  @type update_browser_settings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_user_access_logging_settings_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_user_access_logging_settings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_network_settings_response() :: %{
+        "networkSettings" => network_settings()
+      }
+
+  """
+  @type update_network_settings_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_network_settings_request() :: %{
+        optional("clientToken") => String.t(),
+        optional("tags") => list(tag()()),
+        required("securityGroupIds") => list(String.t()()),
+        required("subnetIds") => list(String.t()()),
+        required("vpcId") => String.t()
+      }
+
+  """
+  @type create_network_settings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_trust_store_request() :: %{}
+
+  """
+  @type get_trust_store_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_trust_store_request() :: %{
+        required("trustStoreArn") => String.t()
+      }
+
+  """
+  @type associate_trust_store_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cookie_specification() :: %{
+        "domain" => String.t(),
+        "name" => String.t(),
+        "path" => String.t()
+      }
+
+  """
+  @type cookie_specification() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_trust_store_response() :: %{}
+
+  """
+  @type disassociate_trust_store_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_user_access_logging_settings_request() :: %{
+        required("userAccessLoggingSettingsArn") => String.t()
+      }
+
+  """
+  @type associate_user_access_logging_settings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_user_settings_request() :: %{
+        required("userSettingsArn") => String.t()
+      }
+
+  """
+  @type associate_user_settings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_identity_provider_response() :: %{
+        "identityProviderArn" => String.t()
+      }
+
+  """
+  @type create_identity_provider_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_browser_settings_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_browser_settings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_user_access_logging_settings_request() :: %{}
+
+  """
+  @type delete_user_access_logging_settings_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_portal_response() :: %{
+        "portalArn" => String.t(),
+        "portalEndpoint" => String.t()
+      }
+
+  """
+  @type create_portal_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_ip_access_settings_response() :: %{
+        "ipAccessSettingsArn" => String.t(),
+        "portalArn" => String.t()
+      }
+
+  """
+  @type associate_ip_access_settings_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_user_settings_response() :: %{
+        "nextToken" => String.t(),
+        "userSettings" => list(user_settings_summary()())
+      }
+
+  """
+  @type list_user_settings_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_trust_store_response() :: %{
+        "trustStore" => trust_store()
+      }
+
+  """
+  @type get_trust_store_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      user_access_logging_settings() :: %{
+        "associatedPortalArns" => list(String.t()()),
+        "kinesisStreamArn" => String.t(),
+        "userAccessLoggingSettingsArn" => String.t()
+      }
+
+  """
+  @type user_access_logging_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_user_access_logging_settings_request() :: %{}
+
+  """
+  @type get_user_access_logging_settings_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_identity_provider_request() :: %{}
+
+  """
+  @type delete_identity_provider_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_browser_settings_response() :: %{}
+
+  """
+  @type disassociate_browser_settings_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_ip_access_settings_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_ip_access_settings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_user_settings_response() :: %{
+        "userSettings" => user_settings()
+      }
+
+  """
+  @type get_user_settings_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_ip_access_settings_response() :: %{
+        "ipAccessSettings" => ip_access_settings()
+      }
+
+  """
+  @type update_ip_access_settings_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_trust_store_response() :: %{
+        "portalArn" => String.t(),
+        "trustStoreArn" => String.t()
+      }
+
+  """
+  @type associate_trust_store_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_trust_store_request() :: %{
+        optional("certificatesToAdd") => list(binary()()),
+        optional("certificatesToDelete") => list(String.t()()),
+        optional("clientToken") => String.t()
+      }
+
+  """
+  @type update_trust_store_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      user_settings_summary() :: %{
+        "cookieSynchronizationConfiguration" => cookie_synchronization_configuration(),
+        "copyAllowed" => String.t(),
+        "disconnectTimeoutInMinutes" => integer(),
+        "downloadAllowed" => String.t(),
+        "idleDisconnectTimeoutInMinutes" => integer(),
+        "pasteAllowed" => String.t(),
+        "printAllowed" => String.t(),
+        "uploadAllowed" => String.t(),
+        "userSettingsArn" => String.t()
+      }
+
+  """
+  @type user_settings_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("tagKeys") => list(String.t()())
+      }
+
+  """
+  @type untag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      user_access_logging_settings_summary() :: %{
+        "kinesisStreamArn" => String.t(),
+        "userAccessLoggingSettingsArn" => String.t()
+      }
+
+  """
+  @type user_access_logging_settings_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_user_settings_response() :: %{}
+
+  """
+  @type delete_user_settings_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_network_settings_request() :: %{
+        required("networkSettingsArn") => String.t()
+      }
+
+  """
+  @type associate_network_settings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_browser_settings_request() :: %{
+        required("browserSettingsArn") => String.t()
+      }
+
+  """
+  @type associate_browser_settings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_trust_stores_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_trust_stores_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_trust_store_request() :: %{}
+
+  """
+  @type delete_trust_store_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_browser_settings_request() :: %{}
+
+  """
+  @type delete_browser_settings_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      certificate_summary() :: %{
+        "issuer" => String.t(),
+        "notValidAfter" => non_neg_integer(),
+        "notValidBefore" => non_neg_integer(),
+        "subject" => String.t(),
+        "thumbprint" => String.t()
+      }
+
+  """
+  @type certificate_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_browser_settings_request() :: %{}
+
+  """
+  @type get_browser_settings_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_ip_access_settings_response() :: %{
+        "ipAccessSettings" => ip_access_settings()
+      }
+
+  """
+  @type get_ip_access_settings_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      network_settings() :: %{
+        "associatedPortalArns" => list(String.t()()),
+        "networkSettingsArn" => String.t(),
+        "securityGroupIds" => list(String.t()()),
+        "subnetIds" => list(String.t()()),
+        "vpcId" => String.t()
+      }
+
+  """
+  @type network_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_portals_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_portals_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_ip_access_settings_request() :: %{}
+
+  """
+  @type delete_ip_access_settings_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_portal_request() :: %{}
+
+  """
+  @type delete_portal_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_user_settings_response() :: %{
+        "userSettings" => user_settings()
+      }
+
+  """
+  @type update_user_settings_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_trust_store_request() :: %{
+        optional("clientToken") => String.t(),
+        optional("tags") => list(tag()()),
+        required("certificateList") => list(binary()())
+      }
+
+  """
+  @type create_trust_store_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "message" => String.t(),
+        "resourceId" => String.t(),
+        "resourceType" => String.t()
+      }
+
+  """
+  @type conflict_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "message" => String.t(),
+        "resourceId" => String.t(),
+        "resourceType" => String.t()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_network_settings_response() :: %{
+        "networkSettingsArn" => String.t(),
+        "portalArn" => String.t()
+      }
+
+  """
+  @type associate_network_settings_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_user_access_logging_settings_request() :: %{
+        optional("clientToken") => String.t(),
+        optional("kinesisStreamArn") => String.t()
+      }
+
+  """
+  @type update_user_access_logging_settings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag() :: %{
+        "Key" => String.t(),
+        "Value" => String.t()
+      }
+
+  """
+  @type tag() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_user_settings_request() :: %{}
+
+  """
+  @type get_user_settings_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_network_settings_response() :: %{
+        "networkSettingsArn" => String.t()
+      }
+
+  """
+  @type create_network_settings_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_browser_settings_request() :: %{
+        optional("additionalEncryptionContext") => map(),
+        optional("clientToken") => String.t(),
+        optional("customerManagedKey") => String.t(),
+        optional("tags") => list(tag()()),
+        required("browserPolicy") => String.t()
+      }
+
+  """
+  @type create_browser_settings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_network_settings_request() :: %{}
+
+  """
+  @type disassociate_network_settings_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_portal_response() :: %{}
+
+  """
+  @type delete_portal_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_network_settings_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_network_settings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_portal_request() :: %{
+        optional("additionalEncryptionContext") => map(),
+        optional("authenticationType") => String.t(),
+        optional("clientToken") => String.t(),
+        optional("customerManagedKey") => String.t(),
+        optional("displayName") => String.t(),
+        optional("tags") => list(tag()())
+      }
+
+  """
+  @type create_portal_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "message" => String.t(),
+        "quotaCode" => String.t(),
+        "resourceId" => String.t(),
+        "resourceType" => String.t(),
+        "serviceCode" => String.t()
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_network_settings_request() :: %{
+        optional("clientToken") => String.t(),
+        optional("securityGroupIds") => list(String.t()()),
+        optional("subnetIds") => list(String.t()()),
+        optional("vpcId") => String.t()
+      }
+
+  """
+  @type update_network_settings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_portal_response() :: %{
+        "portal" => portal()
+      }
+
+  """
+  @type update_portal_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_network_settings_response() :: %{
+        "networkSettings" => network_settings()
+      }
+
+  """
+  @type get_network_settings_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_user_settings_response() :: %{}
+
+  """
+  @type disassociate_user_settings_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      browser_settings_summary() :: %{
+        "browserSettingsArn" => String.t()
+      }
+
+  """
+  @type browser_settings_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_user_settings_response() :: %{
+        "userSettingsArn" => String.t()
+      }
+
+  """
+  @type create_user_settings_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        "tags" => list(tag()())
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_trust_stores_response() :: %{
+        "nextToken" => String.t(),
+        "trustStores" => list(trust_store_summary()())
+      }
+
+  """
+  @type list_trust_stores_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_browser_settings_request() :: %{}
+
+  """
+  @type disassociate_browser_settings_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_network_settings_request() :: %{}
+
+  """
+  @type delete_network_settings_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      identity_provider_summary() :: %{
+        "identityProviderArn" => String.t(),
+        "identityProviderName" => String.t(),
+        "identityProviderType" => String.t()
+      }
+
+  """
+  @type identity_provider_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_ip_access_settings_request() :: %{
+        required("ipAccessSettingsArn") => String.t()
+      }
+
+  """
+  @type associate_ip_access_settings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception_field() :: %{
+        "message" => String.t(),
+        "name" => String.t()
+      }
+
+  """
+  @type validation_exception_field() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      network_settings_summary() :: %{
+        "networkSettingsArn" => String.t(),
+        "vpcId" => String.t()
+      }
+
+  """
+  @type network_settings_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_user_access_logging_settings_response() :: %{}
+
+  """
+  @type disassociate_user_access_logging_settings_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_portal_service_provider_metadata_response() :: %{
+        "portalArn" => String.t(),
+        "serviceProviderSamlMetadata" => String.t()
+      }
+
+  """
+  @type get_portal_service_provider_metadata_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_user_settings_request() :: %{
+        optional("clientToken") => String.t(),
+        optional("cookieSynchronizationConfiguration") => cookie_synchronization_configuration(),
+        optional("copyAllowed") => String.t(),
+        optional("disconnectTimeoutInMinutes") => integer(),
+        optional("downloadAllowed") => String.t(),
+        optional("idleDisconnectTimeoutInMinutes") => integer(),
+        optional("pasteAllowed") => String.t(),
+        optional("printAllowed") => String.t(),
+        optional("uploadAllowed") => String.t()
+      }
+
+  """
+  @type update_user_settings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_ip_access_settings_response() :: %{}
+
+  """
+  @type disassociate_ip_access_settings_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_network_settings_response() :: %{
+        "networkSettings" => list(network_settings_summary()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_network_settings_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      identity_provider() :: %{
+        "identityProviderArn" => String.t(),
+        "identityProviderDetails" => map(),
+        "identityProviderName" => String.t(),
+        "identityProviderType" => String.t()
+      }
+
+  """
+  @type identity_provider() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_ip_access_settings_response() :: %{}
+
+  """
+  @type delete_ip_access_settings_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_browser_settings_response() :: %{
+        "browserSettings" => browser_settings()
+      }
+
+  """
+  @type get_browser_settings_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_trust_store_certificates_response() :: %{
+        "certificateList" => list(certificate_summary()()),
+        "nextToken" => String.t(),
+        "trustStoreArn" => String.t()
+      }
+
+  """
+  @type list_trust_store_certificates_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_portals_response() :: %{
+        "nextToken" => String.t(),
+        "portals" => list(portal_summary()())
+      }
+
+  """
+  @type list_portals_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "message" => String.t(),
+        "retryAfterSeconds" => integer()
+      }
+
+  """
+  @type internal_server_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      certificate() :: %{
+        "body" => binary(),
+        "issuer" => String.t(),
+        "notValidAfter" => non_neg_integer(),
+        "notValidBefore" => non_neg_integer(),
+        "subject" => String.t(),
+        "thumbprint" => String.t()
+      }
+
+  """
+  @type certificate() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_ip_access_settings_request() :: %{}
+
+  """
+  @type disassociate_ip_access_settings_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_trust_store_certificate_response() :: %{
+        "certificate" => certificate(),
+        "trustStoreArn" => String.t()
+      }
+
+  """
+  @type get_trust_store_certificate_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_identity_provider_request() :: %{
+        optional("clientToken") => String.t(),
+        required("identityProviderDetails") => map(),
+        required("identityProviderName") => String.t(),
+        required("identityProviderType") => String.t(),
+        required("portalArn") => String.t()
+      }
+
+  """
+  @type create_identity_provider_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_browser_settings_response() :: %{
+        "browserSettings" => browser_settings()
+      }
+
+  """
+  @type update_browser_settings_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_network_settings_response() :: %{}
+
+  """
+  @type delete_network_settings_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type access_denied_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_trust_store_response() :: %{
+        "trustStoreArn" => String.t()
+      }
+
+  """
+  @type create_trust_store_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_identity_provider_response() :: %{}
+
+  """
+  @type delete_identity_provider_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_user_settings_request() :: %{
+        optional("additionalEncryptionContext") => map(),
+        optional("clientToken") => String.t(),
+        optional("cookieSynchronizationConfiguration") => cookie_synchronization_configuration(),
+        optional("customerManagedKey") => String.t(),
+        optional("disconnectTimeoutInMinutes") => integer(),
+        optional("idleDisconnectTimeoutInMinutes") => integer(),
+        optional("tags") => list(tag()()),
+        required("copyAllowed") => String.t(),
+        required("downloadAllowed") => String.t(),
+        required("pasteAllowed") => String.t(),
+        required("printAllowed") => String.t(),
+        required("uploadAllowed") => String.t()
+      }
+
+  """
+  @type create_user_settings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_user_settings_request() :: %{}
+
+  """
+  @type delete_user_settings_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_portal_request() :: %{
+        optional("authenticationType") => String.t(),
+        optional("displayName") => String.t()
+      }
+
+  """
+  @type update_portal_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ip_access_settings() :: %{
+        "associatedPortalArns" => list(String.t()()),
+        "creationDate" => non_neg_integer(),
+        "description" => String.t(),
+        "displayName" => String.t(),
+        "ipAccessSettingsArn" => String.t(),
+        "ipRules" => list(ip_rule()())
+      }
+
+  """
+  @type ip_access_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "fieldList" => list(validation_exception_field()()),
+        "message" => String.t(),
+        "reason" => String.t()
+      }
+
+  """
+  @type validation_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_ip_access_settings_request() :: %{}
+
+  """
+  @type get_ip_access_settings_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_identity_providers_response() :: %{
+        "identityProviders" => list(identity_provider_summary()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_identity_providers_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_user_access_logging_settings_request() :: %{}
+
+  """
+  @type disassociate_user_access_logging_settings_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "message" => String.t(),
+        "quotaCode" => String.t(),
+        "retryAfterSeconds" => integer(),
+        "serviceCode" => String.t()
+      }
+
+  """
+  @type throttling_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_browser_settings_response() :: %{
+        "browserSettings" => list(browser_settings_summary()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_browser_settings_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_user_access_logging_settings_response() :: %{
+        "portalArn" => String.t(),
+        "userAccessLoggingSettingsArn" => String.t()
+      }
+
+  """
+  @type associate_user_access_logging_settings_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      portal_summary() :: %{
+        "authenticationType" => String.t(),
+        "browserSettingsArn" => String.t(),
+        "browserType" => String.t(),
+        "creationDate" => non_neg_integer(),
+        "displayName" => String.t(),
+        "ipAccessSettingsArn" => String.t(),
+        "networkSettingsArn" => String.t(),
+        "portalArn" => String.t(),
+        "portalEndpoint" => String.t(),
+        "portalStatus" => String.t(),
+        "rendererType" => String.t(),
+        "trustStoreArn" => String.t(),
+        "userAccessLoggingSettingsArn" => String.t(),
+        "userSettingsArn" => String.t()
+      }
+
+  """
+  @type portal_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_identity_provider_request() :: %{}
+
+  """
+  @type get_identity_provider_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_browser_settings_response() :: %{
+        "browserSettingsArn" => String.t(),
+        "portalArn" => String.t()
+      }
+
+  """
+  @type associate_browser_settings_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      user_settings() :: %{
+        "associatedPortalArns" => list(String.t()()),
+        "cookieSynchronizationConfiguration" => cookie_synchronization_configuration(),
+        "copyAllowed" => String.t(),
+        "disconnectTimeoutInMinutes" => integer(),
+        "downloadAllowed" => String.t(),
+        "idleDisconnectTimeoutInMinutes" => integer(),
+        "pasteAllowed" => String.t(),
+        "printAllowed" => String.t(),
+        "uploadAllowed" => String.t(),
+        "userSettingsArn" => String.t()
+      }
+
+  """
+  @type user_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_portal_response() :: %{
+        "portal" => portal()
+      }
+
+  """
+  @type get_portal_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_user_access_logging_settings_request() :: %{
+        optional("clientToken") => String.t(),
+        optional("tags") => list(tag()()),
+        required("kinesisStreamArn") => String.t()
+      }
+
+  """
+  @type create_user_access_logging_settings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_identity_provider_request() :: %{
+        optional("clientToken") => String.t(),
+        optional("identityProviderDetails") => map(),
+        optional("identityProviderName") => String.t(),
+        optional("identityProviderType") => String.t()
+      }
+
+  """
+  @type update_identity_provider_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_user_access_logging_settings_response() :: %{
+        "nextToken" => String.t(),
+        "userAccessLoggingSettings" => list(user_access_logging_settings_summary()())
+      }
+
+  """
+  @type list_user_access_logging_settings_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_user_settings_request() :: %{}
+
+  """
+  @type disassociate_user_settings_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_ip_access_settings_request() :: %{
+        optional("clientToken") => String.t(),
+        optional("description") => String.t(),
+        optional("displayName") => String.t(),
+        optional("ipRules") => list(ip_rule()())
+      }
+
+  """
+  @type update_ip_access_settings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      browser_settings() :: %{
+        "associatedPortalArns" => list(String.t()()),
+        "browserPolicy" => String.t(),
+        "browserSettingsArn" => String.t()
+      }
+
+  """
+  @type browser_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_user_access_logging_settings_response() :: %{
+        "userAccessLoggingSettings" => user_access_logging_settings()
+      }
+
+  """
+  @type update_user_access_logging_settings_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_user_settings_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_user_settings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      too_many_tags_exception() :: %{
+        "message" => String.t(),
+        "resourceName" => String.t()
+      }
+
+  """
+  @type too_many_tags_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_browser_settings_response() :: %{}
+
+  """
+  @type delete_browser_settings_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_network_settings_response() :: %{}
+
+  """
+  @type disassociate_network_settings_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_user_access_logging_settings_response() :: %{}
+
+  """
+  @type delete_user_access_logging_settings_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_trust_store_response() :: %{}
+
+  """
+  @type delete_trust_store_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_user_access_logging_settings_response() :: %{
+        "userAccessLoggingSettings" => user_access_logging_settings()
+      }
+
+  """
+  @type get_user_access_logging_settings_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      portal() :: %{
+        "authenticationType" => String.t(),
+        "browserSettingsArn" => String.t(),
+        "browserType" => String.t(),
+        "creationDate" => non_neg_integer(),
+        "displayName" => String.t(),
+        "ipAccessSettingsArn" => String.t(),
+        "networkSettingsArn" => String.t(),
+        "portalArn" => String.t(),
+        "portalEndpoint" => String.t(),
+        "portalStatus" => String.t(),
+        "rendererType" => String.t(),
+        "statusReason" => String.t(),
+        "trustStoreArn" => String.t(),
+        "userAccessLoggingSettingsArn" => String.t(),
+        "userSettingsArn" => String.t()
+      }
+
+  """
+  @type portal() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      trust_store() :: %{
+        "associatedPortalArns" => list(String.t()()),
+        "trustStoreArn" => String.t()
+      }
+
+  """
+  @type trust_store() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_trust_store_response() :: %{
+        "trustStoreArn" => String.t()
+      }
+
+  """
+  @type update_trust_store_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_trust_store_request() :: %{}
+
+  """
+  @type disassociate_trust_store_request() :: %{}
+
+  @type associate_browser_settings_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type associate_ip_access_settings_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type associate_network_settings_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type associate_trust_store_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type associate_user_access_logging_settings_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type associate_user_settings_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_browser_settings_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_identity_provider_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_ip_access_settings_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+
+  @type create_network_settings_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+
+  @type create_portal_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_trust_store_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+
+  @type create_user_access_logging_settings_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+
+  @type create_user_settings_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+
+  @type delete_browser_settings_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | conflict_exception()
+
+  @type delete_identity_provider_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | conflict_exception()
+
+  @type delete_ip_access_settings_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | conflict_exception()
+
+  @type delete_network_settings_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | conflict_exception()
+
+  @type delete_portal_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | conflict_exception()
+
+  @type delete_trust_store_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | conflict_exception()
+
+  @type delete_user_access_logging_settings_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | conflict_exception()
+
+  @type delete_user_settings_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | conflict_exception()
+
+  @type disassociate_browser_settings_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type disassociate_ip_access_settings_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type disassociate_network_settings_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type disassociate_trust_store_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type disassociate_user_access_logging_settings_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type disassociate_user_settings_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_browser_settings_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_identity_provider_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_ip_access_settings_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_network_settings_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_portal_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_portal_service_provider_metadata_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_trust_store_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_trust_store_certificate_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_user_access_logging_settings_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_user_settings_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_browser_settings_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_identity_providers_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_ip_access_settings_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_network_settings_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_portals_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_tags_for_resource_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_trust_store_certificates_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_trust_stores_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_user_access_logging_settings_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_user_settings_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type tag_resource_errors() ::
+          too_many_tags_exception()
+          | throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type untag_resource_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type update_browser_settings_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type update_identity_provider_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type update_ip_access_settings_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type update_network_settings_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type update_portal_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_trust_store_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+
+  @type update_user_access_logging_settings_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type update_user_settings_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   def metadata do
     %{
       api_version: "2020-07-08",
@@ -38,6 +2179,15 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Associates a browser settings resource with a web portal.
   """
+  @spec associate_browser_settings(
+          map(),
+          String.t(),
+          associate_browser_settings_request(),
+          list()
+        ) ::
+          {:ok, associate_browser_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, associate_browser_settings_errors()}
   def associate_browser_settings(%Client{} = client, portal_arn, input, options \\ []) do
     url_path = "/portals/#{AWS.Util.encode_multi_segment_uri(portal_arn)}/browserSettings"
     headers = []
@@ -56,6 +2206,15 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Associates an IP access settings resource with a web portal.
   """
+  @spec associate_ip_access_settings(
+          map(),
+          String.t(),
+          associate_ip_access_settings_request(),
+          list()
+        ) ::
+          {:ok, associate_ip_access_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, associate_ip_access_settings_errors()}
   def associate_ip_access_settings(%Client{} = client, portal_arn, input, options \\ []) do
     url_path = "/portals/#{AWS.Util.encode_multi_segment_uri(portal_arn)}/ipAccessSettings"
     headers = []
@@ -74,6 +2233,15 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Associates a network settings resource with a web portal.
   """
+  @spec associate_network_settings(
+          map(),
+          String.t(),
+          associate_network_settings_request(),
+          list()
+        ) ::
+          {:ok, associate_network_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, associate_network_settings_errors()}
   def associate_network_settings(%Client{} = client, portal_arn, input, options \\ []) do
     url_path = "/portals/#{AWS.Util.encode_multi_segment_uri(portal_arn)}/networkSettings"
     headers = []
@@ -92,6 +2260,10 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Associates a trust store with a web portal.
   """
+  @spec associate_trust_store(map(), String.t(), associate_trust_store_request(), list()) ::
+          {:ok, associate_trust_store_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, associate_trust_store_errors()}
   def associate_trust_store(%Client{} = client, portal_arn, input, options \\ []) do
     url_path = "/portals/#{AWS.Util.encode_multi_segment_uri(portal_arn)}/trustStores"
     headers = []
@@ -110,6 +2282,15 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Associates a user access logging settings resource with a web portal.
   """
+  @spec associate_user_access_logging_settings(
+          map(),
+          String.t(),
+          associate_user_access_logging_settings_request(),
+          list()
+        ) ::
+          {:ok, associate_user_access_logging_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, associate_user_access_logging_settings_errors()}
   def associate_user_access_logging_settings(%Client{} = client, portal_arn, input, options \\ []) do
     url_path =
       "/portals/#{AWS.Util.encode_multi_segment_uri(portal_arn)}/userAccessLoggingSettings"
@@ -130,6 +2311,10 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Associates a user settings resource with a web portal.
   """
+  @spec associate_user_settings(map(), String.t(), associate_user_settings_request(), list()) ::
+          {:ok, associate_user_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, associate_user_settings_errors()}
   def associate_user_settings(%Client{} = client, portal_arn, input, options \\ []) do
     url_path = "/portals/#{AWS.Util.encode_multi_segment_uri(portal_arn)}/userSettings"
     headers = []
@@ -153,6 +2338,10 @@ defmodule AWS.WorkSpacesWeb do
   behave once a
   user starts a streaming session for the web portal.
   """
+  @spec create_browser_settings(map(), create_browser_settings_request(), list()) ::
+          {:ok, create_browser_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_browser_settings_errors()}
   def create_browser_settings(%Client{} = client, input, options \\ []) do
     url_path = "/browserSettings"
     headers = []
@@ -176,6 +2365,10 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Creates an identity provider resource that is then associated with a web portal.
   """
+  @spec create_identity_provider(map(), create_identity_provider_request(), list()) ::
+          {:ok, create_identity_provider_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_identity_provider_errors()}
   def create_identity_provider(%Client{} = client, input, options \\ []) do
     url_path = "/identityProviders"
     headers = []
@@ -199,6 +2392,10 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Creates an IP access settings resource that can be associated with a web portal.
   """
+  @spec create_ip_access_settings(map(), create_ip_access_settings_request(), list()) ::
+          {:ok, create_ip_access_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_ip_access_settings_errors()}
   def create_ip_access_settings(%Client{} = client, input, options \\ []) do
     url_path = "/ipAccessSettings"
     headers = []
@@ -227,6 +2424,10 @@ defmodule AWS.WorkSpacesWeb do
   will connect
   with your specified VPC.
   """
+  @spec create_network_settings(map(), create_network_settings_request(), list()) ::
+          {:ok, create_network_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_network_settings_errors()}
   def create_network_settings(%Client{} = client, input, options \\ []) do
     url_path = "/networkSettings"
     headers = []
@@ -250,6 +2451,10 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Creates a web portal.
   """
+  @spec create_portal(map(), create_portal_request(), list()) ::
+          {:ok, create_portal_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_portal_errors()}
   def create_portal(%Client{} = client, input, options \\ []) do
     url_path = "/portals"
     headers = []
@@ -282,6 +2487,10 @@ defmodule AWS.WorkSpacesWeb do
   certificates issued
   by private CAs, you should add the private CA certificate to the trust store.
   """
+  @spec create_trust_store(map(), create_trust_store_request(), list()) ::
+          {:ok, create_trust_store_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_trust_store_errors()}
   def create_trust_store(%Client{} = client, input, options \\ []) do
     url_path = "/trustStores"
     headers = []
@@ -306,6 +2515,14 @@ defmodule AWS.WorkSpacesWeb do
   Creates a user access logging settings resource that can be associated with a
   web portal.
   """
+  @spec create_user_access_logging_settings(
+          map(),
+          create_user_access_logging_settings_request(),
+          list()
+        ) ::
+          {:ok, create_user_access_logging_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_user_access_logging_settings_errors()}
   def create_user_access_logging_settings(%Client{} = client, input, options \\ []) do
     url_path = "/userAccessLoggingSettings"
     headers = []
@@ -334,6 +2551,10 @@ defmodule AWS.WorkSpacesWeb do
   between a
   streaming session and the their local devices.
   """
+  @spec create_user_settings(map(), create_user_settings_request(), list()) ::
+          {:ok, create_user_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_user_settings_errors()}
   def create_user_settings(%Client{} = client, input, options \\ []) do
     url_path = "/userSettings"
     headers = []
@@ -357,6 +2578,10 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Deletes browser settings.
   """
+  @spec delete_browser_settings(map(), String.t(), delete_browser_settings_request(), list()) ::
+          {:ok, delete_browser_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_browser_settings_errors()}
   def delete_browser_settings(%Client{} = client, browser_settings_arn, input, options \\ []) do
     url_path = "/browserSettings/#{AWS.Util.encode_multi_segment_uri(browser_settings_arn)}"
     headers = []
@@ -380,6 +2605,10 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Deletes the identity provider.
   """
+  @spec delete_identity_provider(map(), String.t(), delete_identity_provider_request(), list()) ::
+          {:ok, delete_identity_provider_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_identity_provider_errors()}
   def delete_identity_provider(%Client{} = client, identity_provider_arn, input, options \\ []) do
     url_path = "/identityProviders/#{AWS.Util.encode_multi_segment_uri(identity_provider_arn)}"
     headers = []
@@ -403,6 +2632,10 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Deletes IP access settings.
   """
+  @spec delete_ip_access_settings(map(), String.t(), delete_ip_access_settings_request(), list()) ::
+          {:ok, delete_ip_access_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_ip_access_settings_errors()}
   def delete_ip_access_settings(%Client{} = client, ip_access_settings_arn, input, options \\ []) do
     url_path = "/ipAccessSettings/#{AWS.Util.encode_multi_segment_uri(ip_access_settings_arn)}"
     headers = []
@@ -426,6 +2659,10 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Deletes network settings.
   """
+  @spec delete_network_settings(map(), String.t(), delete_network_settings_request(), list()) ::
+          {:ok, delete_network_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_network_settings_errors()}
   def delete_network_settings(%Client{} = client, network_settings_arn, input, options \\ []) do
     url_path = "/networkSettings/#{AWS.Util.encode_multi_segment_uri(network_settings_arn)}"
     headers = []
@@ -449,6 +2686,10 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Deletes a web portal.
   """
+  @spec delete_portal(map(), String.t(), delete_portal_request(), list()) ::
+          {:ok, delete_portal_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_portal_errors()}
   def delete_portal(%Client{} = client, portal_arn, input, options \\ []) do
     url_path = "/portals/#{AWS.Util.encode_multi_segment_uri(portal_arn)}"
     headers = []
@@ -472,6 +2713,10 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Deletes the trust store.
   """
+  @spec delete_trust_store(map(), String.t(), delete_trust_store_request(), list()) ::
+          {:ok, delete_trust_store_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_trust_store_errors()}
   def delete_trust_store(%Client{} = client, trust_store_arn, input, options \\ []) do
     url_path = "/trustStores/#{AWS.Util.encode_multi_segment_uri(trust_store_arn)}"
     headers = []
@@ -495,6 +2740,15 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Deletes user access logging settings.
   """
+  @spec delete_user_access_logging_settings(
+          map(),
+          String.t(),
+          delete_user_access_logging_settings_request(),
+          list()
+        ) ::
+          {:ok, delete_user_access_logging_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_user_access_logging_settings_errors()}
   def delete_user_access_logging_settings(
         %Client{} = client,
         user_access_logging_settings_arn,
@@ -525,6 +2779,10 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Deletes user settings.
   """
+  @spec delete_user_settings(map(), String.t(), delete_user_settings_request(), list()) ::
+          {:ok, delete_user_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_user_settings_errors()}
   def delete_user_settings(%Client{} = client, user_settings_arn, input, options \\ []) do
     url_path = "/userSettings/#{AWS.Util.encode_multi_segment_uri(user_settings_arn)}"
     headers = []
@@ -548,6 +2806,15 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Disassociates browser settings from a web portal.
   """
+  @spec disassociate_browser_settings(
+          map(),
+          String.t(),
+          disassociate_browser_settings_request(),
+          list()
+        ) ::
+          {:ok, disassociate_browser_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, disassociate_browser_settings_errors()}
   def disassociate_browser_settings(%Client{} = client, portal_arn, input, options \\ []) do
     url_path = "/portals/#{AWS.Util.encode_multi_segment_uri(portal_arn)}/browserSettings"
     headers = []
@@ -571,6 +2838,15 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Disassociates IP access settings from a web portal.
   """
+  @spec disassociate_ip_access_settings(
+          map(),
+          String.t(),
+          disassociate_ip_access_settings_request(),
+          list()
+        ) ::
+          {:ok, disassociate_ip_access_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, disassociate_ip_access_settings_errors()}
   def disassociate_ip_access_settings(%Client{} = client, portal_arn, input, options \\ []) do
     url_path = "/portals/#{AWS.Util.encode_multi_segment_uri(portal_arn)}/ipAccessSettings"
     headers = []
@@ -594,6 +2870,15 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Disassociates network settings from a web portal.
   """
+  @spec disassociate_network_settings(
+          map(),
+          String.t(),
+          disassociate_network_settings_request(),
+          list()
+        ) ::
+          {:ok, disassociate_network_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, disassociate_network_settings_errors()}
   def disassociate_network_settings(%Client{} = client, portal_arn, input, options \\ []) do
     url_path = "/portals/#{AWS.Util.encode_multi_segment_uri(portal_arn)}/networkSettings"
     headers = []
@@ -617,6 +2902,10 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Disassociates a trust store from a web portal.
   """
+  @spec disassociate_trust_store(map(), String.t(), disassociate_trust_store_request(), list()) ::
+          {:ok, disassociate_trust_store_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, disassociate_trust_store_errors()}
   def disassociate_trust_store(%Client{} = client, portal_arn, input, options \\ []) do
     url_path = "/portals/#{AWS.Util.encode_multi_segment_uri(portal_arn)}/trustStores"
     headers = []
@@ -640,6 +2929,15 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Disassociates user access logging settings from a web portal.
   """
+  @spec disassociate_user_access_logging_settings(
+          map(),
+          String.t(),
+          disassociate_user_access_logging_settings_request(),
+          list()
+        ) ::
+          {:ok, disassociate_user_access_logging_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, disassociate_user_access_logging_settings_errors()}
   def disassociate_user_access_logging_settings(
         %Client{} = client,
         portal_arn,
@@ -670,6 +2968,15 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Disassociates user settings from a web portal.
   """
+  @spec disassociate_user_settings(
+          map(),
+          String.t(),
+          disassociate_user_settings_request(),
+          list()
+        ) ::
+          {:ok, disassociate_user_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, disassociate_user_settings_errors()}
   def disassociate_user_settings(%Client{} = client, portal_arn, input, options \\ []) do
     url_path = "/portals/#{AWS.Util.encode_multi_segment_uri(portal_arn)}/userSettings"
     headers = []
@@ -693,6 +3000,10 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Gets browser settings.
   """
+  @spec get_browser_settings(map(), String.t(), list()) ::
+          {:ok, get_browser_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_browser_settings_errors()}
   def get_browser_settings(%Client{} = client, browser_settings_arn, options \\ []) do
     url_path = "/browserSettings/#{AWS.Util.encode_multi_segment_uri(browser_settings_arn)}"
     headers = []
@@ -706,6 +3017,10 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Gets the identity provider.
   """
+  @spec get_identity_provider(map(), String.t(), list()) ::
+          {:ok, get_identity_provider_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_identity_provider_errors()}
   def get_identity_provider(%Client{} = client, identity_provider_arn, options \\ []) do
     url_path = "/identityProviders/#{AWS.Util.encode_multi_segment_uri(identity_provider_arn)}"
     headers = []
@@ -719,6 +3034,10 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Gets the IP access settings.
   """
+  @spec get_ip_access_settings(map(), String.t(), list()) ::
+          {:ok, get_ip_access_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_ip_access_settings_errors()}
   def get_ip_access_settings(%Client{} = client, ip_access_settings_arn, options \\ []) do
     url_path = "/ipAccessSettings/#{AWS.Util.encode_multi_segment_uri(ip_access_settings_arn)}"
     headers = []
@@ -732,6 +3051,10 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Gets the network settings.
   """
+  @spec get_network_settings(map(), String.t(), list()) ::
+          {:ok, get_network_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_network_settings_errors()}
   def get_network_settings(%Client{} = client, network_settings_arn, options \\ []) do
     url_path = "/networkSettings/#{AWS.Util.encode_multi_segment_uri(network_settings_arn)}"
     headers = []
@@ -745,6 +3068,10 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Gets the web portal.
   """
+  @spec get_portal(map(), String.t(), list()) ::
+          {:ok, get_portal_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_portal_errors()}
   def get_portal(%Client{} = client, portal_arn, options \\ []) do
     url_path = "/portals/#{AWS.Util.encode_multi_segment_uri(portal_arn)}"
     headers = []
@@ -758,6 +3085,10 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Gets the service provider metadata.
   """
+  @spec get_portal_service_provider_metadata(map(), String.t(), list()) ::
+          {:ok, get_portal_service_provider_metadata_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_portal_service_provider_metadata_errors()}
   def get_portal_service_provider_metadata(%Client{} = client, portal_arn, options \\ []) do
     url_path = "/portalIdp/#{AWS.Util.encode_multi_segment_uri(portal_arn)}"
     headers = []
@@ -771,6 +3102,10 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Gets the trust store.
   """
+  @spec get_trust_store(map(), String.t(), list()) ::
+          {:ok, get_trust_store_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_trust_store_errors()}
   def get_trust_store(%Client{} = client, trust_store_arn, options \\ []) do
     url_path = "/trustStores/#{AWS.Util.encode_multi_segment_uri(trust_store_arn)}"
     headers = []
@@ -784,6 +3119,10 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Gets the trust store certificate.
   """
+  @spec get_trust_store_certificate(map(), String.t(), String.t(), list()) ::
+          {:ok, get_trust_store_certificate_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_trust_store_certificate_errors()}
   def get_trust_store_certificate(%Client{} = client, trust_store_arn, thumbprint, options \\ []) do
     url_path = "/trustStores/#{AWS.Util.encode_multi_segment_uri(trust_store_arn)}/certificate"
     headers = []
@@ -804,6 +3143,10 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Gets user access logging settings.
   """
+  @spec get_user_access_logging_settings(map(), String.t(), list()) ::
+          {:ok, get_user_access_logging_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_user_access_logging_settings_errors()}
   def get_user_access_logging_settings(
         %Client{} = client,
         user_access_logging_settings_arn,
@@ -823,6 +3166,10 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Gets user settings.
   """
+  @spec get_user_settings(map(), String.t(), list()) ::
+          {:ok, get_user_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_user_settings_errors()}
   def get_user_settings(%Client{} = client, user_settings_arn, options \\ []) do
     url_path = "/userSettings/#{AWS.Util.encode_multi_segment_uri(user_settings_arn)}"
     headers = []
@@ -836,6 +3183,10 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Retrieves a list of browser settings.
   """
+  @spec list_browser_settings(map(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_browser_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_browser_settings_errors()}
   def list_browser_settings(
         %Client{} = client,
         max_results \\ nil,
@@ -868,6 +3219,10 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Retrieves a list of identity providers for a specific web portal.
   """
+  @spec list_identity_providers(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_identity_providers_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_identity_providers_errors()}
   def list_identity_providers(
         %Client{} = client,
         portal_arn,
@@ -901,6 +3256,10 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Retrieves a list of IP access settings.
   """
+  @spec list_ip_access_settings(map(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_ip_access_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_ip_access_settings_errors()}
   def list_ip_access_settings(
         %Client{} = client,
         max_results \\ nil,
@@ -933,6 +3292,10 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Retrieves a list of network settings.
   """
+  @spec list_network_settings(map(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_network_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_network_settings_errors()}
   def list_network_settings(
         %Client{} = client,
         max_results \\ nil,
@@ -965,6 +3328,10 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Retrieves a list or web portals.
   """
+  @spec list_portals(map(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_portals_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_portals_errors()}
   def list_portals(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/portals"
     headers = []
@@ -992,6 +3359,10 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Retrieves a list of tags for a resource.
   """
+  @spec list_tags_for_resource(map(), String.t(), list()) ::
+          {:ok, list_tags_for_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_multi_segment_uri(resource_arn)}"
     headers = []
@@ -1005,6 +3376,16 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Retrieves a list of trust store certificates.
   """
+  @spec list_trust_store_certificates(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_trust_store_certificates_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_trust_store_certificates_errors()}
   def list_trust_store_certificates(
         %Client{} = client,
         trust_store_arn,
@@ -1038,6 +3419,10 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Retrieves a list of trust stores.
   """
+  @spec list_trust_stores(map(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_trust_stores_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_trust_stores_errors()}
   def list_trust_stores(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/trustStores"
     headers = []
@@ -1065,6 +3450,10 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Retrieves a list of user access logging settings.
   """
+  @spec list_user_access_logging_settings(map(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_user_access_logging_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_user_access_logging_settings_errors()}
   def list_user_access_logging_settings(
         %Client{} = client,
         max_results \\ nil,
@@ -1097,6 +3486,10 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Retrieves a list of user settings.
   """
+  @spec list_user_settings(map(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_user_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_user_settings_errors()}
   def list_user_settings(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/userSettings"
     headers = []
@@ -1124,6 +3517,10 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Adds or overwrites one or more tags for the specified resource.
   """
+  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+          {:ok, tag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_multi_segment_uri(resource_arn)}"
     headers = []
@@ -1147,6 +3544,10 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Removes one or more tags from the specified resource.
   """
+  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+          {:ok, untag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_multi_segment_uri(resource_arn)}"
     headers = []
@@ -1175,6 +3576,10 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Updates browser settings.
   """
+  @spec update_browser_settings(map(), String.t(), update_browser_settings_request(), list()) ::
+          {:ok, update_browser_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_browser_settings_errors()}
   def update_browser_settings(%Client{} = client, browser_settings_arn, input, options \\ []) do
     url_path = "/browserSettings/#{AWS.Util.encode_multi_segment_uri(browser_settings_arn)}"
     headers = []
@@ -1198,6 +3603,10 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Updates the identity provider.
   """
+  @spec update_identity_provider(map(), String.t(), update_identity_provider_request(), list()) ::
+          {:ok, update_identity_provider_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_identity_provider_errors()}
   def update_identity_provider(%Client{} = client, identity_provider_arn, input, options \\ []) do
     url_path = "/identityProviders/#{AWS.Util.encode_multi_segment_uri(identity_provider_arn)}"
     headers = []
@@ -1221,6 +3630,10 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Updates IP access settings.
   """
+  @spec update_ip_access_settings(map(), String.t(), update_ip_access_settings_request(), list()) ::
+          {:ok, update_ip_access_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_ip_access_settings_errors()}
   def update_ip_access_settings(%Client{} = client, ip_access_settings_arn, input, options \\ []) do
     url_path = "/ipAccessSettings/#{AWS.Util.encode_multi_segment_uri(ip_access_settings_arn)}"
     headers = []
@@ -1244,6 +3657,10 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Updates network settings.
   """
+  @spec update_network_settings(map(), String.t(), update_network_settings_request(), list()) ::
+          {:ok, update_network_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_network_settings_errors()}
   def update_network_settings(%Client{} = client, network_settings_arn, input, options \\ []) do
     url_path = "/networkSettings/#{AWS.Util.encode_multi_segment_uri(network_settings_arn)}"
     headers = []
@@ -1267,6 +3684,10 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Updates a web portal.
   """
+  @spec update_portal(map(), String.t(), update_portal_request(), list()) ::
+          {:ok, update_portal_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_portal_errors()}
   def update_portal(%Client{} = client, portal_arn, input, options \\ []) do
     url_path = "/portals/#{AWS.Util.encode_multi_segment_uri(portal_arn)}"
     headers = []
@@ -1280,6 +3701,10 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Updates the trust store.
   """
+  @spec update_trust_store(map(), String.t(), update_trust_store_request(), list()) ::
+          {:ok, update_trust_store_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_trust_store_errors()}
   def update_trust_store(%Client{} = client, trust_store_arn, input, options \\ []) do
     url_path = "/trustStores/#{AWS.Util.encode_multi_segment_uri(trust_store_arn)}"
     headers = []
@@ -1303,6 +3728,15 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Updates the user access logging settings.
   """
+  @spec update_user_access_logging_settings(
+          map(),
+          String.t(),
+          update_user_access_logging_settings_request(),
+          list()
+        ) ::
+          {:ok, update_user_access_logging_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_user_access_logging_settings_errors()}
   def update_user_access_logging_settings(
         %Client{} = client,
         user_access_logging_settings_arn,
@@ -1333,6 +3767,10 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Updates the user settings.
   """
+  @spec update_user_settings(map(), String.t(), update_user_settings_request(), list()) ::
+          {:ok, update_user_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_user_settings_errors()}
   def update_user_settings(%Client{} = client, user_settings_arn, input, options \\ []) do
     url_path = "/userSettings/#{AWS.Util.encode_multi_segment_uri(user_settings_arn)}"
     headers = []

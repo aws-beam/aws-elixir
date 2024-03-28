@@ -18,6 +18,283 @@ defmodule AWS.ApplicationCostProfiler do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type access_denied_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_report_definition_request() :: %{}
+
+  """
+  @type delete_report_definition_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_report_definition_result() :: %{
+        "reportId" => String.t()
+      }
+
+  """
+  @type delete_report_definition_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_report_definition_request() :: %{}
+
+  """
+  @type get_report_definition_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_report_definition_result() :: %{
+        "createdAt" => non_neg_integer(),
+        "destinationS3Location" => s3_location(),
+        "format" => list(any()),
+        "lastUpdated" => non_neg_integer(),
+        "reportDescription" => String.t(),
+        "reportFrequency" => list(any()),
+        "reportId" => String.t()
+      }
+
+  """
+  @type get_report_definition_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      import_application_usage_request() :: %{
+        required("sourceS3Location") => source_s3_location()
+      }
+
+  """
+  @type import_application_usage_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      import_application_usage_result() :: %{
+        "importId" => String.t()
+      }
+
+  """
+  @type import_application_usage_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type internal_server_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_report_definitions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_report_definitions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_report_definitions_result() :: %{
+        "nextToken" => String.t(),
+        "reportDefinitions" => list(report_definition()())
+      }
+
+  """
+  @type list_report_definitions_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_report_definition_request() :: %{
+        required("destinationS3Location") => s3_location(),
+        required("format") => list(any()),
+        required("reportDescription") => String.t(),
+        required("reportFrequency") => list(any()),
+        required("reportId") => String.t()
+      }
+
+  """
+  @type put_report_definition_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_report_definition_result() :: %{
+        "reportId" => String.t()
+      }
+
+  """
+  @type put_report_definition_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      report_definition() :: %{
+        "createdAt" => non_neg_integer(),
+        "destinationS3Location" => s3_location(),
+        "format" => list(any()),
+        "lastUpdatedAt" => non_neg_integer(),
+        "reportDescription" => String.t(),
+        "reportFrequency" => list(any()),
+        "reportId" => String.t()
+      }
+
+  """
+  @type report_definition() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_location() :: %{
+        "bucket" => String.t(),
+        "prefix" => String.t()
+      }
+
+  """
+  @type s3_location() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      source_s3_location() :: %{
+        "bucket" => String.t(),
+        "key" => String.t(),
+        "region" => list(any())
+      }
+
+  """
+  @type source_s3_location() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type throttling_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_report_definition_request() :: %{
+        required("destinationS3Location") => s3_location(),
+        required("format") => list(any()),
+        required("reportDescription") => String.t(),
+        required("reportFrequency") => list(any())
+      }
+
+  """
+  @type update_report_definition_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_report_definition_result() :: %{
+        "reportId" => String.t()
+      }
+
+  """
+  @type update_report_definition_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type validation_exception() :: %{String.t() => any()}
+
+  @type delete_report_definition_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type get_report_definition_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type import_application_usage_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_report_definitions_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type put_report_definition_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type update_report_definition_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
   def metadata do
     %{
       api_version: "2020-09-10",
@@ -39,6 +316,10 @@ defmodule AWS.ApplicationCostProfiler do
   This stops the report from being
   generated.
   """
+  @spec delete_report_definition(map(), String.t(), delete_report_definition_request(), list()) ::
+          {:ok, delete_report_definition_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_report_definition_errors()}
   def delete_report_definition(%Client{} = client, report_id, input, options \\ []) do
     url_path = "/reportDefinition/#{AWS.Util.encode_uri(report_id)}"
     headers = []
@@ -63,6 +344,10 @@ defmodule AWS.ApplicationCostProfiler do
   Retrieves the definition of a report already configured in AWS Application Cost
   Profiler.
   """
+  @spec get_report_definition(map(), String.t(), list()) ::
+          {:ok, get_report_definition_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_report_definition_errors()}
   def get_report_definition(%Client{} = client, report_id, options \\ []) do
     url_path = "/reportDefinition/#{AWS.Util.encode_uri(report_id)}"
     headers = []
@@ -82,6 +367,10 @@ defmodule AWS.ApplicationCostProfiler do
   processing
   asynchronously.
   """
+  @spec import_application_usage(map(), import_application_usage_request(), list()) ::
+          {:ok, import_application_usage_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, import_application_usage_errors()}
   def import_application_usage(%Client{} = client, input, options \\ []) do
     url_path = "/importApplicationUsage"
     headers = []
@@ -107,6 +396,10 @@ defmodule AWS.ApplicationCostProfiler do
 
   The maximum number of reports is one.
   """
+  @spec list_report_definitions(map(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_report_definitions_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_report_definitions_errors()}
   def list_report_definitions(
         %Client{} = client,
         max_results \\ nil,
@@ -139,6 +432,10 @@ defmodule AWS.ApplicationCostProfiler do
   @doc """
   Creates the report definition for a report in Application Cost Profiler.
   """
+  @spec put_report_definition(map(), put_report_definition_request(), list()) ::
+          {:ok, put_report_definition_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, put_report_definition_errors()}
   def put_report_definition(%Client{} = client, input, options \\ []) do
     url_path = "/reportDefinition"
     headers = []
@@ -162,6 +459,10 @@ defmodule AWS.ApplicationCostProfiler do
   @doc """
   Updates existing report in AWS Application Cost Profiler.
   """
+  @spec update_report_definition(map(), String.t(), update_report_definition_request(), list()) ::
+          {:ok, update_report_definition_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_report_definition_errors()}
   def update_report_definition(%Client{} = client, report_id, input, options \\ []) do
     url_path = "/reportDefinition/#{AWS.Util.encode_uri(report_id)}"
     headers = []

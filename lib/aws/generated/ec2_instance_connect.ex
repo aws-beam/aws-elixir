@@ -24,6 +24,212 @@ defmodule AWS.EC2InstanceConnect do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+      
+      auth_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type auth_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ec2_instance_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type ec2_instance_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ec2_instance_state_invalid_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type ec2_instance_state_invalid_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ec2_instance_type_invalid_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type ec2_instance_type_invalid_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ec2_instance_unavailable_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type ec2_instance_unavailable_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_args_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type invalid_args_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      send_serial_console_ssh_public_key_request() :: %{
+        optional("SerialPort") => integer(),
+        required("InstanceId") => String.t(),
+        required("SSHPublicKey") => String.t()
+      }
+      
+  """
+  @type send_serial_console_ssh_public_key_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      send_serial_console_ssh_public_key_response() :: %{
+        "RequestId" => String.t(),
+        "Success" => boolean()
+      }
+      
+  """
+  @type send_serial_console_ssh_public_key_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      send_ssh_public_key_request() :: %{
+        optional("AvailabilityZone") => String.t(),
+        required("InstanceId") => String.t(),
+        required("InstanceOSUser") => String.t(),
+        required("SSHPublicKey") => String.t()
+      }
+      
+  """
+  @type send_ssh_public_key_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      send_ssh_public_key_response() :: %{
+        "RequestId" => String.t(),
+        "Success" => boolean()
+      }
+      
+  """
+  @type send_ssh_public_key_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      serial_console_access_disabled_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type serial_console_access_disabled_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      serial_console_session_limit_exceeded_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type serial_console_session_limit_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      serial_console_session_unavailable_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type serial_console_session_unavailable_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      serial_console_session_unsupported_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type serial_console_session_unsupported_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type service_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      throttling_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type throttling_exception() :: %{String.t() => any()}
+
+  @type send_serial_console_ssh_public_key_errors() ::
+          throttling_exception()
+          | service_exception()
+          | serial_console_session_unsupported_exception()
+          | serial_console_session_unavailable_exception()
+          | serial_console_session_limit_exceeded_exception()
+          | serial_console_access_disabled_exception()
+          | invalid_args_exception()
+          | ec2_instance_unavailable_exception()
+          | ec2_instance_type_invalid_exception()
+          | ec2_instance_state_invalid_exception()
+          | ec2_instance_not_found_exception()
+          | auth_exception()
+
+  @type send_ssh_public_key_errors() ::
+          throttling_exception()
+          | service_exception()
+          | invalid_args_exception()
+          | ec2_instance_unavailable_exception()
+          | ec2_instance_state_invalid_exception()
+          | ec2_instance_not_found_exception()
+          | auth_exception()
+
   def metadata do
     %{
       api_version: "2018-04-02",
@@ -49,6 +255,14 @@ defmodule AWS.EC2InstanceConnect do
   in
   the *Amazon EC2 User Guide*.
   """
+  @spec send_serial_console_ssh_public_key(
+          map(),
+          send_serial_console_ssh_public_key_request(),
+          list()
+        ) ::
+          {:ok, send_serial_console_ssh_public_key_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, send_serial_console_ssh_public_key_errors()}
   def send_serial_console_ssh_public_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -64,6 +278,10 @@ defmodule AWS.EC2InstanceConnect do
   in the *Amazon EC2
   User Guide*.
   """
+  @spec send_ssh_public_key(map(), send_ssh_public_key_request(), list()) ::
+          {:ok, send_ssh_public_key_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, send_ssh_public_key_errors()}
   def send_ssh_public_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
 

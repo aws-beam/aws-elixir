@@ -105,6 +105,2062 @@ defmodule AWS.NetworkFirewall do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+      
+      update_firewall_description_request() :: %{
+        optional("Description") => String.t(),
+        optional("FirewallArn") => String.t(),
+        optional("FirewallName") => String.t(),
+        optional("UpdateToken") => String.t()
+      }
+      
+  """
+  @type update_firewall_description_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_t_l_s_inspection_configurations_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
+  """
+  @type list_t_l_s_inspection_configurations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      server_certificate_configuration() :: %{
+        "CertificateAuthorityArn" => String.t(),
+        "CheckCertificateRevocationStatus" => check_certificate_revocation_status_actions(),
+        "Scopes" => list(server_certificate_scope()()),
+        "ServerCertificates" => list(server_certificate()())
+      }
+      
+  """
+  @type server_certificate_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      t_c_p_flag_field() :: %{
+        "Flags" => list(list(any())()),
+        "Masks" => list(list(any())())
+      }
+      
+  """
+  @type t_c_p_flag_field() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      analysis_result() :: %{
+        "AnalysisDetail" => String.t(),
+        "IdentifiedRuleIds" => list(String.t()()),
+        "IdentifiedType" => list(any())
+      }
+      
+  """
+  @type analysis_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      encryption_configuration() :: %{
+        "KeyId" => String.t(),
+        "Type" => list(any())
+      }
+      
+  """
+  @type encryption_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rules_source() :: %{
+        "RulesSourceList" => rules_source_list(),
+        "RulesString" => String.t(),
+        "StatefulRules" => list(stateful_rule()()),
+        "StatelessRulesAndCustomActions" => stateless_rules_and_custom_actions()
+      }
+      
+  """
+  @type rules_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_rule_group_response() :: %{
+        "RuleGroupResponse" => rule_group_response(),
+        "UpdateToken" => String.t()
+      }
+      
+  """
+  @type update_rule_group_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_request() :: %{
+        required("ResourceArn") => String.t(),
+        required("Tags") => list(tag()())
+      }
+      
+  """
+  @type tag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_resource_policy_response() :: %{}
+      
+  """
+  @type delete_resource_policy_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      unsupported_operation_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type unsupported_operation_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stateful_rule_group_override() :: %{
+        "Action" => list(any())
+      }
+      
+  """
+  @type stateful_rule_group_override() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rule_group_metadata() :: %{
+        "Arn" => String.t(),
+        "Name" => String.t()
+      }
+      
+  """
+  @type rule_group_metadata() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_rule_groups_response() :: %{
+        "NextToken" => String.t(),
+        "RuleGroups" => list(rule_group_metadata()())
+      }
+      
+  """
+  @type list_rule_groups_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_subnets_response() :: %{
+        "FirewallArn" => String.t(),
+        "FirewallName" => String.t(),
+        "SubnetMappings" => list(subnet_mapping()()),
+        "UpdateToken" => String.t()
+      }
+      
+  """
+  @type associate_subnets_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_firewall_policy_change_protection_request() :: %{
+        optional("FirewallArn") => String.t(),
+        optional("FirewallName") => String.t(),
+        optional("UpdateToken") => String.t(),
+        required("FirewallPolicyChangeProtection") => boolean()
+      }
+      
+  """
+  @type update_firewall_policy_change_protection_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stateful_engine_options() :: %{
+        "RuleOrder" => list(any()),
+        "StreamExceptionPolicy" => list(any())
+      }
+      
+  """
+  @type stateful_engine_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_response() :: %{}
+      
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      rule_definition() :: %{
+        "Actions" => list(String.t()()),
+        "MatchAttributes" => match_attributes()
+      }
+      
+  """
+  @type rule_definition() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_owner_check_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type resource_owner_check_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      t_l_s_inspection_configuration_metadata() :: %{
+        "Arn" => String.t(),
+        "Name" => String.t()
+      }
+      
+  """
+  @type t_l_s_inspection_configuration_metadata() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_t_l_s_inspection_configuration_request() :: %{
+        optional("TLSInspectionConfigurationArn") => String.t(),
+        optional("TLSInspectionConfigurationName") => String.t()
+      }
+      
+  """
+  @type describe_t_l_s_inspection_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_rule_group_metadata_request() :: %{
+        optional("RuleGroupArn") => String.t(),
+        optional("RuleGroupName") => String.t(),
+        optional("Type") => list(any())
+      }
+      
+  """
+  @type describe_rule_group_metadata_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_rule_group_request() :: %{
+        optional("AnalyzeRuleGroup") => boolean(),
+        optional("RuleGroupArn") => String.t(),
+        optional("RuleGroupName") => String.t(),
+        optional("Type") => list(any())
+      }
+      
+  """
+  @type describe_rule_group_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rule_group() :: %{
+        "ReferenceSets" => reference_sets(),
+        "RuleVariables" => rule_variables(),
+        "RulesSource" => rules_source(),
+        "StatefulRuleOptions" => stateful_rule_options()
+      }
+      
+  """
+  @type rule_group() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_operation_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type invalid_operation_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      attachment() :: %{
+        "EndpointId" => String.t(),
+        "Status" => list(any()),
+        "StatusMessage" => String.t(),
+        "SubnetId" => String.t()
+      }
+      
+  """
+  @type attachment() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      t_l_s_inspection_configuration() :: %{
+        "ServerCertificateConfigurations" => list(server_certificate_configuration()())
+      }
+      
+  """
+  @type t_l_s_inspection_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_logging_configuration_request() :: %{
+        optional("FirewallArn") => String.t(),
+        optional("FirewallName") => String.t(),
+        optional("LoggingConfiguration") => logging_configuration()
+      }
+      
+  """
+  @type update_logging_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      subnet_mapping() :: %{
+        "IPAddressType" => list(any()),
+        "SubnetId" => String.t()
+      }
+      
+  """
+  @type subnet_mapping() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_firewall_encryption_configuration_response() :: %{
+        "EncryptionConfiguration" => encryption_configuration(),
+        "FirewallArn" => String.t(),
+        "FirewallName" => String.t(),
+        "UpdateToken" => String.t()
+      }
+      
+  """
+  @type update_firewall_encryption_configuration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      publish_metric_action() :: %{
+        "Dimensions" => list(dimension()())
+      }
+      
+  """
+  @type publish_metric_action() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_request() :: %{
+        required("ResourceArn") => String.t(),
+        required("TagKeys") => list(String.t()())
+      }
+      
+  """
+  @type untag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      header() :: %{
+        "Destination" => String.t(),
+        "DestinationPort" => String.t(),
+        "Direction" => list(any()),
+        "Protocol" => list(any()),
+        "Source" => String.t(),
+        "SourcePort" => String.t()
+      }
+      
+  """
+  @type header() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_firewall_policy_request() :: %{
+        optional("Description") => String.t(),
+        optional("DryRun") => boolean(),
+        optional("EncryptionConfiguration") => encryption_configuration(),
+        optional("Tags") => list(tag()()),
+        required("FirewallPolicy") => firewall_policy(),
+        required("FirewallPolicyName") => String.t()
+      }
+      
+  """
+  @type create_firewall_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_firewall_policy_request() :: %{
+        optional("FirewallArn") => String.t(),
+        optional("FirewallName") => String.t(),
+        optional("UpdateToken") => String.t(),
+        required("FirewallPolicyArn") => String.t()
+      }
+      
+  """
+  @type associate_firewall_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      logging_configuration() :: %{
+        "LogDestinationConfigs" => list(log_destination_config()())
+      }
+      
+  """
+  @type logging_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tls_certificate_data() :: %{
+        "CertificateArn" => String.t(),
+        "CertificateSerial" => String.t(),
+        "Status" => String.t(),
+        "StatusMessage" => String.t()
+      }
+      
+  """
+  @type tls_certificate_data() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      firewall_policy() :: %{
+        "PolicyVariables" => policy_variables(),
+        "StatefulDefaultActions" => list(String.t()()),
+        "StatefulEngineOptions" => stateful_engine_options(),
+        "StatefulRuleGroupReferences" => list(stateful_rule_group_reference()()),
+        "StatelessCustomActions" => list(custom_action()()),
+        "StatelessDefaultActions" => list(String.t()()),
+        "StatelessFragmentDefaultActions" => list(String.t()()),
+        "StatelessRuleGroupReferences" => list(stateless_rule_group_reference()()),
+        "TLSInspectionConfigurationArn" => String.t()
+      }
+      
+  """
+  @type firewall_policy() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_firewall_policy_request() :: %{
+        optional("Description") => String.t(),
+        optional("DryRun") => boolean(),
+        optional("EncryptionConfiguration") => encryption_configuration(),
+        optional("FirewallPolicyArn") => String.t(),
+        optional("FirewallPolicyName") => String.t(),
+        required("FirewallPolicy") => firewall_policy(),
+        required("UpdateToken") => String.t()
+      }
+      
+  """
+  @type update_firewall_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_rule_group_response() :: %{
+        "RuleGroupResponse" => rule_group_response(),
+        "UpdateToken" => String.t()
+      }
+      
+  """
+  @type create_rule_group_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_rule_group_request() :: %{
+        optional("AnalyzeRuleGroup") => boolean(),
+        optional("Description") => String.t(),
+        optional("DryRun") => boolean(),
+        optional("EncryptionConfiguration") => encryption_configuration(),
+        optional("RuleGroup") => rule_group(),
+        optional("Rules") => String.t(),
+        optional("SourceMetadata") => source_metadata(),
+        optional("Tags") => list(tag()()),
+        required("Capacity") => integer(),
+        required("RuleGroupName") => String.t(),
+        required("Type") => list(any())
+      }
+      
+  """
+  @type create_rule_group_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ip_set_metadata() :: %{
+        "ResolvedCIDRCount" => integer()
+      }
+      
+  """
+  @type ip_set_metadata() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      insufficient_capacity_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type insufficient_capacity_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      firewall_status() :: %{
+        "CapacityUsageSummary" => capacity_usage_summary(),
+        "ConfigurationSyncStateSummary" => list(any()),
+        "Status" => list(any()),
+        "SyncStates" => map()
+      }
+      
+  """
+  @type firewall_status() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_firewall_response() :: %{
+        "Firewall" => firewall(),
+        "FirewallStatus" => firewall_status()
+      }
+      
+  """
+  @type delete_firewall_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_firewall_policy_response() :: %{
+        "FirewallPolicyResponse" => firewall_policy_response()
+      }
+      
+  """
+  @type delete_firewall_policy_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_firewall_policy_response() :: %{
+        "FirewallPolicyResponse" => firewall_policy_response(),
+        "UpdateToken" => String.t()
+      }
+      
+  """
+  @type create_firewall_policy_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag() :: %{
+        "Key" => String.t(),
+        "Value" => String.t()
+      }
+      
+  """
+  @type tag() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      server_certificate_scope() :: %{
+        "DestinationPorts" => list(port_range()()),
+        "Destinations" => list(address()()),
+        "Protocols" => list(integer()()),
+        "SourcePorts" => list(port_range()()),
+        "Sources" => list(address()())
+      }
+      
+  """
+  @type server_certificate_scope() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_request_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type invalid_request_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_logging_configuration_request() :: %{
+        optional("FirewallArn") => String.t(),
+        optional("FirewallName") => String.t()
+      }
+      
+  """
+  @type describe_logging_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_subnets_response() :: %{
+        "FirewallArn" => String.t(),
+        "FirewallName" => String.t(),
+        "SubnetMappings" => list(subnet_mapping()()),
+        "UpdateToken" => String.t()
+      }
+      
+  """
+  @type disassociate_subnets_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      sync_state() :: %{
+        "Attachment" => attachment(),
+        "Config" => map()
+      }
+      
+  """
+  @type sync_state() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_firewall_response() :: %{
+        "Firewall" => firewall(),
+        "FirewallStatus" => firewall_status()
+      }
+      
+  """
+  @type create_firewall_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      per_object_status() :: %{
+        "SyncStatus" => list(any()),
+        "UpdateToken" => String.t()
+      }
+      
+  """
+  @type per_object_status() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_firewall_request() :: %{
+        optional("FirewallArn") => String.t(),
+        optional("FirewallName") => String.t()
+      }
+      
+  """
+  @type describe_firewall_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_t_l_s_inspection_configuration_request() :: %{
+        optional("TLSInspectionConfigurationArn") => String.t(),
+        optional("TLSInspectionConfigurationName") => String.t()
+      }
+      
+  """
+  @type delete_t_l_s_inspection_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rule_group_response() :: %{
+        "AnalysisResults" => list(analysis_result()()),
+        "Capacity" => integer(),
+        "ConsumedCapacity" => integer(),
+        "Description" => String.t(),
+        "EncryptionConfiguration" => encryption_configuration(),
+        "LastModifiedTime" => non_neg_integer(),
+        "NumberOfAssociations" => integer(),
+        "RuleGroupArn" => String.t(),
+        "RuleGroupId" => String.t(),
+        "RuleGroupName" => String.t(),
+        "RuleGroupStatus" => list(any()),
+        "SnsTopic" => String.t(),
+        "SourceMetadata" => source_metadata(),
+        "Tags" => list(tag()()),
+        "Type" => list(any())
+      }
+      
+  """
+  @type rule_group_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ip_set() :: %{
+        "Definition" => list(String.t()())
+      }
+      
+  """
+  @type ip_set() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stateful_rule() :: %{
+        "Action" => list(any()),
+        "Header" => header(),
+        "RuleOptions" => list(rule_option()())
+      }
+      
+  """
+  @type stateful_rule() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stateful_rule_group_reference() :: %{
+        "Override" => stateful_rule_group_override(),
+        "Priority" => integer(),
+        "ResourceArn" => String.t()
+      }
+      
+  """
+  @type stateful_rule_group_reference() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_response() :: %{
+        "NextToken" => String.t(),
+        "Tags" => list(tag()())
+      }
+      
+  """
+  @type list_tags_for_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_firewalls_response() :: %{
+        "Firewalls" => list(firewall_metadata()()),
+        "NextToken" => String.t()
+      }
+      
+  """
+  @type list_firewalls_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_t_l_s_inspection_configuration_request() :: %{
+        optional("Description") => String.t(),
+        optional("EncryptionConfiguration") => encryption_configuration(),
+        optional("Tags") => list(tag()()),
+        required("TLSInspectionConfiguration") => t_l_s_inspection_configuration(),
+        required("TLSInspectionConfigurationName") => String.t()
+      }
+      
+  """
+  @type create_t_l_s_inspection_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      firewall_policy_response() :: %{
+        "ConsumedStatefulRuleCapacity" => integer(),
+        "ConsumedStatelessRuleCapacity" => integer(),
+        "Description" => String.t(),
+        "EncryptionConfiguration" => encryption_configuration(),
+        "FirewallPolicyArn" => String.t(),
+        "FirewallPolicyId" => String.t(),
+        "FirewallPolicyName" => String.t(),
+        "FirewallPolicyStatus" => list(any()),
+        "LastModifiedTime" => non_neg_integer(),
+        "NumberOfAssociations" => integer(),
+        "Tags" => list(tag()())
+      }
+      
+  """
+  @type firewall_policy_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_firewall_policy_change_protection_response() :: %{
+        "FirewallArn" => String.t(),
+        "FirewallName" => String.t(),
+        "FirewallPolicyChangeProtection" => boolean(),
+        "UpdateToken" => String.t()
+      }
+      
+  """
+  @type update_firewall_policy_change_protection_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reference_sets() :: %{
+        "IPSetReferences" => map()
+      }
+      
+  """
+  @type reference_sets() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_subnet_change_protection_request() :: %{
+        optional("FirewallArn") => String.t(),
+        optional("FirewallName") => String.t(),
+        optional("UpdateToken") => String.t(),
+        required("SubnetChangeProtection") => boolean()
+      }
+      
+  """
+  @type update_subnet_change_protection_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      firewall() :: %{
+        "DeleteProtection" => boolean(),
+        "Description" => String.t(),
+        "EncryptionConfiguration" => encryption_configuration(),
+        "FirewallArn" => String.t(),
+        "FirewallId" => String.t(),
+        "FirewallName" => String.t(),
+        "FirewallPolicyArn" => String.t(),
+        "FirewallPolicyChangeProtection" => boolean(),
+        "SubnetChangeProtection" => boolean(),
+        "SubnetMappings" => list(subnet_mapping()()),
+        "Tags" => list(tag()()),
+        "VpcId" => String.t()
+      }
+      
+  """
+  @type firewall() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      policy_variables() :: %{
+        "RuleVariables" => map()
+      }
+      
+  """
+  @type policy_variables() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_firewall_request() :: %{
+        optional("DeleteProtection") => boolean(),
+        optional("Description") => String.t(),
+        optional("EncryptionConfiguration") => encryption_configuration(),
+        optional("FirewallPolicyChangeProtection") => boolean(),
+        optional("SubnetChangeProtection") => boolean(),
+        optional("Tags") => list(tag()()),
+        required("FirewallName") => String.t(),
+        required("FirewallPolicyArn") => String.t(),
+        required("SubnetMappings") => list(subnet_mapping()()),
+        required("VpcId") => String.t()
+      }
+      
+  """
+  @type create_firewall_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_firewall_request() :: %{
+        optional("FirewallArn") => String.t(),
+        optional("FirewallName") => String.t()
+      }
+      
+  """
+  @type delete_firewall_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_t_l_s_inspection_configurations_response() :: %{
+        "NextToken" => String.t(),
+        "TLSInspectionConfigurations" => list(t_l_s_inspection_configuration_metadata()())
+      }
+      
+  """
+  @type list_t_l_s_inspection_configurations_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      t_l_s_inspection_configuration_response() :: %{
+        "CertificateAuthority" => tls_certificate_data(),
+        "Certificates" => list(tls_certificate_data()()),
+        "Description" => String.t(),
+        "EncryptionConfiguration" => encryption_configuration(),
+        "LastModifiedTime" => non_neg_integer(),
+        "NumberOfAssociations" => integer(),
+        "TLSInspectionConfigurationArn" => String.t(),
+        "TLSInspectionConfigurationId" => String.t(),
+        "TLSInspectionConfigurationName" => String.t(),
+        "TLSInspectionConfigurationStatus" => list(any()),
+        "Tags" => list(tag()())
+      }
+      
+  """
+  @type t_l_s_inspection_configuration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_t_l_s_inspection_configuration_response() :: %{
+        "TLSInspectionConfiguration" => t_l_s_inspection_configuration(),
+        "TLSInspectionConfigurationResponse" => t_l_s_inspection_configuration_response(),
+        "UpdateToken" => String.t()
+      }
+      
+  """
+  @type describe_t_l_s_inspection_configuration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      custom_action() :: %{
+        "ActionDefinition" => action_definition(),
+        "ActionName" => String.t()
+      }
+      
+  """
+  @type custom_action() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      port_range() :: %{
+        "FromPort" => integer(),
+        "ToPort" => integer()
+      }
+      
+  """
+  @type port_range() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rules_source_list() :: %{
+        "GeneratedRulesType" => list(any()),
+        "TargetTypes" => list(list(any())()),
+        "Targets" => list(String.t()())
+      }
+      
+  """
+  @type rules_source_list() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_resource_policy_request() :: %{
+        required("Policy") => String.t(),
+        required("ResourceArn") => String.t()
+      }
+      
+  """
+  @type put_resource_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_firewall_policies_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
+  """
+  @type list_firewall_policies_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_firewall_policies_response() :: %{
+        "FirewallPolicies" => list(firewall_policy_metadata()()),
+        "NextToken" => String.t()
+      }
+      
+  """
+  @type list_firewall_policies_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_firewall_delete_protection_response() :: %{
+        "DeleteProtection" => boolean(),
+        "FirewallArn" => String.t(),
+        "FirewallName" => String.t(),
+        "UpdateToken" => String.t()
+      }
+      
+  """
+  @type update_firewall_delete_protection_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      port_set() :: %{
+        "Definition" => list(String.t()())
+      }
+      
+  """
+  @type port_set() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      internal_server_error() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type internal_server_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      capacity_usage_summary() :: %{
+        "CIDRs" => c_id_r_summary()
+      }
+      
+  """
+  @type capacity_usage_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_firewall_encryption_configuration_request() :: %{
+        optional("EncryptionConfiguration") => encryption_configuration(),
+        optional("FirewallArn") => String.t(),
+        optional("FirewallName") => String.t(),
+        optional("UpdateToken") => String.t()
+      }
+      
+  """
+  @type update_firewall_encryption_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_t_l_s_inspection_configuration_response() :: %{
+        "TLSInspectionConfigurationResponse" => t_l_s_inspection_configuration_response()
+      }
+      
+  """
+  @type delete_t_l_s_inspection_configuration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_rule_group_request() :: %{
+        optional("AnalyzeRuleGroup") => boolean(),
+        optional("Description") => String.t(),
+        optional("DryRun") => boolean(),
+        optional("EncryptionConfiguration") => encryption_configuration(),
+        optional("RuleGroup") => rule_group(),
+        optional("RuleGroupArn") => String.t(),
+        optional("RuleGroupName") => String.t(),
+        optional("Rules") => String.t(),
+        optional("SourceMetadata") => source_metadata(),
+        optional("Type") => list(any()),
+        required("UpdateToken") => String.t()
+      }
+      
+  """
+  @type update_rule_group_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_rule_group_response() :: %{
+        "RuleGroupResponse" => rule_group_response()
+      }
+      
+  """
+  @type delete_rule_group_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_t_l_s_inspection_configuration_response() :: %{
+        "TLSInspectionConfigurationResponse" => t_l_s_inspection_configuration_response(),
+        "UpdateToken" => String.t()
+      }
+      
+  """
+  @type create_t_l_s_inspection_configuration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_response() :: %{}
+      
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      firewall_policy_metadata() :: %{
+        "Arn" => String.t(),
+        "Name" => String.t()
+      }
+      
+  """
+  @type firewall_policy_metadata() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stateful_rule_options() :: %{
+        "RuleOrder" => list(any())
+      }
+      
+  """
+  @type stateful_rule_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_firewalls_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("VpcIds") => list(String.t()())
+      }
+      
+  """
+  @type list_firewalls_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_firewall_policy_response() :: %{
+        "FirewallArn" => String.t(),
+        "FirewallName" => String.t(),
+        "FirewallPolicyArn" => String.t(),
+        "UpdateToken" => String.t()
+      }
+      
+  """
+  @type associate_firewall_policy_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      log_destination_config() :: %{
+        "LogDestination" => map(),
+        "LogDestinationType" => list(any()),
+        "LogType" => list(any())
+      }
+      
+  """
+  @type log_destination_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_resource_policy_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type invalid_resource_policy_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_firewall_response() :: %{
+        "Firewall" => firewall(),
+        "FirewallStatus" => firewall_status(),
+        "UpdateToken" => String.t()
+      }
+      
+  """
+  @type describe_firewall_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("ResourceArn") => String.t()
+      }
+      
+  """
+  @type list_tags_for_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_t_l_s_inspection_configuration_response() :: %{
+        "TLSInspectionConfigurationResponse" => t_l_s_inspection_configuration_response(),
+        "UpdateToken" => String.t()
+      }
+      
+  """
+  @type update_t_l_s_inspection_configuration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rule_variables() :: %{
+        "IPSets" => map(),
+        "PortSets" => map()
+      }
+      
+  """
+  @type rule_variables() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      throttling_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type throttling_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_logging_configuration_response() :: %{
+        "FirewallArn" => String.t(),
+        "LoggingConfiguration" => logging_configuration()
+      }
+      
+  """
+  @type describe_logging_configuration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_resource_policy_response() :: %{
+        "Policy" => String.t()
+      }
+      
+  """
+  @type describe_resource_policy_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_subnets_request() :: %{
+        optional("FirewallArn") => String.t(),
+        optional("FirewallName") => String.t(),
+        optional("UpdateToken") => String.t(),
+        required("SubnetIds") => list(String.t()())
+      }
+      
+  """
+  @type disassociate_subnets_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      log_destination_permission_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type log_destination_permission_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_firewall_policy_request() :: %{
+        optional("FirewallPolicyArn") => String.t(),
+        optional("FirewallPolicyName") => String.t()
+      }
+      
+  """
+  @type delete_firewall_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_resource_policy_response() :: %{}
+      
+  """
+  @type put_resource_policy_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      limit_exceeded_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type limit_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      dimension() :: %{
+        "Value" => String.t()
+      }
+      
+  """
+  @type dimension() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_resource_policy_request() :: %{
+        required("ResourceArn") => String.t()
+      }
+      
+  """
+  @type delete_resource_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_t_l_s_inspection_configuration_request() :: %{
+        optional("Description") => String.t(),
+        optional("EncryptionConfiguration") => encryption_configuration(),
+        optional("TLSInspectionConfigurationArn") => String.t(),
+        optional("TLSInspectionConfigurationName") => String.t(),
+        required("TLSInspectionConfiguration") => t_l_s_inspection_configuration(),
+        required("UpdateToken") => String.t()
+      }
+      
+  """
+  @type update_t_l_s_inspection_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_firewall_delete_protection_request() :: %{
+        optional("FirewallArn") => String.t(),
+        optional("FirewallName") => String.t(),
+        optional("UpdateToken") => String.t(),
+        required("DeleteProtection") => boolean()
+      }
+      
+  """
+  @type update_firewall_delete_protection_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      source_metadata() :: %{
+        "SourceArn" => String.t(),
+        "SourceUpdateToken" => String.t()
+      }
+      
+  """
+  @type source_metadata() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_firewall_policy_response() :: %{
+        "FirewallPolicyResponse" => firewall_policy_response(),
+        "UpdateToken" => String.t()
+      }
+      
+  """
+  @type update_firewall_policy_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_firewall_description_response() :: %{
+        "Description" => String.t(),
+        "FirewallArn" => String.t(),
+        "FirewallName" => String.t(),
+        "UpdateToken" => String.t()
+      }
+      
+  """
+  @type update_firewall_description_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      match_attributes() :: %{
+        "DestinationPorts" => list(port_range()()),
+        "Destinations" => list(address()()),
+        "Protocols" => list(integer()()),
+        "SourcePorts" => list(port_range()()),
+        "Sources" => list(address()()),
+        "TCPFlags" => list(t_c_p_flag_field()())
+      }
+      
+  """
+  @type match_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_rule_group_metadata_response() :: %{
+        "Capacity" => integer(),
+        "Description" => String.t(),
+        "LastModifiedTime" => non_neg_integer(),
+        "RuleGroupArn" => String.t(),
+        "RuleGroupName" => String.t(),
+        "StatefulRuleOptions" => stateful_rule_options(),
+        "Type" => list(any())
+      }
+      
+  """
+  @type describe_rule_group_metadata_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_subnets_request() :: %{
+        optional("FirewallArn") => String.t(),
+        optional("FirewallName") => String.t(),
+        optional("UpdateToken") => String.t(),
+        required("SubnetMappings") => list(subnet_mapping()())
+      }
+      
+  """
+  @type associate_subnets_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      address() :: %{
+        "AddressDefinition" => String.t()
+      }
+      
+  """
+  @type address() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_logging_configuration_response() :: %{
+        "FirewallArn" => String.t(),
+        "FirewallName" => String.t(),
+        "LoggingConfiguration" => logging_configuration()
+      }
+      
+  """
+  @type update_logging_configuration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_rule_group_response() :: %{
+        "RuleGroup" => rule_group(),
+        "RuleGroupResponse" => rule_group_response(),
+        "UpdateToken" => String.t()
+      }
+      
+  """
+  @type describe_rule_group_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stateless_rule() :: %{
+        "Priority" => integer(),
+        "RuleDefinition" => rule_definition()
+      }
+      
+  """
+  @type stateless_rule() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_token_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type invalid_token_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_rule_group_request() :: %{
+        optional("RuleGroupArn") => String.t(),
+        optional("RuleGroupName") => String.t(),
+        optional("Type") => list(any())
+      }
+      
+  """
+  @type delete_rule_group_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stateless_rule_group_reference() :: %{
+        "Priority" => integer(),
+        "ResourceArn" => String.t()
+      }
+      
+  """
+  @type stateless_rule_group_reference() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      firewall_metadata() :: %{
+        "FirewallArn" => String.t(),
+        "FirewallName" => String.t()
+      }
+      
+  """
+  @type firewall_metadata() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      c_id_r_summary() :: %{
+        "AvailableCIDRCount" => integer(),
+        "IPSetReferences" => map(),
+        "UtilizedCIDRCount" => integer()
+      }
+      
+  """
+  @type c_id_r_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_subnet_change_protection_response() :: %{
+        "FirewallArn" => String.t(),
+        "FirewallName" => String.t(),
+        "SubnetChangeProtection" => boolean(),
+        "UpdateToken" => String.t()
+      }
+      
+  """
+  @type update_subnet_change_protection_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stateless_rules_and_custom_actions() :: %{
+        "CustomActions" => list(custom_action()()),
+        "StatelessRules" => list(stateless_rule()())
+      }
+      
+  """
+  @type stateless_rules_and_custom_actions() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rule_option() :: %{
+        "Keyword" => String.t(),
+        "Settings" => list(String.t()())
+      }
+      
+  """
+  @type rule_option() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      check_certificate_revocation_status_actions() :: %{
+        "RevokedStatusAction" => list(any()),
+        "UnknownStatusAction" => list(any())
+      }
+      
+  """
+  @type check_certificate_revocation_status_actions() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ip_set_reference() :: %{
+        "ReferenceArn" => String.t()
+      }
+      
+  """
+  @type ip_set_reference() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_rule_groups_request() :: %{
+        optional("ManagedType") => list(any()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("Scope") => list(any()),
+        optional("Type") => list(any())
+      }
+      
+  """
+  @type list_rule_groups_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      action_definition() :: %{
+        "PublishMetricAction" => publish_metric_action()
+      }
+      
+  """
+  @type action_definition() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_firewall_policy_request() :: %{
+        optional("FirewallPolicyArn") => String.t(),
+        optional("FirewallPolicyName") => String.t()
+      }
+      
+  """
+  @type describe_firewall_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      server_certificate() :: %{
+        "ResourceArn" => String.t()
+      }
+      
+  """
+  @type server_certificate() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_resource_policy_request() :: %{
+        required("ResourceArn") => String.t()
+      }
+      
+  """
+  @type describe_resource_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_firewall_policy_response() :: %{
+        "FirewallPolicy" => firewall_policy(),
+        "FirewallPolicyResponse" => firewall_policy_response(),
+        "UpdateToken" => String.t()
+      }
+      
+  """
+  @type describe_firewall_policy_response() :: %{String.t() => any()}
+
+  @type associate_firewall_policy_errors() ::
+          invalid_token_exception()
+          | throttling_exception()
+          | internal_server_error()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | invalid_operation_exception()
+
+  @type associate_subnets_errors() ::
+          invalid_token_exception()
+          | throttling_exception()
+          | internal_server_error()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | insufficient_capacity_exception()
+          | invalid_operation_exception()
+
+  @type create_firewall_errors() ::
+          limit_exceeded_exception()
+          | throttling_exception()
+          | internal_server_error()
+          | invalid_request_exception()
+          | insufficient_capacity_exception()
+          | invalid_operation_exception()
+
+  @type create_firewall_policy_errors() ::
+          limit_exceeded_exception()
+          | throttling_exception()
+          | internal_server_error()
+          | invalid_request_exception()
+          | insufficient_capacity_exception()
+
+  @type create_rule_group_errors() ::
+          limit_exceeded_exception()
+          | throttling_exception()
+          | internal_server_error()
+          | invalid_request_exception()
+          | insufficient_capacity_exception()
+
+  @type create_t_l_s_inspection_configuration_errors() ::
+          limit_exceeded_exception()
+          | throttling_exception()
+          | internal_server_error()
+          | invalid_request_exception()
+          | insufficient_capacity_exception()
+
+  @type delete_firewall_errors() ::
+          throttling_exception()
+          | internal_server_error()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | invalid_operation_exception()
+          | unsupported_operation_exception()
+
+  @type delete_firewall_policy_errors() ::
+          throttling_exception()
+          | internal_server_error()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | invalid_operation_exception()
+          | unsupported_operation_exception()
+
+  @type delete_resource_policy_errors() ::
+          throttling_exception()
+          | invalid_resource_policy_exception()
+          | internal_server_error()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+
+  @type delete_rule_group_errors() ::
+          throttling_exception()
+          | internal_server_error()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | invalid_operation_exception()
+          | unsupported_operation_exception()
+
+  @type delete_t_l_s_inspection_configuration_errors() ::
+          throttling_exception()
+          | internal_server_error()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | invalid_operation_exception()
+
+  @type describe_firewall_errors() ::
+          throttling_exception()
+          | internal_server_error()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+
+  @type describe_firewall_policy_errors() ::
+          throttling_exception()
+          | internal_server_error()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+
+  @type describe_logging_configuration_errors() ::
+          throttling_exception()
+          | internal_server_error()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+
+  @type describe_resource_policy_errors() ::
+          throttling_exception()
+          | internal_server_error()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+
+  @type describe_rule_group_errors() ::
+          throttling_exception()
+          | internal_server_error()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+
+  @type describe_rule_group_metadata_errors() ::
+          throttling_exception()
+          | internal_server_error()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+
+  @type describe_t_l_s_inspection_configuration_errors() ::
+          throttling_exception()
+          | internal_server_error()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+
+  @type disassociate_subnets_errors() ::
+          invalid_token_exception()
+          | throttling_exception()
+          | internal_server_error()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | invalid_operation_exception()
+
+  @type list_firewall_policies_errors() ::
+          throttling_exception() | internal_server_error() | invalid_request_exception()
+
+  @type list_firewalls_errors() ::
+          throttling_exception() | internal_server_error() | invalid_request_exception()
+
+  @type list_rule_groups_errors() ::
+          throttling_exception() | internal_server_error() | invalid_request_exception()
+
+  @type list_t_l_s_inspection_configurations_errors() ::
+          throttling_exception() | internal_server_error() | invalid_request_exception()
+
+  @type list_tags_for_resource_errors() ::
+          throttling_exception()
+          | internal_server_error()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+
+  @type put_resource_policy_errors() ::
+          throttling_exception()
+          | invalid_resource_policy_exception()
+          | internal_server_error()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+
+  @type tag_resource_errors() ::
+          throttling_exception()
+          | internal_server_error()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+
+  @type untag_resource_errors() ::
+          throttling_exception()
+          | internal_server_error()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+
+  @type update_firewall_delete_protection_errors() ::
+          invalid_token_exception()
+          | throttling_exception()
+          | internal_server_error()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | resource_owner_check_exception()
+
+  @type update_firewall_description_errors() ::
+          invalid_token_exception()
+          | throttling_exception()
+          | internal_server_error()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+
+  @type update_firewall_encryption_configuration_errors() ::
+          invalid_token_exception()
+          | throttling_exception()
+          | internal_server_error()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | resource_owner_check_exception()
+
+  @type update_firewall_policy_errors() ::
+          invalid_token_exception()
+          | throttling_exception()
+          | internal_server_error()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+
+  @type update_firewall_policy_change_protection_errors() ::
+          invalid_token_exception()
+          | throttling_exception()
+          | internal_server_error()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | resource_owner_check_exception()
+
+  @type update_logging_configuration_errors() ::
+          invalid_token_exception()
+          | log_destination_permission_exception()
+          | throttling_exception()
+          | internal_server_error()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+
+  @type update_rule_group_errors() ::
+          invalid_token_exception()
+          | throttling_exception()
+          | internal_server_error()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+
+  @type update_subnet_change_protection_errors() ::
+          invalid_token_exception()
+          | throttling_exception()
+          | internal_server_error()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | resource_owner_check_exception()
+
+  @type update_t_l_s_inspection_configuration_errors() ::
+          invalid_token_exception()
+          | throttling_exception()
+          | internal_server_error()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+
   def metadata do
     %{
       api_version: "2020-11-12",
@@ -131,6 +2187,10 @@ defmodule AWS.NetworkFirewall do
   multiple
   firewalls.
   """
+  @spec associate_firewall_policy(map(), associate_firewall_policy_request(), list()) ::
+          {:ok, associate_firewall_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, associate_firewall_policy_errors()}
   def associate_firewall_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -151,6 +2211,10 @@ defmodule AWS.NetworkFirewall do
   out of the
   zone through the firewall endpoint.
   """
+  @spec associate_subnets(map(), associate_subnets_request(), list()) ::
+          {:ok, associate_subnets_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, associate_subnets_errors()}
   def associate_subnets(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -180,6 +2244,10 @@ defmodule AWS.NetworkFirewall do
   To retrieve information about firewalls, use `ListFirewalls` and
   `DescribeFirewall`.
   """
+  @spec create_firewall(map(), create_firewall_request(), list()) ::
+          {:ok, create_firewall_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_firewall_errors()}
   def create_firewall(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -195,6 +2263,10 @@ defmodule AWS.NetworkFirewall do
   policy for
   multiple firewalls.
   """
+  @spec create_firewall_policy(map(), create_firewall_policy_request(), list()) ::
+          {:ok, create_firewall_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_firewall_policy_errors()}
   def create_firewall_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -209,6 +2281,10 @@ defmodule AWS.NetworkFirewall do
   You provide your rule group specification in your request using either
   `RuleGroup` or `Rules`.
   """
+  @spec create_rule_group(map(), create_rule_group_request(), list()) ::
+          {:ok, create_rule_group_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_rule_group_errors()}
   def create_rule_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -240,6 +2316,14 @@ defmodule AWS.NetworkFirewall do
   configurations](https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection.html)
   in the *Network Firewall Developer Guide*.
   """
+  @spec create_t_l_s_inspection_configuration(
+          map(),
+          create_t_l_s_inspection_configuration_request(),
+          list()
+        ) ::
+          {:ok, create_t_l_s_inspection_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_t_l_s_inspection_configuration_errors()}
   def create_t_l_s_inspection_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -266,6 +2350,10 @@ defmodule AWS.NetworkFirewall do
   `UpdateFirewallDeleteProtection`,
   then delete the firewall by calling `DeleteFirewall`.
   """
+  @spec delete_firewall(map(), delete_firewall_request(), list()) ::
+          {:ok, delete_firewall_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_firewall_errors()}
   def delete_firewall(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -275,6 +2363,10 @@ defmodule AWS.NetworkFirewall do
   @doc """
   Deletes the specified `FirewallPolicy`.
   """
+  @spec delete_firewall_policy(map(), delete_firewall_policy_request(), list()) ::
+          {:ok, delete_firewall_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_firewall_policy_errors()}
   def delete_firewall_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -284,6 +2376,10 @@ defmodule AWS.NetworkFirewall do
   @doc """
   Deletes a resource policy that you created in a `PutResourcePolicy` request.
   """
+  @spec delete_resource_policy(map(), delete_resource_policy_request(), list()) ::
+          {:ok, delete_resource_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_resource_policy_errors()}
   def delete_resource_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -293,6 +2389,10 @@ defmodule AWS.NetworkFirewall do
   @doc """
   Deletes the specified `RuleGroup`.
   """
+  @spec delete_rule_group(map(), delete_rule_group_request(), list()) ::
+          {:ok, delete_rule_group_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_rule_group_errors()}
   def delete_rule_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -302,6 +2402,14 @@ defmodule AWS.NetworkFirewall do
   @doc """
   Deletes the specified `TLSInspectionConfiguration`.
   """
+  @spec delete_t_l_s_inspection_configuration(
+          map(),
+          delete_t_l_s_inspection_configuration_request(),
+          list()
+        ) ::
+          {:ok, delete_t_l_s_inspection_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_t_l_s_inspection_configuration_errors()}
   def delete_t_l_s_inspection_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -311,6 +2419,10 @@ defmodule AWS.NetworkFirewall do
   @doc """
   Returns the data objects for the specified firewall.
   """
+  @spec describe_firewall(map(), describe_firewall_request(), list()) ::
+          {:ok, describe_firewall_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_firewall_errors()}
   def describe_firewall(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -320,6 +2432,10 @@ defmodule AWS.NetworkFirewall do
   @doc """
   Returns the data objects for the specified firewall policy.
   """
+  @spec describe_firewall_policy(map(), describe_firewall_policy_request(), list()) ::
+          {:ok, describe_firewall_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_firewall_policy_errors()}
   def describe_firewall_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -329,6 +2445,10 @@ defmodule AWS.NetworkFirewall do
   @doc """
   Returns the logging configuration for the specified firewall.
   """
+  @spec describe_logging_configuration(map(), describe_logging_configuration_request(), list()) ::
+          {:ok, describe_logging_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_logging_configuration_errors()}
   def describe_logging_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -338,6 +2458,10 @@ defmodule AWS.NetworkFirewall do
   @doc """
   Retrieves a resource policy that you created in a `PutResourcePolicy` request.
   """
+  @spec describe_resource_policy(map(), describe_resource_policy_request(), list()) ::
+          {:ok, describe_resource_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_resource_policy_errors()}
   def describe_resource_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -347,6 +2471,10 @@ defmodule AWS.NetworkFirewall do
   @doc """
   Returns the data objects for the specified rule group.
   """
+  @spec describe_rule_group(map(), describe_rule_group_request(), list()) ::
+          {:ok, describe_rule_group_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_rule_group_errors()}
   def describe_rule_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -361,6 +2489,10 @@ defmodule AWS.NetworkFirewall do
   rule group.
   You can retrieve all objects for a rule group by calling `DescribeRuleGroup`.
   """
+  @spec describe_rule_group_metadata(map(), describe_rule_group_metadata_request(), list()) ::
+          {:ok, describe_rule_group_metadata_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_rule_group_metadata_errors()}
   def describe_rule_group_metadata(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -370,6 +2502,14 @@ defmodule AWS.NetworkFirewall do
   @doc """
   Returns the data objects for the specified TLS inspection configuration.
   """
+  @spec describe_t_l_s_inspection_configuration(
+          map(),
+          describe_t_l_s_inspection_configuration_request(),
+          list()
+        ) ::
+          {:ok, describe_t_l_s_inspection_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_t_l_s_inspection_configuration_errors()}
   def describe_t_l_s_inspection_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -384,6 +2524,10 @@ defmodule AWS.NetworkFirewall do
   protections that the endpoints
   were providing.
   """
+  @spec disassociate_subnets(map(), disassociate_subnets_request(), list()) ::
+          {:ok, disassociate_subnets_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, disassociate_subnets_errors()}
   def disassociate_subnets(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -398,6 +2542,10 @@ defmodule AWS.NetworkFirewall do
   might not
   return the full list.
   """
+  @spec list_firewall_policies(map(), list_firewall_policies_request(), list()) ::
+          {:ok, list_firewall_policies_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_firewall_policies_errors()}
   def list_firewall_policies(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -414,6 +2562,10 @@ defmodule AWS.NetworkFirewall do
   call
   might not return the full list.
   """
+  @spec list_firewalls(map(), list_firewalls_request(), list()) ::
+          {:ok, list_firewalls_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_firewalls_errors()}
   def list_firewalls(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -428,6 +2580,10 @@ defmodule AWS.NetworkFirewall do
   return the
   full list.
   """
+  @spec list_rule_groups(map(), list_rule_groups_request(), list()) ::
+          {:ok, list_rule_groups_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_rule_groups_errors()}
   def list_rule_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -441,6 +2597,14 @@ defmodule AWS.NetworkFirewall do
   Depending on your setting for max results and the number of TLS inspection
   configurations, a single call might not return the full list.
   """
+  @spec list_t_l_s_inspection_configurations(
+          map(),
+          list_t_l_s_inspection_configurations_request(),
+          list()
+        ) ::
+          {:ok, list_t_l_s_inspection_configurations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_t_l_s_inspection_configurations_errors()}
   def list_t_l_s_inspection_configurations(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -463,6 +2627,10 @@ defmodule AWS.NetworkFirewall do
   Firewall: firewalls, firewall
   policies, and rule groups.
   """
+  @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
+          {:ok, list_tags_for_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -498,6 +2666,10 @@ defmodule AWS.NetworkFirewall do
   For additional information about resource sharing using RAM, see [Resource Access Manager User
   Guide](https://docs.aws.amazon.com/ram/latest/userguide/what-is.html).
   """
+  @spec put_resource_policy(map(), put_resource_policy_request(), list()) ::
+          {:ok, put_resource_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, put_resource_policy_errors()}
   def put_resource_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -519,6 +2691,10 @@ defmodule AWS.NetworkFirewall do
   Firewall: firewalls, firewall
   policies, and rule groups.
   """
+  @spec tag_resource(map(), tag_resource_request(), list()) ::
+          {:ok, tag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -541,6 +2717,10 @@ defmodule AWS.NetworkFirewall do
   through Network Firewall:
   firewalls, firewall policies, and rule groups.
   """
+  @spec untag_resource(map(), untag_resource_request(), list()) ::
+          {:ok, untag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -556,6 +2736,14 @@ defmodule AWS.NetworkFirewall do
   firewall
   that's in use.
   """
+  @spec update_firewall_delete_protection(
+          map(),
+          update_firewall_delete_protection_request(),
+          list()
+        ) ::
+          {:ok, update_firewall_delete_protection_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_firewall_delete_protection_errors()}
   def update_firewall_delete_protection(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -568,6 +2756,10 @@ defmodule AWS.NetworkFirewall do
   Use the description to help you
   identify the firewall when you're working with it.
   """
+  @spec update_firewall_description(map(), update_firewall_description_request(), list()) ::
+          {:ok, update_firewall_description_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_firewall_description_errors()}
   def update_firewall_description(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -577,6 +2769,14 @@ defmodule AWS.NetworkFirewall do
   @doc """
   A complex type that contains settings for encryption of your firewall resources.
   """
+  @spec update_firewall_encryption_configuration(
+          map(),
+          update_firewall_encryption_configuration_request(),
+          list()
+        ) ::
+          {:ok, update_firewall_encryption_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_firewall_encryption_configuration_errors()}
   def update_firewall_encryption_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -586,6 +2786,10 @@ defmodule AWS.NetworkFirewall do
   @doc """
   Updates the properties of the specified firewall policy.
   """
+  @spec update_firewall_policy(map(), update_firewall_policy_request(), list()) ::
+          {:ok, update_firewall_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_firewall_policy_errors()}
   def update_firewall_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -600,6 +2804,14 @@ defmodule AWS.NetworkFirewall do
   from changes. This setting helps protect against accidentally changing a
   firewall that's in use.
   """
+  @spec update_firewall_policy_change_protection(
+          map(),
+          update_firewall_policy_change_protection_request(),
+          list()
+        ) ::
+          {:ok, update_firewall_policy_change_protection_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_firewall_policy_change_protection_errors()}
   def update_firewall_policy_change_protection(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -638,6 +2850,10 @@ defmodule AWS.NetworkFirewall do
   `LogDestinationConfig` object and create a new one, using two separate calls
   to this update operation.
   """
+  @spec update_logging_configuration(map(), update_logging_configuration_request(), list()) ::
+          {:ok, update_logging_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_logging_configuration_errors()}
   def update_logging_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -656,12 +2872,20 @@ defmodule AWS.NetworkFirewall do
   current `RuleGroup` object, update the object as needed, and then provide
   the updated object to this call.
   """
+  @spec update_rule_group(map(), update_rule_group_request(), list()) ::
+          {:ok, update_rule_group_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_rule_group_errors()}
   def update_rule_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
     Request.request_post(client, meta, "UpdateRuleGroup", input, options)
   end
 
+  @spec update_subnet_change_protection(map(), update_subnet_change_protection_request(), list()) ::
+          {:ok, update_subnet_change_protection_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_subnet_change_protection_errors()}
   def update_subnet_change_protection(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -683,6 +2907,14 @@ defmodule AWS.NetworkFirewall do
   then provide
   the updated object to this call.
   """
+  @spec update_t_l_s_inspection_configuration(
+          map(),
+          update_t_l_s_inspection_configuration_request(),
+          list()
+        ) ::
+          {:ok, update_t_l_s_inspection_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_t_l_s_inspection_configuration_errors()}
   def update_t_l_s_inspection_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
 

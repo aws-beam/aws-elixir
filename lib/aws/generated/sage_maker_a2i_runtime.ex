@@ -53,6 +53,269 @@ defmodule AWS.SageMakerA2IRuntime do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type conflict_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_human_loop_request() :: %{}
+
+  """
+  @type delete_human_loop_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_human_loop_response() :: %{}
+
+  """
+  @type delete_human_loop_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_human_loop_request() :: %{}
+
+  """
+  @type describe_human_loop_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_human_loop_response() :: %{
+        "CreationTime" => non_neg_integer(),
+        "FailureCode" => String.t(),
+        "FailureReason" => String.t(),
+        "FlowDefinitionArn" => String.t(),
+        "HumanLoopArn" => String.t(),
+        "HumanLoopName" => String.t(),
+        "HumanLoopOutput" => human_loop_output(),
+        "HumanLoopStatus" => list(any())
+      }
+
+  """
+  @type describe_human_loop_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      human_loop_data_attributes() :: %{
+        "ContentClassifiers" => list(list(any())())
+      }
+
+  """
+  @type human_loop_data_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      human_loop_input() :: %{
+        "InputContent" => String.t()
+      }
+
+  """
+  @type human_loop_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      human_loop_output() :: %{
+        "OutputS3Uri" => String.t()
+      }
+
+  """
+  @type human_loop_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      human_loop_summary() :: %{
+        "CreationTime" => non_neg_integer(),
+        "FailureReason" => String.t(),
+        "FlowDefinitionArn" => String.t(),
+        "HumanLoopName" => String.t(),
+        "HumanLoopStatus" => list(any())
+      }
+
+  """
+  @type human_loop_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type internal_server_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_human_loops_request() :: %{
+        optional("CreationTimeAfter") => non_neg_integer(),
+        optional("CreationTimeBefore") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("SortOrder") => list(any()),
+        required("FlowDefinitionArn") => String.t()
+      }
+
+  """
+  @type list_human_loops_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_human_loops_response() :: %{
+        "HumanLoopSummaries" => list(human_loop_summary()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type list_human_loops_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_human_loop_request() :: %{
+        optional("DataAttributes") => human_loop_data_attributes(),
+        required("FlowDefinitionArn") => String.t(),
+        required("HumanLoopInput") => human_loop_input(),
+        required("HumanLoopName") => String.t()
+      }
+
+  """
+  @type start_human_loop_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_human_loop_response() :: %{
+        "HumanLoopArn" => String.t()
+      }
+
+  """
+  @type start_human_loop_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_human_loop_request() :: %{
+        required("HumanLoopName") => String.t()
+      }
+
+  """
+  @type stop_human_loop_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_human_loop_response() :: %{}
+
+  """
+  @type stop_human_loop_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type throttling_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type validation_exception() :: %{String.t() => any()}
+
+  @type delete_human_loop_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+
+  @type describe_human_loop_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+
+  @type list_human_loops_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+
+  @type start_human_loop_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
+          | internal_server_exception()
+          | conflict_exception()
+
+  @type stop_human_loop_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+
   def metadata do
     %{
       api_version: "2019-11-07",
@@ -74,6 +337,10 @@ defmodule AWS.SageMakerA2IRuntime do
   If the human loop was deleted, this operation will return a
   `ResourceNotFoundException`.
   """
+  @spec delete_human_loop(map(), String.t(), delete_human_loop_request(), list()) ::
+          {:ok, delete_human_loop_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_human_loop_errors()}
   def delete_human_loop(%Client{} = client, human_loop_name, input, options \\ []) do
     url_path = "/human-loops/#{AWS.Util.encode_uri(human_loop_name)}"
     headers = []
@@ -100,6 +367,10 @@ defmodule AWS.SageMakerA2IRuntime do
   If the human loop was deleted, this
   operation will return a `ResourceNotFoundException` error.
   """
+  @spec describe_human_loop(map(), String.t(), list()) ::
+          {:ok, describe_human_loop_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_human_loop_errors()}
   def describe_human_loop(%Client{} = client, human_loop_name, options \\ []) do
     url_path = "/human-loops/#{AWS.Util.encode_uri(human_loop_name)}"
     headers = []
@@ -115,6 +386,19 @@ defmodule AWS.SageMakerA2IRuntime do
 
   If a human loop was deleted, it will not be included.
   """
+  @spec list_human_loops(
+          map(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_human_loops_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_human_loops_errors()}
   def list_human_loops(
         %Client{} = client,
         creation_time_after \\ nil,
@@ -179,6 +463,10 @@ defmodule AWS.SageMakerA2IRuntime do
   @doc """
   Starts a human loop, provided that at least one activation condition is met.
   """
+  @spec start_human_loop(map(), start_human_loop_request(), list()) ::
+          {:ok, start_human_loop_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_human_loop_errors()}
   def start_human_loop(%Client{} = client, input, options \\ []) do
     url_path = "/human-loops"
     headers = []
@@ -202,6 +490,10 @@ defmodule AWS.SageMakerA2IRuntime do
   @doc """
   Stops the specified human loop.
   """
+  @spec stop_human_loop(map(), stop_human_loop_request(), list()) ::
+          {:ok, stop_human_loop_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, stop_human_loop_errors()}
   def stop_human_loop(%Client{} = client, input, options \\ []) do
     url_path = "/human-loops/stop"
     headers = []

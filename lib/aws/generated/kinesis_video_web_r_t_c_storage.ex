@@ -5,6 +5,67 @@ defmodule AWS.KinesisVideoWebRTCStorage do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "message" => [String.t()]
+      }
+
+  """
+  @type access_denied_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      client_limit_exceeded_exception() :: %{
+        "message" => [String.t()]
+      }
+
+  """
+  @type client_limit_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_argument_exception() :: %{
+        "message" => [String.t()]
+      }
+
+  """
+  @type invalid_argument_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      join_storage_session_input() :: %{
+        required("channelArn") => String.t()
+      }
+
+  """
+  @type join_storage_session_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "message" => [String.t()]
+      }
+
+  """
+  @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @type join_storage_session_errors() ::
+          resource_not_found_exception()
+          | invalid_argument_exception()
+          | client_limit_exceeded_exception()
+          | access_denied_exception()
+
   def metadata do
     %{
       api_version: "2018-05-10",
@@ -47,6 +108,10 @@ defmodule AWS.KinesisVideoWebRTCStorage do
   client joins the session of a specific channel as a video producing device,
   the most recent client request takes precedence.
   """
+  @spec join_storage_session(map(), join_storage_session_input(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, join_storage_session_errors()}
   def join_storage_session(%Client{} = client, input, options \\ []) do
     url_path = "/joinStorageSession"
     headers = []

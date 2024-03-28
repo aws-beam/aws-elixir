@@ -5,6 +5,4124 @@ defmodule AWS.S3 do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+
+      error() :: %{
+        "Code" => String.t(),
+        "Key" => String.t(),
+        "Message" => String.t(),
+        "VersionId" => String.t()
+      }
+
+  """
+  @type error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_bucket_policy_request() :: %{
+        optional("ChecksumAlgorithm") => list(any()),
+        optional("ConfirmRemoveSelfBucketAccess") => boolean(),
+        optional("ContentMD5") => String.t(),
+        optional("ExpectedBucketOwner") => String.t(),
+        required("Policy") => String.t()
+      }
+
+  """
+  @type put_bucket_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_bucket_logging_request() :: %{
+        optional("ChecksumAlgorithm") => list(any()),
+        optional("ContentMD5") => String.t(),
+        optional("ExpectedBucketOwner") => String.t(),
+        required("BucketLoggingStatus") => bucket_logging_status()
+      }
+
+  """
+  @type put_bucket_logging_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      inventory_s3_bucket_destination() :: %{
+        "AccountId" => String.t(),
+        "Bucket" => String.t(),
+        "Encryption" => inventory_encryption(),
+        "Format" => list(any()),
+        "Prefix" => String.t()
+      }
+
+  """
+  @type inventory_s3_bucket_destination() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      records_event() :: %{
+        "Payload" => binary()
+      }
+
+  """
+  @type records_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_bucket_metrics_configurations_output() :: %{
+        "ContinuationToken" => String.t(),
+        "IsTruncated" => boolean(),
+        "MetricsConfigurationList" => list(metrics_configuration()()),
+        "NextContinuationToken" => String.t()
+      }
+
+  """
+  @type list_bucket_metrics_configurations_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_object_request() :: %{
+        optional("BypassGovernanceRetention") => boolean(),
+        optional("ExpectedBucketOwner") => String.t(),
+        optional("MFA") => String.t(),
+        optional("RequestPayer") => list(any()),
+        optional("VersionId") => String.t()
+      }
+
+  """
+  @type delete_object_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_accelerate_configuration_output() :: %{
+        "RequestCharged" => list(any()),
+        "Status" => list(any())
+      }
+
+  """
+  @type get_bucket_accelerate_configuration_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      c_o_r_s_configuration() :: %{
+        "CORSRules" => list(c_o_r_s_rule()())
+      }
+
+  """
+  @type c_o_r_s_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_ownership_controls_request() :: %{
+        optional("ExpectedBucketOwner") => String.t()
+      }
+
+  """
+  @type get_bucket_ownership_controls_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_bucket_metrics_configurations_request() :: %{
+        optional("ContinuationToken") => String.t(),
+        optional("ExpectedBucketOwner") => String.t()
+      }
+
+  """
+  @type list_bucket_metrics_configurations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      no_such_key() :: %{}
+
+  """
+  @type no_such_key() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_policy_output() :: %{
+        "Policy" => String.t()
+      }
+
+  """
+  @type get_bucket_policy_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      encryption_configuration() :: %{
+        "ReplicaKmsKeyID" => String.t()
+      }
+
+  """
+  @type encryption_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_bucket_versioning_request() :: %{
+        optional("ChecksumAlgorithm") => list(any()),
+        optional("ContentMD5") => String.t(),
+        optional("ExpectedBucketOwner") => String.t(),
+        optional("MFA") => String.t(),
+        required("VersioningConfiguration") => versioning_configuration()
+      }
+
+  """
+  @type put_bucket_versioning_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_object_torrent_output() :: %{
+        "Body" => binary(),
+        "RequestCharged" => list(any())
+      }
+
+  """
+  @type get_object_torrent_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_object_tagging_request() :: %{
+        optional("ExpectedBucketOwner") => String.t(),
+        optional("VersionId") => String.t()
+      }
+
+  """
+  @type delete_object_tagging_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      inventory_configuration() :: %{
+        "Destination" => inventory_destination(),
+        "Filter" => inventory_filter(),
+        "Id" => String.t(),
+        "IncludedObjectVersions" => list(any()),
+        "IsEnabled" => boolean(),
+        "OptionalFields" => list(list(any())()),
+        "Schedule" => inventory_schedule()
+      }
+
+  """
+  @type inventory_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      copy_object_result() :: %{
+        "ChecksumCRC32" => String.t(),
+        "ChecksumCRC32C" => String.t(),
+        "ChecksumSHA1" => String.t(),
+        "ChecksumSHA256" => String.t(),
+        "ETag" => String.t(),
+        "LastModified" => non_neg_integer()
+      }
+
+  """
+  @type copy_object_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      public_access_block_configuration() :: %{
+        "BlockPublicAcls" => boolean(),
+        "BlockPublicPolicy" => boolean(),
+        "IgnorePublicAcls" => boolean(),
+        "RestrictPublicBuckets" => boolean()
+      }
+
+  """
+  @type public_access_block_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_accelerate_configuration_request() :: %{
+        optional("ExpectedBucketOwner") => String.t(),
+        optional("RequestPayer") => list(any())
+      }
+
+  """
+  @type get_bucket_accelerate_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      inventory_schedule() :: %{
+        "Frequency" => list(any())
+      }
+
+  """
+  @type inventory_schedule() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      write_get_object_response_request() :: %{
+        optional("VersionId") => String.t(),
+        optional("ChecksumCRC32C") => String.t(),
+        optional("Expires") => non_neg_integer(),
+        optional("Body") => binary(),
+        optional("DeleteMarker") => boolean(),
+        optional("ChecksumSHA256") => String.t(),
+        optional("ReplicationStatus") => list(any()),
+        optional("PartsCount") => integer(),
+        optional("Metadata") => map(),
+        optional("SSECustomerAlgorithm") => String.t(),
+        optional("ContentRange") => String.t(),
+        optional("TagCount") => integer(),
+        optional("Restore") => String.t(),
+        optional("BucketKeyEnabled") => boolean(),
+        optional("SSECustomerKeyMD5") => String.t(),
+        optional("LastModified") => non_neg_integer(),
+        optional("ContentDisposition") => String.t(),
+        optional("ChecksumSHA1") => String.t(),
+        optional("ContentLanguage") => String.t(),
+        optional("RequestCharged") => list(any()),
+        optional("ETag") => String.t(),
+        optional("ServerSideEncryption") => list(any()),
+        optional("ErrorCode") => String.t(),
+        optional("ContentEncoding") => String.t(),
+        optional("StatusCode") => integer(),
+        optional("ObjectLockRetainUntilDate") => non_neg_integer(),
+        optional("ContentType") => String.t(),
+        optional("ErrorMessage") => String.t(),
+        required("RequestRoute") => String.t(),
+        optional("ChecksumCRC32") => String.t(),
+        optional("ContentLength") => float(),
+        optional("CacheControl") => String.t(),
+        optional("MissingMeta") => integer(),
+        optional("ObjectLockLegalHoldStatus") => list(any()),
+        optional("Expiration") => String.t(),
+        required("RequestToken") => String.t(),
+        optional("StorageClass") => list(any()),
+        optional("SSEKMSKeyId") => String.t(),
+        optional("ObjectLockMode") => list(any()),
+        optional("AcceptRanges") => String.t()
+      }
+
+  """
+  @type write_get_object_response_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      target_grant() :: %{
+        "Grantee" => grantee(),
+        "Permission" => list(any())
+      }
+
+  """
+  @type target_grant() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_bucket_website_request() :: %{
+        optional("ExpectedBucketOwner") => String.t()
+      }
+
+  """
+  @type delete_bucket_website_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_ownership_controls_output() :: %{
+        "OwnershipControls" => ownership_controls()
+      }
+
+  """
+  @type get_bucket_ownership_controls_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ownership_controls_rule() :: %{
+        "ObjectOwnership" => list(any())
+      }
+
+  """
+  @type ownership_controls_rule() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_request_payment_request() :: %{
+        optional("ExpectedBucketOwner") => String.t()
+      }
+
+  """
+  @type get_bucket_request_payment_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_public_access_block_request() :: %{
+        optional("ChecksumAlgorithm") => list(any()),
+        optional("ContentMD5") => String.t(),
+        optional("ExpectedBucketOwner") => String.t(),
+        required("PublicAccessBlockConfiguration") => public_access_block_configuration()
+      }
+
+  """
+  @type put_public_access_block_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_object_tagging_request() :: %{
+        optional("ExpectedBucketOwner") => String.t(),
+        optional("RequestPayer") => list(any()),
+        optional("VersionId") => String.t()
+      }
+
+  """
+  @type get_object_tagging_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      abort_incomplete_multipart_upload() :: %{
+        "DaysAfterInitiation" => integer()
+      }
+
+  """
+  @type abort_incomplete_multipart_upload() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lifecycle_rule() :: %{
+        "AbortIncompleteMultipartUpload" => abort_incomplete_multipart_upload(),
+        "Expiration" => lifecycle_expiration(),
+        "Filter" => list(),
+        "ID" => String.t(),
+        "NoncurrentVersionExpiration" => noncurrent_version_expiration(),
+        "NoncurrentVersionTransitions" => list(noncurrent_version_transition()()),
+        "Prefix" => String.t(),
+        "Status" => list(any()),
+        "Transitions" => list(transition()())
+      }
+
+  """
+  @type lifecycle_rule() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_public_access_block_request() :: %{
+        optional("ExpectedBucketOwner") => String.t()
+      }
+
+  """
+  @type delete_public_access_block_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_policy_status_request() :: %{
+        optional("ExpectedBucketOwner") => String.t()
+      }
+
+  """
+  @type get_bucket_policy_status_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_object_versions_request() :: %{
+        optional("Delimiter") => String.t(),
+        optional("EncodingType") => list(any()),
+        optional("ExpectedBucketOwner") => String.t(),
+        optional("KeyMarker") => String.t(),
+        optional("MaxKeys") => integer(),
+        optional("OptionalObjectAttributes") => list(list(any())()),
+        optional("Prefix") => String.t(),
+        optional("RequestPayer") => list(any()),
+        optional("VersionIdMarker") => String.t()
+      }
+
+  """
+  @type list_object_versions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      versioning_configuration() :: %{
+        "MFADelete" => list(any()),
+        "Status" => list(any())
+      }
+
+  """
+  @type versioning_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete() :: %{
+        "Objects" => list(object_identifier()()),
+        "Quiet" => boolean()
+      }
+
+  """
+  @type delete() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      upload_part_output() :: %{
+        "BucketKeyEnabled" => boolean(),
+        "ChecksumCRC32" => String.t(),
+        "ChecksumCRC32C" => String.t(),
+        "ChecksumSHA1" => String.t(),
+        "ChecksumSHA256" => String.t(),
+        "ETag" => String.t(),
+        "RequestCharged" => list(any()),
+        "SSECustomerAlgorithm" => String.t(),
+        "SSECustomerKeyMD5" => String.t(),
+        "SSEKMSKeyId" => String.t(),
+        "ServerSideEncryption" => list(any())
+      }
+
+  """
+  @type upload_part_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_bucket_cors_request() :: %{
+        optional("ChecksumAlgorithm") => list(any()),
+        optional("ContentMD5") => String.t(),
+        optional("ExpectedBucketOwner") => String.t(),
+        required("CORSConfiguration") => c_o_r_s_configuration()
+      }
+
+  """
+  @type put_bucket_cors_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_bucket_analytics_configuration_request() :: %{
+        optional("ExpectedBucketOwner") => String.t(),
+        required("Id") => String.t()
+      }
+
+  """
+  @type delete_bucket_analytics_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      head_bucket_output() :: %{
+        "AccessPointAlias" => boolean(),
+        "BucketLocationName" => String.t(),
+        "BucketLocationType" => list(any()),
+        "BucketRegion" => String.t()
+      }
+
+  """
+  @type head_bucket_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_intelligent_tiering_configuration_output() :: %{
+        "IntelligentTieringConfiguration" => intelligent_tiering_configuration()
+      }
+
+  """
+  @type get_bucket_intelligent_tiering_configuration_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      queue_configuration() :: %{
+        "Events" => list(list(any())()),
+        "Filter" => notification_configuration_filter(),
+        "Id" => String.t(),
+        "QueueArn" => String.t()
+      }
+
+  """
+  @type queue_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      filter_rule() :: %{
+        "Name" => list(any()),
+        "Value" => String.t()
+      }
+
+  """
+  @type filter_rule() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      session_credentials() :: %{
+        "AccessKeyId" => String.t(),
+        "Expiration" => non_neg_integer(),
+        "SecretAccessKey" => String.t(),
+        "SessionToken" => String.t()
+      }
+
+  """
+  @type session_credentials() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_logging_output() :: %{
+        "LoggingEnabled" => logging_enabled()
+      }
+
+  """
+  @type get_bucket_logging_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      redirect() :: %{
+        "HostName" => String.t(),
+        "HttpRedirectCode" => String.t(),
+        "Protocol" => list(any()),
+        "ReplaceKeyPrefixWith" => String.t(),
+        "ReplaceKeyWith" => String.t()
+      }
+
+  """
+  @type redirect() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      source_selection_criteria() :: %{
+        "ReplicaModifications" => replica_modifications(),
+        "SseKmsEncryptedObjects" => sse_kms_encrypted_objects()
+      }
+
+  """
+  @type source_selection_criteria() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      head_object_output() :: %{
+        "ContentLength" => float(),
+        "VersionId" => String.t(),
+        "Expiration" => String.t(),
+        "BucketKeyEnabled" => boolean(),
+        "SSEKMSKeyId" => String.t(),
+        "StorageClass" => list(any()),
+        "ETag" => String.t(),
+        "ObjectLockRetainUntilDate" => non_neg_integer(),
+        "ObjectLockMode" => list(any()),
+        "ArchiveStatus" => list(any()),
+        "WebsiteRedirectLocation" => String.t(),
+        "DeleteMarker" => boolean(),
+        "AcceptRanges" => String.t(),
+        "ServerSideEncryption" => list(any()),
+        "ChecksumSHA1" => String.t(),
+        "CacheControl" => String.t(),
+        "ObjectLockLegalHoldStatus" => list(any()),
+        "ContentType" => String.t(),
+        "SSECustomerKeyMD5" => String.t(),
+        "LastModified" => non_neg_integer(),
+        "Expires" => non_neg_integer(),
+        "ReplicationStatus" => list(any()),
+        "ContentDisposition" => String.t(),
+        "ContentEncoding" => String.t(),
+        "ChecksumCRC32C" => String.t(),
+        "ChecksumCRC32" => String.t(),
+        "Metadata" => map(),
+        "PartsCount" => integer(),
+        "ChecksumSHA256" => String.t(),
+        "RequestCharged" => list(any()),
+        "MissingMeta" => integer(),
+        "Restore" => String.t(),
+        "SSECustomerAlgorithm" => String.t(),
+        "ContentLanguage" => String.t()
+      }
+
+  """
+  @type head_object_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_bucket_tagging_request() :: %{
+        optional("ExpectedBucketOwner") => String.t()
+      }
+
+  """
+  @type delete_bucket_tagging_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stats_event() :: %{
+        "Details" => stats()
+      }
+
+  """
+  @type stats_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_bucket_replication_request() :: %{
+        optional("ChecksumAlgorithm") => list(any()),
+        optional("ContentMD5") => String.t(),
+        optional("ExpectedBucketOwner") => String.t(),
+        optional("Token") => String.t(),
+        required("ReplicationConfiguration") => replication_configuration()
+      }
+
+  """
+  @type put_bucket_replication_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_object_lock_configuration_output() :: %{
+        "RequestCharged" => list(any())
+      }
+
+  """
+  @type put_object_lock_configuration_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_object_retention_output() :: %{
+        "Retention" => object_lock_retention()
+      }
+
+  """
+  @type get_object_retention_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      common_prefix() :: %{
+        "Prefix" => String.t()
+      }
+
+  """
+  @type common_prefix() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_acl_request() :: %{
+        optional("ExpectedBucketOwner") => String.t()
+      }
+
+  """
+  @type get_bucket_acl_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      analytics_export_destination() :: %{
+        "S3BucketDestination" => analytics_s3_bucket_destination()
+      }
+
+  """
+  @type analytics_export_destination() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_bucket_inventory_configurations_output() :: %{
+        "ContinuationToken" => String.t(),
+        "InventoryConfigurationList" => list(inventory_configuration()()),
+        "IsTruncated" => boolean(),
+        "NextContinuationToken" => String.t()
+      }
+
+  """
+  @type list_bucket_inventory_configurations_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_object_legal_hold_output() :: %{
+        "RequestCharged" => list(any())
+      }
+
+  """
+  @type put_object_legal_hold_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      inventory_filter() :: %{
+        "Prefix" => String.t()
+      }
+
+  """
+  @type inventory_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_object_retention_output() :: %{
+        "RequestCharged" => list(any())
+      }
+
+  """
+  @type put_object_retention_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_object_acl_request() :: %{
+        optional("ACL") => list(any()),
+        optional("AccessControlPolicy") => access_control_policy(),
+        optional("ChecksumAlgorithm") => list(any()),
+        optional("ContentMD5") => String.t(),
+        optional("ExpectedBucketOwner") => String.t(),
+        optional("GrantFullControl") => String.t(),
+        optional("GrantRead") => String.t(),
+        optional("GrantReadACP") => String.t(),
+        optional("GrantWrite") => String.t(),
+        optional("GrantWriteACP") => String.t(),
+        optional("RequestPayer") => list(any()),
+        optional("VersionId") => String.t()
+      }
+
+  """
+  @type put_object_acl_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      restore_object_request() :: %{
+        optional("ChecksumAlgorithm") => list(any()),
+        optional("ExpectedBucketOwner") => String.t(),
+        optional("RequestPayer") => list(any()),
+        optional("RestoreRequest") => restore_request(),
+        optional("VersionId") => String.t()
+      }
+
+  """
+  @type restore_object_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      copy_part_result() :: %{
+        "ChecksumCRC32" => String.t(),
+        "ChecksumCRC32C" => String.t(),
+        "ChecksumSHA1" => String.t(),
+        "ChecksumSHA256" => String.t(),
+        "ETag" => String.t(),
+        "LastModified" => non_neg_integer()
+      }
+
+  """
+  @type copy_part_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lambda_function_configuration() :: %{
+        "Events" => list(list(any())()),
+        "Filter" => notification_configuration_filter(),
+        "Id" => String.t(),
+        "LambdaFunctionArn" => String.t()
+      }
+
+  """
+  @type lambda_function_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      object_not_in_active_tier_error() :: %{}
+
+  """
+  @type object_not_in_active_tier_error() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_objects_request() :: %{
+        optional("Delimiter") => String.t(),
+        optional("EncodingType") => list(any()),
+        optional("ExpectedBucketOwner") => String.t(),
+        optional("Marker") => String.t(),
+        optional("MaxKeys") => integer(),
+        optional("OptionalObjectAttributes") => list(list(any())()),
+        optional("Prefix") => String.t(),
+        optional("RequestPayer") => list(any())
+      }
+
+  """
+  @type list_objects_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_inventory_configuration_request() :: %{
+        optional("ExpectedBucketOwner") => String.t(),
+        required("Id") => String.t()
+      }
+
+  """
+  @type get_bucket_inventory_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      input_serialization() :: %{
+        "CSV" => csv_input(),
+        "CompressionType" => list(any()),
+        "JSON" => json_input(),
+        "Parquet" => parquet_input()
+      }
+
+  """
+  @type input_serialization() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      upload_part_request() :: %{
+        optional("Body") => binary(),
+        optional("ChecksumAlgorithm") => list(any()),
+        optional("ChecksumCRC32") => String.t(),
+        optional("ChecksumCRC32C") => String.t(),
+        optional("ChecksumSHA1") => String.t(),
+        optional("ChecksumSHA256") => String.t(),
+        optional("ContentLength") => float(),
+        optional("ContentMD5") => String.t(),
+        optional("ExpectedBucketOwner") => String.t(),
+        optional("RequestPayer") => list(any()),
+        optional("SSECustomerAlgorithm") => String.t(),
+        optional("SSECustomerKey") => String.t(),
+        optional("SSECustomerKeyMD5") => String.t(),
+        required("PartNumber") => integer(),
+        required("UploadId") => String.t()
+      }
+
+  """
+  @type upload_part_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      grantee() :: %{
+        "DisplayName" => String.t(),
+        "EmailAddress" => String.t(),
+        "ID" => String.t(),
+        "Type" => list(any()),
+        "URI" => String.t()
+      }
+
+  """
+  @type grantee() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_object_legal_hold_output() :: %{
+        "LegalHold" => object_lock_legal_hold()
+      }
+
+  """
+  @type get_object_legal_hold_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      deleted_object() :: %{
+        "DeleteMarker" => boolean(),
+        "DeleteMarkerVersionId" => String.t(),
+        "Key" => String.t(),
+        "VersionId" => String.t()
+      }
+
+  """
+  @type deleted_object() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      progress() :: %{
+        "BytesProcessed" => float(),
+        "BytesReturned" => float(),
+        "BytesScanned" => float()
+      }
+
+  """
+  @type progress() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_inventory_configuration_output() :: %{
+        "InventoryConfiguration" => inventory_configuration()
+      }
+
+  """
+  @type get_bucket_inventory_configuration_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_object_output() :: %{
+        "BucketKeyEnabled" => boolean(),
+        "ChecksumCRC32" => String.t(),
+        "ChecksumCRC32C" => String.t(),
+        "ChecksumSHA1" => String.t(),
+        "ChecksumSHA256" => String.t(),
+        "ETag" => String.t(),
+        "Expiration" => String.t(),
+        "RequestCharged" => list(any()),
+        "SSECustomerAlgorithm" => String.t(),
+        "SSECustomerKeyMD5" => String.t(),
+        "SSEKMSEncryptionContext" => String.t(),
+        "SSEKMSKeyId" => String.t(),
+        "ServerSideEncryption" => list(any()),
+        "VersionId" => String.t()
+      }
+
+  """
+  @type put_object_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_bucket_analytics_configurations_request() :: %{
+        optional("ContinuationToken") => String.t(),
+        optional("ExpectedBucketOwner") => String.t()
+      }
+
+  """
+  @type list_bucket_analytics_configurations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      topic_configuration() :: %{
+        "Events" => list(list(any())()),
+        "Filter" => notification_configuration_filter(),
+        "Id" => String.t(),
+        "TopicArn" => String.t()
+      }
+
+  """
+  @type topic_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_versioning_request() :: %{
+        optional("ExpectedBucketOwner") => String.t()
+      }
+
+  """
+  @type get_bucket_versioning_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_object_versions_output() :: %{
+        "CommonPrefixes" => list(common_prefix()()),
+        "DeleteMarkers" => list(delete_marker_entry()()),
+        "Delimiter" => String.t(),
+        "EncodingType" => list(any()),
+        "IsTruncated" => boolean(),
+        "KeyMarker" => String.t(),
+        "MaxKeys" => integer(),
+        "Name" => String.t(),
+        "NextKeyMarker" => String.t(),
+        "NextVersionIdMarker" => String.t(),
+        "Prefix" => String.t(),
+        "RequestCharged" => list(any()),
+        "VersionIdMarker" => String.t(),
+        "Versions" => list(object_version()())
+      }
+
+  """
+  @type list_object_versions_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_lifecycle_configuration_output() :: %{
+        "Rules" => list(lifecycle_rule()())
+      }
+
+  """
+  @type get_bucket_lifecycle_configuration_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sse_kms_encrypted_objects() :: %{
+        "Status" => list(any())
+      }
+
+  """
+  @type sse_kms_encrypted_objects() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_policy_status_output() :: %{
+        "PolicyStatus" => policy_status()
+      }
+
+  """
+  @type get_bucket_policy_status_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_multipart_upload_output() :: %{
+        "AbortDate" => non_neg_integer(),
+        "AbortRuleId" => String.t(),
+        "Bucket" => String.t(),
+        "BucketKeyEnabled" => boolean(),
+        "ChecksumAlgorithm" => list(any()),
+        "Key" => String.t(),
+        "RequestCharged" => list(any()),
+        "SSECustomerAlgorithm" => String.t(),
+        "SSECustomerKeyMD5" => String.t(),
+        "SSEKMSEncryptionContext" => String.t(),
+        "SSEKMSKeyId" => String.t(),
+        "ServerSideEncryption" => list(any()),
+        "UploadId" => String.t()
+      }
+
+  """
+  @type create_multipart_upload_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_acl_output() :: %{
+        "Grants" => list(grant()()),
+        "Owner" => owner()
+      }
+
+  """
+  @type get_bucket_acl_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      object_lock_rule() :: %{
+        "DefaultRetention" => default_retention()
+      }
+
+  """
+  @type object_lock_rule() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      location_info() :: %{
+        "Name" => String.t(),
+        "Type" => list(any())
+      }
+
+  """
+  @type location_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_bucket_ownership_controls_request() :: %{
+        optional("ExpectedBucketOwner") => String.t()
+      }
+
+  """
+  @type delete_bucket_ownership_controls_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_location_output() :: %{
+        "LocationConstraint" => list(any())
+      }
+
+  """
+  @type get_bucket_location_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_bucket_inventory_configuration_request() :: %{
+        optional("ExpectedBucketOwner") => String.t(),
+        required("Id") => String.t()
+      }
+
+  """
+  @type delete_bucket_inventory_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      logging_enabled() :: %{
+        "TargetBucket" => String.t(),
+        "TargetGrants" => list(target_grant()()),
+        "TargetObjectKeyFormat" => target_object_key_format(),
+        "TargetPrefix" => String.t()
+      }
+
+  """
+  @type logging_enabled() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_marker_entry() :: %{
+        "IsLatest" => boolean(),
+        "Key" => String.t(),
+        "LastModified" => non_neg_integer(),
+        "Owner" => owner(),
+        "VersionId" => String.t()
+      }
+
+  """
+  @type delete_marker_entry() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      select_parameters() :: %{
+        "Expression" => String.t(),
+        "ExpressionType" => list(any()),
+        "InputSerialization" => input_serialization(),
+        "OutputSerialization" => output_serialization()
+      }
+
+  """
+  @type select_parameters() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bucket_already_owned_by_you() :: %{}
+
+  """
+  @type bucket_already_owned_by_you() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_bucket_policy_request() :: %{
+        optional("ExpectedBucketOwner") => String.t()
+      }
+
+  """
+  @type delete_bucket_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_multipart_uploads_request() :: %{
+        optional("Delimiter") => String.t(),
+        optional("EncodingType") => list(any()),
+        optional("ExpectedBucketOwner") => String.t(),
+        optional("KeyMarker") => String.t(),
+        optional("MaxUploads") => integer(),
+        optional("Prefix") => String.t(),
+        optional("RequestPayer") => list(any()),
+        optional("UploadIdMarker") => String.t()
+      }
+
+  """
+  @type list_multipart_uploads_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_object_request() :: %{
+        optional("GrantRead") => String.t(),
+        optional("ChecksumCRC32C") => String.t(),
+        optional("Expires") => non_neg_integer(),
+        optional("Body") => binary(),
+        optional("GrantFullControl") => String.t(),
+        optional("ChecksumSHA256") => String.t(),
+        optional("Metadata") => map(),
+        optional("SSECustomerAlgorithm") => String.t(),
+        optional("ExpectedBucketOwner") => String.t(),
+        optional("ACL") => list(any()),
+        optional("WebsiteRedirectLocation") => String.t(),
+        optional("BucketKeyEnabled") => boolean(),
+        optional("SSECustomerKeyMD5") => String.t(),
+        optional("ContentDisposition") => String.t(),
+        optional("ChecksumSHA1") => String.t(),
+        optional("ContentLanguage") => String.t(),
+        optional("GrantReadACP") => String.t(),
+        optional("ChecksumAlgorithm") => list(any()),
+        optional("ServerSideEncryption") => list(any()),
+        optional("ContentEncoding") => String.t(),
+        optional("ObjectLockRetainUntilDate") => non_neg_integer(),
+        optional("GrantWriteACP") => String.t(),
+        optional("ContentType") => String.t(),
+        optional("RequestPayer") => list(any()),
+        optional("ChecksumCRC32") => String.t(),
+        optional("ContentLength") => float(),
+        optional("ContentMD5") => String.t(),
+        optional("CacheControl") => String.t(),
+        optional("Tagging") => String.t(),
+        optional("ObjectLockLegalHoldStatus") => list(any()),
+        optional("SSEKMSEncryptionContext") => String.t(),
+        optional("StorageClass") => list(any()),
+        optional("SSEKMSKeyId") => String.t(),
+        optional("ObjectLockMode") => list(any()),
+        optional("SSECustomerKey") => String.t()
+      }
+
+  """
+  @type put_object_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      object_version() :: %{
+        "ChecksumAlgorithm" => list(list(any())()),
+        "ETag" => String.t(),
+        "IsLatest" => boolean(),
+        "Key" => String.t(),
+        "LastModified" => non_neg_integer(),
+        "Owner" => owner(),
+        "RestoreStatus" => restore_status(),
+        "Size" => float(),
+        "StorageClass" => list(any()),
+        "VersionId" => String.t()
+      }
+
+  """
+  @type object_version() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      noncurrent_version_expiration() :: %{
+        "NewerNoncurrentVersions" => integer(),
+        "NoncurrentDays" => integer()
+      }
+
+  """
+  @type noncurrent_version_expiration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_object_legal_hold_request() :: %{
+        optional("ExpectedBucketOwner") => String.t(),
+        optional("RequestPayer") => list(any()),
+        optional("VersionId") => String.t()
+      }
+
+  """
+  @type get_object_legal_hold_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_bucket_request() :: %{
+        optional("ExpectedBucketOwner") => String.t()
+      }
+
+  """
+  @type delete_bucket_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_bucket_notification_configuration_request() :: %{
+        optional("ExpectedBucketOwner") => String.t(),
+        optional("SkipDestinationValidation") => boolean(),
+        required("NotificationConfiguration") => notification_configuration()
+      }
+
+  """
+  @type put_bucket_notification_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      scan_range() :: %{
+        "End" => float(),
+        "Start" => float()
+      }
+
+  """
+  @type scan_range() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_object_legal_hold_request() :: %{
+        optional("ChecksumAlgorithm") => list(any()),
+        optional("ContentMD5") => String.t(),
+        optional("ExpectedBucketOwner") => String.t(),
+        optional("LegalHold") => object_lock_legal_hold(),
+        optional("RequestPayer") => list(any()),
+        optional("VersionId") => String.t()
+      }
+
+  """
+  @type put_object_legal_hold_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_analytics_configuration_request() :: %{
+        optional("ExpectedBucketOwner") => String.t(),
+        required("Id") => String.t()
+      }
+
+  """
+  @type get_bucket_analytics_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      restore_object_output() :: %{
+        "RequestCharged" => list(any()),
+        "RestoreOutputPath" => String.t()
+      }
+
+  """
+  @type restore_object_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_session_request() :: %{
+        optional("SessionMode") => list(any())
+      }
+
+  """
+  @type create_session_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      json_input() :: %{
+        "Type" => list(any())
+      }
+
+  """
+  @type json_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      metrics() :: %{
+        "EventThreshold" => replication_time_value(),
+        "Status" => list(any())
+      }
+
+  """
+  @type metrics() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      replica_modifications() :: %{
+        "Status" => list(any())
+      }
+
+  """
+  @type replica_modifications() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_encryption_request() :: %{
+        optional("ExpectedBucketOwner") => String.t()
+      }
+
+  """
+  @type get_bucket_encryption_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      replication_time_value() :: %{
+        "Minutes" => integer()
+      }
+
+  """
+  @type replication_time_value() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      upload_part_copy_request() :: %{
+        optional("CopySourceIfMatch") => String.t(),
+        optional("CopySourceIfModifiedSince") => non_neg_integer(),
+        optional("CopySourceIfNoneMatch") => String.t(),
+        optional("CopySourceIfUnmodifiedSince") => non_neg_integer(),
+        optional("CopySourceRange") => String.t(),
+        optional("CopySourceSSECustomerAlgorithm") => String.t(),
+        optional("CopySourceSSECustomerKey") => String.t(),
+        optional("CopySourceSSECustomerKeyMD5") => String.t(),
+        optional("ExpectedBucketOwner") => String.t(),
+        optional("ExpectedSourceBucketOwner") => String.t(),
+        optional("RequestPayer") => list(any()),
+        optional("SSECustomerAlgorithm") => String.t(),
+        optional("SSECustomerKey") => String.t(),
+        optional("SSECustomerKeyMD5") => String.t(),
+        required("CopySource") => String.t(),
+        required("PartNumber") => integer(),
+        required("UploadId") => String.t()
+      }
+
+  """
+  @type upload_part_copy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      policy_status() :: %{
+        "IsPublic" => boolean()
+      }
+
+  """
+  @type policy_status() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_replication_request() :: %{
+        optional("ExpectedBucketOwner") => String.t()
+      }
+
+  """
+  @type get_bucket_replication_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_bucket_analytics_configurations_output() :: %{
+        "AnalyticsConfigurationList" => list(analytics_configuration()()),
+        "ContinuationToken" => String.t(),
+        "IsTruncated" => boolean(),
+        "NextContinuationToken" => String.t()
+      }
+
+  """
+  @type list_bucket_analytics_configurations_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      replication_configuration() :: %{
+        "Role" => String.t(),
+        "Rules" => list(replication_rule()())
+      }
+
+  """
+  @type replication_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_tagging_output() :: %{
+        "TagSet" => list(tag()())
+      }
+
+  """
+  @type get_bucket_tagging_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      object_identifier() :: %{
+        "Key" => String.t(),
+        "VersionId" => String.t()
+      }
+
+  """
+  @type object_identifier() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      intelligent_tiering_and_operator() :: %{
+        "Prefix" => String.t(),
+        "Tags" => list(tag()())
+      }
+
+  """
+  @type intelligent_tiering_and_operator() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      copy_object_output() :: %{
+        "BucketKeyEnabled" => boolean(),
+        "CopyObjectResult" => copy_object_result(),
+        "CopySourceVersionId" => String.t(),
+        "Expiration" => String.t(),
+        "RequestCharged" => list(any()),
+        "SSECustomerAlgorithm" => String.t(),
+        "SSECustomerKeyMD5" => String.t(),
+        "SSEKMSEncryptionContext" => String.t(),
+        "SSEKMSKeyId" => String.t(),
+        "ServerSideEncryption" => list(any()),
+        "VersionId" => String.t()
+      }
+
+  """
+  @type copy_object_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_website_request() :: %{
+        optional("ExpectedBucketOwner") => String.t()
+      }
+
+  """
+  @type get_bucket_website_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      json_output() :: %{
+        "RecordDelimiter" => String.t()
+      }
+
+  """
+  @type json_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_intelligent_tiering_configuration_request() :: %{
+        required("Id") => String.t()
+      }
+
+  """
+  @type get_bucket_intelligent_tiering_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      grant() :: %{
+        "Grantee" => grantee(),
+        "Permission" => list(any())
+      }
+
+  """
+  @type grant() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      notification_configuration_filter() :: %{
+        "Key" => s3_key_filter()
+      }
+
+  """
+  @type notification_configuration_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_session_output() :: %{
+        "Credentials" => session_credentials()
+      }
+
+  """
+  @type create_session_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      parquet_input() :: %{}
+
+  """
+  @type parquet_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      tag() :: %{
+        "Key" => String.t(),
+        "Value" => String.t()
+      }
+
+  """
+  @type tag() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_object_tagging_output() :: %{
+        "TagSet" => list(tag()()),
+        "VersionId" => String.t()
+      }
+
+  """
+  @type get_object_tagging_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_object_attributes_output() :: %{
+        "Checksum" => checksum(),
+        "DeleteMarker" => boolean(),
+        "ETag" => String.t(),
+        "LastModified" => non_neg_integer(),
+        "ObjectParts" => get_object_attributes_parts(),
+        "ObjectSize" => float(),
+        "RequestCharged" => list(any()),
+        "StorageClass" => list(any()),
+        "VersionId" => String.t()
+      }
+
+  """
+  @type get_object_attributes_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_encryption_output() :: %{
+        "ServerSideEncryptionConfiguration" => server_side_encryption_configuration()
+      }
+
+  """
+  @type get_bucket_encryption_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_cors_output() :: %{
+        "CORSRules" => list(c_o_r_s_rule()())
+      }
+
+  """
+  @type get_bucket_cors_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      noncurrent_version_transition() :: %{
+        "NewerNoncurrentVersions" => integer(),
+        "NoncurrentDays" => integer(),
+        "StorageClass" => list(any())
+      }
+
+  """
+  @type noncurrent_version_transition() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bucket_info() :: %{
+        "DataRedundancy" => list(any()),
+        "Type" => list(any())
+      }
+
+  """
+  @type bucket_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_object_tagging_output() :: %{
+        "VersionId" => String.t()
+      }
+
+  """
+  @type delete_object_tagging_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      abort_multipart_upload_output() :: %{
+        "RequestCharged" => list(any())
+      }
+
+  """
+  @type abort_multipart_upload_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      select_object_content_output() :: %{
+        "Payload" => list()
+      }
+
+  """
+  @type select_object_content_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_bucket_intelligent_tiering_configuration_request() :: %{
+        required("Id") => String.t()
+      }
+
+  """
+  @type delete_bucket_intelligent_tiering_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_multipart_upload_request() :: %{
+        optional("ACL") => list(any()),
+        optional("BucketKeyEnabled") => boolean(),
+        optional("CacheControl") => String.t(),
+        optional("ChecksumAlgorithm") => list(any()),
+        optional("ContentDisposition") => String.t(),
+        optional("ContentEncoding") => String.t(),
+        optional("ContentLanguage") => String.t(),
+        optional("ContentType") => String.t(),
+        optional("ExpectedBucketOwner") => String.t(),
+        optional("Expires") => non_neg_integer(),
+        optional("GrantFullControl") => String.t(),
+        optional("GrantRead") => String.t(),
+        optional("GrantReadACP") => String.t(),
+        optional("GrantWriteACP") => String.t(),
+        optional("Metadata") => map(),
+        optional("ObjectLockLegalHoldStatus") => list(any()),
+        optional("ObjectLockMode") => list(any()),
+        optional("ObjectLockRetainUntilDate") => non_neg_integer(),
+        optional("RequestPayer") => list(any()),
+        optional("SSECustomerAlgorithm") => String.t(),
+        optional("SSECustomerKey") => String.t(),
+        optional("SSECustomerKeyMD5") => String.t(),
+        optional("SSEKMSEncryptionContext") => String.t(),
+        optional("SSEKMSKeyId") => String.t(),
+        optional("ServerSideEncryption") => list(any()),
+        optional("StorageClass") => list(any()),
+        optional("Tagging") => String.t(),
+        optional("WebsiteRedirectLocation") => String.t()
+      }
+
+  """
+  @type create_multipart_upload_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      csv_input() :: %{
+        "AllowQuotedRecordDelimiter" => boolean(),
+        "Comments" => String.t(),
+        "FieldDelimiter" => String.t(),
+        "FileHeaderInfo" => list(any()),
+        "QuoteCharacter" => String.t(),
+        "QuoteEscapeCharacter" => String.t(),
+        "RecordDelimiter" => String.t()
+      }
+
+  """
+  @type csv_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stats() :: %{
+        "BytesProcessed" => float(),
+        "BytesReturned" => float(),
+        "BytesScanned" => float()
+      }
+
+  """
+  @type stats() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_buckets_output() :: %{
+        "Buckets" => list(bucket()()),
+        "Owner" => owner()
+      }
+
+  """
+  @type list_buckets_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_bucket_configuration() :: %{
+        "Bucket" => bucket_info(),
+        "Location" => location_info(),
+        "LocationConstraint" => list(any())
+      }
+
+  """
+  @type create_bucket_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bucket_already_exists() :: %{}
+
+  """
+  @type bucket_already_exists() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      server_side_encryption_rule() :: %{
+        "ApplyServerSideEncryptionByDefault" => server_side_encryption_by_default(),
+        "BucketKeyEnabled" => boolean()
+      }
+
+  """
+  @type server_side_encryption_rule() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_bucket_intelligent_tiering_configurations_output() :: %{
+        "ContinuationToken" => String.t(),
+        "IntelligentTieringConfigurationList" => list(intelligent_tiering_configuration()()),
+        "IsTruncated" => boolean(),
+        "NextContinuationToken" => String.t()
+      }
+
+  """
+  @type list_bucket_intelligent_tiering_configurations_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      initiator() :: %{
+        "DisplayName" => String.t(),
+        "ID" => String.t()
+      }
+
+  """
+  @type initiator() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      select_object_content_request() :: %{
+        optional("ExpectedBucketOwner") => String.t(),
+        optional("RequestProgress") => request_progress(),
+        optional("SSECustomerAlgorithm") => String.t(),
+        optional("SSECustomerKey") => String.t(),
+        optional("SSECustomerKeyMD5") => String.t(),
+        optional("ScanRange") => scan_range(),
+        required("Expression") => String.t(),
+        required("ExpressionType") => list(any()),
+        required("InputSerialization") => input_serialization(),
+        required("OutputSerialization") => output_serialization()
+      }
+
+  """
+  @type select_object_content_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      completed_part() :: %{
+        "ChecksumCRC32" => String.t(),
+        "ChecksumCRC32C" => String.t(),
+        "ChecksumSHA1" => String.t(),
+        "ChecksumSHA256" => String.t(),
+        "ETag" => String.t(),
+        "PartNumber" => integer()
+      }
+
+  """
+  @type completed_part() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      analytics_s3_bucket_destination() :: %{
+        "Bucket" => String.t(),
+        "BucketAccountId" => String.t(),
+        "Format" => list(any()),
+        "Prefix" => String.t()
+      }
+
+  """
+  @type analytics_s3_bucket_destination() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      encryption() :: %{
+        "EncryptionType" => list(any()),
+        "KMSContext" => String.t(),
+        "KMSKeyId" => String.t()
+      }
+
+  """
+  @type encryption() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_bucket_encryption_request() :: %{
+        optional("ExpectedBucketOwner") => String.t()
+      }
+
+  """
+  @type delete_bucket_encryption_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      continuation_event() :: %{}
+
+  """
+  @type continuation_event() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_key_filter() :: %{
+        "FilterRules" => list(filter_rule()())
+      }
+
+  """
+  @type s3_key_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_bucket_metrics_configuration_request() :: %{
+        optional("ExpectedBucketOwner") => String.t(),
+        required("Id") => String.t()
+      }
+
+  """
+  @type delete_bucket_metrics_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      intelligent_tiering_configuration() :: %{
+        "Filter" => intelligent_tiering_filter(),
+        "Id" => String.t(),
+        "Status" => list(any()),
+        "Tierings" => list(tiering()())
+      }
+
+  """
+  @type intelligent_tiering_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      redirect_all_requests_to() :: %{
+        "HostName" => String.t(),
+        "Protocol" => list(any())
+      }
+
+  """
+  @type redirect_all_requests_to() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tagging() :: %{
+        "TagSet" => list(tag()())
+      }
+
+  """
+  @type tagging() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      request_payment_configuration() :: %{
+        "Payer" => list(any())
+      }
+
+  """
+  @type request_payment_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_control_translation() :: %{
+        "Owner" => list(any())
+      }
+
+  """
+  @type access_control_translation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_bucket_request_payment_request() :: %{
+        optional("ChecksumAlgorithm") => list(any()),
+        optional("ContentMD5") => String.t(),
+        optional("ExpectedBucketOwner") => String.t(),
+        required("RequestPaymentConfiguration") => request_payment_configuration()
+      }
+
+  """
+  @type put_bucket_request_payment_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      server_side_encryption_by_default() :: %{
+        "KMSMasterKeyID" => String.t(),
+        "SSEAlgorithm" => list(any())
+      }
+
+  """
+  @type server_side_encryption_by_default() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      website_configuration() :: %{
+        "ErrorDocument" => error_document(),
+        "IndexDocument" => index_document(),
+        "RedirectAllRequestsTo" => redirect_all_requests_to(),
+        "RoutingRules" => list(routing_rule()())
+      }
+
+  """
+  @type website_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      output_location() :: %{
+        "S3" => s3_location()
+      }
+
+  """
+  @type output_location() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      target_object_key_format() :: %{
+        "PartitionedPrefix" => partitioned_prefix(),
+        "SimplePrefix" => simple_prefix()
+      }
+
+  """
+  @type target_object_key_format() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      storage_class_analysis() :: %{
+        "DataExport" => storage_class_analysis_data_export()
+      }
+
+  """
+  @type storage_class_analysis() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_object_attributes_parts() :: %{
+        "IsTruncated" => boolean(),
+        "MaxParts" => integer(),
+        "NextPartNumberMarker" => String.t(),
+        "PartNumberMarker" => String.t(),
+        "Parts" => list(object_part()()),
+        "TotalPartsCount" => integer()
+      }
+
+  """
+  @type get_object_attributes_parts() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_objects_v2_output() :: %{
+        "CommonPrefixes" => list(common_prefix()()),
+        "Contents" => list(object()()),
+        "ContinuationToken" => String.t(),
+        "Delimiter" => String.t(),
+        "EncodingType" => list(any()),
+        "IsTruncated" => boolean(),
+        "KeyCount" => integer(),
+        "MaxKeys" => integer(),
+        "Name" => String.t(),
+        "NextContinuationToken" => String.t(),
+        "Prefix" => String.t(),
+        "RequestCharged" => list(any()),
+        "StartAfter" => String.t()
+      }
+
+  """
+  @type list_objects_v2_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      condition() :: %{
+        "HttpErrorCodeReturnedEquals" => String.t(),
+        "KeyPrefixEquals" => String.t()
+      }
+
+  """
+  @type condition() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_object_output() :: %{
+        "ContentLength" => float(),
+        "VersionId" => String.t(),
+        "Expiration" => String.t(),
+        "BucketKeyEnabled" => boolean(),
+        "SSEKMSKeyId" => String.t(),
+        "StorageClass" => list(any()),
+        "ETag" => String.t(),
+        "ObjectLockRetainUntilDate" => non_neg_integer(),
+        "ObjectLockMode" => list(any()),
+        "Body" => binary(),
+        "WebsiteRedirectLocation" => String.t(),
+        "DeleteMarker" => boolean(),
+        "AcceptRanges" => String.t(),
+        "ServerSideEncryption" => list(any()),
+        "ChecksumSHA1" => String.t(),
+        "CacheControl" => String.t(),
+        "ObjectLockLegalHoldStatus" => list(any()),
+        "ContentType" => String.t(),
+        "SSECustomerKeyMD5" => String.t(),
+        "LastModified" => non_neg_integer(),
+        "Expires" => non_neg_integer(),
+        "TagCount" => integer(),
+        "ReplicationStatus" => list(any()),
+        "ContentDisposition" => String.t(),
+        "ContentEncoding" => String.t(),
+        "ChecksumCRC32C" => String.t(),
+        "ChecksumCRC32" => String.t(),
+        "Metadata" => map(),
+        "PartsCount" => integer(),
+        "ChecksumSHA256" => String.t(),
+        "RequestCharged" => list(any()),
+        "MissingMeta" => integer(),
+        "Restore" => String.t(),
+        "ContentRange" => String.t(),
+        "SSECustomerAlgorithm" => String.t(),
+        "ContentLanguage" => String.t()
+      }
+
+  """
+  @type get_object_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_location() :: %{
+        "AccessControlList" => list(grant()()),
+        "BucketName" => String.t(),
+        "CannedACL" => list(any()),
+        "Encryption" => encryption(),
+        "Prefix" => String.t(),
+        "StorageClass" => list(any()),
+        "Tagging" => tagging(),
+        "UserMetadata" => list(metadata_entry()())
+      }
+
+  """
+  @type s3_location() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      object() :: %{
+        "ChecksumAlgorithm" => list(list(any())()),
+        "ETag" => String.t(),
+        "Key" => String.t(),
+        "LastModified" => non_neg_integer(),
+        "Owner" => owner(),
+        "RestoreStatus" => restore_status(),
+        "Size" => float(),
+        "StorageClass" => list(any())
+      }
+
+  """
+  @type object() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      progress_event() :: %{
+        "Details" => progress()
+      }
+
+  """
+  @type progress_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      complete_multipart_upload_output() :: %{
+        "Bucket" => String.t(),
+        "BucketKeyEnabled" => boolean(),
+        "ChecksumCRC32" => String.t(),
+        "ChecksumCRC32C" => String.t(),
+        "ChecksumSHA1" => String.t(),
+        "ChecksumSHA256" => String.t(),
+        "ETag" => String.t(),
+        "Expiration" => String.t(),
+        "Key" => String.t(),
+        "Location" => String.t(),
+        "RequestCharged" => list(any()),
+        "SSEKMSKeyId" => String.t(),
+        "ServerSideEncryption" => list(any()),
+        "VersionId" => String.t()
+      }
+
+  """
+  @type complete_multipart_upload_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      server_side_encryption_configuration() :: %{
+        "Rules" => list(server_side_encryption_rule()())
+      }
+
+  """
+  @type server_side_encryption_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_object_acl_output() :: %{
+        "Grants" => list(grant()()),
+        "Owner" => owner(),
+        "RequestCharged" => list(any())
+      }
+
+  """
+  @type get_object_acl_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_bucket_encryption_request() :: %{
+        optional("ChecksumAlgorithm") => list(any()),
+        optional("ContentMD5") => String.t(),
+        optional("ExpectedBucketOwner") => String.t(),
+        required("ServerSideEncryptionConfiguration") => server_side_encryption_configuration()
+      }
+
+  """
+  @type put_bucket_encryption_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      default_retention() :: %{
+        "Days" => integer(),
+        "Mode" => list(any()),
+        "Years" => integer()
+      }
+
+  """
+  @type default_retention() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ownership_controls() :: %{
+        "Rules" => list(ownership_controls_rule()())
+      }
+
+  """
+  @type ownership_controls() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      notification_configuration() :: %{
+        "EventBridgeConfiguration" => event_bridge_configuration(),
+        "LambdaFunctionConfigurations" => list(lambda_function_configuration()()),
+        "QueueConfigurations" => list(queue_configuration()()),
+        "TopicConfigurations" => list(topic_configuration()())
+      }
+
+  """
+  @type notification_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      object_lock_configuration() :: %{
+        "ObjectLockEnabled" => list(any()),
+        "Rule" => object_lock_rule()
+      }
+
+  """
+  @type object_lock_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_lifecycle_configuration_request() :: %{
+        optional("ExpectedBucketOwner") => String.t()
+      }
+
+  """
+  @type get_bucket_lifecycle_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_objects_output() :: %{
+        "Deleted" => list(deleted_object()()),
+        "Errors" => list(error()()),
+        "RequestCharged" => list(any())
+      }
+
+  """
+  @type delete_objects_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_object_acl_output() :: %{
+        "RequestCharged" => list(any())
+      }
+
+  """
+  @type put_object_acl_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_objects_output() :: %{
+        "CommonPrefixes" => list(common_prefix()()),
+        "Contents" => list(object()()),
+        "Delimiter" => String.t(),
+        "EncodingType" => list(any()),
+        "IsTruncated" => boolean(),
+        "Marker" => String.t(),
+        "MaxKeys" => integer(),
+        "Name" => String.t(),
+        "NextMarker" => String.t(),
+        "Prefix" => String.t(),
+        "RequestCharged" => list(any())
+      }
+
+  """
+  @type list_objects_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      checksum() :: %{
+        "ChecksumCRC32" => String.t(),
+        "ChecksumCRC32C" => String.t(),
+        "ChecksumSHA1" => String.t(),
+        "ChecksumSHA256" => String.t()
+      }
+
+  """
+  @type checksum() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      event_bridge_configuration() :: %{}
+
+  """
+  @type event_bridge_configuration() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_versioning_output() :: %{
+        "MFADelete" => list(any()),
+        "Status" => list(any())
+      }
+
+  """
+  @type get_bucket_versioning_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      no_such_bucket() :: %{}
+
+  """
+  @type no_such_bucket() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_metrics_configuration_request() :: %{
+        optional("ExpectedBucketOwner") => String.t(),
+        required("Id") => String.t()
+      }
+
+  """
+  @type get_bucket_metrics_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_policy_request() :: %{
+        optional("ExpectedBucketOwner") => String.t()
+      }
+
+  """
+  @type get_bucket_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bucket_logging_status() :: %{
+        "LoggingEnabled" => logging_enabled()
+      }
+
+  """
+  @type bucket_logging_status() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_object_lock_configuration_request() :: %{
+        optional("ExpectedBucketOwner") => String.t()
+      }
+
+  """
+  @type get_object_lock_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      copy_object_request() :: %{
+        optional("GrantRead") => String.t(),
+        optional("Expires") => non_neg_integer(),
+        optional("CopySourceIfNoneMatch") => String.t(),
+        optional("CopySourceSSECustomerKeyMD5") => String.t(),
+        optional("GrantFullControl") => String.t(),
+        required("CopySource") => String.t(),
+        optional("CopySourceIfUnmodifiedSince") => non_neg_integer(),
+        optional("CopySourceSSECustomerAlgorithm") => String.t(),
+        optional("CopySourceIfModifiedSince") => non_neg_integer(),
+        optional("Metadata") => map(),
+        optional("SSECustomerAlgorithm") => String.t(),
+        optional("ExpectedBucketOwner") => String.t(),
+        optional("ACL") => list(any()),
+        optional("WebsiteRedirectLocation") => String.t(),
+        optional("BucketKeyEnabled") => boolean(),
+        optional("SSECustomerKeyMD5") => String.t(),
+        optional("MetadataDirective") => list(any()),
+        optional("CopySourceIfMatch") => String.t(),
+        optional("ContentDisposition") => String.t(),
+        optional("TaggingDirective") => list(any()),
+        optional("ContentLanguage") => String.t(),
+        optional("CopySourceSSECustomerKey") => String.t(),
+        optional("GrantReadACP") => String.t(),
+        optional("ChecksumAlgorithm") => list(any()),
+        optional("ServerSideEncryption") => list(any()),
+        optional("ContentEncoding") => String.t(),
+        optional("ObjectLockRetainUntilDate") => non_neg_integer(),
+        optional("ExpectedSourceBucketOwner") => String.t(),
+        optional("GrantWriteACP") => String.t(),
+        optional("ContentType") => String.t(),
+        optional("RequestPayer") => list(any()),
+        optional("CacheControl") => String.t(),
+        optional("Tagging") => String.t(),
+        optional("ObjectLockLegalHoldStatus") => list(any()),
+        optional("SSEKMSEncryptionContext") => String.t(),
+        optional("StorageClass") => list(any()),
+        optional("SSEKMSKeyId") => String.t(),
+        optional("ObjectLockMode") => list(any()),
+        optional("SSECustomerKey") => String.t()
+      }
+
+  """
+  @type copy_object_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_directory_buckets_request() :: %{
+        optional("ContinuationToken") => String.t(),
+        optional("MaxDirectoryBuckets") => integer()
+      }
+
+  """
+  @type list_directory_buckets_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_bucket_ownership_controls_request() :: %{
+        optional("ContentMD5") => String.t(),
+        optional("ExpectedBucketOwner") => String.t(),
+        required("OwnershipControls") => ownership_controls()
+      }
+
+  """
+  @type put_bucket_ownership_controls_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_bucket_lifecycle_request() :: %{
+        optional("ExpectedBucketOwner") => String.t()
+      }
+
+  """
+  @type delete_bucket_lifecycle_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_objects_request() :: %{
+        optional("BypassGovernanceRetention") => boolean(),
+        optional("ChecksumAlgorithm") => list(any()),
+        optional("ExpectedBucketOwner") => String.t(),
+        optional("MFA") => String.t(),
+        optional("RequestPayer") => list(any()),
+        required("Delete") => delete()
+      }
+
+  """
+  @type delete_objects_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_public_access_block_output() :: %{
+        "PublicAccessBlockConfiguration" => public_access_block_configuration()
+      }
+
+  """
+  @type get_public_access_block_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      restore_status() :: %{
+        "IsRestoreInProgress" => boolean(),
+        "RestoreExpiryDate" => non_neg_integer()
+      }
+
+  """
+  @type restore_status() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      analytics_and_operator() :: %{
+        "Prefix" => String.t(),
+        "Tags" => list(tag()())
+      }
+
+  """
+  @type analytics_and_operator() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bucket() :: %{
+        "CreationDate" => non_neg_integer(),
+        "Name" => String.t()
+      }
+
+  """
+  @type bucket() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_marker_replication() :: %{
+        "Status" => list(any())
+      }
+
+  """
+  @type delete_marker_replication() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      inventory_encryption() :: %{
+        "SSEKMS" => sse_kms(),
+        "SSES3" => sse_s3()
+      }
+
+  """
+  @type inventory_encryption() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_bucket_request() :: %{
+        optional("ACL") => list(any()),
+        optional("CreateBucketConfiguration") => create_bucket_configuration(),
+        optional("GrantFullControl") => String.t(),
+        optional("GrantRead") => String.t(),
+        optional("GrantReadACP") => String.t(),
+        optional("GrantWrite") => String.t(),
+        optional("GrantWriteACP") => String.t(),
+        optional("ObjectLockEnabledForBucket") => boolean(),
+        optional("ObjectOwnership") => list(any())
+      }
+
+  """
+  @type create_bucket_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      storage_class_analysis_data_export() :: %{
+        "Destination" => analytics_export_destination(),
+        "OutputSchemaVersion" => list(any())
+      }
+
+  """
+  @type storage_class_analysis_data_export() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_bucket_accelerate_configuration_request() :: %{
+        optional("ChecksumAlgorithm") => list(any()),
+        optional("ExpectedBucketOwner") => String.t(),
+        required("AccelerateConfiguration") => accelerate_configuration()
+      }
+
+  """
+  @type put_bucket_accelerate_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      c_o_r_s_rule() :: %{
+        "AllowedHeaders" => list(String.t()()),
+        "AllowedMethods" => list(String.t()()),
+        "AllowedOrigins" => list(String.t()()),
+        "ExposeHeaders" => list(String.t()()),
+        "ID" => String.t(),
+        "MaxAgeSeconds" => integer()
+      }
+
+  """
+  @type c_o_r_s_rule() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_bucket_acl_request() :: %{
+        optional("ACL") => list(any()),
+        optional("AccessControlPolicy") => access_control_policy(),
+        optional("ChecksumAlgorithm") => list(any()),
+        optional("ContentMD5") => String.t(),
+        optional("ExpectedBucketOwner") => String.t(),
+        optional("GrantFullControl") => String.t(),
+        optional("GrantRead") => String.t(),
+        optional("GrantReadACP") => String.t(),
+        optional("GrantWrite") => String.t(),
+        optional("GrantWriteACP") => String.t()
+      }
+
+  """
+  @type put_bucket_acl_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      simple_prefix() :: %{}
+
+  """
+  @type simple_prefix() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      existing_object_replication() :: %{
+        "Status" => list(any())
+      }
+
+  """
+  @type existing_object_replication() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      transition() :: %{
+        "Date" => non_neg_integer(),
+        "Days" => integer(),
+        "StorageClass" => list(any())
+      }
+
+  """
+  @type transition() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      index_document() :: %{
+        "Suffix" => String.t()
+      }
+
+  """
+  @type index_document() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      intelligent_tiering_filter() :: %{
+        "And" => intelligent_tiering_and_operator(),
+        "Prefix" => String.t(),
+        "Tag" => tag()
+      }
+
+  """
+  @type intelligent_tiering_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_object_torrent_request() :: %{
+        optional("ExpectedBucketOwner") => String.t(),
+        optional("RequestPayer") => list(any())
+      }
+
+  """
+  @type get_object_torrent_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_bucket_metrics_configuration_request() :: %{
+        optional("ExpectedBucketOwner") => String.t(),
+        required("Id") => String.t(),
+        required("MetricsConfiguration") => metrics_configuration()
+      }
+
+  """
+  @type put_bucket_metrics_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_object_retention_request() :: %{
+        optional("BypassGovernanceRetention") => boolean(),
+        optional("ChecksumAlgorithm") => list(any()),
+        optional("ContentMD5") => String.t(),
+        optional("ExpectedBucketOwner") => String.t(),
+        optional("RequestPayer") => list(any()),
+        optional("Retention") => object_lock_retention(),
+        optional("VersionId") => String.t()
+      }
+
+  """
+  @type put_object_retention_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      part() :: %{
+        "ChecksumCRC32" => String.t(),
+        "ChecksumCRC32C" => String.t(),
+        "ChecksumSHA1" => String.t(),
+        "ChecksumSHA256" => String.t(),
+        "ETag" => String.t(),
+        "LastModified" => non_neg_integer(),
+        "PartNumber" => integer(),
+        "Size" => float()
+      }
+
+  """
+  @type part() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_tagging_request() :: %{
+        optional("ExpectedBucketOwner") => String.t()
+      }
+
+  """
+  @type get_bucket_tagging_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      object_part() :: %{
+        "ChecksumCRC32" => String.t(),
+        "ChecksumCRC32C" => String.t(),
+        "ChecksumSHA1" => String.t(),
+        "ChecksumSHA256" => String.t(),
+        "PartNumber" => integer(),
+        "Size" => float()
+      }
+
+  """
+  @type object_part() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      end_event() :: %{}
+
+  """
+  @type end_event() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      metadata_entry() :: %{
+        "Name" => String.t(),
+        "Value" => String.t()
+      }
+
+  """
+  @type metadata_entry() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sse_s3() :: %{}
+
+  """
+  @type sse_s3() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_logging_request() :: %{
+        optional("ExpectedBucketOwner") => String.t()
+      }
+
+  """
+  @type get_bucket_logging_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_object_acl_request() :: %{
+        optional("ExpectedBucketOwner") => String.t(),
+        optional("RequestPayer") => list(any()),
+        optional("VersionId") => String.t()
+      }
+
+  """
+  @type get_object_acl_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      replication_rule() :: %{
+        "DeleteMarkerReplication" => delete_marker_replication(),
+        "Destination" => destination(),
+        "ExistingObjectReplication" => existing_object_replication(),
+        "Filter" => list(),
+        "ID" => String.t(),
+        "Prefix" => String.t(),
+        "Priority" => integer(),
+        "SourceSelectionCriteria" => source_selection_criteria(),
+        "Status" => list(any())
+      }
+
+  """
+  @type replication_rule() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_objects_v2_request() :: %{
+        optional("ContinuationToken") => String.t(),
+        optional("Delimiter") => String.t(),
+        optional("EncodingType") => list(any()),
+        optional("ExpectedBucketOwner") => String.t(),
+        optional("FetchOwner") => boolean(),
+        optional("MaxKeys") => integer(),
+        optional("OptionalObjectAttributes") => list(list(any())()),
+        optional("Prefix") => String.t(),
+        optional("RequestPayer") => list(any()),
+        optional("StartAfter") => String.t()
+      }
+
+  """
+  @type list_objects_v2_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_bucket_output() :: %{
+        "Location" => String.t()
+      }
+
+  """
+  @type create_bucket_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_bucket_intelligent_tiering_configuration_request() :: %{
+        required("Id") => String.t(),
+        required("IntelligentTieringConfiguration") => intelligent_tiering_configuration()
+      }
+
+  """
+  @type put_bucket_intelligent_tiering_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      destination() :: %{
+        "AccessControlTranslation" => access_control_translation(),
+        "Account" => String.t(),
+        "Bucket" => String.t(),
+        "EncryptionConfiguration" => encryption_configuration(),
+        "Metrics" => metrics(),
+        "ReplicationTime" => replication_time(),
+        "StorageClass" => list(any())
+      }
+
+  """
+  @type destination() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      head_bucket_request() :: %{
+        optional("ExpectedBucketOwner") => String.t()
+      }
+
+  """
+  @type head_bucket_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lifecycle_expiration() :: %{
+        "Date" => non_neg_integer(),
+        "Days" => integer(),
+        "ExpiredObjectDeleteMarker" => boolean()
+      }
+
+  """
+  @type lifecycle_expiration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_control_policy() :: %{
+        "Grants" => list(grant()()),
+        "Owner" => owner()
+      }
+
+  """
+  @type access_control_policy() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_bucket_analytics_configuration_request() :: %{
+        optional("ExpectedBucketOwner") => String.t(),
+        required("AnalyticsConfiguration") => analytics_configuration(),
+        required("Id") => String.t()
+      }
+
+  """
+  @type put_bucket_analytics_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      object_lock_retention() :: %{
+        "Mode" => list(any()),
+        "RetainUntilDate" => non_neg_integer()
+      }
+
+  """
+  @type object_lock_retention() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_object_tagging_output() :: %{
+        "VersionId" => String.t()
+      }
+
+  """
+  @type put_object_tagging_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      upload_part_copy_output() :: %{
+        "BucketKeyEnabled" => boolean(),
+        "CopyPartResult" => copy_part_result(),
+        "CopySourceVersionId" => String.t(),
+        "RequestCharged" => list(any()),
+        "SSECustomerAlgorithm" => String.t(),
+        "SSECustomerKeyMD5" => String.t(),
+        "SSEKMSKeyId" => String.t(),
+        "ServerSideEncryption" => list(any())
+      }
+
+  """
+  @type upload_part_copy_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_location_request() :: %{
+        optional("ExpectedBucketOwner") => String.t()
+      }
+
+  """
+  @type get_bucket_location_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      multipart_upload() :: %{
+        "ChecksumAlgorithm" => list(any()),
+        "Initiated" => non_neg_integer(),
+        "Initiator" => initiator(),
+        "Key" => String.t(),
+        "Owner" => owner(),
+        "StorageClass" => list(any()),
+        "UploadId" => String.t()
+      }
+
+  """
+  @type multipart_upload() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_bucket_tagging_request() :: %{
+        optional("ChecksumAlgorithm") => list(any()),
+        optional("ContentMD5") => String.t(),
+        optional("ExpectedBucketOwner") => String.t(),
+        required("Tagging") => tagging()
+      }
+
+  """
+  @type put_bucket_tagging_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      partitioned_prefix() :: %{
+        "PartitionDateSource" => list(any())
+      }
+
+  """
+  @type partitioned_prefix() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_bucket_inventory_configurations_request() :: %{
+        optional("ContinuationToken") => String.t(),
+        optional("ExpectedBucketOwner") => String.t()
+      }
+
+  """
+  @type list_bucket_inventory_configurations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_multipart_uploads_output() :: %{
+        "Bucket" => String.t(),
+        "CommonPrefixes" => list(common_prefix()()),
+        "Delimiter" => String.t(),
+        "EncodingType" => list(any()),
+        "IsTruncated" => boolean(),
+        "KeyMarker" => String.t(),
+        "MaxUploads" => integer(),
+        "NextKeyMarker" => String.t(),
+        "NextUploadIdMarker" => String.t(),
+        "Prefix" => String.t(),
+        "RequestCharged" => list(any()),
+        "UploadIdMarker" => String.t(),
+        "Uploads" => list(multipart_upload()())
+      }
+
+  """
+  @type list_multipart_uploads_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sse_kms() :: %{
+        "KeyId" => String.t()
+      }
+
+  """
+  @type sse_kms() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_object_lock_configuration_request() :: %{
+        optional("ChecksumAlgorithm") => list(any()),
+        optional("ContentMD5") => String.t(),
+        optional("ExpectedBucketOwner") => String.t(),
+        optional("ObjectLockConfiguration") => object_lock_configuration(),
+        optional("RequestPayer") => list(any()),
+        optional("Token") => String.t()
+      }
+
+  """
+  @type put_object_lock_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_object_output() :: %{
+        "DeleteMarker" => boolean(),
+        "RequestCharged" => list(any()),
+        "VersionId" => String.t()
+      }
+
+  """
+  @type delete_object_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      completed_multipart_upload() :: %{
+        "Parts" => list(completed_part()())
+      }
+
+  """
+  @type completed_multipart_upload() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_parts_output() :: %{
+        "AbortDate" => non_neg_integer(),
+        "AbortRuleId" => String.t(),
+        "Bucket" => String.t(),
+        "ChecksumAlgorithm" => list(any()),
+        "Initiator" => initiator(),
+        "IsTruncated" => boolean(),
+        "Key" => String.t(),
+        "MaxParts" => integer(),
+        "NextPartNumberMarker" => String.t(),
+        "Owner" => owner(),
+        "PartNumberMarker" => String.t(),
+        "Parts" => list(part()()),
+        "RequestCharged" => list(any()),
+        "StorageClass" => list(any()),
+        "UploadId" => String.t()
+      }
+
+  """
+  @type list_parts_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      csv_output() :: %{
+        "FieldDelimiter" => String.t(),
+        "QuoteCharacter" => String.t(),
+        "QuoteEscapeCharacter" => String.t(),
+        "QuoteFields" => list(any()),
+        "RecordDelimiter" => String.t()
+      }
+
+  """
+  @type csv_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_analytics_configuration_output() :: %{
+        "AnalyticsConfiguration" => analytics_configuration()
+      }
+
+  """
+  @type get_bucket_analytics_configuration_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      not_found() :: %{}
+
+  """
+  @type not_found() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      replication_rule_and_operator() :: %{
+        "Prefix" => String.t(),
+        "Tags" => list(tag()())
+      }
+
+  """
+  @type replication_rule_and_operator() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_object_retention_request() :: %{
+        optional("ExpectedBucketOwner") => String.t(),
+        optional("RequestPayer") => list(any()),
+        optional("VersionId") => String.t()
+      }
+
+  """
+  @type get_object_retention_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      abort_multipart_upload_request() :: %{
+        optional("ExpectedBucketOwner") => String.t(),
+        optional("RequestPayer") => list(any()),
+        required("UploadId") => String.t()
+      }
+
+  """
+  @type abort_multipart_upload_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tiering() :: %{
+        "AccessTier" => list(any()),
+        "Days" => integer()
+      }
+
+  """
+  @type tiering() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      head_object_request() :: %{
+        optional("ChecksumMode") => list(any()),
+        optional("ExpectedBucketOwner") => String.t(),
+        optional("IfMatch") => String.t(),
+        optional("IfModifiedSince") => non_neg_integer(),
+        optional("IfNoneMatch") => String.t(),
+        optional("IfUnmodifiedSince") => non_neg_integer(),
+        optional("PartNumber") => integer(),
+        optional("Range") => String.t(),
+        optional("RequestPayer") => list(any()),
+        optional("SSECustomerAlgorithm") => String.t(),
+        optional("SSECustomerKey") => String.t(),
+        optional("SSECustomerKeyMD5") => String.t(),
+        optional("VersionId") => String.t()
+      }
+
+  """
+  @type head_object_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_public_access_block_request() :: %{
+        optional("ExpectedBucketOwner") => String.t()
+      }
+
+  """
+  @type get_public_access_block_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_cors_request() :: %{
+        optional("ExpectedBucketOwner") => String.t()
+      }
+
+  """
+  @type get_bucket_cors_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      glacier_job_parameters() :: %{
+        "Tier" => list(any())
+      }
+
+  """
+  @type glacier_job_parameters() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      no_such_upload() :: %{}
+
+  """
+  @type no_such_upload() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      inventory_destination() :: %{
+        "S3BucketDestination" => inventory_s3_bucket_destination()
+      }
+
+  """
+  @type inventory_destination() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_parts_request() :: %{
+        optional("ExpectedBucketOwner") => String.t(),
+        optional("MaxParts") => integer(),
+        optional("PartNumberMarker") => String.t(),
+        optional("RequestPayer") => list(any()),
+        optional("SSECustomerAlgorithm") => String.t(),
+        optional("SSECustomerKey") => String.t(),
+        optional("SSECustomerKeyMD5") => String.t(),
+        required("UploadId") => String.t()
+      }
+
+  """
+  @type list_parts_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      object_lock_legal_hold() :: %{
+        "Status" => list(any())
+      }
+
+  """
+  @type object_lock_legal_hold() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      replication_time() :: %{
+        "Status" => list(any()),
+        "Time" => replication_time_value()
+      }
+
+  """
+  @type replication_time() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_metrics_configuration_output() :: %{
+        "MetricsConfiguration" => metrics_configuration()
+      }
+
+  """
+  @type get_bucket_metrics_configuration_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_directory_buckets_output() :: %{
+        "Buckets" => list(bucket()()),
+        "ContinuationToken" => String.t()
+      }
+
+  """
+  @type list_directory_buckets_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      request_progress() :: %{
+        "Enabled" => boolean()
+      }
+
+  """
+  @type request_progress() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_bucket_lifecycle_configuration_request() :: %{
+        optional("ChecksumAlgorithm") => list(any()),
+        optional("ExpectedBucketOwner") => String.t(),
+        optional("LifecycleConfiguration") => bucket_lifecycle_configuration()
+      }
+
+  """
+  @type put_bucket_lifecycle_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      output_serialization() :: %{
+        "CSV" => csv_output(),
+        "JSON" => json_output()
+      }
+
+  """
+  @type output_serialization() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_object_request() :: %{
+        optional("ChecksumMode") => list(any()),
+        optional("ExpectedBucketOwner") => String.t(),
+        optional("IfMatch") => String.t(),
+        optional("IfModifiedSince") => non_neg_integer(),
+        optional("IfNoneMatch") => String.t(),
+        optional("IfUnmodifiedSince") => non_neg_integer(),
+        optional("PartNumber") => integer(),
+        optional("Range") => String.t(),
+        optional("RequestPayer") => list(any()),
+        optional("ResponseCacheControl") => String.t(),
+        optional("ResponseContentDisposition") => String.t(),
+        optional("ResponseContentEncoding") => String.t(),
+        optional("ResponseContentLanguage") => String.t(),
+        optional("ResponseContentType") => String.t(),
+        optional("ResponseExpires") => non_neg_integer(),
+        optional("SSECustomerAlgorithm") => String.t(),
+        optional("SSECustomerKey") => String.t(),
+        optional("SSECustomerKeyMD5") => String.t(),
+        optional("VersionId") => String.t()
+      }
+
+  """
+  @type get_object_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      metrics_and_operator() :: %{
+        "AccessPointArn" => String.t(),
+        "Prefix" => String.t(),
+        "Tags" => list(tag()())
+      }
+
+  """
+  @type metrics_and_operator() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_website_output() :: %{
+        "ErrorDocument" => error_document(),
+        "IndexDocument" => index_document(),
+        "RedirectAllRequestsTo" => redirect_all_requests_to(),
+        "RoutingRules" => list(routing_rule()())
+      }
+
+  """
+  @type get_bucket_website_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_request_payment_output() :: %{
+        "Payer" => list(any())
+      }
+
+  """
+  @type get_bucket_request_payment_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bucket_lifecycle_configuration() :: %{
+        "Rules" => list(lifecycle_rule()())
+      }
+
+  """
+  @type bucket_lifecycle_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      routing_rule() :: %{
+        "Condition" => condition(),
+        "Redirect" => redirect()
+      }
+
+  """
+  @type routing_rule() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_object_state() :: %{
+        "AccessTier" => list(any()),
+        "StorageClass" => list(any())
+      }
+
+  """
+  @type invalid_object_state() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      complete_multipart_upload_request() :: %{
+        optional("ChecksumCRC32") => String.t(),
+        optional("ChecksumCRC32C") => String.t(),
+        optional("ChecksumSHA1") => String.t(),
+        optional("ChecksumSHA256") => String.t(),
+        optional("ExpectedBucketOwner") => String.t(),
+        optional("MultipartUpload") => completed_multipart_upload(),
+        optional("RequestPayer") => list(any()),
+        optional("SSECustomerAlgorithm") => String.t(),
+        optional("SSECustomerKey") => String.t(),
+        optional("SSECustomerKeyMD5") => String.t(),
+        required("UploadId") => String.t()
+      }
+
+  """
+  @type complete_multipart_upload_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_bucket_website_request() :: %{
+        optional("ChecksumAlgorithm") => list(any()),
+        optional("ContentMD5") => String.t(),
+        optional("ExpectedBucketOwner") => String.t(),
+        required("WebsiteConfiguration") => website_configuration()
+      }
+
+  """
+  @type put_bucket_website_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      restore_request() :: %{
+        "Days" => integer(),
+        "Description" => String.t(),
+        "GlacierJobParameters" => glacier_job_parameters(),
+        "OutputLocation" => output_location(),
+        "SelectParameters" => select_parameters(),
+        "Tier" => list(any()),
+        "Type" => list(any())
+      }
+
+  """
+  @type restore_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      analytics_configuration() :: %{
+        "Filter" => list(),
+        "Id" => String.t(),
+        "StorageClassAnalysis" => storage_class_analysis()
+      }
+
+  """
+  @type analytics_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_bucket_replication_request() :: %{
+        optional("ExpectedBucketOwner") => String.t()
+      }
+
+  """
+  @type delete_bucket_replication_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_object_tagging_request() :: %{
+        optional("ChecksumAlgorithm") => list(any()),
+        optional("ContentMD5") => String.t(),
+        optional("ExpectedBucketOwner") => String.t(),
+        optional("RequestPayer") => list(any()),
+        optional("VersionId") => String.t(),
+        required("Tagging") => tagging()
+      }
+
+  """
+  @type put_object_tagging_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_replication_output() :: %{
+        "ReplicationConfiguration" => replication_configuration()
+      }
+
+  """
+  @type get_bucket_replication_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_bucket_intelligent_tiering_configurations_request() :: %{
+        optional("ContinuationToken") => String.t()
+      }
+
+  """
+  @type list_bucket_intelligent_tiering_configurations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_notification_configuration_request() :: %{
+        optional("ExpectedBucketOwner") => String.t()
+      }
+
+  """
+  @type get_bucket_notification_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_bucket_cors_request() :: %{
+        optional("ExpectedBucketOwner") => String.t()
+      }
+
+  """
+  @type delete_bucket_cors_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      object_already_in_active_tier_error() :: %{}
+
+  """
+  @type object_already_in_active_tier_error() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_object_lock_configuration_output() :: %{
+        "ObjectLockConfiguration" => object_lock_configuration()
+      }
+
+  """
+  @type get_object_lock_configuration_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_object_attributes_request() :: %{
+        optional("ExpectedBucketOwner") => String.t(),
+        optional("MaxParts") => integer(),
+        optional("PartNumberMarker") => String.t(),
+        optional("RequestPayer") => list(any()),
+        optional("SSECustomerAlgorithm") => String.t(),
+        optional("SSECustomerKey") => String.t(),
+        optional("SSECustomerKeyMD5") => String.t(),
+        optional("VersionId") => String.t(),
+        required("ObjectAttributes") => list(list(any())())
+      }
+
+  """
+  @type get_object_attributes_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      owner() :: %{
+        "DisplayName" => String.t(),
+        "ID" => String.t()
+      }
+
+  """
+  @type owner() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      metrics_configuration() :: %{
+        "Filter" => list(),
+        "Id" => String.t()
+      }
+
+  """
+  @type metrics_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      accelerate_configuration() :: %{
+        "Status" => list(any())
+      }
+
+  """
+  @type accelerate_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      error_document() :: %{
+        "Key" => String.t()
+      }
+
+  """
+  @type error_document() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_bucket_inventory_configuration_request() :: %{
+        optional("ExpectedBucketOwner") => String.t(),
+        required("Id") => String.t(),
+        required("InventoryConfiguration") => inventory_configuration()
+      }
+
+  """
+  @type put_bucket_inventory_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lifecycle_rule_and_operator() :: %{
+        "ObjectSizeGreaterThan" => float(),
+        "ObjectSizeLessThan" => float(),
+        "Prefix" => String.t(),
+        "Tags" => list(tag()())
+      }
+
+  """
+  @type lifecycle_rule_and_operator() :: %{String.t() => any()}
+
+  @type abort_multipart_upload_errors() :: no_such_upload()
+
+  @type copy_object_errors() :: object_not_in_active_tier_error()
+
+  @type create_bucket_errors() :: bucket_already_exists() | bucket_already_owned_by_you()
+
+  @type create_session_errors() :: no_such_bucket()
+
+  @type get_object_errors() :: invalid_object_state() | no_such_key()
+
+  @type get_object_acl_errors() :: no_such_key()
+
+  @type get_object_attributes_errors() :: no_such_key()
+
+  @type head_bucket_errors() :: not_found()
+
+  @type head_object_errors() :: not_found()
+
+  @type list_objects_errors() :: no_such_bucket()
+
+  @type list_objects_v2_errors() :: no_such_bucket()
+
+  @type put_object_acl_errors() :: no_such_key()
+
+  @type restore_object_errors() :: object_already_in_active_tier_error()
+
   def metadata do
     %{
       api_version: "2006-03-01",
@@ -119,6 +4237,16 @@ defmodule AWS.S3 do
 
   [ListMultipartUploads](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListMultipartUploads.html)
   """
+  @spec abort_multipart_upload(
+          map(),
+          String.t(),
+          String.t(),
+          abort_multipart_upload_request(),
+          list()
+        ) ::
+          {:ok, abort_multipart_upload_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, abort_multipart_upload_errors()}
   def abort_multipart_upload(%Client{} = client, bucket, key, input, options \\ []) do
     url_path =
       "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}?x-id=AbortMultipartUpload"
@@ -342,6 +4470,15 @@ defmodule AWS.S3 do
 
   [ListMultipartUploads](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListMultipartUploads.html)
   """
+  @spec complete_multipart_upload(
+          map(),
+          String.t(),
+          String.t(),
+          complete_multipart_upload_request(),
+          list()
+        ) ::
+          {:ok, complete_multipart_upload_output(), any()}
+          | {:error, {:unexpected_response, any()}}
   def complete_multipart_upload(%Client{} = client, bucket, key, input, options \\ []) do
     url_path =
       "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}?x-id=CompleteMultipartUpload"
@@ -597,6 +4734,10 @@ defmodule AWS.S3 do
 
   [GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html)
   """
+  @spec copy_object(map(), String.t(), String.t(), copy_object_request(), list()) ::
+          {:ok, copy_object_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, copy_object_errors()}
   def copy_object(%Client{} = client, bucket, key, input, options \\ []) do
     url_path =
       "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}?x-id=CopyObject"
@@ -836,6 +4977,10 @@ defmodule AWS.S3 do
 
   [DeleteBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucket.html)
   """
+  @spec create_bucket(map(), String.t(), create_bucket_request(), list()) ::
+          {:ok, create_bucket_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_bucket_errors()}
   def create_bucket(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}"
 
@@ -1135,6 +5280,15 @@ defmodule AWS.S3 do
 
   [ListMultipartUploads](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListMultipartUploads.html)
   """
+  @spec create_multipart_upload(
+          map(),
+          String.t(),
+          String.t(),
+          create_multipart_upload_request(),
+          list()
+        ) ::
+          {:ok, create_multipart_upload_output(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_multipart_upload(%Client{} = client, bucket, key, input, options \\ []) do
     url_path =
       "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}?uploads&x-id=CreateMultipartUpload"
@@ -1314,6 +5468,10 @@ defmodule AWS.S3 do
 
   .
   """
+  @spec create_session(map(), String.t(), String.t() | nil, list()) ::
+          {:ok, create_session_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_session_errors()}
   def create_session(%Client{} = client, bucket, session_mode \\ nil, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?session"
     headers = []
@@ -1394,6 +5552,9 @@ defmodule AWS.S3 do
 
   [DeleteObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html)
   """
+  @spec delete_bucket(map(), String.t(), delete_bucket_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_bucket(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}"
 
@@ -1453,6 +5614,14 @@ defmodule AWS.S3 do
 
   [PutBucketAnalyticsConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketAnalyticsConfiguration.html)
   """
+  @spec delete_bucket_analytics_configuration(
+          map(),
+          String.t(),
+          delete_bucket_analytics_configuration_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_bucket_analytics_configuration(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?analytics"
 
@@ -1506,6 +5675,9 @@ defmodule AWS.S3 do
 
   [RESTOPTIONSobject](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTOPTIONSobject.html)
   """
+  @spec delete_bucket_cors(map(), String.t(), delete_bucket_cors_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_bucket_cors(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?cors"
 
@@ -1563,6 +5735,9 @@ defmodule AWS.S3 do
 
   [GetBucketEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketEncryption.html)
   """
+  @spec delete_bucket_encryption(map(), String.t(), delete_bucket_encryption_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_bucket_encryption(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?encryption"
 
@@ -1626,6 +5801,14 @@ defmodule AWS.S3 do
 
   [ListBucketIntelligentTieringConfigurations](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBucketIntelligentTieringConfigurations.html)
   """
+  @spec delete_bucket_intelligent_tiering_configuration(
+          map(),
+          String.t(),
+          delete_bucket_intelligent_tiering_configuration_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_bucket_intelligent_tiering_configuration(
         %Client{} = client,
         bucket,
@@ -1687,6 +5870,14 @@ defmodule AWS.S3 do
 
   [ListBucketInventoryConfigurations](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBucketInventoryConfigurations.html)
   """
+  @spec delete_bucket_inventory_configuration(
+          map(),
+          String.t(),
+          delete_bucket_inventory_configuration_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_bucket_inventory_configuration(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?inventory"
 
@@ -1749,6 +5940,9 @@ defmodule AWS.S3 do
 
   [GetBucketLifecycleConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLifecycleConfiguration.html)
   """
+  @spec delete_bucket_lifecycle(map(), String.t(), delete_bucket_lifecycle_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_bucket_lifecycle(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?lifecycle"
 
@@ -1817,6 +6011,14 @@ defmodule AWS.S3 do
   [Monitoring Metrics with Amazon
   CloudWatch](https://docs.aws.amazon.com/AmazonS3/latest/dev/cloudwatch-monitoring.html)
   """
+  @spec delete_bucket_metrics_configuration(
+          map(),
+          String.t(),
+          delete_bucket_metrics_configuration_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_bucket_metrics_configuration(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?metrics"
 
@@ -1868,6 +6070,14 @@ defmodule AWS.S3 do
 
   `PutBucketOwnershipControls`
   """
+  @spec delete_bucket_ownership_controls(
+          map(),
+          String.t(),
+          delete_bucket_ownership_controls_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_bucket_ownership_controls(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?ownershipControls"
 
@@ -1985,6 +6195,9 @@ defmodule AWS.S3 do
 
   [DeleteObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html)
   """
+  @spec delete_bucket_policy(map(), String.t(), delete_bucket_policy_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_bucket_policy(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?policy"
 
@@ -2042,6 +6255,9 @@ defmodule AWS.S3 do
 
   [GetBucketReplication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketReplication.html)
   """
+  @spec delete_bucket_replication(map(), String.t(), delete_bucket_replication_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_bucket_replication(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?replication"
 
@@ -2088,6 +6304,9 @@ defmodule AWS.S3 do
 
   [PutBucketTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketTagging.html)
   """
+  @spec delete_bucket_tagging(map(), String.t(), delete_bucket_tagging_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_bucket_tagging(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?tagging"
 
@@ -2151,6 +6370,9 @@ defmodule AWS.S3 do
 
   [PutBucketWebsite](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketWebsite.html)
   """
+  @spec delete_bucket_website(map(), String.t(), delete_bucket_website_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_bucket_website(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?website"
 
@@ -2311,6 +6533,9 @@ defmodule AWS.S3 do
 
   [PutObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html)
   """
+  @spec delete_object(map(), String.t(), String.t(), delete_object_request(), list()) ::
+          {:ok, delete_object_output(), any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_object(%Client{} = client, bucket, key, input, options \\ []) do
     url_path =
       "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}?x-id=DeleteObject"
@@ -2380,6 +6605,15 @@ defmodule AWS.S3 do
 
   [GetObjectTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectTagging.html)
   """
+  @spec delete_object_tagging(
+          map(),
+          String.t(),
+          String.t(),
+          delete_object_tagging_request(),
+          list()
+        ) ::
+          {:ok, delete_object_tagging_output(), any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_object_tagging(%Client{} = client, bucket, key, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}?tagging"
 
@@ -2578,6 +6812,9 @@ defmodule AWS.S3 do
 
   [AbortMultipartUpload](https://docs.aws.amazon.com/AmazonS3/latest/API/API_AbortMultipartUpload.html)
   """
+  @spec delete_objects(map(), String.t(), delete_objects_request(), list()) ::
+          {:ok, delete_objects_output(), any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_objects(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?delete&x-id=DeleteObjects"
 
@@ -2653,6 +6890,14 @@ defmodule AWS.S3 do
 
   [GetBucketPolicyStatus](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketPolicyStatus.html)
   """
+  @spec delete_public_access_block(
+          map(),
+          String.t(),
+          delete_public_access_block_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_public_access_block(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?publicAccessBlock"
 
@@ -2719,6 +6964,15 @@ defmodule AWS.S3 do
 
   [PutBucketAccelerateConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketAccelerateConfiguration.html)
   """
+  @spec get_bucket_accelerate_configuration(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, get_bucket_accelerate_configuration_output(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_bucket_accelerate_configuration(
         %Client{} = client,
         bucket,
@@ -2791,6 +7045,9 @@ defmodule AWS.S3 do
 
   [ListObjects](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjects.html)
   """
+  @spec get_bucket_acl(map(), String.t(), String.t() | nil, list()) ::
+          {:ok, get_bucket_acl_output(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_bucket_acl(%Client{} = client, bucket, expected_bucket_owner \\ nil, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?acl"
     headers = []
@@ -2846,6 +7103,15 @@ defmodule AWS.S3 do
 
   [PutBucketAnalyticsConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketAnalyticsConfiguration.html)
   """
+  @spec get_bucket_analytics_configuration(
+          map(),
+          String.t(),
+          String.t(),
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, get_bucket_analytics_configuration_output(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_bucket_analytics_configuration(
         %Client{} = client,
         bucket,
@@ -2911,6 +7177,9 @@ defmodule AWS.S3 do
 
   [DeleteBucketCors](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketCors.html)
   """
+  @spec get_bucket_cors(map(), String.t(), String.t() | nil, list()) ::
+          {:ok, get_bucket_cors_output(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_bucket_cors(%Client{} = client, bucket, expected_bucket_owner \\ nil, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?cors"
     headers = []
@@ -2960,6 +7229,9 @@ defmodule AWS.S3 do
 
   [DeleteBucketEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketEncryption.html)
   """
+  @spec get_bucket_encryption(map(), String.t(), String.t() | nil, list()) ::
+          {:ok, get_bucket_encryption_output(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_bucket_encryption(
         %Client{} = client,
         bucket,
@@ -3020,6 +7292,9 @@ defmodule AWS.S3 do
 
   [ListBucketIntelligentTieringConfigurations](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBucketIntelligentTieringConfigurations.html)
   """
+  @spec get_bucket_intelligent_tiering_configuration(map(), String.t(), String.t(), list()) ::
+          {:ok, get_bucket_intelligent_tiering_configuration_output(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_bucket_intelligent_tiering_configuration(%Client{} = client, bucket, id, options \\ []) do
     url_path =
       "/#{AWS.Util.encode_uri(bucket)}?intelligent-tiering&x-id=GetBucketIntelligentTieringConfiguration"
@@ -3072,6 +7347,15 @@ defmodule AWS.S3 do
 
   [PutBucketInventoryConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketInventoryConfiguration.html)
   """
+  @spec get_bucket_inventory_configuration(
+          map(),
+          String.t(),
+          String.t(),
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, get_bucket_inventory_configuration_output(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_bucket_inventory_configuration(
         %Client{} = client,
         bucket,
@@ -3164,6 +7448,9 @@ defmodule AWS.S3 do
 
   [DeleteBucketLifecycle](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketLifecycle.html)
   """
+  @spec get_bucket_lifecycle_configuration(map(), String.t(), String.t() | nil, list()) ::
+          {:ok, get_bucket_lifecycle_configuration_output(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_bucket_lifecycle_configuration(
         %Client{} = client,
         bucket,
@@ -3221,6 +7508,9 @@ defmodule AWS.S3 do
 
   [CreateBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html)
   """
+  @spec get_bucket_location(map(), String.t(), String.t() | nil, list()) ::
+          {:ok, get_bucket_location_output(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_bucket_location(%Client{} = client, bucket, expected_bucket_owner \\ nil, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?location"
     headers = []
@@ -3257,6 +7547,9 @@ defmodule AWS.S3 do
 
   [PutBucketLogging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLogging.html)
   """
+  @spec get_bucket_logging(map(), String.t(), String.t() | nil, list()) ::
+          {:ok, get_bucket_logging_output(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_bucket_logging(%Client{} = client, bucket, expected_bucket_owner \\ nil, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?logging"
     headers = []
@@ -3314,6 +7607,9 @@ defmodule AWS.S3 do
   [Monitoring Metrics with Amazon
   CloudWatch](https://docs.aws.amazon.com/AmazonS3/latest/dev/cloudwatch-monitoring.html)
   """
+  @spec get_bucket_metrics_configuration(map(), String.t(), String.t(), String.t() | nil, list()) ::
+          {:ok, get_bucket_metrics_configuration_output(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_bucket_metrics_configuration(
         %Client{} = client,
         bucket,
@@ -3383,6 +7679,9 @@ defmodule AWS.S3 do
 
   [PutBucketNotification](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketNotification.html)
   """
+  @spec get_bucket_notification_configuration(map(), String.t(), String.t() | nil, list()) ::
+          {:ok, notification_configuration(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_bucket_notification_configuration(
         %Client{} = client,
         bucket,
@@ -3427,6 +7726,9 @@ defmodule AWS.S3 do
 
   `DeleteBucketOwnershipControls`
   """
+  @spec get_bucket_ownership_controls(map(), String.t(), String.t() | nil, list()) ::
+          {:ok, get_bucket_ownership_controls_output(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_bucket_ownership_controls(
         %Client{} = client,
         bucket,
@@ -3545,6 +7847,9 @@ defmodule AWS.S3 do
 
   [GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html)
   """
+  @spec get_bucket_policy(map(), String.t(), String.t() | nil, list()) ::
+          {:ok, get_bucket_policy_output(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_bucket_policy(%Client{} = client, bucket, expected_bucket_owner \\ nil, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?policy"
     headers = []
@@ -3595,6 +7900,9 @@ defmodule AWS.S3 do
 
   [DeletePublicAccessBlock](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeletePublicAccessBlock.html)
   """
+  @spec get_bucket_policy_status(map(), String.t(), String.t() | nil, list()) ::
+          {:ok, get_bucket_policy_status_output(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_bucket_policy_status(
         %Client{} = client,
         bucket,
@@ -3656,6 +7964,9 @@ defmodule AWS.S3 do
 
   [DeleteBucketReplication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketReplication.html)
   """
+  @spec get_bucket_replication(map(), String.t(), String.t() | nil, list()) ::
+          {:ok, get_bucket_replication_output(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_bucket_replication(
         %Client{} = client,
         bucket,
@@ -3694,6 +8005,9 @@ defmodule AWS.S3 do
 
   [ListObjects](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjects.html)
   """
+  @spec get_bucket_request_payment(map(), String.t(), String.t() | nil, list()) ::
+          {:ok, get_bucket_request_payment_output(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_bucket_request_payment(
         %Client{} = client,
         bucket,
@@ -3745,6 +8059,9 @@ defmodule AWS.S3 do
 
   [DeleteBucketTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketTagging.html)
   """
+  @spec get_bucket_tagging(map(), String.t(), String.t() | nil, list()) ::
+          {:ok, get_bucket_tagging_output(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_bucket_tagging(%Client{} = client, bucket, expected_bucket_owner \\ nil, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?tagging"
     headers = []
@@ -3790,6 +8107,9 @@ defmodule AWS.S3 do
 
   [DeleteObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html)
   """
+  @spec get_bucket_versioning(map(), String.t(), String.t() | nil, list()) ::
+          {:ok, get_bucket_versioning_output(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_bucket_versioning(
         %Client{} = client,
         bucket,
@@ -3840,6 +8160,9 @@ defmodule AWS.S3 do
 
   [PutBucketWebsite](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketWebsite.html)
   """
+  @spec get_bucket_website(map(), String.t(), String.t() | nil, list()) ::
+          {:ok, get_bucket_website_output(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_bucket_website(%Client{} = client, bucket, expected_bucket_owner \\ nil, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?website"
     headers = []
@@ -4053,6 +8376,34 @@ defmodule AWS.S3 do
 
   [GetObjectAcl](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAcl.html)
   """
+  @spec get_object(
+          map(),
+          String.t(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, get_object_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_object_errors()}
   def get_object(
         %Client{} = client,
         bucket,
@@ -4315,6 +8666,18 @@ defmodule AWS.S3 do
 
   [PutObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html)
   """
+  @spec get_object_acl(
+          map(),
+          String.t(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, get_object_acl_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_object_acl_errors()}
   def get_object_acl(
         %Client{} = client,
         bucket,
@@ -4567,6 +8930,24 @@ defmodule AWS.S3 do
 
   [ListParts](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListParts.html)
   """
+  @spec get_object_attributes(
+          map(),
+          String.t(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, get_object_attributes_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_object_attributes_errors()}
   def get_object_attributes(
         %Client{} = client,
         bucket,
@@ -4683,6 +9064,17 @@ defmodule AWS.S3 do
 
   [GetObjectAttributes](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html)
   """
+  @spec get_object_legal_hold(
+          map(),
+          String.t(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, get_object_legal_hold_output(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_object_legal_hold(
         %Client{} = client,
         bucket,
@@ -4741,6 +9133,9 @@ defmodule AWS.S3 do
 
   [GetObjectAttributes](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html)
   """
+  @spec get_object_lock_configuration(map(), String.t(), String.t() | nil, list()) ::
+          {:ok, get_object_lock_configuration_output(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_object_lock_configuration(
         %Client{} = client,
         bucket,
@@ -4778,6 +9173,17 @@ defmodule AWS.S3 do
 
   [GetObjectAttributes](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html)
   """
+  @spec get_object_retention(
+          map(),
+          String.t(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, get_object_retention_output(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_object_retention(
         %Client{} = client,
         bucket,
@@ -4856,6 +9262,17 @@ defmodule AWS.S3 do
 
   [PutObjectTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectTagging.html)
   """
+  @spec get_object_tagging(
+          map(),
+          String.t(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, get_object_tagging_output(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_object_tagging(
         %Client{} = client,
         bucket,
@@ -4926,6 +9343,16 @@ defmodule AWS.S3 do
 
   [GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html)
   """
+  @spec get_object_torrent(
+          map(),
+          String.t(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, get_object_torrent_output(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_object_torrent(
         %Client{} = client,
         bucket,
@@ -5011,6 +9438,9 @@ defmodule AWS.S3 do
 
   [DeletePublicAccessBlock](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeletePublicAccessBlock.html)
   """
+  @spec get_public_access_block(map(), String.t(), String.t() | nil, list()) ::
+          {:ok, get_public_access_block_output(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_public_access_block(
         %Client{} = client,
         bucket,
@@ -5115,6 +9545,10 @@ defmodule AWS.S3 do
 
   .
   """
+  @spec head_bucket(map(), String.t(), head_bucket_request(), list()) ::
+          {:ok, head_bucket_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, head_bucket_errors()}
   def head_bucket(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}"
 
@@ -5318,6 +9752,10 @@ defmodule AWS.S3 do
 
   [GetObjectAttributes](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html)
   """
+  @spec head_object(map(), String.t(), String.t(), head_object_request(), list()) ::
+          {:ok, head_object_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, head_object_errors()}
   def head_object(%Client{} = client, bucket, key, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}"
 
@@ -5444,6 +9882,15 @@ defmodule AWS.S3 do
 
   [PutBucketAnalyticsConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketAnalyticsConfiguration.html)
   """
+  @spec list_bucket_analytics_configurations(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_bucket_analytics_configurations_output(), any()}
+          | {:error, {:unexpected_response, any()}}
   def list_bucket_analytics_configurations(
         %Client{} = client,
         bucket,
@@ -5512,6 +9959,14 @@ defmodule AWS.S3 do
 
   [GetBucketIntelligentTieringConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketIntelligentTieringConfiguration.html)
   """
+  @spec list_bucket_intelligent_tiering_configurations(
+          map(),
+          String.t(),
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_bucket_intelligent_tiering_configurations_output(), any()}
+          | {:error, {:unexpected_response, any()}}
   def list_bucket_intelligent_tiering_configurations(
         %Client{} = client,
         bucket,
@@ -5579,6 +10034,15 @@ defmodule AWS.S3 do
 
   [PutBucketInventoryConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketInventoryConfiguration.html)
   """
+  @spec list_bucket_inventory_configurations(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_bucket_inventory_configurations_output(), any()}
+          | {:error, {:unexpected_response, any()}}
   def list_bucket_inventory_configurations(
         %Client{} = client,
         bucket,
@@ -5656,6 +10120,15 @@ defmodule AWS.S3 do
 
   [DeleteBucketMetricsConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketMetricsConfiguration.html)
   """
+  @spec list_bucket_metrics_configurations(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_bucket_metrics_configurations_output(), any()}
+          | {:error, {:unexpected_response, any()}}
   def list_bucket_metrics_configurations(
         %Client{} = client,
         bucket,
@@ -5698,6 +10171,9 @@ defmodule AWS.S3 do
   For information about Amazon S3 buckets, see [Creating, configuring, and working with Amazon S3
   buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-buckets-s3.html).
   """
+  @spec list_buckets(map(), list()) ::
+          {:ok, list_buckets_output(), any()}
+          | {:error, {:unexpected_response, any()}}
   def list_buckets(%Client{} = client, options \\ []) do
     url_path = "/?x-id=ListBuckets"
     headers = []
@@ -5746,6 +10222,9 @@ defmodule AWS.S3 do
   **Directory buckets ** - The HTTP Host header syntax is
   `s3express-control.*region*.amazonaws.com`.
   """
+  @spec list_directory_buckets(map(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_directory_buckets_output(), any()}
+          | {:error, {:unexpected_response, any()}}
   def list_directory_buckets(
         %Client{} = client,
         continuation_token \\ nil,
@@ -5917,6 +10396,21 @@ defmodule AWS.S3 do
 
   [AbortMultipartUpload](https://docs.aws.amazon.com/AmazonS3/latest/API/API_AbortMultipartUpload.html)
   """
+  @spec list_multipart_uploads(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_multipart_uploads_output(), any()}
+          | {:error, {:unexpected_response, any()}}
   def list_multipart_uploads(
         %Client{} = client,
         bucket,
@@ -6040,6 +10534,22 @@ defmodule AWS.S3 do
 
   [DeleteObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html)
   """
+  @spec list_object_versions(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_object_versions_output(), any()}
+          | {:error, {:unexpected_response, any()}}
   def list_object_versions(
         %Client{} = client,
         bucket,
@@ -6172,6 +10682,22 @@ defmodule AWS.S3 do
 
   [ListBuckets](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBuckets.html)
   """
+  @spec list_objects(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_objects_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_objects_errors()}
   def list_objects(
         %Client{} = client,
         bucket,
@@ -6366,6 +10892,24 @@ defmodule AWS.S3 do
 
   [CreateBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html)
   """
+  @spec list_objects_v2(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_objects_v2_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_objects_v2_errors()}
   def list_objects_v2(
         %Client{} = client,
         bucket,
@@ -6580,6 +11124,22 @@ defmodule AWS.S3 do
 
   [ListMultipartUploads](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListMultipartUploads.html)
   """
+  @spec list_parts(
+          map(),
+          String.t(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_parts_output(), any()}
+          | {:error, {:unexpected_response, any()}}
   def list_parts(
         %Client{} = client,
         bucket,
@@ -6726,6 +11286,14 @@ defmodule AWS.S3 do
 
   [CreateBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html)
   """
+  @spec put_bucket_accelerate_configuration(
+          map(),
+          String.t(),
+          put_bucket_accelerate_configuration_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def put_bucket_accelerate_configuration(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?accelerate"
 
@@ -6947,6 +11515,9 @@ defmodule AWS.S3 do
 
   [GetObjectAcl](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAcl.html)
   """
+  @spec put_bucket_acl(map(), String.t(), put_bucket_acl_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def put_bucket_acl(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?acl"
 
@@ -7069,6 +11640,14 @@ defmodule AWS.S3 do
 
   [ListBucketAnalyticsConfigurations](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBucketAnalyticsConfigurations.html)
   """
+  @spec put_bucket_analytics_configuration(
+          map(),
+          String.t(),
+          put_bucket_analytics_configuration_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def put_bucket_analytics_configuration(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?analytics"
 
@@ -7150,6 +11729,9 @@ defmodule AWS.S3 do
 
   [RESTOPTIONSobject](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTOPTIONSobject.html)
   """
+  @spec put_bucket_cors(map(), String.t(), put_bucket_cors_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def put_bucket_cors(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?cors"
 
@@ -7220,6 +11802,9 @@ defmodule AWS.S3 do
 
   [DeleteBucketEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketEncryption.html)
   """
+  @spec put_bucket_encryption(map(), String.t(), put_bucket_encryption_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def put_bucket_encryption(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?encryption"
 
@@ -7307,6 +11892,14 @@ defmodule AWS.S3 do
   you do not have the `s3:PutIntelligentTieringConfiguration` bucket
   permission to set the configuration on the bucket.
   """
+  @spec put_bucket_intelligent_tiering_configuration(
+          map(),
+          String.t(),
+          put_bucket_intelligent_tiering_configuration_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def put_bucket_intelligent_tiering_configuration(
         %Client{} = client,
         bucket,
@@ -7426,6 +12019,14 @@ defmodule AWS.S3 do
 
   [ListBucketInventoryConfigurations](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBucketInventoryConfigurations.html)
   """
+  @spec put_bucket_inventory_configuration(
+          map(),
+          String.t(),
+          put_bucket_inventory_configuration_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def put_bucket_inventory_configuration(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?inventory"
 
@@ -7546,6 +12147,14 @@ defmodule AWS.S3 do
 
   [DeleteBucketLifecycle](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketLifecycle.html)
   """
+  @spec put_bucket_lifecycle_configuration(
+          map(),
+          String.t(),
+          put_bucket_lifecycle_configuration_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def put_bucket_lifecycle_configuration(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?lifecycle"
 
@@ -7652,6 +12261,9 @@ defmodule AWS.S3 do
 
   [GetBucketLogging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLogging.html)
   """
+  @spec put_bucket_logging(map(), String.t(), put_bucket_logging_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def put_bucket_logging(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?logging"
 
@@ -7721,6 +12333,14 @@ defmodule AWS.S3 do
       *
   HTTP Status Code: HTTP 400 Bad Request
   """
+  @spec put_bucket_metrics_configuration(
+          map(),
+          String.t(),
+          put_bucket_metrics_configuration_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def put_bucket_metrics_configuration(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?metrics"
 
@@ -7818,6 +12438,14 @@ defmodule AWS.S3 do
 
   [GetBucketNotificationConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketNotificationConfiguration.html)
   """
+  @spec put_bucket_notification_configuration(
+          map(),
+          String.t(),
+          put_bucket_notification_configuration_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def put_bucket_notification_configuration(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?notification"
 
@@ -7855,6 +12483,14 @@ defmodule AWS.S3 do
 
   `DeleteBucketOwnershipControls`
   """
+  @spec put_bucket_ownership_controls(
+          map(),
+          String.t(),
+          put_bucket_ownership_controls_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def put_bucket_ownership_controls(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?ownershipControls"
 
@@ -7971,6 +12607,9 @@ defmodule AWS.S3 do
 
   [DeleteBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucket.html)
   """
+  @spec put_bucket_policy(map(), String.t(), put_bucket_policy_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def put_bucket_policy(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?policy"
 
@@ -8081,6 +12720,9 @@ defmodule AWS.S3 do
 
   [DeleteBucketReplication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketReplication.html)
   """
+  @spec put_bucket_replication(map(), String.t(), put_bucket_replication_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def put_bucket_replication(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?replication"
 
@@ -8122,6 +12764,14 @@ defmodule AWS.S3 do
 
   [GetBucketRequestPayment](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketRequestPayment.html)
   """
+  @spec put_bucket_request_payment(
+          map(),
+          String.t(),
+          put_bucket_request_payment_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def put_bucket_request_payment(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?requestPayment"
 
@@ -8208,6 +12858,9 @@ defmodule AWS.S3 do
 
   [DeleteBucketTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketTagging.html)
   """
+  @spec put_bucket_tagging(map(), String.t(), put_bucket_tagging_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def put_bucket_tagging(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?tagging"
 
@@ -8284,6 +12937,9 @@ defmodule AWS.S3 do
 
   [GetBucketVersioning](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketVersioning.html)
   """
+  @spec put_bucket_versioning(map(), String.t(), put_bucket_versioning_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def put_bucket_versioning(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?versioning"
 
@@ -8424,6 +13080,9 @@ defmodule AWS.S3 do
 
   The maximum request length is limited to 128 KB.
   """
+  @spec put_bucket_website(map(), String.t(), put_bucket_website_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def put_bucket_website(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?website"
 
@@ -8596,6 +13255,9 @@ defmodule AWS.S3 do
 
   [DeleteObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html)
   """
+  @spec put_object(map(), String.t(), String.t(), put_object_request(), list()) ::
+          {:ok, put_object_output(), any()}
+          | {:error, {:unexpected_response, any()}}
   def put_object(%Client{} = client, bucket, key, input, options \\ []) do
     url_path =
       "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}?x-id=PutObject"
@@ -8869,6 +13531,10 @@ defmodule AWS.S3 do
 
   [GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html)
   """
+  @spec put_object_acl(map(), String.t(), String.t(), put_object_acl_request(), list()) ::
+          {:ok, put_object_acl_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, put_object_acl_errors()}
   def put_object_acl(%Client{} = client, bucket, key, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}?acl"
 
@@ -8915,6 +13581,15 @@ defmodule AWS.S3 do
 
   This functionality is not supported for Amazon S3 on Outposts.
   """
+  @spec put_object_legal_hold(
+          map(),
+          String.t(),
+          String.t(),
+          put_object_legal_hold_request(),
+          list()
+        ) ::
+          {:ok, put_object_legal_hold_output(), any()}
+          | {:error, {:unexpected_response, any()}}
   def put_object_legal_hold(%Client{} = client, bucket, key, input, options \\ []) do
     url_path =
       "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}?legal-hold"
@@ -8969,6 +13644,14 @@ defmodule AWS.S3 do
   You can enable Object Lock for new or existing buckets. For more
   information, see [Configuring Object Lock](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-configure.html).
   """
+  @spec put_object_lock_configuration(
+          map(),
+          String.t(),
+          put_object_lock_configuration_request(),
+          list()
+        ) ::
+          {:ok, put_object_lock_configuration_output(), any()}
+          | {:error, {:unexpected_response, any()}}
   def put_object_lock_configuration(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?object-lock"
 
@@ -9009,6 +13692,15 @@ defmodule AWS.S3 do
 
   This functionality is not supported for Amazon S3 on Outposts.
   """
+  @spec put_object_retention(
+          map(),
+          String.t(),
+          String.t(),
+          put_object_retention_request(),
+          list()
+        ) ::
+          {:ok, put_object_retention_output(), any()}
+          | {:error, {:unexpected_response, any()}}
   def put_object_retention(%Client{} = client, bucket, key, input, options \\ []) do
     url_path =
       "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}?retention"
@@ -9100,6 +13792,9 @@ defmodule AWS.S3 do
 
   [DeleteObjectTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObjectTagging.html)
   """
+  @spec put_object_tagging(map(), String.t(), String.t(), put_object_tagging_request(), list()) ::
+          {:ok, put_object_tagging_output(), any()}
+          | {:error, {:unexpected_response, any()}}
   def put_object_tagging(%Client{} = client, bucket, key, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}?tagging"
 
@@ -9172,6 +13867,9 @@ defmodule AWS.S3 do
   Public
   Access](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html)
   """
+  @spec put_public_access_block(map(), String.t(), put_public_access_block_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def put_public_access_block(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?publicAccessBlock"
 
@@ -9415,6 +14113,10 @@ defmodule AWS.S3 do
 
   [GetBucketNotificationConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketNotificationConfiguration.html)
   """
+  @spec restore_object(map(), String.t(), String.t(), restore_object_request(), list()) ::
+          {:ok, restore_object_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, restore_object_errors()}
   def restore_object(%Client{} = client, bucket, key, input, options \\ []) do
     url_path =
       "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}?restore&x-id=RestoreObject"
@@ -9592,6 +14294,15 @@ defmodule AWS.S3 do
 
   [PutBucketLifecycleConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycleConfiguration.html)
   """
+  @spec select_object_content(
+          map(),
+          String.t(),
+          String.t(),
+          select_object_content_request(),
+          list()
+        ) ::
+          {:ok, select_object_content_output(), any()}
+          | {:error, {:unexpected_response, any()}}
   def select_object_content(%Client{} = client, bucket, key, input, options \\ []) do
     url_path =
       "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}?select&select-type=2&x-id=SelectObjectContent"
@@ -9826,6 +14537,9 @@ defmodule AWS.S3 do
 
   [ListMultipartUploads](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListMultipartUploads.html)
   """
+  @spec upload_part(map(), String.t(), String.t(), upload_part_request(), list()) ::
+          {:ok, upload_part_output(), any()}
+          | {:error, {:unexpected_response, any()}}
   def upload_part(%Client{} = client, bucket, key, input, options \\ []) do
     url_path =
       "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}?x-id=UploadPart"
@@ -10083,6 +14797,9 @@ defmodule AWS.S3 do
 
   [ListMultipartUploads](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListMultipartUploads.html)
   """
+  @spec upload_part_copy(map(), String.t(), String.t(), upload_part_copy_request(), list()) ::
+          {:ok, upload_part_copy_output(), any()}
+          | {:error, {:unexpected_response, any()}}
   def upload_part_copy(%Client{} = client, bucket, key, input, options \\ []) do
     url_path =
       "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}?x-id=UploadPartCopy"
@@ -10201,6 +14918,9 @@ defmodule AWS.S3 do
   functions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/olap-examples.html)
   in the *Amazon S3 User Guide*.
   """
+  @spec write_get_object_response(map(), write_get_object_response_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def write_get_object_response(%Client{} = client, input, options \\ []) do
     url_path = "/WriteGetObjectResponse?x-id=WriteGetObjectResponse"
 

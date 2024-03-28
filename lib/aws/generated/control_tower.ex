@@ -117,6 +117,1091 @@ defmodule AWS.ControlTower do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+
+      list_enabled_controls_output() :: %{
+        optional("nextToken") => [String.t()],
+        required("enabledControls") => list(enabled_control_summary()())
+      }
+
+  """
+  @type list_enabled_controls_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disable_control_input() :: %{
+        required("controlIdentifier") => String.t(),
+        required("targetIdentifier") => String.t()
+      }
+
+  """
+  @type disable_control_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disable_control_output() :: %{
+        required("operationIdentifier") => String.t()
+      }
+
+  """
+  @type disable_control_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      enablement_status_summary() :: %{
+        "lastOperationIdentifier" => String.t(),
+        "status" => list(any())
+      }
+
+  """
+  @type enablement_status_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      enabled_control_parameter() :: %{
+        "key" => [String.t()],
+        "value" => [any()]
+      }
+
+  """
+  @type enabled_control_parameter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_enabled_baselines_input() :: %{
+        optional("filter") => enabled_baseline_filter(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_enabled_baselines_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      enable_control_input() :: %{
+        optional("parameters") => list(enabled_control_parameter()()),
+        optional("tags") => map(),
+        required("controlIdentifier") => String.t(),
+        required("targetIdentifier") => String.t()
+      }
+
+  """
+  @type enable_control_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_landing_zone_output() :: %{
+        "operationIdentifier" => String.t()
+      }
+
+  """
+  @type update_landing_zone_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_enabled_control_output() :: %{
+        "enabledControlDetails" => enabled_control_details()
+      }
+
+  """
+  @type get_enabled_control_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_enabled_controls_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => [String.t()],
+        required("targetIdentifier") => String.t()
+      }
+
+  """
+  @type list_enabled_controls_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_landing_zones_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => [String.t()]
+      }
+
+  """
+  @type list_landing_zones_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      reset_enabled_baseline_input() :: %{
+        required("enabledBaselineIdentifier") => String.t()
+      }
+
+  """
+  @type reset_enabled_baseline_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_output() :: %{
+        "tags" => map()
+      }
+
+  """
+  @type list_tags_for_resource_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      enabled_baseline_summary() :: %{
+        "arn" => String.t(),
+        "baselineIdentifier" => [String.t()],
+        "baselineVersion" => [String.t()],
+        "statusSummary" => enablement_status_summary(),
+        "targetIdentifier" => [String.t()]
+      }
+
+  """
+  @type enabled_baseline_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_baseline_operation_input() :: %{
+        required("operationIdentifier") => String.t()
+      }
+
+  """
+  @type get_baseline_operation_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_baselines_output() :: %{
+        "baselines" => list(baseline_summary()()),
+        "nextToken" => [String.t()]
+      }
+
+  """
+  @type list_baselines_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_enabled_baselines_output() :: %{
+        "enabledBaselines" => list(enabled_baseline_summary()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_enabled_baselines_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      enabled_control_summary() :: %{
+        "arn" => String.t(),
+        "controlIdentifier" => String.t(),
+        "driftStatusSummary" => drift_status_summary(),
+        "statusSummary" => enablement_status_summary(),
+        "targetIdentifier" => String.t()
+      }
+
+  """
+  @type enabled_control_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      region() :: %{
+        "name" => String.t()
+      }
+
+  """
+  @type region() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disable_baseline_input() :: %{
+        required("enabledBaselineIdentifier") => String.t()
+      }
+
+  """
+  @type disable_baseline_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_enabled_baseline_output() :: %{
+        "enabledBaselineDetails" => enabled_baseline_details()
+      }
+
+  """
+  @type get_enabled_baseline_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "message" => [String.t()]
+      }
+
+  """
+  @type conflict_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "message" => [String.t()]
+      }
+
+  """
+  @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      enabled_baseline_parameter() :: %{
+        "key" => [String.t()],
+        "value" => any()
+      }
+
+  """
+  @type enabled_baseline_parameter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_landing_zone_input() :: %{
+        optional("tags") => map(),
+        required("manifest") => any(),
+        required("version") => String.t()
+      }
+
+  """
+  @type create_landing_zone_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_enabled_control_input() :: %{
+        required("enabledControlIdentifier") => String.t()
+      }
+
+  """
+  @type get_enabled_control_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      landing_zone_detail() :: %{
+        "arn" => String.t(),
+        "driftStatus" => landing_zone_drift_status_summary(),
+        "latestAvailableVersion" => String.t(),
+        "manifest" => any(),
+        "status" => list(any()),
+        "version" => String.t()
+      }
+
+  """
+  @type landing_zone_detail() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "message" => [String.t()]
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_landing_zone_input() :: %{
+        required("landingZoneIdentifier") => [String.t()],
+        required("manifest") => any(),
+        required("version") => String.t()
+      }
+
+  """
+  @type update_landing_zone_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_landing_zones_output() :: %{
+        "landingZones" => list(landing_zone_summary()()),
+        "nextToken" => [String.t()]
+      }
+
+  """
+  @type list_landing_zones_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_landing_zone_output() :: %{
+        "landingZone" => landing_zone_detail()
+      }
+
+  """
+  @type get_landing_zone_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_landing_zone_operation_input() :: %{
+        required("operationIdentifier") => String.t()
+      }
+
+  """
+  @type get_landing_zone_operation_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      enabled_control_parameter_summary() :: %{
+        "key" => [String.t()],
+        "value" => [any()]
+      }
+
+  """
+  @type enabled_control_parameter_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      enable_baseline_output() :: %{
+        "arn" => String.t(),
+        "operationIdentifier" => String.t()
+      }
+
+  """
+  @type enable_baseline_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_control_operation_input() :: %{
+        required("operationIdentifier") => String.t()
+      }
+
+  """
+  @type get_control_operation_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_landing_zone_input() :: %{
+        required("landingZoneIdentifier") => [String.t()]
+      }
+
+  """
+  @type delete_landing_zone_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_landing_zone_output() :: %{
+        "operationIdentifier" => String.t()
+      }
+
+  """
+  @type delete_landing_zone_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_landing_zone_operation_output() :: %{
+        "operationDetails" => landing_zone_operation_detail()
+      }
+
+  """
+  @type get_landing_zone_operation_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_input() :: %{
+        required("tags") => map()
+      }
+
+  """
+  @type tag_resource_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      enable_control_output() :: %{
+        optional("arn") => String.t(),
+        required("operationIdentifier") => String.t()
+      }
+
+  """
+  @type enable_control_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      landing_zone_summary() :: %{
+        "arn" => String.t()
+      }
+
+  """
+  @type landing_zone_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_output() :: %{}
+
+  """
+  @type tag_resource_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "message" => [String.t()]
+      }
+
+  """
+  @type internal_server_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_baseline_operation_output() :: %{
+        "baselineOperation" => baseline_operation()
+      }
+
+  """
+  @type get_baseline_operation_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      baseline_operation() :: %{
+        "endTime" => non_neg_integer(),
+        "operationIdentifier" => String.t(),
+        "operationType" => list(any()),
+        "startTime" => non_neg_integer(),
+        "status" => list(any()),
+        "statusMessage" => [String.t()]
+      }
+
+  """
+  @type baseline_operation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "message" => [String.t()]
+      }
+
+  """
+  @type access_denied_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      enabled_baseline_filter() :: %{
+        "baselineIdentifiers" => list(String.t()()),
+        "targetIdentifiers" => list(String.t()())
+      }
+
+  """
+  @type enabled_baseline_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_input() :: %{
+        required("tagKeys") => list(String.t()())
+      }
+
+  """
+  @type untag_resource_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      enable_baseline_input() :: %{
+        optional("parameters") => list(enabled_baseline_parameter()()),
+        optional("tags") => map(),
+        required("baselineIdentifier") => String.t(),
+        required("baselineVersion") => String.t(),
+        required("targetIdentifier") => String.t()
+      }
+
+  """
+  @type enable_baseline_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      control_operation() :: %{
+        "endTime" => non_neg_integer(),
+        "operationType" => String.t(),
+        "startTime" => non_neg_integer(),
+        "status" => String.t(),
+        "statusMessage" => [String.t()]
+      }
+
+  """
+  @type control_operation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "message" => [String.t()]
+      }
+
+  """
+  @type validation_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_input() :: %{}
+
+  """
+  @type list_tags_for_resource_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_output() :: %{}
+
+  """
+  @type untag_resource_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "message" => [String.t()],
+        "quotaCode" => [String.t()],
+        "retryAfterSeconds" => [integer()],
+        "serviceCode" => [String.t()]
+      }
+
+  """
+  @type throttling_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_enabled_baseline_input() :: %{
+        optional("parameters") => list(enabled_baseline_parameter()()),
+        required("baselineVersion") => String.t(),
+        required("enabledBaselineIdentifier") => String.t()
+      }
+
+  """
+  @type update_enabled_baseline_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_enabled_baseline_input() :: %{
+        required("enabledBaselineIdentifier") => String.t()
+      }
+
+  """
+  @type get_enabled_baseline_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      enabled_baseline_details() :: %{
+        "arn" => String.t(),
+        "baselineIdentifier" => [String.t()],
+        "baselineVersion" => [String.t()],
+        "parameters" => list(enabled_baseline_parameter_summary()()),
+        "statusSummary" => enablement_status_summary(),
+        "targetIdentifier" => [String.t()]
+      }
+
+  """
+  @type enabled_baseline_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      landing_zone_drift_status_summary() :: %{
+        "status" => list(any())
+      }
+
+  """
+  @type landing_zone_drift_status_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_enabled_control_input() :: %{
+        required("enabledControlIdentifier") => String.t(),
+        required("parameters") => list(enabled_control_parameter()())
+      }
+
+  """
+  @type update_enabled_control_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      baseline_summary() :: %{
+        "arn" => [String.t()],
+        "description" => [String.t()],
+        "name" => [String.t()]
+      }
+
+  """
+  @type baseline_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      reset_landing_zone_input() :: %{
+        required("landingZoneIdentifier") => [String.t()]
+      }
+
+  """
+  @type reset_landing_zone_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      enabled_control_details() :: %{
+        "arn" => String.t(),
+        "controlIdentifier" => String.t(),
+        "driftStatusSummary" => drift_status_summary(),
+        "parameters" => list(enabled_control_parameter_summary()()),
+        "statusSummary" => enablement_status_summary(),
+        "targetIdentifier" => String.t(),
+        "targetRegions" => list(region()())
+      }
+
+  """
+  @type enabled_control_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_control_operation_output() :: %{
+        required("controlOperation") => control_operation()
+      }
+
+  """
+  @type get_control_operation_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_enabled_baseline_output() :: %{
+        "operationIdentifier" => String.t()
+      }
+
+  """
+  @type update_enabled_baseline_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_landing_zone_output() :: %{
+        "arn" => String.t(),
+        "operationIdentifier" => String.t()
+      }
+
+  """
+  @type create_landing_zone_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_baseline_output() :: %{
+        "arn" => String.t(),
+        "description" => [String.t()],
+        "name" => [String.t()]
+      }
+
+  """
+  @type get_baseline_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      reset_landing_zone_output() :: %{
+        "operationIdentifier" => String.t()
+      }
+
+  """
+  @type reset_landing_zone_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      enabled_baseline_parameter_summary() :: %{
+        "key" => [String.t()],
+        "value" => any()
+      }
+
+  """
+  @type enabled_baseline_parameter_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_baselines_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => [String.t()]
+      }
+
+  """
+  @type list_baselines_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      reset_enabled_baseline_output() :: %{
+        "operationIdentifier" => String.t()
+      }
+
+  """
+  @type reset_enabled_baseline_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_landing_zone_input() :: %{
+        required("landingZoneIdentifier") => [String.t()]
+      }
+
+  """
+  @type get_landing_zone_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      drift_status_summary() :: %{
+        "driftStatus" => list(any())
+      }
+
+  """
+  @type drift_status_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      landing_zone_operation_detail() :: %{
+        "endTime" => non_neg_integer(),
+        "operationType" => list(any()),
+        "startTime" => non_neg_integer(),
+        "status" => list(any()),
+        "statusMessage" => [String.t()]
+      }
+
+  """
+  @type landing_zone_operation_detail() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_enabled_control_output() :: %{
+        "operationIdentifier" => String.t()
+      }
+
+  """
+  @type update_enabled_control_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disable_baseline_output() :: %{
+        "operationIdentifier" => String.t()
+      }
+
+  """
+  @type disable_baseline_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_baseline_input() :: %{
+        required("baselineIdentifier") => String.t()
+      }
+
+  """
+  @type get_baseline_input() :: %{String.t() => any()}
+
+  @type create_landing_zone_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | conflict_exception()
+
+  @type delete_landing_zone_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type disable_baseline_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type disable_control_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type enable_baseline_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type enable_control_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type get_baseline_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_baseline_operation_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_control_operation_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_enabled_baseline_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_enabled_control_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_landing_zone_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_landing_zone_operation_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_baselines_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_enabled_baselines_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_enabled_controls_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_landing_zones_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_tags_for_resource_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
+
+  @type reset_enabled_baseline_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type reset_landing_zone_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type tag_resource_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
+
+  @type untag_resource_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
+
+  @type update_enabled_baseline_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_enabled_control_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_landing_zone_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   def metadata do
     %{
       api_version: "2018-05-10",
@@ -139,6 +1224,10 @@ defmodule AWS.ControlTower do
   landing zone,
   based on the parameters specified in the manifest JSON file.
   """
+  @spec create_landing_zone(map(), create_landing_zone_input(), list()) ::
+          {:ok, create_landing_zone_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_landing_zone_errors()}
   def create_landing_zone(%Client{} = client, input, options \\ []) do
     url_path = "/create-landingzone"
     headers = []
@@ -166,6 +1255,10 @@ defmodule AWS.ControlTower do
   Control Tower
   resources deployed in accounts managed by Amazon Web Services Control Tower.
   """
+  @spec delete_landing_zone(map(), delete_landing_zone_input(), list()) ::
+          {:ok, delete_landing_zone_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_landing_zone_errors()}
   def delete_landing_zone(%Client{} = client, input, options \\ []) do
     url_path = "/delete-landingzone"
     headers = []
@@ -193,6 +1286,10 @@ defmodule AWS.ControlTower do
   part of the baseline enablement. The resource will vary depending on the enabled
   baseline.
   """
+  @spec disable_baseline(map(), disable_baseline_input(), list()) ::
+          {:ok, disable_baseline_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, disable_baseline_errors()}
   def disable_baseline(%Client{} = client, input, options \\ []) do
     url_path = "/disable-baseline"
     headers = []
@@ -223,6 +1320,10 @@ defmodule AWS.ControlTower do
   *the Amazon Web Services Control Tower User Guide*
   ](https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html).
   """
+  @spec disable_control(map(), disable_control_input(), list()) ::
+          {:ok, disable_control_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, disable_control_errors()}
   def disable_control(%Client{} = client, input, options \\ []) do
     url_path = "/disable-control"
     headers = []
@@ -249,6 +1350,10 @@ defmodule AWS.ControlTower do
   This API starts an asynchronous operation to deploy resources specified by the
   `Baseline` to the specified Target.
   """
+  @spec enable_baseline(map(), enable_baseline_input(), list()) ::
+          {:ok, enable_baseline_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, enable_baseline_errors()}
   def enable_baseline(%Client{} = client, input, options \\ []) do
     url_path = "/enable-baseline"
     headers = []
@@ -280,6 +1385,10 @@ defmodule AWS.ControlTower do
   *the Amazon Web Services Control Tower User Guide*
   ](https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html).
   """
+  @spec enable_control(map(), enable_control_input(), list()) ::
+          {:ok, enable_control_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, enable_control_errors()}
   def enable_control(%Client{} = client, input, options \\ []) do
     url_path = "/enable-control"
     headers = []
@@ -304,6 +1413,10 @@ defmodule AWS.ControlTower do
   Retrieve details about an existing `Baseline` resource by specifying its
   identifier.
   """
+  @spec get_baseline(map(), get_baseline_input(), list()) ::
+          {:ok, get_baseline_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_baseline_errors()}
   def get_baseline(%Client{} = client, input, options \\ []) do
     url_path = "/get-baseline"
     headers = []
@@ -331,6 +1444,10 @@ defmodule AWS.ControlTower do
 
   A status message is displayed in case of operation failure.
   """
+  @spec get_baseline_operation(map(), get_baseline_operation_input(), list()) ::
+          {:ok, get_baseline_operation_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_baseline_operation_errors()}
   def get_baseline_operation(%Client{} = client, input, options \\ []) do
     url_path = "/get-baseline-operation"
     headers = []
@@ -360,6 +1477,10 @@ defmodule AWS.ControlTower do
   *the Amazon Web Services Control Tower User Guide*
   ](https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html).
   """
+  @spec get_control_operation(map(), get_control_operation_input(), list()) ::
+          {:ok, get_control_operation_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_control_operation_errors()}
   def get_control_operation(%Client{} = client, input, options \\ []) do
     url_path = "/get-control-operation"
     headers = []
@@ -383,6 +1504,10 @@ defmodule AWS.ControlTower do
   @doc """
   Retrieve details of an `EnabledBaseline` resource by specifying its identifier.
   """
+  @spec get_enabled_baseline(map(), get_enabled_baseline_input(), list()) ::
+          {:ok, get_enabled_baseline_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_enabled_baseline_errors()}
   def get_enabled_baseline(%Client{} = client, input, options \\ []) do
     url_path = "/get-enabled-baseline"
     headers = []
@@ -410,6 +1535,10 @@ defmodule AWS.ControlTower do
   *the Amazon Web Services Control Tower User Guide*
   ](https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html).
   """
+  @spec get_enabled_control(map(), get_enabled_control_input(), list()) ::
+          {:ok, get_enabled_control_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_enabled_control_errors()}
   def get_enabled_control(%Client{} = client, input, options \\ []) do
     url_path = "/get-enabled-control"
     headers = []
@@ -435,6 +1564,10 @@ defmodule AWS.ControlTower do
 
   Displays a message in case of error.
   """
+  @spec get_landing_zone(map(), get_landing_zone_input(), list()) ::
+          {:ok, get_landing_zone_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_landing_zone_errors()}
   def get_landing_zone(%Client{} = client, input, options \\ []) do
     url_path = "/get-landingzone"
     headers = []
@@ -461,6 +1594,10 @@ defmodule AWS.ControlTower do
   Details for an operation are available for
   60 days.
   """
+  @spec get_landing_zone_operation(map(), get_landing_zone_operation_input(), list()) ::
+          {:ok, get_landing_zone_operation_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_landing_zone_operation_errors()}
   def get_landing_zone_operation(%Client{} = client, input, options \\ []) do
     url_path = "/get-landingzone-operation"
     headers = []
@@ -484,6 +1621,10 @@ defmodule AWS.ControlTower do
   @doc """
   Returns a summary list of all available baselines.
   """
+  @spec list_baselines(map(), list_baselines_input(), list()) ::
+          {:ok, list_baselines_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_baselines_errors()}
   def list_baselines(%Client{} = client, input, options \\ []) do
     url_path = "/list-baselines"
     headers = []
@@ -510,6 +1651,10 @@ defmodule AWS.ControlTower do
   You can filter the list by the corresponding `Baseline` or `Target` of the
   `EnabledBaseline` resources.
   """
+  @spec list_enabled_baselines(map(), list_enabled_baselines_input(), list()) ::
+          {:ok, list_enabled_baselines_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_enabled_baselines_errors()}
   def list_enabled_baselines(%Client{} = client, input, options \\ []) do
     url_path = "/list-enabled-baselines"
     headers = []
@@ -539,6 +1684,10 @@ defmodule AWS.ControlTower do
   *the Amazon Web Services Control Tower User Guide*
   ](https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html).
   """
+  @spec list_enabled_controls(map(), list_enabled_controls_input(), list()) ::
+          {:ok, list_enabled_controls_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_enabled_controls_errors()}
   def list_enabled_controls(%Client{} = client, input, options \\ []) do
     url_path = "/list-enabled-controls"
     headers = []
@@ -568,6 +1717,10 @@ defmodule AWS.ControlTower do
 
   Returns one landing zone ARN.
   """
+  @spec list_landing_zones(map(), list_landing_zones_input(), list()) ::
+          {:ok, list_landing_zones_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_landing_zones_errors()}
   def list_landing_zones(%Client{} = client, input, options \\ []) do
     url_path = "/list-landingzones"
     headers = []
@@ -595,6 +1748,10 @@ defmodule AWS.ControlTower do
   *the Amazon Web Services Control Tower User Guide*
   ](https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html).
   """
+  @spec list_tags_for_resource(map(), String.t(), list()) ::
+          {:ok, list_tags_for_resource_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -611,6 +1768,10 @@ defmodule AWS.ControlTower do
   For example, this API can re-apply the existing `Baseline` after a new member
   account is moved to the target OU.
   """
+  @spec reset_enabled_baseline(map(), reset_enabled_baseline_input(), list()) ::
+          {:ok, reset_enabled_baseline_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, reset_enabled_baseline_errors()}
   def reset_enabled_baseline(%Client{} = client, input, options \\ []) do
     url_path = "/reset-enabled-baseline"
     headers = []
@@ -637,6 +1798,10 @@ defmodule AWS.ControlTower do
   It starts an asynchronous operation that resets the
   landing zone to the parameters specified in its original configuration.
   """
+  @spec reset_landing_zone(map(), reset_landing_zone_input(), list()) ::
+          {:ok, reset_landing_zone_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, reset_landing_zone_errors()}
   def reset_landing_zone(%Client{} = client, input, options \\ []) do
     url_path = "/reset-landingzone"
     headers = []
@@ -664,6 +1829,10 @@ defmodule AWS.ControlTower do
   *the Amazon Web Services Control Tower User Guide*
   ](https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html).
   """
+  @spec tag_resource(map(), String.t(), tag_resource_input(), list()) ::
+          {:ok, tag_resource_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -691,6 +1860,10 @@ defmodule AWS.ControlTower do
   *the Amazon Web Services Control Tower User Guide*
   ](https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html).
   """
+  @spec untag_resource(map(), String.t(), untag_resource_input(), list()) ::
+          {:ok, untag_resource_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -719,6 +1892,10 @@ defmodule AWS.ControlTower do
   @doc """
   Updates an `EnabledBaseline` resource's applied parameters or version.
   """
+  @spec update_enabled_baseline(map(), update_enabled_baseline_input(), list()) ::
+          {:ok, update_enabled_baseline_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_enabled_baseline_errors()}
   def update_enabled_baseline(%Client{} = client, input, options \\ []) do
     url_path = "/update-enabled-baseline"
     headers = []
@@ -758,6 +1935,10 @@ defmodule AWS.ControlTower do
   *the Amazon Web Services Control Tower User Guide*
   ](https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html)
   """
+  @spec update_enabled_control(map(), update_enabled_control_input(), list()) ::
+          {:ok, update_enabled_control_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_enabled_control_errors()}
   def update_enabled_control(%Client{} = client, input, options \\ []) do
     url_path = "/update-enabled-control"
     headers = []
@@ -786,6 +1967,10 @@ defmodule AWS.ControlTower do
   specified in the
   updated manifest file.
   """
+  @spec update_landing_zone(map(), update_landing_zone_input(), list()) ::
+          {:ok, update_landing_zone_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_landing_zone_errors()}
   def update_landing_zone(%Client{} = client, input, options \\ []) do
     url_path = "/update-landingzone"
     headers = []

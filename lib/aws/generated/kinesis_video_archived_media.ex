@@ -5,6 +5,449 @@ defmodule AWS.KinesisVideoArchivedMedia do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+
+      client_limit_exceeded_exception() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type client_limit_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      clip_fragment_selector() :: %{
+        "FragmentSelectorType" => list(any()),
+        "TimestampRange" => clip_timestamp_range()
+      }
+
+  """
+  @type clip_fragment_selector() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      clip_timestamp_range() :: %{
+        "EndTimestamp" => non_neg_integer(),
+        "StartTimestamp" => non_neg_integer()
+      }
+
+  """
+  @type clip_timestamp_range() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dash_fragment_selector() :: %{
+        "FragmentSelectorType" => list(any()),
+        "TimestampRange" => dash_timestamp_range()
+      }
+
+  """
+  @type dash_fragment_selector() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dash_timestamp_range() :: %{
+        "EndTimestamp" => non_neg_integer(),
+        "StartTimestamp" => non_neg_integer()
+      }
+
+  """
+  @type dash_timestamp_range() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      fragment() :: %{
+        "FragmentLengthInMilliseconds" => float(),
+        "FragmentNumber" => String.t(),
+        "FragmentSizeInBytes" => float(),
+        "ProducerTimestamp" => non_neg_integer(),
+        "ServerTimestamp" => non_neg_integer()
+      }
+
+  """
+  @type fragment() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      fragment_selector() :: %{
+        "FragmentSelectorType" => list(any()),
+        "TimestampRange" => timestamp_range()
+      }
+
+  """
+  @type fragment_selector() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_clip_input() :: %{
+        optional("StreamARN") => String.t(),
+        optional("StreamName") => String.t(),
+        required("ClipFragmentSelector") => clip_fragment_selector()
+      }
+
+  """
+  @type get_clip_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_clip_output() :: %{
+        "ContentType" => String.t(),
+        "Payload" => binary()
+      }
+
+  """
+  @type get_clip_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_dash_streaming_session_url_input() :: %{
+        optional("DASHFragmentSelector") => dash_fragment_selector(),
+        optional("DisplayFragmentNumber") => list(any()),
+        optional("DisplayFragmentTimestamp") => list(any()),
+        optional("Expires") => integer(),
+        optional("MaxManifestFragmentResults") => float(),
+        optional("PlaybackMode") => list(any()),
+        optional("StreamARN") => String.t(),
+        optional("StreamName") => String.t()
+      }
+
+  """
+  @type get_dash_streaming_session_url_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_dash_streaming_session_url_output() :: %{
+        "DASHStreamingSessionURL" => String.t()
+      }
+
+  """
+  @type get_dash_streaming_session_url_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_hls_streaming_session_url_input() :: %{
+        optional("ContainerFormat") => list(any()),
+        optional("DiscontinuityMode") => list(any()),
+        optional("DisplayFragmentTimestamp") => list(any()),
+        optional("Expires") => integer(),
+        optional("HLSFragmentSelector") => hls_fragment_selector(),
+        optional("MaxMediaPlaylistFragmentResults") => float(),
+        optional("PlaybackMode") => list(any()),
+        optional("StreamARN") => String.t(),
+        optional("StreamName") => String.t()
+      }
+
+  """
+  @type get_hls_streaming_session_url_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_hls_streaming_session_url_output() :: %{
+        "HLSStreamingSessionURL" => String.t()
+      }
+
+  """
+  @type get_hls_streaming_session_url_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_images_input() :: %{
+        optional("FormatConfig") => map(),
+        optional("HeightPixels") => integer(),
+        optional("MaxResults") => float(),
+        optional("NextToken") => String.t(),
+        optional("SamplingInterval") => integer(),
+        optional("StreamARN") => String.t(),
+        optional("StreamName") => String.t(),
+        optional("WidthPixels") => integer(),
+        required("EndTimestamp") => non_neg_integer(),
+        required("Format") => list(any()),
+        required("ImageSelectorType") => list(any()),
+        required("StartTimestamp") => non_neg_integer()
+      }
+
+  """
+  @type get_images_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_images_output() :: %{
+        "Images" => list(image()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type get_images_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_media_for_fragment_list_input() :: %{
+        optional("StreamARN") => String.t(),
+        optional("StreamName") => String.t(),
+        required("Fragments") => list(String.t()())
+      }
+
+  """
+  @type get_media_for_fragment_list_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_media_for_fragment_list_output() :: %{
+        "ContentType" => String.t(),
+        "Payload" => binary()
+      }
+
+  """
+  @type get_media_for_fragment_list_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      hls_fragment_selector() :: %{
+        "FragmentSelectorType" => list(any()),
+        "TimestampRange" => hls_timestamp_range()
+      }
+
+  """
+  @type hls_fragment_selector() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      hls_timestamp_range() :: %{
+        "EndTimestamp" => non_neg_integer(),
+        "StartTimestamp" => non_neg_integer()
+      }
+
+  """
+  @type hls_timestamp_range() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      image() :: %{
+        "Error" => list(any()),
+        "ImageContent" => String.t(),
+        "TimeStamp" => non_neg_integer()
+      }
+
+  """
+  @type image() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_argument_exception() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type invalid_argument_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_codec_private_data_exception() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type invalid_codec_private_data_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_media_frame_exception() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type invalid_media_frame_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_fragments_input() :: %{
+        optional("FragmentSelector") => fragment_selector(),
+        optional("MaxResults") => float(),
+        optional("NextToken") => String.t(),
+        optional("StreamARN") => String.t(),
+        optional("StreamName") => String.t()
+      }
+
+  """
+  @type list_fragments_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_fragments_output() :: %{
+        "Fragments" => list(fragment()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type list_fragments_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      missing_codec_private_data_exception() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type missing_codec_private_data_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      no_data_retention_exception() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type no_data_retention_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      not_authorized_exception() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type not_authorized_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      timestamp_range() :: %{
+        "EndTimestamp" => non_neg_integer(),
+        "StartTimestamp" => non_neg_integer()
+      }
+
+  """
+  @type timestamp_range() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unsupported_stream_media_type_exception() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type unsupported_stream_media_type_exception() :: %{String.t() => any()}
+
+  @type get_clip_errors() ::
+          unsupported_stream_media_type_exception()
+          | resource_not_found_exception()
+          | not_authorized_exception()
+          | no_data_retention_exception()
+          | missing_codec_private_data_exception()
+          | invalid_media_frame_exception()
+          | invalid_codec_private_data_exception()
+          | invalid_argument_exception()
+          | client_limit_exceeded_exception()
+
+  @type get_dash_streaming_session_url_errors() ::
+          unsupported_stream_media_type_exception()
+          | resource_not_found_exception()
+          | not_authorized_exception()
+          | no_data_retention_exception()
+          | missing_codec_private_data_exception()
+          | invalid_codec_private_data_exception()
+          | invalid_argument_exception()
+          | client_limit_exceeded_exception()
+
+  @type get_hls_streaming_session_url_errors() ::
+          unsupported_stream_media_type_exception()
+          | resource_not_found_exception()
+          | not_authorized_exception()
+          | no_data_retention_exception()
+          | missing_codec_private_data_exception()
+          | invalid_codec_private_data_exception()
+          | invalid_argument_exception()
+          | client_limit_exceeded_exception()
+
+  @type get_images_errors() ::
+          resource_not_found_exception()
+          | not_authorized_exception()
+          | no_data_retention_exception()
+          | invalid_argument_exception()
+          | client_limit_exceeded_exception()
+
+  @type get_media_for_fragment_list_errors() ::
+          resource_not_found_exception()
+          | not_authorized_exception()
+          | invalid_argument_exception()
+          | client_limit_exceeded_exception()
+
+  @type list_fragments_errors() ::
+          resource_not_found_exception()
+          | not_authorized_exception()
+          | invalid_argument_exception()
+          | client_limit_exceeded_exception()
+
   def metadata do
     %{
       api_version: "2017-09-30",
@@ -66,6 +509,10 @@ defmodule AWS.KinesisVideoArchivedMedia do
   Pricing](https://aws.amazon.com/pricing/). Charges for outgoing Amazon Web
   Services data apply.
   """
+  @spec get_clip(map(), get_clip_input(), list()) ::
+          {:ok, get_clip_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_clip_errors()}
   def get_clip(%Client{} = client, input, options \\ []) do
     url_path = "/getClip"
     headers = []
@@ -247,6 +694,10 @@ defmodule AWS.KinesisVideoArchivedMedia do
   the bottom of this topic, as well as [Common
   Errors](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/CommonErrors.html).
   """
+  @spec get_dash_streaming_session_url(map(), get_dash_streaming_session_url_input(), list()) ::
+          {:ok, get_dash_streaming_session_url_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_dash_streaming_session_url_errors()}
   def get_dash_streaming_session_url(%Client{} = client, input, options \\ []) do
     url_path = "/getDASHStreamingSessionURL"
     headers = []
@@ -466,6 +917,10 @@ defmodule AWS.KinesisVideoArchivedMedia do
   the bottom of this topic, as well as [Common
   Errors](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/CommonErrors.html).
   """
+  @spec get_hls_streaming_session_url(map(), get_hls_streaming_session_url_input(), list()) ::
+          {:ok, get_hls_streaming_session_url_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_hls_streaming_session_url_errors()}
   def get_hls_streaming_session_url(%Client{} = client, input, options \\ []) do
     url_path = "/getHLSStreamingSessionURL"
     headers = []
@@ -491,6 +946,10 @@ defmodule AWS.KinesisVideoArchivedMedia do
   range,
   sampling interval, and image format configuration.
   """
+  @spec get_images(map(), get_images_input(), list()) ::
+          {:ok, get_images_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_images_errors()}
   def get_images(%Client{} = client, input, options \\ []) do
     url_path = "/getImages"
     headers = []
@@ -547,6 +1006,10 @@ defmodule AWS.KinesisVideoArchivedMedia do
   For more information, see the **Errors** section at
   the bottom of this topic, as well as [Common Errors](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/CommonErrors.html).
   """
+  @spec get_media_for_fragment_list(map(), get_media_for_fragment_list_input(), list()) ::
+          {:ok, get_media_for_fragment_list_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_media_for_fragment_list_errors()}
   def get_media_for_fragment_list(%Client{} = client, input, options \\ []) do
     url_path = "/getMediaForFragmentList"
     headers = []
@@ -612,6 +1075,10 @@ defmodule AWS.KinesisVideoArchivedMedia do
   For more information, see the **Errors** section at
   the bottom of this topic, as well as [Common Errors](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/CommonErrors.html).
   """
+  @spec list_fragments(map(), list_fragments_input(), list()) ::
+          {:ok, list_fragments_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_fragments_errors()}
   def list_fragments(%Client{} = client, input, options \\ []) do
     url_path = "/listFragments"
     headers = []

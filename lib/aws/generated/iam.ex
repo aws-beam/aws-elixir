@@ -18,6 +18,4728 @@ defmodule AWS.IAM do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+      
+      put_user_policy_request() :: %{
+        required("PolicyDocument") => String.t(),
+        required("PolicyName") => String.t(),
+        required("UserName") => String.t()
+      }
+      
+  """
+  @type put_user_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_open_id_connect_provider_request() :: %{
+        required("OpenIDConnectProviderArn") => String.t()
+      }
+      
+  """
+  @type get_open_id_connect_provider_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_saml_providers_request() :: %{}
+      
+  """
+  @type list_saml_providers_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      virtual_mfa_device() :: %{
+        "Base32StringSeed" => binary(),
+        "EnableDate" => non_neg_integer(),
+        "QRCodePNG" => binary(),
+        "SerialNumber" => String.t(),
+        "Tags" => list(tag()()),
+        "User" => user()
+      }
+      
+  """
+  @type virtual_mfa_device() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      entity_already_exists_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type entity_already_exists_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_group_policies_response() :: %{
+        "IsTruncated" => boolean(),
+        "Marker" => String.t(),
+        "PolicyNames" => list(String.t()())
+      }
+      
+  """
+  @type list_group_policies_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_instance_profiles_request() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxItems") => integer(),
+        optional("PathPrefix") => String.t()
+      }
+      
+  """
+  @type list_instance_profiles_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_policies_granting_service_access_response() :: %{
+        "IsTruncated" => boolean(),
+        "Marker" => String.t(),
+        "PoliciesGrantingServiceAccess" => list(list_policies_granting_service_access_entry()())
+      }
+      
+  """
+  @type list_policies_granting_service_access_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_saml_provider_request() :: %{
+        optional("Tags") => list(tag()()),
+        required("Name") => String.t(),
+        required("SAMLMetadataDocument") => String.t()
+      }
+      
+  """
+  @type create_saml_provider_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      detach_user_policy_request() :: %{
+        required("PolicyArn") => String.t(),
+        required("UserName") => String.t()
+      }
+      
+  """
+  @type detach_user_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_mfa_device_response() :: %{
+        "Certifications" => map(),
+        "EnableDate" => non_neg_integer(),
+        "SerialNumber" => String.t(),
+        "UserName" => String.t()
+      }
+      
+  """
+  @type get_mfa_device_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_service_linked_role_request() :: %{
+        required("RoleName") => String.t()
+      }
+      
+  """
+  @type delete_service_linked_role_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_user_permissions_boundary_request() :: %{
+        required("PermissionsBoundary") => String.t(),
+        required("UserName") => String.t()
+      }
+      
+  """
+  @type put_user_permissions_boundary_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_organizations_access_report_response() :: %{
+        "AccessDetails" => list(access_detail()()),
+        "ErrorDetails" => error_details(),
+        "IsTruncated" => boolean(),
+        "JobCompletionDate" => non_neg_integer(),
+        "JobCreationDate" => non_neg_integer(),
+        "JobStatus" => list(any()),
+        "Marker" => String.t(),
+        "NumberOfServicesAccessible" => integer(),
+        "NumberOfServicesNotAccessed" => integer()
+      }
+      
+  """
+  @type get_organizations_access_report_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_policy_versions_response() :: %{
+        "IsTruncated" => boolean(),
+        "Marker" => String.t(),
+        "Versions" => list(policy_version()())
+      }
+      
+  """
+  @type list_policy_versions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_saml_providers_response() :: %{
+        "SAMLProviderList" => list(saml_provider_list_entry()())
+      }
+      
+  """
+  @type list_saml_providers_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_user_type_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type invalid_user_type_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      set_default_policy_version_request() :: %{
+        required("PolicyArn") => String.t(),
+        required("VersionId") => String.t()
+      }
+      
+  """
+  @type set_default_policy_version_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_policy_version_response() :: %{
+        "PolicyVersion" => policy_version()
+      }
+      
+  """
+  @type get_policy_version_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      key_pair_mismatch_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type key_pair_mismatch_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_user_tags_request() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxItems") => integer(),
+        required("UserName") => String.t()
+      }
+      
+  """
+  @type list_user_tags_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_specific_result() :: %{
+        "EvalDecisionDetails" => map(),
+        "EvalResourceDecision" => list(any()),
+        "EvalResourceName" => String.t(),
+        "MatchedStatements" => list(statement()()),
+        "MissingContextValues" => list(String.t()()),
+        "PermissionsBoundaryDecisionDetail" => permissions_boundary_decision_detail()
+      }
+      
+  """
+  @type resource_specific_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      instance_profile() :: %{
+        "Arn" => String.t(),
+        "CreateDate" => non_neg_integer(),
+        "InstanceProfileId" => String.t(),
+        "InstanceProfileName" => String.t(),
+        "Path" => String.t(),
+        "Roles" => list(role()()),
+        "Tags" => list(tag()())
+      }
+      
+  """
+  @type instance_profile() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      attach_group_policy_request() :: %{
+        required("GroupName") => String.t(),
+        required("PolicyArn") => String.t()
+      }
+      
+  """
+  @type attach_group_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_open_id_connect_provider_response() :: %{
+        "OpenIDConnectProviderArn" => String.t(),
+        "Tags" => list(tag()())
+      }
+      
+  """
+  @type create_open_id_connect_provider_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_policy_tags_response() :: %{
+        "IsTruncated" => boolean(),
+        "Marker" => String.t(),
+        "Tags" => list(tag()())
+      }
+      
+  """
+  @type list_policy_tags_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_attached_group_policies_request() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxItems") => integer(),
+        optional("PathPrefix") => String.t(),
+        required("GroupName") => String.t()
+      }
+      
+  """
+  @type list_attached_group_policies_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_policy_version_request() :: %{
+        required("PolicyArn") => String.t(),
+        required("VersionId") => String.t()
+      }
+      
+  """
+  @type get_policy_version_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_user_policy_request() :: %{
+        required("PolicyName") => String.t(),
+        required("UserName") => String.t()
+      }
+      
+  """
+  @type delete_user_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      context_entry() :: %{
+        "ContextKeyName" => String.t(),
+        "ContextKeyType" => list(any()),
+        "ContextKeyValues" => list(String.t()())
+      }
+      
+  """
+  @type context_entry() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_server_certificates_response() :: %{
+        "IsTruncated" => boolean(),
+        "Marker" => String.t(),
+        "ServerCertificateMetadataList" => list(server_certificate_metadata()())
+      }
+      
+  """
+  @type list_server_certificates_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      enable_mfa_device_request() :: %{
+        required("AuthenticationCode1") => String.t(),
+        required("AuthenticationCode2") => String.t(),
+        required("SerialNumber") => String.t(),
+        required("UserName") => String.t()
+      }
+      
+  """
+  @type enable_mfa_device_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_open_id_connect_provider_response() :: %{
+        "ClientIDList" => list(String.t()()),
+        "CreateDate" => non_neg_integer(),
+        "Tags" => list(tag()()),
+        "ThumbprintList" => list(String.t()()),
+        "Url" => String.t()
+      }
+      
+  """
+  @type get_open_id_connect_provider_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_service_last_accessed_details_response() :: %{
+        "Error" => error_details(),
+        "IsTruncated" => boolean(),
+        "JobCompletionDate" => non_neg_integer(),
+        "JobCreationDate" => non_neg_integer(),
+        "JobStatus" => list(any()),
+        "JobType" => list(any()),
+        "Marker" => String.t(),
+        "ServicesLastAccessed" => list(service_last_accessed()())
+      }
+      
+  """
+  @type get_service_last_accessed_details_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_context_keys_for_policy_response() :: %{
+        "ContextKeyNames" => list(String.t()())
+      }
+      
+  """
+  @type get_context_keys_for_policy_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_role_policy_request() :: %{
+        required("PolicyDocument") => String.t(),
+        required("PolicyName") => String.t(),
+        required("RoleName") => String.t()
+      }
+      
+  """
+  @type put_role_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_policies_response() :: %{
+        "IsTruncated" => boolean(),
+        "Marker" => String.t(),
+        "Policies" => list(policy()())
+      }
+      
+  """
+  @type list_policies_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_service_specific_credential_response() :: %{
+        "ServiceSpecificCredential" => service_specific_credential()
+      }
+      
+  """
+  @type create_service_specific_credential_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      policy_granting_service_access() :: %{
+        "EntityName" => String.t(),
+        "EntityType" => list(any()),
+        "PolicyArn" => String.t(),
+        "PolicyName" => String.t(),
+        "PolicyType" => list(any())
+      }
+      
+  """
+  @type policy_granting_service_access() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      policy_not_attachable_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type policy_not_attachable_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      policy_group() :: %{
+        "GroupId" => String.t(),
+        "GroupName" => String.t()
+      }
+      
+  """
+  @type policy_group() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      no_such_entity_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type no_such_entity_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_server_certificate_tags_request() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxItems") => integer(),
+        required("ServerCertificateName") => String.t()
+      }
+      
+  """
+  @type list_server_certificate_tags_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_failure_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type service_failure_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_entities_for_policy_request() :: %{
+        optional("EntityFilter") => list(any()),
+        optional("Marker") => String.t(),
+        optional("MaxItems") => integer(),
+        optional("PathPrefix") => String.t(),
+        optional("PolicyUsageFilter") => list(any()),
+        required("PolicyArn") => String.t()
+      }
+      
+  """
+  @type list_entities_for_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_virtual_mfa_device_request() :: %{
+        required("SerialNumber") => String.t()
+      }
+      
+  """
+  @type delete_virtual_mfa_device_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_groups_for_user_response() :: %{
+        "Groups" => list(group()()),
+        "IsTruncated" => boolean(),
+        "Marker" => String.t()
+      }
+      
+  """
+  @type list_groups_for_user_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_policies_request() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxItems") => integer(),
+        optional("OnlyAttached") => boolean(),
+        optional("PathPrefix") => String.t(),
+        optional("PolicyUsageFilter") => list(any()),
+        optional("Scope") => list(any())
+      }
+      
+  """
+  @type list_policies_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_policy_request() :: %{
+        required("PolicyArn") => String.t()
+      }
+      
+  """
+  @type get_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      password_policy() :: %{
+        "AllowUsersToChangePassword" => boolean(),
+        "ExpirePasswords" => boolean(),
+        "HardExpiry" => boolean(),
+        "MaxPasswordAge" => integer(),
+        "MinimumPasswordLength" => integer(),
+        "PasswordReusePrevention" => integer(),
+        "RequireLowercaseCharacters" => boolean(),
+        "RequireNumbers" => boolean(),
+        "RequireSymbols" => boolean(),
+        "RequireUppercaseCharacters" => boolean()
+      }
+      
+  """
+  @type password_policy() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_group_policy_request() :: %{
+        required("GroupName") => String.t(),
+        required("PolicyName") => String.t()
+      }
+      
+  """
+  @type delete_group_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_attached_role_policies_request() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxItems") => integer(),
+        optional("PathPrefix") => String.t(),
+        required("RoleName") => String.t()
+      }
+      
+  """
+  @type list_attached_role_policies_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_mfa_devices_response() :: %{
+        "IsTruncated" => boolean(),
+        "MFADevices" => list(mfa_device()()),
+        "Marker" => String.t()
+      }
+      
+  """
+  @type list_mfa_devices_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_conflict_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type delete_conflict_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      upload_ssh_public_key_response() :: %{
+        "SSHPublicKey" => ssh_public_key()
+      }
+      
+  """
+  @type upload_ssh_public_key_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      policy_evaluation_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type policy_evaluation_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_saml_provider_request() :: %{
+        required("SAMLProviderArn") => String.t(),
+        required("Tags") => list(tag()())
+      }
+      
+  """
+  @type tag_saml_provider_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_role_policies_response() :: %{
+        "IsTruncated" => boolean(),
+        "Marker" => String.t(),
+        "PolicyNames" => list(String.t()())
+      }
+      
+  """
+  @type list_role_policies_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_policy_request() :: %{
+        optional("Description") => String.t(),
+        optional("Path") => String.t(),
+        optional("Tags") => list(tag()()),
+        required("PolicyDocument") => String.t(),
+        required("PolicyName") => String.t()
+      }
+      
+  """
+  @type create_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      entity_info() :: %{
+        "Arn" => String.t(),
+        "Id" => String.t(),
+        "Name" => String.t(),
+        "Path" => String.t(),
+        "Type" => list(any())
+      }
+      
+  """
+  @type entity_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_user_response() :: %{
+        "User" => user()
+      }
+      
+  """
+  @type get_user_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_instance_profile_response() :: %{
+        "InstanceProfile" => instance_profile()
+      }
+      
+  """
+  @type create_instance_profile_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      role() :: %{
+        "Arn" => String.t(),
+        "AssumeRolePolicyDocument" => String.t(),
+        "CreateDate" => non_neg_integer(),
+        "Description" => String.t(),
+        "MaxSessionDuration" => integer(),
+        "Path" => String.t(),
+        "PermissionsBoundary" => attached_permissions_boundary(),
+        "RoleId" => String.t(),
+        "RoleLastUsed" => role_last_used(),
+        "RoleName" => String.t(),
+        "Tags" => list(tag()())
+      }
+      
+  """
+  @type role() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      attach_user_policy_request() :: %{
+        required("PolicyArn") => String.t(),
+        required("UserName") => String.t()
+      }
+      
+  """
+  @type attach_user_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_roles_response() :: %{
+        "IsTruncated" => boolean(),
+        "Marker" => String.t(),
+        "Roles" => list(role()())
+      }
+      
+  """
+  @type list_roles_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_service_linked_role_deletion_status_response() :: %{
+        "Reason" => deletion_task_failure_reason_type(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type get_service_linked_role_deletion_status_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_open_id_connect_provider_request() :: %{
+        required("OpenIDConnectProviderArn") => String.t(),
+        required("TagKeys") => list(String.t()())
+      }
+      
+  """
+  @type untag_open_id_connect_provider_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_service_specific_credentials_request() :: %{
+        optional("ServiceName") => String.t(),
+        optional("UserName") => String.t()
+      }
+      
+  """
+  @type list_service_specific_credentials_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_ssh_public_keys_request() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxItems") => integer(),
+        optional("UserName") => String.t()
+      }
+      
+  """
+  @type list_ssh_public_keys_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_saml_provider_response() :: %{
+        "CreateDate" => non_neg_integer(),
+        "SAMLMetadataDocument" => String.t(),
+        "Tags" => list(tag()()),
+        "ValidUntil" => non_neg_integer()
+      }
+      
+  """
+  @type get_saml_provider_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_entities_for_policy_response() :: %{
+        "IsTruncated" => boolean(),
+        "Marker" => String.t(),
+        "PolicyGroups" => list(policy_group()()),
+        "PolicyRoles" => list(policy_role()()),
+        "PolicyUsers" => list(policy_user()())
+      }
+      
+  """
+  @type list_entities_for_policy_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_policy_version_response() :: %{
+        "PolicyVersion" => policy_version()
+      }
+      
+  """
+  @type create_policy_version_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      simulate_custom_policy_request() :: %{
+        optional("CallerArn") => String.t(),
+        optional("ContextEntries") => list(context_entry()()),
+        optional("Marker") => String.t(),
+        optional("MaxItems") => integer(),
+        optional("PermissionsBoundaryPolicyInputList") => list(String.t()()),
+        optional("ResourceArns") => list(String.t()()),
+        optional("ResourceHandlingOption") => String.t(),
+        optional("ResourceOwner") => String.t(),
+        optional("ResourcePolicy") => String.t(),
+        required("ActionNames") => list(String.t()()),
+        required("PolicyInputList") => list(String.t()())
+      }
+      
+  """
+  @type simulate_custom_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      role_detail() :: %{
+        "Arn" => String.t(),
+        "AssumeRolePolicyDocument" => String.t(),
+        "AttachedManagedPolicies" => list(attached_policy()()),
+        "CreateDate" => non_neg_integer(),
+        "InstanceProfileList" => list(instance_profile()()),
+        "Path" => String.t(),
+        "PermissionsBoundary" => attached_permissions_boundary(),
+        "RoleId" => String.t(),
+        "RoleLastUsed" => role_last_used(),
+        "RoleName" => String.t(),
+        "RolePolicyList" => list(policy_detail()()),
+        "Tags" => list(tag()())
+      }
+      
+  """
+  @type role_detail() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_open_id_connect_providers_response() :: %{
+        "OpenIDConnectProviderList" => list(open_id_connect_provider_list_entry()())
+      }
+      
+  """
+  @type list_open_id_connect_providers_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      policy_detail() :: %{
+        "PolicyDocument" => String.t(),
+        "PolicyName" => String.t()
+      }
+      
+  """
+  @type policy_detail() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      statement() :: %{
+        "EndPosition" => position(),
+        "SourcePolicyId" => String.t(),
+        "SourcePolicyType" => list(any()),
+        "StartPosition" => position()
+      }
+      
+  """
+  @type statement() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_user_permissions_boundary_request() :: %{
+        required("UserName") => String.t()
+      }
+      
+  """
+  @type delete_user_permissions_boundary_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_account_authorization_details_request() :: %{
+        optional("Filter") => list(list(any())()),
+        optional("Marker") => String.t(),
+        optional("MaxItems") => integer()
+      }
+      
+  """
+  @type get_account_authorization_details_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_user_request() :: %{
+        required("TagKeys") => list(String.t()()),
+        required("UserName") => String.t()
+      }
+      
+  """
+  @type untag_user_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      unmodifiable_entity_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type unmodifiable_entity_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_login_profile_response() :: %{
+        "LoginProfile" => login_profile()
+      }
+      
+  """
+  @type get_login_profile_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_instance_profiles_response() :: %{
+        "InstanceProfiles" => list(instance_profile()()),
+        "IsTruncated" => boolean(),
+        "Marker" => String.t()
+      }
+      
+  """
+  @type list_instance_profiles_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_not_supported_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type service_not_supported_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_ssh_public_key_request() :: %{
+        required("SSHPublicKeyId") => String.t(),
+        required("Status") => list(any()),
+        required("UserName") => String.t()
+      }
+      
+  """
+  @type update_ssh_public_key_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_mfa_devices_request() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxItems") => integer(),
+        optional("UserName") => String.t()
+      }
+      
+  """
+  @type list_mfa_devices_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_assume_role_policy_request() :: %{
+        required("PolicyDocument") => String.t(),
+        required("RoleName") => String.t()
+      }
+      
+  """
+  @type update_assume_role_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      upload_signing_certificate_request() :: %{
+        optional("UserName") => String.t(),
+        required("CertificateBody") => String.t()
+      }
+      
+  """
+  @type upload_signing_certificate_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_service_specific_credentials_response() :: %{
+        "ServiceSpecificCredentials" => list(service_specific_credential_metadata()())
+      }
+      
+  """
+  @type list_service_specific_credentials_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      position() :: %{
+        "Column" => integer(),
+        "Line" => integer()
+      }
+      
+  """
+  @type position() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_instance_profile_request() :: %{
+        required("InstanceProfileName") => String.t()
+      }
+      
+  """
+  @type delete_instance_profile_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      group_detail() :: %{
+        "Arn" => String.t(),
+        "AttachedManagedPolicies" => list(attached_policy()()),
+        "CreateDate" => non_neg_integer(),
+        "GroupId" => String.t(),
+        "GroupName" => String.t(),
+        "GroupPolicyList" => list(policy_detail()()),
+        "Path" => String.t()
+      }
+      
+  """
+  @type group_detail() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      upload_server_certificate_request() :: %{
+        optional("CertificateChain") => String.t(),
+        optional("Path") => String.t(),
+        optional("Tags") => list(tag()()),
+        required("CertificateBody") => String.t(),
+        required("PrivateKey") => String.t(),
+        required("ServerCertificateName") => String.t()
+      }
+      
+  """
+  @type upload_server_certificate_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_group_request() :: %{
+        optional("NewGroupName") => String.t(),
+        optional("NewPath") => String.t(),
+        required("GroupName") => String.t()
+      }
+      
+  """
+  @type update_group_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_access_key_last_used_response() :: %{
+        "AccessKeyLastUsed" => access_key_last_used(),
+        "UserName" => String.t()
+      }
+      
+  """
+  @type get_access_key_last_used_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_instance_profile_request() :: %{
+        optional("Path") => String.t(),
+        optional("Tags") => list(tag()()),
+        required("InstanceProfileName") => String.t()
+      }
+      
+  """
+  @type create_instance_profile_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      credential_report_not_ready_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type credential_report_not_ready_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      policy_version() :: %{
+        "CreateDate" => non_neg_integer(),
+        "Document" => String.t(),
+        "IsDefaultVersion" => boolean(),
+        "VersionId" => String.t()
+      }
+      
+  """
+  @type policy_version() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      managed_policy_detail() :: %{
+        "Arn" => String.t(),
+        "AttachmentCount" => integer(),
+        "CreateDate" => non_neg_integer(),
+        "DefaultVersionId" => String.t(),
+        "Description" => String.t(),
+        "IsAttachable" => boolean(),
+        "Path" => String.t(),
+        "PermissionsBoundaryUsageCount" => integer(),
+        "PolicyId" => String.t(),
+        "PolicyName" => String.t(),
+        "PolicyVersionList" => list(policy_version()()),
+        "UpdateDate" => non_neg_integer()
+      }
+      
+  """
+  @type managed_policy_detail() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_server_certificate_request() :: %{
+        required("ServerCertificateName") => String.t(),
+        required("TagKeys") => list(String.t()())
+      }
+      
+  """
+  @type untag_server_certificate_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_specific_credential_metadata() :: %{
+        "CreateDate" => non_neg_integer(),
+        "ServiceName" => String.t(),
+        "ServiceSpecificCredentialId" => String.t(),
+        "ServiceUserName" => String.t(),
+        "Status" => list(any()),
+        "UserName" => String.t()
+      }
+      
+  """
+  @type service_specific_credential_metadata() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_service_last_accessed_details_request() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxItems") => integer(),
+        required("JobId") => String.t()
+      }
+      
+  """
+  @type get_service_last_accessed_details_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      access_key_metadata() :: %{
+        "AccessKeyId" => String.t(),
+        "CreateDate" => non_neg_integer(),
+        "Status" => list(any()),
+        "UserName" => String.t()
+      }
+      
+  """
+  @type access_key_metadata() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_account_alias_request() :: %{
+        required("AccountAlias") => String.t()
+      }
+      
+  """
+  @type create_account_alias_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_group_policy_request() :: %{
+        required("GroupName") => String.t(),
+        required("PolicyDocument") => String.t(),
+        required("PolicyName") => String.t()
+      }
+      
+  """
+  @type put_group_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ssh_public_key_metadata() :: %{
+        "SSHPublicKeyId" => String.t(),
+        "Status" => list(any()),
+        "UploadDate" => non_neg_integer(),
+        "UserName" => String.t()
+      }
+      
+  """
+  @type ssh_public_key_metadata() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_instance_profile_request() :: %{
+        required("InstanceProfileName") => String.t()
+      }
+      
+  """
+  @type get_instance_profile_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_group_policy_response() :: %{
+        "GroupName" => String.t(),
+        "PolicyDocument" => String.t(),
+        "PolicyName" => String.t()
+      }
+      
+  """
+  @type get_group_policy_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_service_specific_credential_request() :: %{
+        optional("UserName") => String.t(),
+        required("ServiceSpecificCredentialId") => String.t()
+      }
+      
+  """
+  @type delete_service_specific_credential_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_groups_for_user_request() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxItems") => integer(),
+        required("UserName") => String.t()
+      }
+      
+  """
+  @type list_groups_for_user_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_role_tags_response() :: %{
+        "IsTruncated" => boolean(),
+        "Marker" => String.t(),
+        "Tags" => list(tag()())
+      }
+      
+  """
+  @type list_role_tags_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_policy_version_request() :: %{
+        required("PolicyArn") => String.t(),
+        required("VersionId") => String.t()
+      }
+      
+  """
+  @type delete_policy_version_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_mfa_device_tags_response() :: %{
+        "IsTruncated" => boolean(),
+        "Marker" => String.t(),
+        "Tags" => list(tag()())
+      }
+      
+  """
+  @type list_mfa_device_tags_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_user_policy_request() :: %{
+        required("PolicyName") => String.t(),
+        required("UserName") => String.t()
+      }
+      
+  """
+  @type get_user_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_mfa_device_request() :: %{
+        required("SerialNumber") => String.t(),
+        required("Tags") => list(tag()())
+      }
+      
+  """
+  @type tag_mfa_device_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      report_generation_limit_exceeded_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type report_generation_limit_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      open_id_connect_provider_list_entry() :: %{
+        "Arn" => String.t()
+      }
+      
+  """
+  @type open_id_connect_provider_list_entry() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_user_request() :: %{
+        optional("UserName") => String.t()
+      }
+      
+  """
+  @type get_user_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_service_linked_role_request() :: %{
+        optional("CustomSuffix") => String.t(),
+        optional("Description") => String.t(),
+        required("AWSServiceName") => String.t()
+      }
+      
+  """
+  @type create_service_linked_role_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag() :: %{
+        "Key" => String.t(),
+        "Value" => String.t()
+      }
+      
+  """
+  @type tag() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_policy_version_request() :: %{
+        optional("SetAsDefault") => boolean(),
+        required("PolicyArn") => String.t(),
+        required("PolicyDocument") => String.t()
+      }
+      
+  """
+  @type create_policy_version_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_role_request() :: %{
+        required("RoleName") => String.t()
+      }
+      
+  """
+  @type get_role_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_role_response() :: %{}
+      
+  """
+  @type update_role_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      deactivate_mfa_device_request() :: %{
+        required("SerialNumber") => String.t(),
+        required("UserName") => String.t()
+      }
+      
+  """
+  @type deactivate_mfa_device_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      detach_group_policy_request() :: %{
+        required("GroupName") => String.t(),
+        required("PolicyArn") => String.t()
+      }
+      
+  """
+  @type detach_group_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      saml_provider_list_entry() :: %{
+        "Arn" => String.t(),
+        "CreateDate" => non_neg_integer(),
+        "ValidUntil" => non_neg_integer()
+      }
+      
+  """
+  @type saml_provider_list_entry() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_server_certificate_request() :: %{
+        required("ServerCertificateName") => String.t()
+      }
+      
+  """
+  @type delete_server_certificate_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_context_keys_for_custom_policy_request() :: %{
+        required("PolicyInputList") => list(String.t()())
+      }
+      
+  """
+  @type get_context_keys_for_custom_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_attached_user_policies_response() :: %{
+        "AttachedPolicies" => list(attached_policy()()),
+        "IsTruncated" => boolean(),
+        "Marker" => String.t()
+      }
+      
+  """
+  @type list_attached_user_policies_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      access_key() :: %{
+        "AccessKeyId" => String.t(),
+        "CreateDate" => non_neg_integer(),
+        "SecretAccessKey" => String.t(),
+        "Status" => list(any()),
+        "UserName" => String.t()
+      }
+      
+  """
+  @type access_key() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_server_certificate_request() :: %{
+        optional("NewPath") => String.t(),
+        optional("NewServerCertificateName") => String.t(),
+        required("ServerCertificateName") => String.t()
+      }
+      
+  """
+  @type update_server_certificate_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_access_keys_request() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxItems") => integer(),
+        optional("UserName") => String.t()
+      }
+      
+  """
+  @type list_access_keys_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_role_policy_request() :: %{
+        required("PolicyName") => String.t(),
+        required("RoleName") => String.t()
+      }
+      
+  """
+  @type delete_role_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_users_response() :: %{
+        "IsTruncated" => boolean(),
+        "Marker" => String.t(),
+        "Users" => list(user()())
+      }
+      
+  """
+  @type list_users_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_account_password_policy_request() :: %{
+        optional("AllowUsersToChangePassword") => boolean(),
+        optional("HardExpiry") => boolean(),
+        optional("MaxPasswordAge") => integer(),
+        optional("MinimumPasswordLength") => integer(),
+        optional("PasswordReusePrevention") => integer(),
+        optional("RequireLowercaseCharacters") => boolean(),
+        optional("RequireNumbers") => boolean(),
+        optional("RequireSymbols") => boolean(),
+        optional("RequireUppercaseCharacters") => boolean()
+      }
+      
+  """
+  @type update_account_password_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_ssh_public_key_request() :: %{
+        required("Encoding") => list(any()),
+        required("SSHPublicKeyId") => String.t(),
+        required("UserName") => String.t()
+      }
+      
+  """
+  @type get_ssh_public_key_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_instance_profile_tags_request() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxItems") => integer(),
+        required("InstanceProfileName") => String.t()
+      }
+      
+  """
+  @type list_instance_profile_tags_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      role_last_used() :: %{
+        "LastUsedDate" => non_neg_integer(),
+        "Region" => String.t()
+      }
+      
+  """
+  @type role_last_used() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_saml_provider_request() :: %{
+        required("SAMLProviderArn") => String.t()
+      }
+      
+  """
+  @type delete_saml_provider_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_server_certificate_tags_response() :: %{
+        "IsTruncated" => boolean(),
+        "Marker" => String.t(),
+        "Tags" => list(tag()())
+      }
+      
+  """
+  @type list_server_certificate_tags_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_instance_profile_tags_response() :: %{
+        "IsTruncated" => boolean(),
+        "Marker" => String.t(),
+        "Tags" => list(tag()())
+      }
+      
+  """
+  @type list_instance_profile_tags_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      add_user_to_group_request() :: %{
+        required("GroupName") => String.t(),
+        required("UserName") => String.t()
+      }
+      
+  """
+  @type add_user_to_group_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      entity_temporarily_unmodifiable_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type entity_temporarily_unmodifiable_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_access_key_request() :: %{
+        optional("UserName") => String.t(),
+        required("AccessKeyId") => String.t()
+      }
+      
+  """
+  @type delete_access_key_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      password_policy_violation_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type password_policy_violation_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_certificate_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type invalid_certificate_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_input_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type invalid_input_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_policies_granting_service_access_entry() :: %{
+        "Policies" => list(policy_granting_service_access()()),
+        "ServiceNamespace" => String.t()
+      }
+      
+  """
+  @type list_policies_granting_service_access_entry() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_saml_provider_request() :: %{
+        required("SAMLProviderArn") => String.t(),
+        required("TagKeys") => list(String.t()())
+      }
+      
+  """
+  @type untag_saml_provider_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      error_details() :: %{
+        "Code" => String.t(),
+        "Message" => String.t()
+      }
+      
+  """
+  @type error_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_access_key_last_used_request() :: %{
+        required("AccessKeyId") => String.t()
+      }
+      
+  """
+  @type get_access_key_last_used_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      malformed_certificate_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type malformed_certificate_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_login_profile_request() :: %{
+        required("UserName") => String.t()
+      }
+      
+  """
+  @type delete_login_profile_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_virtual_mfa_device_response() :: %{
+        "VirtualMFADevice" => virtual_mfa_device()
+      }
+      
+  """
+  @type create_virtual_mfa_device_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_role_description_response() :: %{
+        "Role" => role()
+      }
+      
+  """
+  @type update_role_description_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      set_security_token_service_preferences_request() :: %{
+        required("GlobalEndpointTokenVersion") => list(any())
+      }
+      
+  """
+  @type set_security_token_service_preferences_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_group_request() :: %{
+        optional("Path") => String.t(),
+        required("GroupName") => String.t()
+      }
+      
+  """
+  @type create_group_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      remove_role_from_instance_profile_request() :: %{
+        required("InstanceProfileName") => String.t(),
+        required("RoleName") => String.t()
+      }
+      
+  """
+  @type remove_role_from_instance_profile_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_specific_credential() :: %{
+        "CreateDate" => non_neg_integer(),
+        "ServiceName" => String.t(),
+        "ServicePassword" => String.t(),
+        "ServiceSpecificCredentialId" => String.t(),
+        "ServiceUserName" => String.t(),
+        "Status" => list(any()),
+        "UserName" => String.t()
+      }
+      
+  """
+  @type service_specific_credential() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_instance_profile_request() :: %{
+        required("InstanceProfileName") => String.t(),
+        required("Tags") => list(tag()())
+      }
+      
+  """
+  @type tag_instance_profile_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_virtual_mfa_devices_response() :: %{
+        "IsTruncated" => boolean(),
+        "Marker" => String.t(),
+        "VirtualMFADevices" => list(virtual_mfa_device()())
+      }
+      
+  """
+  @type list_virtual_mfa_devices_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_open_id_connect_provider_request() :: %{
+        required("OpenIDConnectProviderArn") => String.t(),
+        required("Tags") => list(tag()())
+      }
+      
+  """
+  @type tag_open_id_connect_provider_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      generate_organizations_access_report_response() :: %{
+        "JobId" => String.t()
+      }
+      
+  """
+  @type generate_organizations_access_report_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_virtual_mfa_devices_request() :: %{
+        optional("AssignmentStatus") => list(any()),
+        optional("Marker") => String.t(),
+        optional("MaxItems") => integer()
+      }
+      
+  """
+  @type list_virtual_mfa_devices_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_server_certificate_request() :: %{
+        required("ServerCertificateName") => String.t()
+      }
+      
+  """
+  @type get_server_certificate_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      change_password_request() :: %{
+        required("NewPassword") => String.t(),
+        required("OldPassword") => String.t()
+      }
+      
+  """
+  @type change_password_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_role_tags_request() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxItems") => integer(),
+        required("RoleName") => String.t()
+      }
+      
+  """
+  @type list_role_tags_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_user_request() :: %{
+        required("UserName") => String.t()
+      }
+      
+  """
+  @type delete_user_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      generate_service_last_accessed_details_response() :: %{
+        "JobId" => String.t()
+      }
+      
+  """
+  @type generate_service_last_accessed_details_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_service_linked_role_deletion_status_request() :: %{
+        required("DeletionTaskId") => String.t()
+      }
+      
+  """
+  @type get_service_linked_role_deletion_status_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_account_alias_request() :: %{
+        required("AccountAlias") => String.t()
+      }
+      
+  """
+  @type delete_account_alias_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_policy_response() :: %{
+        "Policy" => policy()
+      }
+      
+  """
+  @type create_policy_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_organizations_access_report_request() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxItems") => integer(),
+        optional("SortKey") => list(any()),
+        required("JobId") => String.t()
+      }
+      
+  """
+  @type get_organizations_access_report_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_policy_versions_request() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxItems") => integer(),
+        required("PolicyArn") => String.t()
+      }
+      
+  """
+  @type list_policy_versions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_policies_granting_service_access_request() :: %{
+        optional("Marker") => String.t(),
+        required("Arn") => String.t(),
+        required("ServiceNamespaces") => list(String.t()())
+      }
+      
+  """
+  @type list_policies_granting_service_access_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_account_password_policy_response() :: %{
+        "PasswordPolicy" => password_policy()
+      }
+      
+  """
+  @type get_account_password_policy_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_service_specific_credential_request() :: %{
+        optional("UserName") => String.t(),
+        required("ServiceSpecificCredentialId") => String.t(),
+        required("Status") => list(any())
+      }
+      
+  """
+  @type update_service_specific_credential_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_login_profile_response() :: %{
+        "LoginProfile" => login_profile()
+      }
+      
+  """
+  @type create_login_profile_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reset_service_specific_credential_request() :: %{
+        optional("UserName") => String.t(),
+        required("ServiceSpecificCredentialId") => String.t()
+      }
+      
+  """
+  @type reset_service_specific_credential_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_policy_response() :: %{
+        "Policy" => policy()
+      }
+      
+  """
+  @type get_policy_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_saml_provider_response() :: %{
+        "SAMLProviderArn" => String.t()
+      }
+      
+  """
+  @type update_saml_provider_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_user_policy_response() :: %{
+        "PolicyDocument" => String.t(),
+        "PolicyName" => String.t(),
+        "UserName" => String.t()
+      }
+      
+  """
+  @type get_user_policy_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      credential_report_expired_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type credential_report_expired_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      mfa_device() :: %{
+        "EnableDate" => non_neg_integer(),
+        "SerialNumber" => String.t(),
+        "UserName" => String.t()
+      }
+      
+  """
+  @type mfa_device() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      entity_details() :: %{
+        "EntityInfo" => entity_info(),
+        "LastAuthenticated" => non_neg_integer()
+      }
+      
+  """
+  @type entity_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_instance_profiles_for_role_response() :: %{
+        "InstanceProfiles" => list(instance_profile()()),
+        "IsTruncated" => boolean(),
+        "Marker" => String.t()
+      }
+      
+  """
+  @type list_instance_profiles_for_role_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      signing_certificate() :: %{
+        "CertificateBody" => String.t(),
+        "CertificateId" => String.t(),
+        "Status" => list(any()),
+        "UploadDate" => non_neg_integer(),
+        "UserName" => String.t()
+      }
+      
+  """
+  @type signing_certificate() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_policy_request() :: %{
+        required("PolicyArn") => String.t()
+      }
+      
+  """
+  @type delete_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_mfa_device_tags_request() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxItems") => integer(),
+        required("SerialNumber") => String.t()
+      }
+      
+  """
+  @type list_mfa_device_tags_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_authentication_code_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type invalid_authentication_code_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      generate_organizations_access_report_request() :: %{
+        optional("OrganizationsPolicyId") => String.t(),
+        required("EntityPath") => String.t()
+      }
+      
+  """
+  @type generate_organizations_access_report_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      add_role_to_instance_profile_request() :: %{
+        required("InstanceProfileName") => String.t(),
+        required("RoleName") => String.t()
+      }
+      
+  """
+  @type add_role_to_instance_profile_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_signing_certificates_response() :: %{
+        "Certificates" => list(signing_certificate()()),
+        "IsTruncated" => boolean(),
+        "Marker" => String.t()
+      }
+      
+  """
+  @type list_signing_certificates_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      simulate_principal_policy_request() :: %{
+        optional("CallerArn") => String.t(),
+        optional("ContextEntries") => list(context_entry()()),
+        optional("Marker") => String.t(),
+        optional("MaxItems") => integer(),
+        optional("PermissionsBoundaryPolicyInputList") => list(String.t()()),
+        optional("PolicyInputList") => list(String.t()()),
+        optional("ResourceArns") => list(String.t()()),
+        optional("ResourceHandlingOption") => String.t(),
+        optional("ResourceOwner") => String.t(),
+        optional("ResourcePolicy") => String.t(),
+        required("ActionNames") => list(String.t()()),
+        required("PolicySourceArn") => String.t()
+      }
+      
+  """
+  @type simulate_principal_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_account_authorization_details_response() :: %{
+        "GroupDetailList" => list(group_detail()()),
+        "IsTruncated" => boolean(),
+        "Marker" => String.t(),
+        "Policies" => list(managed_policy_detail()()),
+        "RoleDetailList" => list(role_detail()()),
+        "UserDetailList" => list(user_detail()())
+      }
+      
+  """
+  @type get_account_authorization_details_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resync_mfa_device_request() :: %{
+        required("AuthenticationCode1") => String.t(),
+        required("AuthenticationCode2") => String.t(),
+        required("SerialNumber") => String.t(),
+        required("UserName") => String.t()
+      }
+      
+  """
+  @type resync_mfa_device_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_service_specific_credential_request() :: %{
+        required("ServiceName") => String.t(),
+        required("UserName") => String.t()
+      }
+      
+  """
+  @type create_service_specific_credential_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_role_request() :: %{
+        optional("Description") => String.t(),
+        optional("MaxSessionDuration") => integer(),
+        required("RoleName") => String.t()
+      }
+      
+  """
+  @type update_role_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      policy_role() :: %{
+        "RoleId" => String.t(),
+        "RoleName" => String.t()
+      }
+      
+  """
+  @type policy_role() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_login_profile_request() :: %{
+        optional("Password") => String.t(),
+        optional("PasswordResetRequired") => boolean(),
+        required("UserName") => String.t()
+      }
+      
+  """
+  @type update_login_profile_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_user_tags_response() :: %{
+        "IsTruncated" => boolean(),
+        "Marker" => String.t(),
+        "Tags" => list(tag()())
+      }
+      
+  """
+  @type list_user_tags_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_open_id_connect_providers_request() :: %{}
+      
+  """
+  @type list_open_id_connect_providers_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_saml_provider_response() :: %{
+        "SAMLProviderArn" => String.t(),
+        "Tags" => list(tag()())
+      }
+      
+  """
+  @type create_saml_provider_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      policy() :: %{
+        "Arn" => String.t(),
+        "AttachmentCount" => integer(),
+        "CreateDate" => non_neg_integer(),
+        "DefaultVersionId" => String.t(),
+        "Description" => String.t(),
+        "IsAttachable" => boolean(),
+        "Path" => String.t(),
+        "PermissionsBoundaryUsageCount" => integer(),
+        "PolicyId" => String.t(),
+        "PolicyName" => String.t(),
+        "Tags" => list(tag()()),
+        "UpdateDate" => non_neg_integer()
+      }
+      
+  """
+  @type policy() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      upload_signing_certificate_response() :: %{
+        "Certificate" => signing_certificate()
+      }
+      
+  """
+  @type upload_signing_certificate_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_instance_profile_response() :: %{
+        "InstanceProfile" => instance_profile()
+      }
+      
+  """
+  @type get_instance_profile_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_role_response() :: %{
+        "Role" => role()
+      }
+      
+  """
+  @type create_role_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_saml_provider_request() :: %{
+        required("SAMLMetadataDocument") => String.t(),
+        required("SAMLProviderArn") => String.t()
+      }
+      
+  """
+  @type update_saml_provider_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ssh_public_key() :: %{
+        "Fingerprint" => String.t(),
+        "SSHPublicKeyBody" => String.t(),
+        "SSHPublicKeyId" => String.t(),
+        "Status" => list(any()),
+        "UploadDate" => non_neg_integer(),
+        "UserName" => String.t()
+      }
+      
+  """
+  @type ssh_public_key() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      permissions_boundary_decision_detail() :: %{
+        "AllowedByPermissionsBoundary" => boolean()
+      }
+      
+  """
+  @type permissions_boundary_decision_detail() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_role_policy_response() :: %{
+        "PolicyDocument" => String.t(),
+        "PolicyName" => String.t(),
+        "RoleName" => String.t()
+      }
+      
+  """
+  @type get_role_policy_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_open_id_connect_provider_thumbprint_request() :: %{
+        required("OpenIDConnectProviderArn") => String.t(),
+        required("ThumbprintList") => list(String.t()())
+      }
+      
+  """
+  @type update_open_id_connect_provider_thumbprint_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_ssh_public_key_response() :: %{
+        "SSHPublicKey" => ssh_public_key()
+      }
+      
+  """
+  @type get_ssh_public_key_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      user_detail() :: %{
+        "Arn" => String.t(),
+        "AttachedManagedPolicies" => list(attached_policy()()),
+        "CreateDate" => non_neg_integer(),
+        "GroupList" => list(String.t()()),
+        "Path" => String.t(),
+        "PermissionsBoundary" => attached_permissions_boundary(),
+        "Tags" => list(tag()()),
+        "UserId" => String.t(),
+        "UserName" => String.t(),
+        "UserPolicyList" => list(policy_detail()())
+      }
+      
+  """
+  @type user_detail() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_access_key_response() :: %{
+        "AccessKey" => access_key()
+      }
+      
+  """
+  @type create_access_key_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_policy_request() :: %{
+        required("PolicyArn") => String.t(),
+        required("Tags") => list(tag()())
+      }
+      
+  """
+  @type tag_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_last_accessed() :: %{
+        "LastAuthenticated" => non_neg_integer(),
+        "LastAuthenticatedEntity" => String.t(),
+        "LastAuthenticatedRegion" => String.t(),
+        "ServiceName" => String.t(),
+        "ServiceNamespace" => String.t(),
+        "TotalAuthenticatedEntities" => integer(),
+        "TrackedActionsLastAccessed" => list(tracked_action_last_accessed()())
+      }
+      
+  """
+  @type service_last_accessed() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_service_linked_role_response() :: %{
+        "Role" => role()
+      }
+      
+  """
+  @type create_service_linked_role_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_signing_certificate_request() :: %{
+        optional("UserName") => String.t(),
+        required("CertificateId") => String.t(),
+        required("Status") => list(any())
+      }
+      
+  """
+  @type update_signing_certificate_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_login_profile_request() :: %{
+        required("UserName") => String.t()
+      }
+      
+  """
+  @type get_login_profile_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      role_usage_type() :: %{
+        "Region" => String.t(),
+        "Resources" => list(String.t()())
+      }
+      
+  """
+  @type role_usage_type() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      concurrent_modification_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type concurrent_modification_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_saml_provider_request() :: %{
+        required("SAMLProviderArn") => String.t()
+      }
+      
+  """
+  @type get_saml_provider_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      unrecognized_public_key_encoding_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type unrecognized_public_key_encoding_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_policy_request() :: %{
+        required("PolicyArn") => String.t(),
+        required("TagKeys") => list(String.t()())
+      }
+      
+  """
+  @type untag_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_group_policies_request() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxItems") => integer(),
+        required("GroupName") => String.t()
+      }
+      
+  """
+  @type list_group_policies_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_user_request() :: %{
+        optional("NewPath") => String.t(),
+        optional("NewUserName") => String.t(),
+        required("UserName") => String.t()
+      }
+      
+  """
+  @type update_user_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_signing_certificates_request() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxItems") => integer(),
+        optional("UserName") => String.t()
+      }
+      
+  """
+  @type list_signing_certificates_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_attached_group_policies_response() :: %{
+        "AttachedPolicies" => list(attached_policy()()),
+        "IsTruncated" => boolean(),
+        "Marker" => String.t()
+      }
+      
+  """
+  @type list_attached_group_policies_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_server_certificates_request() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxItems") => integer(),
+        optional("PathPrefix") => String.t()
+      }
+      
+  """
+  @type list_server_certificates_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_user_policies_response() :: %{
+        "IsTruncated" => boolean(),
+        "Marker" => String.t(),
+        "PolicyNames" => list(String.t()())
+      }
+      
+  """
+  @type list_user_policies_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_account_aliases_response() :: %{
+        "AccountAliases" => list(String.t()()),
+        "IsTruncated" => boolean(),
+        "Marker" => String.t()
+      }
+      
+  """
+  @type list_account_aliases_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_context_keys_for_principal_policy_request() :: %{
+        optional("PolicyInputList") => list(String.t()()),
+        required("PolicySourceArn") => String.t()
+      }
+      
+  """
+  @type get_context_keys_for_principal_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_user_policies_request() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxItems") => integer(),
+        required("UserName") => String.t()
+      }
+      
+  """
+  @type list_user_policies_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_ssh_public_keys_response() :: %{
+        "IsTruncated" => boolean(),
+        "Marker" => String.t(),
+        "SSHPublicKeys" => list(ssh_public_key_metadata()())
+      }
+      
+  """
+  @type list_ssh_public_keys_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      attached_permissions_boundary() :: %{
+        "PermissionsBoundaryArn" => String.t(),
+        "PermissionsBoundaryType" => list(any())
+      }
+      
+  """
+  @type attached_permissions_boundary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_service_last_accessed_details_with_entities_response() :: %{
+        "EntityDetailsList" => list(entity_details()()),
+        "Error" => error_details(),
+        "IsTruncated" => boolean(),
+        "JobCompletionDate" => non_neg_integer(),
+        "JobCreationDate" => non_neg_integer(),
+        "JobStatus" => list(any()),
+        "Marker" => String.t()
+      }
+      
+  """
+  @type get_service_last_accessed_details_with_entities_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      detach_role_policy_request() :: %{
+        required("PolicyArn") => String.t(),
+        required("RoleName") => String.t()
+      }
+      
+  """
+  @type detach_role_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_account_summary_response() :: %{
+        "SummaryMap" => map()
+      }
+      
+  """
+  @type get_account_summary_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_access_keys_response() :: %{
+        "AccessKeyMetadata" => list(access_key_metadata()()),
+        "IsTruncated" => boolean(),
+        "Marker" => String.t()
+      }
+      
+  """
+  @type list_access_keys_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      group() :: %{
+        "Arn" => String.t(),
+        "CreateDate" => non_neg_integer(),
+        "GroupId" => String.t(),
+        "GroupName" => String.t(),
+        "Path" => String.t()
+      }
+      
+  """
+  @type group() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      server_certificate_metadata() :: %{
+        "Arn" => String.t(),
+        "Expiration" => non_neg_integer(),
+        "Path" => String.t(),
+        "ServerCertificateId" => String.t(),
+        "ServerCertificateName" => String.t(),
+        "UploadDate" => non_neg_integer()
+      }
+      
+  """
+  @type server_certificate_metadata() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_group_response() :: %{
+        "Group" => group(),
+        "IsTruncated" => boolean(),
+        "Marker" => String.t(),
+        "Users" => list(user()())
+      }
+      
+  """
+  @type get_group_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      user() :: %{
+        "Arn" => String.t(),
+        "CreateDate" => non_neg_integer(),
+        "PasswordLastUsed" => non_neg_integer(),
+        "Path" => String.t(),
+        "PermissionsBoundary" => attached_permissions_boundary(),
+        "Tags" => list(tag()()),
+        "UserId" => String.t(),
+        "UserName" => String.t()
+      }
+      
+  """
+  @type user() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_role_request() :: %{
+        optional("Description") => String.t(),
+        optional("MaxSessionDuration") => integer(),
+        optional("Path") => String.t(),
+        optional("PermissionsBoundary") => String.t(),
+        optional("Tags") => list(tag()()),
+        required("AssumeRolePolicyDocument") => String.t(),
+        required("RoleName") => String.t()
+      }
+      
+  """
+  @type create_role_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      malformed_policy_document_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type malformed_policy_document_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      login_profile() :: %{
+        "CreateDate" => non_neg_integer(),
+        "PasswordResetRequired" => boolean(),
+        "UserName" => String.t()
+      }
+      
+  """
+  @type login_profile() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reset_service_specific_credential_response() :: %{
+        "ServiceSpecificCredential" => service_specific_credential()
+      }
+      
+  """
+  @type reset_service_specific_credential_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_group_request() :: %{
+        required("GroupName") => String.t()
+      }
+      
+  """
+  @type delete_group_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_users_request() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxItems") => integer(),
+        optional("PathPrefix") => String.t()
+      }
+      
+  """
+  @type list_users_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_service_last_accessed_details_with_entities_request() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxItems") => integer(),
+        required("JobId") => String.t(),
+        required("ServiceNamespace") => String.t()
+      }
+      
+  """
+  @type get_service_last_accessed_details_with_entities_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_policy_tags_request() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxItems") => integer(),
+        required("PolicyArn") => String.t()
+      }
+      
+  """
+  @type list_policy_tags_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      limit_exceeded_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type limit_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      remove_client_id_from_open_id_connect_provider_request() :: %{
+        required("ClientID") => String.t(),
+        required("OpenIDConnectProviderArn") => String.t()
+      }
+      
+  """
+  @type remove_client_id_from_open_id_connect_provider_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_role_policy_request() :: %{
+        required("PolicyName") => String.t(),
+        required("RoleName") => String.t()
+      }
+      
+  """
+  @type get_role_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      organizations_decision_detail() :: %{
+        "AllowedByOrganizations" => boolean()
+      }
+      
+  """
+  @type organizations_decision_detail() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_access_key_request() :: %{
+        optional("UserName") => String.t(),
+        required("AccessKeyId") => String.t(),
+        required("Status") => list(any())
+      }
+      
+  """
+  @type update_access_key_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_instance_profiles_for_role_request() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxItems") => integer(),
+        required("RoleName") => String.t()
+      }
+      
+  """
+  @type list_instance_profiles_for_role_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      attach_role_policy_request() :: %{
+        required("PolicyArn") => String.t(),
+        required("RoleName") => String.t()
+      }
+      
+  """
+  @type attach_role_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_service_linked_role_response() :: %{
+        "DeletionTaskId" => String.t()
+      }
+      
+  """
+  @type delete_service_linked_role_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      upload_server_certificate_response() :: %{
+        "ServerCertificateMetadata" => server_certificate_metadata(),
+        "Tags" => list(tag()())
+      }
+      
+  """
+  @type upload_server_certificate_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      credential_report_not_present_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type credential_report_not_present_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_saml_provider_tags_request() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxItems") => integer(),
+        required("SAMLProviderArn") => String.t()
+      }
+      
+  """
+  @type list_saml_provider_tags_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_group_policy_request() :: %{
+        required("GroupName") => String.t(),
+        required("PolicyName") => String.t()
+      }
+      
+  """
+  @type get_group_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_role_permissions_boundary_request() :: %{
+        required("PermissionsBoundary") => String.t(),
+        required("RoleName") => String.t()
+      }
+      
+  """
+  @type put_role_permissions_boundary_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_open_id_connect_provider_tags_request() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxItems") => integer(),
+        required("OpenIDConnectProviderArn") => String.t()
+      }
+      
+  """
+  @type list_open_id_connect_provider_tags_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      evaluation_result() :: %{
+        "EvalActionName" => String.t(),
+        "EvalDecision" => list(any()),
+        "EvalDecisionDetails" => map(),
+        "EvalResourceName" => String.t(),
+        "MatchedStatements" => list(statement()()),
+        "MissingContextValues" => list(String.t()()),
+        "OrganizationsDecisionDetail" => organizations_decision_detail(),
+        "PermissionsBoundaryDecisionDetail" => permissions_boundary_decision_detail(),
+        "ResourceSpecificResults" => list(resource_specific_result()())
+      }
+      
+  """
+  @type evaluation_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_virtual_mfa_device_request() :: %{
+        optional("Path") => String.t(),
+        optional("Tags") => list(tag()()),
+        required("VirtualMFADeviceName") => String.t()
+      }
+      
+  """
+  @type create_virtual_mfa_device_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_role_response() :: %{
+        "Role" => role()
+      }
+      
+  """
+  @type get_role_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_server_certificate_request() :: %{
+        required("ServerCertificateName") => String.t(),
+        required("Tags") => list(tag()())
+      }
+      
+  """
+  @type tag_server_certificate_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      generate_service_last_accessed_details_request() :: %{
+        optional("Granularity") => list(any()),
+        required("Arn") => String.t()
+      }
+      
+  """
+  @type generate_service_last_accessed_details_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_role_description_request() :: %{
+        required("Description") => String.t(),
+        required("RoleName") => String.t()
+      }
+      
+  """
+  @type update_role_description_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_credential_report_response() :: %{
+        "Content" => binary(),
+        "GeneratedTime" => non_neg_integer(),
+        "ReportFormat" => list(any())
+      }
+      
+  """
+  @type get_credential_report_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_account_aliases_request() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxItems") => integer()
+      }
+      
+  """
+  @type list_account_aliases_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_role_policies_request() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxItems") => integer(),
+        required("RoleName") => String.t()
+      }
+      
+  """
+  @type list_role_policies_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_open_id_connect_provider_tags_response() :: %{
+        "IsTruncated" => boolean(),
+        "Marker" => String.t(),
+        "Tags" => list(tag()())
+      }
+      
+  """
+  @type list_open_id_connect_provider_tags_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_groups_response() :: %{
+        "Groups" => list(group()()),
+        "IsTruncated" => boolean(),
+        "Marker" => String.t()
+      }
+      
+  """
+  @type list_groups_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_group_request() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxItems") => integer(),
+        required("GroupName") => String.t()
+      }
+      
+  """
+  @type get_group_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_roles_request() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxItems") => integer(),
+        optional("PathPrefix") => String.t()
+      }
+      
+  """
+  @type list_roles_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      attached_policy() :: %{
+        "PolicyArn" => String.t(),
+        "PolicyName" => String.t()
+      }
+      
+  """
+  @type attached_policy() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      access_detail() :: %{
+        "EntityPath" => String.t(),
+        "LastAuthenticatedTime" => non_neg_integer(),
+        "Region" => String.t(),
+        "ServiceName" => String.t(),
+        "ServiceNamespace" => String.t(),
+        "TotalAuthenticatedEntities" => integer()
+      }
+      
+  """
+  @type access_detail() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      access_key_last_used() :: %{
+        "LastUsedDate" => non_neg_integer(),
+        "Region" => String.t(),
+        "ServiceName" => String.t()
+      }
+      
+  """
+  @type access_key_last_used() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_access_key_request() :: %{
+        optional("UserName") => String.t()
+      }
+      
+  """
+  @type create_access_key_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      duplicate_certificate_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type duplicate_certificate_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_public_key_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type invalid_public_key_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_groups_request() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxItems") => integer(),
+        optional("PathPrefix") => String.t()
+      }
+      
+  """
+  @type list_groups_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_saml_provider_tags_response() :: %{
+        "IsTruncated" => boolean(),
+        "Marker" => String.t(),
+        "Tags" => list(tag()())
+      }
+      
+  """
+  @type list_saml_provider_tags_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      add_client_id_to_open_id_connect_provider_request() :: %{
+        required("ClientID") => String.t(),
+        required("OpenIDConnectProviderArn") => String.t()
+      }
+      
+  """
+  @type add_client_id_to_open_id_connect_provider_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_ssh_public_key_request() :: %{
+        required("SSHPublicKeyId") => String.t(),
+        required("UserName") => String.t()
+      }
+      
+  """
+  @type delete_ssh_public_key_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tracked_action_last_accessed() :: %{
+        "ActionName" => String.t(),
+        "LastAccessedEntity" => String.t(),
+        "LastAccessedRegion" => String.t(),
+        "LastAccessedTime" => non_neg_integer()
+      }
+      
+  """
+  @type tracked_action_last_accessed() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_role_request() :: %{
+        required("RoleName") => String.t(),
+        required("TagKeys") => list(String.t()())
+      }
+      
+  """
+  @type untag_role_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_user_response() :: %{
+        "User" => user()
+      }
+      
+  """
+  @type create_user_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_login_profile_request() :: %{
+        optional("PasswordResetRequired") => boolean(),
+        required("Password") => String.t(),
+        required("UserName") => String.t()
+      }
+      
+  """
+  @type create_login_profile_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_open_id_connect_provider_request() :: %{
+        required("OpenIDConnectProviderArn") => String.t()
+      }
+      
+  """
+  @type delete_open_id_connect_provider_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      upload_ssh_public_key_request() :: %{
+        required("SSHPublicKeyBody") => String.t(),
+        required("UserName") => String.t()
+      }
+      
+  """
+  @type upload_ssh_public_key_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      duplicate_ssh_public_key_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type duplicate_ssh_public_key_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_role_request() :: %{
+        required("RoleName") => String.t(),
+        required("Tags") => list(tag()())
+      }
+      
+  """
+  @type tag_role_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_attached_user_policies_request() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxItems") => integer(),
+        optional("PathPrefix") => String.t(),
+        required("UserName") => String.t()
+      }
+      
+  """
+  @type list_attached_user_policies_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_signing_certificate_request() :: %{
+        optional("UserName") => String.t(),
+        required("CertificateId") => String.t()
+      }
+      
+  """
+  @type delete_signing_certificate_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      generate_credential_report_response() :: %{
+        "Description" => String.t(),
+        "State" => list(any())
+      }
+      
+  """
+  @type generate_credential_report_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_role_request() :: %{
+        required("RoleName") => String.t()
+      }
+      
+  """
+  @type delete_role_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_group_response() :: %{
+        "Group" => group()
+      }
+      
+  """
+  @type create_group_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      deletion_task_failure_reason_type() :: %{
+        "Reason" => String.t(),
+        "RoleUsageList" => list(role_usage_type()())
+      }
+      
+  """
+  @type deletion_task_failure_reason_type() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_user_request() :: %{
+        required("Tags") => list(tag()()),
+        required("UserName") => String.t()
+      }
+      
+  """
+  @type tag_user_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      simulate_policy_response() :: %{
+        "EvaluationResults" => list(evaluation_result()()),
+        "IsTruncated" => boolean(),
+        "Marker" => String.t()
+      }
+      
+  """
+  @type simulate_policy_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_mfa_device_request() :: %{
+        required("SerialNumber") => String.t(),
+        required("TagKeys") => list(String.t()())
+      }
+      
+  """
+  @type untag_mfa_device_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      remove_user_from_group_request() :: %{
+        required("GroupName") => String.t(),
+        required("UserName") => String.t()
+      }
+      
+  """
+  @type remove_user_from_group_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_mfa_device_request() :: %{
+        optional("UserName") => String.t(),
+        required("SerialNumber") => String.t()
+      }
+      
+  """
+  @type get_mfa_device_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_attached_role_policies_response() :: %{
+        "AttachedPolicies" => list(attached_policy()()),
+        "IsTruncated" => boolean(),
+        "Marker" => String.t()
+      }
+      
+  """
+  @type list_attached_role_policies_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      server_certificate() :: %{
+        "CertificateBody" => String.t(),
+        "CertificateChain" => String.t(),
+        "ServerCertificateMetadata" => server_certificate_metadata(),
+        "Tags" => list(tag()())
+      }
+      
+  """
+  @type server_certificate() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_open_id_connect_provider_request() :: %{
+        optional("ClientIDList") => list(String.t()()),
+        optional("Tags") => list(tag()()),
+        required("ThumbprintList") => list(String.t()()),
+        required("Url") => String.t()
+      }
+      
+  """
+  @type create_open_id_connect_provider_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_role_permissions_boundary_request() :: %{
+        required("RoleName") => String.t()
+      }
+      
+  """
+  @type delete_role_permissions_boundary_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_server_certificate_response() :: %{
+        "ServerCertificate" => server_certificate()
+      }
+      
+  """
+  @type get_server_certificate_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      policy_user() :: %{
+        "UserId" => String.t(),
+        "UserName" => String.t()
+      }
+      
+  """
+  @type policy_user() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_user_request() :: %{
+        optional("Path") => String.t(),
+        optional("PermissionsBoundary") => String.t(),
+        optional("Tags") => list(tag()()),
+        required("UserName") => String.t()
+      }
+      
+  """
+  @type create_user_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_instance_profile_request() :: %{
+        required("InstanceProfileName") => String.t(),
+        required("TagKeys") => list(String.t()())
+      }
+      
+  """
+  @type untag_instance_profile_request() :: %{String.t() => any()}
+
+  @type add_client_id_to_open_id_connect_provider_errors() ::
+          limit_exceeded_exception()
+          | invalid_input_exception()
+          | service_failure_exception()
+          | no_such_entity_exception()
+
+  @type add_role_to_instance_profile_errors() ::
+          limit_exceeded_exception()
+          | unmodifiable_entity_exception()
+          | service_failure_exception()
+          | no_such_entity_exception()
+          | entity_already_exists_exception()
+
+  @type add_user_to_group_errors() ::
+          limit_exceeded_exception() | service_failure_exception() | no_such_entity_exception()
+
+  @type attach_group_policy_errors() ::
+          limit_exceeded_exception()
+          | invalid_input_exception()
+          | service_failure_exception()
+          | no_such_entity_exception()
+          | policy_not_attachable_exception()
+
+  @type attach_role_policy_errors() ::
+          limit_exceeded_exception()
+          | invalid_input_exception()
+          | unmodifiable_entity_exception()
+          | service_failure_exception()
+          | no_such_entity_exception()
+          | policy_not_attachable_exception()
+
+  @type attach_user_policy_errors() ::
+          limit_exceeded_exception()
+          | invalid_input_exception()
+          | service_failure_exception()
+          | no_such_entity_exception()
+          | policy_not_attachable_exception()
+
+  @type change_password_errors() ::
+          limit_exceeded_exception()
+          | password_policy_violation_exception()
+          | entity_temporarily_unmodifiable_exception()
+          | service_failure_exception()
+          | no_such_entity_exception()
+          | invalid_user_type_exception()
+
+  @type create_access_key_errors() ::
+          limit_exceeded_exception() | service_failure_exception() | no_such_entity_exception()
+
+  @type create_account_alias_errors() ::
+          limit_exceeded_exception()
+          | concurrent_modification_exception()
+          | service_failure_exception()
+          | entity_already_exists_exception()
+
+  @type create_group_errors() ::
+          limit_exceeded_exception()
+          | service_failure_exception()
+          | no_such_entity_exception()
+          | entity_already_exists_exception()
+
+  @type create_instance_profile_errors() ::
+          limit_exceeded_exception()
+          | concurrent_modification_exception()
+          | invalid_input_exception()
+          | service_failure_exception()
+          | entity_already_exists_exception()
+
+  @type create_login_profile_errors() ::
+          limit_exceeded_exception()
+          | password_policy_violation_exception()
+          | service_failure_exception()
+          | no_such_entity_exception()
+          | entity_already_exists_exception()
+
+  @type create_open_id_connect_provider_errors() ::
+          limit_exceeded_exception()
+          | concurrent_modification_exception()
+          | invalid_input_exception()
+          | service_failure_exception()
+          | entity_already_exists_exception()
+
+  @type create_policy_errors() ::
+          limit_exceeded_exception()
+          | malformed_policy_document_exception()
+          | concurrent_modification_exception()
+          | invalid_input_exception()
+          | service_failure_exception()
+          | entity_already_exists_exception()
+
+  @type create_policy_version_errors() ::
+          limit_exceeded_exception()
+          | malformed_policy_document_exception()
+          | invalid_input_exception()
+          | service_failure_exception()
+          | no_such_entity_exception()
+
+  @type create_role_errors() ::
+          limit_exceeded_exception()
+          | malformed_policy_document_exception()
+          | concurrent_modification_exception()
+          | invalid_input_exception()
+          | service_failure_exception()
+          | entity_already_exists_exception()
+
+  @type create_saml_provider_errors() ::
+          limit_exceeded_exception()
+          | concurrent_modification_exception()
+          | invalid_input_exception()
+          | service_failure_exception()
+          | entity_already_exists_exception()
+
+  @type create_service_linked_role_errors() ::
+          limit_exceeded_exception()
+          | invalid_input_exception()
+          | service_failure_exception()
+          | no_such_entity_exception()
+
+  @type create_service_specific_credential_errors() ::
+          limit_exceeded_exception()
+          | service_not_supported_exception()
+          | no_such_entity_exception()
+
+  @type create_user_errors() ::
+          limit_exceeded_exception()
+          | concurrent_modification_exception()
+          | invalid_input_exception()
+          | service_failure_exception()
+          | no_such_entity_exception()
+          | entity_already_exists_exception()
+
+  @type create_virtual_mfa_device_errors() ::
+          limit_exceeded_exception()
+          | concurrent_modification_exception()
+          | invalid_input_exception()
+          | service_failure_exception()
+          | entity_already_exists_exception()
+
+  @type deactivate_mfa_device_errors() ::
+          limit_exceeded_exception()
+          | concurrent_modification_exception()
+          | entity_temporarily_unmodifiable_exception()
+          | service_failure_exception()
+          | no_such_entity_exception()
+
+  @type delete_access_key_errors() ::
+          limit_exceeded_exception() | service_failure_exception() | no_such_entity_exception()
+
+  @type delete_account_alias_errors() ::
+          limit_exceeded_exception()
+          | concurrent_modification_exception()
+          | service_failure_exception()
+          | no_such_entity_exception()
+
+  @type delete_account_password_policy_errors() ::
+          limit_exceeded_exception() | service_failure_exception() | no_such_entity_exception()
+
+  @type delete_group_errors() ::
+          limit_exceeded_exception()
+          | delete_conflict_exception()
+          | service_failure_exception()
+          | no_such_entity_exception()
+
+  @type delete_group_policy_errors() ::
+          limit_exceeded_exception() | service_failure_exception() | no_such_entity_exception()
+
+  @type delete_instance_profile_errors() ::
+          limit_exceeded_exception()
+          | delete_conflict_exception()
+          | service_failure_exception()
+          | no_such_entity_exception()
+
+  @type delete_login_profile_errors() ::
+          limit_exceeded_exception()
+          | entity_temporarily_unmodifiable_exception()
+          | service_failure_exception()
+          | no_such_entity_exception()
+
+  @type delete_open_id_connect_provider_errors() ::
+          invalid_input_exception() | service_failure_exception() | no_such_entity_exception()
+
+  @type delete_policy_errors() ::
+          limit_exceeded_exception()
+          | invalid_input_exception()
+          | delete_conflict_exception()
+          | service_failure_exception()
+          | no_such_entity_exception()
+
+  @type delete_policy_version_errors() ::
+          limit_exceeded_exception()
+          | invalid_input_exception()
+          | delete_conflict_exception()
+          | service_failure_exception()
+          | no_such_entity_exception()
+
+  @type delete_role_errors() ::
+          limit_exceeded_exception()
+          | concurrent_modification_exception()
+          | unmodifiable_entity_exception()
+          | delete_conflict_exception()
+          | service_failure_exception()
+          | no_such_entity_exception()
+
+  @type delete_role_permissions_boundary_errors() ::
+          unmodifiable_entity_exception()
+          | service_failure_exception()
+          | no_such_entity_exception()
+
+  @type delete_role_policy_errors() ::
+          limit_exceeded_exception()
+          | unmodifiable_entity_exception()
+          | service_failure_exception()
+          | no_such_entity_exception()
+
+  @type delete_saml_provider_errors() ::
+          limit_exceeded_exception()
+          | invalid_input_exception()
+          | service_failure_exception()
+          | no_such_entity_exception()
+
+  @type delete_server_certificate_errors() ::
+          limit_exceeded_exception()
+          | delete_conflict_exception()
+          | service_failure_exception()
+          | no_such_entity_exception()
+
+  @type delete_service_linked_role_errors() ::
+          limit_exceeded_exception() | service_failure_exception() | no_such_entity_exception()
+
+  @type delete_service_specific_credential_errors() :: no_such_entity_exception()
+
+  @type delete_signing_certificate_errors() ::
+          limit_exceeded_exception()
+          | concurrent_modification_exception()
+          | service_failure_exception()
+          | no_such_entity_exception()
+
+  @type delete_ssh_public_key_errors() :: no_such_entity_exception()
+
+  @type delete_user_errors() ::
+          limit_exceeded_exception()
+          | concurrent_modification_exception()
+          | delete_conflict_exception()
+          | service_failure_exception()
+          | no_such_entity_exception()
+
+  @type delete_user_permissions_boundary_errors() ::
+          service_failure_exception() | no_such_entity_exception()
+
+  @type delete_user_policy_errors() ::
+          limit_exceeded_exception() | service_failure_exception() | no_such_entity_exception()
+
+  @type delete_virtual_mfa_device_errors() ::
+          limit_exceeded_exception()
+          | concurrent_modification_exception()
+          | delete_conflict_exception()
+          | service_failure_exception()
+          | no_such_entity_exception()
+
+  @type detach_group_policy_errors() ::
+          limit_exceeded_exception()
+          | invalid_input_exception()
+          | service_failure_exception()
+          | no_such_entity_exception()
+
+  @type detach_role_policy_errors() ::
+          limit_exceeded_exception()
+          | invalid_input_exception()
+          | unmodifiable_entity_exception()
+          | service_failure_exception()
+          | no_such_entity_exception()
+
+  @type detach_user_policy_errors() ::
+          limit_exceeded_exception()
+          | invalid_input_exception()
+          | service_failure_exception()
+          | no_such_entity_exception()
+
+  @type enable_mfa_device_errors() ::
+          limit_exceeded_exception()
+          | concurrent_modification_exception()
+          | invalid_authentication_code_exception()
+          | entity_temporarily_unmodifiable_exception()
+          | service_failure_exception()
+          | no_such_entity_exception()
+          | entity_already_exists_exception()
+
+  @type generate_credential_report_errors() ::
+          limit_exceeded_exception() | service_failure_exception()
+
+  @type generate_organizations_access_report_errors() ::
+          report_generation_limit_exceeded_exception()
+
+  @type generate_service_last_accessed_details_errors() ::
+          invalid_input_exception() | no_such_entity_exception()
+
+  @type get_account_authorization_details_errors() :: service_failure_exception()
+
+  @type get_account_password_policy_errors() ::
+          service_failure_exception() | no_such_entity_exception()
+
+  @type get_account_summary_errors() :: service_failure_exception()
+
+  @type get_context_keys_for_custom_policy_errors() :: invalid_input_exception()
+
+  @type get_context_keys_for_principal_policy_errors() ::
+          invalid_input_exception() | no_such_entity_exception()
+
+  @type get_credential_report_errors() ::
+          credential_report_not_present_exception()
+          | credential_report_expired_exception()
+          | credential_report_not_ready_exception()
+          | service_failure_exception()
+
+  @type get_group_errors() :: service_failure_exception() | no_such_entity_exception()
+
+  @type get_group_policy_errors() :: service_failure_exception() | no_such_entity_exception()
+
+  @type get_instance_profile_errors() :: service_failure_exception() | no_such_entity_exception()
+
+  @type get_login_profile_errors() :: service_failure_exception() | no_such_entity_exception()
+
+  @type get_mfa_device_errors() :: service_failure_exception() | no_such_entity_exception()
+
+  @type get_open_id_connect_provider_errors() ::
+          invalid_input_exception() | service_failure_exception() | no_such_entity_exception()
+
+  @type get_organizations_access_report_errors() :: no_such_entity_exception()
+
+  @type get_policy_errors() ::
+          invalid_input_exception() | service_failure_exception() | no_such_entity_exception()
+
+  @type get_policy_version_errors() ::
+          invalid_input_exception() | service_failure_exception() | no_such_entity_exception()
+
+  @type get_role_errors() :: service_failure_exception() | no_such_entity_exception()
+
+  @type get_role_policy_errors() :: service_failure_exception() | no_such_entity_exception()
+
+  @type get_saml_provider_errors() ::
+          invalid_input_exception() | service_failure_exception() | no_such_entity_exception()
+
+  @type get_server_certificate_errors() ::
+          service_failure_exception() | no_such_entity_exception()
+
+  @type get_service_last_accessed_details_errors() ::
+          invalid_input_exception() | no_such_entity_exception()
+
+  @type get_service_last_accessed_details_with_entities_errors() ::
+          invalid_input_exception() | no_such_entity_exception()
+
+  @type get_service_linked_role_deletion_status_errors() ::
+          invalid_input_exception() | service_failure_exception() | no_such_entity_exception()
+
+  @type get_ssh_public_key_errors() ::
+          unrecognized_public_key_encoding_exception() | no_such_entity_exception()
+
+  @type get_user_errors() :: service_failure_exception() | no_such_entity_exception()
+
+  @type get_user_policy_errors() :: service_failure_exception() | no_such_entity_exception()
+
+  @type list_access_keys_errors() :: service_failure_exception() | no_such_entity_exception()
+
+  @type list_account_aliases_errors() :: service_failure_exception()
+
+  @type list_attached_group_policies_errors() ::
+          invalid_input_exception() | service_failure_exception() | no_such_entity_exception()
+
+  @type list_attached_role_policies_errors() ::
+          invalid_input_exception() | service_failure_exception() | no_such_entity_exception()
+
+  @type list_attached_user_policies_errors() ::
+          invalid_input_exception() | service_failure_exception() | no_such_entity_exception()
+
+  @type list_entities_for_policy_errors() ::
+          invalid_input_exception() | service_failure_exception() | no_such_entity_exception()
+
+  @type list_group_policies_errors() :: service_failure_exception() | no_such_entity_exception()
+
+  @type list_groups_errors() :: service_failure_exception()
+
+  @type list_groups_for_user_errors() :: service_failure_exception() | no_such_entity_exception()
+
+  @type list_instance_profile_tags_errors() ::
+          service_failure_exception() | no_such_entity_exception()
+
+  @type list_instance_profiles_errors() :: service_failure_exception()
+
+  @type list_instance_profiles_for_role_errors() ::
+          service_failure_exception() | no_such_entity_exception()
+
+  @type list_mfa_device_tags_errors() ::
+          invalid_input_exception() | service_failure_exception() | no_such_entity_exception()
+
+  @type list_mfa_devices_errors() :: service_failure_exception() | no_such_entity_exception()
+
+  @type list_open_id_connect_provider_tags_errors() ::
+          invalid_input_exception() | service_failure_exception() | no_such_entity_exception()
+
+  @type list_open_id_connect_providers_errors() :: service_failure_exception()
+
+  @type list_policies_errors() :: service_failure_exception()
+
+  @type list_policies_granting_service_access_errors() ::
+          invalid_input_exception() | no_such_entity_exception()
+
+  @type list_policy_tags_errors() ::
+          invalid_input_exception() | service_failure_exception() | no_such_entity_exception()
+
+  @type list_policy_versions_errors() ::
+          invalid_input_exception() | service_failure_exception() | no_such_entity_exception()
+
+  @type list_role_policies_errors() :: service_failure_exception() | no_such_entity_exception()
+
+  @type list_role_tags_errors() :: service_failure_exception() | no_such_entity_exception()
+
+  @type list_roles_errors() :: service_failure_exception()
+
+  @type list_saml_provider_tags_errors() ::
+          invalid_input_exception() | service_failure_exception() | no_such_entity_exception()
+
+  @type list_saml_providers_errors() :: service_failure_exception()
+
+  @type list_server_certificate_tags_errors() ::
+          service_failure_exception() | no_such_entity_exception()
+
+  @type list_server_certificates_errors() :: service_failure_exception()
+
+  @type list_service_specific_credentials_errors() ::
+          service_not_supported_exception() | no_such_entity_exception()
+
+  @type list_signing_certificates_errors() ::
+          service_failure_exception() | no_such_entity_exception()
+
+  @type list_ssh_public_keys_errors() :: no_such_entity_exception()
+
+  @type list_user_policies_errors() :: service_failure_exception() | no_such_entity_exception()
+
+  @type list_user_tags_errors() :: service_failure_exception() | no_such_entity_exception()
+
+  @type list_users_errors() :: service_failure_exception()
+
+  @type put_group_policy_errors() ::
+          limit_exceeded_exception()
+          | malformed_policy_document_exception()
+          | service_failure_exception()
+          | no_such_entity_exception()
+
+  @type put_role_permissions_boundary_errors() ::
+          invalid_input_exception()
+          | unmodifiable_entity_exception()
+          | service_failure_exception()
+          | no_such_entity_exception()
+          | policy_not_attachable_exception()
+
+  @type put_role_policy_errors() ::
+          limit_exceeded_exception()
+          | malformed_policy_document_exception()
+          | unmodifiable_entity_exception()
+          | service_failure_exception()
+          | no_such_entity_exception()
+
+  @type put_user_permissions_boundary_errors() ::
+          invalid_input_exception()
+          | service_failure_exception()
+          | no_such_entity_exception()
+          | policy_not_attachable_exception()
+
+  @type put_user_policy_errors() ::
+          limit_exceeded_exception()
+          | malformed_policy_document_exception()
+          | service_failure_exception()
+          | no_such_entity_exception()
+
+  @type remove_client_id_from_open_id_connect_provider_errors() ::
+          invalid_input_exception() | service_failure_exception() | no_such_entity_exception()
+
+  @type remove_role_from_instance_profile_errors() ::
+          limit_exceeded_exception()
+          | unmodifiable_entity_exception()
+          | service_failure_exception()
+          | no_such_entity_exception()
+
+  @type remove_user_from_group_errors() ::
+          limit_exceeded_exception() | service_failure_exception() | no_such_entity_exception()
+
+  @type reset_service_specific_credential_errors() :: no_such_entity_exception()
+
+  @type resync_mfa_device_errors() ::
+          limit_exceeded_exception()
+          | concurrent_modification_exception()
+          | invalid_authentication_code_exception()
+          | service_failure_exception()
+          | no_such_entity_exception()
+
+  @type set_default_policy_version_errors() ::
+          limit_exceeded_exception()
+          | invalid_input_exception()
+          | service_failure_exception()
+          | no_such_entity_exception()
+
+  @type set_security_token_service_preferences_errors() :: service_failure_exception()
+
+  @type simulate_custom_policy_errors() ::
+          invalid_input_exception() | policy_evaluation_exception()
+
+  @type simulate_principal_policy_errors() ::
+          invalid_input_exception() | policy_evaluation_exception() | no_such_entity_exception()
+
+  @type tag_instance_profile_errors() ::
+          limit_exceeded_exception()
+          | concurrent_modification_exception()
+          | invalid_input_exception()
+          | service_failure_exception()
+          | no_such_entity_exception()
+
+  @type tag_mfa_device_errors() ::
+          limit_exceeded_exception()
+          | concurrent_modification_exception()
+          | invalid_input_exception()
+          | service_failure_exception()
+          | no_such_entity_exception()
+
+  @type tag_open_id_connect_provider_errors() ::
+          limit_exceeded_exception()
+          | concurrent_modification_exception()
+          | invalid_input_exception()
+          | service_failure_exception()
+          | no_such_entity_exception()
+
+  @type tag_policy_errors() ::
+          limit_exceeded_exception()
+          | concurrent_modification_exception()
+          | invalid_input_exception()
+          | service_failure_exception()
+          | no_such_entity_exception()
+
+  @type tag_role_errors() ::
+          limit_exceeded_exception()
+          | concurrent_modification_exception()
+          | invalid_input_exception()
+          | service_failure_exception()
+          | no_such_entity_exception()
+
+  @type tag_saml_provider_errors() ::
+          limit_exceeded_exception()
+          | concurrent_modification_exception()
+          | invalid_input_exception()
+          | service_failure_exception()
+          | no_such_entity_exception()
+
+  @type tag_server_certificate_errors() ::
+          limit_exceeded_exception()
+          | concurrent_modification_exception()
+          | invalid_input_exception()
+          | service_failure_exception()
+          | no_such_entity_exception()
+
+  @type tag_user_errors() ::
+          limit_exceeded_exception()
+          | concurrent_modification_exception()
+          | invalid_input_exception()
+          | service_failure_exception()
+          | no_such_entity_exception()
+
+  @type untag_instance_profile_errors() ::
+          concurrent_modification_exception()
+          | invalid_input_exception()
+          | service_failure_exception()
+          | no_such_entity_exception()
+
+  @type untag_mfa_device_errors() ::
+          concurrent_modification_exception()
+          | invalid_input_exception()
+          | service_failure_exception()
+          | no_such_entity_exception()
+
+  @type untag_open_id_connect_provider_errors() ::
+          concurrent_modification_exception()
+          | invalid_input_exception()
+          | service_failure_exception()
+          | no_such_entity_exception()
+
+  @type untag_policy_errors() ::
+          concurrent_modification_exception()
+          | invalid_input_exception()
+          | service_failure_exception()
+          | no_such_entity_exception()
+
+  @type untag_role_errors() ::
+          concurrent_modification_exception()
+          | service_failure_exception()
+          | no_such_entity_exception()
+
+  @type untag_saml_provider_errors() ::
+          concurrent_modification_exception()
+          | invalid_input_exception()
+          | service_failure_exception()
+          | no_such_entity_exception()
+
+  @type untag_server_certificate_errors() ::
+          concurrent_modification_exception()
+          | invalid_input_exception()
+          | service_failure_exception()
+          | no_such_entity_exception()
+
+  @type untag_user_errors() ::
+          concurrent_modification_exception()
+          | service_failure_exception()
+          | no_such_entity_exception()
+
+  @type update_access_key_errors() ::
+          limit_exceeded_exception() | service_failure_exception() | no_such_entity_exception()
+
+  @type update_account_password_policy_errors() ::
+          limit_exceeded_exception()
+          | malformed_policy_document_exception()
+          | service_failure_exception()
+          | no_such_entity_exception()
+
+  @type update_assume_role_policy_errors() ::
+          limit_exceeded_exception()
+          | malformed_policy_document_exception()
+          | unmodifiable_entity_exception()
+          | service_failure_exception()
+          | no_such_entity_exception()
+
+  @type update_group_errors() ::
+          limit_exceeded_exception()
+          | service_failure_exception()
+          | no_such_entity_exception()
+          | entity_already_exists_exception()
+
+  @type update_login_profile_errors() ::
+          limit_exceeded_exception()
+          | password_policy_violation_exception()
+          | entity_temporarily_unmodifiable_exception()
+          | service_failure_exception()
+          | no_such_entity_exception()
+
+  @type update_open_id_connect_provider_thumbprint_errors() ::
+          invalid_input_exception() | service_failure_exception() | no_such_entity_exception()
+
+  @type update_role_errors() ::
+          unmodifiable_entity_exception()
+          | service_failure_exception()
+          | no_such_entity_exception()
+
+  @type update_role_description_errors() ::
+          unmodifiable_entity_exception()
+          | service_failure_exception()
+          | no_such_entity_exception()
+
+  @type update_saml_provider_errors() ::
+          limit_exceeded_exception()
+          | invalid_input_exception()
+          | service_failure_exception()
+          | no_such_entity_exception()
+
+  @type update_server_certificate_errors() ::
+          limit_exceeded_exception()
+          | service_failure_exception()
+          | no_such_entity_exception()
+          | entity_already_exists_exception()
+
+  @type update_service_specific_credential_errors() :: no_such_entity_exception()
+
+  @type update_signing_certificate_errors() ::
+          limit_exceeded_exception() | service_failure_exception() | no_such_entity_exception()
+
+  @type update_ssh_public_key_errors() :: no_such_entity_exception()
+
+  @type update_user_errors() ::
+          limit_exceeded_exception()
+          | concurrent_modification_exception()
+          | entity_temporarily_unmodifiable_exception()
+          | service_failure_exception()
+          | no_such_entity_exception()
+          | entity_already_exists_exception()
+
+  @type upload_server_certificate_errors() ::
+          limit_exceeded_exception()
+          | concurrent_modification_exception()
+          | malformed_certificate_exception()
+          | invalid_input_exception()
+          | service_failure_exception()
+          | key_pair_mismatch_exception()
+          | entity_already_exists_exception()
+
+  @type upload_signing_certificate_errors() ::
+          duplicate_certificate_exception()
+          | limit_exceeded_exception()
+          | concurrent_modification_exception()
+          | malformed_certificate_exception()
+          | invalid_certificate_exception()
+          | service_failure_exception()
+          | no_such_entity_exception()
+          | entity_already_exists_exception()
+
+  @type upload_ssh_public_key_errors() ::
+          duplicate_ssh_public_key_exception()
+          | invalid_public_key_exception()
+          | limit_exceeded_exception()
+          | unrecognized_public_key_encoding_exception()
+          | no_such_entity_exception()
+
   def metadata do
     %{
       api_version: "2010-05-08",
@@ -40,6 +4762,14 @@ defmodule AWS.IAM do
   This operation is idempotent; it does not fail or return an error if you add an
   existing client ID to the provider.
   """
+  @spec add_client_id_to_open_id_connect_provider(
+          map(),
+          add_client_id_to_open_id_connect_provider_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, add_client_id_to_open_id_connect_provider_errors()}
   def add_client_id_to_open_id_connect_provider(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -69,6 +4799,10 @@ defmodule AWS.IAM do
   profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html)
   in the *IAM User Guide*.
   """
+  @spec add_role_to_instance_profile(map(), add_role_to_instance_profile_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, add_role_to_instance_profile_errors()}
   def add_role_to_instance_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -78,6 +4812,10 @@ defmodule AWS.IAM do
   @doc """
   Adds the specified user to the specified group.
   """
+  @spec add_user_to_group(map(), add_user_to_group_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, add_user_to_group_errors()}
   def add_user_to_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -99,6 +4837,10 @@ defmodule AWS.IAM do
   For more information about policies, see [Managed policies and inline policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
   in the *IAM User Guide*.
   """
+  @spec attach_group_policy(map(), attach_group_policy_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, attach_group_policy_errors()}
   def attach_group_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -135,6 +4877,10 @@ defmodule AWS.IAM do
   To learn more, see [Validating IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_policy-validator.html)
   in the *IAM User Guide*.
   """
+  @spec attach_role_policy(map(), attach_role_policy_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, attach_role_policy_errors()}
   def attach_role_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -156,6 +4902,10 @@ defmodule AWS.IAM do
   For more information about policies, see [Managed policies and inline policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
   in the *IAM User Guide*.
   """
+  @spec attach_user_policy(map(), attach_user_policy_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, attach_user_policy_errors()}
   def attach_user_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -177,6 +4927,10 @@ defmodule AWS.IAM do
   [Managing passwords](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html)
   in the *IAM User Guide*.
   """
+  @spec change_password(map(), change_password_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, change_password_errors()}
   def change_password(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -210,6 +4964,10 @@ defmodule AWS.IAM do
   can
   delete the access keys for the associated user and then create new keys.
   """
+  @spec create_access_key(map(), create_access_key_request(), list()) ::
+          {:ok, create_access_key_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_access_key_errors()}
   def create_access_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -225,6 +4983,10 @@ defmodule AWS.IAM do
   in the *Amazon Web Services Sign-In User
   Guide*.
   """
+  @spec create_account_alias(map(), create_account_alias_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_account_alias_errors()}
   def create_account_alias(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -237,6 +4999,10 @@ defmodule AWS.IAM do
   For information about the number of groups you can create, see [IAM and STS quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html)
   in the *IAM User Guide*.
   """
+  @spec create_group(map(), create_group_request(), list()) ::
+          {:ok, create_group_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_group_errors()}
   def create_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -256,6 +5022,10 @@ defmodule AWS.IAM do
   quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html)
   in the *IAM User Guide*.
   """
+  @spec create_instance_profile(map(), create_instance_profile_request(), list()) ::
+          {:ok, create_instance_profile_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_instance_profile_errors()}
   def create_instance_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -278,6 +5048,10 @@ defmodule AWS.IAM do
   in the
   *IAM User Guide*.
   """
+  @spec create_login_profile(map(), create_login_profile_request(), list()) ::
+          {:ok, create_login_profile_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_login_profile_errors()}
   def create_login_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -341,6 +5115,10 @@ defmodule AWS.IAM do
   `CreateOpenIDConnectProvider` operation to highly privileged
   users.
   """
+  @spec create_open_id_connect_provider(map(), create_open_id_connect_provider_request(), list()) ::
+          {:ok, create_open_id_connect_provider_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_open_id_connect_provider_errors()}
   def create_open_id_connect_provider(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -366,6 +5144,10 @@ defmodule AWS.IAM do
   in the
   *IAM User Guide*.
   """
+  @spec create_policy(map(), create_policy_request(), list()) ::
+          {:ok, create_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_policy_errors()}
   def create_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -390,6 +5172,10 @@ defmodule AWS.IAM do
   For more information about managed policy versions, see [Versioning for managed policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html)
   in the *IAM User Guide*.
   """
+  @spec create_policy_version(map(), create_policy_version_request(), list()) ::
+          {:ok, create_policy_version_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_policy_version_errors()}
   def create_policy_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -405,6 +5191,10 @@ defmodule AWS.IAM do
   in the
   *IAM User Guide*.
   """
+  @spec create_role(map(), create_role_request(), list()) ::
+          {:ok, create_role_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_role_errors()}
   def create_role(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -441,6 +5231,10 @@ defmodule AWS.IAM do
   and [About SAML 2.0-based federation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html)
   in the *IAM User Guide*.
   """
+  @spec create_saml_provider(map(), create_saml_provider_request(), list()) ::
+          {:ok, create_saml_provider_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_saml_provider_errors()}
   def create_saml_provider(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -466,6 +5260,10 @@ defmodule AWS.IAM do
   the
   Amazon Web Services service that depends on this role.
   """
+  @spec create_service_linked_role(map(), create_service_linked_role_request(), list()) ::
+          {:ok, create_service_linked_role_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_service_linked_role_errors()}
   def create_service_linked_role(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -496,6 +5294,14 @@ defmodule AWS.IAM do
   in the
   *IAM User Guide*.
   """
+  @spec create_service_specific_credential(
+          map(),
+          create_service_specific_credential_request(),
+          list()
+        ) ::
+          {:ok, create_service_specific_credential_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_service_specific_credential_errors()}
   def create_service_specific_credential(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -509,6 +5315,10 @@ defmodule AWS.IAM do
   [IAM and STS quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html)
   in the *IAM User Guide*.
   """
+  @spec create_user(map(), create_user_request(), list()) ::
+          {:ok, create_user_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_user_errors()}
   def create_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -537,6 +5347,10 @@ defmodule AWS.IAM do
   destroyed
   following secure procedures.
   """
+  @spec create_virtual_mfa_device(map(), create_virtual_mfa_device_request(), list()) ::
+          {:ok, create_virtual_mfa_device_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_virtual_mfa_device_errors()}
   def create_virtual_mfa_device(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -554,6 +5368,10 @@ defmodule AWS.IAM do
   in the
   *IAM User Guide*.
   """
+  @spec deactivate_mfa_device(map(), deactivate_mfa_device_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, deactivate_mfa_device_errors()}
   def deactivate_mfa_device(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -572,6 +5390,10 @@ defmodule AWS.IAM do
   user credentials even if the Amazon Web Services account has no associated
   users.
   """
+  @spec delete_access_key(map(), delete_access_key_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_access_key_errors()}
   def delete_access_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -587,6 +5409,10 @@ defmodule AWS.IAM do
   in the *Amazon Web Services Sign-In User
   Guide*.
   """
+  @spec delete_account_alias(map(), delete_account_alias_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_account_alias_errors()}
   def delete_account_alias(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -598,6 +5424,10 @@ defmodule AWS.IAM do
 
   There are no parameters.
   """
+  @spec delete_account_password_policy(map(), %{}, list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_account_password_policy_errors()}
   def delete_account_password_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -610,6 +5440,10 @@ defmodule AWS.IAM do
   The group must not contain any users or have any
   attached policies.
   """
+  @spec delete_group(map(), delete_group_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_group_errors()}
   def delete_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -626,6 +5460,10 @@ defmodule AWS.IAM do
   refer to [Managed policies and inline policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
   in the *IAM User Guide*.
   """
+  @spec delete_group_policy(map(), delete_group_policy_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_group_policy_errors()}
   def delete_group_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -648,6 +5486,10 @@ defmodule AWS.IAM do
   profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html)
   in the *IAM User Guide*.
   """
+  @spec delete_instance_profile(map(), delete_instance_profile_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_instance_profile_errors()}
   def delete_instance_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -672,6 +5514,10 @@ defmodule AWS.IAM do
   making keys inactive or deleting them, see `UpdateAccessKey` and
   `DeleteAccessKey`.
   """
+  @spec delete_login_profile(map(), delete_login_profile_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_login_profile_errors()}
   def delete_login_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -691,6 +5537,10 @@ defmodule AWS.IAM do
   the
   operation for a provider that does not exist.
   """
+  @spec delete_open_id_connect_provider(map(), delete_open_id_connect_provider_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_open_id_connect_provider_errors()}
   def delete_open_id_connect_provider(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -729,6 +5579,10 @@ defmodule AWS.IAM do
   For information about managed policies, see [Managed policies and inline policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
   in the *IAM User Guide*.
   """
+  @spec delete_policy(map(), delete_policy_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_policy_errors()}
   def delete_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -746,6 +5600,10 @@ defmodule AWS.IAM do
   For information about versions for managed policies, see [Versioning for managed policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html)
   in the *IAM User Guide*.
   """
+  @spec delete_policy_version(map(), delete_policy_version_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_policy_version_errors()}
   def delete_policy_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -781,6 +5639,10 @@ defmodule AWS.IAM do
   a
   running instance will break any applications running on the instance.
   """
+  @spec delete_role(map(), delete_role_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_role_errors()}
   def delete_role(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -796,6 +5658,14 @@ defmodule AWS.IAM do
   example, it might allow anyone who assumes the role to perform all the actions
   granted in its permissions policies.
   """
+  @spec delete_role_permissions_boundary(
+          map(),
+          delete_role_permissions_boundary_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_role_permissions_boundary_errors()}
   def delete_role_permissions_boundary(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -812,6 +5682,10 @@ defmodule AWS.IAM do
   refer to [Managed policies and inline policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
   in the *IAM User Guide*.
   """
+  @spec delete_role_policy(map(), delete_role_policy_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_role_policy_errors()}
   def delete_role_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -829,6 +5703,10 @@ defmodule AWS.IAM do
 
   This operation requires [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html).
   """
+  @spec delete_saml_provider(map(), delete_saml_provider_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_saml_provider_errors()}
   def delete_saml_provider(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -859,6 +5737,10 @@ defmodule AWS.IAM do
   in the *Elastic Load Balancing API
   Reference*.
   """
+  @spec delete_server_certificate(map(), delete_server_certificate_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_server_certificate_errors()}
   def delete_server_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -897,6 +5779,10 @@ defmodule AWS.IAM do
   in the
   *IAM User Guide*.
   """
+  @spec delete_service_linked_role(map(), delete_service_linked_role_request(), list()) ::
+          {:ok, delete_service_linked_role_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_service_linked_role_errors()}
   def delete_service_linked_role(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -906,6 +5792,14 @@ defmodule AWS.IAM do
   @doc """
   Deletes the specified service-specific credential.
   """
+  @spec delete_service_specific_credential(
+          map(),
+          delete_service_specific_credential_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_service_specific_credential_errors()}
   def delete_service_specific_credential(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -924,6 +5818,10 @@ defmodule AWS.IAM do
   user credentials even if the Amazon Web Services account has no associated IAM
   users.
   """
+  @spec delete_signing_certificate(map(), delete_signing_certificate_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_signing_certificate_errors()}
   def delete_signing_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -940,6 +5838,10 @@ defmodule AWS.IAM do
   connections](https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html)
   in the *CodeCommit User Guide*.
   """
+  @spec delete_ssh_public_key(map(), delete_ssh_public_key_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_ssh_public_key_errors()}
   def delete_ssh_public_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -983,6 +5885,10 @@ defmodule AWS.IAM do
     *
   Group memberships (`RemoveUserFromGroup`)
   """
+  @spec delete_user(map(), delete_user_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_user_errors()}
   def delete_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -996,6 +5902,14 @@ defmodule AWS.IAM do
   allowing the user to perform all the actions granted in its permissions
   policies.
   """
+  @spec delete_user_permissions_boundary(
+          map(),
+          delete_user_permissions_boundary_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_user_permissions_boundary_errors()}
   def delete_user_permissions_boundary(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1012,6 +5926,10 @@ defmodule AWS.IAM do
   refer to [Managed policies and inline policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
   in the *IAM User Guide*.
   """
+  @spec delete_user_policy(map(), delete_user_policy_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_user_policy_errors()}
   def delete_user_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1024,6 +5942,10 @@ defmodule AWS.IAM do
   You must deactivate a user's virtual MFA device before you can delete it. For
   information about deactivating MFA devices, see `DeactivateMFADevice`.
   """
+  @spec delete_virtual_mfa_device(map(), delete_virtual_mfa_device_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_virtual_mfa_device_errors()}
   def delete_virtual_mfa_device(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1040,6 +5962,10 @@ defmodule AWS.IAM do
   in the
   *IAM User Guide*.
   """
+  @spec detach_group_policy(map(), detach_group_policy_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, detach_group_policy_errors()}
   def detach_group_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1056,6 +5982,10 @@ defmodule AWS.IAM do
   in the
   *IAM User Guide*.
   """
+  @spec detach_role_policy(map(), detach_role_policy_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, detach_role_policy_errors()}
   def detach_role_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1072,6 +6002,10 @@ defmodule AWS.IAM do
   in the
   *IAM User Guide*.
   """
+  @spec detach_user_policy(map(), detach_user_policy_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, detach_user_policy_errors()}
   def detach_user_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1085,6 +6019,10 @@ defmodule AWS.IAM do
   enabled, the MFA device is required for every subsequent login by the IAM user
   associated with the device.
   """
+  @spec enable_mfa_device(map(), enable_mfa_device_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, enable_mfa_device_errors()}
   def enable_mfa_device(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1099,6 +6037,10 @@ defmodule AWS.IAM do
   in
   the *IAM User Guide*.
   """
+  @spec generate_credential_report(map(), %{}, list()) ::
+          {:ok, generate_credential_report_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, generate_credential_report_errors()}
   def generate_credential_report(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1282,6 +6224,14 @@ defmodule AWS.IAM do
   activity](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html)
   in the *IAM User Guide*.
   """
+  @spec generate_organizations_access_report(
+          map(),
+          generate_organizations_access_report_request(),
+          list()
+        ) ::
+          {:ok, generate_organizations_access_report_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, generate_organizations_access_report_errors()}
   def generate_organizations_access_report(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1366,6 +6316,14 @@ defmodule AWS.IAM do
   in the
   *IAM User Guide*.
   """
+  @spec generate_service_last_accessed_details(
+          map(),
+          generate_service_last_accessed_details_request(),
+          list()
+        ) ::
+          {:ok, generate_service_last_accessed_details_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, generate_service_last_accessed_details_errors()}
   def generate_service_last_accessed_details(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1380,6 +6338,9 @@ defmodule AWS.IAM do
   Services service and
   Region that were specified in the last request made with that key.
   """
+  @spec get_access_key_last_used(map(), get_access_key_last_used_request(), list()) ::
+          {:ok, get_access_key_last_used_response(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_access_key_last_used(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1407,6 +6368,14 @@ defmodule AWS.IAM do
   paginate the results using the `MaxItems` and `Marker`
   parameters.
   """
+  @spec get_account_authorization_details(
+          map(),
+          get_account_authorization_details_request(),
+          list()
+        ) ::
+          {:ok, get_account_authorization_details_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_account_authorization_details_errors()}
   def get_account_authorization_details(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1422,6 +6391,10 @@ defmodule AWS.IAM do
   For more information about using a password policy, see [Managing an IAM password
   policy](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingPasswordPolicies.html).
   """
+  @spec get_account_password_policy(map(), %{}, list()) ::
+          {:ok, get_account_password_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_account_password_policy_errors()}
   def get_account_password_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1437,6 +6410,10 @@ defmodule AWS.IAM do
   in the
   *IAM User Guide*.
   """
+  @spec get_account_summary(map(), %{}, list()) ::
+          {:ok, get_account_summary_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_account_summary_errors()}
   def get_account_summary(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1463,6 +6440,14 @@ defmodule AWS.IAM do
   to be
   included as a part of a real HTML request.
   """
+  @spec get_context_keys_for_custom_policy(
+          map(),
+          get_context_keys_for_custom_policy_request(),
+          list()
+        ) ::
+          {:ok, get_context_keys_for_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_context_keys_for_custom_policy_errors()}
   def get_context_keys_for_custom_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1497,6 +6482,14 @@ defmodule AWS.IAM do
   understand what key names and values you must supply when you call
   `SimulatePrincipalPolicy`.
   """
+  @spec get_context_keys_for_principal_policy(
+          map(),
+          get_context_keys_for_principal_policy_request(),
+          list()
+        ) ::
+          {:ok, get_context_keys_for_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_context_keys_for_principal_policy_errors()}
   def get_context_keys_for_principal_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1511,6 +6504,10 @@ defmodule AWS.IAM do
   in
   the *IAM User Guide*.
   """
+  @spec get_credential_report(map(), %{}, list()) ::
+          {:ok, get_credential_report_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_credential_report_errors()}
   def get_credential_report(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1523,6 +6520,10 @@ defmodule AWS.IAM do
   You can paginate
   the results using the `MaxItems` and `Marker` parameters.
   """
+  @spec get_group(map(), get_group_request(), list()) ::
+          {:ok, get_group_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_group_errors()}
   def get_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1550,6 +6551,10 @@ defmodule AWS.IAM do
   policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
   in the *IAM User Guide*.
   """
+  @spec get_group_policy(map(), get_group_policy_request(), list()) ::
+          {:ok, get_group_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_group_policy_errors()}
   def get_group_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1566,6 +6571,10 @@ defmodule AWS.IAM do
   profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html)
   in the *IAM User Guide*.
   """
+  @spec get_instance_profile(map(), get_instance_profile_request(), list()) ::
+          {:ok, get_instance_profile_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_instance_profile_errors()}
   def get_instance_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1593,6 +6602,10 @@ defmodule AWS.IAM do
   unless you create a password for the user to access the Amazon Web Services
   Management Console.
   """
+  @spec get_login_profile(map(), get_login_profile_request(), list()) ::
+          {:ok, get_login_profile_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_login_profile_errors()}
   def get_login_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1602,6 +6615,10 @@ defmodule AWS.IAM do
   @doc """
   Retrieves information about an MFA device for a specified user.
   """
+  @spec get_mfa_device(map(), get_mfa_device_request(), list()) ::
+          {:ok, get_mfa_device_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_mfa_device_errors()}
   def get_mfa_device(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1613,6 +6630,10 @@ defmodule AWS.IAM do
   object
   in IAM.
   """
+  @spec get_open_id_connect_provider(map(), get_open_id_connect_provider_request(), list()) ::
+          {:ok, get_open_id_connect_provider_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_open_id_connect_provider_errors()}
   def get_open_id_connect_provider(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1660,6 +6681,10 @@ defmodule AWS.IAM do
 
   By default, the list is sorted by service namespace.
   """
+  @spec get_organizations_access_report(map(), get_organizations_access_report_request(), list()) ::
+          {:ok, get_organizations_access_report_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_organizations_access_report_errors()}
   def get_organizations_access_report(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1686,6 +6711,10 @@ defmodule AWS.IAM do
   For more information about policies, see [Managed policies and inline policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
   in the *IAM User Guide*.
   """
+  @spec get_policy(map(), get_policy_request(), list()) ::
+          {:ok, get_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_policy_errors()}
   def get_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1718,6 +6747,10 @@ defmodule AWS.IAM do
   For more information about managed policy versions, see [Versioning for managed policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html)
   in the *IAM User Guide*.
   """
+  @spec get_policy_version(map(), get_policy_version_request(), list()) ::
+          {:ok, get_policy_version_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_policy_version_errors()}
   def get_policy_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1740,6 +6773,10 @@ defmodule AWS.IAM do
   can use the `decode` method of the `java.net.URLDecoder` utility class in
   the Java SDK. Other languages and SDKs provide similar functionality.
   """
+  @spec get_role(map(), get_role_request(), list()) ::
+          {:ok, get_role_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_role_errors()}
   def get_role(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1769,6 +6806,10 @@ defmodule AWS.IAM do
   For more information about roles, see [IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) in the
   *IAM User Guide*.
   """
+  @spec get_role_policy(map(), get_role_policy_request(), list()) ::
+          {:ok, get_role_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_role_policy_errors()}
   def get_role_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1782,6 +6823,10 @@ defmodule AWS.IAM do
 
   This operation requires [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html).
   """
+  @spec get_saml_provider(map(), get_saml_provider_request(), list()) ::
+          {:ok, get_saml_provider_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_saml_provider_errors()}
   def get_saml_provider(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1798,6 +6843,10 @@ defmodule AWS.IAM do
   certificates that you
   manage with IAM.
   """
+  @spec get_server_certificate(map(), get_server_certificate_request(), list()) ::
+          {:ok, get_server_certificate_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_server_certificate_errors()}
   def get_server_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1873,6 +6922,14 @@ defmodule AWS.IAM do
   in the
   *IAM User Guide*.
   """
+  @spec get_service_last_accessed_details(
+          map(),
+          get_service_last_accessed_details_request(),
+          list()
+        ) ::
+          {:ok, get_service_last_accessed_details_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_service_last_accessed_details_errors()}
   def get_service_last_accessed_details(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1913,6 +6970,14 @@ defmodule AWS.IAM do
   recent
   access listed first.
   """
+  @spec get_service_last_accessed_details_with_entities(
+          map(),
+          get_service_last_accessed_details_with_entities_request(),
+          list()
+        ) ::
+          {:ok, get_service_last_accessed_details_with_entities_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_service_last_accessed_details_with_entities_errors()}
   def get_service_last_accessed_details_with_entities(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1935,6 +7000,14 @@ defmodule AWS.IAM do
   If the deletion fails, this operation returns the reason that it failed, if that
   information is returned by the service.
   """
+  @spec get_service_linked_role_deletion_status(
+          map(),
+          get_service_linked_role_deletion_status_request(),
+          list()
+        ) ::
+          {:ok, get_service_linked_role_deletion_status_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_service_linked_role_deletion_status_errors()}
   def get_service_linked_role_deletion_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1951,6 +7024,10 @@ defmodule AWS.IAM do
   to authenticate to an CodeCommit repository, see [Set up CodeCommit for SSH connections](https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html)
   in the *CodeCommit User Guide*.
   """
+  @spec get_ssh_public_key(map(), get_ssh_public_key_request(), list()) ::
+          {:ok, get_ssh_public_key_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_ssh_public_key_errors()}
   def get_ssh_public_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1967,6 +7044,10 @@ defmodule AWS.IAM do
   the Amazon Web Services access key ID used to sign the request to this
   operation.
   """
+  @spec get_user(map(), get_user_request(), list()) ::
+          {:ok, get_user_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_user_errors()}
   def get_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1993,6 +7074,10 @@ defmodule AWS.IAM do
   policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
   in the *IAM User Guide*.
   """
+  @spec get_user_policy(map(), get_user_policy_request(), list()) ::
+          {:ok, get_user_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_user_policy_errors()}
   def get_user_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2025,6 +7110,10 @@ defmodule AWS.IAM do
   key is accessible
   only during key and user creation.
   """
+  @spec list_access_keys(map(), list_access_keys_request(), list()) ::
+          {:ok, list_access_keys_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_access_keys_errors()}
   def list_access_keys(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2041,6 +7130,10 @@ defmodule AWS.IAM do
   in the *Amazon Web Services Sign-In
   User Guide*.
   """
+  @spec list_account_aliases(map(), list_account_aliases_request(), list()) ::
+          {:ok, list_account_aliases_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_account_aliases_errors()}
   def list_account_aliases(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2063,6 +7156,10 @@ defmodule AWS.IAM do
   the
   operation returns an empty list.
   """
+  @spec list_attached_group_policies(map(), list_attached_group_policies_request(), list()) ::
+          {:ok, list_attached_group_policies_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_attached_group_policies_errors()}
   def list_attached_group_policies(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2085,6 +7182,10 @@ defmodule AWS.IAM do
   the
   operation returns an empty list.
   """
+  @spec list_attached_role_policies(map(), list_attached_role_policies_request(), list()) ::
+          {:ok, list_attached_role_policies_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_attached_role_policies_errors()}
   def list_attached_role_policies(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2107,6 +7208,10 @@ defmodule AWS.IAM do
   the
   operation returns an empty list.
   """
+  @spec list_attached_user_policies(map(), list_attached_user_policies_request(), list()) ::
+          {:ok, list_attached_user_policies_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_attached_user_policies_errors()}
   def list_attached_user_policies(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2127,6 +7232,10 @@ defmodule AWS.IAM do
   You can paginate the results using the `MaxItems` and `Marker`
   parameters.
   """
+  @spec list_entities_for_policy(map(), list_entities_for_policy_request(), list()) ::
+          {:ok, list_entities_for_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_entities_for_policy_errors()}
   def list_entities_for_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2147,6 +7256,10 @@ defmodule AWS.IAM do
   the
   operation returns an empty list.
   """
+  @spec list_group_policies(map(), list_group_policies_request(), list()) ::
+          {:ok, list_group_policies_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_group_policies_errors()}
   def list_group_policies(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2159,6 +7272,10 @@ defmodule AWS.IAM do
   You can paginate the results using the `MaxItems` and `Marker`
   parameters.
   """
+  @spec list_groups(map(), list_groups_request(), list()) ::
+          {:ok, list_groups_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_groups_errors()}
   def list_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2171,6 +7288,10 @@ defmodule AWS.IAM do
   You can paginate the results using the `MaxItems` and `Marker`
   parameters.
   """
+  @spec list_groups_for_user(map(), list_groups_for_user_request(), list()) ::
+          {:ok, list_groups_for_user_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_groups_for_user_errors()}
   def list_groups_for_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2184,6 +7305,10 @@ defmodule AWS.IAM do
   For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the
   *IAM User Guide*.
   """
+  @spec list_instance_profile_tags(map(), list_instance_profile_tags_request(), list()) ::
+          {:ok, list_instance_profile_tags_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_instance_profile_tags_errors()}
   def list_instance_profile_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2208,6 +7333,10 @@ defmodule AWS.IAM do
   You can paginate the results using the `MaxItems` and `Marker`
   parameters.
   """
+  @spec list_instance_profiles(map(), list_instance_profiles_request(), list()) ::
+          {:ok, list_instance_profiles_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_instance_profiles_errors()}
   def list_instance_profiles(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2227,6 +7356,10 @@ defmodule AWS.IAM do
   You can paginate the results using the `MaxItems` and `Marker`
   parameters.
   """
+  @spec list_instance_profiles_for_role(map(), list_instance_profiles_for_role_request(), list()) ::
+          {:ok, list_instance_profiles_for_role_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_instance_profiles_for_role_errors()}
   def list_instance_profiles_for_role(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2241,6 +7374,10 @@ defmodule AWS.IAM do
   sorted by tag key. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the
   *IAM User Guide*.
   """
+  @spec list_mfa_device_tags(map(), list_mfa_device_tags_request(), list()) ::
+          {:ok, list_mfa_device_tags_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_mfa_device_tags_errors()}
   def list_mfa_device_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2260,6 +7397,10 @@ defmodule AWS.IAM do
   You can paginate the results using the `MaxItems` and `Marker`
   parameters.
   """
+  @spec list_mfa_devices(map(), list_mfa_devices_request(), list()) ::
+          {:ok, list_mfa_devices_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_mfa_devices_errors()}
   def list_mfa_devices(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2277,6 +7418,14 @@ defmodule AWS.IAM do
   For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the
   *IAM User Guide*.
   """
+  @spec list_open_id_connect_provider_tags(
+          map(),
+          list_open_id_connect_provider_tags_request(),
+          list()
+        ) ::
+          {:ok, list_open_id_connect_provider_tags_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_open_id_connect_provider_tags_errors()}
   def list_open_id_connect_provider_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2292,6 +7441,10 @@ defmodule AWS.IAM do
   even though they are an attribute of the returned object. To view all of the
   information for an OIDC provider, see `GetOpenIDConnectProvider`.
   """
+  @spec list_open_id_connect_providers(map(), list_open_id_connect_providers_request(), list()) ::
+          {:ok, list_open_id_connect_providers_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_open_id_connect_providers_errors()}
   def list_open_id_connect_providers(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2323,6 +7476,10 @@ defmodule AWS.IAM do
   information for a customer manged policy, see
   `GetPolicy`.
   """
+  @spec list_policies(map(), list_policies_request(), list()) ::
+          {:ok, list_policies_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_policies_errors()}
   def list_policies(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2383,6 +7540,14 @@ defmodule AWS.IAM do
   for a user or role, use the `GetUser` or `GetRole`
   operations.
   """
+  @spec list_policies_granting_service_access(
+          map(),
+          list_policies_granting_service_access_request(),
+          list()
+        ) ::
+          {:ok, list_policies_granting_service_access_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_policies_granting_service_access_errors()}
   def list_policies_granting_service_access(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2396,6 +7561,10 @@ defmodule AWS.IAM do
   tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the
   *IAM User Guide*.
   """
+  @spec list_policy_tags(map(), list_policy_tags_request(), list()) ::
+          {:ok, list_policy_tags_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_policy_tags_errors()}
   def list_policy_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2410,6 +7579,10 @@ defmodule AWS.IAM do
   For more information about managed policies, see [Managed policies and inline policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
   in the *IAM User Guide*.
   """
+  @spec list_policy_versions(map(), list_policy_versions_request(), list()) ::
+          {:ok, list_policy_versions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_policy_versions_errors()}
   def list_policy_versions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2430,6 +7603,10 @@ defmodule AWS.IAM do
   the
   operation returns an empty list.
   """
+  @spec list_role_policies(map(), list_role_policies_request(), list()) ::
+          {:ok, list_role_policies_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_role_policies_errors()}
   def list_role_policies(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2443,6 +7620,10 @@ defmodule AWS.IAM do
   sorted by tag key. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the
   *IAM User Guide*.
   """
+  @spec list_role_tags(map(), list_role_tags_request(), list()) ::
+          {:ok, list_role_tags_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_role_tags_errors()}
   def list_role_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2474,6 +7655,10 @@ defmodule AWS.IAM do
   You can paginate the results using the `MaxItems` and `Marker`
   parameters.
   """
+  @spec list_roles(map(), list_roles_request(), list()) ::
+          {:ok, list_roles_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_roles_errors()}
   def list_roles(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2491,6 +7676,10 @@ defmodule AWS.IAM do
   For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the
   *IAM User Guide*.
   """
+  @spec list_saml_provider_tags(map(), list_saml_provider_tags_request(), list()) ::
+          {:ok, list_saml_provider_tags_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_saml_provider_tags_errors()}
   def list_saml_provider_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2507,6 +7696,10 @@ defmodule AWS.IAM do
 
   This operation requires [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html).
   """
+  @spec list_saml_providers(map(), list_saml_providers_request(), list()) ::
+          {:ok, list_saml_providers_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_saml_providers_errors()}
   def list_saml_providers(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2529,6 +7722,10 @@ defmodule AWS.IAM do
   certificates, [Working with server certificates](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html)
   in the *IAM User Guide*.
   """
+  @spec list_server_certificate_tags(map(), list_server_certificate_tags_request(), list()) ::
+          {:ok, list_server_certificate_tags_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_server_certificate_tags_errors()}
   def list_server_certificate_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2556,6 +7753,10 @@ defmodule AWS.IAM do
   even though they are an attribute of the returned object. To view all of the
   information for a servercertificate, see `GetServerCertificate`.
   """
+  @spec list_server_certificates(map(), list_server_certificates_request(), list()) ::
+          {:ok, list_server_certificates_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_server_certificates_errors()}
   def list_server_certificates(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2575,6 +7776,14 @@ defmodule AWS.IAM do
   credentials](https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-gc.html)
   in the CodeCommit User Guide.
   """
+  @spec list_service_specific_credentials(
+          map(),
+          list_service_specific_credentials_request(),
+          list()
+        ) ::
+          {:ok, list_service_specific_credentials_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_service_specific_credentials_errors()}
   def list_service_specific_credentials(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2602,6 +7811,10 @@ defmodule AWS.IAM do
   if the Amazon Web Services account has no
   associated users.
   """
+  @spec list_signing_certificates(map(), list_signing_certificates_request(), list()) ::
+          {:ok, list_signing_certificates_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_signing_certificates_errors()}
   def list_signing_certificates(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2626,6 +7839,10 @@ defmodule AWS.IAM do
   the
   results using the `MaxItems` and `Marker` parameters.
   """
+  @spec list_ssh_public_keys(map(), list_ssh_public_keys_request(), list()) ::
+          {:ok, list_ssh_public_keys_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_ssh_public_keys_errors()}
   def list_ssh_public_keys(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2645,6 +7862,10 @@ defmodule AWS.IAM do
   the
   operation returns an empty list.
   """
+  @spec list_user_policies(map(), list_user_policies_request(), list()) ::
+          {:ok, list_user_policies_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_user_policies_errors()}
   def list_user_policies(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2658,6 +7879,10 @@ defmodule AWS.IAM do
   tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the
   *IAM User Guide*.
   """
+  @spec list_user_tags(map(), list_user_tags_request(), list()) ::
+          {:ok, list_user_tags_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_user_tags_errors()}
   def list_user_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2687,6 +7912,10 @@ defmodule AWS.IAM do
   You can paginate the results using the `MaxItems` and `Marker`
   parameters.
   """
+  @spec list_users(map(), list_users_request(), list()) ::
+          {:ok, list_users_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_users_errors()}
   def list_users(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2711,6 +7940,9 @@ defmodule AWS.IAM do
   You can paginate the results using the `MaxItems` and `Marker`
   parameters.
   """
+  @spec list_virtual_mfa_devices(map(), list_virtual_mfa_devices_request(), list()) ::
+          {:ok, list_virtual_mfa_devices_response(), any()}
+          | {:error, {:unexpected_response, any()}}
   def list_virtual_mfa_devices(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2746,6 +7978,10 @@ defmodule AWS.IAM do
   in the
   *IAM User Guide*.
   """
+  @spec put_group_policy(map(), put_group_policy_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, put_group_policy_errors()}
   def put_group_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2774,6 +8010,10 @@ defmodule AWS.IAM do
   logic](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html)
   in the IAM User Guide.
   """
+  @spec put_role_permissions_boundary(map(), put_role_permissions_boundary_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, put_role_permissions_boundary_errors()}
   def put_role_permissions_boundary(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2823,6 +8063,10 @@ defmodule AWS.IAM do
   in the
   *IAM User Guide*.
   """
+  @spec put_role_policy(map(), put_role_policy_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, put_role_policy_errors()}
   def put_role_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2847,6 +8091,10 @@ defmodule AWS.IAM do
   logic](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html)
   in the IAM User Guide.
   """
+  @spec put_user_permissions_boundary(map(), put_user_permissions_boundary_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, put_user_permissions_boundary_errors()}
   def put_user_permissions_boundary(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2881,6 +8129,10 @@ defmodule AWS.IAM do
   in the
   *IAM User Guide*.
   """
+  @spec put_user_policy(map(), put_user_policy_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, put_user_policy_errors()}
   def put_user_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2897,6 +8149,14 @@ defmodule AWS.IAM do
   remove
   a client ID that does not exist.
   """
+  @spec remove_client_id_from_open_id_connect_provider(
+          map(),
+          remove_client_id_from_open_id_connect_provider_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, remove_client_id_from_open_id_connect_provider_errors()}
   def remove_client_id_from_open_id_connect_provider(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2918,6 +8178,14 @@ defmodule AWS.IAM do
   profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html)
   in the *IAM User Guide*.
   """
+  @spec remove_role_from_instance_profile(
+          map(),
+          remove_role_from_instance_profile_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, remove_role_from_instance_profile_errors()}
   def remove_role_from_instance_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2927,6 +8195,10 @@ defmodule AWS.IAM do
   @doc """
   Removes the specified user from the specified group.
   """
+  @spec remove_user_from_group(map(), remove_user_from_group_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, remove_user_from_group_errors()}
   def remove_user_from_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2942,6 +8214,14 @@ defmodule AWS.IAM do
   the password immediately invalidates the previous password associated with this
   user.
   """
+  @spec reset_service_specific_credential(
+          map(),
+          reset_service_specific_credential_request(),
+          list()
+        ) ::
+          {:ok, reset_service_specific_credential_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, reset_service_specific_credential_errors()}
   def reset_service_specific_credential(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2957,6 +8237,10 @@ defmodule AWS.IAM do
   [Using a virtual MFA device](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html)
   in the *IAM User Guide*.
   """
+  @spec resync_mfa_device(map(), resync_mfa_device_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, resync_mfa_device_errors()}
   def resync_mfa_device(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2976,6 +8260,10 @@ defmodule AWS.IAM do
   For information about managed policies, see [Managed policies and inline policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
   in the *IAM User Guide*.
   """
+  @spec set_default_policy_version(map(), set_default_policy_version_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, set_default_policy_version_errors()}
   def set_default_policy_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3019,6 +8307,14 @@ defmodule AWS.IAM do
   `GlobalEndpointTokenVersion` entry in the response of the `GetAccountSummary`
   operation.
   """
+  @spec set_security_token_service_preferences(
+          map(),
+          set_security_token_service_preferences_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, set_security_token_service_preferences_errors()}
   def set_security_token_service_preferences(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3066,6 +8362,10 @@ defmodule AWS.IAM do
   the
   *IAM User Guide*.
   """
+  @spec simulate_custom_policy(map(), simulate_custom_policy_request(), list()) ::
+          {:ok, simulate_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, simulate_custom_policy_errors()}
   def simulate_custom_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3127,6 +8427,10 @@ defmodule AWS.IAM do
   the
   *IAM User Guide*.
   """
+  @spec simulate_principal_policy(map(), simulate_principal_policy_request(), list()) ::
+          {:ok, simulate_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, simulate_principal_policy_errors()}
   def simulate_principal_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3175,6 +8479,10 @@ defmodule AWS.IAM do
   However, you
   must interpret the value in your code.
   """
+  @spec tag_instance_profile(map(), tag_instance_profile_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, tag_instance_profile_errors()}
   def tag_instance_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3225,6 +8533,10 @@ defmodule AWS.IAM do
   However, you
   must interpret the value in your code.
   """
+  @spec tag_mfa_device(map(), tag_mfa_device_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, tag_mfa_device_errors()}
   def tag_mfa_device(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3276,6 +8588,10 @@ defmodule AWS.IAM do
   However, you
   must interpret the value in your code.
   """
+  @spec tag_open_id_connect_provider(map(), tag_open_id_connect_provider_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, tag_open_id_connect_provider_errors()}
   def tag_open_id_connect_provider(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3323,6 +8639,10 @@ defmodule AWS.IAM do
   However, you
   must interpret the value in your code.
   """
+  @spec tag_policy(map(), tag_policy_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, tag_policy_errors()}
   def tag_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3383,6 +8703,10 @@ defmodule AWS.IAM do
   the
   *IAM User Guide*.
   """
+  @spec tag_role(map(), tag_role_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, tag_role_errors()}
   def tag_role(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3434,6 +8758,10 @@ defmodule AWS.IAM do
   However, you
   must interpret the value in your code.
   """
+  @spec tag_saml_provider(map(), tag_saml_provider_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, tag_saml_provider_errors()}
   def tag_saml_provider(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3494,6 +8822,10 @@ defmodule AWS.IAM do
   However, you
   must interpret the value in your code.
   """
+  @spec tag_server_certificate(map(), tag_server_certificate_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, tag_server_certificate_errors()}
   def tag_server_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3551,6 +8883,10 @@ defmodule AWS.IAM do
   the
   *IAM User Guide*.
   """
+  @spec tag_user(map(), tag_user_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, tag_user_errors()}
   def tag_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3563,6 +8899,10 @@ defmodule AWS.IAM do
   For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the
   *IAM User Guide*.
   """
+  @spec untag_instance_profile(map(), untag_instance_profile_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, untag_instance_profile_errors()}
   def untag_instance_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3577,6 +8917,10 @@ defmodule AWS.IAM do
   For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the
   *IAM User Guide*.
   """
+  @spec untag_mfa_device(map(), untag_mfa_device_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, untag_mfa_device_errors()}
   def untag_mfa_device(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3592,6 +8936,10 @@ defmodule AWS.IAM do
   For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the
   *IAM User Guide*.
   """
+  @spec untag_open_id_connect_provider(map(), untag_open_id_connect_provider_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, untag_open_id_connect_provider_errors()}
   def untag_open_id_connect_provider(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3604,6 +8952,10 @@ defmodule AWS.IAM do
   For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the
   *IAM User Guide*.
   """
+  @spec untag_policy(map(), untag_policy_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, untag_policy_errors()}
   def untag_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3616,6 +8968,10 @@ defmodule AWS.IAM do
   For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the
   *IAM User Guide*.
   """
+  @spec untag_role(map(), untag_role_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, untag_role_errors()}
   def untag_role(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3631,6 +8987,10 @@ defmodule AWS.IAM do
   For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the
   *IAM User Guide*.
   """
+  @spec untag_saml_provider(map(), untag_saml_provider_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, untag_saml_provider_errors()}
   def untag_saml_provider(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3651,6 +9011,10 @@ defmodule AWS.IAM do
   certificates, [Working with server certificates](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html)
   in the *IAM User Guide*.
   """
+  @spec untag_server_certificate(map(), untag_server_certificate_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, untag_server_certificate_errors()}
   def untag_server_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3663,6 +9027,10 @@ defmodule AWS.IAM do
   For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the
   *IAM User Guide*.
   """
+  @spec untag_user(map(), untag_user_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, untag_user_errors()}
   def untag_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3688,6 +9056,10 @@ defmodule AWS.IAM do
   For information about rotating keys, see [Managing keys and certificates](https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingCredentials.html)
   in the *IAM User Guide*.
   """
+  @spec update_access_key(map(), update_access_key_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_access_key_errors()}
   def update_access_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3710,6 +9082,10 @@ defmodule AWS.IAM do
   policy](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingPasswordPolicies.html)
   in the *IAM User Guide*.
   """
+  @spec update_account_password_policy(map(), update_account_password_policy_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_account_password_policy_errors()}
   def update_account_password_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3725,6 +9101,10 @@ defmodule AWS.IAM do
   [Using roles to delegate permissions and federate
   identities](https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html).
   """
+  @spec update_assume_role_policy(map(), update_assume_role_policy_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_assume_role_policy_errors()}
   def update_assume_role_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3747,6 +9127,10 @@ defmodule AWS.IAM do
   the `Managers` group, but not the `MGRs` group, then the
   update fails. For more information about permissions, see [Access management](https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html).
   """
+  @spec update_group(map(), update_group_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_group_errors()}
   def update_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3766,6 +9150,10 @@ defmodule AWS.IAM do
   in the
   *IAM User Guide*.
   """
+  @spec update_login_profile(map(), update_login_profile_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_login_profile_errors()}
   def update_login_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3805,6 +9193,14 @@ defmodule AWS.IAM do
   `UpdateOpenIDConnectProviderThumbprint` operation to highly
   privileged users.
   """
+  @spec update_open_id_connect_provider_thumbprint(
+          map(),
+          update_open_id_connect_provider_thumbprint_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_open_id_connect_provider_thumbprint_errors()}
   def update_open_id_connect_provider_thumbprint(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3814,6 +9210,10 @@ defmodule AWS.IAM do
   @doc """
   Updates the description or maximum session duration setting of a role.
   """
+  @spec update_role(map(), update_role_request(), list()) ::
+          {:ok, update_role_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_role_errors()}
   def update_role(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3827,6 +9227,10 @@ defmodule AWS.IAM do
   function as
   the `Description` parameter in the `UpdateRole` operation.
   """
+  @spec update_role_description(map(), update_role_description_request(), list()) ::
+          {:ok, update_role_description_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_role_description_errors()}
   def update_role_description(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3838,6 +9242,10 @@ defmodule AWS.IAM do
 
   This operation requires [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html).
   """
+  @spec update_saml_provider(map(), update_saml_provider_request(), list()) ::
+          {:ok, update_saml_provider_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_saml_provider_errors()}
   def update_saml_provider(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3873,6 +9281,10 @@ defmodule AWS.IAM do
   about permissions, see [Access management](https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html) in the
   *IAM User Guide*.
   """
+  @spec update_server_certificate(map(), update_server_certificate_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_server_certificate_errors()}
   def update_server_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3888,6 +9300,14 @@ defmodule AWS.IAM do
   user's
   service-specific credential as part of a credential rotation work flow.
   """
+  @spec update_service_specific_credential(
+          map(),
+          update_service_specific_credential_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_service_specific_credential_errors()}
   def update_service_specific_credential(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3911,6 +9331,10 @@ defmodule AWS.IAM do
   Web Services account has no associated
   users.
   """
+  @spec update_signing_certificate(map(), update_signing_certificate_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_signing_certificate_errors()}
   def update_signing_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3933,6 +9357,10 @@ defmodule AWS.IAM do
   connections](https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html)
   in the *CodeCommit User Guide*.
   """
+  @spec update_ssh_public_key(map(), update_ssh_public_key_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_ssh_public_key_errors()}
   def update_ssh_public_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3954,6 +9382,10 @@ defmodule AWS.IAM do
   permission on all (*). For more information about permissions, see [Permissions and
   policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/PermissionsAndPolicies.html).
   """
+  @spec update_user(map(), update_user_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_user_errors()}
   def update_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3998,6 +9430,10 @@ defmodule AWS.IAM do
   requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/programming.html) in
   the *IAM User Guide*.
   """
+  @spec upload_server_certificate(map(), upload_server_certificate_request(), list()) ::
+          {:ok, upload_server_certificate_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, upload_server_certificate_errors()}
   def upload_server_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4038,6 +9474,10 @@ defmodule AWS.IAM do
   general information about using the Query API with IAM, see [Making query requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html)
   in the *IAM User Guide*.
   """
+  @spec upload_signing_certificate(map(), upload_signing_certificate_request(), list()) ::
+          {:ok, upload_signing_certificate_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, upload_signing_certificate_errors()}
   def upload_signing_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4055,6 +9495,10 @@ defmodule AWS.IAM do
   connections](https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html)
   in the *CodeCommit User Guide*.
   """
+  @spec upload_ssh_public_key(map(), upload_ssh_public_key_request(), list()) ::
+          {:ok, upload_ssh_public_key_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, upload_ssh_public_key_errors()}
   def upload_ssh_public_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
 

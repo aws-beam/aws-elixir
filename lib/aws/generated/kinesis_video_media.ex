@@ -5,6 +5,119 @@ defmodule AWS.KinesisVideoMedia do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+
+      client_limit_exceeded_exception() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type client_limit_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      connection_limit_exceeded_exception() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type connection_limit_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_media_input() :: %{
+        optional("StreamARN") => String.t(),
+        optional("StreamName") => String.t(),
+        required("StartSelector") => start_selector()
+      }
+
+  """
+  @type get_media_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_media_output() :: %{
+        "ContentType" => String.t(),
+        "Payload" => binary()
+      }
+
+  """
+  @type get_media_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_argument_exception() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type invalid_argument_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_endpoint_exception() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type invalid_endpoint_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      not_authorized_exception() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type not_authorized_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_selector() :: %{
+        "AfterFragmentNumber" => String.t(),
+        "ContinuationToken" => String.t(),
+        "StartSelectorType" => list(any()),
+        "StartTimestamp" => non_neg_integer()
+      }
+
+  """
+  @type start_selector() :: %{String.t() => any()}
+
+  @type get_media_errors() ::
+          resource_not_found_exception()
+          | not_authorized_exception()
+          | invalid_endpoint_exception()
+          | invalid_argument_exception()
+          | connection_limit_exceeded_exception()
+          | client_limit_exceeded_exception()
+
   def metadata do
     %{
       api_version: "2017-09-30",
@@ -75,6 +188,10 @@ defmodule AWS.KinesisVideoMedia do
   bottom of this topic, as well as [Common
   Errors](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/CommonErrors.html).
   """
+  @spec get_media(map(), get_media_input(), list()) ::
+          {:ok, get_media_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_media_errors()}
   def get_media(%Client{} = client, input, options \\ []) do
     url_path = "/getMedia"
     headers = []

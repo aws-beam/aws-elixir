@@ -22,6 +22,156 @@ defmodule AWS.SupplyChain do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "message" => [String.t()]
+      }
+
+  """
+  @type access_denied_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bill_of_materials_import_job() :: %{
+        "instanceId" => String.t(),
+        "jobId" => String.t(),
+        "message" => [String.t()],
+        "s3uri" => String.t(),
+        "status" => list(any())
+      }
+
+  """
+  @type bill_of_materials_import_job() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "message" => [String.t()]
+      }
+
+  """
+  @type conflict_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_bill_of_materials_import_job_request() :: %{
+        optional("clientToken") => String.t(),
+        required("s3uri") => String.t()
+      }
+
+  """
+  @type create_bill_of_materials_import_job_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_bill_of_materials_import_job_response() :: %{
+        "jobId" => String.t()
+      }
+
+  """
+  @type create_bill_of_materials_import_job_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bill_of_materials_import_job_request() :: %{}
+
+  """
+  @type get_bill_of_materials_import_job_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bill_of_materials_import_job_response() :: %{
+        "job" => bill_of_materials_import_job()
+      }
+
+  """
+  @type get_bill_of_materials_import_job_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "message" => [String.t()]
+      }
+
+  """
+  @type internal_server_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "message" => [String.t()]
+      }
+
+  """
+  @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "message" => [String.t()]
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "message" => [String.t()]
+      }
+
+  """
+  @type throttling_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "message" => [String.t()]
+      }
+
+  """
+  @type validation_exception() :: %{String.t() => any()}
+
+  @type create_bill_of_materials_import_job_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type get_bill_of_materials_import_job_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
   def metadata do
     %{
       api_version: "2024-01-01",
@@ -47,6 +197,15 @@ defmodule AWS.SupplyChain do
   Chain. It is recommended to use the same Amazon S3 bucket created during your
   AWS Supply Chain instance creation.
   """
+  @spec create_bill_of_materials_import_job(
+          map(),
+          String.t(),
+          create_bill_of_materials_import_job_request(),
+          list()
+        ) ::
+          {:ok, create_bill_of_materials_import_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_bill_of_materials_import_job_errors()}
   def create_bill_of_materials_import_job(%Client{} = client, instance_id, input, options \\ []) do
     url_path =
       "/api/configuration/instances/#{AWS.Util.encode_uri(instance_id)}/bill-of-materials-import-jobs"
@@ -72,6 +231,10 @@ defmodule AWS.SupplyChain do
   @doc """
   Get status and details of a BillOfMaterialsImportJob.
   """
+  @spec get_bill_of_materials_import_job(map(), String.t(), String.t(), list()) ::
+          {:ok, get_bill_of_materials_import_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_bill_of_materials_import_job_errors()}
   def get_bill_of_materials_import_job(%Client{} = client, instance_id, job_id, options \\ []) do
     url_path =
       "/api/configuration/instances/#{AWS.Util.encode_uri(instance_id)}/bill-of-materials-import-jobs/#{AWS.Util.encode_uri(job_id)}"

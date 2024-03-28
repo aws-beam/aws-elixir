@@ -27,6 +27,353 @@ defmodule AWS.IoTDataPlane do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type conflict_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_thing_shadow_request() :: %{
+        optional("shadowName") => String.t()
+      }
+
+  """
+  @type delete_thing_shadow_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_thing_shadow_response() :: %{
+        "payload" => binary()
+      }
+
+  """
+  @type delete_thing_shadow_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_retained_message_request() :: %{}
+
+  """
+  @type get_retained_message_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_retained_message_response() :: %{
+        "lastModifiedTime" => float(),
+        "payload" => binary(),
+        "qos" => integer(),
+        "topic" => String.t(),
+        "userProperties" => binary()
+      }
+
+  """
+  @type get_retained_message_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_thing_shadow_request() :: %{
+        optional("shadowName") => String.t()
+      }
+
+  """
+  @type get_thing_shadow_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_thing_shadow_response() :: %{
+        "payload" => binary()
+      }
+
+  """
+  @type get_thing_shadow_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_failure_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type internal_failure_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_request_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type invalid_request_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_named_shadows_for_thing_request() :: %{
+        optional("nextToken") => String.t(),
+        optional("pageSize") => integer()
+      }
+
+  """
+  @type list_named_shadows_for_thing_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_named_shadows_for_thing_response() :: %{
+        "nextToken" => String.t(),
+        "results" => list(String.t()()),
+        "timestamp" => float()
+      }
+
+  """
+  @type list_named_shadows_for_thing_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_retained_messages_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_retained_messages_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_retained_messages_response() :: %{
+        "nextToken" => String.t(),
+        "retainedTopics" => list(retained_message_summary()())
+      }
+
+  """
+  @type list_retained_messages_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      method_not_allowed_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type method_not_allowed_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      publish_request() :: %{
+        optional("contentType") => String.t(),
+        optional("correlationData") => String.t(),
+        optional("messageExpiry") => float(),
+        optional("payload") => binary(),
+        optional("payloadFormatIndicator") => list(any()),
+        optional("qos") => integer(),
+        optional("responseTopic") => String.t(),
+        optional("retain") => boolean(),
+        optional("userProperties") => String.t()
+      }
+
+  """
+  @type publish_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      request_entity_too_large_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type request_entity_too_large_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      retained_message_summary() :: %{
+        "lastModifiedTime" => float(),
+        "payloadSize" => float(),
+        "qos" => integer(),
+        "topic" => String.t()
+      }
+
+  """
+  @type retained_message_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_unavailable_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type service_unavailable_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type throttling_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unauthorized_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type unauthorized_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unsupported_document_encoding_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type unsupported_document_encoding_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_thing_shadow_request() :: %{
+        optional("shadowName") => String.t(),
+        required("payload") => binary()
+      }
+
+  """
+  @type update_thing_shadow_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_thing_shadow_response() :: %{
+        "payload" => binary()
+      }
+
+  """
+  @type update_thing_shadow_response() :: %{String.t() => any()}
+
+  @type delete_thing_shadow_errors() ::
+          unsupported_document_encoding_exception()
+          | unauthorized_exception()
+          | throttling_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | method_not_allowed_exception()
+          | invalid_request_exception()
+          | internal_failure_exception()
+
+  @type get_retained_message_errors() ::
+          unauthorized_exception()
+          | throttling_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | method_not_allowed_exception()
+          | invalid_request_exception()
+          | internal_failure_exception()
+
+  @type get_thing_shadow_errors() ::
+          unsupported_document_encoding_exception()
+          | unauthorized_exception()
+          | throttling_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | method_not_allowed_exception()
+          | invalid_request_exception()
+          | internal_failure_exception()
+
+  @type list_named_shadows_for_thing_errors() ::
+          unauthorized_exception()
+          | throttling_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | method_not_allowed_exception()
+          | invalid_request_exception()
+          | internal_failure_exception()
+
+  @type list_retained_messages_errors() ::
+          unauthorized_exception()
+          | throttling_exception()
+          | service_unavailable_exception()
+          | method_not_allowed_exception()
+          | invalid_request_exception()
+          | internal_failure_exception()
+
+  @type publish_errors() ::
+          unauthorized_exception()
+          | throttling_exception()
+          | method_not_allowed_exception()
+          | invalid_request_exception()
+          | internal_failure_exception()
+
+  @type update_thing_shadow_errors() ::
+          unsupported_document_encoding_exception()
+          | unauthorized_exception()
+          | throttling_exception()
+          | service_unavailable_exception()
+          | request_entity_too_large_exception()
+          | method_not_allowed_exception()
+          | invalid_request_exception()
+          | internal_failure_exception()
+          | conflict_exception()
+
   def metadata do
     %{
       api_version: "2015-05-28",
@@ -52,6 +399,10 @@ defmodule AWS.IoTDataPlane do
   [DeleteThingShadow](http://docs.aws.amazon.com/iot/latest/developerguide/API_DeleteThingShadow.html)
   in the IoT Developer Guide.
   """
+  @spec delete_thing_shadow(map(), String.t(), delete_thing_shadow_request(), list()) ::
+          {:ok, delete_thing_shadow_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_thing_shadow_errors()}
   def delete_thing_shadow(%Client{} = client, thing_name, input, options \\ []) do
     url_path = "/things/#{AWS.Util.encode_uri(thing_name)}/shadow"
     headers = []
@@ -90,6 +441,10 @@ defmodule AWS.IoTDataPlane do
 
   For more information about messaging costs, see [Amazon Web Services IoT Core pricing - Messaging](http://aws.amazon.com/iot-core/pricing/#Messaging).
   """
+  @spec get_retained_message(map(), String.t(), list()) ::
+          {:ok, get_retained_message_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_retained_message_errors()}
   def get_retained_message(%Client{} = client, topic, options \\ []) do
     url_path = "/retainedMessage/#{AWS.Util.encode_uri(topic)}"
     headers = []
@@ -111,6 +466,10 @@ defmodule AWS.IoTDataPlane do
   in the
   IoT Developer Guide.
   """
+  @spec get_thing_shadow(map(), String.t(), String.t() | nil, list()) ::
+          {:ok, get_thing_shadow_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_thing_shadow_errors()}
   def get_thing_shadow(%Client{} = client, thing_name, shadow_name \\ nil, options \\ []) do
     url_path = "/things/#{AWS.Util.encode_uri(thing_name)}/shadow"
     headers = []
@@ -135,6 +494,16 @@ defmodule AWS.IoTDataPlane do
   [ListNamedShadowsForThing](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
+  @spec list_named_shadows_for_thing(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_named_shadows_for_thing_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_named_shadows_for_thing_errors()}
   def list_named_shadows_for_thing(
         %Client{} = client,
         thing_name,
@@ -182,6 +551,10 @@ defmodule AWS.IoTDataPlane do
 
   For more information about messaging costs, see [Amazon Web Services IoT Core pricing - Messaging](http://aws.amazon.com/iot-core/pricing/#Messaging).
   """
+  @spec list_retained_messages(map(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_retained_messages_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_retained_messages_errors()}
   def list_retained_messages(
         %Client{} = client,
         max_results \\ nil,
@@ -224,6 +597,10 @@ defmodule AWS.IoTDataPlane do
 
   For more information about messaging costs, see [Amazon Web Services IoT Core pricing - Messaging](http://aws.amazon.com/iot-core/pricing/#Messaging).
   """
+  @spec publish(map(), String.t(), publish_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, publish_errors()}
   def publish(%Client{} = client, topic, input, options \\ []) do
     url_path = "/topics/#{AWS.Util.encode_uri(topic)}"
 
@@ -271,6 +648,10 @@ defmodule AWS.IoTDataPlane do
   in the
   IoT Developer Guide.
   """
+  @spec update_thing_shadow(map(), String.t(), update_thing_shadow_request(), list()) ::
+          {:ok, update_thing_shadow_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_thing_shadow_errors()}
   def update_thing_shadow(%Client{} = client, thing_name, input, options \\ []) do
     url_path = "/things/#{AWS.Util.encode_uri(thing_name)}/shadow"
     headers = []

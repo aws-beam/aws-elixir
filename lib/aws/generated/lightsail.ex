@@ -35,6 +35,7159 @@ defmodule AWS.Lightsail do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+      
+      attach_disk_request() :: %{
+        optional("autoMounting") => boolean(),
+        required("diskName") => String.t(),
+        required("diskPath") => String.t(),
+        required("instanceName") => String.t()
+      }
+      
+  """
+  @type attach_disk_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_instances_from_snapshot_request() :: %{
+        optional("addOns") => list(add_on_request()()),
+        optional("attachedDiskMapping") => map(),
+        optional("instanceSnapshotName") => String.t(),
+        optional("ipAddressType") => list(any()),
+        optional("keyPairName") => String.t(),
+        optional("restoreDate") => String.t(),
+        optional("sourceInstanceName") => String.t(),
+        optional("tags") => list(tag()()),
+        optional("useLatestRestorableAutoSnapshot") => boolean(),
+        optional("userData") => String.t(),
+        required("availabilityZone") => String.t(),
+        required("bundleId") => String.t(),
+        required("instanceNames") => list(String.t()())
+      }
+      
+  """
+  @type create_instances_from_snapshot_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_bucket_bundle_request() :: %{
+        required("bucketName") => String.t(),
+        required("bundleId") => String.t()
+      }
+      
+  """
+  @type update_bucket_bundle_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_container_service_request() :: %{}
+      
+  """
+  @type delete_container_service_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      operation() :: %{
+        "createdAt" => non_neg_integer(),
+        "errorCode" => String.t(),
+        "errorDetails" => String.t(),
+        "id" => String.t(),
+        "isTerminal" => boolean(),
+        "location" => resource_location(),
+        "operationDetails" => String.t(),
+        "operationType" => list(any()),
+        "resourceName" => String.t(),
+        "resourceType" => list(any()),
+        "status" => list(any()),
+        "statusChangedAt" => non_neg_integer()
+      }
+      
+  """
+  @type operation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_container_service_deployment_request() :: %{
+        optional("containers") => map(),
+        optional("publicEndpoint") => endpoint_request()
+      }
+      
+  """
+  @type create_container_service_deployment_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_distribution_latest_cache_reset_request() :: %{
+        optional("distributionName") => String.t()
+      }
+      
+  """
+  @type get_distribution_latest_cache_reset_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disable_add_on_result() :: %{
+        "operations" => list(operation()())
+      }
+      
+  """
+  @type disable_add_on_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      container_service_registry_login() :: %{
+        "expiresAt" => non_neg_integer(),
+        "password" => String.t(),
+        "registry" => String.t(),
+        "username" => String.t()
+      }
+      
+  """
+  @type container_service_registry_login() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      distribution_bundle() :: %{
+        "bundleId" => String.t(),
+        "isActive" => boolean(),
+        "name" => String.t(),
+        "price" => float(),
+        "transferPerMonthInGb" => integer()
+      }
+      
+  """
+  @type distribution_bundle() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_disk_snapshot_result() :: %{
+        "operations" => list(operation()())
+      }
+      
+  """
+  @type delete_disk_snapshot_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      register_container_image_request() :: %{
+        required("digest") => String.t(),
+        required("label") => String.t()
+      }
+      
+  """
+  @type register_container_image_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      pending_maintenance_action() :: %{
+        "action" => String.t(),
+        "currentApplyDate" => non_neg_integer(),
+        "description" => String.t()
+      }
+      
+  """
+  @type pending_maintenance_action() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_domain_request() :: %{
+        required("domainName") => String.t()
+      }
+      
+  """
+  @type get_domain_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      set_resource_access_for_bucket_request() :: %{
+        required("access") => list(any()),
+        required("bucketName") => String.t(),
+        required("resourceName") => String.t()
+      }
+      
+  """
+  @type set_resource_access_for_bucket_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_contact_method_request() :: %{
+        required("protocol") => list(any())
+      }
+      
+  """
+  @type delete_contact_method_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_regions_result() :: %{
+        "regions" => list(region()())
+      }
+      
+  """
+  @type get_regions_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      test_alarm_request() :: %{
+        required("alarmName") => String.t(),
+        required("state") => list(any())
+      }
+      
+  """
+  @type test_alarm_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      contact_method() :: %{
+        "arn" => String.t(),
+        "contactEndpoint" => String.t(),
+        "createdAt" => non_neg_integer(),
+        "location" => resource_location(),
+        "name" => String.t(),
+        "protocol" => list(any()),
+        "resourceType" => list(any()),
+        "status" => list(any()),
+        "supportCode" => String.t()
+      }
+      
+  """
+  @type contact_method() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      enable_add_on_request() :: %{
+        required("addOnRequest") => add_on_request(),
+        required("resourceName") => String.t()
+      }
+      
+  """
+  @type enable_add_on_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disk_snapshot_info() :: %{
+        "sizeInGb" => integer()
+      }
+      
+  """
+  @type disk_snapshot_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      dns_record_creation_state() :: %{
+        "code" => list(any()),
+        "message" => String.t()
+      }
+      
+  """
+  @type dns_record_creation_state() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_load_balancer_result() :: %{
+        "loadBalancer" => load_balancer()
+      }
+      
+  """
+  @type get_load_balancer_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_request() :: %{
+        optional("resourceArn") => String.t(),
+        required("resourceName") => String.t(),
+        required("tags") => list(tag()())
+      }
+      
+  """
+  @type tag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_static_ip_result() :: %{
+        "staticIp" => static_ip()
+      }
+      
+  """
+  @type get_static_ip_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_instance_public_ports_request() :: %{
+        required("instanceName") => String.t(),
+        required("portInfos") => list(port_info()())
+      }
+      
+  """
+  @type put_instance_public_ports_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_export_snapshot_records_result() :: %{
+        "exportSnapshotRecords" => list(export_snapshot_record()()),
+        "nextPageToken" => String.t()
+      }
+      
+  """
+  @type get_export_snapshot_records_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      load_balancer_tls_policy() :: %{
+        "ciphers" => list(String.t()()),
+        "description" => String.t(),
+        "isDefault" => boolean(),
+        "name" => String.t(),
+        "protocols" => list(String.t()())
+      }
+      
+  """
+  @type load_balancer_tls_policy() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      access_rules() :: %{
+        "allowPublicOverrides" => boolean(),
+        "getObject" => list(any())
+      }
+      
+  """
+  @type access_rules() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      container() :: %{
+        "command" => list(String.t()()),
+        "environment" => map(),
+        "image" => String.t(),
+        "ports" => map()
+      }
+      
+  """
+  @type container() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      domain_validation_record() :: %{
+        "dnsRecordCreationState" => dns_record_creation_state(),
+        "domainName" => String.t(),
+        "resourceRecord" => resource_record(),
+        "validationStatus" => list(any())
+      }
+      
+  """
+  @type domain_validation_record() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_container_service_registry_login_result() :: %{
+        "registryLogin" => container_service_registry_login()
+      }
+      
+  """
+  @type create_container_service_registry_login_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      attach_instances_to_load_balancer_result() :: %{
+        "operations" => list(operation()())
+      }
+      
+  """
+  @type attach_instances_to_load_balancer_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_instance_result() :: %{
+        "operations" => list(operation()())
+      }
+      
+  """
+  @type start_instance_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      send_contact_method_verification_request() :: %{
+        required("protocol") => list(any())
+      }
+      
+  """
+  @type send_contact_method_verification_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      availability_zone() :: %{
+        "state" => String.t(),
+        "zoneName" => String.t()
+      }
+      
+  """
+  @type availability_zone() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_alarm_request() :: %{
+        optional("contactProtocols") => list(list(any())()),
+        optional("datapointsToAlarm") => integer(),
+        optional("notificationEnabled") => boolean(),
+        optional("notificationTriggers") => list(list(any())()),
+        optional("treatMissingData") => list(any()),
+        required("alarmName") => String.t(),
+        required("comparisonOperator") => list(any()),
+        required("evaluationPeriods") => integer(),
+        required("metricName") => list(any()),
+        required("monitoredResourceName") => String.t(),
+        required("threshold") => float()
+      }
+      
+  """
+  @type put_alarm_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      add_on() :: %{
+        "duration" => String.t(),
+        "name" => String.t(),
+        "nextSnapshotTimeOfDay" => String.t(),
+        "snapshotTimeOfDay" => String.t(),
+        "status" => String.t(),
+        "threshold" => String.t()
+      }
+      
+  """
+  @type add_on() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_load_balancer_tls_certificate_request() :: %{
+        optional("force") => boolean(),
+        required("certificateName") => String.t(),
+        required("loadBalancerName") => String.t()
+      }
+      
+  """
+  @type delete_load_balancer_tls_certificate_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_instances_from_snapshot_result() :: %{
+        "operations" => list(operation()())
+      }
+      
+  """
+  @type create_instances_from_snapshot_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_load_balancer_request() :: %{
+        required("loadBalancerName") => String.t()
+      }
+      
+  """
+  @type get_load_balancer_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_regions_request() :: %{
+        optional("includeAvailabilityZones") => boolean(),
+        optional("includeRelationalDatabaseAvailabilityZones") => boolean()
+      }
+      
+  """
+  @type get_regions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_result() :: %{
+        "operations" => list(operation()())
+      }
+      
+  """
+  @type untag_resource_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_instance_port_states_result() :: %{
+        "portStates" => list(instance_port_state()())
+      }
+      
+  """
+  @type get_instance_port_states_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_relational_database_master_user_password_result() :: %{
+        "createdAt" => non_neg_integer(),
+        "masterUserPassword" => String.t()
+      }
+      
+  """
+  @type get_relational_database_master_user_password_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_relational_database_request() :: %{
+        optional("applyImmediately") => boolean(),
+        optional("caCertificateIdentifier") => String.t(),
+        optional("disableBackupRetention") => boolean(),
+        optional("enableBackupRetention") => boolean(),
+        optional("masterUserPassword") => String.t(),
+        optional("preferredBackupWindow") => String.t(),
+        optional("preferredMaintenanceWindow") => String.t(),
+        optional("publiclyAccessible") => boolean(),
+        optional("relationalDatabaseBlueprintId") => String.t(),
+        optional("rotateMasterUserPassword") => boolean(),
+        required("relationalDatabaseName") => String.t()
+      }
+      
+  """
+  @type update_relational_database_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      container_service_health_check_config() :: %{
+        "healthyThreshold" => integer(),
+        "intervalSeconds" => integer(),
+        "path" => String.t(),
+        "successCodes" => String.t(),
+        "timeoutSeconds" => integer(),
+        "unhealthyThreshold" => integer()
+      }
+      
+  """
+  @type container_service_health_check_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      detach_instances_from_load_balancer_result() :: %{
+        "operations" => list(operation()())
+      }
+      
+  """
+  @type detach_instances_from_load_balancer_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_bucket_bundles_result() :: %{
+        "bundles" => list(bucket_bundle()())
+      }
+      
+  """
+  @type get_bucket_bundles_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_load_balancer_attribute_request() :: %{
+        required("attributeName") => list(any()),
+        required("attributeValue") => String.t(),
+        required("loadBalancerName") => String.t()
+      }
+      
+  """
+  @type update_load_balancer_attribute_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_certificate_result() :: %{
+        "certificate" => certificate_summary(),
+        "operations" => list(operation()())
+      }
+      
+  """
+  @type create_certificate_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      load_balancer_tls_certificate_domain_validation_record() :: %{
+        "dnsRecordCreationState" => load_balancer_tls_certificate_dns_record_creation_state(),
+        "domainName" => String.t(),
+        "name" => String.t(),
+        "type" => String.t(),
+        "validationStatus" => list(any()),
+        "value" => String.t()
+      }
+      
+  """
+  @type load_balancer_tls_certificate_domain_validation_record() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      lightsail_distribution() :: %{
+        "ableToUpdateBundle" => boolean(),
+        "alternativeDomainNames" => list(String.t()()),
+        "arn" => String.t(),
+        "bundleId" => String.t(),
+        "cacheBehaviorSettings" => cache_settings(),
+        "cacheBehaviors" => list(cache_behavior_per_path()()),
+        "certificateName" => String.t(),
+        "createdAt" => non_neg_integer(),
+        "defaultCacheBehavior" => cache_behavior(),
+        "domainName" => String.t(),
+        "ipAddressType" => list(any()),
+        "isEnabled" => boolean(),
+        "location" => resource_location(),
+        "name" => String.t(),
+        "origin" => origin(),
+        "originPublicDNS" => String.t(),
+        "resourceType" => list(any()),
+        "status" => String.t(),
+        "supportCode" => String.t(),
+        "tags" => list(tag()())
+      }
+      
+  """
+  @type lightsail_distribution() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      container_service_e_c_r_image_puller_role_request() :: %{
+        "isActive" => boolean()
+      }
+      
+  """
+  @type container_service_e_c_r_image_puller_role_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_container_services_request() :: %{
+        optional("serviceName") => String.t()
+      }
+      
+  """
+  @type get_container_services_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cloud_formation_stack_record_source_info() :: %{
+        "arn" => String.t(),
+        "name" => String.t(),
+        "resourceType" => list(any())
+      }
+      
+  """
+  @type cloud_formation_stack_record_source_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      load_balancer_tls_certificate() :: %{
+        "arn" => String.t(),
+        "createdAt" => non_neg_integer(),
+        "domainName" => String.t(),
+        "domainValidationRecords" => list(load_balancer_tls_certificate_domain_validation_record()()),
+        "failureReason" => list(any()),
+        "isAttached" => boolean(),
+        "issuedAt" => non_neg_integer(),
+        "issuer" => String.t(),
+        "keyAlgorithm" => String.t(),
+        "loadBalancerName" => String.t(),
+        "location" => resource_location(),
+        "name" => String.t(),
+        "notAfter" => non_neg_integer(),
+        "notBefore" => non_neg_integer(),
+        "renewalSummary" => load_balancer_tls_certificate_renewal_summary(),
+        "resourceType" => list(any()),
+        "revocationReason" => list(any()),
+        "revokedAt" => non_neg_integer(),
+        "serial" => String.t(),
+        "signatureAlgorithm" => String.t(),
+        "status" => list(any()),
+        "subject" => String.t(),
+        "subjectAlternativeNames" => list(String.t()()),
+        "supportCode" => String.t(),
+        "tags" => list(tag()())
+      }
+      
+  """
+  @type load_balancer_tls_certificate() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_instance_request() :: %{
+        optional("force") => boolean(),
+        required("instanceName") => String.t()
+      }
+      
+  """
+  @type stop_instance_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_bucket_bundles_request() :: %{
+        optional("includeInactive") => boolean()
+      }
+      
+  """
+  @type get_bucket_bundles_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_distribution_result() :: %{
+        "operation" => operation()
+      }
+      
+  """
+  @type delete_distribution_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_load_balancer_result() :: %{
+        "operations" => list(operation()())
+      }
+      
+  """
+  @type create_load_balancer_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_instance_snapshot_result() :: %{
+        "operations" => list(operation()())
+      }
+      
+  """
+  @type delete_instance_snapshot_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_alarm_request() :: %{
+        required("alarmName") => String.t()
+      }
+      
+  """
+  @type delete_alarm_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_relational_database_events_request() :: %{
+        optional("durationInMinutes") => integer(),
+        optional("pageToken") => String.t(),
+        required("relationalDatabaseName") => String.t()
+      }
+      
+  """
+  @type get_relational_database_events_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_instance_result() :: %{
+        "operations" => list(operation()())
+      }
+      
+  """
+  @type stop_instance_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_load_balancer_tls_certificate_result() :: %{
+        "operations" => list(operation()())
+      }
+      
+  """
+  @type create_load_balancer_tls_certificate_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_disk_snapshot_request() :: %{
+        optional("diskName") => String.t(),
+        optional("instanceName") => String.t(),
+        optional("tags") => list(tag()()),
+        required("diskSnapshotName") => String.t()
+      }
+      
+  """
+  @type create_disk_snapshot_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      relational_database() :: %{
+        "arn" => String.t(),
+        "backupRetentionEnabled" => boolean(),
+        "caCertificateIdentifier" => String.t(),
+        "createdAt" => non_neg_integer(),
+        "engine" => String.t(),
+        "engineVersion" => String.t(),
+        "hardware" => relational_database_hardware(),
+        "latestRestorableTime" => non_neg_integer(),
+        "location" => resource_location(),
+        "masterDatabaseName" => String.t(),
+        "masterEndpoint" => relational_database_endpoint(),
+        "masterUsername" => String.t(),
+        "name" => String.t(),
+        "parameterApplyStatus" => String.t(),
+        "pendingMaintenanceActions" => list(pending_maintenance_action()()),
+        "pendingModifiedValues" => pending_modified_relational_database_values(),
+        "preferredBackupWindow" => String.t(),
+        "preferredMaintenanceWindow" => String.t(),
+        "publiclyAccessible" => boolean(),
+        "relationalDatabaseBlueprintId" => String.t(),
+        "relationalDatabaseBundleId" => String.t(),
+        "resourceType" => list(any()),
+        "secondaryAvailabilityZone" => String.t(),
+        "state" => String.t(),
+        "supportCode" => String.t(),
+        "tags" => list(tag()())
+      }
+      
+  """
+  @type relational_database() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_g_ui_session_result() :: %{
+        "operations" => list(operation()())
+      }
+      
+  """
+  @type stop_g_ui_session_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_instance_snapshots_result() :: %{
+        "instanceSnapshots" => list(instance_snapshot()()),
+        "nextPageToken" => String.t()
+      }
+      
+  """
+  @type get_instance_snapshots_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_bucket_access_key_request() :: %{
+        required("bucketName") => String.t()
+      }
+      
+  """
+  @type create_bucket_access_key_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_disk_result() :: %{
+        "operations" => list(operation()())
+      }
+      
+  """
+  @type delete_disk_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_distributions_request() :: %{
+        optional("distributionName") => String.t(),
+        optional("pageToken") => String.t()
+      }
+      
+  """
+  @type get_distributions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      alarm() :: %{
+        "arn" => String.t(),
+        "comparisonOperator" => list(any()),
+        "contactProtocols" => list(list(any())()),
+        "createdAt" => non_neg_integer(),
+        "datapointsToAlarm" => integer(),
+        "evaluationPeriods" => integer(),
+        "location" => resource_location(),
+        "metricName" => list(any()),
+        "monitoredResourceInfo" => monitored_resource_info(),
+        "name" => String.t(),
+        "notificationEnabled" => boolean(),
+        "notificationTriggers" => list(list(any())()),
+        "period" => integer(),
+        "resourceType" => list(any()),
+        "state" => list(any()),
+        "statistic" => list(any()),
+        "supportCode" => String.t(),
+        "threshold" => float(),
+        "treatMissingData" => list(any()),
+        "unit" => list(any())
+      }
+      
+  """
+  @type alarm() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_operations_result() :: %{
+        "nextPageToken" => String.t(),
+        "operations" => list(operation()())
+      }
+      
+  """
+  @type get_operations_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_cost_estimate_request() :: %{
+        required("endTime") => non_neg_integer(),
+        required("resourceName") => String.t(),
+        required("startTime") => non_neg_integer()
+      }
+      
+  """
+  @type get_cost_estimate_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_relational_database_request() :: %{
+        optional("finalRelationalDatabaseSnapshotName") => String.t(),
+        optional("skipFinalSnapshot") => boolean(),
+        required("relationalDatabaseName") => String.t()
+      }
+      
+  """
+  @type delete_relational_database_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_static_ip_request() :: %{
+        required("staticIpName") => String.t()
+      }
+      
+  """
+  @type get_static_ip_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      unauthenticated_exception() :: %{
+        "code" => String.t(),
+        "docs" => String.t(),
+        "message" => String.t(),
+        "tip" => String.t()
+      }
+      
+  """
+  @type unauthenticated_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_container_service_request() :: %{
+        optional("deployment") => container_service_deployment_request(),
+        optional("privateRegistryAccess") => private_registry_access_request(),
+        optional("publicDomainNames") => map(),
+        optional("tags") => list(tag()()),
+        required("power") => list(any()),
+        required("scale") => integer(),
+        required("serviceName") => String.t()
+      }
+      
+  """
+  @type create_container_service_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_relational_database_result() :: %{
+        "operations" => list(operation()())
+      }
+      
+  """
+  @type stop_relational_database_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      instance_port_state() :: %{
+        "cidrListAliases" => list(String.t()()),
+        "cidrs" => list(String.t()()),
+        "fromPort" => integer(),
+        "ipv6Cidrs" => list(String.t()()),
+        "protocol" => list(any()),
+        "state" => list(any()),
+        "toPort" => integer()
+      }
+      
+  """
+  @type instance_port_state() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_domain_result() :: %{
+        "domain" => domain()
+      }
+      
+  """
+  @type get_domain_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_auto_snapshots_result() :: %{
+        "autoSnapshots" => list(auto_snapshot_details()()),
+        "resourceName" => String.t(),
+        "resourceType" => list(any())
+      }
+      
+  """
+  @type get_auto_snapshots_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_instance_snapshot_request() :: %{
+        optional("tags") => list(tag()()),
+        required("instanceName") => String.t(),
+        required("instanceSnapshotName") => String.t()
+      }
+      
+  """
+  @type create_instance_snapshot_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_key_pair_result() :: %{
+        "keyPair" => key_pair()
+      }
+      
+  """
+  @type get_key_pair_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_key_pair_result() :: %{
+        "operation" => operation()
+      }
+      
+  """
+  @type delete_key_pair_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      setup_history() :: %{
+        "executionDetails" => list(setup_execution_details()()),
+        "operationId" => String.t(),
+        "request" => setup_request(),
+        "resource" => setup_history_resource(),
+        "status" => list(any())
+      }
+      
+  """
+  @type setup_history() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      container_service_deployment_request() :: %{
+        "containers" => map(),
+        "publicEndpoint" => endpoint_request()
+      }
+      
+  """
+  @type container_service_deployment_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_auto_snapshots_request() :: %{
+        required("resourceName") => String.t()
+      }
+      
+  """
+  @type get_auto_snapshots_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_relational_database_snapshot_request() :: %{
+        required("relationalDatabaseSnapshotName") => String.t()
+      }
+      
+  """
+  @type delete_relational_database_snapshot_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_container_service_metric_data_result() :: %{
+        "metricData" => list(metric_datapoint()()),
+        "metricName" => list(any())
+      }
+      
+  """
+  @type get_container_service_metric_data_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      send_contact_method_verification_result() :: %{
+        "operations" => list(operation()())
+      }
+      
+  """
+  @type send_contact_method_verification_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_container_api_metadata_result() :: %{
+        "metadata" => list(map()())
+      }
+      
+  """
+  @type get_container_api_metadata_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      set_ip_address_type_request() :: %{
+        required("ipAddressType") => list(any()),
+        required("resourceName") => String.t(),
+        required("resourceType") => list(any())
+      }
+      
+  """
+  @type set_ip_address_type_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_g_ui_session_request() :: %{
+        required("resourceName") => String.t()
+      }
+      
+  """
+  @type stop_g_ui_session_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      domain() :: %{
+        "arn" => String.t(),
+        "createdAt" => non_neg_integer(),
+        "domainEntries" => list(domain_entry()()),
+        "location" => resource_location(),
+        "name" => String.t(),
+        "registeredDomainDelegationInfo" => registered_domain_delegation_info(),
+        "resourceType" => list(any()),
+        "supportCode" => String.t(),
+        "tags" => list(tag()())
+      }
+      
+  """
+  @type domain() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_load_balancer_request() :: %{
+        required("loadBalancerName") => String.t()
+      }
+      
+  """
+  @type delete_load_balancer_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_buckets_request() :: %{
+        optional("bucketName") => String.t(),
+        optional("includeConnectedResources") => boolean(),
+        optional("pageToken") => String.t()
+      }
+      
+  """
+  @type get_buckets_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      bucket_state() :: %{
+        "code" => String.t(),
+        "message" => String.t()
+      }
+      
+  """
+  @type bucket_state() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      attach_disk_result() :: %{
+        "operations" => list(operation()())
+      }
+      
+  """
+  @type attach_disk_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_relational_database_request() :: %{
+        required("relationalDatabaseName") => String.t()
+      }
+      
+  """
+  @type start_relational_database_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_bucket_bundle_result() :: %{
+        "operations" => list(operation()())
+      }
+      
+  """
+  @type update_bucket_bundle_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reboot_instance_result() :: %{
+        "operations" => list(operation()())
+      }
+      
+  """
+  @type reboot_instance_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_disk_snapshots_request() :: %{
+        optional("pageToken") => String.t()
+      }
+      
+  """
+  @type get_disk_snapshots_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reset_distribution_cache_request() :: %{
+        optional("distributionName") => String.t()
+      }
+      
+  """
+  @type reset_distribution_cache_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      container_service_power() :: %{
+        "cpuCount" => float(),
+        "isActive" => boolean(),
+        "name" => String.t(),
+        "powerId" => String.t(),
+        "price" => float(),
+        "ramSizeInGb" => float()
+      }
+      
+  """
+  @type container_service_power() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cache_behavior_per_path() :: %{
+        "behavior" => list(any()),
+        "path" => String.t()
+      }
+      
+  """
+  @type cache_behavior_per_path() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_buckets_result() :: %{
+        "accountLevelBpaSync" => account_level_bpa_sync(),
+        "buckets" => list(bucket()()),
+        "nextPageToken" => String.t()
+      }
+      
+  """
+  @type get_buckets_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_domain_result() :: %{
+        "operation" => operation()
+      }
+      
+  """
+  @type create_domain_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_relational_database_result() :: %{
+        "operations" => list(operation()())
+      }
+      
+  """
+  @type create_relational_database_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      attach_load_balancer_tls_certificate_result() :: %{
+        "operations" => list(operation()())
+      }
+      
+  """
+  @type attach_load_balancer_tls_certificate_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_disk_request() :: %{
+        optional("forceDeleteAddOns") => boolean(),
+        required("diskName") => String.t()
+      }
+      
+  """
+  @type delete_disk_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reset_distribution_cache_result() :: %{
+        "createTime" => non_neg_integer(),
+        "operation" => operation(),
+        "status" => String.t()
+      }
+      
+  """
+  @type reset_distribution_cache_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_load_balancer_tls_certificates_result() :: %{
+        "tlsCertificates" => list(load_balancer_tls_certificate()())
+      }
+      
+  """
+  @type get_load_balancer_tls_certificates_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      account_level_bpa_sync() :: %{
+        "bpaImpactsLightsail" => boolean(),
+        "lastSyncedAt" => non_neg_integer(),
+        "message" => list(any()),
+        "status" => list(any())
+      }
+      
+  """
+  @type account_level_bpa_sync() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_contact_method_result() :: %{
+        "operations" => list(operation()())
+      }
+      
+  """
+  @type delete_contact_method_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_relational_database_request() :: %{
+        optional("availabilityZone") => String.t(),
+        optional("masterUserPassword") => String.t(),
+        optional("preferredBackupWindow") => String.t(),
+        optional("preferredMaintenanceWindow") => String.t(),
+        optional("publiclyAccessible") => boolean(),
+        optional("tags") => list(tag()()),
+        required("masterDatabaseName") => String.t(),
+        required("masterUsername") => String.t(),
+        required("relationalDatabaseBlueprintId") => String.t(),
+        required("relationalDatabaseBundleId") => String.t(),
+        required("relationalDatabaseName") => String.t()
+      }
+      
+  """
+  @type create_relational_database_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_relational_database_log_events_result() :: %{
+        "nextBackwardToken" => String.t(),
+        "nextForwardToken" => String.t(),
+        "resourceLogEvents" => list(log_event()())
+      }
+      
+  """
+  @type get_relational_database_log_events_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      renewal_summary() :: %{
+        "domainValidationRecords" => list(domain_validation_record()()),
+        "renewalStatus" => list(any()),
+        "renewalStatusReason" => String.t(),
+        "updatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type renewal_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_distribution_request() :: %{
+        optional("cacheBehaviorSettings") => cache_settings(),
+        optional("cacheBehaviors") => list(cache_behavior_per_path()()),
+        optional("ipAddressType") => list(any()),
+        optional("tags") => list(tag()()),
+        required("bundleId") => String.t(),
+        required("defaultCacheBehavior") => cache_behavior(),
+        required("distributionName") => String.t(),
+        required("origin") => input_origin()
+      }
+      
+  """
+  @type create_distribution_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_instances_request() :: %{
+        optional("addOns") => list(add_on_request()()),
+        optional("customImageName") => String.t(),
+        optional("ipAddressType") => list(any()),
+        optional("keyPairName") => String.t(),
+        optional("tags") => list(tag()()),
+        optional("userData") => String.t(),
+        required("availabilityZone") => String.t(),
+        required("blueprintId") => String.t(),
+        required("bundleId") => String.t(),
+        required("instanceNames") => list(String.t()())
+      }
+      
+  """
+  @type create_instances_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      relational_database_hardware() :: %{
+        "cpuCount" => integer(),
+        "diskSizeInGb" => integer(),
+        "ramSizeInGb" => float()
+      }
+      
+  """
+  @type relational_database_hardware() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_instance_snapshot_request() :: %{
+        required("instanceSnapshotName") => String.t()
+      }
+      
+  """
+  @type delete_instance_snapshot_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_certificate_request() :: %{
+        optional("subjectAlternativeNames") => list(String.t()()),
+        optional("tags") => list(tag()()),
+        required("certificateName") => String.t(),
+        required("domainName") => String.t()
+      }
+      
+  """
+  @type create_certificate_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_container_service_powers_result() :: %{
+        "powers" => list(container_service_power()())
+      }
+      
+  """
+  @type get_container_service_powers_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_relational_database_request() :: %{
+        required("relationalDatabaseName") => String.t()
+      }
+      
+  """
+  @type get_relational_database_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_request() :: %{
+        optional("resourceArn") => String.t(),
+        required("resourceName") => String.t(),
+        required("tagKeys") => list(String.t()())
+      }
+      
+  """
+  @type untag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_distribution_metric_data_request() :: %{
+        required("distributionName") => String.t(),
+        required("endTime") => non_neg_integer(),
+        required("metricName") => list(any()),
+        required("period") => integer(),
+        required("startTime") => non_neg_integer(),
+        required("statistics") => list(list(any())()),
+        required("unit") => list(any())
+      }
+      
+  """
+  @type get_distribution_metric_data_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      instance_hardware() :: %{
+        "cpuCount" => integer(),
+        "disks" => list(disk()()),
+        "ramSizeInGb" => float()
+      }
+      
+  """
+  @type instance_hardware() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_relational_database_snapshot_result() :: %{
+        "relationalDatabaseSnapshot" => relational_database_snapshot()
+      }
+      
+  """
+  @type get_relational_database_snapshot_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_instance_snapshots_request() :: %{
+        optional("pageToken") => String.t()
+      }
+      
+  """
+  @type get_instance_snapshots_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_bundles_result() :: %{
+        "bundles" => list(bundle()()),
+        "nextPageToken" => String.t()
+      }
+      
+  """
+  @type get_bundles_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_load_balancer_tls_policies_request() :: %{
+        optional("pageToken") => String.t()
+      }
+      
+  """
+  @type get_load_balancer_tls_policies_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      time_period() :: %{
+        "end" => non_neg_integer(),
+        "start" => non_neg_integer()
+      }
+      
+  """
+  @type time_period() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_known_host_keys_request() :: %{
+        required("instanceName") => String.t()
+      }
+      
+  """
+  @type delete_known_host_keys_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_disk_snapshot_result() :: %{
+        "diskSnapshot" => disk_snapshot()
+      }
+      
+  """
+  @type get_disk_snapshot_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_relational_database_from_snapshot_result() :: %{
+        "operations" => list(operation()())
+      }
+      
+  """
+  @type create_relational_database_from_snapshot_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_key_pair_request() :: %{
+        optional("expectedFingerprint") => String.t(),
+        required("keyPairName") => String.t()
+      }
+      
+  """
+  @type delete_key_pair_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      load_balancer_tls_certificate_domain_validation_option() :: %{
+        "domainName" => String.t(),
+        "validationStatus" => list(any())
+      }
+      
+  """
+  @type load_balancer_tls_certificate_domain_validation_option() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_instance_request() :: %{
+        required("instanceName") => String.t()
+      }
+      
+  """
+  @type get_instance_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_disk_snapshot_result() :: %{
+        "operations" => list(operation()())
+      }
+      
+  """
+  @type create_disk_snapshot_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      bundle() :: %{
+        "bundleId" => String.t(),
+        "cpuCount" => integer(),
+        "diskSizeInGb" => integer(),
+        "instanceType" => String.t(),
+        "isActive" => boolean(),
+        "name" => String.t(),
+        "power" => integer(),
+        "price" => float(),
+        "publicIpv4AddressCount" => integer(),
+        "ramSizeInGb" => float(),
+        "supportedAppCategories" => list(list(any())()),
+        "supportedPlatforms" => list(list(any())()),
+        "transferPerMonthInGb" => integer()
+      }
+      
+  """
+  @type bundle() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      instance_snapshot() :: %{
+        "arn" => String.t(),
+        "createdAt" => non_neg_integer(),
+        "fromAttachedDisks" => list(disk()()),
+        "fromBlueprintId" => String.t(),
+        "fromBundleId" => String.t(),
+        "fromInstanceArn" => String.t(),
+        "fromInstanceName" => String.t(),
+        "isFromAutoSnapshot" => boolean(),
+        "location" => resource_location(),
+        "name" => String.t(),
+        "progress" => String.t(),
+        "resourceType" => list(any()),
+        "sizeInGb" => integer(),
+        "state" => list(any()),
+        "supportCode" => String.t(),
+        "tags" => list(tag()())
+      }
+      
+  """
+  @type instance_snapshot() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_g_ui_session_access_details_request() :: %{
+        required("resourceName") => String.t()
+      }
+      
+  """
+  @type create_g_ui_session_access_details_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_location() :: %{
+        "availabilityZone" => String.t(),
+        "regionName" => list(any())
+      }
+      
+  """
+  @type resource_location() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_relational_database_metric_data_request() :: %{
+        required("endTime") => non_neg_integer(),
+        required("metricName") => list(any()),
+        required("period") => integer(),
+        required("relationalDatabaseName") => String.t(),
+        required("startTime") => non_neg_integer(),
+        required("statistics") => list(list(any())()),
+        required("unit") => list(any())
+      }
+      
+  """
+  @type get_relational_database_metric_data_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_contact_method_request() :: %{
+        required("contactEndpoint") => String.t(),
+        required("protocol") => list(any())
+      }
+      
+  """
+  @type create_contact_method_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      auto_snapshot_details() :: %{
+        "createdAt" => non_neg_integer(),
+        "date" => String.t(),
+        "fromAttachedDisks" => list(attached_disk()()),
+        "status" => list(any())
+      }
+      
+  """
+  @type auto_snapshot_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      certificate_summary() :: %{
+        "certificateArn" => String.t(),
+        "certificateDetail" => certificate(),
+        "certificateName" => String.t(),
+        "domainName" => String.t(),
+        "tags" => list(tag()())
+      }
+      
+  """
+  @type certificate_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_export_snapshot_records_request() :: %{
+        optional("pageToken") => String.t()
+      }
+      
+  """
+  @type get_export_snapshot_records_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      bucket_bundle() :: %{
+        "bundleId" => String.t(),
+        "isActive" => boolean(),
+        "name" => String.t(),
+        "price" => float(),
+        "storagePerMonthInGb" => integer(),
+        "transferPerMonthInGb" => integer()
+      }
+      
+  """
+  @type bucket_bundle() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_load_balancer_request() :: %{
+        optional("certificateAlternativeNames") => list(String.t()()),
+        optional("certificateDomainName") => String.t(),
+        optional("certificateName") => String.t(),
+        optional("healthCheckPath") => String.t(),
+        optional("ipAddressType") => list(any()),
+        optional("tags") => list(tag()()),
+        optional("tlsPolicyName") => String.t(),
+        required("instancePort") => integer(),
+        required("loadBalancerName") => String.t()
+      }
+      
+  """
+  @type create_load_balancer_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      relational_database_snapshot() :: %{
+        "arn" => String.t(),
+        "createdAt" => non_neg_integer(),
+        "engine" => String.t(),
+        "engineVersion" => String.t(),
+        "fromRelationalDatabaseArn" => String.t(),
+        "fromRelationalDatabaseBlueprintId" => String.t(),
+        "fromRelationalDatabaseBundleId" => String.t(),
+        "fromRelationalDatabaseName" => String.t(),
+        "location" => resource_location(),
+        "name" => String.t(),
+        "resourceType" => list(any()),
+        "sizeInGb" => integer(),
+        "state" => String.t(),
+        "supportCode" => String.t(),
+        "tags" => list(tag()())
+      }
+      
+  """
+  @type relational_database_snapshot() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_bucket_request() :: %{
+        optional("forceDelete") => boolean(),
+        required("bucketName") => String.t()
+      }
+      
+  """
+  @type delete_bucket_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      set_ip_address_type_result() :: %{
+        "operations" => list(operation()())
+      }
+      
+  """
+  @type set_ip_address_type_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      name_servers_update_state() :: %{
+        "code" => list(any()),
+        "message" => String.t()
+      }
+      
+  """
+  @type name_servers_update_state() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reboot_instance_request() :: %{
+        required("instanceName") => String.t()
+      }
+      
+  """
+  @type reboot_instance_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      instance_networking() :: %{
+        "monthlyTransfer" => monthly_transfer(),
+        "ports" => list(instance_port_info()())
+      }
+      
+  """
+  @type instance_networking() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_active_names_result() :: %{
+        "activeNames" => list(String.t()()),
+        "nextPageToken" => String.t()
+      }
+      
+  """
+  @type get_active_names_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reboot_relational_database_result() :: %{
+        "operations" => list(operation()())
+      }
+      
+  """
+  @type reboot_relational_database_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      setup_instance_https_result() :: %{
+        "operations" => list(operation()())
+      }
+      
+  """
+  @type setup_instance_https_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_bucket_metric_data_request() :: %{
+        required("bucketName") => String.t(),
+        required("endTime") => non_neg_integer(),
+        required("metricName") => list(any()),
+        required("period") => integer(),
+        required("startTime") => non_neg_integer(),
+        required("statistics") => list(list(any())()),
+        required("unit") => list(any())
+      }
+      
+  """
+  @type get_bucket_metric_data_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_domain_request() :: %{
+        required("domainName") => String.t()
+      }
+      
+  """
+  @type delete_domain_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_instance_snapshot_request() :: %{
+        required("instanceSnapshotName") => String.t()
+      }
+      
+  """
+  @type get_instance_snapshot_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      container_service_deployment() :: %{
+        "containers" => map(),
+        "createdAt" => non_neg_integer(),
+        "publicEndpoint" => container_service_endpoint(),
+        "state" => list(any()),
+        "version" => integer()
+      }
+      
+  """
+  @type container_service_deployment() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      instance_health_summary() :: %{
+        "instanceHealth" => list(any()),
+        "instanceHealthReason" => list(any()),
+        "instanceName" => String.t()
+      }
+      
+  """
+  @type instance_health_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_relational_database_result() :: %{
+        "operations" => list(operation()())
+      }
+      
+  """
+  @type delete_relational_database_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      region() :: %{
+        "availabilityZones" => list(availability_zone()()),
+        "continentCode" => String.t(),
+        "description" => String.t(),
+        "displayName" => String.t(),
+        "name" => list(any()),
+        "relationalDatabaseAvailabilityZones" => list(availability_zone()())
+      }
+      
+  """
+  @type region() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_relational_database_parameters_request() :: %{
+        optional("pageToken") => String.t(),
+        required("relationalDatabaseName") => String.t()
+      }
+      
+  """
+  @type get_relational_database_parameters_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      export_snapshot_result() :: %{
+        "operations" => list(operation()())
+      }
+      
+  """
+  @type export_snapshot_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_key_pairs_request() :: %{
+        optional("includeDefaultKeyPair") => boolean(),
+        optional("pageToken") => String.t()
+      }
+      
+  """
+  @type get_key_pairs_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_static_ips_request() :: %{
+        optional("pageToken") => String.t()
+      }
+      
+  """
+  @type get_static_ips_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_instance_metadata_options_result() :: %{
+        "operation" => operation()
+      }
+      
+  """
+  @type update_instance_metadata_options_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      detach_static_ip_result() :: %{
+        "operations" => list(operation()())
+      }
+      
+  """
+  @type detach_static_ip_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      destination_info() :: %{
+        "id" => String.t(),
+        "service" => String.t()
+      }
+      
+  """
+  @type destination_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_distribution_metric_data_result() :: %{
+        "metricData" => list(metric_datapoint()()),
+        "metricName" => list(any())
+      }
+      
+  """
+  @type get_distribution_metric_data_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_operations_for_resource_request() :: %{
+        optional("pageToken") => String.t(),
+        required("resourceName") => String.t()
+      }
+      
+  """
+  @type get_operations_for_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      monthly_transfer() :: %{
+        "gbPerMonthAllocated" => integer()
+      }
+      
+  """
+  @type monthly_transfer() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_load_balancer_tls_policies_result() :: %{
+        "nextPageToken" => String.t(),
+        "tlsPolicies" => list(load_balancer_tls_policy()())
+      }
+      
+  """
+  @type get_load_balancer_tls_policies_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_budget_estimate() :: %{
+        "costEstimates" => list(cost_estimate()()),
+        "endTime" => non_neg_integer(),
+        "resourceName" => String.t(),
+        "resourceType" => list(any()),
+        "startTime" => non_neg_integer()
+      }
+      
+  """
+  @type resource_budget_estimate() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_relational_database_metric_data_result() :: %{
+        "metricData" => list(metric_datapoint()()),
+        "metricName" => list(any())
+      }
+      
+  """
+  @type get_relational_database_metric_data_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_distribution_bundle_result() :: %{
+        "operation" => operation()
+      }
+      
+  """
+  @type update_distribution_bundle_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_disk_from_snapshot_request() :: %{
+        optional("addOns") => list(add_on_request()()),
+        optional("diskSnapshotName") => String.t(),
+        optional("restoreDate") => String.t(),
+        optional("sourceDiskName") => String.t(),
+        optional("tags") => list(tag()()),
+        optional("useLatestRestorableAutoSnapshot") => boolean(),
+        required("availabilityZone") => String.t(),
+        required("diskName") => String.t(),
+        required("sizeInGb") => integer()
+      }
+      
+  """
+  @type create_disk_from_snapshot_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      attach_certificate_to_distribution_request() :: %{
+        required("certificateName") => String.t(),
+        required("distributionName") => String.t()
+      }
+      
+  """
+  @type attach_certificate_to_distribution_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_domain_request() :: %{
+        optional("tags") => list(tag()()),
+        required("domainName") => String.t()
+      }
+      
+  """
+  @type create_domain_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      test_alarm_result() :: %{
+        "operations" => list(operation()())
+      }
+      
+  """
+  @type test_alarm_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_instance_access_details_result() :: %{
+        "accessDetails" => instance_access_details()
+      }
+      
+  """
+  @type get_instance_access_details_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_cloud_formation_stack_request() :: %{
+        required("instances") => list(instance_entry()())
+      }
+      
+  """
+  @type create_cloud_formation_stack_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_known_host_keys_result() :: %{
+        "operations" => list(operation()())
+      }
+      
+  """
+  @type delete_known_host_keys_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      setup_request() :: %{
+        "certificateProvider" => list(any()),
+        "domainNames" => list(String.t()()),
+        "instanceName" => String.t()
+      }
+      
+  """
+  @type setup_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reboot_relational_database_request() :: %{
+        required("relationalDatabaseName") => String.t()
+      }
+      
+  """
+  @type reboot_relational_database_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      allocate_static_ip_request() :: %{
+        required("staticIpName") => String.t()
+      }
+      
+  """
+  @type allocate_static_ip_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag() :: %{
+        "key" => String.t(),
+        "value" => String.t()
+      }
+      
+  """
+  @type tag() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_alarm_result() :: %{
+        "operations" => list(operation()())
+      }
+      
+  """
+  @type put_alarm_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      close_instance_public_ports_result() :: %{
+        "operation" => operation()
+      }
+      
+  """
+  @type close_instance_public_ports_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_container_service_deployment_result() :: %{
+        "containerService" => container_service()
+      }
+      
+  """
+  @type create_container_service_deployment_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_distribution_request() :: %{
+        optional("cacheBehaviorSettings") => cache_settings(),
+        optional("cacheBehaviors") => list(cache_behavior_per_path()()),
+        optional("defaultCacheBehavior") => cache_behavior(),
+        optional("isEnabled") => boolean(),
+        optional("origin") => input_origin(),
+        required("distributionName") => String.t()
+      }
+      
+  """
+  @type update_distribution_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_domain_entry_result() :: %{
+        "operation" => operation()
+      }
+      
+  """
+  @type delete_domain_entry_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      setup_history_resource() :: %{
+        "arn" => String.t(),
+        "createdAt" => non_neg_integer(),
+        "location" => resource_location(),
+        "name" => String.t(),
+        "resourceType" => list(any())
+      }
+      
+  """
+  @type setup_history_resource() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      attached_disk() :: %{
+        "path" => String.t(),
+        "sizeInGb" => integer()
+      }
+      
+  """
+  @type attached_disk() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_operation_request() :: %{
+        required("operationId") => String.t()
+      }
+      
+  """
+  @type get_operation_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      container_service() :: %{
+        "arn" => String.t(),
+        "containerServiceName" => String.t(),
+        "createdAt" => non_neg_integer(),
+        "currentDeployment" => container_service_deployment(),
+        "isDisabled" => boolean(),
+        "location" => resource_location(),
+        "nextDeployment" => container_service_deployment(),
+        "power" => list(any()),
+        "powerId" => String.t(),
+        "principalArn" => String.t(),
+        "privateDomainName" => String.t(),
+        "privateRegistryAccess" => private_registry_access(),
+        "publicDomainNames" => map(),
+        "resourceType" => list(any()),
+        "scale" => integer(),
+        "state" => list(any()),
+        "stateDetail" => container_service_state_detail(),
+        "tags" => list(tag()()),
+        "url" => String.t()
+      }
+      
+  """
+  @type container_service() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_relational_database_bundles_result() :: %{
+        "bundles" => list(relational_database_bundle()()),
+        "nextPageToken" => String.t()
+      }
+      
+  """
+  @type get_relational_database_bundles_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      access_key() :: %{
+        "accessKeyId" => String.t(),
+        "createdAt" => non_neg_integer(),
+        "lastUsed" => access_key_last_used(),
+        "secretAccessKey" => String.t(),
+        "status" => list(any())
+      }
+      
+  """
+  @type access_key() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_bucket_request() :: %{
+        optional("accessLogConfig") => bucket_access_log_config(),
+        optional("accessRules") => access_rules(),
+        optional("readonlyAccessAccounts") => list(String.t()()),
+        optional("versioning") => String.t(),
+        required("bucketName") => String.t()
+      }
+      
+  """
+  @type update_bucket_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_domain_result() :: %{
+        "operation" => operation()
+      }
+      
+  """
+  @type delete_domain_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_instance_snapshot_result() :: %{
+        "operations" => list(operation()())
+      }
+      
+  """
+  @type create_instance_snapshot_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      attach_instances_to_load_balancer_request() :: %{
+        required("instanceNames") => list(String.t()()),
+        required("loadBalancerName") => String.t()
+      }
+      
+  """
+  @type attach_instances_to_load_balancer_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_disk_request() :: %{
+        optional("addOns") => list(add_on_request()()),
+        optional("tags") => list(tag()()),
+        required("availabilityZone") => String.t(),
+        required("diskName") => String.t(),
+        required("sizeInGb") => integer()
+      }
+      
+  """
+  @type create_disk_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      release_static_ip_request() :: %{
+        required("staticIpName") => String.t()
+      }
+      
+  """
+  @type release_static_ip_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      is_vpc_peered_result() :: %{
+        "isPeered" => boolean()
+      }
+      
+  """
+  @type is_vpc_peered_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_instance_port_states_request() :: %{
+        required("instanceName") => String.t()
+      }
+      
+  """
+  @type get_instance_port_states_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disable_add_on_request() :: %{
+        required("addOnType") => list(any()),
+        required("resourceName") => String.t()
+      }
+      
+  """
+  @type disable_add_on_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_relational_database_snapshot_request() :: %{
+        optional("tags") => list(tag()()),
+        required("relationalDatabaseName") => String.t(),
+        required("relationalDatabaseSnapshotName") => String.t()
+      }
+      
+  """
+  @type create_relational_database_snapshot_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      monitored_resource_info() :: %{
+        "arn" => String.t(),
+        "name" => String.t(),
+        "resourceType" => list(any())
+      }
+      
+  """
+  @type monitored_resource_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_contact_methods_request() :: %{
+        optional("protocols") => list(list(any())())
+      }
+      
+  """
+  @type get_contact_methods_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      load_balancer_tls_certificate_renewal_summary() :: %{
+        "domainValidationOptions" => list(load_balancer_tls_certificate_domain_validation_option()()),
+        "renewalStatus" => list(any())
+      }
+      
+  """
+  @type load_balancer_tls_certificate_renewal_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      instance_snapshot_info() :: %{
+        "fromBlueprintId" => String.t(),
+        "fromBundleId" => String.t(),
+        "fromDiskInfo" => list(disk_info()())
+      }
+      
+  """
+  @type instance_snapshot_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      not_found_exception() :: %{
+        "code" => String.t(),
+        "docs" => String.t(),
+        "message" => String.t(),
+        "tip" => String.t()
+      }
+      
+  """
+  @type not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_cost_estimate_result() :: %{
+        "resourcesBudgetEstimate" => list(resource_budget_estimate()())
+      }
+      
+  """
+  @type get_cost_estimate_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      r53_hosted_zone_deletion_state() :: %{
+        "code" => list(any()),
+        "message" => String.t()
+      }
+      
+  """
+  @type r53_hosted_zone_deletion_state() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      container_image() :: %{
+        "createdAt" => non_neg_integer(),
+        "digest" => String.t(),
+        "image" => String.t()
+      }
+      
+  """
+  @type container_image() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_domain_entry_request() :: %{
+        required("domainEntry") => domain_entry(),
+        required("domainName") => String.t()
+      }
+      
+  """
+  @type create_domain_entry_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_receiving_access() :: %{
+        "name" => String.t(),
+        "resourceType" => String.t()
+      }
+      
+  """
+  @type resource_receiving_access() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_exception() :: %{
+        "code" => String.t(),
+        "docs" => String.t(),
+        "message" => String.t(),
+        "tip" => String.t()
+      }
+      
+  """
+  @type service_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      peer_vpc_result() :: %{
+        "operation" => operation()
+      }
+      
+  """
+  @type peer_vpc_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_distribution_bundles_request() :: %{}
+      
+  """
+  @type get_distribution_bundles_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_input_exception() :: %{
+        "code" => String.t(),
+        "docs" => String.t(),
+        "message" => String.t(),
+        "tip" => String.t()
+      }
+      
+  """
+  @type invalid_input_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_disk_from_snapshot_result() :: %{
+        "operations" => list(operation()())
+      }
+      
+  """
+  @type create_disk_from_snapshot_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_operation_result() :: %{
+        "operation" => operation()
+      }
+      
+  """
+  @type get_operation_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_relational_database_log_streams_request() :: %{
+        required("relationalDatabaseName") => String.t()
+      }
+      
+  """
+  @type get_relational_database_log_streams_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_domains_result() :: %{
+        "domains" => list(domain()()),
+        "nextPageToken" => String.t()
+      }
+      
+  """
+  @type get_domains_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_bucket_access_keys_result() :: %{
+        "accessKeys" => list(access_key()())
+      }
+      
+  """
+  @type get_bucket_access_keys_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disk_snapshot() :: %{
+        "arn" => String.t(),
+        "createdAt" => non_neg_integer(),
+        "fromDiskArn" => String.t(),
+        "fromDiskName" => String.t(),
+        "fromInstanceArn" => String.t(),
+        "fromInstanceName" => String.t(),
+        "isFromAutoSnapshot" => boolean(),
+        "location" => resource_location(),
+        "name" => String.t(),
+        "progress" => String.t(),
+        "resourceType" => list(any()),
+        "sizeInGb" => integer(),
+        "state" => list(any()),
+        "supportCode" => String.t(),
+        "tags" => list(tag()())
+      }
+      
+  """
+  @type disk_snapshot() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_bucket_result() :: %{
+        "operations" => list(operation()())
+      }
+      
+  """
+  @type delete_bucket_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      instance_access_details() :: %{
+        "certKey" => String.t(),
+        "expiresAt" => non_neg_integer(),
+        "hostKeys" => list(host_key_attributes()()),
+        "instanceName" => String.t(),
+        "ipAddress" => String.t(),
+        "ipv6Addresses" => list(String.t()()),
+        "password" => String.t(),
+        "passwordData" => password_data(),
+        "privateKey" => String.t(),
+        "protocol" => list(any()),
+        "username" => String.t()
+      }
+      
+  """
+  @type instance_access_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_key_pairs_result() :: %{
+        "keyPairs" => list(key_pair()()),
+        "nextPageToken" => String.t()
+      }
+      
+  """
+  @type get_key_pairs_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      container_service_log_event() :: %{
+        "createdAt" => non_neg_integer(),
+        "message" => String.t()
+      }
+      
+  """
+  @type container_service_log_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_container_image_request() :: %{}
+      
+  """
+  @type delete_container_image_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      blueprint() :: %{
+        "appCategory" => list(any()),
+        "blueprintId" => String.t(),
+        "description" => String.t(),
+        "group" => String.t(),
+        "isActive" => boolean(),
+        "licenseUrl" => String.t(),
+        "minPower" => integer(),
+        "name" => String.t(),
+        "platform" => list(any()),
+        "productUrl" => String.t(),
+        "type" => list(any()),
+        "version" => String.t(),
+        "versionCode" => String.t()
+      }
+      
+  """
+  @type blueprint() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_instance_metric_data_request() :: %{
+        required("endTime") => non_neg_integer(),
+        required("instanceName") => String.t(),
+        required("metricName") => list(any()),
+        required("period") => integer(),
+        required("startTime") => non_neg_integer(),
+        required("statistics") => list(list(any())()),
+        required("unit") => list(any())
+      }
+      
+  """
+  @type get_instance_metric_data_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_load_balancer_attribute_result() :: %{
+        "operations" => list(operation()())
+      }
+      
+  """
+  @type update_load_balancer_attribute_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_bucket_access_key_result() :: %{
+        "operations" => list(operation()())
+      }
+      
+  """
+  @type delete_bucket_access_key_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_blueprints_request() :: %{
+        optional("appCategory") => list(any()),
+        optional("includeInactive") => boolean(),
+        optional("pageToken") => String.t()
+      }
+      
+  """
+  @type get_blueprints_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_instance_metric_data_result() :: %{
+        "metricData" => list(metric_datapoint()()),
+        "metricName" => list(any())
+      }
+      
+  """
+  @type get_instance_metric_data_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      password_data() :: %{
+        "ciphertext" => String.t(),
+        "keyPairName" => String.t()
+      }
+      
+  """
+  @type password_data() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_disk_request() :: %{
+        required("diskName") => String.t()
+      }
+      
+  """
+  @type get_disk_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      static_ip() :: %{
+        "arn" => String.t(),
+        "attachedTo" => String.t(),
+        "createdAt" => non_neg_integer(),
+        "ipAddress" => String.t(),
+        "isAttached" => boolean(),
+        "location" => resource_location(),
+        "name" => String.t(),
+        "resourceType" => list(any()),
+        "supportCode" => String.t()
+      }
+      
+  """
+  @type static_ip() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_load_balancer_result() :: %{
+        "operations" => list(operation()())
+      }
+      
+  """
+  @type delete_load_balancer_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_instances_result() :: %{
+        "instances" => list(instance()()),
+        "nextPageToken" => String.t()
+      }
+      
+  """
+  @type get_instances_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_bucket_result() :: %{
+        "bucket" => bucket(),
+        "operations" => list(operation()())
+      }
+      
+  """
+  @type update_bucket_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_instance_public_ports_result() :: %{
+        "operation" => operation()
+      }
+      
+  """
+  @type put_instance_public_ports_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_domain_entry_request() :: %{
+        required("domainEntry") => domain_entry(),
+        required("domainName") => String.t()
+      }
+      
+  """
+  @type delete_domain_entry_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      detach_static_ip_request() :: %{
+        required("staticIpName") => String.t()
+      }
+      
+  """
+  @type detach_static_ip_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      detach_disk_result() :: %{
+        "operations" => list(operation()())
+      }
+      
+  """
+  @type detach_disk_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      session() :: %{
+        "isPrimary" => boolean(),
+        "name" => String.t(),
+        "url" => String.t()
+      }
+      
+  """
+  @type session() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_distributions_result() :: %{
+        "distributions" => list(lightsail_distribution()()),
+        "nextPageToken" => String.t()
+      }
+      
+  """
+  @type get_distributions_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      key_pair() :: %{
+        "arn" => String.t(),
+        "createdAt" => non_neg_integer(),
+        "fingerprint" => String.t(),
+        "location" => resource_location(),
+        "name" => String.t(),
+        "resourceType" => list(any()),
+        "supportCode" => String.t(),
+        "tags" => list(tag()())
+      }
+      
+  """
+  @type key_pair() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_relational_databases_request() :: %{
+        optional("pageToken") => String.t()
+      }
+      
+  """
+  @type get_relational_databases_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_instance_on_idle_request() :: %{
+        "duration" => String.t(),
+        "threshold" => String.t()
+      }
+      
+  """
+  @type stop_instance_on_idle_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      instance_state() :: %{
+        "code" => integer(),
+        "name" => String.t()
+      }
+      
+  """
+  @type instance_state() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      export_snapshot_request() :: %{
+        required("sourceSnapshotName") => String.t()
+      }
+      
+  """
+  @type export_snapshot_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_bucket_result() :: %{
+        "bucket" => bucket(),
+        "operations" => list(operation()())
+      }
+      
+  """
+  @type create_bucket_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_disk_snapshot_request() :: %{
+        required("diskSnapshotName") => String.t()
+      }
+      
+  """
+  @type delete_disk_snapshot_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_container_service_deployments_request() :: %{}
+      
+  """
+  @type get_container_service_deployments_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      allocate_static_ip_result() :: %{
+        "operations" => list(operation()())
+      }
+      
+  """
+  @type allocate_static_ip_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_instance_snapshot_result() :: %{
+        "instanceSnapshot" => instance_snapshot()
+      }
+      
+  """
+  @type get_instance_snapshot_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      load_balancer_tls_certificate_dns_record_creation_state() :: %{
+        "code" => list(any()),
+        "message" => String.t()
+      }
+      
+  """
+  @type load_balancer_tls_certificate_dns_record_creation_state() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      download_default_key_pair_request() :: %{}
+      
+  """
+  @type download_default_key_pair_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      pending_modified_relational_database_values() :: %{
+        "backupRetentionEnabled" => boolean(),
+        "engineVersion" => String.t(),
+        "masterUserPassword" => String.t()
+      }
+      
+  """
+  @type pending_modified_relational_database_values() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_load_balancer_tls_certificates_request() :: %{
+        required("loadBalancerName") => String.t()
+      }
+      
+  """
+  @type get_load_balancer_tls_certificates_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      load_balancer_tls_certificate_summary() :: %{
+        "isAttached" => boolean(),
+        "name" => String.t()
+      }
+      
+  """
+  @type load_balancer_tls_certificate_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      copy_snapshot_result() :: %{
+        "operations" => list(operation()())
+      }
+      
+  """
+  @type copy_snapshot_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_relational_database_log_events_request() :: %{
+        optional("endTime") => non_neg_integer(),
+        optional("pageToken") => String.t(),
+        optional("startFromHead") => boolean(),
+        optional("startTime") => non_neg_integer(),
+        required("logStreamName") => String.t(),
+        required("relationalDatabaseName") => String.t()
+      }
+      
+  """
+  @type get_relational_database_log_events_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      container_service_state_detail() :: %{
+        "code" => list(any()),
+        "message" => String.t()
+      }
+      
+  """
+  @type container_service_state_detail() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      setup_instance_https_request() :: %{
+        required("certificateProvider") => list(any()),
+        required("domainNames") => list(String.t()()),
+        required("emailAddress") => String.t(),
+        required("instanceName") => String.t()
+      }
+      
+  """
+  @type setup_instance_https_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      container_service_e_c_r_image_puller_role() :: %{
+        "isActive" => boolean(),
+        "principalArn" => String.t()
+      }
+      
+  """
+  @type container_service_e_c_r_image_puller_role() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_relational_database_log_streams_result() :: %{
+        "logStreams" => list(String.t()())
+      }
+      
+  """
+  @type get_relational_database_log_streams_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_distribution_bundles_result() :: %{
+        "bundles" => list(distribution_bundle()())
+      }
+      
+  """
+  @type get_distribution_bundles_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_auto_snapshot_request() :: %{
+        required("date") => String.t(),
+        required("resourceName") => String.t()
+      }
+      
+  """
+  @type delete_auto_snapshot_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_relational_database_snapshots_result() :: %{
+        "nextPageToken" => String.t(),
+        "relationalDatabaseSnapshots" => list(relational_database_snapshot()())
+      }
+      
+  """
+  @type get_relational_database_snapshots_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      container_services_list_result() :: %{
+        "containerServices" => list(container_service()())
+      }
+      
+  """
+  @type container_services_list_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_container_image_result() :: %{}
+      
+  """
+  @type delete_container_image_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      certificate() :: %{
+        "arn" => String.t(),
+        "createdAt" => non_neg_integer(),
+        "domainName" => String.t(),
+        "domainValidationRecords" => list(domain_validation_record()()),
+        "eligibleToRenew" => String.t(),
+        "inUseResourceCount" => integer(),
+        "issuedAt" => non_neg_integer(),
+        "issuerCA" => String.t(),
+        "keyAlgorithm" => String.t(),
+        "name" => String.t(),
+        "notAfter" => non_neg_integer(),
+        "notBefore" => non_neg_integer(),
+        "renewalSummary" => renewal_summary(),
+        "requestFailureReason" => String.t(),
+        "revocationReason" => String.t(),
+        "revokedAt" => non_neg_integer(),
+        "serialNumber" => String.t(),
+        "status" => list(any()),
+        "subjectAlternativeNames" => list(String.t()()),
+        "supportCode" => String.t(),
+        "tags" => list(tag()())
+      }
+      
+  """
+  @type certificate() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_domain_entry_request() :: %{
+        required("domainEntry") => domain_entry(),
+        required("domainName") => String.t()
+      }
+      
+  """
+  @type update_domain_entry_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      enable_add_on_result() :: %{
+        "operations" => list(operation()())
+      }
+      
+  """
+  @type enable_add_on_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      import_key_pair_result() :: %{
+        "operation" => operation()
+      }
+      
+  """
+  @type import_key_pair_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_domains_request() :: %{
+        optional("pageToken") => String.t()
+      }
+      
+  """
+  @type get_domains_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_domain_entry_result() :: %{
+        "operations" => list(operation()())
+      }
+      
+  """
+  @type update_domain_entry_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_bucket_metric_data_result() :: %{
+        "metricData" => list(metric_datapoint()()),
+        "metricName" => list(any())
+      }
+      
+  """
+  @type get_bucket_metric_data_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_container_service_result() :: %{}
+      
+  """
+  @type delete_container_service_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      bucket() :: %{
+        "ableToUpdateBundle" => boolean(),
+        "accessLogConfig" => bucket_access_log_config(),
+        "accessRules" => access_rules(),
+        "arn" => String.t(),
+        "bundleId" => String.t(),
+        "createdAt" => non_neg_integer(),
+        "location" => resource_location(),
+        "name" => String.t(),
+        "objectVersioning" => String.t(),
+        "readonlyAccessAccounts" => list(String.t()()),
+        "resourceType" => String.t(),
+        "resourcesReceivingAccess" => list(resource_receiving_access()()),
+        "state" => bucket_state(),
+        "supportCode" => String.t(),
+        "tags" => list(tag()()),
+        "url" => String.t()
+      }
+      
+  """
+  @type bucket() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_container_images_request() :: %{}
+      
+  """
+  @type get_container_images_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_bucket_request() :: %{
+        optional("enableObjectVersioning") => boolean(),
+        optional("tags") => list(tag()()),
+        required("bucketName") => String.t(),
+        required("bundleId") => String.t()
+      }
+      
+  """
+  @type create_bucket_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      input_origin() :: %{
+        "name" => String.t(),
+        "protocolPolicy" => list(any()),
+        "regionName" => list(any())
+      }
+      
+  """
+  @type input_origin() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disk_map() :: %{
+        "newDiskName" => String.t(),
+        "originalDiskPath" => String.t()
+      }
+      
+  """
+  @type disk_map() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_distribution_result() :: %{
+        "distribution" => lightsail_distribution(),
+        "operation" => operation()
+      }
+      
+  """
+  @type create_distribution_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_bundles_request() :: %{
+        optional("appCategory") => list(any()),
+        optional("includeInactive") => boolean(),
+        optional("pageToken") => String.t()
+      }
+      
+  """
+  @type get_bundles_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      instance() :: %{
+        "addOns" => list(add_on()()),
+        "arn" => String.t(),
+        "blueprintId" => String.t(),
+        "blueprintName" => String.t(),
+        "bundleId" => String.t(),
+        "createdAt" => non_neg_integer(),
+        "hardware" => instance_hardware(),
+        "ipAddressType" => list(any()),
+        "ipv6Addresses" => list(String.t()()),
+        "isStaticIp" => boolean(),
+        "location" => resource_location(),
+        "metadataOptions" => instance_metadata_options(),
+        "name" => String.t(),
+        "networking" => instance_networking(),
+        "privateIpAddress" => String.t(),
+        "publicIpAddress" => String.t(),
+        "resourceType" => list(any()),
+        "sshKeyName" => String.t(),
+        "state" => instance_state(),
+        "supportCode" => String.t(),
+        "tags" => list(tag()()),
+        "username" => String.t()
+      }
+      
+  """
+  @type instance() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      instance_metadata_options() :: %{
+        "httpEndpoint" => list(any()),
+        "httpProtocolIpv6" => list(any()),
+        "httpPutResponseHopLimit" => integer(),
+        "httpTokens" => list(any()),
+        "state" => list(any())
+      }
+      
+  """
+  @type instance_metadata_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      access_denied_exception() :: %{
+        "code" => String.t(),
+        "docs" => String.t(),
+        "message" => String.t(),
+        "tip" => String.t()
+      }
+      
+  """
+  @type access_denied_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      import_key_pair_request() :: %{
+        required("keyPairName") => String.t(),
+        required("publicKeyBase64") => String.t()
+      }
+      
+  """
+  @type import_key_pair_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_instances_result() :: %{
+        "operations" => list(operation()())
+      }
+      
+  """
+  @type create_instances_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      add_on_request() :: %{
+        "addOnType" => list(any()),
+        "autoSnapshotAddOnRequest" => auto_snapshot_add_on_request(),
+        "stopInstanceOnIdleRequest" => stop_instance_on_idle_request()
+      }
+      
+  """
+  @type add_on_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_certificate_request() :: %{
+        required("certificateName") => String.t()
+      }
+      
+  """
+  @type delete_certificate_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_active_names_request() :: %{
+        optional("pageToken") => String.t()
+      }
+      
+  """
+  @type get_active_names_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_key_pair_request() :: %{
+        optional("tags") => list(tag()()),
+        required("keyPairName") => String.t()
+      }
+      
+  """
+  @type create_key_pair_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      attach_load_balancer_tls_certificate_request() :: %{
+        required("certificateName") => String.t(),
+        required("loadBalancerName") => String.t()
+      }
+      
+  """
+  @type attach_load_balancer_tls_certificate_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_container_log_request() :: %{
+        optional("endTime") => non_neg_integer(),
+        optional("filterPattern") => String.t(),
+        optional("pageToken") => String.t(),
+        optional("startTime") => non_neg_integer()
+      }
+      
+  """
+  @type get_container_log_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_setup_history_result() :: %{
+        "nextPageToken" => String.t(),
+        "setupHistory" => list(setup_history()())
+      }
+      
+  """
+  @type get_setup_history_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      origin() :: %{
+        "name" => String.t(),
+        "protocolPolicy" => list(any()),
+        "regionName" => list(any()),
+        "resourceType" => list(any())
+      }
+      
+  """
+  @type origin() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_disk_snapshot_request() :: %{
+        required("diskSnapshotName") => String.t()
+      }
+      
+  """
+  @type get_disk_snapshot_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_relational_database_parameters_result() :: %{
+        "operations" => list(operation()())
+      }
+      
+  """
+  @type update_relational_database_parameters_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_instance_result() :: %{
+        "operations" => list(operation()())
+      }
+      
+  """
+  @type delete_instance_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_bucket_access_keys_request() :: %{
+        required("bucketName") => String.t()
+      }
+      
+  """
+  @type get_bucket_access_keys_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      port_info() :: %{
+        "cidrListAliases" => list(String.t()()),
+        "cidrs" => list(String.t()()),
+        "fromPort" => integer(),
+        "ipv6Cidrs" => list(String.t()()),
+        "protocol" => list(any()),
+        "toPort" => integer()
+      }
+      
+  """
+  @type port_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      download_default_key_pair_result() :: %{
+        "createdAt" => non_neg_integer(),
+        "privateKeyBase64" => String.t(),
+        "publicKeyBase64" => String.t()
+      }
+      
+  """
+  @type download_default_key_pair_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_relational_database_result() :: %{
+        "operations" => list(operation()())
+      }
+      
+  """
+  @type update_relational_database_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_load_balancer_metric_data_request() :: %{
+        required("endTime") => non_neg_integer(),
+        required("loadBalancerName") => String.t(),
+        required("metricName") => list(any()),
+        required("period") => integer(),
+        required("startTime") => non_neg_integer(),
+        required("statistics") => list(list(any())()),
+        required("unit") => list(any())
+      }
+      
+  """
+  @type get_load_balancer_metric_data_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_relational_database_snapshot_request() :: %{
+        required("relationalDatabaseSnapshotName") => String.t()
+      }
+      
+  """
+  @type get_relational_database_snapshot_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_instance_metadata_options_request() :: %{
+        optional("httpEndpoint") => list(any()),
+        optional("httpProtocolIpv6") => list(any()),
+        optional("httpPutResponseHopLimit") => integer(),
+        optional("httpTokens") => list(any()),
+        required("instanceName") => String.t()
+      }
+      
+  """
+  @type update_instance_metadata_options_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_certificate_result() :: %{
+        "operations" => list(operation()())
+      }
+      
+  """
+  @type delete_certificate_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      copy_snapshot_request() :: %{
+        optional("restoreDate") => String.t(),
+        optional("sourceResourceName") => String.t(),
+        optional("sourceSnapshotName") => String.t(),
+        optional("useLatestRestorableAutoSnapshot") => boolean(),
+        required("sourceRegion") => list(any()),
+        required("targetSnapshotName") => String.t()
+      }
+      
+  """
+  @type copy_snapshot_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      detach_disk_request() :: %{
+        required("diskName") => String.t()
+      }
+      
+  """
+  @type detach_disk_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      peer_vpc_request() :: %{}
+      
+  """
+  @type peer_vpc_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      load_balancer() :: %{
+        "arn" => String.t(),
+        "configurationOptions" => map(),
+        "createdAt" => non_neg_integer(),
+        "dnsName" => String.t(),
+        "healthCheckPath" => String.t(),
+        "httpsRedirectionEnabled" => boolean(),
+        "instanceHealthSummary" => list(instance_health_summary()()),
+        "instancePort" => integer(),
+        "ipAddressType" => list(any()),
+        "location" => resource_location(),
+        "name" => String.t(),
+        "protocol" => list(any()),
+        "publicPorts" => list(integer()()),
+        "resourceType" => list(any()),
+        "state" => list(any()),
+        "supportCode" => String.t(),
+        "tags" => list(tag()()),
+        "tlsCertificateSummaries" => list(load_balancer_tls_certificate_summary()()),
+        "tlsPolicyName" => String.t()
+      }
+      
+  """
+  @type load_balancer() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_relational_database_bundles_request() :: %{
+        optional("includeInactive") => boolean(),
+        optional("pageToken") => String.t()
+      }
+      
+  """
+  @type get_relational_database_bundles_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disk() :: %{
+        "addOns" => list(add_on()()),
+        "arn" => String.t(),
+        "attachedTo" => String.t(),
+        "attachmentState" => String.t(),
+        "autoMountStatus" => list(any()),
+        "createdAt" => non_neg_integer(),
+        "gbInUse" => integer(),
+        "iops" => integer(),
+        "isAttached" => boolean(),
+        "isSystemDisk" => boolean(),
+        "location" => resource_location(),
+        "name" => String.t(),
+        "path" => String.t(),
+        "resourceType" => list(any()),
+        "sizeInGb" => integer(),
+        "state" => list(any()),
+        "supportCode" => String.t(),
+        "tags" => list(tag()())
+      }
+      
+  """
+  @type disk() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_cloud_formation_stack_result() :: %{
+        "operations" => list(operation()())
+      }
+      
+  """
+  @type create_cloud_formation_stack_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cloud_formation_stack_record() :: %{
+        "arn" => String.t(),
+        "createdAt" => non_neg_integer(),
+        "destinationInfo" => destination_info(),
+        "location" => resource_location(),
+        "name" => String.t(),
+        "resourceType" => list(any()),
+        "sourceInfo" => list(cloud_formation_stack_record_source_info()()),
+        "state" => list(any())
+      }
+      
+  """
+  @type cloud_formation_stack_record() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_relational_database_snapshot_result() :: %{
+        "operations" => list(operation()())
+      }
+      
+  """
+  @type create_relational_database_snapshot_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_load_balancer_tls_certificate_request() :: %{
+        optional("certificateAlternativeNames") => list(String.t()()),
+        optional("tags") => list(tag()()),
+        required("certificateDomainName") => String.t(),
+        required("certificateName") => String.t(),
+        required("loadBalancerName") => String.t()
+      }
+      
+  """
+  @type create_load_balancer_tls_certificate_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_relational_database_parameters_result() :: %{
+        "nextPageToken" => String.t(),
+        "parameters" => list(relational_database_parameter()())
+      }
+      
+  """
+  @type get_relational_database_parameters_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_key_pair_request() :: %{
+        required("keyPairName") => String.t()
+      }
+      
+  """
+  @type get_key_pair_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cache_settings() :: %{
+        "allowedHTTPMethods" => String.t(),
+        "cachedHTTPMethods" => String.t(),
+        "defaultTTL" => float(),
+        "forwardedCookies" => cookie_object(),
+        "forwardedHeaders" => header_object(),
+        "forwardedQueryStrings" => query_string_object(),
+        "maximumTTL" => float(),
+        "minimumTTL" => float()
+      }
+      
+  """
+  @type cache_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_instance_access_details_request() :: %{
+        optional("protocol") => list(any()),
+        required("instanceName") => String.t()
+      }
+      
+  """
+  @type get_instance_access_details_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      attach_static_ip_request() :: %{
+        required("instanceName") => String.t(),
+        required("staticIpName") => String.t()
+      }
+      
+  """
+  @type attach_static_ip_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      private_registry_access_request() :: %{
+        "ecrImagePullerRole" => container_service_e_c_r_image_puller_role_request()
+      }
+      
+  """
+  @type private_registry_access_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      unpeer_vpc_result() :: %{
+        "operation" => operation()
+      }
+      
+  """
+  @type unpeer_vpc_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_instances_request() :: %{
+        optional("pageToken") => String.t()
+      }
+      
+  """
+  @type get_instances_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_alarms_result() :: %{
+        "alarms" => list(alarm()()),
+        "nextPageToken" => String.t()
+      }
+      
+  """
+  @type get_alarms_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      endpoint_request() :: %{
+        "containerName" => String.t(),
+        "containerPort" => integer(),
+        "healthCheck" => container_service_health_check_config()
+      }
+      
+  """
+  @type endpoint_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      instance_port_info() :: %{
+        "accessDirection" => list(any()),
+        "accessFrom" => String.t(),
+        "accessType" => list(any()),
+        "cidrListAliases" => list(String.t()()),
+        "cidrs" => list(String.t()()),
+        "commonName" => String.t(),
+        "fromPort" => integer(),
+        "ipv6Cidrs" => list(String.t()()),
+        "protocol" => list(any()),
+        "toPort" => integer()
+      }
+      
+  """
+  @type instance_port_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_relational_database_events_result() :: %{
+        "nextPageToken" => String.t(),
+        "relationalDatabaseEvents" => list(relational_database_event()())
+      }
+      
+  """
+  @type get_relational_database_events_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_container_log_result() :: %{
+        "logEvents" => list(container_service_log_event()()),
+        "nextPageToken" => String.t()
+      }
+      
+  """
+  @type get_container_log_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_load_balancers_result() :: %{
+        "loadBalancers" => list(load_balancer()()),
+        "nextPageToken" => String.t()
+      }
+      
+  """
+  @type get_load_balancers_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_instance_request() :: %{
+        optional("forceDeleteAddOns") => boolean(),
+        required("instanceName") => String.t()
+      }
+      
+  """
+  @type delete_instance_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_certificates_result() :: %{
+        "certificates" => list(certificate_summary()()),
+        "nextPageToken" => String.t()
+      }
+      
+  """
+  @type get_certificates_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_relational_database_parameters_request() :: %{
+        required("parameters") => list(relational_database_parameter()()),
+        required("relationalDatabaseName") => String.t()
+      }
+      
+  """
+  @type update_relational_database_parameters_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_container_service_metric_data_request() :: %{
+        required("endTime") => non_neg_integer(),
+        required("metricName") => list(any()),
+        required("period") => integer(),
+        required("startTime") => non_neg_integer(),
+        required("statistics") => list(list(any())())
+      }
+      
+  """
+  @type get_container_service_metric_data_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_alarms_request() :: %{
+        optional("alarmName") => String.t(),
+        optional("monitoredResourceName") => String.t(),
+        optional("pageToken") => String.t()
+      }
+      
+  """
+  @type get_alarms_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      open_instance_public_ports_result() :: %{
+        "operation" => operation()
+      }
+      
+  """
+  @type open_instance_public_ports_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      detach_instances_from_load_balancer_request() :: %{
+        required("instanceNames") => list(String.t()()),
+        required("loadBalancerName") => String.t()
+      }
+      
+  """
+  @type detach_instances_from_load_balancer_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_container_service_request() :: %{
+        optional("isDisabled") => boolean(),
+        optional("power") => list(any()),
+        optional("privateRegistryAccess") => private_registry_access_request(),
+        optional("publicDomainNames") => map(),
+        optional("scale") => integer()
+      }
+      
+  """
+  @type update_container_service_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_g_ui_session_request() :: %{
+        required("resourceName") => String.t()
+      }
+      
+  """
+  @type start_g_ui_session_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_distribution_result() :: %{
+        "operation" => operation()
+      }
+      
+  """
+  @type update_distribution_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_container_images_result() :: %{
+        "containerImages" => list(container_image()())
+      }
+      
+  """
+  @type get_container_images_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_container_service_registry_login_request() :: %{}
+      
+  """
+  @type create_container_service_registry_login_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_g_ui_session_access_details_result() :: %{
+        "failureReason" => String.t(),
+        "percentageComplete" => integer(),
+        "resourceName" => String.t(),
+        "sessions" => list(session()()),
+        "status" => list(any())
+      }
+      
+  """
+  @type create_g_ui_session_access_details_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_load_balancers_request() :: %{
+        optional("pageToken") => String.t()
+      }
+      
+  """
+  @type get_load_balancers_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      is_vpc_peered_request() :: %{}
+      
+  """
+  @type is_vpc_peered_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_disks_request() :: %{
+        optional("pageToken") => String.t()
+      }
+      
+  """
+  @type get_disks_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_operations_for_resource_result() :: %{
+        "nextPageCount" => String.t(),
+        "nextPageToken" => String.t(),
+        "operations" => list(operation()())
+      }
+      
+  """
+  @type get_operations_for_resource_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_distribution_latest_cache_reset_result() :: %{
+        "createTime" => non_neg_integer(),
+        "status" => String.t()
+      }
+      
+  """
+  @type get_distribution_latest_cache_reset_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_bucket_access_key_result() :: %{
+        "accessKey" => access_key(),
+        "operations" => list(operation()())
+      }
+      
+  """
+  @type create_bucket_access_key_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_result() :: %{
+        "operations" => list(operation()())
+      }
+      
+  """
+  @type tag_resource_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_instance_state_result() :: %{
+        "state" => instance_state()
+      }
+      
+  """
+  @type get_instance_state_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      unpeer_vpc_request() :: %{}
+      
+  """
+  @type unpeer_vpc_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      open_instance_public_ports_request() :: %{
+        required("instanceName") => String.t(),
+        required("portInfo") => port_info()
+      }
+      
+  """
+  @type open_instance_public_ports_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_cloud_formation_stack_records_request() :: %{
+        optional("pageToken") => String.t()
+      }
+      
+  """
+  @type get_cloud_formation_stack_records_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_distribution_bundle_request() :: %{
+        optional("bundleId") => String.t(),
+        optional("distributionName") => String.t()
+      }
+      
+  """
+  @type update_distribution_bundle_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_operations_request() :: %{
+        optional("pageToken") => String.t()
+      }
+      
+  """
+  @type get_operations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_relational_databases_result() :: %{
+        "nextPageToken" => String.t(),
+        "relationalDatabases" => list(relational_database()())
+      }
+      
+  """
+  @type get_relational_databases_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_distribution_request() :: %{
+        optional("distributionName") => String.t()
+      }
+      
+  """
+  @type delete_distribution_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_relational_database_blueprints_result() :: %{
+        "blueprints" => list(relational_database_blueprint()()),
+        "nextPageToken" => String.t()
+      }
+      
+  """
+  @type get_relational_database_blueprints_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_key_pair_result() :: %{
+        "keyPair" => key_pair(),
+        "operation" => operation(),
+        "privateKeyBase64" => String.t(),
+        "publicKeyBase64" => String.t()
+      }
+      
+  """
+  @type create_key_pair_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      attach_static_ip_result() :: %{
+        "operations" => list(operation()())
+      }
+      
+  """
+  @type attach_static_ip_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_relational_database_result() :: %{
+        "relationalDatabase" => relational_database()
+      }
+      
+  """
+  @type get_relational_database_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      metric_datapoint() :: %{
+        "average" => float(),
+        "maximum" => float(),
+        "minimum" => float(),
+        "sampleCount" => float(),
+        "sum" => float(),
+        "timestamp" => non_neg_integer(),
+        "unit" => list(any())
+      }
+      
+  """
+  @type metric_datapoint() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_g_ui_session_result() :: %{
+        "operations" => list(operation()())
+      }
+      
+  """
+  @type start_g_ui_session_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_load_balancer_tls_certificate_result() :: %{
+        "operations" => list(operation()())
+      }
+      
+  """
+  @type delete_load_balancer_tls_certificate_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      relational_database_parameter() :: %{
+        "allowedValues" => String.t(),
+        "applyMethod" => String.t(),
+        "applyType" => String.t(),
+        "dataType" => String.t(),
+        "description" => String.t(),
+        "isModifiable" => boolean(),
+        "parameterName" => String.t(),
+        "parameterValue" => String.t()
+      }
+      
+  """
+  @type relational_database_parameter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_setup_history_request() :: %{
+        optional("pageToken") => String.t(),
+        required("resourceName") => String.t()
+      }
+      
+  """
+  @type get_setup_history_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_static_ips_result() :: %{
+        "nextPageToken" => String.t(),
+        "staticIps" => list(static_ip()())
+      }
+      
+  """
+  @type get_static_ips_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_cloud_formation_stack_records_result() :: %{
+        "cloudFormationStackRecords" => list(cloud_formation_stack_record()()),
+        "nextPageToken" => String.t()
+      }
+      
+  """
+  @type get_cloud_formation_stack_records_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_relational_database_master_user_password_request() :: %{
+        optional("passwordVersion") => list(any()),
+        required("relationalDatabaseName") => String.t()
+      }
+      
+  """
+  @type get_relational_database_master_user_password_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_relational_database_snapshots_request() :: %{
+        optional("pageToken") => String.t()
+      }
+      
+  """
+  @type get_relational_database_snapshots_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      export_snapshot_record_source_info() :: %{
+        "arn" => String.t(),
+        "createdAt" => non_neg_integer(),
+        "diskSnapshotInfo" => disk_snapshot_info(),
+        "fromResourceArn" => String.t(),
+        "fromResourceName" => String.t(),
+        "instanceSnapshotInfo" => instance_snapshot_info(),
+        "name" => String.t(),
+        "resourceType" => list(any())
+      }
+      
+  """
+  @type export_snapshot_record_source_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_disks_result() :: %{
+        "disks" => list(disk()()),
+        "nextPageToken" => String.t()
+      }
+      
+  """
+  @type get_disks_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_instance_result() :: %{
+        "instance" => instance()
+      }
+      
+  """
+  @type get_instance_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_instance_state_request() :: %{
+        required("instanceName") => String.t()
+      }
+      
+  """
+  @type get_instance_state_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_load_balancer_metric_data_result() :: %{
+        "metricData" => list(metric_datapoint()()),
+        "metricName" => list(any())
+      }
+      
+  """
+  @type get_load_balancer_metric_data_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_bucket_access_key_request() :: %{
+        required("accessKeyId") => String.t(),
+        required("bucketName") => String.t()
+      }
+      
+  """
+  @type delete_bucket_access_key_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_blueprints_result() :: %{
+        "blueprints" => list(blueprint()()),
+        "nextPageToken" => String.t()
+      }
+      
+  """
+  @type get_blueprints_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      query_string_object() :: %{
+        "option" => boolean(),
+        "queryStringsAllowList" => list(String.t()())
+      }
+      
+  """
+  @type query_string_object() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      detach_certificate_from_distribution_request() :: %{
+        required("distributionName") => String.t()
+      }
+      
+  """
+  @type detach_certificate_from_distribution_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_instance_request() :: %{
+        required("instanceName") => String.t()
+      }
+      
+  """
+  @type start_instance_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_disk_result() :: %{
+        "disk" => disk()
+      }
+      
+  """
+  @type get_disk_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      domain_entry() :: %{
+        "id" => String.t(),
+        "isAlias" => boolean(),
+        "name" => String.t(),
+        "options" => map(),
+        "target" => String.t(),
+        "type" => String.t()
+      }
+      
+  """
+  @type domain_entry() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disk_info() :: %{
+        "isSystemDisk" => boolean(),
+        "name" => String.t(),
+        "path" => String.t(),
+        "sizeInGb" => integer()
+      }
+      
+  """
+  @type disk_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_domain_entry_result() :: %{
+        "operation" => operation()
+      }
+      
+  """
+  @type create_domain_entry_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_record() :: %{
+        "name" => String.t(),
+        "type" => String.t(),
+        "value" => String.t()
+      }
+      
+  """
+  @type resource_record() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      registered_domain_delegation_info() :: %{
+        "nameServersUpdateState" => name_servers_update_state(),
+        "r53HostedZoneDeletionState" => r53_hosted_zone_deletion_state()
+      }
+      
+  """
+  @type registered_domain_delegation_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      header_object() :: %{
+        "headersAllowList" => list(list(any())()),
+        "option" => list(any())
+      }
+      
+  """
+  @type header_object() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_certificates_request() :: %{
+        optional("certificateName") => String.t(),
+        optional("certificateStatuses") => list(list(any())()),
+        optional("includeCertificateDetails") => boolean(),
+        optional("pageToken") => String.t()
+      }
+      
+  """
+  @type get_certificates_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      host_key_attributes() :: %{
+        "algorithm" => String.t(),
+        "fingerprintSHA1" => String.t(),
+        "fingerprintSHA256" => String.t(),
+        "notValidAfter" => non_neg_integer(),
+        "notValidBefore" => non_neg_integer(),
+        "publicKey" => String.t(),
+        "witnessedAt" => non_neg_integer()
+      }
+      
+  """
+  @type host_key_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cache_behavior() :: %{
+        "behavior" => list(any())
+      }
+      
+  """
+  @type cache_behavior() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      access_key_last_used() :: %{
+        "lastUsedDate" => non_neg_integer(),
+        "region" => String.t(),
+        "serviceName" => String.t()
+      }
+      
+  """
+  @type access_key_last_used() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      relational_database_endpoint() :: %{
+        "address" => String.t(),
+        "port" => integer()
+      }
+      
+  """
+  @type relational_database_endpoint() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_container_api_metadata_request() :: %{}
+      
+  """
+  @type get_container_api_metadata_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_relational_database_request() :: %{
+        optional("relationalDatabaseSnapshotName") => String.t(),
+        required("relationalDatabaseName") => String.t()
+      }
+      
+  """
+  @type stop_relational_database_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_container_service_result() :: %{
+        "containerService" => container_service()
+      }
+      
+  """
+  @type create_container_service_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      container_service_endpoint() :: %{
+        "containerName" => String.t(),
+        "containerPort" => integer(),
+        "healthCheck" => container_service_health_check_config()
+      }
+      
+  """
+  @type container_service_endpoint() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      estimate_by_time() :: %{
+        "currency" => list(any()),
+        "pricingUnit" => list(any()),
+        "timePeriod" => time_period(),
+        "unit" => float(),
+        "usageCost" => float()
+      }
+      
+  """
+  @type estimate_by_time() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cost_estimate() :: %{
+        "resultsByTime" => list(estimate_by_time()()),
+        "usageType" => String.t()
+      }
+      
+  """
+  @type cost_estimate() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      relational_database_bundle() :: %{
+        "bundleId" => String.t(),
+        "cpuCount" => integer(),
+        "diskSizeInGb" => integer(),
+        "isActive" => boolean(),
+        "isEncrypted" => boolean(),
+        "name" => String.t(),
+        "price" => float(),
+        "ramSizeInGb" => float(),
+        "transferPerMonthInGb" => integer()
+      }
+      
+  """
+  @type relational_database_bundle() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_disk_snapshots_result() :: %{
+        "diskSnapshots" => list(disk_snapshot()()),
+        "nextPageToken" => String.t()
+      }
+      
+  """
+  @type get_disk_snapshots_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_container_service_powers_request() :: %{}
+      
+  """
+  @type get_container_service_powers_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      detach_certificate_from_distribution_result() :: %{
+        "operation" => operation()
+      }
+      
+  """
+  @type detach_certificate_from_distribution_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_relational_database_from_snapshot_request() :: %{
+        optional("availabilityZone") => String.t(),
+        optional("publiclyAccessible") => boolean(),
+        optional("relationalDatabaseBundleId") => String.t(),
+        optional("relationalDatabaseSnapshotName") => String.t(),
+        optional("restoreTime") => non_neg_integer(),
+        optional("sourceRelationalDatabaseName") => String.t(),
+        optional("tags") => list(tag()()),
+        optional("useLatestRestorableTime") => boolean(),
+        required("relationalDatabaseName") => String.t()
+      }
+      
+  """
+  @type create_relational_database_from_snapshot_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_relational_database_blueprints_request() :: %{
+        optional("pageToken") => String.t()
+      }
+      
+  """
+  @type get_relational_database_blueprints_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      instance_entry() :: %{
+        "availabilityZone" => String.t(),
+        "instanceType" => String.t(),
+        "portInfoSource" => list(any()),
+        "sourceName" => String.t(),
+        "userData" => String.t()
+      }
+      
+  """
+  @type instance_entry() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      set_resource_access_for_bucket_result() :: %{
+        "operations" => list(operation()())
+      }
+      
+  """
+  @type set_resource_access_for_bucket_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cookie_object() :: %{
+        "cookiesAllowList" => list(String.t()()),
+        "option" => list(any())
+      }
+      
+  """
+  @type cookie_object() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_auto_snapshot_result() :: %{
+        "operations" => list(operation()())
+      }
+      
+  """
+  @type delete_auto_snapshot_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      relational_database_blueprint() :: %{
+        "blueprintId" => String.t(),
+        "engine" => list(any()),
+        "engineDescription" => String.t(),
+        "engineVersion" => String.t(),
+        "engineVersionDescription" => String.t(),
+        "isEngineDefault" => boolean()
+      }
+      
+  """
+  @type relational_database_blueprint() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_alarm_result() :: %{
+        "operations" => list(operation()())
+      }
+      
+  """
+  @type delete_alarm_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      attach_certificate_to_distribution_result() :: %{
+        "operation" => operation()
+      }
+      
+  """
+  @type attach_certificate_to_distribution_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      auto_snapshot_add_on_request() :: %{
+        "snapshotTimeOfDay" => String.t()
+      }
+      
+  """
+  @type auto_snapshot_add_on_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_container_service_result() :: %{
+        "containerService" => container_service()
+      }
+      
+  """
+  @type update_container_service_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      export_snapshot_record() :: %{
+        "arn" => String.t(),
+        "createdAt" => non_neg_integer(),
+        "destinationInfo" => destination_info(),
+        "location" => resource_location(),
+        "name" => String.t(),
+        "resourceType" => list(any()),
+        "sourceInfo" => export_snapshot_record_source_info(),
+        "state" => list(any())
+      }
+      
+  """
+  @type export_snapshot_record() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      private_registry_access() :: %{
+        "ecrImagePullerRole" => container_service_e_c_r_image_puller_role()
+      }
+      
+  """
+  @type private_registry_access() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      close_instance_public_ports_request() :: %{
+        required("instanceName") => String.t(),
+        required("portInfo") => port_info()
+      }
+      
+  """
+  @type close_instance_public_ports_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_contact_method_result() :: %{
+        "operations" => list(operation()())
+      }
+      
+  """
+  @type create_contact_method_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_relational_database_result() :: %{
+        "operations" => list(operation()())
+      }
+      
+  """
+  @type start_relational_database_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_relational_database_snapshot_result() :: %{
+        "operations" => list(operation()())
+      }
+      
+  """
+  @type delete_relational_database_snapshot_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      account_setup_in_progress_exception() :: %{
+        "code" => String.t(),
+        "docs" => String.t(),
+        "message" => String.t(),
+        "tip" => String.t()
+      }
+      
+  """
+  @type account_setup_in_progress_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      bucket_access_log_config() :: %{
+        "destination" => String.t(),
+        "enabled" => boolean(),
+        "prefix" => String.t()
+      }
+      
+  """
+  @type bucket_access_log_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_disk_result() :: %{
+        "operations" => list(operation()())
+      }
+      
+  """
+  @type create_disk_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      relational_database_event() :: %{
+        "createdAt" => non_neg_integer(),
+        "eventCategories" => list(String.t()()),
+        "message" => String.t(),
+        "resource" => String.t()
+      }
+      
+  """
+  @type relational_database_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      release_static_ip_result() :: %{
+        "operations" => list(operation()())
+      }
+      
+  """
+  @type release_static_ip_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_container_service_deployments_result() :: %{
+        "deployments" => list(container_service_deployment()())
+      }
+      
+  """
+  @type get_container_service_deployments_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      operation_failure_exception() :: %{
+        "code" => String.t(),
+        "docs" => String.t(),
+        "message" => String.t(),
+        "tip" => String.t()
+      }
+      
+  """
+  @type operation_failure_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      log_event() :: %{
+        "createdAt" => non_neg_integer(),
+        "message" => String.t()
+      }
+      
+  """
+  @type log_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      setup_execution_details() :: %{
+        "command" => String.t(),
+        "dateTime" => non_neg_integer(),
+        "name" => String.t(),
+        "standardError" => String.t(),
+        "standardOutput" => String.t(),
+        "status" => list(any()),
+        "version" => String.t()
+      }
+      
+  """
+  @type setup_execution_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_contact_methods_result() :: %{
+        "contactMethods" => list(contact_method()())
+      }
+      
+  """
+  @type get_contact_methods_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      register_container_image_result() :: %{
+        "containerImage" => container_image()
+      }
+      
+  """
+  @type register_container_image_result() :: %{String.t() => any()}
+
+  @type allocate_static_ip_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type attach_certificate_to_distribution_errors() ::
+          operation_failure_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type attach_disk_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type attach_instances_to_load_balancer_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type attach_load_balancer_tls_certificate_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type attach_static_ip_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type close_instance_public_ports_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type copy_snapshot_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type create_bucket_errors() ::
+          access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | unauthenticated_exception()
+
+  @type create_bucket_access_key_errors() ::
+          access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type create_certificate_errors() ::
+          access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type create_cloud_formation_stack_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type create_contact_method_errors() ::
+          operation_failure_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type create_container_service_errors() ::
+          access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type create_container_service_deployment_errors() ::
+          access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type create_container_service_registry_login_errors() ::
+          access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type create_disk_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type create_disk_from_snapshot_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type create_disk_snapshot_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type create_distribution_errors() ::
+          operation_failure_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type create_domain_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type create_domain_entry_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type create_g_ui_session_access_details_errors() ::
+          access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type create_instance_snapshot_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type create_instances_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type create_instances_from_snapshot_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type create_key_pair_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type create_load_balancer_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type create_load_balancer_tls_certificate_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type create_relational_database_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type create_relational_database_from_snapshot_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type create_relational_database_snapshot_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type delete_alarm_errors() ::
+          operation_failure_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type delete_auto_snapshot_errors() ::
+          operation_failure_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type delete_bucket_errors() ::
+          access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type delete_bucket_access_key_errors() ::
+          access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type delete_certificate_errors() ::
+          access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type delete_contact_method_errors() ::
+          operation_failure_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type delete_container_image_errors() ::
+          access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type delete_container_service_errors() ::
+          access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type delete_disk_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type delete_disk_snapshot_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type delete_distribution_errors() ::
+          operation_failure_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type delete_domain_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type delete_domain_entry_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type delete_instance_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type delete_instance_snapshot_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type delete_key_pair_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type delete_known_host_keys_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type delete_load_balancer_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type delete_load_balancer_tls_certificate_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type delete_relational_database_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type delete_relational_database_snapshot_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type detach_certificate_from_distribution_errors() ::
+          operation_failure_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type detach_disk_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type detach_instances_from_load_balancer_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type detach_static_ip_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type disable_add_on_errors() ::
+          operation_failure_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type download_default_key_pair_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type enable_add_on_errors() ::
+          operation_failure_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type export_snapshot_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type get_active_names_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type get_alarms_errors() ::
+          operation_failure_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type get_auto_snapshots_errors() ::
+          operation_failure_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type get_blueprints_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type get_bucket_access_keys_errors() ::
+          access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type get_bucket_bundles_errors() ::
+          access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | unauthenticated_exception()
+
+  @type get_bucket_metric_data_errors() ::
+          access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type get_buckets_errors() ::
+          access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type get_bundles_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type get_certificates_errors() ::
+          access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type get_cloud_formation_stack_records_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type get_contact_methods_errors() ::
+          operation_failure_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type get_container_api_metadata_errors() ::
+          access_denied_exception() | service_exception() | unauthenticated_exception()
+
+  @type get_container_images_errors() ::
+          access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type get_container_log_errors() ::
+          access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type get_container_service_deployments_errors() ::
+          access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type get_container_service_metric_data_errors() ::
+          access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type get_container_service_powers_errors() ::
+          access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type get_container_services_errors() ::
+          access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type get_cost_estimate_errors() ::
+          access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type get_disk_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type get_disk_snapshot_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type get_disk_snapshots_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type get_disks_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type get_distribution_bundles_errors() ::
+          operation_failure_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type get_distribution_latest_cache_reset_errors() ::
+          operation_failure_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type get_distribution_metric_data_errors() ::
+          operation_failure_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type get_distributions_errors() ::
+          operation_failure_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type get_domain_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type get_domains_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type get_export_snapshot_records_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type get_instance_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type get_instance_access_details_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type get_instance_metric_data_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type get_instance_port_states_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type get_instance_snapshot_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type get_instance_snapshots_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type get_instance_state_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type get_instances_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type get_key_pair_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type get_key_pairs_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type get_load_balancer_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type get_load_balancer_metric_data_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type get_load_balancer_tls_certificates_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type get_load_balancer_tls_policies_errors() ::
+          account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | unauthenticated_exception()
+
+  @type get_load_balancers_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type get_operation_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type get_operations_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type get_operations_for_resource_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type get_regions_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type get_relational_database_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type get_relational_database_blueprints_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type get_relational_database_bundles_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type get_relational_database_events_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type get_relational_database_log_events_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type get_relational_database_log_streams_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type get_relational_database_master_user_password_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type get_relational_database_metric_data_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type get_relational_database_parameters_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type get_relational_database_snapshot_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type get_relational_database_snapshots_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type get_relational_databases_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type get_setup_history_errors() ::
+          access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type get_static_ip_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type get_static_ips_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type import_key_pair_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type is_vpc_peered_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type open_instance_public_ports_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type peer_vpc_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type put_alarm_errors() ::
+          operation_failure_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type put_instance_public_ports_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type reboot_instance_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type reboot_relational_database_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type register_container_image_errors() ::
+          access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type release_static_ip_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type reset_distribution_cache_errors() ::
+          operation_failure_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type send_contact_method_verification_errors() ::
+          operation_failure_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type set_ip_address_type_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type set_resource_access_for_bucket_errors() ::
+          access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type setup_instance_https_errors() ::
+          access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type start_g_ui_session_errors() ::
+          access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type start_instance_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type start_relational_database_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type stop_g_ui_session_errors() ::
+          access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type stop_instance_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type stop_relational_database_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type tag_resource_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type test_alarm_errors() ::
+          operation_failure_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type unpeer_vpc_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type untag_resource_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type update_bucket_errors() ::
+          access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type update_bucket_bundle_errors() ::
+          access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type update_container_service_errors() ::
+          access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type update_distribution_errors() ::
+          operation_failure_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type update_distribution_bundle_errors() ::
+          operation_failure_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type update_domain_entry_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type update_instance_metadata_options_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type update_load_balancer_attribute_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type update_relational_database_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
+  @type update_relational_database_parameters_errors() ::
+          operation_failure_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | not_found_exception()
+          | unauthenticated_exception()
+
   def metadata do
     %{
       api_version: "2016-11-28",
@@ -53,6 +7206,10 @@ defmodule AWS.Lightsail do
   @doc """
   Allocates a static IP address.
   """
+  @spec allocate_static_ip(map(), allocate_static_ip_request(), list()) ::
+          {:ok, allocate_static_ip_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, allocate_static_ip_errors()}
   def allocate_static_ip(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -79,6 +7236,14 @@ defmodule AWS.Lightsail do
   located in the
   `us-east-1` Region.
   """
+  @spec attach_certificate_to_distribution(
+          map(),
+          attach_certificate_to_distribution_request(),
+          list()
+        ) ::
+          {:ok, attach_certificate_to_distribution_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, attach_certificate_to_distribution_errors()}
   def attach_certificate_to_distribution(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -94,6 +7259,10 @@ defmodule AWS.Lightsail do
   applied to the resource identified by `disk name`. For more information, see the
   [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
+  @spec attach_disk(map(), attach_disk_request(), list()) ::
+          {:ok, attach_disk_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, attach_disk_errors()}
   def attach_disk(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -117,6 +7286,14 @@ defmodule AWS.Lightsail do
 
   . For more information, see the [Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
+  @spec attach_instances_to_load_balancer(
+          map(),
+          attach_instances_to_load_balancer_request(),
+          list()
+        ) ::
+          {:ok, attach_instances_to_load_balancer_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, attach_instances_to_load_balancer_errors()}
   def attach_instances_to_load_balancer(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -145,6 +7322,14 @@ defmodule AWS.Lightsail do
 
   . For more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
+  @spec attach_load_balancer_tls_certificate(
+          map(),
+          attach_load_balancer_tls_certificate_request(),
+          list()
+        ) ::
+          {:ok, attach_load_balancer_tls_certificate_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, attach_load_balancer_tls_certificate_errors()}
   def attach_load_balancer_tls_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -154,6 +7339,10 @@ defmodule AWS.Lightsail do
   @doc """
   Attaches a static IP address to a specific Amazon Lightsail instance.
   """
+  @spec attach_static_ip(map(), attach_static_ip_request(), list()) ::
+          {:ok, attach_static_ip_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, attach_static_ip_errors()}
   def attach_static_ip(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -167,6 +7356,10 @@ defmodule AWS.Lightsail do
   resource tags applied to the resource identified by `instanceName`. For more
   information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
+  @spec close_instance_public_ports(map(), close_instance_public_ports_request(), list()) ::
+          {:ok, close_instance_public_ports_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, close_instance_public_ports_errors()}
   def close_instance_public_ports(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -209,6 +7402,10 @@ defmodule AWS.Lightsail do
 
   parameters.
   """
+  @spec copy_snapshot(map(), copy_snapshot_request(), list()) ::
+          {:ok, copy_snapshot_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, copy_snapshot_errors()}
   def copy_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -226,6 +7423,10 @@ defmodule AWS.Lightsail do
   in the *Amazon Lightsail Developer
   Guide*.
   """
+  @spec create_bucket(map(), create_bucket_request(), list()) ::
+          {:ok, create_bucket_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_bucket_errors()}
   def create_bucket(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -253,6 +7454,10 @@ defmodule AWS.Lightsail do
   lose the
   secret access key, you must create a new access key.
   """
+  @spec create_bucket_access_key(map(), create_bucket_access_key_request(), list()) ::
+          {:ok, create_bucket_access_key_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_bucket_access_key_errors()}
   def create_bucket_access_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -277,6 +7482,10 @@ defmodule AWS.Lightsail do
   located in the
   `us-east-1` Region.
   """
+  @spec create_certificate(map(), create_certificate_request(), list()) ::
+          {:ok, create_certificate_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_certificate_errors()}
   def create_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -307,6 +7516,10 @@ defmodule AWS.Lightsail do
 
   operation again with the same export snapshot record.
   """
+  @spec create_cloud_formation_stack(map(), create_cloud_formation_stack_request(), list()) ::
+          {:ok, create_cloud_formation_stack_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_cloud_formation_stack_errors()}
   def create_cloud_formation_stack(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -325,6 +7538,10 @@ defmodule AWS.Lightsail do
   more information,
   see [Notifications in Amazon Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-notifications).
   """
+  @spec create_contact_method(map(), create_contact_method_request(), list()) ::
+          {:ok, create_contact_method_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_contact_method_errors()}
   def create_contact_method(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -340,6 +7557,10 @@ defmodule AWS.Lightsail do
   in the *Lightsail Dev
   Guide*.
   """
+  @spec create_container_service(map(), create_container_service_request(), list()) ::
+          {:ok, create_container_service_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_container_service_errors()}
   def create_container_service(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -367,6 +7588,14 @@ defmodule AWS.Lightsail do
   in the
   *Amazon Lightsail Developer Guide*.
   """
+  @spec create_container_service_deployment(
+          map(),
+          create_container_service_deployment_request(),
+          list()
+        ) ::
+          {:ok, create_container_service_deployment_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_container_service_deployment_errors()}
   def create_container_service_deployment(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -406,6 +7635,14 @@ defmodule AWS.Lightsail do
   services](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-pushing-container-images)
   in the *Amazon Lightsail Developer Guide*.
   """
+  @spec create_container_service_registry_login(
+          map(),
+          create_container_service_registry_login_request(),
+          list()
+        ) ::
+          {:ok, create_container_service_registry_login_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_container_service_registry_login_errors()}
   def create_container_service_registry_login(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -420,6 +7657,10 @@ defmodule AWS.Lightsail do
   The `create disk` operation supports tag-based access control via request tags.
   For more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
+  @spec create_disk(map(), create_disk_request(), list()) ::
+          {:ok, create_disk_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_disk_errors()}
   def create_disk(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -443,6 +7684,10 @@ defmodule AWS.Lightsail do
 
   . For more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
+  @spec create_disk_from_snapshot(map(), create_disk_from_snapshot_request(), list()) ::
+          {:ok, create_disk_from_snapshot_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_disk_from_snapshot_errors()}
   def create_disk_from_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -488,6 +7733,10 @@ defmodule AWS.Lightsail do
   The `create disk snapshot` operation supports tag-based access control via
   request tags. For more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
+  @spec create_disk_snapshot(map(), create_disk_snapshot_request(), list()) ::
+          {:ok, create_disk_snapshot_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_disk_snapshot_errors()}
   def create_disk_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -503,6 +7752,10 @@ defmodule AWS.Lightsail do
   For more
   information, see [Content delivery networks in Amazon Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-content-delivery-network-distributions).
   """
+  @spec create_distribution(map(), create_distribution_request(), list()) ::
+          {:ok, create_distribution_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_distribution_errors()}
   def create_distribution(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -515,6 +7768,10 @@ defmodule AWS.Lightsail do
   The `create domain` operation supports tag-based access control via request
   tags. For more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
+  @spec create_domain(map(), create_domain_request(), list()) ::
+          {:ok, create_domain_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_domain_errors()}
   def create_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -532,6 +7789,10 @@ defmodule AWS.Lightsail do
   resource tags applied to the resource identified by `domain name`. For more
   information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
+  @spec create_domain_entry(map(), create_domain_entry_request(), list()) ::
+          {:ok, create_domain_entry_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_domain_entry_errors()}
   def create_domain_entry(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -550,6 +7811,14 @@ defmodule AWS.Lightsail do
 
   Use `StartGUISession` to open the session.
   """
+  @spec create_g_ui_session_access_details(
+          map(),
+          create_g_ui_session_access_details_request(),
+          list()
+        ) ::
+          {:ok, create_g_ui_session_access_details_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_g_ui_session_access_details_errors()}
   def create_g_ui_session_access_details(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -564,6 +7833,10 @@ defmodule AWS.Lightsail do
   The `create instance snapshot` operation supports tag-based access control via
   request tags. For more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
+  @spec create_instance_snapshot(map(), create_instance_snapshot_request(), list()) ::
+          {:ok, create_instance_snapshot_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_instance_snapshot_errors()}
   def create_instance_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -576,6 +7849,10 @@ defmodule AWS.Lightsail do
   The `create instances` operation supports tag-based access control via request
   tags. For more information, see the [Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
+  @spec create_instances(map(), create_instances_request(), list()) ::
+          {:ok, create_instances_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_instances_errors()}
   def create_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -591,6 +7868,10 @@ defmodule AWS.Lightsail do
   `instance snapshot name`. For more information, see the [Amazon Lightsail Developer
   Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
+  @spec create_instances_from_snapshot(map(), create_instances_from_snapshot_request(), list()) ::
+          {:ok, create_instances_from_snapshot_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_instances_from_snapshot_errors()}
   def create_instances_from_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -611,6 +7892,10 @@ defmodule AWS.Lightsail do
   tags. For more information, see the [Amazon Lightsail Developer
   Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
+  @spec create_key_pair(map(), create_key_pair_request(), list()) ::
+          {:ok, create_key_pair_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_key_pair_errors()}
   def create_key_pair(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -633,6 +7918,10 @@ defmodule AWS.Lightsail do
   The `create load balancer` operation supports tag-based access control via
   request tags. For more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
+  @spec create_load_balancer(map(), create_load_balancer_request(), list()) ::
+          {:ok, create_load_balancer_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_load_balancer_errors()}
   def create_load_balancer(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -654,6 +7943,14 @@ defmodule AWS.Lightsail do
 
   . For more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
+  @spec create_load_balancer_tls_certificate(
+          map(),
+          create_load_balancer_tls_certificate_request(),
+          list()
+        ) ::
+          {:ok, create_load_balancer_tls_certificate_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_load_balancer_tls_certificate_errors()}
   def create_load_balancer_tls_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -666,6 +7963,10 @@ defmodule AWS.Lightsail do
   The `create relational database` operation supports tag-based access control
   via request tags. For more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
+  @spec create_relational_database(map(), create_relational_database_request(), list()) ::
+          {:ok, create_relational_database_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_relational_database_errors()}
   def create_relational_database(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -687,6 +7988,14 @@ defmodule AWS.Lightsail do
   relationalDatabaseSnapshotName. For more information, see the [Amazon Lightsail Developer
   Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
+  @spec create_relational_database_from_snapshot(
+          map(),
+          create_relational_database_from_snapshot_request(),
+          list()
+        ) ::
+          {:ok, create_relational_database_from_snapshot_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_relational_database_from_snapshot_errors()}
   def create_relational_database_from_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -703,6 +8012,14 @@ defmodule AWS.Lightsail do
   control via request tags. For more information, see the [Amazon Lightsail Developer
   Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
+  @spec create_relational_database_snapshot(
+          map(),
+          create_relational_database_snapshot_request(),
+          list()
+        ) ::
+          {:ok, create_relational_database_snapshot_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_relational_database_snapshot_errors()}
   def create_relational_database_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -719,6 +8036,10 @@ defmodule AWS.Lightsail do
   on the Amazon Lightsail console. For more information, see [Alarms in Amazon
   Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-alarms).
   """
+  @spec delete_alarm(map(), delete_alarm_request(), list()) ::
+          {:ok, delete_alarm_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_alarm_errors()}
   def delete_alarm(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -730,6 +8051,10 @@ defmodule AWS.Lightsail do
 
   For more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots).
   """
+  @spec delete_auto_snapshot(map(), delete_auto_snapshot_request(), list()) ::
+          {:ok, delete_auto_snapshot_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_auto_snapshot_errors()}
   def delete_auto_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -743,6 +8068,10 @@ defmodule AWS.Lightsail do
   new
   bucket in your account or another Amazon Web Services account.
   """
+  @spec delete_bucket(map(), delete_bucket_request(), list()) ::
+          {:ok, delete_bucket_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_bucket_errors()}
   def delete_bucket(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -760,6 +8089,10 @@ defmodule AWS.Lightsail do
   in the
   *Amazon Lightsail Developer Guide*.
   """
+  @spec delete_bucket_access_key(map(), delete_bucket_access_key_request(), list()) ::
+          {:ok, delete_bucket_access_key_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_bucket_access_key_errors()}
   def delete_bucket_access_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -776,6 +8109,10 @@ defmodule AWS.Lightsail do
   `DetachCertificateFromDistribution` action to detach a certificate from a
   distribution.
   """
+  @spec delete_certificate(map(), delete_certificate_request(), list()) ::
+          {:ok, delete_certificate_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_certificate_errors()}
   def delete_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -794,6 +8131,10 @@ defmodule AWS.Lightsail do
   more information,
   see [Notifications in Amazon Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-notifications).
   """
+  @spec delete_contact_method(map(), delete_contact_method_request(), list()) ::
+          {:ok, delete_contact_method_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_contact_method_errors()}
   def delete_contact_method(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -804,6 +8145,10 @@ defmodule AWS.Lightsail do
   Deletes a container image that is registered to your Amazon Lightsail container
   service.
   """
+  @spec delete_container_image(map(), delete_container_image_request(), list()) ::
+          {:ok, delete_container_image_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_container_image_errors()}
   def delete_container_image(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -813,6 +8158,10 @@ defmodule AWS.Lightsail do
   @doc """
   Deletes your Amazon Lightsail container service.
   """
+  @spec delete_container_service(map(), delete_container_service_request(), list()) ::
+          {:ok, delete_container_service_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_container_service_errors()}
   def delete_container_service(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -831,6 +8180,10 @@ defmodule AWS.Lightsail do
   applied to the resource identified by `disk name`. For more information, see the
   [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
+  @spec delete_disk(map(), delete_disk_request(), list()) ::
+          {:ok, delete_disk_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_disk_errors()}
   def delete_disk(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -855,6 +8208,10 @@ defmodule AWS.Lightsail do
   more
   information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
+  @spec delete_disk_snapshot(map(), delete_disk_snapshot_request(), list()) ::
+          {:ok, delete_disk_snapshot_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_disk_snapshot_errors()}
   def delete_disk_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -864,6 +8221,10 @@ defmodule AWS.Lightsail do
   @doc """
   Deletes your Amazon Lightsail content delivery network (CDN) distribution.
   """
+  @spec delete_distribution(map(), delete_distribution_request(), list()) ::
+          {:ok, delete_distribution_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_distribution_errors()}
   def delete_distribution(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -878,6 +8239,10 @@ defmodule AWS.Lightsail do
   see
   the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
+  @spec delete_domain(map(), delete_domain_request(), list()) ::
+          {:ok, delete_domain_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_domain_errors()}
   def delete_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -891,6 +8256,10 @@ defmodule AWS.Lightsail do
   resource tags applied to the resource identified by `domain name`. For more
   information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
+  @spec delete_domain_entry(map(), delete_domain_entry_request(), list()) ::
+          {:ok, delete_domain_entry_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_domain_entry_errors()}
   def delete_domain_entry(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -905,6 +8274,10 @@ defmodule AWS.Lightsail do
   information,
   see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
+  @spec delete_instance(map(), delete_instance_request(), list()) ::
+          {:ok, delete_instance_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_instance_errors()}
   def delete_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -920,6 +8293,10 @@ defmodule AWS.Lightsail do
   For
   more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
+  @spec delete_instance_snapshot(map(), delete_instance_snapshot_request(), list()) ::
+          {:ok, delete_instance_snapshot_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_instance_snapshot_errors()}
   def delete_instance_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -944,6 +8321,10 @@ defmodule AWS.Lightsail do
   see the [Amazon Lightsail Developer
   Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
+  @spec delete_key_pair(map(), delete_key_pair_request(), list()) ::
+          {:ok, delete_key_pair_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_key_pair_errors()}
   def delete_key_pair(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -965,6 +8346,10 @@ defmodule AWS.Lightsail do
   information, see [Troubleshooting connection issues when using the Amazon Lightsail browser-based SSH or RDP
   client](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-troubleshooting-browser-based-ssh-rdp-client-connection).
   """
+  @spec delete_known_host_keys(map(), delete_known_host_keys_request(), list()) ::
+          {:ok, delete_known_host_keys_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_known_host_keys_errors()}
   def delete_known_host_keys(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -984,6 +8369,10 @@ defmodule AWS.Lightsail do
   more
   information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
+  @spec delete_load_balancer(map(), delete_load_balancer_request(), list()) ::
+          {:ok, delete_load_balancer_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_load_balancer_errors()}
   def delete_load_balancer(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1003,6 +8392,14 @@ defmodule AWS.Lightsail do
 
   . For more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
+  @spec delete_load_balancer_tls_certificate(
+          map(),
+          delete_load_balancer_tls_certificate_request(),
+          list()
+        ) ::
+          {:ok, delete_load_balancer_tls_certificate_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_load_balancer_tls_certificate_errors()}
   def delete_load_balancer_tls_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1017,6 +8414,10 @@ defmodule AWS.Lightsail do
   For more
   information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
+  @spec delete_relational_database(map(), delete_relational_database_request(), list()) ::
+          {:ok, delete_relational_database_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_relational_database_errors()}
   def delete_relational_database(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1031,6 +8432,14 @@ defmodule AWS.Lightsail do
   relationalDatabaseName. For
   more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
+  @spec delete_relational_database_snapshot(
+          map(),
+          delete_relational_database_snapshot_request(),
+          list()
+        ) ::
+          {:ok, delete_relational_database_snapshot_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_relational_database_snapshot_errors()}
   def delete_relational_database_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1046,6 +8455,14 @@ defmodule AWS.Lightsail do
   all of
   the domains that are associated with the certificate.
   """
+  @spec detach_certificate_from_distribution(
+          map(),
+          detach_certificate_from_distribution_request(),
+          list()
+        ) ::
+          {:ok, detach_certificate_from_distribution_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, detach_certificate_from_distribution_errors()}
   def detach_certificate_from_distribution(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1064,6 +8481,10 @@ defmodule AWS.Lightsail do
   applied to the resource identified by `disk name`. For more information, see the
   [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
+  @spec detach_disk(map(), detach_disk_request(), list()) ::
+          {:ok, detach_disk_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, detach_disk_errors()}
   def detach_disk(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1087,6 +8508,14 @@ defmodule AWS.Lightsail do
 
   . For more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
+  @spec detach_instances_from_load_balancer(
+          map(),
+          detach_instances_from_load_balancer_request(),
+          list()
+        ) ::
+          {:ok, detach_instances_from_load_balancer_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, detach_instances_from_load_balancer_errors()}
   def detach_instances_from_load_balancer(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1096,6 +8525,10 @@ defmodule AWS.Lightsail do
   @doc """
   Detaches a static IP from the Amazon Lightsail instance to which it is attached.
   """
+  @spec detach_static_ip(map(), detach_static_ip_request(), list()) ::
+          {:ok, detach_static_ip_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, detach_static_ip_errors()}
   def detach_static_ip(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1107,6 +8540,10 @@ defmodule AWS.Lightsail do
 
   For more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots).
   """
+  @spec disable_add_on(map(), disable_add_on_request(), list()) ::
+          {:ok, disable_add_on_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, disable_add_on_errors()}
   def disable_add_on(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1119,6 +8556,10 @@ defmodule AWS.Lightsail do
   This action also creates a Lightsail default key pair if a default key pair
   does not currently exist in the Amazon Web Services Region.
   """
+  @spec download_default_key_pair(map(), download_default_key_pair_request(), list()) ::
+          {:ok, download_default_key_pair_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, download_default_key_pair_errors()}
   def download_default_key_pair(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1131,6 +8572,10 @@ defmodule AWS.Lightsail do
   For more information, see
   the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots).
   """
+  @spec enable_add_on(map(), enable_add_on_request(), list()) ::
+          {:ok, enable_add_on_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, enable_add_on_errors()}
   def enable_add_on(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1165,6 +8610,10 @@ defmodule AWS.Lightsail do
   Use the `get instance snapshots` or `get disk snapshots`
   operations to get a list of snapshots that you can export to Amazon EC2.
   """
+  @spec export_snapshot(map(), export_snapshot_request(), list()) ::
+          {:ok, export_snapshot_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, export_snapshot_errors()}
   def export_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1174,6 +8623,10 @@ defmodule AWS.Lightsail do
   @doc """
   Returns the names of all active (not deleted) resources.
   """
+  @spec get_active_names(map(), get_active_names_request(), list()) ::
+          {:ok, get_active_names_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_active_names_errors()}
   def get_active_names(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1195,6 +8648,10 @@ defmodule AWS.Lightsail do
   on the Amazon Lightsail console. For more information, see [Alarms in Amazon
   Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-alarms).
   """
+  @spec get_alarms(map(), get_alarms_request(), list()) ::
+          {:ok, get_alarms_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_alarms_errors()}
   def get_alarms(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1207,6 +8664,10 @@ defmodule AWS.Lightsail do
   For more information,
   see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots).
   """
+  @spec get_auto_snapshots(map(), get_auto_snapshots_request(), list()) ::
+          {:ok, get_auto_snapshots_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_auto_snapshots_errors()}
   def get_auto_snapshots(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1231,6 +8692,10 @@ defmodule AWS.Lightsail do
   operating system
   updates or new application releases.
   """
+  @spec get_blueprints(map(), get_blueprints_request(), list()) ::
+          {:ok, get_blueprints_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_blueprints_errors()}
   def get_blueprints(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1247,6 +8712,10 @@ defmodule AWS.Lightsail do
   action. If you lose the secret access key, you must create
   a new access key.
   """
+  @spec get_bucket_access_keys(map(), get_bucket_access_keys_request(), list()) ::
+          {:ok, get_bucket_access_keys_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_bucket_access_keys_errors()}
   def get_bucket_access_keys(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1265,6 +8734,10 @@ defmodule AWS.Lightsail do
   action to update the
   bundle for a bucket.
   """
+  @spec get_bucket_bundles(map(), get_bucket_bundles_request(), list()) ::
+          {:ok, get_bucket_bundles_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_bucket_bundles_errors()}
   def get_bucket_bundles(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1280,6 +8753,10 @@ defmodule AWS.Lightsail do
   the storage
   space used by those objects.
   """
+  @spec get_bucket_metric_data(map(), get_bucket_metric_data_request(), list()) ::
+          {:ok, get_bucket_metric_data_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_bucket_metric_data_errors()}
   def get_bucket_metric_data(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1298,6 +8775,10 @@ defmodule AWS.Lightsail do
   in the *Amazon Lightsail Developer
   Guide*.
   """
+  @spec get_buckets(map(), get_buckets_request(), list()) ::
+          {:ok, get_buckets_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_buckets_errors()}
   def get_buckets(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1318,6 +8799,10 @@ defmodule AWS.Lightsail do
   Bundles are referred to as *instance plans* in the Lightsail
   console.
   """
+  @spec get_bundles(map(), get_bundles_request(), list()) ::
+          {:ok, get_bundles_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_bundles_errors()}
   def get_bundles(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1332,6 +8817,10 @@ defmodule AWS.Lightsail do
   (ARN),
   certificate name, domain name, and tags.
   """
+  @spec get_certificates(map(), get_certificates_request(), list()) ::
+          {:ok, get_certificates_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_certificates_errors()}
   def get_certificates(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1352,6 +8841,14 @@ defmodule AWS.Lightsail do
   exported Lightsail
   snapshot.
   """
+  @spec get_cloud_formation_stack_records(
+          map(),
+          get_cloud_formation_stack_records_request(),
+          list()
+        ) ::
+          {:ok, get_cloud_formation_stack_records_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_cloud_formation_stack_records_errors()}
   def get_cloud_formation_stack_records(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1373,6 +8870,10 @@ defmodule AWS.Lightsail do
   more information,
   see [Notifications in Amazon Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-notifications).
   """
+  @spec get_contact_methods(map(), get_contact_methods_request(), list()) ::
+          {:ok, get_contact_methods_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_contact_methods_errors()}
   def get_contact_methods(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1384,6 +8885,10 @@ defmodule AWS.Lightsail do
   version of the
   Lightsail Control (lightsailctl) plugin.
   """
+  @spec get_container_api_metadata(map(), get_container_api_metadata_request(), list()) ::
+          {:ok, get_container_api_metadata_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_container_api_metadata_errors()}
   def get_container_api_metadata(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1401,6 +8906,10 @@ defmodule AWS.Lightsail do
   part of this
   action. Those images are not registered to your Lightsail container service.
   """
+  @spec get_container_images(map(), get_container_images_request(), list()) ::
+          {:ok, get_container_images_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_container_images_errors()}
   def get_container_images(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1424,6 +8933,10 @@ defmodule AWS.Lightsail do
   *Amazon Web Services General
   Reference*.
   """
+  @spec get_container_log(map(), get_container_log_request(), list()) ::
+          {:ok, get_container_log_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_container_log_errors()}
   def get_container_log(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1448,6 +8961,14 @@ defmodule AWS.Lightsail do
   *Amazon Web Services General
   Reference*.
   """
+  @spec get_container_service_deployments(
+          map(),
+          get_container_service_deployments_request(),
+          list()
+        ) ::
+          {:ok, get_container_service_deployments_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_container_service_deployments_errors()}
   def get_container_service_deployments(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1463,6 +8984,14 @@ defmodule AWS.Lightsail do
   regularly to maintain the reliability, availability, and performance of your
   resources.
   """
+  @spec get_container_service_metric_data(
+          map(),
+          get_container_service_metric_data_request(),
+          list()
+        ) ::
+          {:ok, get_container_service_metric_data_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_container_service_metric_data_errors()}
   def get_container_service_metric_data(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1478,6 +9007,10 @@ defmodule AWS.Lightsail do
   price of the
   container service.
   """
+  @spec get_container_service_powers(map(), get_container_service_powers_request(), list()) ::
+          {:ok, get_container_service_powers_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_container_service_powers_errors()}
   def get_container_service_powers(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1488,6 +9021,10 @@ defmodule AWS.Lightsail do
   Returns information about one or more of your Amazon Lightsail container
   services.
   """
+  @spec get_container_services(map(), get_container_services_request(), list()) ::
+          {:ok, container_services_list_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_container_services_errors()}
   def get_container_services(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1500,6 +9037,10 @@ defmodule AWS.Lightsail do
   A cost estimate
   will not generate for a resource that has been deleted.
   """
+  @spec get_cost_estimate(map(), get_cost_estimate_request(), list()) ::
+          {:ok, get_cost_estimate_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_cost_estimate_errors()}
   def get_cost_estimate(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1509,6 +9050,10 @@ defmodule AWS.Lightsail do
   @doc """
   Returns information about a specific block storage disk.
   """
+  @spec get_disk(map(), get_disk_request(), list()) ::
+          {:ok, get_disk_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_disk_errors()}
   def get_disk(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1518,6 +9063,10 @@ defmodule AWS.Lightsail do
   @doc """
   Returns information about a specific block storage disk snapshot.
   """
+  @spec get_disk_snapshot(map(), get_disk_snapshot_request(), list()) ::
+          {:ok, get_disk_snapshot_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_disk_snapshot_errors()}
   def get_disk_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1529,6 +9078,10 @@ defmodule AWS.Lightsail do
   and
   region.
   """
+  @spec get_disk_snapshots(map(), get_disk_snapshots_request(), list()) ::
+          {:ok, get_disk_snapshots_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_disk_snapshots_errors()}
   def get_disk_snapshots(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1539,6 +9092,10 @@ defmodule AWS.Lightsail do
   Returns information about all block storage disks in your AWS account and
   region.
   """
+  @spec get_disks(map(), get_disks_request(), list()) ::
+          {:ok, get_disks_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_disks_errors()}
   def get_disks(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1554,6 +9111,10 @@ defmodule AWS.Lightsail do
   cost of
   your distribution.
   """
+  @spec get_distribution_bundles(map(), get_distribution_bundles_request(), list()) ::
+          {:ok, get_distribution_bundles_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_distribution_bundles_errors()}
   def get_distribution_bundles(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1565,6 +9126,14 @@ defmodule AWS.Lightsail do
   Lightsail
   content delivery network (CDN) distribution.
   """
+  @spec get_distribution_latest_cache_reset(
+          map(),
+          get_distribution_latest_cache_reset_request(),
+          list()
+        ) ::
+          {:ok, get_distribution_latest_cache_reset_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_distribution_latest_cache_reset_errors()}
   def get_distribution_latest_cache_reset(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1582,6 +9151,10 @@ defmodule AWS.Lightsail do
   availability, and
   performance of your resources.
   """
+  @spec get_distribution_metric_data(map(), get_distribution_metric_data_request(), list()) ::
+          {:ok, get_distribution_metric_data_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_distribution_metric_data_errors()}
   def get_distribution_metric_data(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1593,6 +9166,10 @@ defmodule AWS.Lightsail do
   network
   (CDN) distributions.
   """
+  @spec get_distributions(map(), get_distributions_request(), list()) ::
+          {:ok, get_distributions_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_distributions_errors()}
   def get_distributions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1602,6 +9179,10 @@ defmodule AWS.Lightsail do
   @doc """
   Returns information about a specific domain recordset.
   """
+  @spec get_domain(map(), get_domain_request(), list()) ::
+          {:ok, get_domain_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_domain_errors()}
   def get_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1611,6 +9192,10 @@ defmodule AWS.Lightsail do
   @doc """
   Returns a list of all domains in the user's account.
   """
+  @spec get_domains(map(), get_domains_request(), list()) ::
+          {:ok, get_domains_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_domains_errors()}
   def get_domains(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1633,6 +9218,10 @@ defmodule AWS.Lightsail do
   [CreateCloudFormationStack](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateCloudFormationStack.html)
   action.
   """
+  @spec get_export_snapshot_records(map(), get_export_snapshot_records_request(), list()) ::
+          {:ok, get_export_snapshot_records_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_export_snapshot_records_errors()}
   def get_export_snapshot_records(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1644,6 +9233,10 @@ defmodule AWS.Lightsail do
   virtual private
   server.
   """
+  @spec get_instance(map(), get_instance_request(), list()) ::
+          {:ok, get_instance_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_instance_errors()}
   def get_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1660,6 +9253,10 @@ defmodule AWS.Lightsail do
   more
   information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
+  @spec get_instance_access_details(map(), get_instance_access_details_request(), list()) ::
+          {:ok, get_instance_access_details_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_instance_access_details_errors()}
   def get_instance_access_details(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1677,6 +9274,10 @@ defmodule AWS.Lightsail do
   availability, and
   performance of your resources.
   """
+  @spec get_instance_metric_data(map(), get_instance_metric_data_request(), list()) ::
+          {:ok, get_instance_metric_data_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_instance_metric_data_errors()}
   def get_instance_metric_data(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1688,6 +9289,10 @@ defmodule AWS.Lightsail do
   IP addresses
   allowed to connect to the instance through the ports, and the protocol.
   """
+  @spec get_instance_port_states(map(), get_instance_port_states_request(), list()) ::
+          {:ok, get_instance_port_states_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_instance_port_states_errors()}
   def get_instance_port_states(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1697,6 +9302,10 @@ defmodule AWS.Lightsail do
   @doc """
   Returns information about a specific instance snapshot.
   """
+  @spec get_instance_snapshot(map(), get_instance_snapshot_request(), list()) ::
+          {:ok, get_instance_snapshot_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_instance_snapshot_errors()}
   def get_instance_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1706,6 +9315,10 @@ defmodule AWS.Lightsail do
   @doc """
   Returns all instance snapshots for the user's account.
   """
+  @spec get_instance_snapshots(map(), get_instance_snapshots_request(), list()) ::
+          {:ok, get_instance_snapshots_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_instance_snapshots_errors()}
   def get_instance_snapshots(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1717,6 +9330,10 @@ defmodule AWS.Lightsail do
 
   Works on one instance at a time.
   """
+  @spec get_instance_state(map(), get_instance_state_request(), list()) ::
+          {:ok, get_instance_state_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_instance_state_errors()}
   def get_instance_state(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1727,6 +9344,10 @@ defmodule AWS.Lightsail do
   Returns information about all Amazon Lightsail virtual private servers, or
   *instances*.
   """
+  @spec get_instances(map(), get_instances_request(), list()) ::
+          {:ok, get_instances_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_instances_errors()}
   def get_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1736,6 +9357,10 @@ defmodule AWS.Lightsail do
   @doc """
   Returns information about a specific key pair.
   """
+  @spec get_key_pair(map(), get_key_pair_request(), list()) ::
+          {:ok, get_key_pair_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_key_pair_errors()}
   def get_key_pair(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1745,6 +9370,10 @@ defmodule AWS.Lightsail do
   @doc """
   Returns information about all key pairs in the user's account.
   """
+  @spec get_key_pairs(map(), get_key_pairs_request(), list()) ::
+          {:ok, get_key_pairs_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_key_pairs_errors()}
   def get_key_pairs(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1754,6 +9383,10 @@ defmodule AWS.Lightsail do
   @doc """
   Returns information about the specified Lightsail load balancer.
   """
+  @spec get_load_balancer(map(), get_load_balancer_request(), list()) ::
+          {:ok, get_load_balancer_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_load_balancer_errors()}
   def get_load_balancer(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1769,6 +9402,10 @@ defmodule AWS.Lightsail do
   availability, and
   performance of your resources.
   """
+  @spec get_load_balancer_metric_data(map(), get_load_balancer_metric_data_request(), list()) ::
+          {:ok, get_load_balancer_metric_data_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_load_balancer_metric_data_errors()}
   def get_load_balancer_metric_data(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1786,6 +9423,14 @@ defmodule AWS.Lightsail do
   balancer. One
   is active and the other is inactive.
   """
+  @spec get_load_balancer_tls_certificates(
+          map(),
+          get_load_balancer_tls_certificates_request(),
+          list()
+        ) ::
+          {:ok, get_load_balancer_tls_certificates_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_load_balancer_tls_certificates_errors()}
   def get_load_balancer_tls_certificates(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1800,6 +9445,10 @@ defmodule AWS.Lightsail do
   balancers](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configure-load-balancer-tls-security-policy)
   in the *Amazon Lightsail Developer Guide*.
   """
+  @spec get_load_balancer_tls_policies(map(), get_load_balancer_tls_policies_request(), list()) ::
+          {:ok, get_load_balancer_tls_policies_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_load_balancer_tls_policies_errors()}
   def get_load_balancer_tls_policies(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1809,6 +9458,10 @@ defmodule AWS.Lightsail do
   @doc """
   Returns information about all load balancers in an account.
   """
+  @spec get_load_balancers(map(), get_load_balancers_request(), list()) ::
+          {:ok, get_load_balancers_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_load_balancers_errors()}
   def get_load_balancers(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1821,6 +9474,10 @@ defmodule AWS.Lightsail do
   Operations include events such as when you
   create an instance, allocate a static IP, attach a static IP, and so on.
   """
+  @spec get_operation(map(), get_operation_request(), list()) ::
+          {:ok, get_operation_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_operation_errors()}
   def get_operation(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1835,6 +9492,10 @@ defmodule AWS.Lightsail do
   by making each subsequent call to `GetOperations` use the maximum (last)
   `statusChangedAt` value from the previous request.
   """
+  @spec get_operations(map(), get_operations_request(), list()) ::
+          {:ok, get_operations_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_operations_errors()}
   def get_operations(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1844,6 +9505,10 @@ defmodule AWS.Lightsail do
   @doc """
   Gets operations for a specific resource (an instance or a static IP).
   """
+  @spec get_operations_for_resource(map(), get_operations_for_resource_request(), list()) ::
+          {:ok, get_operations_for_resource_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_operations_for_resource_errors()}
   def get_operations_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1863,6 +9528,10 @@ defmodule AWS.Lightsail do
   parameter to also return the Availability Zones in a
   region.
   """
+  @spec get_regions(map(), get_regions_request(), list()) ::
+          {:ok, get_regions_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_regions_errors()}
   def get_regions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1872,6 +9541,10 @@ defmodule AWS.Lightsail do
   @doc """
   Returns information about a specific database in Amazon Lightsail.
   """
+  @spec get_relational_database(map(), get_relational_database_request(), list()) ::
+          {:ok, get_relational_database_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_relational_database_errors()}
   def get_relational_database(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1888,6 +9561,14 @@ defmodule AWS.Lightsail do
   database
   engine.
   """
+  @spec get_relational_database_blueprints(
+          map(),
+          get_relational_database_blueprints_request(),
+          list()
+        ) ::
+          {:ok, get_relational_database_blueprints_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_relational_database_blueprints_errors()}
   def get_relational_database_blueprints(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1903,6 +9584,10 @@ defmodule AWS.Lightsail do
   You can use a bundle ID to create a new database with explicit performance
   specifications.
   """
+  @spec get_relational_database_bundles(map(), get_relational_database_bundles_request(), list()) ::
+          {:ok, get_relational_database_bundles_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_relational_database_bundles_errors()}
   def get_relational_database_bundles(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1912,6 +9597,10 @@ defmodule AWS.Lightsail do
   @doc """
   Returns a list of events for a specific database in Amazon Lightsail.
   """
+  @spec get_relational_database_events(map(), get_relational_database_events_request(), list()) ::
+          {:ok, get_relational_database_events_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_relational_database_events_errors()}
   def get_relational_database_events(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1921,6 +9610,14 @@ defmodule AWS.Lightsail do
   @doc """
   Returns a list of log events for a database in Amazon Lightsail.
   """
+  @spec get_relational_database_log_events(
+          map(),
+          get_relational_database_log_events_request(),
+          list()
+        ) ::
+          {:ok, get_relational_database_log_events_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_relational_database_log_events_errors()}
   def get_relational_database_log_events(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1931,6 +9628,14 @@ defmodule AWS.Lightsail do
   Returns a list of available log streams for a specific database in Amazon
   Lightsail.
   """
+  @spec get_relational_database_log_streams(
+          map(),
+          get_relational_database_log_streams_request(),
+          list()
+        ) ::
+          {:ok, get_relational_database_log_streams_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_relational_database_log_streams_errors()}
   def get_relational_database_log_streams(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1946,6 +9651,14 @@ defmodule AWS.Lightsail do
   access control via resource tags applied to the resource identified by
   relationalDatabaseName.
   """
+  @spec get_relational_database_master_user_password(
+          map(),
+          get_relational_database_master_user_password_request(),
+          list()
+        ) ::
+          {:ok, get_relational_database_master_user_password_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_relational_database_master_user_password_errors()}
   def get_relational_database_master_user_password(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1962,6 +9675,14 @@ defmodule AWS.Lightsail do
   availability, and
   performance of your resources.
   """
+  @spec get_relational_database_metric_data(
+          map(),
+          get_relational_database_metric_data_request(),
+          list()
+        ) ::
+          {:ok, get_relational_database_metric_data_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_relational_database_metric_data_errors()}
   def get_relational_database_metric_data(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1979,6 +9700,14 @@ defmodule AWS.Lightsail do
   reboot, whether the
   parameter is modifiable, the allowed values, and the data types.
   """
+  @spec get_relational_database_parameters(
+          map(),
+          get_relational_database_parameters_request(),
+          list()
+        ) ::
+          {:ok, get_relational_database_parameters_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_relational_database_parameters_errors()}
   def get_relational_database_parameters(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1988,6 +9717,14 @@ defmodule AWS.Lightsail do
   @doc """
   Returns information about a specific database snapshot in Amazon Lightsail.
   """
+  @spec get_relational_database_snapshot(
+          map(),
+          get_relational_database_snapshot_request(),
+          list()
+        ) ::
+          {:ok, get_relational_database_snapshot_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_relational_database_snapshot_errors()}
   def get_relational_database_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1997,6 +9734,14 @@ defmodule AWS.Lightsail do
   @doc """
   Returns information about all of your database snapshots in Amazon Lightsail.
   """
+  @spec get_relational_database_snapshots(
+          map(),
+          get_relational_database_snapshots_request(),
+          list()
+        ) ::
+          {:ok, get_relational_database_snapshots_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_relational_database_snapshots_errors()}
   def get_relational_database_snapshots(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2006,6 +9751,10 @@ defmodule AWS.Lightsail do
   @doc """
   Returns information about all of your databases in Amazon Lightsail.
   """
+  @spec get_relational_databases(map(), get_relational_databases_request(), list()) ::
+          {:ok, get_relational_databases_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_relational_databases_errors()}
   def get_relational_databases(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2016,6 +9765,10 @@ defmodule AWS.Lightsail do
   Returns detailed information for five of the most recent `SetupInstanceHttps`
   requests that were ran on the target instance.
   """
+  @spec get_setup_history(map(), get_setup_history_request(), list()) ::
+          {:ok, get_setup_history_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_setup_history_errors()}
   def get_setup_history(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2025,6 +9778,10 @@ defmodule AWS.Lightsail do
   @doc """
   Returns information about an Amazon Lightsail static IP.
   """
+  @spec get_static_ip(map(), get_static_ip_request(), list()) ::
+          {:ok, get_static_ip_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_static_ip_errors()}
   def get_static_ip(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2034,6 +9791,10 @@ defmodule AWS.Lightsail do
   @doc """
   Returns information about all static IPs in the user's account.
   """
+  @spec get_static_ips(map(), get_static_ips_request(), list()) ::
+          {:ok, get_static_ips_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_static_ips_errors()}
   def get_static_ips(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2043,6 +9804,10 @@ defmodule AWS.Lightsail do
   @doc """
   Imports a public SSH key from a specific key pair.
   """
+  @spec import_key_pair(map(), import_key_pair_request(), list()) ::
+          {:ok, import_key_pair_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, import_key_pair_errors()}
   def import_key_pair(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2052,6 +9817,10 @@ defmodule AWS.Lightsail do
   @doc """
   Returns a Boolean value indicating whether your Lightsail VPC is peered.
   """
+  @spec is_vpc_peered(map(), is_vpc_peered_request(), list()) ::
+          {:ok, is_vpc_peered_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, is_vpc_peered_errors()}
   def is_vpc_peered(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2067,6 +9836,10 @@ defmodule AWS.Lightsail do
   resource tags applied to the resource identified by `instanceName`. For more
   information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
+  @spec open_instance_public_ports(map(), open_instance_public_ports_request(), list()) ::
+          {:ok, open_instance_public_ports_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, open_instance_public_ports_errors()}
   def open_instance_public_ports(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2076,6 +9849,10 @@ defmodule AWS.Lightsail do
   @doc """
   Peers the Lightsail VPC with the user's default VPC.
   """
+  @spec peer_vpc(map(), peer_vpc_request(), list()) ::
+          {:ok, peer_vpc_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, peer_vpc_errors()}
   def peer_vpc(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2102,6 +9879,10 @@ defmodule AWS.Lightsail do
   with the
   updated configuration.
   """
+  @spec put_alarm(map(), put_alarm_request(), list()) ::
+          {:ok, put_alarm_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, put_alarm_errors()}
   def put_alarm(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2126,6 +9907,10 @@ defmodule AWS.Lightsail do
   resource tags applied to the resource identified by `instanceName`. For more
   information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
+  @spec put_instance_public_ports(map(), put_instance_public_ports_request(), list()) ::
+          {:ok, put_instance_public_ports_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, put_instance_public_ports_errors()}
   def put_instance_public_ports(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2140,6 +9925,10 @@ defmodule AWS.Lightsail do
   information,
   see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
+  @spec reboot_instance(map(), reboot_instance_request(), list()) ::
+          {:ok, reboot_instance_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, reboot_instance_errors()}
   def reboot_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2154,6 +9943,10 @@ defmodule AWS.Lightsail do
   For more
   information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
+  @spec reboot_relational_database(map(), reboot_relational_database_request(), list()) ::
+          {:ok, reboot_relational_database_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, reboot_relational_database_errors()}
   def reboot_relational_database(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2170,6 +9963,10 @@ defmodule AWS.Lightsail do
   services](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-pushing-container-images)
   in the *Amazon Lightsail Developer Guide*.
   """
+  @spec register_container_image(map(), register_container_image_request(), list()) ::
+          {:ok, register_container_image_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, register_container_image_errors()}
   def register_container_image(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2179,6 +9976,10 @@ defmodule AWS.Lightsail do
   @doc """
   Deletes a specific static IP from your account.
   """
+  @spec release_static_ip(map(), release_static_ip_request(), list()) ::
+          {:ok, release_static_ip_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, release_static_ip_errors()}
   def release_static_ip(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2194,6 +9995,10 @@ defmodule AWS.Lightsail do
   distribution
   pulls, serves, and caches it from the origin.
   """
+  @spec reset_distribution_cache(map(), reset_distribution_cache_request(), list()) ::
+          {:ok, reset_distribution_cache_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, reset_distribution_cache_errors()}
   def reset_distribution_cache(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2226,6 +10031,14 @@ defmodule AWS.Lightsail do
   verified, and
   confirmed as valid.
   """
+  @spec send_contact_method_verification(
+          map(),
+          send_contact_method_verification_request(),
+          list()
+        ) ::
+          {:ok, send_contact_method_verification_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, send_contact_method_verification_errors()}
   def send_contact_method_verification(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2241,6 +10054,10 @@ defmodule AWS.Lightsail do
   and enable
   IPv4 only.
   """
+  @spec set_ip_address_type(map(), set_ip_address_type_request(), list()) ::
+          {:ok, set_ip_address_type_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, set_ip_address_type_errors()}
   def set_ip_address_type(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2255,6 +10072,10 @@ defmodule AWS.Lightsail do
   the same
   Amazon Web Services Region.
   """
+  @spec set_resource_access_for_bucket(map(), set_resource_access_for_bucket_request(), list()) ::
+          {:ok, set_resource_access_for_bucket_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, set_resource_access_for_bucket_errors()}
   def set_resource_access_for_bucket(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2270,6 +10091,10 @@ defmodule AWS.Lightsail do
   If you provide more than one domain name in the request, at least one name must
   be less than or equal to 63 characters in length.
   """
+  @spec setup_instance_https(map(), setup_instance_https_request(), list()) ::
+          {:ok, setup_instance_https_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, setup_instance_https_errors()}
   def setup_instance_https(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2284,6 +10109,10 @@ defmodule AWS.Lightsail do
   The session will be active for 1 hour. Use this
   action to resume the session after it expires.
   """
+  @spec start_g_ui_session(map(), start_g_ui_session_request(), list()) ::
+          {:ok, start_g_ui_session_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_g_ui_session_errors()}
   def start_g_ui_session(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2308,6 +10137,10 @@ defmodule AWS.Lightsail do
   information,
   see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
+  @spec start_instance(map(), start_instance_request(), list()) ::
+          {:ok, start_instance_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_instance_errors()}
   def start_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2325,6 +10158,10 @@ defmodule AWS.Lightsail do
   more
   information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
+  @spec start_relational_database(map(), start_relational_database_request(), list()) ::
+          {:ok, start_relational_database_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_relational_database_errors()}
   def start_relational_database(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2339,6 +10176,10 @@ defmodule AWS.Lightsail do
   The session will close and any unsaved data will be
   lost.
   """
+  @spec stop_g_ui_session(map(), stop_g_ui_session_request(), list()) ::
+          {:ok, stop_g_ui_session_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, stop_g_ui_session_errors()}
   def stop_g_ui_session(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2360,6 +10201,10 @@ defmodule AWS.Lightsail do
   information,
   see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
+  @spec stop_instance(map(), stop_instance_request(), list()) ::
+          {:ok, stop_instance_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, stop_instance_errors()}
   def stop_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2374,6 +10219,10 @@ defmodule AWS.Lightsail do
   more
   information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
+  @spec stop_relational_database(map(), stop_relational_database_request(), list()) ::
+          {:ok, stop_relational_database_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, stop_relational_database_errors()}
   def stop_relational_database(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2394,6 +10243,10 @@ defmodule AWS.Lightsail do
   more
   information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
+  @spec tag_resource(map(), tag_resource_request(), list()) ::
+          {:ok, tag_resource_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2416,6 +10269,10 @@ defmodule AWS.Lightsail do
   on the Amazon Lightsail console. For more information, see [Alarms in Amazon
   Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-alarms).
   """
+  @spec test_alarm(map(), test_alarm_request(), list()) ::
+          {:ok, test_alarm_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, test_alarm_errors()}
   def test_alarm(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2425,6 +10282,10 @@ defmodule AWS.Lightsail do
   @doc """
   Unpeers the Lightsail VPC from the user's default VPC.
   """
+  @spec unpeer_vpc(map(), unpeer_vpc_request(), list()) ::
+          {:ok, unpeer_vpc_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, unpeer_vpc_errors()}
   def unpeer_vpc(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2441,6 +10302,10 @@ defmodule AWS.Lightsail do
   For
   more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
+  @spec untag_resource(map(), untag_resource_request(), list()) ::
+          {:ok, untag_resource_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2455,6 +10320,10 @@ defmodule AWS.Lightsail do
   public accessibility, and the Amazon Web Services accounts that can access the
   bucket.
   """
+  @spec update_bucket(map(), update_bucket_request(), list()) ::
+          {:ok, update_bucket_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_bucket_errors()}
   def update_bucket(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2488,6 +10357,10 @@ defmodule AWS.Lightsail do
   long time to
   come.
   """
+  @spec update_bucket_bundle(map(), update_bucket_bundle_request(), list()) ::
+          {:ok, update_bucket_bundle_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_bucket_bundle_errors()}
   def update_bucket_bundle(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2499,6 +10372,10 @@ defmodule AWS.Lightsail do
   its power,
   scale, and public domain names.
   """
+  @spec update_container_service(map(), update_container_service_request(), list()) ::
+          {:ok, update_container_service_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_container_service_errors()}
   def update_container_service(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2511,6 +10388,10 @@ defmodule AWS.Lightsail do
 
   Use this action to update the configuration of your existing distribution.
   """
+  @spec update_distribution(map(), update_distribution_request(), list()) ::
+          {:ok, update_distribution_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_distribution_errors()}
   def update_distribution(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2536,6 +10417,10 @@ defmodule AWS.Lightsail do
   result will indicate whether you can currently update your distribution's
   bundle.
   """
+  @spec update_distribution_bundle(map(), update_distribution_bundle_request(), list()) ::
+          {:ok, update_distribution_bundle_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_distribution_bundle_errors()}
   def update_distribution_bundle(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2549,6 +10434,10 @@ defmodule AWS.Lightsail do
   resource tags applied to the resource identified by `domain name`. For more
   information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
+  @spec update_domain_entry(map(), update_domain_entry_request(), list()) ::
+          {:ok, update_domain_entry_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_domain_entry_errors()}
   def update_domain_entry(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2568,6 +10457,14 @@ defmodule AWS.Lightsail do
   instance](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-instance-metadata-service)
   in the *Amazon Lightsail Developer Guide*.
   """
+  @spec update_instance_metadata_options(
+          map(),
+          update_instance_metadata_options_request(),
+          list()
+        ) ::
+          {:ok, update_instance_metadata_options_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_instance_metadata_options_errors()}
   def update_instance_metadata_options(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2590,6 +10487,10 @@ defmodule AWS.Lightsail do
 
   . For more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
+  @spec update_load_balancer_attribute(map(), update_load_balancer_attribute_request(), list()) ::
+          {:ok, update_load_balancer_attribute_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_load_balancer_attribute_errors()}
   def update_load_balancer_attribute(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2608,6 +10509,10 @@ defmodule AWS.Lightsail do
   For more
   information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
+  @spec update_relational_database(map(), update_relational_database_request(), list()) ::
+          {:ok, update_relational_database_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_relational_database_errors()}
   def update_relational_database(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2632,6 +10537,14 @@ defmodule AWS.Lightsail do
   relationalDatabaseName. For
   more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
+  @spec update_relational_database_parameters(
+          map(),
+          update_relational_database_parameters_request(),
+          list()
+        ) ::
+          {:ok, update_relational_database_parameters_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_relational_database_parameters_errors()}
   def update_relational_database_parameters(%Client{} = client, input, options \\ []) do
     meta = metadata()
 

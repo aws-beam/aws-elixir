@@ -9,6 +9,389 @@ defmodule AWS.ResourceGroupsTaggingAPI do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+      
+      compliance_details() :: %{
+        "ComplianceStatus" => boolean(),
+        "KeysWithNoncompliantValues" => list(String.t()()),
+        "NoncompliantKeys" => list(String.t()())
+      }
+      
+  """
+  @type compliance_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      concurrent_modification_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type concurrent_modification_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      constraint_violation_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type constraint_violation_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_report_creation_input() :: %{}
+      
+  """
+  @type describe_report_creation_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_report_creation_output() :: %{
+        "ErrorMessage" => String.t(),
+        "S3Location" => String.t(),
+        "StartDate" => String.t(),
+        "Status" => String.t()
+      }
+      
+  """
+  @type describe_report_creation_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      failure_info() :: %{
+        "ErrorCode" => list(any()),
+        "ErrorMessage" => String.t(),
+        "StatusCode" => integer()
+      }
+      
+  """
+  @type failure_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_compliance_summary_input() :: %{
+        optional("GroupBy") => list(list(any())()),
+        optional("MaxResults") => integer(),
+        optional("PaginationToken") => String.t(),
+        optional("RegionFilters") => list(String.t()()),
+        optional("ResourceTypeFilters") => list(String.t()()),
+        optional("TagKeyFilters") => list(String.t()()),
+        optional("TargetIdFilters") => list(String.t()())
+      }
+      
+  """
+  @type get_compliance_summary_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_compliance_summary_output() :: %{
+        "PaginationToken" => String.t(),
+        "SummaryList" => list(summary()())
+      }
+      
+  """
+  @type get_compliance_summary_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_resources_input() :: %{
+        optional("ExcludeCompliantResources") => boolean(),
+        optional("IncludeComplianceDetails") => boolean(),
+        optional("PaginationToken") => String.t(),
+        optional("ResourceARNList") => list(String.t()()),
+        optional("ResourceTypeFilters") => list(String.t()()),
+        optional("ResourcesPerPage") => integer(),
+        optional("TagFilters") => list(tag_filter()()),
+        optional("TagsPerPage") => integer()
+      }
+      
+  """
+  @type get_resources_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_resources_output() :: %{
+        "PaginationToken" => String.t(),
+        "ResourceTagMappingList" => list(resource_tag_mapping()())
+      }
+      
+  """
+  @type get_resources_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_tag_keys_input() :: %{
+        optional("PaginationToken") => String.t()
+      }
+      
+  """
+  @type get_tag_keys_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_tag_keys_output() :: %{
+        "PaginationToken" => String.t(),
+        "TagKeys" => list(String.t()())
+      }
+      
+  """
+  @type get_tag_keys_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_tag_values_input() :: %{
+        optional("PaginationToken") => String.t(),
+        required("Key") => String.t()
+      }
+      
+  """
+  @type get_tag_values_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_tag_values_output() :: %{
+        "PaginationToken" => String.t(),
+        "TagValues" => list(String.t()())
+      }
+      
+  """
+  @type get_tag_values_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      internal_service_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type internal_service_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_parameter_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type invalid_parameter_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      pagination_token_expired_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type pagination_token_expired_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_tag_mapping() :: %{
+        "ComplianceDetails" => compliance_details(),
+        "ResourceARN" => String.t(),
+        "Tags" => list(tag()())
+      }
+      
+  """
+  @type resource_tag_mapping() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_report_creation_input() :: %{
+        required("S3Bucket") => String.t()
+      }
+      
+  """
+  @type start_report_creation_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_report_creation_output() :: %{}
+      
+  """
+  @type start_report_creation_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      summary() :: %{
+        "LastUpdated" => String.t(),
+        "NonCompliantResources" => float(),
+        "Region" => String.t(),
+        "ResourceType" => String.t(),
+        "TargetId" => String.t(),
+        "TargetIdType" => list(any())
+      }
+      
+  """
+  @type summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag() :: %{
+        "Key" => String.t(),
+        "Value" => String.t()
+      }
+      
+  """
+  @type tag() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_filter() :: %{
+        "Key" => String.t(),
+        "Values" => list(String.t()())
+      }
+      
+  """
+  @type tag_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resources_input() :: %{
+        required("ResourceARNList") => list(String.t()()),
+        required("Tags") => map()
+      }
+      
+  """
+  @type tag_resources_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resources_output() :: %{
+        "FailedResourcesMap" => map()
+      }
+      
+  """
+  @type tag_resources_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      throttled_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type throttled_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resources_input() :: %{
+        required("ResourceARNList") => list(String.t()()),
+        required("TagKeys") => list(String.t()())
+      }
+      
+  """
+  @type untag_resources_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resources_output() :: %{
+        "FailedResourcesMap" => map()
+      }
+      
+  """
+  @type untag_resources_output() :: %{String.t() => any()}
+
+  @type describe_report_creation_errors() ::
+          throttled_exception()
+          | invalid_parameter_exception()
+          | internal_service_exception()
+          | constraint_violation_exception()
+
+  @type get_compliance_summary_errors() ::
+          throttled_exception()
+          | invalid_parameter_exception()
+          | internal_service_exception()
+          | constraint_violation_exception()
+
+  @type get_resources_errors() ::
+          throttled_exception()
+          | pagination_token_expired_exception()
+          | invalid_parameter_exception()
+          | internal_service_exception()
+
+  @type get_tag_keys_errors() ::
+          throttled_exception()
+          | pagination_token_expired_exception()
+          | invalid_parameter_exception()
+          | internal_service_exception()
+
+  @type get_tag_values_errors() ::
+          throttled_exception()
+          | pagination_token_expired_exception()
+          | invalid_parameter_exception()
+          | internal_service_exception()
+
+  @type start_report_creation_errors() ::
+          throttled_exception()
+          | invalid_parameter_exception()
+          | internal_service_exception()
+          | constraint_violation_exception()
+          | concurrent_modification_exception()
+
+  @type tag_resources_errors() ::
+          throttled_exception() | invalid_parameter_exception() | internal_service_exception()
+
+  @type untag_resources_errors() ::
+          throttled_exception() | invalid_parameter_exception() | internal_service_exception()
+
   def metadata do
     %{
       api_version: "2017-01-26",
@@ -30,6 +413,10 @@ defmodule AWS.ResourceGroupsTaggingAPI do
   You can call this operation only from the organization's
   management account and from the us-east-1 Region.
   """
+  @spec describe_report_creation(map(), describe_report_creation_input(), list()) ::
+          {:ok, describe_report_creation_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_report_creation_errors()}
   def describe_report_creation(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -58,6 +445,10 @@ defmodule AWS.ResourceGroupsTaggingAPI do
   recieve a `null` value. A null value for `PaginationToken` indicates that
   there are no more results waiting to be returned.
   """
+  @spec get_compliance_summary(map(), get_compliance_summary_input(), list()) ::
+          {:ok, get_compliance_summary_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_compliance_summary_errors()}
   def get_compliance_summary(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -92,6 +483,10 @@ defmodule AWS.ResourceGroupsTaggingAPI do
   recieve a `null` value. A null value for `PaginationToken` indicates that
   there are no more results waiting to be returned.
   """
+  @spec get_resources(map(), get_resources_input(), list()) ::
+          {:ok, get_resources_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_resources_errors()}
   def get_resources(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -113,6 +508,10 @@ defmodule AWS.ResourceGroupsTaggingAPI do
   recieve a `null` value. A null value for `PaginationToken` indicates that
   there are no more results waiting to be returned.
   """
+  @spec get_tag_keys(map(), get_tag_keys_input(), list()) ::
+          {:ok, get_tag_keys_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_tag_keys_errors()}
   def get_tag_keys(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -134,6 +533,10 @@ defmodule AWS.ResourceGroupsTaggingAPI do
   recieve a `null` value. A null value for `PaginationToken` indicates that
   there are no more results waiting to be returned.
   """
+  @spec get_tag_values(map(), get_tag_values_input(), list()) ::
+          {:ok, get_tag_values_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_tag_values_errors()}
   def get_tag_values(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -154,6 +557,10 @@ defmodule AWS.ResourceGroupsTaggingAPI do
   You can call this operation only from the organization's
   management account and from the us-east-1 Region.
   """
+  @spec start_report_creation(map(), start_report_creation_input(), list()) ::
+          {:ok, start_report_creation_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_report_creation_errors()}
   def start_report_creation(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -213,6 +620,10 @@ defmodule AWS.ResourceGroupsTaggingAPI do
 
   `ec2:CreateTags`
   """
+  @spec tag_resources(map(), tag_resources_input(), list()) ::
+          {:ok, tag_resources_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, tag_resources_errors()}
   def tag_resources(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -258,6 +669,10 @@ defmodule AWS.ResourceGroupsTaggingAPI do
 
   `ec2:DeleteTags`
   """
+  @spec untag_resources(map(), untag_resources_input(), list()) ::
+          {:ok, untag_resources_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, untag_resources_errors()}
   def untag_resources(%Client{} = client, input, options \\ []) do
     meta = metadata()
 

@@ -1376,8 +1376,9 @@ defmodule AWS.NeptuneGraph do
   within
   a VPC.
 
-  You can attach security groups to the private graph endpoint. VPC endpoint
-  charges apply.
+  You can attach security groups to the private graph endpoint.
+
+  VPC endpoint charges apply.
   """
   @spec create_private_graph_endpoint(
           map(),
@@ -1513,9 +1514,6 @@ defmodule AWS.NeptuneGraph do
   @doc """
   Execute an openCypher query.
 
-  Currently, the SDK does not support parameterized queries. If you want to make a
-  parameterized query call, you can use an HTTP request.
-
   When invoking this operation in a Neptune Analytics cluster, the IAM user or
   role making the request must have a policy attached
   that allows one of the following IAM actions in that cluster, depending on the
@@ -1529,12 +1527,6 @@ defmodule AWS.NeptuneGraph do
 
     *
   neptune-graph:DeleteDataViaQuery
-
-  Non-parametrized queries are not considered for plan caching. You can force plan
-  caching with
-  `planCache=enabled`. The plan cache will be reused only for the same exact
-  query. Slight variations
-  in the query will not be able to reuse the query plan cache.
   """
   @spec execute_query(map(), execute_query_input(), list()) ::
           {:ok, execute_query_output(), any()}

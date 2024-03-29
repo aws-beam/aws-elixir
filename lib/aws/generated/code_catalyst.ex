@@ -235,10 +235,10 @@ defmodule AWS.CodeCatalyst do
   ## Example:
 
       create_access_token_response() :: %{
-        required("accessTokenId") => String.t(),
-        required("expiresTime") => non_neg_integer(),
-        required("name") => String.t(),
-        required("secret") => String.t()
+        "accessTokenId" => String.t(),
+        "expiresTime" => non_neg_integer(),
+        "name" => String.t(),
+        "secret" => String.t()
       }
 
   """
@@ -352,20 +352,20 @@ defmodule AWS.CodeCatalyst do
   ## Example:
 
       get_dev_environment_response() :: %{
-        optional("alias") => [String.t()],
-        optional("ides") => list(ide()()),
-        optional("statusReason") => String.t(),
-        optional("vpcConnectionName") => String.t(),
-        required("creatorId") => [String.t()],
-        required("id") => String.t(),
-        required("inactivityTimeoutMinutes") => integer(),
-        required("instanceType") => String.t(),
-        required("lastUpdatedTime") => non_neg_integer(),
-        required("persistentStorage") => persistent_storage(),
-        required("projectName") => String.t(),
-        required("repositories") => list(dev_environment_repository_summary()()),
-        required("spaceName") => String.t(),
-        required("status") => String.t()
+        "alias" => [String.t()],
+        "creatorId" => [String.t()],
+        "id" => String.t(),
+        "ides" => list(ide()()),
+        "inactivityTimeoutMinutes" => integer(),
+        "instanceType" => String.t(),
+        "lastUpdatedTime" => non_neg_integer(),
+        "persistentStorage" => persistent_storage(),
+        "projectName" => String.t(),
+        "repositories" => list(dev_environment_repository_summary()()),
+        "spaceName" => String.t(),
+        "status" => String.t(),
+        "statusReason" => String.t(),
+        "vpcConnectionName" => String.t()
       }
 
   """
@@ -431,8 +431,10 @@ defmodule AWS.CodeCatalyst do
   ## Example:
 
       get_subscription_response() :: %{
-        optional("awsAccountName") => String.t(),
-        optional("subscriptionType") => [String.t()]
+        "awsAccountName" => String.t(),
+        "pendingSubscriptionStartTime" => non_neg_integer(),
+        "pendingSubscriptionType" => [String.t()],
+        "subscriptionType" => [String.t()]
       }
 
   """
@@ -539,11 +541,11 @@ defmodule AWS.CodeCatalyst do
   ## Example:
 
       get_user_details_response() :: %{
-        optional("displayName") => [String.t()],
-        optional("primaryEmail") => email_address(),
-        optional("userId") => [String.t()],
-        optional("userName") => [String.t()],
-        optional("version") => [String.t()]
+        "displayName" => [String.t()],
+        "primaryEmail" => email_address(),
+        "userId" => [String.t()],
+        "userName" => [String.t()],
+        "version" => [String.t()]
       }
 
   """
@@ -554,14 +556,14 @@ defmodule AWS.CodeCatalyst do
   ## Example:
 
       update_dev_environment_response() :: %{
-        optional("alias") => [String.t()],
-        optional("clientToken") => String.t(),
-        optional("ides") => list(ide_configuration()()),
-        optional("inactivityTimeoutMinutes") => integer(),
-        optional("instanceType") => String.t(),
-        required("id") => String.t(),
-        required("projectName") => String.t(),
-        required("spaceName") => String.t()
+        "alias" => [String.t()],
+        "clientToken" => String.t(),
+        "id" => String.t(),
+        "ides" => list(ide_configuration()()),
+        "inactivityTimeoutMinutes" => integer(),
+        "instanceType" => String.t(),
+        "projectName" => String.t(),
+        "spaceName" => String.t()
       }
 
   """
@@ -584,10 +586,10 @@ defmodule AWS.CodeCatalyst do
   ## Example:
 
       start_dev_environment_response() :: %{
-        required("id") => String.t(),
-        required("projectName") => String.t(),
-        required("spaceName") => String.t(),
-        required("status") => String.t()
+        "id" => String.t(),
+        "projectName" => String.t(),
+        "spaceName" => String.t(),
+        "status" => String.t()
       }
 
   """
@@ -619,10 +621,10 @@ defmodule AWS.CodeCatalyst do
   ## Example:
 
       create_project_response() :: %{
-        optional("description") => [String.t()],
-        optional("displayName") => [String.t()],
-        optional("spaceName") => String.t(),
-        required("name") => String.t()
+        "description" => [String.t()],
+        "displayName" => [String.t()],
+        "name" => String.t(),
+        "spaceName" => String.t()
       }
 
   """
@@ -739,8 +741,8 @@ defmodule AWS.CodeCatalyst do
   ## Example:
 
       list_projects_response() :: %{
-        optional("items") => list(project_summary()()),
-        optional("nextToken") => [String.t()]
+        "items" => list(project_summary()()),
+        "nextToken" => [String.t()]
       }
 
   """
@@ -751,10 +753,10 @@ defmodule AWS.CodeCatalyst do
   ## Example:
 
       stop_dev_environment_response() :: %{
-        required("id") => String.t(),
-        required("projectName") => String.t(),
-        required("spaceName") => String.t(),
-        required("status") => String.t()
+        "id" => String.t(),
+        "projectName" => String.t(),
+        "spaceName" => String.t(),
+        "status" => String.t()
       }
 
   """
@@ -765,10 +767,10 @@ defmodule AWS.CodeCatalyst do
   ## Example:
 
       get_project_response() :: %{
-        optional("description") => [String.t()],
-        optional("displayName") => [String.t()],
-        optional("spaceName") => String.t(),
-        required("name") => [String.t()]
+        "description" => [String.t()],
+        "displayName" => [String.t()],
+        "name" => [String.t()],
+        "spaceName" => String.t()
       }
 
   """
@@ -884,8 +886,8 @@ defmodule AWS.CodeCatalyst do
   ## Example:
 
       list_source_repository_branches_response() :: %{
-        optional("nextToken") => [String.t()],
-        required("items") => list(list_source_repository_branches_item()())
+        "items" => list(list_source_repository_branches_item()()),
+        "nextToken" => [String.t()]
       }
 
   """
@@ -982,11 +984,11 @@ defmodule AWS.CodeCatalyst do
   ## Example:
 
       start_dev_environment_session_response() :: %{
-        optional("sessionId") => [String.t()],
-        required("accessDetails") => dev_environment_access_details(),
-        required("id") => String.t(),
-        required("projectName") => String.t(),
-        required("spaceName") => String.t()
+        "accessDetails" => dev_environment_access_details(),
+        "id" => String.t(),
+        "projectName" => String.t(),
+        "sessionId" => [String.t()],
+        "spaceName" => String.t()
       }
 
   """
@@ -1101,10 +1103,10 @@ defmodule AWS.CodeCatalyst do
   ## Example:
 
       stop_dev_environment_session_response() :: %{
-        required("id") => String.t(),
-        required("projectName") => String.t(),
-        required("sessionId") => [String.t()],
-        required("spaceName") => String.t()
+        "id" => String.t(),
+        "projectName" => String.t(),
+        "sessionId" => [String.t()],
+        "spaceName" => String.t()
       }
 
   """
@@ -1149,10 +1151,10 @@ defmodule AWS.CodeCatalyst do
   ## Example:
 
       create_dev_environment_response() :: %{
-        optional("vpcConnectionName") => String.t(),
-        required("id") => String.t(),
-        required("projectName") => String.t(),
-        required("spaceName") => String.t()
+        "id" => String.t(),
+        "projectName" => String.t(),
+        "spaceName" => String.t(),
+        "vpcConnectionName" => String.t()
       }
 
   """
@@ -1172,8 +1174,8 @@ defmodule AWS.CodeCatalyst do
   ## Example:
 
       list_event_logs_response() :: %{
-        optional("nextToken") => [String.t()],
-        required("items") => list(event_log_entry()())
+        "items" => list(event_log_entry()()),
+        "nextToken" => [String.t()]
       }
 
   """
@@ -1184,7 +1186,7 @@ defmodule AWS.CodeCatalyst do
   ## Example:
 
       verify_session_response() :: %{
-        optional("identity") => [String.t()]
+        "identity" => [String.t()]
       }
 
   """
@@ -1218,8 +1220,8 @@ defmodule AWS.CodeCatalyst do
   ## Example:
 
       list_spaces_response() :: %{
-        optional("items") => list(space_summary()()),
-        optional("nextToken") => [String.t()]
+        "items" => list(space_summary()()),
+        "nextToken" => [String.t()]
       }
 
   """
@@ -1276,8 +1278,8 @@ defmodule AWS.CodeCatalyst do
   ## Example:
 
       list_dev_environments_response() :: %{
-        optional("nextToken") => [String.t()],
-        required("items") => list(dev_environment_summary()())
+        "items" => list(dev_environment_summary()()),
+        "nextToken" => [String.t()]
       }
 
   """
@@ -1288,10 +1290,10 @@ defmodule AWS.CodeCatalyst do
   ## Example:
 
       get_space_response() :: %{
-        optional("description") => [String.t()],
-        optional("displayName") => [String.t()],
-        required("name") => String.t(),
-        required("regionName") => String.t()
+        "description" => [String.t()],
+        "displayName" => [String.t()],
+        "name" => String.t(),
+        "regionName" => String.t()
       }
 
   """
@@ -1368,9 +1370,9 @@ defmodule AWS.CodeCatalyst do
   ## Example:
 
       delete_dev_environment_response() :: %{
-        required("id") => String.t(),
-        required("projectName") => String.t(),
-        required("spaceName") => String.t()
+        "id" => String.t(),
+        "projectName" => String.t(),
+        "spaceName" => String.t()
       }
 
   """
@@ -1467,8 +1469,8 @@ defmodule AWS.CodeCatalyst do
   ## Example:
 
       list_source_repositories_response() :: %{
-        optional("items") => list(list_source_repositories_item()()),
-        optional("nextToken") => [String.t()]
+        "items" => list(list_source_repositories_item()()),
+        "nextToken" => [String.t()]
       }
 
   """
@@ -1535,7 +1537,7 @@ defmodule AWS.CodeCatalyst do
   ## Example:
 
       get_source_repository_clone_urls_response() :: %{
-        required("https") => [String.t()]
+        "https" => [String.t()]
       }
 
   """
@@ -1590,10 +1592,10 @@ defmodule AWS.CodeCatalyst do
   ## Example:
 
       create_source_repository_branch_response() :: %{
-        optional("headCommitId") => [String.t()],
-        optional("lastUpdatedTime") => non_neg_integer(),
-        optional("name") => String.t(),
-        optional("ref") => String.t()
+        "headCommitId" => [String.t()],
+        "lastUpdatedTime" => non_neg_integer(),
+        "name" => String.t(),
+        "ref" => String.t()
       }
 
   """

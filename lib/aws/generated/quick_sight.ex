@@ -1416,7 +1416,9 @@ defmodule AWS.QuickSight do
         "Enabled" => boolean(),
         "IpRestrictionRuleMap" => map(),
         "RequestId" => String.t(),
-        "Status" => integer()
+        "Status" => integer(),
+        "VpcEndpointIdRestrictionRuleMap" => map(),
+        "VpcIdRestrictionRuleMap" => map()
       }
 
   """
@@ -11469,7 +11471,9 @@ defmodule AWS.QuickSight do
 
       update_ip_restriction_request() :: %{
         optional("Enabled") => boolean(),
-        optional("IpRestrictionRuleMap") => map()
+        optional("IpRestrictionRuleMap") => map(),
+        optional("VpcEndpointIdRestrictionRuleMap") => map(),
+        optional("VpcIdRestrictionRuleMap") => map()
       }
 
   """
@@ -22172,10 +22176,10 @@ defmodule AWS.QuickSight do
   @doc """
   Updates the content and status of IP rules.
 
-  To use this operation, you
-  must
-  provide the entire map of rules. You can use the `DescribeIpRestriction`
-  operation to get the current rule map.
+  Traffic from a source is allowed when the source satisfies either the
+  `IpRestrictionRule`, `VpcIdRestrictionRule`, or `VpcEndpointIdRestrictionRule`.
+  To use this operation, you must provide the entire map of rules. You can use the
+  `DescribeIpRestriction` operation to get the current rule map.
   """
   @spec update_ip_restriction(map(), String.t(), update_ip_restriction_request(), list()) ::
           {:ok, update_ip_restriction_response(), any()}

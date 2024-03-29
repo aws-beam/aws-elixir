@@ -76,12 +76,12 @@ defmodule AWS.ClientTest do
     end
 
     test "retries failed requests", %{client: client, bypass: bypass} do
-      # Start the Agent
-      TestRetryCounter.start_link(0)
+      # Setup a Counter
+      counter = :counters.new(1, [:atomics])
 
       Bypass.expect(bypass, "GET", "/timeout", fn conn ->
-        # Increase Agent counter
-        TestRetryCounter.increment()
+        # Increase counter
+        :counters.add(counter, 1, 1)
         # Return 500 so we force a retry from AWS.Client
         Plug.Conn.resp(conn, 500, "")
       end)
@@ -93,16 +93,16 @@ defmodule AWS.ClientTest do
                )
 
       # Assert 1 request + 10 (default max_retries value) retries was made
-      assert TestRetryCounter.value() == 1 + 10
+      assert :counters.get(counter, 1) == 1 + 10
     end
 
     test "retries failed requests with retry_opts", %{client: client, bypass: bypass} do
-      # Start the Agent
-      TestRetryCounter.start_link(0)
+      # Setup a Counter
+      counter = :counters.new(1, [:atomics])
 
       Bypass.expect(bypass, "GET", "/timeout", fn conn ->
-        # Increase Agent counter
-        TestRetryCounter.increment()
+        # Increase counter
+        :counters.add(counter, 1, 1)
         # Return 500 so we force a retry from AWS.Client
         Plug.Conn.resp(conn, 500, "")
       end)
@@ -118,25 +118,9 @@ defmodule AWS.ClientTest do
                )
 
       # Assert 1st request + N retries was made
-      assert TestRetryCounter.value() == 1 + max_retries
+      assert :counters.get(counter, 1) == 1 + max_retries
     end
   end
 
   defp url(bypass), do: "http://localhost:#{bypass.port}/"
-end
-
-defmodule TestRetryCounter do
-  use Agent
-
-  def start_link(initial_value) do
-    Agent.start_link(fn -> initial_value end, name: __MODULE__)
-  end
-
-  def value do
-    Agent.get(__MODULE__, & &1)
-  end
-
-  def increment do
-    Agent.update(__MODULE__, &(&1 + 1))
-  end
 end

@@ -197,22 +197,28 @@ defmodule AWS.Client do
   @doc """
   Makes a HTTP request using the specified client.
 
-  `opts` may contain the keyword `:enable_retries?` that enables request retries on known
-  errors such as 500s.
-  The keyword `:retry_opts` can further supply the arguments: `:max_retries`, `:base_sleep_time` &
-  `:cap_sleep_time` that control the retry mechanism. This uses exponential backoff with jitter to
-  sleep in between retry attempts. Default values are:
-  `retry_opts: [max_retries: 10, base_sleep_time: 5, cap_sleep_time: 5_000]`
+  ## Retries and options.
+  The option `:enable_retries?` enables request retries on known errors such as 500s.
+
+  * `enable_retries?` - Defaults to `false`.
+  * `retry_opts` - the options to configure retries in case of errors. This uses exponential backoff with jitter.
+    * `:max_retries` - the maximum number of retries (plus the initial request). Defaults to `10`.
+    * `:base_sleep_time` - the base sleep time in milliseconds. Defaults to `5`.
+    * `:cap_sleep_time`  - the maximum sleep time between atttempts. Defaults to `5_000`.
 
   See "FullJitter" at: https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/
 
-  ### Examples
+  ## Examples
 
       iex> AWS.Client.request(client, :post, url, payload, headers, options)
       {:ok, %{status_code: 200, body: body}}
 
       iex> AWS.Client.request(client, :post, url, payload, headers, enable_retries?: true)
       {:ok, %{status_code: 200, body: body}}
+
+      iex> AWS.Client.request(client, :post, url, payload, headers, enable_retries?: true, retry_opts: [max_retries: 3])
+      {:ok, %{status_code: 200, body: body}}
+
   """
   def request(client, method, url, body, headers, opts \\ []) do
     # Pop off all retry-related options from opts, so they aren't passed to the HTTP client.

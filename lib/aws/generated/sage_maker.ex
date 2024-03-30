@@ -1127,6 +1127,7 @@ defmodule AWS.SageMaker do
       describe_app_image_config_response() :: %{
         "AppImageConfigArn" => String.t(),
         "AppImageConfigName" => String.t(),
+        "CodeEditorAppImageConfig" => code_editor_app_image_config(),
         "CreationTime" => non_neg_integer(),
         "JupyterLabAppImageConfig" => jupyter_lab_app_image_config(),
         "KernelGatewayImageConfig" => kernel_gateway_image_config(),
@@ -2181,6 +2182,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       update_app_image_config_request() :: %{
+        optional("CodeEditorAppImageConfig") => code_editor_app_image_config(),
         optional("JupyterLabAppImageConfig") => jupyter_lab_app_image_config(),
         optional("KernelGatewayImageConfig") => kernel_gateway_image_config(),
         required("AppImageConfigName") => String.t()
@@ -3785,6 +3787,18 @@ defmodule AWS.SageMaker do
       
   """
   @type metric_definition() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      code_editor_app_image_config() :: %{
+        "ContainerConfig" => container_config(),
+        "FileSystemConfig" => file_system_config()
+      }
+      
+  """
+  @type code_editor_app_image_config() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -10848,6 +10862,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       create_app_image_config_request() :: %{
+        optional("CodeEditorAppImageConfig") => code_editor_app_image_config(),
         optional("JupyterLabAppImageConfig") => jupyter_lab_app_image_config(),
         optional("KernelGatewayImageConfig") => kernel_gateway_image_config(),
         optional("Tags") => list(tag()()),
@@ -11447,6 +11462,7 @@ defmodule AWS.SageMaker do
       app_image_config_details() :: %{
         "AppImageConfigArn" => String.t(),
         "AppImageConfigName" => String.t(),
+        "CodeEditorAppImageConfig" => code_editor_app_image_config(),
         "CreationTime" => non_neg_integer(),
         "JupyterLabAppImageConfig" => jupyter_lab_app_image_config(),
         "KernelGatewayImageConfig" => kernel_gateway_image_config(),
@@ -15670,6 +15686,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       code_editor_app_settings() :: %{
+        "CustomImages" => list(custom_image()()),
         "DefaultResourceSpec" => resource_spec(),
         "LifecycleConfigArns" => list(String.t()())
       }

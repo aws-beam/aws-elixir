@@ -751,6 +751,17 @@ defmodule AWS.MarketplaceCatalog do
 
   ## Example:
 
+      offer_resale_authorization_id_filter() :: %{
+        "ValueList" => list(String.t()())
+      }
+
+  """
+  @type offer_resale_authorization_id_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       resale_authorization_entity_id_filter() :: %{
         "ValueList" => list(String.t()())
       }
@@ -869,6 +880,7 @@ defmodule AWS.MarketplaceCatalog do
         "Name" => String.t(),
         "ProductId" => String.t(),
         "ReleaseDate" => String.t(),
+        "ResaleAuthorizationId" => String.t(),
         "State" => list(any()),
         "Targeting" => list(list(any())())
       }
@@ -1344,6 +1356,7 @@ defmodule AWS.MarketplaceCatalog do
         "Name" => offer_name_filter(),
         "ProductId" => offer_product_id_filter(),
         "ReleaseDate" => offer_release_date_filter(),
+        "ResaleAuthorizationId" => offer_resale_authorization_id_filter(),
         "State" => offer_state_filter(),
         "Targeting" => offer_targeting_filter()
       }

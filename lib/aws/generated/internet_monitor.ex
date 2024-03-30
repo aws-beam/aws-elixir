@@ -84,6 +84,7 @@ defmodule AWS.InternetMonitor do
   ## Example:
 
       list_monitors_input() :: %{
+        optional("IncludeLinkedAccounts") => [boolean()],
         optional("MaxResults") => integer(),
         optional("MonitorStatus") => [String.t()],
         optional("NextToken") => [String.t()]
@@ -373,10 +374,12 @@ defmodule AWS.InternetMonitor do
 
   ## Example:
 
-      get_monitor_input() :: %{}
+      get_monitor_input() :: %{
+        optional("LinkedAccountId") => String.t()
+      }
 
   """
-  @type get_monitor_input() :: %{}
+  @type get_monitor_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -414,10 +417,12 @@ defmodule AWS.InternetMonitor do
 
   ## Example:
 
-      get_health_event_input() :: %{}
+      get_health_event_input() :: %{
+        optional("LinkedAccountId") => String.t()
+      }
 
   """
-  @type get_health_event_input() :: %{}
+  @type get_health_event_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -459,6 +464,7 @@ defmodule AWS.InternetMonitor do
       list_health_events_input() :: %{
         optional("EndTime") => [non_neg_integer()],
         optional("EventStatus") => String.t(),
+        optional("LinkedAccountId") => String.t(),
         optional("MaxResults") => integer(),
         optional("NextToken") => [String.t()],
         optional("StartTime") => [non_neg_integer()]
@@ -680,6 +686,7 @@ defmodule AWS.InternetMonitor do
 
       start_query_input() :: %{
         optional("FilterParameters") => list(filter_parameter()()),
+        optional("LinkedAccountId") => String.t(),
         required("EndTime") => [non_neg_integer()],
         required("QueryType") => String.t(),
         required("StartTime") => [non_neg_integer()]
@@ -918,16 +925,29 @@ defmodule AWS.InternetMonitor do
   Information rolled up at the global traffic level is also returned, including
   the impact type and total traffic impact.
   """
-  @spec get_health_event(map(), String.t(), String.t(), list()) ::
+  @spec get_health_event(map(), String.t(), String.t(), String.t() | nil, list()) ::
           {:ok, get_health_event_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_health_event_errors()}
-  def get_health_event(%Client{} = client, event_id, monitor_name, options \\ []) do
+  def get_health_event(
+        %Client{} = client,
+        event_id,
+        monitor_name,
+        linked_account_id \\ nil,
+        options \\ []
+      ) do
     url_path =
       "/v20210603/Monitors/#{AWS.Util.encode_uri(monitor_name)}/HealthEvents/#{AWS.Util.encode_uri(event_id)}"
 
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(linked_account_id) do
+        [{"LinkedAccountId", linked_account_id} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 
@@ -941,14 +961,21 @@ defmodule AWS.InternetMonitor do
   The information returned includes the Amazon Resource Name (ARN), create time,
   modified time, resources included in the monitor, and status information.
   """
-  @spec get_monitor(map(), String.t(), list()) ::
+  @spec get_monitor(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_monitor_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_monitor_errors()}
-  def get_monitor(%Client{} = client, monitor_name, options \\ []) do
+  def get_monitor(%Client{} = client, monitor_name, linked_account_id \\ nil, options \\ []) do
     url_path = "/v20210603/Monitors/#{AWS.Util.encode_uri(monitor_name)}"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(linked_account_id) do
+        [{"LinkedAccountId", linked_account_id} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 
@@ -1070,6 +1097,7 @@ defmodule AWS.InternetMonitor do
           String.t() | nil,
           String.t() | nil,
           String.t() | nil,
+          String.t() | nil,
           list()
         ) ::
           {:ok, list_health_events_output(), any()}
@@ -1080,6 +1108,7 @@ defmodule AWS.InternetMonitor do
         monitor_name,
         end_time \\ nil,
         event_status \\ nil,
+        linked_account_id \\ nil,
         max_results \\ nil,
         next_token \\ nil,
         start_time \\ nil,
@@ -1111,6 +1140,13 @@ defmodule AWS.InternetMonitor do
       end
 
     query_params =
+      if !is_nil(linked_account_id) do
+        [{"LinkedAccountId", linked_account_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
       if !is_nil(event_status) do
         [{"EventStatus", event_status} | query_params]
       else
@@ -1133,12 +1169,20 @@ defmodule AWS.InternetMonitor do
   Lists all of your monitors for Amazon CloudWatch Internet Monitor and their
   statuses, along with the Amazon Resource Name (ARN) and name of each monitor.
   """
-  @spec list_monitors(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_monitors(
+          map(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
           {:ok, list_monitors_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_monitors_errors()}
   def list_monitors(
         %Client{} = client,
+        include_linked_accounts \\ nil,
         max_results \\ nil,
         monitor_status \\ nil,
         next_token \\ nil,
@@ -1165,6 +1209,13 @@ defmodule AWS.InternetMonitor do
     query_params =
       if !is_nil(max_results) do
         [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(include_linked_accounts) do
+        [{"IncludeLinkedAccounts", include_linked_accounts} | query_params]
       else
         query_params
       end

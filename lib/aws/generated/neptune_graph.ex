@@ -144,6 +144,21 @@ defmodule AWS.NeptuneGraph do
 
   ## Example:
 
+      start_import_task_input() :: %{
+        optional("failOnError") => [boolean()],
+        optional("format") => list(any()),
+        optional("importOptions") => list(),
+        required("roleArn") => String.t(),
+        required("source") => [String.t()]
+      }
+
+  """
+  @type start_import_task_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_import_task_output() :: %{
         "attemptNumber" => [integer()],
         "format" => list(any()),
@@ -816,6 +831,23 @@ defmodule AWS.NeptuneGraph do
 
   ## Example:
 
+      start_import_task_output() :: %{
+        "format" => list(any()),
+        "graphId" => String.t(),
+        "importOptions" => list(),
+        "roleArn" => String.t(),
+        "source" => [String.t()],
+        "status" => list(any()),
+        "taskId" => String.t()
+      }
+
+  """
+  @type start_import_task_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_graph_snapshot_input() :: %{
         optional("tags") => map(),
         required("graphIdentifier") => String.t(),
@@ -1187,6 +1219,13 @@ defmodule AWS.NeptuneGraph do
           | validation_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type start_import_task_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | internal_server_exception()
           | resource_not_found_exception()
           | conflict_exception()
 
@@ -1925,6 +1964,36 @@ defmodule AWS.NeptuneGraph do
           | {:error, restore_graph_from_snapshot_errors()}
   def restore_graph_from_snapshot(%Client{} = client, snapshot_identifier, input, options \\ []) do
     url_path = "/snapshots/#{AWS.Util.encode_uri(snapshot_identifier)}/restore"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Import data into existing Neptune Analytics graph from Amazon Simple Storage
+  Service (S3).
+
+  The graph needs to be empty and in the AVAILABLE state.
+  """
+  @spec start_import_task(map(), String.t(), start_import_task_input(), list()) ::
+          {:ok, start_import_task_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_import_task_errors()}
+  def start_import_task(%Client{} = client, graph_identifier, input, options \\ []) do
+    url_path = "/graphs/#{AWS.Util.encode_uri(graph_identifier)}/importtasks"
     headers = []
     query_params = []
 

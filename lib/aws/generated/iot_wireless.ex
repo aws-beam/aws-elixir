@@ -27,6 +27,11 @@ defmodule AWS.IoTWireless do
   schedule a session to update the firmware of individual devices or an entire
   group of
   devices in a multicast group.
+
+  To connect to the AWS IoT Wireless Service, use the Service endpoints as
+  described in
+  [IoT Wireless Service endpoints](https://docs.aws.amazon.com/general/latest/gr/iot-lorawan.html#iot-wireless_region)
+  in the *AWS General Reference*.
   """
 
   alias AWS.Client
@@ -54,6 +59,17 @@ defmodule AWS.IoTWireless do
 
   """
   @type list_destinations_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      summary_metric_configuration() :: %{
+        "Status" => list(any())
+      }
+
+  """
+  @type summary_metric_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -222,6 +238,22 @@ defmodule AWS.IoTWireless do
   @type lo_ra_w_a_n_connection_status_event_notification_configurations() :: %{
           String.t() => any()
         }
+
+  @typedoc """
+
+  ## Example:
+
+      summary_metric_query() :: %{
+        "AggregationPeriod" => list(any()),
+        "Dimensions" => list(dimension()()),
+        "EndTimestamp" => non_neg_integer(),
+        "MetricName" => list(any()),
+        "QueryId" => String.t(),
+        "StartTimestamp" => non_neg_integer()
+      }
+
+  """
+  @type summary_metric_query() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -618,6 +650,17 @@ defmodule AWS.IoTWireless do
 
   ## Example:
 
+      update_metric_configuration_request() :: %{
+        optional("SummaryMetric") => summary_metric_configuration()
+      }
+
+  """
+  @type update_metric_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       associate_wireless_gateway_with_certificate_request() :: %{
         required("IotCertificateId") => String.t()
       }
@@ -815,6 +858,17 @@ defmodule AWS.IoTWireless do
 
   """
   @type get_position_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_metric_configuration_response() :: %{
+        "SummaryMetric" => summary_metric_configuration()
+      }
+
+  """
+  @type get_metric_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1655,6 +1709,15 @@ defmodule AWS.IoTWireless do
 
   ## Example:
 
+      get_metric_configuration_request() :: %{}
+
+  """
+  @type get_metric_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       get_wireless_gateway_task_response() :: %{
         "LastUplinkReceivedAt" => String.t(),
         "Status" => list(any()),
@@ -1688,6 +1751,17 @@ defmodule AWS.IoTWireless do
 
   """
   @type disassociate_aws_account_from_partner_account_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_metrics_request() :: %{
+        optional("SummaryMetricQueries") => list(summary_metric_query()())
+      }
+
+  """
+  @type get_metrics_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2472,6 +2546,15 @@ defmodule AWS.IoTWireless do
 
   ## Example:
 
+      update_metric_configuration_response() :: %{}
+
+  """
+  @type update_metric_configuration_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       create_service_profile_request() :: %{
         optional("ClientRequestToken") => String.t(),
         optional("LoRaWAN") => lo_ra_w_a_n_service_profile(),
@@ -2580,6 +2663,17 @@ defmodule AWS.IoTWireless do
 
   """
   @type list_wireless_gateway_task_definitions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_metrics_response() :: %{
+        "SummaryMetricQueryResults" => list(summary_metric_query_result()())
+      }
+
+  """
+  @type get_metrics_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3443,6 +3537,18 @@ defmodule AWS.IoTWireless do
 
   ## Example:
 
+      dimension() :: %{
+        "name" => list(any()),
+        "value" => String.t()
+      }
+
+  """
+  @type dimension() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_multicast_groups_response() :: %{
         "MulticastGroupList" => list(multicast_group()()),
         "NextToken" => String.t()
@@ -3663,6 +3769,27 @@ defmodule AWS.IoTWireless do
 
   ## Example:
 
+      summary_metric_query_result() :: %{
+        "AggregationPeriod" => list(any()),
+        "Dimensions" => list(dimension()()),
+        "EndTimestamp" => non_neg_integer(),
+        "Error" => String.t(),
+        "MetricName" => list(any()),
+        "QueryId" => String.t(),
+        "QueryStatus" => list(any()),
+        "StartTimestamp" => non_neg_integer(),
+        "Timestamps" => list(non_neg_integer()()),
+        "Unit" => String.t(),
+        "Values" => list(metric_query_value()())
+      }
+
+  """
+  @type summary_metric_query_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       start_wireless_device_import_task_request() :: %{
         optional("ClientRequestToken") => String.t(),
         optional("Tags") => list(tag()()),
@@ -3782,6 +3909,22 @@ defmodule AWS.IoTWireless do
 
   """
   @type associate_multicast_group_with_fuota_task_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      metric_query_value() :: %{
+        "Avg" => float(),
+        "Max" => float(),
+        "Min" => float(),
+        "P90" => float(),
+        "Std" => float(),
+        "Sum" => float()
+      }
+
+  """
+  @type metric_query_value() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4531,6 +4674,22 @@ defmodule AWS.IoTWireless do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type get_metric_configuration_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type get_metrics_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type get_multicast_group_errors() ::
           throttling_exception()
           | validation_exception()
@@ -4917,6 +5076,14 @@ defmodule AWS.IoTWireless do
           | conflict_exception()
 
   @type update_log_levels_by_resource_types_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_metric_configuration_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -6229,6 +6396,50 @@ defmodule AWS.IoTWireless do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Get the metric configuration status for this account.
+  """
+  @spec get_metric_configuration(map(), list()) ::
+          {:ok, get_metric_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_metric_configuration_errors()}
+  def get_metric_configuration(%Client{} = client, options \\ []) do
+    url_path = "/metric-configuration"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Get metrics.
+  """
+  @spec get_metrics(map(), get_metrics_request(), list()) ::
+          {:ok, get_metrics_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_metrics_errors()}
+  def get_metrics(%Client{} = client, input, options \\ []) do
+    url_path = "/metrics"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -8034,6 +8245,23 @@ defmodule AWS.IoTWireless do
       options,
       200
     )
+  end
+
+  @doc """
+  Update the metric configuration.
+  """
+  @spec update_metric_configuration(map(), update_metric_configuration_request(), list()) ::
+          {:ok, update_metric_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_metric_configuration_errors()}
+  def update_metric_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/metric-configuration"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 204)
   end
 
   @doc """

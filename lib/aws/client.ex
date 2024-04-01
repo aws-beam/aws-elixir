@@ -282,11 +282,16 @@ defmodule AWS.Client do
     end
   end
 
+  # Retry on 500
   defp retriable?({:ok, %{status_code: status}}) when status >= 500, do: :retry
-  # These are Hackney specific:
+  # Hackney specific
   defp retriable?({:error, :closed}), do: :retry
   defp retriable?({:error, :connect_timeout}), do: :retry
   defp retriable?({:error, :checkout_timeout}), do: :retry
+  # Finch/Mint specific
+  defp retriable?({:error, %{reason: :closed}}), do: :retry
+  defp retriable?({:error, %{reason: :timeout}}), do: :retry
+  # Do not retry on other erors
   defp retriable?({:error, _}), do: :error
   defp retriable?({:ok, _}), do: :ok
   defp retriable?({:ok, _, _}), do: :ok
